@@ -1,0 +1,896 @@
+###########################################################################
+# UNUSED
+###########################################################################
+
+ARMH:
+	Inherits: ^Tank
+	Inherits@1: ^5CellVision
+	Valued:
+		Cost: 1300
+	Tooltip:
+		Name: Beam Cannon
+	Health:
+		HP: 16000
+	Mobile:
+		Speed: 70
+		TurnSpeed: 5
+		Locomotor: Vehicle
+	WithFacingSpriteBody:
+	Armament:
+		Weapon: BCLazor
+		LocalOffset: 600,0,450
+		PauseOnCondition: empdisable
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	AutoTarget:
+	Voiced:
+		VoiceSet: BeamCannonVO
+		Volume: 3
+	AnnounceOnBuildAS:
+		Voice: Build
+		OnlyToOwner: True
+	AnnounceOnKillAS:
+		Voice: Kill
+		Interval: 1000
+		OnlyToOwner: True
+
+CABGRINDER:
+	Inherits: ^Building
+	Inherits@1: ^CabRender
+	Inherits@2: ^2x3Shape
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Stasis Chamber
+	ProvidesPrerequisite:
+		Prerequisite: tech
+	AcceptsDeliveredCash:
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	Selectable:
+		Bounds: 120, 72, 0, -10
+		DecorationBounds: 120, 72, 0, -10
+	Health:
+		HP: 25000
+	Armor:
+		Type: BuildingArmor
+	Power:
+		Amount: -30
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+CABSENTRYTURRET:
+	# Inherits: ^MiscTurret
+	# Inherits@1: ^CabRender
+	# Valued:
+	# 	Cost: 700
+	# Tooltip:
+	# 	Name: Firefly
+	# Building:
+	# Selectable:
+	# 	Bounds: 40, 30, -3, -8
+	# 	DecorationBounds: 40, 36, -3, -8
+	# Health:
+	# 	HP: 70000
+	# -Sellable:
+	# BodyOrientation:
+	# 	QuantizedFacings: 32
+	# Turreted:
+	# 	TurnSpeed: 10
+	# 	InitialFacing: 50
+	# AttackTurreted:
+	# WithSpriteTurret:
+	# 	Recoils: no
+	# Transforms:
+	# 	IntoActor: firefly
+	# Armament@1:
+	# 	Weapon: ArtisanTurretLasor
+	# 	LocalOffset: 300,-150,300
+	# Armament@2:
+	# 	Weapon: ArtisanTurretLasor
+	# 	LocalOffset: 300,150,300
+	# SelectionDecorations:
+	# RequiresBuildableArea:
+	# 	AreaTypes: building
+	# -GrantConditionOnDamageState@smoke:
+	# -SmokeParticleEmitter:
+	# -ExternalCondition@smoketrail:
+
+CABCANNON:
+	Inherits: ^Defence
+	Inherits@1: ^CabRender
+	Inherits@3: ^TowerStealthDetection
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Cannon Turret
+	Building:
+	Selectable:
+		Bounds: 40, 30, -3, -8
+		DecorationBounds: 40, 36, -3, -8
+	Health:
+		HP: 45000
+	BodyOrientation:
+		QuantizedFacings: 32
+	WithMuzzleOverlay:
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 50
+	AttackTurreted:
+		PauseOnCondition: empdisable || disabled
+	WithSpriteTurret:
+		Recoils: no
+	Armament:
+		Weapon: CTurretCannon
+		LocalOffset: 650,0,550
+		MuzzleSequence: muzzle
+	Power:
+		Amount: -20
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+GACTWR:
+	Inherits: ^Defence
+	-WithSpriteBody:
+	WithWallSpriteBody:
+		Type: wall
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Component Tower
+		Description: Modular tower for base defenses.
+	Building:
+	Selectable:
+		Bounds: 48, 36, 0, -6
+		DecorationBounds: 48, 48, 0, -12
+	Health:
+		HP: 50000
+	BodyOrientation:
+		QuantizedFacings: 32
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 50
+	AttackTurreted:
+		RequiresCondition: tower
+		ConditionMinEnabledLevel: 1
+	ToggleConditionOnOrder:
+		DisabledSpeech: EnablePower
+		EnabledSpeech: DisablePower
+		Condition: powerdown
+		OrderName: PowerDown
+	WithSpriteTurret@VULC:
+		RequiresCondition: tower.vulcan
+		ConditionMinEnabledLevel: 1
+		Recoils: no
+		Sequence: turret-vulcan
+	WithSpriteTurret@ROCKET:
+		RequiresCondition: tower.rocket
+		ConditionMinEnabledLevel: 1
+		Recoils: no
+		Sequence: turret-rocket
+	WithSpriteTurret@SAM:
+		RequiresCondition: tower.sam
+		ConditionMinEnabledLevel: 1
+		Recoils: no
+		Sequence: turret-sam
+	Armament@VULCPRIMARY:
+		RequiresCondition: tower.vulcan
+		ConditionMinEnabledLevel: 1
+		Weapon: VulcanTower
+		LocalOffset: 768,85,512
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+	Armament@VULCSECONDARY:
+		RequiresCondition: tower.vulcan
+		ConditionMinEnabledLevel: 1
+		Name: secondary
+		Weapon: VulcanTower
+		LocalOffset: 768,-85,512
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+	Armament@ROCKET:
+		RequiresCondition: tower.rocket
+		ConditionMinEnabledLevel: 1
+		Weapon: RPGTower
+		LocalOffset: 512,-128,512
+	Armament@SAM:
+		RequiresCondition: tower.sam
+		ConditionMinEnabledLevel: 1
+		Weapon: GdiRedEye
+		LocalOffset: 512,0,512
+	WithMuzzleOverlay:
+		RequiresCondition: tower.vulcan
+		ConditionMinEnabledLevel: 1
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	LineBuildNode:
+		Types: turret
+	Power@base:
+		Amount: -10
+	Power@turrets:
+		RequiresCondition: tower
+		ConditionMinEnabledLevel: 1
+		Amount: -20
+	Power@samextra:
+		RequiresCondition: tower.sam
+		ConditionMinEnabledLevel: 1
+		Amount: -10
+	Pluggable:
+		Conditions:
+			tower.vulcan: tower, tower.vulcan
+			tower.rocket: tower, tower.rocket
+			tower.sam: tower, tower.sam
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	WithDecoration@POWERDOWN:
+		Image: poweroff
+		Sequence: offline
+		Palette: mouse
+		RequiresCondition: powerdown
+		ReferencePoint: Center
+	RequiresBuildableArea:
+		AreaTypes: building
+	PowerMultiplier@POWERDOWN:
+		RequiresCondition: powerdown
+		Modifier: 0
+
+GAPLUG2:
+	Inherits: ^BuildingPlug
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Drop pod Control
+	Plug:
+		Type: plug.hunterseeker
+	Power:
+		Amount: -50
+
+GAPLUG3:
+	Inherits: ^BuildingPlug
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Ion Cannon Uplink
+	Plug:
+		Type: plug.ioncannon
+	Power:
+		Amount: -100
+
+REPAIRTUR:
+	Inherits: ^Defence
+	Inherits@2: ^2x2Shape
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Maintenance Turret
+		Description: GDI utility structure, repairs\nnearby vehciles. Requires power to operate.\n  Unnarmed.
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 40, 30, -3, -8
+		DecorationBounds: 40, 36, -3, -8
+	GrantConditionOnPowerState@LOWPOWER:
+		Condition: lowpower
+		ValidPowerStates: Low, Critical
+	Health:
+		HP: 50000
+	BodyOrientation:
+		QuantizedFacings: 32
+	RenderRangeCircle:
+		RangeCircleType: aa
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 50
+	AttackTurreted:
+	WithSpriteTurret:
+		Recoils: no
+	Power:
+		Amount: -60
+	SelectionDecorations:
+	Armament:
+		Weapon: Repair
+		LocalOffset: 512,0,512
+		TargetStances: Ally
+		ForceTargetStances: None
+	RequiresBuildableArea:
+		AreaTypes: building
+
+	# GUARDIANDEP:
+	# Inherits: ^Building
+	# Inherits@2: ^2x2Shape
+	# Valued:
+	# 	Cost: 2000
+	# Tooltip:
+	# 	Name: Landed Guardian Platform
+	# 	Description: Makes the nearby units and\nstructures more resistant to\ndamage.
+	# Selectable:
+	# 	Bounds: 110,90
+	# Building:
+	# 	Footprint: xx xx
+	# 	Dimensions: 2,2
+	# WithRangeCircle:
+	# 	Range: 4c0
+	# 	Type: cloakgenerator
+	# ProximityExternalCondition@firestorm:
+	# 	Condition: AuraRepair
+	# 	Range: 5c0
+	# 	AffectsParent: false
+	# Selectable:
+	# 	Bounds: 110, 60, 3, -4
+	# Health:
+	# 	HP: 65000
+	# Voiced:
+	# 	VoiceSet: GuardianVO
+	# 	Volume: 3
+	# Armament:
+	# 	Weapon: RepairVehicleRep
+	# 	Cursor: repair
+	# 	OutsideRangeCursor: repair
+	# 	TargetStances: Ally
+	# AttackTurreted:
+	# Turreted:
+	# AutoTarget:
+	# Transforms:
+	# 	IntoActor: guardian
+	# 	Voice: Action2
+	# RequiresBuildableArea:
+	# 	AreaTypes: building
+
+MASTL:
+	Inherits: ^DeployedVehicle
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Deployed Stealth Generator
+	Health:
+		HP: 25000
+	-AttackTurreted:
+	-AutoTarget:
+	-RenderRangeCircle:
+	WithRangeCircle:
+		Range: 6c0
+		Type: cloakgenerator
+	Selectable:
+		Priority: 6
+	BodyOrientation:
+		QuantizedFacings: 32
+	Transforms:
+		IntoActor: sgen
+		Facing: 96
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+	ProximityExternalCondition:
+		Condition: cloakgenerator
+		Range: 5c0
+		EnableSound: cloak5.aud
+		DisableSound: cloak5.aud
+		AffectsParent: True
+
+DLIMPET:
+	Inherits: ^DeployedVehicle
+	Inherits@1: ^12CellVision
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Deployed Scout Drone
+	Health:
+		HP: 10000
+	Voiced:
+		VoiceSet: Limpet
+	-AttackTurreted:
+	-AutoTarget:
+	-RenderRangeCircle:
+	BodyOrientation:
+		QuantizedFacings: 32
+	Transforms:
+		IntoActor: limped
+		Facing: 96
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+	Selectable:
+		Bounds: 30, 30, 0, 12
+
+GAARTY:
+	Inherits@1: ^DeployedVehicle
+	Valued:
+		Cost: 975
+	Tooltip:
+		Name: Deployed Artillery
+	Health:
+		HP: 30000
+	Turreted:
+		TurnSpeed: 5
+		InitialFacing: 128
+		Offset: 0,0,171
+	Armament:
+		Weapon: 155mm
+		LocalOffset: 811,0,0
+		MuzzleSequence: muzzle
+	BodyOrientation:
+		QuantizedFacings: 32
+	RenderVoxels:
+		LightAmbientColor: 0.4, 0.4, 0.4
+	WithVoxelBarrel:
+		LocalOffset: 0,0,-512
+	WithVoxelTurret:
+	WithMuzzleOverlay:
+
+GAWALL:
+	Inherits: ^Wall
+	SoundOnDamageTransition:
+		DamagedSounds:
+		DestroyedSounds:
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Concrete Wall
+	Health:
+		HP: 30000
+	Armor:
+		Type: Concrete
+	RenderSprites:
+		Image: wall.gdi
+	BlocksProjectiles:
+		Height: 640
+	Crushable:
+		CrushClasses: heavywall
+	LineBuild:
+		NodeTypes: wall, turret
+
+NAWAST:
+	Inherits: ^Building
+	Inherits@2: ^3x3Shape
+	Valued:
+		Cost: 1600
+	Tooltip:
+		Name: Waste Refinery
+		Description: Processes Veins\ninto useable resources.
+	Building:
+		Footprint: =x= xx= =x=
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 100, 60, 5, -5
+		DecorationBounds: 100, 60, 5, -5
+	Health:
+		HP: 40000
+	TiberianSunRefinery:
+		DockAngle: 160
+		DockOffset: 2,1
+	StoresResources:
+		PipColor: Red
+		PipCount: 15
+		Capacity: 56
+	WithIdleOverlay@GLOW:
+		Sequence: idle-glow
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	WithIdleOverlay@BIB:
+		Sequence: bib
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	RenderSprites:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+MUMINE:
+	Inherits: ^DeployedVehicle
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Mine
+	Selectable:
+		Priority: 1
+	Health:
+		HP: 5000
+	-AttackTurreted:
+	-SpawnActorOnDeath@ScrinEssence:
+	-AutoTarget:
+	-RenderRangeCircle:
+	-ActorLostNotification:
+	-UpdatesPlayerStatistics:
+	-Voiced:
+	Armor:
+		Type: Mine
+	Targetable:
+		TargetTypes: Ground, Repair, DetonateAttack, MindControlInmune, Mine
+	BodyOrientation:
+		QuantizedFacings: 32
+	Cloak@cloakgenerator:
+		RequiresCondition: !lawea
+		CloakSound:
+		InitialDelay: 50
+		CloakDelay: 50
+		UncloakSound:
+		Palette: cloakmut
+		IsPlayerPalette: true
+		CloakTypes: mine
+	Mine:
+		CrushClasses: crate
+		DetonateClasses: crate
+		AvoidFriendly: true
+	Explodes:
+		Weapon: MineExplode
+
+MUWARD:
+	Inherits: ^DeployedVehicle
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Forgotten Ward
+	Health:
+		HP: 5000
+	-AttackTurreted:
+	-AutoTarget:
+	-RenderRangeCircle:
+	Selectable:
+		Priority: 3
+	-Voiced:
+	BodyOrientation:
+		QuantizedFacings: 32
+	Cloak@cloakgenerator:
+		RequiresCondition: !lawea
+		InitialDelay: 50
+		CloakDelay: 50
+		CloakSound:
+		UncloakSound:
+		Palette: cloakmut
+		IsPlayerPalette: true
+		CloakTypes: cloakgenerator
+		UncloakOn: Attack, Unload, Infiltrate, Demolish
+
+MUSTABLE:
+	Inherits: ^Building
+	Inherits@1: ^MutRender
+	Inherits@2: ^2x3Shape
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Training Grounds
+	ProvidesPrerequisite:
+		Prerequisite: tech
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	Selectable:
+		Bounds: 110, 60, 3, -4
+		DecorationBounds: 110, 60, 3, -4
+	Health:
+		HP: 23000
+	Armor:
+		Type: BuildingArmor
+	Power:
+		Amount: -40
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+CABNEXUS:
+	# Inherits: ^Defence
+	# Inherits@1: ^CabRender
+	# Inherits@2: ^2x2Shape
+	# Valued:
+	# 	Cost: 700
+	# Tooltip:
+	# 	Name: Obelisk Nexus
+	# Building:
+	# 	Footprint: xx xx
+	# 	Dimensions: 2,2
+	# Selectable:
+	# 	Bounds: 90, 48, 0, -6
+	# 	DecorationBounds: 90, 48, 0, -6
+	# GrantConditionOnPowerState@LOWPOWER:
+	# 	Condition: lowpower
+	# 	ValidPowerStates: Low, Critical
+	# Health:
+	# 	HP: 15000
+	# BodyOrientation:
+	# 	QuantizedFacings: 32
+	# Armament:
+	# 	Weapon: CABNEXUSAA
+	# 	LocalOffset: 0,0,1000
+	# AttackOmni:
+	# Power:
+	# 	Amount: -50
+	# SelectionDecorations:
+	# RequiresBuildableArea:
+	# 	AreaTypes: building
+
+SCRMINE:
+	Inherits: ^ScrinRender
+	Inherits@1: MUMINE
+	Tooltip:
+		Name: Scrin Mine
+	-Buildable:
+
+PALADIN2:
+	Inherits: ^CabalDroneInfantry
+	Inherits@2: ^CabRender
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Sentinel
+	Health:
+		HP: 10000
+	Voiced:
+		VoiceSet: Limpet
+	Armor@worker:
+		Type: Worker
+	DeliversCash:
+		Payload: 350
+		Voice: Move
+	BodyOrientation:
+		QuantizedFacings: 32
+	WithInfantryBody:
+	Turreted:
+		TurnSpeed: 5
+	AttackTurreted:
+		Voice: Attack
+	WithSpriteTurret:
+		Recoils: no
+	RenderSprites:
+		Scale: 1
+	Armament:
+		Weapon: SentinelGun
+		Recoil: 127
+		RecoilRecovery: 26
+		PauseOnCondition: WebDisable
+	AutoTarget:
+	Selectable:
+		Bounds: 30, 42, 0, -8
+	-SpawnActorOnDeath@nanomachineburst:
+
+#################################################
+# UNUSED
+#################################################
+
+MHIJACK:
+	Inherits: ^Mutant
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Hijacker
+	Voiced:
+		VoiceSet: Spy
+	Crushable:
+		CrushClasses: HeavyInfantry
+	Health:
+		HP: 9000
+	Targetable@MindControlImmunity:
+		TargetTypes: MindControlInmune
+	Mobile:
+		Speed: 85
+	Infiltrates:
+		Types: SpyInfiltrate
+	Captures:
+		CaptureTypes: Vehicle
+		Sabotage: True
+	Cloak@CLOAKGENERATOR:
+		InitialDelay: 100
+		CloakDelay: 100
+		IsPlayerPalette: true
+		UncloakOn: Move, Attack, Infiltrate
+	RenderSprites:
+		Image: Chamspy
+	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
+	-AttackMove:
+    
+AWARRIOR:
+	Inherits: ^Mutant
+	Inherits@1: ^MutRender
+	-SelectionDecorations:
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Forgotten Knight
+	Voiced:
+		VoiceSet: Rocket
+	-UpdatesPlayerStatistics:
+	-TakeCover:
+	Health:
+		HP: 20000
+	Mobile:
+		Speed: 85
+	AutoTarget:
+		ScanRadius: 6
+	Armament@1:
+		Weapon: KnightAcid
+		Name: OnFoot
+		Muzzle: flamebro
+		LocalOffset: 500,75,500
+		MuzzleSequence: muzzle
+		MuzzlePalette: apolgreenalpha
+		MuzzleSplitFacings: 8
+	Armament@2:
+		Weapon: KnightAcid2
+		Name: OnFoot
+		MuzzlePalette: apolgreenalpha
+		LocalOffset: 500,75,500
+	Armament@GARRISON:
+		Weapon: GKnightAcid
+		MuzzlePalette: apolgreenalpha
+		LocalOffset: 250,0,400
+	Armament@GARRISON2:
+		Weapon: GKnightAcid2
+		MuzzlePalette: apolgreenalpha
+		LocalOffset: 250,0,400
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+		PauseOnCondition: WebDisable
+	SpawnActorOnDeath@deathclaw:
+		Actor: deathclaw
+		Probability: 7
+		InternalOwner: Victim
+	WithMuzzleOverlay:
+	Targetable@MCImmune:
+		TargetTypes: MCImmune
+
+STALKER:
+	Inherits: ^Infantry
+	Selectable:
+		Class: Stalker
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Stalker
+	Health:
+		HP: 13000
+	Mobile:
+		Speed: 90
+	WithInfantryBody:
+		AttackSequence: throw
+
+#########################################################
+# UNUSED
+#######################################################
+
+JUGGER:
+	Inherits: ^Walker
+	Inherits@1: ^5CellVision
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Juggernaut
+	Mobile:
+		TurnSpeed: 6
+		Speed: 75
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 21000
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	AutoTarget:
+	Armament:
+		Weapon: JuggCannon
+		LocalOffset: 600, 600, 6000
+	Armament@1:
+		Weapon: JuggCannon
+		LocalOffset: 600, -600, 6000
+	Voiced:
+		VoiceSet: Mech
+	WithMuzzleOverlay:
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithFacingSpriteBody:
+		Sequence: stand
+	WithMoveAnimation:
+		MoveSequence: run
+	Selectable:
+		Bounds: 30, 35, 0, -8
+
+LIMPED:
+	Inherits: ^HoverVehicle
+	Inherits@1: ^8CellVision
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Scout Drone
+		Description: Hover Drone, cloaks when deployed. Spreads unsmellable\ngas around it confusing nearby units becoming uncontrollable.\n\nUnnarmed.
+	Health:
+		HP: 10000
+	Mobile:
+		Speed: 55
+		Locomotor: Vehicle
+	Crushable:
+		CrushClasses: infantry
+		WarnProbability: 0
+	WithSpriteBody:
+    -WithFacingSpriteBody:
+	Voiced:
+		VoiceSet: Limpet
+	Selectable:
+		Bounds: 20, 30, 0, -6
+
+REPAIR:
+	Inherits: ^VoxelTank
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Mobile Repair Vehicle
+	Health:
+		HP: 20000
+	Mobile:
+		Speed: 70
+		TurnSpeed: 5
+	Armament:
+		Weapon: RepairVehicleRep
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetStances: Ally
+		ForceTargetStances: None
+	AttackFrontal:
+		Voice: Attack
+	-GainsExperience:
+
+SGEN:
+	Inherits: ^VoxelVehicle
+	Valued:
+		Cost: 1100
+	Tooltip:
+		Name: Mobile Stealth Generator
+	Mobile:
+		TurnSpeed: 2#6
+		Speed: 90
+	RenderVoxels:
+	Health:
+		HP: 20000
+	Transforms:
+		IntoActor: mastl
+		Facing: 96
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+	Carryable:
+
+ART2:
+	Inherits: HOWTLIZER
+	-Buildable:
+	RenderSprites:
+		Image: howtlizer
+
+	# SCRDRONEC:
+	# Inherits@1: ^AutoTargetGround
+	# Inherits@2: ^HoverVehicle
+	# Inherits: ^ScrinVehicle
+	# Valued:
+	# 	Cost: 950
+	# Tooltip:
+	# 	Name: Vanguard
+	# Health:
+	# 	HP: 25000
+	# Mobile:
+	# 	Speed: 80
+	# RenderSprites:
+	# -WithIdleOverlay@shield:
+	# WithFacingSpriteBody:
+	# -Cloak@CLOAKGENERATOR:
+	# BodyOrientation:
+	# 	QuantizedFacings: 32
+	# -Targetable@Shield:
+	# AttackFrontal:
+	# 	PauseOnCondition: empdisable
+	# Armament:
+	# 	Weapon: VanguardShrapnel
+	# 	TargetStances: Ally
+	# ProximityExternalCondition@VanguardShield:
+	# 	Condition: VanguardShield
+	# 	# Range: 3c0 # 2c0
+	# 	AffectsParent: false
+	# WithRangeCircle:
+	# 	Range: 3c0
+	# 	Type: VanguardShield
+	# Targetable:
+	# 	TargetTypes: Ground, Vehicle
+	# AutoTarget:

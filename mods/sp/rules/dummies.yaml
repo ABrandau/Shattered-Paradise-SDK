@@ -1,0 +1,460 @@
+^DUMMYAIRCRAFT:
+	Inherits: ^SpriteActor
+	Inherits@2: ^1x1Shape
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Target
+	RevealsShroud:
+		Range: 3c0
+		Type: CenterPosition
+	Aircraft:
+		TurnSpeed: 6
+		Speed: 0
+		CanHover: True
+		IdealSeparation: 300
+		TakeOffOnResupply: true
+		VTOL: true
+	HiddenUnderFog:
+		Type: CenterPosition
+	Interactable:
+	Armor:
+		Type: Wood
+	RenderSprites:
+		Image: dot
+	WithFacingSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 32
+
+VISIONACTOR:
+	Inherits: ^DUMMYAIRCRAFT
+	RevealsShroud:
+		Range: 3c0
+	Health:
+		HP: 50
+	SelfHealing:
+		Step: -10
+		Delay: 10
+		HealIfBelow: 200
+
+SWVISIONDUMMY:
+	Inherits: ^DUMMYAIRCRAFT
+	RevealsShroud:
+		Range: 7c0
+	Health:
+		HP: 7
+	SelfHealing:
+		Step: -1
+		Delay: 25
+		HealIfBelow: 200
+
+RADARSCANDUMMY:
+	Inherits: ^DUMMYAIRCRAFT
+	RevealsShroud:
+		Range: 6c0
+	Health:
+		HP: 10
+	SelfHealing:
+		Step: -1
+		Delay: 25
+		HealIfBelow: 200
+	WithSpriteBody:
+		Sequence: idle
+	-Tooltip:
+	RenderSprites:
+		Image: radarscananim
+		Palette: radarscanpalette
+
+IONBEAMTARGET:
+	Inherits: ^DUMMYAIRCRAFT
+	# Inherits@2: ^VisionWhenKilled
+	Inherits@3: ^1x1Shape
+	Tooltip:
+		Name: Target
+	Health:
+		HP: 110
+	SelfHealing:
+		Step: -10
+		Delay: 10
+		HealIfBelow: 200
+	Targetable:
+		TargetTypes: IonSpawner
+	ShakeOnDeath:
+	RevealsShroud:
+		Range: 3c0
+	RenderSprites:
+		Image: ionbeamtarget
+	Explodes:
+		Weapon: IonCannon
+		EmptyWeapon: IonCannon
+	WithDeathAnimation@1:
+		UseDeathTypeSuffix: false
+		DeathSequence: ionbeam
+		DeathSequencePalette: effectalpha
+		DeathPaletteIsPlayerPalette: false
+	WithDeathAnimation@2:
+		UseDeathTypeSuffix: false
+		DeathSequence: ionbeam2
+		DeathSequencePalette: effectalpha
+		DeathPaletteIsPlayerPalette: false
+	WithDeathAnimation@3:
+		UseDeathTypeSuffix: false
+		DeathSequence: ionbeam3
+		DeathSequencePalette: effectalpha
+		DeathPaletteIsPlayerPalette: false
+	WithDeathAnimation@4:
+		UseDeathTypeSuffix: false
+		DeathSequence: ionbeam4
+		DeathSequencePalette: effectalpha
+		DeathPaletteIsPlayerPalette: false
+	WithDeathAnimation@5:
+		UseDeathTypeSuffix: false
+		DeathSequence: ionbeam5
+		DeathSequencePalette: effectalpha
+		DeathPaletteIsPlayerPalette: false
+	WithDeathAnimation@6:
+		UseDeathTypeSuffix: false
+		DeathSequence: ionbeam6
+		DeathSequencePalette: effectalpha
+		DeathPaletteIsPlayerPalette: false
+	RevealOnDeath:
+		Duration: 100
+		Radius: 4c0
+
+IONBEAMMINI:
+	Inherits: ^DUMMYAIRCRAFT
+	Inherits@1: ^AutoTargetAll
+	RevealsShroud:
+		Range: 3c0
+	AutoTargetPriority@1432543:
+		ValidTargets: IonSpawner
+	Aircraft:
+		CruiseAltitude: 0
+		TurnSpeed: 6
+		Repulsable: false
+		AltitudeVelocity: 400
+		Speed: 43
+		MoveIntoShroud: true
+	-Tooltip:
+	Health:
+		HP: 110
+	SelfHealing:
+		Step: -10
+		Delay: 10
+		HealIfBelow: 200
+	RevealsShroud:
+		Range: 3c0
+	AttackHeli:
+		FacingTolerance: 20
+		Voice: Attack
+	AutoTarget:
+		ScanRadius: 99
+		InitialStance: AttackAnything
+		ForceTargetStances: Ally
+	RenderSprites:
+		Image: ionbeammini
+		Palette: effectalpha
+	Armament:
+		Weapon: IonDrag
+		TargetStances: Ally
+	WithDeathAnimation:
+		DeathSequencePalette: effectalpha
+		DeathPaletteIsPlayerPalette: false
+	RejectsOrders@berserk:
+		RequiresCondition: !lawea
+	RenderSprites:
+		Palette: effectalpha
+	WithFacingSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 32
+	WithSpriteBody:
+		Sequence: beamsky
+	WithSpriteBody@1:
+		Sequence: beamsky2
+	WithSpriteBody@2:
+		Sequence: beamsky3
+	WithSpriteBody@3:
+		Sequence: beamsky4
+	WithSpriteBody@4:
+		Sequence: beamsky5
+	WithSpriteBody@5:
+		Sequence: beamsky6
+	WithSpriteBody@6:
+		Sequence: beamsky7
+	WithSpriteBody@7:
+		Sequence: beamsky8
+	WithSpriteBody@8:
+		Sequence: beamsky9
+	WithSpriteBody@9:
+		Sequence: beamsky10
+	WithSpriteBody@10:
+		Sequence: beamsky10
+	WithSpriteBody@12:
+		Sequence: beamsky11
+	WithSpriteBody@13:
+		Sequence: beamsky12
+	WithSpriteBody@14:
+		Sequence: beamsky13
+	WithSpriteBody@15:
+		Sequence: beamsky14
+	WithSpriteBody@16:
+		Sequence: beamsky15
+	WithSpriteBody@17:
+		Sequence: beamsky16
+	WithSpriteBody@18:
+		Sequence: beamsky17
+	WithSpriteBody@19:
+		Sequence: beamsky18
+	WithSpriteBody@20:
+		Sequence: beamsky19
+	WithSpriteBody@21:
+		Sequence: beamsky20
+	WithSpriteBody@22:
+		Sequence: muzzle
+	WithSpriteBody@23:
+		Sequence: muzzle2
+	ExplodeWeapon:
+		Weapon: IonScorch
+	HiddenUnderFog:
+		AlwaysVisibleStances: Ally, Enemy, Neutral
+
+IONBEAMROAMER:
+	Inherits: ^DUMMYAIRCRAFT
+	Aircraft:
+		CruiseAltitude: 0
+		TurnSpeed: 20
+		Repulsable: false
+		AltitudeVelocity: 400
+		Speed: 25
+		MoveIntoShroud: true
+	RevealsShroud:
+		Range: 3c0
+	Health:
+		HP: 75
+	SelfHealing:
+		Step: -1
+		Delay: 15
+		HealIfBelow: 200
+	AttackHeli:
+		FacingTolerance: 20
+		Voice: Attack
+	AttackMove:
+	AttackWander:
+	RejectsOrders@berserk:
+		RequiresCondition: !lawea
+	RenderSprites:
+		Image: ionbeam
+		Palette: effectalpha
+	WithFacingSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 32
+	WithIdleOverlay:
+		Sequence: beamsky
+	WithIdleOverlay@1:
+		Sequence: beamsky2
+	WithIdleOverlay@2:
+		Sequence: beamsky3
+	WithIdleOverlay@3:
+		Sequence: beamsky4
+	WithIdleOverlay@4:
+		Sequence: beamsky5
+	WithIdleOverlay@5:
+		Sequence: muzzle
+	WithIdleOverlay@6:
+		Sequence: muzzle2
+	ExplodeWeapon:
+		Weapon: IonScorch
+
+KILLEDACTOR:
+	Inherits: ^DUMMYAIRCRAFT
+	SelfHealing:
+		Step: -5
+		HealIfBelow: 110
+	Health:
+		HP: 50
+		NotifyAppliedDamage: False
+	Targetable:
+		TargetTypes: KilledUnit
+	SpawnActorOnDeath@workerspawn:
+		Actor: worker
+		Probability: 100
+		InternalOwner: Killer
+		DeathType: WorkerSummon
+		RequiresLobbyCreeps: true
+
+NANOMACHINEBURSTSPAWNER:
+	Inherits: ^DUMMYAIRCRAFT
+	RenderSprites:
+		Image: blackhanddummy
+	SelfHealing:
+		Step: -10
+		HealIfBelow: 200
+	-Tooltip:
+	Health:
+		HP: 5
+		NotifyAppliedDamage: False
+	SpawnActorOnDeath@workerspawn:
+		Actor: NANOMACHINEBURSTDUMMY
+		Probability: 100
+		RequiresLobbyCreeps: false
+		SkipMakeAnimations: false
+    AmbientSound:
+        SoundFiles: nanomachine0000.wav, nanomachine0001.wav, nanomachine0002.wav, nanomachine0003.wav, nanomachine0004.wav
+        Delay: 0, 5
+        Interval: 0, 5
+
+NANOMACHINEBURSTDUMMY:
+	Inherits: ^DUMMYAIRCRAFT
+	Inherits@1: ^AutoTargetAll
+	SelfHealing:
+		Step: -1
+		Delay: 25
+		HealIfBelow: 200
+	-Tooltip:
+	RenderSprites:
+		Image: nanomachineswarmdummy
+		Palette: apolgreyalpha
+	Health:
+		HP: 20
+		NotifyAppliedDamage: False
+	RevealsShroud:
+		Range: 8c0
+	ProximityExternalCondition:
+		Condition: nanomachineburst
+		Range: 7c0
+	WithMakeAnimation:
+	WithIdleOverlay:
+		Sequence: stand
+		Palette: apolgreyalpha
+	WithDeathAnimation:
+		DeathPaletteIsPlayerPalette: false
+		DeathSequencePalette: apolgreyalpha
+		UseDeathTypeSuffix: false
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: KilledUnit
+	AttackOmni:
+		IngoresVisibility: True
+	Armament:
+		Weapon: RecoveryGun
+		TargetStances: Ally, Enemy, Neutral
+	AutoTarget:
+
+EGGSPAWNER:
+	Inherits: ^DUMMYAIRCRAFT
+	Tooltip:
+		Name: Fire
+	-RevealsShroud:
+	Health:
+		HP: 1
+	SelfHealing:
+		Step: -10
+		Delay: 25
+		HealIfBelow: 200
+	SpawnActorOnDeath@workerspawn:
+		Actor: EGGS
+		Probability: 100
+		OwnerType: Victim
+
+IONSTORMGENERATOR:
+	Inherits: ^DUMMYAIRCRAFT
+	SelfHealing:
+		Step: -1
+		Delay: 25
+		HealIfBelow: 200
+	RevealsShroud:
+		Range: 8c0
+	Health:
+		HP: 11
+		NotifyAppliedDamage: False
+	ExplodeWeapon:
+		Weapon: RandomBoltSpawner
+		RequiresCondition: ChargeUp
+	GrantPeriodicCondition:
+		Condition: ChargeUp
+		CooldownDuration: 75
+		ActiveDuration: 9999
+
+IONSTORMRANDOMBOLT:
+	Inherits: IONSTORMGENERATOR
+	Health:
+		HP: 1
+		NotifyAppliedDamage: False
+	-ExplodeWeapon:
+	Explodes:
+		Weapon: IonRay
+		Chance: 10
+		LoadedChance: 100
+
+VEINHOLESPAWNERDUMMY:
+	Inherits: ^Infantry
+	-Targetable:
+	-UpdatesPlayerStatistics:
+	-SelectionDecorations:
+	-Selectable:
+	-ActorLostNotification:
+	RenderSprites:
+		Image: blackhanddummy
+	SelfHealing:
+		Step: -10
+		HealIfBelow: 200
+	Health:
+		HP: 5
+		NotifyAppliedDamage: False
+	SpawnActorOnDeath@cabalcrate:
+		Actor: MINIVEIN
+		Probability: 100
+		OwnerType: Victim
+		RequiresLobbyCreeps: true
+		SkipMakeAnimations: false
+	-SpawnActorOnDeath@nanomachineburst:
+	Interactable:
+
+INFTIBSPAWN:
+	Inherits: ^DUMMYAIRCRAFT
+	Tooltip:
+		Name: Fire
+	-RevealsShroud:
+	Health:
+		HP: 30
+	SelfHealing:
+		Step: -30
+		Delay: 25
+		HealIfBelow: 200
+	Explodes:
+		Weapon: SpawnZombie
+		EmptyWeapon: SpawnVisc
+		LoadedChance: 35
+
+VEHICLETIBSPAWN:
+	Inherits: INFTIBSPAWN
+	Explodes:
+		Weapon: SpawnBerserker
+
+SCRINESSENCESMALL:
+	Inherits: ^DUMMYAIRCRAFT
+	SelfHealing:
+		Step: -1
+		Delay: 50
+		HealIfBelow: 200
+	-Tooltip:
+	Targetable@Esscence:
+		TargetTypes: ScrinEssence
+	AttackMove:
+	Aircraft:
+		TurnSpeed: 6
+		Speed: 30
+	Health:
+		HP: 2
+		NotifyAppliedDamage: False
+	Turreted:
+		TurnSpeed: 99
+	RevealsShroud:
+	RenderSprites:
+		Image: scrinessencesmall
+		Palette: apolra2ialpha
+		PlayerPalette: apolra2ialpha
+	Explodes:
+		Weapon: EssenceSmall
+		EmptyWeapon: EssenceSmall
+		LoadedChance: 100
+		Chance: 100

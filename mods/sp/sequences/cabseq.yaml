@@ -1,0 +1,1317 @@
+worker:
+	Inherits@1: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: 8
+		ShadowStart: 402
+	run:
+		Start: 8
+		Length: 12
+		Facings: 8
+		ShadowStart: 410
+	idle1:
+		Start: 104
+		Length: 42
+		ShadowStart: 506
+	idle2:
+		Start: 146
+		Length: 42
+		ShadowStart: 548
+	prone-run:
+		Start: 188
+		Length: 9
+		Facings: 8
+		ShadowStart: 590
+	prone-stand:
+		Start: 188
+		Facings: 8
+		Stride: 8
+		ShadowStart: 590
+	die1:
+		Start: 274
+		Length: 9
+		ShadowStart: 675
+	die2:
+		Start: 287
+		Length: 13
+		ShadowStart: 689
+		Tick: 80
+	die-crushed:
+		Start: 267
+		Length: 5
+		ShadowStart: 451
+		Tick: 800
+		ZOffset: -511
+	shoot:
+		Start: 314
+		Length: 5
+		Facings: 8
+		ShadowStart: 716
+	prone-shoot:
+		Start: 354
+		Length: 5
+		Facings: 8
+		ShadowStart: 756
+	standup-0:
+		Start: 260
+		Length: 2
+		Facings: 8
+		ShadowStart: 552
+	icon: workericon
+
+paladin2:
+	Inherits@1: ^InfantryDeathAnims
+	Inherits@2: ^EmpOverlay
+	stand:
+		Facings: 8
+	run:
+		Facings: 8
+	turret:
+		Start: 8
+		Facings: 32
+	muzzle: gunfire
+		Length: *
+	icon: sentinelicon
+
+cybdog:
+	Inherits@1: ^InfantryDeathAnims
+	Inherits: ^EmpOverlay
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: 8
+	run:
+		Start: 8
+		Tick: 60
+		Length: 13
+		Facings: 8
+	idle1:
+		Tick: 200
+		Start: 112
+		Length: 29
+	idle2:
+		Start: 142
+		Length: 33
+	die1:
+		Start: 254
+		Length: 12
+	die2:
+		Start: 266
+		Length: 21
+	die-crushed:
+		Start: 261
+		Length: 1
+		Tick: 800
+		ZOffset: -511
+	shoot:
+		Start: 174
+		Length: 10
+		Facings: 8
+	icon: dogicon
+
+cabsentry:
+	Inherits@1: ^InfantryDeathAnims
+	stand:
+		Facings: -32
+		ShadowStart: 40
+	run:
+		Facings: -32
+		ShadowStart: 40
+	idle:
+		Start: 39
+		ShadowStart: 79
+	make:
+		Start: 32
+		Length: 8
+		ShadowStart: 72
+	muzzle: gunfire
+		Length: *
+	emp-overlay: emp_fx01
+		Length: *
+		ZOffset: 512
+		BlendMode: Additive
+	icon: cabsentryicon
+
+cborg:
+	Inherits@1: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+		Offset: 0, 0, 16
+	stand:
+		Facings: -8
+	run:
+		Start: 8
+		Length: 8
+		Facings: -8
+		Tick: 65
+	idle1:
+		Start: 113
+		Length: 27
+	idle2:
+		Start: 141
+		Length: 18
+	die1: cborgdeath
+		Length: 6
+	die2: cborgdeath
+		Start: 6
+		Length: 5
+	die3: infdie
+		Length: *
+	die4: s_bang34
+		Length: *
+	shoot:
+		Start: 72
+		Length: 5
+		Facings: -8
+	crippled-stand:
+		Start: 159
+		Facings: -8
+	crippled-run:
+		Start: 167
+		Tick: 60
+		Length: 8
+		Facings: -8
+	crippled-shoot:
+		Tick: 60
+		Start: 231
+		Length: 5
+		Facings: -8
+	die6: electro
+		Length: *
+	icon: cborgicon
+
+cyborg:
+	Inherits@1: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: 8
+		ShadowStart: 370
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 378
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 426
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 441
+	crippled-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 456
+	crippled-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 456
+	die1:
+		Start: 134
+		Length: 15
+		ShadowStart: 504
+	die2:
+		Start: 149
+		Length: 15
+		ShadowStart: 519
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		ShadowStart: 534
+	crippled-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 582
+	emp-overlay: emp_fx01
+		Length: *
+		ZOffset: 512
+		BlendMode: Additive
+	icon: cybiicon
+
+pdrone:
+	Inherits@1: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: 8
+	run:
+		Tick: 40
+		Start: 8
+		Length: 7
+		Facings: 8
+	idle1:
+		Start: 64
+		Length: 13
+	idle2:
+		Start: 108
+		Length: 18
+	shoot:
+		Start: 146
+		Length: 8
+		Facings: 8
+	fire:
+		Start: 146
+		Length: 8
+		Facings: 8
+	die1:
+		Start: 126
+		Length: 10
+	die2:
+		Start: 126
+		Length: 10
+	die-crushed:
+		Start: 132
+		Length: 1
+		Tick: 800
+		ZOffset: -511
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	icon: processingicon
+
+swarmling:
+	Inherits@1: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: 8
+	run:
+		Tick: 40
+		Start: 8
+		Length: 12
+		Facings: 8
+	die1: worker
+		Start: 274
+		Length: 9
+	die2: worker
+		Start: 287
+		Length: 13
+		Tick: 80
+	die-crushed: worker
+		Start: 159
+		Length: 5
+		Tick: 800
+		ZOffset: -511
+	icon: swarmlingicon
+
+moth:
+	Inherits@1: ^InfantryDeathAnims
+	stand:
+		Facings: -32
+		ShadowStart: 55
+	idle:
+		Facings: -32
+		ShadowStart: 55
+	run:
+		Facings: -32
+		ShadowStart: 55
+	make: mothmake
+		Length: 15
+		ShadowStart: 15
+	deployed:
+		Start: 45
+		Length: 10
+		Tick: 75
+	dot: dot
+		ZOffset: -999
+	muzzle: gunfire
+		Length: *
+	emp-overlay: emp_fx01
+		Length: *
+		ZOffset: 512
+		BlendMode: Additive
+	icon: mothicon
+
+glad:
+	Inherits@1: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: 8
+	run:
+		Start: 8
+		Tick: 60
+		Length: 12
+		Facings: 8
+	crippled-stand:
+		Start: 301
+		Facings: 8
+	crippled-run:
+		Start: 309
+		Tick: 60
+		Length: 10
+		Facings: 8
+	idle1:
+		Start: 104
+		Length: 28
+	idle2:
+		Start: 130
+		Length: 30
+	die1:
+		Start: 161
+		Length: 12
+	die2:
+		Start: 161
+		Length: 12
+	muzzle: gunfire
+		Length: *
+	shoot:
+		Tick: 60
+		Start: 229
+		Length: 9
+		Facings: 8
+	crippled-shoot:
+		Tick: 60
+		Start: 389
+		Length: 7
+		Facings: 8
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	icon: gladicon
+
+cyc2:
+	Inherits@1: ^InfantryDeathAnims
+	stand:
+		Facings: 8
+		ShadowStart: 308
+	run:
+		Start: 8
+		Length: 9
+		Facings: 8
+		ShadowStart: 316
+	idle1:
+		Start: 80
+		Length: 15
+		ShadowStart: 388
+	idle2:
+		Start: 95
+		Length: 15
+		ShadowStart: 403
+	crippled-run:
+		Start: 110
+		Length: 9
+		Facings: 8
+		ShadowStart: 418
+	crippled-stand:
+		Start: 110
+		Facings: 8
+		Stride: 9
+		ShadowStart: 418
+	die1:
+		Start: 182
+		Length: 15
+		ShadowStart: 490
+	die2:
+		Start: 197
+		Length: 15
+		ShadowStart: 505
+	shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 520
+	crippled-shoot:
+		Start: 260
+		Length: 6
+		Facings: 8
+		ShadowStart: 568
+	emp-overlay: emp_fx01
+		Length: *
+		ZOffset: 512
+		BlendMode: Additive
+	icon: cyborgcomandoicon
+
+jenn:
+	Inherits: ^EmpOverlay
+	shoot:
+		Start: 96
+		Facings: -8
+		ShadowStart: 216
+	idle:
+		Start: 96
+		Facings: -8
+		ShadowStart: 216
+	stand:
+		Start: 96
+		Facings: -8
+		ShadowStart: 216
+	run:
+		Length: 12
+		Facings: -8
+		ShadowStart: 120
+	muzzle: gunfire
+		Length: *
+	emp-overlay: emp_fx01
+		Length: *
+		ZOffset: 512
+		BlendMode: Additive
+	icon: jennicon
+
+dino:
+	Inherits: ^EmpOverlay
+	Defaults:
+	shoot:
+		Facings: 8
+		ShadowStart: 86
+	idle:
+		Facings: 8
+		ShadowStart: 86
+	stand:
+		Facings: 8
+		ShadowStart: 86
+	run:
+		Start: 8
+		Length: 8
+		Facings: 8
+		Tick: 70
+		ShadowStart: 94
+	muzzle: gunfire
+		Length: *
+	make:
+		Start: 72
+		Length: 13
+		ShadowStart: 158
+	deployed:
+		Start: 85
+		ShadowStart: 171
+	emp-overlay: emp_fx01
+		Length: *
+		ZOffset: 512
+		BlendMode: Additive
+	icon: dinoicon
+		Offset: 0, 0
+
+centurion:
+	Inherits: ^EmpOverlay
+	stand:
+		Facings: -8
+		Length: 1
+		ShadowStart: 155
+	run:
+		Start: 8
+		Tick: 120
+		Length: 8
+		Facings: -8
+		ShadowStart: 163
+	turret:
+		Start: 72
+		Length: 1
+		Facings: -32
+		ShadowStart: 278
+	make:
+		Start: 104
+		Length: 19
+		ShadowStart: 259
+	idle:
+		Start: 122
+		Length: 1
+		ShadowStart: 277
+	damaged-idle:
+		Start: 122
+		Length: 1
+		ShadowStart: 277
+	turret2:
+		Start: 123
+		Facings: -32
+		Length: 1
+		ShadowStart: 278
+		Offset: 0, 12
+	shield: shieldlarge
+		Length: *
+	icon: centurionicon
+
+reapercab:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: -8
+		ShadowStart: 117
+	run:
+		Start: 8
+		Tick: 60
+		Length: 12
+		Facings: -8
+		ShadowStart: 125
+	die1:
+		Start: 104
+		Length: 13
+		ShadowStart: 221
+	shoot:
+		Facings: -8
+		ShadowStart: 117
+	icon: reapercabicon
+
+cabapc:
+	Inherits@1: ^SpriteVehicleWithShadow
+	icon: cabapcicon
+	shield: shieldlarge
+		Length: *
+
+ecm:
+	Inherits@1: ^SpriteVehicleWithShadow
+	icon: ecmicon
+
+spiderarty:
+	Inherits: ^EmpOverlay
+	Defaults:
+	idle:
+		Facings: -8
+		ShadowStart: 120
+	shoot:
+		Start: 80
+		Length: 5
+		Facings: 8
+		Tick: 150
+		ShadowStart: 200
+	stand:
+		Facings: -8
+		ShadowStart: 120
+	run:
+		Start: 16
+		Length: 8
+		Facings: 8
+		Tick: 110
+		ShadowStart: 136
+	shield: shieldlarge
+		Length: *
+	icon: spiderartyicon
+		Offset: 0, 0
+
+paladin:
+	Inherits: ^EmpOverlay
+	stand:
+		Facings: 8
+		ShadowStart: 120
+	idle:
+		Facings: 8
+		ShadowStart: 120
+	run:
+		Tick: 125
+		Start: 8
+		Length: 8
+		Facings: 8
+		ShadowStart: 128
+	shoot:
+		Start: 72
+		Length: 6
+		Facings: 8
+		ShadowStart: 192
+	icon: paladinicon
+	shield: shieldlarge
+		Length: *
+
+miniwyverm:
+	Inherits: ^EmpOverlay
+	idle:
+		Facings: -32
+	stand:
+		Facings: -32
+	run:
+		Tick: 90
+		Facings: -32
+	icon: waspicon
+
+wasp:
+	Inherits: ^EmpOverlay
+	idle:
+		Facings: -32
+	stand:
+		Facings: -32
+	run:
+		Tick: 90
+		Facings: -32
+	icon: waspicon
+
+cabdronejet:
+	Inherits: ^EmpOverlay
+	idle:
+		Facings: 32
+	stand:
+		Facings: 32
+	run:
+		Facings: 32
+	icon: waspicon
+
+firefly:
+	Inherits: ^EmpOverlay
+	idle:
+		Facings: -32
+	stand:
+		Facings: -32
+	run:
+		Tick: 90
+		Facings: -32
+	icon: fireflyicon
+
+devourer:
+	Inherits: ^EmpOverlay
+	idle:
+		Stride: 30
+		Facings: 8
+		ZOffset: 1024
+	shoot:
+		Facings: 8
+		Length: 30
+		ZOffset: 1024
+	icon: devourericon
+
+basilisk:
+	Inherits@1: ^SpriteVehicle
+	icon: basiliskicon
+
+############################################################################
+# Buildings
+############################################################################
+
+cabmcv:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Offset: 0,-18,0
+	idle:
+		Facings: -16
+		ShadowStart: 341
+		UseTilesetCode: false
+	stand:
+		Facings: -16
+		ShadowStart: 86
+	run:
+		Start: 16
+		Length: 15
+		Facings: -16
+		Tick: 100
+		ShadowStart: 357
+	icon: cabmcvicon
+		Offset: 0, 0
+
+cabyard:
+	Inherits: ^EmpOverlay
+	Defaults: cabmcv
+		UseTilesetCode: false
+		Offset: 0, -18, 24
+	idle:
+		Start: 307
+		Length: 17
+		ShadowStart: 648
+	damaged-idle:
+		Start: 324
+		Length: 17
+		ShadowStart: 665
+	dead:
+		Start: 324
+		ShadowStart: 665
+		Tick: 400
+	make: cabmcvmake
+		Length: 50
+		ShadowStart: 51
+	icon: cabyardicon
+		Offset: 0, 0
+
+cabpowr:
+	Defaults:
+		Offset: 0, -24, 24
+		UseTilesetCode: false
+	idle:
+		Start: 31
+	damaged-idle:
+		Start: 40
+	dead:
+		Start: 40
+		Tick: 400
+	idle-lights:
+		Start: 31
+		Length: 8
+		Tick: 100
+	damaged-idle-lights:
+		Start: 41
+		Length: 8
+		Tick: 100
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	make:
+		Length: 30
+		ShadowStart: 50
+	icon: cabpowricon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+cabclaw:
+	Defaults:
+		Offset: 8, -32, 32
+		UseTilesetCode: false
+	idle:
+		Start: 29
+	damaged-idle:
+		Start: 40
+	dead:
+		Start: 40
+		Tick: 400
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	make:
+		Length: 30
+	idle-camera:
+		Start: 30
+		Length: 10
+		Tick: 150
+	damaged-idle-camera:
+		Start: 41
+		Length: 10
+		Tick: 150
+	icon: cabclawicon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+cabproc:
+	Defaults: cabproc
+		Offset: -15, -42, 20
+		DepthSpriteOffset: 22, 0
+		UseTilesetCode: false
+		DepthSprite: isodepth.shp
+	idle:
+		Start: 32
+	damaged-idle:
+		Start: 34
+	dead:
+		Start: 34
+		Tick: 400
+	make:
+		Length: 29
+		DepthSpriteOffset: -12, 0
+	flame: ntrefn_b
+		Length: *
+	unload-overlay: narefn_a
+		Length: *
+		Offset: 24, -12
+		ZOffset: 1024
+	bib:
+		Start: 33
+		ZOffset: -9999
+		ZRamp: 1
+		-DepthSprite:
+	damaged-bib:
+		Start: 35
+		ZOffset: -9999
+		ZRamp: 1
+		-DepthSprite:
+	dead-bib:
+		Start: 35
+		ZOffset: -9999
+		ZRamp: 1
+		-DepthSprite:
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 21
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		-DepthSprite:
+	icon: cabprocicon
+		Offset: 0, 0
+		UseTilesetCode: false
+		-DepthSprite:
+
+cabproc2:
+	Defaults:
+		Offset: 6, 36, 20
+		DepthSpriteOffset: 22, 0
+		UseTilesetCode: false
+		DepthSprite: isodepth.shp
+	idle:
+		Start: 32
+	damaged-idle:
+		Start: 34
+	dead:
+		Start: 34
+		Tick: 400
+	make:
+		Length: 29
+		ShadowStart: 36
+		DepthSpriteOffset: -12, 0
+	flame: ntrefn_b
+		Length: *
+	unload-overlay: narefn_a
+		Length: *
+		Offset: 24, -12
+		ZOffset: 1024
+	bib:
+		Start: 33
+		ZOffset: -9999
+		ZRamp: 1
+		-DepthSprite:
+	damaged-bib:
+		Start: 35
+		ZOffset: -9999
+		ZRamp: 1
+		-DepthSprite:
+	dead-bib:
+		Start: 35
+		ZOffset: -9999
+		ZRamp: 1
+		-DepthSprite:
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 21
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		-DepthSprite:
+	icon: cabprocicon2
+		Offset: 0, 0
+		UseTilesetCode: false
+		-DepthSprite:
+
+cabgrinder:
+	## Defaults:
+	#	# Offset: 8, -32, 32
+	#	# UseTilesetCode: false
+	## idle:
+	#	# Start: 30
+	#	# Length: 20
+	#	# ShadowStart: 99
+	#	# Tick: 75
+	## damaged-idle:
+	#	# Start: 50
+	#	# Length: 20
+	#	# ShadowStart: 120
+	#	# Tick: 75
+	## dead:
+	#	# Start: 31
+	#	# ShadowStart: 63
+	#	# Tick: 400
+	## emp-overlay: emp_fx01
+	#	# Length: *
+	#	# Offset: 0, 0
+	#	# UseTilesetCode: false
+	#	# ZOffset: 512
+	#	# BlendMode: Additive
+	## make:
+	#	# Length: 29
+	## icon: cabgrindericon
+	#	# Offset: 0, 0
+	#	# UseTilesetCode: false
+
+cabobelisk:
+	Defaults:
+		Offset: 0, -24, 24
+		UseTilesetCode: false
+	idle:
+		Start: 30
+		Length: 5
+		Tick: 65
+	damaged-idle:
+		Start: 42
+		Length: 6
+		Tick: 65
+	dead:
+		Start: 42
+		Length: 6
+		Tick: 400
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	active:
+	make:
+		Length: 24
+	icon: cabobeliskicon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+cabradr:
+	Defaults:
+		Offset: 0, -36, 36
+		UseTilesetCode: false
+	idle:
+		Start: 31
+		Length: 14
+		Tick: 100
+	damaged-idle:
+		Start: 46
+		Length: 14
+		Tick: 100
+	dead:
+		Start: 45
+		Tick: 400
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	make:
+		Length: 29
+	icon: cabradricon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+cabweap:
+	Defaults:
+		Offset: -12, -42
+		UseTilesetCode: false
+	idle:
+		Start: 87
+		ZOffset: -1026
+	damaged-idle:
+		Start: 88
+		ZOffset: -1026
+	idle-roof:
+		Start: 89
+		ZOffset: 1024
+	damaged-idle-roof:
+		Start: 90
+		ZOffset: 1024
+	dead:
+		Start: 2
+		Tick: 400
+	build-door:
+		Start: 36
+		Length: 9
+		ZOffset: -2048
+	damaged-build-door:
+		Start: 36
+		Length: 9
+		ZOffset: -2048
+	make:
+		Start: 4
+		Length: 30
+		Tick: 40
+	bib:
+		Start: 2
+		ZOffset: -2048
+	damaged-bib:
+		Start: 3
+		ZOffset: -2048
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	dead-bib: cabweap_bb
+		Start: 2
+		ZOffset: -2048
+	icon: cabweapicon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+cabair:
+	Defaults:
+		Offset: 0, -36, 36
+		UseTilesetCode: false
+	idle:
+		Start: 20
+	damaged-idle:
+		Start: 37
+	dead:
+		Start: 37
+		Tick: 400
+	lights:
+		Start: 21
+		Length: 11
+		Tick: 100
+	damaged-lights:
+		Start: 32
+		Length: 11
+		Tick: 100
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	make:
+		Length: 20
+		Tick: 60
+	icon: cabairicon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+cabtech:
+	Defaults:
+		Offset: -12, -30, 30
+		UseTilesetCode: false
+	idle:
+		Start: 31
+		Length: 18
+		Tick: 100
+	damaged-idle:
+		Start: 51
+		Length: 18
+		Tick: 100
+	dead:
+		Start: 51
+		Tick: 400
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	make:
+		Length: 30
+	icon: cabtechicon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+cabsentryturret:
+	Defaults:
+		Offset: 0, -12, 18
+		UseTilesetCode: false
+	idle: dot
+	damaged-idle: dot
+	dead: dot
+		Tick: 400
+	make:
+	turret:
+		Facings: -32
+		ZOffset: -512
+	damaged-turret:
+		Facings: -32
+		ZOffset: -512
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	icon: cabcannonicon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+cabcannon:
+	Defaults:
+		Offset: 0, -12, 18
+		UseTilesetCode: false
+	idle: dot
+	damaged-idle: dot
+	dead: dot
+		Tick: 400
+	turret:
+		Start: 31
+		Facings: 32
+		Offset: 0,-12
+	damaged-turret:
+		Start: 64
+		Facings: 32
+		Offset: 0,-12
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	muzzle: gunfire
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+	make:
+		Length: 25
+	icon: cabcannonicon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+cabpit:
+	Defaults:
+		Offset: 0, -24, 24
+		UseTilesetCode: false
+	idle:
+		Start: 30
+	damaged-idle:
+		Start: 31
+	dead:
+		Start: 31
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	make:
+		Length: 30
+	icon: cabpiticon
+		Offset: 0, 0
+		UseTilesetCode: false
+		AllowModifiers: false
+
+cabnexus:
+	Defaults:
+		Offset: 0, -18, 36
+		UseTilesetCode: false
+	idle:
+		Start: 30
+	damaged-idle:
+		Start: 31
+	dead:
+		Start: 31
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	make:
+		Length: 30
+	icon: cabnexusicon
+		Offset: 0, 0
+		UseTilesetCode: false
+		AllowModifiers: false
+
+cabblast:
+	Defaults:
+		Offset: 0, -12, 18
+		UseTilesetCode: false
+	idle:
+		Start: 94
+	damaged-idle:
+		Start: 94
+	dead:
+		Start: 94
+		Tick: 400
+	turret:
+		Start: 30
+		Facings: 32
+	damaged-turret:
+		Start: 62
+		Facings: 32
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	make:
+		Length: 29
+	icon: cablasticon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+cabrail:
+	Defaults:
+		Offset: 0, -12, 18
+		UseTilesetCode: false
+	idle: dot
+	damaged-idle: dot
+	dead: dot
+	turret:
+		Start: 26
+		Facings: 32
+	damaged-turret:
+		Start: 26
+		Facings: 32
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	make:
+		Length: 24
+	icon: cabrailicon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+cabeye:
+	Defaults:
+		Offset: 0, -24, 24
+		UseTilesetCode: false
+	idle:
+		Start: 30
+		Length: 17
+		Tick: 90
+	damaged-idle:
+		Start: 48
+		Length: 17
+		Tick: 90
+	dead:
+	make:
+		Length: 29
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	icon: cabeyeicon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+cabsw1:
+	Defaults:
+		Offset: 0, -36, 36
+		UseTilesetCode: false
+	idle: dot
+	damaged-idle: dot
+	dead: dot
+	turret:
+		Start: 31
+		Facings: 32
+	damaged-turret:
+		Start: 63
+		Facings: 32
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	make:
+		Length: 29
+	icon: cabsw1icon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+nanomachineswarmdummy:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Offset: 0,-36
+	idle: dot
+		UseTilesetCode: false
+		ZOffset: -1024
+	make: smokebomb4
+		Length: 19
+		UseTilesetCode: false
+		ZOffset: -1024
+	stand: smokebomb4
+		Start: 19
+		Length: 25
+		Tick: 100
+		UseTilesetCode: false
+		ZOffset: -1024
+	die: smokebomb4
+		Start: 45
+		Length: 15
+		UseTilesetCode: false
+		ZOffset: -1024
+
+gate_a.cab:
+	Inherits: gate_a.nod
+	icon: cabgate2icon
+
+gate_b.cab:
+	Inherits: gate_b.nod
+	icon: cabgate1icon

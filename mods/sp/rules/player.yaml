@@ -1,0 +1,85 @@
+^BasePlayer:
+	AlwaysVisible:
+	Shroud:
+
+EditorPlayer:
+	Inherits: ^BasePlayer
+
+Player:
+	Inherits: ^BasePlayer
+	AlwaysVisible:
+	TechTree:
+	GrantConditionOnPrerequisiteManager:
+	ClassicProductionQueue@Building:
+		Type: Building
+		LowPowerSlowdown: 2
+		QueuedAudio: Building
+		BuildDurationModifier: 100
+		ReadyAudio: ConstructionComplete
+		SpeedUp: True
+		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
+	ClassicProductionQueue@Defense:
+		Type: Defense
+		LowPowerSlowdown: 2
+		QueuedAudio: Building
+		BuildDurationModifier: 100
+		ReadyAudio: ConstructionComplete
+		SpeedUp: True
+		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
+	ClassicProductionQueue@Vehicle:
+		Type: Vehicle
+		LowPowerSlowdown: 2
+		QueuedAudio: Building
+		BuildDurationModifier: 100
+		SpeedUp: True
+		BuildTimeSpeedReduction: 100, 90, 75, 50
+	ClassicProductionQueue@Infantry:
+		Type: Infantry
+		LowPowerSlowdown: 2
+		QueuedAudio: Building
+		SpeedUp: True
+		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
+	ClassicProductionQueue@Air:
+		Type: Air
+		BuildDurationModifier: 100
+		LowPowerSlowdown: 2
+		QueuedAudio: Building
+		SpeedUp: True
+		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
+	PlaceBuilding:
+		Palette: placebuilding
+	SupportPowerManager:
+	ScriptTriggers:
+	MissionObjectives:
+	ConquestVictoryConditions:
+	PowerManager:
+	AllyRepair:
+	PlayerResources:
+	DeveloperMode:
+		CheckboxEnabled: false
+		CheckboxDisplayOrder: 8
+	ProvidesTechPrerequisite@high:
+		Name: No Superweapons
+		Prerequisites: techlevel.infonly, techlevel.low, techlevel.medium, techlevel.high
+		Id: nosuperweapons
+	ProvidesTechPrerequisite@unrestricted:
+		Name: Unrestricted
+		Prerequisites: techlevel.infonly, techlevel.low, techlevel.medium, techlevel.high, techlevel.unrestricted
+		Id: unrestricted
+	Shroud:
+		FogCheckboxDisplayOrder: 3
+		ExploredMapCheckboxEnabled: True
+	FrozenActorLayer:
+	BaseAttackNotifier:
+		NotifyInterval: 20
+		AllyNotification: OurAllyIsUnderAttack
+	HarvesterAttackNotifier:
+	PlayerStatistics:
+	PlaceSimpleBeacon:
+	ResourceStorageWarning:
+		AdviceInterval: 120
+	PlayerExperience:
+	SharedCargoManager:
+		MaxWeight: 15
+	TeleportNetworkManager:
+		Type: mutantteleportnetwork

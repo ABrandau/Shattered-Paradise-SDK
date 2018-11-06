@@ -1,0 +1,152 @@
+^EmpOverlay:
+	Defaults:
+		Offset: 0, 0, 32
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 37
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	veins: veinatac
+		Length: 12
+		UseTilesetExtension: true
+		ZOffset: 1023
+		Offset: 0, -12, 37
+	cloud: cloud2
+		Length: *
+		Offset: 0,-12
+		ZOffset: 512
+	smoketrailsmall: smoketrailsmall
+		Length: *
+	sparks: sparks3
+		Length: *
+	muzzle: gunfire
+		Length: *
+		Offset: 0, 0, 28
+	bullparticle: bullparticle3
+		Length: *
+		Tick: 80
+	shield: shieldmedium
+		Length: 1
+		Offset: 0,12
+	dummy: dot
+		UseTilesetCode: false
+		ZOffset: -9999
+
+^InfantryDeathAnims:
+	Defaults:
+		Offset: 0, 0, 16
+	die3: infdie
+		Length: *
+	die4: infdeathexplo1
+		Length: *
+	die5: infdeathexplo2
+		Length: *
+	die6: electro
+		Length: *
+	die7: infdeathexplo3
+		Length: *
+	cloud: cloud2
+		Length: *
+		Offset: 0,-12
+		ZOffset: 512
+	diebody1: death_a
+		Length: *
+		Tick: 5000
+		ZOffset: -511
+	diebody2: death_b
+		Length: *
+		Tick: 5000
+		ZOffset: -511
+	diebody3: death_c
+		Length: *
+		Tick: 5000
+		ZOffset: -511
+	diebody4: death_d
+		Length: *
+		Tick: 5000
+		ZOffset: -511
+	diebody5: death_f
+		Length: *
+		Tick: 5000
+		ZOffset: -511
+	dieevaporate: infgas
+		Length: *
+		Offset: 0,-6, 32
+		Tick: 30
+	diemelt: infmelt
+		Length: *
+		Offset: 0,-6, 32
+	dieshatter: infshatter
+		Length: *
+		Offset: 0,-6, 32
+	diecristalize1: infcrystalize
+		Length: 21
+	diecristalize2: infcrystalize
+		Start: 21
+		Length: 21
+	webguy: webguy
+		Length: 6
+		ShadowStart: 6
+	shield: shieldsmall
+		Length: 1
+	emp-overlay: emp_fx01
+		Length: *
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	bullparticle: bullparticle2
+		Length: *
+
+^SpriteVehicle:
+	Inherits: ^EmpOverlay
+	idle:
+		Facings: -32
+		UseTilesetCode: false
+	stand:
+		Facings: -32
+		UseTilesetCode: false
+
+^SpriteVehicleWithShadow:
+	Inherits: ^EmpOverlay
+	idle:
+		Facings: -32
+		UseTilesetCode: false
+		ShadowStart: 32
+	stand:
+		Facings: -32
+		UseTilesetCode: false
+		ShadowStart: 32
+
+^SpriteVehicleWithShadowAndTurret:
+	Inherits: ^EmpOverlay
+	idle:
+		Facings: -32
+		UseTilesetCode: false
+		ShadowStart: 64
+	stand:
+		Facings: -32
+		UseTilesetCode: false
+		ShadowStart: 64
+	turret:
+		Start: 32
+		Facings: -32
+		UseTilesetCode: false
+
+^BuggyMuzzle:
+	muzzle0: mgun-n
+		Length: *
+	muzzle1: mgun-nw
+		Length: *
+	muzzle2: mgun-w
+		Length: *
+	muzzle3: mgun-sw
+		Length: *
+	muzzle4: mgun-s
+		Length: *
+	muzzle5: mgun-se
+		Length: *
+	muzzle6: mgun-e
+		Length: *
+	muzzle7: mgun-ne
+		Length: *

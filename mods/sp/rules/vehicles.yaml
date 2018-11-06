@@ -1,0 +1,2182 @@
+SMECH:
+	Inherits: ^Walker
+	Inherits@1: ^7CellVision
+	Inherits@2: ^BasicStealthDetection
+	Valued:
+		Cost: 450
+	Tooltip:
+		Name: Wolverine
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		Description: Small but fast anti-infantry walker.\n\nGood vs: Infantry\n\nSpecial:\n- Stealth detection.
+		BuildPaletteOrder: 2
+		Prerequisites: ~gaweap
+	Mobile:
+		TurnSpeed: 10
+		Speed: 100
+		Locomotor: Vehicle
+	Health:
+		HP: 20000
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	AutoTarget:
+	Armament:
+		Weapon: WolverineVulcan
+		PauseOnCondition: empdisable
+	Voiced:
+		VoiceSet: Mech
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithFacingSpriteBody:
+		Sequence: stand
+	WithAttackAnimation:
+		Sequence: shoot
+	WithMoveAnimation:
+		MoveSequence: run
+	Selectable:
+		Bounds: 20, 32, 0, -8
+
+MMCH:
+	Inherits: ^Walker
+	Inherits@1: ^8CellVision
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Titan
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 3
+		BuildAtProductionType: Tank
+		Description: Well balanced main battle walker armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can shoot over walls\n- Can crush infantry
+		Prerequisites: ~gaweap
+	Mobile:
+		TurnSpeed: 5
+		Speed: 80
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 40000
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	WithInfantryBody:
+	Turreted:
+		TurnSpeed: 4
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	WithSpriteTurret:
+		Recoils: no
+	Armament:
+		Weapon: Titan120mm
+		Recoil: 127
+		RecoilRecovery: 26
+		MuzzleSequence: muzzle
+		LocalOffset: 600, 300, 700
+		PauseOnCondition: empdisable
+	WithSpriteBarrel:
+		LocalOffset: 300, 250, 300
+	WithMuzzleOverlay:
+	AutoTarget:
+	Selectable:
+		Bounds: 30, 42, 0, -8
+
+APC:
+	Inherits: ^Tank
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Amphibious APC
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		Description: Armored infantry transport.\n\nGood vs: Infantry.\n\nSpecial:\n- Can transport 5 infantry units\n- Can travel over water\n- Can shoot over walls\n- Can crush infantry
+		BuildPaletteOrder: 4
+		Prerequisites: ~gaweap, gapile
+	Mobile:
+		TurnSpeed: 5
+		Speed: 85
+        Locomotor: AmphAPCLocomotor
+	Health:
+		HP: 35000
+	Turreted:
+		TurnSpeed: 5
+		Offset: -200,0,0
+	AttackTurreted:
+		PauseOnCondition: empdisable
+	GrantConditionOnTerrain:
+		Condition: inwater
+		TerrainTypes: Water
+	WithFacingSpriteBody:
+		RequiresCondition: !inwater
+	WithFacingSpriteBody@2:
+  		Sequence: idle-water
+		RequiresCondition: inwater
+	WithSpriteTurret:
+		RequiresCondition: !inwater
+	WithSpriteTurret@2:
+  		Sequence: turret-water
+		RequiresCondition: inwater
+	Cargo:
+		Types: Infantry
+		MaxWeight: 5
+		PipCount: 5
+		UnloadVoice: Unload
+		LoadingCondition: notmobile
+		EjectOnDeath: False
+	LeavesTrails:
+		Image: wake
+		Palette: effect
+		TerrainTypes: Water
+		StationaryInterval: 18
+		MovingInterval: 6
+	Armament@primary:
+		Weapon: APCGrenade
+		LocalOffset: 350,0,1000
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+		PauseOnCondition: empdisable
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	WithMuzzleOverlay:
+
+HVR:
+	Inherits@1: ^HoverTank
+	Inherits@3: ^BasicStealthDetection
+	Inherits@4: ^8CellVision
+	Valued:
+		Cost: 1100
+	Tooltip:
+		Name: Hover MLRS
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		Description: Hovering vehicle, armed with long range missiles.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack Air\n- Can shoot over walls\n- Hovers (it ignores terrain like Veins and Water)
+		BuildPaletteOrder: 5
+		Prerequisites: ~gaweap, garadr
+	Mobile:
+		Speed: 110
+		TurnSpeed: 14
+		Locomotor: Hover
+	Health:
+		HP: 25000
+	Armament:
+		Weapon: HoverMissile
+		LocalOffset: 100,150,384, 100,-150,384
+		PauseOnCondition: empdisable
+	Armament@AA:
+		Weapon: HoverMissileAA
+		LocalOffset: 100,150,384, 100,-150,384
+		PauseOnCondition: empdisable
+	Turreted:
+		TurnSpeed: 9
+		Offset: -300,0,100
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	WithMuzzleOverlay:
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+
+JUG:
+	Inherits: ^Walker
+	Inherits@1: ^5CellVision
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Juggernaut
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		Description: Heavy mechanized artillery walker.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can shoot over walls\n- Can crush infantry
+		BuildPaletteOrder: 6
+		Prerequisites: ~gaweap, gatech
+	Mobile:
+		TurnSpeed: 5
+		Speed: 60
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 21000
+	AttackFrontal:
+		Voice: Attack
+		Armaments: primary, secondary
+		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 16
+	Armament:
+		Weapon: JuggCannon
+		LocalOffset: 600, 200, 2650
+		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
+	Armament@1:
+		Weapon: JuggCannon
+		LocalOffset: 600, -200, 2650
+		Name: secondary
+		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
+	WithMuzzleOverlay:
+	Voiced:
+		VoiceSet: Mech
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithFacingSpriteBody:
+		Sequence: stand
+	WithAttackAnimation:
+		Sequence: shoot
+	WithMoveAnimation:
+		MoveSequence: run
+	Selectable:
+		Bounds: 40, 60, 0, -20
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
+
+SONIC:
+	Inherits: ^Tank
+	Inherits@1: ^8CellVision
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Disruptor
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		Description: Armored high-tech vehicle with sonic armament.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Deals damage over time to any unit in line of fire\n- Can crush infantry
+		BuildPaletteOrder: 7
+		Prerequisites: ~gaweap, gatech
+	Mobile:
+		TurnSpeed: 4
+		Speed: 70
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 55000
+	Armor@disruptor:
+		Type: Disruptor
+	BodyOrientation:
+		CameraPitch: 250
+	Armament:
+		Weapon: SonicZap
+		LocalOffset: 0,0,800
+		PauseOnCondition: empdisable
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	Turreted:
+		TurnSpeed: 3
+	#	# Offset: -410,0,0
+	AutoTarget:
+	WithFacingSpriteBody:
+	WithSpriteTurret:
+	WithMuzzleOverlay:
+
+G4TNK:
+	Inherits: ^Tank
+	Inherits@1: ^8CellVision
+	Inherits@2: ^IncompleteSelfHeal
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Mammoth Tank
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		Description: Heavy assault tank.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Selfheal to 50%\n- Can attack air\n- Only the Missiles can pass over walls\n- Can crush infantry
+		BuildPaletteOrder: 8
+		Prerequisites: ~gaweap, gatech
+	Mobile:
+		Speed: 60
+		TurnSpeed: 4
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 72000
+	Turreted:
+		TurnSpeed: 3
+		Offset: -200,0,0
+	Armament@PRIMARY:
+		Weapon: 4tnkgun
+		LocalOffset: 1150,120,550, 1150,-120,550
+		MuzzleSequence: muzzle
+		Recoil: 127
+		RecoilRecovery: 26
+		PauseOnCondition: empdisable
+	Armament@SECONDARY:
+		Weapon: MammothTusk
+		LocalOffset: 100,400,650, 100,-400,650
+		PauseOnCondition: empdisable
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	AutoTarget:
+	WithFacingSpriteBody:
+	WithSpriteTurret:
+	WithMuzzleOverlay:
+
+HMEC:
+	Inherits: ^Tank
+	Inherits@1: ^10CellVision
+	Inherits@2: ^PermanentSelfHeal
+	Inherits@3: ^CommandoIcon
+	Valued:
+		Cost: 3000
+	Tooltip:
+		Name: Mammoth MK.II
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 9
+		Prerequisites: ~gaweap, gtdrop
+		BuildAtProductionType: Mammoth
+		Description: GDI's super-heavy walker and the pride of their army.\n\nGood vs: Everything\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Can attack air\n- Can crush infantry\n- Immune to mind control\n- Can shoot over walls\n- Can crush vehicles and cyborgs\n- It is deployed via dropship at the Dropship Bay
+		BuildLimit: 1
+	Mobile:
+		TurnSpeed: 3
+		Speed: 40
+		Locomotor: VehicleCrusher
+	-Crushable:
+	Health:
+		HP: 200000
+	AnnounceOnSeen:
+		Notification: MammothDetected
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: empdisable
+		Turrets: primary, secondary, third
+		Armaments: primary, secondary, third
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
+	AutoTarget:
+	AmbientSound@WalkAnim:
+		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
+		Delay: 16
+		Interval: 16
+		RequiresCondition: walking
+	GrantConditionOnMovement:
+		Condition: walking
+	Armament:
+		Weapon: MKIITusk
+		LocalOffset: 0,0,2800
+		Turret: secondary
+		Name: secondary
+		PauseOnCondition: empdisable
+	Armament@1:
+		Weapon: MKIITusk
+		LocalOffset: 0,0,2800
+		Turret: third
+		Name: third
+		FireDelay: 5
+		PauseOnCondition: empdisable
+	Armament@3:
+		Weapon: MechRailgun
+		LocalOffset: 1200,-250,2650, 1200,250,2650
+		PauseOnCondition: empdisable
+		MuzzleSequence: muzzle
+	Armament@4:
+		Weapon: MechRailgun2
+		LocalOffset: 1200,-250,2650, 1200,250,2650
+		PauseOnCondition: empdisable
+		MuzzleSequence: muzzle
+	Targetable@MindControl:
+		TargetTypes: MindControlInmune
+	Turreted:
+		Offset: -500,0,0
+		TurnSpeed: 3
+	Turreted@2:
+		Offset: 600,300,-400
+		TurnSpeed: 6
+		Turret: secondary
+	Turreted@3:
+		Offset: 600,-300,-400
+		TurnSpeed: 6
+		Turret: third
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	WithSpriteTurret@2
+		Sequence: turret2
+		Turret: secondary
+	WithSpriteTurret@3
+		Sequence: turret2
+		Turret: third
+	WithFacingSpriteBody:
+	Passenger:
+		PipType: red
+	WithMoveAnimation:
+		MoveSequence: run
+	Selectable:
+		Bounds: 40, 40, 0, -8
+	SharedPassenger:
+		PipType: Red
+
+NODMCV:
+	Inherits: MCV
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 110
+		BuildAtProductionType: Tank
+		Prerequisites: ~naweap, gadept
+	Tooltip:
+		Name: Nod MCV
+	-RenderVoxels:
+	-WithVoxelBody:
+	RenderSprites:
+		-Image:
+	WithFacingSpriteBody:
+	WithMoveAnimation:
+		MoveSequence: run
+	Transforms:
+		IntoActor: nodyard
+		Offset: -1,-1
+		Facing: 96
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+
+BGGY:
+	Inherits: ^Tank
+	Inherits@1: ^AutoTargetGround
+	Inherits@2: ^7CellVision
+	Inherits@3: ^BasicStealthDetection
+	Valued:
+		Cost: 350
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		Description: Fast vehicle armed with a machine, has room for one passenger that modifies the weapon of the vehicle.\n\nGood vs: Changes depending on the passenger.\n\nSpecial:\n- The weapon of the vehicle changes with the passenger.\n- Stealth detection.\n- Units inside deal 20% extra damage.
+		BuildPaletteOrder: 10
+		Prerequisites: ~naweap, ~!AImoney
+	Mobile:
+		TurnSpeed: 16
+		Speed: 135
+		Locomotor: Vehicle
+	Turreted:
+		Offset: -250,0,400
+		TurnSpeed: 8
+	Health:
+		HP: 17500
+	WithMuzzleOverlay:
+	############################################
+	# Conditions
+	############################################
+	Cargo:
+		MaxWeight: 1
+		PipCount: 1
+		Types: Infantry
+		LoadedCondition: loaded
+		PassengerConditions:
+			altnode1: ifv.militant
+			gdie1: ifv.militant
+			marauder: ifv.militant
+			cyborg: ifv.militant
+			worker: ifv.militant
+			cyberdog: ifv.militant
+			crusader: ifv.crusader
+			grenadier: ifv.crusader
+			mutfiend: ifv.crusader
+			cborg: ifv.crusader
+			legio: ifv.crusader
+			engineer: ifv.engineer
+			e2: ifv.engineer
+			shapeshifter: ifv.engineer
+			swarmling: ifv.engineer
+			templar: ifv.templar
+			nconf: ifv.nconf
+			bhs: ifv.bhs
+			jumpjet: ifv.jumpjet
+			eagleguard: ifv.eagleguard
+			medic: ifv.medic
+			e3: ifv.skirmisher
+			seer: ifv.seer
+			psyker: ifv.psyker
+			glad: ifv.glad
+			cyc2: ifv.cyc2
+			moth: ifv.moth
+			pdrone: ifv.pdrone
+			shark: ifv.shark
+			bug: ifv.bug
+			colossi: ifv.colossi
+			float: ifv.float
+	############################################
+	# Armaments
+	############################################
+	Armament:
+		Weapon: BuggyCannon
+		LocalOffset: 250,0,125
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+		RequiresCondition: !loaded
+	Armament@militant1:
+		Weapon: BuggyCannonLoaded
+		LocalOffset: 250,0,125
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+		RequiresCondition: ifv.militant
+	Armament@crusa:
+		Weapon: CrusaderBazooka
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.crusader
+	Armament@crusaaa:
+		Weapon: CrusaderBazookaAA
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.crusader
+	Armament@templar:
+		Weapon: TemplarFlame
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.templar
+	Armament@nconf:
+		Weapon: TemplarLasor
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.nconf
+	Armament@bhs:
+		Weapon: BHRifle
+		LocalOffset: 250,0,125
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+		RequiresCondition: ifv.bhs
+	Armament@jumpjet:
+		Weapon: JJGrenade
+		LocalOffset: 250,0,125
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+		RequiresCondition: ifv.jumpjet
+	Armament@medic:
+		Weapon: Heal
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.medic
+		TargetStances: Ally
+		ForceTargetStances: None
+	Armament@engineer:
+		Weapon: BuggyRepair
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.engineer
+		TargetStances: Ally
+		ForceTargetStances: None
+	Armament@eagleguard:
+		Weapon: TrooperRail
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.eagleguard
+	Armament@skirmisher:
+		Weapon: SkirmisherMortar
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.skirmisher
+	Armament@seer:
+		Weapon: SeerTesla
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.seer
+	Armament@seerAA:
+		Weapon: SeerTeslaAA
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.seer
+	Armament@psyker:
+		Weapon: PsykerRay
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.psyker
+	Armament@shark:
+		Weapon: SharkJumpNod
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.shark
+	Armament@bug:
+		Weapon: FloatGlaive
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.bug
+	Armament@colossi:
+		Weapon: ColossiShard
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.colossi
+	Armament@float:
+		Weapon: FloatTesla
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.float
+	Armament@pdrone:
+		Weapon: ReclaimerHit
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.pdrone
+	Armament@glad:
+		Weapon: GLAD120mm
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.glad
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+	Armament@glad2:
+		Weapon: GLAD120mm
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.glad
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+	Armament@moth:
+		Weapon: LurkerProj
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.moth
+	Armament@cyc2:
+		Weapon: CyCannon
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.cyc2
+	AttackTurreted:
+		PauseOnCondition: empdisable
+	###################################
+	# Turret Graphics
+	###################################
+	WithSpriteTurret@asd:
+		Sequence: turret-none
+		RequiresCondition: !loaded
+	WithSpriteTurret@militant:
+		Sequence: turret-minigun
+		RequiresCondition: ifv.militant
+	WithSpriteTurret@rocket:
+		Sequence: turret-rocket
+		RequiresCondition: ifv.crusader
+	WithSpriteTurret@flame:
+		Sequence: turret-flame
+		RequiresCondition: ifv.templar
+	WithSpriteTurret@laser:
+		Sequence: turret-laser
+		RequiresCondition: ifv.nconf || ifv.bhs
+	WithSpriteTurret@chainsaw:
+		Sequence: turret-chainsaw
+		RequiresCondition: ifv.pdrone || ifv.shark
+	WithSpriteTurret@medic:
+		Sequence: turret-medic
+		RequiresCondition: ifv.medic
+	WithSpriteTurret@eagleguard:
+		Sequence: turret-eagleguard
+		RequiresCondition: ifv.eagleguard
+	WithSpriteTurret@abductor:
+		Sequence: turret-abductor
+		RequiresCondition: ifv.moth
+	WithSpriteTurret@glad:
+		Sequence: turret-glad
+		RequiresCondition: ifv.glad
+	WithSpriteTurret@engineer:
+		Sequence: turret-engineer
+		RequiresCondition: ifv.engineer
+	WithSpriteTurret@cyc2:
+		Sequence: turret-cyc2
+		RequiresCondition: ifv.cyc2
+	WithSpriteTurret@mortar:
+		Sequence: turret-mortar
+		RequiresCondition: ifv.jumpjet || ifv.skirmisher
+	WithSpriteTurret@tesla:
+		Sequence: turret-tesla
+		RequiresCondition: ifv.seer || ifv.psyker
+	WithSpriteTurret@cyc2:
+		Sequence: turret-cyc2
+		RequiresCondition: ifv.cyc2
+	WithSpriteTurret@bug:
+		Sequence: turret-bug
+		RequiresCondition: ifv.bug
+	WithSpriteTurret@float:
+		Sequence: turret-float
+		RequiresCondition: ifv.float
+	WithSpriteTurret@colossi:
+		Sequence: turret-colossi
+		RequiresCondition: ifv.colossi
+	############################################
+	# Names
+	############################################
+	Tooltip:
+		Name: Raider Buggy
+		RequiresCondition: !loaded
+	Tooltip@militant:
+		Name: Anti Infantry Buggy
+		RequiresCondition: ifv.militant
+	Tooltip@crusader:
+		Name: Anti Vehicle Buggy
+		RequiresCondition: ifv.crusader
+	Tooltip@templar:
+		Name: Flame Buggy
+		RequiresCondition: ifv.templar
+	Tooltip@nconf:
+		Name: Black Hand Buggy
+		RequiresCondition: ifv.nconf
+	Tooltip@bhs:
+		Name: Toxin Commando Buggy
+		RequiresCondition: ifv.bhs
+	Tooltip@jumpjet:
+		Name: Grenade Launcher Buggy
+		RequiresCondition: ifv.jumpjet
+	Tooltip@eagleguard:
+		Name: Eagle Guard Buggy
+		RequiresCondition: ifv.eagleguard
+	Tooltip@medic:
+		Name: Medical Buggy
+		RequiresCondition: ifv.medic
+	Tooltip@skirmisher:
+		Name: Skirmisher Buggy
+		RequiresCondition: ifv.skirmisher
+	Tooltip@Engineer:
+		Name: Engineer Buggy
+		RequiresCondition: ifv.engineer
+	Tooltip@seer:
+		Name: Tyrant Buggy
+		RequiresCondition: ifv.seer
+	Tooltip@psyker:
+		Name: Lyra Buggy
+		RequiresCondition: ifv.psyker
+	Tooltip@glad:
+		Name: Gladiator Buggy
+		RequiresCondition: ifv.glad
+	Tooltip@cyc2:
+		Name: Cyborg Commando Buggy
+		RequiresCondition: ifv.cyc2
+	Tooltip@moth:
+		Name: Abductor Buggy
+		RequiresCondition: ifv.moth
+	Tooltip@pdrone:
+		Name: Flood Buggy
+		RequiresCondition: ifv.pdrone
+	Tooltip@shark:
+		Name: RazorBuggy
+		RequiresCondition: ifv.shark
+	Tooltip@bug:
+		Name: Plague Buggy
+		RequiresCondition: ifv.bug
+	Tooltip@colossi:
+		Name: Colossal Buggy
+		RequiresCondition: ifv.colossi
+	Tooltip@float:
+		Name: Essential Buggy
+		RequiresCondition: ifv.float
+
+ROCKETBGGY:
+	Inherits: BGGY
+	Valued:
+		Cost: 600
+	EditorOnlyTooltip:
+		Name: Rocket Buggy
+	RenderSprites:
+		Image: bggy
+	Buildable:
+		Prerequisites: ~naweap, ~AImoney
+	Cargo:
+		InitialUnits: crusader
+
+FLAMEBGGY:
+	Inherits: BGGY
+	Valued:
+		Cost: 800
+	RenderSprites:
+		Image: bggy
+	Buildable:
+		Prerequisites: ~naweap, naradr, ~AImoney
+	Cargo:
+		InitialUnits: templar
+	EditorOnlyTooltip:
+		Name: Flame Buggy
+
+TTNK:
+	Inherits: ^Tank
+	Inherits@2: ^SpriteActor
+	Inherits@3: ^8CellVision
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Tick Tank
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 11
+		Description: Nod´s main battle tank armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can deploy to gain extra protection\n- Can crush infantry
+		Prerequisites: ~naweap
+	Mobile:
+		TurnSpeed: 8
+		Speed: 90
+		Locomotor: InfantryCrusherVehicle
+		RequiresCondition: undeployed && !empdisable
+	Health:
+		HP: 35000
+	RejectsOrders@deployment:
+		Reject: Move, EnterTransport, EnterTransports
+		RequiresCondition: deployed
+	Armor:
+		RequiresCondition: undeployed
+	Armor@deployed:
+		Type: ConcreteArmor
+		RequiresCondition: deployed
+	Armament@PRIMARY:
+		Weapon: Tick90mm
+		LocalOffset: 350,-0,400
+		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
+	Armament@DEPLOYED:
+		Name: deployed
+		Turret: deployed
+		Recoil: 0c128
+		Weapon: Tick90mm
+		LocalOffset: 256,-0,600
+		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
+	WithMuzzleOverlay:
+	RenderSprites:
+		Image: ttnk
+	WithMakeAnimation:
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		Facing: 160
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
+		DeploySound: place2.aud
+		CanDeployOnRamps: True
+		UndeploySound: clicky1.aud
+		PauseOnCondition: RefineryLock
+	Carryable:
+		RequiresCondition: undeployed
+	WithFacingSpriteBody:
+		Sequence: idle
+		RequiresCondition: undeployed
+	WithSpriteBody@deployed:
+		Sequence: deployed
+		RequiresCondition: !undeployed
+	AttackFrontal:
+		Voice: Attack
+		RequiresCondition: undeployed
+		PauseOnCondition: empdisable
+	Turreted:
+		TurnSpeed: 5
+		Turret: deployed
+		InitialFacing: 160
+		RealignDelay: -1
+	WithSpriteTurret@deployed:
+		Turret: deployed
+		RequiresCondition: deployed
+		Armament: deployed
+	AttackTurreted@deployed:
+		Voice: Attack
+		Turrets: deployed
+		RequiresCondition: deployed
+		PauseOnCondition: empdisable
+	AutoTarget:
+	ExternalCondition@deployed:
+		Condition: deployed
+	ExternalCondition@undeployed:
+		Condition: undeployed
+	ExternalCondition@RefineryLock:
+		Condition: RefineryLock
+
+TICKHOLOGRAM:
+	Inherits: TTNK
+	Inherits@1: ^3CellVision
+	Inherits@2: ^HologramKillTimer
+	-Buildable:
+	EditorOnlyTooltip:
+		Name: Tick Tank Hollogram
+	WithDecoration@holoicon:
+		Image: holoicon
+		Sequence: idle
+		ReferencePoint: Bottom, Right
+		Palette: mouse
+	Mobile:
+		Locomotor: Vehicle
+	-Explodes:
+	-GrantConditionOnDeploy:
+	-WithSpriteBody@deployed:
+	WithFacingSpriteBody:
+		Sequence: idle
+		-RequiresCondition: undeployed
+	RenderSprites:
+		Image: ttnk
+	RenderVoxels:
+		Image: ttnk
+	FirepowerMultiplier@Hologram:
+		Modifier: 20
+		BaseLevel: 0
+	WithDeathAnimation@body:
+		DeathSequencePalette: apolra2i
+		DeathPaletteIsPlayerPalette: False
+		DeathTypes:
+			BulletDeath: evaporate
+			CabalDeath: evaporate
+			CabalDeathCrate: evaporate
+			BlackHandRfle: evaporate
+			HeadshotDeath: evaporate
+			SmallExplosionDeath: evaporate
+			FireDeath: evaporate
+			TiberiumDeath: evaporate
+			TiberiumDeathStrong: evaporate
+			EnergyDeath: evaporate
+			ExplosionDeath: evaporate
+	-ThrowsShrapnel:
+	Mobile:
+		-RequiresCondition: undeployed
+	-AttackTurreted@deployed:
+	AttackFrontal:
+		-RequiresCondition: undeployed
+	KillsSelf@KillMe:
+		RequiresCondition: KillMe
+	ExternalCondition@KillMe:
+		Condition: KillMe
+	-ActorLostNotification:
+
+BIKE:
+	Inherits: ^Vehicle
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Demo Bike
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 12
+		Description: Fast moving suicide vehicle.\n\nGood vs: Ground Targets\n\nSpecial:\n- Can deploy to explode
+		Prerequisites: ~naweap, naradr
+	-ActorLostNotification:
+	Mobile:
+		TurnSpeed: 10
+		Speed: 95
+		Locomotor: Vehicle
+	Armor@Bike:
+		Type: Bike
+	Health:
+		HP: 6000
+	WithRangeCircle:
+		Range: 3c0
+		Type: DemoBike
+	RenderSprites:
+	Explodes:
+		Weapon: BikeExplo
+		EmptyWeapon: BikeExplo
+	AttackSuicides:
+		PauseOnCondition: empdisable
+	WithDecoration@TNT:
+		Image: bombicon
+		Sequence: idle
+		ReferencePoint: Bottom, Left
+		Palette: mouse
+		ShowToEnemies: true
+	AutoTarget:
+	AttackFrontal:
+
+SAPC:
+	Inherits: ^SubterraneanVoxelVehicle
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Subterranean APC
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 13
+		BuildAtProductionType: Tank
+		Prerequisites: ~naweap, naradr
+		Description: Troop transport that can move underground.\n\nSpecial:\n- Can move underground.\n- Can transport up to 5 infantry.\n- Can crush infantry.\n- Cannot receive orders but halt when underground.
+	Mobile:
+		TurnSpeed: 5
+		Speed: 80
+		RequiresCondition: !empdisable && !loading
+	Health:
+		HP: 20000
+	Cargo:
+		Types: Infantry
+		MaxWeight: 5
+		PipCount: 5
+		UnloadVoice: Unload
+		LoadingCondition: loading
+
+SUBTANK:
+	Inherits: ^SubterraneanVoxelVehicle
+	Inherits@1: ^8CellVision
+	Inherits@2: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Devil's Tongue
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		Description: Subterranean flame tank able to move underground.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Can move underground.\n- Can crush infantry.\n- Cannot receive orders but halt when underground.
+		BuildPaletteOrder: 14
+		Prerequisites: ~naweap, natech
+	Mobile:
+		TurnSpeed: 8
+		Speed: 90
+	Health:
+		HP: 25000
+	Armament:
+		Weapon: DevilsFlame
+		LocalOffset: 0,400,0
+		PauseOnCondition: empdisable
+	Armament@secondary:
+		Weapon: DevilsFlame
+		LocalOffset: 0,-400,0
+		PauseOnCondition: empdisable
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	AutoTarget:
+
+HOWTLIZER:
+	Inherits: ^Tank
+	Inherits@1: ^5CellVision
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Specter
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		Description: High tech artillery armed with a self-propelled howitzer\nand cloak generators.\n\nGood vs: Ground Targets\n- Can shoot over walls\n- Can crush infantry\n- Cloaks when not firing\n- Cloaking malfunctions when at red hp
+		BuildPaletteOrder: 15
+		Prerequisites: ~naweap, natech
+	Health:
+		HP: 12000
+	Mobile:
+		Speed: 55
+		TurnSpeed: 5
+		Locomotor: InfantryCrusherVehicle
+	-Cloak@CLOAKGENERATOR:
+	Cloak@cloakgenerator:
+		InitialDelay: 170
+		CloakDelay: 170
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
+		RequiresCondition: !CloakBreaks && !empdisable
+	WithIdleOverlay@shield:
+		Sequence: shield
+		IsPlayerPalette: true
+		Palette: cloakscrinshield
+	WithMuzzleOverlay:
+	Armament:
+		Weapon: SpectreCannon
+		LocalOffset: 600,0,1500
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
+		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 19
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	AutoTarget:
+	-MustBeDestroyed:
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
+	GrantConditionOnDamageState@CloakBreaks:
+		Condition: CloakBreaks
+		ValidDamageStates: Critical
+
+STNK:
+	Inherits: ^Tank
+	Inherits@1: ^8CellVision
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Stealth Tank
+	Buildable:
+		BuildPaletteOrder: 16
+		BuildAtProductionType: Tank
+		Prerequisites: ~naweap, natech
+		Description: High tech tank armed with rocket launchers and equipped with a personal mobile stealth generator.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Stealthed\n- Can attack air\n- Can shoot over walls\n- Can crush infantry\n- Cloaking malfunctions when at red hp
+		Queue: Vehicle
+	Mobile:
+		TurnSpeed: 12
+		Speed: 100
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 20000
+	WithIdleOverlay@shield:
+		Sequence: shield
+		IsPlayerPalette: true
+		Palette: cloakscrinshield
+	GrantConditionOnDamageState@CloakBreaks:
+		Condition: CloakBreaks
+		ValidDamageStates: Critical
+	Cloak@cloakgenerator:
+		InitialDelay: 80
+		CloakDelay: 80
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
+		RequiresCondition: !CloakBreaks && !empdisable
+	Armament:
+		Weapon: StealthRocket
+		LocalOffset: 400,100,300, 400,-100,300
+		PauseOnCondition: empdisable
+	Armament@Secondary:
+		Weapon: StealthRocketAA
+		LocalOffset: 400,100,300, 400,-100,300
+		PauseOnCondition: empdisable
+	Turreted:
+		Offset: 0,0,600
+		TurnSpeed: 6
+	WithSpriteTurret:
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: ReturnFire
+	-MustBeDestroyed:
+	Voiced:
+		VoiceSet: StealthTankVO
+		Volume: 7
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
+
+#####################################################################
+# FORGOTTEN
+#####################################################################
+
+MUTMCV:
+	Inherits: MCV
+	Inherits@1: ^MutRender
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 110
+		Prerequisites: ~muweap, gadept
+	Tooltip:
+		Name: Mutant MCV
+	-RenderVoxels:
+	-WithVoxelBody:
+	RenderSprites:
+		-Image:
+	WithFacingSpriteBody:
+	WithMoveAnimation:
+		MoveSequence: run
+	Transforms:
+		IntoActor: mutyard
+		Offset: -1,-1
+		Facing: 160
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+	Voiced:
+		VoiceSet: MutantMCV
+		Volume: 0.8
+
+MUTQUAD:
+	Inherits: ^Tank
+	Inherits@2: ^BasicStealthDetection
+	Inherits@3: ^MutRender
+	Inherits@4: ^8CellVision
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Quad Cannon
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 17
+		Description: Armored truck armed with a quad cannon.\n\nGood vs: Infantry, Aircraft\n\nSpecial:\n- Stealth detection\n- Can crush infantry
+		Prerequisites: ~muweap
+	Mobile:
+		TurnSpeed: 7
+		Speed: 80
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 25000
+	Voiced:
+		VoiceSet: Trike
+		Volume: 3
+	WithFacingSpriteBody:
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	Armament@primary:
+		Weapon: QuadFire
+		MuzzleSequence: muzzle
+		LocalOffset: 800,0,700
+		MuzzlePalette: apgrey
+		PauseOnCondition: empdisable
+	Armament@Secondary:
+		Weapon: QuadFireAA
+		MuzzleSequence: muzzle
+		MuzzlePalette: apgrey
+		LocalOffset: 800,0,700
+		PauseOnCondition: empdisable
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	Turreted:
+		TurnSpeed: 6
+		Offset: -300,0,0
+	AutoTarget:
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+
+LYNX:
+	Inherits: ^Tank
+	Inherits@2: ^SpriteActor
+	Inherits@3: ^MutRender
+	Inherits@4: ^8CellVision
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		Description: Light tank armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can crush infantry
+		BuildPaletteOrder: 18
+		Prerequisites: ~muweap
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Lynx Tank
+	Mobile:
+		TurnSpeed: 10
+		Speed: 95
+		Locomotor: InfantryCrusherVehicle
+	WithFacingSpriteBody:
+	Health:
+		HP: 30000
+	Voiced:
+		VoiceSet: Trike
+		Volume: 3
+	Turreted:
+		TurnSpeed: 6
+		Offset: 150,0,0
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	AutoTarget:
+	WithSpriteTurret:
+	WithMuzzleOverlay:
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	Armament:
+		Weapon: LynxCannon
+		LocalOffset: 400,0,600
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+		Recoil: 0c128
+		PauseOnCondition: empdisable
+
+STRUCK:
+	Inherits: ^Tank
+	Inherits@2: ^6CellVision
+	Inherits@3: ^MutRender
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Battle Bus
+	Buildable:
+		BuildAtProductionType: Tank
+		Description: Combat transport.\n\nGood vs: Depends what has been garrisoned\n\nSpecial:\n- Cargo for 5 soldiers.\n- Passengers can fire from inside the vehicle.
+		Queue: Vehicle
+		BuildPaletteOrder: 19
+		Prerequisites: ~muweap, murax, ~!AImoney
+	Mobile:
+		TurnSpeed: 10
+		Speed: 100
+		Locomotor: Vehicle
+	Health:
+		HP: 40000
+	Voiced:
+		VoiceSet: Trike
+		Volume: 3
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	-GainsExperience:
+	WithFacingSpriteBody:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 5
+		PipCount: 5
+		UnloadVoice: Unload
+		LoadingCondition: notmobile
+	AutoTarget:
+	AttackGarrisoned:
+		PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
+		PortYaws: 0, 176, 341, 512, 682, 853
+		PortCones: 1086, 86, 86, 86, 86, 86
+
+STRUCKFULL:
+	Inherits: STRUCK
+	Buildable:
+		Prerequisites: ~muweap, murax, ~AImoney
+	Valued:
+		Cost: 1200
+ 	Cargo:
+		InitialUnits: marauder, marauder, mutfiend, mutfiend, e3
+ 	RenderSprites:
+ 	 	Image: struck
+	EditorOnlyTooltip:
+		Name: Filled Battle bus
+
+WOLF:
+	Inherits: ^Beast
+	Inherits@1: ^8CellVision
+	Inherits@2: ^MindControllable
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 20
+		Description: Tiberium beast that uses tiberium acid to harm nearby units.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Attacks reduce target attack speed by 35%\n- Can mutate killed units\n- E.M.P. Inmune\n- Heals even when in combat\n- Cannot be mindcontrolled
+		Prerequisites: ~muweap, muradr
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Tiberian Bull
+	Targetable@MindControlImmunity:
+		TargetTypes: MindControlInmune
+	Targetable@MCImmune:
+		TargetTypes: MCImmune
+	Armament@PRIMARY:
+		Weapon: BullAcid
+		LocalOffset: 128,0,400
+	SelfHealing@Bullshit:
+		PercentageStep: 5
+		Delay: 100
+		HealIfBelow: 100
+		DamageCooldown: 100
+	Health:
+		HP: 20000
+	Mobile:
+		Speed: 95
+        Locomotor: TibVeCritter
+
+MRLS:
+	Inherits: ^Tank
+	Inherits@1: ^5CellVision
+	Inherits@2: ^MutRender
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Irradiator MLRS
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 21
+		Description: Light artillery armed with tiberium rockets.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can mutate killed units\n- Emits tiberium radiaton that damages nearby units\n- Can shoot over walls\n- Can crush infantry\n- Inmune to tiberium radiation
+		Prerequisites: ~muweap, muhall
+	Mobile:
+		TurnSpeed: 5
+		Speed: 90
+		Locomotor: InfantryCrusherVehicle
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	Health:
+		HP: 15000
+	Voiced:
+		VoiceSet: Trike
+		Volume: 3
+	AutoTarget:
+		ScanRadius: 13
+	Armament:
+		Weapon: tiberianrocket
+		LocalOffset: 400,100,900, 400,-100,900
+		RequiresCondition: !deployed
+		PauseOnCondition: empdisable
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	Turreted:
+		TurnSpeed: 9
+		Offset: -300,0,0
+	WithFacingSpriteBody:
+	WithSpriteTurret:
+	-DamagedByTintedCells@Default:
+
+DEATHCLAW:
+	Inherits: ^Beast
+	Inherits@1: ^MutRender
+	Inherits@2: ^8CellVision
+	Inherits@3: ^MindControllable
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 22
+		Description: Melee beast from the outer redzones that brings death with its claws.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- E.M.P. Inmune\n- Cannot be mindcontrolled
+		Prerequisites: ~muweap, muhall
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Ravager
+	Targetable@MindControlImmunity:
+		TargetTypes: MindControlInmune
+	Targetable@MCImmune:
+		TargetTypes: MCImmune
+	AutoTarget:
+		ScanRadius: 6
+		InitialStance: AttackAnything
+	Health:
+		HP: 65000
+	Mobile:
+		Speed: 110
+		Locomotor: TibVeCritter
+	Armament:
+		Weapon: RavagerStrike
+	Selectable:
+		DecorationBounds: 30,50,0,-20
+
+HVRTRUK3:
+	Inherits@2: ^HoverVehicle
+	Inherits@3: ^MutRender
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Demo Truck
+	Buildable:
+		BuildAtProductionType: Tank
+		Description: A hovering demolition truck with a oneway ticket.\n\nGood vs: Everything\n\nSpecial:\n- Can explode via deploy and unleash huge damage and AoE.\n- Hovers (it ignores terrain like Veins and Water)
+		Queue: Vehicle
+		BuildPaletteOrder: 23
+		Prerequisites: ~muweap, muhall
+	Voiced:
+		VoiceSet: DemoTruck
+		Volume: 3
+	Repairable:
+		Voice: Repair
+	Mobile:
+		TurnSpeed: 5
+		Speed: 60
+		Locomotor: Hover
+	Health:
+		HP: 12500
+	Explodes:
+		Weapon: MiniNuke
+		EmptyWeapon: MiniNuke
+	AttackSuicides:
+		PauseOnCondition: empdisable
+	WithDecoration@TNT:
+		Image: bombicon
+		Sequence: idle
+		ReferencePoint: Bottom, Left
+		Palette: mouse
+		ShowToEnemies: true
+	AutoTarget:
+	AttackFrontal:
+
+###########################################################
+# SCRIN
+###########################################################
+
+SCRSCORPION:
+	Inherits@1: ^Walker
+	Inherits: ^ScrinVehicle
+	Inherits@1: ^6CellVision
+	Inherits@2: ^BasicStealthDetection
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Ichor Walker
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 24
+		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n- Can mutate enemies killed\n- Deals considerable damage to vehicles\n- Absorbs essence from killed enemies to heal\n- Attacks emit radiation that harms infantry in the area\n- Inmune to tiberium radiation.\n- Cannot crush infantry
+		Prerequisites: ~scrweap
+	Mobile:
+		TurnSpeed: 8
+		Speed: 80
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 30000
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	AutoTarget:
+	Armament@PRIMARY:
+		Weapon: ScorpAcid
+		LocalOffset: 100,0,200
+		PauseOnCondition: empdisable
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithInfantryBody:
+	Selectable:
+		Bounds: 50, 32, 0, -8
+	-DamagedByTintedCells@Default:
+
+SCRMBT:
+	Inherits@1: ^HoverTank
+	Inherits: ^ScrinVehicle
+	Inherits@1: ^8CellVision
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 25
+		Description: Light Tank, good for harassment.\n\nGood vs Ground targets\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water)\n- Absorbs essence from killed units to heal\n- Cannot crush infantry
+		Prerequisites: ~scrweap
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Hover Tank
+	Health:
+		HP: 25000
+	Mobile:
+    	TurnSpeed: 7
+		Speed: 90
+		Locomotor: Hover
+	Turreted:
+		TurnSpeed: 6
+	Armament:
+		Weapon: scrmbtlasor
+		LocalOffset: 250,0,900
+		PauseOnCondition: empdisable
+	AttackTurreted:
+		PauseOnCondition: empdisable
+
+SCRGLYDER2:
+	Inherits: ^HoverVehicle
+	Inherits@1: ^ScrinVehicle
+	Inherits@2: ^BasicStealthDetection
+	Inherits@3: ^8CellVision
+	Inherits@4: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 26
+		BuildAtProductionType: Tank
+		Description: Anti air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Can transform into an aerial version that can only engage ground units.\n- Aerial Version weapon performs Good Vs Infantry.\n- Absorbs essence from killed units to heal.\nBUG: Switching modes will make the unit loose any accumulated experience.\n- Hovers (it ignores terrain like Veins and Water)
+		Prerequisites: ~scrweap, scrradr
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Glider
+	Health:
+		HP: 20000
+	Mobile:
+		Speed: 90
+		Locomotor: Hover
+	Transforms:
+		IntoActor: scrglyder1
+	Armament:
+		Weapon: Glyder2Cannon
+		Recoil: 85
+		RecoilRecovery: 25
+		LocalOffset: 100,0,1500
+		PauseOnCondition: empdisable
+	AttackFrontal:
+		PauseOnCondition: empdisable
+
+SCRRECHARGER:
+	Inherits@1: ^Walker
+	Inherits: ^ScrinVehicle
+	Valued:
+		Cost: 650
+	Tooltip:
+		Name: Guardian
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 27
+		BuildAtProductionType: Tank
+		Description: Mobile shield generator.\n\nSpecial:\n- Generates shields around nearby friendly units.\n- Shields protect from all damage until the unit is hit 4 times.\n- Does not protect against super weapons.\n- Absorbs essence from killed enemies to heal.\n- Can Crush infantry.\n- Cannot apply shields to aircraft.
+		Prerequisites: ~scrweap, scrdepot
+	Mobile:
+		TurnSpeed: 7
+		Speed: 80
+		Locomotor: Vehicle
+	Health:
+		HP: 20000
+	-WithIdleOverlay@shield:
+	-Targetable@Shield:
+	-Armor@Shield:
+	Armament:
+		Weapon: VanguardShrapnel
+		TargetStances: Ally
+	ProximityExternalCondition@VanguardShield:
+		Condition: VanguardShield
+		Range: 4c0
+		AffectsParent: false
+	WithRangeCircle:
+		Range: 4c0
+		Type: VanguardShield
+	Targetable:
+		TargetTypes: Ground, Vehicle
+	WithMuzzleOverlay:
+	AttackFrontal:
+		PauseOnCondition: empdisable
+	AutoTarget:
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithFacingSpriteBody:
+		Sequence: stand
+	WithMoveAnimation:
+		MoveSequence: run
+	-GainsExperience:
+
+SCRMOBMINE:
+	Inherits@0: ^HoverVehicle
+	Inherits@1: ^ScrinVehicle
+	Inherits@2: ^AutoTargetGround
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 28
+		BuildAtProductionType: Tank
+		Description: Mind Control unit\n\nSpecial:\n- Can mind control vehicles\n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol MCVs, Harvesters and Heroics\n- Can shoot over walls
+		Prerequisites: ~scrweap, scrtech
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Subjugator
+	MindController:
+		Capacity: 3
+		Sound: sonpulse.aud
+		GiveCondition: mindcontrolled
+		ControllingCondition: slaving
+		Policy: DiscardOldest
+	Targetable@MindControlImmunity:
+		TargetTypes: MindControlInmune
+	Armament@PRIMARY:
+		Weapon: MindController
+		PauseOnCondition: empdisable
+	Health:
+		HP: 15000
+	Mobile:
+    	TurnSpeed: 7
+		Speed: 95
+		Locomotor: Hover
+	AttackFrontal:
+		PauseOnCondition: empdisable
+	WithRangeCircle:
+		Type: Subjugator
+	RenderRangeCircle:
+	-GainsExperience:
+
+TRIPOD:
+	Inherits@1: ^Walker
+	Inherits@2: ^ScrinVehicle
+	Inherits@3: ^8CellVision
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Annihilator Tripod
+	Selectable:
+		Bounds: 50,100, 0, -30
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 29
+		BuildAtProductionType: Tank
+		Prerequisites: ~scrweap, scrtech
+		Description: Advanced walker.\n\n  Good vs Infantry, Buildings.\n\nSpecial:\n- Absorbs essence from killed units to heal\n- Can shoot over walls\n- Can crush infantry
+		IconPalette: chromescrin
+	Mobile:
+		TurnSpeed: 6
+		Speed: 80
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 45000
+	Carryable:
+		LocalOffset: 0,0,2500
+	Voiced:
+		VoiceSet: Tripod
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	AutoTarget:
+	WithDeathAnimation@die:
+		DeathSequencePalette: player
+		DeathPaletteIsPlayerPalette: True
+		DeathTypes:
+			BulletDeath: 1, 2
+			CabalDeath: 1, 2
+			CabalDeathCrate: 1, 2
+			BlackHandRfle: 1, 2
+			HeadshotDeath: 1, 2
+			SmallExplosionDeath: 1, 2
+			TiberiumDeath: 1, 2
+			TiberiumDeathStrong: 1, 2
+			EnergyDeath: 1, 2
+			ExplosionDeath: 1, 2
+	Armament:
+		Weapon: TripodLaser
+		LocalOffset: 100,225,3500
+		PauseOnCondition: empdisable
+	Armament@2:
+		Weapon: TripodLaser
+		LocalOffset: 100,-225,3500
+		PauseOnCondition: empdisable
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ExternalCondition@spawnsparks:
+		LocalOffset: 0,0,4000
+	SmokeParticleEmitter:
+		Offset: 0,0,3000
+	DeathSounds:
+		DeathTypes: BulletDeath, SmallExplosionDeath, ExplosionDeath, CabalDeath, CabalDeathCrate, BlackHandRfle, HeadshotDeath, SmallExplosionDeath, TiberiumDeath
+	AnnounceOnBuildAS:
+		Voice: Build
+		OnlyToOwner: True
+
+###########################################################
+# CABAL
+###########################################################
+
+CABMCV:
+	Inherits: MCV
+	Inherits@1: ^CabRender
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 110
+		BuildAtProductionType: Tank
+		Prerequisites: ~cabweap, gadept
+		IconPalette: UnittemIconCab
+	Tooltip:
+		Name: C.A.B.A.L. MCV
+	-RenderVoxels:
+	-WithVoxelBody:
+	RenderSprites:
+		-Image:
+	WithFacingSpriteBody:
+	WithMoveAnimation:
+		MoveSequence: run
+	Transforms:
+		IntoActor: cabyard
+		Offset: -1,-1
+		Facing: 160
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+
+CENTURION:
+	Inherits: ^Walker
+	Inherits@1: ^BasicStealthDetection
+	Inherits@2: ^7CellVision
+	Inherits@3: ^CabalVehicleVoice
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Centurion
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 30
+		BuildAtProductionType: Tank
+		Description: Heavy walker equipped with chain guns.\n\nGood vs: Infantry\n\nSpecial:\n- Stealth detection\n- Can shoot over walls\n- Can crush infantry
+		Prerequisites: ~cabweap
+	Mobile:
+		TurnSpeed: 5
+		Speed: 70
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 50000
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	Turreted:
+		TurnSpeed: 4
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	WithSpriteTurret:
+		Recoils: no
+	RenderSprites:
+	WithInfantryBody:
+	WithMuzzleOverlay:
+	Armament:
+		Weapon: CenturionVulcan
+		Recoil: 127
+		RecoilRecovery: 26
+		LocalOffset: 900,550,1200
+		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
+	Armament@asd:
+		Weapon: CenturionVulcan
+		Recoil: 127
+		RecoilRecovery: 26
+		LocalOffset: 900,-550,1200
+		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
+	AutoTarget:
+	Selectable:
+		Bounds: 45, 42, 0, -8
+	SmokeParticleEmitter:
+		Offset: 0,0,1000
+
+REAPERCAB:
+	Inherits: ^Walker
+	Inherits@1: ^8CellVision
+	Valued:
+		Cost: 1100
+	Tooltip:
+		Name: Cyborg Reaper
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 31
+		BuildAtProductionType: Tank
+		Description: Fast raiding walker armed with cluster missiles and web launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Can ensnare infantry with webs\n- Can shoot over walls
+		Prerequisites: ~cabweap
+	Selectable:
+		Bounds: 40,40,0,-10
+	Mobile:
+    	TurnSpeed: 10
+		Speed: 95
+		Locomotor: Vehicle
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Health:
+		HP: 25000
+	Voiced:
+		VoiceSet: CyborgReap
+	Armament@primary:
+		Weapon: ReaperWeb
+		LocalOffset: 0,0,200
+	Armament@secondary:
+		Weapon: ReaperScythe
+		LocalOffset: 300,-400,950, 300,400,950
+		PauseOnCondition: empdisable
+	Armament@AA:
+		Weapon: ReaperScytheAA
+		LocalOffset: 300,-400,950, 300,400,950
+		PauseOnCondition: empdisable
+	WithDeathAnimation@die:
+		DeathSequence: die1
+		DeathSequencePalette: player
+		DeathPaletteIsPlayerPalette: True
+		UseDeathTypeSuffix: False
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	WithInfantryBody:
+	BodyOrientation:
+		QuantizedFacings: 8
+	DeathSounds:
+
+REPAIRVEHICLE:
+	Inherits@1: ^Tank
+	Inherits@2: ^LowerSelectionPriority
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Mobile Repair Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 32
+		BuildAtProductionType: Tank
+		Prerequisites: ~cabweap, gadept
+		Description: Repairs nearby vehicles.\n\nSpecial:\n- unarmed\n- repairs vehicles\n- can crush infantry
+	Health:
+		HP: 20000
+	Mobile:
+		Speed: 70
+		TurnSpeed: 7
+		Locomotor: InfantryCrusherVehicle
+	Armament:
+		Weapon: RepairVehicleRep
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetStances: Ally
+		ForceTargetStances: None
+		PauseOnCondition: empdisable
+	AttackFrontal:
+		Voice: Attack
+	Voiced:
+		VoiceSet: Limpet
+	AutoTarget:
+		ScanRadius: 6
+	WithFacingSpriteBody:
+	-GainsExperience:
+	AutoTarget:
+		InitialStance: AttackAnything
+
+ECM:
+	Inherits: ^Vehicle
+	Inherits@2: ^CabRender
+    Inherits@3: ^LowerSelectionPriority
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Artisan
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		Description: Utility vehicle.\n\nSpecial:\n- Can place up to 8 mines in the battlefield\n- Reloads in service depot.\n- Mines are cloaked and harm all unit types.\n- Can crush Infantry.
+		BuildPaletteOrder: 33
+		Prerequisites: ~cabweap, gadept
+	Mobile:
+		TurnSpeed: 3
+		Speed: 70
+		Locomotor: InfantryCrusherVehicle
+	Voiced:
+		VoiceSet: Limpet
+	AmmoPool:
+		Ammo: 5
+		ReloadDelay: 25
+	Minelayer:
+		Mine: mumine
+		RearmBuildings: scrdepot, gadept
+	Health:
+		HP: 40000
+	SelectionDecorations:
+	WithFacingSpriteBody:
+	Selectable:
+		DecorationBounds: 50, 50, 0, 0
+	-SelfHealing@veinholedrain:
+	-ExternalCondition@veinholedrain:
+	-WithIdleOverlay@veinholedrain:
+	-GrantConditionOnTerrain@VEINS:
+
+CABAPC:
+	Inherits@2: ^HoverVehicle
+	Inherits@3: ^CabRender
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Hover APC
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		Description: Armored transport.\n\nSpecial:\n- Can transport 8 infantry units\n- Can transport vehicles\n- Hovers (it ignores terrain like Veins and Water)
+		BuildPaletteOrder: 33
+		Prerequisites: ~cabweap, cabradr
+	Mobile:
+		TurnSpeed: 10
+		Speed: 110
+		Locomotor: Hover
+	Voiced:
+		VoiceSet: Limpet
+	Health:
+		HP: 30000
+	Cargo:
+		Types: Infantry, Vehicle
+		MaxWeight: 8
+		PipCount: 8
+		UnloadVoice: Unload
+		LoadingCondition: notmobile
+	SelectionDecorations:
+	Selectable:
+		DecorationBounds: 75, 45 , 0, -6
+
+SPIDERARTY:
+	Inherits: ^Walker
+	Inherits@1: ^6CellVision
+	Inherits@2: ^CabRender
+	Inherits@3: ^PermanentSelfHeal
+	Inherits@4: ^CabalVehicleVoice
+	Valued:
+		Cost: 1150
+	Tooltip:
+		Name: Drone Host
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 34
+		BuildAtProductionType: Tank
+		Description: Heavy Artillery that deploys drones at the targetted area.\n\nGood vs: Ground Targets\n\nSpecial:\n- Deals AOE damage\n- Minimum attack distance\n- Upon attack drones get spawned that attack the enemy\n- Converts killed units into workers\n- Can shoot over walls\n- Can crush infantry\n- Selfrepair
+		Prerequisites: ~cabweap, cabtech
+	Mobile:
+		TurnSpeed: 4
+		Speed: 70
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 35000
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	WithMuzzleOverlay:
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	AutoTarget:
+		ScanRadius: 11
+	AttackFrontal:
+		PauseOnCondition: empdisable
+	Armament:
+		Weapon: DroneHostMissile
+		LocalOffset: -500,-150,900, -500,150,900
+		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
+	AutoTarget:
+	Selectable:
+		Bounds: 60, 65, 0, -14
+
+PALADIN:
+	Inherits: ^Walker
+	Inherits@1: ^8CellVision
+	Inherits@2: ^CabRender
+	Inherits@3: ^PermanentSelfHeal
+	Inherits@4: ^CabalVehicleVoice
+	Valued:
+		Cost: 1750
+	Tooltip:
+		Name: Minotaur
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 35
+		BuildAtProductionType: Tank
+		Description: Advanced Walker armed with a twin laser cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Can shoot over walls\n- Can crush infantry
+		Prerequisites: ~cabweap, cabtech
+	Mobile:
+		TurnSpeed: 5
+		Speed: 70
+		Locomotor: InfantryCrusherVehicle
+	SelfHealing@Permanent:
+		DamageCooldown: 0
+		Delay: 75
+	Health:
+		HP: 65000
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	RenderSprites:
+	Armament@1:
+		Weapon: PalaLazor
+		LocalOffset: 555,500,1200
+		PauseOnCondition: empdisable
+	Armament@2:
+		Weapon: PalaLazorMute
+		LocalOffset: 555,-500,1200
+		PauseOnCondition: empdisable
+	Armament@3:
+		Weapon: PalaLazorMute
+		LocalOffset: 555,500,1350
+		PauseOnCondition: empdisable
+	Armament@4:
+		Weapon: PalaLazorMute
+		LocalOffset: 555,-500,1350
+		PauseOnCondition: empdisable
+	AutoTarget:
+	Selectable:
+		Bounds: 40, 60, 0, -20
+	Carryable:
+		LocalOffset: 0,0,1200
+	SmokeParticleEmitter:
+		Offset: 0,0,1000
+
+#########################################################
+# UNUSED
+#######################################################
+
+JUGGER:
+	Inherits: ^Walker
+	Inherits@1: ^5CellVision
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Juggernaut
+	Mobile:
+		TurnSpeed: 6
+		Speed: 75
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 21000
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	AutoTarget:
+	Armament:
+		Weapon: JuggCannon
+		LocalOffset: 600, 600, 6000
+	Armament@1:
+		Weapon: JuggCannon
+		LocalOffset: 600, -600, 6000
+	Voiced:
+		VoiceSet: Mech
+	WithMuzzleOverlay:
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithFacingSpriteBody:
+		Sequence: stand
+	WithMoveAnimation:
+		MoveSequence: run
+	Selectable:
+		Bounds: 30, 35, 0, -8
+
+LIMPED:
+	Inherits: ^HoverVehicle
+	Inherits@1: ^8CellVision
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Scout Drone
+		Description: Hover Drone, cloaks when deployed. Spreads unsmellable\ngas around it confusing nearby units becoming uncontrollable.\n\nUnnarmed.
+	Health:
+		HP: 10000
+	Mobile:
+		Speed: 55
+		Locomotor: Vehicle
+	Crushable:
+		CrushClasses: infantry
+		WarnProbability: 0
+	WithSpriteBody:
+    -WithFacingSpriteBody:
+	Voiced:
+		VoiceSet: Limpet
+	Selectable:
+		Bounds: 20, 30, 0, -6
+
+REPAIR:
+	Inherits: ^VoxelTank
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Mobile Repair Vehicle
+	Health:
+		HP: 20000
+	Mobile:
+		Speed: 70
+		TurnSpeed: 5
+	Armament:
+		Weapon: RepairVehicleRep
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetStances: Ally
+		ForceTargetStances: None
+	AttackFrontal:
+		Voice: Attack
+	-GainsExperience:
+
+SGEN:
+	Inherits: ^VoxelVehicle
+	Valued:
+		Cost: 1100
+	Tooltip:
+		Name: Mobile Stealth Generator
+	Mobile:
+		TurnSpeed: 2#6
+		Speed: 90
+	RenderVoxels:
+	Health:
+		HP: 20000
+	Transforms:
+		IntoActor: mastl
+		Facing: 96
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+	Carryable:
+
+ART2:
+	Inherits: HOWTLIZER
+	-Buildable:
+	RenderSprites:
+		Image: howtlizer
+
+	# SCRDRONEC:
+	# Inherits@1: ^AutoTargetGround
+	# Inherits@2: ^HoverVehicle
+	# Inherits: ^ScrinVehicle
+	# Valued:
+	# 	Cost: 950
+	# Tooltip:
+	# 	Name: Vanguard
+	# Health:
+	# 	HP: 25000
+	# Mobile:
+	# 	Speed: 80
+	# RenderSprites:
+	# -WithIdleOverlay@shield:
+	# WithFacingSpriteBody:
+	# -Cloak@CLOAKGENERATOR:
+	# BodyOrientation:
+	# 	QuantizedFacings: 32
+	# -Targetable@Shield:
+	# AttackFrontal:
+	# 	PauseOnCondition: empdisable
+	# Armament:
+	# 	Weapon: VanguardShrapnel
+	# 	TargetStances: Ally
+	# ProximityExternalCondition@VanguardShield:
+	# 	Condition: VanguardShield
+	# 	# Range: 3c0 # 2c0
+	# 	AffectsParent: false
+	# WithRangeCircle:
+	# 	Range: 3c0
+	# 	Type: VanguardShield
+	# Targetable:
+	# 	TargetTypes: Ground, Vehicle
+	# AutoTarget:

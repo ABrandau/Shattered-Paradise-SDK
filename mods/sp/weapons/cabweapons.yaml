@@ -1,0 +1,862 @@
+CyborgVulcan:
+	Inherits: ^RifleWarhead
+	Inherits@1: ^Piffs
+	ReloadDelay: 60
+	Burst: 3
+	Range: 4c512
+	Report: cygun1.aud
+	Projectile: BulletAS
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Damage: 2200
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+
+CyborgRocket:
+	Inherits: ^RocketWarhead
+	Inherits@2: ^Small_Clsn
+	ReloadDelay: 60
+	Range: 6c0
+	Report: rketinf1.aud
+	ValidTargets: Ground, Water
+	Projectile: Missile
+	Warhead@1Dam: SpreadDamage
+		Damage: 3000
+		ValidTargets: Ground, Water
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+CyborgRocketAA:
+	Inherits: CyborgRocket
+	Inherits@1: ^AARocketWarhead
+	ValidTargets: Air
+	Range: 7c0
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+
+SentryGun:
+	Inherits: ^FullDamage
+	Inherits@1: ^Mediuml_Clsn
+	ReloadDelay: 60
+	Range: 4c0
+	Projectile: BulletAS
+		Speed: 682
+		Image: 120mm
+		Shadow: true
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Damage: 1200
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+
+SentinelGun:
+	Inherits: ^RifleWarhead
+	Inherits@1: ^Mediuml_Clsn
+	ReloadDelay: 60
+	Range: 4c0
+	Projectile: BulletAS
+		Speed: 682
+		Image: 120mm
+		Shadow: true
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
+		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
+
+ReaperWeb:
+	Inherits: ^RifleWarhead
+	ReloadDelay: 250
+	Range: 7c0
+	Report: fireweb1.aud
+	ValidTargets: Infantry
+	Projectile: BulletAS
+		Speed: 150
+		Image: web2
+		Shadow: true
+		LaunchAngle: 130
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 500
+		ValidTargets: Infantry
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@emp: GrantExternalCondition
+		Range: 1c0
+		Duration: 125
+		ValidTargets: Infantry
+		Condition: WebDisable
+
+ReaperScythe:
+	Inherits: ^RocketWarhead
+	Inherits@2: ^Small_Clsn
+	ReloadDelay: 90
+	Range: 7c0
+	Burst: 4
+	Report: samshot1.aud
+	ValidTargets: Ground, Water
+	Projectile: Missile
+		Blockable: false
+		Shadow: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 2900
+		ValidTargets: Ground, Water
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 128
+
+ReaperScytheAA:
+	Inherits: ReaperScythe
+	ValidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+
+ReclaimerHit:
+	Inherits: ^RifleWarhead
+	ReloadDelay: 75
+	Range: 1c512
+	Report: piston1.wav, piston2.wav
+	ValidTargets: Infantry
+	Projectile: BulletAS
+		Speed: 5c682
+	Warhead@1Dam: SpreadDamage
+		Damage: 6500
+		ValidTargets: Infantry
+		ValidStances: Enemy, Neutral
+		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
+
+GLAD120mm:
+	Inherits: ^APWarhead
+	Inherits@2: ^Mediuml_Clsn
+	ReloadDelay: 150
+	Range: 5c0
+	Report: tankmediumfire.wav
+	Projectile: BulletAS
+		Speed: 1c512
+		Blockable: true
+	Warhead@1Dam: SpreadDamage
+		Damage: 6500
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		Versus:
+			BuildingArmor: 75
+
+LurkerProj:
+	Inherits: ^FullDamage
+	ReloadDelay: 100
+	Range: 9c0
+	Projectile: WarheadTrailProjectile
+		Offsets: 0,128,0#, 64,96,0, -64,96,0
+		Firemode: Line # try putting "Line" or "Spread" here, "Focus"
+		Inaccuracy: 0c0
+		Weapon: LurkerHit
+		Speed: 200
+		ExplosionInterval: 3
+		ExplodeUnderThisAltitude: -9999
+		Blockable: False
+		KillProjectilesWhenReachedTargetLocation: false #try putting true
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+
+LurkerHit:
+	Inherits: ^FullDamage
+	ReloadDelay: 80
+	Range: 9c0
+	Report: lasershotgun.wav
+	Projectile: BulletAS
+		Speed: 400
+		TrailImage: lurkertrail
+		TrailPalette: playercab
+		HorizontalRateOfTurn: 8
+		RangeLimit: 10c0
+		MaximumLaunchSpeed: 213
+		Blockable: False
+	Warhead@1Dam: SpreadDamage
+		# Spread: 0c190
+		Damage: 11000
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 25
+			VehicleArmor: 10
+			DefenseArmor: 10
+			AircraftArmor: 100
+			ConcreteArmor: 15
+		ValidStances: Enemy, Neutral
+		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: playercab
+		Explosions: lurkertentacle
+		ImpactSounds: expdirt1.aud
+		ValidTargets: Ground, Air
+		ForceDisplayAtGroundLevel: true
+
+CyCannon:
+	Inherits: ^APWarhead
+    Inherits: ^Mediuml_Clsn
+	ReloadDelay: 100
+	Range: 7c0
+	Report: scrin5b.aud
+	ValidTargets: Ground, Water
+	Projectile: BulletAS
+		Blockable: false
+		Speed: 700
+		Acceleration: 50
+		Shadow: true
+		Palette: effect
+		Image: TORPEDO
+	Warhead@1Dam: SpreadDamage
+		Spread: 350
+		Damage: 10000
+		ValidTargets: Ground, Water
+		Versus:
+			InfantryArmor: 350
+			BuildingArmor: 260
+			VehicleArmor: 205
+			DefenseArmor: 205
+			ConcreteArmor: 80
+		DamageTypes: Prone350Percent, TriggerProne, EnergyDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: large_bang
+		ImpactSounds: expnew12.aud
+		InvalidValidTargets: Water
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_watersplash
+		ExplosionPalette: player
+		ImpactSounds: ssplash3.aud
+		ValidTargets: Water
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall
+
+WorkerMinigun:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	ReloadDelay: 50
+	Range: 4c0
+	Report: infgun3.aud, gostgun1.aud, slvkgun1.aud
+	Projectile: BulletAS
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Damage: 1600
+		DamageTypes: Prone70Percent, TriggerProne
+
+Dogzooka:
+	Inherits: JJGrenade
+	Inherits@2: ^Small_Clsn
+	ReloadDelay: 50
+	Range: 4c0
+	Report: rketinf1.aud
+	ValidTargets: Ground, Water
+	Warhead@1Dam: SpreadDamage
+		Damage: 1600
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 30
+			VehicleArmor: 10
+			DefenseArmor: 15
+			AircraftArmor: 100
+			ConcreteArmor: 5
+			Shield: 0
+
+CenturionVulcan:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	ReloadDelay: 40
+	Burst: 2
+	Range: 6c0
+	Report: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
+	Projectile: BulletAS
+		Speed: 1c682
+		Inaccuracy: 0c512
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+
+RepairVehicleRep:
+	Inherits: ^SparkSpawner
+	ReloadDelay: 60
+	Range: 2c0
+	Report: repair11.aud
+	ValidTargets: Vehicle
+	Projectile: BulletAS
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 80
+		Damage: -2500
+		ValidTargets: Vehicle
+
+DroneHostMissile:
+	Inherits: ^RocketWarhead
+	ReloadDelay: 150
+	Range: 10c0
+	Burst: 2
+	Report: samshot1.aud, icbm1.aud
+	ValidTargets: Ground, Water
+	Projectile: Missile
+		Blockable: false
+		Speed: 200
+		Shadow: true
+		Image: dronemissile
+		AirburstAltitude: 5000
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+		ValidTargets: Ground, Water
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@1: FireShrapnel
+		Amount: 1
+		Weapon: DroneHostShell
+		ValidTargets: Ground, Air, Water, Airhit
+	Warhead@2: FireShrapnel
+		Amount: 1
+		Weapon: DroneHostShellSpawner
+		ValidTargets: Ground, Air, Water, Airhit
+
+DroneHostShell:
+	Inherits: ^ArtilleryWarhead
+	Inherits@2: ^Small_Clsn
+	ReloadDelay: 150
+	Range: 1c512
+	ValidTargets: Ground, Water, Vehicle, Infantry, water
+	Projectile: BulletAS
+		Speed: 200
+		Blockable: false
+		Shadow: true
+		Palette: ra
+		Image: dronemissilemini
+		TrailImage: small_smoke_trail
+		TrailPalette: effectalpha75
+		RangeLimit: 25
+	Warhead@1Dam: SpreadDamage
+		Spread: 350
+		Damage: 1000
+		Versus:
+			Worker: 25
+		ValidTargets: Ground, Water, Vehicle, Infantry, water
+		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
+
+DroneHostShellSpawner:
+	Inherits: DroneHostShell
+	Range: 4c0
+	MinRange: 2c0
+	Warhead@5Actor: SpawnActor
+		Actors: CABSENTRY
+		FallRate: 5000
+		Range: 3
+		ValidTargets: Ground, Vehicle, Infantry, Air, Airhit
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+
+PalaLazor:
+	Inherits: ^FullDamage
+	ReloadDelay: 75
+	Range: 8c0
+	Report: avatarlaser0000.wav, avatarlaser0001.wav, avatarlaser0002.wav
+	Projectile: LaserZap
+		Width: 60
+		BeamDuration: 7
+		Color: 0000FF
+		BeamDuration: 20
+		SecondaryBeam: True
+		SecondaryBeamWidth: 30
+		ZOffset: 4000
+		SecondaryBeamZOffset: 4000
+		SecondaryBeamColor: FFFFFF
+		Blockable: false
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c045
+		Damage: 2550
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+
+PalaLazorMute:
+	Inherits: PalaLazor
+	-Report: lastur1.aud
+
+WaspLasor:
+	ReloadDelay: 50
+	Range: 6c0
+	MinRange: 0c100
+	Report: lastur1.aud
+	ValidTargets: Infantry, Vehicle, Building, Defence, Ground, Water
+	InvalidTargets: Air
+	Projectile: LaserZap
+		Color: 0dc7b8
+		BeamDuration: 20
+		Width: 90
+		SecondaryBeam: True
+		SecondaryBeamWidth: 30
+		ZOffset: 4000
+		SecondaryBeamZOffset: 4000
+		SecondaryBeamColor: FFFFFF
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+		ValidTargets: Infantry, Vehicle, Building, Defence, Ground, Water
+		InvalidTargets: Air
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+WaspLasorAA:
+	Inherits: WaspLasor
+	ReloadDelay: 30
+	ValidTargets: Air
+	InvalidTargets: Infantry, Vehicle, Building, Defence, Ground, Water
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+		ValidTargets: Air
+		InvalidTargets: Infantry, Vehicle, Building, Defence, Ground, Water
+
+WaspBullet:
+	Inherits: ^APWarhead
+	ReloadDelay: 50
+	Range: 6c0
+	MinRange: 0c100
+	Report: lastur1.aud
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
+	InvalidTargets: Air
+	Projectile: Bullet
+		Speed: 100c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 2800
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry
+		InvalidTargets: Air
+
+WaspBulletAA:
+	Inherits: WaspBullet
+	ValidTargets: Air
+	ReloadDelay: 30
+	Projectile: InstantHit
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+	Warhead@1Dam: SpreadDamage
+		Damage: 3000
+		ValidTargets: Air
+		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+
+DevourerGrinder:
+	Inherits: ^ArtilleryWarhead
+	ReloadDelay: 35
+	Range: 600
+	MinRange: 50
+	Report: repair11.aud
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 90
+		Damage: 9000
+		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
+	Warhead@Shake: ScreenShaker
+		Intensity: 2
+		Duration: 15
+
+DevourerExplo:
+	ReloadDelay: 25
+	Range: 600
+	MinRange: 50
+	Projectile: InstantHit
+	Warhead@2Eff: CreateEffect
+		Explosions: cabspark
+		ExplosionPalette: apolra2
+
+DevourerBuff:
+	Inherits: ^RifleWarhead
+	ReloadDelay: 35
+	Range: 600
+	MinRange: 50
+	Projectile: InstantExplode
+	Warhead@Acid: GrantExternalCondition
+		Range: 350
+		Duration: 35
+		Condition: DevoBuff
+		ValidStances: Ally
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+		AffectsParent: True
+
+BasiliskBomb:
+	Inherits: ^ArtilleryWarhead
+	ReloadDelay: 70
+	Range: 6c0
+	Burst: 8
+	MinRange: 0c100
+	BurstDelays: 1
+	Report: rketinf1.aud
+	ValidTargets: Ground, Water, Air
+	Projectile: BulletAS
+		Speed: 180
+		Blockable: false
+		Shadow: true
+		LaunchAngle: 62
+		Inaccuracy: 1c512
+		Image: DRAGON
+		TrailImage: small_smoke_trail
+		HorizontalRateOfTurn: 8
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Spread: 250
+		Damage: 5000
+		ValidTargets: Ground, Water
+		Versus:
+			InfantryArmor: 500
+			BuildingArmor: 50
+			VehicleArmor: 25
+			DefenseArmor: 50
+			ConcreteArmor: 15
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: firestormexplo, firestormexplo1, firestormexplo2
+		ExplosionPalette: apolbluealpha
+		ImpactSounds: firstrm1.aud
+		ValidTargets: Ground, Water, Water
+	Warhead@5Smu: LeaveSmudge
+		SmudgeType: SmallCrater
+		InvalidTargets: Vehicle, Building, Wall
+
+SentryTurretGun:
+	Inherits@2: ^Mediuml_Clsn
+	ReloadDelay: 25
+	Range: 5c0
+	Report: 120mmf.aud
+	Projectile: BulletAS
+		Speed: 682
+		Image: 120mm
+		Shadow: true
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 500
+		Versus:
+			ConcreteArmor: 60
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+CTurretCannon:
+	Inherits: ^APWarhead
+	Inherits@2: ^Mediuml_Clsn
+	ReloadDelay: 20
+	Range: 6c768
+	Report: 120mmf.aud
+	Burst: 1
+	BurstDelays: 5
+	Projectile: BulletAS
+		Speed: 682
+		Image: 120mm
+		Shadow: true
+		LaunchAngle: 62
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Damage: 2500
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+CabPitFighterSpawn:
+	Inherits: ^ArtilleryWarhead
+	ReloadDelay: 25
+	Range: 7c768
+	Projectile: InstantExplode
+	ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+	Warhead@1Dam: SpreadDamage
+		Spread: 400
+		Damage: 1
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+CabJetMiniBomb:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Mediuml_Clsn
+	ReloadDelay: 30
+	ValidTargets: Ground, Water, Building, Infantry, Vehicle
+	Range: 1c512
+	Projectile: BulletAS
+		Speed: 600
+		Image: 120mm
+		Shadow: true
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 80, 70, 60, 50
+		Spread: 200
+		Damage: 6000
+		Versus:
+			InfantryArmor: 125
+			BuildingArmor: 40
+			VehicleArmor: 10
+			DefenseArmor: 10
+			ConcreteArmor: 1
+		ValidTargets: Ground, Water, Building, Infantry, Vehicle
+		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+
+BlasterProton:
+	Inherits: ^FullDamage
+	Inherits@2: ^Small_Clsn
+	ReloadDelay: 100
+	Burst: 6
+	Range: 11c0
+	MinRange: 3c0
+	Report: scrin5b.aud
+	ValidTargets: Ground, Water, Vehicle, Infantry, water
+	Projectile: BulletAS
+		Speed: 450
+		Blockable: false
+		Shadow: true
+		Inaccuracy: 1c0
+		LaunchAngle: 120
+		Image: TORPEDO
+	Warhead@1Dam: SpreadDamage
+		Spread: 350
+		Damage: 5850
+		Versus:
+			BuildingArmor: 50
+			DefenseArmor: 50
+			VehicleArmor: 50
+		ValidTargets: Ground, Water, Vehicle, Infantry, water
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+CABRAILAA:
+	ReloadDelay: 50
+	Inherits: ^AntiAirTurretWeapon
+	Report: railgunfire.wav
+	Projectile: Railgun
+		Width: 75
+		ZOffset: 2047
+		Color: 0008ED
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c045
+		Damage: 2500
+
+LaserFence:
+	TargetActorCenter: true
+	Projectile: InstantHit
+	Warhead@1Dam: TargetDamage
+		DebugOverlayColor: FF0000
+		Damage: 99999
+		DamageTypes: FireDeath
+
+###################################################
+# UNUSED
+###################################################
+
+
+   #     LurkerProj:    
+   #         Inherits: ^FullDamage
+   #         ReloadDelay: 80
+   #         Range: 9c0
+   #         Report: lasershotgun.wav
+   #         Projectile: BulletAS
+   #             Speed: 200
+   #             TrailImage: lurkertrail
+   #             TrailPalette: playercab
+   #             HorizontalRateOfTurn: 8
+   #             RangeLimit: 10c0
+   #             MaximumLaunchSpeed: 213
+   #             Weapon: LurkerHit
+   #         Warhead@1Dam: SpreadDamage
+   #             Damage: 1
+   #     
+   #     CombatDroneLasorSpawn:
+   #         ReloadDelay: 50
+   #         Range: 8c0
+   #         ValidTargets: Infantry, Building, Vehicle, Defence, Air, Airhit
+   #         Projectile: InstantExplode
+   #         Warhead@1Dam: SpreadDamage
+   #             Spread: 128
+   #             Damage: -1
+   #         Warhead@op: FireShrapnel
+   #             Weapon: CombatDroneLasor
+   #             Amount: 1
+   #             AimChance: 100
+   #             AllowDirectHit: true
+   #             ValidStances: Enemy
+   #             ValidTargets: Infantry, Building, Vehicle, Defence, Air, Airhit
+   #     
+   #     CombatDroneLasor:
+   #         Inherits: ^FullDamage
+   #         ReloadDelay: 50
+   #         Report: lastur1.aud
+   #         Range: 8c0
+   #         ValidTargets: Infantry, Building, Vehicle, Defence, Air, Airhit
+   #         Projectile: LaserZap
+   #             Width: 25
+   #             BeamDuration: 5
+   #             Color: 0dc7b8
+   #         Warhead@1Dam: SpreadDamage
+   #             Damage: 1300
+   #             ValidStances: Enemy
+   #             DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+   #     
+   #     HealerDroneLasorSpawn:
+   #         Inherits: CombatDroneLasorSpawn
+   #         ReloadDelay: 50
+   #         Range: 6c0
+   #         ValidTargets: Infantry, Building, Vehicle, Defence, Air, Airhit
+   #         Projectile: InstantExplode
+   #         Warhead@1Dam: SpreadDamage
+   #             Spread: 128
+   #             Damage: -1
+   #             ValidTargets: SeekerTarget
+   #         Warhead@op: FireShrapnel
+   #             Weapon: HealerDroneLasor
+   #             Amount: 2
+   #             AimChance: 100
+   #             AllowDirectHit: true
+   #             ValidStances: Ally
+   #             ValidTargets: Infantry, Building, Vehicle, Defence, Air, Airhit
+   #     
+   #     HealerDroneLasor:
+   #         ReloadDelay: 50
+   #         Range: 6c0
+   #         ValidTargets: Infantry, Building, Vehicle, Defence, Air, Airhit
+   #         Projectile: LaserZap
+   #             Width: 25
+   #             BeamDuration: 5
+   #             Color: 228B22
+   #         Warhead@1Dam: SpreadDamage
+   #             Spread: 128
+   #             Damage: -1000
+   #             ValidStances: Ally
+   #             DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+   #     
+   #     SeekerDroneSpawn:
+   #         ReloadDelay: 300
+   #         Range: 8c0
+   #         ValidTargets: Ground, Water, Building, Defence, Vehicle, Infantry
+   #         Projectile: InstantExplode
+   #         Warhead@1Dam: SpreadDamage
+   #             Spread: 128
+   #             Damage: 1
+   #             ValidTargets: Ground, Water, Air
+   #         Warhead@5Actor: SpawnActor
+   #             Actors: MINIWYVERM
+   #             FallRate: 5000
+   #             Range: 3
+   #             ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+   #     
+   #     ArtisanDroneSpawn:
+   #         Inherits: SeekerDroneSpawn
+   #         ReloadDelay: 425
+   #         Burst: 1
+   #         Warhead@5Actor: SpawnActor
+   #             Actors: MINIWYVERM2
+   #     
+   #     DevourerDroneSpawn:
+   #         Inherits: SeekerDroneSpawn
+   #         ReloadDelay: 100
+   #     
+   #     EcmDroneSpawn:
+   #         Inherits: SeekerDroneSpawn
+   #         ReloadDelay: 150
+   #     
+   #     FlyierDevourerDroneSpawn:
+   #         Inherits: SeekerDroneSpawn
+   #         ReloadDelay: 40
+   #     
+   #     TermitaGrinder:
+   #         Inherits: ^ArtilleryWarhead
+   #         Inherits@2: ^Small_Clsn
+   #         ReloadDelay: 30
+   #         Range: 1c512
+   #         Report: repair11.aud
+   #         Projectile: BulletAS
+   #             Speed: 5c682
+   #         Warhead@1Dam: SpreadDamage
+   #             Damage: 3500
+   #             DamageTypes: Prone100Percent, TriggerProne, CabalDeathCrate
+   #     
+   #     ecmwave:
+   #         ReloadDelay: 125
+   #         Range: 7c0
+   #         Report: sonic4.aud
+   #         ValidTargets: Vehicle
+   #         Projectile: BulletAS
+   #             Speed: 100c0
+   #             Blockable: false
+   #         Warhead@movestop: GrantExternalCondition
+   #             Range: 2c0
+   #             Duration: 100
+   #             Condition: fireflystop
+   #             ValidTargets: Vehicle
+   #         Warhead@3Dam: SpreadDamage
+   #             Damage: 1
+   #             ValidTargets: Vehicle
+   #     
+   #     CABALRAIL:
+   #         Inherits: ^APWarhead
+   #         ReloadDelay: 50
+   #         Range: 9c0
+   #         Report: railgunfire.wav
+   #         Projectile: LaserZap
+   #             Duration: 3
+   #             DamageInterval: 2
+   #             Width: 90
+   #             BeyondTargetRange: 0c64
+   #             Blockable: true
+   #             Color: 0008ED
+   #         Warhead@1Dam: SpreadDamage
+   #             Damage: 2500
+   #             DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath
+   #     
+   #     CABNEXUSAA:
+   #         Inherits: ^FullDamage
+   #         ReloadDelay: 300
+   #         Burst: 1
+   #         Range: 8c0
+   #         Report: obelray1.aud
+   #         ValidTargets: Air
+   #         Projectile: LaserZap
+   #             Width: 75
+   #             ZOffset: 2047
+   #             Color: 0008ED
+   #         Warhead@1Dam: SpreadDamage
+   #             Damage: 20000
+   #             DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+   #             ValidTargets: Air
+   #     
+   #     ArtisanTurretLasor:
+   #         ReloadDelay: 50
+   #         Report: lastur1.aud
+   #         Range: 7c0
+   #         ValidTargets: Infantry, Building, Vehicle, Defence, Airhit, Ground
+   #         Projectile: LaserZap
+   #             Width: 25
+   #             BeamDuration: 5
+   #             Color: 0dc7b8
+   #         Warhead@1Dam: SpreadDamage
+   #             Damage: 1000
+   #             DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
+   #         Warhead@2Dam: AttachDelayedWeapon
+   #             Weapon: FireflyDelayedBombExplo
+   #             TriggerTime: 250
+   #     
+   #     FireflyDelayedBombExplo:
+   #         Inherits@1: ^BombWarhead
+   #         Inherits@2: ^Large_Explosion
+   #         ValidTargets: Ground, Water
+   #         InvalidTargets: Air
+   #         Report: gexpbara, gexpbarb, gexpbarc
+   #         Warhead@1Dam_impact: SpreadDamage
+   #             Spread: 700
+   #             Damage: 9000
+   #             ValidTargets: Ground, Water
+   #             AffectsParent: true
+   #             InvalidTargets: Air
+   #             DamageTypes: Prone50Percent, TriggerProne, FireDeath
+   #             Versus:
+   #                 BuildingArmor: 200
+   #         Warhead@5Sharpnel: FireShrapnel
+   #             Weapon: NukeFlame3
+   #             Amount: 15
+   #             AllowDirectHit: false
+   #             ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
+   #     
+   #     CombatDroneAproach:
+   #         ReloadDelay: 25
+   #         Range: 2c0
+   #         ValidTargets: Seeker
+   #         Projectile: BulletAS
+   #             Speed: 100c0
+   #         Warhead@1Dam: SpreadDamage
+   #             Spread: 96
+   #             Damage: 1
+   #             ValidTargets: Seeker
+   #     
+   #     ReturnDroneSummon:
+   #         ReloadDelay: 25
+   #         Range: 5c0
+   #         ValidTargets: Seeker
+   #         Warhead@op: FireShrapnel
+   #             Weapon: DroneMissile
+   #             Amount: 1
+   #             AimChance: 100
+   #             AllowDirectHit: true
+   #             ValidStances: Ally
+   #             ValidTargets: Seeker, Ground, Air
+   # 

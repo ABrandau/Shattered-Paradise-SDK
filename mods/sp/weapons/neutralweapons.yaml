@@ -1,0 +1,450 @@
+FireballLauncher:
+	Inherits: ^RifleWarhead
+	ReloadDelay: 50
+	Range: 4c256
+	Report: flamtnk1.aud
+	Projectile: BulletAS
+		Speed: 64
+		Image: FLAMEALL
+		Inaccuracy: 384
+	Burst: 5
+	BurstDelays: 5
+	Warhead@1Dam: SpreadDamage
+		Spread: 341
+		Damage: 2500
+		Versus:
+			InfantryArmor: 600
+			BuildingArmor: 148
+			VehicleArmor: 59
+			DefenseArmor: 59
+			ConcreteArmor: 2
+		DamageTypes: Prone100Percent, TriggerProne, FireDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall
+
+Hellfire:
+	Inherits: ^RifleWarhead
+	ReloadDelay: 50
+	Range: 6c0
+	Report: orcamis1.aud
+	Burst: 2
+	ValidTargets: Ground, Water
+	Projectile: Missile
+		MaximumLaunchSpeed: 256
+		Arm: 2
+		Blockable: false
+		Shadow: true
+		Inaccuracy: 128
+		Image: DRAGON
+		TrailImage: small_smoke_trail
+		HorizontalRateOfTurn: 8
+		RangeLimit: 15c0
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Spread: 85
+		Damage: 3000
+		ValidTargets: Ground, Water
+		Versus:
+			InfantryArmor: 30
+			BuildingArmor: 65
+			VehicleArmor: 150
+			DefenseArmor: 150
+			ConcreteArmor: 30
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: small_clsn
+		ImpactSounds: expnew12.aud
+		InvalidImpactTypes: Water, Air, AirHit
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_watersplash
+		ExplosionPalette: player
+		ImpactSounds: ssplash3.aud
+		ValidImpactTypes: Water
+	Warhead@4EffAir: CreateEffect
+		Explosions: small_twlt
+		ValidImpactTypes: Air, AirHit
+		ImpactSounds: expnew06.aud
+	Warhead@5Smu: LeaveSmudge
+		SmudgeType: SmallCrater
+		InvalidTargets: Vehicle, Building, Wall
+
+CrabAcid:
+	Inherits: ^AcidWarhead
+	Inherits@1: ^SpawnsIrradiation
+	ReloadDelay: 100
+	Range: 4c0
+	Report: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
+	ValidTargets: Ground, Water, Vehicle, Infantry, Building
+	InvalidTargets: NeutralTibCritter
+	Projectile: BulletAS
+		Speed: 200
+		Image: acidall32mini
+		Inaccuracy: 384
+		Palette: apolgreenalpha
+	Burst: 5
+	BurstDelays: 5
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 630
+		ValidTargets: Ground, Water, Vehicle, Infantry, Building
+		InvalidTargets: NeutralTibCritter
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
+		Versus:
+			BuildingArmor: 75
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@3Radio: CreateTintedCells
+		Level: 10
+
+Tentacle:
+	Inherits@wh: ^AcidWarhead
+	ReloadDelay: 80
+	Range: 1c967
+	Report: floatk1.aud
+	ValidTargets: Ground, Water, Vehicle, Infantry, Building
+	Projectile: BulletAS
+		Speed: 0c602
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 1600
+		DamageTypes: TriggerProne, BulletDeath
+		ValidTargets: Ground, Water, Vehicle, Infantry, Building
+	Warhead@emp1: GrantExternalCondition
+		Range: 2c124
+		Duration: 50
+		Condition: empdisable
+		ValidTargets: Ground, Water
+
+CrabSpawnerPrior:
+	ReloadDelay: 250
+	Range: 10c0
+	Projectile: InstantExplode
+	Warhead@op: FireShrapnel
+		Weapon: CrabSpawner
+		Amount: 1
+		AllowDirectHit: false
+
+PowerplantNuke:
+	Inherits: ClusterMissile
+	Warhead@ImpactDamage0: SpreadDamage
+		Damage: 300
+	Warhead@ClusterDamage3: SpreadDamage
+		Damage: 62
+	Warhead@7Dam_areanukeb: SpreadDamage
+		Damage: 32
+
+CrabSpawner:
+	ReloadDelay: 150
+	Range: 3c0
+	Projectile: BulletAS
+		Speed: 1c682
+		Inaccuracy: 0c512
+	Warhead@5Actor: SpawnActor
+		Actors: crab
+		FallRate: 5000
+		Range: 3
+
+TibBurst:
+	ReloadDelay: 150
+	Projectile: InstantExplode
+	Warhead@op: FireShrapnel
+		Weapon: TibBurstExplo
+		Amount: 1
+
+TibBurstExplo:
+	ReloadDelay: 50
+	Range: 4c0
+	Projectile: BulletAS
+		Speed: 1c682
+		Inaccuracy: 0c512
+	Warhead@2Eff: CreateEffect
+		Explosions: tibexp2
+		ExplosionPalette: apolgreenalpha
+		ImpactSounds: expnew14.aud
+		InvalidImpactTypes: Water
+
+BlueTibBurst:
+	ReloadDelay: 150
+	Projectile: InstantExplode
+	Warhead@op: FireShrapnel
+		Weapon: BlueTibBurstExplo
+		Amount: 1
+
+BlueTibBurstExplo:
+	ReloadDelay: 50
+	Range: 3c0
+	Projectile: BulletAS
+		Speed: 1c682
+		Inaccuracy: 0c512
+	Warhead@2Eff: CreateEffect
+		Explosions: tibexp2
+		ExplosionPalette: apolbluealpha
+		ImpactSounds: expnew14.aud
+		InvalidImpactTypes: Water
+
+SonicEmitterProj:
+	Inherits: ^FullDamage
+	ReloadDelay: 100
+	Range: 11c0
+	Projectile: WarheadTrailProjectile
+		Offsets: 0,128,0#, 64,96,0, -64,96,0
+		Firemode: Line # try putting "Line" or "Spread" here, "Focus"
+		Inaccuracy: 0c0
+		Weapon: SonicEmitterHit
+		Speed: 250
+		ExplosionInterval: 4
+		ExplodeUnderThisAltitude: -9999
+		Blockable: False
+		KillProjectilesWhenReachedTargetLocation: false #try putting true
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+
+SonicEmitterHit:
+	Inherits: ^FullDamage
+	Inherits@2: ^Large_Explosion
+	ReloadDelay: 125
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
+	Range: 11c0
+	Projectile: BulletAS
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c300
+		Damage: 15000
+		Versus:
+			InfantryArmor: 300
+			BuildingArmor: 30
+			VehicleArmor: 70
+			DefenseArmor: 50
+			AircraftArmor: 100
+			ConcreteArmor: 30
+		ValidStances: Enemy, Neutral, Ally
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@4Sharpnel: FireShrapnel
+		Weapon: SmallDebris
+		Amount: 1
+		ValidTargets: Ground, Water, Air, AirHit
+		InvalidTargets: Infantry, Vehicle, Building, Wall
+
+ServDepoShrapnelSpawn:
+	ReloadDelay: 75
+	Range: 4c0
+	Projectile: InstantExplode
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 100, 100, 100
+		Spread: 1
+		Damage: 1
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 30
+			VehicleArmor: 2
+			DefenseArmor: 2
+			ConcreteArmor: 2
+		DamageTypes: FireDeath, ScrinEssenceKill
+		InvalidTargets: Colossi
+	Warhead@op: FireShrapnel
+		Weapon: ServDepoShrapnel
+		Amount: 3
+		AllowDirectHit: false
+		ThrowWithoutTarget: False
+		AimChance: 100
+		AimTargetStances: Ally
+
+ServDepoShrapnel:
+	Range: 4c0
+	ValidTargets: Vehicle
+	Projectile: InstantHit
+		# Palette: apolbluealpha
+	Warhead@1Dam: SpreadDamage
+		Damage: -1500
+		ValidTargets: Vehicle
+	Warhead@Acid: GrantExternalCondition
+		Range: 200
+		Duration: 50
+		Condition: DisplayWrench
+		ValidStances: Ally
+
+LTrail:
+	ReloadDelay: 60
+	Range: 6c0
+	Report: biggun1.aud
+	Projectile: AreaBeam
+		Speed: 20c0
+		Duration: 3
+		DamageInterval: 2
+		Width: 0c128
+		BeyondTargetRange: 0c64
+		Blockable: true
+		Color: 0080FFC8
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 15000
+		InfDeath: 6
+		AffectsParent: false
+		ValidStances: Neutral, Enemy
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 130
+			VehicleArmor: 150
+			DefenseArmor: 150
+			ConcreteArmor: 5
+		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 50, 50
+		Damage: 15000
+		InfDeath: 6
+		AffectsParent: false
+		ValidStances: Ally
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 130
+			VehicleArmor: 150
+			DefenseArmor: 150
+			ConcreteArmor: 5
+		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath
+
+4tnktusk:
+	Inherits: MammothTusk
+	Range: 6c0
+
+EngineerCapture:
+	ReloadDelay: 200
+	Report: klax1.aud
+	ValidTargets: Building
+	Range: 1c0
+	Projectile: InstantExplode
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+		ValidTargets: Building
+	Warhead@2Dam: CaptureActor
+		ValidTargets: Building
+
+LightTowerClaxon:
+	ReloadDelay: 200
+	Report: klax1.aud
+	ValidTargets: Ground, Water, Air
+	Range: 10c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+	ValidTargets: Ground, Water, Air
+	Projectile: InstantExplode
+
+GreenTibRadiation:
+	ReloadDelay: 100
+	Projectile: InstantExplode
+	Warhead@8Radio: CreateTintedCells
+		Spread: 1024
+		Falloff: 100, 65, 45, 25, 5
+		Level: 64
+		MaxLevel: 250
+		LayerName: HarmlessRadiationGreen
+
+BlueTibRadiation:
+	Inherits: GreenTibRadiation
+	Warhead@8Radio: CreateTintedCells
+		LayerName: BlueRadiation
+
+SpawnVisc:
+	ReloadDelay: 25
+	Range: 2c0
+	Burst: 1
+	BurstDelays: 1
+	ValidTargets: ViscMale
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: ViscMale
+		Damage: 1
+		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
+	Warhead@5Actor: SpawnActor
+		Actors: VISC_SML
+		FallRate: 5000
+		Range: 3
+		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+
+SpawnZombie:
+	Inherits: SpawnVisc
+	Warhead@5Actor: SpawnActor
+		Actors: ZOMBIE
+
+SpawnBerserker:
+	Inherits: SpawnVisc
+	Warhead@5Actor: SpawnActor
+		Actors: BERSERKER
+
+SlimeAttack:
+	Inherits: ^RifleWarhead
+	ReloadDelay: 80
+	Range: 1c512
+	Report: vicer1.aud
+	Projectile: BulletAS
+		Speed: 426
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
+		Versus:
+			VehicleArmor: 60
+			DefenseArmor: 60
+			ConcreteArmor: 20
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
+
+VeinholeAttack:
+	Inherits: ^RifleWarhead
+	ReloadDelay: 50
+	Range: 5c0
+	Report:
+	Projectile: InstantExplode
+	InvalidTargets: Veinhole
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
+	Warhead@5Actor: SpawnActor
+		Actors: cloud1
+		FallRate: 5000
+		Range: 3
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@8Radio: CreateTintedCells
+		Spread: 1024
+		Level: 10
+		Falloff: 100, 50, 25, 5
+		MaxLevel: 1000
+
+FloaterCloudSpawn:
+	Inherits: VeinholeAttack
+	ReloadDelay: 100
+
+Veins:
+	Inherits: ^RifleWarhead
+	ReloadDelay: 12
+	Warhead@Damage: SpreadDamage
+		Spread: 42
+		Damage: 6
+		DamageTypes: TiberiumDeath
+	Warhead@Effect: CreateEffect
+		Explosions: veins
+		ExplosionPalette: player
+
+Repair:
+	ReloadDelay: 80
+	Range: 1c819
+	Report: REPAIR11.AUD
+	ValidTargets: Repair
+	Projectile: BulletAS
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		DebugOverlayColor: 00FF00
+		Spread: 213
+		Damage: -5000
+		ValidTargets: Repair
+
+Demolish:
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: ExplosionDeath
+		Damage: 1
+	Warhead@2Eff: CreateEffect
+		Explosions: large_twlt
+		ExplosionPalette: effectalpha75
+		ImpactSounds: expnew09.aud

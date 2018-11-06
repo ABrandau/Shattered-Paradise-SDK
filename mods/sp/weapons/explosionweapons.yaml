@@ -1,0 +1,361 @@
+MineExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Large_twlt
+	Warhead@1Dam: SpreadDamage
+		Spread: 320
+		Damage: 32000
+		Versus:
+			Mine: 5
+		AffectsParent: true
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		InvalidTargets: Mine, Air
+
+BuildingExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Large_twlt
+	Warhead@1Dam: SpreadDamage
+		Spread: 380
+		Damage: 1
+		AffectsParent: true
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		InvalidTargets: Air
+	Warhead@4EffAir: CreateEffect
+		Explosions: jtwlt100, jtwlt100b, jtwlt070, jtwlt070b, jstumu42, jstumu42b ,jstumu60, jstumu60b, jbrrlexp1, jsbang34, jsbang34b, jsbang48, jsbang48b, jbrrlexp1b
+		ExplosionPalette: gensmkexploj
+	Warhead@5Smu: LeaveSmudge
+		SmudgeType: MediumCrater
+		InvalidTargets: Vehicle, Building, Wall
+
+ScrinBuildingExplode:
+	Inherits: BuildingExplode
+	-Warhead@4EffAir: CreateEffect
+	Warhead@4EffAir: CreateEffect
+		Explosions: jtwlt100, jtwlt100b, jtwlt070, jtwlt070b, jstumu42, jstumu42b ,jstumu60, jstumu60b, jbrrlexp1, jsbang34, jsbang34b, jsbang48, jsbang48b, jbrrlexp1b
+		ExplosionPalette: gensmkexplojFblue
+
+CyborgExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Medium_Bang
+
+StormriderExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Mediuml_Clsn
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c080
+		Damage: 2500
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		InvalidTargets: Air
+
+SmallPlaneExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Mediuml_Clsn
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c350
+		Damage: 5000
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		InvalidTargets: Air
+
+DestroyerExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Mediuml_Clsn
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c400
+		Damage: 5000
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		InvalidTargets: Air
+
+BattleshipExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^GreyExplo
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c800
+		Damage: 10000
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		InvalidTargets: Air
+
+DroneExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Tiny_Explo
+	Warhead@op: FireShrapnel
+		Weapon: SmallDebris
+		Amount: 1
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
+UnitExplodeSmall:
+	Inherits@2: ^Small_Brnl
+	Warhead@1Dam: SpreadDamage
+		Spread: 213
+		Damage: 1
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2: SpawnSmokeParticle
+		Duration: 25, 600
+		Image: explosion
+		Sequences: fire1
+		Palette: effectalpha25
+		Weapon: DummyWeapon
+	Warhead@4Sharpnel: FireShrapnel
+		Weapon: SmallDebris
+		Amount: 2
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
+UnitExplode:
+	Inherits: ^ExploDefaults
+	Warhead@1Dam: SpreadDamage
+	Inherits@2: ^Medium_Brnl
+		Spread: 1
+		Damage: 1
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2: SpawnSmokeParticle
+		Duration: 25, 600
+		Image: explosion
+		Sequences: fire4
+		Palette: effectalpha25
+		Weapon: DummyWeapon
+
+ScrinUnitExplode:
+	Inherits: ^ExploDefaults
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+	Warhead@2Eff: CreateEffect
+		Explosions: scrinvehicleexplo1, scrinvehicleexplo2
+		ExplosionPalette: apolbluealpha
+		ImpactSounds: expnew09.aud
+	Warhead@2: SpawnSmokeParticle
+		Duration: 25, 600
+		Image: explosion
+		Sequences: fire4
+		Palette: effectalpha25
+		Weapon: DummyWeapon
+
+ScrinUnitExplode2:
+	Inherits: ^ExploDefaults
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+	Warhead@2Eff: CreateEffect
+		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
+		ExplosionPalette: apolbluealpha
+		ImpactSounds: expnew09.aud
+	Warhead@2: SpawnSmokeParticle
+		Duration: 25, 600
+		Image: explosion
+		Sequences: fire2
+		Palette: effectalpha25
+		Weapon: DummyWeapon
+
+ScrinUnitExplode3:
+	Inherits: ^ExploDefaults
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+	Warhead@2Eff: CreateEffect
+		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
+		ExplosionPalette: apolbluealpha
+		ImpactSounds: expnew09.aud
+
+ScrinUnitExplode4:
+	Inherits: ^ExploDefaults
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+	Warhead@2Eff: CreateEffect
+		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
+		ExplosionPalette: apolbluealpha
+		ImpactSounds: expnew09.aud
+
+TiberiumExplosion:
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+	Warhead@2Res: CreateResource
+		AddsResourceType: Tiberium
+		Size: 1,1
+	Warhead@3Eff: CreateEffect
+		Explosions: tibexp
+		ImpactSounds: expnew09.aud
+	Warhead@5Smu: LeaveSmudge
+		SmudgeType: MediumCrater
+		InvalidTargets: Vehicle, Building, Wall
+
+ZombieExplosion:
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+	Warhead@5Actor: SpawnActor
+		Actors: cloud1
+		FallRate: 5000
+		Range: 3
+	Warhead@3Eff: CreateEffect
+		Explosions: tibexp
+		ImpactSounds: expnew09.aud
+	Warhead@8Radio: CreateTintedCells
+		Range: 1, 2, 3
+		Level: 200
+		Falloff: 100, 50, 25
+		MaxLevel: 1000
+
+BlueTibBarrelExplo:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Large_Explosion
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c768
+		Damage: 10000
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		InvalidTargets: Air
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+
+SparkSpawner:
+	Inherits: ^SparkSpawner
+	Inherits: ^NoDamage
+	ReloadDelay: 100
+	Projectile: InstantExplode
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
+SparkDebris:
+	Range: 1c0
+	Report:
+	Projectile: BulletAS
+		Speed: 50, 125
+		Innacuracy: 256
+		LaunchAngle: 150, 250
+		Image: sparkprojectile
+
+SmallDebris:
+	Inherits@2: ^Shrapnel
+	ReloadDelay: 60
+	Range: 4c0
+	Report:
+	Projectile: BulletAS
+		Speed: 50, 125
+		Innacuracy: 256
+		LaunchAngle: 91, 255
+		Image: dbrissm
+		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+		Shadow: true
+	Warhead@2: SpawnSmokeParticle
+		Duration: 25, 600
+		Image: explosion
+		Sequences: fire2, fire1
+		Palette: effectalpha25
+		Weapon: DummyWeapon
+
+LargeDebris:
+	Inherits@2: ^Large_Clsn
+	Inherits@2: ^FlameScorch
+	ReloadDelay: 60
+	Range: 4c0
+	Report:
+	Projectile: BulletAS
+		Speed: 50, 125
+		LaunchAngle: 91, 255
+		Image: dbrislg
+		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+		Shadow: true
+	Warhead@2: SpawnSmokeParticle
+		Duration: 25, 600
+		Image: explosion
+		Sequences: fire1, fire2
+		Palette: effectalpha25
+		Weapon: DummyWeapon
+
+^ParticleSpawner:
+	Projectile: InstantExplode
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+		DamageTypes: Prone100Percent, TriggerProne, FireDeath
+	Warhead@2: SpawnSmokeParticle
+		Duration: 25, 600
+		Image: explosion
+		Sequences: fire2, fire1
+		Palette: effectalpha25
+
+BuildingFireBigParticleSpawner:
+	Inherits: ^ParticleSpawner
+	Warhead@2: SpawnSmokeParticle
+		Duration: 40
+		Weapon: BuildingFireBigShrapnel
+
+BuildingFireSmallParticleSpawner:
+	Inherits: BuildingFireBigParticleSpawner
+	Warhead@2: SpawnSmokeParticle
+		Weapon: BuildingFireSmallShrapnel
+
+BuildingFireBigShrapnel:
+	ReloadDelay: 15
+	Projectile: InstantExplode
+	Warhead@op: FireShrapnel
+		Weapon: BuildingFireBig
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
+BuildingFireSmallShrapnel:
+	Inherits: BuildingFireBigShrapnel
+	ReloadDelay: 6
+	Warhead@op: FireShrapnel
+		Weapon: BuildingFireSmall
+
+BuildingFireBig:
+	Inherits: ^FlameWarhead
+	Inherits@2: ^FlameScorch
+	Range: 1c0
+	MinRange: 0c128
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+		DamageTypes: Prone100Percent, TriggerProne, FireDeath
+	Warhead@2: SpawnSmokeParticle
+		Duration: 25, 600
+		Image: explosion
+		Sequences: fire3, fire4
+		Palette: effectalpha50
+
+BuildingFireSmall:
+	Inherits: BuildingFireBig
+	Range: 2c0
+	MinRange: 0c512
+	Warhead@2: SpawnSmokeParticle
+		Sequences: fire2, fire1
+		Duration: 25, 300
+
+BuildingCriticalDamageFireSpawner:
+	Inherits: BuildingFireBigShrapnel
+	ReloadDelay: 125
+	Warhead@op: FireShrapnel
+		Weapon: BuildingCriticalDamageFireSmall
+
+BuildingCriticalDamageFireSmall:
+	Inherits: BuildingFireBig
+	Range: 1c0
+	Warhead@2: SpawnSmokeParticle
+		Duration: 250
+		Sequences: fire1, fire2
+		Image: buildingfire
+	-Warhead@2Smu: LeaveSmudge
+	-Warhead@3Eff: CreateEffect
+
+DefenceCriticalDamageFireSpawner:
+	Inherits: BuildingCriticalDamageFireSpawner
+	ReloadDelay: 250
+   	Warhead@op: FireShrapnel
+		Weapon: DefenceCriticalDamageFireSmall
+
+DefenceCriticalDamageFireSmall:
+  	Inherits: BuildingCriticalDamageFireSmall
+	Range: 0c400
+
+DummyWeapon:
+	Projectile: InstantHit
+	ReloadDelay: 500
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1

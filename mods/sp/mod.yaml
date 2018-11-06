@@ -1,0 +1,370 @@
+Metadata:
+	Title: Shattered Paradise
+	Version: SP-Build-20181105
+	Website: http://www.moddb.com/mods/shattered-paradise
+	WebIcon32: https://raw.githubusercontent.com/ABrandau/OpenRAModSDK/master/packaging/linux/mod_32x32.png
+
+PackageFormats: Mix
+
+Packages:
+	~^Content/ts
+	~^Content/ts/firestorm
+	.
+	./mods/common: common
+	./mods/as: as
+	$sp: sp
+	$ts: ts
+	# Tiberian Sun
+	~scores.mix
+	~sidenc01.mix
+	~sidenc02.mix
+	~e01scd01.mix
+	~e01scd02.mix
+	~movies01.mix
+	~movies02.mix
+	~sidecd01.mix
+	~sidecd02.mix
+	~cache.mix
+	~conquer.mix
+	~isosnow.mix
+	~isotemp.mix
+	~local.mix
+	~sidec01.mix: sidebar-gdi
+	~sidec02.mix: sidebar-nod
+	~sno.mix
+	~snow.mix
+	~sounds.mix
+	~speech01.mix: speech-gdi
+	~speech02.mix: speech-nod
+	~tem.mix
+	~temperat.mix
+	# Firestorm
+	~scores01.mix
+	~expand01.mix
+	~sounds01.mix
+	~e01sc01.mix
+	~e01sc02.mix
+	~e01vox01.mix
+	~e01vox02.mix
+	~ecache01.mix
+	sp|bits
+	sp|bits/neutral/anims/explosions
+	sp|bits/pal
+	sp|bits/gdi/infantry
+	sp|bits/nod/infantry
+	sp|bits/mutant/infantry
+	sp|bits/cabal/infantry
+	sp|bits/scrin/infantry
+	sp|bits/gdi/vehicles
+	sp|bits/nod/vehicles
+	sp|bits/mutant/vehicles
+	sp|bits/cabal/vehicles
+	sp|bits/scrin/vehicles
+	sp|bits/gdi/structures
+	sp|bits/nod/structures
+	sp|bits/mutant/structures
+	sp|bits/mutant/structures/temperate
+	sp|bits/cabal/structures
+	sp|bits/cabal/structures/temperate
+	sp|bits/scrin/structures/temperate
+	sp|bits/scrin/structures
+	sp|bits/gdi/anims
+	sp|bits/nod/anims
+	sp|bits/mutant/anims
+	sp|bits/cabal/anims
+	sp|bits/scrin/anims
+	sp|bits/neutral/anims
+	sp|bits/gdi/audio
+	sp|bits/nod/audio
+	sp|bits/mutant/audio
+	sp|bits/cabal/audio
+	sp|bits/scrin/audio
+	sp|bits/neutral/audio
+	sp|bits/gdi/audio/voice
+	sp|bits/gdi/audio/eva
+	sp|bits/nod/audio/voice
+	sp|bits/nod/audio/eva
+	sp|bits/mutant/audio/eva
+	sp|bits/scrin/audio/eva
+	sp|bits/cabal/audio/eva
+	sp|bits/mutant/audio/voice
+	sp|bits/cabal/audio/voice
+	sp|bits/scrin/audio/voice
+	sp|bits/neutral/audio/voice
+	sp|bits/scrin/air
+	sp|bits/nod/effects
+	sp|bits/neutral
+	sp|bits/neutral/structures
+	sp|bits/neutral/swicons
+	sp|uibits
+
+MapFolders:
+	sp|maps/meme: System
+	sp|maps/balanced: System
+	sp|maps/others: System
+	sp|maps/campaign/cabal: System
+	~^maps/sp/{DEV_VERSION}: User
+
+Rules:
+	sp|rules/ai.yaml
+	sp|rules/player.yaml
+	sp|rules/world.yaml
+	sp|rules/palettes.yaml
+	sp|rules/defaults.yaml
+	sp|rules/infantry.yaml
+	sp|rules/vehicles.yaml
+	sp|rules/aircraft.yaml
+	sp|rules/sharedrules.yaml
+	sp|rules/structures.yaml
+	sp|rules/support.yaml
+	sp|rules/civilianrules.yaml
+	sp|rules/husks.yaml
+	sp|rules/bridges.yaml
+	sp|rules/trees.yaml
+	sp|rules/misc.yaml
+	sp|rules/dummies.yaml
+
+Weapons:
+	sp|weapons/weapondefaults.yaml
+	sp|weapons/explodefaults.yaml
+	sp|weapons/neutralweapons.yaml
+	sp|weapons/explosionweapons.yaml
+	sp|weapons/superweapons.yaml
+	sp|weapons/vanillaweapons.yaml
+	sp|weapons/gdiweapons.yaml
+	sp|weapons/nodweapons.yaml
+	sp|weapons/mutweapons.yaml
+	sp|weapons/cabweapons.yaml
+	sp|weapons/scrweapons.yaml
+	sp|weapons/garrisonweapons.yaml
+
+Sequences:
+	sp|sequences/misc.yaml
+	sp|sequences/explosions.yaml
+	sp|sequences/seqdefaults.yaml
+	sp|sequences/civseq.yaml
+	sp|sequences/sharedseq.yaml
+	sp|sequences/nodseq.yaml
+	sp|sequences/neutralseq.yaml
+	sp|sequences/goddamdepthspritebugs.yaml
+	sp|sequences/proc.yaml
+	sp|sequences/mutseq.yaml
+	sp|sequences/trees.yaml
+	sp|sequences/gdiseq.yaml
+	sp|sequences/cabseq.yaml
+	sp|sequences/scrseq.yaml
+	sp|sequences/bridges.yaml
+	sp|sequences/mufactory.yaml
+
+ModelSequences:
+	sp|sequences/voxels.yaml
+
+TileSets:
+	sp|tilesets/temperate.yaml
+	sp|tilesets/snow.yaml
+
+MapGrid:
+	TileSize: 48,24
+	Type: RectangularIsometric
+	# EnableDepthBuffer: True
+	MaximumTerrainHeight: 16
+	SubCellOffsets: 0,0,0, -256,128,0, 0,-128,0, 256,128,0
+	DefaultSubCell: 2
+
+Cursors:
+	ts|cursors.yaml
+
+Chrome:
+	sp|chrome.yaml
+
+Assemblies:
+	common|OpenRA.Mods.Common.dll
+	common|OpenRA.Mods.Cnc.dll
+	as|OpenRA.Mods.AS.dll
+
+ChromeLayout:
+	common|chrome/ingame.yaml
+	common|chrome/ingame-chat.yaml
+	common|chrome/ingame-fmvplayer.yaml
+	common|chrome/ingame-menu.yaml
+	ts|chrome/ingame-info.yaml
+	common|chrome/ingame-infoscripterror.yaml
+	common|chrome/ingame-infobriefing.yaml
+	common|chrome/ingame-infoobjectives.yaml
+	common|chrome/ingame-infostats.yaml
+	sp|chrome/ingame-observer.yaml
+	sp|chrome/ingame-observerstats.yaml
+	sp|chrome/ingame-player.yaml #The only file of chromes that is on SP
+	common|chrome/ingame-perf.yaml
+	ts|chrome/ingame-debug.yaml
+	common|chrome/ingame-infochat.yaml
+	common|chrome/mainmenu.yaml
+	sp|chrome/mainmenu-prerelease-notification.yaml
+	common|chrome/settings.yaml
+	common|chrome/credits.yaml
+	common|chrome/lobby.yaml
+	common|chrome/lobby-mappreview.yaml
+	common|chrome/lobby-players.yaml
+	common|chrome/lobby-options.yaml
+	common|chrome/lobby-music.yaml
+	common|chrome/lobby-servers.yaml
+	common|chrome/lobby-kickdialogs.yaml
+	common|chrome/playerprofile.yaml
+	ts|chrome/color-picker.yaml
+	common|chrome/map-chooser.yaml
+	common|chrome/multiplayer-browser.yaml
+	common|chrome/multiplayer-browserpanels.yaml
+	common|chrome/multiplayer-createserver.yaml
+	common|chrome/multiplayer-directconnect.yaml
+	common|chrome/connection.yaml
+	common|chrome/replaybrowser.yaml
+	sp|chrome/dropdowns.yaml
+	common|chrome/musicplayer.yaml
+	common|chrome/tooltips.yaml
+	common|chrome/assetbrowser.yaml
+	common|chrome/missionbrowser.yaml
+	common|chrome/confirmation-dialogs.yaml
+	common|chrome/editor.yaml
+
+Voices:
+	sp|audio/voices.yaml
+
+Notifications:
+	sp|audio/speech-generic.yaml
+	sp|audio/speech-singleplayer.yaml
+	sp|audio/sounds-generic.yaml
+
+Music:
+	sp|audio/music.yaml
+
+Translations:
+	sp|languages/english.yaml
+
+Hotkeys:
+	common|hotkeys/game.yaml
+	common|hotkeys/observer.yaml
+	common|hotkeys/production-common.yaml
+	common|hotkeys/supportpowers.yaml
+	common|hotkeys/viewport.yaml
+	ts|hotkeys.yaml
+
+LoadScreen: LogoStripeLoadScreen
+	Image: sp|uibits/loadscreen.png
+	Text: Exterminating the Martian race..., Sending the tacitus to Earth..., Developing human civilization..., Allowing Tiberium to go rampant...,Increasing political tension..., Finishing the TD Campaign..., Reinstalling bugs..., Searching for life outside earth..., Renaming bugs into easter eggs..., Making sure Nolt doesn't understand the next exception...,Nerfing your favourite unit... 
+
+ServerTraits:
+	LobbyCommands
+	PlayerPinger
+	MasterServerPinger
+	LobbySettingsNotification
+
+ChromeMetrics:
+	common|metrics.yaml
+	sp|metrics.yaml
+
+Fonts:
+	Regular:
+		Font: common|FreeSans.ttf
+		Size:14
+	Bold:
+		Font: common|FreeSansBold.ttf
+		Size:14
+	Title:
+		Font: common|FreeSansBold.ttf
+		Size:32
+	MediumBold:
+		Font: common|FreeSansBold.ttf
+		Size:18
+	BigBold:
+		Font: common|FreeSansBold.ttf
+		Size:24
+	Small:
+		Font: common|FreeSans.ttf
+		Size:12
+	Tiny:
+		Font: common|FreeSans.ttf
+		Size:10
+	TinyBold:
+		Font: common|FreeSansBold.ttf
+		Size:10
+
+SupportsMapsFrom: ts, sp
+
+SoundFormats: Aud, Wav
+
+SpriteFormats: ShpTS, TmpTS, ShpTD
+
+SpriteSequenceFormat: TilesetSpecificSpriteSequence
+	TilesetExtensions:
+		TEMPERATE: .tem
+		SNOW: .sno
+	TilesetCodes:
+		TEMPERATE: t
+		SNOW: a
+
+ModelSequenceFormat: VoxelModelSequence
+
+GameSpeeds:
+	slower:
+		Name: Slower
+		Timestep: 50
+		OrderLatency: 5
+	default2
+		Name: Normal (OL = 3)
+		Timestep: 40
+		OrderLatency: 3
+	default:
+		Name: Normal (OL = 5)
+		Timestep: 40
+		OrderLatency: 5
+	default3:
+		Name: Normal (OL = 9)
+		Timestep: 40
+		OrderLatency: 9
+	faster:
+		Name: Faster
+		Timestep: 30
+		OrderLatency: 5
+	fastest:
+		Name: Fastest
+		Timestep: 20
+		OrderLatency: 6
+	simulationspeed:
+		Name: 20 times Fastest
+		Timestep: 1
+		OrderLatency: 10
+
+ColorValidator:
+	TeamColorPresets: f70606, ff7a22, f8d3b3, f8e947, b6f706, f335a0, a64d6c, ce08f9, f5b2db, 12b572, 380135, 1d06f7, 328dff, 78dbf8, cef6b1, 000000
+
+ModContent:
+	InstallPromptMessage: Tiberian Sun requires artwork and audio from the original game.\n\nQuick Install will automatically download this content (without music\nor videos) from a mirror of the 2012 Tiberian Sun freeware release.\n\nAdvanced Install includes options for downloading the music and for\ncopying the videos and other content from an original game disc.
+	QuickDownload: quickinstall
+	HeaderMessage: Game content may be extracted from the original game discs or an\nexisting digital install. OpenRA can also download the base game\nfiles from an online mirror of the 2012 freeware release of TS.
+	Packages:
+		tibsun: Base Game Files
+			TestFiles: ^Content/ts/cache.mix, ^Content/ts/conquer.mix, ^Content/ts/isosnow.mix, ^Content/ts/isotemp.mix, ^Content/ts/local.mix, ^Content/ts/sidec01.mix, ^Content/ts/sidec02.mix, ^Content/ts/sno.mix, ^Content/ts/snow.mix, ^Content/ts/sounds.mix, ^Content/ts/speech01.mix, ^Content/ts/tem.mix, ^Content/ts/temperat.mix
+			Sources: tibsun, tibsun-linux, tfd, origin
+			Required: true
+			Download: basefiles
+		tibsun-music: Base Game Music
+			TestFiles: ^Content/ts/scores.mix
+			Sources: tibsun, tibsun-linux, tfd, origin
+			Download: tibsun-music
+		fstorm: Expansion Freeware Content
+			TestFiles: ^Content/ts/firestorm/e01sc01.mix, ^Content/ts/firestorm/e01sc02.mix, ^Content/ts/firestorm/e01vox01.mix, ^Content/ts/firestorm/e01vox02.mix
+			Sources: tfd, origin, fstorm
+			Required: true
+			Download: fstorm
+		fstorm-music: Expansion Freeware Music
+			Sources: tfd, origin, fstorm
+			TestFiles: ^Content/ts/firestorm/linkup.aud, ^Content/ts/firestorm/hacker.aud
+			Download: fstorm-music
+	Downloads:
+		ts|installer/downloads.yaml
+	Sources:
+		ts|installer/downloads.yaml
+		ts|installer/firestorm.yaml
+		ts|installer/firstdecade.yaml
+		ts|installer/origin.yaml
+		ts|installer/tibsun.yaml

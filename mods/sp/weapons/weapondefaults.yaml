@@ -1,0 +1,201 @@
+^WeaponGenericUpgrades:
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Condition: BreakShield
+		Range: 96
+		Duration: 400
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c090
+		Damage: 1
+		DamageTypes: Prone60Percent, TriggerProne
+
+^RifleWarhead:
+	Inherits: ^WeaponGenericUpgrades
+	Projectile: BulletAS
+		Speed: 1c682
+		Blockable:true
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 20
+			VehicleArmor: 10
+			DefenseArmor: 5
+			AircraftArmor: 100
+			ConcreteArmor: 3
+			Shield: 0
+
+^RocketWarhead:
+	Inherits: ^WeaponGenericUpgrades
+	Projectile: Missile
+		TerrainHeightAware: True
+		CruiseAltitude: 6000
+		MinimumLaunchAngle: 255
+		MaximumLaunchAngle: 255
+		MaximumLaunchSpeed: 0c543
+		MinimumLaunchSpeed: 0c301
+		Speed: 600
+		Blockable: false
+		Shadow: true
+		Inaccuracy: 0c181
+		Image: DRAGON
+		HorizontalRateOfTurn: 40
+		VerticalRateOfTurn: 40
+		RangeLimit: 15c0
+		TrailImage: small_smoke_trail
+		TrailPalette: effectalpha75
+		Palette: ra
+		AllowSnapping: true
+		CloseEnough: 200
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c181
+		Versus:
+			InfantryArmor: 30
+			BuildingArmor: 100
+			VehicleArmor: 100
+			DefenseArmor: 100
+			AircraftArmor: 100
+			ConcreteArmor: 35
+			Shield: 0
+
+^AARocketWarhead:
+	Projectile: Missile
+		Speed: 400
+
+^APWarhead:
+	Inherits: ^WeaponGenericUpgrades
+	Projectile: BulletAS
+		Speed: 650
+		Image: 120mm
+		Shadow: true
+		LaunchAngle: 75
+		Palette: ra
+		Blockable:true
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c181
+		Versus:
+			InfantryArmor: 10
+			BuildingArmor: 100
+			VehicleArmor: 100
+			DefenseArmor: 100
+			AircraftArmor: 100
+			ConcreteArmor: 35
+			Shield: 0
+
+^FlameWarhead:
+	Inherits: ^WeaponGenericUpgrades
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 100, 100, 100, 100
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 200
+			DefenseArmor: 25
+			VehicleArmor: 25
+			AircraftArmor: 100
+			ConcreteArmor: 1
+			Shield: 0
+
+^ArtilleryWarhead:
+	Inherits: ^WeaponGenericUpgrades
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 150
+			VehicleArmor: 50
+			DefenseArmor: 100
+			ConcreteArmor: 35
+			Shield: 0
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 256
+		Duration: 750
+
+^BombWarhead:
+	Inherits: ^WeaponGenericUpgrades
+	Warhead@1Dam: SpreadDamage
+		# Falloff: 300, 150, 100, 50, 0
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 100
+			VehicleArmor: 50
+			DefenseArmor: 100
+			AircraftArmor: 100
+			ConcreteArmor: 20
+			Shield: 0
+	Warhead@BounceUpgrade: GrantExternalCondition
+		Condition: ArtilleryWarhead
+
+^AcidWarhead:
+	Inherits: ^WeaponGenericUpgrades
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 276
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			InfantryArmor: 150
+			BuildingArmor: 75
+			VehicleArmor: 50
+			DefenseArmor: 50
+			AircraftArmor: 100
+			ConcreteArmor: 15
+			Shield: 0
+
+^SpawnsIrradiation:
+	Warhead@3Radio: CreateTintedCells
+		Spread: 512
+		Level: 6
+		MaxLevel: 500
+
+^SpawnsIrradiationFalcon:
+	Inherits: ^SpawnsIrradiation
+	Warhead@8Radio: CreateTintedCells
+		Spread: 1024
+		Level: 1400
+		MaxLevel: 1400
+
+^DecentFalloff:
+	Inherits: ^WeaponGenericUpgrades
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 50, 25, 12, 0
+
+^FullDamage:
+	Inherits: ^WeaponGenericUpgrades
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c181
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 100
+			VehicleArmor: 100
+			DefenseArmor: 100
+			ConcreteArmor: 30
+			Shield: 0
+
+^AntiAirTurretWeapon:
+	Inherits: ^FullDamage
+	ValidTargets: Air
+	ReloadDelay: 40
+	Range: 9c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c045
+		Damage: 5000
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+		ValidTargets: Air
+
+^NoDamage:
+	ValidTargets: Ground, Infantry, Vehicle, Building
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 1
+
+^ExploDefaults:
+	Inherits: ^WeaponGenericUpgrades
+	Warhead@op: FireShrapnel
+		Weapon: SmallDebris
+		Amount: 2
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@1Dam: SpreadDamage
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Damage: 1
+		Versus:
+			InfantryArmor: 300
+			BuildingArmor: 60
+			VehicleArmor: 50
+			DefenseArmor: 50
+			ConcreteArmor: 35

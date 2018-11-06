@@ -1,0 +1,264 @@
+^EditorNotifier:
+	Interactable:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: false
+	RenderSpritesEditorOnly:
+		Palette: apred
+	WithSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 1
+	EditorTilesetFilter:
+		Categories: Other
+
+mpspawn:
+	Inherits: ^EditorNotifier
+	EditorOnlyTooltip:
+		Name: (multiplayer player starting point)
+
+waypoint:
+	Inherits: ^EditorNotifier
+	EditorOnlyTooltip:
+		Name: (waypoint for scripted behavior)
+
+tibambientsounddummy:
+	Inherits: ^EditorNotifier
+	EditorOnlyTooltip:
+		Name: (waypoint for scripted behavior)
+	AmbientSound@TibSound:
+		SoundFiles: floatmov.wav, flotmov2.wav, flotmov3.wav, flotmov4.wav
+		Delay: 300, 600
+		Interval: 300, 600
+	RenderSpritesEditorOnly:
+		Image: musicnotifier
+
+cashnotifier:
+	Inherits: ^EditorNotifier
+	EditorOnlyTooltip:
+		Name: (waypoint for scripted behavior)
+	AmbientSound@TibSound:
+		SoundFiles: floatmov.wav, flotmov2.wav, flotmov3.wav, flotmov4.wav
+		Delay: 300, 600
+		Interval: 300, 600
+	RenderSpritesEditorOnly:
+	CashTrickler@InfiniteCash:
+		Interval: 1000
+		Amount: 99999
+		ShowTicks: False
+
+CAMERA:
+	Inherits: ^EditorNotifier
+	Inherits@1: ^1x1Shape
+	EditorOnlyTooltip:
+		Name: (reveals area to owner)
+	Health:
+		HP: 1000
+	RevealsShroud:
+		Range: 10c0
+		Type: CenterPosition
+	DetectCloaked:
+		Range: 10c0
+
+colorpicker:
+	Inherits: MUTMCV
+	EditorOnlyTooltip:
+		Name: Color picker unit (Do not place in editor)
+	Mobile:
+		InitialFacing: 160
+	-Buildable:
+	RenderSprites:
+		Image: ttnk
+		Palette: colorpicker
+
+CRATE:
+	Inherits: ^Crate
+	GiveCashCrateAction:
+		Amount: 1000
+		SelectionShares: 50
+		Effect: dollar
+		UseCashTick: true
+	LevelUpCrateAction:
+		SelectionShares: 40
+		Effect: levelup
+	HideMapCrateAction:
+		SelectionShares: 5
+		Effect: hide-map
+	HealUnitsCrateAction:
+		SelectionShares: 2
+		Effect: heal
+	RevealMapCrateAction:
+		SelectionShares: 1
+		Effect: reveal-map
+	GiveMcvCrateAction@gdi:
+		SelectionShares: 0
+		NoBaseSelectionShares: 100
+		Units: mcv
+		ValidFactions: gdi
+	GiveMcvCrateAction@nod:
+		SelectionShares: 0
+		NoBaseSelectionShares: 100
+		Units: nodmcv
+		ValidFactions: nod
+	GiveMcvCrateAction@mut:
+		SelectionShares: 0
+		NoBaseSelectionShares: 100
+		Units: mutmcv
+		ValidFactions: mut
+	GiveMcvCrateAction@cab:
+		SelectionShares: 0
+		NoBaseSelectionShares: 100
+		Units: cabmcv
+		ValidFactions: cab
+	GiveMcvCrateAction@scr:
+		SelectionShares: 0
+		NoBaseSelectionShares: 100
+		Units: drache
+		ValidFactions: scr
+	GrantExternalConditionCrateAction@cloak:
+		SelectionShares: 5
+		Effect: stealth
+		Condition: cloakgenerator
+		Notification: cloak5.aud
+	GrantExternalConditionCrateAction@firepower:
+		SelectionShares: 5
+		Effect: firepower
+		Condition: firepowercrate
+		Notification: 00-i070.aud
+	GrantExternalConditionCrateAction@armor:
+		SelectionShares: 5
+		Effect: armor
+		Condition: damagecrate
+		Notification: 00-i068.aud
+	GrantExternalConditionCrateAction@speed:
+		SelectionShares: 5
+		Condition: speedcrate
+		Notification: 00-i080.aud
+
+SROCK01:
+	Inherits: ^Rock
+
+SROCK02:
+	Inherits: ^Rock
+
+SROCK03:
+	Inherits: ^Rock
+
+SROCK04:
+	Inherits: ^Rock
+
+SROCK05:
+	Inherits: ^Rock
+
+TROCK01:
+	Inherits: ^Rock
+
+TROCK02:
+	Inherits: ^Rock
+
+TROCK03:
+	Inherits: ^Rock
+
+TROCK04:
+	Inherits: ^Rock
+
+TROCK05:
+	Inherits: ^Rock
+
+CRAT01:
+	Inherits: ^Box
+
+CRAT02:
+	Inherits: ^Box
+
+CRAT03:
+	Inherits: ^Box
+
+CRAT04:
+	Inherits: ^Box
+
+CRAT0A:
+	Inherits: ^Box
+
+CRAT0B:
+	Inherits: ^Box
+
+CRAT0C:
+	Inherits: ^Box
+
+DRUM01:
+	Inherits: ^Drum
+
+DRUM02:
+	Inherits: ^Drum
+
+PALET01:
+	Inherits: ^Palette
+
+PALET02:
+	Inherits: ^Palette
+
+PALET03:
+	Inherits: ^Palette
+
+PALET04:
+	Inherits: ^Palette
+
+TRACKS01:
+	Inherits: ^Railway
+
+TRACKS02:
+	Inherits: ^Railway
+
+TRACKS03:
+	Inherits: ^Railway
+
+TRACKS04:
+	Inherits: ^Railway
+
+TRACKS05:
+	Inherits: ^Railway
+
+TRACKS06:
+	Inherits: ^Railway
+
+TRACKS07:
+	Inherits: ^Railway
+
+TRACKS08:
+	Inherits: ^Railway
+
+TRACKS09:
+	Inherits: ^Railway
+
+TRACKS10:
+	Inherits: ^Railway
+
+TRACKS11:
+	Inherits: ^Railway
+
+TRACKS12:
+	Inherits: ^Railway
+
+TRACKS13:
+	Inherits: ^Railway
+
+TRACKS14:
+	Inherits: ^Railway
+
+TRACKS15:
+	Inherits: ^Railway
+
+TRACKS16:
+	Inherits: ^Railway
+
+TUNTOP01:
+	Inherits: ^Tunnel
+
+TUNTOP02:
+	Inherits: ^Tunnel
+
+TUNTOP03:
+	Inherits: ^Tunnel
+
+TUNTOP04:
+	Inherits: ^Tunnel

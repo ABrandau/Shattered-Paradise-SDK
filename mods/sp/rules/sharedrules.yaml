@@ -1,0 +1,1321 @@
+E1:
+	Inherits: ^Soldier
+	Valued:
+		Cost: 120
+	Tooltip:
+		Name: Light Infantry
+		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 81
+	Armament@PRIMARY:
+		Weapon: Minigun
+	AttackFrontal:
+		Voice: Attack
+	WithInfantryBody:
+		AttackSequence: shoot
+	RenderSprites:
+		Image: e1.gdi
+		FactionImages:
+			gdi: e1.gdi
+			nod: e1.nod
+
+ENGINEER:
+	Inherits: ^Soldier
+	Inherits@3: ^Engineer
+	Tooltip:
+		Name: Engineer
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 3
+		Prerequisites: ~SharedEngie
+		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable.
+	-GainsExperience:
+	Voiced:
+		VoiceSet: Engineer
+	RenderSprites:
+		Image: engineer.gdi
+		FactionImages:
+			gdi: engineer.gdi
+			nod: engineer.nod
+	AttackFrontal:
+	AnnounceOnSeen:
+		Notification: EnemyEngineerDetected
+
+MCV:
+	Inherits: ^VoxelVehicle
+	Inherits@2: ^LowerSelectionPriority
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 110
+		Prerequisites: ~gaweap, gadept
+		BuildAtProductionType: Tank
+		Description: Deploys into a Construction Yard.\n\nSpecial:\n- Provides a build radius for structures.\n- Can crush infantry.\n- Maximun production speed is reached with 7 Conyards.\n- Max production speed reduces production time by 50%.\n- Cannot be mindcontrolled.\n- Has increased HP when deployed.
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Mobile Construction Vehicle
+	Selectable:
+		DecorationBounds: 42,42
+	Health:
+		HP: 60000
+	Armor:
+		Type: VehicleArmor
+	Mobile:
+		Speed: 60
+		TurnSpeed: 5
+		Locomotor: InfantryCrusherVehicle
+	Targetable@MindControl:
+		TargetTypes: MindControlInmune
+	MustBeDestroyed:
+		RequiredForShortGame: true
+	-Capturable:
+	BaseBuilding:
+	Transforms:
+		IntoActor: gacnst
+		Offset: -1,-1
+		Facing: 96
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+	SelectionDecorations:
+	RenderSprites:
+		Image: mcv.gdi
+
+HARV:
+	Inherits: ^VoxelVehicle
+	Inherits@2: ^LowerSelectionPriority
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Harvester
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 1
+		Prerequisites: ~humanstuff, factory
+		BuildAtProductionType: Tank
+		InitialActivity: FindResources
+		Description: Collects Tiberium for processing.\n\nSpecial:\n- Harvests Tiberium.\n- Immune to Veins.\n- Can crush infantry.\n- Cannot be mindcontrolled.
+	Selectable:
+		Bounds: 36,36
+		Class: HumanHarv
+		DecorationBounds: 36,36
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithFacingSpriteBody:
+	Harvester:
+		Capacity: 28
+		DeliveryBuildings: proc, muproc, muproc2, cabproc, cabproc2, scrproc, scrproc2, gdiref, gdiref2, nodref, nodref2
+		Resources: Tiberium, BlueTiberium
+		UnloadTicksPerBale: 3
+		LoadTicksPerBale: 6
+		FullyLoadedSpeed: 100
+		# SearchFromProcRadius: 36
+		SearchForDeliveryBuildingDelay: 200
+		SearchFromOrderRadius: 18
+		HarvestVoice: Attack
+		DeliverVoice: Action
+		PipCount: 7
+	WithMoveAnimation:
+	WithDockingAnimation:
+	Mobile:
+		Speed: 60
+        Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 50000
+	Targetable@MindControl:
+		TargetTypes: MindControlInmune
+	Armor:
+		Type: VehicleArmor
+	-GainsExperience:
+	Explodes:
+		Weapon: TiberiumExplosion
+	WithHarvestOverlay:
+		LocalOffset: 768,0,0
+		Palette: effect
+	SelectionDecorations:
+	Capturable:
+		CaptureThreshold: 60
+	RenderSprites:
+		Image: gdiharv
+		FactionImages:
+			gdi: gdiharv
+			nod: nodharv
+			mut: mutharv
+			cab: cabharv
+	Voiced:
+		VoiceSet: HumanHarvesterVO
+		Volume: 4
+	-SelfHealing@veinholedrain:
+	-ExternalCondition@veinholedrain:
+	-WithIdleOverlay@veinholedrain:
+	-GrantConditionOnTerrain@VEINS:
+
+harv.gdi:
+	Inherits: HARV
+	Buildable:
+		Prerequisites: ~disabled
+	RenderSprites:
+		Image: gdiharv
+		-FactionImages:
+
+harv.nod:
+	Inherits: HARV
+	Buildable:
+		Prerequisites: ~disabled
+	RenderSprites:
+		Image: nodharv
+		-FactionImages:
+
+harv.mut:
+	Inherits: HARV
+	Buildable:
+		Prerequisites: ~disabled
+	RenderSprites:
+		Image: mutharv
+		-FactionImages:
+
+harv.cab:
+	Inherits: HARV
+	Buildable:
+		Prerequisites: ~disabled
+	RenderSprites:
+		Image: cabharv
+		-FactionImages:
+
+SCRHARV:
+	Inherits: HARV
+	Inherits@1: ^ScrinVehicle
+	Inherits@3: ^HoverVehicle
+	Valued:
+		Cost: 1000
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		Prerequisites: scrproc, ~scrweap
+		InitialActivity: FindResources
+	Mobile:
+        Locomotor: InfantryCrusherVehicle
+	Targetable@MindControl:
+		TargetTypes: MindControlInmune
+	Capturable:
+		CaptureThreshold: 60
+	-GainsExperience:
+	WithHarvestOverlay:
+		Offset: 384,0,0
+		Palette: effect
+	SelectionDecorations:
+	RenderSprites:
+		-Image: harv.gdi
+		-FactionImages:
+	WithFacingSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 32
+	Voiced:
+		VoiceSet: Seeker
+		Volume: 1
+	Selectable:
+		DecorationBounds: 36,36
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: apolbluealpha60
+
+LPST:
+	Inherits: ^VoxelVehicle
+	-AppearsOnRadar:
+	-GainsExperience:
+	Valued:
+		Cost: 950
+	Tooltip:
+		Name: Mobile Sensor Array
+		Description: Can detect cloaked and subterranean\nunits when deployed.\n  Unarmed
+	Health:
+		HP: 60000
+	Armor:
+		Type: BuildingArmor
+	Mobile:
+		Speed: 85
+		TurnSpeed: 5
+	RenderSprites:
+		Image: lpst.gdi
+		FactionImages:
+			gdi: lpst.gdi
+			nod: lpst.nod
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed, notmobile
+		UndeployedCondition: undeployed
+		DeployAnimation: make
+		Facing: 160
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
+		DeploySound: place2.aud
+		UndeploySound: clicky1.aud
+	WithVoxelBody:
+		Image: lpst
+		RequiresCondition: undeployed
+		ConditionMinEnabledLevel: 1
+	WithSpriteBody@deployed:
+		RequiresCondition: undeployed
+		ConditionMaxEnabledLevel: 0
+	DetectCloaked:
+		RequiresCondition: deployed
+		ConditionMinEnabledLevel: 1
+		Range: 18c0
+	RenderDetectionCircle:
+		TrailCount: 3
+
+GACNST:
+	Inherits: ^Building
+	Inherits@4: ^3x3Shape
+	Building:
+		Footprint: xxx xxx xxx
+		BuildSounds: facbld1.aud
+		Dimensions: 3,3
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 1000
+		Prerequisites: ~disabled
+	Health:
+		HP: 180000
+	Production:
+		Produces: Building, Defense
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Construction Yard
+		Description: Builds base structures.
+	BaseProvider:
+		Range: 14c0
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, MindControlInmune
+	BaseBuilding:
+	Transforms:
+		IntoActor: mcv
+		Offset: 1,1
+		Facing: 96
+		DeployCursor: undeploy
+	ProductionBar@Building:
+		ProductionType: Building
+	ProductionBar@Defense:
+		ProductionType: Defense
+	WithIdleOverlay@TOP:
+		Sequence: idle-top
+	WithIdleOverlay@SIDE:
+		Sequence: idle-side
+	WithIdleOverlay@FRONT:
+		Sequence: idle-front
+	WithBuildingPlacedOverlay:
+	Selectable:
+		Bounds: 144, 60, 0, -6
+		DecorationBounds: 144, 80, 0, -12
+	ProvidesPrerequisite@walls:
+		Factions: gdi, cab
+		Prerequisite: sharedwall
+		ResetOnOwnerChange: True
+	ProvidesPrerequisite@nodgate:
+		Factions: nod, cab, gdi
+		Prerequisite: nodgate
+		ResetOnOwnerChange: True
+	ProvidesPrerequisite@humanstuff:
+		Factions: gdi, nod, cab, mut
+		Prerequisite: humanstuff
+		ResetOnOwnerChange: True
+	ProvidesPrerequisite@faction:
+		Factions: gdi, nod, cab, mut, scr
+		Prerequisite: structures.gdi
+	SpawnActorsOnSell@humanengie:
+		ActorTypes: engineer
+		Factions: gdi, nod
+	SpawnActorsOnSell@mutengie:
+		ActorTypes: e2
+		Factions: mut
+	SpawnActorsOnSell@gdi:
+		ValuePercent: 15
+		ActorTypes: gdie1
+		Factions: gdi
+	SpawnActorsOnSell@nod:
+		ValuePercent: 15
+		ActorTypes: altnode1
+		Factions: nod
+	SpawnActorsOnSell@cab:
+		ValuePercent: 15
+		ActorTypes: worker
+		Factions: cab
+	SpawnActorsOnSell@mut:
+		ValuePercent: 15
+		ActorTypes: marauder
+		Factions: mut
+	SpawnActorsOnSell@scr:
+		ValuePercent: 15
+		ActorTypes: legio
+		Factions: scr
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+^PowerPlant:
+	Inherits: ^Building
+	ProvidesPrerequisite:
+		Prerequisite: anypower
+	ProvidesPrerequisite@buildingname:
+	InfiltrateForPowerOutage:
+	AffectedByPowerOutage:
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
+	ScalePowerWithHealth:
+	Health:
+		HP: 50000
+
+^Barracks:
+	Inherits: ^Building
+	Inherits@1: ^ProducesStuff
+	Valued:
+		Cost: 500
+	ProvidesPrerequisite:
+		Prerequisite: barracks
+	ProximityExternalCondition@hospitalheal:
+		Condition: hospitalheal
+		Range: 5c0
+	WithRangeCircle:
+		Range: 5c0
+		Type: hospitalheal
+	Health:
+		HP: 50000
+	Exit@1:
+		SpawnOffset: -256,1024,0
+		ExitCell: 2,2
+	Exit:
+		# SpawnOffset: -256,1024,0
+		ExitCell: 0,0
+	Production:
+		Produces: Infantry
+	PrimaryBuilding:
+	Power:
+		Amount: -20
+	ProvidesPrerequisite@buildingname:
+
+^RefineryHP:
+	Health:
+		HP: 100000
+	Valued:
+		Cost: 1500
+	CustomSellValue:
+		Value: 500
+	Tooltip:
+		Name: Tiberium Refinery
+	Power:
+		Amount: -30
+	StoresResources:
+		PipColor: Green
+		PipCount: 15
+		Capacity: 1000
+	Explodes:
+		Weapon: TiberiumExplosion
+		EmptyWeapon: TiberiumExplosion
+	ProximityExternalCondition@RefineryLock:
+		Condition: RefineryLock
+		Range: 2c0
+		ValidStances: Enemy, Neutral
+
+PROC:
+	Inherits: ^Building
+	Inherits@1: ^NormalRefineryHitShape
+    Inherits@2: ^RefineryHP
+	ProvidesPrerequisite:
+		Factions: gdi, cab, mut, nod
+		Prerequisite: proc
+	Building:
+		Footprint: xx== xx== xx==
+		Dimensions: 4,3
+	Selectable:
+		Bounds: 100, 70, -30, -24
+		DecorationBounds: 102, 70, -26, -24
+	SelectionDecorations:
+	Refinery:
+		DockAngle: 160
+		DockOffset: 2,1
+		DiscardExcessResources: false
+	FreeActor:
+		Actor: HARV
+		SpawnOffset: 3,1
+		Facing: 160
+	WithIdleOverlay@REDLIGHTS:
+		Sequence: idle-redlights
+	WithIdleOverlay@BIB:
+		Sequence: bib
+	WithDockedOverlay@flame:
+		Sequence: flame
+		Palette: effect
+	ProvidesPrerequisite@proc:
+		ProvidesPrerequisite: proc
+		Description: Tiberium Refinery
+	RenderSprites:
+		Image: proc.gdi
+		FactionImages:
+			gdi: proc.gdi
+			nod: nawast
+			mut: proc.gdi
+			cab: proc.gdi
+	RequiresBuildableArea:
+		AreaTypes: building
+
+FLIPPEDPROC:
+	Inherits: ^Building
+	Inherits@1: ^FlippedRefineryHitshape
+    Inherits@2: ^RefineryHP
+	ProvidesPrerequisite:
+		Factions: gdi, cab, mut, nod, scr
+		Prerequisite: proc
+	Building:
+		Footprint: ==xx ==xx ==xx
+		Dimensions: 4,3
+	Selectable:
+		Bounds: 100, 70, 24, 12
+		DecorationBounds: 100, 70, 24, 12
+	SelectionDecorations:
+	Refinery:
+		DockAngle: 30
+		DockOffset: 1,1
+		DiscardExcessResources: false
+	FreeActor:
+		Actor: HARV
+		SpawnOffset: 0,1
+		Facing: 30
+	WithIdleOverlay@REDLIGHTS:
+		Sequence: idle-redlights
+	WithIdleOverlay@BIB:
+		Sequence: bib
+	WithDockedOverlay@flame:
+		Sequence: flame
+		Palette: effect
+	ProvidesPrerequisite@proc:
+		ProvidesPrerequisite: proc
+		Description: Tiberium Refinery
+	RenderSprites:
+		Image: proc.gdi
+		FactionImages:
+			gdi: proc.gdi
+			nod: nawast
+			mut: proc.gdi
+			cab: proc.gdi
+	RequiresBuildableArea:
+		AreaTypes: building
+
+^Factory:
+	Inherits: ^Building
+	Inherits@1: ^ProducesStuff
+	Inherits@4: ^4x3FactoryWithBibShape
+	Valued:
+		Cost: 2000
+	ProvidesPrerequisite:
+		Prerequisite: factory
+	Building:
+		Footprint: xxx= xxx= xxx=
+		Dimensions: 4,3
+	Selectable:
+		Bounds: 100, 70, -30, -24
+		DecorationBounds: 102, 70, -26, -24
+	Health:
+		HP: 150000
+	RallyPoint:
+		Offset: 4,1
+		Palette: mouse
+		IsPlayerPalette: false
+	Exit@1:
+		SpawnOffset: -384,-384,0
+		ExitCell: 3,1
+		ExitDelay: 5
+		ProductionTypes: Tank, Vehicle 
+	Tooltip:
+		Name: Vehicle or Aircraft production
+	ProvidesPrerequisite@factoryhelipad:
+		Prerequisite: Vehicle or Aircraft production
+	Production:
+		Produces: Vehicle, Tank
+	PrimaryBuilding:
+	ProductionBar:
+	Power:
+		Amount: -30
+	ProvidesPrerequisite@buildingname:
+	RequiresBuildableArea:
+		AreaTypes: building
+	ProvidesPrerequisite@humanmcv:
+		Factions: gdi, mut
+		Prerequisite: humanmcv
+		ResetOnOwnerChange: True
+	ProvidesPrerequisite@humanstuff:
+		Factions: gdi, nod, cab, mut
+		Prerequisite: humanstuff
+		ResetOnOwnerChange: True
+	ProximityExternalCondition@RefineryLock:
+		Condition: RefineryLock
+		Range: 2c0
+		ValidStances: Enemy, Neutral
+
+^Helipad:
+	Inherits: ^Building
+	Inherits@1: ^ProducesStuff
+	Inherits@2: ^2x2Shape
+	Exit@1:
+		SpawnOffset: 0,-256,0
+	Valued:
+		Cost: 500
+	Production:
+		Produces: Air
+	RallyPoint:
+		Palette: mouse
+		IsPlayerPalette: false
+	PrimaryBuilding:
+		PrimaryCondition: primary
+	Tooltip:
+		Name: Vehicle or Aircraft production
+	ProvidesPrerequisite@pieceofshit:
+		Prerequisite: Vehicle or Aircraft production
+	Reservable:
+	RepairsUnits:
+		Interval: 1
+	ProductionBar:
+	Health:
+		HP: 60000
+	Power:
+		Amount: -20
+	WithSpriteBody:
+		PauseOnCondition: disabled
+
+^Radar:
+	Inherits: ^Building
+	Inherits@1: ^DisableOnLowPowerOrPowerDown
+	Valued:
+		Cost: 1500
+	ProvidesPrerequisite:
+		Prerequisite: radar
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 100000
+	GrantConditionOnPowerState@LOWPOWER:
+		Condition: lowpower
+		ValidPowerStates: Low, Critical
+	ToggleConditionOnOrder:
+		DisabledSpeech: DisablePower
+		EnabledSpeech: EnablePower
+		Condition: powerdown
+		OrderName: PowerDown
+	ProvidesRadar:
+		RequiresCondition: !disabled && !empdisable
+	InfiltrateForExploration:
+	DetectCloaked:
+		Range: 10c0
+	RenderDetectionCircle:
+	RevealsShroud:
+		Range: 12c0
+	Targetable:
+		TargetTypes: Building, Ground, C4, SpyInfiltrate
+	Power:
+		Amount: -50
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	WithSpriteBody:
+		PauseOnCondition: disabled
+	WithDecoration@POWERDOWN:
+		Image: poweroff
+		Sequence: offline
+		Palette: mouse
+		RequiresCondition: powerdown
+		ReferencePoint: Center
+	RequiresBuildableArea:
+		AreaTypes: building
+	PowerMultiplier@POWERDOWN:
+		RequiresCondition: powerdown
+		Modifier: 0
+	Selectable:
+		DecorationBounds: 96, 118, 0, -38
+
+GADEPT:
+	Inherits: ^Building
+	Inherits@1: ^3x3Shape
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Service Depot
+	Buildable:
+		BuildPaletteOrder: 5
+		Prerequisites: ~humanstuff, Vehicle or Aircraft production
+		Queue: Building
+		Description: Repairs vehicles.\n\nSpecial:\n- Can be ordererd to repair a single vehicle faster for a cost.\nApply a repair command to a vehicle to send it to a nearby service depo.#\n-Repairs nearby vehicles for free.
+	Building:
+		Footprint: =x= xxx =x=
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 96, 64, -6, -6
+		DecorationBounds: 98, 68, -6, -6
+	Health:
+		HP: 110000
+	Reservable:
+	RepairsUnits:
+		HpPerStep: 2000
+		FinishRepairingNotification: UnitRepaired
+		PlayerExperience: 15
+	WithSpriteBody:
+		PauseOnCondition: disabled
+	RallyPoint:
+		Palette: mouse
+		IsPlayerPalette: false
+	WithIdleOverlay@LIGHT:
+		Sequence: idle-light
+	WithIdleOverlay@GROUND:
+		Sequence: ground
+	WithIdleOverlay@CIRCUITS:
+		Sequence: circuits
+	WithRepairOverlay@CRANE:
+		Sequence: crane
+	WithRepairOverlay@PLATFORM:
+		Sequence: platform
+	WithDeathAnimation@BIB:
+		DeathSequence: dead-ground
+		UseDeathTypeSuffix: false
+	# ExplodeWeapon:
+	# 	Weapon: ServDepoShrapnelSpawn
+	# 	RequiresCondition: !disabled
+	Power:
+		Amount: -30
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	RenderSprites:
+		Image: gadept.gdi
+		FactionImages:
+			gdi: gadept.gdi
+			nod: gadept.nod
+			mut: gadept.mut
+			cab: gadept.cab
+	RequiresBuildableArea:
+		AreaTypes: building
+
+SCRDEPOT:
+	Inherits: GADEPT
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Buildable:
+		Prerequisites:  Vehicle or Aircraft production, ~structures.scr
+	Tooltip:
+		Name: Scrin Maintenance Depot
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	RenderSprites:
+		Image: scrdepot
+		-FactionImages:
+	-WithIdleOverlay@LIGHT:
+	-WithIdleOverlay@GROUND:
+	-WithIdleOverlay@CIRCUITS:
+	-WithRepairOverlay@CRANE:
+	-WithRepairOverlay@PLATFORM:
+	-WithDeathAnimation@BIB:
+
+^TechCenter:
+	Inherits: ^Building
+	Valued:
+		Cost: 2000
+	ProvidesPrerequisite:
+		Prerequisite: tech
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 120000
+	WithSpriteBody:
+		PauseOnCondition: disabled
+	Power:
+		Amount: -200
+	ProvidesPrerequisite@buildingname:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+ANYPOWER:
+	AlwaysVisible:
+	Tooltip:
+		Name: Power Plant
+		Description: Power Plant
+
+BARRACKS:
+	AlwaysVisible:
+	Tooltip:
+		Name: Infantry Production
+		Description: Infantry Production
+
+FACTORY:
+	AlwaysVisible:
+	Tooltip:
+		Name: Vehicle Production
+		Description: Vehicle Production
+
+RADAR:
+	AlwaysVisible:
+	Tooltip:
+		Name: Radar
+		Description: Radar
+
+TECH:
+	AlwaysVisible:
+	Tooltip:
+		Name: Tech Center
+		Description: Tech Center
+
+SHAWALL:
+	Inherits: ^Wall
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 1
+		Prerequisites: ~sharedwall
+		Description: Stops infantry, Vehicles and blocks enemy fire.
+	SoundOnDamageTransition:
+		DamagedSounds:
+		DestroyedSounds:
+	-AppearsOnRadar:
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Wall
+	LineBuild:
+		NodeTypes: wall, turret
+	RenderSprites:
+		Image: wall.gdi
+		FactionImages:
+			gdi: wall.gdi
+			nod: wall.nod
+			cab: wall.nod
+	ExplodeWeapon@1:
+		Weapon: FirestormExploWalls
+		RequiresCondition: FirestormWallCondition
+		ConditionMinEnabledLevel: 1
+		ResetReloadWhenEnabled: false
+
+NAPOST:
+	Inherits: ^Defence
+	Inherits@IDISABLED: ^DisableOnLowPowerOrPowerDown
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 2
+		Prerequisites: napowr, ~structures.nod
+		Description: Stops infantry and blocks enemy fire\n- Can NOT be crushed\n- Requires power to operate
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Laser Fence
+	Health:
+		HP: 30000
+	BlocksProjectiles:
+	Armor:
+		Type: ConcreteArmor
+	-Targetable:
+	-Targetable@Defence:
+	Targetable@Fence:
+		TargetTypes: Building, Ground, DetonateAttack, NoAutoTarget
+	LineBuild:
+		Range: 10
+		NodeTypes: laserfencenode
+		SegmentType: nafnce
+		SegmentsRequireNode: true
+	WithMakeAnimation:
+		Condition: make-animation-playing
+	Selectable:
+		Bounds: 42, 44, 0, -12
+	LineBuildNode:
+		Types: laserfencenode
+	RequiresBuildableArea:
+		AreaTypes: building
+		Adjacent: 6
+	Power:
+		Amount: -5
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !disabled
+		Sequence: lights
+	WithIdleOverlay@CHAINOFLIGHTS:
+		RequiresCondition: !disabled
+		Sequence: chainoflights
+	LineBuildSegmentExternalCondition:
+		RequiresCondition: !disabled && !make-animation-playing
+		Condition: active-posts
+	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
+	-RenderRangeCircle:
+
+NAFNCE:
+	Inherits: ^Wall
+	Inherits@1: ^Cloakable
+	-Replaceable:
+	Valued:
+		Cost: 50
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Laser Fence
+	Tooltip:
+		Name: Laser Fence
+	LineBuild:
+		NodeTypes: laserfence
+	LineBuildNode:
+		Types: laserfence
+	-Crushable:
+	-Sellable:
+	-Targetable:
+	-Building:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	EnergyWall:
+		ActiveCondition: active-posts == 2
+		Weapon: LaserFence
+	GrantConditionOnLineBuildDirection@X:
+		Direction: X
+		Condition: laserfence-direction-x
+	GrantConditionOnLineBuildDirection@Y:
+		Direction: Y
+		Condition: laserfence-direction-y
+	-WithWallSpriteBody:
+	ExternalCondition@ACTIVE:
+		Condition: active-posts
+	WithWallSpriteBody@XENABLED:
+		RequiresCondition: laserfence-direction-x && active-posts == 2
+		Type: laserfence
+		Sequence: enabled-x
+	WithWallSpriteBody@YENABLED:
+		RequiresCondition: laserfence-direction-y && active-posts == 2
+		Type: laserfence
+		Sequence: enabled-y
+	WithSpriteBody@XDISABLED:
+		RequiresCondition: laserfence-direction-x && active-posts < 2
+		Sequence: disabled-x
+	WithSpriteBody@YDISABLED:
+		RequiresCondition: laserfence-direction-y && active-posts < 2
+		Sequence: disabled-y
+	BlocksProjectiles:
+		RequiresCondition: active-posts == 2
+	DamageMultiplier: # Prevent all normal damage, but still allows direct kills from the post
+		Modifier: 0
+	ThrowsShrapnel@SMALL:
+		Weapons: SmallDebris
+		Pieces: 0, 1
+		Range: 2c0, 5c0
+	Interactable:
+		Bounds: 48, 24
+	-EditorTilesetFilter:
+
+MUTWALL:
+	Inherits: ^Wall
+	Inherits@2: ^MutRender
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 3
+		Description: Stops infantry, Vehicles and blocks enemy fire.
+		Prerequisites: ~structures.mut
+	SoundOnDamageTransition:
+		DamagedSounds:
+		DestroyedSounds:
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Forgotten Wall
+	-Cloak@CLOAKGENERATOR:
+	RenderSprites:
+		Image: wall.mut
+	LineBuild:
+		NodeTypes: wall, turret
+
+SCRWALL:
+	Inherits: ^Wall
+	Inherits@2: ^ScrinRender
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 4
+		Description: Stops infantry, Vehicles and blocks enemy fire.
+		Prerequisites: ~structures.scr
+	SoundOnDamageTransition:
+		DamagedSounds:
+		DestroyedSounds:
+	CustomSellValue:
+		Value: 0
+	-Cloak@CLOAKGENERATOR:
+	Tooltip:
+		Name: Energy Wall
+	LineBuild:
+		NodeTypes: wall, turret
+
+GASILO:
+	Inherits: ^Building
+	Inherits: ^2x2Shape
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 31
+		Prerequisites: ~humanstuff, proc
+		Description: Stores excess Tiberium.\n\nSpecial:\n- Stores 3000$.\n- Power loss does not affect storage capacity.
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Silo
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	Selectable:
+		Bounds: 80, 48, -5, 0
+		DecorationBounds: 80, 48, -5, 0
+	Explodes:
+		Weapon: TiberiumExplosion
+		EmptyWeapon: TiberiumExplosion
+	-GivesBuildableArea:
+	Health:
+		HP: 10000
+	Armor:
+		Type: BuildingArmor
+	RenderSprites:
+		Image: gasilo.gdi
+		FactionImages:
+			gdi: gasilo.gdi
+			nod: gasilo.nod
+			mut: gasilo.mut
+			cab: gasilo.cab
+	WithSpriteBody:
+	WithSiloAnimation:
+	WithIdleOverlay@UNDERLAY:
+		Sequence: idle-underlay
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	StoresResources:
+		PipCount: 5
+		Capacity: 3000
+	Power:
+		Amount: -10
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+TRNSPORT:
+	Inherits@1: ^Helicopter
+	Inherits@2: ^9CellVision
+	Inherits@3: ^SpriteActor
+    Inherits@4: ^LowerSelectionPriority
+	Inherits@5: ^AircraftShadow
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Carryall
+	Buildable:
+		Description: VTOL aircraft for transporting vehicles.\n\nSpecial:\n- Can transport one vehicle.\n- Works as an APC (vehicle moves into carryall)
+		Queue: Air
+		BuildPaletteOrder: 2
+		Prerequisites: ~humanstuff, gadept
+	Aircraft:
+		LandWhenIdle: True
+		RepulsionSpeed: 40
+		AltitudeVelocity: 350
+		MaximumPitch: 350
+		IdealSeparation: 3c0
+		TurnSpeed: 5
+		Speed: 130
+		CruiseAltitude: 3c768
+		InitialFacing: 0
+		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+	Health:
+		HP: 9000
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithFacingSpriteBody:
+		RequiresCondition: !loaded
+	WithFacingSpriteBody@attack:
+		Sequence: idle2
+		RequiresCondition: loaded
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	RenderSprites:
+		Image: trnsport
+		FactionImages:
+			gdi: trnsport
+			nod: nodcarryall
+			cab: cabcarryall
+			mut: forgcarryall
+	Selectable:
+		Bounds: 44,32,0,-8
+	Cargo:
+		Types: Vehicle
+		MaxWeight: 3
+		PipCount: 1
+		UnloadVoice: Unload
+		PassengerFacing: 1
+		LoadedCondition: loaded
+		LoadingCondition: notmobile
+	WithCargo:
+		DisplayTypes: Infantry, Vehicle
+	# WithRoof:
+	SpawnActorOnDeath:
+		Actor: TRNSPORT.Husk
+	-GainsExperience:
+	WithIdleOverlay@1Air:
+		Offset: 500,0,650
+		Sequence: rotor
+		RequiresCondition: airborne && MutRotor && !loaded
+	WithIdleOverlay@2Ground:
+		Offset: 500,0,650
+		Sequence: slow-rotor
+		RequiresCondition: !airborne && MutRotor && !loaded
+	WithIdleOverlay@3Air:
+		Offset: -700,0,900
+		Sequence: rotor
+		RequiresCondition: airborne && MutRotor && !loaded
+	WithIdleOverlay@4Ground:
+		Offset: -700,0,900
+		Sequence: slow-rotor
+		RequiresCondition: !airborne && MutRotor && !loaded
+	GrantConditionOnFaction:
+		Factions: mut
+		Condition: MutRotor
+	WithIdleOverlay@5Air:
+		Offset: 500,0,2150
+		Sequence: rotor
+		RequiresCondition: airborne && MutRotor && loaded
+	WithIdleOverlay@6Ground:
+		Offset: 500,0,2150
+		Sequence: slow-rotor
+		RequiresCondition: !airborne && MutRotor && loaded
+	WithIdleOverlay@7Air:
+		Offset: -700,0,2400
+		Sequence: rotor
+		RequiresCondition: airborne && MutRotor && loaded
+	WithIdleOverlay@8Ground:
+		Offset: -700,0,2400
+		Sequence: slow-rotor
+		RequiresCondition: !airborne && MutRotor && loaded
+
+trnsport.gdi:
+	Inherits: TRNSPORT
+	Buildable:
+		Prerequisites: ~disabled
+	RenderSprites:
+		-FactionImages:
+	-WithIdleOverlay@1Air:
+	-WithIdleOverlay@2Ground:
+	-WithIdleOverlay@3Air:
+	-WithIdleOverlay@4Ground:
+	-GrantConditionOnFaction:
+	-WithIdleOverlay@5Air:
+	-WithIdleOverlay@6Ground:
+	-WithIdleOverlay@7Air:
+	-WithIdleOverlay@8Ground:
+
+trnsport.nod:
+	Inherits: trnsport.gdi
+	RenderSprites:
+		Image: nodcarryall
+
+trnsport.mut:
+	Inherits: TRNSPORT
+	Buildable:
+		Prerequisites: ~disabled
+	RenderSprites:
+		-FactionImages:
+		Image: forgcarryall
+	WithIdleOverlay@1Air:
+		RequiresCondition: airborne && !loaded
+	WithIdleOverlay@2Ground:
+		RequiresCondition: !airborne && !loaded
+	WithIdleOverlay@3Air:
+		RequiresCondition: airborne && !loaded
+	WithIdleOverlay@4Ground:
+		RequiresCondition: !airborne && !loaded
+	WithIdleOverlay@5Air:
+		RequiresCondition: airborne && loaded
+	WithIdleOverlay@6Ground:
+		RequiresCondition: !airborne && loaded
+	WithIdleOverlay@7Air:
+		RequiresCondition: airborne && loaded
+	WithIdleOverlay@8Ground:
+		RequiresCondition: !airborne && loaded
+
+trnsport.cab:
+	Inherits: trnsport.gdi
+	RenderSprites:
+		Image: cabcarryall
+
+NAPULS:
+	Inherits: ^Defence
+	Inherits@4: ^2x2Shape
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: EMP Cannon
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 32
+		Prerequisites: ~humanstuff, radar
+		Description: Cannon that uses EMP projectiles to disable vehicles.\n\nSpecial:\n- Fires a pulse blast which disables all vehicles and buildings in the area\n- Hover units disabled staying over water will be destroyed instantly.\n- Requires power to operate.\n- Cannot be disabled.
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 78, 54, 0, -12
+		DecorationBounds: 78, 54, 0, -12
+	GrantConditionOnPowerState@LOWPOWER:
+		Condition: lowpower
+		ValidPowerStates: Low, Critical
+	-ToggleConditionOnOrder:
+	Health:
+		HP: 100000
+	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 300
+	WithSpriteTurret:
+		Sequence: turret
+	Power:
+		Amount: -150
+	SelectionDecorations:
+	RenderSprites:
+		Image: napuls.gdi
+		FactionImages:
+			gdi: napuls.gdi
+			nod: napuls.nod
+			mut: napuls.mut
+			cab: napuls.cab
+	ProvidesPrerequisite@gdi:
+		Prerequisite: emp.gdi
+		Factions: gdi, mut, nod, cab, scr
+		ResetOnOwnerChange: true
+	AttackTurreted:
+	Armament:
+		Weapon: EMPulseCannon
+		LocalOffset: 200,0,1500
+		LocalYaw: 0,100
+        Name: Superweapon
+	FireArmamentPower:
+		AllowMultiple: False
+		Cursor: emp
+		MaximumFiringInstances: 1000
+		ArmamentName: Superweapon
+		Icon: emp
+		ChargeInterval: 3000
+		TargetCircleRange: 4c0
+		Description: E.M. Pulse
+		LongDesc: Fires a pulse blast which disables\nall mechanical units in the area.
+		EndChargeSound: speech-nod|00-i158.aud
+		SelectTargetSound: n_00-i042.aud
+		Prerequisites: emp.gdi
+		OrderName: Nodemp
+		PauseOnCondition: disabled
+	RequiresBuildableArea:
+		AreaTypes: building
+
+SCRSHIELD:
+	Inherits: NAPULS
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Tooltip:
+		Name: Stasis Field Generator
+	Buildable:
+		Prerequisites: scrradr, ~structures.scr
+	-WithSpriteTurret:
+	RenderSprites:
+		Image: scrshield
+		-FactionImages:
+
+GATE_A:
+	Inherits: ^Gate_A
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: ~nodgate
+		Description: Automated barrier that opens for allied units.
+	-AppearsOnRadar:
+	-UpdatesPlayerStatistics:
+	Tooltip:
+		Name: Gate
+	RenderSprites:
+		Image: gate_a.gdi
+		FactionImages:
+			gdi: gate_a.gdi
+			nod: gate_a.nod
+			cab: gate_a.cab
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
+
+GATE_B:
+	Inherits: ^Gate_B
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: ~nodgate
+		Description: Automated barrier that opens for allied units.
+	-AppearsOnRadar:
+	-UpdatesPlayerStatistics:
+	Tooltip:
+		Name: Gate
+	RenderSprites:
+		Image: gate_b.gdi
+		FactionImages:
+			gdi: gate_b.gdi
+			nod: gate_b.nod
+			cab: gate_b.cab
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
+
+MUTGATE_A:
+	Inherits: ^Gate_A
+	Inherits@2: ^MutRender
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: ~structures.mut
+		Description: Automated barrier that opens for allied units.
+	Tooltip:
+		Name: Forgotten Gate
+	Building:
+	Gate:
+		CloseDelay: 100
+
+MUTGATE_B:
+	Inherits: ^Gate_B
+	Inherits@2: ^MutRender
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: ~structures.mut
+		Description: Automated barrier that opens for allied units.
+	Tooltip:
+		Name: Forgotten Gate
+	Building:
+	Gate:
+		CloseDelay: 100
+
+SCRGATE_A:
+	Inherits: ^Gate_A
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: ~structures.scr
+		Description: Automated barrier that opens for allied units.
+	Tooltip:
+		Name: Energy Gate
+	Building:
+	Gate:
+		CloseDelay: 40
+
+SCRGATE_B:
+	Inherits: ^Gate_B
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: ~structures.scr
+		Description: Automated barrier that opens for allied units.
+	Tooltip:
+		Name: Energy Gate
+	Building:
+	Gate:
+		CloseDelay: 40

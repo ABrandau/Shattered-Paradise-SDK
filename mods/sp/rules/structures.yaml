@@ -1,0 +1,1420 @@
+GAPOWR:
+	Inherits: ^PowerPlant
+	Inherits@2: ^2x2Shape
+	Tooltip:
+		Name: GDI Power Plant
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 1
+		Prerequisites: ~structures.gdi
+		Description: Provides power for other structures.
+	Valued:
+		Cost: 300
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	WithIdleOverlay@PLUG:
+		Sequence: idle-plug
+	Selectable:
+		Bounds: 90, 48, 0, -6
+		DecorationBounds: 90, 84, 0, -12
+	Power:
+		Amount: 100
+	Pluggable@pluga:
+		Conditions:
+			powrup: powrup.a
+	Power@pluga:
+		RequiresCondition: powrup.a
+		Amount: 100
+	WithIdleOverlay@pluga:
+		RequiresCondition: powrup.a
+		Sequence: idle-powrupa
+	WithIdleOverlay@plugb:
+		RequiresCondition: powrup.a
+		Sequence: idle-powrupb
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+GAPILE:
+	Inherits: ^Barracks
+	Inherits@2: ^2x2Shape
+	Tooltip:
+		Name: GDI Barracks
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 2
+		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an area around it.\n- Maximun production speed is reached with 7 barracks.\n- Max production speed reduces production time by 50%.
+		Prerequisites: anypower, ~structures.gdi
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 88, 48, 0, -8
+		DecorationBounds: 88, 56, 0, -8
+	WithProductionOverlay@LIGHTS:
+		Sequence: production-lights
+	WithIdleOverlay@LIGHT:
+		Sequence: idle-light
+	WithIdleOverlay@FLAG:
+		Sequence: idle-flag
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	ProvidesPrerequisite@SharedEngie:
+		Prerequisite: SharedEngie
+	RequiresBuildableArea:
+		AreaTypes: building
+
+GDIREF:
+	Inherits: PROC
+	Tooltip:
+		Name: GDI Refinery
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 3
+		Prerequisites: ~structures.gdi, anypower
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.
+	FreeActor:
+		Actor: harv.gdi
+	RenderSprites:
+		-Image: proc.gdi
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+
+GDIREF2:
+	Inherits: FLIPPEDPROC
+	Tooltip:
+		Name: GDI Refinery
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 3
+		Prerequisites: ~structures.gdi, anypower
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.\n- Turned 180 degrees.
+	FreeActor:
+		Actor: harv.gdi
+	RenderSprites:
+		-Image: proc.gdi
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+
+GAWEAP:
+	Inherits: ^Factory
+	Tooltip:
+		Name: GDI War Factory
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 4
+		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
+		Prerequisites: proc, ~structures.gdi
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+	WithProductionDoorOverlay@DOOR:
+	WithProductionOverlay@WHITELIGHTS:
+		Sequence: production-lights-white
+	WithProductionOverlay@REDLIGHTS:
+		Sequence: production-lights-red
+	WithIdleOverlay@TURBINES:
+		Sequence: idle-turbines
+	WithIdleOverlay@BIB:
+		Sequence: bib
+
+GARADR:
+	Inherits: ^Radar
+	Inherits@2: ^2x2Shape
+	Tooltip:
+		Name: GDI Radar
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 6
+		Description: Provides an overview of the battlefield.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Requires power to operate
+		Prerequisites: proc, ~structures.gdi
+	WithIdleOverlay@DISH:
+		Sequence: idle-dish
+		PauseOnCondition: disabled
+	Selectable:
+		Bounds: 96, 48, 0, -6
+		DecorationBounds: 96, 118, 0, -38
+	SelectionDecorations:
+
+GAHPAD:
+	Inherits@1: ^Helipad
+	Inherits@2: ^2x2Shape
+	Tooltip:
+		Name: Helipad
+	Buildable:
+		BuildPaletteOrder: 7
+		Queue: Building
+		Description: Produces and rearms aircraft.\n\nSpecial:\n- Maximun production speed is reached with 7 helipads.
+		Prerequisites: garadr, ~structures.gdi
+	Valued:
+		Cost: 500
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	ProductionBar:
+	WithIdleOverlay@PLATFORM:
+		Sequence: idle-platform
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	WithDeathAnimation@BIB:
+		DeathSequence: dead-platform
+		UseDeathTypeSuffix: false
+	Selectable:
+		Bounds: 88, 66, 0, -5
+		DecorationBounds: 88, 66, 0, -5
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+GATECH:
+	Inherits: ^TechCenter
+	Inherits@4: ^3x2Shape
+	Tooltip:
+		Name: GDI Tech Center
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 8
+		Description: Provides access to advanced G.D.I. technologies.
+		Prerequisites: garadr, ~structures.gdi
+	ProvidesPrerequisite:
+		Prerequisite: tech
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Selectable:
+		Bounds: 110, 60, 3, -4
+		DecorationBounds: 110, 60, 3, -4
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+GTDROP:
+	Inherits: ^Building
+	Inherits@2: ^3x3Shape
+	Inherits@3: ^SuperWeapon
+	Tooltip:
+		Name: Dropship Bay
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 9
+		Prerequisites: gatech, ~structures.gdi, ~techlevel.unrestricted
+		BuildLimit: 1
+		Description: Staging area for drop pod assault. \n\nSpecial:\n- Provides access to Helldiver Drop support\n- Unlocks the Mammoth MKII\n- Requires power to operate
+	Valued:
+		Cost: 1500
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 144, 80, 8, -12
+	WithIdleOverlay@DISH:
+		Sequence: idle-dish
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	ProvidesPrerequisite@buildingname:
+	DetonateWeaponPower@pods:
+		Icon: droppods
+		Description: Helldiver Drop
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
+		LongDesc: Deploys shock troopers at the targetted location.
+		OrderName: Droppod
+		Weapon: DroppodSpawner
+		DisplayTimerStances: Ally, Neutral, Enemy
+		PauseOnCondition: empdisable || disabled
+		ChargeInterval: 4500
+		CameraActor: camera
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
+		ActivationSequence: idle
+		DisplayTimer: True
+		DisplayBeacon: True
+		TargetCircleRange: 6c0
+		CameraRange: 7c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
+	Health:
+		HP: 300000
+	RequiresBuildableArea:
+		AreaTypes: building
+	RallyPoint:
+		Offset: 4,4
+	Exit@1:
+		SpawnOffset: 350,450,0#-280,400,0
+		ExitCell: 4,4
+		ProductionTypes: Mammoth, Vehicle
+	ProductionAirdrop:
+		Produces: Vehicle, Mammoth
+		ActorType: dshp
+		ReadyAudio: UnitReady
+	ProductionBar:
+	ProximityExternalCondition@DropshipCloak:
+		Condition: DropshipCloak
+		Range: 10c0
+		AffectsParent: false
+	Power:
+		Amount: -150
+
+NODYARD:
+	Inherits: GACNST
+	Buildable:
+	Transforms:
+		IntoActor: nodmcv
+		Offset: 1,1
+		Facing: 96
+		DeployCursor: undeploy
+	-WithIdleOverlay@TOP:
+	-WithIdleOverlay@SIDE:
+	-WithIdleOverlay@FRONT:
+	-WithBuildingPlacedOverlay:
+	ProvidesPrerequisite@faction:
+		Prerequisite: structures.nod
+	ProvidesPrerequisite@grantself:
+		Factions: gdi, nod, cab, mut, scr
+
+NAPOWR:
+	Inherits: ^PowerPlant
+	Inherits@2: ^2x2Shape
+	Tooltip:
+		Name: Nod Power Plant
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 1
+		Description: Provides power for other structures.
+		Prerequisites: ~structures.nod
+	Valued:
+		Cost: 300
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 88, 48, 2, -6
+		DecorationBounds: 88, 80, 2, -12
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	Power:
+		Amount: 100
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+NAHAND:
+	Inherits: ^Barracks
+	Inherits@2: ^3x2Shape
+	Tooltip:
+		Name: Hand of Nod
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 2
+		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an area around it.\n- Maximun production speed is reached with 7 barracks.\n- Max production speed reduces production time by 50%.
+		Prerequisites: anypower, ~structures.nod
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Selectable:
+		Bounds: 116, 60, 3, -6
+		DecorationBounds: 116, 60, 3, -6
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	WithProductionOverlay@LIGHT:
+		Sequence: production-light
+	SelectionDecorations:
+	ProvidesPrerequisite@SharedEngie:
+		Prerequisite: SharedEngie
+	RequiresBuildableArea:
+		AreaTypes: building
+
+NODREF:
+	Inherits: PROC
+	Tooltip:
+		Name: Nod Refinery
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 3
+		Prerequisites: ~structures.nod, anypower
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.
+	FreeActor:
+		Actor: harv.nod
+	RenderSprites:
+		-Image: proc.gdi
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+
+NODREF2:
+	Inherits: FLIPPEDPROC
+	Tooltip:
+		Name: Nod Refinery
+	RenderSprites:
+		-Image: proc.gdi
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 3
+		Prerequisites: ~structures.nod, anypower
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.\n- Turned 180 degrees.
+	FreeActor:
+		Actor: harv.nod
+        
+NAWEAP:
+	Inherits: ^Factory
+	Tooltip:
+		Name: Nod War Factory
+	ProvidesPrerequisite:
+		Prerequisite: factory
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 4
+		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
+		Prerequisites: proc, ~structures.nod
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+	WithProductionDoorOverlay@DOOR:
+	WithProductionOverlay@LIGHTS:
+		Sequence: production-lights
+	WithIdleOverlay@BIB:
+		Sequence: bib
+
+NARADR:
+	Inherits: ^Radar
+	Inherits@2: ^2x2Shape
+	Tooltip:
+		Name: Nod Radar
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 6
+		Description: Provides an overview of the battlefield.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Requires power to operate
+		Prerequisites: proc, ~structures.nod
+	WithIdleOverlay@DISH:
+		Sequence: idle-dish
+		PauseOnCondition: disabled
+	Selectable:
+		Bounds: 96, 48, 0, -6
+		DecorationBounds: 96, 72, 0, -12
+	SelectionDecorations:
+
+NAAPWR:
+	Inherits: ^PowerPlant
+	Inherits@2: ^2x3Shape
+	Tooltip:
+		Name: Advanced Power Plant
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 7
+		Description: Provides more power than the standard powerplant\nusing less space.
+		Prerequisites: naradr, ~structures.nod
+	Valued:
+		Cost: 700
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 2,3
+	Selectable:
+		Bounds: 100, 54, 0, -4
+		DecorationBounds: 100, 74, 0, -12
+	Health:
+		HP: 100000
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	Power:
+		Amount: 300
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+	ProvidesPrerequisite:
+		Prerequisite: anypower
+
+NAHPAD:
+	Inherits@1: ^Helipad
+	Inherits@2: ^2x2Shape
+	Tooltip:
+		Name: Helipad
+	Buildable:
+		BuildPaletteOrder: 8
+		Queue: Building
+		Description: Produces and rearms aircraft.\n\nSpecial:\n- Maximun production speed is reached with 7 helipads.\n- Max production speed reduces production time by 50%.
+		Prerequisites: naradr, ~structures.nod
+	Valued:
+		Cost: 500
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	PrimaryBuilding:
+	ProductionBar:
+	WithIdleOverlay@PLATFORM:
+		Sequence: idle-platform
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	WithDeathAnimation@BIB:
+		DeathSequence: dead-platform
+		UseDeathTypeSuffix: false
+	Selectable:
+		Bounds: 78, 48, 0, -6
+		DecorationBounds: 78, 54, 0, -8
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+NATECH:
+	Inherits: ^TechCenter
+	Inherits@2: ^2x2Shape
+	Tooltip:
+		Name: Nod Tech Center
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 9
+		Description: Provides access to advanced Nod technologies.
+		Prerequisites: naradr, ~structures.nod
+	ProvidesPrerequisite:
+		Prerequisite: tech
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 86, 48, 0, -4
+		DecorationBounds: 86, 58, 0, -4
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+NAMISL:
+	Inherits: ^Building
+	Inherits@2: ^2x2Shape
+	Inherits@3: ^SuperWeapon
+	Tooltip:
+		Name: Chemical Missile Silo
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 9
+		Prerequisites: natech, ~structures.nod, ~techlevel.unrestricted
+		Description: Provides access to Nod´s Chemical Missiles.\n\nSpecial:\n- Provides access to the Chemical Missile\n- Requires power to operate
+		BuildLimit: 1
+	Valued:
+		Cost: 1500
+	ProvidesPrerequisite:
+		Prerequisite: tech
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 75,48
+		DecorationBounds: 75,48
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	ToggleConditionOnOrder:
+		DisabledSpeech: EnablePower
+		EnabledSpeech: DisablePower
+		Condition: powerdown
+		OrderName: PowerDown
+	ProvidesPrerequisite@buildingname:
+	NukePower@ToxinMissile:
+		Cursor: nuke
+		Icon: toxinmissile
+		ChargeInterval: 6000
+		Description: Chemical Missile
+		LongDesc: Launches a warhead filled with tiberium, it spawns gas clouds and radiates the area.\nHas a fast reaction time.
+		BeginChargeSound:
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
+		SelectTargetSound:
+		InsufficientPowerSound:
+		FlightDelay: 100
+		MissileWeapon: ToxinMissile
+		DisplayTimerStances: Ally, Neutral, Enemy
+		SpawnOffset: 0,427,0
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
+		BeaconPoster: minichemicon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		DisplayTimer: True
+		DisplayBeacon: True
+		DisplayRadarPing: True
+		MissilePalette: player
+        IconPalette: chem
+		BeaconPosterPalette: chem
+		IsPlayerPalette: True
+		OrderName: ToxinMissile
+		CameraActor: camera
+		CameraRange: 7c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
+		PauseOnCondition: empdisable || disabled
+	SelectionDecorations:
+	Health:
+		HP: 300000
+	WithDecoration@POWERDOWN:
+		Image: poweroff
+		Sequence: offline
+		Palette: mouse
+		RequiresCondition: powerdown
+		ReferencePoint: Center
+	RequiresBuildableArea:
+		AreaTypes: building
+	PowerMultiplier@POWERDOWN:
+		RequiresCondition: powerdown
+		Modifier: 0
+	WithNukeLaunchAnimation:
+	Power:
+		Amount: -150
+
+MUTYARD:
+	Inherits: GACNST
+	Inherits@1: ^MutRender
+	Transforms:
+		IntoActor: mutmcv
+		Offset: 1,1
+		Facing: 160
+		DeployCursor: undeploy
+	-WithIdleOverlay@TOP:
+	-WithIdleOverlay@SIDE:
+	-WithIdleOverlay@FRONT:
+	-WithBuildingPlacedOverlay:
+	ProvidesPrerequisite@faction:
+		Prerequisite: structures.mut
+	ProvidesPrerequisite@grantself:
+		Factions: gdi, nod, cab, mut, scr
+	-SpawnActorsOnSell@humanengie:
+	-SpawnActorsOnSell@mutengie:
+	SpawnActorsOnSell@snowflake:
+		ActorTypes: e2
+
+MUPOWR:
+	Inherits: ^Building
+	Inherits@1: ^MutRender
+	Inherits@2: ^2x2Shape
+	Tooltip:
+		Name: Mutant Power Plant
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 1
+		Description: Provides power for other structures.
+		Prerequisites: ~structures.mut
+	Valued:
+		Cost: 300
+	ProvidesPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	Selectable:
+		Bounds: 90, 48, 0, -6
+		DecorationBounds: 90, 84, 0, -12
+	Power:
+		Amount: 100
+	InfiltrateForPowerOutage:
+	AffectedByPowerOutage:
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
+	ScalePowerWithHealth:
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+MURAX:
+	Inherits: ^Barracks
+	Inherits@1: ^MutRender
+	Inherits@2: ^2x2Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 2
+		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an area around it.\n- Maximun production speed is reached with 7 barracks.\n- Max production speed reduces production time by 50%.
+		Prerequisites: anypower, ~structures.mut
+	Tooltip:
+		Name: Mutant Armory
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	ProvidesPrerequisite:
+		Prerequisite: murax
+	Selectable:
+		Bounds: 88, 48, 0, -8
+		DecorationBounds: 88, 56, 0, -8
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+MUPROC:
+	Inherits: PROC
+	Inherits@2: ^MutRender
+	Tooltip:
+		Name: Forgotten Refinery
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 3
+		Prerequisites: ~structures.mut, anypower
+		IconPalette: UnittemIconMut
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.
+	FreeActor:
+		Actor: harv.mut
+	RenderSprites:
+		PlayerPalette: playermut
+		Image: muproc
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+	Cloak@CLOAKGENERATOR:
+		Palette: cloakmut
+	WithDeathAnimation:
+		DeathSequencePalette: playermut
+		CrushedSequencePalette: playermut
+		CrushedPaletteIsPlayerPalette: true
+
+MUPROC2:
+	Inherits: FLIPPEDPROC
+	Inherits@2: ^MutRender
+	Tooltip:
+		Name: Forgotten Refinery
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 3
+		IconPalette: UnittemIconMut
+		Prerequisites: ~structures.mut, anypower
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.\n- Turned 180 degrees.
+	FreeActor:
+		Actor: harv.mut
+	RenderSprites:
+		-Image: proc.gdi
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+
+MUWEAP:
+	Inherits: ^Factory
+	Tooltip:
+		Name: Mutant War Factory
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 4
+		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
+		Prerequisites: proc, ~structures.mut
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+	WithProductionDoorOverlay@DOOR:
+	WithIdleOverlay@BIB:
+		Sequence: bib
+
+MURADR:
+	Inherits: ^Radar
+	Inherits@1: ^MutRender
+	Inherits@2: ^2x2Shape
+	Tooltip:
+		Name: Mutant Radar
+	Buildable:
+		Queue: Building
+		Description: Provides an overview of the battlefield.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Requires power to operate.
+		BuildPaletteOrder: 6
+		Prerequisites: proc, ~structures.mut
+	Selectable:
+		Bounds: 96, 66, 0, -10
+		DecorationBounds: 96, 66, 0, -13
+	SelectionDecorations:
+
+MUAIR:
+	Inherits@1: ^MutRender
+	Inherits@3: ^Helipad
+	Tooltip:
+		Name: Mutant Helipad
+	Valued:
+		Cost: 500
+	Buildable:
+		BuildPaletteOrder: 7
+		Queue: Building
+		Description: Produces and rearms aircraft.\n\nSpecial:\n- Maximun production speed is reached with 7 helipads.\n- Max production speed reduces production time by 50%.
+		Prerequisites: muradr, ~structures.mut
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	ProductionBar:
+	Selectable:
+		Bounds: 88, 66, 0, -5
+		DecorationBounds: 88, 66, 0, -5
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+MUHALL:
+	Inherits: ^TechCenter
+	Inherits@1: ^MutRender
+	Inherits@2: ^3x4Shape
+	Tooltip:
+		Name: Forgotten Hall
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 8
+		Description: Provides access to contact with Forgotten Leaders.
+		Prerequisites: muradr, ~structures.mut
+	Building:
+		Footprint: xxx xxx xxx xxx
+		Dimensions: 3,4
+	Selectable:
+		Bounds: 110, 60, 3, -4
+		DecorationBounds: 110, 60, 3, -4
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+MUTSW2:
+	Inherits: ^Building
+	Inherits@1: ^MutRender
+	Inherits@2: ^3x3Shape
+	Inherits@3: ^SuperWeapon
+	Tooltip:
+		Name: Mother Veinhole
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 9
+		Prerequisites: muhall, ~structures.mut, ~techlevel.unrestricted
+		Description: With this structure Mutant commanders are able to summon veinhole monster.\n\nSpecial:\n- Provides access to Veinhole Monsters.\n- Requires power to operate.
+		BuildLimit: 1
+	Valued:
+		Cost: 1500
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 130, 80, 0, -24
+		DecorationBounds: 130, 100, 0, -24
+	SelectionDecorations:
+	DetonateWeaponPower@Jeff:
+		Weapon: VeinholeSummonerWeapon
+		Effect: dot
+		Icon: veinholesw
+		ChargeInterval: 5000
+		OrderName: Veinhole
+		TargetCircleRange: 8c0
+		DisplayTimer: True
+		DisplayBeacon: True
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
+		Description: Veinhole Spawn
+		LongDesc: Spawns a cluster of veinholes\non the targetted location.\nVeinholes spawn gas clouds, radiation, and tiberian crabs.\nThey also provide vision.
+		DisplayTimerStances: Ally, Neutral, Enemy
+		PauseOnCondition: empdisable || disabled
+		CameraActor: camera
+		CameraRange: 10c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
+	Health:
+		HP: 300000
+	RequiresBuildableArea:
+		AreaTypes: building
+	Power:
+		Amount: -150
+
+drached:
+	Inherits: GACNST
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Tooltip:
+		Name: Deployed Host Station
+	Transforms:
+		IntoActor: drache
+		Offset: 1,1
+		Facing: 96
+		DeployCursor: undeploy
+	Selectable:
+		Bounds: 144, 60, 0, -6
+		DecorationBounds: 144, 80, 0, -12
+	ProvidesPrerequisite@12321:
+		Prerequisite: scrinstuff
+		Factions: scr
+		ResetOnOwnerChange: True
+	SelectionDecorations:
+	-WithIdleOverlay@TOP:
+	-WithIdleOverlay@SIDE:
+	-WithIdleOverlay@FRONT:
+	-WithBuildingPlacedOverlay:
+	ProvidesPrerequisite@faction:
+		Prerequisite: structures.scr
+	ProvidesPrerequisite@grantself:
+		Factions: gdi, nod, cab, mut, scr
+	-SpawnActorsOnSell@humanengie:
+	-SpawnActorsOnSell@mutengie:
+
+SCRPOWR:
+	Inherits: ^Building
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Inherits@2: ^3x2Shape
+	Tooltip:
+		Name: Scrin Generator
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 1
+		Description: Provides power for other structures.
+		Prerequisites: ~structures.scr
+	Valued:
+		Cost: 400
+	ProvidesPrerequisite:
+		Prerequisite: scrpowr
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 3,2
+	Health:
+		HP: 65000
+	Selectable:
+		Bounds: 90, 48, 0, -6
+		DecorationBounds: 90, 84, 0, -12
+	Power:
+		Amount: 150
+	InfiltrateForPowerOutage:
+	AffectedByPowerOutage:
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
+	ScalePowerWithHealth:
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+SCRRAX:
+	Inherits: ^Barracks
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^2x2Shape
+	Tooltip:
+		Name: Landing Zone
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 2
+		Description: Calls down Infantry.\n\nSpecial:\n- Heals infantry in an area around it.\n- Maximun production speed is reached with 7 barracks.\n- Max production speed reduces production time by 50%.
+		Prerequisites: scrpowr, ~structures.scr
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 88, 48, 0, -8
+		DecorationBounds: 88, 56, 0, -8
+	WithIdleOverlay@ship:
+		Sequence: ship
+	Power:
+		Amount: -20
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+SCRPROC:
+	Inherits: PROC
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Tooltip:
+		Name: Scrin Refinery
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 3
+		Prerequisites: scrpowr, ~structures.scr
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 4000$.
+		IconPalette: UnittemIconScrin
+	StoresResources:
+		PipCount: 17
+		Capacity: 4000
+	FreeActor:
+		Actor: SCRHARV
+	ProvidesPrerequisite@buildingname:
+	-WithIdleOverlay@REDLIGHTS:
+	-WithDockedOverlay@flame:
+	ProvidesPrerequisite:
+		Factions: scr
+		Prerequisite: scrproc
+	RenderSprites:
+		Image: scrproc
+		-FactionImages:
+
+SCRPROC2:
+	Inherits: FLIPPEDPROC
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Tooltip:
+		Name: Scrin Refinery
+	RenderSprites:
+		-Image: proc.gdi
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+	-WithDockedOverlay@flame:
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 3
+		Prerequisites: scrpowr, ~structures.scr
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 4000$.\n- Turned 180 degrees.
+		IconPalette: UnittemIconScrin
+	ProvidesPrerequisite:
+		Factions: scr
+		Prerequisite: scrproc
+	FreeActor:
+		Actor: SCRHARV
+	StoresResources:
+		PipCount: 17
+		Capacity: 4000
+
+SCRWEAP:
+	Inherits: ^Factory
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Tooltip:
+		Name: Scrin Forge
+	ProvidesPrerequisite:
+		Prerequisite: scrweap
+	Buildable:
+		Queue: Building
+		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
+		BuildPaletteOrder: 4
+		Prerequisites: scrproc, ~structures.scr
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+	WithProductionOverlay@WHITELIGHTS:
+		Sequence: production-lights-white
+
+SCRRADR:
+	Inherits: ^Radar
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^3x3Shape
+	Tooltip:
+		Name: Scrin Radar
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 6
+		Description: Provides an overview of the battlefield.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Requires power to operate
+		Prerequisites: scrproc, ~structures.scr
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 120, 90, 0, -20
+		DecorationBounds: 120, 90, 0, -20
+	SelectionDecorations:
+	WithIdleOverlay@DISH:
+		Sequence: idle-dish
+		PauseOnCondition: disabled
+	RequiresBuildableArea:
+		AreaTypes: building
+
+SCRAIR:
+	Inherits: ^Helipad
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^3x3Shape
+	Tooltip:
+		Name: Stargate
+	Buildable:
+		BuildPaletteOrder: 7
+		Description: Warps in warships from a nomad galaxy.\n\nSpecial:\n- Scrin Aircraft do not need to rearm.\n- Maximun production speed is reached with 7 helipads.\n- Max production speed reduces production time by 50%.
+		Queue: Building
+		Prerequisites: scrradr, ~structures.scr
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Armor:
+		Type: BuildingArmor
+	Exit@1:
+		SpawnOffset: 0,-256,600
+	RallyPoint:
+		Palette: mouse
+		IsPlayerPalette: false
+	Production:
+		Produces: Air
+	PrimaryBuilding:
+		PrimaryCondition: primary
+	Reservable:
+	RepairsUnits:
+	ProductionBar:
+	WithIdleOverlay@PLATFORM:
+		Sequence: idle-platform
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	Selectable:
+		Bounds: 120, 130, 0, -40
+		DecorationBounds: 120, 130, 0, -40
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	WithTextDecoration@primary:
+		Text: PRIMARY
+		ReferencePoint: Top
+		Color: E0D048
+		ZOffset: 9999
+		RequiresCondition: primary
+		ConditionMinEnabledLevel: 1
+	RequiresBuildableArea:
+		AreaTypes: building
+
+SCRTECH:
+	Inherits: ^TechCenter
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Inherits@2: ^2x3Shape
+	Tooltip:
+		Name: Scrin Laboratory
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 8
+		Description: Provides samples to enable the Scrins most complex technologies.
+		Prerequisites: scrradr, ~structures.scr
+	Valued:
+		Cost: 2000
+	ProvidesPrerequisite:
+		Prerequisite: tech
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	Selectable:
+		Bounds: 110, 60, 3, -4
+		DecorationBounds: 110, 60, 3, -4
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+SCRADVPOWR:
+	Inherits: ^Building
+	Inherits@1: ^SuperWeapon
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^3x3Shape
+	Tooltip:
+		Name: Wormhole Generator
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 9
+		Prerequisites: scrtech, ~structures.scr, ~techlevel.unrestricted
+		Description: Teleports infantry and vehicles to a selected area.\n\nSpecial:\n- Provides access to the reality desestabilizer support power.\n- Requires power to operate.
+		BuildLimit: 1
+	Valued:
+		Cost: 1500
+	ProvidesPrerequisite:
+		Prerequisite: scrpowr
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	Selectable:
+		Bounds: 90, 48, 0, -6
+		DecorationBounds: 90, 84, 0, -12
+	SelectionDecorations:
+	ChronoshiftPower@chronoshift:
+		Range: 2
+		OrderName: Chronoshift
+		PauseOnCondition: empdisable || disabled
+		Icon: wormholeicon
+		IconPalette: playerscrin
+		ChargeInterval: 6000
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
+		Description: Instant Wormhole
+		LongDesc: Teleports infantry and vehicles.
+		SelectTargetSpeechNotification: SelectTarget
+		InsufficientPowerSpeechNotification: InsufficientPower
+		Duration: 500
+		KillCargo: no
+		DisplayRadarPing: True
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
+		SelectionCursor: emp
+		TargetCursor: emp
+		ValidTileSequencePrefix: build-valid-
+		InvalidTileSequence: build-invalid-
+		SourceTileSequence: build-valid-
+		DisplayTimerStances: Ally, Neutral, Enemy
+	Health:
+		HP: 300000
+	RequiresBuildableArea:
+		AreaTypes: building
+	Power:
+		Amount: -150
+
+CABYARD:
+	Inherits: GACNST
+	Inherits@1: ^CabRender
+	Buildable:
+		IconPalette: UnittemIconCab
+	Transforms:
+		IntoActor: cabmcv
+		Offset: 1,1
+		Facing: 160
+		DeployCursor: undeploy
+	-WithIdleOverlay@TOP:
+	-WithIdleOverlay@SIDE:
+	-WithIdleOverlay@FRONT:
+	-WithBuildingPlacedOverlay:
+	ProvidesPrerequisite@faction:
+		Prerequisite: structures.cab
+	ProvidesPrerequisite@grantself:
+		Factions: gdi, nod, cab, mut, scr
+	-SpawnActorsOnSell@humanengie:
+	-SpawnActorsOnSell@mutengie:
+	SpawnActorsOnSell@snowflake:
+		ActorTypes: swarmling
+
+CABPOWR:
+	Inherits: ^PowerPlant
+	Inherits@1: ^CabRender
+	Inherits@4: ^2x2Shape
+	Tooltip:
+		Name: Firestorm Power Plant
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 1
+		Description: Provides power for other structures.
+		Prerequisites: ~structures.cab
+	Valued:
+		Cost: 500
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 80000
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	Selectable:
+		Bounds: 90, 48, 0, -6
+		DecorationBounds: 90, 84, 0, -12
+	Power:
+		Amount: 200
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+CABCLAW:
+	Inherits: ^Barracks
+	Inherits@1: ^CabRender
+	Inherits@2: ^2x3Shape
+	Tooltip:
+		Name: Cabal Claw
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 2
+		Description: Processes Infantry.\n\nSpecial:\n- Heals infantry in an area around it.\n- Maximun production speed is reached with 7 barracks.\n- Max production speed reduces production time by 50%.
+		Prerequisites: anypower, ~structures.cab
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	Selectable:
+		Bounds: 102, 70, 0, -24
+		DecorationBounds: 102, 70, 0, -24
+	WithProductionOverlay@WHITELIGHTS:
+		Sequence: idle-camera
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+CABPROC:
+	Inherits: PROC
+	Inherits@1: ^CabRender
+	Tooltip:
+		Name: C.A.B.A.L. Refinery
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 3
+		Prerequisites: anypower, ~structures.cab
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.
+		IconPalette: UnittemIconCab
+	FreeActor:
+		Actor: harv.cab
+	RenderSprites:
+		-Image: proc.gdi
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+	-ProvidesPrerequisite@proc:
+	WithDeathAnimation:
+		DeathSequencePalette: playercab
+		CrushedSequencePalette: playercab
+		CrushedPaletteIsPlayerPalette: true
+
+CABPROC2:
+	Inherits: FLIPPEDPROC
+	Inherits@1: ^CabRender
+	Tooltip:
+		Name: C.A.B.A.L. Refinery
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 3
+		Prerequisites: anypower, ~structures.cab
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.\n- Turned 180 degrees.
+		IconPalette: UnittemIconCab
+	FreeActor:
+		Actor: harv.cab
+	RenderSprites:
+		-Image: proc.gdi
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+	WithDeathAnimation:
+		DeathSequencePalette: playercab
+		CrushedSequencePalette: playercab
+		CrushedPaletteIsPlayerPalette: true
+
+CABWEAP:
+	Inherits: ^Factory
+	Inherits@1: ^CabRender
+	Tooltip:
+		Name: C.A.B.A.L. War Factory
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 4
+		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
+		Prerequisites: proc, ~structures.cab
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+	WithProductionDoorOverlay@DOOR:
+	WithIdleOverlay@BIB:
+		Sequence: bib
+
+CABRADR:
+	Inherits: ^Radar
+	Inherits@1: ^CabRender
+	Inherits@4: ^3x3Shape
+	Tooltip:
+		Name: C.A.B.A.L. Radar
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 6
+		Description: Provides an overview of the battlefield.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Requires power to operate.
+		Prerequisites: proc, ~structures.cab
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 102, 118, 0, -38
+		DecorationBounds: 102, 118, 0, -38
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+CABAIR:
+	Inherits: ^Helipad
+	Inherits@1: ^CabRender
+	Inherits@4: ^3x3Shape
+	Tooltip:
+		Name: Air Factory
+	Buildable:
+		BuildPaletteOrder: 7
+		Queue: Building
+		Description: Produces aircraft.\n\nSpecial:\n- CABAL Aircraft do not need to rearm.\n- Maximun production speed is reached with 7 helipads.\n- Max production speed reduces production time by 50%.
+		Prerequisites: cabradr, ~structures.cab
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Reservable:
+	Exit@1:
+		SpawnOffset: 0,-256,0
+	RallyPoint:
+		Palette: mouse
+		IsPlayerPalette: false
+	WithProductionOverlay@WHITELIGHTS:
+		Sequence: lights
+	Production:
+		Produces: Air
+	PrimaryBuilding:
+		PrimaryCondition: primary
+	Reservable:
+	RepairsUnits:
+	ProductionBar:
+	Selectable:
+		Bounds: 88, 66, 0, -5
+		DecorationBounds: 88, 66, 0, -5
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	WithTextDecoration@primary:
+		Text: PRIMARY
+		ReferencePoint: Top
+		Color: E0D048
+		ZOffset: 9999
+		RequiresCondition: primary
+	RequiresBuildableArea:
+		AreaTypes: building
+
+CABTECH:
+	Inherits: ^TechCenter
+	Inherits@1: ^CabRender
+	Inherits@2: ^3x2Shape
+	Tooltip:
+		Name: Supercomputer
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 8
+		Description: Provides access to advanced CABAL technologies.
+		Prerequisites: cabradr, ~structures.cab
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Selectable:
+		Bounds: 110, 60, 3, -4
+		DecorationBounds: 110, 60, 3, -4
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+CABOBELISK:
+	Inherits: ^Building
+	Inherits@1: ^CabRender
+	Inherits@2: ^2x2Shape
+	Inherits@3: ^SuperWeapon
+	Tooltip:
+		Name: Nanomachine Core
+	Buildable:
+		Queue: Building
+		Prerequisites: cabtech, ~structures.cab, ~techlevel.unrestricted
+		Description: Cabal´s Support Superweapon.\n\nSpecial:\n- Provides access to Nanomachine Swarms\n- Requires power to operate
+		BuildPaletteOrder: 9
+		BuildLimit: 1
+	Valued:
+		Cost: 1500
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 75,48
+		DecorationBounds: 75,48
+	BodyOrientation:
+		QuantizedFacings: 32
+	SelectionDecorations:
+	DetonateWeaponPower@nanomachinesson:
+		Cursor: ioncannon
+		Icon: nanomachineswarm
+		Description: Nanomachine Swarm
+		LongDesc: Fills an area with nanomachines.\n- Heals friendly units up to 40% (Even buildings)\n- Turns fallen units into workers (Friendly and Hostile).
+		OrderName: NanomachineSwarm
+		Weapon: NanoMachineBurst
+		TargetCircleRange: 7c0
+		BeginChargeSound:
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
+		DisplayTimer: True
+		DisplayBeacon: True
+		ChargeInterval: 6000
+		DisplayRadarPing: True
+		DisplayTimerStances: Ally, Neutral, Enemy
+		PauseOnCondition: empdisable || disabled
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
+		CameraActor: camera
+		CameraRange: 10c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
+	Health:
+		HP: 300000
+	RequiresBuildableArea:
+		AreaTypes: building
+	Power:
+		Amount: -150

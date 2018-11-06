@@ -1,0 +1,608 @@
+Player:
+	HackyAI@EasyAI:
+		Name: Easy AI
+		Type: EasyAI
+		SquadSize: 14
+		SquadSizeRandomBonus: 15
+		MinimumExcessPower: 40
+		BuildingCommonNames:
+			ConstructionYard: gacnst, drached, cabyard, nodyard, mutyard
+			Refinery: gdiref, nodref, scrproc, cabproc, muproc
+			Power: gapowr, napowor, naapwr, cabpowr, mutpowr, scrpowr
+			Barracks: gapile, nahand, mutrax, cabrax, scrrax
+			VehiclesFactory: gaweap, naweap, mutweap, cabweap, scrweap
+			Production: gapile, nahand, mutrax, cabclaw, scrrax, gaweap, naweap, mutweap, cabweap, scrweap, gahpad, nahpad, muair, cabair, scrair
+			Silo: gasilo
+		UnitQueues: Vehicle, Infantry, Air
+		UnitsCommonNames:
+			Mcv: mcv, drache, cabmcv, nodmcv, mutmcv
+			ExcludeFromSquads: harv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, e2, swarmling, shapeshifter
+		ProtectUnitScanRadius: 35
+		RushAttackScanRadius: 35
+		RushInterval: 1125
+		StructureProductionActiveDelay: 50
+		StructureProductionRandomBonusDelay: 75
+		MinimumDefenseRadius: 5
+		MaximumDefenseRadius: 40
+		AssignRolesInterval: 75
+		AttackForceInterval: 100
+		IdleBaseUnitsMaximum: 10
+		RallyPointScanRadius: 25
+		MinBaseRadius: 5
+		MaxBaseRadius: 40
+		MaxResourceCellsToCheck: 30
+		ShouldRepairBuildings: True
+		CheckForNewBasesDelay: 1500
+		NewProductionCashThreshold: 90000
+		# CapturingActorTypes: engineer, e2, swarmling, shapeshifter
+		# CapturableActorTypes: well, gacnst, mutyard, cabyard, nodyard, drached
+		BuildingLimits:
+			gadept: 1
+			scrdepot: 1
+			gdiref: 3
+			nodref: 3
+			scrproc: 3
+			cabproc: 3
+			muproc: 3
+			gasilo: 0
+			napowr: 9
+			naapwr: 3
+			gapowr: 12
+			mupowr: 14
+			cabpowr: 12
+			scrpowr: 12
+			gapile: 2
+			nahand: 2
+			murax: 3
+			cabclaw: 2
+			scrrax: 2
+			gaweap: 2
+			cabweap: 2
+			naweap: 2
+			muweap: 2
+			scrweap: 2
+			garadr: 1
+			naradr: 1
+			cabradr: 1
+			muradr: 1
+			scrradr: 1
+			gatech: 1
+			natech: 1
+			muthall: 1
+			scrtech: 1
+			cabtech: 1
+			gavulc: 8
+			cabpit: 8
+			mubunkrfull: 5
+			nalasr: 8
+			scrneedler: 8
+			muflak: 7
+			gacsam: 7
+			nasam: 7
+			cabrail: 7
+			scrtractor: 7
+			cabblast: 5
+			garock: 5
+			naobel: 5
+			scrdrone: 5
+			gafire: 2
+			# nastlh: 0
+			cabeye: 2
+			scrextractor: 3
+			# muventi: 3
+			nahpad: 2
+			gahpad: 2
+			muair: 2
+			scrair: 2
+			cabair: 2
+		BuildingFractions:
+			gadept: 100%
+			scrdepot: 100%
+			gdiref: 99%
+			nodref: 99%
+			scrproc: 99%
+			cabproc: 99%
+			muproc: 99%
+			napowr: 30%
+			naapwr: 30%
+			gapowr: 30%
+			mupowr: 30%
+			cabpowr: 30%
+			scrpowr: 30%
+			gapile: 5%
+			nahand: 5%
+			murax: 5%
+			cabclaw: 5%
+			scrrax: 5%
+			gaweap: 5%
+			cabweap: 5%
+			naweap: 5%
+			muweap: 5%
+			scrweap: 5%
+			garadr: 1%
+			naradr: 1%
+			cabradr: 1%
+			muradr: 1%
+			scrradr: 1%
+			gatech: 1%
+			natech: 1%
+			muthall: 1%
+			scrtech: 1%
+			cabtech: 1%
+			gavulc: 10%
+			gacsam: 10%
+			nalasr: 10%
+			nasam: 10%
+			cabpit: 10%
+			cabrail: 10%
+			mubunkrfull: 10%
+			muflak: 10%
+			scrneedler: 10%
+			scrtractor: 10%
+			cabblast: 5%
+			garock: 5%
+			naobel: 5%
+			scrdrone: 5%
+			gafire: 1%
+			# nastlh: 2%
+			cabeye: 1%
+			scrextrator: 1%
+			nahpad: 5%
+			gahpad: 5%
+			muair: 5%
+			scrair: 5%
+			cabair: 5%
+		UnitLimits:
+			# engineer: 3
+			# e2: 3
+			# swarmling: 3
+			# shapeshifter: 3
+			harv: 5
+			scrharv: 5
+			gdie1: 18
+			marauder: 18
+			cyborg: 18
+			cborg: 10
+			shark: 50
+			jumpjetair: 13
+			altnode1: 13
+			crusader: 13
+			e3: 13
+			cabsentry: 13
+			pdrone: 13
+			legio: 13
+			grenadier: 9
+			medic: 9
+			templar: 9
+			fiend: 9
+			reapercab: 9
+			colossi: 9
+			seer: 9
+			eagleguard: 7
+			bhs: 1
+			psyker: 1
+			glad: 7
+			cyc2: 1
+			float: 7
+			bug: 4
+			smech: 7
+			bggy: 7
+			rocketbggy: 7
+			flamebggy: 7
+			mmch: 7
+			struckfull: 10
+			centurion: 10
+			scrdronec: 3
+			scrscorpion: 10
+			scrglyder2: 10
+			hvr: 8
+			ttnk: 8
+			lynx: 8
+			subtank: 8
+			mutquad: 8
+			wolf: 8
+			g4tnk: 8
+			scrmbt: 8
+			sonic: 7
+			deathclaw: 7
+			paladin: 4
+			stnk: 7
+			tripod: 7
+			hmec: 1
+			howtlizer: 5
+			jug: 5
+			spiderarty: 5
+			mrls: 5
+			wasp: 10
+			basilisk: 4
+			devourer: 1
+			scrin: 3
+			cerberus: 2
+			orca: 5
+			orcab: 3
+			mutheli: 5
+			wetp: 3
+			stormrider: 5
+			scrcarrier: 3
+			scrdestroyer: 2
+			scrbattleship: 1
+		UnitsToBuild:
+			# engineer: 1%
+			# e2: 1%
+			# swarmling: 1%
+			# shapeshifter: 1%
+			harv: 40%
+			scrharv: 40%
+			cabharv: 40%
+			gdie1: 2%
+			altnode1: 2%
+			pdrone: 2%
+			shark: 2%
+			jumpjetair: 1%
+			crusader: 1%
+			e3: 1%
+			marauder: 1%
+			cabsentry: 1%
+			cyborg: 1%
+			cborg: 1%
+			legio: 1%
+			grenadier: 1.5%
+			medic: 1.5%
+			templar: 1.5%
+			fiend: 1.5%
+			reapercab: 1.5%
+			colossi: 1.5%
+			seer: 5%
+			eagleguard: 2.5%
+			bhs: 2.5%
+			psyker: 2.5%
+			glad: 2.5%
+			cyc2: 2.5%
+			float: 2.5%
+			bug: 2.5%
+			mmch: 5%
+			smech: 7%
+			bggy: 5%
+			rocketbggy: 5%
+			flamebggy: 5%
+			trike: 5%
+			struckfull: 7%
+			centurion: 7%
+			scrdronec: 4%
+			scrscorpion: 5%
+			scrglyder2: 7%
+			hvr: 9%
+			ttnk: 9%
+			subtank: 9%
+			lynx: 8%
+			mutquad: 9%
+			wolf: 9%
+			g4tnk: 9%
+			scrmbt: 9%
+			sonic: 12%
+			jug: 12%
+			hmec: 12%
+			howtlizer: 12%
+			stnk: 12%
+			mrls: 12%
+			deathclaw: 12%
+			spiderarty: 12%
+			paladin: 12%
+			tripod: 12%
+			wasp: 7%
+			basilisk: 5%
+			devourer: 5%
+			scrin: 5%
+			cerberus: 2%
+			orca: 7%
+			orcab: 5%
+			mutheli: 7%
+			wetp: 5%
+			stormrider: 7%
+			scrcarrier: 5%
+			scrdestroyer: 2%
+			scrbattleship: 5%
+
+	HackyAI@CheaterAI:
+		Name: Cheater AI
+		Type: CheaterAI
+		SquadSize: 14
+		SquadSizeRandomBonus: 15
+		MinimumExcessPower: 40
+		BuildingCommonNames:
+			ConstructionYard: gacnst, drached, cabyard, nodyard, mutyard
+			Refinery: gdiref, nodref, scrproc, cabproc, muproc
+			Power: gapowr, napowor, naapwr, cabpowr, mutpowr, scrpowr
+			Barracks: gapile, nahand, mutrax, cabrax, scrrax
+			VehiclesFactory: gaweap, naweap, mutweap, cabweap, scrweap
+			Production: gapile, nahand, mutrax, cabclaw, scrrax, gaweap, naweap, mutweap, cabweap, scrweap, gahpad, nahpad, muair, cabair, scrair
+			Silo: gasilo
+		UnitQueues: Vehicle, Infantry, Air
+		UnitsCommonNames:
+			Mcv: mcv, drache, cabmcv, nodmcv, mutmcv
+			ExcludeFromSquads: harv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, e2, swarmling, shapeshifter
+		ProtectUnitScanRadius: 35
+		RushAttackScanRadius: 35
+		RushInterval: 1125
+		StructureProductionActiveDelay: 50
+		StructureProductionRandomBonusDelay: 75
+		MinimumDefenseRadius: 5
+		MaximumDefenseRadius: 40
+		AssignRolesInterval: 75
+		AttackForceInterval: 100
+		IdleBaseUnitsMaximum: 10
+		RallyPointScanRadius: 25
+		MinBaseRadius: 5
+		MaxBaseRadius: 40
+		MaxResourceCellsToCheck: 30
+		ShouldRepairBuildings: True
+		CheckForNewBasesDelay: 1500
+		NewProductionCashThreshold: 90000
+		# CapturingActorTypes: engineer, e2, swarmling, shapeshifter
+		# CapturableActorTypes: well, gacnst, mutyard, cabyard, nodyard, drached
+		BuildingLimits:
+			gadept: 1
+			scrdepot: 1
+			gdiref: 3
+			nodref: 3
+			scrproc: 3
+			cabproc: 3
+			muproc: 3
+			gasilo: 0
+			napowr: 9
+			naapwr: 3
+			gapowr: 12
+			mupowr: 14
+			cabpowr: 12
+			scrpowr: 12
+			gapile: 2
+			nahand: 2
+			murax: 3
+			cabclaw: 2
+			scrrax: 2
+			gaweap: 2
+			cabweap: 2
+			naweap: 2
+			muweap: 2
+			scrweap: 2
+			garadr: 1
+			naradr: 1
+			cabradr: 1
+			muradr: 1
+			scrradr: 1
+			gatech: 1
+			natech: 1
+			muthall: 1
+			scrtech: 1
+			cabtech: 1
+			gavulc: 8
+			cabpit: 8
+			mubunkrfull: 5
+			nalasr: 8
+			scrneedler: 8
+			muflak: 7
+			gacsam: 7
+			nasam: 7
+			cabrail: 7
+			scrtractor: 7
+			cabblast: 5
+			garock: 5
+			naobel: 5
+			scrdrone: 5
+			gafire: 2
+			# nastlh: 0
+			cabeye: 2
+			scrextractor: 3
+			# muventi: 3
+			nahpad: 2
+			gahpad: 2
+			muair: 2
+			scrair: 2
+			cabair: 2
+		BuildingFractions:
+			gadept: 100%
+			scrdepot: 100%
+			gdiref: 99%
+			nodref: 99%
+			scrproc: 99%
+			cabproc: 99%
+			muproc: 99%
+			napowr: 30%
+			naapwr: 30%
+			gapowr: 30%
+			mupowr: 30%
+			cabpowr: 30%
+			scrpowr: 30%
+			gapile: 5%
+			nahand: 5%
+			murax: 5%
+			cabclaw: 5%
+			scrrax: 5%
+			gaweap: 5%
+			cabweap: 5%
+			naweap: 5%
+			muweap: 5%
+			scrweap: 5%
+			garadr: 1%
+			naradr: 1%
+			cabradr: 1%
+			muradr: 1%
+			scrradr: 1%
+			gatech: 1%
+			natech: 1%
+			muthall: 1%
+			scrtech: 1%
+			cabtech: 1%
+			gavulc: 10%
+			gacsam: 10%
+			nalasr: 10%
+			nasam: 10%
+			cabpit: 10%
+			cabrail: 10%
+			mubunkrfull: 10%
+			muflak: 10%
+			scrneedler: 10%
+			scrtractor: 10%
+			cabblast: 5%
+			garock: 5%
+			naobel: 5%
+			scrdrone: 5%
+			gafire: 1%
+			# nastlh: 2%
+			cabeye: 1%
+			scrextrator: 1%
+			nahpad: 5%
+			gahpad: 5%
+			muair: 5%
+			scrair: 5%
+			cabair: 5%
+		UnitLimits:
+			# engineer: 3
+			# e2: 3
+			# swarmling: 3
+			# shapeshifter: 3
+			harv: 5
+			scrharv: 5
+			gdie1: 18
+			marauder: 18
+			cyborg: 18
+			cborg: 10
+			shark: 50
+			jumpjetair: 13
+			altnode1: 13
+			crusader: 13
+			e3: 13
+			cabsentry: 13
+			pdrone: 13
+			legio: 13
+			grenadier: 9
+			medic: 9
+			templar: 9
+			fiend: 9
+			reapercab: 9
+			colossi: 9
+			seer: 9
+			eagleguard: 7
+			bhs: 1
+			psyker: 1
+			glad: 7
+			cyc2: 1
+			float: 7
+			bug: 4
+			smech: 7
+			bggy: 7
+			rocketbggy: 7
+			flamebggy: 7
+			mmch: 7
+			struckfull: 10
+			centurion: 10
+			scrdronec: 3
+			scrscorpion: 10
+			scrglyder2: 10
+			hvr: 8
+			ttnk: 8
+			lynx: 8
+			subtank: 8
+			mutquad: 8
+			wolf: 8
+			g4tnk: 8
+			scrmbt: 8
+			sonic: 7
+			deathclaw: 7
+			paladin: 4
+			stnk: 7
+			tripod: 7
+			hmec: 1
+			howtlizer: 5
+			jug: 5
+			spiderarty: 5
+			mrls: 5
+			wasp: 10
+			basilisk: 4
+			devourer: 1
+			scrin: 3
+			cerberus: 2
+			orca: 5
+			orcab: 3
+			mutheli: 5
+			wetp: 3
+			stormrider: 5
+			scrcarrier: 3
+			scrdestroyer: 2
+			scrbattleship: 1
+		UnitsToBuild:
+			# engineer: 1%
+			# e2: 1%
+			# swarmling: 1%
+			# shapeshifter: 1%
+			harv: 40%
+			scrharv: 40%
+			cabharv: 40%
+			gdie1: 2%
+			altnode1: 2%
+			pdrone: 2%
+			shark: 2%
+			jumpjetair: 1%
+			crusader: 1%
+			e3: 1%
+			marauder: 1%
+			cabsentry: 1%
+			cyborg: 1%
+			cborg: 1%
+			legio: 1%
+			grenadier: 1.5%
+			medic: 1.5%
+			templar: 1.5%
+			fiend: 1.5%
+			reapercab: 1.5%
+			colossi: 1.5%
+			seer: 5%
+			eagleguard: 2.5%
+			bhs: 2.5%
+			psyker: 2.5%
+			glad: 2.5%
+			cyc2: 2.5%
+			float: 2.5%
+			bug: 2.5%
+			mmch: 5%
+			smech: 7%
+			bggy: 5%
+			rocketbggy: 5%
+			flamebggy: 5%
+			trike: 5%
+			struckfull: 7%
+			centurion: 7%
+			scrdronec: 4%
+			scrscorpion: 5%
+			scrglyder2: 7%
+			hvr: 9%
+			ttnk: 9%
+			subtank: 9%
+			lynx: 8%
+			mutquad: 9%
+			wolf: 9%
+			g4tnk: 9%
+			scrmbt: 9%
+			sonic: 12%
+			jug: 12%
+			hmec: 12%
+			howtlizer: 12%
+			stnk: 12%
+			mrls: 12%
+			deathclaw: 12%
+			spiderarty: 12%
+			paladin: 12%
+			tripod: 12%
+			wasp: 7%
+			basilisk: 5%
+			devourer: 5%
+			scrin: 5%
+			cerberus: 2%
+			orca: 7%
+			orcab: 5%
+			mutheli: 7%
+			wetp: 5%
+			stormrider: 7%
+			scrcarrier: 5%
+			scrdestroyer: 2%
+			scrbattleship: 5%

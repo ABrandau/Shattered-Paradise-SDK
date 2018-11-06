@@ -1,0 +1,1000 @@
+flameguy:
+	Defaults:
+		Facings: 8
+		Tick: 80
+		ShadowStart: 148
+	idle:
+	stand:
+	run:
+		Length: 6
+	die:
+		Start: 44
+		Facings: 1
+		Length: 104
+		ShadowStart: 192
+
+cloud1:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Length: *
+		Offset: 0,-6, 48
+		ZOffset: 4096
+	idle:
+	run:
+	stand:
+	die: cloud1d
+	die1: cloud1d
+
+zombie:
+	Inherits: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: 8
+		ShadowStart: 238
+	run:
+		Start: 8
+		Length: 8
+		Facings: 8
+		ShadowStart: 246
+	idle1:
+		Start: 89
+		Length: 17
+		ShadowStart: 327
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 344
+	die1:
+		Start: 204
+		Length: 9
+		ShadowStart: 442
+	die2:
+		Start: 230
+		Length: 9
+		ShadowStart: 451
+	die-crushed:
+		Start: 204
+		Length: 10
+		ShadowStart: 442
+	shoot:
+		Start: 140
+		Length: 9
+		Facings: 8
+		ShadowStart: 378
+	icon: sidebar-nod|e1icon
+
+berserker:
+	Inherits: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: -8
+		ShadowStart: 325
+	run:
+		Start: 8
+		Length: 7
+		Facings: -8
+		Stride: 8
+		ShadowStart: 333
+	idle1:
+		Start: 74
+		Length: 25
+		ShadowStart: 399
+	idle2:
+		Start: 99
+		Length: 18
+		ShadowStart: 424
+	idle3:
+		Start: 116
+		Length: 21
+		ShadowStart: 441
+	die1:
+		Start: 297
+		Length: 11
+		ShadowStart: 622
+	die2:
+		Start: 308
+		Length: 17
+		ShadowStart: 633
+	die-crushed:
+		Start: 297
+		Length: 11
+		ShadowStart: 622
+		Tick: 800
+		ZOffset: -511
+	shoot:
+		Start: 137
+		Length: 20
+		Facings: -8
+		ShadowStart: 462
+	icon: sidebar-gdi|e1icon
+
+crab:
+	Inherits: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: -8
+		ShadowStart: 156
+	run:
+		Start: 8
+		Length: 8
+		Facings: -8
+		ShadowStart: 164
+	idle1:
+		Start: 73
+		Length: 13
+		ShadowStart: 229
+	idle2:
+		Start: 85
+		Length: 17
+		ShadowStart: 241
+	die1:
+		Start: 143
+		Length: 7
+		ShadowStart: 299
+	die2:
+		Start: 150
+		Length: 6
+		ShadowStart: 306
+	die-crushed:
+		Start: 150
+		Length: 6
+		ShadowStart: 306
+		ZOffset: -511
+	shoot:
+		Start: 103
+		Length: 5
+		Facings: -8
+		ShadowStart: 259
+	icon: sidebar-gdi|e1icon
+
+floater:
+	Inherits@1: ^InfantryDeathAnims
+	Inherits@2: ^EmpOverlay
+	Defaults:
+		Tick: 80
+	idle:
+		Facings: 1
+		Length: 16
+		ShadowStart: 32
+	stand:
+		Facings: 1
+		Length: 16
+		ShadowStart: 32
+	run:
+		Facings: 1
+		Length: 16
+		ShadowStart: 32
+	attack:
+		Length: 16
+		Facings: 1
+		Start: 16
+		ShadowStart: 47
+	shoot:
+		Length: 16
+		Facings: 1
+		Start: 16
+		ShadowStart: 47
+
+weedguy:
+	Inherits: ^InfantryDeathAnims
+	Defaults: weed
+		Tick: 80
+	stand:
+		Facings: 8
+		ShadowStart: 202
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 210
+	shoot:
+		Start: 56
+		Facings: 8
+		ShadowStart: 258
+	prone-shoot:
+		Start: 56
+		Facings: 8
+		ShadowStart: 258
+	standup-0:
+		Start: 112
+		Length: 2
+		Facings: 8
+		ShadowStart: 314
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 288
+	prone-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 288
+	idle1:
+		Start: 128
+		Length: 8
+		ShadowStart: 330
+	idle2:
+		Start: 136
+		Length: 16
+		ShadowStart: 338
+	die1:
+		Start: 152
+		Length: 8
+		ShadowStart: 354
+	die2:
+		Start: 160
+		Length: 6
+		ShadowStart: 362
+	die-crushed:
+		Start: 174
+		Length: 3
+		ShadowStart: 376
+		Tick: 1000
+
+umagon:
+	Inherits: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: 8
+		ShadowStart: 292
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 300
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 348
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 363
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 378
+	prone-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 378
+	die1:
+		Start: 134
+		Length: 15
+		ShadowStart: 426
+	die2:
+		Start: 149
+		Length: 15
+		ShadowStart: 441
+	die-crushed:
+		Start: 159
+		Length: 5
+		ShadowStart: 451
+		Tick: 800
+		ZOffset: -511
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		ShadowStart: 456
+	prone-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 504
+	standup-0:
+		Start: 260
+		Length: 2
+		Facings: 8
+		ShadowStart: 552
+	icon: umagicon
+
+ghost:
+	Inherits: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: 8
+		ShadowStart: 292
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 300
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 348
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 363
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 378
+	prone-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 378
+	die1:
+		Start: 134
+		Length: 15
+		ShadowStart: 426
+	die2:
+		Start: 149
+		Length: 15
+		ShadowStart: 441
+	die-crushed:
+		Start: 159
+		Length: 5
+		ShadowStart: 451
+		Tick: 800
+		ZOffset: -511
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		ShadowStart: 456
+	prone-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 504
+	standup-0:
+		Start: 260
+		Length: 2
+		Facings: 8
+		ShadowStart: 552
+	icon: gosticon
+
+mhijack:
+	Inherits: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: 8
+		ShadowStart: 292
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 300
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 348
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 363
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 378
+	prone-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 378
+	die1:
+		Start: 134
+		Length: 15
+		ShadowStart: 426
+	die2:
+		Start: 149
+		Length: 15
+		ShadowStart: 441
+	die-crushed:
+		Start: 159
+		Length: 5
+		ShadowStart: 451
+		Tick: 800
+		ZOffset: -511
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		ShadowStart: 456
+	prone-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 504
+	standup-0:
+		Start: 260
+		Length: 2
+		Facings: 8
+		ShadowStart: 552
+	icon: chamicon
+
+mutant:
+	Inherits: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: 8
+		ShadowStart: 292
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 300
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 348
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 363
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 378
+	prone-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 378
+	die1:
+		Start: 134
+		Length: 15
+		ShadowStart: 426
+	die2:
+		Start: 149
+		Length: 15
+		ShadowStart: 441
+	die-crushed:
+		Start: 159
+		Length: 5
+		ShadowStart: 451
+		Tick: 800
+		ZOffset: -511
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		ShadowStart: 456
+	prone-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 504
+	standup-0:
+		Start: 260
+		Length: 2
+		Facings: 8
+		ShadowStart: 552
+	icon: fiendicon
+		Offset: 0, 0
+
+mwmn:
+	Inherits: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: 8
+		ShadowStart: 292
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 300
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 348
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 363
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 378
+	prone-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 378
+	die1:
+		Start: 134
+		Length: 15
+		ShadowStart: 426
+	die2:
+		Start: 149
+		Length: 15
+		ShadowStart: 441
+		Tick: 80
+	die-crushed:
+		Start: 159
+		Length: 5
+		ShadowStart: 451
+		Tick: 800
+		ZOffset: -511
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		ShadowStart: 456
+	prone-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 504
+	standup-0:
+		Start: 260
+		Length: 2
+		Facings: 8
+		ShadowStart: 552
+	icon: mutcicon
+
+mutant3:
+	Inherits: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: 8
+		ShadowStart: 292
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 300
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 348
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 363
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 378
+	prone-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 378
+	die1:
+		Start: 134
+		Length: 15
+		ShadowStart: 426
+	die2:
+		Start: 149
+		Length: 15
+		ShadowStart: 441
+		Tick: 80
+	die-crushed:
+		Start: 159
+		Length: 5
+		ShadowStart: 451
+		Tick: 800
+		ZOffset: -511
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		ShadowStart: 456
+	prone-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 504
+	standup-0:
+		Start: 260
+		Length: 2
+		Facings: 8
+		ShadowStart: 552
+	icon: mutcicon
+
+tratos:
+	Inherits: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: 8
+		ShadowStart: 292
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 300
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 348
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 363
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 378
+	prone-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 378
+	die1:
+		Start: 134
+		Length: 15
+		ShadowStart: 426
+	die2:
+		Start: 149
+		Length: 15
+		ShadowStart: 441
+		Tick: 80
+	die-crushed:
+		Start: 159
+		Length: 5
+		ShadowStart: 451
+		Tick: 800
+		ZOffset: -511
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		ShadowStart: 456
+	prone-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 504
+	standup-0:
+		Start: 260
+		Length: 2
+		Facings: 8
+		ShadowStart: 552
+	icon: mutcicon
+
+oxanna:
+	Inherits: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: 8
+		ShadowStart: 292
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 300
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 348
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 363
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 378
+	prone-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 378
+	die1:
+		Start: 134
+		Length: 15
+		ShadowStart: 426
+	die2:
+		Start: 149
+		Length: 15
+		ShadowStart: 441
+		Tick: 80
+	die-crushed:
+		Start: 159
+		Length: 5
+		ShadowStart: 451
+		Tick: 800
+		ZOffset: -511
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		ShadowStart: 456
+	prone-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 504
+	standup-0:
+		Start: 260
+		Length: 2
+		Facings: 8
+		ShadowStart: 552
+
+slav:
+	Inherits: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: 8
+		ShadowStart: 292
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 300
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 348
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 363
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 378
+	prone-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 378
+	die1:
+		Start: 134
+		Length: 15
+		ShadowStart: 426
+	die2:
+		Start: 149
+		Length: 15
+		ShadowStart: 441
+		Tick: 80
+	die-crushed:
+		Start: 159
+		Length: 5
+		ShadowStart: 451
+		Tick: 800
+		ZOffset: -511
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		ShadowStart: 456
+	prone-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 504
+	standup-0:
+		Start: 260
+		Length: 2
+		Facings: 8
+		ShadowStart: 552
+
+vissml:
+	Inherits: ^InfantryDeathAnims
+	idle:
+		Length: 90
+		ShadowStart: 90
+		Tick: 80
+
+vislrg:
+	stand:
+		Length: 90
+		ShadowStart: 90
+		Tick: 80
+		Facings: 1
+	run:
+		Length: 90
+		ShadowStart: 90
+		Tick: 80
+		Facings: 1
+	idle:
+		Length: 90
+		ShadowStart: 90
+		Tick: 80
+		Facings: 1
+	attack:
+		Combine:
+			vislgatk:
+				Start: 5
+				Length: 35
+			vislgatk:
+				Start: 0
+				Length: 5
+		Facings: -8
+		Length: 5
+		Tick: 80
+		Offset: 0, 0, 16
+	die3: infdie
+		Length: *
+	die4: infdeathexplo1
+		Length: *
+	die5: infdeathexplo2
+		Length: *
+	die6: electro
+		Length: *
+	die7: infdeathexplo3
+		Length: *
+	cloud: cloud2
+		Length: *
+		Offset: 0,-12
+		ZOffset: 512
+	diebody1: death_a
+		Length: *
+		Tick: 5000
+		ZOffset: -511
+	diebody2: death_b
+		Length: *
+		Tick: 5000
+		ZOffset: -511
+	diebody3: death_c
+		Length: *
+		Tick: 5000
+		ZOffset: -511
+	diebody4: death_d
+		Length: *
+		Tick: 5000
+		ZOffset: -511
+	diebody5: death_f
+		Length: *
+		Tick: 5000
+		ZOffset: -511
+	dieevaporate: infgas
+		Length: *
+		Offset: 0,-6, 32
+		Tick: 30
+	diemelt: infmelt
+		Length: *
+		Offset: 0,-6, 32
+	dieshatter: infshatter
+		Length: *
+		Offset: 0,-6, 32
+	diecristalize1: infcrystalize
+		Length: 21
+	diecristalize2: infcrystalize
+		Start: 21
+		Length: 21
+	webguy: webguy
+		Length: 6
+		ShadowStart: 6
+	shield: shieldsmall
+		Length: *
+	emp-overlay: emp_fx01
+		Length: *
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+
+art2:
+	Inherits: ^EmpOverlay
+	icon: artyicon
+
+weed:
+	Inherits: ^EmpOverlay
+	icon: weedicon
+
+gghunt:
+	Inherits: ^EmpOverlay
+	idle:
+		Facings: 1
+		Length: 8
+		ShadowStart: 8
+		BlendMode: Additive
+
+4tnk:
+	Inherits: ^EmpOverlay
+		Length: *
+
+gtwimam:
+	Inherits: ^EmpOverlay
+		Length: *
+
+repair:
+	Inherits: ^EmpOverlay
+	icon: rboticon
+
+cube:
+	Inherits: ^EmpOverlay
+	icon: rboticon
+
+mwarv:
+	Inherits: ^EmpOverlay
+	icon: mwaricon
+
+eggs:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Offset: 0, -12
+		UseTilesetCode: true
+	idle:
+	damaged-idle:
+	dead:
+		Tick: 400
+	make:
+
+mwar:
+	Defaults:
+		Offset: -12, -42
+		UseTilesetCode: true
+	idle: mtar_1
+		ShadowStart: 2
+		ZOffset: -1024
+	damaged-idle: mtar_1
+		Start: 1
+		ShadowStart: 3
+		ZOffset: -1024
+	idle-roof: mtar_2
+		ShadowStart: 2
+	damaged-idle-roof: mtar_2
+		Start: 1
+		ShadowStart: 3
+	dead: mtar
+		Start: 2
+		ShadowStart: 5
+		Tick: 400
+	production-lights-white: mtar_a
+		Length: 5
+		Tick: 100
+		ZOffset: 2048
+	damaged-production-lights-white: mtar_a
+		Length: 5
+		Tick: 100
+		ZOffset: 2048
+	production-lights-red: mtar_b
+		Length: 12
+		Tick: 120
+		ZOffset: 2048
+	damaged-production-lights-red: mtar_b
+		Length: 12
+		Tick: 120
+		ZOffset: 2048
+	idle-turbines: mtar_c
+		Length: 8
+		Tick: 80
+		ZOffset: 2048
+	damaged-idle-turbines: mtar_c
+		Length: 8
+		Tick: 80
+		ZOffset: 2048
+	build-door: mtar_d
+		Length: 11
+		ShadowStart: 12
+	damaged-build-door: mtar_d
+		Length: 11
+		ShadowStart: 12
+	make: mtarmk
+		Length: 20
+		Tick: 80
+		ShadowStart: 20
+	bib: mtarbb
+		Length: 1
+		ZOffset: -1024
+	damaged-bib: mtarbb
+		Start: 1
+		Length: 1
+		ZOffset: -1024
+	dead-bib: mtarbb
+		Start: 2
+		Length: 1
+		ZOffset: -1024
+	icon: weapicon
+		Offset: 0, 0
+		UseTilesetCode: false

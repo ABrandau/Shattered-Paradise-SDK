@@ -1,0 +1,781 @@
+^SWBaseEffects:
+	Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
+		Range: 5c0
+		Duration: 250
+		Condition: GetsOneShotedbySuperweapons
+	Warhead@GetsOneShotedbySuperweaponsAA: GrantExternalCondition
+		Range: 3c0
+		Duration: 250
+		Condition: GetsOneShotedbySuperweapons
+		ValidTargets: Aircraft, Air, Airhit
+
+SuicideBomb:
+	ReloadDelay: 1
+	Range: 0c512
+	Report: HUNTER2.AUD
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 11000
+		Falloff: 10000, 3680, 1350, 500, 180, 70, 0
+		Versus:
+			InfantryArmor: 90
+			VehicleArmor: 60
+			DefenseArmor: 60
+			ConcreteArmor: 50
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+
+EMPulseCannon:
+	ReloadDelay: 25
+	Range: 25c0
+	MinRange: 4c0
+	Report: plsecan2.aud
+	ValidTargets: Vehicle, Building, Ground, Water
+	Projectile: BulletAS
+		Speed: 300
+		Blockable: false
+		Shadow: true
+		LaunchAngle: 110
+		Image: pulsball
+	Warhead@1Eff: CreateEffect
+		Explosions: pulse_explosion
+	Warhead@1: GrantExternalCondition
+		Range: 1c512
+		Duration: 250
+		Condition: empdisable
+		ValidTargets: Vehicle, Building
+	Warhead@2: GrantExternalCondition
+		Range: 1c512
+		Duration: 250
+		Condition: notmobile
+		ValidTargets: Vehicle, Building
+	Warhead@3: GrantExternalCondition
+		Range: 4c0
+		Duration: 250
+		Condition: notmobile
+		ValidTargets: Vehicle, Building
+		Delay: 10
+	Warhead@4: GrantExternalCondition
+		Range: 4c0
+		Duration: 250
+		Condition: empdisable
+		ValidTargets: Vehicle, Building
+		Delay: 10
+
+VeterancyWeapon:
+	ReloadDelay: 25
+	Range: 999c0
+	Warhead@1Eff: Promotion
+		Range: 1c512
+		ValidStances: Ally, Neutral
+
+RadarScanWeapon:
+	ReloadDelay: 6 
+	Projectile: InstantExplode
+	Report: uradarpi.wav
+	Warhead@Spawn: SpawnActor
+		Actors: radarscandummy
+		Range: 3
+
+IonCannon: ### THIS IS THE MAIN ION CANON WEAPON
+	Inherits: ^SWBaseEffects
+	ValidTargets: Ground, Water, Air, IonBeam
+	Projectile: InstantExplode
+	Report: ion1.aud
+	Warhead@1Dam_area: SpreadDamage
+		Spread: 1c0
+		Damage: 150000
+		Falloff: 100, 50, 25, 0
+		ValidTargets: Ground, Water, Air
+		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
+	Warhead@3Smu_area: LeaveSmudge
+		SmudgeType: SmallScorch
+		Size: 2,1
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@4Sharpnel: FireShrapnel
+		Weapon: LargeDebris
+		Amount: 6
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@3Effect: CreateEffect
+		Explosions: ionring
+	Warhead@4Effect: CreateEffect
+		Explosions: ionbeam
+		ExplosionPalette: effect-ignore-lighting-alpha75
+		ImpactSoundss: ion1.aud
+		VictimScanRadius: 0
+	Warhead@5Effect: CreateEffect
+		Explosions: ionbeam2
+		ExplosionPalette: effect-ignore-lighting-alpha75
+		VictimScanRadius: 0
+	Warhead@6Effect: CreateEffect
+		Explosions: ionbeam3
+		ExplosionPalette: effect-ignore-lighting-alpha75
+		VictimScanRadius: 0
+	Warhead@7Effect: CreateEffect
+		Explosions: ionbeam4
+		ExplosionPalette: effect-ignore-lighting-alpha75
+		VictimScanRadius: 0
+	Warhead@8Effect: CreateEffect
+		Explosions: ionbeam5
+		ExplosionPalette: effect-ignore-lighting-alpha75
+		VictimScanRadius: 0
+	Warhead@9Effect: CreateEffect
+		Explosions: ionbeam6
+		ExplosionPalette: effect-ignore-lighting-alpha75
+		VictimScanRadius: 0
+
+IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
+	ReloadDelay: 6 
+	Range: 12c0
+	Projectile: InstantExplode
+	Warhead@3Dam_area: SpreadDamage
+		Spread: 1
+		Damage: 1
+		ValidTargets: Ground, Water, Air
+	Warhead@op: FireShrapnel
+		Weapon: IonBeamCreator
+		Amount: 20
+		AllowDirectHit: false
+	Warhead@Spawn: SpawnActor
+		Actors: ionbeamtarget
+		Range: 3
+
+IonBeamCreator: ### THIS ONE GENERATES THE MINI BEAMS
+	ReloadDelay: 6
+	Range: 5c0
+	MinRange: 5c0
+	Projectile: BulletAS
+		Speed: 100c0
+	Warhead@3Dam_area: SpreadDamage
+		Spread: 1
+		Damage: 1
+		ValidTargets: Ground, Water, Air
+	Warhead@Spawn: SpawnActor
+		Actors: ionbeammini
+		Range: 15
+
+IonScorch: ### THESE ARE THE WEAPONS OF THE MINI BEAMS ON THE SIDES
+	ReloadDelay: 1
+	Projectile: InstantExplode
+	ValidTargets: Ground, Water, Air, IonSpawner
+	Warhead@1Eff_impact: CreateEffect
+		Explosions: ionscorch
+		ExplosionPalette: effectalpha
+	Warhead@3Dam_area: SpreadDamage
+		Spread: 200
+		Damage: 250
+		InvalidTargets: IonBeam
+		DamageTypes: SmallExplosionDeath
+			InfantryArmor: 500
+			BuildingArmor: 100
+			VehicleArmor: 50
+			DefenseArmor: 50
+			ConcreteArmor: 5
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Condition: BreakShield
+		Range: 32
+		Duration: 400
+
+IonDrag:
+	ReloadDelay: 5
+	Range: 5
+	ValidTargets: IonSpawner
+	Projectile: Missile
+	Warhead@1Dam: SpreadDamage
+		Spread: 110
+		Damage: 1
+		ValidTargets: IonSpawner
+		Versus:
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+DroppodSpawner:
+	ReloadDelay: 6
+	Range: 12c0
+	Projectile: InstantExplode
+	Warhead@op: FireShrapnel
+		Weapon: DroppodElevator
+		Amount: 6
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@op2: FireShrapnel
+		Weapon: DroppodElevator2
+		Amount: 4
+		Delay: 1
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@op3: FireShrapnel
+		Weapon: DroppodElevator3
+		Amount: 3
+		Delay: 1
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@op4: FireShrapnel
+		Weapon: DroppodElevator4
+		Amount: 2
+		Delay: 1
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@op5: FireShrapnel
+		Weapon: DroppodElevator5
+		Amount: 1
+		Delay: 1
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@5Actor: SpawnActor
+		Actors: swvisiondummy
+		Range: 3
+
+DroppodElevator:
+	ReloadDelay: 6
+	Range: 3c0
+	MinRange: 1c0
+	Projectile: AthenaProjectile
+		Altitude: 8000
+	Warhead@op: FireShrapnel
+		Weapon: droppod1
+		AimChance: 25
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
+DroppodElevator2:
+	Inherits: DroppodElevator
+	Warhead@op: FireShrapnel
+		Weapon: droppod2
+
+DroppodElevator3:
+	Inherits: DroppodElevator
+	Warhead@op: FireShrapnel
+		Weapon: droppod3
+
+DroppodElevator4:
+	Inherits: DroppodElevator
+	Warhead@op: FireShrapnel
+		Weapon: droppod4
+
+DroppodElevator5:
+	Inherits: DroppodElevator
+	Warhead@op: FireShrapnel
+		Weapon: droppod5
+
+droppod1:
+	Inherits: ^BombWarhead
+	Inherits@2: ^Small_Clsn
+	ReloadDelay: 3
+	Range: 3c0
+    Report: tsgun4.aud
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
+	Projectile: BulletAS
+		Speed: 350
+		Image: gdidroppod
+		Palette: player
+		Shadow: true
+		TrailImage: meteortrail
+		TrailPalette: effectalpha
+		Inaccuracy: 600
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SmallCrater
+	Warhead@3Eff: CreateEffect
+		Explosions: small_clsn, large_twlt, medium_brnl
+		ImpactSoundss: expnew12.aud
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@4Eff: CreateEffect
+		Explosions: podring
+		ImpactSoundss: expnew12.aud
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@5Eff: CreateEffect
+		Explosions: droppod, droppod2
+		ImpactSoundss: expnew12.aud
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@5Smu: LeaveSmudge
+		SmudgeType: SmallCrater
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@5Actor: SpawnActor
+		Actors: gdie1
+		Range: 3
+
+droppod2:
+	Inherits: droppod1
+	Inherits: ^BombWarhead
+	Warhead@5Actor: SpawnActor
+		Actors: jumpjet
+		Range: 3
+
+droppod3:
+	Inherits: droppod1
+	Inherits: ^BombWarhead
+	Warhead@5Actor: SpawnActor
+		Actors: medic
+		Range: 3
+
+droppod4:
+	Inherits: droppod1
+	Inherits: ^BombWarhead
+	Warhead@5Actor: SpawnActor
+		Actors: grenadier
+		Range: 3
+
+droppod5:
+	Inherits: droppod1
+	Inherits: ^BombWarhead
+	Warhead@5Actor: SpawnActor
+		Actors: eagleguard
+		Range: 3
+
+ClusterMissile:
+	Inherits: ^SWBaseEffects
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air
+	Warhead@ImpactDamage0: SpreadDamage
+		Spread: 0c512
+		Damage: 32000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air
+		Versus:
+			ConcreteArmor: 25
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+	Warhead@ClusterDamage3: SpreadDamage
+		Damage: 47000
+		Spread: 1c0
+		Falloff: 1000, 700, 500, 300, 150, 50, 0
+		Delay: 25
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air
+		Versus:
+			InfantryArmor: 500
+			BuildingArmor: 100
+			VehicleArmor: 50
+			DefenseArmor: 50
+			ConcreteArmor: 5
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+	Warhead@7Dam_areanukeb: SpreadDamage
+		Spread: 1c512
+		Damage: 2000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Delay: 50
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Trees
+		AffectsParent: True
+		Versus:
+			InfantryArmor: 500
+			BuildingArmor: 100
+			VehicleArmor: 50
+			DefenseArmor: 50
+			ConcreteArmor: 5
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@SoundEffect0: CreateEffect
+		Explosions: nuke1, nuke2, nuke3
+		ExplosionPalette: effect
+		ImpactSounds: nukeexplo.wav
+	Warhead@ClusterSmudges0: LeaveSmudge
+		SmudgeType: LargeCrater
+		Size: 1
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@ClusterSmudges1: LeaveSmudge
+		SmudgeType: LargeScorch
+		Size: 2
+		Delay: 5
+		InvalidTargets: Vehicle, Building, Wall
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+	Warhead@ClusterSmudges3: LeaveSmudge
+		SmudgeType: MediumScorch
+		Size: 6
+		InvalidTargets: Vehicle, Building, Wall
+		Delay: 25
+	Warhead@ClusterSmudges4: LeaveSmudge
+		SmudgeType: SmallScorch
+		Size: 6
+		InvalidTargets: Vehicle, Building, Wall
+		Delay: 25
+	Warhead@op: FireShrapnel
+		Weapon: LargeDebris
+		Amount: 3
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@4Sharpnel: FireShrapnel
+		Weapon: NukeFlame
+		Amount: 120
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@5Sharpnel: FireShrapnel
+		Weapon: NukeFlame2
+		Amount: 90
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@Shake: ScreenShaker
+		Intensity: 10
+		Duration: 15
+	Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
+		Range: 6c0
+	Warhead@8Radio: CreateTintedCells
+		Spread: 2c0
+		Level: 750
+		Falloff: 100, 100, 60, 40, 20, 5
+		MaxLevel: 750
+		LayerName: OrangeRadiation
+
+NukeFlame:
+	Inherits: ^FlameWarhead
+	Inherits@2: ^FlameScorch
+	Range: 5c0
+	MinRange: 3c0
+	Projectile: BulletAS
+		Speed: 100
+		Blockable: true
+		Image: FLAMEALL
+		Inaccuracy: 1c0
+		Palette: effectalpha50
+	Warhead@1Dam: SpreadDamage
+		Spread: 341
+		Damage: 300
+		DamageTypes: Prone100Percent, TriggerProne, FireDeath
+
+NukeFlame2:
+	Inherits: NukeFlame
+	Range: 3c0
+	-MinRange:
+
+MeteorFlame:
+	Inherits: NukeFlame
+	Range: 1c0
+	-MinRange:
+	Projectile: BulletAS
+		Speed: 400
+
+ToxinMissile:
+	Inherits: ^Large_Explosion
+	Inherits@1: ^SpawnsIrradiation
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air
+	Warhead@ImpactDamage0: SpreadDamage
+		Spread: 1c128
+		Damage: 6000
+		Falloff: 500, 368, 135, 50, 18, 7, 0
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air
+		Versus:
+			ConcreteArmor: 25
+		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
+	Warhead@ClusterSmudges0: LeaveSmudge
+		SmudgeType: LargeCrater
+		Size: 1
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@ClusterSmudges1: LeaveSmudge
+		SmudgeType: LargeScorch
+		Size: 2
+		InvalidTargets: Vehicle, Building, Wall
+		Delay: 5
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+	Warhead@5Actor: SpawnActor
+		Actors: CLOUD1, CLOUD1, CLOUD1, CLOUD1, CLOUD1, CLOUD1, CLOUD1, CLOUD1, CLOUD1, CLOUD1, CLOUD1, CLOUD1
+		FallRate: 5000
+		Range: 3
+	Warhead@3Radio: CreateTintedCells
+		Level: 600
+		Spread: 0c768
+		MaxLevel: 1000
+
+MeteorSpawner:
+	ReloadDelay: 200
+	Burst: 6
+	BurstDelays: 25
+	Range: 1c0
+	Projectile: BulletAS
+		Speed: 9999
+		Blockable: false
+	Warhead@op: FireShrapnel
+		Weapon: MeteorElevator
+		Amount: 2
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@op2: FireShrapnel
+		Weapon: MeteorElevator2
+		Amount: 2
+		Delay: 10
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@op3: FireShrapnel
+		Weapon: MeteorElevator3
+		Amount: 2
+		Delay: 15
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@6: FireShrapnel
+		Weapon: MeteorSpawner2
+		Amount: 1
+		Delay: 35
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@5Actor: SpawnActor
+		Actors: swvisiondummy
+		Range: 3
+
+MeteorSpawner2:
+	Inherits: MeteorSpawner
+	Warhead@6: FireShrapnel
+		Weapon: MeteorSpawner3
+
+MeteorSpawner3:
+	Inherits: MeteorSpawner
+	Warhead@6: FireShrapnel
+		Weapon: MeteorSpawner4
+
+MeteorSpawner4:
+	Inherits: MeteorSpawner
+	Warhead@6: FireShrapnel
+		Weapon: MeteorSpawner5
+
+MeteorSpawner5:
+	Inherits: MeteorSpawner
+	Warhead@6: FireShrapnel
+		Weapon: MeteorSpawner6
+
+MeteorSpawner6:
+	Inherits: MeteorSpawner
+	-Warhead@6: FireShrapnel
+
+MeteorElevator:
+	ReloadDelay: 6
+	Report: meteor1.aud, meteor2.aud
+	Range: 2c0
+	MinRange: 1c0
+	Projectile: AthenaProjectile
+		Altitude: 12000
+	Warhead@op: FireShrapnel
+		Weapon: MeteorRainSlow
+		AimChance: 25
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
+MeteorElevator2:
+	Inherits: MeteorElevator
+	Warhead@op: FireShrapnel
+		Weapon: MeteorRainNormal
+
+MeteorElevator3:
+	Inherits: MeteorElevator
+	Warhead@op: FireShrapnel
+		Weapon: MeteorRainFast
+
+MeteorRainNormal:
+	Inherits@3: ^SWBaseEffects
+	Inherits: ^BombWarhead
+	Inherits@2: ^Small_Twlt
+	ReloadDelay: 8
+	Range: 1c0
+	Report: mehit1.aud
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
+	Projectile: BulletAS
+		Speed: 350
+		Image: meteor2
+		Palette: effect
+		Shadow: true
+		Inaccuracy: 300
+		TrailImage: meteortrail
+		TrailPalette: effectalpha
+		TrailInterval: 1
+		Blockable: false
+	Warhead@1Dam: SpreadDamage
+		Spread: 300
+		Damage: 10000
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SmallCrater
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@op: FireShrapnel
+		Weapon: SmallDebris
+		Amount: 3
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@op: FireShrapnel
+		Weapon: LargeDebris
+		Amount: 1
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@5Sharpnel: FireShrapnel
+		Weapon: MeteorFlame
+		Amount: 3
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
+		Range: 1c0
+	Warhead@Shake: ScreenShaker
+		Intensity: 10
+		Duration: 7
+
+MeteorRainSlow:
+	Inherits: MeteorRainNormal
+	Projectile: BulletAS
+		Speed: 250
+
+MeteorRainFast:
+	Inherits: MeteorRainNormal
+	Projectile: BulletAS
+		Speed: 450
+
+CabalCannon:
+	Inherits: ^FullDamage
+	Inherits@2: ^SWBaseEffects
+	ReloadDelay: 200
+	Range: 300c0
+	Burst: 8
+	BurstDelays: 20
+	MinRange: 6c0
+	Inaccuracy: 100c0
+	Report: devourerlasor0000.wav, devourerlasor0001.wav, devourerlasor0002.wav
+	ValidTargets: Vehicle, Infantry, Building, Ground, Water
+	Projectile: BulletAS
+		Speed: 300
+		Inaccuracy: 40c0
+		Image: cabswproj
+		LaunchAngle: 90
+		Shadow: true
+		Palette: apcyan
+		TrailImage: cabswproj2
+		TrailPalette: apolcyanalpha
+		Blockable: false
+	Warhead@1Dam: SpreadDamage
+		Spread: 700
+		Damage: 15000
+		Versus:
+			BuildingArmor: 600
+		ValidTargets: Vehicle, Infantry, Building, Ground, Water
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: cabexplo
+		ExplosionPalette: apolcyanalpha
+		ValidTargets: Ground, Air
+		ImpactSounds: expnew09.aud, expnew02.aud, expnew03.aud, expnew04.aud
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: LargeCrater
+		InvalidImpactTypes: Water
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@Shake: ScreenShaker
+		Intensity: 10
+		Duration: 15
+	Warhead@6Spawn: SpawnActor
+		Actors: visionactor
+		Range: 3
+	Warhead@7ClusterSmudges: LeaveSmudge
+		SmudgeType: SmallScorch
+		Size: 2
+		InvalidTargets: Vehicle, Building, Wall
+		Delay: 15
+	Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
+		Range: 4c0
+
+NanoMachineBurst:
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
+	Warhead@1Dam_impact: SpreadDamage
+		Spread: 1
+		Damage: 1
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
+	Warhead@5Actor: SpawnActor
+		Actors: NANOMACHINEBURSTSPAWNER
+		FallRate: 5000
+		Range: 3
+
+RecoveryGun:
+	Inherits: ^FullDamage
+	ReloadDelay: 1
+	Range: 7c0
+	ValidTargets: KilledUnit
+	Projectile: BulletAS
+		Speed: 100c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 200
+		Damage: 20000
+		DamageTypes: Prone70Percent, TriggerProne, WorkerSummon
+		ValidTargets: KilledUnit
+
+IonStormSpawnerWeapon: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
+	Inherits: IonCannonSpawner
+	ReloadDelay: 6 
+	Range: 12c0
+	Projectile: InstantExplode
+	Warhead@3Dam_area: SpreadDamage
+		Spread: 1
+		Damage: 1
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
+	-Warhead@op: FireShrapnel
+	Warhead@Spawn: SpawnActor
+		Actors: ionstormgenerator
+
+IonRaySpawner:
+	ReloadDelay: 10
+	Projectile: InstantExplode
+	Warhead@op: FireShrapnel
+		Weapon: IonRay
+		Amount: 1
+		AllowDirectHit: false
+
+RandomBoltSpawner:
+	ReloadDelay: 5
+	Projectile: InstantExplode
+	Warhead@1: FireShrapnel
+		Weapon: IonRay
+		Amount: 2
+		AllowDirectHit: false
+	Warhead@2: FireShrapnel
+		Weapon: IonRay
+		Amount: 1
+		AllowDirectHit: false
+		AimChance: 75
+		ThrowWithoutTarget: False
+		AimTargetStances: Ally, Neutral, Enemy
+
+IonRay:
+	Inherits: ^ArtilleryWarhead
+	Inherits@2: ^SWBaseEffects
+	ReloadDelay: 10
+	Range: 7c0
+	Report: expnew08.aud
+	Projectile: InstantHit
+		Blockable: False
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 7500
+	Warhead@2Eff: CreateEffect
+		Explosions: large_explosion
+		ImpactSounds: expnew09.aud
+	Warhead@3Eff: CreateEffect
+		Explosions: bolt1, bolt2, bolt3, bolt4, bolt5, bolt6, bolt7, bolt8, bolt9, bolt10
+		ImpactSounds: expnew09.aud
+		Delay: 5
+	Warhead@4: LeaveSmudge
+		SmudgeType: SmallCrater
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@6Eff: CreateEffect
+		Explosions: fire1, fire2, fire3, fire4
+		ImpactSounds: expnew09.aud
+		Delay: 10
+	Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
+		Range: 0c512
+
+VeinholeSummonerWeapon:
+	Inherits: ^BombWarhead
+	ReloadDelay: 8
+	Range: 3c0
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
+	Warhead@1Dam: SpreadDamage
+		Spread: 650
+		Damage: 1
+		Falloff: 1000, 500, 250, 125, 75, 50, 25, 12, 0
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
+		DamageTypes:
+	Warhead@5Actor: SpawnActor
+		Actors: VEINHOLESPAWNERDUMMY
+		FallRate: 5000
+		Range: 3
+	Warhead@4Sharpnel: FireShrapnel
+		Weapon: VeinholeShrapnel
+		Amount: 3
+		AllowDirectHit: false
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, AirHit
+		InvalidTargets: Infantry, Vehicle, Building, Wall
+
+VeinholeShrapnel:
+	Range: 5c0
+	MinRange: 4c0
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+		DamageTypes: Prone100Percent, TriggerProne, FireDeath
+	Warhead@5Actor: SpawnActor
+		Actors: VEINHOLESPAWNERDUMMY
+		FallRate: 5000
+		Range: 3

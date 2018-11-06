@@ -1,0 +1,1556 @@
+GDIE1:
+	Inherits: ^Soldier
+	Inherits@2: ^6CellVision
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 1
+		Description: Basic combat infantry.\n\nGood vs: Infantry\n\nSpecial:\n- Crush class: crushable
+		Prerequisites: ~gapile
+	Valued:
+		Cost: 150
+	Tooltip:
+		Name: Marine
+	Health:
+		HP: 14000
+	Voiced:
+		VoiceSet: Marine
+	Armament@1:
+		Weapon: MarineRifle
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2:
+		Weapon: GMarineRifle
+		PauseOnCondition: WebDisable
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	RenderSprites:
+
+GRENADIER:
+	Inherits: ^Soldier
+	Inherits@1: ^7CellVision
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 2
+		Prerequisites: ~gapile
+		Description: Basic anti armor infantry.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack Air\n- Can shoot over walls\n- Crush class: crushable
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Phalanx
+	Health:
+		HP: 10000
+	Armament@1:
+		Weapon: GrenadierBazooka
+		LocalOffset: 0,0,600
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2:
+		Weapon: GrenadierBazookaAA
+		LocalOffset: 0,0,600
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@3:
+		Weapon: GGrenadierBazooka
+		LocalOffset: 0,0,600
+		PauseOnCondition: WebDisable
+	Armament@4:
+		Weapon: GGrenadierBazookaAA
+		LocalOffset: 0,0,600
+		PauseOnCondition: WebDisable
+	Voiced:
+		VoiceSet: Marine
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+
+MEDIC:
+	Inherits@1: ^Soldier
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Medic
+	Mobile:
+		Speed: 55
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 4
+		Description: Heals nearby infantry.\n\n  Unarmed
+		Prerequisites: ~gapile
+	Voiced:
+		VoiceSet: Medic
+	Mobile:
+		Speed: 50
+	Health:
+		HP: 7000
+	Crushable:
+		CrushSound: squishy2.aud
+	AutoTarget:
+		ScanRadius: 8
+	Armament:
+		TargetStances: Ally
+		Weapon: Heal
+		ForceTargetStances: None
+		PauseOnCondition: WebDisable
+	AttackFrontal:
+	Passenger:
+		PipType: Red
+	-GainsExperience:
+
+JUMPJET:
+	Inherits: ^Soldier
+	Inherits@2: ^6CellVision
+	Valued:
+		Cost: 450
+	Tooltip:
+		Name: Jumpjet Infantry
+	Voiced:
+		VoiceSet: Jumpjet2
+		Volume: 3
+	Mobile:
+		Speed: 60
+	Health:
+		HP: 9000
+	Transforms:
+		IntoActor: jumpjetair
+	Armament@1:
+		Weapon: JJGroundGrenade
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2:
+		Weapon: GJJGrenade
+		PauseOnCondition: WebDisable
+	Passenger:
+		PipType: Blue
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+
+JUMPJETAIR:
+	Inherits: ^Aircraft
+	Inherits@2: ^AutoTargetAll
+	Inherits@3: ^10CellVision
+	Valued:
+		Cost: 450
+	Tooltip:
+		Name: Jumpjet Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 5
+		Prerequisites: ~gapile, garadr
+		Description: Soldiers with jetpacks armed with a grenade launcher.\n\nGood vs: Infantry, Structures.\n\nSpecial:\n- Can fly\n- Will land when ordered to deploy\n- Can shoot over walls\n- BUG: looses experience if it change modes.
+	Voiced:
+		VoiceSet: Jumpjet
+		Volume: 3
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Selectable:
+		Bounds: 22,30,0,-10
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -250, -250
+			BottomRight: 250, 250
+	Health:
+		HP: 9000
+	Armament@1:
+		Weapon: JJGrenade
+	Transforms:
+		IntoActor: jumpjet
+	Armor:
+		Type: AircraftArmor
+	WithFacingSpriteBody@idle:
+		RequiresCondition: !JJBuff
+		Sequence: run
+	WithFacingSpriteBody@attack:
+		Sequence: shoot
+		RequiresCondition: JJBuff
+	RenderSprites:
+	WithShadow:
+	Hovers@CRUISING:
+		RequiresCondition: cruising
+	Aircraft:
+		TurnSpeed: 10
+		Speed: 130
+		AirborneCondition: airborne
+		CruisingCondition: cruising
+		CruiseAltitude: 2c500
+		IdealSeparation: 1c0
+		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+		LandWhenIdle: False
+		CanHover: true
+		Repulsable: true
+		MoveIntoShroud: true
+		TakeOffOnResupply: true
+		VTOL: true
+	Targetable@GROUND:
+		TargetTypes: Infantry, Ground
+		RequiresCondition: !airborne
+	Targetable@AIRBORNE:
+		TargetTypes: Air, Helicopter, Jumpjet
+		RequiresCondition: airborne
+	AttackHeli:
+		FacingTolerance: 20
+		Voice: Attack
+	-RenderVoxels:
+	-WithVoxelBody:
+	Armament@SelfBuff:
+		Weapon: JJBuff
+	ExternalCondition@JJBuff:
+		Condition: JJBuff
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
+	-GrantConditionOnDamageState@spawnsparks:
+	-ExplodeWeapon@spawnsparks:
+	-ExternalCondition@spawnsparks:
+
+EAGLEGUARD:
+	Inherits: ^Soldier
+	Inherits@1: ^7CellVision
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Eagle Guard
+	Buildable:
+		Description: Elite Soldiers armed with an EMP ray.\n\nGood vs: Vehicles.\n\nSpecial:\n- Does not receive damage from tiberium fields.\n- Disables vehicles and buildings for a short time\n- Crush class: uncrushable
+		Queue: Infantry
+		BuildPaletteOrder: 6
+		Prerequisites: ~gapile, gatech
+	Voiced:
+		VoiceSet: Ghost
+	Mobile:
+		Speed: 50
+	Health:
+		HP: 30000
+	-DamagedByTerrain:
+	Armament@1:
+		Weapon: TrooperRail
+		LocalOffset: 550,100,550
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2:
+		Weapon: GTrooperRail
+		LocalOffset: 550,100,550
+		PauseOnCondition: WebDisable
+	Crushable:
+		CrushClasses: HeavyInfantry
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+
+ALTNODE1:
+	Inherits: ^Soldier
+	Inherits@1: ^6CellVision
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 1
+		Description: Light infantry variant.\n\nGood vs: Infantry\n\nSpecial:\n- Does not go prone after taking fire.\n- Crush class: crushable
+		Prerequisites: ~nahand
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Militant
+	Health:
+		HP: 10000
+	Mobile:
+		Speed: 70
+	-TakeCover:
+	Armament:
+		Weapon: MilitantRifle
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@1:
+		Weapon: GMilitantRifle
+		PauseOnCondition: WebDisable
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	RenderSprites:
+
+CRUSADER:
+	Inherits: ^Soldier
+	Inherits@1: ^7CellVision
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 2
+		Description: Anti armor infantry.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack Air\n- Can shoot while moving\n- Does not go prone after taking fire\n- Can shoot over walls\n- Crush class: crushable
+		Prerequisites: ~nahand
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Crusader
+	Health:
+		HP: 8000
+	Armament@1:
+		Weapon: CrusaderBazooka
+		LocalOffset: 0,0,600
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@AA:
+		Weapon: CrusaderBazookaAA
+		LocalOffset: 0,0,600
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@3:
+		Weapon: GCrusaderBazooka
+		LocalOffset: 0,0,600
+		PauseOnCondition: WebDisable
+	Armament@4AA:
+		Weapon: GCrusaderBazookaAA
+		LocalOffset: 0,0,600
+		PauseOnCondition: WebDisable
+	-TakeCover:
+	AttackTurreted:
+		Voice: Attack
+		Armaments: OnFoot
+	Turreted:
+	Passenger:
+		PipType: Blue
+	RenderSprites:
+
+TEMPLAR:
+	Inherits: ^Soldier
+	Inherits@1: ^6CellVision
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 8
+		Description: Flame warrior, resurrected regenesis prototype.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Can damage structures through walls\n- Does not receive damage from tiberium fields\n- Crush class: crushable
+		Prerequisites: ~nahand, naradr
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Templar
+	Health:
+		HP: 25000
+	Voiced:
+		VoiceSet: Templar
+		Volume: 2
+	Mobile:
+		Speed: 70
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 70
+			BlueTiberium: 70
+				PathingCost: 70
+	Armament@1:
+		Weapon: TemplarFlame
+		LocalOffset: 200,50,320
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2:
+		Weapon: GTemplarFlame
+		LocalOffset: 200,50,320
+		PauseOnCondition: WebDisable
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	RenderSprites:
+	-DamagedByTerrain:
+
+NCONF:
+	Inherits: ^Soldier
+	Inherits@1: ^7CellVision
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 9
+		Description: Nod Special forces.\n\nGood vs: Ground Targets\n\nSpecial:\n- Spawns holograms when ordered to deploy\n- Cloaked when not firing\n- Crush class: crushable
+		Prerequisites: ~nahand, natech
+		IconPalette: UnittemIcon
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Black Hand Trooper
+	Health:
+		HP: 15000
+	Mobile:
+		Speed: 70
+	Armament@1:
+		Weapon: TemplarLasor
+		LocalOffset: 400,0,778
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2:
+		Weapon: GTemplarLasor
+		LocalOffset: 400,0,778
+		PauseOnCondition: WebDisable
+	Cloak@cloakgenerator:
+		RequiresCondition: !lawea
+		InitialDelay: 80
+		CloakDelay: 80
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	RenderSprites:
+	Voiced:
+		VoiceSet: BlackHand
+	GrantTimedConditionOnDeploy:
+		DeployedCondition: HologramSpawn
+		CooldownTicks: 4000
+		DeployedTicks: 10
+		StartsFullyCharged: True
+	ExternalCondition@MineSpawn:
+		Condition: HologramSpawn
+	ExplodeWeapon@1:
+		Weapon: FlameHoloShrapnel
+		RequiresCondition: HologramSpawn
+	ExplodeWeapon@2:
+		Weapon: FlameHoloShrapnel
+		RequiresCondition: HologramSpawn
+	ExplodeWeapon@3:
+		Weapon: TickHoloShrapnel
+		RequiresCondition: HologramSpawn
+
+BHS:
+	Inherits: ^Soldier
+	Inherits@1: ^10CellVision
+	Inherits@2: ^CommandoIcon
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 10
+		Description: Kanes Elite Commando armed with a Toxin sniper rifle.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes strcutures with C4\n- Shots fired release toxins that slow nearby infantry\n- Cannot attack Vehicles\n- Cloacks when idling\n- Crush class: uncrushable\n- Cannot be mindcontrolled
+		Prerequisites: ~nahand, natech
+		BuildLimit: 1
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Toxin Commando
+	Targetable@MindControlImmunity:
+		TargetTypes: MindControlInmune
+	Targetable@MCImmune:
+		TargetTypes: MCImmune
+	-TakeCover:
+	Health:
+		HP: 25000
+	Mobile:
+		Speed: 75
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 70
+			BlueTiberium: 70
+				PathingCost: 70
+	Voiced:
+		VoiceSet: Oxanna
+	Armament@1:
+		Weapon: BHRifle
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2:
+		Weapon: GBHRifle
+		PauseOnCondition: WebDisable
+	AnnounceOnSeen:
+		Notification: CommandoDetected
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	Demolition:
+		DetonationDelay: 45
+		Voice: Attack
+	Cloak@cloakgenerator:
+		RequiresCondition: !lawea
+		InitialDelay: 40
+		CloakDelay: 40
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage, move
+	Passenger:
+		PipType: red
+	SharedPassenger:
+		PipType: red
+	RenderSprites:
+	-DamagedByTerrain:
+
+FlameHologram:
+	Inherits@2: ^HologramSoldier
+	Armament:
+		Weapon: MilitantRifle
+	RenderSprites:
+		Image: altnode1
+	EditorOnlyTooltip:
+		Name: Militant Hollogram
+
+MARAUDER:
+	Inherits: ^Mutant
+	Inherits@1: ^MutRender
+	Inherits@1: ^6CellVision
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 11
+		Description: Wasteland soldiers armed with shotguns.\n\nGood vs: Infantry\n\nSpecial:\n- Heals on Tiberium\n- Can deploy to increase health and attackrange.\n- Crush class: crushable
+		Prerequisites: ~murax
+	Valued:
+		Cost: 150
+	Tooltip:
+		Name: Marauder
+	Voiced:
+		VoiceSet: Marauder
+		Volume: 3
+	Health:
+		HP: 11000
+	AutoTarget:
+		ScanRadius: 8
+	Mobile:
+		RequiresCondition: !WebDisable && undeployed
+	Armament@1:
+		Weapon: MarauderShotgun
+		Name: OnFoot
+		PauseOnCondition: WebDisable
+		RequiresCondition: !deployed
+	Armament@2:
+		Weapon: GMarauderShotgun
+		MuzzlePalette: playermut
+		RequiresCondition: !deployed
+	Armament@3:
+		Weapon: DeployedMarauderShotgun
+		Name: OnFoot
+		RequiresCondition: deployed
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		DeployAnimation: make
+		CanDeployOnRamps: True
+		Facing: 160
+		DeploySound:
+		UndeploySound:
+	WithInfantryBody:
+		RequiresCondition: !WebDisable && undeployed
+	WithMakeAnimation:
+	Turreted:
+		TurnSpeed: 50
+		InitialFacing: 160
+	WithSpriteTurret@idle:
+		RequiresCondition: deployed && !AnimateTurret
+	WithSpriteTurret@animated:
+		RequiresCondition: deployed && AnimateTurret
+		Sequence: turret-shoot
+	WithSpriteBody:
+		Sequence: dot
+	AttackFrontal:
+		Armaments: OnFoot
+		Voice: Attack
+		RequiresCondition: undeployed
+		PauseOnCondition: WebDisable
+	AttackTurreted@deployed:
+		Armaments: OnFoot
+		Voice: Attack
+		RequiresCondition: deployed
+		PauseOnCondition: WebDisable
+	GrantConditionOnAttack:
+		Condition: AnimateTurret
+		# RevokeDelay: 10
+		ArmamentNames: OnFoot
+	DamageMultiplier@MarauderBuff:
+		Modifier: 75
+		RequiresCondition: deployed
+	RejectsOrders@deployment:
+		Reject: Move, EnterTransport, EnterTransports
+		RequiresCondition: deployed
+
+MUTFIEND:
+	Inherits: ^Mutant
+	Inherits@1: ^6CellVision
+	Tooltip:
+		Name: Tiberian Fiend
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 12
+		Description: Tiberium beasts trained to take out enemys with tiberium shards.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Heals on Tiberium\n- Can attack Air\n- Crush class: crushable
+		Prerequisites: ~murax
+	Valued:
+		Cost: 250
+	Health:
+		HP: 12000
+		Shape: Circle
+			Radius: 213
+	Mobile:
+		Speed: 80
+        Locomotor: TibFiends
+	Voiced:
+		VoiceSet: Fiend
+	Targetable:
+		TargetTypes: Infantry, Ground
+	RenderSprites:
+		Image: doggie
+	Armament:
+		Weapon: FiendShard2
+		Name: OnFoot
+		PauseOnCondition: WebDisable
+	Armament@AA:
+		Weapon: FiendShardAA
+		Name: OnFoot
+		PauseOnCondition: WebDisable
+	Armament@Garrison:
+		Weapon: GFiendShard2
+	Armament@AAGarrison:
+		Weapon: GFiendShardAA
+		PauseOnCondition: WebDisable
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	-TakeCover:
+	-WithDeathAnimation@body:
+	-WithDeathAnimation@tib:
+	-SpawnActorOnDeath@FLAMEGUY:
+	-SpawnActorOnDeath@FLAMEGUY2:
+	SpawnActorOnDeath@conversion:
+		Actor: cybdog
+	WithDeathAnimation@normal:
+		DeathTypes:
+			TiberiumDeath: 1, 2
+			EnergyDeath: 1, 2
+
+E2:
+	Inherits@1: ENGINEER
+	Inherits: ^Mutant
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Mutant Engineer
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 13
+		Prerequisites: ~murax
+		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Heals on tiberium fields.
+	Voiced:
+		VoiceSet: Engineer
+	Mobile:
+		Voice: Move
+		Speed: 50
+	RenderSprites:
+	WithInfantryBody:
+		AttackSequence: throw
+	Mobile:
+		Locomotor: TibInmuneInfantry
+	RenderSprites:
+		Image: e2
+		-FactionImages:
+	-DamagedByTerrain:
+	-AutoTarget:
+	-GainsExperience:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
+
+E3:
+	Inherits: ^Mutant
+	Inherits@1: ^6CellVision
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 14
+		Description: Siege militia armed with mortars.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Heals on Tiberium\n- High attack range\n- Has a minimum attack distance\n- Applies a radiation damage on impact\n- Inmune to radiation damage\n- Can shoot over walls\n- Crush class: crushable
+		Prerequisites: ~murax, muradr
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Skirmisher
+	Voiced:
+		VoiceSet: Skirmisher
+		Volume: 3
+	Health:
+		HP: 9500
+	Mobile:
+		Speed: 60
+	Armament@PRIMARY:
+		Weapon: SkirmisherMortar
+		LocalOffset: 128,0,640
+		Name: OnFoot
+		PauseOnCondition: WebDisable
+	Armament@GARRISON:
+		Weapon: GSkirmisherMortar
+		LocalOffset: 128,0,640
+	Passenger:
+		PipType: Blue
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	-DamagedByTintedCells@Default:
+
+SEER:
+	Inherits: ^Mutant
+	Inherits@1: ^7CellVision
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 15
+		Description: Psychic mutant that leads armies through fear.\n\nGood vs: Vehicles, Aircraft.\n\nSpecial:\n- Can persuade friendly units to fight harder when deployed\n- Buffed units will get 20% extra attack speed, move speed and receive 20% more damage\n- Effect lasts 15 seconds\n- Heals on Tiberium\n- Can attack air\n- Can shoot over walls\n- Crush class: crushable
+		Prerequisites: ~murax, muhall
+	Valued:
+		Cost: 450
+	Tooltip:
+		Name: Tyrant
+	Voiced:
+		VoiceSet: Umagon
+	Health:
+		HP: 15000
+	AutoTarget:
+	DetectCloaked:
+		Range: 3c0
+	RenderSprites:
+	Armament@PRIMARY:
+		Weapon: SeerTesla
+		Name: OnFoot
+		FireDelay: 5
+		LocalOffset: 100,0,400
+		PauseOnCondition: WebDisable
+	Armament@SECONDARY:
+		Weapon: SeerTeslaAA
+		Name: OnFoot
+		FireDelay: 5
+		LocalOffset: 100,0,400
+		PauseOnCondition: WebDisable
+	Armament@GARRISON:
+		Weapon: SeerTesla
+		LocalOffset: 100,0,400
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	Explodes:
+		Weapon: SparkExplo
+		EmptyWeapon: SparkExplo
+		LoadedChance: 100
+		Chance: 100
+	WithRangeCircle:
+		Type: Tyrant
+		Range: 3c0
+	GrantTimedConditionOnDeploy:
+		DeployedCondition: deployed
+		CooldownTicks: 2000
+		DeployedTicks: 60
+		StartsFullyCharged: True
+		PauseOnCondition: WebDisable
+	ExplodeWeapon:
+		Weapon: SeerTyranyBuff
+		RequiresCondition: deployed
+  	ExplodeWeapon@2:
+		Weapon: SeerTyranyInstakillSpawn
+		RequiresCondition: deployed  
+
+PSYKER:
+	Inherits: ^Mutant
+	Inherits@1: ^MutRender
+	Inherits@2: ^8CellVision
+	Inherits@3: ^CommandoIcon
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 16
+		Prerequisites: ~murax, muhall
+		Description: Forgotten Commando. Pure strain forgotten that can call down lightning.\n\nGood vs: Groups of units\n\nSpecial:\n- Maximum Supply of 1\n- Heals on Tiberium\n- Strong AoE\n- Can shoot over walls\n- Crush class: uncrushable\n- Cannot be mindcontrolled.
+		BuildLimit: 1
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Lyra The Storm Caller
+	Voiced:
+		VoiceSet: Umagon
+	Health:
+		HP: 15000
+	AnnounceOnSeen:
+		Notification: CommandoDetected
+	Mobile:
+		Speed: 70
+	Targetable@MindControlImmunity:
+		TargetTypes: MindControlInmune
+	Armament@PRIMARY:
+		Weapon: PsykerRay
+		Name: OnFoot
+		LocalOffset: 128,0,640
+		PauseOnCondition: WebDisable
+	Armament@GARRISON:
+		Weapon: GPsykerRay
+		LocalOffset: 128,0,640
+	Passenger:
+		PipType: red
+	SharedPassenger:
+		PipType: red
+	AttackFrontal:
+		Voice: Attack
+		Armament: OnFoot
+
+SHARK:
+	Inherits: ^ScrinSoldier
+	Inherits@1: ^5CellVision
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 17
+		Description: Melee creature that tears down enemies.\n\nGood vs Infantry.\n\nSpecial:\n- Absorbs essence from killed units to heal.\n- Crush class: crushable.\n- Immune to Tiberium radiation.\n- Does not receive damage from tiberium fields.
+		Prerequisites: ~scrrax
+	Valued:
+		Cost: 80
+	Tooltip:
+		Name: Razorshark
+	Selectable:
+		Class: Shark
+	Targetable@Shark:
+		TargetTypes: Shark
+	Health:
+		HP: 8800
+	Mobile:
+		Speed: 85
+		Voice: Move
+	SpawnActorOnDeath@conversion:
+		Actor: cybdog
+		Probability: 100
+		OwnerType: Killer
+		DeathType: CabalDeath
+		RequiresLobbyCreeps: true
+	-SpawnActorOnDeath@FLAMEGUY:
+	Armament:
+		Weapon: SharkJump
+		PauseOnCondition: WebDisable
+	AttackFrontal:
+		Voice: Attack
+	AutoTargetPriority:
+		Priority: 1
+		ValidTargets: Infantry
+	AttackMove:
+		Voice: Move
+	AutoTarget:
+		ScanRadius: 4
+		InitialStance: AttackAnything
+	WithInfantryBody:
+		StandSequences: stand
+		IdleSequences: idle1, idle2, idle3, idle4
+	-TakeCover:
+	-DamagedByTintedCells@Default:
+
+LEGIO:
+	Inherits: ^ScrinSoldier
+	Inherits@1: ^7CellVision
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 18
+		Description: Frontile trooper.\n\nGood vs Vehicles, Buildings.\n\nSpecial:\n- Absorbs essence from killed units to heal\n- Can shoot over walls\n- Crush class: crushable\n- Does not receive damage from tiberium fields
+		Prerequisites: ~scrrax
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Legionnaire
+	Health:
+		HP: 9000
+	Passenger:
+		PipType: Blue
+	Armament:
+		Weapon: LegioNeedler
+		LocalOffset: 350,200,800
+		FireDelay: 5
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@AA:
+		Weapon: LegioNeedlerAA
+		LocalOffset: 350,200,800
+		FireDelay: 5
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament:
+		Weapon: GLegioNeedler
+		LocalOffset: 350,200,800
+		FireDelay: 5
+		PauseOnCondition: WebDisable
+	Armament@AA:
+		Weapon: GLegioNeedlerAA
+		LocalOffset: 350,200,800
+		FireDelay: 5
+		PauseOnCondition: WebDisable
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+
+SHAPESHIFTER:
+	Inherits: ENGINEER
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Shapeshifter
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 19
+		Prerequisites: ~scrrax
+		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Does not receive damage from tiberium fields
+	Voiced:
+		VoiceSet: Hijacker
+	Mobile:
+		Locomotor: TibInmuneInfantry
+	-DamagedByTerrain:
+	WithInfantryBody:
+		IdleSequences: idle1, idle2, idle3, idle4
+	RenderSprites:
+		Image: shapeshifter
+		-FactionImages:
+	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
+
+FLOAT:
+	Inherits: ^ScrinSoldier
+	Inherits@1: ^8CellVision
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 20
+		Description: Support unit that steals essence from enemy units.\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water)\n- Attack deals little to no damage but steals essence to heal friendly units.\n- Crush class: crushable.\n- Does not receive damage from tiberium fields.
+		Prerequisites: ~scrrax, scrdepot
+	Valued:
+		Cost: 300
+	Crushable:
+		CrushClasses: HeavyInfantry
+	Tooltip:
+		Name: Essence Collector
+	-SpawnActorOnDeath@FLAMEGUY:
+	Health:
+		HP: 17500
+	Mobile:
+        Locomotor: HoverInfantry
+	Armament@1:
+		Weapon: FloatTesla
+		LocalOffset: 0,0,500
+		FireDelay: 10
+		PauseOnCondition: WebDisable
+		ForceTargetStances: Enemy
+		Name: OnFoot
+	Armament@2:
+		Weapon: GFloatTesla
+		LocalOffset: 0,0,500
+		FireDelay: 10
+		PauseOnCondition: WebDisable
+		ForceTargetStances: Enemy
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	-TakeCover:
+
+BUG:
+	Inherits: ^ScrinSoldier
+	Inherits@1: ^8CellVision
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 21
+		Description: Alien breed that poisons enemies.\n\nGood vs Ground targets.\n\nSpecial\n- Units hit will become poisoned.\n- Poisoned units take damage over time.\n- Plague Carriers attacks bounce a second time.\n- Absorbs essence from killed enemies to heal.\n- Crush class: uncrushable.\n- Does not receive damage from tiberium fields.
+		Prerequisites: ~scrrax, scrradr
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Plague Trooper
+	Targetable@MindControlImmunity:
+		TargetTypes: MindControlInmune
+	-SpawnActorOnDeath@FLAMEGUY:
+	Selectable:
+		Bounds: 26,30,0,-10
+	Health:
+		HP: 30000
+    -Crushable:
+	Mobile:
+		Speed: 70
+	SpawnActorOnDeath@conversion:
+		Actor: cybdog
+		Probability: 100
+		OwnerType: Killer
+		DeathType: CabalDeath
+		RequiresLobbyCreeps: true
+	Armament@1:
+		Weapon: FloatGlaive
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2:
+		Weapon: GFloatGlaive
+		PauseOnCondition: WebDisable
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	-TakeCover:
+
+COLOSSI:
+	Inherits: ^ScrinSoldier
+	Inherits@1: ^6CellVision
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 22
+		Description: Heavy duty alien.\n\nGood vs Infantry.\n\nSpecial:\n- Can irradiate its surroundings when deployed\n- Becomes immobile on this stance\n- Radiation harms all units regardless of owner\n- Can absorb essence from killed units to heal\n- Can shoot over walls\n- Crush class: uncrushable\n- Does not receive damage from tiberium fields\n- Immune to its own radiation
+		Prerequisites: ~scrrax, scrtech
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Colossus
+	Selectable:
+		Bounds: 26,30,0,-10
+	Health:
+		HP: 30000
+	Mobile:
+		Locomotor: HeavyInfantry
+		RequiresCondition: !deployed && !WebDisable
+	-SpawnActorOnDeath@FLAMEGUY:
+	-DamagedByTintedCells@Colossus:
+	SpawnActorOnDeath@conversion:
+		Actor: cybdog
+		Probability: 100
+		OwnerType: Killer
+		DeathType: CabalDeath
+		RequiresLobbyCreeps: true
+	Armament@1:
+		Weapon: ColossiShard
+		LocalOffset: 400,0,1300
+		RequiresCondition: undeployed
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2:
+		Weapon: GColossiShard
+		LocalOffset: 300,0,1000
+		RequiresCondition: undeployed
+		PauseOnCondition: WebDisable
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	Crushable:
+		CrushClasses: HeavyInfantry
+	-TakeCover:
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		DeployAnimation: make
+		Facing: 160
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Green, Tiberium, BlueTiberium, Veins
+		DeploySound:
+		UndeploySound:
+		CanDeployOnRamps: True
+	WithInfantryBody:
+		RequiresCondition: undeployed ||  WebDisable
+	WithSpriteBody@deployed:
+		StandSequences: deployed
+		Sequence: deployed
+		RequiresCondition: !undeployed
+	ExplodeWeapon@1:
+		Weapon: ColossiBlast
+		RequiresCondition: deployed
+		PauseOnCondition: WebDisable
+	ExplodeWeapon@2:
+		Weapon: ColossiBlastSound
+		RequiresCondition: deployed
+		PauseOnCondition: WebDisable
+
+CABSENTRY:
+	Inherits: ^CabalDroneInfantry
+	Inherits@1: ^CabRender
+	Armor@worker:
+		Type: Worker
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Sentry Drone
+	Explodes:
+		Weapon: DroneExplode
+		EmptyWeapon: DroneExplode
+	Voiced:
+		VoiceSet: Limpet
+	-ActorLostNotification:
+	-UpdatesPlayerStatistics:
+	-SpawnActorOnDeath@nanomachineburst:
+	-GainsExperience:
+	-Passenger:
+	Mobile:
+		Speed: 70
+		Locomotor: HeavyInfantry
+	GrantPeriodicCondition:
+		Condition: KillMe
+		CooldownDuration: 250
+	KillsSelf@KillMe:
+		RequiresCondition: KillMe
+	ExternalCondition@KillMe:
+		Condition: KillMe
+	Health:
+		HP: 5000
+	Armament@primary:
+		Weapon: SentryGun
+		PauseOnCondition: WebDisable
+	AutoTarget:
+		ScanRadius: 8
+		InitialStance: AttackAnything
+	-Armor:
+	Armor@2:
+		Type: VehicleArmor
+	RenderSprites:
+	AttackFrontal:
+		Voice: Attack
+	SelectionDecorations:
+	Hovers:
+	WithInfantryBody:
+	Selectable:
+		DecorationBounds: 22,32,-1,-9
+
+CYBORG:
+	Inherits: ^Cyborg
+	Inherits@1: ^7CellVision
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Cyborg Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 23
+		Description: Durable cyborg construct.\n\nGood vs: Infantry.\n\nSpecial:\n- Does not receive damage from tiberium fields.\n- Looses its legs on critical health.\n- Crush class: uncrushable.
+		Prerequisites: ~cabclaw
+	Mobile:
+		Speed: 50
+	Selectable:
+		Bounds: 22,32,-1,-9
+		DecorationBounds: 16,31,0,-10
+	DeliversCash:
+		Payload: 175
+		Voice: Move
+	Voiced:
+		VoiceSet: Cyborg
+	Health:
+		HP: 35000
+	Armament@1:
+		Weapon: CyborgVulcan
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2:
+		Weapon: GCyborgVulcan
+		PauseOnCondition: WebDisable
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	SelectionDecorations:
+
+CBORG:
+	Inherits: ^Cyborg
+	Inherits@1: ^7CellVision
+	Inherits@2: ^CabRender
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Missile Cyborg
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 24
+		Description: Anti armor cyborg.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack Air\n- Does not receive damage from tiberium fields\n- Looses its legs on critical health\n- Can shoot over walls\n- Crush class: uncrushable
+		Prerequisites: ~cabclaw
+		IconPalette: UnittemIcon
+	Health:
+		HP: 12000
+	Voiced:
+		VoiceSet: Cyborg
+	DeliversCash:
+		Payload: 45
+		Voice: Move
+	Armament@1:
+		Weapon: CyborgRocket
+		LocalOffset: 424,198,1086
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2AA:
+		Weapon: CyborgRocketAA
+		LocalOffset: 424,198,1086
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@3:
+		Weapon: GCyborgRocket
+		LocalOffset: 424,198,1086
+		PauseOnCondition: WebDisable
+	Armament@4AA:
+		Weapon: GCyborgRocketAA
+		LocalOffset: 424,198,1086
+		PauseOnCondition: WebDisable
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	RenderSprites:
+
+SWARMLING:
+	Inherits: ENGINEER
+	Inherits@2: ^CabRender
+	Tooltip:
+		Name: Swarmling
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 25
+		Prerequisites: ~cabclaw
+		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Does not receive damage from tiberium fields.
+	DeliversCash:
+		Payload: 275
+		Voice: Move
+	Explodes:
+		Weapon: DroneExplode
+		EmptyWeapon: DroneExplode
+	-DamagedByTerrain:
+	Mobile:
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 50
+			BlueTiberium: 70
+				PathingCost: 50
+	RenderSprites:
+		Image: swarmling
+		-FactionImages:
+	Voiced:
+		VoiceSet: Limpet
+	-WithDeathAnimation@normal:
+	-WithDeathAnimation@tib:
+	-WithDeathAnimation@explosion:
+	-WithDeathAnimation@energy:
+	-WithDeathAnimation@body:
+	-WithIdleOverlay@web:
+	-SpawnActorOnDeath@conversion:
+
+PDRONE:
+	Inherits: ^CabalDroneInfantry
+	Inherits@1: ^7CellVision
+	Valued:
+		Cost: 150
+	DeliversCash:
+		Payload: 75
+		Voice: Move
+	Tooltip:
+		Name: Reclaimer
+	Buildable:
+		Queue: Infantry
+		Description: Melee drone programmed to kill enemy infantry.\n\nSpecial:\n- Can only attack infantry\n- Turns killed infantry into worker cyborgs\n- Does not receive damage from tiberium fields\n- Crush class: crushable\n- Can cross water.
+		BuildPaletteOrder: 26
+		Prerequisites: ~cabclaw
+	Selectable:
+		Bounds: 22,32,0,0
+	Crushable:
+		WarnProbability: 0
+		CrushSound: squish6.aud
+	Hovers:
+	Mobile:
+		Speed: 80
+		-RequiresCondition: WebDisable
+        Locomotor: HoverInfantry
+	Health:
+		HP: 9500
+	WithInfantryBody:
+		IdleSequences: idle1, idle2
+		AttackSequences: shoot
+		DefaultAttackSequence: fire
+		-RequiresCondition: !WebDisable
+	AutoTarget:
+		ScanRadius: 8
+		InitialStance: AttackAnything
+	Armament:
+		Weapon: ReclaimerHit
+		PauseOnCondition: WebDisable
+	AttackFrontal:
+		Voice: Attack
+	-WithColoredOverlay@WebDisable:
+	-TimedConditionBar@WebDisable:
+	WithDeathAnimation@normal:
+		DeathTypes:
+			BulletDeath: 1
+			SmallExplosionDeath: 2
+			HeadshotDeath: 3
+			CabalDeath: 2
+			CabalDeathCrate: 2
+			TiberiumDeath: 3
+			BlackHandRfle: 2
+	WithDeathAnimation@explosion:
+		DeathSequencePalette: effect
+		DeathPaletteIsPlayerPalette: False
+		DeathTypes:
+			ExplosionDeath: 4
+	WithDeathAnimation@energy:
+		DeathSequencePalette: ra
+		DeathPaletteIsPlayerPalette: False
+		DeathTypes:
+			EnergyDeath: 6
+	-WithIdleOverlay@web:
+	-ExternalCondition@WebDisable:
+
+GLAD:
+	Inherits: ^Cyborg
+	Inherits@1: ^7CellVision
+	Inherits@2: ^PermanentSelfHeal
+	Valued:
+		Cost: 700
+	DeliversCash:
+		Payload: 300
+		Voice: Move
+	Tooltip:
+		Name: Gladiator
+	Buildable:
+		Description: Advanced cyborg construct, extremely resilient.\n\nGood vs: Vehicles\n\nSpecial:\n- Selfrepair\n- Does not receive damage from tiberium fields.\n- Looses its legs on critical health.\n- Crush class: uncrushable.
+		Queue: Infantry
+		BuildPaletteOrder: 27
+		Prerequisites: ~cabclaw, cabradr, gadept
+	Selectable:
+		Bounds: 35,30,0,-10
+	Passenger:
+		PipType: Blue
+	Voiced:
+		VoiceSet: Cyborg
+	WithMuzzleOverlay:
+	Mobile:
+		Speed: 50
+		Locomotor: HeavyInfantry
+	Health:
+		HP: 50000
+	Armament@1:
+		Weapon: GLAD120mm
+		MuzzleSequence: muzzle
+		LocalOffset: 170,250,500
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2:
+		Weapon: GLAD120mm
+		MuzzleSequence: muzzle
+		LocalOffset: 170,-250,500
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@3:
+		Weapon: GGLAD120mm
+		MuzzleSequence: muzzle
+		LocalOffset: 170,250,500
+		PauseOnCondition: WebDisable
+	Armament@4:
+		Weapon: GGLAD120mm
+		MuzzleSequence: muzzle
+		LocalOffset: 170,-250,500
+		PauseOnCondition: WebDisable
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+
+MOTH:
+	Inherits: ^CabalDroneInfantry
+	Inherits@1: ^CabRender
+	Inherits@2: ^8CellVision
+	Inherits@3: ^PermanentSelfHeal
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Abductor
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 28
+		Description: High tech ambusher drone.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Needs to deploy to attack\n- Cloaked when deployed\n- Turns infantry victims into worker units\n- Does not receive damage from tiberium fields\n- Auto repairs when not attacked\n- Can shoot below walls\n- Crush class: uncrushable\n- Can cross water
+		Prerequisites: cabtech, ~cabclaw
+	Explodes:
+		Weapon: DroneExplode
+		EmptyWeapon: DroneExplode
+	DeliversCash:
+		Payload: 250
+		Voice: Move
+	Voiced:
+		VoiceSet: Limpet
+	Hovers:
+		RequiresCondition: !deployed
+	Mobile:
+		Speed: 80
+        Locomotor: HoverInfantry
+		RequiresCondition: !deployed && !WebDisable
+	LeavesTrails:
+		Image: wake
+		Palette: effect
+		TerrainTypes: Water
+		StationaryInterval: 18
+		MovingInterval: 6
+	KillsSelf@hoverunitonwater:
+		RequiresCondition: hoverunitonwater && WebDisable
+	GrantConditionOnTerrain:
+		Condition: hoverunitonwater
+		TerrainTypes: Water
+	ExternalCondition@hoverunitonwater:
+		Condition: hoverunitonwater
+	Health:
+		HP: 30000
+	Selectable:
+		DecorationBounds: 22,32,-1,-9
+	SelectionDecorations:
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		Facing: 160
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Tiberium, BlueTiberium
+		DeploySound: place2.aud
+		UndeploySound: clicky1.aud
+		CanDeployOnRamps: True
+	RejectsOrders@deployment:
+		Reject: Move, EnterTransport, EnterTransports
+		RequiresCondition: deployed
+	Cloak@cloakgenerator:
+		RequiresCondition: deployed
+		InitialDelay: 40
+		CloakDelay: 40
+		Palette: cloakcab
+		-CloakSound: cloak5.aud
+		-UncloakSound: cloak5.aud
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
+	WithMakeAnimation:
+	WithFacingSpriteBody@1234:
+		Sequence: idle
+		RequiresCondition: !deployed
+	WithSpriteBody@1234:
+		Sequence: deployed
+		RequiresCondition: !undeployed
+	-WithInfantryBody:
+	Armament@1:
+		Weapon: LurkerProj
+		RequiresCondition: deployed
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2:
+		Weapon: GLurkerProj
+		RequiresCondition: deployed
+		PauseOnCondition: WebDisable
+	AttackOmni:
+		RequiresCondition: deployed
+		PauseOnCondition: WebDisable
+		Armaments: OnFoot
+	RenderRangeCircle:
+	-WithIdleOverlay@web:
+
+CYC2:
+	Inherits: ^Cyborg
+	Inherits@1: ^8CellVision
+	Inherits@2: ^PermanentSelfHeal
+	Inherits@3: ^CommandoIcon
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Cyborg Commando
+	Buildable:
+		Description: Elite cyborg armed with a plasma cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Looses its legs when at critical health\n- Will reattach new legs after gaining enough health\n- Can shoot over walls\n- Crush class: uncrushable.\n- Cannot be mindcontrolled
+		Queue: Infantry
+		BuildPaletteOrder: 30
+		Prerequisites: ~cabclaw, cabtech
+		BuildLimit: 1
+	DeliversCash:
+		Payload: 600
+		Voice: Move
+	-WithPermanentInjury:
+	WithInfantryBody:
+		RequiresCondition: !criticalspeed
+	WithInfantryBody@Damaged:
+		RequiresCondition: criticalspeed
+		MoveSequence: crippled-run
+		AttackSequences: crippled-shoot
+		StandSequences: crippled-stand
+	GrantConditionOnDamageState@CRITICAL:
+		GrantPermanently: false
+	Voiced:
+		VoiceSet: CyborgCommando
+	AnnounceOnSeen:
+		Notification: CommandoDetected
+	Mobile:
+		Speed: 65
+	Health:
+		HP: 70000
+	Targetable@MindControlImmunity:
+		TargetTypes: MindControlInmune
+	Targetable@MCImmune:
+		TargetTypes: MCImmune
+	Armament:
+		Weapon: CyCannon
+		LocalOffset: 170,85,683
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@1:
+		Weapon: GCyCannon
+		LocalOffset: 170,85,683
+		PauseOnCondition: WebDisable
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	Passenger:
+		PipType: red
+	SharedPassenger:
+		PipType: red
+	SelectionDecorations:
+	Selectable:
+		DecorationBounds: 16,32,-1,-12
+
+WORKER:
+	Inherits: ^Soldier
+	Valued:
+		Cost: 120
+	Tooltip:
+		Name: Worker Unit
+	Health:
+		HP: 7000
+	Mobile:
+		Speed: 60
+	Voiced:
+		VoiceSet: Cyborg
+	DeliversCash:
+		Payload: 45
+		Voice: Move
+	Armor@worker:
+		Type: Worker
+	Armament@1:
+		Weapon: WorkerMinigun
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2:
+		Weapon: GWorkerMinigun
+		PauseOnCondition: WebDisable
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	RenderSprites:
+	-SpawnActorOnDeath@nanomachineburst:
+	-SpawnActorOnDeath@conversion:
+	-DamagedByTerrain:
+
+cybdog:
+	Inherits: ^Soldier
+	Valued:
+		Cost: 120
+	Tooltip:
+		Name: Cyberdog
+	Selectable:
+		Bounds: 16,31,0,-10
+		DecorationBounds: 16,31,0,-10
+	Voiced:
+		VoiceSet: Limpet
+	DeliversCash:
+		Payload: 45
+		Voice: Move
+	Mobile:
+		Speed: 60
+	Health:
+		HP: 7000
+	Armor@worker:
+		Type: Worker
+	Armament:
+		Weapon: Dogzooka
+		LocalOffset: 0,-100,300
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2:
+		Weapon: GDogzooka
+		LocalOffset: 0,-100,300
+		PauseOnCondition: WebDisable
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	SelectionDecorations:
+	-SpawnActorOnDeath@nanomachineburst:
+	-SpawnActorOnDeath@conversion:
+	-DamagedByTerrain:
+
+FLAMEGUY:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Inherits@3: ^1x1Shape
+	Mobile:
+		Speed: 60
+        Locomotor: Infantry
+	HiddenUnderFog:
+	WithInfantryBody:
+		IdleSequences: run
+	Health:
+		HP: 160
+	SelfHealing:
+		PercentageStep: -5
+		Step: 0
+		HealIfBelow: 101
+	ScaredyCat:
+	WithDeathAnimation:
+		FallbackSequence: die
+		UseDeathTypeSuffix: false

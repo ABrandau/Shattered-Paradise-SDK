@@ -1,0 +1,41 @@
+World:
+	-SpawnMPUnits:
+	-MPStartLocations:
+	MapBuildRadius:
+		AllyBuildRadiusCheckboxLocked: True
+		AllyBuildRadiusCheckboxEnabled: True
+		BuildRadiusCheckboxLocked: True
+		BuildRadiusCheckboxEnabled: True
+	MapOptions:
+		TechLevelDropdownLocked: True
+		ShortGameCheckboxLocked: True
+		ShortGameCheckboxEnabled: True
+	CrateSpawner:
+		CheckboxEnabled: False
+		CheckboxLocked: True
+	LuaScript:
+		Scripts: lua/utils.lua, lua/players.lua, lua/objectives.lua, lua/actors.lua, lua/world.lua, mission.lua
+	ObjectivesPanel:
+		PanelName: MISSION_OBJECTIVES
+
+Player:
+	-ConquestVictoryConditions:
+	MissionObjectives:
+		EarlyGameOver: true
+	EnemyWatcher:
+	Shroud:
+		FogCheckboxLocked: True
+		FogCheckboxEnabled: True
+		ExploredMapCheckboxLocked: True
+		ExploredMapCheckboxEnabled: False
+	PlayerResources:
+		DefaultCashDropdownLocked: True
+		DefaultCash: 5000
+
+HARV:
+    Buildable:
+		Prerequisites: factory
+
+GADEPT:
+    Buildable:
+		Prerequisites: Vehicle or Aircraft production
