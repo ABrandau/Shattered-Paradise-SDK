@@ -6,6 +6,9 @@ set Name="Dedicated Server"
 set ListenPort=1234
 set ExternalPort=1234
 set AdvertiseOnline=True
+set Mod="sp"
+set ExploredMap="True"
+set DebugMode="False"
 set EnableSingleplayer=False
 set Password=""
 
