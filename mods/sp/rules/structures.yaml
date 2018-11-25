@@ -20,8 +20,6 @@ GAPOWR:
 	Selectable:
 		Bounds: 90, 48, 0, -6
 		DecorationBounds: 90, 84, 0, -12
-	Power:
-		Amount: 100
 	Pluggable@pluga:
 		Conditions:
 			powrup: powrup.a
@@ -299,8 +297,6 @@ NAPOWR:
 		DecorationBounds: 88, 80, 2, -12
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
-	Power:
-		Amount: 100
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -592,7 +588,7 @@ MUTYARD:
 		ActorTypes: e2
 
 MUPOWR:
-	Inherits: ^Building
+	Inherits: ^PowerPlant
 	Inherits@1: ^MutRender
 	Inherits@2: ^2x2Shape
 	Tooltip:
@@ -614,8 +610,6 @@ MUPOWR:
 	Selectable:
 		Bounds: 90, 48, 0, -6
 		DecorationBounds: 90, 84, 0, -12
-	Power:
-		Amount: 100
 	InfiltrateForPowerOutage:
 	AffectedByPowerOutage:
 	Targetable:
