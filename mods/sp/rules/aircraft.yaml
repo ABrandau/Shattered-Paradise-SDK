@@ -108,9 +108,10 @@ ORCA:
 ORCAB:
 	Inherits: ^CombatPlane
 	Inherits@1: ^AutoTargetAllAssaultMove
+	Inherits@2: ^11CellVision
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 2000
+		Cost: 1500
 	Tooltip:
 		Name: Orca Bomber
 	Buildable:
@@ -153,53 +154,6 @@ ORCAB:
 		RequiresCondition: cruising
 	SpawnActorOnDeath:
 		Actor: ORCAB.Husk
-
-	# GUARDIAN:
-	# Inherits: ^CombatHelicopter
-	# Inherits@1: ^AutoTargetAllAssaultMove
-	# Inherits@3: ^BasicStealthDetection
-	# Inherits@4: ^PermanentSelfHeal
-	# Valued:
-	# 	Cost: 2500
-	# Tooltip:
-	# 	Name: Guardian Platform
-	# Selectable:
-	# 	Bounds: 110,90
-	# Aircraft:
-	# 	TurnSpeed: 5
-	# 	Speed: 60
-	# 	Repulsable: true
-	# 	MoveIntoShroud: true
-	# 	LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
-	# Health:
-	# 	HP: 65000
-	# Armament@primary:
-	# 	Weapon: GuardianRail
-	# Armament@secondary:
-	# 	Weapon: GuardianClaw
-	# AttackAircraft:
-	# 	FacingTolerance: 64
-	# 	Voice: Attack
-	# AutoTarget:
-	# -RenderVoxels:
-	# -WithVoxelBody:
-	# RenderSprites:
-	# 	PlayerPalette: playertemperate
-	# WithFacingSpriteBody:
-	# BodyOrientation:
-	# 	QuantizedFacings: 32
-	# SpawnActorOnDeath:
-	# 	Actor: GUARDIAN.Husk
-	# Voiced:
-	# 	VoiceSet: GuardianVO
-	# 	Volume: 3
-	# AnnounceOnKillAS:
-	# 	Voice: Kill
-	# 	Interval: 1000
-	# 	OnlyToOwner: True
-	# Transforms:
-	# 	IntoActor: guardiandep
-	# 	Voice: Action1
 
 DPOD:
 	Inherits: ^CombatHelicopter
@@ -761,7 +715,7 @@ SCRGLYDER1:
 	Inherits@3: ^BasicStealthDetection
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 800
+		Cost: 900
 	Tooltip:
 		Name: Glider
 	Voiced:
@@ -804,7 +758,7 @@ SCRDESTROYER:
 	Inherits@5: ^7CellVision
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 1350
+		Cost: 1200
 	Tooltip:
 		Name: Destroyer
 	Buildable:
@@ -826,7 +780,7 @@ SCRDESTROYER:
 	Targetable@Essence:
 		TargetTypes: ScrinUnit
 	Health:
-		HP: 30000
+		HP: 25000
 	Armament:
 		Weapon: DestroyerCannon
 		LocalOffset: 300,0,0
