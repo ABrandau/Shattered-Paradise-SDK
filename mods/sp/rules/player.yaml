@@ -9,7 +9,6 @@ Player:
 	Inherits: ^BasePlayer
 	AlwaysVisible:
 	TechTree:
-	EnemyWatcher:
 	GrantConditionOnPrerequisiteManager:
 	ClassicProductionQueue@Building:
 		Type: Building
@@ -32,12 +31,14 @@ Player:
 		LowPowerSlowdown: 2
 		QueuedAudio: Building
 		BuildDurationModifier: 100
+		ReadyAudio: UnitReady
 		SpeedUp: True
 		BuildTimeSpeedReduction: 100, 90, 75, 50
 	ClassicProductionQueue@Infantry:
 		Type: Infantry
 		LowPowerSlowdown: 2
 		QueuedAudio: Building
+		ReadyAudio: UnitReady
 		SpeedUp: True
 		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
 	ClassicProductionQueue@Air:
@@ -45,6 +46,7 @@ Player:
 		BuildDurationModifier: 100
 		LowPowerSlowdown: 2
 		QueuedAudio: Building
+		ReadyAudio: UnitReady
 		SpeedUp: True
 		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
 	PlaceBuilding:
@@ -53,6 +55,7 @@ Player:
 	ScriptTriggers:
 	MissionObjectives:
 	ConquestVictoryConditions:
+	ConditionManager:
 	PowerManager:
 	AllyRepair:
 	PlayerResources:

@@ -24,7 +24,7 @@ CLOUD1:
 		Delay: 25
 		HealIfBelow: 200
 		DamageTypes: CloudDie
-	AttackHeli:
+	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
 	-RenderVoxels:
@@ -87,7 +87,7 @@ ORCA:
 	Armament@AA:
 		Weapon: FighterHellfireAA
 		PauseOnCondition: !ammo
-	AttackHeli:
+	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
 	AmmoPool:
@@ -132,7 +132,7 @@ ORCAB:
 	Armament@primary:
 		Weapon: OBBombFrontal
 		PauseOnCondition: !ammo
-	AttackPlane:
+	AttackAircraft:
 		FacingTolerance: 20
 	AutoTarget:
 		InitialStance: HoldFire
@@ -177,7 +177,7 @@ ORCAB:
 	# 	Weapon: GuardianRail
 	# Armament@secondary:
 	# 	Weapon: GuardianClaw
-	# AttackHeli:
+	# AttackAircraft:
 	# 	FacingTolerance: 64
 	# 	Voice: Attack
 	# AutoTarget:
@@ -193,9 +193,6 @@ ORCAB:
 	# Voiced:
 	# 	VoiceSet: GuardianVO
 	# 	Volume: 3
-	# AnnounceOnBuildAS:
-	# 	Voice: Build
-	# 	OnlyToOwner: True
 	# AnnounceOnKillAS:
 	# 	Voice: Kill
 	# 	Interval: 1000
@@ -229,7 +226,7 @@ DPOD:
 		Weapon: Vulcan2
 		PauseOnCondition: !ammo
     RenderSprites:
-	AttackHeli:
+	AttackAircraft:
 		Voice: Attack
 	AmmoPool:
 		Ammo: 5
@@ -341,7 +338,7 @@ APACHE:
 	Armament@432:
 		Weapon: HarpyClawAA
 		PauseOnCondition: !ammo
-	AttackHeli:
+	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
 	AmmoPool:
@@ -402,7 +399,7 @@ SCRIN:
 	Armament@2:
 		Weapon: ProtonAA
 		PauseOnCondition: !ammo
-	AttackPlane:
+	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 20
 	AmmoPool:
@@ -449,7 +446,7 @@ CERBERUS:
 	Armament:
 		Weapon: CerberusLazor
 		LocalOffset: 500,0,0, 150, 400, 0, 150, -400, 0, -600,0,0
-	AttackHeli:
+	AttackAircraft:
 		FacingTolerance: 64
 		Voice: Attack
 	AutoTarget:
@@ -522,7 +519,7 @@ MUTHELI:
 		LocalOffset: 900,0,0
 		PauseOnCondition: !ammo
 	WithMuzzleOverlay:
-	AttackHeli:
+	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
 	AmmoPool:
@@ -571,7 +568,7 @@ WETP:
 	-RenderVoxels:
 	-WithVoxelBody:
 	WithFacingSpriteBody:
-	AttackPlane:
+	AttackAircraft:
 		FacingTolerance: 20
 	AmmoPool:
 		Ammo: 1
@@ -642,7 +639,7 @@ MUTQUEEN:
 	ExplodeWeapon:
 		Weapon: EggElevator
 		RequiresCondition: deployed
-	AttackHeli:
+	AttackAircraft:
 		FacingTolerance: 20
 	Armament@1:
 		Weapon: QueenShard
@@ -784,7 +781,7 @@ SCRGLYDER1:
 	Armament:
 		Weapon: Glyder1Cannon
 		LocalOffset: 0,0,-100
-	AttackHeli:
+	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
 	AutoTarget:
@@ -833,7 +830,7 @@ SCRDESTROYER:
 	Armament:
 		Weapon: DestroyerCannon
 		LocalOffset: 300,0,0
-	AttackHeli:
+	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
 	AutoTarget:
@@ -896,55 +893,6 @@ SCRTRANS:
 	SmokeParticleEmitter:
 		Image: scrsmoke
 		Palette: apolbluealpha60
-
-SCRINCOUNCIL:
-	Inherits: ^CombatHelicopter
-	Inherits@2: ^ScrinRender
-	Inherits@Shadow: ^AircraftShadow
-	Valued:
-		Cost: 3000
-	Tooltip:
-		Name: Creation engine
-	Selectable:
-		Bounds: 80,70,0,-12
-	Voiced:
-		VoiceSet: Deva
-	Selectable:
-		Priority: 6
-	Health:
-		HP: 50000
-	Aircraft:
-		TurnSpeed: 5
-		Speed: 55
-		MoveIntoShroud: true
-	WithSpriteBody:
-		Sequence: dummy
-	Production:
-		Produces: Vehicle
-	Exit@1:
-		SpawnOffset: 0,0,-50
-	WithTextDecoration@primary:
-		Text: PRIMARY
-		ReferencePoint: Top
-		Color: E0D048
-		ZOffset: 9999
-		RequiresCondition: primary
-	PrimaryBuilding:
-		PrimaryCondition: primary
-	ProductionBar:
-	RenderSprites:
-	Hovers:
-	WithInfantryBody:
-	-RenderVoxels:
-	-WithVoxelBody:
-	SpawnActorOnDeath:
-		Actor: SCRCOUNCIL.Husk
-	-GainsExperience:
-	SmokeParticleEmitter:
-		Image: scrsmoke
-		Palette: apolbluealpha60
-	ProvidesPrerequisite:
-		Prerequisite: scrweap
 
 SCRCARRIER:
 	Inherits: ^CombatHelicopter
@@ -1018,7 +966,7 @@ STORMRIDERSPAWN:
 	Selectable:
 		Bounds: 30,24
 		Class: Stormrider
-	AttackPlane:
+	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 20
 	Aircraft:
@@ -1075,7 +1023,7 @@ CABDRONEJET:
 		AirborneCondition: airborne
 		AltitudeVelocity: 600
 		MoveIntoShroud: true
-	AttackPlane:
+	AttackAircraft:
 		AttackTurnDelay: 25
 	RejectsOrders:
 	-SelectionDecorations:
@@ -1176,7 +1124,7 @@ WASP:
 		Weapon: WaspBullet
 	Armament@TheRealThingAA:
 		Weapon: WaspBulletAA
-	AttackHeli:
+	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
 	AutoTarget:
@@ -1254,7 +1202,7 @@ BASILISK:
 	Armament:
 		Weapon: BasiliskBomb
 		LocalOffset: 128,0,0, 500,-700,0, 500,700,0
-	AttackHeli:
+	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
 	AutoTarget:
@@ -1300,7 +1248,7 @@ DEVOURER:
 		Weapon: DevourerExplo
 	Targetable@Seeker:
 		TargetTypes: Seeker
-	AttackHeli:
+	AttackAircraft:
 		FacingTolerance: 90
 		Voice: Attack
 	AutoTarget:

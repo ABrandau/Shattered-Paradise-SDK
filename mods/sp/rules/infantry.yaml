@@ -92,8 +92,6 @@ MEDIC:
 		Weapon: Heal
 		ForceTargetStances: None
 		PauseOnCondition: WebDisable
-		Cursor: heal
-		OutsideRangeCursor: heal
 	AttackFrontal:
 	Passenger:
 		PipType: Red
@@ -131,7 +129,7 @@ JUMPJET:
 JUMPJETAIR:
 	Inherits: ^Aircraft
 	Inherits@2: ^AutoTargetAll
-	Inherits@3: ^8CellVision
+	Inherits@3: ^10CellVision
 	Valued:
 		Cost: 450
 	Tooltip:
@@ -192,7 +190,7 @@ JUMPJETAIR:
 	Targetable@AIRBORNE:
 		TargetTypes: Air, Helicopter, Jumpjet
 		RequiresCondition: airborne
-	AttackHeli:
+	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
 	-RenderVoxels:
@@ -895,7 +893,7 @@ FLOAT:
 		Description: Support unit that steals essence from enemy units.\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water)\n- Attack deals little to no damage but steals essence to heal friendly units.\n- Crush class: crushable.\n- Does not receive damage from tiberium fields.
 		Prerequisites: ~scrrax, scrdepot
 	Valued:
-		Cost: 400
+		Cost: 300
 	Crushable:
 		CrushClasses: HeavyInfantry
 	Tooltip:
@@ -922,7 +920,6 @@ FLOAT:
 		Voice: Attack
 		Armaments: OnFoot
 	-TakeCover:
-	-GainsExperience
 
 BUG:
 	Inherits: ^ScrinSoldier

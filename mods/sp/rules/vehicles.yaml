@@ -249,7 +249,7 @@ SONIC:
 		Prerequisites: ~gaweap, gatech
 	Mobile:
 		TurnSpeed: 4
-		Speed: 65
+		Speed: 70
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 55000
@@ -549,15 +549,11 @@ BGGY:
 		RequiresCondition: ifv.medic
 		TargetStances: Ally
 		ForceTargetStances: None
-		Cursor: heal
-		OutsideRangeCursor: heal
 	Armament@engineer:
 		Weapon: BuggyRepair
 		LocalOffset: 250,0,125
 		RequiresCondition: ifv.engineer
 		TargetStances: Ally
-		Cursor: repair
-		OutsideRangeCursor: repair
 		ForceTargetStances: None
 	Armament@eagleguard:
 		Weapon: TrooperRail
@@ -977,9 +973,6 @@ SAPC:
 		PipCount: 5
 		UnloadVoice: Unload
 		LoadingCondition: loading
-	AnnounceOnSeen:
-		PingRadar: True
-		Notification: SubterraneanUnitDetected
 
 SUBTANK:
 	Inherits: ^SubterraneanVoxelVehicle
@@ -1084,7 +1077,7 @@ STNK:
 		Speed: 100
 		Locomotor: InfantryCrusherVehicle
 	Health:
-		HP: 17500
+		HP: 20000
 	WithIdleOverlay@shield:
 		Sequence: shield
 		IsPlayerPalette: true
@@ -1317,7 +1310,7 @@ WOLF:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 20
-		Description: Tiberium beast that uses tiberium acid to harm nearby units.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Attacks reduce target attack speed by 35%\n- Can mutate killed units\n- E.M.P. Inmune\n- Heals even when in combat\n- Cannot be mindcontrolled.\n- Can enter tunnels.
+		Description: Tiberium beast that uses tiberium acid to harm nearby units.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Attacks reduce target attack speed by 35%\n- Can mutate killed units\n- E.M.P. Inmune\n- Heals even when in combat\n- Cannot be mindcontrolled
 		Prerequisites: ~muweap, muradr
 	Valued:
 		Cost: 800
@@ -1393,7 +1386,7 @@ DEATHCLAW:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 22
-		Description: Melee beast from the outer redzones that brings death with its claws.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- E.M.P. Inmune\n- Cannot be mindcontrolled.\n- Can enter tunnels.
+		Description: Melee beast from the outer redzones that brings death with its claws.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- E.M.P. Inmune\n- Cannot be mindcontrolled
 		Prerequisites: ~muweap, muhall
 	Valued:
 		Cost: 1200
@@ -1702,9 +1695,6 @@ TRIPOD:
 		Offset: 0,0,3000
 	DeathSounds:
 		DeathTypes: BulletDeath, SmallExplosionDeath, ExplosionDeath, CabalDeath, CabalDeathCrate, BlackHandRfle, HeadshotDeath, SmallExplosionDeath, TiberiumDeath
-	AnnounceOnBuildAS:
-		Voice: Build
-		OnlyToOwner: True
 
 ###########################################################
 # CABAL

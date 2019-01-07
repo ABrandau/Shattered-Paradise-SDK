@@ -365,8 +365,6 @@ GACNST:
 	ScalePowerWithHealth:
 	Health:
 		HP: 50000
-	Power:
-		Amount: 100
 
 ^Barracks:
 	Inherits: ^Building
@@ -395,6 +393,8 @@ GACNST:
 	Power:
 		Amount: -20
 	ProvidesPrerequisite@buildingname:
+	GrantExternalConditionToProduced:
+		Condition: produced
 
 ^RefineryHP:
 	Health:
@@ -535,7 +535,8 @@ FLIPPEDPROC:
 	Production:
 		Produces: Vehicle, Tank
 	PrimaryBuilding:
-	ProductionBar:
+	ProductionBar@Vehicle:
+		ProductionType: Vehicle
 	Power:
 		Amount: -30
 	ProvidesPrerequisite@buildingname:
@@ -553,6 +554,8 @@ FLIPPEDPROC:
 		Condition: RefineryLock
 		Range: 2c0
 		ValidStances: Enemy, Neutral
+	GrantExternalConditionToProduced:
+		Condition: produced
 
 ^Helipad:
 	Inherits: ^Building
@@ -560,6 +563,8 @@ FLIPPEDPROC:
 	Inherits@2: ^2x2Shape
 	Exit@1:
 		SpawnOffset: 0,-256,0
+	GrantExternalConditionToProduced:
+		Condition: produced
 	Valued:
 		Cost: 500
 	Production:
@@ -569,6 +574,7 @@ FLIPPEDPROC:
 		IsPlayerPalette: false
 	PrimaryBuilding:
 		PrimaryCondition: primary
+
 	Tooltip:
 		Name: Vehicle or Aircraft production
 	ProvidesPrerequisite@pieceofshit:
@@ -576,7 +582,8 @@ FLIPPEDPROC:
 	Reservable:
 	RepairsUnits:
 		Interval: 1
-	ProductionBar:
+	ProductionBar@Air:
+        ProductionType: Air
 	Health:
 		HP: 60000
 	Power:
@@ -902,7 +909,7 @@ NAFNCE:
 		Range: 2c0, 5c0
 	Interactable:
 		Bounds: 48, 24
-	-EditorTilesetFilter:
+	-MapEditorData:
 
 MUTWALL:
 	Inherits: ^Wall
@@ -978,7 +985,6 @@ GASILO:
 			mut: gasilo.mut
 			cab: gasilo.cab
 	WithSpriteBody:
-	WithSiloAnimation:
 	WithIdleOverlay@UNDERLAY:
 		Sequence: idle-underlay
 	WithIdleOverlay@LIGHTS:
@@ -991,6 +997,15 @@ GASILO:
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
+	SelectionDecorations:
+	GrantConditionOnPlayerResources:
+		Condition: contains-tiberium
+	Explodes:
+		RequiresCondition: contains-tiberium
+		Weapon: TiberiumExplosion
+	WithResourceLevelOverlay@FILLSTAGE:
+		RequiresCondition: !build-incomplete
+		Sequence: stages
 
 TRNSPORT:
 	Inherits@1: ^Helicopter

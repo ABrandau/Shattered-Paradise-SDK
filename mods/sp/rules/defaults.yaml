@@ -434,7 +434,11 @@
 	Power:
 		Amount: -200
 	SupportPowerChargeBar:
-	AnnounceOnBuild:
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
 	Voiced:
 		VoiceSet: SWVoice
 		Volume: 15
@@ -831,9 +835,6 @@
 		AmmoPool: primary
 		RequiresCondition: AIReload
 		Count: 20
-	GrantConditionOnBotOwner@AIReload:
-		Condition: AIReload
-		Bots: CheaterAI, EasyAI
 
 ^AIBuffCheat:
 	GrantConditionOnBotOwner@AIBuffCheat:
@@ -917,7 +918,6 @@
 	Inherits@12: ^WolfDebuff
 	Inherits@13: ^GetsOneShotedbySuperweapons
 	Inherits@14: ^Chronoshiftable
-	Inherits@15: ^ToxinTrooperDebuff
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
 
@@ -941,7 +941,6 @@
 		Offset: 2,3
 		Palette: mouse
 		IsPlayerPalette: false
-	ProductionBar:
 
 ^BasicBuilding:
 	Inherits@1: ^ExistsInWorld
@@ -1001,7 +1000,7 @@
 		InternalOwner: Creeps
 		DeathType: TiberiumDeath
 		RequiresLobbyCreeps: true
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Civ Building
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -1019,9 +1018,8 @@
 	Inherits@2: ^4CellVision
 	GivesBuildableArea:
 		AreaTypes: building
-	ExternalCapturable:
-		CaptureCompleteTime: 5
-	ExternalCapturableBar:
+	CaptureManager:
+		CaptureCompleteTime: 7
 	GivesExperience:
 		PlayerExperienceModifier: 1
 	RevealsShroud:
@@ -1064,7 +1062,7 @@
 	Sellable:
 		SellSounds: cashturn.aud
 	WithMakeAnimation:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Buildable Structure
 	WithBuildingRepairDecoration:
 		Image: allyrepair
@@ -1090,7 +1088,7 @@
 		TargetTypes: Defence
 	Armor:
 		Type: DefenseArmor
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Defence
 	Replacement:
 		ReplaceableTypes: Tower
@@ -1099,7 +1097,7 @@
 
 ^AntiAir:
 	Inherits: ^Defence
-	Inherits@0: ^5CellVision
+	Inherits@0: ^9CellVision
 	RenderRangeCircle:
 		RangeCircleType: AA
 	RevealsShroud:
@@ -1129,7 +1127,7 @@
 		Description: Civilian Building
 	RenderSprites:
 		Palette: terraindecoration
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Civilian Structure
 	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
@@ -1153,12 +1151,12 @@
 		Action: ChangeOwner
 	Capturable:
 		CaptureThreshold: 100
+		Types: building
 	RenderSprites:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Tech Structure
-	ExternalCapturable:
+	CaptureManager:
 		CaptureCompleteTime: 7
-	ExternalCapturableBar:
 	WithDeathAnimation:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
@@ -1179,9 +1177,9 @@
 		Bounds: 60, 60, 0, -18
 	Health:
 		HP: 40000
-	EditorTilesetFilter:
+	MapEditorData:
 		RequireTilesets: TEMPERATE
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Billboards
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -1220,6 +1218,9 @@
 	ActorLostNotification:
 	SharedPassenger:
 		CargoType: Infantry
+    TurnOnIdle:
+        MinDelay: 1
+		MaxDelay: 1
 	AttackMove:
 		Voice: Move
 	Armor:
@@ -1241,7 +1242,7 @@
 	DeathSounds@ZAPPED:
 		Voice: Zapped
 		DeathTypes: EnergyDeath
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Infantry
 	GivesExperience:
 		PlayerExperienceModifier: 1
@@ -1574,7 +1575,7 @@
 		PipType: Yellow
 	EngineerRepair:
 	RepairsBridges:
-	ExternalCaptures:
+	CaptureManager:
 		Type: building
 		ConsumeActor: true
 		PlayerExperience: 50
@@ -1595,6 +1596,7 @@
 		Type: VehicleArmor
 	AttackMove:
 		Voice: Move
+	CaptureManager:
 	Capturable:
 		Types: Vehicle
 		CaptureThreshold: 100
@@ -1659,7 +1661,7 @@
 		Weapons: SmallDebris
 		Pieces: 3, 7
 		Range: 2c0, 5c0
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Vehicle
 	BodyOrientation:
 		QuantizedFacings: 32
@@ -1852,7 +1854,7 @@
 	MustBeDestroyed:
 	RenderVoxels:
 	WithVoxelBody:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Aircraft
 	Hovers@CRUISING:
 		RequiresCondition: cruising
@@ -1925,7 +1927,7 @@
 		Terrain: Tiberium, BlueTiberium
 	Guardable:
 	WithFacingSpriteBody:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Tib Critters
 	MindControllable:
 
@@ -1949,7 +1951,7 @@
 		ResourceType: Tiberium
 		Interval: 50
 	WithIdleAnimation:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Blossom Tree
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -1974,7 +1976,7 @@
 		Terrain: Tree
 	Tooltip:
 		Name: Tree
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Tree
 	Targetable:
 		TargetTypes: Building, Ground, C4
@@ -2000,7 +2002,7 @@
 		Terrain: Rock
 	Tooltip:
 		Name: Rock
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Rock and Roll
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -2022,7 +2024,7 @@
 	Building:
 		Footprint: x
 		Dimensions: 1, 1
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Misc Deco
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -2070,7 +2072,7 @@
 	Guardable:
 	HiddenUnderFog:
 	ActorLostNotification:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Deployed Vehicle
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -2122,7 +2124,7 @@
 		Weapons: SmallDebris
 		Pieces: 3, 7
 		Range: 2c0, 5c0
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Trains
 
 ^TerrainOverlay:
@@ -2188,7 +2190,7 @@
 	ScriptTriggers:
 	ConditionManager:
 	Health:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Wall
 	Valued:
 		Cost: 100
@@ -2220,9 +2222,8 @@
 		Adjacent: 6
 		BuildSounds: place2.aud
 		TerrainTypes: Clear, Rough, Road, DirtRoad, Green, Sand, Pavement
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Defence
-	-ExternalCapturableBar:
 	WithDecoration@POWERDOWN:
 		Image: poweroff
 		Sequence: offline

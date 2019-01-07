@@ -143,7 +143,7 @@ NALASR:
 	Inherits: ^Defence
 	Inherits@1: ^TowerStealthDetection
 	Valued:
-		Cost: 600
+		Cost: 800
 	Tooltip:
 		Name: Laser Turret
 	Buildable:
@@ -166,6 +166,7 @@ NALASR:
 	Armament:
 		Weapon: TurretLaserFire
 		LocalOffset: 625, 0, 575
+	RenderVoxels:
 	WithSpriteTurret:
 	Power:
 		Amount: -40
@@ -473,8 +474,7 @@ CABPIT:
 	Selectable:
 		Bounds: 90, 48, 0, -6
 		DecorationBounds: 90, 48, 0, -6
-	-ExternalCapturable:
-	-ExternalCapturableBar:
+	-CaptureManager:
 	-ToggleConditionOnOrder:
 	Health:
 		HP: 60000
@@ -572,7 +572,7 @@ SCRNEEDLER:
 	Inherits@3: ^TowerStealthDetection
 	Inherits@4: ^ScrinDeathExplo
 	Valued:
-		Cost: 750
+		Cost: 800
 	Tooltip:
 		Name: Ichor Waste Turret
 	Buildable:
@@ -1697,7 +1697,6 @@ NAWAST:
 
 MUMINE:
 	Inherits: ^Defence
-	Inherits@3: ^7CellVision
 	Valued:
 		Cost: 50
 	Tooltip:
@@ -1744,12 +1743,6 @@ MUMINE:
 	-WithDecoration@POWERDOWN:
 	-PowerMultiplier@POWERDOWN:
 	-RenderRangeCircle:
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
-	-GrantConditionOnDamageState@SpawnFire:
-	-ExplodeWeapon@SpawnFire:
-	-ExternalCondition@SpawnFire:
 
 MUWARD:
 	Inherits: ^DeployedVehicle

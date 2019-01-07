@@ -128,7 +128,7 @@ BHRifle:
 		Range: 2c0
 		Duration: 125
 		Condition: ToxinTrooperDebuff
-		ValidTargets: Infantry, Vehicle
+		ValidTargets: Infantry
 		InvalidTargets: Building, Defence
 
 BuggyCannon:
@@ -149,7 +149,7 @@ BuggyCannonLoaded:
 		Damage: 4000
 
 BuggyRepair:
-	# Inherits: ^SparkSpawner
+	Inherits: ^SparkSpawner
 	ReloadDelay: 75
 	Range: 2c0
 	Report: repair11.aud
@@ -269,23 +269,6 @@ FlameHoloShrapnel:
 		ThrowWithoutTarget: True
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
-CrusaHoloShrapnel:
-	Inherits: FlameHoloShrapnel
-	Burst: 2
-	Warhead@op: FireShrapnel
-		Weapon: CrusaHologram
-
-TemplarHoloShrapnel:
-	Inherits: FlameHoloShrapnel
-	Warhead@op: FireShrapnel
-		Weapon: TemplarHologram
-
-BuggyHoloShrapnel:
-	Inherits: FlameHoloShrapnel
-	Burst: 2
-	Warhead@op: FireShrapnel
-		Weapon: BuggyHologram
-
 TickHoloShrapnel:
 	Inherits: FlameHoloShrapnel
 	Burst: 1
@@ -304,7 +287,7 @@ FlameHologram:
 		Spread: 400
 		Damage: 1
 	Warhead@5Actor: SpawnActor
-		Actors: FLAMEHOLOGRAM
+		Actors: flamehologram
 		FallRate: 5000
 		Range: 5
 		Delay: 10
@@ -314,25 +297,10 @@ FlameHologram:
 		ExplosionPalette: cyanjascpal
 		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
 
-CrusaHologram:
-	Inherits: FlameHologram
-	Warhead@5Actor: SpawnActor
-		Actors: CRUSAHOLOGRAM
-
-TemplarHologram:
-	Inherits: FlameHologram
-	Warhead@5Actor: SpawnActor
-		Actors: TEMPLARHOLOGRAM
-
-BuggyHologram:
-	Inherits: FlameHologram
-	Warhead@5Actor: SpawnActor
-		Actors: BUGGYHOLOGRAM
-
 TickHologram:
 	Inherits: FlameHologram
 	Warhead@5Actor: SpawnActor
-		Actors: TICKHOLOGRAM
+		Actors: tickhologram
 
 BCLazor:
 	Inherits: ^FullDamage
@@ -526,7 +494,7 @@ CerberusLazor:
 
 TurretLaserFire:
 	Inherits: ^FullDamage
-	ReloadDelay: 30
+	ReloadDelay: 35
 	Range: 6c768
 	Report: lastur1.aud
 	Projectile: LaserZap

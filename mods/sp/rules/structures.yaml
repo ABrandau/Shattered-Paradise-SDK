@@ -20,6 +20,8 @@ GAPOWR:
 	Selectable:
 		Bounds: 90, 48, 0, -6
 		DecorationBounds: 90, 84, 0, -12
+	Power:
+		Amount: 100
 	Pluggable@pluga:
 		Conditions:
 			powrup: powrup.a
@@ -151,7 +153,6 @@ GAHPAD:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	ProductionBar:
 	WithIdleOverlay@PLATFORM:
 		Sequence: idle-platform
 	WithIdleOverlay@LIGHTS:
@@ -252,7 +253,6 @@ GTDROP:
 		Produces: Vehicle, Mammoth
 		ActorType: dshp
 		ReadyAudio: UnitReady
-	ProductionBar:
 	ProximityExternalCondition@DropshipCloak:
 		Condition: DropshipCloak
 		Range: 10c0
@@ -297,6 +297,8 @@ NAPOWR:
 		DecorationBounds: 88, 80, 2, -12
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+	Power:
+		Amount: 100
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -442,7 +444,6 @@ NAHPAD:
 		Footprint: xx xx
 		Dimensions: 2,2
 	PrimaryBuilding:
-	ProductionBar:
 	WithIdleOverlay@PLATFORM:
 		Sequence: idle-platform
 	WithIdleOverlay@LIGHTS:
@@ -588,7 +589,7 @@ MUTYARD:
 		ActorTypes: e2
 
 MUPOWR:
-	Inherits: ^PowerPlant
+	Inherits: ^Building
 	Inherits@1: ^MutRender
 	Inherits@2: ^2x2Shape
 	Tooltip:
@@ -610,6 +611,8 @@ MUPOWR:
 	Selectable:
 		Bounds: 90, 48, 0, -6
 		DecorationBounds: 90, 84, 0, -12
+	Power:
+		Amount: 100
 	InfiltrateForPowerOutage:
 	AffectedByPowerOutage:
 	Targetable:
@@ -732,7 +735,6 @@ MUAIR:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	ProductionBar:
 	Selectable:
 		Bounds: 88, 66, 0, -5
 		DecorationBounds: 88, 66, 0, -5
@@ -1029,7 +1031,6 @@ SCRAIR:
 		PrimaryCondition: primary
 	Reservable:
 	RepairsUnits:
-	ProductionBar:
 	WithIdleOverlay@PLATFORM:
 		Sequence: idle-platform
 	WithIdleOverlay@LIGHTS:
@@ -1321,7 +1322,6 @@ CABAIR:
 		PrimaryCondition: primary
 	Reservable:
 	RepairsUnits:
-	ProductionBar:
 	Selectable:
 		Bounds: 88, 66, 0, -5
 		DecorationBounds: 88, 66, 0, -5
