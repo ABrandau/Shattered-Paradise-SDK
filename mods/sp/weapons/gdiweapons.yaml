@@ -73,7 +73,7 @@ JJBuff:
 		AffectsParent: True
 
 Heal:
-	ReloadDelay: 150
+	ReloadDelay: 120
 	Range: 3c0
 	Report: healer1.aud
 	ValidTargets: Infantry, Jumpjet
@@ -302,7 +302,7 @@ MammothTusk:
 	ReloadDelay: 120
 	Range: 6c0
 	Report: misl1.aud
-	ValidTargets: Ground, Water, Vehicle, Building, Infantry, Air
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	Burst: 2
 	Projectile: Missile
 		Blockable: false
@@ -315,7 +315,14 @@ MammothTusk:
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 4500
-		ValidTargets: Ground, Water, Vehicle, Building, Infantry, Air
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry
+
+MammothTuskAA:
+    Inherits: MammothTusk
+	ValidTargets: Air
+	Range: 7c0
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
 
 MechRailgun:
 	Inherits: ^APWarhead
@@ -398,6 +405,7 @@ OBBombFrontal:
 	Inherits@2: ^Large_Explosion
 	ReloadDelay: 30
 	MinRange: 0c100
+	Report: a10whistle1.wav
 	Burst: 10
 	BurstDelays: 1
 	ValidTargets: Ground, Water, Building, Infantry, Vehicle
