@@ -253,9 +253,9 @@
 ^GainsExperience:
 	GainsExperience:
 		Conditions:
-			300: rank-veteran
-			600: rank-veteran
-			900: rank-veteran
+			200: rank-veteran
+			400: rank-veteran
+			800: rank-veteran
 	GrantCondition@RANK-ELITE:
 		RequiresCondition: rank-veteran >= 3
 		Condition: rank-elite
@@ -286,6 +286,9 @@
 	ReloadDelayMultiplier@RANK-ELITE:
 		RequiresCondition: rank-elite
 		Modifier: 70
+	SpeedMultiplier@RANK-ELITE:
+		RequiresCondition: rank-elite
+		Modifier: 130
 	SelfHealing@ELITE:
 		PercentageStep: 5
 		Delay: 75
@@ -1218,9 +1221,6 @@
 	ActorLostNotification:
 	SharedPassenger:
 		CargoType: Infantry
-    TurnOnIdle:
-        MinDelay: 1
-		MaxDelay: 1
 	AttackMove:
 		Voice: Move
 	Armor:
@@ -1308,6 +1308,11 @@
 		DeathType: CabalDeath
 		RequiresLobbyCreeps: false
 	WithInfantryBody:
+		MinIdleDelay: 75
+		MaxIdleDelay: 250
+    TurnOnIdle:
+		MinDelay: 125
+		MaxDelay: 325
 	WithDeathAnimation@normal:
 		DeathTypes:
 			BulletDeath: 1, 2
@@ -1859,6 +1864,9 @@
 	Hovers@CRUISING:
 		RequiresCondition: cruising
 	Huntable:
+	Explodes@Shrapnel:
+		Weapon: SmalLAircraftShrapnel
+		EmptyWeapon: SmalLAircraftShrapnel
 
 ^AircraftShadow:
 	WithShadow:

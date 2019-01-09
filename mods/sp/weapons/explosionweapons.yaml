@@ -82,6 +82,24 @@ DroneExplode:
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
+SmalLAircraftShrapnel:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Tiny_Explo
+	Warhead@op: FireShrapnel
+		Weapon: SmallDebris
+		Amount: 3
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
+BigAircraftShrapnel:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Large_Clsn
+	Warhead@op: FireShrapnel
+		Weapon: SmallDebris
+		Amount: 9
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
 UnitExplodeSmall:
 	Inherits@2: ^Small_Brnl
 	Warhead@1Dam: SpreadDamage

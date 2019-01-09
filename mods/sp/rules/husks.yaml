@@ -27,7 +27,13 @@
 		Spins: true
 		Moves: true
 		Velocity: 140
-		Explosion: SmallPlaneExplode
+
+^BigAircraftHusk:
+    Inherits: ^AircraftHusk
+	FallsToEarth:
+		Moves: true
+		Velocity: 180
+		Spins: False
 
 DSHP.Husk:
 	Inherits: ^AircraftHusk
@@ -145,7 +151,7 @@ APACHE.Husk:
 		Explosion: SmallPlaneExplode
 
 CERBERUS.Husk:
-	Inherits: ^AircraftHusk
+	Inherits: ^BigAircraftHusk
 	Tooltip:
 		Name: Paladin Husk
 	Selectable:
@@ -236,7 +242,7 @@ CABDRONEJET.Husk:
 		Explosion: SmallPlaneExplode
 
 DEVOURER.Husk:
-	Inherits: ^AircraftHusk
+	Inherits: ^BigAircraftHusk
 	Inherits@5: ^CabRender
 	Tooltip:
 		Name: Devourer
@@ -272,7 +278,7 @@ FIREFLY.Husk:
 		Image: firefly
 
 BASILISK.Husk:
-	Inherits: ^AircraftHusk
+	Inherits: ^BigAircraftHusk
 	Inherits@1: ^Ra2vxl
 	Inherits@2: ^CabRender
 	Tooltip:
@@ -346,7 +352,7 @@ GLYDER1.Husk:
 		Explosion: SmallPlaneExplode
 
 DRACHE.Husk:
-	Inherits: ^AircraftHusk
+	Inherits: ^BigAircraftHusk
 	Inherits@2: ^ScrinRender
 	Tooltip:
 		Name: Host Station
@@ -365,7 +371,7 @@ DRACHE.Husk:
 		Image: drache.falling
 
 SCRDESTROYER.Husk:
-	Inherits: ^AircraftHusk
+	Inherits: ^BigAircraftHusk
 	Inherits@2: ^ScrinRender
 	Tooltip:
 		Name: Destroyer
@@ -384,7 +390,7 @@ SCRDESTROYER.Husk:
 		Explosion: DestroyerExplode
 
 SCRBATTLESHIP.Husk:
-	Inherits: ^AircraftHusk
+	Inherits: ^BigAircraftHusk
 	Inherits@2: ^ScrinRender
 	Tooltip:
 		Name: Battlecruiser
@@ -403,7 +409,7 @@ SCRBATTLESHIP.Husk:
 		Explosion: BattleshipExplode
 
 SCRCARRIER.Husk:
-	Inherits: ^AircraftHusk
+	Inherits: ^BigAircraftHusk
 	Inherits@2: ^ScrinRender
 	Tooltip:
 		Name: Carrier

@@ -607,30 +607,27 @@ MeteorRainFast:
 	Projectile: BulletAS
 		Speed: 450
 
-CabalCannon:
+FistRaiser:
 	Inherits: ^FullDamage
 	Inherits@2: ^SWBaseEffects
 	ReloadDelay: 200
 	Range: 300c0
-	Burst: 8
-	BurstDelays: 20
 	MinRange: 6c0
-	Inaccuracy: 100c0
 	Report: devourerlasor0000.wav, devourerlasor0001.wav, devourerlasor0002.wav
 	ValidTargets: Vehicle, Infantry, Building, Ground, Water
 	Projectile: BulletAS
 		Speed: 300
-		Inaccuracy: 40c0
 		Image: cabswproj
 		LaunchAngle: 90
 		Shadow: true
 		Palette: apcyan
+		TerrainHeightAware: True
 		TrailImage: cabswproj2
 		TrailPalette: apolcyanalpha
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Spread: 700
-		Damage: 15000
+		Damage: 9000
 		Versus:
 			BuildingArmor: 600
 		ValidTargets: Vehicle, Infantry, Building, Ground, Water
@@ -657,6 +654,24 @@ CabalCannon:
 		Delay: 15
 	Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
 		Range: 4c0
+	Warhead@op: FireShrapnel
+		Weapon: FistRaiserShrapnel
+		Amount: 10
+		AllowDirectHit: false
+		ValidTargets: Ground, Water, Infantry, Vehicle, BlueTiberium, Tiberium, Air
+
+FistRaiserShrapnel
+    Inherits: FistRaiser
+	Range: 5c0
+ 	MinRange: 2c0   
+	-Report:
+	-Warhead@op: FireShrapnel
+	Projectile: BulletAS
+		LaunchAngle: 160
+		Speed: 90
+	Warhead@Shake: ScreenShaker
+		Intensity: 4
+		Duration: 7
 
 NanoMachineBurst:
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
