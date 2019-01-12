@@ -15,8 +15,10 @@ GAPOWR:
 		Dimensions: 2,2
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@PLUG:
 		Sequence: idle-plug
+		RequiresCondition: !Building-Buildup
 	Selectable:
 		Bounds: 90, 48, 0, -6
 		DecorationBounds: 90, 84, 0, -12
@@ -56,10 +58,13 @@ GAPILE:
 		DecorationBounds: 88, 56, 0, -8
 	WithProductionOverlay@LIGHTS:
 		Sequence: production-lights
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@LIGHT:
 		Sequence: idle-light
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
+		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 	ProvidesPrerequisite@SharedEngie:
@@ -110,15 +115,21 @@ GAWEAP:
 		Prerequisites: proc, ~structures.gdi
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
+		RequiresCondition: !Building-Buildup
 	WithProductionDoorOverlay@DOOR:
+		RequiresCondition: !Building-Buildup
 	WithProductionOverlay@WHITELIGHTS:
 		Sequence: production-lights-white
+		RequiresCondition: !Building-Buildup
 	WithProductionOverlay@REDLIGHTS:
 		Sequence: production-lights-red
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@TURBINES:
 		Sequence: idle-turbines
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@BIB:
 		Sequence: bib
+		RequiresCondition: !Building-Buildup
 
 GARADR:
 	Inherits: ^Radar
@@ -133,6 +144,7 @@ GARADR:
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
+		RequiresCondition: !Building-Buildup
 	Selectable:
 		Bounds: 96, 48, 0, -6
 		DecorationBounds: 96, 118, 0, -38
@@ -155,8 +167,10 @@ GAHPAD:
 		Dimensions: 2,2
 	WithIdleOverlay@PLATFORM:
 		Sequence: idle-platform
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	WithDeathAnimation@BIB:
 		DeathSequence: dead-platform
 		UseDeathTypeSuffix: false
@@ -188,6 +202,7 @@ GATECH:
 		DecorationBounds: 110, 60, 3, -4
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -213,8 +228,10 @@ GTDROP:
 		Bounds: 144, 80, 8, -12
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@buildingname:
 	DetonateWeaponPower@pods:
 		Icon: droppods
@@ -297,6 +314,7 @@ NAPOWR:
 		DecorationBounds: 88, 80, 2, -12
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: 100
 	SelectionDecorations:
@@ -321,8 +339,10 @@ NAHAND:
 		DecorationBounds: 116, 60, 3, -6
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	WithProductionOverlay@LIGHT:
 		Sequence: production-light
+		RequiresCondition: !Building-Buildup
 	SelectionDecorations:
 	ProvidesPrerequisite@SharedEngie:
 		Prerequisite: SharedEngie
@@ -374,11 +394,15 @@ NAWEAP:
 		Prerequisites: proc, ~structures.nod
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
+		RequiresCondition: !Building-Buildup
 	WithProductionDoorOverlay@DOOR:
+		RequiresCondition: !Building-Buildup
 	WithProductionOverlay@LIGHTS:
+		RequiresCondition: !Building-Buildup
 		Sequence: production-lights
 	WithIdleOverlay@BIB:
 		Sequence: bib
+		RequiresCondition: !Building-Buildup
 
 NARADR:
 	Inherits: ^Radar
@@ -393,6 +417,7 @@ NARADR:
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
+		RequiresCondition: !Building-Buildup
 	Selectable:
 		Bounds: 96, 48, 0, -6
 		DecorationBounds: 96, 72, 0, -12
@@ -420,6 +445,7 @@ NAAPWR:
 		HP: 100000
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: 300
 	SelectionDecorations:
@@ -446,8 +472,10 @@ NAHPAD:
 	PrimaryBuilding:
 	WithIdleOverlay@PLATFORM:
 		Sequence: idle-platform
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	WithDeathAnimation@BIB:
 		DeathSequence: dead-platform
 		UseDeathTypeSuffix: false
@@ -479,6 +507,7 @@ NATECH:
 		DecorationBounds: 86, 58, 0, -4
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -507,6 +536,7 @@ NAMISL:
 		DecorationBounds: 75,48
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	ToggleConditionOnOrder:
 		DisabledSpeech: EnablePower
 		EnabledSpeech: DisablePower
@@ -608,6 +638,7 @@ MUPOWR:
 		Dimensions: 2,2
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	Selectable:
 		Bounds: 90, 48, 0, -6
 		DecorationBounds: 90, 84, 0, -12
@@ -700,9 +731,12 @@ MUWEAP:
 		Prerequisites: proc, ~structures.mut
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
+		RequiresCondition: !Building-Buildup
 	WithProductionDoorOverlay@DOOR:
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@BIB:
 		Sequence: bib
+		RequiresCondition: !Building-Buildup
 
 MURADR:
 	Inherits: ^Radar
@@ -901,6 +935,7 @@ SCRRAX:
 		DecorationBounds: 88, 56, 0, -8
 	WithIdleOverlay@ship:
 		Sequence: ship
+		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -20
 	SelectionDecorations:
@@ -975,8 +1010,10 @@ SCRWEAP:
 		Prerequisites: scrproc, ~structures.scr
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
+		RequiresCondition: !Building-Buildup
 	WithProductionOverlay@WHITELIGHTS:
 		Sequence: production-lights-white
+		RequiresCondition: !Building-Buildup
 
 SCRRADR:
 	Inherits: ^Radar
@@ -1000,6 +1037,7 @@ SCRRADR:
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
+		RequiresCondition: !Building-Buildup
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -1033,8 +1071,10 @@ SCRAIR:
 	RepairsUnits:
 	WithIdleOverlay@PLATFORM:
 		Sequence: idle-platform
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	Selectable:
 		Bounds: 120, 130, 0, -40
 		DecorationBounds: 120, 130, 0, -40
@@ -1100,6 +1140,7 @@ SCRADVPOWR:
 		Dimensions: 3,3
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	Selectable:
 		Bounds: 90, 48, 0, -6
 		DecorationBounds: 90, 84, 0, -12
@@ -1180,6 +1221,7 @@ CABPOWR:
 		HP: 80000
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	Selectable:
 		Bounds: 90, 48, 0, -6
 		DecorationBounds: 90, 84, 0, -12
@@ -1208,6 +1250,7 @@ CABCLAW:
 		DecorationBounds: 102, 70, 0, -24
 	WithProductionOverlay@WHITELIGHTS:
 		Sequence: idle-camera
+		RequiresCondition: !Building-Buildup
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -1269,9 +1312,12 @@ CABWEAP:
 		Prerequisites: proc, ~structures.cab
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
+		RequiresCondition: !Building-Buildup
 	WithProductionDoorOverlay@DOOR:
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@BIB:
 		Sequence: bib
+		RequiresCondition: !Building-Buildup
 
 CABRADR:
 	Inherits: ^Radar
@@ -1316,6 +1362,7 @@ CABAIR:
 		IsPlayerPalette: false
 	WithProductionOverlay@WHITELIGHTS:
 		Sequence: lights
+		RequiresCondition: !Building-Buildup
 	Production:
 		Produces: Air
 	PrimaryBuilding:

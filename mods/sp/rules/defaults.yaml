@@ -253,9 +253,9 @@
 ^GainsExperience:
 	GainsExperience:
 		Conditions:
-			200: rank-veteran
-			400: rank-veteran
-			800: rank-veteran
+			20000: rank-veteran
+			40000: rank-veteran
+			80000: rank-veteran
 	GrantCondition@RANK-ELITE:
 		RequiresCondition: rank-veteran >= 3
 		Condition: rank-elite
@@ -1021,10 +1021,17 @@
 	Inherits@2: ^4CellVision
 	GivesBuildableArea:
 		AreaTypes: building
+	CaptureNotification:
+		Notification: BuildingCaptured
+		LoseNotification: BuildingLostToCapture
 	CaptureManager:
-		CaptureCompleteTime: 7
+		BeingCapturedCondition: being-captured
+	Capturable:
+		Types: Building
+	CapturableProgressBar:
+	CapturableProgressBlink:
 	GivesExperience:
-		PlayerExperienceModifier: 1
+		PlayerExperienceModifier: 100
 	RevealsShroud:
 		Type: Footprint
 		MaxHeightDelta: 3
@@ -1059,12 +1066,10 @@
 		Factions: scr
 	MustBeDestroyed:
 		RequiredForShortGame: true
-	CaptureNotification:
-		Notification: BuildingCaptured
-		LoseNotification: BuildingLostToCapture
 	Sellable:
 		SellSounds: cashturn.aud
 	WithMakeAnimation:
+		Condition: Building-Buildup
 	MapEditorData:
 		Categories: Buildable Structure
 	WithBuildingRepairDecoration:
@@ -1144,6 +1149,8 @@
 	RevealsShroud:
 		Type: Footprint 
 		MaxHeightDelta: 3
+	CapturableProgressBar:
+	CapturableProgressBlink:
 	CaptureNotification:
 		Notification: BuildingCaptured
 		LoseNotification: BuildingLostToCapture
@@ -1154,7 +1161,7 @@
 		Action: ChangeOwner
 	Capturable:
 		CaptureThreshold: 100
-		Types: building
+		Types: Building
 	RenderSprites:
 	MapEditorData:
 		Categories: Tech Structure
@@ -1233,6 +1240,8 @@
 		DamageInterval: 25
 		Terrain: Tiberium, BlueTiberium
 		DamageTypes: TiberiumDeath
+	DamagedByTintedCells@OrangeRadiation:
+		DamageCoeff: 6500
 	DrawLineToTarget:
 	DeathSounds@NORMAL:
 		DeathTypes: BulletDeath, SmallExplosionDeath, ExplosionDeath, CabalDeath, CabalDeathCrate, BlackHandRfle, HeadshotDeath, SmallExplosionDeath, TiberiumDeath
@@ -1245,7 +1254,7 @@
 	MapEditorData:
 		Categories: Infantry
 	GivesExperience:
-		PlayerExperienceModifier: 1
+		PlayerExperienceModifier: 100
 	Guard:
 		Voice: Move
 	Guardable:
@@ -1449,7 +1458,6 @@
 	Inherits@1: ^Infantry
 	Inherits@2: ^AutoTargetGroundAssaultMove
 	Inherits@3: ^7CellVision
-	-SpawnActorOnDeath@conversion:
 	Crushable:
 		CrushClasses: HeavyInfantry
 	-DamagedByTerrain:
@@ -1580,11 +1588,15 @@
 		PipType: Yellow
 	EngineerRepair:
 	RepairsBridges:
-	CaptureManager:
-		Type: building
+	Captures:
+		CaptureTypes: Building
 		ConsumeActor: true
-		PlayerExperience: 50
+		Sabotage: False
+		RequiresCondition: !global-reusable-engineers
+		PlayerExperience: 25
+		CaptureDelay: 100
 	Huntable:
+	CaptureManager:
 
 ^Vehicle:
 	Inherits@0: ^GainsExperience
@@ -1611,7 +1623,7 @@
 		WarnProbability: 0
 	DrawLineToTarget:
 	GivesExperience:
-		PlayerExperienceModifier: 1
+		PlayerExperienceModifier: 100
 	RevealsShroud:
 		Type: CenterPosition
 		MaxHeightDelta: 3
@@ -1829,7 +1841,7 @@
 	Armor:
 		Type: AircraftArmor
 	GivesExperience:
-		PlayerExperienceModifier: 1
+		PlayerExperienceModifier: 100
 	Aircraft:
 		AirborneCondition: airborne
 		CruisingCondition: cruising

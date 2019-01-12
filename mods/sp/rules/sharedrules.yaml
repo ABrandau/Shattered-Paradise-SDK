@@ -300,10 +300,13 @@ GACNST:
 		ProductionType: Defense
 	WithIdleOverlay@TOP:
 		Sequence: idle-top
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@SIDE:
 		Sequence: idle-side
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@FRONT:
 		Sequence: idle-front
+		RequiresCondition: !Building-Buildup
 	WithBuildingPlacedOverlay:
 	Selectable:
 		Bounds: 144, 60, 0, -6
@@ -385,7 +388,6 @@ GACNST:
 		SpawnOffset: -256,1024,0
 		ExitCell: 2,2
 	Exit:
-		# SpawnOffset: -256,1024,0
 		ExitCell: 0,0
 	Production:
 		Produces: Infantry
@@ -443,11 +445,14 @@ PROC:
 		Facing: 160
 	WithIdleOverlay@REDLIGHTS:
 		Sequence: idle-redlights
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@BIB:
 		Sequence: bib
+		RequiresCondition: !Building-Buildup
 	WithDockedOverlay@flame:
 		Sequence: flame
 		Palette: effect
+		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@proc:
 		ProvidesPrerequisite: proc
 		Description: Tiberium Refinery
@@ -485,11 +490,14 @@ FLIPPEDPROC:
 		Facing: 30
 	WithIdleOverlay@REDLIGHTS:
 		Sequence: idle-redlights
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@BIB:
 		Sequence: bib
+		RequiresCondition: !Building-Buildup
 	WithDockedOverlay@flame:
 		Sequence: flame
 		Palette: effect
+		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@proc:
 		ProvidesPrerequisite: proc
 		Description: Tiberium Refinery
@@ -574,7 +582,6 @@ FLIPPEDPROC:
 		IsPlayerPalette: false
 	PrimaryBuilding:
 		PrimaryCondition: primary
-
 	Tooltip:
 		Name: Vehicle or Aircraft production
 	ProvidesPrerequisite@pieceofshit:
@@ -673,20 +680,23 @@ GADEPT:
 		IsPlayerPalette: false
 	WithIdleOverlay@LIGHT:
 		Sequence: idle-light
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@GROUND:
 		Sequence: ground
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@CIRCUITS:
 		Sequence: circuits
+		RequiresCondition: !Building-Buildup
 	WithRepairOverlay@CRANE:
 		Sequence: crane
+		RequiresCondition: !Building-Buildup
 	WithRepairOverlay@PLATFORM:
 		Sequence: platform
+		RequiresCondition: !Building-Buildup
 	WithDeathAnimation@BIB:
 		DeathSequence: dead-ground
 		UseDeathTypeSuffix: false
-	# ExplodeWeapon:
-	# 	Weapon: ServDepoShrapnelSpawn
-	# 	RequiresCondition: !disabled
+		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -30
 	ProvidesPrerequisite@buildingname:
@@ -826,7 +836,7 @@ NAPOST:
 		SegmentType: nafnce
 		SegmentsRequireNode: true
 	WithMakeAnimation:
-		Condition: make-animation-playing
+		Condition: Building-Buildup
 	Selectable:
 		Bounds: 42, 44, 0, -12
 	LineBuildNode:
@@ -843,7 +853,7 @@ NAPOST:
 		RequiresCondition: !disabled
 		Sequence: chainoflights
 	LineBuildSegmentExternalCondition:
-		RequiresCondition: !disabled && !make-animation-playing
+		RequiresCondition: !disabled && !Building-Buildup
 		Condition: active-posts
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
@@ -987,8 +997,10 @@ GASILO:
 	WithSpriteBody:
 	WithIdleOverlay@UNDERLAY:
 		Sequence: idle-underlay
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	StoresResources:
 		PipCount: 5
 		Capacity: 3000
@@ -1186,6 +1198,7 @@ NAPULS:
 		InitialFacing: 300
 	WithSpriteTurret:
 		Sequence: turret
+		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -150
 	SelectionDecorations:

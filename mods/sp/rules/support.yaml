@@ -25,20 +25,23 @@ GAVULC:
 		QuantizedFacings: 32
 	Turreted:
 		TurnSpeed: 10
-		InitialFacing: 50
+		InitialFacing: 92
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret@VULC:
 		Recoils: no
+		RequiresCondition: !Building-Buildup
 	Armament@VULCPRIMARY:
 		Weapon: VulcanTower
 		LocalOffset: 768,85,550, 768,-85,550
 		MuzzleSequence: muzzle
 		MuzzleSplitFacings: 8
+		RequiresCondition: !Building-Buildup
 	WithMuzzleOverlay:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		PauseOnCondition: disabled
+		RequiresCondition: !Building-Buildup
 	LineBuildNode:
 		Types: turret
 	Power@base:
@@ -78,17 +81,20 @@ GAROCK:
 		QuantizedFacings: 32
 	Turreted:
 		TurnSpeed: 10
-		InitialFacing: 50
+		InitialFacing: 92
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret@ROCKET:
 		Recoils: no
+		RequiresCondition: !Building-Buildup
 	Armament@ROCKET:
 		Weapon: RPGTower
 		LocalOffset: 325,-128,1800
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		PauseOnCondition: disabled
+		RequiresCondition: !Building-Buildup
 	LineBuildNode:
 		Types: turret
 	ProvidesPrerequisite@buildingname:
@@ -120,17 +126,20 @@ GACSAM:
 		QuantizedFacings: 32
 	Turreted:
 		TurnSpeed: 10
-		InitialFacing: 50
+		InitialFacing: 92
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret@SAM:
 		Recoils: no
+		RequiresCondition: !Building-Buildup
 	Armament@SAM:
 		Weapon: GdiRedEye
 		LocalOffset: 400,0,1800
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		PauseOnCondition: disabled
+		RequiresCondition: !Building-Buildup
 	LineBuildNode:
 		Types: turret
 	ProvidesPrerequisite@buildingname:
@@ -166,8 +175,9 @@ NALASR:
 	Armament:
 		Weapon: TurretLaserFire
 		LocalOffset: 625, 0, 575
-	RenderVoxels:
+		RequiresCondition: !Building-Buildup
 	WithSpriteTurret:
+		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -40
 	SelectionDecorations:
@@ -201,6 +211,7 @@ NAOBEL:
 		LocalOffset: 1980,297,1131
 		MuzzleSequence: muzzle
 		MuzzlePalette: obelpal
+		RequiresCondition: !Building-Buildup
 	AttackCharges:
 		PauseOnCondition: empdisable || disabled
 		ChargeLevel: 40
@@ -213,8 +224,10 @@ NAOBEL:
 		Sequence: active
 		Palette: player
 		IsPlayerPalette: true
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -90
 	SelectionDecorations:
@@ -240,11 +253,12 @@ NASAM:
 		RangeCircleType: aa
 	Turreted:
 		TurnSpeed: 10
-		InitialFacing: 50
+		InitialFacing: 92
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret:
 		Recoils: no
+		RequiresCondition: !Building-Buildup
 	Armament:
 		Weapon: RedEye2
 		LocalOffset: 400,0,512
@@ -294,9 +308,9 @@ MUBUNKR:
 	RequiresBuildableArea:
 		AreaTypes: building
 	WithSpriteBody:
-		PauseOnCondition: loaded
+		PauseOnCondition: loaded && !Building-Buildup
 	WithIdleOverlay@1@asd:
-		RequiresCondition: loaded
+		RequiresCondition: loaded && !Building-Buildup
 		Sequence: occupied
 	-WithColoredOverlay@IDISABLE:
 	-GrantConditionOnPowerState@LOWPOWER:
@@ -347,15 +361,17 @@ MUCANNON:
 		QuantizedFacings: 32
 	Turreted:
 		TurnSpeed: 3
-		InitialFacing: 50
+		InitialFacing: 92
 	AttackTurreted:
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 		Recoils: no
+		RequiresCondition: !Building-Buildup
 	Armament:
 		Weapon: ForgottenCannonWeapon
 		MuzzleSequence: muzzle
 		LocalOffset: 1400,0,700
+		RequiresCondition: !Building-Buildup
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -388,16 +404,18 @@ MUFLAK:
 		RangeCircleType: aa
 	Turreted:
 		TurnSpeed: 10
-		InitialFacing: 50
+		InitialFacing: 92
 	AttackTurreted:
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 		Recoils: no
+		RequiresCondition: !Building-Buildup
 	Armament:
 		Weapon: FlakFire
 		MuzzleSequence: muzzle
 		MuzzlePalette: apgrey
 		LocalOffset: 450,0,300
+		RequiresCondition: !Building-Buildup
 	RequiresBuildableArea:
 		AreaTypes: building
 	-WithColoredOverlay@IDISABLE:
@@ -417,6 +435,7 @@ MINIVEIN:
 		Name: Mini Veinhole
 	WithIdleOverlay@sushi:
 		Sequence: sushi1
+		RequiresCondition: !Building-Buildup
 	WithDeathAnimation:
 		UseDeathTypeSuffix: false
 	-Explodes:
@@ -449,6 +468,7 @@ MINIVEIN:
 	Targetable@Defence:
 		TargetTypes: Defence
 	WithMakeAnimation:
+		Condition: Building-Buildup
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -467,6 +487,9 @@ CABPIT:
 		BuildPaletteOrder: 19
 		Prerequisites: cabclaw, ~structures.cab
 		IconPalette: UnittemIconCab
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
 	-GrantCondition@IDISABLE:
 	Building:
 		Footprint: xx xx
@@ -484,6 +507,7 @@ CABPIT:
 		PauseOnCondition: empdisable || disabled
 	Armament:
 		Weapon: CabPitFighterSpawn
+		RequiresCondition: !Building-Buildup
 	CarrierMaster:
 		Actors: CABDRONEJET, CABDRONEJET, CABDRONEJET
 		RespawnTicks: 150
@@ -515,14 +539,16 @@ CABBLAST:
 		QuantizedFacings: 32
 	Turreted:
 		TurnSpeed: 10
-		InitialFacing: 50
+		InitialFacing: 92
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret:
 		Recoils: no
+		RequiresCondition: !Building-Buildup
 	Armament:
 		Weapon: BlasterProton
 		LocalOffset: 600,256,128, 600,-256,128, 300,256,256, 300,-256,256
+		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -50
 	SelectionDecorations:
@@ -549,17 +575,20 @@ CABRAIL:
 		RangeCircleType: aa
 	Turreted:
 		TurnSpeed: 10
-		InitialFacing: 50
+		InitialFacing: 92
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret:
 		Recoils: no
+		RequiresCondition: !Building-Buildup
 	Armament:
 		Weapon: CABRAILAA
 		LocalOffset: 600,400,2000
+		RequiresCondition: !Building-Buildup
 	Armament@2:
 		Weapon: CABRAILAA
 		LocalOffset: 600,-400,2000
+		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -20
 	SelectionDecorations:
@@ -592,14 +621,16 @@ SCRNEEDLER:
 		RangeCircleType: aa
 	Turreted:
 		TurnSpeed: 10
-		InitialFacing: 50
+		InitialFacing: 92
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret:
 		Recoils: yes
+		RequiresCondition: !Building-Buildup
 	Armament:
 		Weapon: NeedlerAcid
 		LocalOffset: 512,0,400
+		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -20
 	SelectionDecorations:
@@ -635,6 +666,7 @@ SCRDRONE:
 		Weapon: DronePlane
 		ForceTargetStances: Enemy
 		LocalOffset: 0,0,1750
+		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -50
 	SelectionDecorations:
@@ -664,32 +696,40 @@ SCRTRACTOR:
 		RangeCircleType: aa
 	Turreted:
 		TurnSpeed: 10
-		InitialFacing: 50
+		InitialFacing: 92
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret:
 		Recoils: yes
+		RequiresCondition: !Building-Buildup
 	Armament:
 		Weapon: TractorBeam
 		LocalOffset: 512,0,512
+		RequiresCondition: !Building-Buildup
 	Armament@2:
 		Weapon: TractorBeam2
 		LocalOffset: 512,600,1948
+		RequiresCondition: !Building-Buildup
 	Armament@3:
 		Weapon: TractorBeam2
 		LocalOffset: 512,-590,1948
+		RequiresCondition: !Building-Buildup
 	Armament@4:
 		Weapon: TractorBeam2
 		LocalOffset: 300,200,2400
+		RequiresCondition: !Building-Buildup
 	Armament@5:
 		Weapon: TractorBeam2
 		LocalOffset: 300,-190,2400
+		RequiresCondition: !Building-Buildup
 	Armament@6:
 		Weapon: TractorBeam2
 		LocalOffset: 512,200,1500
+		RequiresCondition: !Building-Buildup
 	Armament@7:
 		Weapon: TractorBeam2
 		LocalOffset: 512,-190,1500
+		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -20
 	SelectionDecorations:
@@ -754,8 +794,10 @@ GAFIRE:
 		HP: 150000
 	WithIdleOverlay@1:
 		Sequence: idle1
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@2:
 		Sequence: idle2
+		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -100
 	ProvidesPrerequisite@buildingname:
@@ -785,10 +827,13 @@ GAPLUG:
 		Dimensions: 2,3
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@STRIP:
 		Sequence: idle-strip
+		RequiresCondition: !Building-Buildup
 	DetonateWeaponPower@ioncannon:
 		Icon: ioncannon
 		Description: Ion Cannon Array
@@ -844,6 +889,7 @@ NASTLH:
 	WithIdleOverlay@pulse:
 		Sequence: pulse
 		PauseOnLowPower: true
+		RequiresCondition: !Building-Buildup
 	WithRangeCircle:
 		Range: 12c0
 		Type: cloakgenerator
@@ -853,7 +899,7 @@ NASTLH:
 		EnableSound: cloak5.aud
 		DisableSound: cloak5.aud
 		AffectsParent: false
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled && !Building-Buildup
 	Cloak@CLOAKGENERATOR:
 		RequiresCondition: HolaSoyVinceConSlapShopMiraLaPapaUnCorteNoSePuedeCortar
 	Power:
@@ -891,6 +937,7 @@ NATMPL:
 		Bounds: 134, 120, 12, -12
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	NukePower@NodNuke:
 		Cursor: nuke
 		Icon: clustermissile
@@ -960,6 +1007,7 @@ MUVENTI:
 	Exit:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	Selectable:
 		Bounds: 90, 48, 0, -6
 		DecorationBounds: 90, 84, 0, -12
@@ -1051,7 +1099,7 @@ SCREXTRACTOR:
 		Condition: VanguardShield
 		Range: 8c0
 		AffectsParent: false
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled && !Building-Buildup
 	WithRangeCircle:
 		Range: 8c0
 		Type: VanguardShield
@@ -1181,10 +1229,11 @@ CABSW1:
 		Type: BuildingArmor
 	Turreted:
 		TurnSpeed: 2
-		InitialFacing: 50
+		InitialFacing: 92
 	AttackTurreted:
 	WithSpriteTurret:
 		Recoils: no
+		RequiresCondition: !Building-Buildup
 	Armament:
 		Weapon: FistRaiser
 		LocalOffset: 1000,0,1500
@@ -1330,7 +1379,7 @@ CABCANNON:
 	WithMuzzleOverlay:
 	Turreted:
 		TurnSpeed: 10
-		InitialFacing: 50
+		InitialFacing: 92
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret:
@@ -1369,7 +1418,7 @@ GACTWR:
 		QuantizedFacings: 32
 	Turreted:
 		TurnSpeed: 10
-		InitialFacing: 50
+		InitialFacing: 92
 	AttackTurreted:
 		RequiresCondition: tower
 		ConditionMinEnabledLevel: 1
@@ -1501,7 +1550,7 @@ REPAIRTUR:
 		RangeCircleType: aa
 	Turreted:
 		TurnSpeed: 10
-		InitialFacing: 50
+		InitialFacing: 92
 	AttackTurreted:
 	WithSpriteTurret:
 		Recoils: no
