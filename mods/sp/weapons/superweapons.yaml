@@ -185,7 +185,6 @@ IonDrag:
 		Spread: 110
 		Damage: 1
 		ValidTargets: IonSpawner
-		Versus:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 DroppodSpawner:
@@ -627,7 +626,7 @@ FistRaiser:
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Spread: 700
-		Damage: 9000
+		Damage: 18000
 		Versus:
 			BuildingArmor: 600
 		ValidTargets: Vehicle, Infantry, Building, Ground, Water
@@ -656,7 +655,7 @@ FistRaiser:
 		Range: 4c0
 	Warhead@op: FireShrapnel
 		Weapon: FistRaiserShrapnel
-		Amount: 10
+		Amount: 20
 		AllowDirectHit: false
 		ValidTargets: Ground, Water, Infantry, Vehicle, BlueTiberium, Tiberium, Air
 
@@ -672,6 +671,9 @@ FistRaiserShrapnel
 	Warhead@Shake: ScreenShaker
 		Intensity: 4
 		Duration: 7
+	Warhead@1Dam: SpreadDamage
+		Spread: 700
+		Damage: 8000
 
 NanoMachineBurst:
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
@@ -689,12 +691,11 @@ RecoveryGun:
 	ReloadDelay: 1
 	Range: 7c0
 	ValidTargets: KilledUnit
-	Projectile: BulletAS
-		Speed: 100c0
+	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
-		Spread: 200
+		Spread: 15
 		Damage: 20000
-		DamageTypes: Prone70Percent, TriggerProne, WorkerSummon
+		DamageTypes: WorkerSummon
 		ValidTargets: KilledUnit
 
 IonStormSpawnerWeapon: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY

@@ -882,8 +882,6 @@ TICKHOLOGRAM:
 		-RequiresCondition: undeployed
 	RenderSprites:
 		Image: ttnk
-	RenderVoxels:
-		Image: ttnk
 	FirepowerMultiplier@Hologram:
 		Modifier: 20
 		BaseLevel: 0
@@ -1707,6 +1705,7 @@ TRIPOD:
 CABMCV:
 	Inherits: MCV
 	Inherits@1: ^CabRender
+	Inherits@2: ^CabalVehicleVoice
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 110
@@ -1894,6 +1893,8 @@ ECM:
 	AmmoPool:
 		Ammo: 5
 		ReloadDelay: 25
+	Rearmable:
+        RearmActors: gadept, scrdepot
 	Minelayer:
 		Mine: mumine
 		RearmBuildings: scrdepot, gadept

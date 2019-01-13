@@ -14,12 +14,11 @@
 		CanHover: True
 		IdealSeparation: 300
 		TakeOffOnResupply: true
+		LandWhenIdle: False
 		VTOL: true
 	HiddenUnderFog:
 		Type: CenterPosition
 	Interactable:
-	Armor:
-		Type: Wood
 	RenderSprites:
 		Image: dot
 	WithFacingSpriteBody:
@@ -58,6 +57,8 @@ RADARSCANDUMMY:
 		Step: -1
 		Delay: 25
 		HealIfBelow: 200
+    Selectable:
+		Bounds: 1,1
 	WithSpriteBody:
 		Sequence: idle
 	-Tooltip:
@@ -67,7 +68,6 @@ RADARSCANDUMMY:
 
 IONBEAMTARGET:
 	Inherits: ^DUMMYAIRCRAFT
-	# Inherits@2: ^VisionWhenKilled
 	Inherits@3: ^1x1Shape
 	Tooltip:
 		Name: Target
@@ -79,7 +79,11 @@ IONBEAMTARGET:
 		HealIfBelow: 200
 	Targetable:
 		TargetTypes: IonSpawner
+    Selectable:
+		Bounds: 1,1
 	ShakeOnDeath:
+	RejectsOrders@berserk:
+		RequiresCondition: !lawea
 	RevealsShroud:
 		Range: 3c0
 	RenderSprites:
@@ -268,19 +272,23 @@ IONBEAMROAMER:
 KILLEDACTOR:
 	Inherits: ^DUMMYAIRCRAFT
 	SelfHealing:
-		Step: -5
+		Step: -25
+		# PercentageStep: -50
 		HealIfBelow: 110
+		RequiresCondition: !nanomachineburst
 	Health:
 		HP: 50
 		NotifyAppliedDamage: False
-	Targetable:
+	Targetable@asdf:
 		TargetTypes: KilledUnit
 	SpawnActorOnDeath@workerspawn:
 		Actor: worker
 		Probability: 100
-		InternalOwner: Killer
+		OwnerType: Killer
 		DeathType: WorkerSummon
 		RequiresLobbyCreeps: true
+	ExternalCondition@nanomachineburst:
+		Condition: nanomachineburst
 
 NANOMACHINEBURSTSPAWNER:
 	Inherits: ^DUMMYAIRCRAFT
@@ -298,6 +306,8 @@ NANOMACHINEBURSTSPAWNER:
 		Probability: 100
 		RequiresLobbyCreeps: false
 		SkipMakeAnimations: false
+		EffectiveOwnerFromOwner: True
+		OwnerType: Victim
     AmbientSound:
         SoundFiles: nanomachine0000.wav, nanomachine0001.wav, nanomachine0002.wav, nanomachine0003.wav, nanomachine0004.wav
         Delay: 0, 5
@@ -322,7 +332,6 @@ NANOMACHINEBURSTDUMMY:
 	ProximityExternalCondition:
 		Condition: nanomachineburst
 		Range: 7c0
-	WithMakeAnimation:
 	WithIdleOverlay:
 		Sequence: stand
 		Palette: apolgreyalpha

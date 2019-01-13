@@ -73,6 +73,11 @@ BattleshipExplode:
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		InvalidTargets: Air
 
+DracheExplode:
+    ^Inherits: BattleshipExplode
+	Warhead@1Dam: SpreadDamage
+		Damage: 8000
+
 DroneExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Tiny_Explo

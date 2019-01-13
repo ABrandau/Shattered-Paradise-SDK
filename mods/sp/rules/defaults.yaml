@@ -253,9 +253,9 @@
 ^GainsExperience:
 	GainsExperience:
 		Conditions:
-			20000: rank-veteran
-			40000: rank-veteran
-			80000: rank-veteran
+			200: rank-veteran
+			400: rank-veteran
+			800: rank-veteran
 	GrantCondition@RANK-ELITE:
 		RequiresCondition: rank-veteran >= 3
 		Condition: rank-elite
@@ -1241,7 +1241,7 @@
 		Terrain: Tiberium, BlueTiberium
 		DamageTypes: TiberiumDeath
 	DamagedByTintedCells@OrangeRadiation:
-		DamageCoeff: 6500
+		DamageCoeff: 20000
 	DrawLineToTarget:
 	DeathSounds@NORMAL:
 		DeathTypes: BulletDeath, SmallExplosionDeath, ExplosionDeath, CabalDeath, CabalDeathCrate, BlackHandRfle, HeadshotDeath, SmallExplosionDeath, TiberiumDeath
@@ -1904,6 +1904,8 @@
 ^CombatHelicopter:
 	Inherits: ^Helicopter
 	Inherits@0: ^GainsExperience
+	Rearmable:
+        RearmActors: nahpad, gahpad, muair, scrair, cabair
 
 ^Plane:
 	Inherits: ^Aircraft

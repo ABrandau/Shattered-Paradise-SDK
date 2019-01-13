@@ -432,7 +432,7 @@ MINIVEIN:
 		Footprint: x
 		Dimensions: 1, 1
 	Tooltip:
-		Name: Mini Veinhole
+		Name: Baby Veinhole
 	WithIdleOverlay@sushi:
 		Sequence: sushi1
 		RequiresCondition: !Building-Buildup
@@ -469,8 +469,6 @@ MINIVEIN:
 		TargetTypes: Defence
 	WithMakeAnimation:
 		Condition: Building-Buildup
-	RequiresBuildableArea:
-		AreaTypes: building
 
 CABPIT:
 	Inherits: ^Defence
@@ -857,8 +855,10 @@ GAPLUG:
 	SupportPowerChargeBar:
 	WithIdleOverlay@ioncannona:
 		Sequence: idle-ioncannona
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@hunterseekerb:
 		Sequence: idle-hunterseekerb
+		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 	Health:
@@ -1746,6 +1746,7 @@ NAWAST:
 
 MUMINE:
 	Inherits: ^Defence
+	Inherits@1: ^3CellVision
 	Valued:
 		Cost: 50
 	Tooltip:
