@@ -27,13 +27,15 @@
 		Spins: true
 		Moves: true
 		Velocity: 180
+		Explosion: SmallPlaneExplode
 
 ^BigAircraftHusk:
-    Inherits: ^AircraftHusk
+	Inherits: ^AircraftHusk
 	FallsToEarth:
 		Moves: true
 		Velocity: 100
 		Spins: False
+		Explosion: DestroyerExplode
 
 DSHP.Husk:
 	Inherits: ^AircraftHusk
@@ -147,8 +149,6 @@ APACHE.Husk:
 		Sequence: rotor
 	RenderSprites:
 		Image: apache
-	FallsToEarth:
-		Explosion: SmallPlaneExplode
 
 CERBERUS.Husk:
 	Inherits: ^BigAircraftHusk
@@ -165,8 +165,7 @@ CERBERUS.Husk:
 		QuantizedFacings: 32
 	RenderSprites:
 		Image: cerberus
-	FallsToEarth:
-		Explosion: DestroyerExplode
+
 
 MUTHELI.Husk:
 	Inherits: ^AircraftHusk
@@ -187,8 +186,6 @@ MUTHELI.Husk:
 		ConditionMaxEnabledLevel: 0
 	RenderSprites:
 		Image: mutheli
-	FallsToEarth:
-		Explosion: SmallPlaneExplode
 
 WETP.Husk:
 	Inherits: ^AircraftHusk
@@ -219,8 +216,6 @@ WASP.Husk:
 		QuantizedFacings: 32
 	RenderSprites:
 		Image: wasp
-	FallsToEarth:
-		Explosion: SmallPlaneExplode
 
 CABDRONEJET.Husk:
 	Inherits: ^AircraftHusk
@@ -238,8 +233,6 @@ CABDRONEJET.Husk:
 		QuantizedFacings: 32
 	RenderSprites:
 		Image: cabdronejet
-	FallsToEarth:
-		Explosion: SmallPlaneExplode
 
 DEVOURER.Husk:
 	Inherits: ^BigAircraftHusk

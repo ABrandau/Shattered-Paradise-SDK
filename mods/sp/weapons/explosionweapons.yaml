@@ -54,15 +54,43 @@ SmallPlaneExplode:
 		Damage: 5000
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		InvalidTargets: Air
+	Warhead@1: FireShrapnel
+		Amount: 3
+		Weapon: SmallPlaneExplosion
+		ValidTargets: Ground, Air, Water, Airhit
+
+SmallPlaneExplosion:
+	Range: 1c0
+	Min: 0c200
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Mediuml_Clsn
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
 
 DestroyerExplode:
 	Inherits: ^ExploDefaults
-	Inherits@2: ^Mediuml_Clsn
+	Inherits@2: ^Large_Explosion
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c400
 		Damage: 5000
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		InvalidTargets: Air
+	Warhead@1: FireShrapnel
+		Amount: 6
+		Weapon: DestroyerExplosion
+		ValidTargets: Ground, Air, Water, Airhit
+
+DestroyerExplosion:
+	Range: 1c0
+	Min: 0c400
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Large_Explosion
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
 
 BattleshipExplode:
 	Inherits: ^ExploDefaults
@@ -72,9 +100,23 @@ BattleshipExplode:
 		Damage: 10000
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		InvalidTargets: Air
+	Warhead@1: FireShrapnel
+		Amount: 8
+		Weapon: BattleshipExplosion
+		ValidTargets: Ground, Air, Water, Airhit
+
+BattleshipExplosion:
+	Range: 1c0
+	Min: 0c600
+	Inherits: ^ExploDefaults
+	Inherits@2: ^GreyExplo
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
 
 DracheExplode:
-    ^Inherits: BattleshipExplode
+	^Inherits: BattleshipExplode
 	Warhead@1Dam: SpreadDamage
 		Damage: 8000
 
@@ -369,11 +411,11 @@ BuildingCriticalDamageFireSmall:
 DefenceCriticalDamageFireSpawner:
 	Inherits: BuildingCriticalDamageFireSpawner
 	ReloadDelay: 250
-   	Warhead@op: FireShrapnel
+	Warhead@op: FireShrapnel
 		Weapon: DefenceCriticalDamageFireSmall
 
 DefenceCriticalDamageFireSmall:
-  	Inherits: BuildingCriticalDamageFireSmall
+	Inherits: BuildingCriticalDamageFireSmall
 	Range: 0c400
 
 DummyWeapon:
