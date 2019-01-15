@@ -768,17 +768,17 @@
 
 ^DamagedByTintedCells: #Damage = DamageCoeff * RadioactivityLevel / MaxLevel
 	DamagedByTintedCells@Default:
-		DamageCoeff: 3000
+		Damage: 3000
 		DamageTypes: TiberiumDeath
 		DamageInterval: 25
 		RequiresCondition: !(VanguardShield && BreakShield <= 4)
 	DamagedByTintedCells@OrangeRadiation:
-		DamageCoeff: 2500
+		Damage: 2500
 		DamageTypes: FireDeath
 		LayerName: OrangeRadiation
 		DamageInterval: 25
 	DamagedByTintedCells@Colossus:
-		DamageCoeff: 7000
+		Damage: 7000
 		DamageTypes: BulletDeath
 		LayerName: ColossusRadiation
 		DamageInterval: 25
@@ -1241,7 +1241,7 @@
 		Terrain: Tiberium, BlueTiberium
 		DamageTypes: TiberiumDeath
 	DamagedByTintedCells@OrangeRadiation:
-		DamageCoeff: 20000
+		Damage: 30000
 	DrawLineToTarget:
 	DeathSounds@NORMAL:
 		DeathTypes: BulletDeath, SmallExplosionDeath, ExplosionDeath, CabalDeath, CabalDeathCrate, BlackHandRfle, HeadshotDeath, SmallExplosionDeath, TiberiumDeath
@@ -1905,7 +1905,7 @@
 	Inherits: ^Helicopter
 	Inherits@0: ^GainsExperience
 	Rearmable:
-        RearmActors: nahpad, gahpad, muair, scrair, cabair
+		RearmActors: nahpad, gahpad, muair, scrair, cabair
 
 ^Plane:
 	Inherits: ^Aircraft
@@ -1913,6 +1913,8 @@
 	Aircraft:
 		LandWhenIdle: False
 	ReturnOnIdle:
+	Rearmable:
+		RearmActors: nahpad, gahpad, muair, scrair, cabair
 
 ^CombatPlane:
 	Inherits: ^Plane

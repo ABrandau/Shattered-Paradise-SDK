@@ -4,8 +4,6 @@ MarauderShotgun:
 	ReloadDelay: 40
 	Range: 3c512
 	Report: shotfire.wav
-		Image: 120mm
-		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
@@ -434,6 +432,14 @@ TiberianRocketClean:
 		ExplosionPalette: gensmkexploj
 		InvalidTargets: Water
 		ValidTargets: Ground, Air
+
+DemoTruckDummyWeapon:
+	ReloadDelay: 100
+	Range: 1c512
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+		DamageTypes: BulletDeath
 
 MiniNuke:
 	Inherits: ClusterMissile

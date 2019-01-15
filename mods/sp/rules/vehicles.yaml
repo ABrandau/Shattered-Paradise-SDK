@@ -940,7 +940,18 @@ BIKE:
 	Explodes:
 		Weapon: BikeExplo
 		EmptyWeapon: BikeExplo
-	AttackSuicides:
+	GrantConditionOnDeploy@DemoTruck:
+		DeployedCondition: DetonateDemoTruck
+	ExternalCondition@DetonateDemoTruck:
+		Condition: DetonateDemoTruck
+	GrantConditionOnAttack@DemoTruck:
+		Condition: DetonateDemoTruck
+	KillsSelf@DemoTruck:
+		RemoveInstead: False
+		RequiresCondition: DetonateDemoTruck
+	Armament@DemoTruck:
+		Weapon: DemoTruckDummyWeapon
+	AttackOmni:
 		PauseOnCondition: empdisable
 	WithDecoration@TNT:
 		Image: bombicon
@@ -1435,10 +1446,21 @@ HVRTRUK3:
 		Locomotor: Hover
 	Health:
 		HP: 12500
+	GrantConditionOnDeploy@DemoTruck:
+		DeployedCondition: DetonateDemoTruck
+	ExternalCondition@DetonateDemoTruck:
+		Condition: DetonateDemoTruck
+	GrantConditionOnAttack@DemoTruck:
+		Condition: DetonateDemoTruck
+	KillsSelf@DemoTruck:
+		RemoveInstead: False
+		RequiresCondition: DetonateDemoTruck
+	Armament@DemoTruck:
+		Weapon: DemoTruckDummyWeapon
 	Explodes:
 		Weapon: MiniNuke
 		EmptyWeapon: MiniNuke
-	AttackSuicides:
+	AttackOmni:
 		PauseOnCondition: empdisable
 	WithDecoration@TNT:
 		Image: bombicon
