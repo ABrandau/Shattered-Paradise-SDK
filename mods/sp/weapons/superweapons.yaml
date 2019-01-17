@@ -78,8 +78,8 @@ RadarScanWeapon:
 
 IonCannon: ### THIS IS THE MAIN ION CANON WEAPON
 	Inherits: ^SWBaseEffects
-	ValidTargets: Ground, Water, Air, IonBeam
-	Projectile: InstantExplode
+	ReloadDelay: 100
+	ValidTargets: Ground, Air
 	Report: ion1.aud
 	Warhead@1Dam_area: SpreadDamage
 		Spread: 1c0
@@ -95,34 +95,27 @@ IonCannon: ### THIS IS THE MAIN ION CANON WEAPON
 		Weapon: LargeDebris
 		Amount: 6
 		AllowDirectHit: false
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+		ValidTargets: Ground, Air
 	Warhead@3Effect: CreateEffect
 		Explosions: ionring
 	Warhead@4Effect: CreateEffect
 		Explosions: ionbeam
 		ExplosionPalette: effect-ignore-lighting-alpha75
-		ImpactSoundss: ion1.aud
-		VictimScanRadius: 0
 	Warhead@5Effect: CreateEffect
 		Explosions: ionbeam2
 		ExplosionPalette: effect-ignore-lighting-alpha75
-		VictimScanRadius: 0
 	Warhead@6Effect: CreateEffect
 		Explosions: ionbeam3
 		ExplosionPalette: effect-ignore-lighting-alpha75
-		VictimScanRadius: 0
 	Warhead@7Effect: CreateEffect
 		Explosions: ionbeam4
 		ExplosionPalette: effect-ignore-lighting-alpha75
-		VictimScanRadius: 0
 	Warhead@8Effect: CreateEffect
 		Explosions: ionbeam5
 		ExplosionPalette: effect-ignore-lighting-alpha75
-		VictimScanRadius: 0
 	Warhead@9Effect: CreateEffect
 		Explosions: ionbeam6
 		ExplosionPalette: effect-ignore-lighting-alpha75
-		VictimScanRadius: 0
 
 IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 	ReloadDelay: 6 
@@ -260,7 +253,7 @@ droppod1:
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 3
 	Range: 3c0
-    Report: tsgun4.aud
+	Report: tsgun4.aud
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
 	Projectile: BulletAS
 		Speed: 350
@@ -402,10 +395,10 @@ ClusterMissile:
 	Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
 		Range: 6c0
 	Warhead@8Radio: CreateTintedCells
-		Spread: 2c0
-		Level: 750
-		Falloff: 100, 100, 60, 40, 20, 5
-		MaxLevel: 750
+		Spread: 1c512
+		Level: 1500
+		Falloff: 100, 100, 80, 70, 60, 50, 40, 30, 20, 10
+		MaxLevel: 2000
 		LayerName: OrangeRadiation
 
 NukeFlame:

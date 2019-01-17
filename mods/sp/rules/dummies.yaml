@@ -57,7 +57,7 @@ RADARSCANDUMMY:
 		Step: -1
 		Delay: 25
 		HealIfBelow: 200
-    Selectable:
+	Selectable:
 		Bounds: 1,1
 	WithSpriteBody:
 		Sequence: idle
@@ -79,7 +79,7 @@ IONBEAMTARGET:
 		HealIfBelow: 200
 	Targetable:
 		TargetTypes: IonSpawner
-    Selectable:
+	Selectable:
 		Bounds: 1,1
 	ShakeOnDeath:
 	RejectsOrders@berserk:
@@ -91,38 +91,8 @@ IONBEAMTARGET:
 	Explodes:
 		Weapon: IonCannon
 		EmptyWeapon: IonCannon
-	WithDeathAnimation@1:
-		UseDeathTypeSuffix: false
-		DeathSequence: ionbeam
-		DeathSequencePalette: effectalpha
-		DeathPaletteIsPlayerPalette: false
-	WithDeathAnimation@2:
-		UseDeathTypeSuffix: false
-		DeathSequence: ionbeam2
-		DeathSequencePalette: effectalpha
-		DeathPaletteIsPlayerPalette: false
-	WithDeathAnimation@3:
-		UseDeathTypeSuffix: false
-		DeathSequence: ionbeam3
-		DeathSequencePalette: effectalpha
-		DeathPaletteIsPlayerPalette: false
-	WithDeathAnimation@4:
-		UseDeathTypeSuffix: false
-		DeathSequence: ionbeam4
-		DeathSequencePalette: effectalpha
-		DeathPaletteIsPlayerPalette: false
-	WithDeathAnimation@5:
-		UseDeathTypeSuffix: false
-		DeathSequence: ionbeam5
-		DeathSequencePalette: effectalpha
-		DeathPaletteIsPlayerPalette: false
-	WithDeathAnimation@6:
-		UseDeathTypeSuffix: false
-		DeathSequence: ionbeam6
-		DeathSequencePalette: effectalpha
-		DeathPaletteIsPlayerPalette: false
 	RevealOnDeath:
-		Duration: 100
+		Duration: 200
 		Radius: 4c0
 
 IONBEAMMINI:
@@ -308,10 +278,10 @@ NANOMACHINEBURSTSPAWNER:
 		SkipMakeAnimations: false
 		EffectiveOwnerFromOwner: True
 		OwnerType: Victim
-    AmbientSound:
-        SoundFiles: nanomachine0000.wav, nanomachine0001.wav, nanomachine0002.wav, nanomachine0003.wav, nanomachine0004.wav
-        Delay: 0, 5
-        Interval: 0, 5
+	AmbientSound:
+		SoundFiles: nanomachine0000.wav, nanomachine0001.wav, nanomachine0002.wav, nanomachine0003.wav, nanomachine0004.wav
+		Delay: 0, 5
+		Interval: 0, 5
 
 NANOMACHINEBURSTDUMMY:
 	Inherits: ^DUMMYAIRCRAFT
