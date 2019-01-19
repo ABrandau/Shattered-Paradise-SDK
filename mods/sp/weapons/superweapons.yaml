@@ -409,7 +409,7 @@ ClusterMissile:
 	Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
 		Range: 6c0
 	Warhead@8Radio: CreateTintedCells
-		Spread: 1c512
+		Spread: 1c0
 		Level: 1500
 		Falloff: 100, 100, 80, 70, 60, 50, 40, 30, 20, 10
 		MaxLevel: 2000
@@ -471,9 +471,14 @@ ToxinMissile:
 		FallRate: 5000
 		Range: 3
 	Warhead@3Radio: CreateTintedCells
-		Level: 600
-		Spread: 0c768
-		MaxLevel: 1000
+		Level: 500
+		Spread: 1c512
+		Falloff: 100, 60, 30, 15
+	Warhead@4Radio: CreateTintedCells
+		Level: 500
+		Spread: 1c512
+		Delay: 50
+		Falloff: 100, 60, 30, 15
 
 MeteorSpawner:
 	ReloadDelay: 200
