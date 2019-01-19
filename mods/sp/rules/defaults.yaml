@@ -768,18 +768,21 @@
 
 ^DamagedByTintedCells: #Damage = DamageCoeff * RadioactivityLevel / MaxLevel
 	DamagedByTintedCells@Default:
-		Damage: 1000
+		Damage: 30
 		DamageTypes: TiberiumDeath
 		DamageInterval: 25
+		DamageLevel: 5
 		RequiresCondition: !(VanguardShield && BreakShield <= 4)
 	DamagedByTintedCells@OrangeRadiation:
-		Damage: 1500
+		Damage: 10
 		DamageTypes: FireDeath
 		LayerName: OrangeRadiation
+		DamageLevel: 5
 		DamageInterval: 25
 	DamagedByTintedCells@Colossus:
-		Damage: 7000
+		Damage: 60
 		DamageTypes: BulletDeath
+		DamageLevel: 5
 		LayerName: ColossusRadiation
 		DamageInterval: 25
 
@@ -1241,7 +1244,7 @@
 		Terrain: Tiberium, BlueTiberium
 		DamageTypes: TiberiumDeath
 	DamagedByTintedCells@OrangeRadiation:
-		Damage: 3000
+		Damage: 20
 	DrawLineToTarget:
 	DeathSounds@NORMAL:
 		DeathTypes: BulletDeath, SmallExplosionDeath, ExplosionDeath, CabalDeath, CabalDeathCrate, BlackHandRfle, HeadshotDeath, SmallExplosionDeath, TiberiumDeath
