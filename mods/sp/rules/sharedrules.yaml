@@ -823,7 +823,7 @@ NAPOST:
 	Valued:
 		Cost: 100
 	Tooltip:
-		Name: Laser Fence
+		Name: Laser Fence Section
 	Health:
 		HP: 30000
 	BlocksProjectiles:
@@ -850,13 +850,13 @@ NAPOST:
 	Power:
 		Amount: -5
 	WithIdleOverlay@LIGHTS:
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled && !Building-Buildup
 		Sequence: lights
 	WithIdleOverlay@CHAINOFLIGHTS:
 		RequiresCondition: !disabled
 		Sequence: chainoflights
 	LineBuildSegmentExternalCondition:
-		RequiresCondition: !disabled && !Building-Buildup
+		RequiresCondition: !disabled && !empdisable
 		Condition: active-posts
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:

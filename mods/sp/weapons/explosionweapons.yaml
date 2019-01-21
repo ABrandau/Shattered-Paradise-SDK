@@ -165,6 +165,18 @@ UnitExplodeSmall:
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
+QueenExplode:
+	Warhead@1Dam: SpreadDamage
+		Spread: 213
+		Damage: 1
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: QueenExplo
+		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
+		ExplosionPalette: apolredalpha
+		InvalidTargets: Water
+		ValidTargets: Ground, Air
+
 UnitExplode:
 	Inherits: ^ExploDefaults
 	Warhead@1Dam: SpreadDamage

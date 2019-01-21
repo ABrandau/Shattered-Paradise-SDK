@@ -899,7 +899,7 @@ NASTLH:
 		EnableSound: cloak5.aud
 		DisableSound: cloak5.aud
 		AffectsParent: false
-		RequiresCondition: !disabled && !Building-Buildup
+		RequiresCondition: !disabled && !Building-Buildup && !empdisable
 	Cloak@CLOAKGENERATOR:
 		RequiresCondition: HolaSoyVinceConSlapShopMiraLaPapaUnCorteNoSePuedeCortar
 	Power:
@@ -1099,7 +1099,7 @@ SCREXTRACTOR:
 		Condition: VanguardShield
 		Range: 8c0
 		AffectsParent: false
-		RequiresCondition: !disabled && !Building-Buildup
+		RequiresCondition: !disabled && !Building-Buildup && !empdisable
 	WithRangeCircle:
 		Range: 8c0
 		Type: VanguardShield
@@ -1186,10 +1186,10 @@ CABEYE:
 		Type: cabeye
 	CreatesShroud:
 		Range: 11c0
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled && !empdisable
 	RevealsShroud@asd:
 		Range: 18c0
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled && !empdisable
 	Selectable:
 		Bounds: 90, 124, 0, -40
 		DecorationBounds: 90, 124, 0, -40
