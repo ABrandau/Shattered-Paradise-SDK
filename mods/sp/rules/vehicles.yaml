@@ -943,6 +943,7 @@ BIKE:
 	GrantConditionOnDeploy@DemoTruck:
 		DeployedCondition: DetonateDemoTruck
 		CanDeployOnRamps: True
+		RequiresCondition: !empdisable
 	ExternalCondition@DetonateDemoTruck:
 		Condition: DetonateDemoTruck
 	GrantConditionOnAttack@DemoTruck:
@@ -1450,6 +1451,7 @@ HVRTRUK3:
 	GrantConditionOnDeploy@DemoTruck:
 		DeployedCondition: DetonateDemoTruck
 		CanDeployOnRamps: True
+		RequiresCondition: !empdisable
 	ExternalCondition@DetonateDemoTruck:
 		Condition: DetonateDemoTruck
 	GrantConditionOnAttack@DemoTruck:
@@ -1600,6 +1602,7 @@ SCRRECHARGER:
 		Weapon: VanguardShrapnel
 		TargetStances: Ally
 	ProximityExternalCondition@VanguardShield:
+		RequiresCondition: !empdisable
 		Condition: VanguardShield
 		Range: 4c0
 		AffectsParent: false

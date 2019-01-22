@@ -323,6 +323,13 @@ MUBUNKR:
 	-SpawnActorsOnSell@cab:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
+	-WithColoredOverlay@EMPDISABLE:
+	-TimedConditionBar@EMPDISABLE:
+	-SpeedMultiplier@WebDisable:
+	-WithIdleOverlay@EMPDISABLE:
+	-PowerMultiplier@EMPDISABLE:
+	-ExternalCondition@empdisable:
+	-ExternalCondition@notmobile:
 
 MUBUNKRFULL:
 	Inherits: MUBUNKR
@@ -371,7 +378,7 @@ MUCANNON:
 		Weapon: ForgottenCannonWeapon
 		MuzzleSequence: muzzle
 		LocalOffset: 1400,0,700
-		RequiresCondition: !Building-Buildup
+		RequiresCondition: !Building-Buildup && !empdisable
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -415,7 +422,7 @@ MUFLAK:
 		MuzzleSequence: muzzle
 		MuzzlePalette: apgrey
 		LocalOffset: 450,0,300
-		RequiresCondition: !Building-Buildup
+		RequiresCondition: !Building-Buildup && !empdisable
 	RequiresBuildableArea:
 		AreaTypes: building
 	-WithColoredOverlay@IDISABLE:
@@ -776,15 +783,11 @@ GAFIRE:
 		CooldownTicks: 2250
 		StartsFullyCharged: False
 		DeployedTicks: 300
-		RequiresCondition: !disabled
-	ExplodeWeapon:
-		Weapon: FirestormWallUpgrade
-		RequiresCondition: FirestormGen
-		ResetReloadWhenEnabled: false
+		RequiresCondition: !disabled && !empdisable
 	ExplodeWeapon@1:
 		Weapon: FirestormSpawner
-		RequiresCondition: FirestormGen
 		ResetReloadWhenEnabled: false
+		RequiresCondition: FirestormGen && !disabled && !empdisable
 	Selectable:
 		Bounds: 110, 60, 3, -4
 		DecorationBounds: 110, 60, 3, -4
