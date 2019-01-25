@@ -2245,7 +2245,11 @@
 	-GivesBuildableArea:
 	-MustBeDestroyed:
 	-WithSpriteBody:
+	WithMakeAnimation:
+		PauseOnCondition: !Building-Buildup
 	WithGateSpriteBody:
+		PauseOnCondition: !Building-Buildup
+		OpenSequence: idle
 	Tooltip:
 		Description: Automated barrier that opens for allied units.
 	Building:
@@ -2261,6 +2265,7 @@
 		RequiresCondition: powerdown
 		ReferencePoint: Center
 	Gate:
+		PauseOnCondition: empdisable || disabled || Building-Buildup
 		OpeningSound: gateup1.aud
 		ClosingSound: gatedwn1.aud
 		BlocksProjectilesHeight: 640
