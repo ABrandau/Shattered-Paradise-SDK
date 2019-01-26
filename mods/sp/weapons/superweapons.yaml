@@ -139,7 +139,7 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 	Warhead@Spawn: SpawnActor
 		Actors: ionbeamtarget
 		Range: 3
-	Warhead@Nuke: SpawnSmokeParticle
+	Warhead@Ion: SpawnSmokeParticle
 		Weapon: IonCannon
 		Delay: 103
 		Duration: 5
@@ -672,9 +672,9 @@ FistRaiser:
 		ValidTargets: Ground, Water, Infantry, Vehicle, BlueTiberium, Tiberium, Air
 
 FistRaiserShrapnel
-    Inherits: FistRaiser
+	Inherits: FistRaiser
 	Range: 5c0
- 	MinRange: 2c0   
+	MinRange: 2c0
 	-Report:
 	-Warhead@op: FireShrapnel
 	Projectile: BulletAS
@@ -710,7 +710,7 @@ RecoveryGun:
 		DamageTypes: WorkerSummon
 		ValidTargets: KilledUnit
 
-IonStormSpawnerWeapon: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
+IonStormSpawnerWeapon: ### THIS ONE GENERATES THE ION STORM PARTICLE
 	Inherits: IonCannonSpawner
 	ReloadDelay: 6 
 	Range: 12c0
@@ -720,16 +720,13 @@ IonStormSpawnerWeapon: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 		Damage: 1
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 	-Warhead@op: FireShrapnel
-	Warhead@Spawn: SpawnActor
-		Actors: ionstormgenerator
-
-IonRaySpawner:
-	ReloadDelay: 10
-	Projectile: InstantExplode
-	Warhead@op: FireShrapnel
-		Weapon: IonRay
-		Amount: 1
-		AllowDirectHit: false
+	Warhead@Ion: SpawnSmokeParticle
+		Weapon: RandomBoltSpawner
+		Delay: 75
+		Duration: 275
+		Sequences: idle
+		Image: dot
+		Palette: effectalpha25
 
 RandomBoltSpawner:
 	ReloadDelay: 5

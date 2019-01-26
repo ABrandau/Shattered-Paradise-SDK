@@ -331,36 +331,6 @@ EGGSPAWNER:
 		Probability: 100
 		OwnerType: Victim
 
-IONSTORMGENERATOR:
-	Inherits: ^DUMMYAIRCRAFT
-	SelfHealing:
-		Step: -1
-		Delay: 25
-		HealIfBelow: 200
-	RevealsShroud:
-		Range: 8c0
-	Health:
-		HP: 11
-		NotifyAppliedDamage: False
-	ExplodeWeapon:
-		Weapon: RandomBoltSpawner
-		RequiresCondition: ChargeUp
-	GrantPeriodicCondition:
-		Condition: ChargeUp
-		CooldownDuration: 75
-		ActiveDuration: 9999
-
-IONSTORMRANDOMBOLT:
-	Inherits: IONSTORMGENERATOR
-	Health:
-		HP: 1
-		NotifyAppliedDamage: False
-	-ExplodeWeapon:
-	Explodes:
-		Weapon: IonRay
-		Chance: 10
-		LoadedChance: 100
-
 VEINHOLESPAWNERDUMMY:
 	Inherits: ^Infantry
 	-Targetable:

@@ -394,6 +394,8 @@ GACNST:
 		ExitCell: 0,0
 	Production:
 		Produces: Infantry
+	ProductionBar@Infantry:
+		ProductionType: Infantry
 	PrimaryBuilding:
 	Power:
 		Amount: -20
@@ -427,7 +429,7 @@ GACNST:
 PROC:
 	Inherits: ^Building
 	Inherits@1: ^NormalRefineryHitShape
-    Inherits@2: ^RefineryHP
+	Inherits@2: ^RefineryHP
 	ProvidesPrerequisite:
 		Factions: gdi, cab, mut, nod
 		Prerequisite: proc
@@ -472,7 +474,7 @@ PROC:
 FLIPPEDPROC:
 	Inherits: ^Building
 	Inherits@1: ^FlippedRefineryHitshape
-    Inherits@2: ^RefineryHP
+	Inherits@2: ^RefineryHP
 	ProvidesPrerequisite:
 		Factions: gdi, cab, mut, nod, scr
 		Prerequisite: proc
