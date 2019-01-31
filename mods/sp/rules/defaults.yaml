@@ -1364,6 +1364,12 @@
 			EnergyDeath: body1, body2, body3, body4, body5
 			ExplosionDeath: body1, body2, body3, body4, body5
 	WithTextControlGroupDecoration:
+	Targetable@HEAL:
+		RequiresCondition: !inside-tunnel && damaged
+		TargetTypes: Heal
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
 
 ^Soldier:
 	Inherits@1: ^Infantry

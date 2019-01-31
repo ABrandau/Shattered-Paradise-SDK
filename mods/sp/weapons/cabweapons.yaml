@@ -261,8 +261,7 @@ CenturionVulcan:
 	Burst: 2
 	Range: 6c0
 	Report: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
-	Projectile: BulletAS
-		Speed: 1c682
+	Projectile: InstantHit
 		Inaccuracy: 0c512
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
@@ -274,12 +273,11 @@ RepairVehicleRep:
 	Range: 2c0
 	Report: repair11.aud
 	ValidTargets: Vehicle
-	Projectile: BulletAS
-		Speed: 1c682
+	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Spread: 80
 		Damage: -2500
-		ValidTargets: Vehicle
+		ValidTargets: Vehicle, Repair
 
 DroneHostMissile:
 	Inherits: ^RocketWarhead

@@ -77,8 +77,8 @@ Heal:
 	Range: 3c0
 	Report: healer1.aud
 	ValidTargets: Infantry, Jumpjet
-	Projectile: BulletAS
-		Speed: 1c682
+	TargetActorCenter: True
+	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		DebugOverlayColor: 00FF00
 		Spread: 350
@@ -86,7 +86,7 @@ Heal:
 		Versus:
 			VehicleArmor: 60
 			DefenseArmor: 60
-		ValidTargets: Infantry, Jumpjet
+		ValidTargets: Infantry, Jumpjet, Heal
 
 TrooperRail:
 	Inherits: ^APWarhead
