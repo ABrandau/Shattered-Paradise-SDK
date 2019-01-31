@@ -257,6 +257,7 @@
 			200: rank-veteran
 			400: rank-veteran
 			800: rank-veteran
+		LevelUpImage: crate-effects
 	GrantCondition@RANK-ELITE:
 		RequiresCondition: rank-veteran >= 3
 		Condition: rank-elite
@@ -947,10 +948,11 @@
 
 ^ProducesStuff:
 	WithTextDecoration@primary:
+		RequiresSelection: true
 		Text: PRIMARY
 		ReferencePoint: Top
 		Color: E0D048
-		ZOffset: 9999
+		ZOffset: 256
 		RequiresCondition: primary
 	PrimaryBuilding:
 		PrimaryCondition: primary
@@ -1043,6 +1045,7 @@
 		BeingCapturedCondition: being-captured
 	Capturable:
 		Types: Building
+		RequiresCondition: !Building-Buildup
 	CapturableProgressBar:
 	CapturableProgressBlink:
 	GivesExperience:

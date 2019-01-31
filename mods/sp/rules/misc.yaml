@@ -73,19 +73,31 @@ colorpicker:
 CRATE:
 	Inherits: ^Crate
 	GiveCashCrateAction:
-		Amount: 1000
-		SelectionShares: 50
+		Amount: 2000
+		SelectionShares: 20
 		Effect: dollar
 		UseCashTick: true
+	SupportPowerCrateAction@nuke:
+		SelectionShares: 5
+		Proxy: NukeCrateDummy
+		Sequence: nuke
+	SupportPowerCrateAction@trollnuke:
+		SelectionShares: 1
+		Proxy: HealerNukeDummy
+		Sequence: nuke
+	ExplodeCrateAction:
+		Weapon: ToxinMissile
+		SelectionShares: 5
 	LevelUpCrateAction:
 		SelectionShares: 40
 		Effect: levelup
+    DuplicateUnitCrateAction:
+		MaxAmount: 4
+		SelectionShares: 20
+		Effect: levelup
 	HideMapCrateAction:
-		SelectionShares: 5
-		Effect: hide-map
-	HealUnitsCrateAction:
-		SelectionShares: 2
-		Effect: heal
+		SelectionShares: 1
+		Sequence: hide-map
 	RevealMapCrateAction:
 		SelectionShares: 1
 		Effect: reveal-map
@@ -118,21 +130,21 @@ CRATE:
 		SelectionShares: 5
 		Effect: stealth
 		Condition: cloakgenerator
-		Notification: cloak5.aud
+		Notification: UnitFirepowerUpgraded
 	GrantExternalConditionCrateAction@firepower:
 		SelectionShares: 5
 		Effect: firepower
 		Condition: firepowercrate
-		Notification: 00-i070.aud
+		Notification: UnitArmourUpgraded
 	GrantExternalConditionCrateAction@armor:
 		SelectionShares: 5
 		Effect: armor
 		Condition: damagecrate
-		Notification: 00-i068.aud
+		Notification: UnitArmourUpgraded
 	GrantExternalConditionCrateAction@speed:
 		SelectionShares: 5
 		Condition: speedcrate
-		Notification: 00-i080.aud
+		Notification: UnitSpeedUpgraded
 
 SROCK01:
 	Inherits: ^Rock

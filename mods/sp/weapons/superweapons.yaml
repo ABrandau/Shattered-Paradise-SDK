@@ -415,6 +415,24 @@ ClusterMissile:
 		MaxLevel: 2000
 		LayerName: OrangeRadiation
 
+HealerNuke
+    Inherits: ClusterMissile
+	Warhead@ImpactDamage0: SpreadDamage
+		Damage: -320000
+	Warhead@ClusterDamage3: SpreadDamage
+		Damage: -470000
+	Warhead@7Dam_areanukeb: SpreadDamage
+		Damage: -20000
+	Warhead@Shake: ScreenShaker
+		Intensity: 999
+		Duration: 100
+	-Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
+	Warhead@SoundEffect0: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@8Radio: CreateTintedCells
+		MaxLevel: 10
+		Spread: 3c0
+
 NukeFlame:
 	Inherits: ^FlameWarhead
 	Inherits@2: ^FlameScorch

@@ -148,10 +148,20 @@ dig:
 
 dot:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Length: *
 	idle:
 		UseTilesetExtension: false
-		Length: *
 		Offset: 0,99999
+	idle:
+	active:
+	damaged-idle:
+	dead:
+	idle-lights: 
+	damaged-idle-lights: nttmpl_a
+	make: 
+	emp-overlay: 
+	icon:
 
 lgrysmk1:
 	defaults:
@@ -564,6 +574,15 @@ radarscananim:
 		Length: *
 
 clustermissile:
+	up: atnukemini
+		ZOffset: 1023
+		Offset: 0,-45, 45
+	down: atnukemini
+		Start: 1
+		ZOffset: 1023
+		Offset: 0,-50
+
+healernuke:
 	up: atnukemini
 		ZOffset: 1023
 		Offset: 0,-45, 45
