@@ -1257,6 +1257,11 @@ PDRONE:
 			EnergyDeath: 6
 	-WithIdleOverlay@web:
 	-ExternalCondition@WebDisable:
+	KillsSelf@hoverunitonwater:
+		RequiresCondition: hoverunitonwater && WebDisable
+	GrantConditionOnTerrain:
+		Condition: hoverunitonwater
+		TerrainTypes: Water
 
 GLAD:
 	Inherits: ^Cyborg
@@ -1341,7 +1346,7 @@ MOTH:
 		RequiresCondition: !deployed
 	Mobile:
 		Speed: 80
-        Locomotor: HoverInfantry
+		Locomotor: HoverInfantry
 		RequiresCondition: !deployed && !WebDisable
 	LeavesTrails:
 		Image: wake
@@ -1540,7 +1545,7 @@ FLAMEGUY:
 	Inherits@3: ^1x1Shape
 	Mobile:
 		Speed: 60
-        Locomotor: Infantry
+		Locomotor: Infantry
 	HiddenUnderFog:
 	WithInfantryBody:
 		IdleSequences: run
