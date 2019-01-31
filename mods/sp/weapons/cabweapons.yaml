@@ -272,12 +272,14 @@ RepairVehicleRep:
 	ReloadDelay: 60
 	Range: 2c0
 	Report: repair11.aud
+	InvalidTargets: FullHealth
 	ValidTargets: Vehicle
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Spread: 80
 		Damage: -2500
-		ValidTargets: Vehicle, Repair
+		ValidTargets: Vehicle
+		InvalidTargets: FullHealth
 
 DroneHostMissile:
 	Inherits: ^RocketWarhead

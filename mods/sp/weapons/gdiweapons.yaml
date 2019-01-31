@@ -77,6 +77,7 @@ Heal:
 	Range: 3c0
 	Report: healer1.aud
 	ValidTargets: Infantry, Jumpjet
+	InvalidTargets: FullHealth
 	TargetActorCenter: True
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
@@ -86,7 +87,8 @@ Heal:
 		Versus:
 			VehicleArmor: 60
 			DefenseArmor: 60
-		ValidTargets: Infantry, Jumpjet, Heal
+		ValidTargets: Infantry, Jumpjet
+        InvalidTargets: FullHealth
 
 TrooperRail:
 	Inherits: ^APWarhead
