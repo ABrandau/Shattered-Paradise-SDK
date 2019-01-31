@@ -14,51 +14,67 @@ Player:
 		Type: Building
 		LowPowerSlowdown: 2
 		QueuedAudio: Building
+		OnHoldAudio: OnHold
 		BuildDurationModifier: 100
 		ReadyAudio: ConstructionComplete
 		SpeedUp: True
+		CancelledAudio: Cancelled
 		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
 	ClassicProductionQueue@Defense:
 		Type: Defense
 		LowPowerSlowdown: 2
 		QueuedAudio: Building
+		OnHoldAudio: OnHold
 		BuildDurationModifier: 100
 		ReadyAudio: ConstructionComplete
 		SpeedUp: True
+		CancelledAudio: Cancelled
 		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
 	ClassicProductionQueue@Vehicle:
 		Type: Vehicle
 		LowPowerSlowdown: 2
 		QueuedAudio: Building
+		OnHoldAudio: OnHold
 		BuildDurationModifier: 100
 		ReadyAudio: UnitReady
 		SpeedUp: True
+		CancelledAudio: Cancelled
 		BuildTimeSpeedReduction: 100, 90, 75, 50
 	ClassicProductionQueue@Infantry:
 		Type: Infantry
 		LowPowerSlowdown: 2
 		QueuedAudio: Building
+		OnHoldAudio: OnHold
 		ReadyAudio: UnitReady
 		SpeedUp: True
+		CancelledAudio: Cancelled
 		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
 	ClassicProductionQueue@Air:
 		Type: Air
 		BuildDurationModifier: 100
 		LowPowerSlowdown: 2
 		QueuedAudio: Building
+		OnHoldAudio: OnHold
 		ReadyAudio: UnitReady
 		SpeedUp: True
+		CancelledAudio: Cancelled
 		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
 	PlaceBuilding:
 		Palette: placebuilding
+		NewOptionsNotification: NewOptions
 	SupportPowerManager:
 	ScriptTriggers:
 	MissionObjectives:
+		WinNotification: Win
+		LoseNotification: Lose
+		LeaveNotification: Leave
 	ConquestVictoryConditions:
 	ConditionManager:
 	PowerManager:
 	AllyRepair:
 	PlayerResources:
+		CashTickUpNotification: CashTickUp
+		CashTickDownNotification: CashTickDown
 	DeveloperMode:
 		CheckboxEnabled: false
 		CheckboxDisplayOrder: 8

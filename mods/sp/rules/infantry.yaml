@@ -1221,14 +1221,13 @@ PDRONE:
 	Mobile:
 		Speed: 80
 		-RequiresCondition: WebDisable
-        Locomotor: HoverInfantry
+		Locomotor: HoverInfantry
 	Health:
 		HP: 11000
 	WithInfantryBody:
 		IdleSequences: idle1, idle2
 		AttackSequences: shoot
 		DefaultAttackSequence: fire
-		-RequiresCondition: !WebDisable
 	AutoTarget:
 		ScanRadius: 8
 		InitialStance: AttackAnything
@@ -1237,8 +1236,6 @@ PDRONE:
 		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
-	-WithColoredOverlay@WebDisable:
-	-TimedConditionBar@WebDisable:
 	WithDeathAnimation@normal:
 		DeathTypes:
 			BulletDeath: 1
