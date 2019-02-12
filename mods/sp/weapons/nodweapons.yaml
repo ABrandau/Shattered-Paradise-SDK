@@ -96,19 +96,18 @@ TemplarLasor:
 		Damage: 2400
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
-BHRifle:
+ToxinCommandoRifle:
 	Inherits: ^RifleWarhead
 	ReloadDelay: 100
 	Range: 10c0
 	Report: ramjetfire.wav
 	ValidTargets: Infantry, LandedAircraft, Ground
-	Projectile: BulletAS
-		Speed: 100c0
+	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Damage: 7500
 		ValidTargets: Infantry, LandedAircraft, Ground
 		Versus:
-			InfantryArmor: 400
+			InfantryArmor: 670
 			BuildingArmor: 5
 			DefenseArmor: 5
 			VehicleArmor: 5
@@ -498,7 +497,7 @@ CerberusLazor:
 
 TurretLaserFire:
 	Inherits: ^FullDamage
-	ReloadDelay: 35
+	ReloadDelay: 30
 	Range: 6c768
 	Report: lastur1.aud
 	Projectile: LaserZap

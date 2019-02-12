@@ -321,15 +321,6 @@
 		RequiresCondition: rank-elite
 		ZOffset: 256
 		ValidStances: Ally, Enemy, Neutral
-	GivesExperienceMultiplier@RANK-1:
-		Modifier: 150
-		RequiresCondition: rank-veteran == 1
-	GivesExperienceMultiplier@RANK-2:
-		Modifier: 200
-		RequiresCondition: rank-veteran == 2
-	GivesExperienceMultiplier@RANK-ELITE:
-		Modifier: 250
-		RequiresCondition: rank-elite
 	Targetable@Academy:
 		TargetTypes: CanTakeVeterancyPower
 	GainsExperienceMultiplier@armory:
@@ -1124,7 +1115,7 @@
 
 ^AntiAir:
 	Inherits: ^Defence
-	Inherits@0: ^9CellVision
+	Inherits@0: ^5CellVision
 	RenderRangeCircle:
 		RangeCircleType: AA
 	RevealsShroud:
