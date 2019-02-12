@@ -355,22 +355,25 @@ GACNST:
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
-    CashTrickler:
+	CashTrickler:
 		Amount: 1000
 		RequiresCondition: AIReload
 
-^PowerPlant:
+^Powerplant:
 	Inherits: ^Building
 	ProvidesPrerequisite:
 		Prerequisite: anypower
 	ProvidesPrerequisite@buildingname:
-	InfiltrateForPowerOutage:
 	AffectedByPowerOutage:
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
 	ScalePowerWithHealth:
 	Health:
 		HP: 50000
+	Valued:
+		Cost: 300
+	Power:
+		Amount: 100
 
 ^Barracks:
 	Inherits: ^Building
@@ -430,9 +433,6 @@ PROC:
 	Inherits: ^Building
 	Inherits@1: ^NormalRefineryHitShape
 	Inherits@2: ^RefineryHP
-	ProvidesPrerequisite:
-		Factions: gdi, cab, mut, nod
-		Prerequisite: proc
 	Building:
 		Footprint: xx== xx== xx==
 		Dimensions: 4,3
@@ -463,11 +463,6 @@ PROC:
 		Description: Tiberium Refinery
 	RenderSprites:
 		Image: proc.gdi
-		FactionImages:
-			gdi: proc.gdi
-			nod: nawast
-			mut: proc.gdi
-			cab: proc.gdi
 	RequiresBuildableArea:
 		AreaTypes: building
 

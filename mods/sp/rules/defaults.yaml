@@ -698,7 +698,7 @@
 		Sequence: shield
 		IsPlayerPalette: true
 		Palette: cloakscrinshield
-		RequiresCondition: VanguardShield && BreakShield <= 4
+		RequiresCondition: VanguardShield && BreakShield <= 4 && !submerged
 	ExternalCondition@VanguardShield:
 		Condition: VanguardShield
 	ExternalCondition@BreakShield:
@@ -706,9 +706,9 @@
 	Targetable@Shield:
 		TargetTypes: ShieldedUnit
 		RequiresCondition: VanguardShield
-    Armor@Shield:
+	Armor@Shield:
 		RequiresCondition: VanguardShield && BreakShield <= 4
-        Type: Shield
+		Type: Shield
 
 ^GetsOneShotedbySuperweapons:
 	SelfHealing@GetsOneShotedbySuperweapons:
@@ -1329,7 +1329,7 @@
 	WithInfantryBody:
 		MinIdleDelay: 75
 		MaxIdleDelay: 250
-    TurnOnIdle:
+	TurnOnIdle:
 		MinDelay: 125
 		MaxDelay: 325
 	WithDeathAnimation@normal:
@@ -1782,7 +1782,7 @@
 	-WithFacingSpriteBody:
 
 ^SubterraneanVoxelVehicle:
-    Inherits: ^VoxelVehicle
+	Inherits: ^VoxelVehicle
 	Mobile:
 		TurnSpeed: 6
 		Speed: 90
