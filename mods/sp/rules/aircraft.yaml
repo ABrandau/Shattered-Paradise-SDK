@@ -622,6 +622,7 @@ STORMRIDER:
 	Inherits: ^CombatPlane
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@3: ^9CellVision
+	Inherits@4: ^ScrinAircratVoice
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
 		Cost: 800
@@ -634,8 +635,6 @@ STORMRIDER:
 		Prerequisites: ~scrair
 	Selectable:
 		Bounds: 30,24
-	Voiced:
-		VoiceSet: Deva
 	Hovers:
 	Aircraft:
 		MaximumPitch: 90
@@ -667,6 +666,7 @@ DRACHE:
 	Inherits: ^CombatHelicopter
 	Inherits@5: ^6CellVision
 	Inherits@2: ^ScrinRender
+	Inherits@4: ^ScrinAircratVoice
 	Inherits@Shadow: ^AircraftShadow
 	Buildable:
 		Queue: Air
@@ -682,8 +682,6 @@ DRACHE:
 		Priority: 4
 	Health:
 		HP: 60000
-	Voiced:
-		VoiceSet: Deva
 	Targetable@MindControlInmune:
 		TargetTypes: MindControlInmune
 	Aircraft:
@@ -724,13 +722,12 @@ SCRGLYDER1:
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^BasicStealthDetection
+	Inherits@4: ^ScrinAircratVoice
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
 		Cost: 900
 	Tooltip:
 		Name: Glider
-	Voiced:
-		VoiceSet: Deva
 	Selectable:
 		Bounds: 40,30
 	Transforms:
@@ -766,7 +763,8 @@ SCRDESTROYER:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@2: ^ScrinRender
-	Inherits@5: ^7CellVision
+	Inherits@3: ^7CellVision
+	Inherits@4: ^ScrinAircratVoice
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
 		Cost: 1200
@@ -777,8 +775,6 @@ SCRDESTROYER:
 		Queue: Air
 		BuildPaletteOrder: 9
 		Prerequisites: ~scrair, scrradr
-	Voiced:
-		VoiceSet: Deva
 	Selectable:
 		Bounds: 85,50,0,-12
 	AutoTarget:
@@ -819,8 +815,9 @@ SCRTRANS:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^9CellVision
 	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinAircratVoice
+	Inherits@4: ^LowerSelectionPriority
 	Inherits@Shadow: ^AircraftShadow
- 	Inherits@3: ^LowerSelectionPriority
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -830,8 +827,6 @@ SCRTRANS:
 		Queue: Air
 		Prerequisites: ~scrair, scrdepot
 		BuildPaletteOrder: 8
-	Voiced:
-		VoiceSet: Deva
 	Cargo:
 		Types: Infantry, Vehicle
 		MaxWeight: 10
@@ -867,7 +862,8 @@ SCRCARRIER:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@2: ^ScrinRender
-	Inherits@4: ^BasicStealthDetection
+	Inherits@3: ^BasicStealthDetection
+	Inherits@4: ^ScrinAircratVoice
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
 		Cost: 2200
@@ -878,8 +874,6 @@ SCRCARRIER:
 		Queue: Air
 		BuildPaletteOrder: 11
 		Prerequisites: ~scrair, scrtech
-	Voiced:
-		VoiceSet: Deva
 	Targetable@Essence:
 		TargetTypes: ScrinUnit
 	Selectable:
@@ -1006,6 +1000,7 @@ SCRBATTLESHIP:
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^PermanentSelfHeal
 	Inherits@4: ^CommandoIcon
+	Inherits@5: ^ScrinAircratVoice
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
 		Cost: 4000
@@ -1017,8 +1012,6 @@ SCRBATTLESHIP:
 		BuildPaletteOrder: 12
 		Prerequisites: ~scrair, scradvpowr
 		BuildLimit: 1
-	Voiced:
-		VoiceSet: Deva
 	Selectable:
 		Bounds: 90,55
 	Targetable@Essence:

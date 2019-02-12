@@ -79,8 +79,6 @@ GDIREF:
 		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.
 	FreeActor:
 		Actor: harv.gdi
-	RenderSprites:
-		-Image: proc.gdi
 	-WithIdleOverlay@REDLIGHTS:
 
 GDIREF2:
@@ -94,8 +92,6 @@ GDIREF2:
 		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.\n- Turned 180 degrees.
 	FreeActor:
 		Actor: harv.gdi
-	RenderSprites:
-		-Image: proc.gdi
 	-WithIdleOverlay@REDLIGHTS:
 
 GAWEAP:
@@ -350,16 +346,12 @@ NODREF:
 		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.
 	FreeActor:
 		Actor: harv.nod
-	RenderSprites:
-		-Image: proc.gdi
 	-WithIdleOverlay@REDLIGHTS:
 
 NODREF2:
 	Inherits: FLIPPEDPROC
 	Tooltip:
 		Name: Nod Refinery
-	RenderSprites:
-		-Image: proc.gdi
 	-WithIdleOverlay@REDLIGHTS:
 	Buildable:
 		Queue: Building
@@ -668,9 +660,6 @@ MUPROC:
 		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.
 	FreeActor:
 		Actor: harv.mut
-	RenderSprites:
-		PlayerPalette: playermut
-		Image: muproc
 	-WithIdleOverlay@REDLIGHTS:
 	Cloak@CLOAKGENERATOR:
 		Palette: cloakmut
@@ -692,8 +681,6 @@ MUPROC2:
 		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.\n- Turned 180 degrees.
 	FreeActor:
 		Actor: harv.mut
-	RenderSprites:
-		-Image: proc.gdi
 	-WithIdleOverlay@REDLIGHTS:
 
 MUWEAP:
@@ -930,11 +917,6 @@ SCRPROC:
 	ProvidesPrerequisite@buildingname:
 	-WithIdleOverlay@REDLIGHTS:
 	-WithDockedOverlay@flame:
-	ProvidesPrerequisite:
-		Factions: scr
-		Prerequisite: scrproc
-	RenderSprites:
-		Image: scrproc
 
 SCRPROC2:
 	Inherits: FLIPPEDPROC
@@ -942,8 +924,6 @@ SCRPROC2:
 	Inherits@3: ^ScrinDeathExplo
 	Tooltip:
 		Name: Scrin Refinery
-	RenderSprites:
-		-Image: proc.gdi
 	-WithIdleOverlay@REDLIGHTS:
 	-WithDockedOverlay@flame:
 	Buildable:
@@ -952,9 +932,6 @@ SCRPROC2:
 		Prerequisites: scrpowr, ~structures.scr
 		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 4000$.\n- Turned 180 degrees.
 		IconPalette: UnittemIconScrin
-	ProvidesPrerequisite:
-		Factions: scr
-		Prerequisite: scrproc
 	FreeActor:
 		Actor: SCRHARV
 	StoresResources:
@@ -973,7 +950,7 @@ SCRWEAP:
 		Queue: Building
 		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
 		BuildPaletteOrder: 4
-		Prerequisites: scrproc, ~structures.scr
+		Prerequisites: proc, ~structures.scr
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
 		RequiresCondition: !Building-Buildup
@@ -992,7 +969,7 @@ SCRRADR:
 		Queue: Building
 		BuildPaletteOrder: 6
 		Description: Provides an overview of the battlefield.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Requires power to operate
-		Prerequisites: scrproc, ~structures.scr
+		Prerequisites: proc, ~structures.scr
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
