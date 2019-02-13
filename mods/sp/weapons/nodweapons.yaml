@@ -8,28 +8,6 @@ MilitantRifle:
 		Damage: 1600
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
-MilitantExplode:
-	Inherits: ^FlameWarhead
-	Inherits@1: ^DecentFalloff
-	Inherits@2: ^Large_Explosion
-	ReloadDelay: 40
-	Range: 1c0
-	Projectile: InstantExplode
-	Warhead@1Dam: SpreadDamage
-		Spread: 200
-		Damage: 90000
-		AffectsParent: True
-		Versus:
-			InfantryArmor: 600
-			BuildingArmor: 100
-			DefenseArmor: 100
-			VehicleArmor: 1
-			ConcreteArmor: 1
-		DamageTypes: Prone50Percent, TriggerProne, MilitantFireDeath
-	Warhead@4Smu: LeaveSmudge
-		SmudgeType: SmallScorch
-		InvalidTargets: Vehicle, Building, Wall
-
 CrusaderBazooka:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn
@@ -60,22 +38,22 @@ TemplarFlame:
 	Inherits: ^FlameWarhead
 	Inherits@2: ^FlameScorch
 	ReloadDelay: 50
+	Burst: 10
+	BurstDelays: 2
 	Range: 4c256
 	Report: flamtnk1.aud
 	Projectile: BulletAS
 		Speed: 130
 		Image: FLAMEALL
-		Inaccuracy: 1c3
+		Inaccuracy: 1c0
 		Palette: FlameEffectPal
 		Blockable: true
-	Burst: 10
-	BurstDelays: 2
 	Warhead@1Dam: SpreadDamage
 		Spread: 250
 		Damage: 400
 		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 
-TemplarLasor:
+BlackHandLasor:
 	Inherits: ^FullDamage
 	Burst: 3
 	ReloadDelay: 50
@@ -364,11 +342,13 @@ StealthRocket:
 	Report: misl1.aud
 	ValidTargets: Ground, Water
 	Projectile: Missile
-		Inaccuracy: 0c512
+		Inaccuracy: 0c362
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
 		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 320
 
 StealthRocketAA:
 	Inherits: StealthRocket

@@ -3,6 +3,7 @@
 		Condition: BreakShield
 		Range: 96
 		Duration: 400
+        ValidTargets: Air, Ground
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c090
 		Damage: 1
@@ -57,6 +58,8 @@
 			AircraftArmor: 100
 			ConcreteArmor: 35
 			Shield: 0
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 192
 
 ^AARocketWarhead:
 	Projectile: Missile
@@ -94,6 +97,8 @@
 			AircraftArmor: 100
 			ConcreteArmor: 1
 			Shield: 0
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 192
 
 ^ArtilleryWarhead:
 	Inherits: ^WeaponGenericUpgrades
