@@ -432,7 +432,7 @@ WaspBulletAA:
 DevourerGrinder:
 	Inherits: ^ArtilleryWarhead
 	ReloadDelay: 35
-	Range: 600
+	Range: 1c0
 	MinRange: 50
 	Report: repair11.aud
 	Projectile: InstantHit
@@ -443,29 +443,9 @@ DevourerGrinder:
 	Warhead@Shake: ScreenShaker
 		Intensity: 2
 		Duration: 15
-
-DevourerExplo:
-	ReloadDelay: 25
-	Range: 600
-	MinRange: 50
-	Projectile: InstantHit
 	Warhead@2Eff: CreateEffect
 		Explosions: cabspark
 		ExplosionPalette: apolra2
-
-DevourerBuff:
-	Inherits: ^RifleWarhead
-	ReloadDelay: 35
-	Range: 600
-	MinRange: 50
-	Projectile: InstantExplode
-	Warhead@Acid: GrantExternalCondition
-		Range: 350
-		Duration: 35
-		Condition: DevoBuff
-		ValidStances: Ally
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
-		AffectsParent: True
 
 BasiliskBomb:
 	Inherits: ^ArtilleryWarhead

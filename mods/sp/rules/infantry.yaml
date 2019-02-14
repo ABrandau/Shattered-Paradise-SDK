@@ -1333,12 +1333,27 @@ GLAD:
 		MuzzleSequence: muzzle
 		LocalOffset: 170,-250,500
 		PauseOnCondition: WebDisable
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: empdisable
+		RequiresCondition: Moving
+		Armaments: OnFoot
+	Turreted:
+		TurnSpeed: 3
+	GrantConditionOnMovement:
+		Condition: Moving
+	GrantConditionOnAttack:
+		Condition: FireWhileMoving
+		RequiresCondition: Moving
+	WithSpriteTurret:
+		Sequence: shoot
+		RequiresCondition: FireWhileMoving
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
-	BodyOrientation:
-		QuantizedFacings: 32
-		CameraPitch: 250
+		RequiresCondition: !Moving
+	WithInfantryBody:
+		RequiresCondition: !FireWhileMoving
 
 MOTH:
 	Inherits: ^CabalDroneInfantry
@@ -1479,9 +1494,26 @@ CYC2:
 		Weapon: GCyCannon
 		LocalOffset: 170,85,683
 		PauseOnCondition: WebDisable
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: empdisable
+		Armaments: OnFoot
+		RequiresCondition: Moving
+	Turreted:
+	GrantConditionOnMovement:
+		Condition: Moving
+	GrantConditionOnAttack:
+		Condition: FireWhileMoving
+		RequiresCondition: Moving
+	WithSpriteTurret:
+		Sequence: shoot
+		RequiresCondition: FireWhileMoving
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		RequiresCondition: !Moving
+	WithInfantryBody:
+		RequiresCondition: !FireWhileMoving
 	Passenger:
 		PipType: red
 	SharedPassenger:

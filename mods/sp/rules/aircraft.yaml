@@ -1213,17 +1213,15 @@ DEVOURER:
 		HP: 175000
 	Voiced:
 		VoiceSet: Limpet
+	GrantConditionOnAttack:
+		Condition: DevourerBuff
 	Armament@Primary:
 		Weapon: DevourerGrinder
-	Armament@Secondary:
-		Weapon: DevourerBuff
-	Armament@Explos:
-		Weapon: DevourerExplo
-	Targetable@Seeker:
-		TargetTypes: Seeker
-	AttackAircraft:
-		FacingTolerance: 90
+	AttackTurreted:
 		Voice: Attack
+		PauseOnCondition: empdisable
+	Turreted:
+		TurnSpeed: 3
 	AutoTarget:
 		ScanRadius: 5
 	-RenderVoxels:
