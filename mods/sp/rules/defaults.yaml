@@ -835,13 +835,19 @@
 		Condition: FullHealth
 		ValidDamageStates: Undamaged
 
-^UsesAmunition:
+^UsesAmmunition:
 	AmmoPool:
 		Ammo: 8
 	ReloadAmmoPool@AIReload:
 		AmmoPool: primary
-		RequiresCondition: AIReload
+		RequiresCondition: AIReload || AICheater
 		Count: 20
+	GrantConditionOnBotOwner@AIReload:
+		Condition: AIReload
+		Bots: CheaterAI, EasyAI
+	GrantConditionOnBotOwner@AICheater:
+		Condition: AICheater
+		Bots: CheaterAI
 
 ^AIBuffCheat:
 	GrantConditionOnBotOwner@AIBuffCheat:
@@ -854,23 +860,23 @@
 		RequiresCondition: AIBuffCheat
 		Modifier: 80
 
-^AICash:
-	GrantConditionOnBotOwner@AICashCheater:
-		Condition: AICashCheater
-		Bots: CheaterAI
+^AICashCheat:
 	CashTrickler@AICashCheater:
 		Interval: 1000
-		Amount: 400
+		Amount: 600
 		ShowTicks: False
-		RequiresCondition: AICashCheater
-	GrantConditionOnBotOwner@AICashNormal:
-		Condition: AICashNormal
-		Bots: EasyAI
+		RequiresCondition: AICheater
 	CashTrickler@AICashNormal:
-		Interval: 1000
-		Amount: 350
+		Interval: 600
+		Amount: 200
 		ShowTicks: False
-		RequiresCondition: AICashNormal
+		RequiresCondition: AIReload || AICheater
+	GrantConditionOnBotOwner@AIReload:
+		Condition: AIReload
+		Bots: CheaterAI, EasyAI
+	GrantConditionOnBotOwner@AICheater:
+		Condition: AICheater
+		Bots: CheaterAI
 
 ^GenericEffects:
 	Inherits@0: ^KillSelf
@@ -2400,16 +2406,6 @@
 		Delay: 25
 		HealIfBelow: 101
 		RequiresCondition: batteryboost
-
-^SelfReloads:
-	AmmoPool:
-		Ammo: 999
-		PipCount: 0
-		SelfReloads: true
-		SelfReloadsTicks: 1
-	ReloadAmmoPool@1:
-		Count: 60
-		ResetOnFire: false
 
 ^InfantryStealthDetection:
 	DetectCloaked:

@@ -266,7 +266,8 @@ LPST:
 
 GACNST:
 	Inherits: ^Building
-	Inherits@4: ^3x3Shape
+	Inherits@1: ^3x3Shape
+	Inherits@2: ^AICashCheat
 	Building:
 		Footprint: xxx xxx xxx
 		BuildSounds: facbld1.aud
@@ -355,9 +356,6 @@ GACNST:
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
-	CashTrickler:
-		Amount: 1000
-		RequiresCondition: AIReload
 
 ^Powerplant:
 	Inherits: ^Building
@@ -459,7 +457,7 @@ PROC:
 		Palette: effect
 		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@proc:
-		ProvidesPrerequisite: proc
+		Prerequisite: proc
 		Description: Tiberium Refinery
 	RenderSprites:
 	RequiresBuildableArea:

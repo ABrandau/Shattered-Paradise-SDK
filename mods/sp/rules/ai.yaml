@@ -2,14 +2,25 @@ Player:
 	ModularBot@EasyAI:
 		Name: Easy AI
 		Type: EasyAI
+	ModularBot@Cheater:
+		Name: Cheater AI
+		Type: CheaterAI
 	GrantConditionOnBotOwner@AIReload:
 		Condition: AIReload
 		Bots: CheaterAI, EasyAI
+	GrantConditionOnBotOwner@AICheater:
+		Condition: AICheater
+		Bots: CheaterAI
 	HarvesterBotModule:
-		RequiresCondition: AIReload
+		RequiresCondition: AIReload || AICheater
+		HarvesterTypes: harv, scrharv
+		RefineryTypes: gdiref, nodref, scrproc, cabproc, muproc
 	BaseBuilderBotModule@AIReload:
-		RequiresCondition: AIReload
-		MinimumExcessPower: 40
+		RequiresCondition: AIReload || AICheater
+		MinimumExcessPower: 30
+		MaximumExcessPower: 200
+		ExcessPowerIncrement: 30
+		ExcessPowerIncreaseThreshold: 4
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
 		RefineryTypes: gdiref, nodref, scrproc, cabproc, muproc
 		PowerTypes: gapowr, napowor, naapwr, cabpowr, mutpowr, scrpowr
@@ -26,7 +37,7 @@ Player:
 			cabproc: 3
 			muproc: 3
 			gasilo: 0
-			napowr: 9
+			napowr: 12
 			naapwr: 3
 			gapowr: 12
 			mupowr: 14
@@ -67,10 +78,8 @@ Player:
 			naobel: 5
 			scrdrone: 5
 			gafire: 2
-			# nastlh: 0
 			cabeye: 2
 			scrextractor: 3
-			# muventi: 3
 			nahpad: 2
 			gahpad: 2
 			muair: 2
@@ -134,167 +143,94 @@ Player:
 			scrair: 5
 			cabair: 5
 	BuildingRepairBotModule:
-		RequiresCondition: AIReload
+		RequiresCondition: AIReload || AICheater
 	SquadManagerBotModule@test:
-		RequiresCondition: AIReload
-		SquadSize: 14
+		RequiresCondition: AIReload || AICheater
+		SquadSize: 15
 		SquadSizeRandomBonus: 15
 		ExcludeFromSquadsTypes: harv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, e2, swarmling, shapeshifter
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
 	UnitBuilderBotModule@test:
-		RequiresCondition: AIReload
+		RequiresCondition: AIReload || AICheater
+        UnitQueues: Infantry, Vehicle, Air, Defense, Building
+        IdleBaseUnitsMaximum: 30
 		UnitsToBuild:
-			# engineer: 1
-			# e2: 1
-			# swarmling: 1
-			# shapeshifter: 1
 			harv: 40
 			scrharv: 40
 			cabharv: 40
-			gdie1: 2
-			altnode1: 2
-			pdrone: 2
-			shark: 2
-			jumpjetair: 1
-			crusader: 1
-			e3: 1
-			marauder: 1
-			cabsentry: 1
-			cyborg: 1
-			cborg: 1
-			legio: 1
-			grenadier: 2
-			medic: 2
-			templar: 2
-			fiend: 2
-			reapercab: 2
-			colossi: 2
-			seer: 5
-			eagleguard: 3
-			bhs: 3
-			psyker: 3
-			glad: 3
-			cyc2: 3
+			gdie1: 20
+			altnode1: 20
+			pdrone: 20
+			shark: 20
+			jumpjetair: 10
+			crusader: 10
+			e3: 10
+			marauder: 10
+			cabsentry: 10
+			cyborg: 10
+			cborg: 10
+			legio: 10
+			grenadier: 20
+			medic: 20
+			templar: 20
+			fiend: 20
+			reapercab: 20
+			colossi: 20
+			seer: 10
+			eagleguard: 30
+			bhs: 30
+			psyker: 30
+			glad: 30
+			cyc2: 30
 			float: 3
-			bug: 3
-			mmch: 5
-			smech: 7
-			bggy: 5
-			rocketbggy: 5
-			flamebggy: 5
-			trike: 5
-			struckfull: 7
-			centurion: 7
-			scrdronec: 4
-			scrscorpion: 5
-			scrglyder2: 7
-			hvr: 9
-			ttnk: 9
-			subtank: 9
-			lynx: 8
-			mutquad: 9
-			wolf: 9
-			g4tnk: 9
-			scrmbt: 9
-			sonic: 12
-			jug: 12
-			hmec: 12
-			howtlizer: 12
-			stnk: 12
-			mrls: 12
-			deathclaw: 12
-			spiderarty: 12
-			paladin: 12
-			tripod: 12
-			wasp: 7
-			basilisk: 5
-			devourer: 5
-			scrin: 5
-			cerberus: 2
-			orca: 7
-			orcab: 5
-			mutheli: 7
-			wetp: 5
-			stormrider: 7
-			scrcarrier: 5
-			scrdestroyer: 2
-			scrbattleship: 5
+			bug: 30
+			mmch: 50
+			smech: 70
+			bggy: 50
+			rocketbggy: 50
+			flamebggy: 50
+			trike: 50
+			struckfull: 70
+			centurion: 70
+			scrdronec: 40
+			scrscorpion: 50
+			scrglyder2: 70
+			hvr: 90
+			ttnk: 90
+			subtank: 90
+			lynx: 80
+			mutquad: 90
+			wolf: 90
+			g4tnk: 90
+			scrmbt: 90
+			sonic: 50
+			jug: 50
+			hmec: 50
+			howtlizer: 50
+			stnk: 50
+			mrls: 50
+			deathclaw: 50
+			spiderarty: 50
+			paladin: 50
+			tripod: 50
+			wasp: 30
+			basilisk: 30
+			devourer: 30
+			scrin: 30
+			cerberus: 30
+			orca: 30
+			orcab: 30
+			mutheli: 30
+			wetp: 30
+			stormrider: 30
+			scrcarrier: 30
+			scrdestroyer: 30
+			scrbattleship: 30
 		UnitLimits:
-			# engineer: 3
-			# e2: 3
-			# swarmling: 3
-			# shapeshifter: 3
 			harv: 5
 			scrharv: 5
-			gdie1: 18
-			marauder: 18
-			cyborg: 18
-			cborg: 10
-			shark: 50
-			jumpjetair: 13
-			altnode1: 13
-			crusader: 13
-			e3: 13
-			cabsentry: 13
-			pdrone: 13
-			legio: 13
-			grenadier: 9
-			medic: 9
-			templar: 9
-			fiend: 9
-			reapercab: 9
-			colossi: 9
-			seer: 9
-			eagleguard: 7
-			bhs: 1
-			psyker: 1
-			glad: 7
-			cyc2: 1
-			float: 7
-			bug: 4
-			smech: 7
-			bggy: 7
-			rocketbggy: 7
-			flamebggy: 7
-			mmch: 7
-			struckfull: 10
-			centurion: 10
-			scrdronec: 3
-			scrscorpion: 10
-			scrglyder2: 10
-			hvr: 8
-			ttnk: 8
-			lynx: 8
-			subtank: 8
-			mutquad: 8
-			wolf: 8
-			g4tnk: 8
-			scrmbt: 8
-			sonic: 7
-			deathclaw: 7
-			paladin: 4
-			stnk: 7
-			tripod: 7
-			hmec: 1
-			howtlizer: 5
-			jug: 5
-			spiderarty: 5
-			mrls: 5
-			wasp: 10
-			basilisk: 4
-			devourer: 1
-			scrin: 3
-			cerberus: 2
-			orca: 5
-			orcab: 3
-			mutheli: 5
-			wetp: 3
-			stormrider: 5
-			scrcarrier: 3
-			scrdestroyer: 2
-			scrbattleship: 1
 	McvManagerBotModule@test:
-		RequiresCondition: AIReload
+		RequiresCondition: AIReload || AICheater
 		McvTypes: mcv, drache, cabmcv, nodmcv, mutmcv
 		ConstructionYardTypes: gacnst, mutyard, cabyard, nodyard, drached
 		McvFactoryTypes: gaweap, naweap, mutweap, cabweap, scrweap
