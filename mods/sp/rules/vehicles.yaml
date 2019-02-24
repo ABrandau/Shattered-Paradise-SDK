@@ -245,7 +245,7 @@ SONIC:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Armored high-tech vehicle with sonic armament.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Deals damage over time to any unit in line of fire\n- Can crush infantry
+		Description: Armored high-tech vehicle with sonic armament.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Deals damage over time to any unit in line of fire\n- Can crush infantry.\n- Does not fire while moving.
 		BuildPaletteOrder: 7
 		Prerequisites: ~gaweap, gatech
 	Mobile:
@@ -1634,7 +1634,7 @@ SCRMOBMINE:
 		Queue: Vehicle
 		BuildPaletteOrder: 28
 		BuildAtProductionType: Tank
-		Description: Mind Control unit\n\nSpecial:\n- Can mind control vehicles\n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol MCVs, Harvesters and Heroics\n- Can shoot over walls
+		Description: Mind Control unit\n\nSpecial:\n- Can mind control vehicles\n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol MCVs, Harvesters and Heroics\n- Can shoot over walls.\n- Can mind control units while moving.
 		Prerequisites: ~scrweap, scrtech
 	Valued:
 		Cost: 1400
@@ -1654,11 +1654,12 @@ SCRMOBMINE:
 	Health:
 		HP: 15000
 	Mobile:
-    	TurnSpeed: 7
+		TurnSpeed: 7
 		Speed: 95
 		Locomotor: Hover
-	AttackFrontal:
+	AttackTurreted:
 		PauseOnCondition: empdisable
+	Turreted:
 	WithRangeCircle:
 		Type: Subjugator
 	RenderRangeCircle:

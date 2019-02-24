@@ -371,6 +371,10 @@ ZOMBIE:
 	GrantPeriodicCondition:
 		Condition: Transform
 		CooldownDuration: 1000
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
+	AutoTargetPriority@ATTACKANYTHING:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
 
 BERSERKER:
 	Inherits: ^Mutant
@@ -418,6 +422,10 @@ BERSERKER:
 		MaxMoveDelay: 200
 	-SpawnActorOnDeath@tiberium:
 	-DamagedByTintedCells@Default:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
+	AutoTargetPriority@ATTACKANYTHING:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
 
 CRAB:
 	Inherits: ^Beast
@@ -471,13 +479,9 @@ CRAB:
 		MinMoveDelay: 25
 		MaxMoveDelay: 100
 	AutoTargetPriority@DEFAULT:
-		RequiresCondition: !stance-attackanything
 		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
-		-InvalidTargets:
 	AutoTargetPriority@ATTACKANYTHING:
-		RequiresCondition: stance-attackanything
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
-		-InvalidTargets:
 
 PERMACRAB:
 	Inherits: CRAB
@@ -492,6 +496,10 @@ PERMACRAB:
 		Delay: 75
 		HealIfBelow: 100
 		DamageCooldown: 300
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
+	AutoTargetPriority@ATTACKANYTHING:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
 
 FLOATER:
 	Inherits: ^HoverVehicle
@@ -539,6 +547,10 @@ FLOATER:
 		MaxMoveDelay: 200
 	-DamagedByTintedCells@Default:
 	-DamagedByTintedCells@OrangeRadiation:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
+	AutoTargetPriority@ATTACKANYTHING:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
 
 jfish:
 	Inherits: FLOATER

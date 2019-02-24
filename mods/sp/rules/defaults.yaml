@@ -841,7 +841,8 @@
 	ReloadAmmoPool@AIReload:
 		AmmoPool: primary
 		RequiresCondition: AIReload || AICheater
-		Count: 20
+		Count: 1
+		Delay: 150
 	GrantConditionOnBotOwner@AIReload:
 		Condition: AIReload
 		Bots: CheaterAI, EasyAI
@@ -1976,6 +1977,10 @@
 	MapEditorData:
 		Categories: Tib Critters
 	MindControllable:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget, Wall
+	AutoTargetPriority@ATTACKANYTHING:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget, Wall
 
 ^BlossomTree:
 	Inherits@1: ^SpriteActor
@@ -2191,9 +2196,22 @@
 	Interactable:
 
 ^Tunnel:
-	Inherits: ^TerrainOverlay
+	RenderSprites:
+		Palette: terraindecoration
+	WithSpriteBody:
+	BodyOrientation:
+		UseClassicPerspectiveFudge: False
+		QuantizedFacings: 1
+	Building:
+		Dimensions: 3, 3
+		Footprint: ___ ___ ___
+	Targetable:
+	AlwaysVisible:
+	TunnelEntrance:
+	MapEditorData:
+		Categories: Tunnel
 	Interactable:
-		Bounds: 220,220
+		Bounds: 144, 144
 
 ^Wall:
 	Inherits: ^1x1Shape
