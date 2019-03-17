@@ -27,8 +27,6 @@ CLOUD1:
 	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
-	-RenderVoxels:
-	-WithVoxelBody:
 	WithDeathAnimation:
 		UseDeathTypeSuffix: False
 		DeathSequencePalette: effectalpha
@@ -39,7 +37,6 @@ CLOUD1:
 	RenderSprites:
 		Image: cloud1
 		Palette: effectalpha
-	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
 	AttackWander:
@@ -100,10 +97,6 @@ ORCA:
 		ReloadDelay: 50
 		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
-	-RenderVoxels:
-	-WithVoxelBody:
-	WithFacingSpriteBody:
-	RenderSprites:
 	SpawnActorOnDeath:
 		Actor: ORCA.Husk
 
@@ -149,10 +142,6 @@ ORCAB:
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
-	-RenderVoxels:
-	-WithVoxelBody:
-	WithFacingSpriteBody:
-	RenderSprites:
 	Hovers@CRUISING:
 		RequiresCondition: cruising
 	SpawnActorOnDeath:
@@ -182,7 +171,9 @@ DPOD:
 	Armament:
 		Weapon: Vulcan2
 		PauseOnCondition: !ammo
-    RenderSprites:
+	RenderSprites:
+	RenderVoxels:
+	WithVoxelBody:
 	AttackAircraft:
 		Voice: Attack
 	AmmoPool:
@@ -221,8 +212,10 @@ DSHP:
 	SpawnActorOnDeath:
 		Actor: DSHP.Husk
 	RenderSprites:
+	WithVoxelBody:
 	RenderVoxels:
 		Scale: 20
+	-WithFacingSpriteBody:
 	Cloak@Dropship:
 		RequiresCondition: !DropshipCloak
 		IsPlayerPalette: true
@@ -248,6 +241,9 @@ ORCATRAN:
 		BuildPaletteOrder: 10
 		Prerequisites: ~disabled
 	RenderSprites:
+	WithVoxelBody:
+	RenderVoxels:
+	-WithFacingSpriteBody:
 	Aircraft:
 		LandWhenIdle: yes
 		TurnSpeed: 5
@@ -317,10 +313,6 @@ APACHE:
 		Offset: 85,0,384
 		Sequence: slow-rotor
 		RequiresCondition: !airborne
-	-RenderVoxels:
-	-WithVoxelBody:
-	WithFacingSpriteBody:
-	RenderSprites:
 	SpawnActorOnDeath:
 		Actor: APACHE.Husk
 
@@ -370,10 +362,6 @@ SCRIN:
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: ReturnFire
-	-RenderVoxels:
-	-WithVoxelBody:
-	WithFacingSpriteBody:
-	RenderSprites:
 	DeathSounds:
 	SpawnActorOnDeath:
 		Actor: SCRIN.Husk
@@ -406,12 +394,8 @@ CERBERUS:
 	AttackAircraft:
 		FacingTolerance: 64
 		Voice: Attack
-	AutoTarget:
-	-RenderVoxels:
-	-WithVoxelBody:
 	RenderSprites:
 		PlayerPalette: playertemperate
-	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
@@ -455,9 +439,6 @@ MUTHELI:
 		Speed: 150
 		MoveIntoShroud: true
 		RearmBuildings: muair, gahpad, nahpad
-	-RenderVoxels:
-	-WithVoxelBody:
-	WithFacingSpriteBody:
 	Health:
 		HP: 12000
 	WithIdleOverlay@ROTORAIR:
@@ -493,7 +474,6 @@ MUTHELI:
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: ReturnFire
-	RenderSprites:
 	SpawnActorOnDeath:
 		Actor: MUTHELI.Husk
 
@@ -526,9 +506,6 @@ WETP:
 	Armament:
 		Weapon: FalconPunch
 		PauseOnCondition: !ammo
-	-RenderVoxels:
-	-WithVoxelBody:
-	WithFacingSpriteBody:
 	AttackAircraft:
 		FacingTolerance: 20
 	AmmoPool:
@@ -584,9 +561,7 @@ MUTQUEEN:
 		IdealSeparation: 1c0
 	Health:
 		HP: 10000
-	-RenderVoxels:
-	-WithVoxelBody:
-	RenderSprites:
+	-WithFacingSpriteBody:
 	WithInfantryBody:
 		IdleSequences: run
 		StandSequences: run
@@ -652,13 +627,8 @@ STORMRIDER:
 	Armament@AA:
 		Weapon: StormRiderBlastAA
 	-ReturnOnIdle:
-	-RenderVoxels:
-	-WithVoxelBody:
-	RenderSprites:
-	WithFacingSpriteBody:
 	AttackTurreted:
 	Turreted:
-	AutoTarget:
 	SpawnActorOnDeath:
 		Actor: STORMRIDER.Husk
 	SmokeParticleEmitter:
@@ -704,12 +674,9 @@ DRACHE:
 		NoTransformSounds:
 		Voice: Move
 	SelectionDecorations:
-	RenderSprites:
 	WithFacingSpriteBody:
 		Sequence: stand
 	Hovers:
-	-RenderVoxels:
-	-WithVoxelBody:
 	SpawnActorOnDeath:
 		Actor: DRACHE.Husk
 	SmokeParticleEmitter:
@@ -749,11 +716,6 @@ SCRGLYDER1:
 	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
-	AutoTarget:
-	-RenderVoxels:
-	-WithVoxelBody:
-	RenderSprites:
-	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
@@ -798,11 +760,6 @@ SCRDESTROYER:
 		FacingTolerance: 20
 		Voice: Attack
 		TargetFrozenActors: True
-	AutoTarget:
-	-RenderVoxels:
-	-WithVoxelBody:
-	RenderSprites:
-	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
@@ -848,10 +805,6 @@ SCRTRANS:
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 7000
-	-RenderVoxels:
-	-WithVoxelBody:
-	RenderSprites:
-	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
@@ -902,10 +855,8 @@ SCRCARRIER:
 	AttackTurreted:
 	Turreted:
 	AutoTarget:
-	-RenderVoxels:
-	-WithVoxelBody:
+	-WithFacingSpriteBody:
 	WithInfantryBody:
-	RenderSprites:
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
@@ -1034,10 +985,6 @@ SCRBATTLESHIP:
 	AttackTurreted:
 	Turreted:
 	AutoTarget:
-	-RenderVoxels:
-	-WithVoxelBody:
-	RenderSprites:
-	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
@@ -1099,8 +1046,6 @@ WASP:
 		FacingTolerance: 20
 		Voice: Attack
 	AutoTarget:
-	-RenderVoxels:
-	-WithVoxelBody:
 	RenderSprites:
 	WithFacingSpriteBody:
 	BodyOrientation:
@@ -1135,8 +1080,6 @@ FIREFLY:
 		AllowedTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 10000
-	-RenderVoxels:
-	-WithVoxelBody:
 	RenderSprites:
 	WithFacingSpriteBody:
 	BodyOrientation:
@@ -1178,8 +1121,6 @@ BASILISK:
 		Voice: Attack
 	AutoTarget:
 	RenderSprites:
-	-RenderVoxels:
-	-WithVoxelBody:
 	WithFacingSpriteBody:
 	SpawnActorOnDeath:
 		Actor: BASILISK.Husk
@@ -1226,8 +1167,6 @@ DEVOURER:
 		TurnSpeed: 3
 	AutoTarget:
 		ScanRadius: 5
-	-RenderVoxels:
-	-WithVoxelBody:
 	RenderSprites:
 	WithFacingSpriteBody@idle:
 		RequiresCondition: !DevoBuff

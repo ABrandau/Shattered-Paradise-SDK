@@ -130,6 +130,7 @@ JUMPJETAIR:
 	Inherits: ^Aircraft
 	Inherits@2: ^AutoTargetAll
 	Inherits@3: ^8CellVision
+	Inherits@4: ^FullHealthRepairCondition
 	Valued:
 		Cost: 450
 	Tooltip:
@@ -160,7 +161,7 @@ JUMPJETAIR:
 		IntoActor: jumpjet
 	Armor:
 		Type: AircraftArmor
-	WithFacingSpriteBody@idle:
+	WithFacingSpriteBody:
 		RequiresCondition: !JJBuff
 		Sequence: run
 	WithFacingSpriteBody@attack:
@@ -193,8 +194,6 @@ JUMPJETAIR:
 	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
-	-RenderVoxels:
-	-WithVoxelBody:
 	Armament@SelfBuff:
 		Weapon: JJBuff
 	ExternalCondition@JJBuff:
@@ -519,8 +518,9 @@ MARAUDER:
 		Facing: 160
 		DeploySound:
 		UndeploySound:
+		RequiresCondition: !inside-tunnel
 	WithInfantryBody:
-		RequiresCondition: !WebDisable && undeployed
+		RequiresCondition: !WebDisable && undeployed && !inside-tunnel
 	WithMakeAnimation:
 	Turreted:
 		TurnSpeed: 50
@@ -1035,8 +1035,9 @@ COLOSSI:
 		DeploySound:
 		UndeploySound:
 		CanDeployOnRamps: True
+		RequiresCondition: !inside-tunnel
 	WithInfantryBody:
-		RequiresCondition: undeployed ||  WebDisable
+		RequiresCondition: undeployed &&  !WebDisable && !inside-tunnel
 	WithSpriteBody@deployed:
 		StandSequences: deployed
 		Sequence: deployed
@@ -1303,8 +1304,6 @@ GLAD:
 		Bounds: 35,30,0,-10
 	Passenger:
 		PipType: Blue
-	Voiced:
-		VoiceSet: Cyborg
 	WithMuzzleOverlay:
 	Mobile:
 		Speed: 50
@@ -1347,13 +1346,13 @@ GLAD:
 		RequiresCondition: Moving
 	WithSpriteTurret:
 		Sequence: shoot
-		RequiresCondition: FireWhileMoving
+		RequiresCondition: FireWhileMoving && !inside-tunnel
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
 		RequiresCondition: !Moving
 	WithInfantryBody:
-		RequiresCondition: !FireWhileMoving
+		RequiresCondition: !FireWhileMoving && !inside-tunnel
 
 MOTH:
 	Inherits: ^CabalDroneInfantry
@@ -1409,6 +1408,7 @@ MOTH:
 		DeploySound: place2.aud
 		UndeploySound: clicky1.aud
 		CanDeployOnRamps: True
+		RequiresCondition: !inside-tunnel
 	RejectsOrders@deployment:
 		Reject: Move, EnterTransport, EnterTransports
 		RequiresCondition: deployed
@@ -1422,10 +1422,10 @@ MOTH:
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 	WithMakeAnimation:
-	WithFacingSpriteBody@1234:
+	WithFacingSpriteBody:
 		Sequence: idle
-		RequiresCondition: !deployed
-	WithSpriteBody@1234:
+		RequiresCondition: !deployed && !inside-tunnel
+	WithSpriteBody:
 		Sequence: deployed
 		RequiresCondition: !undeployed
 	-WithInfantryBody:
@@ -1464,13 +1464,6 @@ CYC2:
 		Payload: 600
 		Voice: Move
 	-WithPermanentInjury:
-	WithInfantryBody:
-		RequiresCondition: !criticalspeed
-	WithInfantryBody@Damaged:
-		RequiresCondition: criticalspeed
-		MoveSequence: crippled-run
-		AttackSequences: crippled-shoot
-		StandSequences: crippled-stand
 	GrantConditionOnDamageState@CRITICAL:
 		GrantPermanently: false
 	Voiced:
@@ -1513,7 +1506,12 @@ CYC2:
 		Armaments: OnFoot
 		RequiresCondition: !Moving
 	WithInfantryBody:
-		RequiresCondition: !FireWhileMoving
+		RequiresCondition: !FireWhileMoving && !inside-tunnel && !criticalspeed
+	WithInfantryBody@Damaged:
+		RequiresCondition: criticalspeed
+		MoveSequence: crippled-run
+		AttackSequences: crippled-shoot
+		StandSequences: crippled-stand
 	Passenger:
 		PipType: red
 	SharedPassenger:

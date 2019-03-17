@@ -104,6 +104,10 @@ HARV:
 	-RenderVoxels:
 	-WithVoxelBody:
 	WithFacingSpriteBody:
+		RequiresCondition: !inside-tunnel
+	WithMoveAnimation:
+		RequiresCondition: !inside-tunnel
+	WithDockingAnimation:
 	Harvester:
 		Capacity: 28
 		DeliveryBuildings: proc, muproc, muproc2, cabproc, cabproc2, scrproc, scrproc2, gdiref, gdiref2, nodref, nodref2
@@ -117,11 +121,9 @@ HARV:
 		HarvestVoice: Attack
 		DeliverVoice: Action
 		PipCount: 7
-	WithMoveAnimation:
-	WithDockingAnimation:
 	Mobile:
 		Speed: 60
-        Locomotor: InfantryCrusherVehicle
+		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 50000
 	Targetable@MindControl:
@@ -196,20 +198,16 @@ SCRHARV:
 		Prerequisites: proc, ~scrweap
 		InitialActivity: FindResources
 	Mobile:
-        Locomotor: InfantryCrusherVehicle
+		Locomotor: InfantryCrusherVehicle
 	Targetable@MindControl:
 		TargetTypes: MindControlInmune
 	Capturable:
 		CaptureThreshold: 60
 	-GainsExperience:
-	WithHarvestOverlay:
-		Offset: 384,0,0
-		Palette: effect
 	SelectionDecorations:
 	RenderSprites:
 		-Image: harv.gdi
 		-FactionImages:
-	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Voiced:
@@ -1013,7 +1011,7 @@ TRNSPORT:
 	Inherits@1: ^Helicopter
 	Inherits@2: ^9CellVision
 	Inherits@3: ^SpriteActor
-    Inherits@4: ^LowerSelectionPriority
+	Inherits@4: ^LowerSelectionPriority
 	Inherits@5: ^AircraftShadow
 	Valued:
 		Cost: 600
@@ -1037,8 +1035,6 @@ TRNSPORT:
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 9000
-	-RenderVoxels:
-	-WithVoxelBody:
 	WithFacingSpriteBody:
 		RequiresCondition: !loaded
 	WithFacingSpriteBody@attack:

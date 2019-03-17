@@ -29,12 +29,16 @@ SMECH:
 		VoiceSet: Mech
 	QuantizeFacingsFromSequence:
 		Sequence: stand
+		RequiresCondition: !inside-tunnel
 	WithFacingSpriteBody:
 		Sequence: stand
+		RequiresCondition: !inside-tunnel
 	WithAttackAnimation:
 		Sequence: shoot
+		RequiresCondition: !inside-tunnel
 	WithMoveAnimation:
 		MoveSequence: run
+		RequiresCondition: !inside-tunnel
 	Selectable:
 		Bounds: 20, 32, 0, -8
 
@@ -61,6 +65,7 @@ MMCH:
 		QuantizedFacings: 32
 		CameraPitch: 250
 	WithInfantryBody:
+		RequiresCondition: !inside-tunnel
 	Turreted:
 		TurnSpeed: 4
 	AttackTurreted:
@@ -68,6 +73,7 @@ MMCH:
 		PauseOnCondition: empdisable
 	WithSpriteTurret:
 		Recoils: no
+		RequiresCondition: !inside-tunnel
 	Armament:
 		Weapon: Titan120mm
 		Recoil: 127
@@ -77,8 +83,8 @@ MMCH:
 		PauseOnCondition: empdisable
 	WithSpriteBarrel:
 		LocalOffset: 300, 250, 300
+		RequiresCondition: !inside-tunnel
 	WithMuzzleOverlay:
-	AutoTarget:
 	Selectable:
 		Bounds: 30, 42, 0, -8
 
@@ -97,7 +103,7 @@ APC:
 	Mobile:
 		TurnSpeed: 5
 		Speed: 85
-        Locomotor: AmphAPCLocomotor
+		Locomotor: AmphAPCLocomotor
 	Health:
 		HP: 35000
 	Turreted:
@@ -109,15 +115,15 @@ APC:
 		Condition: inwater
 		TerrainTypes: Water
 	WithFacingSpriteBody:
-		RequiresCondition: !inwater
+		RequiresCondition: !inwater && !inside-tunnel
 	WithFacingSpriteBody@2:
-  		Sequence: idle-water
-		RequiresCondition: inwater
+		Sequence: idle-water
+		RequiresCondition: inwater && !inside-tunnel
 	WithSpriteTurret:
-		RequiresCondition: !inwater
+		RequiresCondition: !inwater && !inside-tunnel
 	WithSpriteTurret@2:
-  		Sequence: turret-water
-		RequiresCondition: inwater
+		Sequence: turret-water
+		RequiresCondition: inwater && !inside-tunnel
 	Cargo:
 		Types: Infantry
 		MaxWeight: 5
@@ -222,12 +228,16 @@ JUG:
 		VoiceSet: Mech
 	QuantizeFacingsFromSequence:
 		Sequence: stand
+		RequiresCondition: !inside-tunnel
 	WithFacingSpriteBody:
 		Sequence: stand
+		RequiresCondition: !inside-tunnel
 	WithAttackAnimation:
 		Sequence: shoot
+		RequiresCondition: !inside-tunnel
 	WithMoveAnimation:
 		MoveSequence: run
+		RequiresCondition: !inside-tunnel
 	Selectable:
 		Bounds: 40, 60, 0, -20
 	BodyOrientation:
@@ -235,7 +245,7 @@ JUG:
 		CameraPitch: 250
 
 SONIC:
-	Inherits: ^Tank
+	Inherits: ^TurretedTank
 	Inherits@1: ^8CellVision
 	Valued:
 		Cost: 1300
@@ -267,13 +277,9 @@ SONIC:
 		OpportunityFire: False
 	Turreted:
 		TurnSpeed: 3
-	AutoTarget:
-	WithFacingSpriteBody:
-	WithSpriteTurret:
-	WithMuzzleOverlay:
 
 G4TNK:
-	Inherits: ^Tank
+	Inherits: ^TurretedTank
 	Inherits@1: ^8CellVision
 	Inherits@2: ^IncompleteSelfHeal
 	Valued:
@@ -316,9 +322,6 @@ G4TNK:
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
-	AutoTarget:
-	WithFacingSpriteBody:
-	WithSpriteTurret:
 	WithMuzzleOverlay:
 
 HMEC:
@@ -354,7 +357,6 @@ HMEC:
 	BodyOrientation:
 		QuantizedFacings: 8
 		CameraPitch: 250
-	AutoTarget:
 	AmbientSound@WalkAnim:
 		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
 		Delay: 16
@@ -400,13 +402,15 @@ HMEC:
 		Turret: third
 	WithMuzzleOverlay:
 	WithSpriteTurret:
+		RequiresCondition: !inside-tunnel
 	WithSpriteTurret@2
 		Sequence: turret2
 		Turret: secondary
+		RequiresCondition: !inside-tunnel
 	WithSpriteTurret@3
 		Sequence: turret2
 		Turret: third
-	WithFacingSpriteBody:
+		RequiresCondition: !inside-tunnel
 	Passenger:
 		PipType: red
 	WithMoveAnimation:
@@ -430,8 +434,7 @@ NODMCV:
 	RenderSprites:
 		-Image:
 	WithFacingSpriteBody:
-	WithMoveAnimation:
-		MoveSequence: run
+		RequiresCondition: !inside-tunnel
 	Transforms:
 		IntoActor: nodyard
 		Offset: -1,-1
@@ -626,58 +629,58 @@ BGGY:
 	###################################
 	WithSpriteTurret@asd:
 		Sequence: turret-none
-		RequiresCondition: !loaded
+		RequiresCondition: !inside-tunnel && !loaded
 	WithSpriteTurret@militant:
 		Sequence: turret-minigun
-		RequiresCondition: ifv.militant
+		RequiresCondition: !inside-tunnel && ifv.militant
 	WithSpriteTurret@rocket:
 		Sequence: turret-rocket
-		RequiresCondition: ifv.crusader
+		RequiresCondition: !inside-tunnel && ifv.crusader
 	WithSpriteTurret@flame:
 		Sequence: turret-flame
-		RequiresCondition: ifv.templar
+		RequiresCondition: !inside-tunnel && ifv.templar
 	WithSpriteTurret@laser:
 		Sequence: turret-laser
-		RequiresCondition: ifv.nconf || ifv.bhs
+		RequiresCondition: !inside-tunnel && ifv.nconf || ifv.bhs
 	WithSpriteTurret@chainsaw:
 		Sequence: turret-chainsaw
-		RequiresCondition: ifv.pdrone || ifv.shark
+		RequiresCondition: !inside-tunnel && ifv.pdrone || ifv.shark
 	WithSpriteTurret@medic:
 		Sequence: turret-medic
-		RequiresCondition: ifv.medic
+		RequiresCondition: !inside-tunnel && ifv.medic
 	WithSpriteTurret@eagleguard:
 		Sequence: turret-eagleguard
-		RequiresCondition: ifv.eagleguard
+		RequiresCondition: !inside-tunnel && ifv.eagleguard
 	WithSpriteTurret@abductor:
 		Sequence: turret-abductor
-		RequiresCondition: ifv.moth
+		RequiresCondition: !inside-tunnel && ifv.moth
 	WithSpriteTurret@glad:
 		Sequence: turret-glad
-		RequiresCondition: ifv.glad
+		RequiresCondition: !inside-tunnel && ifv.glad
 	WithSpriteTurret@engineer:
 		Sequence: turret-engineer
-		RequiresCondition: ifv.engineer
+		RequiresCondition: !inside-tunnel && ifv.engineer
 	WithSpriteTurret@cyc2:
 		Sequence: turret-cyc2
-		RequiresCondition: ifv.cyc2
+		RequiresCondition: !inside-tunnel && ifv.cyc2
 	WithSpriteTurret@mortar:
 		Sequence: turret-mortar
-		RequiresCondition: ifv.jumpjet || ifv.skirmisher
+		RequiresCondition: !inside-tunnel && ifv.jumpjet || ifv.skirmisher
 	WithSpriteTurret@tesla:
 		Sequence: turret-tesla
-		RequiresCondition: ifv.seer || ifv.psyker
+		RequiresCondition: !inside-tunnel && ifv.seer || ifv.psyker
 	WithSpriteTurret@cyc2:
 		Sequence: turret-cyc2
-		RequiresCondition: ifv.cyc2
+		RequiresCondition: !inside-tunnel && ifv.cyc2
 	WithSpriteTurret@bug:
 		Sequence: turret-bug
-		RequiresCondition: ifv.bug
+		RequiresCondition: !inside-tunnel && ifv.bug
 	WithSpriteTurret@float:
 		Sequence: turret-float
-		RequiresCondition: ifv.float
+		RequiresCondition: !inside-tunnel && ifv.float
 	WithSpriteTurret@colossi:
 		Sequence: turret-colossi
-		RequiresCondition: ifv.colossi
+		RequiresCondition: !inside-tunnel && ifv.colossi
 	############################################
 	# Names
 	############################################
@@ -814,8 +817,6 @@ TTNK:
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
 	WithMuzzleOverlay:
-	RenderSprites:
-		Image: ttnk
 	WithMakeAnimation:
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
@@ -826,11 +827,11 @@ TTNK:
 		CanDeployOnRamps: True
 		UndeploySound: clicky1.aud
 		PauseOnCondition: RefineryLock
+		RequiresCondition: !inside-tunnel
 	Carryable:
 		RequiresCondition: undeployed
 	WithFacingSpriteBody:
-		Sequence: idle
-		RequiresCondition: undeployed
+		RequiresCondition: undeployed && !inside-tunnel
 	WithSpriteBody@deployed:
 		Sequence: deployed
 		RequiresCondition: !undeployed
@@ -852,7 +853,6 @@ TTNK:
 		Turrets: deployed
 		RequiresCondition: deployed
 		PauseOnCondition: empdisable
-	AutoTarget:
 	ExternalCondition@deployed:
 		Condition: deployed
 	ExternalCondition@undeployed:
@@ -1066,7 +1066,6 @@ HOWTLIZER:
 		Voice: Attack
 		PauseOnCondition: empdisable
 		TargetFrozenActors: True
-	AutoTarget:
 	-MustBeDestroyed:
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
@@ -1076,7 +1075,7 @@ HOWTLIZER:
 		ValidDamageStates: Critical
 
 STNK:
-	Inherits: ^Tank
+	Inherits: ^TurretedTank
 	Inherits@1: ^8CellVision
 	Valued:
 		Cost: 900
@@ -1157,6 +1156,7 @@ MUTMCV:
 	RenderSprites:
 		-Image:
 	WithFacingSpriteBody:
+		RequiresCondition: !inside-tunnel
 	WithMoveAnimation:
 		MoveSequence: run
 	Transforms:
@@ -1171,7 +1171,7 @@ MUTMCV:
 		Volume: 0.8
 
 MUTQUAD:
-	Inherits: ^Tank
+	Inherits: ^TurretedTank
 	Inherits@2: ^BasicStealthDetection
 	Inherits@3: ^MutRender
 	Inherits@4: ^8CellVision
@@ -1194,9 +1194,7 @@ MUTQUAD:
 	Voiced:
 		VoiceSet: Trike
 		Volume: 3
-	WithFacingSpriteBody:
 	WithMuzzleOverlay:
-	WithSpriteTurret:
 	Armament@primary:
 		Weapon: QuadFire
 		MuzzleSequence: muzzle
@@ -1209,13 +1207,9 @@ MUTQUAD:
 		MuzzlePalette: apgrey
 		LocalOffset: 800,0,700
 		PauseOnCondition: empdisable
-	AttackTurreted:
-		Voice: Attack
-		PauseOnCondition: empdisable
 	Turreted:
 		TurnSpeed: 6
 		Offset: -300,0,0
-	AutoTarget:
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
@@ -1749,8 +1743,10 @@ CABMCV:
 	RenderSprites:
 		-Image:
 	WithFacingSpriteBody:
+		RequiresCondition: !inside-tunnel
 	WithMoveAnimation:
 		MoveSequence: run
+		RequiresCondition: !inside-tunnel
 	Transforms:
 		IntoActor: cabyard
 		Offset: -1,-1
@@ -1998,6 +1994,7 @@ SPIDERARTY:
 	WithMuzzleOverlay:
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
+		RequiresCondition: !inside-tunnel
 	AutoTarget:
 		ScanRadius: 11
 	AttackFrontal:
