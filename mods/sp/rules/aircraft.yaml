@@ -627,7 +627,9 @@ STORMRIDER:
 	Armament@AA:
 		Weapon: StormRiderBlastAA
 	-ReturnOnIdle:
-	AttackTurreted:
+	AttackAircraft:
+		Voice: Attack
+		FacingTolerance: 120
 	Turreted:
 	SpawnActorOnDeath:
 		Actor: STORMRIDER.Husk
@@ -881,14 +883,10 @@ STORMRIDERSPAWN:
 		Modifier: 10
 	Valued:
 		Cost: 30
-	-AttackTurreted:
 	-Buildable:
 	Selectable:
 		Bounds: 30,24
 		Class: Stormrider
-	AttackAircraft:
-		Voice: Attack
-		FacingTolerance: 20
 	Aircraft:
 		Repulsable: false
 		TurnSpeed: 20
