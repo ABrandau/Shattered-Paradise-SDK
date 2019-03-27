@@ -2278,6 +2278,7 @@
 
 ^Gate:
 	Inherits: ^Building
+	Inherits@EMPDISABLE: ^EmpDisable
 	Valued:
 		Cost: 50
 	Health:
@@ -2291,11 +2292,9 @@
 	-GivesBuildableArea:
 	-MustBeDestroyed:
 	-WithSpriteBody:
-	WithMakeAnimation:
-		PauseOnCondition: !Building-Buildup
+	-WithMakeAnimation:
 	WithGateSpriteBody:
-		PauseOnCondition: !Building-Buildup
-		OpenSequence: make
+		OpenSequence: open
 	Tooltip:
 		Description: Automated barrier that opens for allied units.
 	Building:
@@ -2304,12 +2303,6 @@
 		TerrainTypes: Clear, Rough, Road, DirtRoad, Green, Sand, Pavement
 	MapEditorData:
 		Categories: Defence
-	WithDecoration@POWERDOWN:
-		Image: poweroff
-		Sequence: offline
-		Palette: mouse
-		RequiresCondition: powerdown
-		ReferencePoint: Center
 	Gate:
 		PauseOnCondition: empdisable || Building-Buildup
 		OpeningSound: gateup1.aud
