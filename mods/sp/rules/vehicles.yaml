@@ -403,11 +403,11 @@ HMEC:
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 		RequiresCondition: !inside-tunnel
-	WithSpriteTurret@2
+	WithSpriteTurret@2:
 		Sequence: turret2
 		Turret: secondary
 		RequiresCondition: !inside-tunnel
-	WithSpriteTurret@3
+	WithSpriteTurret@3:
 		Sequence: turret2
 		Turret: third
 		RequiresCondition: !inside-tunnel
@@ -792,7 +792,7 @@ TTNK:
 		TurnSpeed: 8
 		Speed: 90
 		Locomotor: InfantryCrusherVehicle
-		RequiresCondition: undeployed && !empdisable
+		PauseOnCondition: !undeployed || empdisable
 	Health:
 		HP: 35000
 	RejectsOrders@deployment:
@@ -823,9 +823,9 @@ TTNK:
 		UndeployedCondition: undeployed
 		Facing: 160
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
-		DeploySound: place2.aud
+		DeploySounds: place2.aud
 		CanDeployOnRamps: True
-		UndeploySound: clicky1.aud
+		UndeploySounds: clicky1.aud
 		PauseOnCondition: RefineryLock
 		RequiresCondition: !inside-tunnel
 	Carryable:
@@ -902,7 +902,7 @@ TICKHOLOGRAM:
 			ExplosionDeath: evaporate
 	-ThrowsShrapnel:
 	Mobile:
-		-RequiresCondition: undeployed
+		-PauseOnCondition: !undeployed
 	-AttackTurreted@deployed:
 	AttackFrontal:
 		-RequiresCondition: undeployed
@@ -979,7 +979,7 @@ SAPC:
 	Mobile:
 		TurnSpeed: 5
 		Speed: 80
-		RequiresCondition: !empdisable && !loading
+		PauseOnCondition: empdisable || loading
 	Health:
 		HP: 20000
 	Cargo:
@@ -1305,10 +1305,10 @@ STRUCKFULL:
 		Prerequisites: ~muweap, murax, ~AImoney
 	Valued:
 		Cost: 1200
- 	Cargo:
+	Cargo:
 		InitialUnits: marauder, marauder, mutfiend, mutfiend, e3
- 	RenderSprites:
- 	 	Image: struck
+	RenderSprites:
+		Image: struck
 	EditorOnlyTooltip:
 		Name: Filled Battle bus
 
@@ -1438,6 +1438,7 @@ HVRTRUK3:
 		Volume: 3
 	Repairable:
 		Voice: Repair
+		RepairActors: fix
 	Mobile:
 		TurnSpeed: 5
 		Speed: 60
@@ -1825,7 +1826,7 @@ REAPERCAB:
 	Selectable:
 		Bounds: 40,40,0,-10
 	Mobile:
-    	TurnSpeed: 10
+		TurnSpeed: 10
 		Speed: 95
 		Locomotor: Vehicle
 	Explodes:
@@ -1899,7 +1900,7 @@ REPAIRVEHICLE:
 ECM:
 	Inherits: ^Vehicle
 	Inherits@2: ^CabRender
-    Inherits@3: ^LowerSelectionPriority
+	Inherits@3: ^LowerSelectionPriority
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -1920,7 +1921,7 @@ ECM:
 		Ammo: 5
 		ReloadDelay: 25
 	Rearmable:
-        RearmActors: gadept, scrdepot
+		RearmActors: gadept, scrdepot
 	Minelayer:
 		Mine: mumine
 		RearmBuildings: scrdepot, gadept
@@ -2123,7 +2124,7 @@ LIMPED:
 		CrushClasses: infantry
 		WarnProbability: 0
 	WithSpriteBody:
-    -WithFacingSpriteBody:
+	-WithFacingSpriteBody:
 	Voiced:
 		VoiceSet: Limpet
 	Selectable:
@@ -2157,7 +2158,7 @@ SGEN:
 	Tooltip:
 		Name: Mobile Stealth Generator
 	Mobile:
-		TurnSpeed: 2#6
+		TurnSpeed: 2 #6
 		Speed: 90
 	RenderVoxels:
 	Health:
@@ -2175,7 +2176,6 @@ ART2:
 	-Buildable:
 	RenderSprites:
 		Image: howtlizer
-
 	# SCRDRONEC:
 	# Inherits@1: ^AutoTargetGround
 	# Inherits@2: ^HoverVehicle

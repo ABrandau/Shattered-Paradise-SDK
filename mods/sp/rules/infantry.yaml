@@ -168,6 +168,7 @@ JUMPJETAIR:
 		Sequence: shoot
 		RequiresCondition: JJBuff
 	-Repairable:
+		RepairActors: fix
 	RenderSprites:
 	WithShadow:
 	Hovers@CRUISING:
@@ -497,7 +498,7 @@ MARAUDER:
 	AutoTarget:
 		ScanRadius: 8
 	Mobile:
-		RequiresCondition: !WebDisable && undeployed
+		PauseOnCondition: WebDisable || !undeployed
 	Armament@1:
 		Weapon: MarauderShotgun
 		Name: OnFoot
@@ -517,8 +518,8 @@ MARAUDER:
 		DeployAnimation: make
 		CanDeployOnRamps: True
 		Facing: 160
-		DeploySound:
-		UndeploySound:
+		DeploySounds:
+		UndeploySounds:
 		RequiresCondition: !inside-tunnel
 	WithInfantryBody:
 		RequiresCondition: !WebDisable && undeployed && !inside-tunnel
@@ -730,7 +731,7 @@ SEER:
 		RequiresCondition: deployed
 	ExplodeWeapon@2:
 		Weapon: SeerTyranyInstakillSpawn
-		RequiresCondition: deployed  
+		RequiresCondition: deployed
 
 PSYKER:
 	Inherits: ^Mutant
@@ -1001,7 +1002,7 @@ COLOSSI:
 		HP: 30000
 	Mobile:
 		Locomotor: HeavyInfantry
-		RequiresCondition: !deployed && !WebDisable
+		PauseOnCondition: deployed || WebDisable
 	-SpawnActorOnDeath@FLAMEGUY:
 	-DamagedByTintedCells@Colossus:
 	SpawnActorOnDeath@conversion:
@@ -1033,8 +1034,8 @@ COLOSSI:
 		DeployAnimation: make
 		Facing: 160
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Green, Tiberium, BlueTiberium, Veins
-		DeploySound:
-		UndeploySound:
+		DeploySounds:
+		UndeploySounds:
 		CanDeployOnRamps: True
 		RequiresCondition: !inside-tunnel
 	WithInfantryBody:
@@ -1242,7 +1243,7 @@ PDRONE:
 	Hovers:
 	Mobile:
 		Speed: 80
-		-RequiresCondition: WebDisable
+		-PauseOnCondition: !WebDisable
 		Locomotor: HoverInfantry
 	Health:
 		HP: 11000
@@ -1382,7 +1383,7 @@ MOTH:
 	Mobile:
 		Speed: 80
 		Locomotor: HoverInfantry
-		RequiresCondition: !deployed && !WebDisable
+		PauseOnCondition: deployed || WebDisable
 	LeavesTrails:
 		Image: wake
 		Palette: effect
@@ -1406,8 +1407,8 @@ MOTH:
 		UndeployedCondition: undeployed
 		Facing: 160
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Tiberium, BlueTiberium
-		DeploySound: place2.aud
-		UndeploySound: clicky1.aud
+		DeploySounds: place2.aud
+		UndeploySounds: clicky1.aud
 		CanDeployOnRamps: True
 		RequiresCondition: !inside-tunnel
 	RejectsOrders@deployment:

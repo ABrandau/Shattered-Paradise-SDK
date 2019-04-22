@@ -610,7 +610,7 @@
 ^EmpDisableMobile:
 	Inherits: ^EmpDisable
 	Mobile:
-		RequiresCondition: !notmobile
+		PauseOnCondition: notmobile
 	ExternalCondition@empdisable:
 		Condition: empdisable
 	ExternalCondition@notmobile:
@@ -658,7 +658,7 @@
 		RequiresCondition: WebDisable
 		Modifier: 0
 	Mobile:
-		RequiresCondition: !WebDisable
+		PauseOnCondition: WebDisable
 	WithInfantryBody:
 		RequiresCondition: !WebDisable
 	WithIdleOverlay@web:
@@ -1123,7 +1123,7 @@
 	RenderRangeCircle:
 		RangeCircleType: AA
 	RevealsShroud:
-		Type: Footprint 
+		Type: Footprint
 	Valued:
 		Cost: 800
 	Health:
@@ -1161,7 +1161,7 @@
 	Inherits: ^BasicBuilding
 	Inherits@0: ^3CellVision
 	RevealsShroud:
-		Type: Footprint 
+		Type: Footprint
 		MaxHeightDelta: 3
 	CapturableProgressBar:
 	CapturableProgressBlink:
@@ -1443,7 +1443,7 @@
 		Weight: 3
 	Mobile:
 		SharesCell: false
-		-RequiresCondition: !WebDisable
+		-PauseOnCondition: !(!WebDisable)
 	-WithColoredOverlay@WebDisable:
 	-TimedConditionBar@WebDisable:
 	-SpeedMultiplier@WebDisable:
@@ -1678,7 +1678,7 @@
 	Targetable:
 		TargetTypes: Ground, Vehicle
 	Repairable:
-		RepairBuildings: gadept, scrdepot
+		RepairActors: gadept, scrdepot
 		Voice: Move
 	Passenger:
 		CargoType: Vehicle
@@ -1893,7 +1893,7 @@
 	Passenger:
 		CargoType: Aircraft
 	Repairable:
-		RepairBuildings: gadept, scrdepot
+		RepairActors: gadept, scrdepot
 		Voice: Move
 	Voiced:
 		VoiceSet: Heli

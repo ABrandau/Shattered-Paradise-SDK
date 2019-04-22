@@ -69,7 +69,7 @@ VeterancyWeapon:
 		ValidStances: Ally, Neutral
 
 RadarScanWeapon:
-	ReloadDelay: 6 
+	ReloadDelay: 6
 	Projectile: InstantExplode
 	Report: uradarpi.wav
 	Warhead@Spawn: SpawnActor
@@ -125,7 +125,7 @@ IonCannon: ### THIS IS THE MAIN ION CANON WEAPON
 		AffectsParent: True
 
 IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
-	ReloadDelay: 6 
+	ReloadDelay: 6
 	Range: 12c0
 	Projectile: InstantExplode
 	Warhead@3Dam_area: SpreadDamage
@@ -415,8 +415,8 @@ ClusterMissile:
 		MaxLevel: 2000
 		LayerName: OrangeRadiation
 
-HealerNuke
-    Inherits: ClusterMissile
+HealerNuke:
+	Inherits: ClusterMissile
 	Warhead@ImpactDamage0: SpreadDamage
 		Damage: -320000
 	Warhead@ClusterDamage3: SpreadDamage
@@ -689,7 +689,7 @@ FistRaiser:
 		AllowDirectHit: false
 		ValidTargets: Ground, Water, Infantry, Vehicle, BlueTiberium, Tiberium, Air
 
-FistRaiserShrapnel
+FistRaiserShrapnel:
 	Inherits: FistRaiser
 	Range: 5c0
 	MinRange: 2c0
@@ -730,7 +730,7 @@ RecoveryGun:
 
 IonStormSpawnerWeapon: ### THIS ONE GENERATES THE ION STORM PARTICLE
 	Inherits: IonCannonSpawner
-	ReloadDelay: 6 
+	ReloadDelay: 6
 	Range: 12c0
 	Projectile: InstantExplode
 	Warhead@3Dam_area: SpreadDamage

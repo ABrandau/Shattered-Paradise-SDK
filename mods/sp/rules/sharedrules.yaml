@@ -246,8 +246,8 @@ LPST:
 		DeployAnimation: make
 		Facing: 160
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
-		DeploySound: place2.aud
-		UndeploySound: clicky1.aud
+		DeploySounds: place2.aud
+		UndeploySounds: clicky1.aud
 	WithVoxelBody:
 		Image: lpst
 		RequiresCondition: undeployed
@@ -523,7 +523,7 @@ FLIPPEDPROC:
 		SpawnOffset: -384,-384,0
 		ExitCell: 3,1
 		ExitDelay: 5
-		ProductionTypes: Tank, Vehicle 
+		ProductionTypes: Tank, Vehicle
 	Tooltip:
 		Name: Vehicle or Aircraft production
 	ProvidesPrerequisite@factoryhelipad:
@@ -578,7 +578,7 @@ FLIPPEDPROC:
 	RepairsUnits:
 		Interval: 1
 	ProductionBar@Air:
-        ProductionType: Air
+		ProductionType: Air
 	Health:
 		HP: 60000
 	Power:
@@ -647,7 +647,7 @@ GADEPT:
 		BuildPaletteOrder: 5
 		Prerequisites: ~humanstuff, Vehicle or Aircraft production
 		Queue: Building
-		Description: Repairs vehicles.\n\nSpecial:\n- Can be ordererd to repair a single vehicle faster for a cost.\nApply a repair command to a vehicle to send it to a nearby service depo.#\n-Repairs nearby vehicles for free.
+		Description: Repairs vehicles.\n\nSpecial:\n- Can be ordererd to repair a single vehicle faster for a cost.\nApply a repair command to a vehicle to send it to a nearby service depo. #\n-Repairs nearby vehicles for free.
 	Building:
 		Footprint: =x= xxx =x=
 		Dimensions: 3,3
@@ -704,7 +704,7 @@ SCRDEPOT:
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
 	Buildable:
-		Prerequisites:  Vehicle or Aircraft production, ~structures.scr
+		Prerequisites: Vehicle or Aircraft production, ~structures.scr
 	Tooltip:
 		Name: Scrin Maintenance Depot
 	ProvidesPrerequisite@buildingname:
