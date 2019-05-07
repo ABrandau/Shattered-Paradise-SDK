@@ -779,50 +779,62 @@
 ^3CellVision:
 	RevealsShroud:
 		Range: 3c0
+		Type: CenterPosition
 
 ^4CellVision:
 	RevealsShroud:
 		Range: 4c0
+		Type: CenterPosition
 
 ^5CellVision:
 	RevealsShroud:
 		Range: 5c0
+		Type: CenterPosition
 
 ^6CellVision:
 	RevealsShroud:
 		Range: 6c0
+		Type: CenterPosition
 
 ^7CellVision:
 	RevealsShroud:
 		Range: 7c0
+		Type: CenterPosition
 
 ^8CellVision:
 	RevealsShroud:
 		Range: 8c0
+		Type: CenterPosition
 
 ^9CellVision:
 	RevealsShroud:
 		Range: 9c0
+		Type: CenterPosition
 
 ^10CellVision:
 	RevealsShroud:
 		Range: 10c0
+		Type: CenterPosition
 
 ^11CellVision:
 	RevealsShroud:
 		Range: 11c0
+		Type: CenterPosition
 
 ^12CellVision:
 	RevealsShroud:
 		Range: 12c0
+		Type: CenterPosition
 
 ^13CellVision:
 	RevealsShroud:
 		Range: 13c0
+		Type: CenterPosition
 
 ^14CellVision:
 	RevealsShroud:
 		Range: 14c0
+		Type: CenterPosition
 
 ^FullHealthRepairCondition:
 	Targetable@FullHealth:
@@ -1143,6 +1155,9 @@
 	Inherits: ^BasicBuilding
 	Inherits@0: ^7CellVision
 	-UpdatesPlayerStatistics:
+	RevealsShroud:
+		Type: Footprint
+		MaxHeightDelta: 3
 	Health:
 		HP: 90000
 	Tooltip:
@@ -1159,7 +1174,8 @@
 
 ^TechBuilding:
 	Inherits: ^BasicBuilding
-	Inherits@0: ^3CellVision
+	Inherits@0: ^StructureEffects
+	Inherits@1: ^3CellVision
 	RevealsShroud:
 		Type: Footprint
 		MaxHeightDelta: 3

@@ -24,6 +24,7 @@ GDIE1:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 	RenderSprites:
 
 GRENADIER:
@@ -63,6 +64,7 @@ GRENADIER:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 
 MEDIC:
 	Inherits@1: ^Soldier
@@ -93,6 +95,7 @@ MEDIC:
 		ForceTargetStances: None
 		PauseOnCondition: WebDisable
 	AttackFrontal:
+		FacingTolerance: 2
 	Passenger:
 		PipType: Red
 	-GainsExperience:
@@ -125,6 +128,7 @@ JUMPJET:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 
 JUMPJETAIR:
 	Inherits: ^Aircraft
@@ -240,6 +244,7 @@ EAGLEGUARD:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 
 ALTNODE1:
 	Inherits: ^Soldier
@@ -268,6 +273,7 @@ ALTNODE1:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 	RenderSprites:
 
 CRUSADER:
@@ -306,6 +312,7 @@ CRUSADER:
 	AttackTurreted:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 	Turreted:
 	Passenger:
 		PipType: Blue
@@ -347,6 +354,7 @@ TEMPLAR:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 	RenderSprites:
 	-DamagedByTerrain:
 
@@ -387,6 +395,7 @@ NCONF:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 	RenderSprites:
 	Voiced:
 		VoiceSet: BlackHand
@@ -450,6 +459,7 @@ BHS:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 	Demolition:
 		DetonationDelay: 45
 		Voice: Attack
@@ -539,11 +549,13 @@ MARAUDER:
 		Voice: Attack
 		RequiresCondition: undeployed
 		PauseOnCondition: WebDisable
+		FacingTolerance: 2
 	AttackTurreted@deployed:
 		Armaments: OnFoot
 		Voice: Attack
 		RequiresCondition: deployed
 		PauseOnCondition: WebDisable
+		FacingTolerance: 2
 	GrantConditionOnAttack:
 		Condition: AnimateTurret
 		# RevokeDelay: 10
@@ -596,6 +608,7 @@ MUTFIEND:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 	-TakeCover:
 	-WithDeathAnimation@body:
 	-WithDeathAnimation@tib:
@@ -671,6 +684,7 @@ E3:
 		Voice: Attack
 		Armaments: OnFoot
 		TargetFrozenActors: True
+		FacingTolerance: 2
 	-DamagedByTintedCells@Default:
 
 SEER:
@@ -711,6 +725,7 @@ SEER:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 	Explodes:
 		Weapon: SparkExplo
 		EmptyWeapon: SparkExplo
@@ -772,6 +787,7 @@ PSYKER:
 	AttackFrontal:
 		Voice: Attack
 		Armament: OnFoot
+		FacingTolerance: 2
 
 SHARK:
 	Inherits: ^ScrinSoldier
@@ -806,6 +822,7 @@ SHARK:
 		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
+		FacingTolerance: 2
 	AutoTargetPriority:
 		Priority: 1
 		ValidTargets: Infantry
@@ -861,6 +878,7 @@ LEGIO:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 
 SHAPESHIFTER:
 	Inherits: ENGINEER
@@ -922,6 +940,7 @@ FLOAT:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 	-TakeCover:
 	-GainsExperience:
 	-GrantCondition@RANK-ELITE:
@@ -981,6 +1000,7 @@ BUG:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 	-TakeCover:
 
 COLOSSI:
@@ -1024,6 +1044,7 @@ COLOSSI:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 	Crushable:
 		CrushClasses: HeavyInfantry
 	-TakeCover:
@@ -1089,6 +1110,7 @@ CABSENTRY:
 	AutoTarget:
 		ScanRadius: 8
 		InitialStance: AttackAnything
+		FacingTolerance: 2
 	-Armor:
 	Armor@2:
 		Type: VehicleArmor
@@ -1135,6 +1157,7 @@ CYBORG:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 	SelectionDecorations:
 
 CBORG:
@@ -1181,6 +1204,7 @@ CBORG:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 	RenderSprites:
 
 SWARMLING:
@@ -1258,6 +1282,7 @@ PDRONE:
 		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
+		FacingTolerance: 2
 	WithDeathAnimation@normal:
 		DeathTypes:
 			BulletDeath: 1
@@ -1352,6 +1377,7 @@ GLAD:
 		Voice: Attack
 		Armaments: OnFoot
 		RequiresCondition: !Moving
+		FacingTolerance: 2
 	WithInfantryBody:
 		RequiresCondition: !FireWhileMoving && !inside-tunnel
 
@@ -1549,12 +1575,13 @@ WORKER:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 	RenderSprites:
 	-SpawnActorOnDeath@nanomachineburst:
 	-SpawnActorOnDeath@conversion:
 	-DamagedByTerrain:
 
-cybdog:
+CYBDOG:
 	Inherits: ^Soldier
 	Valued:
 		Cost: 120
@@ -1586,6 +1613,7 @@ cybdog:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+		FacingTolerance: 2
 	SelectionDecorations:
 	-SpawnActorOnDeath@nanomachineburst:
 	-SpawnActorOnDeath@conversion:

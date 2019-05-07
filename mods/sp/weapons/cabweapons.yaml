@@ -271,11 +271,18 @@ CenturionVulcan:
 RepairVehicleRep:
 	Inherits: ^SparkSpawner
 	ReloadDelay: 60
-	Range: 2c0
+	Range: 4c0
 	Report: repair11.aud
 	InvalidTargets: FullHealth
 	ValidTargets: Vehicle
-	Projectile: InstantHit
+	Projectile: LaserZap
+		Width: 135
+		ZOffset: 4000
+		Color: 009900
+		SecondaryBeam: true
+		SecondaryBeamWidth: 45
+		SecondaryBeamZOffset: 4500
+		SecondaryBeamColor: 00CC00
 	Warhead@1Dam: SpreadDamage
 		Spread: 80
 		Damage: -2500
