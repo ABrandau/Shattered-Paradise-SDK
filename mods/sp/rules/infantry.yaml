@@ -542,6 +542,8 @@ MARAUDER:
 	WithSpriteTurret@animated:
 		RequiresCondition: deployed && AnimateTurret
 		Sequence: turret-shoot
+	TakeCover:
+		RequiresCondition: !deployed
 	WithSpriteBody:
 		Sequence: dot
 	AttackFrontal:
