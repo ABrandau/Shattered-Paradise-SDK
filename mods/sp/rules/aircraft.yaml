@@ -528,8 +528,6 @@ WETP:
 	SpeedMultiplier@Supersonic:
 		RequiresCondition: SpeedBuff
 		Modifier: 300
-	RevealsShroud:
-		Range: 3c0
 
 MUTQUEEN:
 	Inherits: ^CombatHelicopter
@@ -849,7 +847,7 @@ SCRCARRIER:
 		Weapon: FighterSpawn
 	CarrierMaster:
 		Actors: STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN
-		RespawnTicks: 700
+		RespawnTicks: 600
 		RearmTicks: 10
 		InstaRepair: true
 	AttackTurreted:
@@ -888,6 +886,7 @@ STORMRIDERSPAWN:
 	Aircraft:
 		Repulsable: false
 		TurnSpeed: 20
+		Speed: 150
 	Armament:
 		Weapon: WyvermBlast
 	Armament@AA:
@@ -1090,7 +1089,7 @@ BASILISK:
 	Inherits@4: ^CabRender
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 2000
+		Cost: 2500
 	Tooltip:
 		Name: Basilisk
 	Buildable:

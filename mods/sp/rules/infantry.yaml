@@ -497,14 +497,14 @@ MARAUDER:
 		Description: Wasteland soldiers armed with shotguns.\n\nGood vs: Infantry\n\nSpecial:\n- Heals on Tiberium\n- Can deploy to increase health and attackrange.\n- Crush class: crushable
 		Prerequisites: ~murax
 	Valued:
-		Cost: 150
+		Cost: 100
 	Tooltip:
 		Name: Marauder
 	Voiced:
 		VoiceSet: Marauder
 		Volume: 8
 	Health:
-		HP: 12000
+		HP: 10000
 	AutoTarget:
 		ScanRadius: 8
 	Mobile:
@@ -706,8 +706,6 @@ SEER:
 	Health:
 		HP: 15000
 	AutoTarget:
-	DetectCloaked:
-		Range: 3c0
 	RenderSprites:
 	Armament@PRIMARY:
 		Weapon: SeerTesla
@@ -733,9 +731,6 @@ SEER:
 		EmptyWeapon: SparkExplo
 		LoadedChance: 100
 		Chance: 100
-	WithRangeCircle:
-		Type: Tyrant
-		Range: 3c0
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: deployed
 		CooldownTicks: 2000
@@ -800,7 +795,7 @@ SHARK:
 		Description: Melee creature that tears down enemies.\n\nGood vs Infantry.\n\nSpecial:\n- Absorbs essence from killed units to heal.\n- Crush class: crushable.\n- Immune to Tiberium radiation.\n- Does not receive damage from tiberium fields.
 		Prerequisites: ~scrrax
 	Valued:
-		Cost: 80
+		Cost: 75
 	Tooltip:
 		Name: Razorshark
 	Selectable:
@@ -1177,7 +1172,7 @@ CBORG:
 		Prerequisites: ~cabclaw
 		IconPalette: UnittemIcon
 	Health:
-		HP: 14000
+		HP: 18000
 	Voiced:
 		VoiceSet: Cyborg
 	Mobile:
@@ -1249,7 +1244,7 @@ PDRONE:
 	Inherits: ^CabalDroneInfantry
 	Inherits@1: ^7CellVision
 	Valued:
-		Cost: 150
+		Cost: 100
 	DeliversCash:
 		Payload: 75
 		Voice: Move
@@ -1317,7 +1312,7 @@ GLAD:
 	Inherits@1: ^7CellVision
 	Inherits@2: ^PermanentSelfHeal
 	Valued:
-		Cost: 700
+		Cost: 600
 	DeliversCash:
 		Payload: 300
 		Voice: Move
@@ -1408,7 +1403,7 @@ MOTH:
 	Hovers:
 		RequiresCondition: !deployed
 	Mobile:
-		Speed: 80
+		Speed: 100
 		Locomotor: HoverInfantry
 		PauseOnCondition: deployed || WebDisable
 	LeavesTrails:
