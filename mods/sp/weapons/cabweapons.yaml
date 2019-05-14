@@ -378,13 +378,24 @@ PalaLazorMute:
 	Inherits: PalaLazor
 	-Report: lastur1.aud
 
-WaspLasor:
-	ReloadDelay: 50
+WaspBullet:
+	Inherits: ^APWarhead
+	ReloadDelay: 30
 	Range: 6c0
 	MinRange: 0c100
 	Report: lastur1.aud
-	ValidTargets: Infantry, Vehicle, Building, Defence, Ground, Water
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	InvalidTargets: Air
+	Projectile: Bullet
+		Speed: 100c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 3000
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry
+		InvalidTargets: Air
+
+WaspLasor:
+	Inherits: WaspBullet
 	Projectile: LaserZap
 		Color: 0dc7b8
 		BeamDuration: 20
@@ -396,13 +407,9 @@ WaspLasor:
 		SecondaryBeamColor: FFFFFF
 	Warhead@1Dam: SpreadDamage
 		Damage: 1
-		ValidTargets: Infantry, Vehicle, Building, Defence, Ground, Water
-		InvalidTargets: Air
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 WaspLasorAA:
 	Inherits: WaspLasor
-	ReloadDelay: 30
 	ValidTargets: Air
 	InvalidTargets: Infantry, Vehicle, Building, Defence, Ground, Water
 	Warhead@1Dam: SpreadDamage
@@ -410,32 +417,11 @@ WaspLasorAA:
 		ValidTargets: Air
 		InvalidTargets: Infantry, Vehicle, Building, Defence, Ground, Water
 
-WaspBullet:
-	Inherits: ^APWarhead
-	ReloadDelay: 50
-	Range: 6c0
-	MinRange: 0c100
-	Report: lastur1.aud
-	ValidTargets: Ground, Water, Vehicle, Building, Infantry
-	InvalidTargets: Air
-	Projectile: Bullet
-		Speed: 100c0
-	Warhead@1Dam: SpreadDamage
-		Damage: 2800
-		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
-		ValidTargets: Ground, Water, Vehicle, Building, Infantry
-		InvalidTargets: Air
-
 WaspBulletAA:
-	Inherits: WaspBullet
-	ValidTargets: Air
-	ReloadDelay: 30
+	Inherits: WaspLasorAA
 	Projectile: InstantHit
-	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
-		ValidTargets: Air
-		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 
 DevourerGrinder:
 	Inherits: ^ArtilleryWarhead
