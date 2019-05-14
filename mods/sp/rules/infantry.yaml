@@ -537,11 +537,14 @@ MARAUDER:
 	Turreted:
 		TurnSpeed: 50
 		InitialFacing: 160
+		Turret: Marauderturr
 	WithSpriteTurret@idle:
 		RequiresCondition: deployed && !AnimateTurret
+		Turret: Marauderturr
 	WithSpriteTurret@animated:
 		RequiresCondition: deployed && AnimateTurret
 		Sequence: turret-shoot
+		Turret: Marauderturr
 	TakeCover:
 		RequiresCondition: !deployed
 	WithSpriteBody:
@@ -555,6 +558,7 @@ MARAUDER:
 	AttackTurreted@deployed:
 		Armaments: OnFoot
 		Voice: Attack
+		Turrets: Marauderturr
 		RequiresCondition: deployed
 		PauseOnCondition: WebDisable
 		FacingTolerance: 2
