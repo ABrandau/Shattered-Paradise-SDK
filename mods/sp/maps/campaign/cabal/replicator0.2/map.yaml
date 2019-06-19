@@ -4411,13 +4411,13 @@ Rules: sp|rules/campaign.yaml
 		-WithSpriteBody@deployed:
 		WithFacingSpriteBody:
 			Sequence: idle
-			-RequiresCondition: undeployed
+			-RequiresCondition:
 		RenderSprites:
 			Image: ttnk
 		RenderVoxels:
 			Image: ttnk
 		Mobile:
-			-RequiresCondition: undeployed
+			-PauseOnCondition:
 		-AttackTurreted@deployed:
 		AttackFrontal:
-			-RequiresCondition: undeployed
+			-RequiresCondition:
