@@ -1141,9 +1141,6 @@ CYBORG:
 	Selectable:
 		Bounds: 22,32,-1,-9
 		DecorationBounds: 16,31,0,-10
-	DeliversCash:
-		Payload: 175
-		Voice: Move
 	Voiced:
 		VoiceSet: Cyborg
 	Health:
@@ -1181,9 +1178,6 @@ CBORG:
 		VoiceSet: Cyborg
 	Mobile:
 		Speed: 50
-	DeliversCash:
-		Payload: 45
-		Voice: Move
 	Armament@1:
 		Weapon: CyborgRocket
 		LocalOffset: 424,198,1086
@@ -1218,9 +1212,6 @@ SWARMLING:
 		BuildPaletteOrder: 25
 		Prerequisites: ~cabclaw
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Does not receive damage from tiberium fields.
-	DeliversCash:
-		Payload: 275
-		Voice: Move
 	Explodes:
 		Weapon: DroneExplode
 		EmptyWeapon: DroneExplode
@@ -1249,9 +1240,6 @@ PDRONE:
 	Inherits@1: ^7CellVision
 	Valued:
 		Cost: 100
-	DeliversCash:
-		Payload: 75
-		Voice: Move
 	Tooltip:
 		Name: Reclaimer
 	Buildable:
@@ -1316,10 +1304,7 @@ GLAD:
 	Inherits@1: ^7CellVision
 	Inherits@2: ^PermanentSelfHeal
 	Valued:
-		Cost: 600
-	DeliversCash:
-		Payload: 300
-		Voice: Move
+		Cost: 750
 	Tooltip:
 		Name: Gladiator
 	Buildable:
@@ -1340,13 +1325,13 @@ GLAD:
 	Armament@1:
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
-		LocalOffset: 170,250,500
+		LocalOffset: 200,250,550
 		PauseOnCondition: WebDisable
 		Name: OnFoot
 	Armament@2:
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
-		LocalOffset: 170,-250,500
+		LocalOffset: 200,-250,550
 		PauseOnCondition: WebDisable
 		Name: OnFoot
 	Armament@3:
@@ -1359,28 +1344,10 @@ GLAD:
 		MuzzleSequence: muzzle
 		LocalOffset: 170,-250,500
 		PauseOnCondition: WebDisable
-	AttackTurreted:
-		Voice: Attack
-		PauseOnCondition: empdisable
-		RequiresCondition: Moving
-		Armaments: OnFoot
-	Turreted:
-		TurnSpeed: 3
-	GrantConditionOnMovement:
-		Condition: Moving
-	GrantConditionOnAttack:
-		Condition: FireWhileMoving
-		RequiresCondition: Moving
-	WithSpriteTurret:
-		Sequence: shoot
-		RequiresCondition: FireWhileMoving && !inside-tunnel
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
-		RequiresCondition: !Moving
 		FacingTolerance: 2
-	WithInfantryBody:
-		RequiresCondition: !FireWhileMoving && !inside-tunnel
 
 MOTH:
 	Inherits: ^CabalDroneInfantry
@@ -1399,9 +1366,6 @@ MOTH:
 	Explodes:
 		Weapon: DroneExplode
 		EmptyWeapon: DroneExplode
-	DeliversCash:
-		Payload: 250
-		Voice: Move
 	Voiced:
 		VoiceSet: Limpet
 	Hovers:
@@ -1489,9 +1453,6 @@ CYC2:
 		BuildPaletteOrder: 30
 		Prerequisites: ~cabclaw, cabtech
 		BuildLimit: 1
-	DeliversCash:
-		Payload: 600
-		Voice: Move
 	-WithPermanentInjury:
 	GrantConditionOnDamageState@CRITICAL:
 		GrantPermanently: false
@@ -1516,26 +1477,10 @@ CYC2:
 		Weapon: GCyCannon
 		LocalOffset: 170,85,683
 		PauseOnCondition: WebDisable
-	AttackTurreted:
-		Voice: Attack
-		PauseOnCondition: empdisable
-		Armaments: OnFoot
-		RequiresCondition: Moving
-	Turreted:
-	GrantConditionOnMovement:
-		Condition: Moving
-	GrantConditionOnAttack:
-		Condition: FireWhileMoving
-		RequiresCondition: Moving
-	WithSpriteTurret:
-		Sequence: shoot
-		RequiresCondition: FireWhileMoving
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
 		RequiresCondition: !Moving
-	WithInfantryBody:
-		RequiresCondition: !FireWhileMoving && !inside-tunnel && !criticalspeed
 	WithInfantryBody@Damaged:
 		RequiresCondition: criticalspeed
 		MoveSequence: crippled-run
@@ -1561,9 +1506,6 @@ WORKER:
 		Speed: 60
 	Voiced:
 		VoiceSet: Cyborg
-	DeliversCash:
-		Payload: 45
-		Voice: Move
 	Armor@worker:
 		Type: Worker
 	Armament@1:
@@ -1593,9 +1535,6 @@ CYBDOG:
 		DecorationBounds: 16,31,0,-10
 	Voiced:
 		VoiceSet: Limpet
-	DeliversCash:
-		Payload: 45
-		Voice: Move
 	Mobile:
 		Speed: 60
 	Health:
