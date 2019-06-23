@@ -40,7 +40,7 @@ TemplarFlame:
 	ReloadDelay: 50
 	Burst: 10
 	BurstDelays: 2
-	Range: 4c256
+	Range: 4c0
 	Report: flamtnk1.aud
 	Projectile: BulletAS
 		Speed: 130
@@ -52,12 +52,14 @@ TemplarFlame:
 		Spread: 250
 		Damage: 400
 		DamageTypes: Prone100Percent, TriggerProne, FireDeath
+		Versus:
+			InfantryArmor: 150
 
 BlackHandLasor:
 	Inherits: ^FullDamage
 	Burst: 3
 	ReloadDelay: 50
-	Range: 7c0
+	Range: 6c0
 	Report: laserriflefire01.wav
 	Projectile: LaserZap
 		Blockable: true
@@ -222,21 +224,23 @@ Tick90mm:
 DevilsFlame:
 	Inherits: ^FlameWarhead
 	Inherits@2: ^FlameScorch
-	ReloadDelay: 60
-	Range: 4c256
+	ReloadDelay: 50
+	Range: 4c0
 	Report: flamtnk1.aud
 	Projectile: BulletAS
 		Speed: 130
 		Image: FLAMEALL
-		Inaccuracy: 1c3
+		Inaccuracy: 1c0
 		Palette: FlameEffectPal
 		Blockable: true
 	Burst: 14
 	BurstDelays: 2
 	Warhead@1Dam: SpreadDamage
-		Spread: 100
+		Spread: 200
 		Damage: 400
 		DamageTypes: Prone100Percent, TriggerProne, FireDeath
+		Versus:
+			InfantryArmor: 200
 
 FlameHoloShrapnel:
 	Inherits: ^NoDamage
@@ -374,7 +378,7 @@ HarpyClaw:
 		InvalidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		Versus:
-			InfantryArmor: 200
+			InfantryArmor: 250
 			BuildingArmor: 100
 
 HarpyClawAA:
