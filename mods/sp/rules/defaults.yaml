@@ -1809,6 +1809,7 @@
 		QuantizedFacings: 0
 	RenderVoxels:
 	WithVoxelBody:
+		RequiresCondition: !inside-tunnel
 	-WithFacingSpriteBody:
 
 ^VoxelTank:
@@ -1818,7 +1819,7 @@
 		CameraPitch: 85
 	RenderVoxels:
 	WithVoxelBody:
-		RequiresCondition: !submerged || !inside-tunnel
+		RequiresCondition: !inside-tunnel
 	-WithFacingSpriteBody:
 
 ^SubterraneanVoxelVehicle:
@@ -1844,7 +1845,7 @@
 		RequiresCondition: submerged
 		Except: Stop
 	WithVoxelBody:
-		RequiresCondition: !submerged || !inside-tunnel
+		RequiresCondition: !inside-tunnel && !submerged
 	Targetable:
 		RequiresCondition: !inside-tunnel && !submerged
 	-GrantConditionOnDamageState@smoke:
@@ -1853,8 +1854,6 @@
 	AnnounceOnSeen@subterranean:
 		Notification: SubterraneanUnitDetected
 		PingRadar: True
-	Targetable:
-		RequiresCondition: !inside-tunnel && !submerged
 	GrantConditionOnSubterraneanLayer:
 		Condition: submerged
 		SubterraneanTransitionImage: dig

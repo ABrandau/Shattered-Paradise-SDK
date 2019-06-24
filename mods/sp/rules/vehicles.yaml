@@ -131,6 +131,8 @@ APC:
 		UnloadVoice: Unload
 		LoadingCondition: notmobile
 		EjectOnDeath: False
+	Passenger:
+		CargoType: Apc
 	LeavesTrails:
 		Image: wake
 		Palette: effect
@@ -985,6 +987,10 @@ SAPC:
 		PipCount: 5
 		UnloadVoice: Unload
 		LoadingCondition: loading
+	Passenger:
+		CargoType: Apc
+	WithVoxelBody:
+		RequiresCondition: !submerged && !inside-tunnel
 
 SUBTANK:
 	Inherits: ^SubterraneanVoxelVehicle
@@ -1017,6 +1023,8 @@ SUBTANK:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	AutoTarget:
+	WithVoxelBody:
+		RequiresCondition: !submerged && !inside-tunnel
 
 HOWTLIZER:
 	Inherits: ^Tank
@@ -1290,6 +1298,8 @@ STRUCK:
 		PipCount: 5
 		UnloadVoice: Unload
 		LoadingCondition: notmobile
+	Passenger:
+		CargoType: Apc
 	AutoTarget:
 	AttackGarrisoned:
 		PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
@@ -1961,6 +1971,8 @@ CABAPC:
 		PipCount: 12
 		UnloadVoice: Unload
 		LoadingCondition: notmobile
+	Passenger:
+		CargoType: Apc
 	SelectionDecorations:
 	Selectable:
 		DecorationBounds: 75, 45 , 0, -6
