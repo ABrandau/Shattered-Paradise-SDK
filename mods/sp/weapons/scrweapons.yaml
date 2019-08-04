@@ -4,8 +4,6 @@ SharkJump:
 	ReloadDelay: 20
 	Range: 1c512
 	Report: SharkStrike0001.wav, SharkStrike0003.wav, SharkStrike0004.wav, SharkStrike0006.wav
-	Projectile: BulletAS
-		Speed: 100c0
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
 		Versus:
@@ -62,7 +60,7 @@ LegioNeedlerAA:
 ColossiShard:
 	Inherits: ^RifleWarhead
 	ReloadDelay: 70
-	Range: 5c0
+	Range: 6c0
 	Burst: 4
 	Report: fiend2.aud
 	MinRange: 0c100
@@ -177,11 +175,11 @@ FloatTesla:
 	Range: 7c0
 	Report: voltautofire.wav
 	Charges: yes
-	ValidTargets: Infantry, Vehicle, Building
+	ValidTargets: Infantry, Vehicle
 	Projectile: TeslaZap
 		Palette: apolredalpha
 	Warhead@1Dam: SpreadDamage
-		Damage: 3000
+		Damage: 1
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, ScrinEssenceKill
 	Warhead@op: FireShrapnel
 		Weapon: EssenceMissile
@@ -203,7 +201,7 @@ FloatGlaive:
 		Palette: apollightbluealpha
 		Image: glaive
 	Warhead@1Dam: SpreadDamage
-		Damage: 1500
+		Damage: 2000
 		ValidTargets: Ground, Water
 		DamageTypes: SmallExplosionDeath, ScrinEssenceKill
 	Warhead@op: FireShrapnel
@@ -251,7 +249,7 @@ ScorpAcid:
 	Inherits: ^AcidWarhead
 	Inherits@1: ^SpawnsIrradiation
 	ReloadDelay: 70
-	Range: 4c0
+	Range: 5c0
 	Burst: 12
 	BurstDelays: 1
 	Report: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
@@ -623,29 +621,29 @@ IchorWasteTurretAcid:
 	Inherits@1: ^SpawnsIrradiation
 	ReloadDelay: 40
 	Range: 6c768
-	Burst: 7
+	Burst: 8
 	Report: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
 	BurstDelays: 1
 	Projectile: BulletAS
-		Speed: 250
+		Speed: 500
 		Image: acidall32
 		Blockable: False
 		Inaccuracy: 1c0
 		Palette: apolgreenalpha
 	BurstDelays: 4
 	Warhead@1Dam: SpreadDamage
-		Spread: 250
-		Damage: 800
+		Spread: 350
+		Damage: 1000
 		Versus:
-			InfantryArmor: 150
+			InfantryArmor: 200
 			BuildingArmor: 75
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		InvalidTargets: Shark
 	Warhead@2Shark: SpreadDamage
-		Spread: 250
-		Damage: 800
+		Spread: 350
+		Damage: 1000
 		Versus:
-			InfantryArmor: 150
+			InfantryArmor: 200
 			BuildingArmor: 75
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		ValidTargets: Shark
