@@ -4,10 +4,8 @@ MarineRifle:
 	ReloadDelay: 35
 	Range: 4c512
 	Report: infgun3.aud, gostgun1.aud, slvkgun1.aud
-	Projectile: BulletAS
-		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
-		Damage: 2000
+		Damage: 2500
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 GrenadierBazooka:
@@ -34,7 +32,7 @@ GrenadierBazookaAA:
 JJGrenade:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Bang
-	ReloadDelay: 80
+	ReloadDelay: 70
 	Range: 5c0
 	Report: grenadelauncherfire.wav
 	ValidTargets: Ground, Water
@@ -122,10 +120,8 @@ WolverineVulcan:
 	ReloadDelay: 40
 	Range: 7c0
 	Report: tsgun4.aud
-	Projectile: BulletAS
-		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
-		Damage: 3750
+		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 APCGrenade:
@@ -142,10 +138,10 @@ APCGrenade:
 		LaunchAngle: 45
 		Image: DISCUS
 	Warhead@1Dam: SpreadDamage
-		Spread: 200
+		Spread: 300
 		Damage: 5000
 		Versus:
-			BuildingArmor: 25
+			BuildingArmor: 50
 			VehicleArmor: 25
 			DefenseArmor: 25
 			ConcreteArmor: 5
@@ -158,8 +154,6 @@ ApcVulcan:
 	ReloadDelay: 50
 	Range: 4c0
 	Report: tsgun4.aud
-	Projectile: BulletAS
-		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
 		Damage: 4500
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
@@ -439,7 +433,7 @@ VulcanTower:
 	Burst: 2
 	Range: 6c768
 	Report: chaingn1.aud
-	Projectile: BulletAS
+	Projectile: InstantHit
 		Speed: 1c682
 		Blockable: False
 	Warhead@1Dam: SpreadDamage
