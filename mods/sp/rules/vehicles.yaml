@@ -13,7 +13,7 @@ SMECH:
 		BuildPaletteOrder: 2
 		Prerequisites: ~gaweap
 	Mobile:
-		TurnSpeed: 10
+		TurnSpeed: 15
 		Speed: 100
 		Locomotor: Vehicle
 	Health:
@@ -21,6 +21,7 @@ SMECH:
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
+		FacingTolerance: 2
 	AutoTarget:
 	Armament:
 		Weapon: WolverineVulcan
@@ -57,7 +58,7 @@ MMCH:
 		Prerequisites: ~gaweap
 	Mobile:
 		TurnSpeed: 5
-		Speed: 80
+		Speed: 75
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 45000
@@ -154,7 +155,7 @@ HVR:
 	Inherits@1: ^HoverTank
 	Inherits@4: ^8CellVision
 	Valued:
-		Cost: 1200
+		Cost: 1100
 	Tooltip:
 		Name: Hover MLRS
 	Buildable:
@@ -164,7 +165,7 @@ HVR:
 		BuildPaletteOrder: 5
 		Prerequisites: ~gaweap, garadr
 	Mobile:
-		Speed: 110
+		Speed: 100
 		TurnSpeed: 14
 		Locomotor: Hover
 	Health:
@@ -203,7 +204,7 @@ JUG:
 		Prerequisites: ~gaweap, gatech
 	Mobile:
 		TurnSpeed: 5
-		Speed: 80
+		Speed: 75
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 21000
@@ -460,7 +461,7 @@ BGGY:
 		Prerequisites: ~naweap, ~!AImoney
 	Mobile:
 		TurnSpeed: 10
-		Speed: 125
+		Speed: 110
 		Locomotor: Vehicle
 	Turreted:
 		Offset: -250,0,400
@@ -763,7 +764,7 @@ ROCKETBGGY:
 FLAMEBGGY:
 	Inherits: BGGY
 	Valued:
-		Cost: 800
+		Cost: 600
 	RenderSprites:
 		Image: bggy
 	Buildable:
@@ -977,7 +978,7 @@ SAPC:
 		Description: Troop transport that can move underground.\n\nSpecial:\n- Can move underground.\n- Can transport up to 5 infantry.\n- Can crush infantry.\n- Cannot receive orders but halt when underground.
 	Mobile:
 		TurnSpeed: 5
-		Speed: 80
+		Speed: 100
 		PauseOnCondition: empdisable || loading
 	Health:
 		HP: 20000
@@ -1008,7 +1009,7 @@ SUBTANK:
 		Prerequisites: ~naweap, natech
 	Mobile:
 		TurnSpeed: 8
-		Speed: 90
+		Speed: 100
 	Health:
 		HP: 30000
 	Armament:
@@ -1356,7 +1357,7 @@ MRLS:
 	Inherits@1: ^5CellVision
 	Inherits@2: ^MutRender
 	Valued:
-		Cost: 1000
+		Cost: 900
 	Tooltip:
 		Name: Irradiator MLRS
 	Buildable:
@@ -1496,10 +1497,10 @@ SCRSCORPION:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 24
-		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n- Can mutate enemies killed\n- Deals considerable damage to vehicles\n- Absorbs essence from killed enemies to heal\n- Attacks emit radiation that harms infantry in the area\n- Inmune to tiberium radiation.\n- Cannot crush infantry
+		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n- Can mutate enemies killed\n- Deals considerable damage to vehicles\n- Absorbs essence from killed enemies to heal\n- Attacks emit radiation that harms infantry in the area\n- Inmune to tiberium radiation.\n- Can crush infantry
 		Prerequisites: ~scrweap
 	Mobile:
-		TurnSpeed: 8
+		TurnSpeed: 12
 		Speed: 80
 		Locomotor: InfantryCrusherVehicle
 	Health:
@@ -1530,14 +1531,14 @@ SCRMBT:
 		Description: Light Tank, good for harassment.\n\nGood vs Ground targets\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water)\n- Absorbs essence from killed units to heal\n- Cannot crush infantry
 		Prerequisites: ~scrweap
 	Valued:
-		Cost: 800
+		Cost: 900
 	Tooltip:
 		Name: Hover Tank
 	Health:
 		HP: 25000
 	Mobile:
 		TurnSpeed: 7
-		Speed: 90
+		Speed: 80
 		Locomotor: Hover
 	Turreted:
 		TurnSpeed: 6
@@ -1579,12 +1580,13 @@ SCRGLYDER2:
 		PauseOnCondition: empdisable
 	AttackFrontal:
 		PauseOnCondition: empdisable
+		FacingTolerance: 5
 
 SCRRECHARGER:
 	Inherits@1: ^Walker
 	Inherits: ^ScrinVehicle
 	Valued:
-		Cost: 650
+		Cost: 1000
 	Tooltip:
 		Name: Guardian
 	Buildable:
@@ -1592,7 +1594,7 @@ SCRRECHARGER:
 		BuildPaletteOrder: 27
 		BuildAtProductionType: Tank
 		Description: Mobile shield generator.\n\nSpecial:\n- Generates shields around nearby friendly units.\n- Shields protect from all damage until the unit is hit 4 times.\n- Does not protect against super weapons.\n- Absorbs essence from killed enemies to heal.\n- Can Crush infantry.\n- Cannot apply shields to aircraft.
-		Prerequisites: ~scrweap, scrdepot
+		Prerequisites: ~scrweap, scrradr, scrextractor
 	Mobile:
 		TurnSpeed: 7
 		Speed: 80
@@ -1608,10 +1610,10 @@ SCRRECHARGER:
 	ProximityExternalCondition@VanguardShield:
 		RequiresCondition: !empdisable
 		Condition: VanguardShield
-		Range: 4c0
+		Range: 7c0
 		AffectsParent: false
 	WithRangeCircle:
-		Range: 4c0
+		Range: 7c0
 		Type: VanguardShield
 	Targetable:
 		TargetTypes: Ground, Vehicle
@@ -1769,7 +1771,7 @@ CENTURION:
 	Inherits@2: ^7CellVision
 	Inherits@3: ^CabalVehicleVoice
 	Valued:
-		Cost: 800
+		Cost: 900
 	Tooltip:
 		Name: Centurion
 	Buildable:
@@ -1862,6 +1864,7 @@ REAPERCAB:
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
+		FacingTolerance: 2
 	WithInfantryBody:
 	BodyOrientation:
 		QuantizedFacings: 8
