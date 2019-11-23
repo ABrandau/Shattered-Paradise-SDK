@@ -5,8 +5,6 @@ CyborgVulcan:
 	Burst: 3
 	Range: 4c512
 	Report: cygun1.aud
-	Projectile: BulletAS
-		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
 		Damage: 2200
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
@@ -51,8 +49,7 @@ SentinelGun:
 	Inherits@1: ^Mediuml_Clsn
 	ReloadDelay: 60
 	Range: 4c0
-	Projectile: BulletAS
-		Speed: 682
+	Projectile: InstantHit
 		Image: 120mm
 		Shadow: true
 		Palette: ra
@@ -115,8 +112,6 @@ ReclaimerHit:
 	Range: 1c512
 	Report: piston1.wav, piston2.wav
 	ValidTargets: Infantry
-	Projectile: BulletAS
-		Speed: 5c682
 	Warhead@1Dam: SpreadDamage
 		Damage: 6500
 		ValidTargets: Infantry
@@ -179,7 +174,7 @@ LurkerHit:
 			VehicleArmor: 10
 			DefenseArmor: 10
 			AircraftArmor: 100
-			ConcreteArmor: 15
+			ConcreteArmor: 5
 		ValidStances: Enemy, Neutral
 		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
 	Warhead@2Eff: CreateEffect
@@ -234,8 +229,6 @@ WorkerMinigun:
 	ReloadDelay: 50
 	Range: 4c0
 	Report: infgun3.aud, gostgun1.aud, slvkgun1.aud
-	Projectile: BulletAS
-		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
 		Damage: 1600
 		DamageTypes: Prone70Percent, TriggerProne

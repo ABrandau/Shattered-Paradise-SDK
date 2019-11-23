@@ -108,7 +108,7 @@ ToxinCommandoRifle:
 		Range: 2c0
 		Duration: 125
 		Condition: ToxinTrooperDebuff
-		ValidTargets: Infantry
+		ValidTargets: Infantry, Vehicle
 		InvalidTargets: Building, Defence
 
 BuggyCannon:
@@ -117,8 +117,6 @@ BuggyCannon:
 	ReloadDelay: 50
 	Range: 5c0
 	Report: tsgun4.aud
-	Projectile: BulletAS
-		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
 		Damage: 2500
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
@@ -150,8 +148,6 @@ SharkJumpNod:
 	ReloadDelay: 20
 	Range: 1c512
 	Report: SharkStrike0001.wav, SharkStrike0003.wav, SharkStrike0004.wav, SharkStrike0006.wav
-	Projectile: BulletAS
-		Speed: 100c0
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
 		Versus:
@@ -371,7 +367,6 @@ HarpyClaw:
 	InvalidTargets: Air
 	Report: VenomGun0000.wav, VenomGun0001.wav, VenomGun0002.wav
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
-	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
@@ -440,7 +435,7 @@ ProtonAA:
 		VerticalRateOfTurn: 60
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 1200
+		Damage: 2500
 		ValidTargets: Air
 
 CerberusLazorCharge:
@@ -520,5 +515,5 @@ ObeliskLaserFire:
 		SecondaryBeamZOffset: 4000
 		SecondaryBeamColor: FFFFFF
 	Warhead@1Dam: SpreadDamage
-		Damage: 28000
+		Damage: 30000
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
