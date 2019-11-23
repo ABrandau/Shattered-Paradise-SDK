@@ -293,6 +293,21 @@ GACNST:
 		Offset: 1,1
 		Facing: 96
 		DeployCursor: undeploy
+	TransformsIntoMobile:
+		RequiresCondition: !Building-Buildup
+		Locomotor: InfantryCrusherVehicle
+		Voice: Move
+		RequiresForceMove: true
+	TransformsIntoRepairable:
+		RequiresCondition: !Building-Buildup
+		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp
+		Voice: Move
+		RequiresForceMove: true
+	TransformsIntoPassenger:
+		RequiresCondition: !Building-Buildup
+		CargoType: Vehicle
+		Voice: Move
+		RequiresForceMove: true
 	ProductionBar@Building:
 		ProductionType: Building
 	ProductionBar@Defense:
