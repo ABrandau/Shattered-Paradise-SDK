@@ -117,7 +117,7 @@ HARV:
 		FullyLoadedSpeed: 100
 		# SearchFromProcRadius: 36
 		SearchForDeliveryBuildingDelay: 200
-		SearchFromOrderRadius: 18
+		SearchFromHarvesterRadius: 18
 		HarvestVoice: Attack
 		DeliverVoice: Action
 		PipCount: 7
@@ -740,30 +740,35 @@ SCRDEPOT:
 
 ANYPOWER:
 	AlwaysVisible:
+	Interactable:
 	Tooltip:
 		Name: Power Plant
 		Description: Power Plant
 
 BARRACKS:
 	AlwaysVisible:
+	Interactable:
 	Tooltip:
 		Name: Infantry Production
 		Description: Infantry Production
 
 FACTORY:
 	AlwaysVisible:
+	Interactable:
 	Tooltip:
 		Name: Vehicle Production
 		Description: Vehicle Production
 
 RADAR:
 	AlwaysVisible:
+	Interactable:
 	Tooltip:
 		Name: Radar
 		Description: Radar
 
 TECH:
 	AlwaysVisible:
+	Interactable:
 	Tooltip:
 		Name: Tech Center
 		Description: Tech Center
@@ -912,6 +917,7 @@ NAFNCE:
 MUTWALL:
 	Inherits: ^Wall
 	Inherits@2: ^MutRender
+	-ActorPreviewPlaceBuildingPreview:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 3
@@ -933,6 +939,7 @@ MUTWALL:
 SCRWALL:
 	Inherits: ^Wall
 	Inherits@2: ^ScrinRender
+	-ActorPreviewPlaceBuildingPreview:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 4
@@ -1256,6 +1263,8 @@ GATE_A:
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
+	PlaceBuildingVariants:
+		Actors: gate_b
 
 GATE_B:
 	Inherits: ^Gate_B
@@ -1277,6 +1286,8 @@ GATE_B:
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
+	PlaceBuildingVariants:
+		Actors: gate_a
 
 MUTGATE_A:
 	Inherits: ^Gate_A
@@ -1291,6 +1302,8 @@ MUTGATE_A:
 	Building:
 	Gate:
 		CloseDelay: 100
+	PlaceBuildingVariants:
+		Actors: mutgate_b
 
 MUTGATE_B:
 	Inherits: ^Gate_B
@@ -1305,6 +1318,8 @@ MUTGATE_B:
 	Building:
 	Gate:
 		CloseDelay: 100
+	PlaceBuildingVariants:
+		Actors: mutgate_a
 
 SCRGATE_A:
 	Inherits: ^Gate_A
@@ -1323,6 +1338,8 @@ SCRGATE_A:
 		ClosingSound: scrinplacebuilding.wav
 		BlocksProjectilesHeight: 640
 		CloseDelay: 40
+	PlaceBuildingVariants:
+		Actors: scrgate_b
 
 SCRGATE_B:
 	Inherits: ^Gate_B
@@ -1341,3 +1358,5 @@ SCRGATE_B:
 		ClosingSound: scrinplacebuilding.wav
 		BlocksProjectilesHeight: 640
 		CloseDelay: 40
+	PlaceBuildingVariants:
+		Actors: scrgate_a

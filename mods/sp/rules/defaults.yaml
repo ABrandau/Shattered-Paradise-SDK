@@ -44,7 +44,7 @@
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything || assault-move
 	AttackMove:
-		AssaultMoveScanCondition: assault-move
+		AssaultMoveCondition: assault-move
 
 ^AutoTargetAir:
 	AutoTarget:
@@ -75,7 +75,7 @@
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything || assault-move
 	AttackMove:
-		AssaultMoveScanCondition: assault-move
+		AssaultMoveCondition: assault-move
 
 ^InfantryShape:
 	HitShape:
@@ -991,6 +991,12 @@
 		BuildSounds: place2.aud
 		TerrainTypes: Clear, Road, DirtRoad, Rough
 		RequiresBaseProvider: True
+	ActorPreviewPlaceBuildingPreview:
+		Palette: placefootprint
+		LineBuildSegmentPalette: placelinesegment
+		OverridePalette: placebuilding
+		FootprintUnderPreview: Valid, LineBuild, Invalid
+		FootprintOverPreview: None
 	FrozenUnderFog:
 	SoundOnDamageTransition:
 		DamagedSounds: expnew01.aud
@@ -1239,8 +1245,13 @@
 
 ^BuildingPlug:
 	AlwaysVisible:
+	Interactable:
 	Building:
 		BuildSounds: place2.aud
+	SequencePlaceBuildingPreview:
+		Sequence: place
+		SequencePalette: placebuilding
+		Palette: placefootprint
 	KillsSelf:
 		RemoveInstead: true
 	RenderSprites:
@@ -1878,7 +1889,7 @@
 	DrawLineToTarget:
 	WithTextControlGroupDecoration:
 	AppearsOnRadar:
-		UseLocation: yes
+		UseLocation: true
 	Targetable@GROUND:
 		TargetTypes: Vehicle, Ground, LandedAircraft
 		RequiresCondition: !airborne
@@ -1902,6 +1913,7 @@
 		RepulsionSpeed: 30
 		CruiseAltitude: 4c0
 		AltitudeVelocity: 300
+		MaximumPitch: 90
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium, Building
 	Passenger:
 		CargoType: Aircraft
@@ -1950,6 +1962,7 @@
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 		TakeOffOnResupply: true
 		VTOL: true
+		CanSlide: True
 	Targetable@AIRBORNE:
 		TargetTypes: Air, Helicopter
 		RequiresCondition: airborne
@@ -1965,7 +1978,6 @@
 	Inherits@3: ^AutoTargetAir
 	Aircraft:
 		LandWhenIdle: False
-	ReturnOnIdle:
 	Rearmable:
 		RearmActors: nahpad, gahpad, muair, scrair, cabair
 
@@ -2260,6 +2272,9 @@
 		Footprint: x
 		BuildSounds: place2.aud
 		TerrainTypes: Clear, Rough, Road, DirtRoad, Green, Sand, Pavement
+	FootprintPlaceBuildingPreview:
+		Palette: placefootprint
+		LineBuildSegmentPalette: placelinesegment
 	SoundOnDamageTransition:
 		DamagedSounds: expnew01.aud
 		DestroyedSounds: crmble2.aud
@@ -2393,6 +2408,8 @@
 		DeathSequencePalette: playerscrin
 		CrushedSequencePalette: playerscrin
 		CrushedPaletteIsPlayerPalette: true
+	ActorPreviewPlaceBuildingPreview:
+		OverridePalette: placebuildingscrin
 
 ^MutRender:
 	Inherits: ^Cloakable
@@ -2407,6 +2424,8 @@
 		DeathSequencePalette: playermut
 		CrushedSequencePalette: playermut
 		CrushedPaletteIsPlayerPalette: true
+	ActorPreviewPlaceBuildingPreview:
+		OverridePalette: placebuildingmut
 
 ^CabRender:
 	Inherits: ^Cloakable
@@ -2421,6 +2440,8 @@
 		DeathSequencePalette: playercab
 		CrushedSequencePalette: playercab
 		CrushedPaletteIsPlayerPalette: true
+	ActorPreviewPlaceBuildingPreview:
+		OverridePalette: placebuildingcab
 
 ^BuildingCloak:
 	Cloak@CLOAKGENERATOR:

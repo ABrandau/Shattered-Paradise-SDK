@@ -73,7 +73,7 @@ MMCH:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	WithSpriteTurret:
-		Recoils: no
+		Recoils: false
 		RequiresCondition: !inside-tunnel
 	Armament:
 		Weapon: Titan120mm
@@ -822,6 +822,7 @@ TTNK:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
 		Facing: 160
+		SmartDeploy: true
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
 		DeploySounds: place2.aud
 		CanDeployOnRamps: True
@@ -986,7 +987,7 @@ SAPC:
 		Types: Infantry
 		MaxWeight: 5
 		PipCount: 5
-		UnloadVoice: Unload
+		UnloadVoice: Move
 		LoadingCondition: loading
 	Passenger:
 		CargoType: Apc
@@ -1163,8 +1164,6 @@ MUTMCV:
 		-Image:
 	WithFacingSpriteBody:
 		RequiresCondition: !inside-tunnel
-	WithMoveAnimation:
-		MoveSequence: run
 	Transforms:
 		IntoActor: mutyard
 		Offset: -1,-1
@@ -1297,7 +1296,7 @@ STRUCK:
 		Types: Infantry
 		MaxWeight: 5
 		PipCount: 5
-		UnloadVoice: Unload
+		UnloadVoice: Move
 		LoadingCondition: notmobile
 	Passenger:
 		CargoType: Apc
@@ -1446,7 +1445,6 @@ HVRTRUK3:
 		Volume: 3
 	Repairable:
 		Voice: Repair
-		RepairActors: fix
 	Mobile:
 		TurnSpeed: 5
 		Speed: 60
@@ -1795,7 +1793,7 @@ CENTURION:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	WithSpriteTurret:
-		Recoils: no
+		Recoils: false
 	RenderSprites:
 	WithInfantryBody:
 	WithMuzzleOverlay:
@@ -1972,7 +1970,7 @@ CABAPC:
 		Types: Infantry, Vehicle
 		MaxWeight: 12
 		PipCount: 12
-		UnloadVoice: Unload
+		UnloadVoice: Move
 		LoadingCondition: notmobile
 	Passenger:
 		CargoType: Apc
