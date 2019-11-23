@@ -1,6 +1,6 @@
 Metadata:
 	Title: Shattered Paradise
-	Version: Release-20190623
+	Version: Playtest-20191123
 	Website: http://www.moddb.com/mods/shattered-paradise
 	WebIcon32: https://raw.githubusercontent.com/ABrandau/Shattered-Paradise-SDK/master/packaging/linux/mod_32x32.png
 
@@ -192,11 +192,11 @@ ChromeLayout:
 	common|chrome/ingame-infobriefing.yaml
 	common|chrome/ingame-infoobjectives.yaml
 	common|chrome/ingame-infostats.yaml
-	sp|chrome/ingame-observer.yaml
-	sp|chrome/ingame-observerstats.yaml
+	ts|chrome/ingame-observer.yaml
 	sp|chrome/ingame-player.yaml #The only file of chromes that is on SP
 	common|chrome/ingame-perf.yaml
 	ts|chrome/ingame-debug.yaml
+	common|chrome/ingame-debuginfo.yaml
 	common|chrome/ingame-infochat.yaml
 	common|chrome/mainmenu.yaml
 	sp|chrome/mainmenu-prerelease-notification.yaml
@@ -218,6 +218,8 @@ ChromeLayout:
 	common|chrome/multiplayer-directconnect.yaml
 	common|chrome/connection.yaml
 	common|chrome/replaybrowser.yaml
+	common|chrome/gamesave-browser.yaml
+	common|chrome/gamesave-loading.yaml
 	sp|chrome/dropdowns.yaml
 	common|chrome/musicplayer.yaml
 	common|chrome/tooltips.yaml
@@ -246,7 +248,7 @@ Hotkeys:
 	common|hotkeys/production-common.yaml
 	common|hotkeys/supportpowers.yaml
 	common|hotkeys/viewport.yaml
-	ts|hotkeys.yaml
+	sp|hotkeys.yaml
 
 LoadScreen: LogoStripeLoadScreen
 	Image: sp|uibits/loadscreen.png
@@ -263,30 +265,38 @@ ChromeMetrics:
 	sp|metrics.yaml
 
 Fonts:
-	Regular:
-		Font: common|FreeSans.ttf
-		Size:14
-	Bold:
-		Font: common|FreeSansBold.ttf
-		Size:14
-	Title:
-		Font: common|FreeSansBold.ttf
-		Size:32
-	MediumBold:
-		Font: common|FreeSansBold.ttf
-		Size:18
-	BigBold:
-		Font: common|FreeSansBold.ttf
-		Size:24
-	Small:
-		Font: common|FreeSans.ttf
-		Size:12
 	Tiny:
 		Font: common|FreeSans.ttf
-		Size:10
+		Size: 10
+		Ascender: 8
 	TinyBold:
 		Font: common|FreeSansBold.ttf
-		Size:10
+		Size: 10
+		Ascender: 8
+	Small:
+		Font: common|FreeSans.ttf
+		Size: 12
+		Ascender: 9
+	Regular:
+		Font: common|FreeSans.ttf
+		Size: 14
+		Ascender: 11
+	Bold:
+		Font: common|FreeSansBold.ttf
+		Size: 14
+		Ascender: 11
+	MediumBold:
+		Font: common|FreeSansBold.ttf
+		Size: 18
+		Ascender: 14
+	BigBold:
+		Font: common|FreeSansBold.ttf
+		Size: 24
+		Ascender: 18
+	Title:
+		Font: common|FreeSansBold.ttf
+		Size: 32
+		Ascender: 24
 
 SupportsMapsFrom: ts, sp
 

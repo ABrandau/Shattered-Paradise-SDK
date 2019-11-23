@@ -173,6 +173,7 @@ JUMPJETAIR:
 		RequiresCondition: JJBuff
 	-Repairable:
 		RepairActors: fix
+		RepairActors: fix
 	RenderSprites:
 	WithShadow:
 	Hovers@CRUISING:
@@ -191,6 +192,7 @@ JUMPJETAIR:
 		MoveIntoShroud: true
 		TakeOffOnResupply: true
 		VTOL: true
+		CanSlide: True
 	Targetable@GROUND:
 		TargetTypes: Infantry, Ground
 		RequiresCondition: !airborne
@@ -200,6 +202,7 @@ JUMPJETAIR:
 	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
+		AttackType: Hover
 	Armament@SelfBuff:
 		Weapon: JJBuff
 	ExternalCondition@JJBuff:
@@ -526,7 +529,8 @@ MARAUDER:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
 		DeployAnimation: make
-		CanDeployOnRamps: True
+		CanDeployOnRamps: true
+		SmartDeploy: true
 		Facing: 160
 		DeploySounds:
 		UndeploySounds:

@@ -9,6 +9,7 @@ Player:
 	Inherits: ^BasePlayer
 	AlwaysVisible:
 	TechTree:
+	ConditionManager:
 	GrantConditionOnPrerequisiteManager:
 	EnemyWatcher:
 	ClassicProductionQueue@Building:
@@ -61,7 +62,7 @@ Player:
 		CancelledAudio: Cancelled
 		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
 	PlaceBuilding:
-		Palette: placebuilding
+		ToggleVariantKey: ToggleVariant
 		NewOptionsNotification: NewOptions
 	SupportPowerManager:
 	ScriptTriggers:
@@ -70,7 +71,6 @@ Player:
 		LoseNotification: Lose
 		LeaveNotification: Leave
 	ConquestVictoryConditions:
-	ConditionManager:
 	PowerManager:
 		SpeechNotification: LowPower
 	AllyRepair:
@@ -80,7 +80,7 @@ Player:
 		CashTickDownNotification: CashTickDown
 	DeveloperMode:
 		CheckboxEnabled: false
-		CheckboxDisplayOrder: 8
+		CheckboxDisplayOrder: 9
 	ProvidesTechPrerequisite@high:
 		Name: No Superweapons
 		Prerequisites: techlevel.infonly, techlevel.low, techlevel.medium, techlevel.high
@@ -92,13 +92,30 @@ Player:
 	Shroud:
 		FogCheckboxDisplayOrder: 3
 		ExploredMapCheckboxEnabled: True
+	LobbyPrerequisiteCheckbox@FREEMINIMAP:
+		ID: freeradar
+		Label: Free Minimap
+		Description: Minimap is active without a radar building
+		Enabled: False
+		DisplayOrder: 8
+		Prerequisites: global-freeminimap
+	ProvidesRadar:
+		RequiresCondition: freeminimap
+	GrantConditionOnPrerequisite@FREEMINIMAP:
+		Condition: freeminimap
+		Prerequisites: global-freeminimap
 	FrozenActorLayer:
 	BaseAttackNotifier:
 		NotifyInterval: 20
 		AllyNotification: OurAllyIsUnderAttack
 	HarvesterAttackNotifier:
 	PlayerStatistics:
-	PlaceSimpleBeacon:
+	PlaceBeacon:
+		Palette: effect
+		IsPlayerPalette: false
+		BeaconSequence: idle
+		ArrowSequence:
+		CircleSequence:
 	ResourceStorageWarning:
 		AdviceInterval: 120
 	PlayerExperience:
@@ -106,3 +123,5 @@ Player:
 		MaxWeight: 15
 	TeleportNetworkManager:
 		Type: mutantteleportnetwork
+	GameSaveViewportManager:
+	PlayerRadarTerrain:

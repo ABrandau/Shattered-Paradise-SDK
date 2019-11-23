@@ -87,6 +87,7 @@ ORCA:
 		Weapon: FighterHellfireAA
 		PauseOnCondition: !ammo
 	AttackAircraft:
+		AttackType: Hover
 		FacingTolerance: 20
 		Voice: Attack
 	AmmoPool:
@@ -154,7 +155,7 @@ DPOD:
 	Tooltip:
 		Name: Drop Pod
 	Aircraft:
-		LandWhenIdle: yes
+		LandWhenIdle: true
 		TurnSpeed: 5
 		Speed: 160
 		InitialFacing: 0
@@ -190,15 +191,15 @@ DSHP:
 	Tooltip:
 		Name: Dropship
 	Aircraft:
-		LandWhenIdle: yes
+		LandWhenIdle: true
 		TurnSpeed: 10
 		Speed: 200
 		InitialFacing: 0
 		Repulsable: False
 		AltitudeVelocity: 500
+		IdleBehavior: LeaveMap
 	-Targetable@AIRBORNE:
 	-Targetable@GROUND:
-	FlyAwayOnIdle:
 	Health:
 		HP: 20000
 	RejectsOrders:
@@ -244,7 +245,7 @@ ORCATRAN:
 	RenderVoxels:
 	-WithFacingSpriteBody:
 	Aircraft:
-		LandWhenIdle: yes
+		LandWhenIdle: true
 		TurnSpeed: 5
 		Speed: 84
 		InitialFacing: 0
@@ -291,6 +292,7 @@ APACHE:
 		Weapon: HarpyClawAA
 		PauseOnCondition: !ammo
 	AttackAircraft:
+		AttackType: Hover
 		FacingTolerance: 20
 		Voice: Attack
 	AmmoPool:
@@ -391,6 +393,7 @@ CERBERUS:
 		Weapon: CerberusLazor
 		LocalOffset: 500,0,0, 150, 400, 0, 150, -400, 0, -600,0,0
 	AttackAircraft:
+		AttackType: Hover
 		FacingTolerance: 64
 		Voice: Attack
 	RenderSprites:
@@ -459,6 +462,7 @@ MUTHELI:
 		PauseOnCondition: !ammo
 	WithMuzzleOverlay:
 	AttackAircraft:
+		AttackType: Hover
 		FacingTolerance: 20
 		Voice: Attack
 	AmmoPool:
@@ -523,9 +527,9 @@ WETP:
 	SpawnActorOnDeath:
 		Actor: WETP.Husk
 	GrantConditionOnActivity:
-		Condition: SpeedBuff
+		Condition: attacking
 	SpeedMultiplier@Supersonic:
-		RequiresCondition: SpeedBuff
+		RequiresCondition: attacking && ammo
 		Modifier: 300
 
 MUTQUEEN:
@@ -571,6 +575,7 @@ MUTQUEEN:
 		Weapon: EggElevator
 		RequiresCondition: deployed
 	AttackAircraft:
+		AttackType: Hover
 		FacingTolerance: 20
 	Armament@1:
 		Weapon: QueenShard
@@ -621,7 +626,6 @@ STORMRIDER:
 		Weapon: StormRiderBlast
 	Armament@AA:
 		Weapon: StormRiderBlastAA
-	-ReturnOnIdle:
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 120
@@ -641,7 +645,7 @@ DRACHE:
 	Buildable:
 		Queue: Air
 		BuildPaletteOrder: 110
-		Description: Deploys into a Host Station.\n\nSpecial:\n- Provides a build radius for structures.\n- Maximun production speed is reached with 7 Conyards.\n- Max production speed reduces production time by 50%.\n- Has increased HP when deployed.
+		Description: Deploys into a Host Station.\n\nSpecial:\n- Provides a build radius for structures.\n- Maximum production speed is reached with 7 Conyards.\n- Max production speed reduces production time by 50%.\n- Has increased HP when deployed.
 		Prerequisites: ~scrair
 	Valued:
 		Cost: 2000
@@ -658,6 +662,7 @@ DRACHE:
 		TurnSpeed: 3
 		Speed: 50
 		MoveIntoShroud: true
+		TakeOffOnCreation: false
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	MustBeDestroyed:
 		RequiredForShortGame: true
@@ -754,6 +759,7 @@ SCRDESTROYER:
 		Weapon: DestroyerCannon
 		LocalOffset: 300,0,0
 	AttackAircraft:
+		AttackType: Hover
 		FacingTolerance: 20
 		Voice: Attack
 		TargetFrozenActors: True
@@ -1037,6 +1043,7 @@ WASP:
 	Armament@TheRealThingAA:
 		Weapon: WaspBulletAA
 	AttackAircraft:
+		AttackType: Hover
 		FacingTolerance: 20
 		Voice: Attack
 	AutoTarget:
@@ -1110,6 +1117,7 @@ BASILISK:
 		Weapon: BasiliskBomb
 		LocalOffset: 128,0,0, 500,-700,0, 500,700,0
 	AttackAircraft:
+		AttackType: Hover
 		FacingTolerance: 20
 		Voice: Attack
 	AutoTarget:
