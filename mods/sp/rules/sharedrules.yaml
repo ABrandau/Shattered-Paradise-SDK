@@ -1262,9 +1262,9 @@ GATE_A:
 	Inherits: ^Gate_A
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 100
+		BuildPaletteOrder: 4
 		Prerequisites: ~nodgate
-		Description: Automated barrier that opens for allied units.
+		Description: Automated barrier that opens for allied units.\nCan be rotated.
 	-AppearsOnRadar:
 	-UpdatesPlayerStatistics:
 	Tooltip:
@@ -1283,11 +1283,6 @@ GATE_A:
 
 GATE_B:
 	Inherits: ^Gate_B
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 100
-		Prerequisites: ~nodgate
-		Description: Automated barrier that opens for allied units.
 	-AppearsOnRadar:
 	-UpdatesPlayerStatistics:
 	Tooltip:
@@ -1301,17 +1296,15 @@ GATE_B:
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
-	PlaceBuildingVariants:
-		Actors: gate_a
 
 MUTGATE_A:
 	Inherits: ^Gate_A
 	Inherits@2: ^MutRender
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 100
+		BuildPaletteOrder: 5
 		Prerequisites: ~structures.mut
-		Description: Automated barrier that opens for allied units.
+		Description: Automated barrier that opens for allied units.\nCan be rotated.
 	Tooltip:
 		Name: Forgotten Gate
 	Building:
@@ -1323,18 +1316,11 @@ MUTGATE_A:
 MUTGATE_B:
 	Inherits: ^Gate_B
 	Inherits@2: ^MutRender
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 100
-		Prerequisites: ~structures.mut
-		Description: Automated barrier that opens for allied units.
 	Tooltip:
 		Name: Forgotten Gate
 	Building:
 	Gate:
 		CloseDelay: 100
-	PlaceBuildingVariants:
-		Actors: mutgate_a
 
 SCRGATE_A:
 	Inherits: ^Gate_A
@@ -1342,9 +1328,9 @@ SCRGATE_A:
 	Inherits@3: ^ScrinDeathExplo
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 100
+		BuildPaletteOrder: 6
 		Prerequisites: ~structures.scr
-		Description: Automated barrier that opens for allied units.
+		Description: Automated barrier that opens for allied units.\nCan be rotated.
 	Tooltip:
 		Name: Energy Gate
 	Gate:
@@ -1360,11 +1346,6 @@ SCRGATE_B:
 	Inherits: ^Gate_B
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 100
-		Prerequisites: ~structures.scr
-		Description: Automated barrier that opens for allied units.
 	Tooltip:
 		Name: Energy Gate
 	Gate:
@@ -1373,5 +1354,3 @@ SCRGATE_B:
 		ClosingSound: scrinplacebuilding.wav
 		BlocksProjectilesHeight: 640
 		CloseDelay: 40
-	PlaceBuildingVariants:
-		Actors: scrgate_a
