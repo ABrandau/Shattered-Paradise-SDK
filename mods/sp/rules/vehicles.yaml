@@ -790,12 +790,12 @@ TTNK:
 		TurnSpeed: 8
 		Speed: 90
 		Locomotor: InfantryCrusherVehicle
-		PauseOnCondition: !undeployed || empdisable
+		PauseOnCondition: empdisable
+		RequireForceMoveCondition: !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
 	Health:
 		HP: 35000
-	RejectsOrders@deployment:
-		Reject: Move, EnterTransport, EnterTransports
-		RequiresCondition: deployed
 	Armor:
 		RequiresCondition: undeployed
 	Armor@deployed:
@@ -825,6 +825,7 @@ TTNK:
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
 		DeploySounds: place2.aud
 		CanDeployOnRamps: True
+		UndeployOnMove: true
 		UndeploySounds: clicky1.aud
 		PauseOnCondition: RefineryLock
 		RequiresCondition: !inside-tunnel
