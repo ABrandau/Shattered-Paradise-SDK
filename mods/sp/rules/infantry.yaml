@@ -510,7 +510,10 @@ MARAUDER:
 	AutoTarget:
 		ScanRadius: 8
 	Mobile:
-		PauseOnCondition: WebDisable || !undeployed
+		PauseOnCondition: WebDisable
+		RequireForceMoveCondition: !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
 	Armament@1:
 		Weapon: MarauderShotgun
 		Name: OnFoot
@@ -534,6 +537,7 @@ MARAUDER:
 		Facing: 160
 		DeploySounds:
 		UndeploySounds:
+		UndeployOnMove: true
 		RequiresCondition: !inside-tunnel
 	WithInfantryBody:
 		RequiresCondition: !WebDisable && undeployed && !inside-tunnel
@@ -575,9 +579,6 @@ MARAUDER:
 		ArmamentNames: OnFoot
 	DamageMultiplier@MarauderBuff:
 		Modifier: 75
-		RequiresCondition: deployed
-	RejectsOrders@deployment:
-		Reject: Move, EnterTransport, EnterTransports
 		RequiresCondition: deployed
 
 MUTFIEND:
