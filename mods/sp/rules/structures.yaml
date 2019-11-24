@@ -76,7 +76,7 @@ GDIREF:
 		Queue: Building
 		BuildPaletteOrder: 3
 		Prerequisites: ~structures.gdi, anypower
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.
+		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 	FreeActor:
 		Actor: harv.gdi
 	-WithIdleOverlay@REDLIGHTS:
@@ -87,16 +87,9 @@ GDIREF2:
 	Inherits: FLIPPEDPROC
 	Tooltip:
 		Name: GDI Refinery
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 3
-		Prerequisites: ~structures.gdi, anypower
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.\n- Turned 180 degrees.
 	FreeActor:
 		Actor: harv.gdi
 	-WithIdleOverlay@REDLIGHTS:
-	PlaceBuildingVariants:
-		Actors: gdiref
 
 GAWEAP:
 	Inherits: ^Factory
@@ -347,7 +340,7 @@ NODREF:
 		Queue: Building
 		BuildPaletteOrder: 3
 		Prerequisites: ~structures.nod, anypower
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.
+		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 	FreeActor:
 		Actor: harv.nod
 	-WithIdleOverlay@REDLIGHTS:
@@ -359,15 +352,8 @@ NODREF2:
 	Tooltip:
 		Name: Nod Refinery
 	-WithIdleOverlay@REDLIGHTS:
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 3
-		Prerequisites: ~structures.nod, anypower
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.\n- Turned 180 degrees.
 	FreeActor:
 		Actor: harv.nod
-	PlaceBuildingVariants:
-		Actors: nodref
 
 NAWEAP:
 	Inherits: ^Factory
@@ -665,7 +651,7 @@ MUPROC:
 		BuildPaletteOrder: 3
 		Prerequisites: ~structures.mut, anypower
 		IconPalette: UnittemIconMut
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.
+		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 	FreeActor:
 		Actor: harv.mut
 	-WithIdleOverlay@REDLIGHTS:
@@ -683,17 +669,9 @@ MUPROC2:
 	Inherits@2: ^MutRender
 	Tooltip:
 		Name: Forgotten Refinery
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 3
-		IconPalette: UnittemIconMut
-		Prerequisites: ~structures.mut, anypower
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.\n- Turned 180 degrees.
 	FreeActor:
 		Actor: harv.mut
 	-WithIdleOverlay@REDLIGHTS:
-	PlaceBuildingVariants:
-		Actors: muproc
 
 MUWEAP:
 	Inherits: ^Factory
@@ -919,7 +897,7 @@ SCRPROC:
 		Queue: Building
 		BuildPaletteOrder: 3
 		Prerequisites: scrpowr, ~structures.scr
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 4000$.
+		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 4000$.
 		IconPalette: UnittemIconScrin
 	StoresResources:
 		PipCount: 17
@@ -940,19 +918,11 @@ SCRPROC2:
 		Name: Scrin Refinery
 	-WithIdleOverlay@REDLIGHTS:
 	-WithDockedOverlay@flame:
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 3
-		Prerequisites: scrpowr, ~structures.scr
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 4000$.\n- Turned 180 degrees.
-		IconPalette: UnittemIconScrin
 	FreeActor:
 		Actor: SCRHARV
 	StoresResources:
 		PipCount: 17
 		Capacity: 4000
-	PlaceBuildingVariants:
-		Actors: scrproc
 
 SCRWEAP:
 	Inherits: ^Factory
@@ -1222,7 +1192,7 @@ CABPROC:
 		Queue: Building
 		BuildPaletteOrder: 3
 		Prerequisites: anypower, ~structures.cab
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.
+		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 		IconPalette: UnittemIconCab
 	FreeActor:
 		Actor: harv.cab
@@ -1241,12 +1211,6 @@ CABPROC2:
 	Inherits@1: ^CabRender
 	Tooltip:
 		Name: C.A.B.A.L. Refinery
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 3
-		Prerequisites: anypower, ~structures.cab
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.\n- Turned 180 degrees.
-		IconPalette: UnittemIconCab
 	FreeActor:
 		Actor: harv.cab
 	RenderSprites:
@@ -1256,8 +1220,6 @@ CABPROC2:
 		DeathSequencePalette: playercab
 		CrushedSequencePalette: playercab
 		CrushedPaletteIsPlayerPalette: true
-	PlaceBuildingVariants:
-		Actors: cabproc
 
 CABWEAP:
 	Inherits: ^Factory
