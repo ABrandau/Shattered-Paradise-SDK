@@ -818,6 +818,7 @@ TTNK:
 		PauseOnCondition: empdisable
 	WithMuzzleOverlay:
 	WithMakeAnimation:
+		BodyNames: deployed
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
@@ -835,6 +836,7 @@ TTNK:
 		RequiresCondition: undeployed && !inside-tunnel
 	WithSpriteBody@deployed:
 		Sequence: deployed
+		Name: deployed
 		RequiresCondition: !undeployed
 	AttackFrontal:
 		Voice: Attack
@@ -903,10 +905,10 @@ TICKHOLOGRAM:
 			ExplosionDeath: evaporate
 	-ThrowsShrapnel:
 	Mobile:
-		-PauseOnCondition: !undeployed
+		-PauseOnCondition:
 	-AttackTurreted@deployed:
 	AttackFrontal:
-		-RequiresCondition: undeployed
+		-RequiresCondition:
 	KillsSelf@KillMe:
 		RequiresCondition: KillMe
 	ExternalCondition@KillMe:
