@@ -227,8 +227,6 @@ JUG:
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
 	WithMuzzleOverlay:
-	Voiced:
-		VoiceSet: Mech
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 		RequiresCondition: !inside-tunnel
@@ -251,13 +249,13 @@ SONIC:
 	Inherits: ^TurretedTank
 	Inherits@1: ^8CellVision
 	Valued:
-		Cost: 1300
+		Cost: 1200
 	Tooltip:
 		Name: Disruptor
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Armored high-tech vehicle with sonic armament.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Deals damage over time to any unit in line of fire\n- Can crush infantry.\n- Does not fire while moving.
+		Description: Armored high-tech vehicle with sonic armament.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Deals damage over time to any unit in line of fire\n- Can crush infantry.\n- Does not automatically fire while moving.
 		BuildPaletteOrder: 7
 		Prerequisites: ~gaweap, gatech
 	Mobile:
@@ -918,7 +916,7 @@ TICKHOLOGRAM:
 BIKE:
 	Inherits: ^Vehicle
 	Valued:
-		Cost: 900
+		Cost: 800
 	Tooltip:
 		Name: Demo Bike
 	Buildable:
@@ -1562,7 +1560,7 @@ SCRGLYDER2:
 		Description: Anti air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Can transform into an aerial version that can only engage ground units.\n- Aerial Version weapon performs Good Vs Infantry.\n- Absorbs essence from killed units to heal.\nBUG: Switching modes will make the unit loose any accumulated experience.\n- Hovers (it ignores terrain like Veins and Water)
 		Prerequisites: ~scrweap, scrradr
 	Valued:
-		Cost: 900
+		Cost: 700
 	Tooltip:
 		Name: Glider
 	Health:
@@ -1655,7 +1653,7 @@ SCRMOBMINE:
 		Weapon: MindController
 		PauseOnCondition: empdisable
 	Health:
-		HP: 15000
+		HP: 20000
 	Mobile:
 		TurnSpeed: 7
 		Speed: 95
@@ -1874,7 +1872,7 @@ REPAIRVEHICLE:
 	Inherits@1: ^Tank
 	Inherits@2: ^LowerSelectionPriority
 	Valued:
-		Cost: 600
+		Cost: 500
 	Tooltip:
 		Name: Mobile Repair Vehicle
 	Buildable:
@@ -2056,6 +2054,7 @@ PALADIN:
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
+		FacingTolerance: 3
 	RenderSprites:
 	Armament@1:
 		Weapon: PalaLazor

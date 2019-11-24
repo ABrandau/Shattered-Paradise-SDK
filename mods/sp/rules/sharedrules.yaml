@@ -31,6 +31,8 @@ ENGINEER:
 		BuildPaletteOrder: 3
 		Prerequisites: ~SharedEngie
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable.
+	Valued:
+		Cost: 400
 	-GainsExperience:
 	Voiced:
 		VoiceSet: Engineer
@@ -92,7 +94,7 @@ HARV:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 1
-		Prerequisites: ~humanstuff, factory
+		Prerequisites: ~humanharvester, factory
 		BuildAtProductionType: Tank
 		InitialActivity: FindResources
 		Description: Collects Tiberium for processing.\n\nSpecial:\n- Harvests Tiberium.\n- Immune to Veins.\n- Can crush infantry.\n- Cannot be mindcontrolled.
@@ -145,7 +147,6 @@ HARV:
 			gdi: gdiharv
 			nod: nodharv
 			mut: mutharv
-			cab: cabharv
 	Voiced:
 		VoiceSet: HumanHarvesterVO
 		Volume: 4
@@ -158,6 +159,9 @@ harv.gdi:
 	Inherits: HARV
 	Buildable:
 		Prerequisites: ~disabled
+	Voiced:
+		VoiceSet: HumanHarvesterVO
+		Volume: 4
 	RenderSprites:
 		Image: gdiharv
 		-FactionImages:
@@ -166,6 +170,9 @@ harv.nod:
 	Inherits: HARV
 	Buildable:
 		Prerequisites: ~disabled
+	Voiced:
+		VoiceSet: HumanHarvesterVO
+		Volume: 4
 	RenderSprites:
 		Image: nodharv
 		-FactionImages:
@@ -174,17 +181,23 @@ harv.mut:
 	Inherits: HARV
 	Buildable:
 		Prerequisites: ~disabled
+	Voiced:
+		VoiceSet: HumanHarvesterVO
+		Volume: 4
 	RenderSprites:
 		Image: mutharv
 		-FactionImages:
 
-harv.cab:
+CABHARV:
 	Inherits: HARV
+	Inherits@1: ^CabalVehicleVoice
 	Buildable:
-		Prerequisites: ~disabled
+		Prerequisites: proc, ~cabweap
 	RenderSprites:
 		Image: cabharv
 		-FactionImages:
+	BodyOrientation:
+		QuantizedFacings: 32
 
 SCRHARV:
 	Inherits: HARV
@@ -206,7 +219,7 @@ SCRHARV:
 	-GainsExperience:
 	SelectionDecorations:
 	RenderSprites:
-		-Image: harv.gdi
+		Image: scrharv
 		-FactionImages:
 	BodyOrientation:
 		QuantizedFacings: 32
@@ -557,6 +570,10 @@ FLIPPEDPROC:
 		Factions: gdi, mut
 		Prerequisite: humanmcv
 		ResetOnOwnerChange: True
+	ProvidesPrerequisite@humanharvester:
+		Factions: gdi, nod, mut
+		Prerequisite: humanharvester
+		ResetOnOwnerChange: True
 	ProvidesPrerequisite@humanstuff:
 		Factions: gdi, nod, cab, mut
 		Prerequisite: humanstuff
@@ -650,6 +667,22 @@ FLIPPEDPROC:
 		Modifier: 0
 	Selectable:
 		DecorationBounds: 96, 118, 0, -38
+	DetonateWeaponPower:
+		AllowMultiple: False
+		Cursor: emp
+		MaximumFiringInstances: 1000
+		ArmamentName: primary
+		Icon: radarscan
+		ChargeInterval: 4500
+		Description: Spy Satellite
+		LongDesc: Reveals shroud on an area, does not detect cloaked units.
+		EndChargeSound: SpySatelliteReady.aud
+		SelectTargetSound: n_00-i042.aud
+		OrderName: RadarScan
+		ActivationSequence: idle
+		PauseOnCondition: disabled
+		TargetCircleRange: 6c0
+		Weapon: RadarScanWeapon
 
 GADEPT:
 	Inherits: ^Building
@@ -748,7 +781,7 @@ SCRDEPOT:
 	WithSpriteBody:
 		PauseOnCondition: disabled
 	Power:
-		Amount: -200
+		Amount: -150
 	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building

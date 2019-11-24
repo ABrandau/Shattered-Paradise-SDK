@@ -126,7 +126,7 @@ GARADR:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 6
-		Description: Provides an overview of the battlefield.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Requires power to operate
+		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		Prerequisites: proc, ~structures.gdi
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
@@ -136,6 +136,8 @@ GARADR:
 		Bounds: 96, 48, 0, -6
 		DecorationBounds: 96, 118, 0, -38
 	SelectionDecorations:
+	DetonateWeaponPower:
+		OrderName: GDIRadarScan
 
 GAHPAD:
 	Inherits@1: ^Helipad
@@ -262,7 +264,7 @@ GTDROP:
 		Range: 10c0
 		AffectsParent: false
 	Power:
-		Amount: -150
+		Amount: -200
 
 NODYARD:
 	Inherits: GACNST
@@ -386,7 +388,7 @@ NARADR:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 6
-		Description: Provides an overview of the battlefield.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Requires power to operate
+		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		Prerequisites: proc, ~structures.nod
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
@@ -396,6 +398,8 @@ NARADR:
 		Bounds: 96, 48, 0, -6
 		DecorationBounds: 96, 72, 0, -12
 	SelectionDecorations:
+	DetonateWeaponPower:
+		OrderName: NodRadarScan
 
 NAAPWR:
 	Inherits: ^Powerplant
@@ -569,7 +573,7 @@ NAMISL:
 		Modifier: 0
 	WithNukeLaunchAnimation:
 	Power:
-		Amount: -150
+		Amount: -200
 
 MUTYARD:
 	Inherits: GACNST
@@ -699,13 +703,15 @@ MURADR:
 		Name: Mutant Radar
 	Buildable:
 		Queue: Building
-		Description: Provides an overview of the battlefield.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Requires power to operate.
+		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		BuildPaletteOrder: 6
 		Prerequisites: proc, ~structures.mut
 	Selectable:
 		Bounds: 96, 66, 0, -10
 		DecorationBounds: 96, 66, 0, -13
 	SelectionDecorations:
+	DetonateWeaponPower:
+		OrderName: MutantRadarScan
 
 MUAIR:
 	Inherits@1: ^MutRender
@@ -801,7 +807,7 @@ MUTSW2:
 	RequiresBuildableArea:
 		AreaTypes: building
 	Power:
-		Amount: -150
+		Amount: -200
 
 drached:
 	Inherits: GACNST
@@ -954,7 +960,7 @@ SCRRADR:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 6
-		Description: Provides an overview of the battlefield.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Requires power to operate
+		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		Prerequisites: proc, ~structures.scr
 	Building:
 		Footprint: xxx xxx xxx
@@ -969,6 +975,8 @@ SCRRADR:
 		RequiresCondition: !Building-Buildup
 	RequiresBuildableArea:
 		AreaTypes: building
+	DetonateWeaponPower:
+		OrderName: ScrinRadarScan
 
 SCRAIR:
 	Inherits: ^Helipad
@@ -1104,7 +1112,7 @@ SCRADVPOWR:
 	RequiresBuildableArea:
 		AreaTypes: building
 	Power:
-		Amount: -150
+		Amount: -200
 
 CABYARD:
 	Inherits: GACNST
@@ -1195,7 +1203,7 @@ CABPROC:
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 		IconPalette: UnittemIconCab
 	FreeActor:
-		Actor: harv.cab
+		Actor: cabharv
 	RenderSprites:
 		Image: cabproc
 	-WithIdleOverlay@REDLIGHTS:
@@ -1212,7 +1220,7 @@ CABPROC2:
 	Tooltip:
 		Name: C.A.B.A.L. Refinery
 	FreeActor:
-		Actor: harv.cab
+		Actor: cabharv
 	RenderSprites:
 		Image: cabproc2
 	-WithIdleOverlay@REDLIGHTS:
@@ -1249,7 +1257,7 @@ CABRADR:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 6
-		Description: Provides an overview of the battlefield.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Requires power to operate.
+		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		Prerequisites: proc, ~structures.cab
 	Building:
 		Footprint: xxx xxx xxx
@@ -1260,6 +1268,8 @@ CABRADR:
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
+	DetonateWeaponPower:
+		OrderName: CabalRadarScan
 
 CABAIR:
 	Inherits: ^Helipad
@@ -1379,4 +1389,4 @@ CABOBELISK:
 	RequiresBuildableArea:
 		AreaTypes: building
 	Power:
-		Amount: -150
+		Amount: -200
