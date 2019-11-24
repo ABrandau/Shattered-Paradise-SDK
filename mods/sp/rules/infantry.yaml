@@ -523,6 +523,7 @@ MARAUDER:
 	Armament@3:
 		Weapon: DeployedMarauderShotgun
 		Name: OnFoot
+		Turret: Marauderturr
 		RequiresCondition: deployed
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
@@ -537,9 +538,12 @@ MARAUDER:
 	WithInfantryBody:
 		RequiresCondition: !WebDisable && undeployed && !inside-tunnel
 	WithMakeAnimation:
+		BodyNames: dot
+		RequiresCondition: !undeployed
 	Turreted:
 		TurnSpeed: 50
 		InitialFacing: 160
+		RealignDelay: -1
 		Turret: Marauderturr
 	WithSpriteTurret@idle:
 		RequiresCondition: deployed && !AnimateTurret
@@ -549,9 +553,11 @@ MARAUDER:
 		Sequence: turret-shoot
 		Turret: Marauderturr
 	TakeCover:
-		RequiresCondition: !deployed
+		RequiresCondition: undeployed
 	WithSpriteBody:
 		Sequence: dot
+		Name: dot
+		RequiresCondition: !undeployed
 	AttackFrontal:
 		Armaments: OnFoot
 		Voice: Attack
@@ -564,7 +570,6 @@ MARAUDER:
 		Turrets: Marauderturr
 		RequiresCondition: deployed
 		PauseOnCondition: WebDisable
-		FacingTolerance: 2
 	GrantConditionOnAttack:
 		Condition: AnimateTurret
 		# RevokeDelay: 10
