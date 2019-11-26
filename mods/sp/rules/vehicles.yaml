@@ -849,6 +849,9 @@ TTNK:
 		UndeploySounds: clicky1.aud
 		PauseOnCondition: RefineryLock
 		RequiresCondition: !inside-tunnel
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: deployed
 	Carryable:
 		RequiresCondition: undeployed
 	WithFacingSpriteBody:
