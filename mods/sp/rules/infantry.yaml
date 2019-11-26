@@ -606,6 +606,9 @@ MARAUDER:
 	DamageMultiplier@MarauderBuff:
 		Modifier: 75
 		RequiresCondition: deployed
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: deployed
 
 MUTFIEND:
 	Inherits: ^Mutant
@@ -1070,7 +1073,10 @@ COLOSSI:
 		HP: 30000
 	Mobile:
 		Locomotor: HeavyInfantry
-		PauseOnCondition: deployed || WebDisable
+		PauseOnCondition: WebDisable
+		RequireForceMoveCondition: !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
 	-SpawnActorOnDeath@FLAMEGUY:
 	-DamagedByTintedCells@Colossus:
 	SpawnActorOnDeath@conversion:
@@ -1105,6 +1111,8 @@ COLOSSI:
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Green, Tiberium, BlueTiberium, Veins
 		DeploySounds:
 		UndeploySounds:
+		SmartDeploy: true
+		UndeployOnMove: true
 		CanDeployOnRamps: True
 		RequiresCondition: !inside-tunnel
 	WithInfantryBody:
@@ -1121,6 +1129,9 @@ COLOSSI:
 		Weapon: ColossiBlastSound
 		RequiresCondition: deployed
 		PauseOnCondition: WebDisable
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: deployed
 
 CABSENTRY:
 	Inherits: ^CabalDroneInfantry
@@ -1431,7 +1442,10 @@ MOTH:
 	Mobile:
 		Speed: 100
 		Locomotor: HoverInfantry
-		PauseOnCondition: deployed || WebDisable
+		PauseOnCondition: WebDisable
+		RequireForceMoveCondition: !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
 	LeavesTrails:
 		Image: wake
 		Palette: effect
@@ -1457,10 +1471,12 @@ MOTH:
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Tiberium, BlueTiberium
 		DeploySounds: place2.aud
 		UndeploySounds: clicky1.aud
-		CanDeployOnRamps: True
+		SmartDeploy: true
+		UndeployOnMove: true
+		CanDeployOnRamps: true
 		RequiresCondition: !inside-tunnel
 	RejectsOrders@deployment:
-		Reject: Move, EnterTransport, EnterTransports
+		Reject: AttackMove, AssaultMove
 		RequiresCondition: deployed
 	Cloak@cloakgenerator:
 		RequiresCondition: deployed
