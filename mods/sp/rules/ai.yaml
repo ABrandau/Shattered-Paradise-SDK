@@ -85,6 +85,11 @@ Player:
 			muair: 2
 			scrair: 2
 			cabair: 2
+			gaplug: 1
+			natmpl: 1
+			mutsw1: 1
+			cabsw1: 1
+			scrsw1: 1
 		BuildingFractions:
 			gadept: 100
 			scrdepot: 100
@@ -142,6 +147,11 @@ Player:
 			muair: 5
 			scrair: 5
 			cabair: 5
+			gaplug: 1
+			natmpl: 1
+			mutsw1: 1
+			cabsw1: 1
+			scrsw1: 1
 	BuildingRepairBotModule:
 		RequiresCondition: AIReload || AICheater
 	SquadManagerBotModule@test:
@@ -234,3 +244,126 @@ Player:
 		McvTypes: mcv, drache, cabmcv, nodmcv, mutmcv
 		ConstructionYardTypes: gacnst, mutyard, cabyard, nodyard, drached
 		McvFactoryTypes: gaweap, naweap, mutweap, cabweap, scrweap
+	SupportPowerBotModule:
+		RequiresCondition: AIReload || AICheater
+		Decisions:
+			gdiradarscan:
+				OrderName: GDIRadarScan
+				MinimumAttractiveness: 1
+				Consideration@1:
+					Against: Enemy
+					Types: Building
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 5c0
+			nodradarscan:
+				OrderName: NodRadarScan
+				MinimumAttractiveness: 1
+				Consideration@1:
+					Against: Enemy
+					Types: Building
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 5c0
+			mutantradarscan:
+				OrderName: MutantRadarScan
+				MinimumAttractiveness: 1
+				Consideration@1:
+					Against: Enemy
+					Types: Building
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 5c0
+			cabalradarscan:
+				OrderName: CabalRadarScan
+				MinimumAttractiveness: 1
+				Consideration@1:
+					Against: Enemy
+					Types: Building
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 5c0
+			scrinradarscan:
+				OrderName: ScrinRadarScan
+				MinimumAttractiveness: 1
+				Consideration@1:
+					Against: Enemy
+					Types: Building
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 5c0
+			ioncannon2:
+				OrderName: IonCannon2
+				MinimumAttractiveness: 3000
+				Consideration@1:
+					Against: Enemy
+					Types: Building
+					Attractiveness: 1
+					TargetMetric: Value
+					CheckRadius: 5c0
+				Consideration@2:
+					Against: Ally
+					Types: Air, Ground, Water
+					Attractiveness: -10
+					TargetMetric: Value
+					CheckRadius: 7c0
+			clustermissile:
+				OrderName: ClusterMissile
+				MinimumAttractiveness: 3000
+				Consideration@1:
+					Against: Enemy
+					Types: Building
+					Attractiveness: 1
+					TargetMetric: Value
+					CheckRadius: 5c0
+				Consideration@2:
+					Against: Ally
+					Types: Air, Ground, Water
+					Attractiveness: -10
+					TargetMetric: Value
+					CheckRadius: 7c0
+			ionstorm:
+				OrderName: IonStorm
+				MinimumAttractiveness: 3000
+				Consideration@1:
+					Against: Enemy
+					Types: Building
+					Attractiveness: 1
+					TargetMetric: Value
+					CheckRadius: 5c0
+				Consideration@2:
+					Against: Ally
+					Types: Air, Ground, Water
+					Attractiveness: -10
+					TargetMetric: Value
+					CheckRadius: 7c0
+			singularity:
+				OrderName: singularity
+				MinimumAttractiveness: 3000
+				Consideration@1:
+					Against: Enemy
+					Types: Building
+					Attractiveness: 1
+					TargetMetric: Value
+					CheckRadius: 5c0
+				Consideration@2:
+					Against: Ally
+					Types: Air, Ground, Water
+					Attractiveness: -10
+					TargetMetric: Value
+					CheckRadius: 7c0
+			meteorspawner:
+				OrderName: MeteorSpawner
+				MinimumAttractiveness: 3000
+				Consideration@1:
+					Against: Enemy
+					Types: Building
+					Attractiveness: 1
+					TargetMetric: Value
+					CheckRadius: 5c0
+				Consideration@2:
+					Against: Ally
+					Types: Air, Ground, Water
+					Attractiveness: -10
+					TargetMetric: Value
+					CheckRadius: 7c0
