@@ -261,6 +261,7 @@ SonicZap:
 		Falloff: 50, 50
 		Damage: 2000
 		AffectsParent: false
+		InvalidTargets: AllySonicImmune
 		ValidStances: Ally
 		Versus:
 			VehicleArmor: 80
@@ -268,6 +269,13 @@ SonicZap:
 			ConcreteArmor: 15
 			Disruptor: 30
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@3Dam: SpreadDamage # For targeting purposes.
+		Range: 0, 48
+		Falloff: 50, 50
+		Damage: 0
+		AffectsParent: false
+		ValidTargets: AllySonicImmune
+		ValidStances: Ally
 
 4TNKGUN:
 	Inherits: ^APWarhead
