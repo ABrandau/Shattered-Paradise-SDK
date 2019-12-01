@@ -81,10 +81,26 @@ GDIREF:
 		Actor: harv.gdi
 	-WithIdleOverlay@REDLIGHTS:
 	PlaceBuildingVariants:
-		Actors: gdiref2
+		Actors: gdiref3, gdiref2, gdiref4
 
 GDIREF2:
 	Inherits: FLIPPEDPROC
+	Tooltip:
+		Name: GDI Refinery
+	FreeActor:
+		Actor: harv.gdi
+	-WithIdleOverlay@REDLIGHTS:
+
+GDIREF3:
+	Inherits: FLIPPEDXPROC
+	Tooltip:
+		Name: GDI Refinery
+	FreeActor:
+		Actor: harv.gdi
+	-WithIdleOverlay@REDLIGHTS:
+
+GDIREF4:
+	Inherits: FLIPPEDYPROC
 	Tooltip:
 		Name: GDI Refinery
 	FreeActor:
@@ -347,10 +363,26 @@ NODREF:
 		Actor: harv.nod
 	-WithIdleOverlay@REDLIGHTS:
 	PlaceBuildingVariants:
-		Actors: nodref2
+		Actors: nodref3, nodref2, nodref4
 
 NODREF2:
 	Inherits: FLIPPEDPROC
+	Tooltip:
+		Name: Nod Refinery
+	-WithIdleOverlay@REDLIGHTS:
+	FreeActor:
+		Actor: harv.nod
+
+NODREF3:
+	Inherits: FLIPPEDXPROC
+	Tooltip:
+		Name: Nod Refinery
+	-WithIdleOverlay@REDLIGHTS:
+	FreeActor:
+		Actor: harv.nod
+
+NODREF4:
+	Inherits: FLIPPEDYPROC
 	Tooltip:
 		Name: Nod Refinery
 	-WithIdleOverlay@REDLIGHTS:
@@ -666,10 +698,28 @@ MUPROC:
 		CrushedSequencePalette: playermut
 		CrushedPaletteIsPlayerPalette: true
 	PlaceBuildingVariants:
-		Actors: muproc2
+		Actors: muproc3, muproc2, muproc4
 
 MUPROC2:
 	Inherits: FLIPPEDPROC
+	Inherits@2: ^MutRender
+	Tooltip:
+		Name: Forgotten Refinery
+	FreeActor:
+		Actor: harv.mut
+	-WithIdleOverlay@REDLIGHTS:
+
+MUPROC3:
+	Inherits: FLIPPEDXPROC
+	Inherits@2: ^MutRender
+	Tooltip:
+		Name: Forgotten Refinery
+	FreeActor:
+		Actor: harv.mut
+	-WithIdleOverlay@REDLIGHTS:
+
+MUPROC4:
+	Inherits: FLIPPEDYPROC
 	Inherits@2: ^MutRender
 	Tooltip:
 		Name: Forgotten Refinery
@@ -914,7 +964,7 @@ SCRPROC:
 	-WithIdleOverlay@REDLIGHTS:
 	-WithDockedOverlay@flame:
 	PlaceBuildingVariants:
-		Actors: scrproc2
+		Actors: scrproc3, scrproc2, scrproc4
 
 SCRPROC2:
 	Inherits: FLIPPEDPROC
@@ -929,6 +979,38 @@ SCRPROC2:
 	StoresResources:
 		PipCount: 17
 		Capacity: 4000
+
+SCRPROC3:
+	Inherits: FLIPPEDXPROC
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Tooltip:
+		Name: Scrin Refinery
+	-WithIdleOverlay@REDLIGHTS:
+	-WithDockedOverlay@flame:
+	FreeActor:
+		Actor: SCRHARV
+	StoresResources:
+		PipCount: 17
+		Capacity: 4000
+	RenderSprites:
+		Image: muproc3
+
+SCRPROC4:
+	Inherits: FLIPPEDYPROC
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Tooltip:
+		Name: Scrin Refinery
+	-WithIdleOverlay@REDLIGHTS:
+	-WithDockedOverlay@flame:
+	FreeActor:
+		Actor: SCRHARV
+	StoresResources:
+		PipCount: 17
+		Capacity: 4000
+	RenderSprites:
+		Image: muproc4
 
 SCRWEAP:
 	Inherits: ^Factory
@@ -1212,7 +1294,7 @@ CABPROC:
 		CrushedSequencePalette: playercab
 		CrushedPaletteIsPlayerPalette: true
 	PlaceBuildingVariants:
-		Actors: cabproc2
+		Actors: cabproc3, cabproc2, cabproc4
 
 CABPROC2:
 	Inherits: FLIPPEDPROC
@@ -1223,6 +1305,36 @@ CABPROC2:
 		Actor: cabharv
 	RenderSprites:
 		Image: cabproc2
+	-WithIdleOverlay@REDLIGHTS:
+	WithDeathAnimation:
+		DeathSequencePalette: playercab
+		CrushedSequencePalette: playercab
+		CrushedPaletteIsPlayerPalette: true
+
+CABPROC3:
+	Inherits: FLIPPEDXPROC
+	Inherits@1: ^CabRender
+	Tooltip:
+		Name: C.A.B.A.L. Refinery
+	FreeActor:
+		Actor: cabharv
+	RenderSprites:
+		Image: nodref3
+	-WithIdleOverlay@REDLIGHTS:
+	WithDeathAnimation:
+		DeathSequencePalette: playercab
+		CrushedSequencePalette: playercab
+		CrushedPaletteIsPlayerPalette: true
+
+CABPROC4:
+	Inherits: FLIPPEDXPROC
+	Inherits@1: ^CabRender
+	Tooltip:
+		Name: C.A.B.A.L. Refinery
+	FreeActor:
+		Actor: cabharv
+	RenderSprites:
+		Image: nodref4
 	-WithIdleOverlay@REDLIGHTS:
 	WithDeathAnimation:
 		DeathSequencePalette: playercab

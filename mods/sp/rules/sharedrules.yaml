@@ -112,7 +112,7 @@ HARV:
 	WithDockingAnimation:
 	Harvester:
 		Capacity: 28
-		DeliveryBuildings: proc, muproc, muproc2, cabproc, cabproc2, scrproc, scrproc2, gdiref, gdiref2, nodref, nodref2
+		DeliveryBuildings: proc, muproc, muproc2, muproc3, muproc4, cabproc, cabproc2, cabproc3, cabproc4, scrproc, scrproc2, scrproc3, scrproc4, gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4
 		Resources: Tiberium, BlueTiberium
 		UnloadTicksPerBale: 3
 		LoadTicksPerBale: 6
@@ -504,13 +504,89 @@ FLIPPEDPROC:
 		DecorationBounds: 100, 70, 24, 12
 	SelectionDecorations:
 	Refinery:
-		DockAngle: 30
+		DockAngle: 32
 		DockOffset: 1,1
 		DiscardExcessResources: false
 	FreeActor:
 		Actor: HARV
 		SpawnOffset: 0,1
-		Facing: 30
+		Facing: 32
+	WithIdleOverlay@REDLIGHTS:
+		Sequence: idle-redlights
+		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@BIB:
+		Sequence: bib
+		RequiresCondition: !Building-Buildup
+	WithDockedOverlay@flame:
+		Sequence: flame
+		Palette: effect
+		RequiresCondition: !Building-Buildup
+	ProvidesPrerequisite@proc:
+		ProvidesPrerequisite: proc
+		Description: Tiberium Refinery
+	RequiresBuildableArea:
+		AreaTypes: building
+
+FLIPPEDXPROC:
+	Inherits: ^Building
+	Inherits@1: ^FlippedRefineryXHitshape
+	Inherits@2: ^RefineryHP
+	ProvidesPrerequisite:
+		Factions: gdi, cab, mut, nod, scr
+		Prerequisite: proc
+	Building:
+		Footprint: xxx xxx === ===
+		Dimensions: 3,4
+	Selectable:
+		Bounds: 100, 70, 24, -12
+		DecorationBounds: 100, 70, 24, -12
+	SelectionDecorations:
+	Refinery:
+		DockAngle: 96
+		DockOffset: 1,2
+		DiscardExcessResources: false
+	FreeActor:
+		Actor: HARV
+		SpawnOffset: 1,3
+		Facing: 96
+	WithIdleOverlay@REDLIGHTS:
+		Sequence: idle-redlights
+		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@BIB:
+		Sequence: bib
+		RequiresCondition: !Building-Buildup
+	WithDockedOverlay@flame:
+		Sequence: flame
+		Palette: effect
+		RequiresCondition: !Building-Buildup
+	ProvidesPrerequisite@proc:
+		ProvidesPrerequisite: proc
+		Description: Tiberium Refinery
+	RequiresBuildableArea:
+		AreaTypes: building
+
+FLIPPEDYPROC:
+	Inherits: ^Building
+	Inherits@1: ^FlippedRefineryYHitshape
+	Inherits@2: ^RefineryHP
+	ProvidesPrerequisite:
+		Factions: gdi, cab, mut, nod, scr
+		Prerequisite: proc
+	Building:
+		Footprint: === === xxx xxx
+		Dimensions: 3,4
+	Selectable:
+		Bounds: 100, 70, 24, 12
+		DecorationBounds: 100, 70, -24, 12
+	SelectionDecorations:
+	Refinery:
+		DockAngle: 224
+		DockOffset: 1,1
+		DiscardExcessResources: false
+	FreeActor:
+		Actor: HARV
+		SpawnOffset: 1,0
+		Facing: 224
 	WithIdleOverlay@REDLIGHTS:
 		Sequence: idle-redlights
 		RequiresCondition: !Building-Buildup
