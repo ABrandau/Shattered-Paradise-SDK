@@ -180,12 +180,11 @@ IONBEAMTARGET:
 IONBEAMMINI:
 	Inherits: ^DUMMYAIRCRAFT
 	Inherits@1: ^AutoTargetAll
-	RevealsShroud:
-		Range: 3c0
 	AutoTargetPriority@1432543:
 		ValidTargets: IonSpawner
+		ValidStances: Ally
 	Aircraft:
-		CruiseAltitude: 0
+		CruiseAltitude: 1
 		TurnSpeed: 6
 		Repulsable: false
 		AltitudeVelocity: 400
@@ -206,13 +205,13 @@ IONBEAMMINI:
 	AutoTarget:
 		ScanRadius: 99
 		InitialStance: AttackAnything
-		ForceTargetStances: Ally
 	RenderSprites:
 		Image: ionbeammini
 		Palette: effectalpha
 	Armament:
 		Weapon: IonDrag
 		TargetStances: Ally
+		ForceTargetStances: Ally
 	WithDeathAnimation:
 		DeathSequencePalette: effectalpha
 		DeathPaletteIsPlayerPalette: false
