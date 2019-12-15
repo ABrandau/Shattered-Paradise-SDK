@@ -287,6 +287,7 @@ GACNST:
 		Queue: Building
 		BuildPaletteOrder: 1000
 		Prerequisites: ~disabled
+		Description: Builds base structures.
 	Health:
 		HP: 180000
 	Production:
@@ -295,7 +296,6 @@ GACNST:
 		Cost: 2000
 	Tooltip:
 		Name: Construction Yard
-		Description: Builds base structures.
 	BaseProvider:
 		Range: 14c0
 	Targetable:
@@ -484,7 +484,6 @@ PROC:
 		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@proc:
 		Prerequisite: proc
-		Description: Tiberium Refinery
 	RenderSprites:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -523,7 +522,6 @@ FLIPPEDPROC:
 		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@proc:
 		ProvidesPrerequisite: proc
-		Description: Tiberium Refinery
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -561,7 +559,6 @@ FLIPPEDXPROC:
 		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@proc:
 		ProvidesPrerequisite: proc
-		Description: Tiberium Refinery
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -599,7 +596,6 @@ FLIPPEDYPROC:
 		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@proc:
 		ProvidesPrerequisite: proc
-		Description: Tiberium Refinery
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -868,35 +864,30 @@ ANYPOWER:
 	Interactable:
 	Tooltip:
 		Name: Power Plant
-		Description: Power Plant
 
 BARRACKS:
 	AlwaysVisible:
 	Interactable:
 	Tooltip:
 		Name: Infantry Production
-		Description: Infantry Production
 
 FACTORY:
 	AlwaysVisible:
 	Interactable:
 	Tooltip:
 		Name: Vehicle Production
-		Description: Vehicle Production
 
 RADAR:
 	AlwaysVisible:
 	Interactable:
 	Tooltip:
 		Name: Radar
-		Description: Radar
 
 TECH:
 	AlwaysVisible:
 	Interactable:
 	Tooltip:
 		Name: Tech Center
-		Description: Tech Center
 
 SHAWALL:
 	Inherits: ^Wall
