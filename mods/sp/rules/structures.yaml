@@ -116,6 +116,8 @@ GAWEAP:
 		BuildPaletteOrder: 4
 		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
 		Prerequisites: proc, ~structures.gdi
+	ProvidesPrerequisite@ShowMammMkII
+		Prerequisite: showmammmk2
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
 		RequiresCondition: !Building-Buildup
@@ -238,6 +240,8 @@ GTDROP:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@ShowMammMkII
+		Prerequisite: showmammmk2
 	DetonateWeaponPower@pods:
 		Icon: droppods
 		Description: Helldiver Drop

@@ -191,23 +191,27 @@ CyCannon:
 	Range: 8c0
 	Report: scrin5b.aud
 	ValidTargets: Ground, Water
-	Projectile: BulletAS
-		Blockable: false
-		Speed: 700
+	Projectile: Missile
+		Blockable: true
+		TerrainHeightAware: True
+		Speed: 350
 		Acceleration: 50
 		Shadow: true
 		Palette: effect
 		Image: TORPEDO
+		ContrailLength: 10
+		ContrailColor:  0cd957 
+		ContrailWidth: 0c35
 	Warhead@1Dam: SpreadDamage
 		Spread: 350
-		Damage: 10000
+		Damage: 30000
 		ValidTargets: Ground, Water
 		Versus:
-			InfantryArmor: 350
-			BuildingArmor: 260
-			VehicleArmor: 205
-			DefenseArmor: 205
-			ConcreteArmor: 80
+			InfantryArmor: 100
+			BuildingArmor: 100
+			VehicleArmor: 100
+			DefenseArmor: 100
+			ConcreteArmor: 35
 		DamageTypes: Prone350Percent, TriggerProne, EnergyDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: large_bang

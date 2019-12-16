@@ -2287,6 +2287,7 @@
 	Building:
 		Dimensions: 1,1
 		Footprint: x
+		RequiresBaseProvider: false
 		BuildSounds: place2.aud
 		TerrainTypes: Clear, Rough, Road, DirtRoad, Green, Sand, Pavement
 	FootprintPlaceBuildingPreview:
@@ -2305,7 +2306,7 @@
 	Crushable:
 		CrushClasses: heavywall
 	LineBuild:
-		Range: 8
+		Range: 6
 		NodeTypes: wall
 	LineBuildNode:
 		Types: wall
@@ -2333,11 +2334,12 @@
 	Inherits: ^Building
 	Inherits@EMPDISABLE: ^EmpDisable
 	Valued:
-		Cost: 50
+		Cost: 75
 	Health:
-		HP: 35000
+		HP: 25000
+	BlocksProjectiles:
 	Armor:
-		Type: BuildingArmor
+		Type: ConcreteArmor
 	LineBuildNode:
 		Types: wall, gate
 	-WithDeathAnimation:
@@ -2353,6 +2355,7 @@
 	Building:
 		Adjacent: 6
 		BuildSounds: place2.aud
+		RequiresBaseProvider: false
 		TerrainTypes: Clear, Rough, Road, DirtRoad, Green, Sand, Pavement
 	MapEditorData:
 		Categories: Defence

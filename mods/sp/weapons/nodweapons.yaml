@@ -395,23 +395,29 @@ HarpyClawAA:
 Proton:
 	Inherits: ^APWarhead
 	Inherits@2: ^Small_Bang
-	ReloadDelay: 50
+	ReloadDelay: 75
 	Range: 5c0
 	MinRange: 0c100
 	Report: scrin5b.aud
-	Burst: 9
+	Burst: 5
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	BurstDelays: 2
-	Projectile: BulletAS
-		Speed: 750
+	Projectile: Missile
+		Speed: 400
+		MinimumLaunchAngle: 50
+		MaximumLaunchAngle: 50
+		MaximumLaunchSpeed: 0c543
+		MinimumLaunchSpeed: 0c301
+		TerrainHeightAware: True
+		RangeLimit: 15c0
 		Blockable: false
 		Shadow: true
-		Inaccuracy: 128
+		Inaccuracy: 0
 		Palette: effect
 		Image: TORPEDO
 	Warhead@1Dam: SpreadDamage
 		Spread: 250
-		Damage: 2500
+		Damage: 5000
 		ValidTargets: Ground, Water, water, Infantry, Vehicle, Building
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
@@ -435,7 +441,7 @@ ProtonAA:
 		VerticalRateOfTurn: 60
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 2500
+		Damage: 5000
 		ValidTargets: Air
 
 CerberusLazorCharge:
