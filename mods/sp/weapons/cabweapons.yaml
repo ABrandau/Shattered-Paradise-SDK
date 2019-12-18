@@ -93,7 +93,7 @@ ReaperScythe:
 		Shadow: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 2900
+		Damage: 3000
 		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@ShieldUpgrade: GrantExternalCondition
@@ -101,9 +101,11 @@ ReaperScythe:
 
 ReaperScytheAA:
 	Inherits: ReaperScythe
+	Range: 8c0
 	ValidTargets: Air
 	ReloadDelay: 75
 	Warhead@1Dam: SpreadDamage
+		Damage: 2900
 		ValidTargets: Air
 
 ReclaimerHit:
@@ -231,7 +233,7 @@ WorkerMinigun:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
 	ReloadDelay: 50
-	Range: 4c0
+	Range: 4c512
 	Report: infgun3.aud, gostgun1.aud, slvkgun1.aud
 	Warhead@1Dam: SpreadDamage
 		Damage: 1600
@@ -241,7 +243,7 @@ Dogzooka:
 	Inherits: JJGrenade
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 50
-	Range: 4c0
+	Range: 4c512
 	Report: rketinf1.aud
 	ValidTargets: Ground, Water
 	Warhead@1Dam: SpreadDamage
