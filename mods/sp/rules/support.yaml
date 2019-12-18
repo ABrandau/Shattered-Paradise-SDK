@@ -1,8 +1,9 @@
 GAVULC:
 	Inherits: ^Defence
 	Inherits@1: ^TowerStealthDetection
-	# WithWallSpriteBody:
-	WithSpriteBody:
+	-WithSpriteBody:
+	WithWallSpriteBody:
+		Type: wall
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -56,9 +57,11 @@ GAROCK:
 	Inherits: ^Tier2
 	Inherits@1: ^TowerStealthDetection
 	Inherits@2: ^AntiVehiclePriority
+	-WithSpriteBody:
+	WithWallSpriteBody:
+		Type: wall
 	Power:
 		Amount: -20
-	WithSpriteBody:
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -105,9 +108,11 @@ GAROCK:
 
 GACSAM:
 	Inherits: ^AntiAir
+	-WithSpriteBody:
+	WithWallSpriteBody:
+		Type: wall
 	Power:
 		Amount: -20
-	WithSpriteBody:
 	Tooltip:
 		Name: SAM Tower
 	Buildable:
