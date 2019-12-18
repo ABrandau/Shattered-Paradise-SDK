@@ -563,6 +563,10 @@ MARAUDER:
 		UndeploySounds:
 		UndeployOnMove: true
 		RequiresCondition: !inside-tunnel
+	GrantCondition:
+		Condition: editorhack
+	WithInfantryBody@Editor: # HACK: negative conditions don't count in EnabledByDefault, we can use this duplicate WIB to render it on map editor
+		RequiresCondition: !editorhack
 	WithInfantryBody:
 		RequiresCondition: !WebDisable && undeployed && !inside-tunnel
 	WithMakeAnimation:
