@@ -453,9 +453,14 @@
 		VoiceSet: SWVoice
 		Volume: 15
 
-^LowerSelectionPriority:
+^FlatSelectionMode:
+	Selectable:
+		PriorityModifiers: Ctrl
+
+^LowPrioritySelectionMode:
 	Selectable:
 		Priority: 6
+		PriorityModifiers: Ctrl, Alt
 
 ^Cloakable:
 	Cloak@CLOAKGENERATOR:
@@ -1282,6 +1287,7 @@
 	Inherits@3: ^SpriteActor
 	Inherits@4: ^InfantryShape
 	Inherits@5: ^5CellVision
+	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	ActorLostNotification:
 	SharedPassenger:
 		CargoType: Infantry
@@ -1635,7 +1641,7 @@
 
 ^Engineer:
 	Inherits@1: ^InfantryShape
-	Inherits@2: ^LowerSelectionPriority
+	Inherits@2: ^LowPrioritySelectionMode
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1669,6 +1675,7 @@
 	Inherits@2: ^ExistsInWorld
 	Inherits@3: ^VehicleShape
 	Inherits@4: ^5CellVision
+	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	ActorLostNotification:
 	Huntable:
 	SharedPassenger:
@@ -1903,6 +1910,7 @@
 	Inherits@5: ^10CellVision
 	Inherits@6: ^Cloakable
 	Inherits@5: ^FullHealthRepairCondition
+	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	DrawLineToTarget:
 	WithTextControlGroupDecoration:
 	AppearsOnRadar:
@@ -2008,6 +2016,7 @@
 	Inherits@3: ^AutoTargetGroundAssaultMove
 	Inherits@4: ^1x1Shape
 	Inherits@5: ^6CellVision
+	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	DrawLineToTarget:
 	Health:
 		Shape: Circle
@@ -2164,6 +2173,7 @@
 	Inherits@0: ^ExistsInWorld
 	Inherits@1: ^SpriteActor
 	Inherits@3: ^1x1Shape
+	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	Voiced:
 		VoiceSet: Vehicle
 	AttackTurreted:
@@ -2198,6 +2208,7 @@
 	Inherits@2: ^ExistsInWorld
 	Inherits@3: ^1x1Shape
 	Inherits@4: ^6CellVision
+	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	RenderVoxels:
 	RenderSprites:
 	WithVoxelBody:
