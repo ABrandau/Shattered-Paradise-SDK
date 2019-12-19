@@ -71,10 +71,12 @@ VeterancyWeapon:
 RadarScanWeapon:
 	ReloadDelay: 6
 	Projectile: InstantExplode
-	Report: uradarpi.wav
 	Warhead@Spawn: SpawnActor
 		Actors: radarscandummy
 		Range: 3
+	Warhead@1Eff: CreateEffect
+		ImpactSounds: sspysate.aud
+		ValidTargets: Ground, Water, Air
 
 IonCannon: ### THIS IS THE MAIN ION CANON WEAPON
 	Inherits: ^SWBaseEffects
@@ -281,15 +283,15 @@ droppod1:
 		SmudgeType: SmallCrater
 	Warhead@3Eff: CreateEffect
 		Explosions: small_clsn, large_twlt, medium_brnl
-		ImpactSoundss: expnew12.aud
+		ImpactSounds: expnew12.aud
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@4Eff: CreateEffect
 		Explosions: podring
-		ImpactSoundss: expnew12.aud
+		ImpactSounds: expnew12.aud
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@5Eff: CreateEffect
 		Explosions: droppod, droppod2
-		ImpactSoundss: expnew12.aud
+		ImpactSounds: expnew12.aud
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: SmallCrater
