@@ -1538,14 +1538,18 @@
 		VoiceSet: Cyborg
 	DeathSounds:
 	MustBeDestroyed:
-	WithPermanentInjury:
 	WithInfantryBody:
+		RequiresCondition: !criticalspeed
 		DefaultAttackSequence: shoot
 		IdleSequences: idle1, idle2
+	WithInfantryBody@Damaged:
+		RequiresCondition: criticalspeed
+		MoveSequence: crippled-run
+		AttackSequences: crippled-shoot
+		StandSequences: crippled-stand
 	GrantConditionOnDamageState@CRITICAL:
 		Condition: criticalspeed
 		ValidDamageStates: Critical
-		GrantPermanently: true
 	SpeedMultiplier@CRITICAL:
 		RequiresCondition: criticalspeed
 		Modifier: 50

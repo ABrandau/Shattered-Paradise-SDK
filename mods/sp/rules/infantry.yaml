@@ -1536,9 +1536,6 @@ CYC2:
 		BuildPaletteOrder: 30
 		Prerequisites: ~cabclaw, cabtech
 		BuildLimit: 1
-	-WithPermanentInjury:
-	GrantConditionOnDamageState@CRITICAL:
-		GrantPermanently: false
 	Voiced:
 		VoiceSet: CyborgCommando
 	AnnounceOnSeen:
@@ -1564,13 +1561,6 @@ CYC2:
 		Voice: Attack
 		Armaments: OnFoot
 		RequiresCondition: !Moving
-	WithInfantryBody:
-		RequiresCondition: !criticalspeed
-	WithInfantryBody@Damaged:
-		RequiresCondition: criticalspeed
-		MoveSequence: crippled-run
-		AttackSequences: crippled-shoot
-		StandSequences: crippled-stand
 	Passenger:
 		PipType: red
 	SharedPassenger:
