@@ -812,7 +812,7 @@ SCRDESTROYER:
 		EmptyWeapon: BigAircraftShrapnel
 
 SCRTRANS:
-	Inherits: ^CombatHelicopter
+	Inherits: ^Helicopter
 	Inherits@1: ^9CellVision
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinAircratVoice
@@ -839,18 +839,15 @@ SCRTRANS:
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 150
-		LandWhenIdle: true
 		Repulsable: true
 		MoveIntoShroud: true
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
-	-Rearmable:
 	Health:
 		HP: 12000
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRTRANS.Husk
-	-GainsExperience:
 	SmokeParticleEmitter:
 		Image: scrsmoke
 		Palette: apolbluealpha60
