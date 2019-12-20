@@ -342,6 +342,7 @@ SCRMBTLASOR:
 
 TripodLaser:
 	Inherits: ^RifleWarhead
+	Inherits@2: ^Small_Bang
 	ReloadDelay: 80
 	Range: 7c0
 	Report: scrin5b.aud
@@ -353,8 +354,8 @@ TripodLaser:
 		Palette: apolgreenalpha
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
-		Spread: 42
-		Damage: 2500
+		Spread: 0c512
+		Damage: 12500
 		Versus:
 			InfantryArmor: 100
 			BuildingArmor: 80
@@ -362,47 +363,9 @@ TripodLaser:
 			DefenseArmor: 50
 			ConcreteArmor: 30
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
-	Warhead@2: SpawnSmokeParticle
-		Duration: 6
-		Image: explosion
-		Sequences: fire1
-		Palette: effectalpha25
-		Weapon: TripodProtonSpawner
-
-TripodProtonSpawner:
-	ReloadDelay: 1
-	Projectile: InstantExplode
-	Warhead@op: FireShrapnel
-		Weapon: TripodProton
-		Amount: 2
-		AllowDirectHit: false
-
-TripodProton:
-	Inherits: ^RifleWarhead
-	Inherits@2: ^Small_Bang
-	ReloadDelay: 50
-	Range: 1c512
-	ValidTargets: Ground, Water
-	Projectile: BulletAS
-		Speed: 500
-		Blockable: false
-		Shadow: true
-		Image: TORPEDO
-		RangeLimit: 35
-	Warhead@1Dam: SpreadDamage
-		Spread: 0c512
-		Damage: 2500
-		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 80
-			VehicleArmor: 20
-			DefenseArmor: 50
-			ConcreteArmor: 30
-		ValidTargets: Ground, Water
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 	Warhead@4Sharpnel: FireShrapnel
 		Weapon: SmallDebris
-		Amount: 1
+		Amount: 2
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
