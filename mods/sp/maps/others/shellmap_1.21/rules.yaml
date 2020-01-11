@@ -1,5 +1,7 @@
 Player:
 	-ConquestVictoryConditions:
+	Shroud
+		FogCheckboxEnabled: False
 
 World:
 	LuaScript:
@@ -15,12 +17,21 @@ World:
 		Red: 0.8
 		Green: 0.7
 		Ambient: 0.575
-	ResourceType@Tiberium:
-		ValuePerUnit: 0
 
 ^GenericEffects:
+	ExternalCondition@PRODUCED:
+		Condition: produced
 	DamageMultiplier@Shellmap:
 		Modifier: 0
+		RequiresCondition: !produced
+
+^Wall:
+	DamageMultiplier@Shellmap:
+		Modifier: 0
+
+^ProducesStuff:
+	GrantExternalConditionToProduced:
+		Condition: produced
 
 ^Barracks:
 	-ProximityExternalCondition@hospitalheal:
@@ -35,3 +46,76 @@ GAPOWR:
 CABPOWR:
 	Power:
 		Amount: 99999
+
+PROC:
+	Refinery:
+		ShowTicks: false
+		UseStorage: false
+
+FLIPPEDPROC:
+	Refinery:
+		ShowTicks: false
+		UseStorage: false
+
+FLIPPEDXPROC:
+	Refinery:
+		ShowTicks: false
+		UseStorage: false
+
+FLIPPEDYPROC:
+	Refinery:
+		ShowTicks: false
+		UseStorage: false
+
+WELL:
+	CashTrickler:
+		ShowTicks: false
+
+GAVULC:
+	-WithSpriteBody:
+	WithWallSpriteBody:
+		Type: wall
+
+GAROCK:
+	-WithSpriteBody:
+	WithWallSpriteBody:
+		Type: wall
+
+GACSAM:
+	-WithSpriteBody:
+	WithWallSpriteBody:
+		Type: wall
+
+ZOMBIE:
+	-ExternalCondition@PRODUCED:
+	-DamageMultiplier@Shellmap:
+
+BERSERKER:
+	-ExternalCondition@PRODUCED:
+	-DamageMultiplier@Shellmap:
+
+NAPULS:
+	-FireArmamentPower:
+	Armament:
+		Name: primary
+		TargetStances: Enemy, Neutral
+
+EMPDUMMY:
+	Inherits: CAR
+	-WithVoxelBody:
+	-Tooltip:
+	-WithIdleOverlay@EMPDISABLE:
+	Targetable:
+		RequiresCondition: !empdisable
+	RenderVoxels:
+		Image: car
+	RenderSprites:
+		Image: car
+
+MARAUDER:
+	AutoTarget:
+		InitialStanceAI: Defend
+
+MUTFIEND:
+	AutoTarget:
+		InitialStanceAI: Defend
