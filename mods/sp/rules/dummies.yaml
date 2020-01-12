@@ -445,6 +445,7 @@ VEINHOLESPAWNERDUMMY:
 
 INFTIBSPAWN:
 	Inherits: ^DUMMYAIRCRAFT
+	ConditionManager:
 	Tooltip:
 		Name: Fire
 	-RevealsShroud:
@@ -456,8 +457,14 @@ INFTIBSPAWN:
 		HealIfBelow: 200
 	Explodes:
 		Weapon: SpawnZombie
+		EmptyWeapon: SpawnZombie
+		RequiresCondition: zombie
+	Explodes@Visc:
+		Weapon: SpawnVisc
 		EmptyWeapon: SpawnVisc
-		LoadedChance: 35
+		RequiresCondition: visc
+	GrantRandomCondition:
+		Conditions:	visc, zombie
 
 VEHICLETIBSPAWN:
 	Inherits: INFTIBSPAWN
