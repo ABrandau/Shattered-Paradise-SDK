@@ -87,7 +87,6 @@ Section "Game" GAME
 	File "${SRCDIR}\OpenAL-CS.dll"
 	File "${SRCDIR}\global mix database.dat"
 	File "${SRCDIR}\MaxMind.Db.dll"
-	File "${SRCDIR}\GeoLite2-Country.mmdb.gz"
 	File "${SRCDIR}\eluant.dll"
 	File "${SRCDIR}\rix0rrr.BeaconLib.dll"
 	File "${DEPSDIR}\soft_oal.dll"
