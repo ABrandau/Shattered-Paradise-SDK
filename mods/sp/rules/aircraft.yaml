@@ -911,8 +911,7 @@ SCRCARRIER:
 
 STORMRIDERSPAWN:
 	Inherits: STORMRIDER
-	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^ScrinRender
+	Inherits@1: ^ScrinRender
 	Inherits@Shadow: ^AircraftShadow
 	EditorOnlyTooltip:
 		Name: Assault Carrier Drone (Do not place in editor)
@@ -932,6 +931,8 @@ STORMRIDERSPAWN:
 		Repulsable: false
 		TurnSpeed: 20
 		Speed: 150
+		AltitudeVelocity: 200
+		VTOL: true
 	Armament:
 		Weapon: WyvermBlast
 	Armament@AA:
@@ -949,9 +950,6 @@ STORMRIDERSPAWN:
 	RejectsOrders:
 	RenderSprites:
 		Image: wyverm2
-	AutoTarget:
-		ScanRadius: 20
-		InitialStance: AttackAnything
 	ExternalCondition@Return:
 		Condition: ForceReturn
 	-SpawnActorOnDeath:
