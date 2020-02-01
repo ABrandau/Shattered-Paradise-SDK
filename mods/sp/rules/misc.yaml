@@ -74,11 +74,11 @@ CRATE:
 	Inherits: ^Crate
 	GiveCashCrateAction:
 		Amount: 2000
-		SelectionShares: 20
+		SelectionShares: 80
 		Effect: dollar
 		UseCashTick: true
 	SupportPowerCrateAction@nuke:
-		SelectionShares: 5
+		SelectionShares: 4
 		Proxy: NukeCrateDummy
 		Sequence: nuke
 	SupportPowerCrateAction@trollnuke:
@@ -87,62 +87,61 @@ CRATE:
 		Sequence: nuke
 	ExplodeCrateAction:
 		Weapon: ToxinMissile
-		SelectionShares: 5
+		SelectionShares: 20
 	LevelUpCrateAction:
-		SelectionShares: 40
+		SelectionShares: 160
 		Effect: levelup
 	DuplicateUnitCrateAction:
 		MaxAmount: 4
-		SelectionShares: 20
+		SelectionShares: 80
 		Effect: levelup
 	HideMapCrateAction:
-		SelectionShares: 1
+		SelectionShares: 4
 		Sequence: hide-map
 	RevealMapCrateAction:
-		SelectionShares: 1
+		SelectionShares: 4
 		Effect: reveal-map
 	GiveMcvCrateAction@gdi:
 		SelectionShares: 0
-		NoBaseSelectionShares: 100
+		NoBaseSelectionShares: 1000
 		Units: mcv
 		ValidFactions: gdi
 	GiveMcvCrateAction@nod:
 		SelectionShares: 0
-		NoBaseSelectionShares: 100
+		NoBaseSelectionShares: 1000
 		Units: nodmcv
 		ValidFactions: nod
 	GiveMcvCrateAction@mut:
 		SelectionShares: 0
-		NoBaseSelectionShares: 100
+		NoBaseSelectionShares: 1000
 		Units: mutmcv
 		ValidFactions: mut
 	GiveMcvCrateAction@cab:
 		SelectionShares: 0
-		NoBaseSelectionShares: 100
+		NoBaseSelectionShares: 1000
 		Units: cabmcv
 		ValidFactions: cab
 	GiveMcvCrateAction@scr:
 		SelectionShares: 0
-		NoBaseSelectionShares: 100
+		NoBaseSelectionShares: 1000
 		Units: drache
 		ValidFactions: scr
 	GrantExternalConditionCrateAction@cloak:
-		SelectionShares: 5
+		SelectionShares: 20
 		Effect: stealth
 		Condition: cloakgenerator
-		Notification: UnitFirepowerUpgraded
 	GrantExternalConditionCrateAction@firepower:
-		SelectionShares: 5
+		SelectionShares: 20
 		Effect: firepower
 		Condition: firepowercrate
 		Notification: UnitArmourUpgraded
 	GrantExternalConditionCrateAction@armor:
-		SelectionShares: 5
+		SelectionShares: 20
 		Effect: armor
 		Condition: damagecrate
 		Notification: UnitArmourUpgraded
 	GrantExternalConditionCrateAction@speed:
-		SelectionShares: 5
+		SelectionShares: 20
 		Condition: speedcrate
 		Notification: UnitSpeedUpgraded
 
