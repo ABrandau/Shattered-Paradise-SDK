@@ -668,6 +668,8 @@ MUTFIEND:
 		DeathTypes:
 			TiberiumDeath: 1, 2
 			EnergyDeath: 1, 2
+			FireDeath: 1, 2
+			MilitantFireDeath: 1, 2
 
 E2:
 	Inherits@1: ENGINEER
@@ -871,6 +873,11 @@ SHARK:
 		DeathType: CabalDeath
 		RequiresLobbyCreeps: true
 	-SpawnActorOnDeath@FLAMEGUY:
+	-SpawnActorOnDeath@FLAMEGUY2:
+	WithDeathAnimation@normal:
+		DeathTypes:
+			FireDeath: 1, 2
+			MilitantFireDeath: 1, 2
 	Armament:
 		Weapon: SharkJump
 		PauseOnCondition: WebDisable
@@ -977,6 +984,11 @@ FLOAT:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	-SpawnActorOnDeath@FLAMEGUY:
+	-SpawnActorOnDeath@FLAMEGUY2:
+	WithDeathAnimation@normal:
+		DeathTypes:
+			FireDeath: 1, 2
+			MilitantFireDeath: 1, 2
 	Health:
 		HP: 17500
 	Mobile:
@@ -1036,6 +1048,11 @@ BUG:
 	Targetable@MindControlImmunity:
 		TargetTypes: MindControlInmune
 	-SpawnActorOnDeath@FLAMEGUY:
+	-SpawnActorOnDeath@FLAMEGUY2:
+	WithDeathAnimation@normal:
+		DeathTypes:
+			FireDeath: 1, 2
+			MilitantFireDeath: 1, 2
 	Selectable:
 		Bounds: 26,30,0,-10
 	Health:
@@ -1087,6 +1104,11 @@ COLOSSI:
 	Passenger:
 		RequireForceMoveCondition: !undeployed
 	-SpawnActorOnDeath@FLAMEGUY:
+	-SpawnActorOnDeath@FLAMEGUY2:
+	WithDeathAnimation@normal:
+		DeathTypes:
+			FireDeath: 1, 2
+			MilitantFireDeath: 1, 2
 	-DamagedByTintedCells@Colossus:
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
@@ -1306,6 +1328,8 @@ SWARMLING:
 	-WithDeathAnimation@energy:
 	-WithDeathAnimation@body:
 	-WithIdleOverlay@web:
+	-SpawnActorOnDeath@FLAMEGUY:
+	-SpawnActorOnDeath@FLAMEGUY2:
 	-SpawnActorOnDeath@conversion:
 
 PDRONE:
@@ -1356,6 +1380,8 @@ PDRONE:
 			CabalDeathCrate: 2
 			TiberiumDeath: 3
 			BlackHandRfle: 2
+			FireDeath: 1, 2
+			MilitantFireDeath: 1, 2
 	WithDeathAnimation@explosion:
 		DeathSequencePalette: effect
 		DeathPaletteIsPlayerPalette: False

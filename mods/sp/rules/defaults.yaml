@@ -1422,7 +1422,6 @@
 			ExplosionDeath: body1, body2, body3, body4, body5
 	WithTextControlGroupDecoration:
 
-
 ^Soldier:
 	Inherits@1: ^Infantry
 	Inherits@2: ^Cloakable
@@ -1468,6 +1467,8 @@
 		DeathTypes:
 			TiberiumDeath: 1, 2
 			EnergyDeath: 1, 2
+			FireDeath: 1, 2
+			MilitantFireDeath: 1, 2
 	Mobile:
 		Locomotor: Vehicle
 	-TakeCover:
@@ -1563,6 +1564,7 @@
 	-WithDeathAnimation@explosion:
 	-WithDeathAnimation@energy:
 	-SpawnActorOnDeath@FLAMEGUY:
+	-SpawnActorOnDeath@FLAMEGUY2:
 	-SpawnActorOnDeath@tiberium:
 	-SpawnActorOnDeath@conversion:
 	-DamagedByTerrain:
