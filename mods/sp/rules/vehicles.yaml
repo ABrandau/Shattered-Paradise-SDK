@@ -1381,10 +1381,10 @@ WOLF:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 20
-		Description: Tiberium beast that uses tiberium acid to harm nearby units.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Attacks reduce target attack speed by 35%\n- Can mutate killed units\n- E.M.P. Inmune\n- Heals even when in combat\n- Cannot be mindcontrolled.\n- Can enter tunnels.
+		Description: Tiberium beast that uses tiberium acid to harm nearby units.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Attacks reduce target attack speed by 35%\n- Can mutate killed units\n- E.M.P. Inmune\n- Has Selfheal\n- Cannot be mindcontrolled.\n- Can enter tunnels.
 		Prerequisites: ~muweap, muradr
 	Valued:
-		Cost: 700
+		Cost: 500
 	Tooltip:
 		Name: Tiberian Bull
 	UpdatesPlayerStatistics:
@@ -1404,7 +1404,7 @@ WOLF:
 	Health:
 		HP: 20000
 	Mobile:
-		Speed: 95
+		Speed: 105
 		Locomotor: TibVeCritter
 
 MRLS:
@@ -1462,10 +1462,10 @@ DEATHCLAW:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 22
-		Description: Melee beast from the outer redzones that brings death with its claws.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- E.M.P. Inmune\n- Cannot be mindcontrolled.\n- Can enter tunnels.
+		Description: Melee beast from the outer redzones that brings death with its claws.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Has Selfheal\n- E.M.P. Inmune\n- Cannot be mindcontrolled.\n- Can enter tunnels.
 		Prerequisites: ~muweap, muhall
 	Valued:
-		Cost: 1200
+		Cost: 1100
 	Tooltip:
 		Name: Ravager
 	UpdatesPlayerStatistics:
@@ -1484,6 +1484,11 @@ DEATHCLAW:
 		Locomotor: TibVeCritter
 	Armament:
 		Weapon: RavagerStrike
+	SelfHealing@Bullshit:
+		PercentageStep: 5
+		Delay: 100
+		HealIfBelow: 100
+		DamageCooldown: 100
 	Selectable:
 		DecorationBounds: 30,50,0,-20
 
