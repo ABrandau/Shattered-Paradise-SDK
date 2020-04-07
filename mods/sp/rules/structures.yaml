@@ -113,7 +113,7 @@ GDIREF:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 3
-		Prerequisites: ~structures.gdi, anypower
+		Prerequisites: ~structures.gdi, anypower, ~AIantiRush
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 	FreeActor:
 		Actor: harv.gdi
@@ -443,7 +443,7 @@ NODREF:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 3
-		Prerequisites: ~structures.nod, anypower
+		Prerequisites: ~structures.nod, anypower, ~AIantiRush
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 	FreeActor:
 		Actor: harv.nod
@@ -809,7 +809,7 @@ MUPROC:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 3
-		Prerequisites: ~structures.mut, anypower
+		Prerequisites: ~structures.mut, anypower, ~AIantiRush
 		IconPalette: UnittemIconMut
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 	FreeActor:
@@ -1114,7 +1114,7 @@ SCRPROC:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 3
-		Prerequisites: scrpowr, ~structures.scr
+		Prerequisites: scrpowr, ~structures.scr, ~AIantiRush
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 4000$.
 		IconPalette: UnittemIconScrin
 	Selectable:
@@ -1326,6 +1326,7 @@ SCRADVPOWR:
 		DecorationBounds: 90, 84, 0, -12
 	SelectionDecorations:
 	ChronoshiftPower@chronoshift:
+		RequiresCondition: !AIbuildingMicroControl
 		Range: 2
 		OrderName: Chronoshift
 		PauseOnCondition: empdisable || disabled
@@ -1350,6 +1351,26 @@ SCRADVPOWR:
 		InvalidTileSequence: build-invalid-
 		SourceTileSequence: build-valid-
 		DisplayTimerStances: Ally, Neutral, Enemy
+	DetonateWeaponPower@AIbuilding:
+		RequiresCondition: AIbuildingMicroControl
+		Weapon: ColossiSummonerWeapon
+		Icon: wormholeicon
+		IconPalette: playerscrin
+		ChargeInterval: 6000
+		OrderName: ChronoshiftSummon
+		TargetCircleRange: 5c0
+		DisplayTimer: True
+		DisplayBeacon: True
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
+		Description: Instant Wormhole
+		LongDesc: Instant Wormhole for AI
+		DisplayTimerStances: Ally, Neutral, Enemy
+		PauseOnCondition: empdisable || disabled
 	Health:
 		HP: 300000
 	RequiresBuildableArea:
@@ -1486,7 +1507,7 @@ CABPROC:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 3
-		Prerequisites: anypower, ~structures.cab
+		Prerequisites: anypower, ~structures.cab, ~AIantiRush
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 		IconPalette: UnittemIconCab
 	FreeActor:

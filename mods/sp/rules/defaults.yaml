@@ -868,36 +868,38 @@
 		Ammo: 8
 	ReloadAmmoPool@AIReload:
 		AmmoPool: primary
-		RequiresCondition: AIReload || AICheater
-		Count: 1
-		Delay: 150
+		RequiresCondition: AIReload
+		Count: 10
+		Delay: 1500
 	GrantConditionOnBotOwner@AIReload:
 		Condition: AIReload
-		Bots: CheaterAI, EasyAI
-	GrantConditionOnBotOwner@AICheater:
-		Condition: AICheater
-		Bots: CheaterAI
+		Bots: CheaterAI, EasyAI, ShatteredAI
 
 ^AIBuffCheat:
 	GrantConditionOnBotOwner@AIBuffCheat:
 		Condition: AIBuffCheat
-		Bots: CheaterAI
+		Bots: CheaterAI, ShatteredAI
 	FirepowerMultiplier@AIBuffCheat:
 		RequiresCondition: AIBuffCheat
-		Modifier: 120
+		Modifier: 110
 	DamageMultiplier@AIBuffCheat:
 		RequiresCondition: AIBuffCheat
-		Modifier: 80
+		Modifier: 90
 
 ^AICashCheat:
+	CashTrickler@AICashDevour:
+		Interval: 1100
+		Amount: 800
+		ShowTicks: False
+		RequiresCondition: AIShattered
 	CashTrickler@AICashCheater:
 		Interval: 1000
-		Amount: 600
+		Amount: 350
 		ShowTicks: False
 		RequiresCondition: AICheater
 	CashTrickler@AICashNormal:
 		Interval: 600
-		Amount: 200
+		Amount: 50
 		ShowTicks: False
 		RequiresCondition: AIReload || AICheater
 	GrantConditionOnBotOwner@AIReload:
@@ -906,7 +908,23 @@
 	GrantConditionOnBotOwner@AICheater:
 		Condition: AICheater
 		Bots: CheaterAI
-
+	GrantConditionOnBotOwner@AIShattered:
+		Condition: AIShattered
+		Bots: ShatteredAI
+^AImicroManagable:
+	GrantConditionOnBotOwner@AImicroManage:
+		Condition: AImicroManage
+		Bots: EasyAI, CheaterAI, ShatteredAI
+^AIbuildingMicroControl:
+	GrantConditionOnBotOwner@AIbuildingMicroControl:
+		Condition: AIbuildingMicroControl
+		Bots: CheaterAI, EasyAI, ShatteredAI
+	ProvidesPrerequisite@AISpecialProduce:
+		RequiresCondition: AIbuildingMicroControl
+		Prerequisite: AImoney
+	ProvidesPrerequisite@fixUndeployDracheBug:
+		RequiresCondition: AIbuildingMicroControl
+		Prerequisite: fixUndeployDracheBug
 ^GenericEffects:
 	Inherits@0: ^KillSelf
 	Inherits@1: ^Cloakable
@@ -972,6 +990,7 @@
 	Inherits@2: ^SpawnSmoke
 	Inherits@3: ^SpawnSpark
 	Inherits@4: ^GetsOneShotedbySuperweapons
+	Inherits@5: ^MindControllable
 
 ^ProducesStuff:
 	WithTextDecoration@primary:
@@ -1070,6 +1089,7 @@
 	Inherits@0: ^BasicBuilding
 	Inherits@1: ^StructureEffects
 	Inherits@2: ^4CellVision
+	Inherits@AIbuilding: ^AIbuildingMicroControl
 	GivesBuildableArea:
 		AreaTypes: building
 	CaptureNotification:
@@ -1287,6 +1307,7 @@
 	Inherits@4: ^InfantryShape
 	Inherits@5: ^5CellVision
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
+	Inherits@AImicroManagable: ^AImicroManagable
 	ActorLostNotification:
 	SharedPassenger:
 		CargoType: Infantry
@@ -1681,6 +1702,7 @@
 	Inherits@3: ^VehicleShape
 	Inherits@4: ^5CellVision
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
+	Inherits@AImicroManagable: ^AImicroManagable
 	ActorLostNotification:
 	Huntable:
 	SharedPassenger:
@@ -1833,6 +1855,7 @@
 ^ScrinVehicle:
 	Inherits@0: ^ScrinReaper
 	Inherits@1: ^ScrinRender
+	Inherits@AImicroManagable: ^AImicroManagable
 	Explodes:
 		Weapon: ScrinUnitExplode
 		EmptyWeapon: ScrinUnitExplode
@@ -1916,15 +1939,16 @@
 	Inherits@6: ^Cloakable
 	Inherits@5: ^FullHealthRepairCondition
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
+	Inherits@AImicroManagable: ^AImicroManagable
 	DrawLineToTarget:
 	WithTextControlGroupDecoration:
 	AppearsOnRadar:
 		UseLocation: true
 	Targetable@GROUND:
-		TargetTypes: Vehicle, Ground, LandedAircraft
+		TargetTypes: Vehicle, Ground, LandedAircraft, MindControlInmune
 		RequiresCondition: !airborne
 	Targetable@AIRBORNE:
-		TargetTypes: Air
+		TargetTypes: Air, MindControlInmune
 		RequiresCondition: airborne
 	Selectable:
 	SelectionDecorations:

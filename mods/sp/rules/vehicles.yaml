@@ -769,11 +769,28 @@ BGGY:
 	Tooltip@float:
 		Name: Essential Buggy
 		RequiresCondition: ifv.float
+RIFLEBGGY:
+	Inherits: BGGY
+	Valued:
+		Cost: 400
+	GivesExperience:
+		Experience: 300
+	EditorOnlyTooltip:
+		Name: Anti Infantry Buggy
+	RenderSprites:
+		Image: bggy
+	Buildable:
+		Prerequisites: ~naweap, ~AImoney
+	Cargo:
+		EjectOnDeath: True
+		InitialUnits: altnode1
 
 ROCKETBGGY:
 	Inherits: BGGY
 	Valued:
 		Cost: 600
+	GivesExperience:
+		Experience: 300
 	EditorOnlyTooltip:
 		Name: Rocket Buggy
 	RenderSprites:
@@ -781,20 +798,40 @@ ROCKETBGGY:
 	Buildable:
 		Prerequisites: ~naweap, ~AImoney
 	Cargo:
+		EjectOnDeath: True
 		InitialUnits: crusader
 
 FLAMEBGGY:
 	Inherits: BGGY
 	Valued:
 		Cost: 600
+	GivesExperience:
+		Experience: 300
 	RenderSprites:
 		Image: bggy
 	Buildable:
 		Prerequisites: ~naweap, naradr, ~AImoney
 	Cargo:
+		EjectOnDeath: True
 		InitialUnits: templar
 	EditorOnlyTooltip:
 		Name: Flame Buggy
+
+LAZORBGGY:
+	Inherits: BGGY
+	Valued:
+		Cost: 900
+	GivesExperience:
+		Experience: 300
+	RenderSprites:
+		Image: bggy
+	Buildable:
+		Prerequisites: ~naweap, natech, ~AImoney
+	Cargo:
+		EjectOnDeath: True
+		InitialUnits: nconf
+	EditorOnlyTooltip:
+		Name: Laser Buggy
 
 TTNK:
 	Inherits: ^Tank
@@ -817,7 +854,7 @@ TTNK:
 		Speed: 90
 		Locomotor: InfantryCrusherVehicle
 		PauseOnCondition: empdisable
-		RequireForceMoveCondition: !undeployed
+		RequireForceMoveCondition:  !AImicroManage && !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
 	Health:
@@ -853,11 +890,14 @@ TTNK:
 		CanDeployOnRamps: True
 		UndeployOnMove: true
 		UndeploySounds: clicky1.aud
-		PauseOnCondition: RefineryLock
+		PauseOnCondition: RefineryLock || (deployed && AImicroManage)
 		RequiresCondition: !inside-tunnel
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
-		RequiresCondition: deployed
+		RequiresCondition: !AImicroManage && deployed
+	RejectsOrders@deploymentAI:
+		Reject: GrantConditionOnDeploy
+		RequiresCondition: AImicroManage && deployed
 	Carryable:
 		RequiresCondition: undeployed
 	WithFacingSpriteBody:
@@ -890,6 +930,10 @@ TTNK:
 		Condition: undeployed
 	ExternalCondition@RefineryLock:
 		Condition: RefineryLock
+	AIDeployHelper:
+		DeployChance: 100
+		DeployTrigger: Attack
+		DeployTicks : 0
 
 TICKHOLOGRAM:
 	Inherits: TTNK
@@ -1365,8 +1409,11 @@ STRUCKFULL:
 	Buildable:
 		Prerequisites: ~muweap, murax, ~AImoney
 	Valued:
-		Cost: 1200
+		Cost: 1400
+	GivesExperience:
+		Experience: 500
 	Cargo:
+		EjectOnDeath: True
 		InitialUnits: marauder, marauder, mutfiend, mutfiend, e3
 	RenderSprites:
 		Image: struck
@@ -1545,6 +1592,19 @@ HVRTRUK3:
 	AutoTarget:
 	AttackFrontal:
 
+HVRTRUK3_BOT:
+	Inherits: HVRTRUK3
+	Inherits@1: ^AutoTargetGroundAssaultMove
+	-Buildable:
+	AutoTarget:
+		ScanRadius: 8
+		InitialStance: AttackAnything
+		InitialStanceAI: AttackAnything
+	AttackFrontal:
+		TargetFrozenActors: True
+	RenderSprites:
+		Image: HVRTRUK3
+
 ###########################################################
 # SCRIN
 ###########################################################
@@ -1642,6 +1702,7 @@ SCRGLYDER2:
 		Speed: 90
 		Locomotor: Hover
 	Transforms:
+		RequiresCondition: !inside-tunnel
 		IntoActor: scrglyder1
 	Armament:
 		Weapon: Glyder2Cannon
@@ -1652,6 +1713,17 @@ SCRGLYDER2:
 	AttackFrontal:
 		PauseOnCondition: empdisable
 		FacingTolerance: 5
+	Armament@AIaimOnly:
+		RequiresCondition: AImicroManage
+		Weapon: AIGlyder2AimingDummyWeapon
+		Recoil: 85
+		RecoilRecovery: 25
+		LocalOffset: 100,0,1500
+		PauseOnCondition: empdisable
+		ReloadingCondition: AIattackAir
+	TransformOnCondition:
+		RequiresCondition: AIattackAir && !inside-tunnel
+		IntoActor: scrglyder1
 
 SCRRECHARGER:
 	Inherits@1: ^Walker

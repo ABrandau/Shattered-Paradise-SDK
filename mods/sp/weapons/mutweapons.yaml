@@ -511,6 +511,17 @@ SpawnEggShrapnel:
 		ValidStances: Enemy
 		ValidTargets: Infantry, Building, Vehicle, Defence, Air, Airhit
 
+ 
+SpawnEggShrapnelE:
+	Inherits: SpawnEggShrapnel
+	Warhead@op2: FireShrapnel
+		Weapon: EggElevator
+		Amount: 2
+		AimChance: 100
+		AllowDirectHit: true
+		ValidStances: Enemy
+		ValidTargets: Infantry, Building, Vehicle, Defence, Air, Airhit
+
 EggElevator:
 	Inherits: ^NoDamage
 	ReloadDelay: 5
@@ -699,3 +710,20 @@ VeinholeEggElevator:
 	Inherits: EggElevator
 	MinRange: 1c0
 	ReloadDelay: 800
+
+AITransportAimingDummyWeapon:
+	Inherits: ^FullDamage
+	ReloadDelay: 400
+	MinRange: 2c0
+	Range: 4c0
+	ValidTargets: Ground, Water
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+		Versus:
+			InfantryArmor: 150
+			BuildingArmor: 80
+			VehicleArmor: 80
+			DefenseArmor: 80
+			ConcreteArmor: 30
+		ValidTargets: Ground, Water

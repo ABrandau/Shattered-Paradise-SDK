@@ -6,6 +6,7 @@ CLOUD1:
 	-UpdatesPlayerStatistics:
 	-ActorLostNotification:
 	-AppearsOnRadar:
+	-Repairable:
 	Aircraft:
 		CruiseAltitude: 1
 		TurnSpeed: 6
@@ -18,11 +19,11 @@ CLOUD1:
 	-RevealsShroud:
 	-Voiced:
 	Health:
-		HP: 9
+		HP: 650
 	SelfHealing:
-		Step: -1
-		Delay: 25
-		HealIfBelow: 200
+		Step: -600
+		Delay: 200
+		HealIfBelow: 5000
 		DamageTypes: CloudDie
 	AttackAircraft:
 		FacingTolerance: 20
@@ -78,7 +79,7 @@ ORCA:
 		MoveIntoShroud: true
 	AutoTarget:
 		InitialStance: HoldFire
-		InitialStanceAI: ReturnFire
+		InitialStanceAI: AttackAnything
 	Health:
 		HP: 12000
 	Armament:
@@ -137,7 +138,7 @@ ORCAB:
 		FacingTolerance: 20
 	AutoTarget:
 		InitialStance: HoldFire
-		InitialStanceAI: ReturnFire
+		InitialStanceAI: AttackAnything
 	AmmoPool:
 		Ammo: 20
 		PipCount: 2
@@ -195,7 +196,6 @@ DSHP:
 	Tooltip:
 		Name: Dropship
 	Aircraft:
-		LandWhenIdle: true
 		TurnSpeed: 10
 		Speed: 200
 		InitialFacing: 0
@@ -250,7 +250,6 @@ ORCATRAN:
 	RenderVoxels:
 	-WithFacingSpriteBody:
 	Aircraft:
-		LandWhenIdle: true
 		TurnSpeed: 5
 		Speed: 84
 		InitialFacing: 0
@@ -313,7 +312,7 @@ APACHE:
 		AmmoCondition: ammo
 	AutoTarget:
 		InitialStance: HoldFire
-		InitialStanceAI: ReturnFire
+		InitialStanceAI: AttackAnything
 	WithIdleOverlay@ROTORAIR:
 		Offset: 85,0,384
 		Sequence: rotor
@@ -373,7 +372,7 @@ SCRIN:
 		AmmoCondition: ammo
 	AutoTarget:
 		InitialStance: HoldFire
-		InitialStanceAI: ReturnFire
+		InitialStanceAI: AttackAnything
 	DeathSounds:
 	SpawnActorOnDeath:
 		Actor: SCRIN.Husk
@@ -492,7 +491,7 @@ MUTHELI:
 		AmmoCondition: ammo
 	AutoTarget:
 		InitialStance: HoldFire
-		InitialStanceAI: ReturnFire
+		InitialStanceAI: AttackAnything
 	SpawnActorOnDeath:
 		Actor: MUTHELI.Husk
 
@@ -540,7 +539,7 @@ WETP:
 	AutoTarget:
 		ScanRadius: 6
 		InitialStance: HoldFire
-		InitialStanceAI: ReturnFire
+		InitialStanceAI: AttackAnything
 	RenderSprites:
 	Hovers@CRUISING:
 		RequiresCondition: cruising
@@ -613,12 +612,59 @@ MUTQUEEN:
 	Explodes:
 		Weapon: QueenExplode
 		EmptyWeapon: QueenExplode
+	Explodes@AImicroManage:
+		RequiresCondition: AImicroManage
+		Weapon: SpawnEggShrapnelE
+		EmptyWeapon: SpawnEggShrapnelE
 
 MUTBIRD:
 	Inherits@3: MUTQUEEN
 	Tooltip:
 		Name: Seeder Bird
 	-Buildable:
+
+NUKECARRYALL_BOT:
+	Inherits: TRNSPORT
+	Inherits@1: ^AutoTargetAllAssaultMove
+	Buildable:
+		Description: AI Nuke Transport
+		Queue: Air
+		BuildPaletteOrder: 6
+		Prerequisites: ~muair, muhall, ~AImoney
+	Valued:
+		Cost: 1900
+	Health:
+		HP: 18000
+	GivesExperience:
+		Experience: 600
+	Cargo:
+		InitialUnits: hvrtruk3_bot
+	Armament@AIaiming:
+		RequireCondition: !unloading
+		Weapon: AITransportAimingDummyWeapon
+		LocalOffset: 950,0,0
+		ReloadingCondition: unloading
+	RejectsOrders@unloading:
+		Except: Unload
+		RequiresCondition: unloading
+	AttackAircraft:
+		AttackType: Hover
+		FacingTolerance: 128
+	AIDeployHelper:
+		DeployChance : 100
+		DeployTicks : 5
+		UndeployTicks : 30
+	AutoTarget:
+		ScanRadius: 9
+		InitialStanceAI: AttackAnything
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	TransformOnCondition:
+		RequiresCondition: !loaded
+		IntoActor: TRNSPORT
+	GrantConditionOnDamageState:
+		Condition: unloading
+		ValidDamageStates: Medium
 
 STORMRIDER:
 	Inherits: ^CombatPlane
@@ -673,7 +719,7 @@ DRACHE:
 		Queue: Air
 		BuildPaletteOrder: 110
 		Description: Deploys into a Host Station.\n\nSpecial:\n- Provides a build radius for structures\n- Maximum production speed is reached with 7 Conyards\n- Max production speed reduces production time by 50%\n- Has increased HP when deployed
-		Prerequisites: ~scrair
+		Prerequisites: ~scrair, ~!fixUndeployDracheBug
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -717,6 +763,18 @@ DRACHE:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel
 
+DRACHE_BOT:
+	Inherits: DRACHE
+	Buildable:
+		Queue: Air
+		BuildPaletteOrder: 110
+		Description: AI Scrin Host Station
+		Prerequisites: ~scrair, ~fixUndeployDracheBug
+	Aircraft:
+		IdleBehavior: Land
+	RenderSprites:
+		Image: drache
+
 SCRGLYDER1:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
@@ -758,6 +816,14 @@ SCRGLYDER1:
 	SmokeParticleEmitter:
 		Image: scrsmoke
 		Palette: apolbluealpha60
+	Armament@AIaimOnly:
+		Weapon: AIGlyder1AimingDummyWeapon
+		RequiresCondition: AImicroManage
+		PauseOnCondition: empdisable
+		ReloadingCondition: AIattackGround
+	TransformOnCondition:
+		RequiresCondition: AIattackGround
+		IntoActor: scrglyder2
 
 SCRDESTROYER:
 	Inherits: ^CombatHelicopter
