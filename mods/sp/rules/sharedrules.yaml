@@ -386,7 +386,12 @@ GACNST:
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
-
+	ProvidesPrerequisite@AIantiRush:
+		RequiresCondition: !AIbuildingMicroControl
+		Prerequisite: AIantiRush
+	Power@AICheatPower:
+		RequiresCondition: AIShattered
+		Amount: 80
 ^Powerplant:
 	Inherits: ^Building
 	ProvidesPrerequisite:
@@ -429,6 +434,8 @@ GACNST:
 	ProvidesPrerequisite@buildingname:
 	GrantExternalConditionToProduced:
 		Condition: produced
+	ProvidesPrerequisite@AIantiRush:
+		Prerequisite: AIantiRush
 
 ^RefineryHP:
 	Health:
@@ -457,6 +464,7 @@ PROC:
 	Inherits: ^Building
 	Inherits@1: ^NormalRefineryHitShape
 	Inherits@2: ^RefineryHP
+	Inherits@3: ^AICashCheat
 	Building:
 		Footprint: xx== xx== xx==
 		Dimensions: 4,3
@@ -491,7 +499,8 @@ PROC:
 FLIPPEDPROC:
 	Inherits: ^Building
 	Inherits@1: ^FlippedRefineryHitshape
-	Inherits@2: ^RefineryHP
+	Inherits@2: ^RefineryHP	 
+	Inherits@3: ^AICashCheat
 	ProvidesPrerequisite:
 		Factions: gdi, cab, mut, nod, scr
 		Prerequisite: proc
@@ -529,6 +538,7 @@ FLIPPEDXPROC:
 	Inherits: ^Building
 	Inherits@1: ^FlippedRefineryXHitshape
 	Inherits@2: ^RefineryHP
+	Inherits@3: ^AICashCheat
 	ProvidesPrerequisite:
 		Factions: gdi, cab, mut, nod, scr
 		Prerequisite: proc
@@ -566,6 +576,7 @@ FLIPPEDYPROC:
 	Inherits: ^Building
 	Inherits@1: ^FlippedRefineryYHitshape
 	Inherits@2: ^RefineryHP
+	Inherits@3: ^AICashCheat
 	ProvidesPrerequisite:
 		Factions: gdi, cab, mut, nod, scr
 		Prerequisite: proc
@@ -656,6 +667,8 @@ FLIPPEDYPROC:
 		ValidStances: Enemy, Neutral
 	GrantExternalConditionToProduced:
 		Condition: produced
+	ProvidesPrerequisite@AIantiRush:
+		Prerequisite: AIantiRush
 
 ^Helipad:
 	Inherits: ^Building
@@ -689,6 +702,8 @@ FLIPPEDYPROC:
 		Amount: -20
 	WithSpriteBody:
 		PauseOnCondition: disabled
+	ProvidesPrerequisite@AIantiRush:
+		Prerequisite: AIantiRush
 
 ^Radar:
 	Inherits: ^Building

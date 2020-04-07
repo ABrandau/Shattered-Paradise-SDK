@@ -127,6 +127,7 @@ JUMPJET:
 		HP: 9000
 	Transforms:
 		IntoActor: jumpjetair
+		RequiresCondition: !inside-tunnel
 	Armament@1:
 		Weapon: JJGroundGrenade
 		PauseOnCondition: WebDisable
@@ -439,6 +440,10 @@ NCONF:
 	ExplodeWeapon@3:
 		Weapon: TickHoloShrapnel
 		RequiresCondition: HologramSpawn
+	AIDeployHelper:
+		DeployChance : 100
+		DeployTicks : 4000
+		UndeployTicks : 1
 
 BHS:
 	Inherits: ^Soldier
@@ -538,7 +543,7 @@ MARAUDER:
 		ScanRadius: 8
 	Mobile:
 		PauseOnCondition: WebDisable
-		RequireForceMoveCondition: !undeployed
+		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
 	Armament@1:
@@ -566,6 +571,7 @@ MARAUDER:
 		UndeploySounds:
 		UndeployOnMove: true
 		RequiresCondition: !inside-tunnel
+		PauseOnCondition: deployed && AImicroManage
 	GrantCondition:
 		Condition: editorhack
 	WithInfantryBody@Editor: # HACK: negative conditions don't count in EnabledByDefault, we can use this duplicate WIB to render it on map editor
@@ -611,9 +617,16 @@ MARAUDER:
 	DamageMultiplier@MarauderBuff:
 		Modifier: 75
 		RequiresCondition: deployed
+	AIDeployHelper:
+		DeployChance: 100
+		DeployTrigger: Attack
+		DeployTicks : 0
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
-		RequiresCondition: deployed
+		RequiresCondition: !AImicroManage && deployed
+	RejectsOrders@deploymentAI:
+		Reject: GrantConditionOnDeploy
+		RequiresCondition: AImicroManage && deployed
 
 MUTFIEND:
 	Inherits: ^Mutant
@@ -798,6 +811,11 @@ SEER:
 	ExplodeWeapon@2:
 		Weapon: SeerTyranyInstakillSpawn
 		RequiresCondition: deployed
+	AIDeployHelper:
+		DeployChance : 50
+		DeployTicks : 2000
+		UndeployTicks : 1
+		DeployTrigger : Attack
 
 PSYKER:
 	Inherits: ^Mutant
@@ -1163,6 +1181,31 @@ COLOSSI:
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: deployed
+ 
+COLOSSI_CHRONO:
+	Inherits: COLOSSI
+	-Buildable:
+	Mobile:
+		RequireForceMoveCondition: !AImicroManage && !undeployed
+	Armament@1:
+		Weapon: SharkJump
+		PauseOnCondition: WebDisable
+	Armament@2:
+		Weapon: SharkJump
+		PauseOnCondition: WebDisable
+	AIDeployHelper:
+		DeployChance : 100
+		DeployTicks : 0
+		UndeployTicks : 250
+		DeployTrigger : Attack
+	RenderSprites:
+		Image: colossi
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: !AImicroManage && deployed
+	RejectsOrders@deploymentAI:
+		Reject: GrantConditionOnDeploy
+		RequiresCondition: AImicroManage && deployed
 
 CABSENTRY:
 	Inherits: ^CabalDroneInfantry
@@ -1479,7 +1522,7 @@ MOTH:
 		Speed: 100
 		Locomotor: HoverInfantry
 		PauseOnCondition: WebDisable
-		RequireForceMoveCondition: !undeployed
+		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
 	LeavesTrails:
@@ -1511,9 +1554,13 @@ MOTH:
 		UndeployOnMove: true
 		CanDeployOnRamps: true
 		RequiresCondition: !inside-tunnel
+		PauseOnCondition: deployed && AImicroManage
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
-		RequiresCondition: deployed
+		RequiresCondition: !AImicroManage && deployed
+	RejectsOrders@deploymentAI:
+		Reject: GrantConditionOnDeploy
+		RequiresCondition: AImicroManage && deployed
 	Cloak@cloakgenerator:
 		RequiresCondition: deployed
 		InitialDelay: 40
@@ -1541,12 +1588,20 @@ MOTH:
 		RequiresCondition: deployed
 		PauseOnCondition: WebDisable
 	AttackOmni:
-		RequiresCondition: deployed
+		RequiresCondition: AImicroManage || deployed
 		PauseOnCondition: WebDisable
 		Armaments: OnFoot
+	Armament@AIAimOnly
+		RequiresCondition: AImicroManage && !deployed
+		Weapon: LurkerAim
+		Name: OnFoot
+		PauseOnCondition: WebDisable
 	RenderRangeCircle:
 	-WithIdleOverlay@web:
 	-Crushable:
+	AIDeployHelper:
+		DeployChance : 100
+		DeployTicks : 0
 
 CYC2:
 	Inherits: ^Cyborg

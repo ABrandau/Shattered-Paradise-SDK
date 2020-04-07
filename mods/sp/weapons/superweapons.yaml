@@ -826,3 +826,42 @@ VeinholeShrapnel:
 		Actors: veinholespawnerdummy
 		FallRate: 5000
 		Range: 3
+
+ColossiSummonerWeapon:
+	Inherits: ^BombWarhead
+	ReloadDelay: 8
+	Range: 3c0
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
+	Warhead@1Dam: SpreadDamage
+		Spread: 650
+		Damage: 0
+		Falloff: 1000, 500, 250, 125, 75, 50, 25, 12, 0
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
+		DamageTypes:
+	Warhead@5Actor: SpawnActor
+		Actors: colossi_chrono
+		FallRate: 5000
+		ForceGround: true
+		Range: 3
+	Warhead@4Sharpnel: FireShrapnel
+		Weapon: ColossiShrapnel
+		Amount: 3
+		AllowDirectHit: false
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, AirHit
+		InvalidTargets: Infantry, Vehicle, Building, Wall
+	Warhead@5Sound: CreateEffect
+		ImpactSounds: instantrift.wav
+
+ColossiShrapnel:
+	Range: 3c0
+	MinRange: 1c0
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 0
+		DamageTypes: Prone100Percent, TriggerProne, FireDeath
+	Warhead@5Actor: SpawnActor
+		Actors: colossi_chrono
+		ForceGround: true
+		FallRate: 5000
+		Range: 3
