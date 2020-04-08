@@ -630,9 +630,11 @@ NUKECARRYALL_BOT:
 		Description: AI Nuke Transport
 		Queue: Air
 		BuildPaletteOrder: 6
-		Prerequisites: ~muair, muhall, ~AImoney
+		Prerequisites: ~muair, muhall, ~AImoney, ~!LoadedExists
+	Selectable:
+		Class: trnsport
 	Valued:
-		Cost: 1900
+		Cost: 2000
 	Health:
 		HP: 18000
 	GivesExperience:
@@ -640,13 +642,15 @@ NUKECARRYALL_BOT:
 	Cargo:
 		InitialUnits: hvrtruk3_bot
 	Armament@AIaiming:
-		RequireCondition: !unloading
+		RequireCondition: !unloading && AImicroManage
 		Weapon: AITransportAimingDummyWeapon
 		LocalOffset: 950,0,0
 		ReloadingCondition: unloading
+	##TODO: If engine upgrade can help on it, needs update here
 	RejectsOrders@unloading:
 		Except: Unload
-		RequiresCondition: unloading
+		RequiresCondition: unloading && AImicroManage
+	## --TODO
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 128
@@ -659,12 +663,13 @@ NUKECARRYALL_BOT:
 		InitialStanceAI: AttackAnything
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	TransformOnCondition:
-		RequiresCondition: !loaded
-		IntoActor: TRNSPORT
 	GrantConditionOnDamageState:
+		RequiresCondition: AImicroManage
 		Condition: unloading
 		ValidDamageStates: Medium
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: loaded
+		Prerequisite: LoadedExists
 
 STORMRIDER:
 	Inherits: ^CombatPlane
@@ -765,6 +770,8 @@ DRACHE:
 
 DRACHE_BOT:
 	Inherits: DRACHE
+	Selectable:
+		Class: drache
 	Buildable:
 		Queue: Air
 		BuildPaletteOrder: 110

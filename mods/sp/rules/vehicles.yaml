@@ -773,6 +773,8 @@ RIFLEBGGY:
 	Inherits: BGGY
 	Valued:
 		Cost: 400
+	Selectable:
+		Class: bggy
 	GivesExperience:
 		Experience: 300
 	EditorOnlyTooltip:
@@ -789,6 +791,8 @@ ROCKETBGGY:
 	Inherits: BGGY
 	Valued:
 		Cost: 600
+	Selectable:
+		Class: bggy
 	GivesExperience:
 		Experience: 300
 	EditorOnlyTooltip:
@@ -805,6 +809,8 @@ FLAMEBGGY:
 	Inherits: BGGY
 	Valued:
 		Cost: 600
+	Selectable:
+		Class: bggy
 	GivesExperience:
 		Experience: 300
 	RenderSprites:
@@ -821,6 +827,8 @@ LAZORBGGY:
 	Inherits: BGGY
 	Valued:
 		Cost: 900
+	Selectable:
+		Class: bggy
 	GivesExperience:
 		Experience: 300
 	RenderSprites:
@@ -892,12 +900,14 @@ TTNK:
 		UndeploySounds: clicky1.aud
 		PauseOnCondition: RefineryLock || (deployed && AImicroManage)
 		RequiresCondition: !inside-tunnel
+	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
 	RejectsOrders@deploymentAI:
 		Reject: GrantConditionOnDeploy
 		RequiresCondition: AImicroManage && deployed
+	## --TODO
 	Carryable:
 		RequiresCondition: undeployed
 	WithFacingSpriteBody:
@@ -1406,6 +1416,8 @@ STRUCK:
 
 STRUCKFULL:
 	Inherits: STRUCK
+	Selectable:
+		Class: struck
 	Buildable:
 		Prerequisites: ~muweap, murax, ~AImoney
 	Valued:
@@ -1596,9 +1608,11 @@ HVRTRUK3_BOT:
 	Inherits: HVRTRUK3
 	Inherits@1: ^AutoTargetGroundAssaultMove
 	-Buildable:
+	Selectable:
+		Class: hvrtruk3
 	AutoTarget:
 		ScanRadius: 8
-		InitialStance: AttackAnything
+		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
 	AttackFrontal:
 		TargetFrozenActors: True
