@@ -621,12 +621,14 @@ MARAUDER:
 		DeployChance: 100
 		DeployTrigger: Attack
 		DeployTicks : 0
+	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
 	RejectsOrders@deploymentAI:
 		Reject: GrantConditionOnDeploy
 		RequiresCondition: AImicroManage && deployed
+	## --TODO
 
 MUTFIEND:
 	Inherits: ^Mutant
@@ -1185,14 +1187,26 @@ COLOSSI:
 COLOSSI_CHRONO:
 	Inherits: COLOSSI
 	-Buildable:
+	Selectable:
+		Class: colossi
 	Mobile:
 		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Armament@1:
-		Weapon: SharkJump
+		Weapon: ColossiShard
+		LocalOffset: 400,0,1300
+		RequiresCondition: !AImicroManage && undeployed
 		PauseOnCondition: WebDisable
+		Name: OnFoot
 	Armament@2:
+		Weapon: GColossiShard
+		LocalOffset: 300,0,1000
+		RequiresCondition: !AImicroManage && undeployed
+		PauseOnCondition: WebDisable
+	Armament@AI:
+		RequiresCondition: AImicroManage && undeployed
 		Weapon: SharkJump
 		PauseOnCondition: WebDisable
+		Name: OnFoot
 	AIDeployHelper:
 		DeployChance : 100
 		DeployTicks : 0
@@ -1200,12 +1214,14 @@ COLOSSI_CHRONO:
 		DeployTrigger : Attack
 	RenderSprites:
 		Image: colossi
+	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
 	RejectsOrders@deploymentAI:
 		Reject: GrantConditionOnDeploy
 		RequiresCondition: AImicroManage && deployed
+	## --TODO
 
 CABSENTRY:
 	Inherits: ^CabalDroneInfantry
@@ -1555,12 +1571,14 @@ MOTH:
 		CanDeployOnRamps: true
 		RequiresCondition: !inside-tunnel
 		PauseOnCondition: deployed && AImicroManage
+	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
 	RejectsOrders@deploymentAI:
 		Reject: GrantConditionOnDeploy
 		RequiresCondition: AImicroManage && deployed
+	## --TODO
 	Cloak@cloakgenerator:
 		RequiresCondition: deployed
 		InitialDelay: 40
@@ -1593,7 +1611,7 @@ MOTH:
 		Armaments: OnFoot
 	Armament@AIAimOnly
 		RequiresCondition: AImicroManage && !deployed
-		Weapon: LurkerAim
+		Weapon: LurkerAimDummyWeapon
 		Name: OnFoot
 		PauseOnCondition: WebDisable
 	RenderRangeCircle:
