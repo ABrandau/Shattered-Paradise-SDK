@@ -158,6 +158,24 @@ APC:
 		CameraPitch: 250
 	WithMuzzleOverlay:
 
+
+APC_BOT:
+	Inherits: APC
+	Valued:
+		Cost: 1450
+	Selectable:
+		Class: apc
+	GivesExperience:
+		Experience: 700
+	RenderSprites:
+		Image: apc
+	Buildable:
+		Prerequisites: ~gaweap, gapile, ~AImoney
+	Cargo:
+		EjectOnDeath: True
+		InitialUnits: gdie1, gdie1, gdie1, gdie1, grenadier
+	AIDeployHelper:
+
 HVR:
 	Inherits@1: ^HoverTank
 	Inherits@4: ^8CellVision
@@ -826,7 +844,7 @@ FLAMEBGGY:
 LAZORBGGY:
 	Inherits: BGGY
 	Valued:
-		Cost: 900
+		Cost: 1000
 	Selectable:
 		Class: bggy
 	GivesExperience:
@@ -1702,7 +1720,7 @@ SCRGLYDER2:
 		Queue: Vehicle
 		BuildPaletteOrder: 26
 		BuildAtProductionType: Tank
-		Description: Anti air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Can transform into an aerial version that can only engage ground units.\n- Aerial Version weapon performs Good Vs Infantry.\n- Absorbs essence from killed units to heal.\nBUG: Switching modes will make the unit loose any accumulated experience.\n- Hovers (it ignores terrain like Veins and Water)
+		Description: Anti air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Can transform into an aerial version that can only engage ground units.\n- Aerial Version weapon performs Good Vs Infantry.\n- Absorbs essence from killed units to heal.\n- Hovers (it ignores terrain like Veins and Water)
 		Prerequisites: ~scrweap, scrradr
 	Valued:
 		Cost: 700

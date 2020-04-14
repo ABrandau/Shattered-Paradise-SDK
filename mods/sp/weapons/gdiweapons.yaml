@@ -549,3 +549,12 @@ FirestormExploWalls:
 		ValidStances: Enemy, Neutral
 	Warhead@2Eff: CreateEffect
 		Explosions: fsidlewall, fsgrndwall
+
+FirestormAIAimingDummyWeapon:
+	Inherits: ^FullDamage
+	Range: 11c0
+		ValidTargets: Air, Ground, Water
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+		ValidTargets: Air, Ground, Water

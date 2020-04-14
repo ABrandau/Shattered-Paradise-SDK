@@ -765,6 +765,7 @@ GAPOWRUP:
 
 GAFIRE:
 	Inherits: ^Building
+	Inherits@AIaimingWeapon: ^AutoTargetAll
 	Inherits@2: ^3x2Shape
 	Buildable:
 		Queue: Defense
@@ -811,6 +812,18 @@ GAFIRE:
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
+	Armament@AIAimOnly:
+		RequiresCondition: AIbuildingMicroControl && !FirestormGen && !disabled && !empdisable && !Building-Buildup
+		Weapon: FirestormAIAimingDummyWeapon
+	AttackOmni:
+		RequiresCondition: !Building-Buildup
+		PauseOnCondition: empdisable || disabled
+		ForceTargetStances: Enemy
+	AutoTarget:
+	AIDeployHelper:
+		DeployChance : 100
+		DeployTicks : 200
+		UndeployTicks : 0
 
 GAPLUG:
 	Inherits: ^Building
@@ -988,6 +1001,8 @@ NATMPL:
 		AreaTypes: building
 		Adjacent: 3
 	WithNukeLaunchAnimation:
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, ConsideredThreatForAI
 
 MUVENTI:
 	Inherits: ^Building

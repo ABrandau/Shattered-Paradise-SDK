@@ -16,6 +16,8 @@ CLOUD1:
 		MoveIntoShroud: true
 	-Targetable@GROUND:
 	-Targetable@AIRBORNE:
+	-Targetable@Academy:
+	-Targetable@FullHealth:
 	-RevealsShroud:
 	-Voiced:
 	Health:
@@ -642,10 +644,11 @@ NUKECARRYALL_BOT:
 	Cargo:
 		InitialUnits: hvrtruk3_bot
 	Armament@AIaiming:
-		RequireCondition: !unloading && AImicroManage
+		RequireCondition: AImicroManage
 		Weapon: AITransportAimingDummyWeapon
 		LocalOffset: 950,0,0
 		ReloadingCondition: unloading
+		PauseOnCondition: unloading
 	##TODO: If engine upgrade can help on it, needs update here
 	RejectsOrders@unloading:
 		Except: Unload
@@ -656,8 +659,8 @@ NUKECARRYALL_BOT:
 		FacingTolerance: 128
 	AIDeployHelper:
 		DeployChance : 100
-		DeployTicks : 5
-		UndeployTicks : 30
+		DeployTicks : 50
+		UndeployTicks : 50
 	AutoTarget:
 		ScanRadius: 9
 		InitialStanceAI: AttackAnything
@@ -670,6 +673,18 @@ NUKECARRYALL_BOT:
 	ProvidesPrerequisite@AIbuildinglimit:
 		RequiresCondition: loaded
 		Prerequisite: LoadedExists
+
+SONICARRYALL_BOT:
+	Inherits: NUKECARRYALL_BOT
+	Buildable:
+		Description: AI Sonic Transport
+		Queue: Air
+		BuildPaletteOrder: 6
+		Prerequisites: ~gahpad, gatech, ~AImoney, ~!LoadedExists
+	Valued:
+		Cost: 1200
+	Cargo:
+		InitialUnits: sonic
 
 STORMRIDER:
 	Inherits: ^CombatPlane
