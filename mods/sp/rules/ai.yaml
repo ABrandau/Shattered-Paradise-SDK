@@ -101,6 +101,7 @@ Player:
 			cabsw1: 1
 			scrsw1: 1
 			nastlh: 1
+			gafire: 1
 			gtdrop: 1
 			scradvpowr: 1
 			namisl: 1
@@ -168,6 +169,7 @@ Player:
 			cabsw1: 1
 			scrsw1: 1
 			nastlh: 1
+			gafire: 1
 			gtdrop: 1
 			scradvpowr: 1
 			namisl: 1
@@ -274,6 +276,7 @@ Player:
 			cabsw1: 1
 			scrsw1: 1
 			nastlh: 3
+			gafire: 2
 			gtdrop: 1
 			scradvpowr: 1
 			namisl: 1
@@ -341,6 +344,7 @@ Player:
 			cabsw1: 1
 			scrsw1: 1
 			nastlh: 1
+			gafire: 1
 			gtdrop: 1
 			scradvpowr: 1
 			namisl: 1
@@ -381,10 +385,11 @@ Player:
 		AttackForceInterval: 50
 		RushInterval : 20000
 		MinimumAttackForceDelay: 2500
-		ProtectUnitScanRadius: 16
+		ProtectUnitScanRadius: 25
 		AssignRolesInterval: 75
 		IdleScanRadius: 15
-		AttackScanRadius :20
+		AttackScanRadius: 14
+		ProtectionScanRadius: 15
 	UnitBuilderBotModule@test:
 		RequiresCondition: AIReload
 		UnitQueues: Infantry, Vehicle, Air
@@ -393,11 +398,11 @@ Player:
 			harv: 90
 			scrharv: 90
 			cabharv: 90
-			gdie1: 10
+			gdie1: 5
 			altnode1: 5
 			pdrone: 5
 			shark: 1
-			jumpjetair: 10
+			jumpjetair: 1
 			crusader: 10
 			e3: 1
 			marauder: 10
@@ -405,14 +410,14 @@ Player:
 			cyborg: 15
 			cborg: 15
 			legio: 20
-			grenadier: 10
+			grenadier: 5
 			medic: 5
 			templar: 10
 			mutfiend: 3
 			reapercab: 20
 			colossi: 5
 			seer: 10
-			eagleguard: 10
+			eagleguard: 1
 			bhs: 30
 			psyker: 10
 			glad: 30
@@ -420,17 +425,17 @@ Player:
 			float: 3
 			bug: 30
 			mmch: 50
-			smech: 50
+			smech: 1
 			riflebggy: 1
 			rocketbggy: 1
 			flamebggy: 10
-			trike: 50
+			bike: 1
 			struckfull: 2
 			centurion: 40
 			scrdronec: 40
 			scrscorpion: 60
 			scrglyder2: 30
-			hvr: 90
+			hvr: 5
 			ttnk: 20
 			subtank: 90
 			lynx: 50
@@ -438,19 +443,19 @@ Player:
 			wolf: 5
 			g4tnk: 90
 			scrmbt: 1
-			sonic: 50
-			jug: 50
+			sonic: 5
+			jug: 40
 			hmec: 30
-			mrls: 20
+			mrls: 10
 			deathclaw: 50
 			spiderarty: 50
 			paladin: 50
 			tripod: 50
 			wasp: 40
-			basilisk: 5
-			devourer: 5
+			basilisk: 1
+			devourer: 1
 			scrin: 50
-			cerberus: 5
+			cerberus: 1
 			orca: 40
 			orcab: 30
 			mutheli: 40
@@ -467,8 +472,10 @@ Player:
 			scrmobmine: 5
 			mutqueen: 1
 			lazorbggy : 15
+			apc_bot: 20
 			moth: 2
 			nukecarryall_bot: 5
+			sonicarryall_bot: 5
 			repairvehicle : 2
 			engineer: 1
 			e2: 1
@@ -488,13 +495,17 @@ Player:
 			shapeshifter: 1
 			scrdestroyer: 3
 			devourer: 5
-			## nukecarryall_bot: 1, but it is restricted in its actor defination
+			bike: 1
+			## nukecarryall_bot: 1 but not restrict here
+			## sonicarryall_bot: 1 but not restrict here
 		UnitDelays:
 			crusader: 3000
 			mutfiend: 3000
 			legio: 5000
 			cborg: 4000
 			rocketbggy: 3500
+			grenadier: 4000
+			medic: 4000
 	McvManagerBotModule@AIEasy:
 		RequiresCondition: AIEasy 
 		McvTypes: mcv, cabmcv, nodmcv, mutmcv, drache_bot, drache
@@ -513,7 +524,7 @@ Player:
 		ConstructionYardTypes: gacnst, mutyard, cabyard, nodyard, drached
 		McvFactoryTypes: gaweap, naweap, muweap, cabweap, scrair
 		MinimumConstructionYardCount: 5
-	SupportPowerBotModule:
+	SupportPowerBotASModule:
 		RequiresCondition: AIReload
 		Decisions:
 			gdiradarscan:
@@ -523,6 +534,7 @@ Player:
 					Against: Enemy
 					Types: Building
 					Attractiveness: 1
+					IgnoreVisibility: true
 					TargetMetric: None
 					CheckRadius: 5c0
 			nodradarscan:
@@ -532,6 +544,7 @@ Player:
 					Against: Enemy
 					Types: Building
 					Attractiveness: 1
+					IgnoreVisibility: true
 					TargetMetric: None
 					CheckRadius: 5c0
 			mutantradarscan:
@@ -541,6 +554,7 @@ Player:
 					Against: Enemy
 					Types: Building
 					Attractiveness: 1
+					IgnoreVisibility: true
 					TargetMetric: None
 					CheckRadius: 5c0
 			cabalradarscan:
@@ -549,6 +563,7 @@ Player:
 				Consideration@1:
 					Against: Enemy
 					Types: Building
+					IgnoreVisibility: true
 					Attractiveness: 1
 					TargetMetric: None
 					CheckRadius: 5c0
@@ -558,40 +573,53 @@ Player:
 				Consideration@1:
 					Against: Enemy
 					Types: Building
+					IgnoreVisibility: true
 					Attractiveness: 1
 					TargetMetric: None
 					CheckRadius: 5c0
 			ioncannon2:
 				OrderName: IonCannon2
-				MinimumAttractiveness: 3000
+				MinimumAttractiveness: 10000
+				MinimumScanTimeInterval: 75
+				MaximumScanTimeInterval: 100
 				Consideration@1:
+					Against: Enemy
+					Types: ConsideredThreatForAI
+					IgnoreVisibility: true
+					Attractiveness: 1000000
+					TargetMetric: None
+					CheckRadius: 4c0
+				Consideration@2:
 					Against: Enemy
 					Types: Air, Ground, Water
 					Attractiveness: 1
 					TargetMetric: Value
-					CheckRadius: 5c0
-				Consideration@2:
+					CheckRadius: 4c0
+				Consideration@3:
 					Against: Ally
 					Types: Air, Ground, Water
 					Attractiveness: -10
 					TargetMetric: Value
-					CheckRadius: 7c0
+					CheckRadius: 5c0
+				Consideration@4:
+					Against: Enemy
+					Types: ConsideredValuableForAI
+					IgnoreVisibility: true
+					Attractiveness: 50
+					TargetMetric: Value
+					CheckRadius: 4c0
 			clustermissile:
 				OrderName: ClusterMissile
-				MinimumAttractiveness: 3000
+				MinimumAttractiveness: 15000
+				MinimumScanTimeInterval: 75
+				MaximumScanTimeInterval: 100
 				Consideration@1:
 					Against: Enemy
-					Types: Building
-					Attractiveness: 1
-					TargetMetric: Value
-					CheckRadius: 6c0
-				Consideration@2:
-					Against: Enemy
-					Types: Air, Ground, Water
+					Types: Ground, Water
 					Attractiveness: 1
 					TargetMetric: Value
 					CheckRadius: 8c0
-				Consideration@3:
+				Consideration@2:
 					Against: Ally
 					Types: Air, Ground, Water
 					Attractiveness: -10
@@ -599,41 +627,53 @@ Player:
 					CheckRadius: 7c0
 			ionstorm:
 				OrderName: IonStorm
-				MinimumAttractiveness: 3000
+				MinimumAttractiveness: 12000
+				MinimumScanTimeInterval: 75
+				MaximumScanTimeInterval: 100
 				Consideration@1:
 					Against: Enemy
-					Types: Building
-					Attractiveness: 1
-					TargetMetric: Value
-					CheckRadius: 7c0
+					Types: ConsideredThreatForAI
+					IgnoreVisibility: true
+					Attractiveness: 1000000
+					TargetMetric: None
+					CheckRadius: 4c0
 				Consideration@2:
-					Against: Enemy
-					Types: Air, Ground, Water
-					Attractiveness: 1
-					TargetMetric: Value
-					CheckRadius: 7c0
-				Consideration@3:
 					Against: Ally
 					Types: Air, Ground, Water
 					Attractiveness: -10
 					TargetMetric: Value
 					CheckRadius: 7c0
+				Consideration@3:
+					Against: Enemy
+					Types: Air, Ground, Water
+					Attractiveness: 1
+					TargetMetric: Value
+					CheckRadius: 7c0
 			singularity:
 				OrderName: singularity
-				MinimumAttractiveness: 3000
+				MinimumAttractiveness: 12000
+				MinimumScanTimeInterval: 75
+				MaximumScanTimeInterval: 100
 				Consideration@1:
+					Against: Enemy
+					Types: ConsideredThreatForAI
+					IgnoreVisibility: true
+					Attractiveness: 1000000
+					TargetMetric: None
+					CheckRadius: 4c0
+				Consideration@2:
 					Against: Enemy
 					Types: Building
 					Attractiveness: 1
 					TargetMetric: Value
 					CheckRadius: 6c0
-				Consideration@2:
+				Consideration@3:
 					Against: Enemy
 					Types: Ground, Water
 					Attractiveness: 1
 					TargetMetric: Value
 					CheckRadius: 5c0
-				Consideration@3:
+				Consideration@4:
 					Against: Ally
 					Types: Air, Ground, Water
 					Attractiveness: -10
@@ -641,14 +681,23 @@ Player:
 					CheckRadius: 7c0
 			meteorspawner:
 				OrderName: MeteorSpawner
-				MinimumAttractiveness: 3000
+				MinimumAttractiveness: 10000
+				MinimumScanTimeInterval: 75
+				MaximumScanTimeInterval: 100
 				Consideration@1:
+					Against: Enemy
+					Types: ConsideredThreatForAI
+					IgnoreVisibility: true
+					Attractiveness: 1000000
+					TargetMetric: None
+					CheckRadius: 4c0
+				Consideration@2:
 					Against: Enemy
 					Types: Air, Ground, Water
 					Attractiveness: 1
 					TargetMetric: Value
 					CheckRadius: 6c0
-				Consideration@2:
+				Consideration@3:
 					Against: Ally
 					Types: Air, Ground, Water
 					Attractiveness: -10
@@ -657,9 +706,11 @@ Player:
 			toxinMissile:
 				OrderName: ToxinMissile
 				MinimumAttractiveness: 3000
+				MinimumScanTimeInterval: 75
+				MaximumScanTimeInterval: 100
 				Consideration@1:
 					Against: Enemy
-					Types: Ground, Water
+					Types: Vehicle, Infantry
 					Attractiveness: 1
 					TargetMetric: Value
 					CheckRadius: 5c0
@@ -672,22 +723,38 @@ Player:
 			droppod:
 				OrderName: Droppod
 				MinimumAttractiveness: 3000
+				MinimumScanTimeInterval: 75
+				MaximumScanTimeInterval: 100
 				Consideration@1:
+					Against: Enemy
+					Types: ConsideredThreatForAI
+					IgnoreVisibility: true
+					Attractiveness: 1000000
+					TargetMetric: None
+					CheckRadius: 4c0
+				Consideration@2:
+					Against: Enemy
+					Types: Building
+					Attractiveness: 10
+					TargetMetric: Value
+					CheckRadius: 5c0
+				Consideration@3:
+					Against: Enemy
+					Types: Defence
+					Attractiveness: -100
+					TargetMetric: Value
+					CheckRadius: 7c0
+				Consideration@4:
 					Against: Enemy
 					Types: Ground
 					Attractiveness: 1
 					TargetMetric: Value
 					CheckRadius: 5c0
-				Consideration@2:
-					Against: Ally
-					Types: Infantry, Vehicle
-					Attractiveness: 1
-					TargetMetric: Value
-					CheckRadius: 5c0
-
 			nano:
 				OrderName: NanomachineSwarm
-				MinimumAttractiveness: 3000
+				MinimumAttractiveness: 7000
+				MinimumScanTimeInterval: 75
+				MaximumScanTimeInterval: 100
 				Consideration@1:
 					Against: Ally
 					Types: Vehicle
@@ -703,11 +770,15 @@ Player:
 			veinhole:
 				OrderName: Veinhole
 				MinimumAttractiveness: 3000
+				IgnoreVisibility: false
+				MinimumScanTimeInterval: 75
+				MaximumScanTimeInterval: 100
 				Consideration@1:
 					Against: Enemy
-					Types: Building
-					Attractiveness: 1000
-					TargetMetric: Value
+					Types: ConsideredThreatForAI
+					IgnoreVisibility: true
+					Attractiveness: 1000000
+					TargetMetric: None
 					CheckRadius: 5c0
 				Consideration@2:
 					Against: Ally
@@ -715,9 +786,17 @@ Player:
 					Attractiveness: -10
 					TargetMetric: Value
 					CheckRadius: 7c0
+				Consideration@3:
+					Against: Enemy
+					Types: Building
+					Attractiveness: 10
+					TargetMetric: Value
+					CheckRadius: 5c0
 			chronoshiftsummon:
 				OrderName: ChronoshiftSummon
 				MinimumAttractiveness: 3000
+				MinimumScanTimeInterval: 75
+				MaximumScanTimeInterval: 100
 				Consideration@1:
 					Against: Enemy
 					Types: Infantry
@@ -732,7 +811,5 @@ Player:
 					CheckRadius: 5c0
 	CaptureManagerBotModule:
 		CapturingActorTypes: engineer, e2, swarmling, shapeshifter
-		CapturableActorTypes: cahosp, neutralsonictur, caarmr, well, machineshop, scrinreinfpad
+		CapturableActorTypes: cahosp, neutralsonictur, caarmr, well, machineshop, scrinreinfpad, gacnst, mutyard, cabyard, nodyard, drached
 		CheckCaptureTargetsForVisibility: false
-
-
