@@ -916,22 +916,32 @@ ufo:
 
 well:
 	Inherits: ^EmpOverlay
-	idle: tibdrill
-		Length:*
+	idle: tibdrill_a
+		Length: 164
 		Offset: 0,0, 60
-		Tick: 40
+		Tick: 60
+		UseTilesetCode: false
+		ShadowStart: 330
+	damaged-idle: tibdrill_a
+		Start: 164
+		Length: 165
+		Offset: 0,0, 60
+		Tick: 60
+		ShadowStart: 494
+		UseTilesetCode: false
+	anim: tibdrill_b
+		Length: 164
+		Offset: 0,0, 60
+		Tick: 60
+		UseTilesetCode: false
+	damaged-anim: tibdrill_b
+		Start: 164
+		Length: 165
+		Offset: 0,0, 60
+		Tick: 60
 		UseTilesetCode: false
 	dead:
 		Offset: 0,0, 60
-		UseTilesetCode: false
-	icon: sidebar-gdi|e1icon
-
-well2
-	idle:
-		Offset: 0, -36, 60
-		UseTilesetCode: false
-	dead:
-		Offset: 0, -36, 60
 		UseTilesetCode: false
 	icon: sidebar-gdi|e1icon
 
