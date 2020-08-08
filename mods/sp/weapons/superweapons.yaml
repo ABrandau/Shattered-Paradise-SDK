@@ -382,17 +382,17 @@ ClusterMissile:
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@ClusterSmudges3: LeaveSmudge
 		SmudgeType: MediumScorch
-		Size: 6
+		Size: 3
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 25
 	Warhead@ClusterSmudges4: LeaveSmudge
 		SmudgeType: SmallScorch
-		Size: 6
+		Size: 4
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 25
 	Warhead@op: FireShrapnel
 		Weapon: LargeDebris
-		Amount: 3
+		Amount: 10
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@4Sharpnel: FireShrapnel
@@ -402,7 +402,7 @@ ClusterMissile:
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@5Sharpnel: FireShrapnel
 		Weapon: NukeFlame2
-		Amount: 90
+		Amount: 150
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@Shake: ScreenShaker
@@ -443,9 +443,9 @@ NukeFlame:
 	Projectile: BulletAS
 		Speed: 100
 		Blockable: true
-		Image: FLAMEALL
+		Image: FLAMEAPOL
 		Inaccuracy: 1c0
-		Palette: FlameEffectPal
+		Palette: apolra21alpha
 	Warhead@1Dam: SpreadDamage
 		Spread: 341
 		Damage: 300
@@ -480,12 +480,6 @@ ToxinMissile:
 		SmudgeType: LargeCrater
 		Size: 1
 		InvalidTargets: Vehicle, Building, Wall
-	Warhead@ClusterSmudges1: LeaveSmudge
-		SmudgeType: LargeScorch
-		Size: 2
-		InvalidTargets: Vehicle, Building, Wall
-		Delay: 5
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@5Actor: SpawnActor
 		Actors: cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1
 		FallRate: 5000
@@ -494,11 +488,33 @@ ToxinMissile:
 		Level: 500
 		Spread: 1c512
 		Falloff: 100, 60, 30, 15
-	Warhead@4Radio: CreateTintedCells
-		Level: 500
-		Spread: 1c512
-		Delay: 50
-		Falloff: 100, 60, 30, 15
+	Warhead@4Sharpnel: FireShrapnel
+		Weapon: ChemicalFlame
+		Amount: 60
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@5Sharpnel: FireShrapnel
+		Weapon: ChemicalFlame2
+		Amount: 45
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplogreen
+
+ChemicalFlame:
+	Inherits: NukeFlame
+	Range: 3c0
+	-MinRange:
+	Projectile: BulletAS
+		Palette: apolgreenalpha
+		Image: FLAMEALLREMAP
+
+ChemicalFlame2:
+	Inherits: NukeFlame2
+	Range: 2c0
+	Projectile: BulletAS
+		Palette: apolgreenalpha
+		Image: FLAMEALLREMAP
 
 MeteorSpawner:
 	ReloadDelay: 200
