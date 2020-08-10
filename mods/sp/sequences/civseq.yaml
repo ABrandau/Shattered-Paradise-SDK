@@ -179,18 +179,29 @@ carpanterc:
 carbmw850:
 	Inherits: ^SpriteVehicleWithShadowCounterClockwise
 
-CARWINI:
+carwini:
 	Inherits: ^SpriteVehicleWithShadowCounterClockwise
 
-CARBUS01:
+carbus01:
 	Inherits: ^SpriteVehicleWithShadowCounterClockwise
 
-CARCAMION01:
+carcamion01:
 	Inherits: ^SpriteVehicleWithShadowCounterClockwise
 
-CARCAMION02:
+carcamion02:
 	Inherits: ^SpriteVehicleWithShadowCounterClockwise
 
+carcamion03:
+	Inherits: ^SpriteVehicleWithShadowCounterClockwise
+
+carcamion04:
+	Inherits: ^SpriteVehicleWithShadowCounterClockwise
+
+carbigcamion:
+	Inherits: ^SpriteVehicleWithShadowCounterClockwise
+
+carpickup:
+	Inherits: ^SpriteVehicleWithShadowCounterClockwise
 
 wini:
 	Inherits: ^EmpOverlay
@@ -951,7 +962,7 @@ well:
 		Length: 164
 		Offset: 0,0, 60
 		Tick: 60
-		UseTilesetCode: false
+		UseTilesetCode: True
 		ShadowStart: 330
 	damaged-idle: tibdrill_a
 		Start: 164
@@ -959,7 +970,7 @@ well:
 		Offset: 0,0, 60
 		Tick: 60
 		ShadowStart: 494
-		UseTilesetCode: false
+		UseTilesetCode: True
 	anim: tibdrill_b
 		Length: 164
 		Offset: 0,0, 60
@@ -1562,12 +1573,64 @@ constructionbarrier2:
 	idle: constructionbarrier
 		Start: 1
 		ShadowStart: 3
+
 container2x2:
 	Defaults:
 	idle:
-	turret:
-		ShadowStart: 16
+	turret: container2x2
+		ShadowStart: 32
 		Facings: 16
+	damaged-turret: container2x2
+		Start: 16
+		ShadowStart: 48
+		Facings: 16
+
+container1x2:
+	idle: container1x2
+		ShadowStart: 12
+	damaged-idle: container1x2
+		Start: 6
+		ShadowStart: 18
+
+container1x2stacked:
+	idle: container1x2
+		Start: 1
+		ShadowStart: 13
+	damaged-idle: container1x2
+		Start: 7
+		ShadowStart: 19
+
+container2x1:
+	idle: container1x2
+		Start: 4
+		ShadowStart: 16
+	damaged-idle: container1x2
+		Start: 10
+		ShadowStart: 17
+
+container2x1stacked:
+	idle: container1x2
+		Start: 5
+		ShadowStart: 17
+	damaged-idle: container1x2
+		Start: 11
+		ShadowStart: 23
+
+containerdiagonal:
+	idle: container1x2
+		Start: 2
+		ShadowStart: 14
+	damaged-idle: container1x2
+		Start: 8
+		ShadowStart: 20
+
+containerdiagonalstacked:
+	idle: container1x2
+		Start: 3
+		ShadowStart: 15
+	damaged-idle: container1x2
+		Start: 9
+		ShadowStart: 21
 
 bluetibbarrel:
 	Defaults:

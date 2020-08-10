@@ -771,10 +771,21 @@ CARCAMION01:
 
 CARCAMION02:
 	Inherits: CAR2
-    RenderSprites:
-        Palette: Effect
-	Cloak@CLOAKGENERATOR:
-        Palette: effectalpha75
+
+CARCAMION03:
+	Inherits: CAR2
+
+CARCAMION04:
+	Inherits: CAR2
+
+CARWINI:
+	Inherits: CAR2
+
+CARBIGCAMION:
+	Inherits: CAR2
+
+CARPICKUP:
+	Inherits: CAR2
 
 WINI:
 	Inherits: ^CivilianVoxelVehicle
@@ -2973,6 +2984,60 @@ CONTAINER2X2:
 		Weapon: LightTowerClaxon
 	AttackTurreted:
 
+CONTAINER1X2:
+	Inherits: ^CivBuilding
+	Inherits@2: ^1x2Shape
+	Building:
+		Footprint: xx
+		Dimensions: 1,2
+	Tooltip:
+		Name: Container
+	Health:
+		HP: 15000
+	Armor:
+		Type: BuildingArmor
+	RenderSprites:
+		Palette: player
+
+CONTAINER1X2STACKED:
+	Inherits: CONTAINER1X2
+
+CONTAINER2X1:
+	Inherits: ^CivBuilding
+	Inherits@2: ^2x1Shape
+	Building:
+		Footprint: x x
+		Dimensions: 2,1
+	Tooltip:
+		Name: Container
+	Health:
+		HP: 15000
+	Armor:
+		Type: BuildingArmor
+	RenderSprites:
+		Palette: player
+
+CONTAINER2X1STACKED:
+	Inherits: CONTAINER2X1
+    
+CONTAINERDIAGONAL:
+	Inherits: ^CivBuilding
+	Inherits@2: ^2x2DiagonalShape
+	Building:
+		Footprint: x= =x
+		Dimensions: 2,2
+	Tooltip:
+		Name: Container
+	Health:
+		HP: 15000
+	Armor:
+		Type: BuildingArmor
+	RenderSprites:
+		Palette: player
+
+CONTAINERDIAGONALSTACKED:
+	Inherits: CONTAINERDIAGONAL
+
 CONSTRUCTIONBARRIER:
 	Inherits: ^CivBuilding
 	Inherits@2: ^1x1Shape
@@ -2987,6 +3052,7 @@ CONSTRUCTIONBARRIER:
 		Type: BuildingArmor
 	RenderSprites:
 		Palette: player
+
 
 CONSTRUCTIONBARRIER2:
 	Inherits: CONSTRUCTIONBARRIER
