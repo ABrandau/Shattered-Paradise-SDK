@@ -84,8 +84,7 @@ CHAMSPY:
 		Image: pips
 		Sequence: pip-disguise
 		Palette: pips
-		ReferencePoint: Top, Right
-		ZOffset: 256
+		Position: TopRight
 		RequiresCondition: disguise
 		ConditionMinEnabledLevel: 1
 	Infiltrates:
@@ -238,6 +237,8 @@ DOGGIE:
 		WanderMoveRadius: 2
 		MinMoveDelay: 25
 		MaxMoveDelay: 45
+	WithInfantryBody:
+		IdleSequences: idle1
 
 VISC_SML:
 	Inherits: ^Visceroid
@@ -580,7 +581,7 @@ CIV3:
 		Name: Mammoth Tank
 	Mobile:
 		Speed: 65
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 60000
@@ -589,7 +590,7 @@ CIV3:
 	RevealsShroud:
 		Range: 6c0
 	Turreted:
-		TurnSpeed: 3
+		TurnSpeed: 12
 	Armament@PRIMARY:
 		Weapon: 4tnkgun
 		LocalOffset: 500,60,360, 500,-85,360
@@ -649,13 +650,13 @@ ICBM:
 		Type: VehicleArmor
 	Mobile:
 		Speed: 95
-		TurnSpeed: 5
+		TurnSpeed: 20
 	RevealsShroud:
 		Range: 7c0
 	Transforms:
 		IntoActor: gaicbm
 		Offset: -1,-1
-		Facing: 96
+		Facing: 384
 		TransformSounds:
 		NoTransformSounds:
 		Voice: Move
@@ -679,7 +680,7 @@ WEED:
 		DeliverVoice: Move
 	Mobile:
 		Speed: 80
-		TurnSpeed: 5
+		TurnSpeed: 20
 	Health:
 		HP: 600
 	Armor:
@@ -688,13 +689,17 @@ WEED:
 		Range: 4c0
 	-WithVoxelBody:
 	WithVoxelUnloadBody:
+	WithHarvesterPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 7
 
 BUS:
 	Inherits: ^CivilianVoxelVehicle
 	Tooltip:
 		Name: School Bus
 	Mobile:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 120
 	Health:
 		HP: 10000
@@ -708,7 +713,7 @@ PICK:
 	Tooltip:
 		Name: Pickup
 	Mobile:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 120
 	Health:
 		HP: 10000
@@ -722,7 +727,7 @@ CAR:
 	Tooltip:
 		Name: Automobile
 	Mobile:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 120
 	Health:
 		HP: 10000
@@ -736,7 +741,7 @@ CAR2:
 	Tooltip:
 		Name: Automobile
 	Mobile:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 120
 	Health:
 		HP: 10000
@@ -792,7 +797,7 @@ WINI:
 	Tooltip:
 		Name: Recreational Vehicle
 	Mobile:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 120
 	Health:
 		HP: 20000
@@ -1229,8 +1234,6 @@ TIBERUMBILLBOARD:
 		Footprint: xxx
 	RenderSprites:
 		Palette: player
-	Interactable:
-		Bounds: 120, 60, 10, -18
 	Selectable:
 		Bounds: 120, 60, 10, -18
 
@@ -1733,7 +1736,7 @@ NEUTRALSONICTUR:
 		HP: 200000
 	RenderRangeCircle:
 	Turreted:
-		TurnSpeed: 3
+		TurnSpeed: 12
 	WithSpriteTurret:
 	AttackTurreted:
 		PauseOnCondition: empdisable
@@ -2436,7 +2439,7 @@ GAICBM:
 	Transforms:
 		IntoActor: icbm
 		Offset: 1,1
-		Facing: 96
+		Facing: 384
 		TransformSounds: place2.aud
 		NoTransformSounds:
 	MapEditorData:
@@ -2734,7 +2737,7 @@ SCRINREINFPAD:
 	RevealsShroud:
 		Range: 5c0
 	RallyPoint:
-		Offset: 1,4
+		Path: 1,4
 		Palette: mouse
 		IsPlayerPalette: false
 	WithIdleOverlay@ROOF:
@@ -3019,7 +3022,7 @@ CONTAINER2X1:
 
 CONTAINER2X1STACKED:
 	Inherits: CONTAINER2X1
-    
+	
 CONTAINERDIAGONAL:
 	Inherits: ^CivBuilding
 	Inherits@2: ^2x2DiagonalShape

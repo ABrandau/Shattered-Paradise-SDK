@@ -13,9 +13,6 @@ GAVULC:
 		BuildPaletteOrder: 10
 		Prerequisites: gapile, ~structures.gdi
 	Building:
-	Selectable:
-		Bounds: 48, 36, 0, -6
-		DecorationBounds: 48, 48, 0, -12
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower
 		ValidPowerStates: Low, Critical
@@ -24,8 +21,8 @@ GAVULC:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 92
+		TurnSpeed: 40
+		InitialFacing: 368
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret@VULC:
@@ -47,7 +44,6 @@ GAVULC:
 	Power@base:
 		Amount: -20
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	RenderSprites:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -72,16 +68,13 @@ GAROCK:
 		Condition: lowpower
 		ValidPowerStates: Low, Critical
 	Building:
-	Selectable:
-		Bounds: 48, 36, 0, -6
-		DecorationBounds: 48, 48, 0, -12
 	Health:
 		HP: 60000
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 92
+		TurnSpeed: 40
+		InitialFacing: 368
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret@ROCKET:
@@ -98,7 +91,6 @@ GAROCK:
 	LineBuildNode:
 		Types: turret
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	RenderSprites:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -119,14 +111,11 @@ GACSAM:
 		Condition: lowpower
 		ValidPowerStates: Low, Critical
 	Building:
-	Selectable:
-		Bounds: 48, 36, 0, -6
-		DecorationBounds: 48, 48, 0, -12
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 92
+		TurnSpeed: 40
+		InitialFacing: 368
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret@SAM:
@@ -143,7 +132,6 @@ GACSAM:
 	LineBuildNode:
 		Types: turret
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	RenderSprites:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -161,14 +149,11 @@ NALASR:
 		Prerequisites: nahand, ~structures.nod
 		BuildPaletteOrder: 13
 	Building:
-	Selectable:
-		Bounds: 40, 30, -8, -6
-		DecorationBounds: 40, 36, -8, -8
 	Health:
 		HP: 60000
 	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 300
+		TurnSpeed: 40
+		InitialFacing: 1200
 		Offset: 350,-165,270
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
@@ -180,7 +165,6 @@ NALASR:
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -40
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -200,9 +184,6 @@ NAOBEL:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	Selectable:
-		Bounds: 88, 42, 0, -6
-		DecorationBounds: 88, 72, 0, -12
 	Health:
 		HP: 100000
 	WithMuzzleOverlay:
@@ -230,7 +211,6 @@ NAOBEL:
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -90
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -244,16 +224,13 @@ NASAM:
 		Prerequisites: naradr, ~structures.nod
 		BuildPaletteOrder: 15
 	Building:
-	Selectable:
-		Bounds: 40, 30, -3, -8
-		DecorationBounds: 40, 36, -3, -8
 	BodyOrientation:
 		QuantizedFacings: 32
 	RenderRangeCircle:
 		RangeCircleType: aa
 	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 92
+		TurnSpeed: 40
+		InitialFacing: 368
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret:
@@ -264,7 +241,6 @@ NASAM:
 		LocalOffset: 400,0,512
 	Power:
 		Amount: -20
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -273,6 +249,7 @@ MUBUNKR:
 	Inherits@1: ^MutRender
 	Inherits@2: ^TowerStealthDetection
 	Inherits@3: ^2x2Shape
+	Inherits@PIPS: ^CargoPips
 	Valued:
 		Cost: 500
 	CustomSellValue:
@@ -287,15 +264,11 @@ MUBUNKR:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	Selectable:
-		Bounds: 80, 42, 0, -6
-		DecorationBounds: 80, 42, 0, -6
 	Health:
 		HP: 60000
 	AutoTarget:
 	Cargo:
 		MaxWeight: 5
-		PipCount: 5
 		Types: Infantry
 		EjectOnDeath: False
 		LoadedCondition: loaded
@@ -306,7 +279,6 @@ MUBUNKR:
 		PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
 		PortYaws: 0, 176, 341, 512, 682, 853
 		PortCones: 88, 88, 88, 88, 88, 887
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 	WithSpriteBody:
@@ -331,12 +303,21 @@ MUBUNKR:
 	-WithIdleOverlay@EMPDISABLE:
 	-ExternalCondition@empdisable:
 	-ExternalCondition@notmobile:
+	WithCargoPipsDecoration:
+		Margin: 8, 2
+		FullSequence: pip-green-building
+		EmptySequence: pip-empty-building
+		PipStride: 4, 2s
+		CustomPipSequences:
+			red: pip-red-building
+			green: pip-green-building
+			yellow: pip-yellow-building
 
 MUBUNKRFULL:
 	Inherits: MUBUNKR
 	Buildable:
 		Prerequisites: murax, ~structures.mut, ~AImoney
-	Selectable:
+	IsometricSelectable:
 		Class: mubunkr
 	Valued:
 		Cost: 1050
@@ -365,16 +346,13 @@ MUCANNON:
 		Prerequisites: muweap, ~structures.mut
 		BuildPaletteOrder: 17
 	Building:
-	Selectable:
-		Bounds: 40, 30, -3, -8
-		DecorationBounds: 40, 36, -3, -8
 	Health:
 		HP: 55000
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
-		TurnSpeed: 3
-		InitialFacing: 92
+		TurnSpeed: 12
+		InitialFacing: 896
 	AttackTurreted:
 	WithMuzzleOverlay:
 	WithSpriteTurret:
@@ -385,7 +363,6 @@ MUCANNON:
 		MuzzleSequence: muzzle
 		LocalOffset: 1400,0,700
 		RequiresCondition: !Building-Buildup && !empdisable
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 	-WithColoredOverlay@IDISABLE:
@@ -406,9 +383,6 @@ MUFLAK:
 		Prerequisites: muradr, ~structures.mut
 		BuildPaletteOrder: 18
 	Building:
-	Selectable:
-		Bounds: 40, 36, -3, -8
-		DecorationBounds: 40, 36, -3, -8
 	Health:
 		HP: 40000
 	BodyOrientation:
@@ -416,8 +390,8 @@ MUFLAK:
 	RenderRangeCircle:
 		RangeCircleType: aa
 	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 92
+		TurnSpeed: 40
+		InitialFacing: 368
 	AttackTurreted:
 	WithMuzzleOverlay:
 	WithSpriteTurret:
@@ -466,9 +440,6 @@ MINIVEIN:
 		Interval: 150, 300
 	Health:
 		HP: 70000
-	Selectable:
-		Priority: 3
-		Bounds: 25, 25, 0, 0
 	Targetable:
 		TargetTypes: Building, Ground, C4, NeutralTibCritter
 	ExplodeWeapon@1:
@@ -507,15 +478,11 @@ CABPIT:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	Selectable:
-		Bounds: 90, 48, 0, -6
-		DecorationBounds: 90, 48, 0, -6
 	-CaptureManager:
 	-ToggleConditionOnOrder:
 	Health:
 		HP: 60000
 	AutoTarget:
-	SelectionDecorations:
 	AttackOmni:
 		PauseOnCondition: empdisable || disabled
 	Armament:
@@ -543,16 +510,13 @@ CABBLAST:
 		Prerequisites: cabradr, ~structures.cab
 		BuildPaletteOrder: 21
 	Building:
-	Selectable:
-		Bounds: 40, 30, -3, -8
-		DecorationBounds: 40, 36, -3, -8
 	Health:
 		HP: 40000
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 92
+		TurnSpeed: 40
+		InitialFacing: 368
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret:
@@ -564,7 +528,6 @@ CABBLAST:
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -75
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -579,16 +542,13 @@ CABRAIL:
 		Prerequisites: cabradr, ~structures.cab
 		BuildPaletteOrder: 22
 	Building:
-	Selectable:
-		Bounds: 40, 30, -3, -8
-		DecorationBounds: 40, 36, -3, -8
 	BodyOrientation:
 		QuantizedFacings: 32
 	RenderRangeCircle:
 		RangeCircleType: aa
 	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 92
+		TurnSpeed: 40
+		InitialFacing: 368
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret:
@@ -604,7 +564,6 @@ CABRAIL:
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -20
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -623,9 +582,6 @@ SCRNEEDLER:
 		Prerequisites: scrrax, ~structures.scr
 		BuildPaletteOrder: 23
 	Building:
-	Selectable:
-		Bounds: 40, 30, -3, -8
-		DecorationBounds: 40, 36, -3, -8
 	Health:
 		HP: 60000
 	BodyOrientation:
@@ -633,8 +589,8 @@ SCRNEEDLER:
 	RenderRangeCircle:
 		RangeCircleType: aa
 	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 92
+		TurnSpeed: 40
+		InitialFacing: 368
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret:
@@ -646,7 +602,6 @@ SCRNEEDLER:
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -20
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -668,9 +623,6 @@ SCRDRONE:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	Selectable:
-		Bounds: 88, 42, 0, -6
-		DecorationBounds: 88, 72, 0, -12
 	Health:
 		HP: 90000
 	AttackOmni:
@@ -682,7 +634,6 @@ SCRDRONE:
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -50
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -700,16 +651,13 @@ SCRTRACTOR:
 		Prerequisites: scrradr, ~structures.scr
 		BuildPaletteOrder: 25
 	Building:
-	Selectable:
-		Bounds: 40, 30, -3, -8
-		DecorationBounds: 40, 36, -3, -8
 	BodyOrientation:
 		QuantizedFacings: 32
 	RenderRangeCircle:
 		RangeCircleType: aa
 	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 92
+		TurnSpeed: 40
+		InitialFacing: 368
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret:
@@ -745,7 +693,6 @@ SCRTRACTOR:
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -20
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -797,9 +744,6 @@ GAFIRE:
 		Weapon: FirestormSpawner
 		ResetReloadWhenEnabled: false
 		RequiresCondition: FirestormGen && !disabled && !empdisable
-	Selectable:
-		Bounds: 110, 60, 3, -4
-		DecorationBounds: 110, 60, 3, -4
 	Health:
 		HP: 150000
 	WithIdleOverlay@1:
@@ -811,7 +755,6 @@ GAFIRE:
 	Power:
 		Amount: -100
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 	Armament@AIAimOnly:
@@ -823,9 +766,9 @@ GAFIRE:
 		ForceTargetStances: Enemy
 	AutoTarget:
 	AIDeployHelper:
-		DeployChance : 100
-		DeployTicks : 200
-		UndeployTicks : 0
+		DeployChance: 100
+		DeployTicks: 200
+		UndeployTicks: 0
 
 GAPLUG:
 	Inherits: ^Building
@@ -835,9 +778,6 @@ GAPLUG:
 		Cost: 2500
 	Tooltip:
 		Name: Ion Cannon Control Center
-	Selectable:
-		Bounds: 115,72,0,-12
-		DecorationBounds: 115,104,0,-24
 	Buildable:
 		BuildPaletteOrder: 41
 		Prerequisites: gatech, ~structures.gdi, ~techlevel.unrestricted
@@ -857,12 +797,17 @@ GAPLUG:
 		Sequence: idle-strip
 		RequiresCondition: !Building-Buildup
 	DetonateWeaponPower@ioncannon:
-		Icon: ioncannon
-		Description: Ion Cannon Array
+		Prerequisites:
+			1: gaplug
+		Icons:
+			1: ioncannon
+		Descriptions:
+			1: Ion Cannon Array
 		DisplayTimer: True
-		DisplayBeacon: True
-		TargetCircleRange: 6c0
-		LongDesc: Fires an array of ion cannons on the targetted area.
+		TargetCircleRanges:
+			1: 6c0
+		LongDescs:
+			1: Fires an array of ion cannons on the targetted area.
 		ChargeInterval: 6000
 		ActivationSequence: idle
 		EndChargeSound: SuperWeaponReady
@@ -871,7 +816,8 @@ GAPLUG:
 		IncomingSpeechNotification: SuperweaponFired
 		IncomingSound: SuperweaponFired
 		LaunchSound: n_swlaunch.aud
-		Weapon: IonCannonSpawner
+		Weapons:
+			1: IonCannonSpawner
 		OrderName: IonCannon2
 		Cursor: ioncannon
 		DisplayTimerStances: Ally, Neutral, Enemy
@@ -884,7 +830,6 @@ GAPLUG:
 		Sequence: idle-hunterseekerb
 		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	Health:
 		HP: 300000
 	RequiresBuildableArea:
@@ -928,10 +873,6 @@ NASTLH:
 		RequiresCondition: HolaSoyVinceConSlapShopMiraLaPapaUnCorteNoSePuedeCortar
 	Power:
 		Amount: -100
-	Selectable:
-		Bounds: 106, 48, 8, -6
-		DecorationBounds: 106, 60, 8, -15
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -957,17 +898,20 @@ NATMPL:
 	Building:
 		Footprint: xxxx xxxx xxxx
 		Dimensions: 4,3
-	Selectable:
-		Bounds: 134, 120, 12, -12
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
 	NukePower@NodNuke:
 		Cursor: nuke
-		Icon: clustermissile
+		Prerequisites:
+			1: natmpl
+		Icons:
+			1: clustermissile
 		ChargeInterval: 9000
-		Description: Atomic Bomb
-		LongDesc: Launches a conventional warhead at a target location.\n\nSpecial:\n- Instant kills ground units and aircraft
+		Descriptions:
+			1: Atomic Bomb
+		LongDescs:
+			1: Launches a conventional warhead at a target location.\n\nSpecial:\n- Instant kills ground units and aircraft
 		BeginChargeSound:
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
@@ -986,7 +930,8 @@ NATMPL:
 		DisplayRadarPing: True
 		MissilePalette: player
 		IsPlayerPalette: True
-		BeaconPoster: minimltiicon
+		BeaconPosters
+			1: minimltiicon
 		OrderName: ClusterMissile
 		CameraActor: camera
 		CameraRange: 10c0
@@ -1002,7 +947,7 @@ NATMPL:
 	RequiresBuildableArea:
 		AreaTypes: building
 		Adjacent: 3
-	WithNukeLaunchAnimation:
+	WithSupportPowerActivationAnimation:
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack, ConsideredThreatForAI
 
@@ -1032,21 +977,23 @@ MUVENTI:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
-	Selectable:
-		Bounds: 90, 48, 0, -6
-		DecorationBounds: 90, 84, 0, -12
 	Targetable:
 		TargetTypes: Building, Ground, C4
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
-	WithTextDecoration@primary:
-		Text: PRIMARY
-		ReferencePoint: Top
-		Color: E0D048
-		ZOffset: 9999
-		RequiresCondition: primary
+	WithSharedCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		Margin: 8, 2
+		FullSequence: pip-green-building
+		EmptySequence: pip-empty-building
+		PipStride: 4, 2
+		Palette: pips
+		CustomPipSequences:
+			red: pip-red-building
+			green: pip-green-building
+			yellow: pip-yellow-building
 
 MUTSW1:
 	Inherits: ^Building
@@ -1066,15 +1013,17 @@ MUTSW1:
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
-	Selectable:
-		Bounds: 116, 60, 3, -6
-		DecorationBounds: 116, 78, 3, -8
-	SelectionDecorations:
+	ProvidesPrerequisite@buildingname:
 	DetonateWeaponPower@IonStorm:
-		Weapon: IonStormSpawnerWeapon
-		Icon: ionstorm
+		Prerequisites:
+			1: mutsw1
+		Weapons:
+			1: IonStormSpawnerWeapon
+		Icons:
+			1: ionstorm
 		ChargeInterval: 9000
-		TargetCircleRange: 8c0
+		TargetCircleRanges:
+			1: 8c0
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
 		LaunchSpeechNotification: SuperweaponFired
@@ -1084,8 +1033,10 @@ MUTSW1:
 		OrderName: IonStorm
 		DisplayTimer: True
 		DisplayBeacon: True
-		Description: Ion Storm
-		LongDesc: Allows the player to generate Ion Storms.\n\nSpecial:\n- Instant kills ground units and aircraft.
+		Descriptions:
+			1: Ion Storm
+		LongDescs:
+			1: Allows the player to generate Ion Storms.\n\nSpecial:\n- Instant kills ground units and aircraft.
 		DisplayTimerStances: Ally, Neutral, Enemy
 		DisplayRadarPing: True
 		PauseOnCondition: empdisable || disabled
@@ -1114,14 +1065,10 @@ SCREXTRACTOR:
 	Building:
 		Footprint: x
 		Dimensions: 1,1
-	Selectable:
-		Bounds: 40, 30, -3, -8
-		DecorationBounds: 40, 36, -3, -8
 	Health:
 		HP: 60000
 	Power:
 		Amount: -50
-	SelectionDecorations:
 	ProximityExternalCondition@VanguardShield:
 		Condition: VanguardShield
 		Range: 8c0
@@ -1153,19 +1100,21 @@ SCRSW1:
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
-	Selectable:
-		Bounds: 116, 60, 3, -6
-		DecorationBounds: 116, 78, 3, -8
-	SelectionDecorations:
 	DetonateWeaponPower@MeteorStorm:
 		Cursor: emp
-		Icon: meteor
+		Icons:
+			1: meteor
 		ChargeInterval: 6000
-		Description: Wrath of the Creator
-		LongDesc: Drags meteors from orbit dealing moderate damage over a wide area.\n\nSpecial:\n- Instant kills ground units and aircraft.
-		Prerequisites: MeteorSpawner
-		Weapon: MeteorSpawner
-		TargetCircleRange: 5c0
+		Descriptions:
+			1: Wrath of the Creator
+		LongDescs:
+			1: Drags meteors from orbit dealing moderate damage over a wide area.\n\nSpecial:\n- Instant kills ground units and aircraft.
+		Prerequisites:
+			1: MeteorSpawner
+		Weapons:
+			1: MeteorSpawner
+		TargetCircleRanges:
+			1: 5c0
 		OrderName: MeteorSpawner
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
@@ -1218,15 +1167,11 @@ CABEYE:
 	RevealsShroud@asd:
 		Range: 18c0
 		RequiresCondition: !disabled && !empdisable
-	Selectable:
-		Bounds: 90, 124, 0, -40
-		DecorationBounds: 90, 124, 0, -40
 	Power:
 		Amount: -50
 	Targetable:
 		TargetTypes: Building, Ground, C4
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -1248,16 +1193,13 @@ CABSW1:
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
-	Selectable:
-		Bounds: 110, 70, 3, -20
-		DecorationBounds: 110, 70, 3, -20
 	BodyOrientation:
 		QuantizedFacings: 32
 	Armor:
 		Type: BuildingArmor
 	Turreted:
-		TurnSpeed: 2
-		InitialFacing: 92
+		TurnSpeed: 8
+		InitialFacing: 368
 	AttackTurreted:
 	WithSpriteTurret:
 		Recoils: false
@@ -1269,22 +1211,26 @@ CABSW1:
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
-	SelectionDecorations:
 	ProvidesPrerequisite@singularity:
 		Prerequisite: singularity
 		Factions: gdi, mut, nod, cab, scr
 		ResetOnOwnerChange: true
 	FireArmamentPower:
 		Cursor: emp
-		Icon: cabcannon
-		TargetCircleRange: 5c0
+		Icons:
+			1: cabcannon
+		TargetCircleRanges:
+			1: 5c0
 		ChargeInterval: 7500
-		Description: Iron Savior
-		LongDesc: Fires a volley of energy volleys at the target location.\n\nSpecial:\n- Instant kills ground units and aircraft
+		Descriptions:
+			1: Iron Savior
+		LongDescs:
+			1: Fires a volley of energy volleys at the target location.\n\nSpecial:\n- Instant kills ground units and aircraft
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
 		SelectTargetSound: speech-nod|00-i042.aud
-		Prerequisites: singularity
+		Prerequisites:
+			1: singularity
 		OrderName: singularity
 		LaunchSpeechNotification: SuperweaponFired
 		IncomingSpeechNotification: SuperweaponFired
@@ -1337,9 +1283,6 @@ CABGRINDER:
 	Building:
 		Footprint: xx xx xx
 		Dimensions: 2,3
-	Selectable:
-		Bounds: 120, 72, 0, -10
-		DecorationBounds: 120, 72, 0, -10
 	Health:
 		HP: 25000
 	Armor:
@@ -1347,7 +1290,6 @@ CABGRINDER:
 	Power:
 		Amount: -30
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -1359,9 +1301,6 @@ CABSENTRYTURRET:
 	# Tooltip:
 	# 	Name: Firefly
 	# Building:
-	# Selectable:
-	# 	Bounds: 40, 30, -3, -8
-	# 	DecorationBounds: 40, 36, -3, -8
 	# Health:
 	# 	HP: 70000
 	# -Sellable:
@@ -1381,7 +1320,6 @@ CABSENTRYTURRET:
 	# Armament@2:
 	# 	Weapon: ArtisanTurretLasor
 	# 	LocalOffset: 300,150,300
-	# SelectionDecorations:
 	# RequiresBuildableArea:
 	# 	AreaTypes: building
 	# -GrantConditionOnDamageState@smoke:
@@ -1397,17 +1335,14 @@ CABCANNON:
 	Tooltip:
 		Name: Cannon Turret
 	Building:
-	Selectable:
-		Bounds: 40, 30, -3, -8
-		DecorationBounds: 40, 36, -3, -8
 	Health:
 		HP: 45000
 	BodyOrientation:
 		QuantizedFacings: 32
 	WithMuzzleOverlay:
 	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 92
+		TurnSpeed: 40
+		InitialFacing: 368
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret:
@@ -1418,7 +1353,6 @@ CABCANNON:
 		MuzzleSequence: muzzle
 	Power:
 		Amount: -20
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -1437,16 +1371,13 @@ GACTWR:
 		Name: Component Tower
 		Description: Modular tower for base defenses.
 	Building:
-	Selectable:
-		Bounds: 48, 36, 0, -6
-		DecorationBounds: 48, 48, 0, -12
 	Health:
 		HP: 50000
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 92
+		TurnSpeed: 40
+		InitialFacing: 368
 	AttackTurreted:
 		RequiresCondition: tower
 		ConditionMinEnabledLevel: 1
@@ -1518,13 +1449,12 @@ GACTWR:
 			tower.rocket: tower, tower.rocket
 			tower.sam: tower, tower.sam
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	WithDecoration@POWERDOWN:
 		Image: poweroff
 		Sequence: offline
 		Palette: mouse
 		RequiresCondition: powerdown
-		ReferencePoint: Center
+		Position: Center
 	RequiresBuildableArea:
 		AreaTypes: building
 	PowerMultiplier@POWERDOWN:
@@ -1564,9 +1494,6 @@ REPAIRTUR:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	Selectable:
-		Bounds: 40, 30, -3, -8
-		DecorationBounds: 40, 36, -3, -8
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower
 		ValidPowerStates: Low, Critical
@@ -1577,14 +1504,13 @@ REPAIRTUR:
 	RenderRangeCircle:
 		RangeCircleType: aa
 	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 92
+		TurnSpeed: 40
+		InitialFacing: 368
 	AttackTurreted:
 	WithSpriteTurret:
 		Recoils: false
 	Power:
 		Amount: -60
-	SelectionDecorations:
 	Armament:
 		Weapon: Repair
 		LocalOffset: 512,0,512
@@ -1600,8 +1526,6 @@ REPAIRTUR:
 	# Tooltip:
 	# 	Name: Landed Guardian Platform
 	# 	Description: Makes the nearby units and\nstructures more resistant to\ndamage.
-	# Selectable:
-	# 	Bounds: 110,90
 	# Building:
 	# 	Footprint: xx xx
 	# 	Dimensions: 2,2
@@ -1612,8 +1536,6 @@ REPAIRTUR:
 	# 	Condition: AuraRepair
 	# 	Range: 5c0
 	# 	AffectsParent: false
-	# Selectable:
-	# 	Bounds: 110, 60, 3, -4
 	# Health:
 	# 	HP: 65000
 	# Voiced:
@@ -1654,7 +1576,7 @@ MASTL:
 		QuantizedFacings: 32
 	Transforms:
 		IntoActor: sgen
-		Facing: 96
+		Facing: 384
 		TransformSounds: place2.aud
 		NoTransformSounds:
 		Voice: Move
@@ -1683,7 +1605,7 @@ DLIMPET:
 		QuantizedFacings: 32
 	Transforms:
 		IntoActor: limped
-		Facing: 96
+		Facing: 384
 		TransformSounds: place2.aud
 		NoTransformSounds:
 		Voice: Move
@@ -1699,8 +1621,8 @@ GAARTY:
 	Health:
 		HP: 30000
 	Turreted:
-		TurnSpeed: 5
-		InitialFacing: 128
+		TurnSpeed: 20
+		InitialFacing: 512
 		Offset: 0,0,171
 	Armament:
 		Weapon: 155mm
@@ -1748,17 +1670,12 @@ NAWAST:
 	Building:
 		Footprint: =x= xx= =x=
 		Dimensions: 3,3
-	Selectable:
-		Bounds: 100, 60, 5, -5
-		DecorationBounds: 100, 60, 5, -5
 	Health:
 		HP: 40000
 	TiberianSunRefinery:
-		DockAngle: 160
+		DockAngle: 640
 		DockOffset: 2,1
 	StoresResources:
-		PipColor: Red
-		PipCount: 15
 		Capacity: 56
 	WithIdleOverlay@GLOW:
 		Sequence: idle-glow
@@ -1767,10 +1684,14 @@ NAWAST:
 	WithIdleOverlay@BIB:
 		Sequence: bib
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	RenderSprites:
 	RequiresBuildableArea:
 		AreaTypes: building
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 15
+		FullSequence: pip-red
 
 MUMINE:
 	Inherits: ^Defence
@@ -1873,9 +1794,6 @@ MUSTABLE:
 	Building:
 		Footprint: xx xx xx
 		Dimensions: 2,3
-	Selectable:
-		Bounds: 110, 60, 3, -4
-		DecorationBounds: 110, 60, 3, -4
 	Health:
 		HP: 23000
 	Armor:
@@ -1883,7 +1801,6 @@ MUSTABLE:
 	Power:
 		Amount: -40
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -1914,7 +1831,6 @@ CABNEXUS:
 	# AttackOmni:
 	# Power:
 	# 	Amount: -50
-	# SelectionDecorations:
 	# RequiresBuildableArea:
 	# 	AreaTypes: building
 

@@ -106,7 +106,7 @@ MEDIC:
 	AttackFrontal:
 		FacingTolerance: 2
 	Passenger:
-		PipType: Red
+		CustomPipType: red
 	-GainsExperience:
 
 JUMPJET:
@@ -136,7 +136,7 @@ JUMPJET:
 		Weapon: GJJGrenade
 		PauseOnCondition: WebDisable
 	Passenger:
-		PipType: Blue
+		CustomPipType: blue
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -191,7 +191,7 @@ JUMPJETAIR:
 	Hovers@CRUISING:
 		RequiresCondition: cruising
 	Aircraft:
-		TurnSpeed: 10
+		TurnSpeed: 40
 		Speed: 130
 		AirborneCondition: airborne
 		CruisingCondition: cruising
@@ -335,7 +335,7 @@ CRUSADER:
 		Armaments: OnFoot
 	Turreted:
 	Passenger:
-		PipType: Blue
+		CustomPipType: blue
 	RenderSprites:
 
 TEMPLAR:
@@ -441,9 +441,9 @@ NCONF:
 		Weapon: TickHoloShrapnel
 		RequiresCondition: HologramSpawn
 	AIDeployHelper:
-		DeployChance : 100
-		DeployTicks : 4000
-		UndeployTicks : 1
+		DeployChance: 100
+		DeployTicks: 4000
+		UndeployTicks: 1
 
 BHS:
 	Inherits: ^Soldier
@@ -502,7 +502,7 @@ BHS:
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage, move
 	Passenger:
-		PipType: red
+		CustomPipType: red
 	SharedPassenger:
 		PipType: red
 	RenderSprites:
@@ -566,7 +566,7 @@ MARAUDER:
 		DeployAnimation: make
 		CanDeployOnRamps: true
 		SmartDeploy: true
-		Facing: 160
+		Facing: 640
 		DeploySounds:
 		UndeploySounds:
 		UndeployOnMove: true
@@ -581,8 +581,8 @@ MARAUDER:
 	WithMakeAnimation:
 		BodyNames: dot
 	Turreted:
-		TurnSpeed: 50
-		InitialFacing: 160
+		TurnSpeed: 200
+		InitialFacing: 640
 		RealignDelay: -1
 		Turret: Marauderturr
 	WithSpriteTurret@idle:
@@ -620,7 +620,7 @@ MARAUDER:
 	AIDeployHelper:
 		DeployChance: 100
 		DeployTrigger: Attack
-		DeployTicks : 0
+		DeployTicks: 0
 	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
@@ -685,6 +685,8 @@ MUTFIEND:
 			EnergyDeath: 1, 2
 			FireDeath: 1, 2
 			MilitantFireDeath: 1, 2
+	WithInfantryBody:
+		IdleSequences: idle1
 
 E2:
 	Inherits@1: ENGINEER
@@ -746,7 +748,7 @@ E3:
 		Weapon: GSkirmisherMortar
 		LocalOffset: 128,0,640
 	Passenger:
-		PipType: Blue
+		CustomPipType: blue
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -814,10 +816,10 @@ SEER:
 		Weapon: SeerTyranyInstakillSpawn
 		RequiresCondition: deployed
 	AIDeployHelper:
-		DeployChance : 50
-		DeployTicks : 2000
-		UndeployTicks : 1
-		DeployTrigger : Attack
+		DeployChance: 50
+		DeployTicks: 2000
+		UndeployTicks: 1
+		DeployTrigger: Attack
 
 PSYKER:
 	Inherits: ^Mutant
@@ -855,7 +857,7 @@ PSYKER:
 		Weapon: GPsykerRay
 		LocalOffset: 128,0,640
 	Passenger:
-		PipType: red
+		CustomPipType: red
 	SharedPassenger:
 		PipType: red
 	AttackFrontal:
@@ -935,7 +937,7 @@ LEGIO:
 	Health:
 		HP: 9500
 	Passenger:
-		PipType: Blue
+		CustomPipType: blue
 	Armament:
 		Weapon: LegioNeedler
 		LocalOffset: 350,200,800
@@ -1158,7 +1160,7 @@ COLOSSI:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
 		DeployAnimation: make
-		Facing: 160
+		Facing: 640
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Green, Tiberium, BlueTiberium, Veins
 		DeploySounds:
 		UndeploySounds:
@@ -1183,7 +1185,7 @@ COLOSSI:
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: deployed
- 
+
 COLOSSI_CHRONO:
 	Inherits: COLOSSI
 	-Buildable:
@@ -1208,10 +1210,10 @@ COLOSSI_CHRONO:
 		PauseOnCondition: WebDisable
 		Name: OnFoot
 	AIDeployHelper:
-		DeployChance : 100
-		DeployTicks : 0
-		UndeployTicks : 250
-		DeployTrigger : Attack
+		DeployChance: 100
+		DeployTicks: 0
+		UndeployTicks: 250
+		DeployTrigger: Attack
 	RenderSprites:
 		Image: colossi
 	## TODO: needs updating when engine upgrade
@@ -1376,6 +1378,8 @@ SWARMLING:
 				PathingCost: 50
 			BlueTiberium: 70
 				PathingCost: 50
+	WithInfantryBody:
+		IdleSequences: idle1
 	RenderSprites:
 		Image: swarmling
 		-FactionImages:
@@ -1477,7 +1481,7 @@ GLAD:
 	Selectable:
 		Bounds: 35,30,0,-10
 	Passenger:
-		PipType: Blue
+		CustomPipType: blue
 	WithMuzzleOverlay:
 	Mobile:
 		Speed: 50
@@ -1562,7 +1566,7 @@ MOTH:
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
-		Facing: 160
+		Facing: 640
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Tiberium, BlueTiberium
 		DeploySounds: place2.aud
 		UndeploySounds: clicky1.aud
@@ -1609,7 +1613,7 @@ MOTH:
 		RequiresCondition: AImicroManage || deployed
 		PauseOnCondition: WebDisable
 		Armaments: OnFoot
-	Armament@AIAimOnly
+	Armament@AIAimOnly:
 		RequiresCondition: AImicroManage && !deployed
 		Weapon: LurkerAimDummyWeapon
 		Name: OnFoot
@@ -1618,8 +1622,8 @@ MOTH:
 	-WithIdleOverlay@web:
 	-Crushable:
 	AIDeployHelper:
-		DeployChance : 100
-		DeployTicks : 0
+		DeployChance: 100
+		DeployTicks: 0
 
 CYC2:
 	Inherits: ^Cyborg
@@ -1664,7 +1668,7 @@ CYC2:
 		Armaments: OnFoot
 		RequiresCondition: !Moving
 	Passenger:
-		PipType: red
+		CustomPipType: red
 	SharedPassenger:
 		PipType: red
 	SelectionDecorations:

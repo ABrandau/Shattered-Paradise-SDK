@@ -24,7 +24,6 @@
 	Tooltip:
 		GenericName: Destroyed Aircraft
 	FallsToEarth:
-		Spins: true
 		Moves: true
 		Velocity: 180
 		Explosion: SmallPlaneExplode
@@ -34,7 +33,6 @@
 	FallsToEarth:
 		Moves: true
 		Velocity: 100
-		Spins: true
 		Explosion: DestroyerExplode
 
 DSHP.Husk:
@@ -42,7 +40,7 @@ DSHP.Husk:
 	Tooltip:
 		Name: Dropship
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 168
 	RenderSprites:
 		Image: dshp
@@ -52,7 +50,7 @@ ORCA.Husk:
 	Tooltip:
 		Name: Orca Fighter
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 186
 	RenderSprites:
 		Image: orca
@@ -62,20 +60,20 @@ ORCAB.Husk:
 	Tooltip:
 		Name: Orca Bomber
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 96
 	RenderSprites:
 		Image: orcab
 	FallsToEarth:
 		Moves: true
-		Spins: false
+		MaximumSpinSpeed: 0
 
 ORCATRAN.Husk:
 	Inherits: ^AircraftHusk
 	Tooltip:
 		Name: Orca Transport
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 84
 	RenderSprites:
 		Image: orcatran
@@ -90,7 +88,7 @@ TRNSPORT.Husk:
 	Tooltip:
 		Name: Carryall
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 149
 	WithIdleOverlay@1Air:
 		Offset: 500,0,650
@@ -113,10 +111,10 @@ GUARDIAN.Husk:
 	Selectable:
 		Bounds: 1,1
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 149
 	FallsToEarth:
-		Spins: False
+		MaximumSpinSpeed: 0
 	WithShadow:
 	WithFacingSpriteBody:
 	BodyOrientation:
@@ -129,20 +127,20 @@ SCRIN.Husk:
 	Tooltip:
 		Name: Banshee Fighter
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 168
 	RenderSprites:
 		Image: scrin
 	FallsToEarth:
 		Moves: true
-		Spins: false
+		MaximumSpinSpeed: 0
 
 APACHE.Husk:
 	Inherits: ^AircraftHusk
 	Tooltip:
 		Name: Harpy
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 130
 	WithIdleOverlay:
 		Offset: 85,0,384
@@ -157,7 +155,7 @@ CERBERUS.Husk:
 	Selectable:
 		Bounds: 1,1
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 149
 	WithShadow:
 	WithFacingSpriteBody:
@@ -172,7 +170,7 @@ MUTHELI.Husk:
 	Tooltip:
 		Name: Gargoyl
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 168
 	WithIdleOverlay@ROTORAIR:
 		Offset: 85,0,384
@@ -192,13 +190,13 @@ WETP.Husk:
 	Tooltip:
 		Name: Falcon
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 168
 	RenderSprites:
 		Image: wetp
 	FallsToEarth:
 		Moves: true
-		Spins: false
+		MaximumSpinSpeed: 0
 
 WASP.Husk:
 	Inherits: ^AircraftHusk
@@ -206,7 +204,7 @@ WASP.Husk:
 	Tooltip:
 		Name: Wasp
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 149
 	Selectable:
 		Bounds: 1,1
@@ -223,7 +221,7 @@ CABDRONEJET.Husk:
 	Tooltip:
 		Name: Wasp
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 149
 	Selectable:
 		Bounds: 1,1
@@ -240,7 +238,7 @@ DEVOURER.Husk:
 	Tooltip:
 		Name: Devourer
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 149
 	Selectable:
 		Bounds: 1,1
@@ -265,7 +263,7 @@ FIREFLY.Husk:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 149
 	RenderSprites:
 		Image: firefly
@@ -276,7 +274,7 @@ BASILISK.Husk:
 	Tooltip:
 		Name: Basilisk
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 168
 	RenderSprites:
 		Image: basilisk
@@ -288,14 +286,14 @@ STORMRIDER.Husk:
 	Tooltip:
 		Name: Stormrider
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 168
 	RenderSprites:
 		Image: stormrider
 	FallsToEarth:
 		Moves: true
-		Spins: false
 		Explosion: ScrinUnitExplode2
+		MaximumSpinSpeed: 0
 	FallsToEarth:
 		Explosion: StormriderExplode
 
@@ -313,7 +311,7 @@ WYVERM2.Husk:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 149
 	RenderSprites:
 		Image: wyverm2
@@ -336,7 +334,7 @@ GLYDER1.Husk:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 149
 	RenderSprites:
 		Image: scrglyder1
@@ -357,7 +355,7 @@ DRACHE.Husk:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 149
 	RenderSprites:
 		Image: drache.falling
@@ -374,7 +372,7 @@ SCRDESTROYER.Husk:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 149
 	RenderSprites:
 		Image: scrdestroyer
@@ -393,7 +391,7 @@ SCRBATTLESHIP.Husk:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 149
 	RenderSprites:
 		Image: scrbattleship
@@ -412,7 +410,7 @@ SCRCARRIER.Husk:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 149
 	RenderSprites:
 		Image: scrcarrier
@@ -433,7 +431,7 @@ SCRTRANS.Husk:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 149
 	RenderSprites:
 		Image: scrtrans
@@ -450,7 +448,7 @@ SCRCOUNCIL.Husk:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 149
 	RenderSprites:
 		Image: scrincouncil

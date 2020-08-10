@@ -9,7 +9,7 @@ CLOUD1:
 	-Repairable:
 	Aircraft:
 		CruiseAltitude: 1
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Repulsable: false
 		AltitudeVelocity: 400
 		Speed: 20
@@ -76,7 +76,7 @@ ORCA:
 	Selectable:
 		Bounds: 30,24
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 150
 		MoveIntoShroud: true
 	AutoTarget:
@@ -96,14 +96,17 @@ ORCA:
 		Voice: Attack
 	AmmoPool:
 		Ammo: 10
-		PipCount: 5
-		PipType: Ammo
 		ReloadCount: 2
 		ReloadDelay: 50
-		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
 	SpawnActorOnDeath:
 		Actor: ORCA.Husk
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 5
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
 
 ORCAB:
 	Inherits: ^CombatPlane
@@ -126,7 +129,7 @@ ORCAB:
 		Bounds: 30,24
 	Aircraft:
 		MaximumPitch: 120
-		TurnSpeed: 4
+		TurnSpeed: 16
 		IdealSeparation: 256
 		Speed: 130
 		AirborneCondition: airborne
@@ -143,16 +146,19 @@ ORCAB:
 		InitialStanceAI: AttackAnything
 	AmmoPool:
 		Ammo: 20
-		PipCount: 2
 		ReloadCount: 10
 		ReloadDelay: 125
-		PipType: Ammo
-		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
 	Hovers@CRUISING:
 		RequiresCondition: cruising
 	SpawnActorOnDeath:
 		Actor: ORCAB.Husk
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 2
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
 
 DPOD:
 	Inherits: ^CombatHelicopter
@@ -162,7 +168,7 @@ DPOD:
 		Name: Drop Pod
 	Aircraft:
 		LandWhenIdle: true
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 160
 		InitialFacing: 0
 	-Rearmable:
@@ -173,7 +179,6 @@ DPOD:
 	Cargo:
 		Types: Infantry
 		MaxWeight: 1
-		PipCount: 1
 		UnloadVoice: Move
 	Armament:
 		Weapon: Vulcan2
@@ -185,20 +190,26 @@ DPOD:
 		Voice: Attack
 	AmmoPool:
 		Ammo: 5
-		PipCount: 5
-		PipType: Ammo
-		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
 	AutoTarget:
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
 
 DSHP:
 	Inherits: ^CombatHelicopter
+	Inherits@PIPS: ^CargoPips
 	Valued:
 		Cost: 1000
 	Tooltip:
 		Name: Dropship
 	Aircraft:
-		TurnSpeed: 10
+		TurnSpeed: 40
 		Speed: 200
 		InitialFacing: 0
 		Repulsable: False
@@ -214,7 +225,6 @@ DSHP:
 	Cargo:
 		Types: Infantry, Vehicle
 		MaxWeight: 5
-		PipCount: 5
 		UnloadVoice: Move
 	SpawnActorOnDeath:
 		Actor: DSHP.Husk
@@ -235,10 +245,14 @@ DSHP:
 		Bounds: 1,1
 	SelectionDecorations:
 		Bounds: 1,1
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
 
 ORCATRAN:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^6CellVision
+	Inherits@PIPS: ^CargoPips
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -252,7 +266,7 @@ ORCATRAN:
 	RenderVoxels:
 	-WithFacingSpriteBody:
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 84
 		InitialFacing: 0
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
@@ -262,11 +276,13 @@ ORCATRAN:
 	Cargo:
 		Types: Infantry
 		MaxWeight: 5
-		PipCount: 5
 		UnloadVoice: Move
 	SpawnActorOnDeath:
 		Actor: ORCATRAN.Husk
 	-GainsExperience:
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
 
 APACHE:
 	Inherits: ^CombatHelicopter
@@ -289,7 +305,7 @@ APACHE:
 	Selectable:
 		Bounds: 30,24
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 150
 		MoveIntoShroud: true
 	Health:
@@ -306,10 +322,7 @@ APACHE:
 		Voice: Attack
 	AmmoPool:
 		Ammo: 10
-		PipCount: 5
 		ReloadCount: 2
-		PipType: Ammo
-		PipTypeEmpty: AmmoEmpty
 		ReloadDelay: 50
 		AmmoCondition: ammo
 	AutoTarget:
@@ -325,6 +338,12 @@ APACHE:
 		RequiresCondition: !airborne
 	SpawnActorOnDeath:
 		Actor: APACHE.Husk
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 5
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
 
 SCRIN:
 	Inherits: ^CombatPlane
@@ -349,7 +368,7 @@ SCRIN:
 		VoiceSet: Scrin
 	Aircraft:
 		MaximumPitch: 90
-		TurnSpeed: 10
+		TurnSpeed: 40
 		Speed: 170
 		AirborneCondition: airborne
 		MoveIntoShroud: true
@@ -366,11 +385,8 @@ SCRIN:
 		FacingTolerance: 20
 	AmmoPool:
 		Ammo: 15
-		PipCount: 3
 		ReloadCount: 5
 		ReloadDelay: 83
-		PipType: Ammo
-		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
 	AutoTarget:
 		InitialStance: HoldFire
@@ -378,6 +394,12 @@ SCRIN:
 	DeathSounds:
 	SpawnActorOnDeath:
 		Actor: SCRIN.Husk
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 3
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
 
 CERBERUS:
 	Inherits: ^CombatHelicopter
@@ -398,7 +420,7 @@ CERBERUS:
 	Selectable:
 		Bounds: 90,45
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 60
 		Repulsable: true
 		MoveIntoShroud: true
@@ -454,7 +476,7 @@ MUTHELI:
 	Selectable:
 		Bounds: 30,24
 	Aircraft:
-		TurnSpeed: 7
+		TurnSpeed: 28
 		Speed: 150
 		MoveIntoShroud: true
 		RearmBuildings: muair, gahpad, nahpad
@@ -485,17 +507,20 @@ MUTHELI:
 		Voice: Attack
 	AmmoPool:
 		Ammo: 10
-		PipCount: 5
 		ReloadCount: 2
 		ReloadDelay: 50
-		PipType: Ammo
-		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
 	SpawnActorOnDeath:
 		Actor: MUTHELI.Husk
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 5
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
 
 WETP:
 	Inherits: ^CombatPlane
@@ -518,8 +543,8 @@ WETP:
 		Bounds: 30,24
 	Aircraft:
 		MaximumPitch: 120
-		TurnSpeed: 9
-		IdleTurnSpeed: 4
+		TurnSpeed: 36
+		IdleTurnSpeed: 16
 		Speed: 150
 		AirborneCondition: airborne
 		MoveIntoShroud: true
@@ -532,11 +557,8 @@ WETP:
 		FacingTolerance: 20
 	AmmoPool:
 		Ammo: 1
-		PipCount: 1
 		ReloadCount: 1
 		ReloadDelay: 250
-		PipType: Ammo
-		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
 	AutoTarget:
 		ScanRadius: 6
@@ -552,6 +574,11 @@ WETP:
 	SpeedMultiplier@Supersonic:
 		RequiresCondition: attacking && ammo
 		Modifier: 300
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
 
 MUTQUEEN:
 	Inherits: ^CombatHelicopter
@@ -577,7 +604,7 @@ MUTQUEEN:
 	Voiced:
 		VoiceSet: Fiend
 	Aircraft:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 125
 		Repulsable: true
 		MoveIntoShroud: true
@@ -658,9 +685,9 @@ NUKECARRYALL_BOT:
 		AttackType: Hover
 		FacingTolerance: 128
 	AIDeployHelper:
-		DeployChance : 100
-		DeployTicks : 50
-		UndeployTicks : 50
+		DeployChance: 100
+		DeployTicks: 50
+		UndeployTicks: 50
 	AutoTarget:
 		ScanRadius: 9
 		InitialStanceAI: AttackAnything
@@ -708,7 +735,7 @@ STORMRIDER:
 	Hovers:
 	Aircraft:
 		MaximumPitch: 90
-		TurnSpeed: 8
+		TurnSpeed: 32
 		Speed: 170
 		AirborneCondition: airborne
 		MoveIntoShroud: true
@@ -752,7 +779,7 @@ DRACHE:
 	Targetable@MindControlInmune:
 		TargetTypes: MindControlInmune
 	Aircraft:
-		TurnSpeed: 3
+		TurnSpeed: 12
 		Speed: 50
 		MoveIntoShroud: true
 		TakeOffOnCreation: false
@@ -764,7 +791,7 @@ DRACHE:
 	Transforms:
 		IntoActor: drached
 		Offset: -1,-1
-		Facing: 96
+		Facing: 384
 		TransformSounds: place2.aud
 		DeployCursor: deploy
 		NoTransformSounds:
@@ -816,7 +843,7 @@ SCRGLYDER1:
 	Transforms:
 		IntoActor: scrglyder2
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 120
 		Repulsable: true
 		MoveIntoShroud: true
@@ -871,7 +898,7 @@ SCRDESTROYER:
 	AutoTarget:
 		ScanRadius: 15
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 60
 		Repulsable: true
 		MoveIntoShroud: true
@@ -904,6 +931,7 @@ SCRTRANS:
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinAircratVoice
 	Inherits@4: ^LowPrioritySelectionMode
+	Inherits@PIPS: ^CargoPips
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
 		Cost: 800
@@ -917,14 +945,13 @@ SCRTRANS:
 	Cargo:
 		Types: Infantry, Vehicle
 		MaxWeight: 10
-		PipCount: 10
 		UnloadVoice: Unload
 		LoadingCondition: notmobile
 	Selectable:
 		Bounds: 90,50
 		Priority: 4
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 150
 		Repulsable: true
 		MoveIntoShroud: true
@@ -938,6 +965,9 @@ SCRTRANS:
 	SmokeParticleEmitter:
 		Image: scrsmoke
 		Palette: apolbluealpha60
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
 
 SCRCARRIER:
 	Inherits: ^CombatHelicopter
@@ -963,7 +993,7 @@ SCRCARRIER:
 	Selectable:
 		Bounds: 90,55
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 50
 		Repulsable: true
 		MoveIntoShroud: true
@@ -1017,7 +1047,7 @@ STORMRIDERSPAWN:
 		Class: Stormrider
 	Aircraft:
 		Repulsable: false
-		TurnSpeed: 20
+		TurnSpeed: 80
 		Speed: 150
 		AltitudeVelocity: 200
 		VTOL: true
@@ -1067,7 +1097,7 @@ CABDRONEJET:
 		Image: cabdronejet
 	Aircraft:
 		MaximumPitch: 90
-		TurnSpeed: 30
+		TurnSpeed: 120
 		Speed: 200
 		AirborneCondition: airborne
 		AltitudeVelocity: 600
@@ -1104,7 +1134,7 @@ SCRBATTLESHIP:
 	AnnounceOnSeen:
 		Notification: BattleCruiserDetected
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 60
 		Repulsable: true
 		MoveIntoShroud: true
@@ -1149,7 +1179,7 @@ WASP:
 	Selectable:
 		Bounds: 40,30
 	Aircraft:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 130
 		Repulsable: true
 		MoveIntoShroud: true
@@ -1208,7 +1238,7 @@ FIREFLY:
 	Voiced:
 		VoiceSet: Limpet
 	Aircraft:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 120
 		Repulsable: true
 		MoveIntoShroud: true
@@ -1246,7 +1276,7 @@ BASILISK:
 	Voiced:
 		VoiceSet: Limpet
 	Aircraft:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 75
 		MoveIntoShroud: true
 	-Rearmable:
@@ -1289,7 +1319,7 @@ DEVOURER:
 	Selectable:
 		Bounds: 80, 60, 0, -24
 	Aircraft:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 35
 		CruiseAltitude: 0c750
 		Repulsable: true
@@ -1308,11 +1338,11 @@ DEVOURER:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	Turreted:
-		TurnSpeed: 3
+		TurnSpeed: 12
 	AutoTarget:
 		ScanRadius: 5
 	RenderSprites:
-	WithFacingSpriteBody@idle:
+	WithFacingSpriteBody:
 		RequiresCondition: !DevoBuff
 		Sequence: idle
 	WithFacingSpriteBody@attack:

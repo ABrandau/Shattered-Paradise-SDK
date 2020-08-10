@@ -15,7 +15,7 @@ SMECH:
 		BuildPaletteOrder: 2
 		Prerequisites: ~gaweap
 	Mobile:
-		TurnSpeed: 15
+		TurnSpeed: 60
 		Speed: 100
 		Locomotor: Vehicle
 	Health:
@@ -61,7 +61,7 @@ MMCH:
 		Description: Well balanced main battle walker armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can shoot over walls\n- Can crush infantry
 		Prerequisites: ~gaweap
 	Mobile:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 75
 		Locomotor: InfantryCrusherVehicle
 	Health:
@@ -72,7 +72,7 @@ MMCH:
 	WithInfantryBody:
 		RequiresCondition: !inside-tunnel
 	Turreted:
-		TurnSpeed: 4
+		TurnSpeed: 16
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -96,6 +96,7 @@ MMCH:
 APC:
 	Inherits: ^Tank
 	Inherits@1: ^6CellVision
+	Inherits@PIPS: ^CargoPips
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -109,13 +110,13 @@ APC:
 		BuildPaletteOrder: 4
 		Prerequisites: ~gaweap, gapile
 	Mobile:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 85
 		Locomotor: AmphAPCLocomotor
 	Health:
 		HP: 35000
 	Turreted:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Offset: -200,0,0
 	AttackTurreted:
 		PauseOnCondition: empdisable
@@ -135,7 +136,6 @@ APC:
 	Cargo:
 		Types: Infantry
 		MaxWeight: 5
-		PipCount: 5
 		UnloadVoice: Unload
 		LoadingCondition: notmobile
 		EjectOnDeath: False
@@ -157,6 +157,9 @@ APC:
 		QuantizedFacings: 32
 		CameraPitch: 250
 	WithMuzzleOverlay:
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
 
 
 APC_BOT:
@@ -193,7 +196,7 @@ HVR:
 		Prerequisites: ~gaweap, garadr
 	Mobile:
 		Speed: 100
-		TurnSpeed: 14
+		TurnSpeed: 56
 		Locomotor: Hover
 	Health:
 		HP: 25000
@@ -206,7 +209,7 @@ HVR:
 		LocalOffset: 100,150,384, 100,-150,384
 		PauseOnCondition: empdisable
 	Turreted:
-		TurnSpeed: 9
+		TurnSpeed: 36
 		Offset: -300,0,100
 	AttackTurreted:
 		Voice: Attack
@@ -232,7 +235,7 @@ JUG:
 		BuildPaletteOrder: 6
 		Prerequisites: ~gaweap, gatech
 	Mobile:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 75
 		Locomotor: InfantryCrusherVehicle
 	Health:
@@ -290,7 +293,7 @@ SONIC:
 		BuildPaletteOrder: 7
 		Prerequisites: ~gaweap, gatech
 	Mobile:
-		TurnSpeed: 4
+		TurnSpeed: 16
 		Speed: 65
 		Locomotor: InfantryCrusherVehicle
 	Health:
@@ -310,7 +313,7 @@ SONIC:
 	Targetable@AllySonicImmune:
 		TargetTypes: AllySonicImmune
 	Turreted:
-		TurnSpeed: 3
+		TurnSpeed: 12
 
 G4TNK:
 	Inherits: ^TurretedTank
@@ -330,7 +333,7 @@ G4TNK:
 		Prerequisites: ~gaweap, gatech
 	Mobile:
 		Speed: 60
-		TurnSpeed: 4
+		TurnSpeed: 16
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 72000
@@ -338,7 +341,7 @@ G4TNK:
 		VoiceSet: MammothTankVO
 		Volume: 3
 	Turreted:
-		TurnSpeed: 3
+		TurnSpeed: 12
 		Offset: -200,0,0
 	Armament@PRIMARY:
 		Weapon: 4tnkgun
@@ -382,7 +385,7 @@ HMEC:
 		Description: GDI's super-heavy walker and the pride of their army.\n\nGood vs: Everything\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Can attack air\n- Can crush infantry\n- Immune to mind control\n- Can shoot over walls\n- Can crush vehicles and cyborgs\n- It is deployed via dropship at the Dropship Bay
 		BuildLimit: 1
 	Mobile:
-		TurnSpeed: 3
+		TurnSpeed: 12
 		Speed: 40
 		Locomotor: VehicleCrusher
 	-Crushable:
@@ -432,14 +435,14 @@ HMEC:
 		TargetTypes: MindControlInmune
 	Turreted:
 		Offset: -500,0,0
-		TurnSpeed: 5
+		TurnSpeed: 20
 	Turreted@2:
 		Offset: 600,300,-400
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Turret: secondary
 	Turreted@3:
 		Offset: 600,-300,-400
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Turret: third
 	WithMuzzleOverlay:
 	WithSpriteTurret:
@@ -453,7 +456,7 @@ HMEC:
 		Turret: third
 		RequiresCondition: !inside-tunnel
 	Passenger:
-		PipType: red
+		CustomPipType: red
 	WithMoveAnimation:
 		MoveSequence: run
 	Selectable:
@@ -479,7 +482,7 @@ NODMCV:
 	Transforms:
 		IntoActor: nodyard
 		Offset: -1,-1
-		Facing: 96
+		Facing: 384
 		TransformSounds: place2.aud
 		NoTransformSounds:
 		Voice: Move
@@ -489,6 +492,7 @@ BGGY:
 	Inherits@1: ^AutoTargetGround
 	Inherits@2: ^8CellVision
 	Inherits@3: ^BasicStealthDetection
+	Inherits@PIPS: ^CargoPips
 	Valued:
 		Cost: 300
 	UpdatesPlayerStatistics:
@@ -500,12 +504,12 @@ BGGY:
 		BuildPaletteOrder: 10
 		Prerequisites: ~naweap, ~!AImoney
 	Mobile:
-		TurnSpeed: 10
+		TurnSpeed: 40
 		Speed: 125
 		Locomotor: Vehicle
 	Turreted:
 		Offset: -250,0,400
-		TurnSpeed: 8
+		TurnSpeed: 32
 	Health:
 		HP: 17500
 	WithMuzzleOverlay:
@@ -514,7 +518,6 @@ BGGY:
 	############################################
 	Cargo:
 		MaxWeight: 1
-		PipCount: 1
 		Types: Infantry
 		LoadedCondition: loaded
 		PassengerConditions:
@@ -787,6 +790,9 @@ BGGY:
 	Tooltip@float:
 		Name: Essential Buggy
 		RequiresCondition: ifv.float
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
 RIFLEBGGY:
 	Inherits: BGGY
 	Valued:
@@ -876,11 +882,11 @@ TTNK:
 		Description: Nod´s main battle tank armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can deploy to gain extra protection\n- Can crush infantry
 		Prerequisites: ~naweap
 	Mobile:
-		TurnSpeed: 8
+		TurnSpeed: 32
 		Speed: 90
 		Locomotor: InfantryCrusherVehicle
 		PauseOnCondition: empdisable
-		RequireForceMoveCondition:  !AImicroManage && !undeployed
+		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
 	Health:
@@ -909,7 +915,7 @@ TTNK:
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
-		Facing: 160
+		Facing: 640
 		SmartDeploy: true
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
 		DeploySounds: place2.aud
@@ -939,9 +945,9 @@ TTNK:
 		RequiresCondition: undeployed
 		PauseOnCondition: empdisable
 	Turreted:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Turret: deployed
-		InitialFacing: 160
+		InitialFacing: 640
 		RealignDelay: -1
 	WithSpriteTurret@deployed:
 		Turret: deployed
@@ -961,7 +967,7 @@ TTNK:
 	AIDeployHelper:
 		DeployChance: 100
 		DeployTrigger: Attack
-		DeployTicks : 0
+		DeployTicks: 0
 
 TICKHOLOGRAM:
 	Inherits: TTNK
@@ -975,7 +981,7 @@ TICKHOLOGRAM:
 	WithDecoration@holoicon:
 		Image: holoicon
 		Sequence: idle
-		ReferencePoint: Bottom, Right
+		Position: BottomRight
 		Palette: mouse
 	Mobile:
 		Locomotor: Vehicle
@@ -1036,7 +1042,7 @@ BIKE:
 		Prerequisites: ~naweap, naradr
 	-ActorLostNotification:
 	Mobile:
-		TurnSpeed: 10
+		TurnSpeed: 40
 		Speed: 110
 		Locomotor: Vehicle
 	Armor@Bike:
@@ -1068,7 +1074,7 @@ BIKE:
 	WithDecoration@TNT:
 		Image: bombicon
 		Sequence: idle
-		ReferencePoint: Bottom, Left
+		Position: BottomLeft
 		Palette: mouse
 		ShowToEnemies: true
 	AutoTarget:
@@ -1077,6 +1083,7 @@ BIKE:
 SAPC:
 	Inherits: ^SubterraneanVoxelVehicle
 	Inherits@1: ^6CellVision
+	Inherits@PIPS: ^CargoPips
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1090,7 +1097,7 @@ SAPC:
 		Prerequisites: ~naweap, naradr
 		Description: Troop transport that can move underground.\n\nSpecial:\n- Can move underground.\n- Can transport up to 5 infantry.\n- Can crush infantry.\n- Cannot receive orders but halt when underground.
 	Mobile:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 100
 		PauseOnCondition: empdisable || loading
 	Health:
@@ -1098,13 +1105,15 @@ SAPC:
 	Cargo:
 		Types: Infantry
 		MaxWeight: 5
-		PipCount: 5
 		UnloadVoice: Move
 		LoadingCondition: loading
 	Passenger:
 		CargoType: Apc
 	WithVoxelBody:
 		RequiresCondition: !submerged && !inside-tunnel
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
 
 SUBTANK:
 	Inherits: ^SubterraneanVoxelVehicle
@@ -1123,7 +1132,7 @@ SUBTANK:
 		BuildPaletteOrder: 14
 		Prerequisites: ~naweap, natech
 	Mobile:
-		TurnSpeed: 8
+		TurnSpeed: 32
 		Speed: 100
 	Health:
 		HP: 30000
@@ -1162,7 +1171,7 @@ HOWTLIZER:
 		HP: 12000
 	Mobile:
 		Speed: 70
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Locomotor: InfantryCrusherVehicle
 	-Cloak@CLOAKGENERATOR:
 	Cloak@cloakgenerator:
@@ -1214,7 +1223,7 @@ STNK:
 		Description: High tech tank armed with rocket launchers and equipped with a personal mobile stealth generator.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Stealthed\n- Can attack air\n- Can shoot over walls\n- Can crush infantry\n- Cloaking malfunctions when at red hp
 		Queue: Vehicle
 	Mobile:
-		TurnSpeed: 12
+		TurnSpeed: 48
 		Speed: 100
 		Locomotor: InfantryCrusherVehicle
 	Health:
@@ -1244,7 +1253,7 @@ STNK:
 		PauseOnCondition: empdisable
 	Turreted:
 		Offset: 0,0,600
-		TurnSpeed: 6
+		TurnSpeed: 24
 	WithSpriteTurret:
 	AttackTurreted:
 		Voice: Attack
@@ -1287,7 +1296,7 @@ MUTMCV:
 	Transforms:
 		IntoActor: mutyard
 		Offset: -1,-1
-		Facing: 160
+		Facing: 640
 		TransformSounds: place2.aud
 		NoTransformSounds:
 		Voice: Move
@@ -1313,7 +1322,7 @@ MUTQUAD:
 		Description: Armored truck armed with a quad cannon.\n\nGood vs: Infantry, Aircraft\n\nSpecial:\n- Stealth detection\n- Can crush infantry
 		Prerequisites: ~muweap
 	Mobile:
-		TurnSpeed: 7
+		TurnSpeed: 28
 		Speed: 80
 		Locomotor: InfantryCrusherVehicle
 	Health:
@@ -1335,7 +1344,7 @@ MUTQUAD:
 		LocalOffset: 800,0,700
 		PauseOnCondition: empdisable
 	Turreted:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Offset: -300,0,0
 	BodyOrientation:
 		QuantizedFacings: 32
@@ -1359,7 +1368,7 @@ LYNX:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Mobile:
-		TurnSpeed: 10
+		TurnSpeed: 40
 		Speed: 95
 		Locomotor: InfantryCrusherVehicle
 	WithFacingSpriteBody:
@@ -1369,7 +1378,7 @@ LYNX:
 		VoiceSet: Trike
 		Volume: 3
 	Turreted:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Offset: 150,0,0
 	BodyOrientation:
 		QuantizedFacings: 32
@@ -1392,6 +1401,7 @@ STRUCK:
 	Inherits: ^Tank
 	Inherits@2: ^6CellVision
 	Inherits@3: ^MutRender
+	Inherits@PIPS: ^CargoPips
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1405,7 +1415,7 @@ STRUCK:
 		BuildPaletteOrder: 19
 		Prerequisites: ~muweap, murax, ~!AImoney
 	Mobile:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 95
 		Locomotor: Vehicle
 	Health:
@@ -1421,7 +1431,6 @@ STRUCK:
 	Cargo:
 		Types: Infantry
 		MaxWeight: 5
-		PipCount: 5
 		UnloadVoice: Move
 		LoadingCondition: notmobile
 	Passenger:
@@ -1431,6 +1440,9 @@ STRUCK:
 		PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
 		PortYaws: 0, 176, 341, 512, 682, 853
 		PortCones: 1086, 86, 86, 86, 86, 86
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
 
 STRUCKFULL:
 	Inherits: STRUCK
@@ -1501,7 +1513,7 @@ MRLS:
 		Description: Light artillery armed with tiberium rockets.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can mutate killed units\n- Emits tiberium radiaton that damages nearby units\n- Can shoot over walls\n- Can crush infantry\n- Inmune to tiberium radiation
 		Prerequisites: ~muweap, muhall
 	Mobile:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 95
 		Locomotor: InfantryCrusherVehicle
 	BodyOrientation:
@@ -1524,7 +1536,7 @@ MRLS:
 		PauseOnCondition: empdisable
 		TargetFrozenActors: True
 	Turreted:
-		TurnSpeed: 9
+		TurnSpeed: 36
 		Offset: -300,0,0
 	WithFacingSpriteBody:
 	WithSpriteTurret:
@@ -1590,7 +1602,7 @@ HVRTRUK3:
 	Repairable:
 		Voice: Repair
 	Mobile:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 60
 		Locomotor: Hover
 	Health:
@@ -1616,7 +1628,7 @@ HVRTRUK3:
 	WithDecoration@TNT:
 		Image: bombicon
 		Sequence: idle
-		ReferencePoint: Bottom, Left
+		Position: BottomLeft
 		Palette: mouse
 		ShowToEnemies: true
 	AutoTarget:
@@ -1659,7 +1671,7 @@ SCRSCORPION:
 		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n- Can mutate enemies killed\n- Deals considerable damage to vehicles\n- Absorbs essence from killed enemies to heal\n- Attacks emit radiation that harms infantry in the area\n- Inmune to tiberium radiation.\n- Can crush infantry
 		Prerequisites: ~scrweap
 	Mobile:
-		TurnSpeed: 7
+		TurnSpeed: 28
 		Speed: 80
 		Locomotor: InfantryCrusherVehicle
 	Health:
@@ -1698,11 +1710,11 @@ SCRMBT:
 	Health:
 		HP: 25000
 	Mobile:
-		TurnSpeed: 7
+		TurnSpeed: 28
 		Speed: 80
 		Locomotor: Hover
 	Turreted:
-		TurnSpeed: 6
+		TurnSpeed: 24
 	Armament:
 		Weapon: scrmbtlasor
 		LocalOffset: 250,0,900
@@ -1774,7 +1786,7 @@ SCRRECHARGER:
 		Description: Mobile shield generator.\n\nSpecial:\n- Generates shields around nearby friendly units.\n- Shields protect from all damage until the unit is hit 4 times.\n- Does not protect against super weapons.\n- Absorbs essence from killed enemies to heal.\n- Can Crush infantry.\n- Cannot apply shields to aircraft.
 		Prerequisites: ~scrweap, scrradr, scrextractor
 	Mobile:
-		TurnSpeed: 7
+		TurnSpeed: 28
 		Speed: 80
 		Locomotor: Vehicle
 	Health:
@@ -1838,7 +1850,7 @@ SCRMOBMINE:
 	Health:
 		HP: 20000
 	Mobile:
-		TurnSpeed: 7
+		TurnSpeed: 28
 		Speed: 95
 		Locomotor: Hover
 	AttackTurreted:
@@ -1869,7 +1881,7 @@ TRIPOD:
 		Description: Advanced walker.\n\n  Good vs Infantry, Buildings.\n\nSpecial:\n- Absorbs essence from killed units to heal\n- Can shoot over walls\n- Can crush infantry
 		IconPalette: chromescrin
 	Mobile:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 80
 		Locomotor: InfantryCrusherVehicle
 	Health:
@@ -1946,7 +1958,7 @@ CABMCV:
 	Transforms:
 		IntoActor: cabyard
 		Offset: -1,-1
-		Facing: 160
+		Facing: 640
 		TransformSounds: place2.aud
 		NoTransformSounds:
 		Voice: Move
@@ -1969,7 +1981,7 @@ CENTURION:
 		Description: Heavy walker equipped with chain guns.\n\nGood vs: Infantry\n\nSpecial:\n- Stealth detection\n- Can shoot over walls\n- Can crush infantry
 		Prerequisites: ~cabweap
 	Mobile:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 70
 		Locomotor: InfantryCrusherVehicle
 	Health:
@@ -1978,7 +1990,7 @@ CENTURION:
 		QuantizedFacings: 32
 		CameraPitch: 250
 	Turreted:
-		TurnSpeed: 4
+		TurnSpeed: 16
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -2025,7 +2037,7 @@ REAPERCAB:
 	Selectable:
 		Bounds: 40,40,0,-10
 	Mobile:
-		TurnSpeed: 10
+		TurnSpeed: 40
 		Speed: 95
 		Locomotor: Vehicle
 	Explodes:
@@ -2080,7 +2092,7 @@ REPAIRVEHICLE:
 		HP: 20000
 	Mobile:
 		Speed: 70
-		TurnSpeed: 7
+		TurnSpeed: 28
 		Locomotor: InfantryCrusherVehicle
 	Armament:
 		Weapon: RepairVehicleRep
@@ -2119,7 +2131,7 @@ ECM:
 		BuildPaletteOrder: 33
 		Prerequisites: ~cabweap, gadept
 	Mobile:
-		TurnSpeed: 3
+		TurnSpeed: 12
 		Speed: 70
 		Locomotor: InfantryCrusherVehicle
 	Voiced:
@@ -2142,11 +2154,15 @@ ECM:
 	-ExternalCondition@veinholedrain:
 	-WithIdleOverlay@veinholedrain:
 	-GrantConditionOnTerrain@VEINS:
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
 
 CABAPC:
 	Inherits@2: ^HoverVehicle
 	Inherits@3: ^CabRender
 	Inherits@4: ^6CellVision
+	Inherits@PIPS: ^CargoPips
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -2160,7 +2176,7 @@ CABAPC:
 		BuildPaletteOrder: 33
 		Prerequisites: ~cabweap, cabradr
 	Mobile:
-		TurnSpeed: 10
+		TurnSpeed: 40
 		Speed: 110
 		Locomotor: Hover
 	Voiced:
@@ -2170,7 +2186,6 @@ CABAPC:
 	Cargo:
 		Types: Infantry, Vehicle
 		MaxWeight: 12
-		PipCount: 12
 		UnloadVoice: Move
 		LoadingCondition: notmobile
 	Passenger:
@@ -2178,6 +2193,9 @@ CABAPC:
 	SelectionDecorations:
 	Selectable:
 		DecorationBounds: 75, 45 , 0, -6
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
 
 SPIDERARTY:
 	Inherits: ^Walker
@@ -2198,7 +2216,7 @@ SPIDERARTY:
 		Description: Heavy Artillery that deploys drones at the targetted area.\n\nGood vs: Ground Targets\n\nSpecial:\n- Deals AOE damage\n- Minimum attack distance\n- Upon attack drones get spawned that attack the enemy\n- Converts killed units into workers\n- Can shoot over walls\n- Can crush infantry\n- Selfrepair
 		Prerequisites: ~cabweap, cabtech
 	Mobile:
-		TurnSpeed: 4
+		TurnSpeed: 16
 		Speed: 60
 		Locomotor: InfantryCrusherVehicle
 	Health:
@@ -2243,7 +2261,7 @@ PALADIN:
 		Description: Advanced Walker armed with a twin laser cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Can shoot over walls\n- Can crush infantry
 		Prerequisites: ~cabweap, cabtech
 	Mobile:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 80
 		Locomotor: InfantryCrusherVehicle
 	SelfHealing@Permanent:
@@ -2299,7 +2317,7 @@ JUGGER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Mobile:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 75
 		Locomotor: InfantryCrusherVehicle
 	Health:
@@ -2357,7 +2375,7 @@ REPAIR:
 		HP: 20000
 	Mobile:
 		Speed: 70
-		TurnSpeed: 5
+		TurnSpeed: 20
 	Armament:
 		Weapon: RepairVehicleRep
 		Cursor: repair
@@ -2375,14 +2393,14 @@ SGEN:
 	Tooltip:
 		Name: Mobile Stealth Generator
 	Mobile:
-		TurnSpeed: 2 #6
+		TurnSpeed: 8 #6
 		Speed: 90
 	RenderVoxels:
 	Health:
 		HP: 20000
 	Transforms:
 		IntoActor: mastl
-		Facing: 96
+		Facing: 384
 		TransformSounds: place2.aud
 		NoTransformSounds:
 		Voice: Move

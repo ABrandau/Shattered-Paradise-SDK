@@ -9,7 +9,7 @@
 		Range: 3c0
 		Type: CenterPosition
 	Aircraft:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 0
 		CanHover: True
 		IdealSeparation: 300
@@ -188,7 +188,7 @@ IONBEAMMINI:
 		ValidStances: Ally
 	Aircraft:
 		CruiseAltitude: 1
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Repulsable: false
 		AltitudeVelocity: 400
 		Speed: 43
@@ -280,7 +280,7 @@ IONBEAMROAMER:
 	Inherits: ^DUMMYAIRCRAFT
 	Aircraft:
 		CruiseAltitude: 0
-		TurnSpeed: 20
+		TurnSpeed: 80
 		Repulsable: false
 		AltitudeVelocity: 400
 		Speed: 25
@@ -446,7 +446,6 @@ VEINHOLESPAWNERDUMMY:
 
 INFTIBSPAWN:
 	Inherits: ^DUMMYAIRCRAFT
-	ConditionManager:
 	Tooltip:
 		Name: Fire
 	-RevealsShroud:
@@ -465,7 +464,7 @@ INFTIBSPAWN:
 		EmptyWeapon: SpawnVisc
 		RequiresCondition: visc
 	GrantRandomCondition:
-		Conditions:	visc, zombie
+		Conditions: visc, zombie
 
 VEHICLETIBSPAWN:
 	Inherits: INFTIBSPAWN
@@ -483,7 +482,7 @@ SCRINESSENCESMALL:
 		TargetTypes: ScrinEssence
 	AttackMove:
 	Aircraft:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 30
 		CruiseAltitude: 1
 		TakeOffOnCreation: false
@@ -491,7 +490,7 @@ SCRINESSENCESMALL:
 		HP: 2
 		NotifyAppliedDamage: False
 	Turreted:
-		TurnSpeed: 99
+		TurnSpeed: 396
 	RevealsShroud:
 	RenderSprites:
 		Image: scrinessencesmall

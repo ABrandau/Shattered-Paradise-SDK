@@ -3,7 +3,6 @@
 	UpdatesPlayerStatistics:
 	CombatDebugOverlay:
 	ScriptTriggers:
-	ConditionManager:
 	RenderDebugState:
 
 ^SpriteActor:
@@ -12,7 +11,6 @@
 		CameraPitch: 85
 	QuantizeFacingsFromSequence:
 	RenderSprites:
-	ConditionManager:
 
 ^AntiVehiclePriority:
 	AutoTargetPriority@AntiVehiclePriority:
@@ -324,25 +322,22 @@
 		Image: rank
 		Sequence: rank-veteran-1
 		Palette: pips
-		ReferencePoint: Bottom, Right
+		Position: BottomRight
 		RequiresCondition: rank-veteran == 1
 		ValidStances: Ally, Enemy, Neutral
-		ZOffset: 256
 	WithDecoration@RANK-2:
 		Image: rank
 		Sequence: rank-veteran-2
 		Palette: pips
-		ReferencePoint: Bottom, Right
+		Position: BottomRight
 		RequiresCondition: rank-veteran == 2
-		ZOffset: 256
 		ValidStances: Ally, Enemy, Neutral
 	WithDecoration@RANK-ELITE:
 		Image: rank
 		Sequence: rank-elite
 		Palette: pips
-		ReferencePoint: Bottom, Right
+		Position: BottomRight
 		RequiresCondition: rank-elite
-		ZOffset: 256
 		ValidStances: Ally, Enemy, Neutral
 	Targetable@Academy:
 		TargetTypes: CanTakeVeterancyPower
@@ -369,7 +364,7 @@
 	WithDecoration@TyrannyBuff:
 		Image: tibicon
 		Sequence: idle
-		ReferencePoint: Bottom, Left
+		Position: BottomLeft
 		Palette: mouse
 		ValidStances: Enemy, Neutral, Ally
 		RequiresCondition: TyrannyBuff
@@ -380,7 +375,6 @@
 	WithDecoration@CommandoIcon:
 		Image: skullicon
 		Sequence: idle
-		ReferencePoint: Top, Left
 		Palette: mouse
 		ValidStances: Enemy, Neutral, Ally
 
@@ -399,7 +393,7 @@
 	WithDecoration@DisplayWrench:
 		Image: wrenchicon
 		Sequence: idle
-		ReferencePoint: Bottom, Left
+		Position: BottomLeft
 		Palette: apgrey
 		ShowToEnemies: true
 		RequiresCondition: DisplayWrench
@@ -415,7 +409,7 @@
 	WithDecoration@FirestormWallCondition:
 		Image: firestormicon
 		Sequence: idle
-		ReferencePoint: Bottom, Left
+		Position: BottomLeft
 		Palette: mouse
 		ShowToEnemies: true
 		RequiresCondition: FirestormWallCondition
@@ -525,7 +519,7 @@
 	WithDecoration@hospitalheal:
 		Image: healpip
 		Sequence: idle
-		ReferencePoint: Bottom, Left
+		Position: BottomLeft
 		Palette: mouse
 		ValidStances: Ally, Enemy
 		ShowToEnemies: true
@@ -543,7 +537,7 @@
 	WithDecoration@BarracksHeal:
 		Image: healpip
 		Sequence: idle
-		ReferencePoint: Bottom, Left
+		Position: BottomLeft
 		Palette: mouse
 		ValidStances: Ally, Enemy
 		ShowToEnemies: true
@@ -564,7 +558,7 @@
 	WithDecoration@MachineShopHeal:
 		Image: wrenchicon
 		Sequence: idle
-		ReferencePoint: Bottom, Left
+		Position: BottomLeft
 		ValidStances: Ally, Enemy
 		Palette: player
 		ShowToEnemies: true
@@ -669,7 +663,7 @@
 		Sequence: offline
 		Palette: mouse
 		RequiresCondition: powerdown
-		ReferencePoint: Center
+		Position: Center
 	PowerMultiplier@POWERDOWN:
 		RequiresCondition: powerdown
 		Modifier: 0
@@ -883,6 +877,9 @@
 	GrantConditionOnBotOwner@AIReload:
 		Condition: AIReload
 		Bots: CheaterAI, EasyAI, ShatteredAI
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
 
 ^AIBuffCheat:
 	GrantConditionOnBotOwner@AIBuffCheat:
@@ -1005,15 +1002,14 @@
 	WithTextDecoration@primary:
 		RequiresSelection: true
 		Text: PRIMARY
-		ReferencePoint: Top
+		Position: Top
 		Color: E0D048
-		ZOffset: 256
 		RequiresCondition: primary
 	PrimaryBuilding:
 		PrimaryCondition: primary
 		SelectionNotification: PrimaryBuildingSelected
 	RallyPoint:
-		Offset: 2,3
+		Path: 2,3
 		Palette: mouse
 		IsPlayerPalette: false
 
@@ -1021,11 +1017,7 @@
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
 	Inherits@3: ^SpawnFire
-	WithTextControlGroupDecoration:
-	SelectionDecorations:
-		Palette: pips
-	Selectable:
-		Priority: 3
+	Inherits@4: ^SelectableBuilding
 	Valued:
 		Cost: 1
 	Armor@Building:
@@ -1158,7 +1150,7 @@
 	WithBuildingRepairDecoration:
 		Image: allyrepair
 		Sequence: repair
-		ReferencePoint: Center
+		Position: Center
 		Palette: mouse
 	Huntable:
 
@@ -1260,7 +1252,7 @@
 	WithBuildingRepairDecoration:
 		Image: allyrepair
 		Sequence: repair
-		ReferencePoint: Center
+		Position: Center
 		Palette: mouse
 
 ^CivBillboard:
@@ -1376,7 +1368,6 @@
 	Selectable:
 		Bounds: 22,30,0,-10
 	SelectionDecorations:
-		Palette: pips
 	RenderSprites:
 		Scale: 0.95
 	Voiced:
@@ -1466,7 +1457,7 @@
 			Prone100Percent: 100
 			Prone350Percent: 350
 		DamageTriggers: TriggerProne
-		ProneTime: 50
+		Duration: 50
 		SpeedModifier: 55
 	WithInfantryBody:
 		IdleSequences: idle1,idle2
@@ -1639,7 +1630,7 @@
 	WithDecoration@holoicon:
 		Image: holoicon
 		Sequence: idle
-		ReferencePoint: Bottom, Right
+		Position: BottomRight
 		Palette: mouse
 		ShowToEnemies: true
 	WithDeathAnimation@body:
@@ -1689,7 +1680,7 @@
 	Health:
 		HP: 9500
 	Passenger:
-		PipType: Yellow
+		CustomPipType: yellow
 	SharedPassenger:
 		PipType: Yellow
 	EngineerRepair:
@@ -1742,13 +1733,12 @@
 		Cost: 1
 	Mobile:
 		Locomotor: Vehicle
-		TurnSpeed: 7
+		TurnSpeed: 28
 		Voice: Move
 	TeleportNetworkTransportable:
 	Selectable:
 		Bounds: 40,30
 	SelectionDecorations:
-		Palette: pips
 	SpawnActorOnDeath@tiberium2:
 		Actor: vehicletibspawn
 		Probability: 25
@@ -1768,7 +1758,7 @@
 		Voice: Move
 	Passenger:
 		CargoType: Vehicle
-		PipType: Blue
+		CustomPipType: blue
 		Voice: Move
 		Weight: 3
 	HiddenUnderFog:
@@ -1898,7 +1888,7 @@
 ^SubterraneanVoxelVehicle:
 	Inherits: ^VoxelVehicle
 	Mobile:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 90
 		Locomotor: subterranean
 	RevealsShroud:
@@ -1967,7 +1957,6 @@
 		RequiresCondition: airborne
 	Selectable:
 	SelectionDecorations:
-		Palette: pips
 	Armor:
 		Type: AircraftArmor
 	GivesExperience:
@@ -2071,10 +2060,9 @@
 	Mobile:
 		Speed: 120
 		WaitAverage: 10
-		TurnSpeed: 16
+		TurnSpeed: 64
 		Locomotor: Vehicle
 	SelectionDecorations:
-		Palette: pips
 	Selectable:
 		Bounds: 26,26,0,-3
 	Targetable:
@@ -2237,7 +2225,6 @@
 	WithSpriteBody:
 	WithMakeAnimation:
 	SelectionDecorations:
-		Palette: pips
 	Selectable:
 	Targetable:
 		TargetTypes: Ground, Repair, MindControlInmune
@@ -2261,7 +2248,7 @@
 	DrawLineToTarget:
 	Mobile:
 		Locomotor: Vehicle
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Voice: Move
 		Speed: 40
 		TunnelCondition: inside-tunnel
@@ -2276,7 +2263,6 @@
 	Selectable:
 		Bounds: 40,24
 	SelectionDecorations:
-		Palette: pips
 	Voiced:
 		VoiceSet: Vehicle
 	Targetable:
@@ -2376,7 +2362,6 @@
 		SellSounds: cashturn.aud
 	Demolishable:
 	ScriptTriggers:
-	ConditionManager:
 	MapEditorData:
 		Categories: Wall
 	Valued:
@@ -2567,3 +2552,23 @@
 		Range: 7c0
 		RequiresCondition: !empdisable && !disabled
 	RenderDetectionCircle:
+
+^CargoPips:
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		Palette: pips
+		Margin: 5, 2
+		CustomPipSequences:
+			red: pip-red
+			green: pip-green
+			yellow: pip-yellow
+
+^SelectableBuilding:
+	IsometricSelectable:
+		Priority: 3
+		Height: 0
+		DecorationHeight: 24
+	IsometricSelectionDecorations:
+	WithTextControlGroupDecoration:
+		Margin: 1, 1

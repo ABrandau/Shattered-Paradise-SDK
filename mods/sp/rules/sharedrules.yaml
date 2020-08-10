@@ -68,7 +68,7 @@ MCV:
 		Type: VehicleArmor
 	Mobile:
 		Speed: 60
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Locomotor: InfantryCrusherVehicle
 	Targetable@MindControl:
 		TargetTypes: MindControlInmune
@@ -80,7 +80,7 @@ MCV:
 	Transforms:
 		IntoActor: gacnst
 		Offset: -1,-1
-		Facing: 96
+		Facing: 384
 		TransformSounds: place2.aud
 		NoTransformSounds:
 		Voice: Move
@@ -125,7 +125,6 @@ HARV:
 		SearchFromHarvesterRadius: 18
 		HarvestVoice: Attack
 		DeliverVoice: Action
-		PipCount: 7
 	Mobile:
 		Speed: 60
 		Locomotor: InfantryCrusherVehicle
@@ -157,6 +156,15 @@ HARV:
 	-ExternalCondition@veinholedrain:
 	-WithIdleOverlay@veinholedrain:
 	-GrantConditionOnTerrain@VEINS:
+	WithHarvesterPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		Margin: 5, 2
+		PipCount: 7
+		Palette: pips
+		ResourceSequences:
+			Tiberium: pip-green
+			BlueTiberium: pip-blue
 
 harv.gdi:
 	Inherits: HARV
@@ -250,7 +258,7 @@ LPST:
 		Type: BuildingArmor
 	Mobile:
 		Speed: 85
-		TurnSpeed: 5
+		TurnSpeed: 20
 	RenderSprites:
 		Image: lpst.gdi
 		FactionImages:
@@ -260,7 +268,7 @@ LPST:
 		DeployedCondition: deployed, notmobile
 		UndeployedCondition: undeployed
 		DeployAnimation: make
-		Facing: 160
+		Facing: 640
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
 		DeploySounds: place2.aud
 		UndeploySounds: clicky1.aud
@@ -307,7 +315,7 @@ GACNST:
 	Transforms:
 		IntoActor: mcv
 		Offset: 1,1
-		Facing: 96
+		Facing: 384
 		DeployCursor: undeploy
 	TransformsIntoMobile:
 		RequiresCondition: !Building-Buildup
@@ -339,9 +347,6 @@ GACNST:
 		Sequence: idle-front
 		RequiresCondition: !Building-Buildup
 	WithBuildingPlacedOverlay:
-	Selectable:
-		Bounds: 144, 60, 0, -6
-		DecorationBounds: 144, 80, 0, -12
 	ProvidesPrerequisite@walls:
 		Factions: gdi, cab
 		Prerequisite: sharedwall
@@ -383,7 +388,6 @@ GACNST:
 		ValuePercent: 15
 		ActorTypes: legio
 		Factions: scr
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 	ProvidesPrerequisite@AIantiRush:
@@ -449,8 +453,6 @@ GACNST:
 	Power:
 		Amount: -30
 	StoresResources:
-		PipColor: Green
-		PipCount: 15
 		Capacity: 1000
 	Explodes:
 		Weapon: TiberiumExplosion
@@ -459,6 +461,15 @@ GACNST:
 		Condition: RefineryLock
 		Range: 2c0
 		ValidStances: Enemy, Neutral
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		Margin: 8, 2
+		FullSequence: pip-green-building
+		EmptySequence: pip-empty-building
+		PipStride: 4, 2
+		PipCount: 25
+		Palette: pips
 
 PROC:
 	Inherits: ^Building
@@ -468,18 +479,14 @@ PROC:
 	Building:
 		Footprint: xx== xx== xx==
 		Dimensions: 4,3
-	Selectable:
-		Bounds: 100, 70, -30, -24
-		DecorationBounds: 102, 70, -26, -24
-	SelectionDecorations:
 	Refinery:
-		DockAngle: 160
+		DockAngle: 640
 		DockOffset: 2,1
 		DiscardExcessResources: false
 	FreeActor:
 		Actor: HARV
 		SpawnOffset: 3,1
-		Facing: 160
+		Facing: 640
 	WithIdleOverlay@REDLIGHTS:
 		Sequence: idle-redlights
 		RequiresCondition: !Building-Buildup
@@ -499,7 +506,7 @@ PROC:
 FLIPPEDPROC:
 	Inherits: ^Building
 	Inherits@1: ^FlippedRefineryHitshape
-	Inherits@2: ^RefineryHP	 
+	Inherits@2: ^RefineryHP
 	Inherits@3: ^AICashCheat
 	ProvidesPrerequisite:
 		Factions: gdi, cab, mut, nod, scr
@@ -507,18 +514,14 @@ FLIPPEDPROC:
 	Building:
 		Footprint: ==xx ==xx ==xx
 		Dimensions: 4,3
-	Selectable:
-		Bounds: 100, 70, 24, 12
-		DecorationBounds: 100, 70, 24, 12
-	SelectionDecorations:
 	Refinery:
-		DockAngle: 32
+		DockAngle: 128
 		DockOffset: 1,1
 		DiscardExcessResources: false
 	FreeActor:
 		Actor: HARV
 		SpawnOffset: 0,1
-		Facing: 32
+		Facing: 128
 	WithIdleOverlay@REDLIGHTS:
 		Sequence: idle-redlights
 		RequiresCondition: !Building-Buildup
@@ -545,18 +548,14 @@ FLIPPEDXPROC:
 	Building:
 		Footprint: xxx xxx === ===
 		Dimensions: 3,4
-	Selectable:
-		Bounds: 100, 70, 24, -12
-		DecorationBounds: 100, 70, 24, -12
-	SelectionDecorations:
 	Refinery:
-		DockAngle: 96
+		DockAngle: 384
 		DockOffset: 1,2
 		DiscardExcessResources: false
 	FreeActor:
 		Actor: HARV
 		SpawnOffset: 1,3
-		Facing: 96
+		Facing: 384
 	WithIdleOverlay@REDLIGHTS:
 		Sequence: idle-redlights
 		RequiresCondition: !Building-Buildup
@@ -583,18 +582,14 @@ FLIPPEDYPROC:
 	Building:
 		Footprint: === === xxx xxx
 		Dimensions: 3,4
-	Selectable:
-		Bounds: 100, 70, 24, 12
-		DecorationBounds: 100, 70, -24, 12
-	SelectionDecorations:
 	Refinery:
-		DockAngle: 224
+		DockAngle: 896
 		DockOffset: 1,1
 		DiscardExcessResources: false
 	FreeActor:
 		Actor: HARV
 		SpawnOffset: 1,0
-		Facing: 224
+		Facing: 896
 	WithIdleOverlay@REDLIGHTS:
 		Sequence: idle-redlights
 		RequiresCondition: !Building-Buildup
@@ -621,13 +616,10 @@ FLIPPEDYPROC:
 	Building:
 		Footprint: xxx= xxx= xxx=
 		Dimensions: 4,3
-	Selectable:
-		Bounds: 100, 70, -30, -24
-		DecorationBounds: 102, 70, -26, -24
 	Health:
 		HP: 150000
 	RallyPoint:
-		Offset: 4,1
+		Path: 4,1
 		Palette: mouse
 		IsPlayerPalette: false
 	Exit@1:
@@ -738,7 +730,6 @@ FLIPPEDYPROC:
 	Power:
 		Amount: -50
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	WithSpriteBody:
 		PauseOnCondition: disabled
 	WithDecoration@POWERDOWN:
@@ -746,31 +737,36 @@ FLIPPEDYPROC:
 		Sequence: offline
 		Palette: mouse
 		RequiresCondition: powerdown
-		ReferencePoint: Center
+		Position: Center
 	RequiresBuildableArea:
 		AreaTypes: building
 	PowerMultiplier@POWERDOWN:
 		RequiresCondition: powerdown
 		Modifier: 0
-	Selectable:
-		DecorationBounds: 96, 118, 0, -38
 	SupportPowerChargeBar:
 	DetonateWeaponPower:
 		AllowMultiple: False
 		Cursor: emp
 		MaximumFiringInstances: 1000
 		ArmamentName: primary
-		Icon: radarscan
+		Prerequisites:
+			1: radar
+		Icons:
+			1: radarscan
 		ChargeInterval: 4500
-		Description: Spy Satellite
-		LongDesc: Reveals shroud on an area, does not detect cloaked units.
+		Descriptions:
+			1: Spy Satellite
+		LongDescs:
+			1: Reveals shroud on an area, does not detect cloaked units.
 		EndChargeSound: SpySatelliteReady.aud
 		SelectTargetSound: n_00-i042.aud
 		OrderName: RadarScan
 		ActivationSequence: idle
 		PauseOnCondition: disabled
-		TargetCircleRange: 8c0
-		Weapon: RadarScanWeapon
+		TargetCircleRanges:
+			1: 8c0
+		Weapons:
+			1: RadarScanWeapon
 
 GADEPT:
 	Inherits: ^Building
@@ -787,9 +783,6 @@ GADEPT:
 	Building:
 		Footprint: =x= xxx =x=
 		Dimensions: 3,3
-	Selectable:
-		Bounds: 96, 64, -6, -6
-		DecorationBounds: 98, 68, -6, -6
 	Health:
 		HP: 110000
 	Reservable:
@@ -824,7 +817,6 @@ GADEPT:
 	Power:
 		Amount: -30
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	RenderSprites:
 		Image: gadept.gdi
 		FactionImages:
@@ -844,7 +836,6 @@ SCRDEPOT:
 	Tooltip:
 		Name: Scrin Maintenance Depot
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	RenderSprites:
 		Image: scrdepot
 		-FactionImages:
@@ -961,8 +952,6 @@ NAPOST:
 		SegmentsRequireNode: true
 	WithMakeAnimation:
 		Condition: Building-Buildup
-	Selectable:
-		Bounds: 42, 44, 0, -12
 	LineBuildNode:
 		Types: laserfencenode
 	RequiresBuildableArea:
@@ -1102,9 +1091,6 @@ GASILO:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2, 2
-	Selectable:
-		Bounds: 80, 48, -5, 0
-		DecorationBounds: 80, 48, -5, 0
 	Explodes:
 		Weapon: TiberiumExplosion
 		EmptyWeapon: TiberiumExplosion
@@ -1128,14 +1114,11 @@ GASILO:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
 	StoresResources:
-		PipCount: 5
 		Capacity: 3000
 	Power:
 		Amount: -10
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
-	SelectionDecorations:
 	GrantConditionOnPlayerResources:
 		Condition: contains-tiberium
 	Explodes:
@@ -1144,6 +1127,15 @@ GASILO:
 	WithResourceLevelOverlay@FILLSTAGE:
 		RequiresCondition: !build-incomplete
 		Sequence: stages
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		Margin: 8, 2
+		FullSequence: pip-green-building
+		EmptySequence: pip-empty-building
+		PipStride: 4, 2
+		PipCount: 12
+		Palette: pips
 
 TRNSPORT:
 	Inherits@1: ^Helicopter
@@ -1151,6 +1143,7 @@ TRNSPORT:
 	Inherits@3: ^SpriteActor
 	Inherits@4: ^LowPrioritySelectionMode
 	Inherits@5: ^AircraftShadow
+	Inherits@PIPS: ^CargoPips
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -1164,7 +1157,7 @@ TRNSPORT:
 		RepulsionSpeed: 40
 		AltitudeVelocity: 350
 		IdealSeparation: 3c0
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 130
 		CruiseAltitude: 3c768
 		InitialFacing: 0
@@ -1190,9 +1183,8 @@ TRNSPORT:
 	Cargo:
 		Types: Vehicle, Apc
 		MaxWeight: 3
-		PipCount: 1
 		UnloadVoice: Unload
-		PassengerFacing: 1
+		PassengerFacing: 4
 		LoadedCondition: loaded
 		LoadingCondition: notmobile
 	WithCargo:
@@ -1236,6 +1228,10 @@ TRNSPORT:
 		Offset: -700,0,2400
 		Sequence: slow-rotor
 		RequiresCondition: !airborne && MutRotor && loaded
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 1
 
 trnsport.gdi:
 	Inherits: TRNSPORT
@@ -1306,9 +1302,6 @@ NAPULS:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	Selectable:
-		Bounds: 78, 54, 0, -12
-		DecorationBounds: 78, 54, 0, -12
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower
 		ValidPowerStates: Low, Critical
@@ -1319,14 +1312,13 @@ NAPULS:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
 	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 300
+		TurnSpeed: 40
+		InitialFacing: 1200
 	WithSpriteTurret:
 		Sequence: turret
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -100
-	SelectionDecorations:
 	RenderSprites:
 		Image: napuls.gdi
 		FactionImages:
@@ -1349,14 +1341,19 @@ NAPULS:
 		Cursor: emp
 		MaximumFiringInstances: 1000
 		ArmamentName: Superweapon
-		Icon: emp
+		Icons:
+			1: emp
 		ChargeInterval: 3000
-		TargetCircleRange: 4c0
-		Description: E.M. Pulse
-		LongDesc: Fires a pulse blast which disables\nall mechanical units in the area.
+		TargetCircleRanges:
+			1: 4c0
+		Descriptions:
+			1: E.M. Pulse
+		LongDescs:
+			1: Fires a pulse blast which disables\nall mechanical units in the area.
 		EndChargeSound: speech-nod|00-i158.aud
 		SelectTargetSound: n_00-i042.aud
-		Prerequisites: emp.gdi
+		Prerequisites:
+			1: emp.gdi
 		OrderName: Nodemp
 		PauseOnCondition: disabled || empdisable
 	RequiresBuildableArea:
