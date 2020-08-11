@@ -180,7 +180,7 @@ GARADR:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
 		RequiresCondition: !Building-Buildup
-	DetonateWeaponPower:
+	SpawnActorPower:
 		OrderName: GDIRadarScan
 
 GAHPAD:
@@ -282,8 +282,8 @@ GTDROP:
 		LaunchSound: n_swlaunch.aud
 		ActivationSequence: idle
 		DisplayTimer: True
-		DisplayBeacon: True
-		TargetCircleRange: 6c0
+		TargetCircleRanges:
+			1: 6c0
 		CameraRange: 7c0
 		CameraSpawnAdvance: 25
 		CameraRemoveDelay: 350
@@ -488,7 +488,7 @@ NARADR:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
 		RequiresCondition: !Building-Buildup
-	DetonateWeaponPower:
+	SpawnActorPower:
 		OrderName: NodRadarScan
 
 NAAPWR:
@@ -834,7 +834,7 @@ MURADR:
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		BuildPaletteOrder: 6
 		Prerequisites: proc, ~structures.mut
-	DetonateWeaponPower:
+	SpawnActorPower:
 		OrderName: MutantRadarScan
 
 MUAIR:
@@ -905,7 +905,6 @@ MUTSW2:
 		TargetCircleRanges:
 			1: 5c0
 		DisplayTimer: True
-		DisplayBeacon: True
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
 		LaunchSpeechNotification: SuperweaponFired
@@ -1162,7 +1161,7 @@ SCRRADR:
 		RequiresCondition: !Building-Buildup
 	RequiresBuildableArea:
 		AreaTypes: building
-	DetonateWeaponPower:
+	SpawnActorPower:
 		OrderName: ScrinRadarScan
 
 SCRAIR:
@@ -1268,8 +1267,10 @@ SCRADVPOWR:
 		ChargeInterval: 6000
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
-		Description: Instant Wormhole
-		LongDesc: Teleports infantry and vehicles.
+		Descriptions:
+			1: Instant Wormhole
+		LongDescs:
+			1: Teleports infantry and vehicles.
 		SelectTargetSpeechNotification: SelectTarget
 		Durations:
 			1: 500
@@ -1303,7 +1304,6 @@ SCRADVPOWR:
 		TargetCircleRanges:
 			1: 5c0
 		DisplayTimer: True
-		DisplayBeacon: True
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
 		LaunchSpeechNotification: SuperweaponFired
@@ -1525,7 +1525,7 @@ CABRADR:
 		Dimensions: 3,3
 	RequiresBuildableArea:
 		AreaTypes: building
-	DetonateWeaponPower:
+	SpawnActorPower:
 		OrderName: CabalRadarScan
 
 CABAIR:
@@ -1623,7 +1623,6 @@ CABOBELISK:
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
 		DisplayTimer: True
-		DisplayBeacon: True
 		ChargeInterval: 6000
 		DisplayRadarPing: True
 		DisplayTimerStances: Ally, Neutral, Enemy

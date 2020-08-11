@@ -744,11 +744,8 @@ FLIPPEDYPROC:
 		RequiresCondition: powerdown
 		Modifier: 0
 	SupportPowerChargeBar:
-	DetonateWeaponPower:
-		AllowMultiple: False
+	SpawnActorPower:
 		Cursor: emp
-		MaximumFiringInstances: 1000
-		ArmamentName: primary
 		Prerequisites:
 			1: radar
 		Icons:
@@ -760,13 +757,13 @@ FLIPPEDYPROC:
 			1: Reveals shroud on an area, does not detect cloaked units.
 		EndChargeSound: SpySatelliteReady.aud
 		SelectTargetSound: n_00-i042.aud
+		DeploySound: sspysate.aud
 		OrderName: RadarScan
-		ActivationSequence: idle
 		PauseOnCondition: disabled
 		TargetCircleRanges:
 			1: 8c0
-		Weapons:
-			1: RadarScanWeapon
+		Actors:
+			1: radarscandummy
 
 GADEPT:
 	Inherits: ^Building
@@ -1229,8 +1226,6 @@ TRNSPORT:
 		Sequence: slow-rotor
 		RequiresCondition: !airborne && MutRotor && loaded
 	WithCargoPipsDecoration:
-		Position: BottomLeft
-		RequiresSelection: true
 		PipCount: 1
 
 trnsport.gdi:
