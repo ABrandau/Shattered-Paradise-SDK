@@ -589,6 +589,7 @@ WyvermBlast:
 		Spread: 0c180
 		Damage: 3000
 		Versus:
+			AircraftArmor: 75
 			InfantryArmor: 10
 			VehicleArmor: 100
 			DefenseArmor: 100
@@ -609,6 +610,7 @@ IchorWasteTurretAcid:
 	ReloadDelay: 40
 	Range: 6c768
 	Burst: 8
+	ValidTargets: Building, Structure, Infantry, Vehicle
 	Report: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
 	BurstDelays: 1
 	Projectile: BulletAS
@@ -625,6 +627,7 @@ IchorWasteTurretAcid:
 			InfantryArmor: 200
 			BuildingArmor: 75
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
+		ValidTargets: Building, Structure, Infantry, Vehicle
 		InvalidTargets: Shark
 	Warhead@2Shark: SpreadDamage
 		Spread: 350
@@ -634,7 +637,7 @@ IchorWasteTurretAcid:
 			BuildingArmor: 75
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		ValidTargets: Shark
-		InvalidTargets: Building, Vehicle
+		InvalidTargets: Building, Structure, Infantry, Vehicle
 		ValidStances: Enemy, Neutral
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
