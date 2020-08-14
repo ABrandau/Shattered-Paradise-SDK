@@ -116,10 +116,10 @@ VISIONACTOR:
 		Range: 3c0
 	Health:
 		HP: 50
-	SelfHealing:
+	ChangesHealth:
 		Step: -10
 		Delay: 10
-		HealIfBelow: 200
+		StartIfBelow: 200
 
 SWVISIONDUMMY:
 	Inherits: ^DUMMYAIRCRAFT
@@ -127,10 +127,10 @@ SWVISIONDUMMY:
 		Range: 7c0
 	Health:
 		HP: 7
-	SelfHealing:
+	ChangesHealth:
 		Step: -1
 		Delay: 25
-		HealIfBelow: 200
+		StartIfBelow: 200
 
 RADARSCANDUMMY:
 	Inherits: ^DUMMYAIRCRAFT
@@ -152,10 +152,10 @@ IONBEAMTARGET:
 		Name: Target
 	Health:
 		HP: 50
-	SelfHealing:
+	ChangesHealth:
 		Step: -10
 		Delay: 25
-		HealIfBelow: 200
+		StartIfBelow: 200
 	Targetable:
 		TargetTypes: IonSpawner
 	Selectable:
@@ -190,10 +190,10 @@ IONBEAMMINI:
 	-Tooltip:
 	Health:
 		HP: 50
-	SelfHealing:
+	ChangesHealth:
 		Step: -10
 		Delay: 25
-		HealIfBelow: 200
+		StartIfBelow: 200
 	RevealsShroud:
 		Range: 3c0
 	AttackAircraft:
@@ -283,10 +283,10 @@ IONBEAMROAMER:
 		Range: 3c0
 	Health:
 		HP: 75
-	SelfHealing:
+	ChangesHealth:
 		Step: -1
 		Delay: 15
-		HealIfBelow: 200
+		StartIfBelow: 200
 	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
@@ -319,10 +319,10 @@ IONBEAMROAMER:
 
 KILLEDACTOR:
 	Inherits: ^DUMMYAIRCRAFT
-	SelfHealing:
+	ChangesHealth:
 		Step: -25
 		# PercentageStep: -50
-		HealIfBelow: 110
+		StartIfBelow: 110
 		RequiresCondition: !nanomachineburst
 	Health:
 		HP: 50
@@ -342,9 +342,9 @@ NANOMACHINEBURSTSPAWNER:
 	Inherits: ^DUMMYAIRCRAFT
 	RenderSprites:
 		Image: blackhanddummy
-	SelfHealing:
+	ChangesHealth:
 		Step: -10
-		HealIfBelow: 200
+		StartIfBelow: 200
 	-Tooltip:
 	Health:
 		HP: 5
@@ -366,10 +366,10 @@ NANOMACHINEBURSTDUMMY:
 	Inherits@1: ^AutoTargetAll
 	Aircraft:
 		CruiseAltitude: 1
-	SelfHealing:
+	ChangesHealth:
 		Step: -1
 		Delay: 25
-		HealIfBelow: 200
+		StartIfBelow: 200
 	-Tooltip:
 	RenderSprites:
 		Image: nanomachineswarmdummy
@@ -405,10 +405,10 @@ EGGSPAWNER:
 	-RevealsShroud:
 	Health:
 		HP: 1
-	SelfHealing:
+	ChangesHealth:
 		Step: -10
 		Delay: 25
-		HealIfBelow: 200
+		StartIfBelow: 200
 	SpawnActorOnDeath@workerspawn:
 		Actor: EGGS
 		Probability: 100
@@ -423,9 +423,9 @@ VEINHOLESPAWNERDUMMY:
 	-ActorLostNotification:
 	RenderSprites:
 		Image: blackhanddummy
-	SelfHealing:
+	ChangesHealth:
 		Step: -10
-		HealIfBelow: 200
+		StartIfBelow: 200
 	Health:
 		HP: 5
 		NotifyAppliedDamage: False
@@ -445,10 +445,10 @@ INFTIBSPAWN:
 	-RevealsShroud:
 	Health:
 		HP: 30
-	SelfHealing:
+	ChangesHealth:
 		Step: -30
 		Delay: 25
-		HealIfBelow: 200
+		StartIfBelow: 200
 	Explodes:
 		Weapon: SpawnZombie
 		EmptyWeapon: SpawnZombie
@@ -467,10 +467,10 @@ VEHICLETIBSPAWN:
 
 SCRINESSENCESMALL:
 	Inherits: ^DUMMYAIRCRAFT
-	SelfHealing:
+	ChangesHealth:
 		Step: -1
 		Delay: 50
-		HealIfBelow: 200
+		StartIfBelow: 200
 	-Tooltip:
 	Targetable@Esscence:
 		TargetTypes: ScrinEssence

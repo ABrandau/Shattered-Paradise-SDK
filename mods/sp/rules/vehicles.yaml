@@ -1485,10 +1485,10 @@ WOLF:
 	Armament@PRIMARY:
 		Weapon: BullAcid
 		LocalOffset: 128,0,400
-	SelfHealing@Bullshit:
+	ChangesHealth@Bullshit:
 		PercentageStep: 5
 		Delay: 100
-		HealIfBelow: 100
+		StartIfBelow: 100
 		DamageCooldown: 100
 	Health:
 		HP: 20000
@@ -1573,10 +1573,10 @@ DEATHCLAW:
 		Locomotor: TibVeCritter
 	Armament:
 		Weapon: RavagerStrike
-	SelfHealing@Bullshit:
+	ChangesHealth@Bullshit:
 		PercentageStep: 5
 		Delay: 100
-		HealIfBelow: 100
+		StartIfBelow: 100
 		DamageCooldown: 100
 	Selectable:
 		DecorationBounds: 30,50,0,-20
@@ -2156,7 +2156,7 @@ ECM:
 	WithFacingSpriteBody:
 	Selectable:
 		DecorationBounds: 50, 50, 0, 0
-	-SelfHealing@veinholedrain:
+	-ChangesHealth@veinholedrain:
 	-ExternalCondition@veinholedrain:
 	-WithIdleOverlay@veinholedrain:
 	-GrantConditionOnTerrain@VEINS:
@@ -2270,7 +2270,7 @@ PALADIN:
 		TurnSpeed: 20
 		Speed: 80
 		Locomotor: InfantryCrusherVehicle
-	SelfHealing@Permanent:
+	ChangesHealth@Permanent:
 		DamageCooldown: 0
 		Delay: 75
 	Health:

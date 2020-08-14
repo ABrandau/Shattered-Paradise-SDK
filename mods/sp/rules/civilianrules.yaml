@@ -313,11 +313,11 @@ VISC_LRG_SCRIN:
 	AutoTarget:
 		ScanRadius: 5
 		InitialStance: AttackAnything
-	SelfHealing:
+	ChangesHealth:
 		PercentageStep: -10
 		Step: 0
 		Delay: 50
-		HealIfBelow: 200
+		StartIfBelow: 200
 	RenderSprites:
 		Image: vislrg
 
@@ -388,7 +388,7 @@ BERSERKER:
 	RevealsShroud:
 		Range: 5c0
 	-SpawnActorOnDeath@conversion:
-	SelfHealing:
+	ChangesHealth:
 		PercentageStep: 1
 		Step: 0
 		Delay: 200
@@ -466,11 +466,11 @@ CRAB:
 	GrantPeriodicCondition:
 		Condition: SpawnCrabs
 		CooldownDuration: 2250
-	SelfHealing@crab:
+	ChangesHealth@crab:
 		PercentageStep: -100
 		Step: 0
 		Delay: 50
-		HealIfBelow: 150
+		StartIfBelow: 150
 		RequiresCondition: SpawnCrabs
 	AttackFrontal:
 		Voice: Attack
@@ -491,11 +491,11 @@ PERMACRAB:
 	RenderSprites:
 		Image: crab
 	-GrantPeriodicCondition:
-	-SelfHealing@crab:
-	SelfHealing@ELITE:
+	-ChangesHealth@crab:
+	ChangesHealth@ELITE:
 		PercentageStep: 5
 		Delay: 75
-		HealIfBelow: 100
+		StartIfBelow: 100
 		DamageCooldown: 300
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
@@ -601,10 +601,10 @@ CIV3:
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
-	SelfHealing:
+	ChangesHealth:
 		PercentageStep: 1
 		Step: 0
-		HealIfBelow: 50
+		StartIfBelow: 50
 		DamageCooldown: 200
 	WithVoxelTurret:
 	WithVoxelBarrel:
@@ -2871,11 +2871,11 @@ EGGS:
 	GrantPeriodicCondition:
 		Condition: SpawnCrabs
 		CooldownDuration: 400
-	SelfHealing@crab:
+	ChangesHealth@crab:
 		PercentageStep: -100
 		Step: 0
 		Delay: 50
-		HealIfBelow: 150
+		StartIfBelow: 150
 		RequiresCondition: SpawnCrabs
 		DamageTypes: SpawnCrabs
 	SpawnActorOnDeath@crab1:

@@ -312,10 +312,10 @@
 	SpeedMultiplier@RANK-ELITE:
 		RequiresCondition: rank-elite
 		Modifier: 130
-	SelfHealing@ELITE:
+	ChangesHealth@ELITE:
 		PercentageStep: 5
 		Delay: 75
-		HealIfBelow: 100
+		StartIfBelow: 100
 		DamageCooldown: 150
 		RequiresCondition: rank-elite
 	WithDecoration@RANK-1:
@@ -479,38 +479,38 @@
 		Condition: crate-cloak
 
 ^IncompleteSelfHeal:
-	SelfHealing@Incomplete:
+	ChangesHealth@Incomplete:
 		PercentageStep: 1
 		Step: 0
 		Delay: 100
 		DamageCooldown: 100
-		HealIfBelow: 60
+		StartIfBelow: 60
 
 ^PermanentSelfHeal:
-	SelfHealing@Permanent:
+	ChangesHealth@Permanent:
 		PercentageStep: 1
 		Step: 0
 		Delay: 75
 		DamageCooldown: 200
-		HealIfBelow: 105
+		StartIfBelow: 105
 
 ^HealsOnTiberium:
 	GrantConditionOnTerrain@Tib:
 		Condition: TiberiumHealing
 		TerrainTypes: Tiberium, BlueTiberium
-	SelfHealing@Tib:
+	ChangesHealth@Tib:
 		PercentageStep: 1
 		Step: 300
 		Delay: 100
 		DamageCooldown: 0
-		HealIfBelow: 105
+		StartIfBelow: 105
 		RequiresCondition: TiberiumHealing
 
 ^HopspitalHeal:
-	SelfHealing@HOSPITAL:
+	ChangesHealth@HOSPITAL:
 		PercentageStep: 1
 		Delay: 25
-		HealIfBelow: 100
+		StartIfBelow: 100
 		DamageCooldown: 125
 		RequiresCondition: hospitalheal
 	GrantConditionOnPrerequisite@hospitalheal:
@@ -528,10 +528,10 @@
 		Condition: hospitalheal
 
 ^BarracksHeal:
-	SelfHealing@BarracksHeal:
+	ChangesHealth@BarracksHeal:
 		PercentageStep: 2
 		Delay: 25
-		HealIfBelow: 100
+		StartIfBelow: 100
 		DamageCooldown: 125
 		RequiresCondition: BarracksHeal
 	WithDecoration@BarracksHeal:
@@ -546,10 +546,10 @@
 		Condition: BarracksHeal
 
 ^MachineShopHeal:
-	SelfHealing@MachineShopHeal:
+	ChangesHealth@MachineShopHeal:
 		PercentageStep: 1
 		Delay: 25
-		HealIfBelow: 100
+		StartIfBelow: 100
 		DamageCooldown: 125
 		RequiresCondition: MachineShopHeal
 	GrantConditionOnPrerequisite@MachineShopHeal:
@@ -565,11 +565,11 @@
 		RequiresCondition: MachineShopHeal
 
 ^VeinholePoisonVehicle:
-	SelfHealing@veinholedrain:
+	ChangesHealth@veinholedrain:
 		PercentageStep: 0
 		Step: -500
 		Delay: 10
-		HealIfBelow: 105
+		StartIfBelow: 105
 		RequiresCondition: veinholedrain
 	ExternalCondition@veinholedrain:
 		Condition: veinholedrain
@@ -588,11 +588,11 @@
 		IsPlayerPalette: true
 		Palette: cloakscrin
 		RequiresCondition: BugPoison
-	SelfHealing@BugPoison:
+	ChangesHealth@BugPoison:
 		PercentageStep: -1
 		Step: 0
 		Delay: 25
-		HealIfBelow: 101
+		StartIfBelow: 101
 		RequiresCondition: BugPoison && !stoppoison
 	ExternalCondition@BugPoison:
 		Condition: BugPoison
@@ -690,11 +690,11 @@
 		Condition: WebDisable
 
 ^BurstRecovery:
-	SelfHealing@NanomachineBurst:
+	ChangesHealth@NanomachineBurst:
 		PercentageStep: 2
 		Step: 0
 		Delay: 25
-		HealIfBelow: 102
+		StartIfBelow: 102
 		RequiresCondition: nanomachineburst
 	SpawnActorOnDeath@nanomachineburst:
 		Actor: KILLEDACTOR
@@ -729,13 +729,13 @@
 		Type: Shield
 
 ^GetsOneShotedbySuperweapons:
-	SelfHealing@GetsOneShotedbySuperweapons:
+	ChangesHealth@GetsOneShotedbySuperweapons:
 		PercentageStep: -100
 		Step: 0
 		Delay: 50
 		RequiresCondition: GetsOneShotedbySuperweapons
 		DamageCooldown: 0
-		HealIfBelow: 101
+		StartIfBelow: 101
 		DamageTypes: FireDeath
 	ExternalCondition@GetsOneShotedbySuperweapons:
 		Condition: GetsOneShotedbySuperweapons
@@ -1819,7 +1819,7 @@
 	ExternalCondition@hoverunitonwater:
 		Condition: hoverunitonwater
 	-Explodes:
-	-SelfHealing@veinholedrain:
+	-ChangesHealth@veinholedrain:
 	-ExternalCondition@veinholedrain:
 	-WithIdleOverlay@veinholedrain:
 	-GrantConditionOnTerrain@VEINS:
@@ -1894,7 +1894,7 @@
 	RevealsShroud:
 		Range: 3c0
 		RequiresCondition: !inside-tunnel && !submerged
-	SelfHealing@veinholedrain:
+	ChangesHealth@veinholedrain:
 		RequiresCondition: veinholedrain && !submerged
 	WithIdleOverlay@veinholedrain:
 		RequiresCondition: veinholedrain && !submerged
@@ -2526,11 +2526,11 @@
 	Targetable@ScrinUnitBeingHealed:
 		TargetTypes: ScrinUnitBeingHealed
 		RequiresCondition: batteryboost
-	SelfHealing@batteryboost:
+	ChangesHealth@batteryboost:
 		PercentageStep: 1
 		Step: 0
 		Delay: 25
-		HealIfBelow: 101
+		StartIfBelow: 101
 		RequiresCondition: batteryboost
 
 ^InfantryStealthDetection:
