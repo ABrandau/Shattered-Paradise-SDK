@@ -1441,6 +1441,18 @@
 			SmallExplosionDeath: body1, body2, body3, body4, body5
 			EnergyDeath: body1, body2, body3, body4, body5
 			ExplosionDeath: body1, body2, body3, body4, body5
+ 	WithDeathAnimation@blood1:
+		DeathSequencePalette: apolredj
+		DeathPaletteIsPlayerPalette: False
+		DeathTypes:
+			BulletDeath: blood1, blood2, blood3, blood4, blood5
+			CabalDeath: blood1, blood2, blood3, blood4, blood5
+			CabalDeathCrate: blood1, blood2, blood3, blood4, blood5
+			BlackHandRfle: blood1, blood2, blood3, blood4, blood5
+			HeadshotDeath: blood1, blood2, blood3, blood4, blood5
+			SmallExplosionDeath: blood1, blood2, blood3, blood4, blood5
+			EnergyDeath: blood1, blood2, blood3, blood4, blood5
+			ExplosionDeath: blood1, blood2, blood3, blood4, blood5
 	WithTextControlGroupDecoration:
 
 ^Soldier:
@@ -2098,9 +2110,6 @@
 		Footprint: x
 		Dimensions: 1,1
 	AppearsOnRadar:
-	# WithIdleOverlay:
-	# Sequence: light
-	# Palette: gradgreen
 	RadarColorFromTerrain:
 		Terrain: Tiberium
 	FrozenUnderFog:
@@ -2114,9 +2123,18 @@
 	RequiresBuildableArea:
 		AreaTypes: building
 	Interactable:
-		# Bounds: 600,600
-	ExplodeWeapon@1234567:
-		Weapon: GreenTibRadiation
+	TerrainLightSource@1:
+		Range: 2c640
+		Intensity: 0.0005
+		RedTint: 0.07
+		GreenTint: 0.36
+		BlueTint: 0.07
+	TerrainLightSource@2:
+		Range: 16c640
+		Intensity: 0.001
+		RedTint: 0.035
+		GreenTint: 0.24
+		BlueTint: 0.035
 
 ^Tree:
 	Inherits@1: ^SpriteActor

@@ -59,6 +59,119 @@ CAMERA:
 	DetectCloaked:
 		Range: 10c0
 
+INPURPLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: (Invisible Purple Light Post)
+	TerrainLightSource:
+		Range: 11c736
+		Intensity: 0.01
+		RedTint: 2.0
+		GreenTint: 0.01
+		BlueTint: 2.0
+
+INGALITE:
+	Interactable:
+	EditorOnlyTooltip:
+		Name: (Invisible Light Post)
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: false
+	RenderSpritesEditorOnly:
+		Image: lightnotifier
+		Palette: apgrey
+	WithSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 1
+	MapEditorData:
+		Categories: System
+	RequiresSpecificOwners:
+		ValidOwnerNames: Neutral
+	TerrainLightSource:
+		Range: 19c544
+		Intensity: 0.2
+		RedTint: 0.05
+		GreenTint: 0.05
+		BlueTint: 0.01
+
+NEGLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: (Invisible Negative Light Post)
+	RenderSpritesEditorOnly:
+		Palette: apolra2g
+	TerrainLightSource:
+		Range: 13c688
+		Intensity: -0.15
+		RedTint: 0.03
+		GreenTint: 0.04
+		BlueTint: 0.04
+
+INORANLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: (Invisible Orange Light Post)
+	RenderSpritesEditorOnly:
+		Palette: apolra2g
+	TerrainLightSource:
+		Range: 11c736
+		Intensity: 0.01
+		RedTint: 2.0
+		GreenTint: 1.4
+		BlueTint: 0.3
+
+INGRNLMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: (Invisible Green Light Post)
+	RenderSpritesEditorOnly:
+		Palette: apgreen
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: 0.01
+		RedTint: 0.01
+		GreenTint: 1.5
+		BlueTint: 0.01
+
+INREDLMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: (Invisible Red Light Post)
+	RenderSpritesEditorOnly:
+		Palette: apred
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: 0.01
+		RedTint: 1.5
+		GreenTint: 0.01
+		BlueTint: 0.01
+
+INBLULMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: (Invisible Blue Light Post)
+	RenderSpritesEditorOnly:
+		Palette: apblue
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: 0.01
+		RedTint: 0.01
+		GreenTint: 0.01
+		BlueTint: 0.7
+
+INYELWLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: (Invisible Yellow Light Post)
+	RenderSpritesEditorOnly:
+		Palette: apyel
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: 0.01
+		RedTint: 1.5
+		GreenTint: 1.5
+		BlueTint: 0.01
+
 colorpicker:
 	Inherits: MUTMCV
 	EditorOnlyTooltip:
@@ -285,3 +398,13 @@ TUNTOP04:
 	TunnelEntrance:
 		RallyPoint: 1, 3
 		Sensor: 1, 0
+
+EMPDUMMY:
+	Inherits: CAR2
+	-WithFacingSpriteBody:
+	-Tooltip:
+	-WithIdleOverlay@EMPDISABLE:
+	Targetable:
+		RequiresCondition: !empdisable
+	RenderSprites:
+		Image: car2
