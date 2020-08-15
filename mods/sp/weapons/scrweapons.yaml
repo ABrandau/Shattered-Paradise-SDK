@@ -161,7 +161,7 @@ ColossiBlastTesla:
 	Warhead@2Eff: CreateEffect
 		Explosions: lightningexplo
 		ExplosionPalette: apollightbluealpha
-		InvalidImpactTypes: Water
+		InvalidTargets:: Water
 
 DummySparks:
 	Inherits: ColossiTesla
@@ -570,8 +570,8 @@ WyvermBlast:
 	Projectile: Missile
 		TerrainHeightAware: True
 		CruiseAltitude: 4000
-		MinimumLaunchAngle: 300
-		MaximumLaunchAngle: 300
+		MinimumLaunchAngle: 255
+		MaximumLaunchAngle: 255
 		MaximumLaunchSpeed: 0c543
 		MinimumLaunchSpeed: 0c301
 		Speed: 700
@@ -642,7 +642,7 @@ IchorWasteTurretAcid:
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
-		InvalidImpactTypes: Water
+		InvalidTargets:: Water
 
 TractorBeam:
 	Inherits: ^AntiAirTurretWeapon
@@ -699,12 +699,12 @@ DronePlane:
 		Explosions: viscexplo
 		ExplosionPalette: effect
 		ImpactSounds: expnew14.aud
-		InvalidImpactTypes: Water
+		InvalidTargets:: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: viscexplo
 		ExplosionPalette: effect
 		ImpactSounds: ssplash3.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall

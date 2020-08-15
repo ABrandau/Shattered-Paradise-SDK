@@ -305,7 +305,6 @@ MUBUNKR:
 	-SpeedMultiplier@WebDisable:
 	-WithIdleOverlay@EMPDISABLE:
 	-ExternalCondition@empdisable:
-	-ExternalCondition@notmobile:
 	WithCargoPipsDecoration:
 		Margin: 8, 2
 		FullSequence: pip-green-building
@@ -1303,39 +1302,6 @@ CABGRINDER:
 	RequiresBuildableArea:
 		AreaTypes: building
 
-CABSENTRYTURRET:
-	# Inherits: ^MiscTurret
-	# Inherits@1: ^CabRender
-	# Valued:
-	# 	Cost: 700
-	# Tooltip:
-	# 	Name: Firefly
-	# Building:
-	# Health:
-	# 	HP: 70000
-	# -Sellable:
-	# BodyOrientation:
-	# 	QuantizedFacings: 32
-	# Turreted:
-	# 	TurnSpeed: 10
-	# 	InitialFacing: 50
-	# AttackTurreted:
-	# WithSpriteTurret:
-	# 	Recoils: no
-	# Transforms:
-	# 	IntoActor: firefly
-	# Armament@1:
-	# 	Weapon: ArtisanTurretLasor
-	# 	LocalOffset: 300,-150,300
-	# Armament@2:
-	# 	Weapon: ArtisanTurretLasor
-	# 	LocalOffset: 300,150,300
-	# RequiresBuildableArea:
-	# 	AreaTypes: building
-	# -GrantConditionOnDamageState@smoke:
-	# -SmokeParticleEmitter:
-	# -ExternalCondition@smoketrail:
-
 CABCANNON:
 	Inherits: ^Defence
 	Inherits@1: ^CabRender
@@ -1390,7 +1356,6 @@ GACTWR:
 		InitialFacing: 368
 	AttackTurreted:
 		RequiresCondition: tower
-		ConditionMinEnabledLevel: 1
 	ToggleConditionOnOrder:
 		DisabledSpeech: EnablePower
 		EnabledSpeech: DisablePower
@@ -1398,29 +1363,24 @@ GACTWR:
 		OrderName: PowerDown
 	WithSpriteTurret@VULC:
 		RequiresCondition: tower.vulcan
-		ConditionMinEnabledLevel: 1
 		Recoils: false
 		Sequence: turret-vulcan
 	WithSpriteTurret@ROCKET:
 		RequiresCondition: tower.rocket
-		ConditionMinEnabledLevel: 1
 		Recoils: false
 		Sequence: turret-rocket
 	WithSpriteTurret@SAM:
 		RequiresCondition: tower.sam
-		ConditionMinEnabledLevel: 1
 		Recoils: false
 		Sequence: turret-sam
 	Armament@VULCPRIMARY:
 		RequiresCondition: tower.vulcan
-		ConditionMinEnabledLevel: 1
 		Weapon: VulcanTower
 		LocalOffset: 768,85,512
 		MuzzleSequence: muzzle
 		MuzzleSplitFacings: 8
 	Armament@VULCSECONDARY:
 		RequiresCondition: tower.vulcan
-		ConditionMinEnabledLevel: 1
 		Name: secondary
 		Weapon: VulcanTower
 		LocalOffset: 768,-85,512
@@ -1428,17 +1388,14 @@ GACTWR:
 		MuzzleSplitFacings: 8
 	Armament@ROCKET:
 		RequiresCondition: tower.rocket
-		ConditionMinEnabledLevel: 1
 		Weapon: RPGTower
 		LocalOffset: 512,-128,512
 	Armament@SAM:
 		RequiresCondition: tower.sam
-		ConditionMinEnabledLevel: 1
 		Weapon: GdiRedEye
 		LocalOffset: 512,0,512
 	WithMuzzleOverlay:
 		RequiresCondition: tower.vulcan
-		ConditionMinEnabledLevel: 1
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 	LineBuildNode:
@@ -1447,11 +1404,9 @@ GACTWR:
 		Amount: -10
 	Power@turrets:
 		RequiresCondition: tower
-		ConditionMinEnabledLevel: 1
 		Amount: -20
 	Power@samextra:
 		RequiresCondition: tower.sam
-		ConditionMinEnabledLevel: 1
 		Amount: -10
 	Pluggable:
 		Conditions:
@@ -1528,43 +1483,6 @@ REPAIRTUR:
 		ForceTargetStances: None
 	RequiresBuildableArea:
 		AreaTypes: building
-	# GUARDIANDEP:
-	# Inherits: ^Building
-	# Inherits@2: ^2x2Shape
-	# Valued:
-	# 	Cost: 2000
-	# Tooltip:
-	# 	Name: Landed Guardian Platform
-	# 	Description: Makes the nearby units and\nstructures more resistant to\ndamage.
-	# Building:
-	# 	Footprint: xx xx
-	# 	Dimensions: 2,2
-	# WithRangeCircle:
-	# 	Range: 4c0
-	# 	Type: cloakgenerator
-	# ProximityExternalCondition@firestorm:
-	# 	Condition: AuraRepair
-	# 	Range: 5c0
-	# 	AffectsParent: false
-	# Health:
-	# 	HP: 65000
-	# Voiced:
-	# 	VoiceSet: GuardianVO
-	# 	Volume: 3
-	# Armament:
-	# 	Weapon: RepairVehicleRep
-	# 	Cursor: repair
-	# 	OutsideRangeCursor: repair
-	# 	TargetStances: Ally
-	# AttackTurreted:
-	# Turreted:
-	# AutoTarget:
-	# Transforms:
-	# 	IntoActor: guardian
-	# 	Voice: Action2
-	# RequiresBuildableArea:
-	# 	AreaTypes: building
-
 
 MASTL:
 	Inherits: ^DeployedVehicle
@@ -1813,36 +1731,6 @@ MUSTABLE:
 	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
-
-CABNEXUS:
-	# Inherits: ^Defence
-	# Inherits@1: ^CabRender
-	# Inherits@2: ^2x2Shape
-	# Valued:
-	# 	Cost: 700
-	# Tooltip:
-	# 	Name: Obelisk Nexus
-	# Building:
-	# 	Footprint: xx xx
-	# 	Dimensions: 2,2
-	# Selectable:
-	# 	Bounds: 90, 48, 0, -6
-	# 	DecorationBounds: 90, 48, 0, -6
-	# GrantConditionOnPowerState@LOWPOWER:
-	# 	Condition: lowpower
-	# 	ValidPowerStates: Low, Critical
-	# Health:
-	# 	HP: 15000
-	# BodyOrientation:
-	# 	QuantizedFacings: 32
-	# Armament:
-	# 	Weapon: CABNEXUSAA
-	# 	LocalOffset: 0,0,1000
-	# AttackOmni:
-	# Power:
-	# 	Amount: -50
-	# RequiresBuildableArea:
-	# 	AreaTypes: building
 
 SCRMINE:
 	Inherits: ^ScrinRender

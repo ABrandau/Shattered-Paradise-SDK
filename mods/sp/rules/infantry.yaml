@@ -1596,9 +1596,11 @@ MOTH:
 	WithFacingSpriteBody:
 		Sequence: idle
 		RequiresCondition: !deployed && !inside-tunnel
+		Name: Body
 	WithSpriteBody:
 		Sequence: deployed
 		RequiresCondition: !undeployed
+		Name: Body1
 	-WithInfantryBody:
 	Armament@1:
 		Weapon: LurkerProj
@@ -1666,7 +1668,6 @@ CYC2:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
-		RequiresCondition: !Moving
 	Passenger:
 		CustomPipType: red
 	SharedPassenger:

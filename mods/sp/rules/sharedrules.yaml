@@ -1012,16 +1012,20 @@ NAFNCE:
 		RequiresCondition: laserfence-direction-x && active-posts == 2
 		Type: laserfence
 		Sequence: enabled-x
+		Name: Body1
 	WithWallSpriteBody@YENABLED:
 		RequiresCondition: laserfence-direction-y && active-posts == 2
 		Type: laserfence
 		Sequence: enabled-y
+		Name: Body2
 	WithSpriteBody@XDISABLED:
 		RequiresCondition: laserfence-direction-x && active-posts < 2
 		Sequence: disabled-x
+		Name: Body1
 	WithSpriteBody@YDISABLED:
 		RequiresCondition: laserfence-direction-y && active-posts < 2
 		Sequence: disabled-y
+		Name: Body2
 	BlocksProjectiles:
 		RequiresCondition: active-posts == 2
 	DamageMultiplier: # Prevent all normal damage, but still allows direct kills from the post
@@ -1165,9 +1169,11 @@ TRNSPORT:
 		HP: 9000
 	WithFacingSpriteBody:
 		RequiresCondition: !loaded
+		Name: Body
 	WithFacingSpriteBody@attack:
 		Sequence: idle2
 		RequiresCondition: loaded
+		Name: Body1
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250

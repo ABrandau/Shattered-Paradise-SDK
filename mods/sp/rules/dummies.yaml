@@ -158,11 +158,8 @@ IONBEAMTARGET:
 		StartIfBelow: 200
 	Targetable:
 		TargetTypes: IonSpawner
-	Selectable:
-		Bounds: 1,1
 	ShakeOnDeath:
-	RejectsOrders@berserk:
-		RequiresCondition: !lawea
+	RejectsOrders:
 	RevealsShroud:
 		Range: 3c0
 	RenderSprites:
@@ -212,59 +209,80 @@ IONBEAMMINI:
 	WithDeathAnimation:
 		DeathSequencePalette: effectalpha
 		DeathPaletteIsPlayerPalette: false
-	RejectsOrders@berserk:
-		RequiresCondition: !lawea
+	RejectsOrders:
 	RenderSprites:
 		Palette: effectalpha
-	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
 	WithSpriteBody:
 		Sequence: beamsky
+		Name: body0
 	WithSpriteBody@1:
 		Sequence: beamsky2
+		Name: body1
 	WithSpriteBody@2:
 		Sequence: beamsky3
+		Name: body2
 	WithSpriteBody@3:
 		Sequence: beamsky4
+		Name: body3
 	WithSpriteBody@4:
 		Sequence: beamsky5
+		Name: body4
 	WithSpriteBody@5:
 		Sequence: beamsky6
+		Name: body5
 	WithSpriteBody@6:
 		Sequence: beamsky7
+		Name: body6
 	WithSpriteBody@7:
 		Sequence: beamsky8
+		Name: body7
 	WithSpriteBody@8:
 		Sequence: beamsky9
+		Name: body8
 	WithSpriteBody@9:
 		Sequence: beamsky10
+		Name: body9
 	WithSpriteBody@10:
 		Sequence: beamsky10
+		Name: body10
 	WithSpriteBody@12:
 		Sequence: beamsky11
+		Name: body11
 	WithSpriteBody@13:
 		Sequence: beamsky12
+		Name: body12
 	WithSpriteBody@14:
 		Sequence: beamsky13
+		Name: body13
 	WithSpriteBody@15:
 		Sequence: beamsky14
+		Name: body14
 	WithSpriteBody@16:
 		Sequence: beamsky15
-	WithSpriteBody@17:
+		Name: body15
+	WithSpriteBody@16:
 		Sequence: beamsky16
-	WithSpriteBody@18:
+		Name: body16
+	WithSpriteBody@17:
 		Sequence: beamsky17
-	WithSpriteBody@19:
+		Name: body17
+	WithSpriteBody@18:
 		Sequence: beamsky18
-	WithSpriteBody@20:
+		Name: body18
+	WithSpriteBody@19:
 		Sequence: beamsky19
-	WithSpriteBody@21:
+		Name: body19
+	WithSpriteBody@20:
 		Sequence: beamsky20
-	WithSpriteBody@22:
+		Name: body20
+	WithSpriteBody@21:
 		Sequence: muzzle
-	WithSpriteBody@23:
+		Name: body21
+	WithSpriteBody@22:
 		Sequence: muzzle2
+		Name: body22
 	ExplodeWeapon:
 		Weapon: IonScorch
 	HiddenUnderFog:
@@ -292,8 +310,7 @@ IONBEAMROAMER:
 		Voice: Attack
 	AttackMove:
 	AttackWander:
-	RejectsOrders@berserk:
-		RequiresCondition: !lawea
+	RejectsOrders:
 	RenderSprites:
 		Image: ionbeam
 		Palette: effectalpha

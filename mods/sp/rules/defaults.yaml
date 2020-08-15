@@ -625,8 +625,6 @@
 		ZOffset: 512
 	ExternalCondition@empdisable:
 		Condition: empdisable
-	ExternalCondition@notmobile:
-		Condition: notmobile
 
 ^EmpDisableMobile:
 	Inherits: ^EmpDisable
@@ -716,7 +714,7 @@
 		Sequence: shield
 		IsPlayerPalette: true
 		Palette: cloakscrinshield
-		RequiresCondition: VanguardShield && BreakShield <= 4 && !submerged
+		RequiresCondition: VanguardShield && BreakShield <= 4
 	ExternalCondition@VanguardShield:
 		Condition: VanguardShield
 	ExternalCondition@BreakShield:
@@ -745,7 +743,7 @@
 		Condition: smoketrail
 		ValidDamageStates: Critical
 	SmokeParticleEmitter:
-		RequiresCondition: smoketrail && !cloakgenerator && !inside-tunnel
+		RequiresCondition: smoketrail
 		Sequences: idle
 		SpawnFrequency: 3, 10
 		Speed: 32
@@ -762,7 +760,7 @@
 		Condition: spawnsparks
 		ValidDamageStates: Critical, Heavy
 	ExplodeWeapon@spawnsparks:
-		RequiresCondition: spawnsparks && !cloakgenerator && !inside-tunnel
+		RequiresCondition: spawnsparks
 		Weapon: SparkSpawner
 	ExternalCondition@spawnsparks:
 		Condition: spawnsparks
@@ -772,7 +770,7 @@
 		Condition: SpawnFire
 		ValidDamageStates: Critical, Heavy
 	ExplodeWeapon@SpawnFire:
-		RequiresCondition: SpawnFire && !cloakgenerator
+		RequiresCondition: SpawnFire
 		Weapon: BuildingCriticalDamageFireSpawner
 		ResetReloadWhenEnabled: False
 	ExternalCondition@SpawnFire:
@@ -917,10 +915,12 @@
 	GrantConditionOnBotOwner@AIShattered:
 		Condition: AIShattered
 		Bots: ShatteredAI
+
 ^AImicroManagable:
 	GrantConditionOnBotOwner@AImicroManage:
 		Condition: AImicroManage
 		Bots: EasyAI, CheaterAI, ShatteredAI
+
 ^AIbuildingMicroControl:
 	GrantConditionOnBotOwner@AIbuildingMicroControl:
 		Condition: AIbuildingMicroControl
@@ -931,6 +931,7 @@
 	ProvidesPrerequisite@fixUndeployDracheBug:
 		RequiresCondition: AIbuildingMicroControl
 		Prerequisite: fixUndeployDracheBug
+
 ^GenericEffects:
 	Inherits@0: ^KillSelf
 	Inherits@1: ^Cloakable
@@ -950,6 +951,12 @@
 	Inherits@1: ^EmpDisable
 	Inherits@2: ^SpawnSmoke
 	Inherits@3: ^SpawnSpark
+	SmokeParticleEmitter:
+		RequiresCondition: smoketrail && !cloakgenerator
+	ExplodeWeapon@spawnsparks:
+		RequiresCondition: spawnsparks && !cloakgenerator
+	ExplodeWeapon@SpawnFire:
+		RequiresCondition: SpawnFire && !cloakgenerator
 
 ^InfantryEffects:
 	Inherits: ^GenericEffects
@@ -989,6 +996,10 @@
 	Inherits@16: ^ToxinTrooperDebuff
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
+	SmokeParticleEmitter:
+		RequiresCondition: smoketrail && !cloakgenerator && !inside-tunnel
+	ExplodeWeapon@spawnsparks:
+		RequiresCondition: spawnsparks && !cloakgenerator && !inside-tunnel
 
 ^AircraftEffects:
 	Inherits: ^GenericEffects
@@ -997,6 +1008,13 @@
 	Inherits@3: ^SpawnSpark
 	Inherits@4: ^GetsOneShotedbySuperweapons
 	Inherits@5: ^MindControllable
+	Inherits@6: ^FullHealthRepairCondition
+	Targetable@FullHealth:
+		RequiresCondition: FullHealth
+	SmokeParticleEmitter:
+		RequiresCondition: smoketrail && !cloakgenerator
+	ExplodeWeapon@spawnsparks:
+		RequiresCondition: spawnsparks && !cloakgenerator
 
 ^ProducesStuff:
 	WithTextDecoration@primary:
@@ -1215,8 +1233,6 @@
 		Palette: terraindecoration
 	MapEditorData:
 		Categories: Civilian Structure
-	ExternalCondition@CLOAKGENERATOR:
-		Condition: cloakgenerator
 	-GrantConditionOnDamageState@SpawnFire:
 	-ExplodeWeapon@SpawnFire:
 	-ExternalCondition@SpawnFire:
@@ -1308,7 +1324,6 @@
 	Inherits@4: ^InfantryShape
 	Inherits@5: ^5CellVision
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
-	Inherits@AImicroManagable: ^AImicroManagable
 	ActorLostNotification:
 	SharedPassenger:
 		CargoType: Infantry
@@ -1451,8 +1466,6 @@
 			BlackHandRfle: blood1, blood2, blood3, blood4, blood5
 			HeadshotDeath: blood1, blood2, blood3, blood4, blood5
 			SmallExplosionDeath: blood1, blood2, blood3, blood4, blood5
-			EnergyDeath: blood1, blood2, blood3, blood4, blood5
-			ExplosionDeath: blood1, blood2, blood3, blood4, blood5
 	WithTextControlGroupDecoration:
 
 ^Soldier:
@@ -1460,6 +1473,7 @@
 	Inherits@2: ^Cloakable
 	Inherits@4: ^AutoTargetGroundAssaultMove
 	Inherits@5: ^5CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	MustBeDestroyed:
 	TakeCover:
 		DamageModifiers:
@@ -1934,6 +1948,8 @@
 		SubterraneanTransitionImage: dig
 		SubterraneanTransitionSequence: idle
 		SubterraneanTransitionSound: subdril1.aud
+	WithIdleOverlay@shield:
+		RequiresCondition: VanguardShield && BreakShield <= 4 && !submerged
 
 ^CivilianVoxelVehicle:
 	Inherits: ^VoxelVehicle
@@ -1953,8 +1969,6 @@
 	Inherits@3: ^ExistsInWorld
 	Inherits@4: ^VehicleShape
 	Inherits@5: ^10CellVision
-	Inherits@6: ^Cloakable
-	Inherits@5: ^FullHealthRepairCondition
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	Inherits@AImicroManagable: ^AImicroManagable
 	DrawLineToTarget:
