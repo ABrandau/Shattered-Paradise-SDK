@@ -1786,15 +1786,39 @@ CACRSH04:
 CACRSH05:
 	Inherits: CACRSH01
 
-FLAGNEUTRAL:
+FLAGNOD:
 	Inherits: CACRSH01
+	RenderSprites:
+		Palette: unittemred
+	Tooltip:
+		Name: Flag
+
+FLAGMUT:
+	Inherits: FLAGNOD
+	RenderSprites:
+		Palette: unittemgreen
+
+FLAGSCR:
+	Inherits: FLAGNOD
+	RenderSprites:
+		Palette: unittempurp
+
+FLAGCAB:
+	Inherits: FLAGNOD
+	RenderSprites:
+		Palette: unittemblue
+
+FLAGGDI:
+	Inherits: FLAGNOD
 	RenderSprites:
 		Palette: player
 
-FLAGGDI:
-	Inherits: FLAGNEUTRAL
+FLAGNEUTRAL:
+	Inherits: ^TechBuilding
 	RenderSprites:
-		Palette: player
+		PlayerPalette: unittemremapplayer
+	Tooltip:
+		Name: Flag
 
 CAHOSP:
 	Inherits: ^TechBuilding
