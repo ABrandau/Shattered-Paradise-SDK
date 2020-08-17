@@ -175,6 +175,7 @@ JUMPJETAIR:
 		HP: 11000
 	Armament@1:
 		Weapon: JJGrenade
+		LocalOffset: 300,0,1000
 	Transforms:
 		IntoActor: jumpjet
 	Armor:
@@ -183,6 +184,7 @@ JUMPJETAIR:
 		RequiresCondition: !JJBuff
 		Sequence: run
 	WithFacingSpriteBody@attack:
+		Name: Body1
 		Sequence: shoot
 		RequiresCondition: JJBuff
 	-Repairable:
@@ -211,13 +213,14 @@ JUMPJETAIR:
 	Targetable@AIRBORNE:
 		TargetTypes: Air, Helicopter, Jumpjet
 		RequiresCondition: airborne
+	TimedConditionBar@powershot:
+		Condition: JJBuff
+		Color: FFFFFF
 	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
 		AttackType: Hover
-	Armament@SelfBuff:
-		Weapon: JJBuff
-	ExternalCondition@JJBuff:
+	GrantConditionOnAttack:
 		Condition: JJBuff
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:

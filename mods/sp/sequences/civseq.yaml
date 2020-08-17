@@ -334,6 +334,29 @@ aban17:
 aban18:
 	Inherits: ^aban1x1
 
+streetsigns:
+	idle:
+	turret:
+		Facings: 32
+		ShadowStart: 40
+
+streetsigns2:
+	idle: streetsigns
+	turret: streetsigns
+		Start: 32
+		Facings: 8
+		ShadowStart: 72
+
+trafficlights:
+	idle:
+	turret:
+		Facings: 4
+		ShadowStart: 8
+	damaged-turret:
+		Start: 4
+		Facings: 4
+		ShadowStart: 12
+
 tiberumbillboard:
 	Defaults:
 		Offset: -24, -24, 24
@@ -417,6 +440,49 @@ bboard15:
 
 bboard16:
 	Inherits: ^bboard2x1
+
+billboardwater:
+	Defaults:
+	idle:
+		ShadowStart: 2
+	damaged-idle:
+		Start: 1
+		ShadowStart: 3
+
+billboardtibbux:
+	Defaults:
+	idle:
+		ShadowStart: 2
+	damaged-idle:
+		Start: 1
+		ShadowStart: 3
+
+fountain:
+	Defaults:
+	idle:
+		Length: 50
+		ShadowStart: 51
+	damaged-idle:
+		Start: 50
+		ShadowStart: 101
+
+fountaintib:
+	Defaults: fountain
+	idle: fountain
+		Length: 50
+		ShadowStart: 51
+	damaged-idle: fountain
+		Start: 50
+		ShadowStart: 101
+
+fountainblood:
+	Defaults: fountain
+	idle: fountain
+		Length: 50
+		ShadowStart: 51
+	damaged-idle: fountain
+		Start: 50
+		ShadowStart: 101
 
 ^cabase:
 	Defaults:

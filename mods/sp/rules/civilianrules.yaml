@@ -1216,6 +1216,39 @@ ABAN18:
 	MapEditorData:
 		ExcludeTilesets: TEMPERATE
 
+FOUNTAIN:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^2x2Shape
+	Tooltip:
+		Name: Fountain
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	RenderSprites:
+		Palette: unittemblue
+
+FOUNTAINTIB:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^2x2Shape
+	Tooltip:
+		Name: Fountain
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	RenderSprites:
+		Palette: unittemgreen
+
+FOUNTAINBLOOD:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^2x2Shape
+	Tooltip:
+		Name: Fountain
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	RenderSprites:
+		Palette: unittemred
+
 AMMOCRAT:
 	Inherits: ^CivBuilding
 	Tooltip:
@@ -1227,17 +1260,6 @@ AMMOCRAT:
 		Type: none
 	Health:
 		HP: 1
-	RenderSprites:
-		Palette: player
-
-TIBERUMBILLBOARD:
-	Inherits: ^CivBillboard
-	Inherits@1: ^3x1Shape
-	Tooltip:
-		Name: TibeRUM, Mutants love it!!
-	Building:
-		Dimensions: 3,1
-		Footprint: xxx
 	RenderSprites:
 		Palette: player
 
@@ -1362,6 +1384,31 @@ BBOARD16:
 	Building:
 		Footprint: xx
 		Dimensions: 2, 1
+
+TIBERUMBILLBOARD:
+	Inherits: ^CivBillboard
+	Inherits@1: ^3x1Shape
+	Tooltip:
+		Name: TibeRUM, Mutants love it!!
+	Building:
+		Dimensions: 3,1
+		Footprint: xxx
+	RenderSprites:
+		Palette: player
+
+BILLBOARDWATER:
+	Inherits: ^CivBillboard
+	Tooltip:
+		Name: Drink Water!
+	RenderSprites:
+		Palette: unittemgreen
+
+BILLBOARDTIBBUX:
+	Inherits: ^CivBillboard
+	Tooltip:
+		Name: Get Tibbux: Charm Girls
+	RenderSprites:
+		Palette: unittemgreen
 
 CA0001:
 	Inherits: ^CivBuilding
@@ -3113,8 +3160,17 @@ CONTAINER5:
 		Footprint: xx xx
 		Dimensions: 2,2
 
-CONTAINER2X2:
+^FakeTurretedProp:
 	Inherits: ^CivBuilding
+	-WithSpriteBody:
+	WithSpriteTurret:
+	Turreted:
+	Armament:
+		Weapon: LightTowerClaxon
+	AttackTurreted:
+
+CONTAINER2X2:
+	Inherits@1: ^FakeTurretedProp
 	Inherits@2: ^1x2Shape
 	Building:
 		Footprint: xx xx
@@ -3127,12 +3183,6 @@ CONTAINER2X2:
 		Type: BuildingArmor
 	RenderSprites:
 		Palette: player
-	-WithSpriteBody:
-	WithSpriteTurret:
-	Turreted:
-	Armament:
-		Weapon: LightTowerClaxon
-	AttackTurreted:
 
 CONTAINER1X2:
 	Inherits: ^CivBuilding
@@ -3188,6 +3238,42 @@ CONTAINERDIAGONAL:
 CONTAINERDIAGONALSTACKED:
 	Inherits: CONTAINERDIAGONAL
 
+STREETSIGNS:
+	Inherits@1: ^FakeTurretedProp
+	Tooltip:
+		Name: Street signs
+	RenderSprites:
+		Palette: unittemred
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	Crushable:
+		CrushClasses: infantry
+
+STREETSIGNS2:
+	Inherits@1: ^FakeTurretedProp
+	Tooltip:
+		Name: Street signs
+	RenderSprites:
+		Palette: unittemred
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	Crushable:
+		CrushClasses: infantry
+
+TRAFFICLIGHTS:
+	Inherits@1: ^FakeTurretedProp
+	Tooltip:
+		Name: Traffic Light
+	RenderSprites:
+		Palette: unittemred
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	Crushable:
+		CrushClasses: infantry
+
 CONSTRUCTIONBARRIER:
 	Inherits: ^CivBuilding
 	Inherits@2: ^1x1Shape
@@ -3202,7 +3288,6 @@ CONSTRUCTIONBARRIER:
 		Type: BuildingArmor
 	RenderSprites:
 		Palette: player
-
 
 CONSTRUCTIONBARRIER2:
 	Inherits: CONSTRUCTIONBARRIER
