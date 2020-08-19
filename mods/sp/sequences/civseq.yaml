@@ -460,29 +460,26 @@ billboardtibbux:
 fountain:
 	Defaults:
 	idle:
-		Length: 50
-		ShadowStart: 51
+		ShadowStart: 2
 	damaged-idle:
-		Start: 50
-		ShadowStart: 101
+		Start: 2
+		ShadowStart: 3
+	water: fountainwater
+		Length: *
 
 fountaintib:
+	Inherits: fountain
 	Defaults: fountain
 	idle: fountain
-		Length: 50
-		ShadowStart: 51
-	damaged-idle: fountain
-		Start: 50
-		ShadowStart: 101
+	damaged-idle:
+	water: fountainwater
 
 fountainblood:
+	Inherits: fountain
 	Defaults: fountain
 	idle: fountain
-		Length: 50
-		ShadowStart: 51
-	damaged-idle: fountain
-		Start: 50
-		ShadowStart: 101
+	damaged-idle:
+	water: fountainwater
 
 ^cabase:
 	Defaults:
@@ -1501,6 +1498,19 @@ radiotower:
 		Start: 1
 		ShadowStart: 3
 
+signaltower:
+	Defaults:
+		Offset: 0, -12, 48
+		DepthSpriteOffset: 0, 0
+	idle:
+		ShadowStart: 3
+	damaged-idle:
+		Start: 1
+		ShadowStart: 4
+	dead:
+		Start: 2
+		ShadowStart: 5
+
 tankbarrier:
 	Defaults:
 		Offset: 0, -12, 48
@@ -1641,6 +1651,36 @@ constructionbarrier2:
 	idle: constructionbarrier
 		Start: 1
 		ShadowStart: 3
+
+bench:
+	Defaults:
+		Offset: 0, -12, 12
+	idle:
+	turret:
+		ShadowStart: 4
+		Facings: 4
+
+lightpost4x4:
+	Defaults:
+		Offset: 0, 0, 12
+	idle:
+		ShadowStart: 2
+	damaged-idle:
+		Start: 1
+		ShadowStart: 3
+
+
+busstop:
+	Defaults:
+		Offset: 0, 0, 12
+	idle:
+	turret:
+		ShadowStart: 8
+		Facings: 4
+	damaged-turret:
+		Start: 4
+		ShadowStart: 8
+		Facings: 4
 
 container2x2:
 	Defaults:

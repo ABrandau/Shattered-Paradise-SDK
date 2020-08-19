@@ -209,357 +209,6 @@ SLAV:
 	WithInfantryBody:
 		AttackSequence: shoot
 
-DOGGIE:
-	Inherits: ^Beast
-	Tooltip:
-		Name: Tiberian Fiend
-	Health:
-		HP: 250
-		Shape: Circle
-			Radius: 213
-	Armor:
-		Type: InfantryArmor
-	-RevealsShroud:
-	-GainsExperience:
-	Mobile:
-		Speed: 120
-		Crushes: nada
-	Voiced:
-		VoiceSet: Fiend
-	Targetable:
-		TargetTypes: Infantry, Ground
-	Armament:
-		Weapon: FiendShard
-	AttackFrontal:
-		Voice: Attack
-		PauseOnCondition: WebDisable
-	AttackWander:
-		WanderMoveRadius: 2
-		MinMoveDelay: 25
-		MaxMoveDelay: 45
-	WithInfantryBody:
-		IdleSequences: idle1
-
-VISC_SML:
-	Inherits: ^Visceroid
-	Tooltip:
-		Name: Baby Visceroid
-	Health:
-		HP: 15000
-	Armor:
-		Type: InfantryArmor
-	AttackWander:
-		WanderMoveRadius: 3
-		MinMoveDelay: 30
-		MaxMoveDelay: 60
-		RequiresCondition: !Evolve
-	Targetable@MindControl:
-		TargetTypes: MindControlInmune
-	RenderSprites:
-		Image: vissml
-	Targetable@ViscMale:
-		TargetTypes: ViscMale
-	Mobile:
-		Crushes: nada
-	TransformOnCondition:
-		IntoActor: visc_lrg
-		RequiresCondition: Transform
-	GrantPeriodicCondition:
-		Condition: Transform
-		CooldownDuration: 1000
-	-AutoTarget:
-	-AutoTargetPriority@DEFAULT:
-	-AutoTargetPriority@ATTACKANYTHING:
-
-VISC_LRG:
-	Inherits: ^Visceroid
-	Tooltip:
-		Name: Adult Visceroid
-	Health:
-		HP: 15000
-	Armor:
-		Type: InfantryArmor
-	RevealsShroud:
-		Range: 4c0
-	Targetable@MindControl:
-		TargetTypes: MindControlInmune
-	Armament:
-		Weapon: SlimeAttack
-		FireDelay: 10
-	AutoTarget:
-		ScanRadius: 5
-	AttackFrontal:
-		Voice: Attack
-	Wanders:
-	WithAttackAnimation:
-		AttackSequence: attack
-	Mobile:
-		Crushes: nada
-	RenderSprites:
-		Image: vislrg
-
-VISC_LRG_SCRIN:
-	Inherits: VISC_LRG
-	Health:
-		HP: 10000
-	-DamagedByTerrain:
-	RejectsOrders:
-	-UpdatesPlayerStatistics:
-	-AppearsOnRadar:
-	EditorOnlyTooltip:
-		Name: Visceroid Hive Visc (Do not place in editor)
-	Targetable@MindControl:
-		TargetTypes: MindControlInmune
-	AutoTarget:
-		ScanRadius: 5
-		InitialStance: AttackAnything
-	ChangesHealth:
-		PercentageStep: -10
-		Step: 0
-		Delay: 50
-		StartIfBelow: 200
-	RenderSprites:
-		Image: vislrg
-
-ZOMBIE:
-	Inherits: ^Mutant
-	Tooltip:
-		Name: Haunt
-	-GainsExperience:
-	Valued:
-		Cost: 50
-	Health:
-		HP: 7500
-		Shape: Circle
-			Radius: 213
-	RevealsShroud:
-		Range: 4c0
-	Explodes:
-		Weapon: ZombieExplosion
-		EmptyWeapon: ZombieExplosion
-		Chance: 80
-	AutoTarget:
-		ScanRadius: 3
-	Mobile:
-		Speed: 55
-		Crushes: nada
-	-SpawnActorOnDeath@conversion:
-	-TakeCover:
-	Voiced:
-		VoiceSet: Fiend
-	Targetable:
-		TargetTypes: Ground, Infantry, NeutralTibCritter
-	Armament:
-		Weapon: SlimeAttack
-	WithInfantryBody:
-		AttackSequence: shoot
-	AttackFrontal:
-		Voice: Attack
-		PauseOnCondition: WebDisable
-	AttackWander:
-		WanderMoveRadius: 2
-		MinMoveDelay: 25
-		MaxMoveDelay: 45
-	-SpawnActorOnDeath@tiberium:
-	-DamagedByTintedCells@Default:
-	TransformOnCondition:
-		IntoActor: berserker
-		RequiresCondition: Transform
-	GrantPeriodicCondition:
-		Condition: Transform
-		CooldownDuration: 1000
-	AutoTargetPriority@DEFAULT:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
-	AutoTargetPriority@ATTACKANYTHING:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
-
-BERSERKER:
-	Inherits: ^Mutant
-	Inherits@1: ^MutRender
-	Tooltip:
-		Name: Berserker
-	-GainsExperience:
-	Valued:
-		Cost: 100
-	Health:
-		HP: 20000
-		Shape: Circle
-			Radius: 213
-	RevealsShroud:
-		Range: 5c0
-	-SpawnActorOnDeath@conversion:
-	ChangesHealth:
-		PercentageStep: 1
-		Step: 0
-		Delay: 200
-	Mobile:
-		Speed: 100
-		Crushes: nada
-		SharesCell: False
-	Armor:
-		Type: VehicleArmor
-	-Crushable:
-	Voiced:
-		VoiceSet: Fiend
-	-TakeCover:
-	Targetable:
-		TargetTypes: Infantry, Ground, NeutralTibCritter
-	Armament:
-		Weapon: BerserkerBlow
-	AutoTarget:
-		ScanRadius: 4
-	WithInfantryBody:
-		AttackSequence: shoot
-		IdleSequences: idle1, idle2, idle3
-		PauseOnCondition: WebDisable
-	AttackFrontal:
-		Voice: Attack
-	AttackWander:
-		WanderMoveRadius: 1
-		ReduceMoveRadiusDelay: 5
-		MinMoveDelay: 100
-		MaxMoveDelay: 200
-	-SpawnActorOnDeath@tiberium:
-	-DamagedByTintedCells@Default:
-	AutoTargetPriority@DEFAULT:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
-	AutoTargetPriority@ATTACKANYTHING:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
-
-CRAB:
-	Inherits: ^Beast
-	Inherits@1: ^MutRender
-	EditorOnlyTooltip:
-		Name: Queen Crab (Dies after some time)
-	Tooltip:
-		Name: Crab
-	Valued:
-		Cost: 50
-	-GainsExperience:
-	-DamagedByTintedCells@Default:
-	Health:
-		HP: 17000
-		Shape: Circle
-			Radius: 213
-	Armor:
-		Type: InfantryArmor
-	RevealsShroud:
-		Range: 8c0
-	AutoTarget:
-		ScanRadius: 7
-		InitialStance: AttackAnything
-	-SpawnActorOnDeath@conversion:
-	-Crushable:
-	Mobile:
-		Speed: 50
-		Crushes: nada
-	Voiced:
-		VoiceSet: Fiend
-	Targetable:
-		TargetTypes: Infantry, Ground, NeutralTibCritter, MCImmune
-	Armament:
-		Weapon: CrabAcid
-	WithInfantryBody:
-		AttackSequence: shoot
-		IdleSequences: Idle1, Idle2
-		PauseOnCondition: WebDisable
-	GrantPeriodicCondition:
-		Condition: SpawnCrabs
-		CooldownDuration: 2250
-	ChangesHealth@crab:
-		PercentageStep: -100
-		Step: 0
-		Delay: 50
-		StartIfBelow: 150
-		RequiresCondition: SpawnCrabs
-	AttackFrontal:
-		Voice: Attack
-	AttackWander:
-		WanderMoveRadius: 5
-		ReduceMoveRadiusDelay: 1
-		MinMoveDelay: 25
-		MaxMoveDelay: 100
-	AutoTargetPriority@DEFAULT:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
-	AutoTargetPriority@ATTACKANYTHING:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
-
-PERMACRAB:
-	Inherits: CRAB
-	EditorOnlyTooltip:
-		Name: Permanent Crab
-	RenderSprites:
-		Image: crab
-	-GrantPeriodicCondition:
-	-ChangesHealth@crab:
-	ChangesHealth@ELITE:
-		PercentageStep: 5
-		Delay: 75
-		StartIfBelow: 100
-		DamageCooldown: 300
-	AutoTargetPriority@DEFAULT:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
-	AutoTargetPriority@ATTACKANYTHING:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
-
-FLOATER:
-	Inherits: ^HoverVehicle
-	Inherits@1: ^AutoTargetGroundAssaultMove
-	Tooltip:
-		Name: Floater
-	Health:
-		HP: 10000
-		Shape: Circle
-			Radius: 213
-	Valued:
-		Cost: 100
-	Armor:
-		Type: VehicleArmor
-	RevealsShroud:
-		Range: 5c0
-	ExplodeWeapon:
-		Weapon: FloaterCloudSpawn
-	QuantizeFacingsFromSequence:
-		Sequence: stand
-	-WithFacingSpriteBody:
-	WithSpriteBody:
-	Mobile:
-		Speed: 100
-		Crushes: nada
-	Voiced:
-		VoiceSet: Fiend
-	Targetable:
-		TargetTypes: Infantry, Ground, NeutralTibCritter, CloudInmune
-	Armament:
-		Weapon: Tentacle
-	AutoTarget:
-		ScanRadius: 6
-	WithAttackAnimation:
-		AttackSequence: attack
-	Explodes:
-		Weapon: UnitExplodeSmall
-		EmptyWeapon: UnitExplodeSmall
-	AttackFrontal:
-		Voice: Attack
-	AttackWander:
-		WanderMoveRadius: 1
-		ReduceMoveRadiusDelay: 5
-		MinMoveDelay: 100
-		MaxMoveDelay: 200
-	-DamagedByTintedCells@Default:
-	-DamagedByTintedCells@OrangeRadiation:
-	AutoTargetPriority@DEFAULT:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
-	AutoTargetPriority@ATTACKANYTHING:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
-
-jfish:
-	Inherits: FLOATER
-	RenderSprites:
-		Image: floater
-	EditorOnlyTooltip:
-		Name: Duplicated Floater (It helps avoid map inportation issues)
-
 CIV1:
 	Inherits: ^CivilianInfantry
 	WithInfantryBody:
@@ -3038,13 +2687,22 @@ EGGS:
 RADIOTOWER:
 	Inherits: ^CivBuilding
 	Tooltip:
-		Name: Communications Tower
+		Name: Radio Tower
 	Health:
-		HP: 20000
+		HP: 15000
 	Armor:
 		Type: BuildingArmor
 	RenderSprites:
 		Palette: player
+
+SIGNALTOWER:
+	Inherits: RADIOTOWER
+	Tooltip:
+		Name: Communications Tower
+	Health:
+		HP: 30000
+
+
 
 TANKBARRIER:
 	Inherits: ^CivBuilding
@@ -3271,6 +2929,49 @@ TRAFFICLIGHTS:
 	Building:
 		Footprint: x
 		Dimensions: 1, 1
+	Crushable:
+		CrushClasses: infantry
+
+BENCH:
+	Inherits@1: ^FakeTurretedProp
+	Tooltip:
+		Name: Bench
+	Health:
+		HP: 2500
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	RenderSprites:
+		Palette: player
+	Crushable:
+		CrushClasses: infantry
+	Armor:
+		Type: BuildingArmor
+
+BUSSTOP:
+	Inherits: BENCH
+	Tooltip:
+		Name: Bus Stop
+	Health:
+		HP: 15000
+	Armor:
+		Type: BuildingArmor
+	RenderSprites:
+		Palette: player
+	Crushable:
+		CrushClasses: infantry
+
+LIGHTPOST4x4:
+	Inherits: ^CivBuilding
+	Inherits@2: ^1x1Shape
+	Tooltip:
+		Name: Bus Stop
+	Health:
+		HP: 15000
+	Armor:
+		Type: BuildingArmor
+	RenderSprites:
+		Palette: player
 	Crushable:
 		CrushClasses: infantry
 

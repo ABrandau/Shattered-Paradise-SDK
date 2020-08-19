@@ -1,0 +1,33 @@
+TDREFINERY:
+    Inherits: FLIPPEDXPROC
+	Building:
+		Footprint: xxx xxx X=X ===
+    WithIdleOverlay@anim:
+        Sequence: anim
+        Palette: player
+    WithIdleOverlay@animb:
+        Sequence: animb
+        Palette: player
+    WithIdleOverlay@animd:
+        Sequence: animd
+        Palette: player
+	-WithIdleOverlay@REDLIGHTS:
+	-WithIdleOverlay@BIB:
+	-WithDockedOverlay@flame:
+	-FreeActor:
+	Tooltip:
+		Name: Old refinery
+
+ADVHQ:
+    Inherits: ^Radar
+	ProvidesPrerequisite:
+		Prerequisite: radar
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Tooltip:
+		Name: Old Advanced Radar
+    WithIdleOverlay@anim:
+        Sequence: anima
+    WithIdleOverlay@anim:
+        Sequence: animb
