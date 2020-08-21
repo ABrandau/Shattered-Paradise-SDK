@@ -22,7 +22,6 @@
 	Interactable:
 	RenderSprites:
 		Image: dot
-	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
 
@@ -69,46 +68,11 @@ NukeCrateDummy:
 		AllowMultiple: True
 
 HealerNukeDummy:
-	Inherits: ^DUMMYAIRCRAFT
-	-RevealsShroud:
+	Inherits: NukeCrateDummy
 	NukePower@CrateNuke:
-		Cursor: nuke
-		Icon: clustermissile
-		ChargeInterval: 9000
-		Description: Atomic Bomb
-		LongDesc: Launches a conventional warhead at a target location.\n\nSpecial:\n- Instant kills ground units and aircraft
-		BeginChargeSound:
-		EndChargeSound: SuperWeaponReady
-		EndChargeSpeechNotification: SuperWeaponReady
-		SelectTargetSound:
 		InsufficientPowerSound:
 		MissileWeapon: HealerNuke
-		LaunchSpeechNotification: SuperweaponFired
-		IncomingSpeechNotification: SuperweaponFired
-		IncomingSound: SuperweaponFired
-		# IncomingSound: incomingnuke.wav
-		LaunchSound: n_swlaunch.aud
-		SpawnOffset: 0,427,0
-		DisplayTimerStances: Ally, Neutral, Enemy
-		DisplayTimer: True
-		DisplayBeacon: True
-		DisplayRadarPing: True
-		MissilePalette: player
-		IsPlayerPalette: True
-		BeaconPoster: minimltiicon
 		OrderName: HealerNuke
-		CameraActor: camera
-		CameraRange: 10c0
-		CameraSpawnAdvance: 25
-		CameraRemoveDelay: 350
-		ArrowSequence: arrow
-		ClockSequence: clock
-		CircleSequence: circles
-		FlightDelay: 200
-		OneShot: True
-		StartFullyCharged: True
-		SkipAscent: True
-		AllowMultiple: True
 
 VISIONACTOR:
 	Inherits: ^DUMMYAIRCRAFT
@@ -409,7 +373,6 @@ NANOMACHINEBURSTDUMMY:
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: KilledUnit
 	AttackOmni:
-		IngoresVisibility: True
 	Armament:
 		Weapon: RecoveryGun
 		TargetStances: Ally, Enemy, Neutral

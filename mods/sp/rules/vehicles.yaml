@@ -1182,6 +1182,7 @@ HOWTLIZER:
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 		RequiresCondition: !CloakBreaks && !empdisable
+		CloakedCondition: cloakgenerator
 	WithIdleOverlay@shield:
 		Sequence: shield
 		IsPlayerPalette: true
@@ -1200,9 +1201,6 @@ HOWTLIZER:
 		PauseOnCondition: empdisable
 		TargetFrozenActors: True
 	-MustBeDestroyed:
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 	GrantConditionOnDamageState@CloakBreaks:
 		Condition: CloakBreaks
 		ValidDamageStates: Critical
@@ -1243,6 +1241,7 @@ STNK:
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 		RequiresCondition: !CloakBreaks && !empdisable
+		CloakedCondition: cloakgenerator
 	Armament:
 		Weapon: StealthRocket
 		LocalOffset: 400,100,300, 400,-100,300
@@ -1268,9 +1267,6 @@ STNK:
 	Voiced:
 		VoiceSet: StealthTankVO
 		Volume: 7
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 
 #####################################################################
 # FORGOTTEN

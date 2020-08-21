@@ -50,9 +50,6 @@ SentinelGun:
 	ReloadDelay: 60
 	Range: 4c0
 	Projectile: InstantHit
-		Image: 120mm
-		Shadow: true
-		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
 		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
@@ -151,7 +148,7 @@ LurkerProj:
 	Range: 10c0
 	Projectile: WarheadTrailProjectile
 		Offsets: 0,128,0 #, 64,96,0, -64,96,0
-		Firemode: Line # try putting "Line" or "Spread" here, "Focus"
+		FireMode: Line # try putting "Line" or "Spread" here, "Focus"
 		Inaccuracy: 0c0
 		Weapon: LurkerHit
 		Speed: 200
@@ -171,12 +168,8 @@ LurkerHit:
 		Speed: 400
 		TrailImage: lurkertrail
 		TrailPalette: playercab
-		HorizontalRateOfTurn: 8
-		RangeLimit: 10c0
-		MaximumLaunchSpeed: 213
 		Blockable: False
 	Warhead@1Dam: SpreadDamage
-		# Spread: 0c190
 		Damage: 11000
 		Versus:
 			InfantryArmor: 100
@@ -340,7 +333,6 @@ DroneHostShell:
 		Image: dronemissilemini
 		TrailImage: small_smoke_trail
 		TrailPalette: effectalpha75
-		RangeLimit: 25
 	Warhead@1Dam: SpreadDamage
 		Spread: 350
 		Damage: 1000
@@ -369,9 +361,8 @@ PalaLazor:
 	Report: avatarlaser0000.wav, avatarlaser0001.wav, avatarlaser0002.wav
 	Projectile: LaserZap
 		Width: 60
-		BeamDuration: 7
 		Color: 0000FF
-		BeamDuration: 20
+		Duration: 20
 		SecondaryBeam: True
 		SecondaryBeamWidth: 30
 		ZOffset: 4000
@@ -385,7 +376,7 @@ PalaLazor:
 
 PalaLazorMute:
 	Inherits: PalaLazor
-	-Report: lastur1.aud
+	-Report:
 
 WaspBullet:
 	Inherits: ^APWarhead
@@ -407,7 +398,7 @@ WaspLasor:
 	Inherits: WaspBullet
 	Projectile: LaserZap
 		Color: 0dc7b8
-		BeamDuration: 20
+		Duration: 20
 		Width: 90
 		SecondaryBeam: True
 		SecondaryBeamWidth: 30
@@ -467,7 +458,6 @@ BasiliskBomb:
 		Inaccuracy: 1c512
 		Image: DRAGON
 		TrailImage: small_smoke_trail
-		HorizontalRateOfTurn: 8
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 250
@@ -590,9 +580,9 @@ CABRAILAA:
 	Inherits: ^AntiAirTurretWeapon
 	Report: railgunfire.wav
 	Projectile: Railgun
-		Width: 75
+		BeamWidth: 75
 		ZOffset: 2047
-		Color: 0008ED
+		BeamColor: 0008ED
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 2500

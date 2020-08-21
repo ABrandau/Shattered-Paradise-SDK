@@ -2,36 +2,6 @@
 # UNUSED
 ###########################################################################
 
-ARMH:
-	Inherits: ^Tank
-	Inherits@1: ^5CellVision
-	Valued:
-		Cost: 1300
-	Tooltip:
-		Name: Beam Cannon
-	Health:
-		HP: 16000
-	Mobile:
-		Speed: 70
-		TurnSpeed: 5
-		Locomotor: Vehicle
-	WithFacingSpriteBody:
-	Armament:
-		Weapon: BCLazor
-		LocalOffset: 600,0,450
-		PauseOnCondition: empdisable
-	AttackFrontal:
-		Voice: Attack
-		PauseOnCondition: empdisable
-	AutoTarget:
-	Voiced:
-		VoiceSet: BeamCannonVO
-		Volume: 3
-	AnnounceOnKillAS:
-		Voice: Kill
-		Interval: 1000
-		OnlyToOwner: True
-
 CABGRINDER:
 	Inherits: ^Building
 	Inherits@1: ^CabRender

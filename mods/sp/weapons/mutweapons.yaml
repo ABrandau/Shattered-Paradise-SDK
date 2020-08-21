@@ -21,7 +21,7 @@ DeployedMarauderShotgun:
 MarauderShotgunInnacurate:
 	Inherits: MarauderShotgun
 	Range: 1c0
-	-Report: shotfire.wav
+	-Report:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1000
 		Versus:
@@ -30,7 +30,7 @@ MarauderShotgunInnacurate:
 			VehicleArmor: 7
 			DefenseArmor: 7
 			ConcreteArmor: 2
-	-Warhead@op: FireShrapnel
+	-Warhead@op:
 
 SkirmisherMortar:
 	Inherits: ^ArtilleryWarhead
@@ -54,7 +54,7 @@ SkirmisherMortar:
 		Spread: 300
 		Damage: 3500
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
-	-Warhead@5Smu: LeaveSmudge
+	-Warhead@5Smu:
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplogreen
 
@@ -69,8 +69,6 @@ FiendShard2:
 		Speed: 800
 		Image: CRYSTAL4
 		Inaccuracy: 512
-		HorizontalRateOfTurn: 40
-		VerticalRateOfTurn: 40
 		Shadow: true
 		LaunchAngle: 60
 		Palette: greentiberium
@@ -94,7 +92,7 @@ FiendShardAA:
 	Inherits@1: ^AARocketWarhead
 	ValidTargets: Air
 	Burst: 6
-	BurstDelay: 2
+	BurstDelays: 2
 	Range: 6c0
 	Projectile: Missile
 		Image: CRYSTAL4
@@ -110,12 +108,10 @@ SeerTesla:
 	ReloadDelay: 125
 	Range: 6c0
 	Report: voltautofire.wav
-	Charges: yes
 	ValidTargets: Ground, Water
 	Projectile: TeslaZap
 		Palette: apolbluealpha
 		Duration: 10
-		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Damage: 7000
 		ValidTargets: Ground, Water
@@ -222,7 +218,7 @@ KnightAcid:
 	Projectile: BulletAS
 		Speed: 250
 		Image: acidall32mini
-		Inaccuracy: 2c0
+		Inaccuracy  : 2c0
 		Palette: apolgreenalpha
 	Warhead@1Dam: SpreadDamage
 		Spread: 256
@@ -240,7 +236,7 @@ KnightAcid:
 KnightAcid2:
 	Inherits: KnightAcid
 	Projectile: BulletAS
-		Innacuracy: 256
+		Inaccuracy: 256
 
 PsykerRay:
 	Inherits: ^FullDamage
@@ -276,11 +272,10 @@ BerserkerBlow:
 	Report: fiend2.aud
 	Projectile: BulletAS
 		Speed: 5c682
-		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath, TiberiumDeath
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		ValidTargets: Ground, Water
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
+		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath, TiberiumDeath
 
 BullAcid:
 	Inherits: ^AcidWarhead
@@ -319,8 +314,8 @@ BullAcid:
 BullAcidJump:
 	Inherits: BullAcid
 	Range: 1c0
-	-Warhead@op: FireShrapnel
-	-Warhead@Acid: GrantExternalCondition
+	-Warhead@op:
+	-Warhead@Acid:
 
 RavagerStrike:
 	Inherits: ^FullDamage
@@ -425,8 +420,8 @@ TiberianRocket:
 
 TiberianRocketClean:
 	Inherits: TiberianRocket
-	-Warhead@3Radio: CreateTintedCells
-	-Warhead@4Eff: CreateEffect
+	-Warhead@3Radio:
+	-Warhead@4Eff:
 	Warhead@2Eff: CreateEffect
 		Explosions: jsclsn16, jsclsn16b, jexplosml, jexplosml
 		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
@@ -596,8 +591,6 @@ GargoylACannon:
 	ValidTargets: Ground, Water
 	InvalidTargets: Air
 	Projectile: BulletAS
-		Speed: 1c682
-		Innacuracy: 0c512
 	Warhead@1Dam: SpreadDamage
 		Damage: 3500
 		Versus:

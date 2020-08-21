@@ -28,7 +28,7 @@ BuildingExplode:
 
 ScrinBuildingExplode:
 	Inherits: BuildingExplode
-	-Warhead@4EffAir: CreateEffect
+	-Warhead@4EffAir:
 	Warhead@4EffAir: CreateEffect
 		Explosions: jtwlt100, jtwlt100b, jtwlt070, jtwlt070b, jstumu42, jstumu42b ,jstumu60, jstumu60b, jbrrlexp1, jsbang34, jsbang34b, jsbang48, jsbang48b, jbrrlexp1b
 		ExplosionPalette: gensmkexplojFblue
@@ -60,8 +60,6 @@ SmallPlaneExplode:
 		ValidTargets: Ground, Air, Water, Airhit
 
 SmallPlaneExplosion:
-	Range: 1c0
-	Min: 0c200
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Mediuml_Clsn
 	Projectile: InstantHit
@@ -83,8 +81,6 @@ DestroyerExplode:
 		ValidTargets: Ground, Air, Water, Airhit
 
 DestroyerExplosion:
-	Range: 1c0
-	Min: 0c400
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_Explosion
 	Projectile: InstantHit
@@ -106,8 +102,6 @@ BattleshipExplode:
 		ValidTargets: Ground, Air, Water, Airhit
 
 BattleshipExplosion:
-	Range: 1c0
-	Min: 0c600
 	Inherits: ^ExploDefaults
 	Inherits@2: ^GreyExplo
 	Projectile: InstantHit
@@ -116,7 +110,7 @@ BattleshipExplosion:
 		Damage: 1
 
 DracheExplode:
-	^Inherits: BattleshipExplode
+	Inherits: BattleshipExplosion
 	Warhead@1Dam: SpreadDamage
 		Damage: 8000
 
@@ -299,9 +293,9 @@ SparkSpawner:
 SparkDebris:
 	Range: 1c0
 	Report:
-	Projectile: BulletAS
+	Projectile: Bullet
 		Speed: 50, 125
-		Innacuracy: 256
+		Inaccuracy: 256
 		LaunchAngle: 150, 250
 		Image: sparkprojectile
 
@@ -310,9 +304,9 @@ SmallDebris:
 	ReloadDelay: 60
 	Range: 4c0
 	Report:
-	Projectile: BulletAS
+	Projectile: Bullet
 		Speed: 50, 125
-		Innacuracy: 256
+		Inaccuracy: 256
 		LaunchAngle: 91, 255
 		Image: dbrissm
 		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
@@ -417,8 +411,8 @@ BuildingCriticalDamageFireSmall:
 		Duration: 250
 		Sequences: fire1, fire2
 		Image: buildingfire
-	-Warhead@2Smu: LeaveSmudge
-	-Warhead@3Eff: CreateEffect
+	-Warhead@2Smu:
+	-Warhead@3Eff:
 
 DefenceCriticalDamageFireSpawner:
 	Inherits: BuildingCriticalDamageFireSpawner

@@ -65,7 +65,7 @@ BlackHandLasor:
 		Blockable: true
 		Color: C80000
 		Width: 0c42
-		BeamDuration: 20
+		Duration: 20
 		ZOffset: 4000
 		SecondaryBeam: true
 		SecondaryBeamWidth: 0c21
@@ -238,6 +238,31 @@ DevilsFlame:
 		Versus:
 			InfantryArmor: 200
 
+BCLazor:
+	Inherits: ^FullDamage
+	Inherits@2: ^Large_Explosion
+	ReloadDelay: 200
+	Burst: 4
+	BurstDelays: 10
+	Range: 12c0
+	Report: laserchaingunfire.wav
+	MinRange: 3c0
+	Projectile: LaserZap
+		Duration: 20
+		Width: 90
+		Color: FA0F0F
+		SecondaryBeam: True
+		SecondaryBeamWidth: 30
+		ZOffset: 4000
+		SecondaryBeamZOffset: 4000
+		SecondaryBeamColor: FFFFFF
+	Warhead@1Dam: SpreadDamage
+		Spread: 200
+		Damage: 4000
+		Versus:
+			BuildingArmor: 150
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+
 FlameHoloShrapnel:
 	Inherits: ^NoDamage
 	ReloadDelay: 300
@@ -283,31 +308,6 @@ TickHologram:
 	Inherits: FlameHologram
 	Warhead@5Actor: SpawnActor
 		Actors: tickhologram
-
-BCLazor:
-	Inherits: ^FullDamage
-	Inherits@2: ^Large_Explosion
-	ReloadDelay: 200
-	Burst: 4
-	BurstDelays: 10
-	Range: 12c0
-	Report: laserchaingunfire.wav
-	MinRange: 3c0
-	Projectile: LaserZap
-		BeamDuration: 20
-		Width: 90
-		Color: FA0F0F
-		SecondaryBeam: True
-		SecondaryBeamWidth: 30
-		ZOffset: 4000
-		SecondaryBeamZOffset: 4000
-		SecondaryBeamColor: FFFFFF
-	Warhead@1Dam: SpreadDamage
-		Spread: 200
-		Damage: 4000
-		Versus:
-			BuildingArmor: 150
-		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
 SpectreCannon:
 	Inherits: ^ArtilleryWarhead
@@ -468,8 +468,8 @@ CerberusLazor:
 	Report: laserchaingunfire.wav
 	ValidTargets: Ground, Water
 	Projectile: LaserZap
-		BeamWidth: 2
-		BeamDuration: 20
+		Width: 2
+		Duration: 20
 		ZOffset: 4000
 		SecondaryBeamZOffset: 4000
 	MinRange: 3c0

@@ -352,15 +352,12 @@
 	SpeedMultiplier@TyrannyBuff:
 		RequiresCondition: TyrannyBuff
 		Modifier: 120
-		BaseLevel: 1
 	ReloadDelayMultiplier@TyrannyBuff:
 		RequiresCondition: TyrannyBuff
 		Modifier: 80
-		BaseLevel: 1
 	DamageMultiplier@TyrannyBuff:
 		RequiresCondition: TyrannyBuff
 		Modifier: 120
-		BaseLevel: 1
 	WithDecoration@TyrannyBuff:
 		Image: tibicon
 		Sequence: idle
@@ -395,7 +392,7 @@
 		Sequence: idle
 		Position: BottomLeft
 		Palette: apgrey
-		ShowToEnemies: true
+		ValidStances: Ally, Enemy
 		RequiresCondition: DisplayWrench
 	ExternalCondition@DisplayWrench:
 		Condition: DisplayWrench
@@ -411,7 +408,7 @@
 		Sequence: idle
 		Position: BottomLeft
 		Palette: mouse
-		ShowToEnemies: true
+		ValidStances: Ally, Enemy
 		RequiresCondition: FirestormWallCondition
 
 ^MindControllable:
@@ -522,7 +519,6 @@
 		Position: BottomLeft
 		Palette: mouse
 		ValidStances: Ally, Enemy
-		ShowToEnemies: true
 		RequiresCondition: hospitalheal
 	ExternalCondition@hospitalheal:
 		Condition: hospitalheal
@@ -540,7 +536,6 @@
 		Position: BottomLeft
 		Palette: mouse
 		ValidStances: Ally, Enemy
-		ShowToEnemies: true
 		RequiresCondition: BarracksHeal
 	ExternalCondition@BarracksHeal:
 		Condition: BarracksHeal
@@ -561,7 +556,6 @@
 		Position: BottomLeft
 		ValidStances: Ally, Enemy
 		Palette: player
-		ShowToEnemies: true
 		RequiresCondition: MachineShopHeal
 
 ^VeinholePoisonVehicle:
@@ -622,7 +616,7 @@
 		Palette: effect
 		RequiresCondition: empdisable
 		ShowToEnemies: true
-		ZOffset: 512
+		Offset: 0,0,512
 	ExternalCondition@empdisable:
 		Condition: empdisable
 
@@ -743,7 +737,7 @@
 		Condition: smoketrail
 		ValidDamageStates: Critical
 	SmokeParticleEmitter:
-		RequiresCondition: smoketrail
+		RequiresCondition: smoketrail && !DisableSmoke
 		Sequences: idle
 		SpawnFrequency: 3, 10
 		Speed: 32
@@ -754,27 +748,33 @@
 		Duration: 100
 	ExternalCondition@smoketrail:
 		Condition: smoketrail
+	ExternalCondition@DisableSmoke:
+		Condition: DisableSmoke
 
 ^SpawnSpark:
 	GrantConditionOnDamageState@spawnsparks:
 		Condition: spawnsparks
 		ValidDamageStates: Critical, Heavy
 	ExplodeWeapon@spawnsparks:
-		RequiresCondition: spawnsparks
+		RequiresCondition: spawnsparks && !DisableSparks
 		Weapon: SparkSpawner
 	ExternalCondition@spawnsparks:
 		Condition: spawnsparks
+	ExternalCondition@DisableSparks:
+		Condition: DisableSparks
 
 ^SpawnFire:
 	GrantConditionOnDamageState@SpawnFire:
 		Condition: SpawnFire
 		ValidDamageStates: Critical, Heavy
 	ExplodeWeapon@SpawnFire:
-		RequiresCondition: SpawnFire
+		RequiresCondition: SpawnFire && !DisableSpawnFire
 		Weapon: BuildingCriticalDamageFireSpawner
 		ResetReloadWhenEnabled: False
 	ExternalCondition@SpawnFire:
 		Condition: SpawnFire
+	ExternalCondition@DisableSpawnFire:
+		Condition: DisableSpawnFire
 
 ^DamagedByTintedCells: #Damage = DamageCoeff * RadioactivityLevel / MaxLevel
 	DamagedByTintedCells@Default:
@@ -858,11 +858,13 @@
 
 ^FullHealthRepairCondition:
 	Targetable@FullHealth:
-		RequiresCondition: !inside-tunnel && FullHealth
+		RequiresCondition: !DisableFullHealthRepairCondition && FullHealth
 		TargetTypes: FullHealth
 	GrantConditionOnDamageState@FullHealth:
 		Condition: FullHealth
 		ValidDamageStates: Undamaged
+	ExternalCondition@DisableFullHealthRepairCondition:
+		Condition: DisableFullHealthRepairCondition
 
 ^UsesAmmunition:
 	AmmoPool:
@@ -880,15 +882,15 @@
 		RequiresSelection: true
 
 ^AIBuffCheat:
-	GrantConditionOnBotOwner@AIBuffCheat:
-		Condition: AIBuffCheat
+	GrantConditionOnBotOwner@AImicroManage:
+		Condition: AImicroManage
 		Bots: CheaterAI, ShatteredAI
 	FirepowerMultiplier@AIBuffCheat:
-		RequiresCondition: AIBuffCheat
-		Modifier: 110
+		RequiresCondition: AImicroManage
+		Modifier: 105
 	DamageMultiplier@AIBuffCheat:
-		RequiresCondition: AIBuffCheat
-		Modifier: 90
+		RequiresCondition: AImicroManage
+		Modifier: 95
 
 ^AICashCheat:
 	CashTrickler@AICashDevour:
@@ -951,12 +953,15 @@
 	Inherits@1: ^EmpDisable
 	Inherits@2: ^SpawnSmoke
 	Inherits@3: ^SpawnSpark
-	SmokeParticleEmitter:
-		RequiresCondition: smoketrail && !cloakgenerator
-	ExplodeWeapon@spawnsparks:
-		RequiresCondition: spawnsparks && !cloakgenerator
-	ExplodeWeapon@SpawnFire:
-		RequiresCondition: SpawnFire && !cloakgenerator
+	GrantCondition@CloakDisableSparks:
+		Condition: DisableSparks
+		RequiresCondition: cloakgenerator
+	GrantCondition@CloakDisableSmoke:
+		Condition: DisableSmoke
+		RequiresCondition: cloakgenerator
+	GrantCondition@DisableSpawnFire:
+		Condition: DisableSpawnFire
+		RequiresCondition: cloakgenerator
 
 ^InfantryEffects:
 	Inherits: ^GenericEffects
@@ -975,6 +980,9 @@
 	Inherits@13: ^FullHealthRepairCondition
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
+	GrantCondition@DisableSpawnFire:
+		Condition: DisableFullHealthRepairCondition
+		RequiresCondition: inside-tunnel
 
 ^VehicleEffects:
 	Inherits: ^GenericEffects
@@ -996,10 +1004,21 @@
 	Inherits@16: ^ToxinTrooperDebuff
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
-	SmokeParticleEmitter:
-		RequiresCondition: smoketrail && !cloakgenerator && !inside-tunnel
-	ExplodeWeapon@spawnsparks:
-		RequiresCondition: spawnsparks && !cloakgenerator && !inside-tunnel
+	GrantCondition@CloakDisableSmoke:
+		Condition: DisableSmoke
+		RequiresCondition: cloakgenerator
+	GrantCondition@CloakDisableSparks:
+		Condition: DisableSparks
+		RequiresCondition: cloakgenerator
+	GrantCondition@TunnelDisableSmoke:
+		Condition: DisableSmoke
+		RequiresCondition: inside-tunnel
+	GrantCondition@TunnelDisableSparks:
+		Condition: DisableSparks
+		RequiresCondition: inside-tunnel
+	GrantCondition@DisableSpawnFire:
+		Condition: DisableFullHealthRepairCondition
+		RequiresCondition: inside-tunnel
 
 ^AircraftEffects:
 	Inherits: ^GenericEffects
@@ -1009,12 +1028,12 @@
 	Inherits@4: ^GetsOneShotedbySuperweapons
 	Inherits@5: ^MindControllable
 	Inherits@6: ^FullHealthRepairCondition
-	Targetable@FullHealth:
-		RequiresCondition: FullHealth
-	SmokeParticleEmitter:
-		RequiresCondition: smoketrail && !cloakgenerator
-	ExplodeWeapon@spawnsparks:
-		RequiresCondition: spawnsparks && !cloakgenerator
+	GrantCondition@CloakDisableSmoke:
+		Condition: DisableSmoke
+		RequiresCondition: cloakgenerator
+	GrantCondition@CloakDisableSparks:
+		Condition: DisableSparks
+		RequiresCondition: cloakgenerator
 
 ^ProducesStuff:
 	WithTextDecoration@primary:
@@ -1115,7 +1134,7 @@
 		Notification: BuildingCaptured
 		LoseNotification: BuildingLostToCapture
 	CaptureManager:
-		BeingCapturedCondition: being-captured
+	#	BeingCapturedCondition: being-captured
 	Capturable:
 		Types: Building
 		RequiresCondition: !Building-Buildup
@@ -1127,7 +1146,6 @@
 		Type: Footprint
 		MaxHeightDelta: 3
 	RepairableBuilding:
-		IndicatorPalette: mouse
 		RepairingNotification: Repairing
 		RepairStep: 700
 	WithDeathAnimation:
@@ -1236,6 +1254,7 @@
 	-GrantConditionOnDamageState@SpawnFire:
 	-ExplodeWeapon@SpawnFire:
 	-ExternalCondition@SpawnFire:
+	-ExternalCondition@DisableSpawnFire:
 
 ^TechBuilding:
 	Inherits: ^BasicBuilding
@@ -1250,12 +1269,10 @@
 		Notification: BuildingCaptured
 		LoseNotification: BuildingLostToCapture
 	RepairableBuilding:
-		IndicatorPalette: mouse
 		RepairStep: 700
 	OwnerLostAction:
 		Action: ChangeOwner
 	Capturable:
-		CaptureThreshold: 100
 		Types: Building
 	RenderSprites:
 	MapEditorData:
@@ -1739,7 +1756,6 @@
 	CaptureManager:
 	Capturable:
 		Types: Vehicle
-		CaptureThreshold: 100
 		CancelActivity: True
 	Crushable:
 		CrushClasses: Vehicle

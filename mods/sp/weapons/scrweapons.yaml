@@ -108,7 +108,7 @@ ColossiTeslaSplash:
 		Palette: apolbluealpha
 	Warhead@1Dam: SpreadDamage
 		Damage: 1
-	-Warhead@op: FireShrapnel
+	-Warhead@op:
 
 ColossiBlast:
 	Inherits: ^RifleWarhead
@@ -166,15 +166,14 @@ ColossiBlastTesla:
 DummySparks:
 	Inherits: ColossiTesla
 	Range: 1c0
-	-Warhead@1Dam: SpreadDamage
-	-Warhead@op: FireShrapnel
+	-Warhead@1Dam:
+	-Warhead@op:
 
 FloatTesla:
 	Inherits: ^RifleWarhead
 	ReloadDelay: 75
 	Range: 7c0
 	Report: voltautofire.wav
-	Charges: yes
 	ValidTargets: Infantry, Vehicle
 	Projectile: TeslaZap
 		Palette: apolredalpha
@@ -235,7 +234,7 @@ FloatGlaive10:
 	Inherits: FloatGlaive
 	Range: 2c0
 	-Report:
-	-Warhead@op: FireShrapnel
+	-Warhead@op:
 	Warhead@1Dam: SpreadDamage
 		Spread: 64
 		Damage: 2000
@@ -243,7 +242,7 @@ FloatGlaive10:
 FloatGlaive2:
 	Inherits: FloatGlaive
 	-Report:
-	-Warhead@op: FireShrapnel
+	-Warhead@op:
 
 ScorpAcid:
 	Inherits: ^AcidWarhead
@@ -313,7 +312,7 @@ SCRMBTLASOR:
 	Report: SeekerShot0000.wav,  SeekerShot0001.wav,  SeekerShot0002.wav,  SeekerShot0003.wav
 	Projectile: LaserZap
 		Width: 50
-		BeamDuration: 5
+		Duration: 5
 		ZOffset: 2047
 		Color: f442f4
 		SecondaryBeam: True
@@ -541,7 +540,8 @@ DestroyerCannon:
 		Explosions: scrinpulse2
 		ExplosionPalette: effectalpha50
 		ImpactSounds: expnew14.aud
-	-Warhead@3EffWater: CreateEffect
+		ValidTargets: Ground, Air, Water
+	-Warhead@3EffWater:
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
@@ -762,15 +762,6 @@ EssenceMissile:
 		Range: 200
 		Duration: 3
 		Condition: EssenceGrab
-
-EssenceMissileToBattery:
-	Inherits: EssenceMissile
-	-ValidTargets: ScrinUnit
-	ValidTargets: EssenceBattery
-	Warhead@1Dam: SpreadDamage
-		ValidTargets: EssenceBattery
-	Warhead@emp: GrantExternalCondition
-		ValidTargets: EssenceBattery
 
 HealScrin:
 	ReloadDelay: 150

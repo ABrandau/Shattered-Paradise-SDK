@@ -379,7 +379,6 @@ ClusterMissile:
 		Size: 2
 		Delay: 5
 		InvalidTargets: Vehicle, Building, Wall
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@ClusterSmudges3: LeaveSmudge
 		SmudgeType: MediumScorch
 		Size: 3
@@ -428,7 +427,7 @@ HealerNuke:
 	Warhead@Shake: ScreenShaker
 		Intensity: 999
 		Duration: 100
-	-Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
+	-Warhead@GetsOneShotedbySuperweapons:
 	Warhead@SoundEffect0: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
 	Warhead@8Radio: CreateTintedCells
@@ -573,7 +572,7 @@ MeteorSpawner5:
 
 MeteorSpawner6:
 	Inherits: MeteorSpawner
-	-Warhead@6: FireShrapnel
+	-Warhead@6:
 
 MeteorElevator:
 	ReloadDelay: 6
@@ -668,7 +667,6 @@ FistRaiser:
 		LaunchAngle: 90
 		Shadow: true
 		Palette: apcyan
-		TerrainHeightAware: True
 		TrailImage: cabswproj2
 		TrailPalette: apolcyanalpha
 		Blockable: false
@@ -712,7 +710,7 @@ FistRaiserShrapnel:
 	Range: 5c0
 	MinRange: 2c0
 	-Report:
-	-Warhead@op: FireShrapnel
+	-Warhead@op:
 	Projectile: BulletAS
 		LaunchAngle: 160
 		Speed: 90
@@ -755,7 +753,7 @@ IonStormSpawnerWeapon: ### THIS ONE GENERATES THE ION STORM PARTICLE
 		Spread: 1
 		Damage: 1
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
-	-Warhead@op: FireShrapnel
+	-Warhead@op:
 	Warhead@Ion: SpawnSmokeParticle
 		Weapon: RandomBoltSpawner
 		Delay: 75
