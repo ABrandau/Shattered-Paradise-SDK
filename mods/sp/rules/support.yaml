@@ -767,7 +767,6 @@ GAFIRE:
 	AttackOmni:
 		RequiresCondition: !Building-Buildup
 		PauseOnCondition: empdisable || disabled
-		ForceTargetStances: Enemy
 	AutoTarget:
 	AIDeployHelper:
 		DeployChance: 100
@@ -882,10 +881,51 @@ NASTLH:
 	RequiresBuildableArea:
 		AreaTypes: building
 
+^HasNukePower:
+	NukePower:
+		Cursor: nuke
+		Prerequisites:
+			1: natmpl
+		Icons:
+			1: clustermissile
+		ChargeInterval: 9000
+		Descriptions:
+			1: Atomic Bomb
+		LongDescs:
+			1: Launches a conventional warhead at a target location.\n\nSpecial:\n- Instant kills ground units and aircraft
+		BeginChargeSound:
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
+		SelectTargetSound:
+		InsufficientPowerSound:
+		MissileWeapon: ClusterMissile
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
+		SpawnOffset: 0,427,0
+		DisplayTimerStances: Ally, Neutral, Enemy
+		DisplayBeacon: True
+		DisplayRadarPing: True
+		MissilePalette: player
+		IsPlayerPalette: True
+		BeaconPosters:
+			1: minimltiicon
+		OrderName: ClusterMissile
+		CameraRange: 10c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		FlightDelay: 400
+		PauseOnCondition: empdisable || disabled
+
 NATMPL:
 	Inherits: ^Building
 	Inherits@2: ^3x3Shape
 	Inherits@3: ^SuperWeapon
+	Inherits@4: ^HasNukePower
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 44
@@ -907,47 +947,6 @@ NATMPL:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
-	NukePower@NodNuke:
-		Cursor: nuke
-		Prerequisites:
-			1: natmpl
-		Icons:
-			1: clustermissile
-		ChargeInterval: 9000
-		Descriptions:
-			1: Atomic Bomb
-		LongDescs:
-			1: Launches a conventional warhead at a target location.\n\nSpecial:\n- Instant kills ground units and aircraft
-		BeginChargeSound:
-		EndChargeSound: SuperWeaponReady
-		EndChargeSpeechNotification: SuperWeaponReady
-		SelectTargetSound:
-		InsufficientPowerSound:
-		MissileWeapon: ClusterMissile
-		LaunchSpeechNotification: SuperweaponFired
-		IncomingSpeechNotification: SuperweaponFired
-		IncomingSound: SuperweaponFired
-		# IncomingSound: incomingnuke.wav
-		LaunchSound: n_swlaunch.aud
-		SpawnOffset: 0,427,0
-		DisplayTimerStances: Ally, Neutral, Enemy
-		DisplayTimer: True
-		DisplayBeacon: True
-		DisplayRadarPing: True
-		MissilePalette: player
-		IsPlayerPalette: True
-		BeaconPosters:
-			1: minimltiicon
-		OrderName: ClusterMissile
-		CameraActor: camera
-		CameraRange: 10c0
-		CameraSpawnAdvance: 25
-		CameraRemoveDelay: 350
-		ArrowSequence: arrow
-		ClockSequence: clock
-		CircleSequence: circles
-		FlightDelay: 400
-		PauseOnCondition: empdisable || disabled
 	Health:
 		HP: 300000
 	RequiresBuildableArea:
@@ -1133,7 +1132,6 @@ SCRSW1:
 		IncomingSpeechNotification: SuperweaponFired
 		IncomingSound: SuperweaponFired
 		LaunchSound: n_swlaunch.aud
-		CameraActor: camera
 		CameraRange: 10c0
 		CameraSpawnAdvance: 25
 		CameraRemoveDelay: 350
@@ -1249,7 +1247,6 @@ CABSW1:
 		BeaconPalette: chrome
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: empdisable || disabled
-		CameraActor: camera
 		CameraRange: 10c0
 		CameraSpawnAdvance: 25
 		CameraRemoveDelay: 350
@@ -1345,7 +1342,6 @@ GACTWR:
 		Cost: 200
 	Tooltip:
 		Name: Component Tower
-		Description: Modular tower for base defenses.
 	Building:
 	Health:
 		HP: 50000
@@ -1455,7 +1451,6 @@ REPAIRTUR:
 		Cost: 1400
 	Tooltip:
 		Name: Maintenance Turret
-		Description: GDI utility structure, repairs\nnearby vehciles. Requires power to operate.\n  Unnarmed.
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1594,7 +1589,6 @@ NAWAST:
 		Cost: 1600
 	Tooltip:
 		Name: Waste Refinery
-		Description: Processes Veins\ninto useable resources.
 	Building:
 		Footprint: =x= xx= =x=
 		Dimensions: 3,3

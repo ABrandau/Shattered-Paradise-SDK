@@ -590,6 +590,7 @@ NAMISL:
 	Inherits: ^Building
 	Inherits@2: ^2x2Shape
 	Inherits@3: ^SuperWeapon
+	Inherits@4: ^HasNukePower
 	Tooltip:
 		Name: Chemical Missile Silo
 	Buildable:
@@ -614,8 +615,7 @@ NAMISL:
 		Condition: powerdown
 		OrderName: PowerDown
 	ProvidesPrerequisite@buildingname:
-	NukePower@ToxinMissile:
-		Cursor: nuke
+	NukePower:
 		Prerequisites:
 			1: namisl
 		Icons:
@@ -625,33 +625,18 @@ NAMISL:
 			1: Chemical Missile
 		LongDescs:
 			1: Launches a warhead filled with tiberium, it spawns gas clouds and radiates the area.\nHas a fast reaction time.
-		BeginChargeSound:
-		EndChargeSound: SuperWeaponReady
-		EndChargeSpeechNotification: SuperWeaponReady
-		SelectTargetSound:
-		InsufficientPowerSound:
 		FlightDelay: 100
 		MissileWeapon: ToxinMissile
 		DisplayTimerStances: Ally, Neutral, Enemy
 		SpawnOffset: 0,427,0
-		LaunchSpeechNotification: SuperweaponFired
-		IncomingSpeechNotification: SuperweaponFired
-		IncomingSound: SuperweaponFired
-		LaunchSound: n_swlaunch.aud
 		BeaconPosters:
 			1: minichemicon
 		ArrowSequence: arrow
-		ClockSequence: clock
-		CircleSequence: circles
-		DisplayTimer: True
-		DisplayBeacon: True
-		DisplayRadarPing: True
 		MissilePalette: player
 		IconPalette: chem
 		BeaconPosterPalette: chem
 		IsPlayerPalette: True
 		OrderName: ToxinMissile
-		CameraActor: camera
 		CameraRange: 7c0
 		CameraSpawnAdvance: 25
 		CameraRemoveDelay: 350
@@ -1222,7 +1207,6 @@ SCRAIR:
 		Position: Top
 		Color: E0D048
 		RequiresCondition: primary
-		ConditionMinEnabledLevel: 1
 	RequiresBuildableArea:
 		AreaTypes: building
 

@@ -12,7 +12,6 @@ DOGGIE:
 	-GainsExperience:
 	Mobile:
 		Speed: 120
-		Crushes: nada
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
@@ -35,15 +34,12 @@ WEASAU4:
 		Name: Weasaurus minor
 	Health:
 		HP: 250
-		Shape: Circle
-			Radius: 213
 	Armor:
 		Type: InfantryArmor
 	-RevealsShroud:
 	-GainsExperience:
 	Mobile:
 		Speed: 60
-		Crushes: nada
 	RenderSprites:
 		Palette: orgatem
 	Voiced:
@@ -63,10 +59,10 @@ WEASAU4:
 		IdleSequences: idle1
 
 WEASAU:
-    Inherits: WEASAU4
+	Inherits: WEASAU4
 
 WEASAU2:
-    Inherits: WEASAU4
+	Inherits: WEASAU4
 
 VISC_SML:
 	Inherits: ^Visceroid
@@ -88,7 +84,6 @@ VISC_SML:
 	Targetable@ViscMale:
 		TargetTypes: ViscMale
 	Mobile:
-		Crushes: nada
 	TransformOnCondition:
 		IntoActor: visc_lrg
 		RequiresCondition: Transform
@@ -120,7 +115,7 @@ VISC_LRG:
 		Voice: Attack
 	Wanders:
 	WithAttackAnimation:
-		AttackSequence: attack
+		Sequence: attack
 	Mobile:
 		Crushes: nada
 	RenderSprites:
@@ -158,8 +153,6 @@ ZOMBIE:
 		Cost: 50
 	Health:
 		HP: 7500
-		Shape: Circle
-			Radius: 213
 	RevealsShroud:
 		Range: 4c0
 	Explodes:
@@ -170,7 +163,6 @@ ZOMBIE:
 		ScanRadius: 3
 	Mobile:
 		Speed: 55
-		Crushes: nada
 	-SpawnActorOnDeath@conversion:
 	-TakeCover:
 	Voiced:
@@ -180,7 +172,7 @@ ZOMBIE:
 	Armament:
 		Weapon: SlimeAttack
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
@@ -222,8 +214,6 @@ BERSERKER:
 		Delay: 200
 	Mobile:
 		Speed: 100
-		Crushes: nada
-		SharesCell: False
 	Armor:
 		Type: VehicleArmor
 	-Crushable:
@@ -237,9 +227,9 @@ BERSERKER:
 	AutoTarget:
 		ScanRadius: 4
 	WithInfantryBody:
-		AttackSequence: shoot
+		Sequence: shoot
 		IdleSequences: idle1, idle2, idle3
-		PauseOnCondition: WebDisable
+		RequiresCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
 	AttackWander:
@@ -267,8 +257,6 @@ CRAB:
 	-DamagedByTintedCells@Default:
 	Health:
 		HP: 17000
-		Shape: Circle
-			Radius: 213
 	Armor:
 		Type: InfantryArmor
 	RevealsShroud:
@@ -280,7 +268,6 @@ CRAB:
 	-Crushable:
 	Mobile:
 		Speed: 50
-		Crushes: nada
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
@@ -288,9 +275,9 @@ CRAB:
 	Armament:
 		Weapon: CrabAcid
 	WithInfantryBody:
-		AttackSequence: shoot
+		Sequence: shoot
 		IdleSequences: Idle1, Idle2
-		PauseOnCondition: WebDisable
+		RequiresCondition: WebDisable
 	GrantPeriodicCondition:
 		Condition: SpawnCrabs
 		CooldownDuration: 2250
@@ -337,8 +324,6 @@ FLOATER:
 		Name: Floater
 	Health:
 		HP: 10000
-		Shape: Circle
-			Radius: 213
 	Valued:
 		Cost: 100
 	Armor:
@@ -353,7 +338,6 @@ FLOATER:
 	WithSpriteBody:
 	Mobile:
 		Speed: 100
-		Crushes: nada
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
@@ -363,7 +347,7 @@ FLOATER:
 	AutoTarget:
 		ScanRadius: 6
 	WithAttackAnimation:
-		AttackSequence: attack
+		Sequence: attack
 	Explodes:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall

@@ -190,7 +190,7 @@ CRATE:
 	GiveCashCrateAction:
 		Amount: 2000
 		SelectionShares: 80
-		Effect: dollar
+		Sequence: dollar
 		UseCashTick: true
 	SupportPowerCrateAction@nuke:
 		SelectionShares: 4
@@ -205,17 +205,17 @@ CRATE:
 		SelectionShares: 20
 	LevelUpCrateAction:
 		SelectionShares: 160
-		Effect: levelup
+		Sequence: levelup
 	DuplicateUnitCrateAction:
 		MaxAmount: 4
 		SelectionShares: 80
-		Effect: levelup
+		Sequence: levelup
 	HideMapCrateAction:
 		SelectionShares: 4
 		Sequence: hide-map
 	RevealMapCrateAction:
 		SelectionShares: 4
-		Effect: reveal-map
+		Sequence: reveal-map
 	GiveMcvCrateAction@gdi:
 		SelectionShares: 0
 		NoBaseSelectionShares: 1000
@@ -243,16 +243,16 @@ CRATE:
 		ValidFactions: scr
 	GrantExternalConditionCrateAction@cloak:
 		SelectionShares: 20
-		Effect: stealth
+		Sequence: stealth
 		Condition: cloakgenerator
 	GrantExternalConditionCrateAction@firepower:
 		SelectionShares: 20
-		Effect: firepower
+		Sequence: firepower
 		Condition: firepowercrate
 		Notification: UnitArmourUpgraded
 	GrantExternalConditionCrateAction@armor:
 		SelectionShares: 20
-		Effect: armor
+		Sequence: armor
 		Condition: damagecrate
 		Notification: UnitArmourUpgraded
 	GrantExternalConditionCrateAction@speed:
