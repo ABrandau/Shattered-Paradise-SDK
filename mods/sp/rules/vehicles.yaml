@@ -1745,7 +1745,7 @@ SCRGLYDER2:
 		Speed: 90
 		Locomotor: Hover
 	Transforms:
-		RequiresCondition: !inside-tunnel
+		PauseOnCondition: inside-tunnel || mindcontrolled
 		IntoActor: scrglyder1
 	Armament:
 		Weapon: Glyder2Cannon
@@ -1767,6 +1767,8 @@ SCRGLYDER2:
 	TransformOnCondition:
 		RequiresCondition: AIattackAir && !inside-tunnel
 		IntoActor: scrglyder1
+	MindControllable:
+		Condition: mindcontrolled
 
 SCRRECHARGER:
 	Inherits@1: ^Walker

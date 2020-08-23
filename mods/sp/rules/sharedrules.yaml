@@ -70,8 +70,8 @@ MCV:
 		Speed: 60
 		TurnSpeed: 20
 		Locomotor: InfantryCrusherVehicle
-	Targetable@MindControl:
-		TargetTypes: MindControlInmune
+	MindControllable:
+		Condition: mindcontrolled
 	MustBeDestroyed:
 		RequiredForShortGame: true
 	-Capturable:
@@ -84,6 +84,7 @@ MCV:
 		TransformSounds: place2.aud
 		NoTransformSounds:
 		Voice: Move
+		PauseOnCondition: mindcontrolled
 	SelectionDecorations:
 	RenderSprites:
 		Image: mcv.gdi
