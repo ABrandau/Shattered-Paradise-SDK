@@ -1483,6 +1483,15 @@
 			HeadshotDeath: blood1, blood2, blood3, blood4, blood5
 			SmallExplosionDeath: blood1, blood2, blood3, blood4, blood5
 	WithTextControlGroupDecoration:
+	GrantConditionOnTunnelLayer:
+		Condition: inside-tunnel
+	WithDecoration@UNDERGROUND:
+		RequiresCondition: inside-tunnel
+		Position: Center
+		Image: typeglyphs
+		Sequence: infantry
+		Palette: player
+		IsPlayerPalette: true
 
 ^Soldier:
 	Inherits@1: ^Infantry
@@ -1838,6 +1847,15 @@
 		QuantizedFacings: 32
 	WithFacingSpriteBody:
 		RequiresCondition: !inside-tunnel
+	GrantConditionOnTunnelLayer:
+		Condition: inside-tunnel
+	WithDecoration@UNDERGROUND:
+		RequiresCondition: inside-tunnel
+		Position: Center
+		Image: typeglyphs
+		Sequence: vehicle
+		Palette: player
+		IsPlayerPalette: true
 
 ^Tank:
 	Inherits: ^Vehicle

@@ -1112,9 +1112,8 @@ SAPC:
 		CargoType: Apc
 	WithVoxelBody:
 		RequiresCondition: !submerged && !inside-tunnel
-	WithCargoPipsDecoration:
-		Position: BottomLeft
-		RequiresSelection: true
+	WithDecoration@UNDERGROUND:
+		RequiresCondition: inside-tunnel || submerged
 
 SUBTANK:
 	Inherits: ^SubterraneanVoxelVehicle
@@ -1152,6 +1151,8 @@ SUBTANK:
 		PauseOnCondition: empdisable
 	WithVoxelBody:
 		RequiresCondition: !submerged && !inside-tunnel
+	WithDecoration@UNDERGROUND:
+		RequiresCondition: inside-tunnel || submerged
 
 HOWTLIZER:
 	Inherits: ^Tank
