@@ -755,12 +755,21 @@ STORMRIDER:
 		Image: scrsmoke
 		Palette: apolbluealpha60
 
+^ScrinAircraftGeneric:
+	Inherits@4: ^ScrinAircratVoice
+	Inherits@2: ^ScrinRender
+	Inherits@Shadow: ^AircraftShadow
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: gradientblue60
+	Explodes@Shrapnel:
+		Weapon: BigAircraftShrapnel
+		EmptyWeapon: BigAircraftShrapnel
+
 DRACHE:
 	Inherits: ^CombatHelicopter
-	Inherits@5: ^8CellVision
-	Inherits@2: ^ScrinRender
-	Inherits@4: ^ScrinAircratVoice
-	Inherits@Shadow: ^AircraftShadow
+	Inherits@1: ^8CellVision
+	Inherits@2: ^ScrinAircraftGeneric
 	Buildable:
 		Queue: Air
 		BuildPaletteOrder: 110
@@ -801,9 +810,6 @@ DRACHE:
 	Hovers:
 	SpawnActorOnDeath:
 		Actor: DRACHE.Husk
-	SmokeParticleEmitter:
-		Image: scrsmoke
-		Palette: apolbluealpha60
 	-GainsExperience:
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
@@ -826,11 +832,9 @@ DRACHE_BOT:
 SCRGLYDER1:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^ScrinRender
+	Inherits@2: ^ScrinAircraftGeneric
 	Inherits@3: ^BasicStealthDetectionAir
-	Inherits@4: ^ScrinAircratVoice
 	Inherits@5: ^9CellVision
-	Inherits@Shadow: ^AircraftShadow
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -861,9 +865,6 @@ SCRGLYDER1:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: GLYDER1.Husk
-	SmokeParticleEmitter:
-		Image: scrsmoke
-		Palette: apolbluealpha60
 	Armament@AIaimOnly:
 		Weapon: AIGlyder1AimingDummyWeapon
 		RequiresCondition: AImicroManage
@@ -876,10 +877,8 @@ SCRGLYDER1:
 SCRDESTROYER:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^ScrinRender
+	Inherits@2: ^ScrinAircraftGeneric
 	Inherits@3: ^7CellVision
-	Inherits@4: ^ScrinAircratVoice
-	Inherits@Shadow: ^AircraftShadow
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -917,21 +916,13 @@ SCRDESTROYER:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRDESTROYER.Husk
-	SmokeParticleEmitter:
-		Image: scrsmoke
-		Palette: apolbluealpha60
-	Explodes@Shrapnel:
-		Weapon: BigAircraftShrapnel
-		EmptyWeapon: BigAircraftShrapnel
 
 SCRTRANS:
 	Inherits: ^Helicopter
 	Inherits@1: ^9CellVision
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinAircratVoice
+	Inherits@2: ^ScrinAircraftGeneric
 	Inherits@4: ^LowPrioritySelectionMode
 	Inherits@PIPS: ^CargoPips
-	Inherits@Shadow: ^AircraftShadow
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -961,9 +952,6 @@ SCRTRANS:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRTRANS.Husk
-	SmokeParticleEmitter:
-		Image: scrsmoke
-		Palette: apolbluealpha60
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -971,11 +959,9 @@ SCRTRANS:
 SCRCARRIER:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^ScrinRender
+	Inherits@2: ^ScrinAircraftGeneric
 	Inherits@3: ^BasicStealthDetectionAir
-	Inherits@4: ^ScrinAircratVoice
 	Inherits@5: ^9CellVision
-	Inherits@Shadow: ^AircraftShadow
 	Valued:
 		Cost: 2500
 	Tooltip:
@@ -1019,12 +1005,6 @@ SCRCARRIER:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRCARRIER.Husk
-	SmokeParticleEmitter:
-		Image: scrsmoke
-		Palette: apolbluealpha60
-	Explodes@Shrapnel:
-		Weapon: BigAircraftShrapnel
-		EmptyWeapon: BigAircraftShrapnel
 	WithSpawnerMasterPipsDecoration:
 		Margin: 4, 3
 		Palette: pips
@@ -1033,8 +1013,7 @@ SCRCARRIER:
 
 STORMRIDERSPAWN:
 	Inherits: STORMRIDER
-	Inherits@1: ^ScrinRender
-	Inherits@Shadow: ^AircraftShadow
+	Inherits@1: ^ScrinAircraftGeneric
 	EditorOnlyTooltip:
 		Name: Assault Carrier Drone (Do not place in editor)
 	Tooltip:
@@ -1113,12 +1092,10 @@ CABDRONEJET:
 SCRBATTLESHIP:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^ScrinRender
+	Inherits@2: ^ScrinAircraftGeneric
 	Inherits@3: ^PermanentSelfHeal
 	Inherits@4: ^CommandoIcon
-	Inherits@5: ^ScrinAircratVoice
 	Inherits@6: ^11CellVision
-	Inherits@Shadow: ^AircraftShadow
 	Valued:
 		Cost: 4000
 	Tooltip:
@@ -1155,12 +1132,6 @@ SCRBATTLESHIP:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRBATTLESHIP.Husk
-	SmokeParticleEmitter:
-		Image: scrsmoke
-		Palette: apolbluealpha60
-	Explodes@Shrapnel:
-		Weapon: BigAircraftShrapnel
-		EmptyWeapon: BigAircraftShrapnel
 
 WASP:
 	Inherits: ^CombatHelicopter

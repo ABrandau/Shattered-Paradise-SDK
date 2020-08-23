@@ -735,17 +735,18 @@
 ^SpawnSmoke:
 	GrantConditionOnDamageState@smoke:
 		Condition: smoketrail
-		ValidDamageStates: Critical
+		ValidDamageStates: Critical, Heavy
 	SmokeParticleEmitter:
 		RequiresCondition: smoketrail && !DisableSmoke
 		Sequences: idle
-		SpawnFrequency: 3, 10
-		Speed: 32
-		Gravity: 48
+		SpawnFrequency: 3, 8
+		Speed: 6
+		Gravity: 30
 		Offset: 0,0,0,0,0,0
 		Image: sgrysmk1
 		Palette: effectalpha50
 		Duration: 100
+		RandomFacing: False
 	ExternalCondition@smoketrail:
 		Condition: smoketrail
 	ExternalCondition@DisableSmoke:
@@ -1584,6 +1585,18 @@
 	-DamagedByTerrain:
 	Mobile:
 		Locomotor: TibInmuneInfantry
+	WithDeathAnimation@body:
+		DeathSequencePalette: effect
+		DeathPaletteIsPlayerPalette: False
+		DeathTypes:
+			BulletDeath: body1, body2
+			CabalDeath: body1, body2
+			CabalDeathCrate: body1, body2
+			BlackHandRfle: body1, body2
+			HeadshotDeath: body1, body2
+			SmallExplosionDeath: body1, body2
+			EnergyDeath: body1, body2
+			ExplosionDeath: body1, body2
 
 ^Cyborg:
 	Inherits@1: ^Infantry
@@ -2484,20 +2497,14 @@
 		Connections: 0,-1, 0,1
 
 ^ScrinDeathExplo:
+	Inherits: ^SpawnSmoke
 	Explodes:
 		Weapon: ScrinBuildingExplode
 		EmptyWeapon: ScrinBuildingExplode
 		Type: Footprint
 	SmokeParticleEmitter:
-		Duration: 100
-		RequiresCondition: smoketrail
-		Sequence: idle
-		SpawnFrequency: 3, 10
-		Speed: 32
-		Gravity: 48
-		Offset: 0,0,0,0,0,0
 		Image: scrsmoke
-		Palette: apolbluealpha60
+		Palette: gradientblue60
 	Building:
 		BuildSounds: scrinplacebuilding.wav
 

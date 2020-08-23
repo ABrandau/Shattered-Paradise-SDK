@@ -1,3 +1,18 @@
+^DebrisSmokeEffect:
+	Warhead@smoke: CreateEffect
+		Explosions: wrecksmoke, wrecksmoke2, wrecksmoke3
+		ExplosionPalette: gradientgray60
+		ValidTargets: Ground
+		Delay: 100
+
+^SpawnsFire:
+	Warhead@2: SpawnSmokeParticle
+		Duration: 25, 600
+		Image: explosion
+		Sequences: fire1, fire2
+		Palette: effectalpha25
+		Weapon: DummyWeapon
+
 ^Piffs:
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
@@ -71,6 +86,11 @@
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
+	Warhead@smoke: CreateEffect
+		Explosions: wrecksmoke, wrecksmoke2
+		ExplosionPalette: gensmkexploj
+		InvalidTargets: Water
+		ValidTargets: Groun
 
 ^Small_Brnl:
 	Warhead@2Eff: CreateEffect
@@ -124,6 +144,7 @@
 		InvalidTargets: Vehicle, Building, Wall
 
 ^GreyExplo:
+	Inherits: ^DebrisSmokeEffect
 	Warhead@2Eff: CreateEffect
 		Explosions: jxgrymed2b, jxgrymed2, jxgrymed1b, jxgrymed1
 		ExplosionPalette: gensmkexploj
@@ -140,6 +161,7 @@
 		InvalidTargets: Vehicle, Building, Wall
 
 ^Large_Explosion:
+	Inherits: ^DebrisSmokeEffect
 	Warhead@2Eff: CreateEffect
 		Explosions: jtwlt036, jtwlt036b, jtwlt050
 		ExplosionPalette: gensmkexploj
@@ -188,6 +210,7 @@
 		ValidTargets: Water
 
 ^Large_twlt:
+	Inherits: ^DebrisSmokeEffect
 	Warhead@2Eff: CreateEffect
 		Explosions: jtwlt070, jtwlt070b, jtwlt100, jtwlt100b
 		ExplosionPalette: gensmkexploj

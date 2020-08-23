@@ -300,7 +300,9 @@ SparkDebris:
 		Image: sparkprojectile
 
 SmallDebris:
-	Inherits@2: ^Shrapnel
+	Inherits: ^Shrapnel
+	Inherits@2: ^DebrisSmokeEffect
+	Inherits@3: ^SpawnsFire
 	ReloadDelay: 60
 	Range: 4c0
 	Report:
@@ -311,16 +313,12 @@ SmallDebris:
 		Image: dbrissm
 		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 		Shadow: true
-	Warhead@2: SpawnSmokeParticle
-		Duration: 25, 600
-		Image: explosion
-		Sequences: fire2, fire1
-		Palette: effectalpha25
-		Weapon: DummyWeapon
 
 LargeDebris:
-	Inherits@2: ^Large_Clsn
+	Inherits@1: ^Large_Clsn
 	Inherits@2: ^FlameScorch
+	Inherits@3: ^DebrisSmokeEffect
+	Inherits@4: ^SpawnsFire
 	ReloadDelay: 60
 	Range: 4c0
 	Report:
@@ -330,12 +328,11 @@ LargeDebris:
 		Image: dbrislg
 		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 		Shadow: true
-	Warhead@2: SpawnSmokeParticle
-		Duration: 25, 600
-		Image: explosion
-		Sequences: fire1, fire2
-		Palette: effectalpha25
-		Weapon: DummyWeapon
+	Warhead@smoke: CreateEffect
+		Explosions: wrecksmoke, wrecksmoke2, wrecksmoke3
+		ExplosionPalette: gradientgray60
+		ValidTargets: Ground
+		Delay: 100
 
 ^ParticleSpawner:
 	Projectile: InstantExplode
