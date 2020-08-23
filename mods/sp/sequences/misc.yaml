@@ -19,6 +19,15 @@ overlay:
 	target-invalid:
 		Start: 1
 
+shroud:
+	Defaults:
+		Offset: 0, -1, 1
+		ZRamp: 1
+	shroud:
+		Length: *
+	fog: fog
+		Length: *
+
 editor-overlay:
 	Defaults: place2
 		Offset: 0, -12, 1
@@ -173,20 +182,31 @@ dustcloud1:
 		Start: 7
 		BlendMode: LowAdditive
 
-cloudeoral:
+eoralcloudnew:
 	idle:
 		BlendMode: DoubleMultiplicative
 		IgnoreWorldTint: true
-	idle1:
+	idleX:
 		BlendMode: DoubleMultiplicative
 		IgnoreWorldTint: true
-	idle2:
+		FlipX: true
+		FlipY: true
+	idleY:
 		BlendMode: DoubleMultiplicative
 		IgnoreWorldTint: true
-blob_overlaytest:
-	idle:
+		FlipY: true
+	idleXY:
 		BlendMode: DoubleMultiplicative
 		IgnoreWorldTint: true
+		FlipX: true
+		FlipY: true
+	idle2: rayeoral
+		BlendMode: DoubleMultiplicative
+		IgnoreWorldTint: true
+	idle2F: rayeoral
+		BlendMode: DoubleMultiplicative
+		IgnoreWorldTint: true
+		FlipX: true
 
 crate:
 	idle:
@@ -573,15 +593,6 @@ wake:
 		Length: *
 		Tick: 180
 		ZOffset: -512
-
-shroud:
-	Defaults:
-		Offset: 0, -1, 1
-		ZRamp: 1
-	shroud:
-		Length: *
-	fog: fog
-		Length: *
 
 smallscorches:
 	Defaults:
@@ -992,14 +1003,3 @@ bullet:
 	idle:
 		Facings: 32
 		ZOffset: 1023
-
-typeglyphs:
-	infantry:
-	vehicle:
-		Start: 1
-	helicopter:
-		Start: 2
-	harvester:
-		Start: 3
-	structure:
-		Start: 4
