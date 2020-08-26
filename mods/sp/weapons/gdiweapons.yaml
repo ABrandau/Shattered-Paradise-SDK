@@ -493,20 +493,6 @@ RepairGun:
 		Damage: -5000
 		ValidTargets: Repair
 
-FirestormWallUpgrade:
-	Inherits: ^NoDamage
-	ReloadDelay: 25
-	Projectile: InstantExplode
-	Warhead@3Dam_area: SpreadDamage
-		Spread: 1
-		Damage: 1
-		ValidTargets: Ground, Water
-	Warhead@Wall: GrantExternalCondition
-		Range: 12c0
-		Duration: 25
-		Condition: FirestormWallCondition
-		ValidStances: Ally
-
 FirestormSpawner:
 	Inherits: ^NoDamage
 	ReloadDelay: 1

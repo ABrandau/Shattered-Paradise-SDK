@@ -734,7 +734,7 @@ GAFIRE:
 		Dimensions: 3,2
 	WithRangeCircle:
 		Range: 12c0
-		Type: cloakgenerator
+		Type: FirestormGen
 	PowerMultiplier:
 		RequiresCondition: FirestormGen
 		Modifier: 600
@@ -744,6 +744,11 @@ GAFIRE:
 		StartsFullyCharged: False
 		DeployedTicks: 300
 		RequiresCondition: !disabled && !empdisable
+	ProximityExternalCondition:
+		Condition: FirestormWallCondition
+		Range: 12c0
+		AffectsParent: false
+		RequiresCondition: FirestormGen && !disabled && !Building-Buildup && !empdisable
 	ExplodeWeapon@1:
 		Weapon: FirestormSpawner
 		ResetReloadWhenEnabled: false
