@@ -33,6 +33,9 @@ LegioNeedler:
 		Shadow: true
 		Palette: apblue
 		Image: blueballminitrail
+		ContrailLength: 10
+		ContrailColor: 000ba8
+		ContrailWidth: 0c35
 		-TrailImage: small_smoke_trail
 		-TrailPalette: effectalpha75
 	Warhead@1Dam: SpreadDamage
@@ -389,7 +392,7 @@ StormRiderBlast:
 		Shadow: true
 		HorizontalRateOfTurn: 160
 		VerticalRateOfTurn: 160
-		RangeLimit: 28c291
+		RangeLimit: 20c0
 		AllowSnapping: true
 		Palette: pips
 		TrailPalette: effect
@@ -438,6 +441,9 @@ Glyder1Cannon:
 		-TrailImage: small_smoke_trail
 		-TrailPalette: effectalpha75
 		Palette: apblue
+		ContrailLength: 10
+		ContrailColor: 000ba8
+		ContrailWidth: 0c35
 	Warhead@1Dam: SpreadDamage
 		Spread: 200
 		Damage: 3000
@@ -463,8 +469,11 @@ Glyder2Cannon:
 		-TrailImage: small_smoke_trail
 		-TrailPalette: effectalpha75
 		Image: torpedo
-		RangeLimit: 21c0
+		RangeLimit: 15c0
 		Palette: apblue
+		ContrailLength: 10
+		ContrailColor: 000ba8
+		ContrailWidth: 0c35
 	Warhead@1Dam: SpreadDamage
 		Spread: 90
 		Damage: 2000
@@ -610,7 +619,7 @@ IchorWasteTurretAcid:
 	ReloadDelay: 40
 	Range: 6c768
 	Burst: 8
-	ValidTargets: Building, Structure, Infantry, Vehicle
+	ValidTargets: Building, Structure, Infantry, Vehicle, Ground
 	Report: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
 	BurstDelays: 1
 	Projectile: BulletAS
@@ -621,23 +630,23 @@ IchorWasteTurretAcid:
 		Palette: apolgreenalpha
 	BurstDelays: 4
 	Warhead@1Dam: SpreadDamage
-		Spread: 350
+		Spread: 0c512
 		Damage: 1000
 		Versus:
 			InfantryArmor: 200
 			BuildingArmor: 75
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
-		ValidTargets: Building, Structure, Infantry, Vehicle
+		ValidTargets: Building, Structure, Infantry, Vehicle, Ground
 		InvalidTargets: Shark
 	Warhead@2Shark: SpreadDamage
-		Spread: 350
+		Spread: 0c512
 		Damage: 1000
 		Versus:
 			InfantryArmor: 200
 			BuildingArmor: 75
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		ValidTargets: Shark
-		InvalidTargets: Building, Structure, Infantry, Vehicle
+		InvalidTargets: Building, Structure, Infantry, Vehicle, Ground
 		ValidStances: Enemy, Neutral
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
