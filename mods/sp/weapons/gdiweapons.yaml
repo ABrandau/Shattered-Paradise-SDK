@@ -508,11 +508,10 @@ FirestormSpawner:
 		ValidTargets: Ground, Water
 	Warhead@op: FireShrapnel
 		Weapon: FirestormExplo
-		Amount: 24
+		Amount: 60
 
 FirestormExplo:
 	Inherits: ^FullDamage
-	ReloadDelay: 2
 	Range: 12c0
 	MinRange: 12c0
 	Projectile: InstantHit
@@ -531,14 +530,6 @@ FirestormExplo:
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
-
-FirestormExploWalls:
-	Inherits: FirestormExplo
-	ReloadDelay: 25
-	Warhead@3Dam_area: SpreadDamage
-		ValidStances: Enemy, Neutral
-	Warhead@2Eff: CreateEffect
-		Explosions: fsidlewall, fsgrndwall
 
 FirestormAIAimingDummyWeapon:
 	Inherits: ^FullDamage
