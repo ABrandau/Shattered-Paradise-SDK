@@ -512,15 +512,18 @@ FirestormSpawner:
 
 FirestormExplo:
 	Inherits: ^FullDamage
-	ReloadDelay: 3
+	ReloadDelay: 2
 	Range: 12c0
 	MinRange: 12c0
-	Projectile: BulletAS
-		Speed: 100c0
-		Blockable: false
-	Warhead@3Dam_area: SpreadDamage
+	Projectile: InstantHit
+	Warhead@diealready: GrantExternalCondition
+		Range: 0c512
+		ValidTargets: Vehicle, Infantry, Water, LandedAircraft, Air
+		ValidStances: Enemy, Neutral
+		Condition: KillSelf
+	Warhead@3damage: SpreadDamage
 		Spread: 150
-		Damage: 300000
+		Damage: 150000
 		ValidTargets: Ground, Water, Air
 		ValidStances: Enemy, Neutral
 	Warhead@2Eff: CreateEffect

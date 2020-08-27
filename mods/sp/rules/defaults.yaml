@@ -432,6 +432,7 @@
 ^KillSelf:
 	KillsSelf:
 		RequiresCondition: KillSelf
+		DamageTypes: FireDeath
 	ExternalCondition@KillSelf:
 		Condition: KillSelf
 
@@ -1214,9 +1215,26 @@
 		ReplaceableTypes: Tower
 	ExplodeWeapon@SpawnFire:
 		Weapon: DefenceCriticalDamageFireSpawner
+	RequiresBuildableArea:
+		AreaTypes: building
+
+^TurretedDefence:
+	Inherits: ^Defence
+	Turreted:
+		TurnSpeed: 40
+		InitialFacing: 1200
+		RealignDelay: -1
+	AttackTurreted:
+		PauseOnCondition: empdisable || disabled
+	WithSpriteTurret:
+		Recoils: True
+		RequiresCondition: !Building-Buildup
+	Power:
+		Amount: -20
+	BodyOrientation:
+		QuantizedFacings: 32
 
 ^AntiAir:
-	Inherits: ^Defence
 	Inherits@0: ^6CellVision
 	RenderRangeCircle:
 		RangeCircleType: AA
@@ -1226,9 +1244,10 @@
 		Cost: 800
 	Health:
 		HP: 60000
+	Power:
+		Amount: -20
 
 ^Tier2:
-	Inherits: ^Defence
 	RenderRangeCircle:
 		RangeCircleType: Tier2
 

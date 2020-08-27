@@ -1,8 +1,6 @@
 GAVULC:
-	Inherits: ^Defence
+	Inherits: ^TurretedDefence
 	Inherits@1: ^TowerStealthDetection
-	# WithWallSpriteBody:
-	WithSpriteBody:
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -12,22 +10,11 @@ GAVULC:
 		Queue: Defense
 		BuildPaletteOrder: 10
 		Prerequisites: gapile, ~structures.gdi
-	Building:
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower
 		ValidPowerStates: Low, Critical
 	Health:
 		HP: 60000
-	BodyOrientation:
-		QuantizedFacings: 32
-	Turreted:
-		TurnSpeed: 40
-		InitialFacing: 368
-	AttackTurreted:
-		PauseOnCondition: empdisable || disabled
-	WithSpriteTurret@VULC:
-		Recoils: false
-		RequiresCondition: !Building-Buildup
 	Armament@VULCPRIMARY:
 		Weapon: VulcanTower
 		LocalOffset: 768,85,550, 768,-85,550
@@ -41,20 +28,13 @@ GAVULC:
 		RequiresCondition: !Building-Buildup
 	LineBuildNode:
 		Types: turret
-	Power@base:
-		Amount: -20
 	ProvidesPrerequisite@buildingname:
-	RenderSprites:
-	RequiresBuildableArea:
-		AreaTypes: building
 
 GAROCK:
 	Inherits: ^Tier2
-	Inherits@1: ^TowerStealthDetection
-	Inherits@2: ^AntiVehiclePriority
-	Power:
-		Amount: -20
-	WithSpriteBody:
+	Inherits@1: ^TurretedDefence
+	Inherits@2: ^TowerStealthDetection
+	Inherits@3: ^AntiVehiclePriority
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -67,19 +47,8 @@ GAROCK:
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower
 		ValidPowerStates: Low, Critical
-	Building:
 	Health:
 		HP: 60000
-	BodyOrientation:
-		QuantizedFacings: 32
-	Turreted:
-		TurnSpeed: 40
-		InitialFacing: 368
-	AttackTurreted:
-		PauseOnCondition: empdisable || disabled
-	WithSpriteTurret@ROCKET:
-		Recoils: false
-		RequiresCondition: !Building-Buildup
 	Armament@ROCKET:
 		Weapon: RPGTower
 		LocalOffset: 325,-128,1800
@@ -91,15 +60,10 @@ GAROCK:
 	LineBuildNode:
 		Types: turret
 	ProvidesPrerequisite@buildingname:
-	RenderSprites:
-	RequiresBuildableArea:
-		AreaTypes: building
 
 GACSAM:
-	Inherits: ^AntiAir
-	Power:
-		Amount: -20
-	WithSpriteBody:
+	Inherits: ^TurretedDefence
+	Inherits@1: ^AntiAir
 	Tooltip:
 		Name: SAM Tower
 	Buildable:
@@ -114,14 +78,8 @@ GACSAM:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
-		TurnSpeed: 40
 		InitialFacing: 368
-	AttackTurreted:
-		PauseOnCondition: empdisable || disabled
-	WithSpriteTurret@SAM:
-		Recoils: false
-		RequiresCondition: !Building-Buildup
-	Armament@SAM:
+	Armament:
 		Weapon: GdiRedEye
 		LocalOffset: 400,0,1800
 		RequiresCondition: !Building-Buildup
@@ -137,7 +95,7 @@ GACSAM:
 		AreaTypes: building
 
 NALASR:
-	Inherits: ^Defence
+	Inherits: ^TurretedDefence
 	Inherits@1: ^TowerStealthDetection
 	Valued:
 		Cost: 600
@@ -152,16 +110,11 @@ NALASR:
 	Health:
 		HP: 60000
 	Turreted:
-		TurnSpeed: 40
 		InitialFacing: 1200
 		Offset: 350,-165,270
-	AttackTurreted:
-		PauseOnCondition: empdisable || disabled
 	Armament:
 		Weapon: TurretLaserFire
 		LocalOffset: 625, 0, 575
-		RequiresCondition: !Building-Buildup
-	WithSpriteTurret:
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -40
@@ -169,9 +122,10 @@ NALASR:
 		AreaTypes: building
 
 NAOBEL:
-	Inherits: ^Tier2
+	Inherits: ^Defence
 	Inherits@1: ^TowerStealthDetection
 	Inherits@2: ^2x2Shape
+	Inherits@3: ^Tier2
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -200,7 +154,6 @@ NAOBEL:
 	AmbientSound:
 		RequiresCondition: charging && !disabled
 		SoundFiles: obelpowr.aud
-		# Interval: 30, 40
 	WithChargeOverlay:
 		Sequence: active
 		Palette: player
@@ -211,11 +164,10 @@ NAOBEL:
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -90
-	RequiresBuildableArea:
-		AreaTypes: building
 
 NASAM:
-	Inherits: ^AntiAir
+	Inherits: ^TurretedDefence
+	Inherits@1: ^AntiAir
 	Tooltip:
 		Name: S.A.M. Site
 	Buildable:
@@ -223,26 +175,12 @@ NASAM:
 		Queue: Defense
 		Prerequisites: naradr, ~structures.nod
 		BuildPaletteOrder: 15
-	Building:
-	BodyOrientation:
-		QuantizedFacings: 32
-	RenderRangeCircle:
-		RangeCircleType: aa
 	Turreted:
 		TurnSpeed: 40
 		InitialFacing: 368
-	AttackTurreted:
-		PauseOnCondition: empdisable || disabled
-	WithSpriteTurret:
-		Recoils: false
-		RequiresCondition: !Building-Buildup
 	Armament:
 		Weapon: RedEye2
 		LocalOffset: 400,0,512
-	Power:
-		Amount: -20
-	RequiresBuildableArea:
-		AreaTypes: building
 
 MUBUNKR:
 	Inherits: ^Defence
@@ -266,7 +204,6 @@ MUBUNKR:
 		Dimensions: 2,2
 	Health:
 		HP: 60000
-	AutoTarget:
 	Cargo:
 		MaxWeight: 5
 		Types: Infantry
@@ -282,13 +219,12 @@ MUBUNKR:
 		PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
 		PortYaws: 0, 176, 341, 512, 682, 853
 		PortCones: 88, 88, 88, 88, 88, 887
-	RequiresBuildableArea:
-		AreaTypes: building
 	WithSpriteBody:
 		PauseOnCondition: loaded && !Building-Buildup
 	WithIdleOverlay@1@asd:
 		RequiresCondition: loaded && !Building-Buildup
 		Sequence: occupied
+		Name: Body1
 	-WithColoredOverlay@IDISABLE:
 	-GrantConditionOnPowerState@LOWPOWER:
 	-GrantCondition@IDISABLE:
@@ -336,10 +272,11 @@ MUBUNKRFULL:
 		InitialUnits: marauder, marauder, mutfiend, marauder, marauder
 
 MUCANNON:
-	Inherits: ^Defence
-	Inherits@1: ^MutRender
-	Inherits@2: ^TowerStealthDetection
-	Inherits@3: ^AntiVehiclePriority
+	Inherits: ^TurretedDefence
+	Inherits@1: ^Tier2
+	Inherits@2: ^MutRender
+	Inherits@3: ^TowerStealthDetection
+	Inherits@4: ^AntiVehiclePriority
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -349,26 +286,17 @@ MUCANNON:
 		Description: Anti-Armor base defense.\n\nGood vs: Vehicles\n\nSpecial:\n- Does not require power to operate\n- Provides stealth detection.
 		Prerequisites: muweap, ~structures.mut
 		BuildPaletteOrder: 17
-	Building:
 	Health:
 		HP: 55000
-	BodyOrientation:
-		QuantizedFacings: 32
 	Turreted:
 		TurnSpeed: 12
 		InitialFacing: 896
-	AttackTurreted:
 	WithMuzzleOverlay:
-	WithSpriteTurret:
-		Recoils: false
-		RequiresCondition: !Building-Buildup
 	Armament:
 		Weapon: ForgottenCannonWeapon
 		MuzzleSequence: muzzle
 		LocalOffset: 1400,0,700
 		RequiresCondition: !Building-Buildup && !empdisable
-	RequiresBuildableArea:
-		AreaTypes: building
 	-WithColoredOverlay@IDISABLE:
 	-GrantConditionOnPowerState@LOWPOWER:
 	-GrantCondition@IDISABLE:
@@ -377,6 +305,7 @@ MUCANNON:
 	-PowerMultiplier@POWERDOWN:
 
 MUFLAK:
+	Inherits: ^TurretedDefence
 	Inherits: ^AntiAir
 	Inherits@1: ^MutRender
 	Tooltip:
@@ -386,35 +315,24 @@ MUFLAK:
 		Description: Anti-Air base defense.\n\nGood vs: Aircraft.\n\nSpecial\n- Can attack Air.\n- Does not require power to operate.
 		Prerequisites: muradr, ~structures.mut
 		BuildPaletteOrder: 18
-	Building:
 	Health:
 		HP: 40000
-	BodyOrientation:
-		QuantizedFacings: 32
-	RenderRangeCircle:
-		RangeCircleType: aa
 	Turreted:
-		TurnSpeed: 40
 		InitialFacing: 368
-	AttackTurreted:
 	WithMuzzleOverlay:
-	WithSpriteTurret:
-		Recoils: false
-		RequiresCondition: !Building-Buildup
 	Armament:
 		Weapon: FlakFire
 		MuzzleSequence: muzzle
 		MuzzlePalette: apgrey
 		LocalOffset: 450,0,300
 		RequiresCondition: !Building-Buildup && !empdisable
-	RequiresBuildableArea:
-		AreaTypes: building
 	-WithColoredOverlay@IDISABLE:
 	-GrantConditionOnPowerState@LOWPOWER:
 	-GrantCondition@IDISABLE:
 	-ToggleConditionOnOrder:
 	-WithDecoration@POWERDOWN:
 	-PowerMultiplier@POWERDOWN:
+	-Power:
 
 MINIVEIN:
 	Inherits: VEINHOLE
@@ -486,7 +404,6 @@ CABPIT:
 	-ToggleConditionOnOrder:
 	Health:
 		HP: 60000
-	AutoTarget:
 	AttackOmni:
 		PauseOnCondition: empdisable || disabled
 	Armament:
@@ -497,12 +414,11 @@ CABPIT:
 		RespawnTicks: 150
 		ReamTicks: 10
 		InstaRepair: true
-	RequiresBuildableArea:
-		AreaTypes: building
 
 CABBLAST:
-	Inherits: ^Tier2
-	Inherits@1: ^CabRender
+	Inherits: ^TurretedDefence
+	Inherits@1: ^Tier2
+	Inherits@2: ^CabRender
 	Inherits@3: ^TowerStealthDetection
 	Valued:
 		Cost: 1200
@@ -519,25 +435,18 @@ CABBLAST:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
-		TurnSpeed: 40
 		InitialFacing: 368
-	AttackTurreted:
-		PauseOnCondition: empdisable || disabled
-	WithSpriteTurret:
-		Recoils: false
-		RequiresCondition: !Building-Buildup
 	Armament:
 		Weapon: BlasterProton
 		LocalOffset: 600,256,128, 600,-256,128, 300,256,256, 300,-256,256
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -75
-	RequiresBuildableArea:
-		AreaTypes: building
 
 CABRAIL:
-	Inherits: ^AntiAir
-	Inherits@1: ^CabRender
+	Inherits: ^TurretedDefence
+	Inherits@1: ^AntiAir
+	Inherits@2: ^CabRender
 	Tooltip:
 		Name: Railgun Turret
 	Buildable:
@@ -545,19 +454,8 @@ CABRAIL:
 		Description: Anti-Air base defense with low rate of fire but high damage output.\n\nGood vs: Aircraft\n\nSpecial\n- Can attack Air\n- Requires power to operate
 		Prerequisites: cabradr, ~structures.cab
 		BuildPaletteOrder: 22
-	Building:
-	BodyOrientation:
-		QuantizedFacings: 32
-	RenderRangeCircle:
-		RangeCircleType: aa
 	Turreted:
-		TurnSpeed: 40
 		InitialFacing: 368
-	AttackTurreted:
-		PauseOnCondition: empdisable || disabled
-	WithSpriteTurret:
-		Recoils: false
-		RequiresCondition: !Building-Buildup
 	Armament:
 		Weapon: CABRAILAA
 		LocalOffset: 600,400,2000
@@ -566,13 +464,9 @@ CABRAIL:
 		Weapon: CABRAILAA
 		LocalOffset: 600,-400,2000
 		RequiresCondition: !Building-Buildup
-	Power:
-		Amount: -20
-	RequiresBuildableArea:
-		AreaTypes: building
 
 SCRNEEDLER:
-	Inherits: ^Defence
+	Inherits: ^TurretedDefence
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^TowerStealthDetection
 	Inherits@4: ^ScrinDeathExplo
@@ -585,32 +479,18 @@ SCRNEEDLER:
 		Description: Basic defense.\n\nGood vs Infantry.\n\nSpecial:\n- Requires power to operate.\n- Can mutate killed enemies.\n- Attacks emit radiation that harms infantry in the area.
 		Prerequisites: scrrax, ~structures.scr
 		BuildPaletteOrder: 23
-	Building:
 	Health:
 		HP: 60000
-	BodyOrientation:
-		QuantizedFacings: 32
-	RenderRangeCircle:
-		RangeCircleType: aa
 	Turreted:
-		TurnSpeed: 40
 		InitialFacing: 368
-	AttackTurreted:
-		PauseOnCondition: empdisable || disabled
-	WithSpriteTurret:
-		Recoils: true
-		RequiresCondition: !Building-Buildup
 	Armament:
 		Weapon: IchorWasteTurretAcid
 		LocalOffset: 512,0,400
 		RequiresCondition: !Building-Buildup
-	Power:
-		Amount: -20
-	RequiresBuildableArea:
-		AreaTypes: building
 
 SCRDRONE:
-	Inherits: ^Tier2
+	Inherits: ^Defence
+	Inherits@1: ^Tier2
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^TowerStealthDetection
 	Inherits@4: ^ScrinDeathExplo
@@ -638,10 +518,9 @@ SCRDRONE:
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -50
-	RequiresBuildableArea:
-		AreaTypes: building
 
 SCRTRACTOR:
+	Inherits: ^TurretedDefence
 	Inherits: ^AntiAir
 	Inherits@2: ^ScrinRender
 	Inherits@4: ^ScrinDeathExplo
@@ -654,19 +533,8 @@ SCRTRACTOR:
 		Queue: Defense
 		Prerequisites: scrradr, ~structures.scr
 		BuildPaletteOrder: 25
-	Building:
-	BodyOrientation:
-		QuantizedFacings: 32
-	RenderRangeCircle:
-		RangeCircleType: aa
 	Turreted:
-		TurnSpeed: 40
 		InitialFacing: 368
-	AttackTurreted:
-		PauseOnCondition: empdisable || disabled
-	WithSpriteTurret:
-		Recoils: true
-		RequiresCondition: !Building-Buildup
 	Armament:
 		Weapon: TractorBeam
 		LocalOffset: 512,0,512
@@ -695,10 +563,6 @@ SCRTRACTOR:
 		Weapon: TractorBeam2
 		LocalOffset: 512,-190,1500
 		RequiresCondition: !Building-Buildup
-	Power:
-		Amount: -20
-	RequiresBuildableArea:
-		AreaTypes: building
 
 GAPOWRUP:
 	Inherits: ^BuildingPlug
