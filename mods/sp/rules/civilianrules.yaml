@@ -1049,6 +1049,8 @@ TIBERUMBILLBOARD:
 		Footprint: xxx
 	RenderSprites:
 		Palette: player
+	IsometricSelectable:
+		DecorationHeight: 60
 
 BILLBOARDWATER:
 	Inherits: ^CivBillboard
@@ -2430,6 +2432,8 @@ WELL:
 	GivesCashOnCapture:
 		Amount: 250
 	UpdatesDerrickCount:
+	IsometricSelectable:
+		DecorationHeight: 144
 
 MACHINESHOP:
 	Inherits: ^TechBuilding
@@ -2445,6 +2449,8 @@ MACHINESHOP:
 		HP: 100000
 	RenderSprites:
 	ProvidesPrerequisite@buildingname:
+	IsometricSelectable:
+		DecorationHeight: 36
 
 BLOODDERRICK:
 	Inherits: ^CivBuilding
@@ -2541,12 +2547,14 @@ NEUTRALRADAR:
 	RevealsShroud:
 		Range: 14c0
 	ProvidesRadar:
+	IsometricSelectable:
+		DecorationHeight: 48
 
 NEUTRALPOWERPLANT:
 	Inherits: ^TechBuilding
 	Inherits@3: ^3x3Shape
 	Tooltip:
-		Name: Nuclear Powerplant
+		Name: Nuclear Power Plant
 	TooltipDescription:
 		Description: Provides build radius & explodes violently when destroyed.
 	Building:
@@ -2569,6 +2577,8 @@ NEUTRALPOWERPLANT:
 	Explodes:
 		Weapon: PowerplantNuke
 		EmptyWeapon: PowerplantNuke
+	IsometricSelectable:
+		DecorationHeight: 72
 
 SCRINREINFPAD:
 	Inherits: ^TechBuilding
@@ -2699,6 +2709,8 @@ RADIOTOWER:
 		Type: BuildingArmor
 	RenderSprites:
 		Palette: player
+	IsometricSelectable:
+		DecorationHeight: 120
 
 SIGNALTOWER:
 	Inherits: RADIOTOWER
@@ -2706,8 +2718,6 @@ SIGNALTOWER:
 		Name: Communications Tower
 	Health:
 		HP: 30000
-
-
 
 TANKBARRIER:
 	Inherits: ^CivBuilding

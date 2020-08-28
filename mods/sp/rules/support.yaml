@@ -74,11 +74,8 @@ GACSAM:
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower
 		ValidPowerStates: Low, Critical
-	Building:
 	BodyOrientation:
 		QuantizedFacings: 32
-	Turreted:
-		InitialFacing: 368
 	Armament:
 		Weapon: GdiRedEye
 		LocalOffset: 400,0,1800
@@ -164,6 +161,8 @@ NAOBEL:
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -90
+	IsometricSelectable:
+		DecorationHeight: 48
 
 NASAM:
 	Inherits: ^TurretedDefence
@@ -518,6 +517,8 @@ SCRDRONE:
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -50
+	IsometricSelectable:
+		DecorationHeight: 48
 
 SCRTRACTOR:
 	Inherits: ^TurretedDefence
@@ -884,6 +885,8 @@ MUVENTI:
 			yellow: pip-yellow-building
 			blue: pip-blue-building
 			gray: pip-gray-building
+	IsometricSelectable:
+		DecorationHeight: 36
 
 MUTSW1:
 	Inherits: ^Building
@@ -1024,6 +1027,8 @@ SCRSW1:
 		HP: 300000
 	RequiresBuildableArea:
 		AreaTypes: building
+	IsometricSelectable:
+		DecorationHeight: 48
 
 CABEYE:
 	Inherits: ^Building
@@ -1062,6 +1067,8 @@ CABEYE:
 	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
+	IsometricSelectable:
+		DecorationHeight: 96
 
 CABSW1:
 	Inherits: ^Defence
@@ -1155,6 +1162,8 @@ CABSW1:
 		ValuePercent: 30
 		ActorTypes: shark
 		Factions: scr
+	IsometricSelectable:
+		DecorationHeight: 36
 
 CABGRINDER:
 	Inherits: ^Building
