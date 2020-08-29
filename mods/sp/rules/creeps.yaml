@@ -244,6 +244,53 @@ BERSERKER:
 	AutoTargetPriority@ATTACKANYTHING:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
 
+EGGS:
+	Inherits: ^CivBuilding
+	Tooltip:
+		Name: Crab Eggs (Menacing)
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	Armor:
+		Type: BuildingArmor
+	RevealsShroud:
+		Range: 4c0
+	Health:
+		HP: 50000
+	RenderSprites:
+		Palette: playermut
+	Targetable:
+		TargetTypes: Defence, Ground, C4, NeutralTibCritter
+	-Demolishable:
+	-ThrowsShrapnel@SMALL:
+	-ThrowsShrapnel@LARGE:
+	-Explodes:
+	-Explodes@BuildingFireBigSpawn:
+	-Explodes@BuildingFireSmallParticleSpawner:
+	-SoundOnDamageTransition:
+	-ShakeOnDeath:
+	ExternalCondition@SpawnCrabs:
+		Condition: SpawnCrabs
+	GrantPeriodicCondition:
+		Condition: SpawnCrabs
+		CooldownDuration: 400
+	ChangesHealth@crab:
+		PercentageStep: -100
+		Step: 0
+		Delay: 50
+		StartIfBelow: 150
+		RequiresCondition: SpawnCrabs
+		DamageTypes: SpawnCrabs
+	SpawnActorOnDeath@crab1:
+		Actor: crab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType: SpawnCrabs
+		RequiresLobbyCreeps: true
+	RequiresBuildableArea:
+		AreaTypes: building
+
 CRAB:
 	Inherits: ^Beast
 	Inherits@1: ^MutRender

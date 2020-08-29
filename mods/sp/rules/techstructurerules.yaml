@@ -1,0 +1,350 @@
+NEUTRALFABRICATOR:
+	Inherits: ^Vehicle
+	Inherits@2: ^SpriteActor
+	Inherits@3: ^7CellVision
+	Tooltip:
+		Name: Packed up Fabricator
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 20
+		Speed: 45
+		Locomotor: InfantryCrusherVehicle
+	Passenger:
+		RequireForceMoveCondition: !undeployed
+	Health:
+		HP: 150000
+	Transforms:
+		IntoActor: neutralfabricatordep
+		Facing: 888
+	Capturable:
+		Types: Building
+		RequiresCondition: !Building-Buildup
+	WithFacingSpriteBody:
+		Sequence: vehicle
+	Selectable:
+		Bounds: 40,50,0, -15
+
+NEUTRALFABRICATORDEP:
+	Inherits: ^Building
+	Inherits@1: ^1x1Shape
+	Building:
+		Footprint: x
+		BuildSounds: facbld1.aud
+		Dimensions: 1,1
+	Health:
+		HP: 150000
+	Tooltip:
+		Name: Civilian Fabricator
+	BaseProvider:
+		Range: 8c0
+	Targetable:
+		TargetTypes: Building, Ground, C4, SpyInfiltrate, MindControlInmune, ConsideredValuableForAI
+	BaseBuilding:
+	Transforms:
+		IntoActor: neutralfabricator
+		Facing: 888
+		DeployCursor: undeploy
+	TransformsIntoMobile:
+		RequiresCondition: !Building-Buildup
+		Locomotor: InfantryCrusherVehicle
+		Voice: Move
+		RequiresForceMove: true
+	TransformsIntoRepairable:
+		RequiresCondition: !Building-Buildup
+		RepairActors: gadept, scrdepot
+		Voice: Move
+		RequiresForceMove: true
+	TransformsIntoPassenger:
+		RequiresCondition: !Building-Buildup
+		CargoType: Vehicle
+		Voice: Move
+		RequiresForceMove: true
+	IsometricSelectable:
+		DecorationHeight: 36
+	RenderSprites:
+		Image: neutralfabricator
+
+WELL:
+	Inherits: ^TechBuilding
+	Inherits@1: ^SpawnSmoke
+	Inherits@2: ^3x3Shape
+	Inherits@3: ^MutRender
+	Tooltip:
+		Name: Tiberium Extractor
+	TooltipDescription:
+		Description: Provides additional funds.
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3, 3
+	CashTrickler:
+		Interval: 400
+		Amount: 100
+	Health:
+		HP: 135000
+	WithIdleOverlay:
+		Sequence: anim
+		Palette: effect
+	Explodes:
+		Weapon: TiberiumExplosion
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: gradientgreen60
+		Offset: 1300,0,0
+	GivesCashOnCapture:
+		Amount: 250
+	UpdatesDerrickCount:
+	IsometricSelectable:
+		DecorationHeight: 144
+
+MACHINESHOP:
+	Inherits: ^TechBuilding
+	Inherits@2: ^2x2Shape
+	Tooltip:
+		Name: Machine Shop
+	TooltipDescription:
+		Description: Provides global repairs for vehicles.
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	Health:
+		HP: 100000
+	RenderSprites:
+	ProvidesPrerequisite@buildingname:
+	IsometricSelectable:
+		DecorationHeight: 36
+
+BLOODDERRICK:
+	Inherits: ^CivBuilding
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^3x3Shape
+	Tooltip:
+		Name: Tiberian Crab Nest
+	TooltipDescription:
+		Description: Spawns hostile crabs when destroyed.
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3, 3
+	Health:
+		HP: 40000
+	Explodes:
+		Weapon: TiberiumExplosion
+	RenderSprites:
+		-Palette: playerscrin
+		PlayerPalette: playerscrin
+	SpawnActorOnDeath@1:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: -1,-1
+	SpawnActorOnDeath@2:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 0,-1
+	SpawnActorOnDeath@3:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 1,-1
+	SpawnActorOnDeath@4:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 1,0
+	SpawnActorOnDeath@5:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 0,1
+	SpawnActorOnDeath@6:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 1,0
+	SpawnActorOnDeath@7:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 1,1
+	SpawnActorOnDeath@8:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 1,1
+	SpawnActorOnDeath@9:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 1,1
+	SpawnActorOnDeath@10:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 1,1
+
+NEUTRALRADAR:
+	Inherits: ^TechBuilding
+	Inherits@3: ^2x2Shape
+	Tooltip:
+		Name: Spy Satellite
+	TooltipDescription:
+		Description: Provides vision.
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	Health:
+		HP: 250000
+	RenderSprites:
+	RevealsShroud:
+		Range: 14c0
+	ProvidesRadar:
+	IsometricSelectable:
+		DecorationHeight: 48
+
+NEUTRALPOWERPLANT:
+	Inherits: ^TechBuilding
+	Inherits@3: ^3x3Shape
+	Tooltip:
+		Name: Nuclear Power Plant
+	TooltipDescription:
+		Description: Provides build radius & explodes violently when destroyed.
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3, 3
+		Adjacent: 5
+	Health:
+		HP: 150000
+	Power:
+		Amount: 200
+	RenderSprites:
+	RevealsShroud:
+		Range: 5c0
+	GivesBuildableArea:
+		AreaTypes: building
+	BaseProvider:
+		Range: 8c0
+	RequiresBuildableArea:
+		AreaTypes: building
+	Explodes:
+		Weapon: PowerplantNuke
+		EmptyWeapon: PowerplantNuke
+	IsometricSelectable:
+		DecorationHeight: 72
+
+SCRINREINFPAD:
+	Inherits: ^TechBuilding
+	Inherits@3: ^3x3Shape
+	Tooltip:
+		Name: Scrin Replicator
+	TooltipDescription:
+		Description: Builds a main battle tanks periodically.
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3, 3
+	Health:
+		HP: 120000
+	RenderSprites:
+		PlayerPalette: playerscrin
+	RevealsShroud:
+		Range: 5c0
+	RallyPoint:
+		Path: 1,4
+		Palette: mouse
+		IsPlayerPalette: false
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+	WithIdleOverlay@production:
+		Sequence: production-lights
+		RequiresCondition: BuildStuffGDI || BuildStuffNOD || BuildStuffMUT || BuildStuffCAB || BuildStuffSCR
+	Exit@1:
+		SpawnOffset: 0,-256,0
+		ExitCell: 2,2
+		ExitDelay: 5
+	Production:
+		Produces: Vehicle
+	GrantConditionOnPrerequisite@GDI:
+		Condition: BuildStuffGDI
+		Prerequisites: structures.gdi
+	GrantConditionOnPrerequisite@NOD:
+		Condition: BuildStuffNOD
+		Prerequisites: structures.nod
+	GrantConditionOnPrerequisite@MUT:
+		Condition: BuildStuffMUT
+		Prerequisites: structures.mut
+	GrantConditionOnPrerequisite@CAB:
+		Condition: BuildStuffCAB
+		Prerequisites: structures.cab
+	GrantConditionOnPrerequisite@SCR:
+		Condition: BuildStuffSCR
+		Prerequisites: structures.scr
+	PeriodicProducer@GDI:
+		Actors: mmch
+		Type: Vehicle
+		ChargeDuration: 3000
+		RequiresCondition: BuildStuffGDI
+	PeriodicProducer@NOD:
+		Actors: ttnk
+		Type: Vehicle
+		ChargeDuration: 3000
+		RequiresCondition: BuildStuffNOD
+	PeriodicProducer@mut:
+		Actors: lynx
+		Type: Vehicle
+		ChargeDuration: 3000
+		RequiresCondition: BuildStuffMUT
+	PeriodicProducer@cab:
+		Actors: reapercab
+		Type: Vehicle
+		ChargeDuration: 3000
+		RequiresCondition: BuildStuffCAB
+	PeriodicProducer@scr:
+		Actors: scrmbt
+		Type: Vehicle
+		ChargeDuration: 3000
+		RequiresCondition: BuildStuffSCR
+
+BLUETIBBARREL:
+	Inherits: ^CivBuilding
+	Inherits@2: ^1x1Shape
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Tooltip:
+		Name: Blue Tib-fuel Barrel
+	TooltipDescription:
+		Description: Explodes when destroyed.
+	Health:
+		HP: 200
+	Armor:
+		Type: BuildingArmor
+	RenderSprites:
+		Palette: player
+	Explodes:
+		Weapon: BlueTibBarrelExplo
+		EmptyWeapon: BlueTibBarrelExplo
+
+BLUETIBBARREL2:
+	Inherits: BLUETIBBARREL
+
+BLUETIBBARREL3:
+	Inherits: BLUETIBBARREL
+
+BLUETIBBARREL4:
+	Inherits: BLUETIBBARREL
+
+BLUETIBBARREL5:
+	Inherits: BLUETIBBARREL
+
+BLUETIBBARREL6:
+	Inherits: BLUETIBBARREL
