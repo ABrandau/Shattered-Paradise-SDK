@@ -1529,14 +1529,8 @@ CAHOSP:
 	Health:
 		HP: 80000
 	ProvidesPrerequisite@BuildingName:
-	ThrowsShrapnel@SMALL:
-		Pieces: 5, 9
-	ThrowsShrapnel@LARGE:
-		Pieces: 2, 4
 	WithIdleOverlay:
 		Sequence: flag
-	WithIdleOverlay@g:
-		Sequence: flagg
 	ProvidesPrerequisite@buildingname:
 	IsometricSelectable:
 		DecorationHeight: 48
@@ -2545,14 +2539,21 @@ TIBGLACIER:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	Tooltip:
-		Name: Container
 	Health:
 		HP: 25000
 	Armor:
 		Type: BuildingArmor
 	RenderSprites:
-		Palette: gradientgreen
+		Palette: scipberium
+
+TIBGLACIER2:
+	Inherits: TIBGLACIER
+
+TIBGLACIER3:
+	Inherits: TIBGLACIER
+
+TIBGLACIER4:
+	Inherits: TIBGLACIER
 
 CONTAINER2X2:
 	Inherits@1: ^FakeTurretedProp

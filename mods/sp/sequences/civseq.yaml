@@ -626,9 +626,10 @@ caarmr:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	flag: flag
-		Length: *
-		Offset: 18,-24
+	flag: techstructureflag
+		Length: 80
+		ShadowStart: 80
+		Offset: 12,-18
 
 caaray:
 	Defaults:
@@ -701,12 +702,11 @@ cahosp:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	flag: flag
-		Length: *
-		Offset: -44,-36
-	flagg: flagg
-		Length: *
-		Offset: -48,-24
+	flag: techstructureflag
+		Length: 80
+		ShadowStart: 80
+		Offset: -48,-9
+		UseTilesetCode: false
 
 capyr01:
 	idle: ctpyr01
@@ -1622,7 +1622,25 @@ fence:
 tibglacier:
 	Defaults:
 	idle:
-		# ShadowStart: 1
+		ShadowStart: 4
+
+tibglacier2:
+	Defaults:
+	idle: tibglacier
+		Start: 1
+		ShadowStart: 5
+
+tibglacier3:
+	Defaults:
+	idle: tibglacier
+		Start: 2
+		ShadowStart: 6
+
+tibglacier4:
+	Defaults:
+	idle: tibglacier
+		Start: 3
+		ShadowStart: 7
 
 container:
 	Defaults:
