@@ -139,7 +139,7 @@ APC:
 		MaxWeight: 5
 		UnloadVoice: Unload
 		LoadingCondition: notmobile
-		EjectOnDeath: False
+		EjectOnDeath: false
 	Passenger:
 		CargoType: Apc
 	LeavesTrails:
@@ -176,7 +176,7 @@ APC_BOT:
 	Buildable:
 		Prerequisites: ~gaweap, gapile, ~AImoney
 	Cargo:
-		EjectOnDeath: True
+		EjectOnDeath: true
 		InitialUnits: gdie1, gdie1, gdie1, gdie1, grenadier
 	AIDeployHelper:
 
@@ -245,7 +245,7 @@ JUG:
 		Voice: Attack
 		Armaments: primary, secondary
 		PauseOnCondition: empdisable
-		TargetFrozenActors: True
+		TargetFrozenActors: true
 	AutoTarget:
 		ScanRadius: 16
 	Armament:
@@ -310,7 +310,7 @@ SONIC:
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
-		OpportunityFire: False
+		OpportunityFire: false
 	Targetable@AllySonicImmune:
 		TargetTypes: AllySonicImmune
 	Turreted:
@@ -809,7 +809,7 @@ RIFLEBGGY:
 	Buildable:
 		Prerequisites: ~naweap, ~AImoney
 	Cargo:
-		EjectOnDeath: True
+		EjectOnDeath: true
 		InitialUnits: altnode1
 
 ROCKETBGGY:
@@ -827,7 +827,7 @@ ROCKETBGGY:
 	Buildable:
 		Prerequisites: ~naweap, ~AImoney
 	Cargo:
-		EjectOnDeath: True
+		EjectOnDeath: true
 		InitialUnits: crusader
 
 FLAMEBGGY:
@@ -843,7 +843,7 @@ FLAMEBGGY:
 	Buildable:
 		Prerequisites: ~naweap, naradr, ~AImoney
 	Cargo:
-		EjectOnDeath: True
+		EjectOnDeath: true
 		InitialUnits: templar
 	EditorOnlyTooltip:
 		Name: Flame Buggy
@@ -861,7 +861,7 @@ LAZORBGGY:
 	Buildable:
 		Prerequisites: ~naweap, natech, ~AImoney
 	Cargo:
-		EjectOnDeath: True
+		EjectOnDeath: true
 		InitialUnits: nconf
 	EditorOnlyTooltip:
 		Name: Laser Buggy
@@ -920,7 +920,7 @@ TTNK:
 		SmartDeploy: true
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
 		DeploySounds: place2.aud
-		CanDeployOnRamps: True
+		CanDeployOnRamps: true
 		UndeployOnMove: true
 		UndeploySounds: clicky1.aud
 		PauseOnCondition: RefineryLock || (deployed && AImicroManage)
@@ -1002,7 +1002,7 @@ TICKHOLOGRAM:
 		BaseLevel: 0
 	WithDeathAnimation@body:
 		DeathSequencePalette: apolra2i
-		DeathPaletteIsPlayerPalette: False
+		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
 			BulletDeath: evaporate
 			CabalDeath: evaporate
@@ -1059,14 +1059,14 @@ BIKE:
 		EmptyWeapon: BikeExplo
 	GrantConditionOnDeploy@DemoTruck:
 		DeployedCondition: DetonateDemoTruck
-		CanDeployOnRamps: True
+		CanDeployOnRamps: true
 		RequiresCondition: !empdisable
 	ExternalCondition@DetonateDemoTruck:
 		Condition: DetonateDemoTruck
 	GrantConditionOnAttack@DemoTruck:
 		Condition: DetonateDemoTruck
 	KillsSelf@DemoTruck:
-		RemoveInstead: False
+		RemoveInstead: false
 		RequiresCondition: DetonateDemoTruck
 	Armament@DemoTruck:
 		Weapon: DemoTruckDummyWeapon
@@ -1201,7 +1201,7 @@ HOWTLIZER:
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
-		TargetFrozenActors: True
+		TargetFrozenActors: true
 	-MustBeDestroyed:
 	GrantConditionOnDamageState@CloakBreaks:
 		Condition: CloakBreaks
@@ -1453,7 +1453,7 @@ STRUCKFULL:
 	GivesExperience:
 		Experience: 500
 	Cargo:
-		EjectOnDeath: True
+		EjectOnDeath: true
 		InitialUnits: marauder, marauder, mutfiend, mutfiend, e3
 	RenderSprites:
 		Image: struck
@@ -1532,7 +1532,7 @@ MRLS:
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
-		TargetFrozenActors: True
+		TargetFrozenActors: true
 	Turreted:
 		TurnSpeed: 36
 		Offset: -300,0,0
@@ -1607,14 +1607,14 @@ HVRTRUK3:
 		HP: 12500
 	GrantConditionOnDeploy@DemoTruck:
 		DeployedCondition: DetonateDemoTruck
-		CanDeployOnRamps: True
+		CanDeployOnRamps: true
 		RequiresCondition: !empdisable
 	ExternalCondition@DetonateDemoTruck:
 		Condition: DetonateDemoTruck
 	GrantConditionOnAttack@DemoTruck:
 		Condition: DetonateDemoTruck
 	KillsSelf@DemoTruck:
-		RemoveInstead: False
+		RemoveInstead: false
 		RequiresCondition: DetonateDemoTruck
 	Armament@DemoTruck:
 		Weapon: DemoTruckDummyWeapon
@@ -1643,7 +1643,7 @@ HVRTRUK3_BOT:
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
 	AttackFrontal:
-		TargetFrozenActors: True
+		TargetFrozenActors: true
 	RenderSprites:
 		Image: HVRTRUK3
 
@@ -1902,7 +1902,7 @@ TRIPOD:
 	AutoTarget:
 	WithDeathAnimation@die:
 		DeathSequencePalette: player
-		DeathPaletteIsPlayerPalette: True
+		DeathPaletteIsPlayerPalette: true
 		DeathTypes:
 			BulletDeath: 1, 2
 			CabalDeath: 1, 2
@@ -2067,8 +2067,8 @@ REAPERCAB:
 	WithDeathAnimation@die:
 		DeathSequence: die1
 		DeathSequencePalette: player
-		DeathPaletteIsPlayerPalette: True
-		UseDeathTypeSuffix: False
+		DeathPaletteIsPlayerPalette: true
+		UseDeathTypeSuffix: false
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -2238,7 +2238,7 @@ SPIDERARTY:
 		ScanRadius: 11
 	AttackFrontal:
 		PauseOnCondition: empdisable
-		TargetFrozenActors: True
+		TargetFrozenActors: true
 	Armament:
 		Weapon: DroneHostMissile
 		LocalOffset: -500,-150,900, -500,150,900

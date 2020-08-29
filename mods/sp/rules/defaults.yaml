@@ -7,7 +7,7 @@
 
 ^SpriteActor:
 	BodyOrientation:
-		UseClassicPerspectiveFudge: False
+		UseClassicPerspectiveFudge: false
 		CameraPitch: 85
 	QuantizeFacingsFromSequence:
 	RenderSprites:
@@ -747,7 +747,7 @@
 		Image: sgrysmk1
 		Palette: effectalpha50
 		Duration: 90
-		RandomFacing: False
+		RandomFacing: false
 	ExternalCondition@smoketrail:
 		Condition: smoketrail
 	ExternalCondition@DisableSmoke:
@@ -772,7 +772,7 @@
 	ExplodeWeapon@SpawnFire:
 		RequiresCondition: SpawnFire && !DisableSpawnFire
 		Weapon: BuildingCriticalDamageFireSpawner
-		ResetReloadWhenEnabled: False
+		ResetReloadWhenEnabled: false
 	ExternalCondition@SpawnFire:
 		Condition: SpawnFire
 	ExternalCondition@DisableSpawnFire:
@@ -887,17 +887,17 @@
 	CashTrickler@AICashDevour:
 		Interval: 1100
 		Amount: 800
-		ShowTicks: False
+		ShowTicks: false
 		RequiresCondition: AIShattered
 	CashTrickler@AICashCheater:
 		Interval: 1000
 		Amount: 350
-		ShowTicks: False
+		ShowTicks: false
 		RequiresCondition: AICheater
 	CashTrickler@AICashNormal:
 		Interval: 600
 		Amount: 50
-		ShowTicks: False
+		ShowTicks: false
 		RequiresCondition: AIReload || AICheater
 	GrantConditionOnBotOwner@AIReload:
 		Condition: AIReload
@@ -1057,7 +1057,7 @@
 		BuildSounds: place2.aud
 		UndeploySounds: cashturn.aud
 		TerrainTypes: Clear, Road, DirtRoad, Rough
-		RequiresBaseProvider: True
+		RequiresBaseProvider: true
 	ActorPreviewPlaceBuildingPreview:
 		Palette: placefootprint
 		LineBuildSegmentPalette: placelinesegment
@@ -1216,7 +1216,7 @@
 	AttackTurreted:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret:
-		Recoils: True
+		Recoils: true
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: -20
@@ -1454,23 +1454,23 @@
 			HeadshotDeath: 3
 	WithDeathAnimation@tib:
 		DeathSequencePalette: apolra2galpha
-		DeathPaletteIsPlayerPalette: False
+		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
 			TiberiumDeath: evaporate, melt, shatter, cristalize1, cristalize2
 	WithDeathAnimation@explosion:
 		DeathSequencePalette: gensmkexploj
-		DeathPaletteIsPlayerPalette: False
+		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
 			SmallExplosionDeath: 4, 5, 7
 			ExplosionDeath: 4, 5, 7
 	WithDeathAnimation@energy:
 		DeathSequencePalette: ra
-		DeathPaletteIsPlayerPalette: False
+		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
 			EnergyDeath: 6
 	WithDeathAnimation@body:
 		DeathSequencePalette: effect
-		DeathPaletteIsPlayerPalette: False
+		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
 			BulletDeath: body1, body2, body3, body4, body5
 			CabalDeath: body1, body2, body3, body4, body5
@@ -1483,7 +1483,7 @@
 		Delay: 10
  	WithDeathAnimation@blood1:
 		DeathSequencePalette: gradientred
-		DeathPaletteIsPlayerPalette: False
+		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
 			BulletDeath: blood1, blood2, blood3, blood4, blood5
 			CabalDeath: blood1, blood2, blood3, blood4, blood5
@@ -1567,7 +1567,7 @@
 	Voiced:
 		VoiceSet: Fiend
 	AttackFrontal:
-		TargetFrozenActors: True
+		TargetFrozenActors: true
 	Passenger:
 		CargoType: Vehicle
 		Voice: Move
@@ -1606,7 +1606,7 @@
 		Locomotor: TibInmuneInfantry
 	WithDeathAnimation@body:
 		DeathSequencePalette: playerscrin
-		DeathPaletteIsPlayerPalette: False
+		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
 			BulletDeath: body1, body2
 			CabalDeath: body1, body2
@@ -1684,7 +1684,7 @@
 		Weapon: Pistola
 	AttackFrontal:
 		Voice: Attack
-		TargetFrozenActors: True
+		TargetFrozenActors: true
 	AttackWander:
 		WanderMoveRadius: 1
 		MinMoveDelay: 100
@@ -1697,7 +1697,7 @@
 		CooldownDuration: 375
 	KillsSelf@KillMe:
 		RequiresCondition: KillMe
-		KillsSelf: True
+		KillsSelf: true
 		DamageTypes: BulletDeath
 	ExternalCondition@KillMe:
 		Condition: KillMe
@@ -1709,8 +1709,8 @@
 		ShowToEnemies: true
 	WithDeathAnimation@body:
 		DeathSequencePalette: jasccyan
-		DeathPaletteIsPlayerPalette: False
-		UseDeathTypeSuffix: False
+		DeathPaletteIsPlayerPalette: false
+		UseDeathTypeSuffix: false
 		DeathSequence: dieevaporate
 		Delay: 0
 	FirepowerMultiplier@Hologram:
@@ -1729,7 +1729,7 @@
 	-DamagedByTerrain:
 	-ActorLostNotification:
 	AttackFrontal:
-		TargetFrozenActors: True
+		TargetFrozenActors: true
 	-WithDeathAnimation@normal:
 	-WithDeathAnimation@tib:
 	-WithDeathAnimation@explosion:
@@ -1764,7 +1764,7 @@
 	Captures:
 		CaptureTypes: Building
 		ConsumeActor: true
-		Sabotage: False
+		Sabotage: false
 		RequiresCondition: !global-reusable-engineers
 		PlayerExperience: 25
 		CaptureDelay: 100
@@ -1791,7 +1791,7 @@
 	CaptureManager:
 	Capturable:
 		Types: Vehicle
-		CancelActivity: True
+		CancelActivity: true
 	Crushable:
 		CrushClasses: Vehicle
 		WarnProbability: 0
@@ -1882,7 +1882,7 @@
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
-		TargetFrozenActors: True
+		TargetFrozenActors: true
 
 ^HoverVehicle:
 	Inherits: ^Vehicle
@@ -1915,7 +1915,7 @@
 		RequiresCondition: !inside-tunnel
 	Turreted:
 	AttackTurreted:
-		TargetFrozenActors: True
+		TargetFrozenActors: true
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
@@ -2000,7 +2000,7 @@
 	-ExternalCondition@smoketrail:
 	AnnounceOnSeen@subterranean:
 		Notification: SubterraneanUnitDetected
-		PingRadar: True
+		PingRadar: true
 	GrantConditionOnSubterraneanLayer:
 		Condition: submerged
 		SubterraneanTransitionImage: dig
@@ -2099,11 +2099,11 @@
 	Inherits: ^Aircraft
 	Aircraft:
 		CruiseAltitude: 3c512
-		CanHover: True
+		CanHover: true
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 		TakeOffOnResupply: true
 		VTOL: true
-		CanSlide: True
+		CanSlide: true
 	Targetable@AIRBORNE:
 		TargetTypes: Air, Helicopter
 		RequiresCondition: airborne
@@ -2118,7 +2118,7 @@
 	Inherits: ^Aircraft
 	Inherits@3: ^AutoTargetAir
 	Aircraft:
-		LandWhenIdle: False
+		LandWhenIdle: false
 	Rearmable:
 		RearmActors: nahpad, gahpad, muair, scrair, cabair
 
@@ -2302,7 +2302,7 @@
 		VoiceSet: Vehicle
 	AttackTurreted:
 		Voice: Attack
-		TargetFrozenActors: True
+		TargetFrozenActors: true
 	AutoTarget:
 	RenderRangeCircle:
 	DrawLineToTarget:
@@ -2379,12 +2379,12 @@
 ^TerrainOverlay:
 	AlwaysVisible:
 	Immobile:
-		OccupiesSpace: False
+		OccupiesSpace: false
 	RenderSprites:
 		Palette: terraindecoration
 	WithSpriteBody:
 	BodyOrientation:
-		UseClassicPerspectiveFudge: False
+		UseClassicPerspectiveFudge: false
 		QuantizedFacings: 1
 
 ^Railway:
@@ -2398,7 +2398,7 @@
 		Palette: terraindecoration
 	WithSpriteBody:
 	BodyOrientation:
-		UseClassicPerspectiveFudge: False
+		UseClassicPerspectiveFudge: false
 		QuantizedFacings: 1
 	Building:
 		Dimensions: 3, 3
