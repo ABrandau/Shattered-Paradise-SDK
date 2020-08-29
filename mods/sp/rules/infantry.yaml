@@ -1610,14 +1610,12 @@ MOTH:
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 	WithMakeAnimation:
-	WithFacingSpriteBody:
+	WithFacingSpriteBody@UndeloyedBody:
 		Sequence: idle
 		RequiresCondition: !deployed && !inside-tunnel
-		Name: Body
-	WithSpriteBody:
+	WithSpriteBody@DeloyedBody:
 		Sequence: deployed
 		RequiresCondition: !undeployed
-		Name: Body1
 	-WithInfantryBody:
 	Armament@1:
 		Weapon: LurkerProj
