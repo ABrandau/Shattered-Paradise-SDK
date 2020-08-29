@@ -883,17 +883,6 @@
 		Position: BottomLeft
 		RequiresSelection: true
 
-^AIBuffCheat:
-	GrantConditionOnBotOwner@AImicroManage:
-		Condition: AImicroManage
-		Bots: CheaterAI, ShatteredAI
-	FirepowerMultiplier@AIBuffCheat:
-		RequiresCondition: AImicroManage
-		Modifier: 105
-	DamageMultiplier@AIBuffCheat:
-		RequiresCondition: AImicroManage
-		Modifier: 95
-
 ^AICashCheat:
 	CashTrickler@AICashDevour:
 		Interval: 1100
@@ -943,7 +932,6 @@
 	Inherits@3: ^BurstRecovery
 	Inherits@4: ^FirestormGenBuff
 	Inherits@5: ^CrateBuffs
-	Inherits@6: ^AIBuffCheat
 	RevealOnFire:
 		ArmamentNames: primary, secondary, OnFoot
 		Duration: 50
