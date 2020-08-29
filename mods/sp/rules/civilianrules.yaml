@@ -259,12 +259,70 @@ CIV3:
 	WithVoxelBarrel:
 	WithMuzzleOverlay:
 
-GTWIMAM:
-	Inherits: 4TNK
-	RenderVoxels:
-		Scale: 0.80
-	Turreted:
-		Offset: -100,0,400
+NEUTRALFABRICATOR:
+	Inherits: ^Vehicle
+	Inherits@2: ^SpriteActor
+	Inherits@3: ^7CellVision
+	Tooltip:
+		Name: Packed up Fabricator
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 20
+		Speed: 75
+		Locomotor: InfantryCrusherVehicle
+	Passenger:
+		RequireForceMoveCondition: !undeployed
+	Health:
+		HP: 150000
+	Transforms:
+		IntoActor: neutralfabricatordep
+		Facing: 888
+	Capturable:
+		Types: Building
+		RequiresCondition: !Building-Buildup
+	WithFacingSpriteBody:
+		Sequence: vehicle
+
+NEUTRALFABRICATORDEP:
+	Inherits: ^Building
+	Inherits@1: ^1x1Shape
+	Building:
+		Footprint: xx xx
+		BuildSounds: facbld1.aud
+		Dimensions: 1,1
+	Health:
+		HP: 150000
+	Tooltip:
+		Name: Civilian Fabricator
+	BaseProvider:
+		Range: 8c0
+	Targetable:
+		TargetTypes: Building, Ground, C4, SpyInfiltrate, MindControlInmune, ConsideredValuableForAI
+	BaseBuilding:
+	Transforms:
+		IntoActor: neutralfabricator
+		Facing: 888
+		DeployCursor: undeploy
+	TransformsIntoMobile:
+		RequiresCondition: !Building-Buildup
+		Locomotor: InfantryCrusherVehicle
+		Voice: Move
+		RequiresForceMove: true
+	TransformsIntoRepairable:
+		RequiresCondition: !Building-Buildup
+		RepairActors: gadept, scrdepot
+		Voice: Move
+		RequiresForceMove: true
+	TransformsIntoPassenger:
+		RequiresCondition: !Building-Buildup
+		CargoType: Vehicle
+		Voice: Move
+		RequiresForceMove: true
+	IsometricSelectable:
+		DecorationHeight: 36
+	RenderSprites:
+		Image: neutralfabricator
 
 ^TRUCK:
 	Inherits: ^CivilianVoxelVehicle
@@ -2457,7 +2515,7 @@ BLOODDERRICK:
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^3x3Shape
 	Tooltip:
-		Name: Crab Hive
+		Name: Tiberian Crab Nest
 	TooltipDescription:
 		Description: Spawns hostile crabs when destroyed.
 	Building:
