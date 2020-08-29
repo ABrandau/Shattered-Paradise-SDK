@@ -206,7 +206,7 @@ MUBUNKR:
 	Cargo:
 		MaxWeight: 5
 		Types: Infantry
-		EjectOnDeath: False
+		EjectOnDeath: false
 		LoadedCondition: loaded
 		InitialUnits: marauder
 	WithCargoSounds:
@@ -267,7 +267,7 @@ MUBUNKRFULL:
 	EditorOnlyTooltip:
 		Name: Filled Bunker
 	Cargo:
-		EjectOnDeath: True
+		EjectOnDeath: true
 		InitialUnits: marauder, marauder, mutfiend, marauder, marauder
 
 MUCANNON:
@@ -606,7 +606,7 @@ GAFIRE:
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: FirestormGen
 		CooldownTicks: 1500
-		StartsFullyCharged: False
+		StartsFullyCharged: false
 		DeployedTicks: 300
 		RequiresCondition: !disabled && !empdisable
 	ProximityExternalCondition:
@@ -688,7 +688,7 @@ GAPLUG:
 			1: ioncannon
 		Descriptions:
 			1: Ion Cannon Array
-		DisplayTimer: True
+		DisplayTimer: true
 		TargetCircleRanges:
 			1: 6c0
 		LongDescs:
@@ -787,10 +787,10 @@ NASTLH:
 		LaunchSound: n_swlaunch.aud
 		SpawnOffset: 0,427,0
 		DisplayTimerStances: Ally, Neutral, Enemy
-		DisplayBeacon: True
-		DisplayRadarPing: True
+		DisplayBeacon: true
+		DisplayRadarPing: true
 		MissilePalette: player
-		IsPlayerPalette: True
+		IsPlayerPalette: true
 		BeaconPosters:
 			1: minimltiicon
 		OrderName: ClusterMissile
@@ -924,13 +924,13 @@ MUTSW1:
 		IncomingSound: SuperweaponFired
 		LaunchSound: n_swlaunch.aud
 		OrderName: IonStorm
-		DisplayTimer: True
+		DisplayTimer: true
 		Descriptions:
 			1: Ion Storm
 		LongDescs:
 			1: Allows the player to generate Ion Storms.\n\nSpecial:\n- Instant kills ground units and aircraft.
 		DisplayTimerStances: Ally, Neutral, Enemy
-		DisplayRadarPing: True
+		DisplayRadarPing: true
 		PauseOnCondition: empdisable || disabled
 		CameraRange: 8c0
 		CameraSpawnAdvance: 25
@@ -1398,7 +1398,7 @@ MASTL:
 		Range: 5c0
 		EnableSound: cloak5.aud
 		DisableSound: cloak5.aud
-		AffectsParent: True
+		AffectsParent: true
 
 DLIMPET:
 	Inherits: ^DeployedVehicle
@@ -1539,7 +1539,7 @@ MUMINE:
 	Mine:
 		CrushClasses: crate
 		DetonateClasses: crate
-		AvoidFriendly: True
+		AvoidFriendly: true
 		BlockFriendly: false
 	Explodes:
 		Weapon: MineExplode

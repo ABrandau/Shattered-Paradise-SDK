@@ -200,13 +200,13 @@ JUMPJETAIR:
 		CruiseAltitude: 2c500
 		IdealSeparation: 1c0
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
-		LandWhenIdle: False
+		LandWhenIdle: false
 		CanHover: true
 		Repulsable: true
 		MoveIntoShroud: true
 		TakeOffOnResupply: true
 		VTOL: true
-		CanSlide: True
+		CanSlide: true
 	Targetable@GROUND:
 		TargetTypes: Infantry, Ground
 		RequiresCondition: !airborne
@@ -431,7 +431,7 @@ NCONF:
 		DeployedCondition: HologramSpawn
 		CooldownTicks: 4000
 		DeployedTicks: 10
-		StartsFullyCharged: True
+		StartsFullyCharged: true
 	ExternalCondition@MineSpawn:
 		Condition: HologramSpawn
 	ExplodeWeapon@1:
@@ -769,7 +769,7 @@ E3:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
-		TargetFrozenActors: True
+		TargetFrozenActors: true
 		FacingTolerance: 2
 	-DamagedByTintedCells@Default:
 
@@ -824,7 +824,7 @@ SEER:
 		DeployedCondition: deployed
 		CooldownTicks: 2000
 		DeployedTicks: 60
-		StartsFullyCharged: True
+		StartsFullyCharged: true
 		PauseOnCondition: WebDisable
 	ExplodeWeapon:
 		Weapon: SeerTyranyBuff
@@ -1183,7 +1183,7 @@ COLOSSI:
 		UndeploySounds:
 		SmartDeploy: true
 		UndeployOnMove: true
-		CanDeployOnRamps: True
+		CanDeployOnRamps: true
 		RequiresCondition: !inside-tunnel
 	WithInfantryBody:
 		RequiresCondition: undeployed &&  !WebDisable && !inside-tunnel
@@ -1464,12 +1464,12 @@ PDRONE:
 			MilitantFireDeath: 1, 2
 	WithDeathAnimation@explosion:
 		DeathSequencePalette: effect
-		DeathPaletteIsPlayerPalette: False
+		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
 			ExplosionDeath: 4
 	WithDeathAnimation@energy:
 		DeathSequencePalette: ra
-		DeathPaletteIsPlayerPalette: False
+		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
 			EnergyDeath: 6
 	-WithIdleOverlay@web:
