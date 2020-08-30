@@ -8,8 +8,8 @@ Player:
 	ModularBot@ShatteredAI:
 		Name: Shattered AI
 		Type: ShatteredAI
-	GrantConditionOnBotOwner@AIReload:
-		Condition: AIReload
+	GrantConditionOnBotOwner@AIBase:
+		Condition: AIBase
 		Bots: CheaterAI, EasyAI, ShatteredAI
 	GrantConditionOnBotOwner@AIEasy:
 		Condition: AIEasy
@@ -21,11 +21,11 @@ Player:
 		Condition: AIShattered
 		Bots: ShatteredAI
 	HarvesterBotModule:
-		RequiresCondition: AIReload
+		RequiresCondition: AIBase
 		HarvesterTypes: harv, scrharv
 		RefineryTypes: gdiref, nodref, scrproc, cabproc, muproc
 	BaseBuilderBotModule@AINormal:
-		RequiresCondition: AIReload && !AIShattered
+		RequiresCondition: AIBase && !AIShattered
 		MinimumExcessPower: 90
 		MaximumExcessPower: 250
 		ExcessPowerIncrement: 50
@@ -374,9 +374,9 @@ Player:
 			cabtech: 6000
 			gadept: 6000
 	BuildingRepairBotModule:
-		RequiresCondition: AIReload
+		RequiresCondition: AIBase
 	SquadManagerBotModule@test:
-		RequiresCondition: AIReload
+		RequiresCondition: AIBase
 		SquadSize: 35
 		SquadSizeRandomBonus: 30
 		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, e2, swarmling, shapeshifter,mcv, drache, drache_bot, cabmcv, nodmcv, mutmcv, repairvehicle
@@ -391,7 +391,7 @@ Player:
 		AttackScanRadius: 14
 		ProtectionScanRadius: 15
 	UnitBuilderBotModule@test:
-		RequiresCondition: AIReload
+		RequiresCondition: AIBase
 		UnitQueues: Infantry, Vehicle, Air
 		IdleBaseUnitsMaximum: 60
 		UnitsToBuild:
@@ -525,7 +525,7 @@ Player:
 		McvFactoryTypes: gaweap, naweap, muweap, cabweap, scrair
 		MinimumConstructionYardCount: 5
 	SupportPowerBotASModule:
-		RequiresCondition: AIReload
+		RequiresCondition: AIBase
 		Decisions:
 			gdiradarscan:
 				OrderName: GDIRadarScan
