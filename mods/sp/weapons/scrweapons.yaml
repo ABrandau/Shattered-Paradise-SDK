@@ -626,15 +626,14 @@ WasteTurretWeapon:
 	Range: 6c768
 	ValidTargets: Building, Structure, Infantry, Vehicle, Ground
 	Report: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
-	BurstDelays: 1
 	Projectile: BulletAS
 		Speed: 500
-		Image: greenplasma
+		Image: greenplasmamini
 		Blockable: false
-		Inaccuracy: 0c768
+		Inaccuracy: 0
 		Palette: jascgreen
 		Angle: 60
-	BurstDelays: 5
+		Shadow: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
 		Damage: 8000
@@ -646,7 +645,7 @@ WasteTurretWeapon:
 		InvalidTargets: Shark
 	Warhead@2Shark: SpreadDamage
 		Spread: 0c512
-		Damage: 1000
+		Damage: 8000
 		Versus:
 			InfantryArmor: 200
 			BuildingArmor: 75
@@ -669,6 +668,28 @@ WasteTurretWeapon:
 		Actors: cloud1
 		FallRate: 5000
 		Range: 3
+
+WasteTurretWeaponMini:
+	Inherits: WasteTurretWeapon
+	ReloadDelay: 10
+	Burst: 10
+	BurstDelays: 3
+	-Report:
+	Projectile: Missile
+		Image: greenplasmamini
+		Blockable: false
+		Palette: jascgreen
+		Inaccuracy: 1c0
+		HorizontalRateOfTurn: 8
+		Speed: 250
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+	Warhead@2Shark: SpreadDamage
+		Damage: 1
+	Warhead@2Eff: CreateEffect
+	-Warhead@3Radio: CreateTintedCells
+	-Warhead@3Radio2: CreateTintedCells
+	-Warhead@5Actor: SpawnActor
 
 TractorBeam:
 	Inherits: ^AntiAirTurretWeapon

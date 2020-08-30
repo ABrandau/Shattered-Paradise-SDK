@@ -485,6 +485,11 @@ SCRNEEDLER:
 		Weapon: WasteTurretWeapon
 		LocalOffset: 512,0,400
 		RequiresCondition: !Building-Buildup
+	Armament@1:
+		Weapon: WasteTurretWeaponMini
+		LocalOffset: 512,200,600, 512,-200,600, 512,500,600, 512,-500,600 
+		RequiresCondition: !Building-Buildup
+		LocalYaw: 150,  -150, 250, -250
 
 SCRDRONE:
 	Inherits: ^Defence
@@ -1094,6 +1099,7 @@ CABSW1:
 	Turreted:
 		TurnSpeed: 8
 		InitialFacing: 368
+		RealignDelay: -1
 	AttackTurreted:
 	WithSpriteTurret:
 		Recoils: false
