@@ -307,7 +307,7 @@ VanguardShrapnel:
 		Damage: -1
 		ValidTargets: ShieldedUnit
 
-SCRMBTLASOR:
+ScrMbtLasor:
 	Inherits: ^FullDamage
 	Inherits@2: ^Scrin_Explo
 	ReloadDelay: 95
@@ -342,7 +342,7 @@ SCRMBTLASOR:
 	Warhead@2Eff: CreateEffect
 		-ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
 
-TripodLaser:
+TripodBlast:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Small_Bang
 	ReloadDelay: 80
@@ -353,7 +353,7 @@ TripodLaser:
 		Image: greenplasma
 		Shadow: true
 		LaunchAngle: 62
-		Palette: apolgreenalpha
+		Palette: gradientblue60
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
@@ -370,6 +370,12 @@ TripodLaser:
 		Amount: 2
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
+TripodBlast2:
+	Inherits: TripodBlast
+	Warhead@Shockwave: CreateEffect
+		Explosions: tripodshockwave
+		ExplosionPalette: gradientblue60
 
 StormRiderBlast:
 	Inherits: ^FullDamage
@@ -613,25 +619,24 @@ WyvermBlastAA:
 		ValidTargets: Air
 		Damage: 2500
 
-IchorWasteTurretAcid:
+WasteTurretWeapon:
 	Inherits: ^AcidWarhead
 	Inherits@1: ^SpawnsIrradiation
 	ReloadDelay: 40
 	Range: 6c768
-	Burst: 8
 	ValidTargets: Building, Structure, Infantry, Vehicle, Ground
 	Report: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
 	BurstDelays: 1
 	Projectile: BulletAS
 		Speed: 500
-		Image: acidall32
+		Image: greenplasma
 		Blockable: false
-		Inaccuracy: 1c0
+		Inaccuracy: 0c768
 		Palette: jascgreen
-	BurstDelays: 4
+	BurstDelays: 5
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
-		Damage: 1000
+		Damage: 8000
 		Versus:
 			InfantryArmor: 200
 			BuildingArmor: 75
@@ -652,6 +657,13 @@ IchorWasteTurretAcid:
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
 		InvalidTargets:: Water
+	Warhead@3Radio: CreateTintedCells
+		Spread: 512
+		Level: 48
+	Warhead@5Actor: SpawnActor
+		Actors: cloud1
+		FallRate: 5000
+		Range: 3
 
 TractorBeam:
 	Inherits: ^AntiAirTurretWeapon

@@ -740,14 +740,14 @@
 	SmokeParticleEmitter:
 		RequiresCondition: smoketrail && !DisableSmoke
 		Sequences: idle
-		SpawnFrequency: 3, 8
+		SpawnFrequency: 6, 12
 		Speed: 6
-		Gravity: 36
+		Gravity: 70
 		Offset: 0,0,0,0,0,0
 		Image: sgrysmk1
 		Palette: effectalpha50
-		Duration: 90
-		RandomFacing: false
+		Duration: 75
+		RandomFacing: True
 	ExternalCondition@smoketrail:
 		Condition: smoketrail
 	ExternalCondition@DisableSmoke:
@@ -1948,7 +1948,7 @@
 	SmokeParticleEmitter:
 		Duration: 100
 		Image: scrsmoke
-		Palette: apolbluealpha60
+		Palette: gradientblue60
 
 ^VoxelVehicle:
 	Inherits: ^Vehicle
