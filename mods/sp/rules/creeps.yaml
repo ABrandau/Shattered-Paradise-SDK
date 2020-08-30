@@ -300,8 +300,6 @@ CRAB:
 		Name: Crab
 	Valued:
 		Cost: 50
-	-GainsExperience:
-	-DamagedByTintedCells@Default:
 	Health:
 		HP: 17000
 	Armor:
@@ -311,8 +309,6 @@ CRAB:
 	AutoTarget:
 		ScanRadius: 7
 		InitialStance: AttackAnything
-	-SpawnActorOnDeath@conversion:
-	-Crushable:
 	Mobile:
 		Speed: 50
 	Voiced:
@@ -324,7 +320,7 @@ CRAB:
 	WithInfantryBody:
 		Sequence: shoot
 		IdleSequences: idle1, idle2
-		RequiresCondition: WebDisable
+		RequiresCondition: !WebDisable
 	GrantPeriodicCondition:
 		Condition: SpawnCrabs
 		CooldownDuration: 2250
@@ -345,6 +341,10 @@ CRAB:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
+	-SpawnActorOnDeath@conversion:
+	-Crushable:
+	-GainsExperience:
+	-DamagedByTintedCells@Default:
 
 PERMACRAB:
 	Inherits: CRAB

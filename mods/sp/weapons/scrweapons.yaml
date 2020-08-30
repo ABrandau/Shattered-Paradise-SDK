@@ -633,6 +633,7 @@ WasteTurretWeapon:
 		Blockable: false
 		Inaccuracy: 0c768
 		Palette: jascgreen
+		Angle: 60
 	BurstDelays: 5
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
@@ -659,7 +660,11 @@ WasteTurretWeapon:
 		InvalidTargets:: Water
 	Warhead@3Radio: CreateTintedCells
 		Spread: 512
-		Level: 48
+		Level: 24
+	Warhead@3Radio2: CreateTintedCells
+		Spread: 512
+		Level: 24
+		ValidTargets: Infantry, Vehicle, Building, LandedAircraft
 	Warhead@5Actor: SpawnActor
 		Actors: cloud1
 		FallRate: 5000
