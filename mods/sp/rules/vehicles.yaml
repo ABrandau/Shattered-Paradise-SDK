@@ -166,7 +166,7 @@ APC:
 APC_BOT:
 	Inherits: APC
 	Valued:
-		Cost: 1450
+		Cost: 1100
 	Selectable:
 		Class: apc
 	GivesExperience:
@@ -176,8 +176,7 @@ APC_BOT:
 	Buildable:
 		Prerequisites: ~gaweap, gapile, ~AImoney
 	Cargo:
-		EjectOnDeath: true
-		InitialUnits: gdie1, gdie1, gdie1, gdie1, grenadier
+		InitialUnits: gdie1, gdie1, medic, gdie1, grenadier
 	AIDeployHelper:
 
 HVR:
@@ -797,7 +796,7 @@ BGGY:
 RIFLEBGGY:
 	Inherits: BGGY
 	Valued:
-		Cost: 400
+		Cost: 350
 	Selectable:
 		Class: bggy
 	GivesExperience:
@@ -809,13 +808,12 @@ RIFLEBGGY:
 	Buildable:
 		Prerequisites: ~naweap, ~AImoney
 	Cargo:
-		EjectOnDeath: true
 		InitialUnits: altnode1
 
 ROCKETBGGY:
 	Inherits: BGGY
 	Valued:
-		Cost: 600
+		Cost: 450
 	Selectable:
 		Class: bggy
 	GivesExperience:
@@ -827,13 +825,12 @@ ROCKETBGGY:
 	Buildable:
 		Prerequisites: ~naweap, ~AImoney
 	Cargo:
-		EjectOnDeath: true
 		InitialUnits: crusader
 
 FLAMEBGGY:
 	Inherits: BGGY
 	Valued:
-		Cost: 600
+		Cost: 450
 	Selectable:
 		Class: bggy
 	GivesExperience:
@@ -843,7 +840,6 @@ FLAMEBGGY:
 	Buildable:
 		Prerequisites: ~naweap, naradr, ~AImoney
 	Cargo:
-		EjectOnDeath: true
 		InitialUnits: templar
 	EditorOnlyTooltip:
 		Name: Flame Buggy
@@ -851,7 +847,7 @@ FLAMEBGGY:
 LAZORBGGY:
 	Inherits: BGGY
 	Valued:
-		Cost: 1000
+		Cost: 700
 	Selectable:
 		Class: bggy
 	GivesExperience:
@@ -861,7 +857,6 @@ LAZORBGGY:
 	Buildable:
 		Prerequisites: ~naweap, natech, ~AImoney
 	Cargo:
-		EjectOnDeath: true
 		InitialUnits: nconf
 	EditorOnlyTooltip:
 		Name: Laser Buggy
@@ -1449,11 +1444,10 @@ STRUCKFULL:
 	Buildable:
 		Prerequisites: ~muweap, murax, ~AImoney
 	Valued:
-		Cost: 1400
+		Cost: 9500
 	GivesExperience:
 		Experience: 500
 	Cargo:
-		EjectOnDeath: true
 		InitialUnits: marauder, marauder, mutfiend, mutfiend, e3
 	RenderSprites:
 		Image: struck
