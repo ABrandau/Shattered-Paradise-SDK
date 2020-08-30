@@ -120,6 +120,22 @@ VISC_LRG:
 		Crushes: nada
 	RenderSprites:
 		Image: vislrg
+	SpawnActorOnDeath@smallVisceroid1:
+		Actor: visc_sml
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		RequiresLobbyCreeps: true
+	SpawnActorOnDeath@smallVisceroid2:
+		Actor: visc_sml
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		RequiresLobbyCreeps: true
+	Explodes@adultExplodes:
+		Weapon: ZombieExplosion
+		EmptyWeapon: ZombieExplosion
+		Chance: 100
 
 VISC_LRG_SCRIN:
 	Inherits: VISC_LRG
@@ -143,6 +159,9 @@ VISC_LRG_SCRIN:
 		StartIfBelow: 200
 	RenderSprites:
 		Image: vislrg
+	-SpawnActorOnDeath@smallVisceroid1:
+	-SpawnActorOnDeath@smallVisceroid2:
+	-Explodes@adultExplodes:
 
 ZOMBIE:
 	Inherits: ^Mutant
