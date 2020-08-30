@@ -166,7 +166,7 @@ APC:
 APC_BOT:
 	Inherits: APC
 	Valued:
-		Cost: 1450
+		Cost: 1100
 	Selectable:
 		Class: apc
 	GivesExperience:
@@ -174,10 +174,9 @@ APC_BOT:
 	RenderSprites:
 		Image: apc
 	Buildable:
-		Prerequisites: ~gaweap, gapile, ~AImoney
+		Prerequisites: ~gaweap, gapile, ~AIOnly
 	Cargo:
-		EjectOnDeath: true
-		InitialUnits: gdie1, gdie1, gdie1, gdie1, grenadier
+		InitialUnits: gdie1, gdie1, medic, gdie1, grenadier
 	AIDeployHelper:
 
 HVR:
@@ -503,7 +502,7 @@ BGGY:
 		BuildAtProductionType: Tank
 		Description: Fast vehicle armed with a machine, has room for one passenger that modifies the weapon of the vehicle.\n\nGood vs: Changes depending on the passenger.\n\nSpecial:\n- The weapon of the vehicle changes with the passenger.\n- Stealth detection.\n- Units inside deal 20% extra damage.
 		BuildPaletteOrder: 10
-		Prerequisites: ~naweap, ~!AImoney
+		Prerequisites: ~naweap, ~!AIOnly
 	Mobile:
 		TurnSpeed: 40
 		Speed: 125
@@ -797,7 +796,7 @@ BGGY:
 RIFLEBGGY:
 	Inherits: BGGY
 	Valued:
-		Cost: 400
+		Cost: 350
 	Selectable:
 		Class: bggy
 	GivesExperience:
@@ -807,15 +806,14 @@ RIFLEBGGY:
 	RenderSprites:
 		Image: bggy
 	Buildable:
-		Prerequisites: ~naweap, ~AImoney
+		Prerequisites: ~naweap, ~AIOnly
 	Cargo:
-		EjectOnDeath: true
 		InitialUnits: altnode1
 
 ROCKETBGGY:
 	Inherits: BGGY
 	Valued:
-		Cost: 600
+		Cost: 450
 	Selectable:
 		Class: bggy
 	GivesExperience:
@@ -825,15 +823,14 @@ ROCKETBGGY:
 	RenderSprites:
 		Image: bggy
 	Buildable:
-		Prerequisites: ~naweap, ~AImoney
+		Prerequisites: ~naweap, ~AIOnly
 	Cargo:
-		EjectOnDeath: true
 		InitialUnits: crusader
 
 FLAMEBGGY:
 	Inherits: BGGY
 	Valued:
-		Cost: 600
+		Cost: 450
 	Selectable:
 		Class: bggy
 	GivesExperience:
@@ -841,9 +838,8 @@ FLAMEBGGY:
 	RenderSprites:
 		Image: bggy
 	Buildable:
-		Prerequisites: ~naweap, naradr, ~AImoney
+		Prerequisites: ~naweap, naradr, ~AIOnly
 	Cargo:
-		EjectOnDeath: true
 		InitialUnits: templar
 	EditorOnlyTooltip:
 		Name: Flame Buggy
@@ -851,7 +847,7 @@ FLAMEBGGY:
 LAZORBGGY:
 	Inherits: BGGY
 	Valued:
-		Cost: 1000
+		Cost: 700
 	Selectable:
 		Class: bggy
 	GivesExperience:
@@ -859,9 +855,8 @@ LAZORBGGY:
 	RenderSprites:
 		Image: bggy
 	Buildable:
-		Prerequisites: ~naweap, natech, ~AImoney
+		Prerequisites: ~naweap, natech, ~AIOnly
 	Cargo:
-		EjectOnDeath: true
 		InitialUnits: nconf
 	EditorOnlyTooltip:
 		Name: Laser Buggy
@@ -1411,7 +1406,7 @@ STRUCK:
 		Description: Combat transport.\n\nGood vs: Depends what has been garrisoned\n\nSpecial:\n- Cargo for 5 soldiers.\n- Passengers can fire from inside the vehicle.
 		Queue: Vehicle
 		BuildPaletteOrder: 19
-		Prerequisites: ~muweap, murax, ~!AImoney
+		Prerequisites: ~muweap, murax, ~!AIOnly
 	Mobile:
 		TurnSpeed: 24
 		Speed: 95
@@ -1447,13 +1442,12 @@ STRUCKFULL:
 	Selectable:
 		Class: struck
 	Buildable:
-		Prerequisites: ~muweap, murax, ~AImoney
+		Prerequisites: ~muweap, murax, ~AIOnly
 	Valued:
-		Cost: 1400
+		Cost: 9500
 	GivesExperience:
 		Experience: 500
 	Cargo:
-		EjectOnDeath: true
 		InitialUnits: marauder, marauder, mutfiend, mutfiend, e3
 	RenderSprites:
 		Image: struck

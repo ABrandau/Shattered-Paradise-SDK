@@ -871,13 +871,13 @@
 ^UsesAmmunition:
 	AmmoPool:
 		Ammo: 8
-	ReloadAmmoPool@AIReload:
+	ReloadAmmoPool@AIBase:
 		AmmoPool: primary
-		RequiresCondition: AIReload
+		RequiresCondition: AIBase
 		Count: 10
 		Delay: 1500
-	GrantConditionOnBotOwner@AIReload:
-		Condition: AIReload
+	GrantConditionOnBotOwner@AIBase:
+		Condition: AIBase
 		Bots: CheaterAI, EasyAI, ShatteredAI
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
@@ -885,23 +885,23 @@
 
 ^AICashCheat:
 	CashTrickler@AICashDevour:
-		Interval: 1100
-		Amount: 800
+		Interval: 500
+		Amount: 400
 		ShowTicks: false
 		RequiresCondition: AIShattered
 	CashTrickler@AICashCheater:
-		Interval: 1000
-		Amount: 350
+		Interval: 500
+		Amount: 200
 		ShowTicks: false
 		RequiresCondition: AICheater
 	CashTrickler@AICashNormal:
-		Interval: 600
+		Interval: 500
 		Amount: 50
 		ShowTicks: false
-		RequiresCondition: AIReload || AICheater
-	GrantConditionOnBotOwner@AIReload:
-		Condition: AIReload
-		Bots: CheaterAI, EasyAI
+		RequiresCondition: AIEasy
+	GrantConditionOnBotOwner@AIEasy:
+		Condition: AIEasy
+		Bots: EasyAI
 	GrantConditionOnBotOwner@AICheater:
 		Condition: AICheater
 		Bots: CheaterAI
@@ -918,12 +918,9 @@
 	GrantConditionOnBotOwner@AIbuildingMicroControl:
 		Condition: AIbuildingMicroControl
 		Bots: CheaterAI, EasyAI, ShatteredAI
-	ProvidesPrerequisite@AISpecialProduce:
-		RequiresCondition: AIbuildingMicroControl
-		Prerequisite: AImoney
-	ProvidesPrerequisite@fixUndeployDracheBug:
-		RequiresCondition: AIbuildingMicroControl
-		Prerequisite: fixUndeployDracheBug
+	GrantConditionOnBotOwner@AISpecialProduce:
+		Condition: AISpecialProduce
+		Bots: CheaterAI, ShatteredAI
 
 ^GenericEffects:
 	Inherits@0: ^KillSelf

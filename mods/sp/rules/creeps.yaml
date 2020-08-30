@@ -173,6 +173,7 @@ ZOMBIE:
 		Weapon: SlimeAttack
 	WithInfantryBody:
 		AttackSequences: shoot
+		RequiresCondition: !WebDisable
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
@@ -229,7 +230,7 @@ BERSERKER:
 	WithInfantryBody:
 		Sequence: shoot
 		IdleSequences: idle1, idle2, idle3
-		RequiresCondition: WebDisable
+		RequiresCondition: !WebDisable
 	AttackFrontal:
 		Voice: Attack
 	AttackWander:
