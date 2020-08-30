@@ -373,9 +373,12 @@ TripodBlast:
 
 TripodBlast2:
 	Inherits: TripodBlast
-	Warhead@Shockwave: CreateEffect
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@2Eff: CreateEffect
 		Explosions: tripodshockwave
 		ExplosionPalette: gradientblue60
+		ValidTargets: Infantry, Vehicle, LandedAircraft, Building, Wall, Ground, Water, Air, AirHit
+		ImpactActors: false
 
 StormRiderBlast:
 	Inherits: ^FullDamage
@@ -634,6 +637,9 @@ WasteTurretWeapon:
 		Palette: jascgreen
 		Angle: 60
 		Shadow: true
+		ContrailLength: 10
+		ContrailColor: 0cd957
+		ContrailWidth: 0c35
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
 		Damage: 8000
@@ -681,11 +687,16 @@ WasteTurretWeaponMini:
 		Palette: jascgreen
 		Inaccuracy: 1c0
 		HorizontalRateOfTurn: 8
-		Speed: 250
+		Speed: 350
+		ContrailLength: 10
+		ContrailColor: 0cd957
+		ContrailWidth: 0c35
 	Warhead@1Dam: SpreadDamage
+		Spread: 1
 		Damage: 1
 	Warhead@2Shark: SpreadDamage
 		Damage: 1
+		Spread: 1
 	Warhead@2Eff: CreateEffect
 	-Warhead@3Radio: CreateTintedCells
 	-Warhead@3Radio2: CreateTintedCells

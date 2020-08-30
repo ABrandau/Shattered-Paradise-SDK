@@ -1943,7 +1943,7 @@
 	SmokeParticleEmitter:
 		Duration: 100
 		Image: scrsmoke
-		Palette: gradientblue60
+		Palette: gradientblue40
 
 ^VoxelVehicle:
 	Inherits: ^Vehicle
@@ -2101,6 +2101,8 @@
 		CanSlide: true
 	Targetable@AIRBORNE:
 		TargetTypes: Air, Helicopter
+		RequiresCondition: airborne
+	Hovers:
 		RequiresCondition: airborne
 
 ^CombatHelicopter:
@@ -2527,7 +2529,7 @@
 		Type: Footprint
 	SmokeParticleEmitter:
 		Image: scrsmoke
-		Palette: gradientblue60
+		Palette: gradientblue40
 	Building:
 		BuildSounds: scrinplacebuilding.wav
 

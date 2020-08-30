@@ -751,7 +751,7 @@ STORMRIDER:
 		Actor: STORMRIDER.Husk
 	SmokeParticleEmitter:
 		Image: scrsmoke
-		Palette: apolbluealpha60
+		Palette: gradientblue40
 
 ^ScrinAircraftGeneric:
 	Inherits@4: ^ScrinAircratVoice
@@ -759,7 +759,7 @@ STORMRIDER:
 	Inherits@Shadow: ^AircraftShadow
 	SmokeParticleEmitter:
 		Image: scrsmoke
-		Palette: gradientblue60
+		Palette: gradientblue40
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel
@@ -812,6 +812,8 @@ DRACHE:
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel
+	SmokeParticleEmitter:
+		Offset: 0,0,1000,0,0,1000
 
 DRACHE_BOT:
 	Inherits: DRACHE
@@ -871,6 +873,8 @@ SCRGLYDER1:
 	TransformOnCondition:
 		RequiresCondition: AIattackGround
 		IntoActor: scrglyder2
+	SmokeParticleEmitter:
+		Offset: 0,0,500,0,0,500
 
 SCRDESTROYER:
 	Inherits: ^CombatHelicopter
@@ -1124,6 +1128,7 @@ SCRBATTLESHIP:
 		Weapon: BattleshipCannon
 		LocalOffset: 0,0,0, 1500,0,0, -1500,0,0, 600,-500,0, -600,-500,0, -600,500,0, 600,500,0
 		MuzzleSequence: muzzle
+		MuzzlePalette: gradientblue60
 	WithMuzzleOverlay:
 	AttackTurreted:
 	Turreted:
