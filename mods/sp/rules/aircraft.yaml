@@ -706,6 +706,18 @@ SONICARRYALL_BOT:
 	Cargo:
 		InitialUnits: sonic
 
+APCARRYALL_BOT:
+	Inherits: NUKECARRYALL_BOT
+	Buildable:
+		Description: AI APC Transport
+		Queue: Air
+		BuildPaletteOrder: 6
+		Prerequisites: ~gahpad, gapile, ~AIOnly, ~!LoadedExists
+	Valued:
+		Cost: 1000
+	Cargo:
+		InitialUnits: apc_bot
+
 STORMRIDER:
 	Inherits: ^CombatPlane
 	Inherits@1: ^AutoTargetAllAssaultMove
