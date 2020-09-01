@@ -2624,70 +2624,67 @@ CONTAINERDIAGONAL:
 CONTAINERDIAGONALSTACKED:
 	Inherits: CONTAINERDIAGONAL
 
-STREETSIGNS:
+^1x1TurretedProp:
 	Inherits@1: ^FakeTurretedProp
-	Tooltip:
-		Name: Street signs
-	RenderSprites:
-		Palette: unittemred
 	Building:
 		Footprint: x
 		Dimensions: 1, 1
 	Crushable:
 		CrushClasses: infantry
+
+STREETSIGNS:
+	Inherits@1: ^1x1TurretedProp
+	Tooltip:
+		Name: Street sign
+	EditorOnlyTooltip:
+		Name: Street Sign set (Supports facings)
+	RenderSprites:
+		Palette: unittemred
 
 STREETSIGNS2:
-	Inherits@1: ^FakeTurretedProp
+	Inherits@1: ^1x1TurretedProp
 	Tooltip:
-		Name: Street signs
+		Name: Street sign
+	EditorOnlyTooltip:
+		Name: Street Sign set (Supports facings)
 	RenderSprites:
 		Palette: unittemred
-	Building:
-		Footprint: x
-		Dimensions: 1, 1
-	Crushable:
-		CrushClasses: infantry
 
 TRAFFICLIGHTS:
-	Inherits@1: ^FakeTurretedProp
+	Inherits@1: ^1x1TurretedProp
 	Tooltip:
 		Name: Traffic Light
+	EditorOnlyTooltip:
+		Name: Traffic Light set (Supports facings)
 	RenderSprites:
 		Palette: unittemred
-	Building:
-		Footprint: x
-		Dimensions: 1, 1
-	Crushable:
-		CrushClasses: infantry
 
 BENCH:
-	Inherits@1: ^FakeTurretedProp
+	Inherits@1: ^1x1TurretedProp
 	Tooltip:
 		Name: Bench
+	EditorOnlyTooltip:
+		Name: Bench set (Supports facings)
 	Health:
 		HP: 2500
-	Building:
-		Footprint: x
-		Dimensions: 1, 1
 	RenderSprites:
 		Palette: player
-	Crushable:
-		CrushClasses: infantry
-	Armor:
-		Type: BuildingArmor
 
 BUSSTOP:
-	Inherits: BENCH
+	Inherits: ^1x1TurretedProp
 	Tooltip:
 		Name: Bus Stop
-	Health:
-		HP: 15000
-	Armor:
-		Type: BuildingArmor
+	EditorOnlyTooltip:
+		Name: Bus Stop (Supports facings)
+
+GRAVE:
+	Inherits@1: ^1x1TurretedProp
+	Tooltip:
+		Name: Grave
+	EditorOnlyTooltip:
+		Name: Grave (Supports facings)
 	RenderSprites:
 		Palette: player
-	Crushable:
-		CrushClasses: infantry
 
 LIGHTPOST4x4:
 	Inherits: ^CivBuilding
