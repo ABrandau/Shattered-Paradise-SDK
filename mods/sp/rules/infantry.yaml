@@ -200,7 +200,6 @@ JUMPJETAIR:
 		CruiseAltitude: 2c500
 		IdealSeparation: 1c0
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
-		LandWhenIdle: false
 		CanHover: true
 		Repulsable: true
 		MoveIntoShroud: true
@@ -362,11 +361,6 @@ TEMPLAR:
 		Volume: 5
 	Mobile:
 		Speed: 70
-		TerrainSpeeds:
-			Tiberium: 70
-				PathingCost: 70
-			BlueTiberium: 70
-				PathingCost: 70
 	Armament@1:
 		Weapon: TemplarFlame
 		LocalOffset: 200,50,320
@@ -473,11 +467,6 @@ BHS:
 		HP: 25000
 	Mobile:
 		Speed: 75
-		TerrainSpeeds:
-			Tiberium: 70
-				PathingCost: 70
-			BlueTiberium: 70
-				PathingCost: 70
 	Voiced:
 		VoiceSet: Oxanna
 	Armament@1:
@@ -566,7 +555,6 @@ MARAUDER:
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
-		DeployAnimation: make
 		CanDeployOnRamps: true
 		SmartDeploy: true
 		Facing: 640
@@ -723,7 +711,7 @@ E2:
 		Voice: Move
 		Speed: 50
 	WithInfantryBody:
-		AttackSequence: throw
+		AttackSequences: throw
 	Mobile:
 		Locomotor: TibInmuneInfantry
 	RenderSprites:
@@ -879,7 +867,7 @@ PSYKER:
 		PipType: red
 	AttackFrontal:
 		Voice: Attack
-		Armament: OnFoot
+		Armaments: OnFoot
 		FacingTolerance: 2
 
 SHARK:
@@ -1176,7 +1164,6 @@ COLOSSI:
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
-		DeployAnimation: make
 		Facing: 640
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Green, Tiberium, BlueTiberium, Veins
 		DeploySounds:
@@ -1185,10 +1172,10 @@ COLOSSI:
 		UndeployOnMove: true
 		CanDeployOnRamps: true
 		RequiresCondition: !inside-tunnel
+	WithMakeAnimation:
 	WithInfantryBody:
 		RequiresCondition: undeployed &&  !WebDisable && !inside-tunnel
 	WithSpriteBody@deployed:
-		StandSequences: deployed
 		Sequence: deployed
 		RequiresCondition: !undeployed
 	ExplodeWeapon@1:
@@ -1280,7 +1267,6 @@ CABSENTRY:
 	AutoTarget:
 		ScanRadius: 8
 		InitialStance: AttackAnything
-		FacingTolerance: 2
 	-Armor:
 	Armor@2:
 		Type: VehicleArmor
@@ -1389,12 +1375,6 @@ SWARMLING:
 		Weapon: DroneExplode
 		EmptyWeapon: DroneExplode
 	-DamagedByTerrain:
-	Mobile:
-		TerrainSpeeds:
-			Tiberium: 70
-				PathingCost: 50
-			BlueTiberium: 70
-				PathingCost: 50
 	WithInfantryBody:
 		-IdleSequences:
 	RenderSprites:
@@ -1616,6 +1596,7 @@ MOTH:
 	WithSpriteBody@DeloyedBody:
 		Sequence: deployed
 		RequiresCondition: !undeployed
+		Name: deployed
 	-WithInfantryBody:
 	Armament@1:
 		Weapon: LurkerProj

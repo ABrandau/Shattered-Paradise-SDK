@@ -2,7 +2,6 @@ GHOST:
 	Inherits: ^Mutant
 	Tooltip:
 		Name: Ghost Stalker
-		Description: Elite commando infantry, armed with\na railgun and C4.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4\nMaximum 1 can be trained.
 	Voiced:
 		VoiceSet: Ghost
 	Mobile:
@@ -24,7 +23,7 @@ GHOST:
 		DetonationDelay: 45
 		Voice: Attack
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 WEEDGUY:
 	Inherits: ^Soldier
@@ -64,7 +63,7 @@ UMAGON:
 		Voice: Attack
 		PauseOnCondition: WebDisable
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 CHAMSPY:
 	Inherits: ^Soldier
@@ -86,14 +85,13 @@ CHAMSPY:
 		Palette: pips
 		Position: TopRight
 		RequiresCondition: disguise
-		ConditionMinEnabledLevel: 1
 	Infiltrates:
 		Types: SpyInfiltrate
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 MUTANT:
 	Inherits: ^Mutant
@@ -113,7 +111,7 @@ MUTANT:
 		Voice: Attack
 		PauseOnCondition: WebDisable
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 MWMN:
 	Inherits: ^Mutant
@@ -133,7 +131,7 @@ MWMN:
 		Voice: Attack
 		PauseOnCondition: WebDisable
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 MUTANT3:
 	Inherits: ^Mutant
@@ -153,7 +151,7 @@ MUTANT3:
 		Voice: Attack
 		PauseOnCondition: WebDisable
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 TRATOS:
 	Inherits: ^Mutant
@@ -171,7 +169,7 @@ TRATOS:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 OXANNA:
 	Inherits: ^Soldier
@@ -189,7 +187,7 @@ OXANNA:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 SLAV:
 	Inherits: ^Soldier
@@ -207,12 +205,12 @@ SLAV:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 CIV1:
 	Inherits: ^CivilianInfantry
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 CIV2:
 	Inherits: ^CivilianInfantry
@@ -220,7 +218,7 @@ CIV2:
 CIV3:
 	Inherits: ^CivilianInfantry
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 4TNK:
 	Inherits: ^VoxelTank
@@ -231,7 +229,6 @@ CIV3:
 	Mobile:
 		Speed: 65
 		TurnSpeed: 20
-		Crushes: wall, crate, infantry
 	Health:
 		HP: 60000
 	Armor:
@@ -309,7 +306,6 @@ WEED:
 		Cost: 100
 	Tooltip:
 		Name: Weed Eater
-		Description: Collects veins for processing.\n  Unarmed
 	Harvester:
 		DeliveryBuildings: nawast
 		Capacity: 7
@@ -491,7 +487,6 @@ GAWALL:
 		Value: 0
 	Tooltip:
 		Name: Concrete Wall
-		Description: Stops infantry and blocks enemy fire.\nCan NOT be crushed by tanks.
 	RenderSprites:
 		Image: wall.gdi
 	Crushable:
@@ -511,7 +506,6 @@ NAWALL:
 		Value: 0
 	Tooltip:
 		Name: Nod Wall
-		Description: Stops infantry and blocks enemy fire.\nCan NOT be crushed by tanks.
 	RenderSprites:
 		Image: wall.nod
 	Crushable:
@@ -2403,6 +2397,18 @@ RADIOTOWER:
 	IsometricSelectable:
 		DecorationHeight: 120
 
+GEYSER:
+	Inherits: ^CivBuilding
+	-Tooltip:
+	RenderSprites:
+		Palette: player
+	WithIdleOverlay:
+		Sequence: gasanim
+		Palette: jascgreenalpha
+	-Targetable:
+	-IsometricSelectable:
+	-IsometricSelectionDecorations:
+
 SIGNALTOWER:
 	Inherits: RADIOTOWER
 	Tooltip:
@@ -2465,6 +2471,11 @@ FENCE:
 	-BlocksProjectiles:
 	Armor:
 		Type: BuildingArmor
+
+CERMWALL:
+	Inherits: FENCE
+	Tooltip:
+		Name: Wall
 
 TRASHDUMP:
 	Inherits: ^CivBuilding

@@ -4,8 +4,6 @@ DOGGIE:
 		Name: Tiberian Fiend
 	Health:
 		HP: 250
-		Shape: Circle
-			Radius: 213
 	Armor:
 		Type: InfantryArmor
 	-RevealsShroud:
@@ -117,7 +115,6 @@ VISC_LRG:
 	WithAttackAnimation:
 		Sequence: attack
 	Mobile:
-		Crushes: nada
 	RenderSprites:
 		Image: vislrg
 	SpawnActorOnDeath@smallVisceroid1:
@@ -219,8 +216,6 @@ BERSERKER:
 		Cost: 100
 	Health:
 		HP: 20000
-		Shape: Circle
-			Radius: 213
 	RevealsShroud:
 		Range: 5c0
 	-SpawnActorOnDeath@conversion:
@@ -243,7 +238,7 @@ BERSERKER:
 	AutoTarget:
 		ScanRadius: 4
 	WithInfantryBody:
-		Sequence: shoot
+		AttackSequences: shoot
 		IdleSequences: idle1, idle2, idle3
 		RequiresCondition: !WebDisable
 	AttackFrontal:
@@ -334,7 +329,7 @@ CRAB:
 	Armament:
 		Weapon: CrabAcid
 	WithInfantryBody:
-		Sequence: shoot
+		AttackSequences: shoot
 		IdleSequences: idle1, idle2
 		RequiresCondition: !WebDisable
 	GrantPeriodicCondition:

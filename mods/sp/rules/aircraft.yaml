@@ -20,6 +20,7 @@ CLOUD1:
 	-Targetable@FullHealth:
 	-RevealsShroud:
 	-Voiced:
+	-Cloak@CLOAKGENERATOR:
 	Health:
 		HP: 650
 	ChangesHealth:
@@ -31,8 +32,6 @@ CLOUD1:
 		FacingTolerance: 20
 		Voice: Attack
 	RejectsOrders:
-	Cloak@CLOAKGENERATOR:
-		RequiresCondition: HolaSoyVinceConSlapShopMiraLaPapaUnCorteNoSePuedeCortar
 	RenderSprites:
 		Image: cloud1
 		Palette: effectalpha
@@ -44,8 +43,6 @@ CLOUD1:
 		UseDeathTypeSuffix: false
 		DeathSequencePalette: effectalpha
 		DeathPaletteIsPlayerPalette: false
-	ExplodeWeapon:
-		Weapon: CloudDamage
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
 	Interactable:
@@ -169,7 +166,6 @@ DPOD:
 	Tooltip:
 		Name: Drop Pod
 	Aircraft:
-		LandWhenIdle: true
 		TurnSpeed: 20
 		Speed: 160
 		InitialFacing: 0
@@ -476,7 +472,6 @@ MUTHELI:
 		TurnSpeed: 28
 		Speed: 150
 		MoveIntoShroud: true
-		RearmBuildings: muair, gahpad, nahpad
 	Health:
 		HP: 12000
 	WithIdleOverlay@ROTORAIR:
@@ -668,7 +663,7 @@ NUKECARRYALL_BOT:
 	Cargo:
 		InitialUnits: hvrtruk3_bot
 	Armament@AIaiming:
-		RequireCondition: AImicroManage
+		RequiresCondition: AImicroManage
 		Weapon: AITransportAimingDummyWeapon
 		LocalOffset: 950,0,0
 		ReloadingCondition: unloading
@@ -691,7 +686,6 @@ NUKECARRYALL_BOT:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	GrantConditionOnDamageState:
-		RequiresCondition: AImicroManage
 		Condition: unloading
 		ValidDamageStates: Medium
 	ProvidesPrerequisite@AIbuildinglimit:
@@ -1088,7 +1082,6 @@ CABDRONEJET:
 		AltitudeVelocity: 600
 		MoveIntoShroud: true
 	AttackAircraft:
-		AttackTurnDelay: 25
 	RejectsOrders:
 
 SCRBATTLESHIP:
@@ -1173,15 +1166,12 @@ WASP:
 		LocalOffset: 250,350,-100
 	Armament@2:
 		Weapon: WaspLasor
-		AmmoPoolName: Rocket
 		LocalOffset: 250,-350,-100
 	Armament@3:
 		Weapon: WaspLasorAA
-		AmmoPoolName: Rocket
 		LocalOffset: 250,-350,-100
 	Armament@4:
 		Weapon: WaspLasorAA
-		AmmoPoolName: Rocket
 		LocalOffset: 250, 350,-100
 	Armament@TheRealThing:
 		Weapon: WaspBullet
@@ -1222,7 +1212,7 @@ FIREFLY:
 		Speed: 120
 		Repulsable: true
 		MoveIntoShroud: true
-		AllowedTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	-Rearmable:
 	Health:
 		HP: 10000

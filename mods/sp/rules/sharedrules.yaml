@@ -4,7 +4,6 @@ E1:
 		Cost: 120
 	Tooltip:
 		Name: Light Infantry
-		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Health:
 		HP: 12500
 	Mobile:
@@ -14,7 +13,7 @@ E1:
 	AttackFrontal:
 		Voice: Attack
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 	RenderSprites:
 		Image: e1.gdi
 		FactionImages:
@@ -100,7 +99,6 @@ HARV:
 		BuildPaletteOrder: 1
 		Prerequisites: ~humanharvester, factory
 		BuildAtProductionType: Tank
-		InitialActivity: FindResources
 		Description: Collects Tiberium for processing.\n\nSpecial:\n- Harvests Tiberium.\n- Immune to Veins.\n- Can crush infantry.\n- Cannot be mindcontrolled.
 	Selectable:
 		Bounds: 36,36
@@ -118,8 +116,8 @@ HARV:
 		Capacity: 28
 		DeliveryBuildings: proc, muproc, muproc2, muproc3, muproc4, cabproc, cabproc2, cabproc3, cabproc4, scrproc, scrproc2, scrproc3, scrproc4, gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4
 		Resources: Tiberium, BlueTiberium
-		UnloadTicksPerBale: 3
-		LoadTicksPerBale: 6
+		BaleUnloadDelay: 3
+		BaleLoadDelay: 6
 		FullyLoadedSpeed: 100
 		# SearchFromProcRadius: 36
 		SearchForDeliveryBuildingDelay: 200
@@ -142,8 +140,6 @@ HARV:
 		LocalOffset: 768,0,0
 		Palette: effect
 	SelectionDecorations:
-	Capturable:
-		CaptureThreshold: 60
 	RenderSprites:
 		Image: gdiharv
 		FactionImages:
@@ -223,13 +219,10 @@ SCRHARV:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		Prerequisites: proc, ~scrweap
-		InitialActivity: FindResources
 	Mobile:
 		Locomotor: InfantryCrusherVehicle
 	Targetable@MindControl:
 		TargetTypes: MindControlInmune
-	Capturable:
-		CaptureThreshold: 60
 	-GainsExperience:
 	SelectionDecorations:
 	RenderSprites:
@@ -251,7 +244,6 @@ LPST:
 		Cost: 950
 	Tooltip:
 		Name: Mobile Sensor Array
-		Description: Can detect cloaked and subterranean\nunits when deployed.\n  Unarmed
 	Health:
 		HP: 60000
 	Armor:
@@ -272,16 +264,14 @@ LPST:
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
 		DeploySounds: place2.aud
 		UndeploySounds: clicky1.aud
+	WithMakeAnimation:
 	WithVoxelBody:
-		Image: lpst
+		Sequence: lpst
 		RequiresCondition: undeployed
-		ConditionMinEnabledLevel: 1
 	WithSpriteBody@deployed:
 		RequiresCondition: undeployed
-		ConditionMaxEnabledLevel: 0
 	DetectCloaked:
 		RequiresCondition: deployed
-		ConditionMinEnabledLevel: 1
 		Range: 18c0
 	RenderDetectionCircle:
 		TrailCount: 3
@@ -546,7 +536,7 @@ FLIPPEDPROC:
 		Palette: effect
 		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@proc:
-		ProvidesPrerequisite: proc
+		Prerequisite: proc
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -580,7 +570,7 @@ FLIPPEDXPROC:
 		Palette: effect
 		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@proc:
-		ProvidesPrerequisite: proc
+		Prerequisite: proc
 	RequiresBuildableArea:
 		AreaTypes: building
 

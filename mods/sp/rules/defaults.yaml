@@ -616,7 +616,6 @@
 		Sequence: emp-overlay
 		Palette: effect
 		RequiresCondition: empdisable
-		ShowToEnemies: true
 		Offset: 0,0,512
 	ExternalCondition@empdisable:
 		Condition: empdisable
@@ -1252,7 +1251,7 @@
 	Health:
 		HP: 90000
 	Tooltip:
-		Description: Civilian Building
+		Name: Civilian Building
 	RenderSprites:
 		Palette: terraindecoration
 	MapEditorData:
@@ -1279,12 +1278,11 @@
 	OwnerLostAction:
 		Action: ChangeOwner
 	Capturable:
-		Types: Building
+		Types: TechBuilding
 	RenderSprites:
 	MapEditorData:
 		Categories: Tech Structure
 	CaptureManager:
-		CaptureCompleteTime: 7
 	WithDeathAnimation:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
@@ -1318,7 +1316,7 @@
 	RenderSprites:
 		Palette: terraindecoration
 	WithCrateBody:
-		Images: crate
+		IdleSequence: crate
 	Interactable:
 		Bounds: 24,24
 
@@ -1391,13 +1389,9 @@
 	TeleportNetworkTransportable:
 	Health:
 		HP: 5000
-		Shape: Circle
-			Radius: 128
 	Mobile:
 		Voice: Move
 		Speed: 60
-		Crushes: crate
-		WaitAverage: 10
 		Locomotor: Infantry
 	Selectable:
 		Bounds: 22,30,0,-10
@@ -1548,6 +1542,7 @@
 			MilitantFireDeath: 1, 2
 	Mobile:
 		Locomotor: Vehicle
+		-PauseOnCondition:
 	-TakeCover:
 	-WithDeathAnimation@body:
 	-WithDeathAnimation@tib:
@@ -1567,9 +1562,6 @@
 		CargoType: Vehicle
 		Voice: Move
 		Weight: 3
-	Mobile:
-		SharesCell: false
-		-PauseOnCondition: !(!WebDisable)
 	-WithColoredOverlay@WebDisable:
 	-TimedConditionBar@WebDisable:
 	-SpeedMultiplier@WebDisable:
@@ -1694,7 +1686,6 @@
 		CooldownDuration: 375
 	KillsSelf@KillMe:
 		RequiresCondition: KillMe
-		KillsSelf: true
 		DamageTypes: BulletDeath
 	ExternalCondition@KillMe:
 		Condition: KillMe
@@ -1703,7 +1694,7 @@
 		Sequence: idle
 		Position: BottomRight
 		Palette: mouse
-		ShowToEnemies: true
+		ValidStances: Ally, Neutral, Enemy
 	WithDeathAnimation@body:
 		DeathSequencePalette: jasccyan
 		DeathPaletteIsPlayerPalette: false
@@ -1712,7 +1703,6 @@
 		Delay: 0
 	FirepowerMultiplier@Hologram:
 		Modifier: 2
-		BaseLevel: 0
 
 ^HologramSoldier:
 	Inherits: ^Soldier
@@ -1761,11 +1751,14 @@
 	RepairsBridges:
 	Captures:
 		CaptureTypes: Building
-		ConsumeActor: true
-		Sabotage: false
 		RequiresCondition: !global-reusable-engineers
 		PlayerExperience: 25
-		CaptureDelay: 100
+		CaptureDelay: 125
+	Captures@1:
+		CaptureTypes: TechBuilding
+		RequiresCondition: !global-reusable-engineers
+		PlayerExperience: 25
+		CaptureDelay: 175
 	Huntable:
 	CaptureManager:
 
@@ -2046,9 +2039,6 @@
 	Aircraft:
 		AirborneCondition: airborne
 		CruisingCondition: cruising
-		RepairBuildings: gadept, scrdepot
-		RearmBuildings: gahpad, nahpad, muair, cabair, scrair
-		LandWhenIdle: false
 		Voice: Move
 		RepulsionSpeed: 30
 		CruiseAltitude: 4c0
@@ -2118,7 +2108,6 @@
 	Inherits: ^Aircraft
 	Inherits@3: ^AutoTargetAir
 	Aircraft:
-		LandWhenIdle: false
 	Rearmable:
 		RearmActors: nahpad, gahpad, muair, scrair, cabair
 
@@ -2135,15 +2124,13 @@
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	DrawLineToTarget:
 	Health:
-		Shape: Circle
-			Radius: 256
+		HP: 10
 	Valued:
 		Cost: 50
 	Armor:
 		Type: VehicleArmor
 	Mobile:
 		Speed: 120
-		WaitAverage: 10
 		TurnSpeed: 64
 		Locomotor: Vehicle
 	SelectionDecorations:
@@ -2185,7 +2172,6 @@
 	RadarColorFromTerrain:
 		Terrain: Tiberium
 	FrozenUnderFog:
-		StartsRevealed: true
 	SeedsResource:
 		ResourceType: Tiberium
 		Interval: 50
@@ -2230,8 +2216,6 @@
 		TargetTypes: Building, Ground, C4
 	Health:
 		HP: 10000
-		Shape: Circle
-			Radius: 500
 	Crushable:
 		CrushClasses: infantry
 
@@ -2266,8 +2250,6 @@
 		TargetTypes: Building, Ground, C4
 	Health:
 		HP: 50000
-		Shape: Circle
-			Radius: 500
 	WithSpriteBody:
 	Building:
 		Footprint: x
@@ -2341,7 +2323,6 @@
 		TurnSpeed: 20
 		Voice: Move
 		Speed: 40
-		TunnelCondition: inside-tunnel
 	Cargo:
 		Types: Vehicle
 		UnloadVoice: Unload
@@ -2483,9 +2464,8 @@
 	WithGateSpriteBody:
 		OpenSequence: open
 	Tooltip:
-		Description: Automated barrier that opens for allied units.
+		Name: Gate
 	Building:
-		Adjacent: 6
 		BuildSounds: place2.aud
 		RequiresBaseProvider: false
 		TerrainTypes: Clear, Rough, Road, DirtRoad, Green, Sand, Pavement
@@ -2629,7 +2609,6 @@
 ^BasicStealthDetectionAir:
 	Inherits: ^BasicStealthDetection
 	RenderDetectionCircle:
-		RenderOnGround: true
 
 ^TowerStealthDetection:
 	DetectCloaked:

@@ -948,7 +948,6 @@ TTNK:
 	WithSpriteTurret@deployed:
 		Turret: deployed
 		RequiresCondition: deployed
-		Armament: deployed
 	AttackTurreted@deployed:
 		Voice: Attack
 		Turrets: deployed
@@ -994,7 +993,6 @@ TICKHOLOGRAM:
 		Image: ttnk
 	FirepowerMultiplier@Hologram:
 		Modifier: 20
-		BaseLevel: 0
 	WithDeathAnimation@body:
 		DeathSequencePalette: apolra2i
 		DeathPaletteIsPlayerPalette: false
@@ -1072,7 +1070,7 @@ BIKE:
 		Sequence: idle
 		Position: BottomLeft
 		Palette: mouse
-		ShowToEnemies: true
+		ValidStances: Ally, Enemy, Neutral
 	AutoTarget:
 	AttackFrontal:
 
@@ -1623,7 +1621,7 @@ HVRTRUK3:
 		Sequence: idle
 		Position: BottomLeft
 		Palette: mouse
-		ShowToEnemies: true
+		ValidStances: Ally, Enemy, Neutral
 	AutoTarget:
 
 HVRTRUK3_BOT:
@@ -2144,6 +2142,7 @@ ECM:
 		RearmActors: gadept, scrdepot
 	Minelayer:
 		Mine: mumine
+		TileUnknownName: build-invalid
 		RearmBuildings: scrdepot, gadept
 	Health:
 		HP: 40000
@@ -2352,7 +2351,6 @@ LIMPED:
 		Cost: 400
 	Tooltip:
 		Name: Scout Drone
-		Description: Hover Drone, cloaks when deployed. Spreads unsmellable\ngas around it confusing nearby units becoming uncontrollable.\n\nUnnarmed.
 	Health:
 		HP: 10000
 	Mobile:

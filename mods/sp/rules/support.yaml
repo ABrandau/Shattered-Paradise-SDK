@@ -223,7 +223,6 @@ MUBUNKR:
 	WithIdleOverlay@1@asd:
 		RequiresCondition: loaded && !Building-Buildup
 		Sequence: occupied
-		Name: Body1
 	-WithColoredOverlay@IDISABLE:
 	-GrantConditionOnPowerState@LOWPOWER:
 	-GrantCondition@IDISABLE:
@@ -753,8 +752,7 @@ NASTLH:
 		Type: BuildingArmor
 	WithIdleOverlay@pulse:
 		Sequence: pulse
-		PauseOnLowPower: true
-		RequiresCondition: !Building-Buildup
+		RequiresCondition: !Building-Buildup && !disabled
 	WithRangeCircle:
 		Range: 12c0
 		Type: cloakgenerator
