@@ -175,6 +175,7 @@ APC_BOT:
 		Image: apc
 	Buildable:
 		Prerequisites: ~gaweap, gapile, ~AIOnly
+		Description: APC (full)
 	Cargo:
 		InitialUnits: gdie1, gdie1, medic, gdie1, grenadier
 	AIDeployHelper:
@@ -500,7 +501,7 @@ BGGY:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Fast vehicle armed with a machine, has room for one passenger that modifies the weapon of the vehicle.\n\nGood vs: Changes depending on the passenger.\n\nSpecial:\n- The weapon of the vehicle changes with the passenger.\n- Stealth detection.\n- Units inside deal 20% extra damage.
+		Description: Fast vehicle armed with a machine gun, has room for one passenger that modifies the weapon of the vehicle.\n\nGood vs: Changes depending on the passenger.\n\nSpecial:\n- The weapon of the vehicle changes with the passenger.\n- Stealth detection.\n- Units inside deal 20% extra damage.
 		BuildPaletteOrder: 10
 		Prerequisites: ~naweap, ~!AIOnly
 	Mobile:
@@ -807,6 +808,7 @@ RIFLEBGGY:
 		Image: bggy
 	Buildable:
 		Prerequisites: ~naweap, ~AIOnly
+		Description: Anti Infantry Buggy
 	Cargo:
 		InitialUnits: altnode1
 
@@ -824,6 +826,7 @@ ROCKETBGGY:
 		Image: bggy
 	Buildable:
 		Prerequisites: ~naweap, ~AIOnly
+		Description: Rocket Buggy
 	Cargo:
 		InitialUnits: crusader
 
@@ -839,6 +842,7 @@ FLAMEBGGY:
 		Image: bggy
 	Buildable:
 		Prerequisites: ~naweap, naradr, ~AIOnly
+		Description: Flame Buggy
 	Cargo:
 		InitialUnits: templar
 	EditorOnlyTooltip:
@@ -856,6 +860,7 @@ LAZORBGGY:
 		Image: bggy
 	Buildable:
 		Prerequisites: ~naweap, natech, ~AIOnly
+		Description: Laser Buggy
 	Cargo:
 		InitialUnits: nconf
 	EditorOnlyTooltip:
@@ -1442,6 +1447,7 @@ STRUCKFULL:
 		Class: struck
 	Buildable:
 		Prerequisites: ~muweap, murax, ~AIOnly
+		Description: Bus(full)
 	Valued:
 		Cost: 9500
 	GivesExperience:
@@ -1750,16 +1756,16 @@ SCRGLYDER2:
 	AttackFrontal:
 		PauseOnCondition: empdisable
 		FacingTolerance: 5
-	Armament@AIaimOnly:
-		RequiresCondition: AImicroManage
+	Armament@AITransformDummyWeapon:
+		RequiresCondition: AImicroManage && !mindcontrolled
 		Weapon: AIGlyder2AimingDummyWeapon
 		Recoil: 85
 		RecoilRecovery: 25
 		LocalOffset: 100,0,1500
 		PauseOnCondition: empdisable
 		ReloadingCondition: AIattackAir
-	TransformOnCondition:
-		RequiresCondition: AIattackAir && !inside-tunnel
+	TransformOnCondition@AITransform:
+		RequiresCondition: AIattackAir && !inside-tunnel && !mindcontrolled
 		IntoActor: scrglyder1
 	MindControllable:
 		Condition: mindcontrolled

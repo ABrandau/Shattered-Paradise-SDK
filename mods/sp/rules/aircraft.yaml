@@ -664,14 +664,13 @@ NUKECARRYALL_BOT:
 		Experience: 600
 	Cargo:
 		InitialUnits: hvrtruk3_bot
-	Armament@AIaiming:
-		RequiresCondition: AImicroManage
+	Armament@AIunloadingDummyWeapon:
 		Weapon: AITransportAimingDummyWeapon
 		LocalOffset: 950,0,0
 		ReloadingCondition: unloading
-		PauseOnCondition: unloading
+		RequiresCondition: !unloading && AImicroManage
 	##TODO: If engine upgrade can help on it, needs update here
-	RejectsOrders@unloading:
+	RejectsOrders@AIunloading:
 		Except: Unload
 		RequiresCondition: unloading && AImicroManage
 	## --TODO
@@ -705,6 +704,18 @@ SONICARRYALL_BOT:
 		Cost: 1200
 	Cargo:
 		InitialUnits: sonic
+
+APCARRYALL_BOT:
+	Inherits: NUKECARRYALL_BOT
+	Buildable:
+		Description: AI APC Transport
+		Queue: Air
+		BuildPaletteOrder: 6
+		Prerequisites: ~gahpad, gapile, ~AIOnly, ~!LoadedExists
+	Valued:
+		Cost: 1000
+	Cargo:
+		InitialUnits: apc_bot
 
 STORMRIDER:
 	Inherits: ^CombatPlane
@@ -862,12 +873,12 @@ SCRGLYDER1:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: GLYDER1.Husk
-	Armament@AIaimOnly:
+	Armament@AITransformDummyWeapon:
 		Weapon: AIGlyder1AimingDummyWeapon
 		RequiresCondition: AImicroManage
 		PauseOnCondition: empdisable
 		ReloadingCondition: AIattackGround
-	TransformOnCondition:
+	TransformOnCondition@AITransform:
 		RequiresCondition: AIattackGround
 		IntoActor: scrglyder2
 	SmokeParticleEmitter:
