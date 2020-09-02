@@ -1750,16 +1750,16 @@ SCRGLYDER2:
 	AttackFrontal:
 		PauseOnCondition: empdisable
 		FacingTolerance: 5
-	Armament@AIaimOnly:
-		RequiresCondition: AImicroManage
+	Armament@AITransform:
+		RequiresCondition: AImicroManage && !mindcontrolled
 		Weapon: AIGlyder2AimingDummyWeapon
 		Recoil: 85
 		RecoilRecovery: 25
 		LocalOffset: 100,0,1500
 		PauseOnCondition: empdisable
 		ReloadingCondition: AIattackAir
-	TransformOnCondition:
-		RequiresCondition: AIattackAir && !inside-tunnel
+	TransformOnCondition@AITransform:
+		RequiresCondition: AIattackAir && !inside-tunnel && !mindcontrolled
 		IntoActor: scrglyder1
 	MindControllable:
 		Condition: mindcontrolled
