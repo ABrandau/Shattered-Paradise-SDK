@@ -1120,7 +1120,6 @@
 		Notification: BuildingCaptured
 		LoseNotification: BuildingLostToCapture
 	CaptureManager:
-	#	BeingCapturedCondition: being-captured
 	Capturable:
 		Types: Building
 		RequiresCondition: !Building-Buildup
@@ -1497,7 +1496,6 @@
 	Inherits@2: ^Cloakable
 	Inherits@4: ^AutoTargetGroundAssaultMove
 	Inherits@5: ^5CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
 	MustBeDestroyed:
 	TakeCover:
 		DamageModifiers:
@@ -1608,7 +1606,6 @@
 	Inherits@1: ^Infantry
 	Inherits@2: ^AutoTargetGroundAssaultMove
 	Inherits@3: ^7CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
 	Crushable:
 		CrushClasses: HeavyInfantry
 	-DamagedByTerrain:
@@ -1644,7 +1641,6 @@
 ^CabalDroneInfantry:
 	Inherits@1: ^Infantry
 	Inherits@3: ^AutoTargetGroundAssaultMove
-	Inherits@AImicroManagable: ^AImicroManagable
 	-WithDeathAnimation@normal:
 	-WithDeathAnimation@explosion:
 	-WithDeathAnimation@energy:
@@ -1731,7 +1727,6 @@
 ^Engineer:
 	Inherits@1: ^InfantryShape
 	Inherits@2: ^LowPrioritySelectionMode
-	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1769,7 +1764,6 @@
 	Inherits@3: ^VehicleShape
 	Inherits@4: ^5CellVision
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
-	Inherits@AImicroManagable: ^AImicroManagable
 	ActorLostNotification:
 	Huntable:
 	SharedPassenger:
@@ -1929,7 +1923,6 @@
 ^ScrinVehicle:
 	Inherits@0: ^ScrinReaper
 	Inherits@1: ^ScrinRender
-	Inherits@AImicroManagable: ^AImicroManagable
 	Explodes:
 		Weapon: ScrinUnitExplode
 		EmptyWeapon: ScrinUnitExplode
@@ -2019,7 +2012,6 @@
 	Inherits@4: ^VehicleShape
 	Inherits@5: ^10CellVision
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
-	Inherits@AImicroManagable: ^AImicroManagable
 	DrawLineToTarget:
 	WithTextControlGroupDecoration:
 	AppearsOnRadar:
