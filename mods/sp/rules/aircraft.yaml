@@ -664,12 +664,11 @@ NUKECARRYALL_BOT:
 		Experience: 600
 	Cargo:
 		InitialUnits: hvrtruk3_bot
-	Armament@AIunloading:
-		RequiresCondition: AImicroManage
+	Armament@AIunloadingDummyWeapon:
 		Weapon: AITransportAimingDummyWeapon
 		LocalOffset: 950,0,0
 		ReloadingCondition: unloading
-		RequiresCondition: !unloading
+		RequiresCondition: !unloading && AImicroManage
 	##TODO: If engine upgrade can help on it, needs update here
 	RejectsOrders@AIunloading:
 		Except: Unload
@@ -874,7 +873,7 @@ SCRGLYDER1:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: GLYDER1.Husk
-	Armament@AITransform:
+	Armament@AITransformDummyWeapon:
 		Weapon: AIGlyder1AimingDummyWeapon
 		RequiresCondition: AImicroManage
 		PauseOnCondition: empdisable
