@@ -346,34 +346,6 @@ BUS:
 	RevealsShroud:
 		Range: 5c0
 
-PICK:
-	Inherits: ^CivilianVoxelVehicle
-	Tooltip:
-		Name: Pickup
-	Mobile:
-		TurnSpeed: 20
-		Speed: 120
-	Health:
-		HP: 10000
-	Armor:
-		Type: Light
-	RevealsShroud:
-		Range: 5c0
-
-CAR:
-	Inherits: ^CivilianVoxelVehicle
-	Tooltip:
-		Name: Automobile
-	Mobile:
-		TurnSpeed: 20
-		Speed: 120
-	Health:
-		HP: 10000
-	Armor:
-		Type: Light
-	RevealsShroud:
-		Range: 5c0
-
 CAR2:
 	Inherits: ^CivilianSpriteVehicle
 	Tooltip:
@@ -388,10 +360,10 @@ CAR2:
 	RevealsShroud:
 		Range: 5c0
 
-CARCOBRA:
+CAR:
 	Inherits: CAR2
 
-CARPANTERA:
+CARCOBRA:
 	Inherits: CAR2
 
 CARPANTERB:
@@ -424,8 +396,15 @@ CARWINI:
 CARBIGCAMION:
 	Inherits: CAR2
 
-CARPICKUP:
+PICKUPBENDER:
 	Inherits: CAR2
+	Tooltip:
+		Name: Pickup
+
+PICK:
+	Inherits: CAR2
+	Tooltip:
+		Name: Pickup
 
 CATEXCAVATOR:
 	Inherits: CAR2
@@ -2397,104 +2376,6 @@ RADIOTOWER:
 	IsometricSelectable:
 		DecorationHeight: 120
 
-GEYSER:
-	Inherits: ^CivBuilding
-	-Tooltip:
-	RenderSprites:
-		Palette: player
-	WithIdleOverlay:
-		Sequence: gasanim
-		Palette: jascgreenalpha
-	-Targetable:
-	-IsometricSelectable:
-	-IsometricSelectionDecorations:
-
-GEYSER2:
-	Inherits: GEYSER
-
-SIGNALTOWER:
-	Inherits: RADIOTOWER
-	Tooltip:
-		Name: Communications Tower
-	Health:
-		HP: 30000
-
-TANKBARRIER:
-	Inherits: ^CivBuilding
-	Tooltip:
-		Name: Tank Barrier
-	Health:
-		HP: 50000
-	Armor:
-		Type: ConcreteArmor
-	RenderSprites:
-		Palette: player
-
-TANKBARRIER2:
-	Inherits: TANKBARRIER
-
-CONCRETEBARRIER:
-	Inherits: ^CivBuilding
-	Tooltip:
-		Name: Civilian Barrier
-	Health:
-		HP: 25000
-	Armor:
-		Type: ConcreteArmor
-	RenderSprites:
-		Palette: player
-
-CONCRETEBARRIER2:
-	Inherits: CONCRETEBARRIER
-
-CONCRETEBARRIER3:
-	Inherits: CONCRETEBARRIER
-
-CONCRETEBARRIER4:
-	Inherits: CONCRETEBARRIER
-
-CONCRETEBARRIER5:
-	Inherits: CONCRETEBARRIER
-
-CONCRETEBARRIER6:
-	Inherits: CONCRETEBARRIER
-
-CONCRETEBARRIER7:
-	Inherits: CONCRETEBARRIER
-
-CONCRETEBARRIER8:
-	Inherits: CONCRETEBARRIER
-
-FENCE:
-	Inherits: ^Wall
-	Tooltip:
-		Name: Fence
-	Crushable:
-		CrushClasses: infantry
-	-BlocksProjectiles:
-	Armor:
-		Type: BuildingArmor
-
-CERMWALL:
-	Inherits: FENCE
-	Tooltip:
-		Name: Wall
-
-TRASHDUMP:
-	Inherits: ^CivBuilding
-	Inherits@2: ^1x1Shape
-	Building:
-		Footprint: x
-		Dimensions: 1,1
-	Tooltip:
-		Name: Trash Dump
-	Health:
-		HP: 15000
-	Armor:
-		Type: BuildingArmor
-	RenderSprites:
-		Palette: player
-
 CONTAINER:
 	Inherits: ^CivBuilding
 	Inherits@2: ^1x2Shape
@@ -2546,28 +2427,6 @@ CONTAINER5:
 	Armament:
 		Weapon: LightTowerClaxon
 	AttackTurreted:
-
-TIBGLACIER:
-	Inherits: ^CivBuilding
-	Inherits@2: ^1x2Shape
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	Health:
-		HP: 25000
-	Armor:
-		Type: BuildingArmor
-	RenderSprites:
-		Palette: scipberium
-
-TIBGLACIER2:
-	Inherits: TIBGLACIER
-
-TIBGLACIER3:
-	Inherits: TIBGLACIER
-
-TIBGLACIER4:
-	Inherits: TIBGLACIER
 
 CONTAINER2X2:
 	Inherits@1: ^FakeTurretedProp
@@ -2690,6 +2549,24 @@ BUSSTOP:
 		Name: Bus Stop
 	EditorOnlyTooltip:
 		Name: Bus Stop (Supports facings)
+
+PALLET:
+	Inherits: ^1x1TurretedProp
+	Tooltip:
+		Name: Pallet
+	EditorOnlyTooltip:
+		Name: Pallet (Supports facings)
+	RenderSprites:
+		Palette: player
+
+BOXSET1:
+	Inherits: ^1x1TurretedProp
+	Tooltip:
+		Name: Boxes
+	EditorOnlyTooltip:
+		Name: Boxes (Supports facings)
+	RenderSprites:
+		Palette: player
 
 GRAVE:
 	Inherits@1: ^1x1TurretedProp

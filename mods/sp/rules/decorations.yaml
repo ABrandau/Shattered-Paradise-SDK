@@ -1,3 +1,132 @@
+
+GEYSER:
+	Inherits: ^CivBuilding
+	-Tooltip:
+	RenderSprites:
+		Palette: player
+	WithIdleOverlay:
+		Sequence: gasanim
+		Palette: jascgreenalpha
+	-Targetable:
+	-IsometricSelectable:
+	-IsometricSelectionDecorations:
+
+GEYSER2:
+	Inherits: GEYSER
+
+SIGNALTOWER:
+	Inherits: RADIOTOWER
+	Tooltip:
+		Name: Communications Tower
+	Health:
+		HP: 30000
+
+TANKBARRIER:
+	Inherits: ^CivBuilding
+	Tooltip:
+		Name: Tank Barrier
+	Health:
+		HP: 50000
+	Armor:
+		Type: ConcreteArmor
+	RenderSprites:
+		Palette: player
+
+TANKBARRIER2:
+	Inherits: TANKBARRIER
+
+CONCRETEBARRIER:
+	Inherits: ^CivBuilding
+	Tooltip:
+		Name: Civilian Barrier
+	Health:
+		HP: 25000
+	Armor:
+		Type: ConcreteArmor
+	RenderSprites:
+		Palette: player
+
+CONCRETEBARRIER2:
+	Inherits: CONCRETEBARRIER
+
+CONCRETEBARRIER3:
+	Inherits: CONCRETEBARRIER
+
+CONCRETEBARRIER4:
+	Inherits: CONCRETEBARRIER
+
+CONCRETEBARRIER5:
+	Inherits: CONCRETEBARRIER
+
+CONCRETEBARRIER6:
+	Inherits: CONCRETEBARRIER
+
+CONCRETEBARRIER7:
+	Inherits: CONCRETEBARRIER
+
+CONCRETEBARRIER8:
+	Inherits: CONCRETEBARRIER
+
+FENCE:
+	Inherits: ^Wall
+	Tooltip:
+		Name: Fence
+	Crushable:
+		CrushClasses: infantry
+	-BlocksProjectiles:
+	Armor:
+		Type: BuildingArmor
+
+CERMWALL:
+	Inherits: FENCE
+	Tooltip:
+		Name: Wall
+
+TRASHDUMP:
+	Inherits: ^CivBuilding
+	Inherits@2: ^1x1Shape
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Tooltip:
+		Name: Trash Dump
+	Health:
+		HP: 15000
+	Armor:
+		Type: BuildingArmor
+	RenderSprites:
+		Palette: player
+
+TIBGLACIER:
+	Inherits: ^CivBuilding
+	Inherits@2: ^1x2Shape
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 25000
+	Armor:
+		Type: BuildingArmor
+	RenderSprites:
+		Palette: scipberium
+
+TIBGLACIER2:
+	Inherits: TIBGLACIER
+
+TIBGLACIER3:
+	Inherits: TIBGLACIER
+
+TIBGLACIER4:
+	Inherits: TIBGLACIER
+
+ROCKS1:
+	Inherits@1: ^1x1TurretedProp
+	-Tooltip:
+	EditorOnlyTooltip:
+		Name:Rock set (Supports facings)
+	RenderSprites:
+		Palette: player
+
 TIBTRE01:
 	Inherits: ^BlossomTree
 
@@ -211,70 +340,6 @@ fona15:
 	Tooltip:
 		Name: Fona
 
-VEINHOLE:
-	Inherits: ^Building
-	Inherits@2: ^2x2Shape
-	-CaptureManager:
-	RadarColorFromTerrain:
-		Terrain: Veins
-	Building:
-		Footprint: xx xx
-		Dimensions: 2, 2
-	BodyOrientation:
-		QuantizedFacings: 1
-	Tooltip:
-		Name: Veinhole Monster
-	SeedsResource:
-		Interval: 5
-		ResourceType: Veins
-		MaxRange: 24
-	RenderSprites:
-		Palette: player
-	DamageMultiplier@Veinhole:
-		Modifier: 0
-		RequiresCondition: !lawea
-	ChangesHealth:
-		PercentageStep: 1
-		StartIfBelow: 200
-		DamageCooldown: 50
-		Delay: 25
-	WithSpriteBody:
-	ShakeOnDeath:
-	Targetable:
-		TargetTypes: Building, Ground, Veinhole
-	AmbientSound:
-		SoundFiles: tentaclem0001.wav, tentaclem0002.wav, tentaclem0003.wav
-		Delay: 0, 100
-		Interval: 150, 300
-	Health:
-		HP: 200000
-	Armor:
-		Type: BuildingArmor
-	-WithColoredOverlay@EMPDISABLE:
-	-TimedConditionBar@EMPDISABLE:
-	-WithIdleOverlay@EMPDISABLE:
-	MapEditorData:
-		Categories: Tree
-	RequiresBuildableArea:
-		AreaTypes: building
-	Interactable:
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
-	-ThrowsShrapnel@SMALL:
-	-ThrowsShrapnel@LARGE:
-	-GrantConditionOnDamageState@SpawnFire:
-	-ExplodeWeapon@SpawnFire:
-	-ExternalCondition@SpawnFire:
-	-CapturableProgressBlink:
-	-CapturableProgressBar:
-	-Capturable:
-
-VEINHOLE2:
-	Inherits: VEINHOLE
-	EditorOnlyTooltip:
-		Name: Low ground veinhole
-
 treepine:
 	Inherits: ^Tree
 	RenderSprites:
@@ -349,3 +414,67 @@ treegeneric6:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
+
+VEINHOLE:
+	Inherits: ^Building
+	Inherits@2: ^2x2Shape
+	-CaptureManager:
+	RadarColorFromTerrain:
+		Terrain: Veins
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	BodyOrientation:
+		QuantizedFacings: 1
+	Tooltip:
+		Name: Veinhole Monster
+	SeedsResource:
+		Interval: 5
+		ResourceType: Veins
+		MaxRange: 24
+	RenderSprites:
+		Palette: player
+	DamageMultiplier@Veinhole:
+		Modifier: 0
+		RequiresCondition: !lawea
+	ChangesHealth:
+		PercentageStep: 1
+		StartIfBelow: 200
+		DamageCooldown: 50
+		Delay: 25
+	WithSpriteBody:
+	ShakeOnDeath:
+	Targetable:
+		TargetTypes: Building, Ground, Veinhole
+	AmbientSound:
+		SoundFiles: tentaclem0001.wav, tentaclem0002.wav, tentaclem0003.wav
+		Delay: 0, 100
+		Interval: 150, 300
+	Health:
+		HP: 200000
+	Armor:
+		Type: BuildingArmor
+	-WithColoredOverlay@EMPDISABLE:
+	-TimedConditionBar@EMPDISABLE:
+	-WithIdleOverlay@EMPDISABLE:
+	MapEditorData:
+		Categories: Tree
+	RequiresBuildableArea:
+		AreaTypes: building
+	Interactable:
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
+	-ThrowsShrapnel@SMALL:
+	-ThrowsShrapnel@LARGE:
+	-GrantConditionOnDamageState@SpawnFire:
+	-ExplodeWeapon@SpawnFire:
+	-ExternalCondition@SpawnFire:
+	-CapturableProgressBlink:
+	-CapturableProgressBar:
+	-Capturable:
+
+VEINHOLE2:
+	Inherits: VEINHOLE
+	EditorOnlyTooltip:
+		Name: Low ground veinhole

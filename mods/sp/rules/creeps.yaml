@@ -25,6 +25,8 @@ DOGGIE:
 		MaxMoveDelay: 45
 	WithInfantryBody:
 		IdleSequences: idle1
+	MapEditorData:
+		Categories: Creep
 
 WEASAU4:
 	Inherits: ^Beast
@@ -55,6 +57,8 @@ WEASAU4:
 		MaxMoveDelay: 45
 	WithInfantryBody:
 		IdleSequences: idle1
+	MapEditorData:
+		Categories: Creep
 
 WEASAU:
 	Inherits: WEASAU4
@@ -91,6 +95,8 @@ VISC_SML:
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
+	MapEditorData:
+		Categories: Creep
 
 VISC_LRG:
 	Inherits: ^Visceroid
@@ -129,6 +135,8 @@ VISC_LRG:
 		Weapon: ZombieExplosion
 		EmptyWeapon: ZombieExplosion
 		Chance: 100
+	MapEditorData:
+		Categories: Creep
 
 VISC_LRG_SCRIN:
 	Inherits: VISC_LRG
@@ -155,6 +163,8 @@ VISC_LRG_SCRIN:
 	-SpawnActorOnDeath@smallVisceroid1:
 	-SpawnActorOnDeath@smallVisceroid2:
 	-Explodes@adultExplodes:
+	MapEditorData:
+		Categories: Creep
 
 ZOMBIE:
 	Inherits: ^Mutant
@@ -205,6 +215,8 @@ ZOMBIE:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
+	MapEditorData:
+		Categories: Creep
 
 BERSERKER:
 	Inherits: ^Mutant
@@ -254,6 +266,8 @@ BERSERKER:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
+	MapEditorData:
+		Categories: Creep
 
 EGGS:
 	Inherits: ^CivBuilding
@@ -301,6 +315,8 @@ EGGS:
 		RequiresLobbyCreeps: true
 	RequiresBuildableArea:
 		AreaTypes: building
+	MapEditorData:
+		Categories: Creep
 
 CRAB:
 	Inherits: ^Beast
@@ -356,6 +372,8 @@ CRAB:
 	-Crushable:
 	-GainsExperience:
 	-DamagedByTintedCells@Default:
+	MapEditorData:
+		Categories: Creep
 
 PERMACRAB:
 	Inherits: CRAB
@@ -374,6 +392,8 @@ PERMACRAB:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
+	MapEditorData:
+		Categories: Creep
 
 FLOATER:
 	Inherits: ^HoverVehicle
@@ -422,6 +442,8 @@ FLOATER:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
+	MapEditorData:
+		Categories: Creep
 
 jfish:
 	Inherits: FLOATER
@@ -429,3 +451,5 @@ jfish:
 		Image: floater
 	EditorOnlyTooltip:
 		Name: Duplicated Floater (It helps avoid map inportation issues)
+	MapEditorData:
+		Categories: Creep
