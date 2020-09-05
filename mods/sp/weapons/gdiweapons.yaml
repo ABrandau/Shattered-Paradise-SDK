@@ -98,7 +98,8 @@ TrooperRail:
 		Duration: 20
 		Blockable: true
 		BeamWidth: 40
-		BeamColor: 0008ED
+		BeamColor: 2228ED
+		HelixColor: 888FFF
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 4000
@@ -132,7 +133,7 @@ APCGrenade:
 	Range: 5c0
 	Report: grenadelauncherfire.wav
 	ValidTargets: Ground, Water
-	Projectile: BulletAS
+	Projectile: Bullet
 		Speed: 360
 		Blockable: false
 		Shadow: true
@@ -353,13 +354,12 @@ MechRailgun2:
 	Report: railuse5.aud
 	Projectile: Railgun
 		DamageActorsInLine: true
-		BeamColor: 00CCCC
-		BeamAlphaDeltaPerTick: -10
+		BeamColor: 00BBBB
 		Duration: 20
-		BeamWidth: 80
-		HelixThickness: 144
-		HelixRadius: 144
-		HelixPitch: 320
+		BeamWidth: 100
+		HelixThickness: 48
+		HelixRadiusDeltaPerTick: 16
+		HelixColor: 44FFFF
 		HitAnim: explosion
 		HitAnimSequence: marnflash2
 		HitAnimPalette: MarnAlphaAlpha
@@ -516,7 +516,7 @@ FirestormSpawner:
 		ValidTargets: Ground, Water
 	Warhead@op: FireShrapnel
 		Weapon: FirestormExplo
-		Amount: 60
+		Amount: 100
 
 FirestormExplo:
 	Inherits: ^FullDamage
