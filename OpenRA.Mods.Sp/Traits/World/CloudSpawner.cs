@@ -108,7 +108,6 @@ namespace OpenRA.Mods.Sp.Traits
 		void PreSpawnClouds(World world)
 		{
 			var facing = 256 * info.WindDirection / 32;
-			var direction = WAngle.FromFacing(facing);
 			var delta = new WVec(0, -1024, 0).Rotate(WRot.FromFacing(facing));
 
 			/*
@@ -120,12 +119,12 @@ namespace OpenRA.Mods.Sp.Traits
 			 * For example, the middle point in map is "@", @ is (u = X/2, v = Y/2)
 			 * You can imagine any wind direction with all edges clouds possibly spawn.
 			 *
-			 *              ___X___
-             *              |	  |
-             *              |	  |
-             *              |  @  | Y
-             *              |	  |
-             *              |_____|
+			 *              ____X____
+			 *				|		|
+			 *				|		|
+			 *				|	@	Y
+			 *				|		|
+			 *				|_______|
 			 *
 			 * By using this longest path, we can figure out the number of clouds should
 			 * spawn when a certain cloud completely goes over a longest path, which should be
