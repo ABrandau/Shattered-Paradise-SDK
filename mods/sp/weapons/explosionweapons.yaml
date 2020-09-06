@@ -57,6 +57,7 @@ SmallPlaneExplode:
 	Warhead@1: FireShrapnel
 		Amount: 3
 		Weapon: SmallPlaneExplosion
+		ImpactActors: false
 		ValidTargets: Ground, Air, Water, Airhit
 
 SmallPlaneExplosion:
@@ -78,6 +79,7 @@ DestroyerExplode:
 	Warhead@1: FireShrapnel
 		Amount: 6
 		Weapon: DestroyerExplosion
+		ImpactActors: false
 		ValidTargets: Ground, Air, Water, Airhit
 
 DestroyerExplosion:
@@ -99,6 +101,7 @@ BattleshipExplode:
 	Warhead@1: FireShrapnel
 		Amount: 8
 		Weapon: BattleshipExplosion
+		ImpactActors: false
 		ValidTargets: Ground, Air, Water, Airhit
 
 BattleshipExplosion:
@@ -119,6 +122,7 @@ DroneExplode:
 	Inherits@2: ^Tiny_Explo
 	Warhead@op: FireShrapnel
 		Weapon: SmallDebris
+		ImpactActors: false
 		Amount: 1
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
@@ -128,6 +132,7 @@ SmalLAircraftShrapnel:
 	Inherits@2: ^Tiny_Explo
 	Warhead@op: FireShrapnel
 		Weapon: SmallDebris
+		ImpactActors: false
 		Amount: 3
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
@@ -137,6 +142,7 @@ BigAircraftShrapnel:
 	Inherits@2: ^Large_Clsn
 	Warhead@op: FireShrapnel
 		Weapon: SmallDebris
+		ImpactActors: false
 		Amount: 9
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
@@ -148,6 +154,7 @@ UnitExplodeSmall:
 		Damage: 1
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2: SpawnSmokeParticle
+		ImpactActors: false
 		Duration: 25, 600
 		Image: explosion
 		Sequences: fire1
@@ -155,6 +162,7 @@ UnitExplodeSmall:
 		Weapon: DummyWeapon
 	Warhead@4Sharpnel: FireShrapnel
 		Weapon: SmallDebris
+		ImpactActors: false
 		Amount: 2
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
@@ -179,6 +187,7 @@ UnitExplode:
 		Damage: 1
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2: SpawnSmokeParticle
+		ImpactActors: false
 		Duration: 25, 600
 		Image: explosion
 		Sequences: fire4
@@ -195,6 +204,7 @@ ScrinUnitExplode:
 		ExplosionPalette: apolbluealpha
 		ImpactSounds: expnew09.aud
 	Warhead@2: SpawnSmokeParticle
+		ImpactActors: false
 		Duration: 25, 600
 		Image: explosion
 		Sequences: fire4
@@ -211,6 +221,7 @@ ScrinUnitExplode2:
 		ExplosionPalette: apolbluealpha
 		ImpactSounds: expnew09.aud
 	Warhead@2: SpawnSmokeParticle
+		ImpactActors: false
 		Duration: 25, 600
 		Image: explosion
 		Sequences: fire2
@@ -341,6 +352,7 @@ LargeDebris:
 		Damage: 1
 		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 	Warhead@2: SpawnSmokeParticle
+		ImpactActors: false
 		Duration: 25, 600
 		Image: explosion
 		Sequences: fire2, fire1
@@ -349,12 +361,14 @@ LargeDebris:
 BuildingFireBigParticleSpawner:
 	Inherits: ^ParticleSpawner
 	Warhead@2: SpawnSmokeParticle
+		ImpactActors: false
 		Duration: 40
 		Weapon: BuildingFireBigShrapnel
 
 BuildingFireSmallParticleSpawner:
 	Inherits: BuildingFireBigParticleSpawner
 	Warhead@2: SpawnSmokeParticle
+		ImpactActors: false
 		Weapon: BuildingFireSmallShrapnel
 
 BuildingFireBigShrapnel:
@@ -362,6 +376,7 @@ BuildingFireBigShrapnel:
 	Projectile: InstantExplode
 	Warhead@op: FireShrapnel
 		Weapon: BuildingFireBig
+		ImpactActors: false
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
@@ -370,6 +385,7 @@ BuildingFireSmallShrapnel:
 	ReloadDelay: 6
 	Warhead@op: FireShrapnel
 		Weapon: BuildingFireSmall
+		ImpactActors: false
 
 BuildingFireBig:
 	Inherits: ^FlameWarhead
@@ -382,6 +398,7 @@ BuildingFireBig:
 		Damage: 1
 		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 	Warhead@2: SpawnSmokeParticle
+		ImpactActors: false
 		Duration: 25, 600
 		Image: explosion
 		Sequences: fire3, fire4
@@ -392,6 +409,7 @@ BuildingFireSmall:
 	Range: 2c0
 	MinRange: 0c512
 	Warhead@2: SpawnSmokeParticle
+		ImpactActors: false
 		Sequences: fire2, fire1
 		Duration: 25, 300
 
@@ -400,11 +418,13 @@ BuildingCriticalDamageFireSpawner:
 	ReloadDelay: 125
 	Warhead@op: FireShrapnel
 		Weapon: BuildingCriticalDamageFireSmall
+		ImpactActors: false
 
 BuildingCriticalDamageFireSmall:
 	Inherits: BuildingFireBig
 	Range: 1c0
 	Warhead@2: SpawnSmokeParticle
+		ImpactActors: false
 		Duration: 250
 		Sequences: fire1, fire2
 		Image: buildingfire
@@ -416,6 +436,7 @@ DefenceCriticalDamageFireSpawner:
 	ReloadDelay: 250
 	Warhead@op: FireShrapnel
 		Weapon: DefenceCriticalDamageFireSmall
+		ImpactActors: false
 
 DefenceCriticalDamageFireSmall:
 	Inherits: BuildingCriticalDamageFireSmall
