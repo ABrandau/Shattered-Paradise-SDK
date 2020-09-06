@@ -328,10 +328,10 @@ Container@EDITOR_WORLD_ROOT:
 			BookmarkRestoreKeyPrefix: MapBookmarkRestore
 			BookmarkKeyCount: 4
 		Background@RADAR_BG:
-			X: WINDOW_RIGHT - 325
+			X: WINDOW_RIGHT - 585
 			Y: 5
-			Width: 320
-			Height: 320
+			Width: 160
+			Height: 160
 			Children:
 				Radar@INGAME_RADAR:
 					X: 10
@@ -342,10 +342,10 @@ Container@EDITOR_WORLD_ROOT:
 			Logic: TileSelectorLogic
 			Children:
 				Background@TILES_BG:
-					X: WINDOW_RIGHT - 320
-					Y: 360
-					Width: 310
-					Height: WINDOW_BOTTOM - 452
+					X: WINDOW_RIGHT - 395
+					Y: 35
+					Width: 385
+					Height: WINDOW_BOTTOM - 45
 					Children:
 						Label@SEARCH_LABEL:
 							Y: 12
@@ -393,10 +393,10 @@ Container@EDITOR_WORLD_ROOT:
 			Logic: LayerSelectorLogic
 			Children:
 				Background@LAYERS_BG:
-					X: WINDOW_RIGHT - 320
-					Y: 360
-					Width: 310
-					Height: WINDOW_BOTTOM - 452
+					X: WINDOW_RIGHT - 395
+					Y: 35
+					Width: 385
+					Height: WINDOW_BOTTOM - 45
 					Children:
 						ScrollPanel@LAYERTEMPLATE_LIST:
 							X: 10
@@ -420,10 +420,10 @@ Container@EDITOR_WORLD_ROOT:
 			Logic: ActorSelectorLogic
 			Children:
 				Background@ACTORS_BG:
-					X: WINDOW_RIGHT - 320
-					Y: 360
-					Width: 310
-					Height: WINDOW_BOTTOM - 452
+					X: WINDOW_RIGHT - 395
+					Y: 35
+					Width: 385
+					Height: WINDOW_BOTTOM - 45
 					Children:
 						Label@SEARCH_LABEL:
 							Y: 12
@@ -487,10 +487,10 @@ Container@EDITOR_WORLD_ROOT:
 			Visible: false
 			Children:
 				Background@HISTORY_BG:
-					X: WINDOW_RIGHT - 320
-					Y: 360
-					Width: 310
-					Height: WINDOW_BOTTOM - 452
+					X: WINDOW_RIGHT - 395
+					Y: 35
+					Width: 385
+					Height: WINDOW_BOTTOM - 45
 					Children:
 						ScrollPanel@HISTORY_LIST:
 							X: 10
@@ -517,8 +517,8 @@ Container@EDITOR_WORLD_ROOT:
 											Align: Left
 		Container@MAP_EDITOR_TAB_CONTAINER:
 			Logic: MapEditorTabsLogic
-			X: WINDOW_RIGHT - 315
-			Y: 330
+			X: WINDOW_RIGHT - 340
+			Y: 5
 			Width: 310
 			Height: 25
 			Children:
@@ -575,7 +575,7 @@ Container@EDITOR_WORLD_ROOT:
 			Text: Copy Filters
 			Font: Bold
 		Button@GRID_BUTTON:
-			X: 420
+			Y: 30
 			Width: 70
 			Height: 25
 			Text: Grid
@@ -585,7 +585,8 @@ Container@EDITOR_WORLD_ROOT:
 			Font: Bold
 			Key: f1
 		Button@UNDO_BUTTON:
-			X: 500
+			X: 80
+			Y: 30
 			Height: 25
 			Width: 90
 			Text: Undo
@@ -595,7 +596,8 @@ Container@EDITOR_WORLD_ROOT:
 			TooltipText: Undo last step
 			TooltipContainer: TOOLTIP_CONTAINER
 		Button@REDO_BUTTON:
-			X: 600
+			X: 180
+			Y: 30
 			Height: 25
 			Width: 90
 			Text: Redo
@@ -605,14 +607,15 @@ Container@EDITOR_WORLD_ROOT:
 			TooltipText: Redo last step
 			TooltipContainer: TOOLTIP_CONTAINER
 		Label@COORDINATE_LABEL:
-			X: 835
+			X: 450
+			Y: 30
 			Width: 50
 			Height: 25
 			Align: Left
 			Font: Bold
 			Contrast: true
 		Label@CASH_LABEL:
-			X: 950
+			X: 450
 			Width: 50
 			Height: 25
 			Align: Left
