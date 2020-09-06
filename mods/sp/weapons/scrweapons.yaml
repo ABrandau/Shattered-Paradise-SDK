@@ -497,27 +497,21 @@ Glyder2Cannon:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 AIGlyder1AimingDummyWeapon:
-	Inherits: ^NoDamage
 	ReloadDelay: 50
 	Range: 6c0
-	Burst: 1
-	MinRange: 0c100
 	ValidTargets: Air
-	Warhead@1Dam: SpreadDamage
-		Spread: 0
-		Damage: 0
+	Projectile: InstantHit
+		Blockable: false
+	Warhead@NoDam: TargetDamage
 		ValidTargets: Air
 
 AIGlyder2AimingDummyWeapon:
-	Inherits: ^NoDamage
 	ReloadDelay: 50
 	Range: 6c0
-	MinRange: 0c100
-	Burst: 1
 	ValidTargets: Ground, Water
-	Warhead@1Dam: SpreadDamage
-		Spread: 0
-		Damage: 0
+	Projectile: InstantHit
+		Blockable: false
+	Warhead@NoDam: TargetDamage
 		ValidTargets: Ground, Water
 
 BattleshipCannon:

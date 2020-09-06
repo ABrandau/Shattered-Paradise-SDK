@@ -179,6 +179,8 @@ APC_BOT:
 	Cargo:
 		InitialUnits: gdie1, gdie1, medic, gdie1, grenadier
 	AIDeployHelper:
+	AutoTarget:
+		ScanRadius: 7
 
 HVR:
 	Inherits@1: ^HoverTank
@@ -315,6 +317,8 @@ SONIC:
 		TargetTypes: AllySonicImmune
 	Turreted:
 		TurnSpeed: 12
+	AutoTarget:
+		ScanRadius: 7
 
 G4TNK:
 	Inherits: ^TurretedTank
@@ -1759,9 +1763,6 @@ SCRGLYDER2:
 	Armament@AITransformDummyWeapon:
 		RequiresCondition: AImicroManage && !mindcontrolled
 		Weapon: AIGlyder2AimingDummyWeapon
-		Recoil: 85
-		RecoilRecovery: 25
-		LocalOffset: 100,0,1500
 		PauseOnCondition: empdisable
 		ReloadingCondition: AIattackAir
 	TransformOnCondition@AITransform:

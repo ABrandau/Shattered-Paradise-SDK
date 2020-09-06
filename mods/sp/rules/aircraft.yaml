@@ -684,13 +684,11 @@ NUKECARRYALL_BOT:
 		InitialUnits: hvrtruk3_bot
 	Armament@AIunloadingDummyWeapon:
 		Weapon: AITransportAimingDummyWeapon
-		LocalOffset: 950,0,0
-		ReloadingCondition: unloading
-		RequiresCondition: !unloading && AImicroManage
+		RequiresCondition: AImicroManage && !notmobile && loaded
 	##TODO: If engine upgrade can help on it, needs update here
 	RejectsOrders@AIunloading:
 		Except: Unload
-		RequiresCondition: unloading && AImicroManage
+		RequiresCondition: AImicroManage && (notmobile || !loaded)
 	## --TODO
 	AttackAircraft:
 		AttackType: Hover
@@ -704,9 +702,6 @@ NUKECARRYALL_BOT:
 		InitialStanceAI: AttackAnything
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	GrantConditionOnDamageState:
-		Condition: unloading
-		ValidDamageStates: Medium
 	ProvidesPrerequisite@AIbuildinglimit:
 		RequiresCondition: loaded
 		Prerequisite: LoadedExists

@@ -136,12 +136,13 @@ GLAD120mm:
 			BuildingArmor: 75
 
 LurkerAimDummyWeapon:
-	Inherits: ^RifleWarhead
 	ReloadDelay: 40
 	Range: 9c0
-	Warhead@1Dam: SpreadDamage
-		Damage: 0
-		ValidTargets: Infantry, Vehicle, Building
+	ValidTargets: Ground, Water, Infantry, Vehicle, Building
+	Projectile: InstantHit
+		Blockable: false
+	Warhead@NoDam: TargetDamage
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building
 
 LurkerProj:
 	Inherits: ^FullDamage
