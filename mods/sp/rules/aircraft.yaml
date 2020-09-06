@@ -9,18 +9,11 @@ CLOUD1:
 	-Repairable:
 	Aircraft:
 		CruiseAltitude: 1
-		TurnSpeed: 24
+		TurnSpeed: 2
 		Repulsable: false
 		AltitudeVelocity: 400
 		Speed: 20
 		MoveIntoShroud: true
-	-Targetable@GROUND:
-	-Targetable@AIRBORNE:
-	-Targetable@Academy:
-	-Targetable@FullHealth:
-	-RevealsShroud:
-	-Voiced:
-	-Cloak@CLOAKGENERATOR:
 	Health:
 		HP: 650
 	ChangesHealth:
@@ -38,19 +31,44 @@ CLOUD1:
 	BodyOrientation:
 		QuantizedFacings: 32
 	AttackWander:
-	WithDeathAnimation:
-		DeathSequence: die
+	Interactable:
+	GrantRandomCondition:
+		Conditions: body1, body2
+	WithSpriteBody@1:
+		Name: body1
+		Sequence: cloud1
+		RequiresCondition: body1
+	WithSpriteBody@2:
+		Name: body2
+		Sequence: cloud2
+		RequiresCondition: body2
+	WithDeathAnimation@1:
+		DeathSequence: die1
 		UseDeathTypeSuffix: false
 		DeathSequencePalette: effectalpha
 		DeathPaletteIsPlayerPalette: false
+		RequiresCondition: cloud1
+	WithDeathAnimation@2:
+		DeathSequence: die2
+		UseDeathTypeSuffix: false
+		DeathSequencePalette: effectalpha
+		DeathPaletteIsPlayerPalette: false
+		RequiresCondition: cloud2
+	-WithFacingSpriteBody:
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
-	Interactable:
 	-GainsExperience:
 	-GrantConditionOnDamageState@spawnsparks:
 	-ExplodeWeapon@spawnsparks:
 	-Explodes@Shrapnel:
 	-SpawnActorOnDeath@nanomachineburst:
+	-Targetable@GROUND:
+	-Targetable@AIRBORNE:
+	-Targetable@Academy:
+	-Targetable@FullHealth:
+	-RevealsShroud:
+	-Voiced:
+	-Cloak@CLOAKGENERATOR:
 
 ORCA:
 	Inherits: ^CombatHelicopter
