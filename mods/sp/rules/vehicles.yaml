@@ -487,6 +487,7 @@ NODMCV:
 		TransformSounds: place2.aud
 		NoTransformSounds:
 		Voice: Move
+		PauseOnCondition: mindcontrolled || empdisable
 
 BGGY:
 	Inherits: ^Tank
@@ -1297,6 +1298,7 @@ MUTMCV:
 		TransformSounds: place2.aud
 		NoTransformSounds:
 		Voice: Move
+		PauseOnCondition: mindcontrolled || empdisable
 	Voiced:
 		VoiceSet: MutantMCV
 		Volume: 0.8
@@ -1969,6 +1971,7 @@ CABMCV:
 		TransformSounds: place2.aud
 		NoTransformSounds:
 		Voice: Move
+		PauseOnCondition: mindcontrolled || empdisable
 
 CENTURION:
 	Inherits: ^Walker
@@ -2013,9 +2016,25 @@ CENTURION:
 		LocalOffset: 900,550,1200
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
-	Armament@asd:
+	Armament@1:
 		Weapon: CenturionVulcan
 		Recoil: 127
+		Delay: 5
+		RecoilRecovery: 26
+		LocalOffset: 900,-550,1200
+		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
+	Armament@2:
+		Weapon: CenturionVulcanCasing
+		Recoil: 127
+		RecoilRecovery: 26
+		LocalOffset: 900,550,1200
+		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
+	Armament@3:
+		Weapon: CenturionVulcanCasing
+		Recoil: 127
+		Delay: 5
 		RecoilRecovery: 26
 		LocalOffset: 900,-550,1200
 		MuzzleSequence: muzzle

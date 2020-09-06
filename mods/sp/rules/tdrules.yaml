@@ -1,16 +1,16 @@
 TDREFINERY:
-    Inherits: FLIPPEDXPROC
+	Inherits: FLIPPEDXPROC
 	Building:
 		Footprint: xxx xxx X=X ===
-    WithIdleOverlay@anim:
-        Sequence: anim
-        Palette: player
-    WithIdleOverlay@animb:
-        Sequence: animb
-        Palette: player
-    WithIdleOverlay@animd:
-        Sequence: animd
-        Palette: player
+	WithIdleOverlay@anim:
+		Sequence: anim
+		Palette: player
+	WithIdleOverlay@animb:
+		Sequence: animb
+		Palette: player
+	WithIdleOverlay@animd:
+		Sequence: animd
+		Palette: player
 	-WithIdleOverlay@REDLIGHTS:
 	-WithIdleOverlay@BIB:
 	-WithDockedOverlay@flame:
@@ -19,7 +19,7 @@ TDREFINERY:
 		Name: Old Refinery
 
 ADVHQ:
-    Inherits: ^Radar
+	Inherits: ^Radar
 	ProvidesPrerequisite:
 		Prerequisite: radar
 	Building:
@@ -27,7 +27,11 @@ ADVHQ:
 		Dimensions: 3,3
 	Tooltip:
 		Name: Old Advanced Communications Center
-    WithIdleOverlay@anim:
-        Sequence: anima
-    WithIdleOverlay@anim:
-        Sequence: animb
+	WithIdleOverlay@anim:
+		Sequence: anima
+		PauseOnCondition: stop
+	WithIdleOverlay@anim:
+		Sequence: animb
+		PauseOnCondition: stop
+	GrantCondition:
+		Condition: stop

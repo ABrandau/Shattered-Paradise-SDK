@@ -262,15 +262,30 @@ Dogzooka:
 CenturionVulcan:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
-	ReloadDelay: 45
+	ReloadDelay: 40
 	Burst: 2
 	Range: 6c0
-	Report: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
 	Projectile: InstantHit
 		Inaccuracy: 0c512
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+
+CenturionVulcanCasing:
+	Inherits: CenturionVulcan
+	Report: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
+	ReloadDelay: 32 # 40 - 4*2
+	Burst: 4
+	BurstDelay: 2
+	Projectile: InstantExplode
+	-Warhead@1Dam:
+	-Warhead@2Eff:
+	-Warhead@3EffWater:
+	Warhead@4Sharpnel: FireShrapnel
+		Weapon: CasingDebris
+		ImpactActors: false
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
 RepairVehicleRep:
 	Inherits: ^SparkSpawner

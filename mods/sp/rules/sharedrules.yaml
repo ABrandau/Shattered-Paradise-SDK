@@ -83,7 +83,7 @@ MCV:
 		TransformSounds: place2.aud
 		NoTransformSounds:
 		Voice: Move
-		PauseOnCondition: mindcontrolled
+		PauseOnCondition: mindcontrolled || empdisable
 	SelectionDecorations:
 	RenderSprites:
 		Image: mcv.gdi
@@ -308,6 +308,7 @@ GACNST:
 		Offset: 1,1
 		Facing: 384
 		DeployCursor: undeploy
+		PauseOnCondition: mindcontrolled || empdisable
 	TransformsIntoMobile:
 		RequiresCondition: !Building-Buildup
 		Locomotor: InfantryCrusherVehicle

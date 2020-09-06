@@ -310,6 +310,26 @@ SparkDebris:
 		LaunchAngle: 150, 250
 		Image: sparkprojectile
 
+CasingDebris:
+	ReloadDelay: 60
+	Range: 0c764
+	Projectile: Bullet
+		Speed: 100, 200
+		Inaccuracy: 256
+		LaunchAngle: 91, 140
+		Image: casing
+		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+		Shadow: true
+	Warhead@: CreateEffect
+		Explosions: casingscorch, casingscorch2, casingscorch3, casingscorch4, casingscorch5, casingscorch6, casingscorch7
+		ExplosionPalette: effect
+		InvalidTargets: Water
+	Warhead@3EffWater: CreateEffect
+		Explosions: water_piffs
+		ExplosionPalette: ra
+		ValidTargets: Water
+		InvalidTargets: Ground
+
 WoodDebris:
 	ReloadDelay: 60
 	Range: 1c0
