@@ -95,6 +95,7 @@ IonCannon: ### THIS IS THE MAIN ION CANON WEAPON
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@4Sharpnel: FireShrapnel
 		Weapon: LargeDebris
+		ImpactActors: false
 		Amount: 6
 		AllowDirectHit: false
 	Warhead@3Effect: CreateEffect
@@ -132,10 +133,10 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 	Projectile: InstantExplode
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1
-		Damage: 1
 		ValidTargets: Ground, Water, Air
 	Warhead@op: FireShrapnel
 		Weapon: IonBeamCreator
+		ImpactActors: false
 		Amount: 20
 		AllowDirectHit: false
 	Warhead@Spawn: SpawnActor
@@ -143,6 +144,7 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 		Range: 3
 	Warhead@Ion: SpawnSmokeParticle
 		Weapon: IonCannon
+		ImpactActors: false
 		Delay: 103
 		Duration: 5
 		Sequences: idle
@@ -157,7 +159,6 @@ IonBeamCreator: ### THIS ONE GENERATES THE MINI BEAMS
 		Speed: 100c0
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1
-		Damage: 1
 		ValidTargets: Ground, Water, Air
 	Warhead@Spawn: SpawnActor
 		Actors: ionbeammini
@@ -192,7 +193,6 @@ IonDrag:
 	Projectile: Missile
 	Warhead@1Dam: SpreadDamage
 		Spread: 110
-		Damage: 1
 		ValidTargets: IonSpawner
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
@@ -247,6 +247,7 @@ DroppodElevator:
 		Altitude: 8000
 	Warhead@op: FireShrapnel
 		Weapon: droppod1
+		ImpactActors: false
 		AimChance: 25
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
@@ -254,21 +255,25 @@ DroppodElevator2:
 	Inherits: DroppodElevator
 	Warhead@op: FireShrapnel
 		Weapon: droppod2
+		ImpactActors: false
 
 DroppodElevator3:
 	Inherits: DroppodElevator
 	Warhead@op: FireShrapnel
 		Weapon: droppod3
+		ImpactActors: false
 
 DroppodElevator4:
 	Inherits: DroppodElevator
 	Warhead@op: FireShrapnel
 		Weapon: droppod4
+		ImpactActors: false
 
 DroppodElevator5:
 	Inherits: DroppodElevator
 	Warhead@op: FireShrapnel
 		Weapon: droppod5
+		ImpactActors: false
 
 droppod1:
 	Inherits: ^BombWarhead
@@ -397,16 +402,19 @@ ClusterMissile:
 		Delay: 25
 	Warhead@op: FireShrapnel
 		Weapon: LargeDebris
+		ImpactActors: false
 		Amount: 10
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@4Sharpnel: FireShrapnel
 		Weapon: NukeFlame
+		ImpactActors: false
 		Amount: 120
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@5Sharpnel: FireShrapnel
 		Weapon: NukeFlame2
+		ImpactActors: false
 		Amount: 150
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
@@ -495,11 +503,13 @@ ToxinMissile:
 		Falloff: 100, 60, 30, 15
 	Warhead@4Sharpnel: FireShrapnel
 		Weapon: ChemicalFlame
+		ImpactActors: false
 		Amount: 60
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@5Sharpnel: FireShrapnel
 		Weapon: ChemicalFlame2
+		ImpactActors: false
 		Amount: 45
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
@@ -565,21 +575,25 @@ MeteorSpawner2:
 	Inherits: MeteorSpawner
 	Warhead@6: FireShrapnel
 		Weapon: MeteorSpawner3
+		ImpactActors: false
 
 MeteorSpawner3:
 	Inherits: MeteorSpawner
 	Warhead@6: FireShrapnel
 		Weapon: MeteorSpawner4
+		ImpactActors: false
 
 MeteorSpawner4:
 	Inherits: MeteorSpawner
 	Warhead@6: FireShrapnel
 		Weapon: MeteorSpawner5
+		ImpactActors: false
 
 MeteorSpawner5:
 	Inherits: MeteorSpawner
 	Warhead@6: FireShrapnel
 		Weapon: MeteorSpawner6
+		ImpactActors: false
 
 MeteorSpawner6:
 	Inherits: MeteorSpawner
@@ -594,6 +608,7 @@ MeteorElevator:
 		Altitude: 12000
 	Warhead@op: FireShrapnel
 		Weapon: MeteorRainSlow
+		ImpactActors: false
 		AimChance: 25
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
@@ -601,11 +616,13 @@ MeteorElevator2:
 	Inherits: MeteorElevator
 	Warhead@op: FireShrapnel
 		Weapon: MeteorRainNormal
+		ImpactActors: false
 
 MeteorElevator3:
 	Inherits: MeteorElevator
 	Warhead@op: FireShrapnel
 		Weapon: MeteorRainFast
+		ImpactActors: false
 
 MeteorRainNormal:
 	Inherits@3: ^SWBaseEffects
@@ -635,16 +652,19 @@ MeteorRainNormal:
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@op: FireShrapnel
 		Weapon: SmallDebris
+		ImpactActors: false
 		Amount: 3
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@op: FireShrapnel
 		Weapon: LargeDebris
+		ImpactActors: false
 		Amount: 1
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@5Sharpnel: FireShrapnel
 		Weapon: MeteorFlame
+		ImpactActors: false
 		Amount: 3
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
@@ -712,6 +732,7 @@ FistRaiser:
 		Range: 4c0
 	Warhead@op: FireShrapnel
 		Weapon: FistRaiserShrapnel
+		ImpactActors: false
 		Amount: 20
 		AllowDirectHit: false
 		ValidTargets: Ground, Water, Infantry, Vehicle, BlueTiberium, Tiberium, Air
@@ -736,7 +757,6 @@ NanoMachineBurst:
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 	Warhead@1Dam_impact: SpreadDamage
 		Spread: 1
-		Damage: 1
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 	Warhead@5Actor: SpawnActor
 		Actors: nanomachineburstspawner
@@ -762,11 +782,11 @@ IonStormSpawnerWeapon: ### THIS ONE GENERATES THE ION STORM PARTICLE
 	Projectile: InstantExplode
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1
-		Damage: 1
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 	-Warhead@op:
 	Warhead@Ion: SpawnSmokeParticle
 		Weapon: RandomBoltSpawner
+		ImpactActors: false
 		Delay: 75
 		Duration: 275
 		Sequences: idle
@@ -778,10 +798,12 @@ RandomBoltSpawner:
 	Projectile: InstantExplode
 	Warhead@1: FireShrapnel
 		Weapon: IonRay
+		ImpactActors: false
 		Amount: 2
 		AllowDirectHit: false
 	Warhead@2: FireShrapnel
 		Weapon: IonRay
+		ImpactActors: false
 		Amount: 1
 		AllowDirectHit: false
 		AimChance: 75
@@ -824,7 +846,6 @@ VeinholeSummonerWeapon:
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
 	Warhead@1Dam: SpreadDamage
 		Spread: 650
-		Damage: 1
 		Falloff: 1000, 500, 250, 125, 75, 50, 25, 12, 0
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
 		DamageTypes:
@@ -834,6 +855,7 @@ VeinholeSummonerWeapon:
 		Range: 3
 	Warhead@4Sharpnel: FireShrapnel
 		Weapon: VeinholeShrapnel
+		ImpactActors: false
 		Amount: 3
 		AllowDirectHit: false
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, AirHit
@@ -845,7 +867,6 @@ VeinholeShrapnel:
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
-		Damage: 1
 		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 	Warhead@5Actor: SpawnActor
 		Actors: veinholespawnerdummy
@@ -870,6 +891,7 @@ ColossiSummonerWeapon:
 		Range: 3
 	Warhead@4Sharpnel: FireShrapnel
 		Weapon: ColossiShrapnel
+		ImpactActors: false
 		Amount: 3
 		AllowDirectHit: false
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, AirHit
@@ -883,7 +905,6 @@ ColossiShrapnel:
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
-		Damage: 0
 		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 	Warhead@5Actor: SpawnActor
 		Actors: colossi_chrono

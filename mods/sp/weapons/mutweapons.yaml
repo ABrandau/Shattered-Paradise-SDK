@@ -9,6 +9,7 @@ MarauderShotgun:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@op: FireShrapnel
 		Weapon: MarauderShotgunInnacurate
+		ImpactActors: false
 		Amount: 3
 		AimChance: 30
 		AllowDirectHit: false
@@ -135,7 +136,8 @@ SeerTeslaAA:
 SparkExplo:
 	Warhead@op: FireShrapnel
 		Weapon: SeerTeslaSpark
-		Amount: 5
+		ImpactActors: false
+		Amount: 4
 		AimChance: 30
 		AllowDirectHit: false
 		AimTargetStances: Ally, Neutral, Enemy
@@ -187,7 +189,8 @@ SeerTyranyInstakillSpawn:
 		InvalidTargets: Colossi
 	Warhead@op: FireShrapnel
 		Weapon: SeerTyranyInstakill
-		Amount: 1
+		ImpactActors: false
+		Amount: 4
 		AllowDirectHit: false
 		ThrowWithoutTarget: false
 		AimChance: 100
@@ -260,6 +263,7 @@ PsykerRay:
 		SmudgeType: SmallCrater
 	Warhead@op: FireShrapnel
 		Weapon: SmallDebris
+		ImpactActors: false
 		Amount: 2
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
@@ -305,6 +309,7 @@ BullAcid:
 		Condition: WolfDebuff
 	Warhead@op: FireShrapnel
 		Weapon: BullAcidJump
+		ImpactActors: false
 		Amount: 1
 		AimChance: 100
 		AllowDirectHit: true
@@ -502,6 +507,7 @@ SpawnEggShrapnel:
 		Damage: -1
 	Warhead@op: FireShrapnel
 		Weapon: EggElevator
+		ImpactActors: false
 		Amount: 1
 		AimChance: 100
 		AllowDirectHit: true
@@ -513,6 +519,7 @@ SpawnEggShrapnelE:
 	Inherits: SpawnEggShrapnel
 	Warhead@op2: FireShrapnel
 		Weapon: EggElevator
+		ImpactActors: false
 		Amount: 2
 		AimChance: 100
 		AllowDirectHit: true
@@ -531,6 +538,7 @@ EggElevator:
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@op: FireShrapnel
 		Weapon: SpawnEgg
+		ImpactActors: false
 		Amount: 1
 		ValidTargets: Ground, Water, Air, AirHit
 		InvalidTargets: Infantry, Vehicle, Building, Wall
