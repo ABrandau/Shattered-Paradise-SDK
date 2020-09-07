@@ -26,6 +26,7 @@ fi
 
 PACKAGING_DIR=$(python -c "import os; print(os.path.dirname(os.path.realpath('$0')))")
 TEMPLATE_ROOT="${PACKAGING_DIR}/../../"
+ARTWORK_DIR="${PACKAGING_DIR}/../artwork/"
 
 # shellcheck source=mod.config
 . "${TEMPLATE_ROOT}/mod.config"
@@ -77,14 +78,11 @@ fi
 pushd "${ENGINE_DIRECTORY}" > /dev/null
 make clean
 
-# linux-dependencies target will trigger the lua detection script, which we don't want during packaging
-make cli-dependencies
-sed "s/@LIBLUA51@/liblua5.1.so.0/" thirdparty/Eluant.dll.config.in > Eluant.dll.config
-
-make core
+make core TARGETPLATFORM=linux-x64
 make version VERSION="${ENGINE_VERSION}"
 make install-engine prefix="usr" DESTDIR="${BUILTDIR}/"
 make install-common-mod-files prefix="usr" DESTDIR="${BUILTDIR}/"
+make install-dependencies TARGETPLATFORM=linux-x64 prefix="usr" DESTDIR="${BUILTDIR}/"
 
 for f in ${PACKAGING_COPY_ENGINE_FILES}; do
   mkdir -p "${BUILTDIR}/usr/lib/openra/$(dirname "${f}")"
@@ -116,17 +114,18 @@ echo "Building AppImage"
 
 install -d "${BUILTDIR}/usr/bin"
 install -d "${BUILTDIR}/etc/mono/4.5"
-install -d "${BUILTDIR}/usr/lib/mono/4.5"
+install -d "${BUILTDIR}/usr/lib/mono/4.5/Facades"
 
 install -Dm 0755 usr/bin/mono "${BUILTDIR}/usr/bin/"
 
 install -Dm 0644 /etc/mono/config "${BUILTDIR}/etc/mono/"
 install -Dm 0644 /etc/mono/4.5/machine.config "${BUILTDIR}/etc/mono/4.5"
 
+for f in $(ls usr/lib/mono/4.5/Facades/*.dll); do install -Dm 0644 "$f" "${BUILTDIR}/usr/lib/mono/4.5/Facades/"; done
 for f in $(ls usr/lib/mono/4.5/*.dll usr/lib/mono/4.5/*.exe); do install -Dm 0644 "$f" "${BUILTDIR}/usr/lib/mono/4.5/"; done
-for f in $(ls usr/lib/*.so usr/lib/*.so.*); do install -Dm 0755 "$f" "${BUILTDIR}/usr/lib/"; done
+for f in $(ls usr/lib/*.so); do install -Dm 0755 "$f" "${BUILTDIR}/usr/lib/"; done
 
-rm -rf libs libs.tar.bz2
+rm -rf libs mono.tar.bz2
 
 # Add launcher and icons
 sed "s/{MODID}/${MOD_ID}/g" include/AppRun.in | sed "s/{MODNAME}/${PACKAGING_DISPLAY_NAME}/g" > AppRun.temp
@@ -144,9 +143,9 @@ if [ -f "${PACKAGING_DIR}/mod_scalable.svg" ]; then
 fi
 
 for i in 16x16 32x32 48x48 64x64 128x128 256x256 512x512 1024x1024; do
-  if [ -f "${PACKAGING_DIR}/mod_${i}.png" ]; then
-    install -Dm644 "${PACKAGING_DIR}/mod_${i}.png" "${BUILTDIR}/usr/share/icons/hicolor/${i}/apps/openra-${MOD_ID}.png"
-    install -m644 "${PACKAGING_DIR}/mod_${i}.png" "${BUILTDIR}/openra-${MOD_ID}.png"
+  if [ -f "${ARTWORK_DIR}/icon_${i}.png" ]; then
+    install -Dm644 "${ARTWORK_DIR}/icon_${i}.png" "${BUILTDIR}/usr/share/icons/hicolor/${i}/apps/openra-${MOD_ID}.png"
+    install -m644 "${ARTWORK_DIR}/icon_${i}.png" "${BUILTDIR}/openra-${MOD_ID}.png"
   fi
 done
 

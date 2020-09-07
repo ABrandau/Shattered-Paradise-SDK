@@ -1,6 +1,6 @@
 #!/bin/sh
 # Usage:
-#  $ ./utility.sh # Launch the OpenRA.Utility with the default mod
+#  $ ./utility.sh # Launch the OpenRA.Utility with the RA2 mod
 #  $ Mod="<mod id>" ./launch-utility.sh # Launch the OpenRA.Utility with a specific mod
 
 set -e

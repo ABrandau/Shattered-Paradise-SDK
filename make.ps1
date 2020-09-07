@@ -189,7 +189,7 @@ function CheckForUtility
 
 function CheckForDotnet
 {
-	if ((Get-Command "dotnet" -ErrorAction SilentlyContinue) -eq $null)
+	if ((Get-Command "dotnet" -ErrorAction SilentlyContinue) -eq $null) 
 	{
 		Write-Host "The 'dotnet' tool is required to compile OpenRA. Please install the .NET Core SDK or Visual Studio and try again. https://dotnet.microsoft.com/download" -ForegroundColor Red
 		return 1
@@ -233,7 +233,6 @@ function ParseConfigFile($fileName)
 			ReadConfigLine $line $name
 		}
 	}
-	$reader.Close()
 
 	$missing = @()
 	foreach ($name in $names)
@@ -309,9 +308,7 @@ if ($command -eq "all" -or $command -eq "clean")
 	$currentEngine = ""
 	if (Test-Path $versionFile)
 	{
-		$reader = [System.IO.File]::OpenText($versionFile)
-		$currentEngine = $reader.ReadLine()
-		$reader.Close()
+		$currentEngine = [System.IO.File]::OpenText($versionFile).ReadLine()
 	}
 
 	if ($currentEngine -ne "" -and $currentEngine -eq $env:ENGINE_VERSION)
