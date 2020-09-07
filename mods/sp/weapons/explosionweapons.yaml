@@ -25,12 +25,16 @@ BuildingExplode:
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
+	Warhead@QuickFire: FireShrapnel
+		Weapon: QuickFire
+		ImpactActors: false
+	Warhead@QuickSmoke: FireShrapnel
+		Weapon: QuickSmoke
+		ImpactActors: false
 
 ScrinBuildingExplode:
 	Inherits: BuildingExplode
-	-Warhead@4EffAir:
 	Warhead@4EffAir: CreateEffect
-		Explosions: jtwlt100, jtwlt100b, jtwlt070, jtwlt070b, jstumu42, jstumu42b ,jstumu60, jstumu60b, jbrrlexp1, jsbang34, jsbang34b, jsbang48, jsbang48b, jbrrlexp1b
 		ExplosionPalette: gensmkexplojFblue
 
 CyborgExplode:
@@ -330,7 +334,18 @@ CasingDebris:
 		ValidTargets: Water
 		InvalidTargets: Ground
 
+ShellCasingDebris:
+	Inherits: CasingDebris
+	Projectile: Bullet
+		Speed: 75, 125
+		Inaccuracy: 256
+		LaunchAngle: 91, 140
+		Image: shellcasing
+	Warhead@: CreateEffect
+		Explosions: shellcasingscorch, shellcasingscorch2, shellcasingscorch3, shellcasingscorch4, shellcasingscorch5, shellcasingscorch6, shellcasingscorch7
+
 WoodDebris:
+	Inherits: CasingDebris
 	ReloadDelay: 60
 	Range: 1c0
 	Projectile: Bullet
@@ -338,17 +353,9 @@ WoodDebris:
 		Inaccuracy: 256
 		LaunchAngle: 91, 255
 		Image: wooddebris
-		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
 		Shadow: true
 	Warhead@: CreateEffect
-		Explosions: woodbits, woodbits2, woodbits3, woodbits4
-		ExplosionPalette: effect
-		InvalidTargets: Water
-	Warhead@3EffWater: CreateEffect
-		Explosions: water_piffs
-		ExplosionPalette: ra
-		ValidTargets: Water
-		InvalidTargets: Ground
+		Explosions: woodbits, woodbits2, woodbits3, woodbits4, woodbits5, woodbits6, woodbits7
 
 WoodDebrisBig:
 	ReloadDelay: 60
@@ -361,14 +368,7 @@ WoodDebrisBig:
 		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
 		Shadow: true
 	Warhead@: CreateEffect
-		Explosions: woodbitsbig, woodbitsbig2, woodbitsbig3, woodbitsbig4
-		ExplosionPalette: effect
-		InvalidTargets: Water
-	Warhead@3EffWater: CreateEffect
-		Explosions: water_piffs
-		ExplosionPalette: ra
-		ValidTargets: Water
-		InvalidTargets: Ground
+		Explosions: woodbitsbig, woodbitsbig2, woodbitsbig3, woodbitsbig4, woodbitsbig5, woodbitsbig6, woodbitsbig7
 
 SmallDebris:
 	Inherits: ^Shrapnel
@@ -404,6 +404,34 @@ LargeDebris:
 		ExplosionPalette: gradientgray60
 		ValidTargets: Ground
 		Delay: 100
+
+TSmallDebris:
+	Inherits: SmallDebris
+	Warhead@smoke: CreateEffect
+		ExplosionPalette: gradientgreen60
+
+TLargeDebris:
+	Inherits: LargeDebris
+	Warhead@smoke: CreateEffect
+		ExplosionPalette: gradientgreen60
+
+QuickSmoke:
+	Inherits: ^DebrisSmokeEffect
+	Range: 2c0
+	Projectile: InstantHit
+
+QuickTibSmoke:
+	Inherits: ^DebrisSmokeEffect
+	Range: 2c0
+	Projectile: InstantHit
+	Warhead@smoke: CreateEffect
+		ExplosionPalette: gradientgreen60
+
+QuickFire:
+	Inherits: ^SpawnsFire
+	Range: 2c0
+	Projectile: InstantHit
+
 
 ^ParticleSpawner:
 	Projectile: InstantExplode
