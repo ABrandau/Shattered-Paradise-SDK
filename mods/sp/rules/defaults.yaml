@@ -414,7 +414,7 @@
 ^MindControllable:
 	WithMindControlArc:
 	MindControllable:
-		UnmindcontrolSound: bleep5.aud
+		RevokeControlSounds: bleep5.aud
 
 ^ScrinEssence:
 	SpawnActorOnDeath@ScrinEssence:
@@ -1744,7 +1744,7 @@
 	Passenger:
 		CustomPipType: yellow
 	SharedPassenger:
-		PipType: Yellow
+		CustomPipType: yellow
 	EngineerRepair:
 	RepairsBridges:
 	Captures:
@@ -1769,9 +1769,6 @@
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	ActorLostNotification:
 	Huntable:
-	SharedPassenger:
-		CargoType: Vehicle
-		PipType: Blue
 	Armor:
 		Type: VehicleArmor
 	AttackMove:
@@ -1824,6 +1821,9 @@
 		CustomPipType: blue
 		Voice: Move
 		Weight: 3
+	SharedPassenger:
+		CargoType: Vehicle
+		CustomPipType: blue
 	HiddenUnderFog:
 	Guard:
 		Voice: Move

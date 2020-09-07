@@ -514,9 +514,6 @@ FLIPPEDPROC:
 	Inherits@1: ^FlippedRefineryHitshape
 	Inherits@2: ^RefineryHP
 	Inherits@3: ^AICashCheat
-	ProvidesPrerequisite:
-		Factions: gdi, cab, mut, nod, scr
-		Prerequisite: proc
 	Building:
 		Footprint: ==xx ==xx ==xx
 		Dimensions: 4,3
@@ -548,9 +545,6 @@ FLIPPEDXPROC:
 	Inherits@1: ^FlippedRefineryXHitshape
 	Inherits@2: ^RefineryHP
 	Inherits@3: ^AICashCheat
-	ProvidesPrerequisite:
-		Factions: gdi, cab, mut, nod, scr
-		Prerequisite: proc
 	Building:
 		Footprint: xxx xxx === ===
 		Dimensions: 3,4
@@ -582,9 +576,6 @@ FLIPPEDYPROC:
 	Inherits@1: ^FlippedRefineryYHitshape
 	Inherits@2: ^RefineryHP
 	Inherits@3: ^AICashCheat
-	ProvidesPrerequisite:
-		Factions: gdi, cab, mut, nod, scr
-		Prerequisite: proc
 	Building:
 		Footprint: === === xxx xxx
 		Dimensions: 3,4
@@ -607,7 +598,7 @@ FLIPPEDYPROC:
 		Palette: effect
 		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@proc:
-		ProvidesPrerequisite: proc
+		Prerequisite: proc
 	RequiresBuildableArea:
 		AreaTypes: building
 
