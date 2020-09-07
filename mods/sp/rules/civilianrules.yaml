@@ -1406,38 +1406,6 @@ CAARMR:
 	#	TargetCircleRange: 1c512
 	#	Weapon: VeterancyWeapon
 
-NEUTRALSONICTUR:
-	Inherits: ^TechBuilding
-	Inherits@0: ^1x1Shape
-	Inherits@1: ^11CellVision
-	Inherits@2: ^AutoTargetAll
-	Tooltip:
-		Name: Tech Shockwave Turret
-	TooltipDescription:
-		Description: Damages units in a straight line.
-	Building:
-		Footprint: x
-		Dimensions: 1, 1
-	Health:
-	ThrowsShrapnel@SMALL:
-		Pieces: 6, 9
-	ThrowsShrapnel@LARGE:
-		Pieces: 3, 4
-	Armor:
-		Type: DefenseArmor
-	Health:
-		HP: 200000
-	RenderRangeCircle:
-	Turreted:
-		TurnSpeed: 12
-	WithSpriteTurret:
-	AttackTurreted:
-		PauseOnCondition: empdisable
-	Armament@1:
-		Weapon: SonicEmitterProj
-		PauseOnCondition: empdisable
-		LocalOffset: 1500,0, 0
-
 CACRSH01:
 	Inherits: ^Decoration
 	Tooltip:
@@ -2376,6 +2344,13 @@ RADIOTOWER:
 	IsometricSelectable:
 		DecorationHeight: 120
 
+SIGNALTOWER:
+	Inherits: RADIOTOWER
+	Tooltip:
+		Name: Communications Tower
+	Health:
+		HP: 30000
+
 CONTAINER:
 	Inherits: ^CivBuilding
 	Inherits@2: ^1x2Shape
@@ -2441,7 +2416,7 @@ CONTAINER2X2:
 	Armor:
 		Type: BuildingArmor
 	RenderSprites:
-		Palette: player
+		Palette: unittem
 
 CONTAINER1X2:
 	Inherits: ^CivBuilding
@@ -2456,7 +2431,7 @@ CONTAINER1X2:
 	Armor:
 		Type: BuildingArmor
 	RenderSprites:
-		Palette: player
+		Palette: unittem
 
 CONTAINER1X2STACKED:
 	Inherits: CONTAINER1X2
@@ -2474,7 +2449,7 @@ CONTAINER2X1:
 	Armor:
 		Type: BuildingArmor
 	RenderSprites:
-		Palette: player
+		Palette: unittem
 
 CONTAINER2X1STACKED:
 	Inherits: CONTAINER2X1
@@ -2492,7 +2467,7 @@ CONTAINERDIAGONAL:
 	Armor:
 		Type: BuildingArmor
 	RenderSprites:
-		Palette: player
+		Palette: unittem
 
 CONTAINERDIAGONALSTACKED:
 	Inherits: CONTAINERDIAGONAL
@@ -2551,34 +2526,7 @@ BUSSTOP:
 		Name: Bus Stop (Supports facings)
 	RenderSprites:
 		Palette: unittem
-
-PALLET:
-	Inherits: ^1x1TurretedProp
-	Tooltip:
-		Name: Pallet
-	EditorOnlyTooltip:
-		Name: Pallet (Supports facings)
-	RenderSprites:
-		Palette: player
-
-BOXSET1:
-	Inherits: ^1x1TurretedProp
-	Tooltip:
-		Name: Boxes
-	EditorOnlyTooltip:
-		Name: Boxes (Supports facings)
-	RenderSprites:
-		Palette: player
-
-GRAVE:
-	Inherits@1: ^1x1TurretedProp
-	Tooltip:
-		Name: Grave
-	EditorOnlyTooltip:
-		Name: Grave (Supports facings)
-	RenderSprites:
-		Palette: player
-
+    
 LIGHTPOST4x4:
 	Inherits: ^CivBuilding
 	Inherits@2: ^1x1Shape

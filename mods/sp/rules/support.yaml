@@ -1165,60 +1165,6 @@ CABSW1:
 	IsometricSelectable:
 		DecorationHeight: 36
 
-CABGRINDER:
-	Inherits: ^Building
-	Inherits@1: ^CabRender
-	Inherits@2: ^2x3Shape
-	Valued:
-		Cost: 350
-	Tooltip:
-		Name: Stasis Chamber
-	ProvidesPrerequisite:
-		Prerequisite: tech
-	AcceptsDeliveredCash:
-	Building:
-		Footprint: xx xx xx
-		Dimensions: 2,3
-	Health:
-		HP: 25000
-	Armor:
-		Type: BuildingArmor
-	Power:
-		Amount: -30
-	ProvidesPrerequisite@buildingname:
-	RequiresBuildableArea:
-		AreaTypes: building
-
-CABCANNON:
-	Inherits: ^Defence
-	Inherits@1: ^CabRender
-	Inherits@3: ^TowerStealthDetection
-	Valued:
-		Cost: 500
-	Tooltip:
-		Name: Cannon Turret
-	Building:
-	Health:
-		HP: 45000
-	BodyOrientation:
-		QuantizedFacings: 32
-	WithMuzzleOverlay:
-	Turreted:
-		TurnSpeed: 40
-		InitialFacing: 368
-	AttackTurreted:
-		PauseOnCondition: empdisable || disabled
-	WithSpriteTurret:
-		Recoils: false
-	Armament:
-		Weapon: CTurretCannon
-		LocalOffset: 650,0,550
-		MuzzleSequence: muzzle
-	Power:
-		Amount: -20
-	RequiresBuildableArea:
-		AreaTypes: building
-
 ###########################################################################
 # UNUSED
 ###########################################################################
@@ -1333,41 +1279,6 @@ GAPLUG3:
 		Type: plug.ioncannon
 	Power:
 		Amount: -100
-
-REPAIRTUR:
-	Inherits: ^Defence
-	Inherits@2: ^2x2Shape
-	Valued:
-		Cost: 1400
-	Tooltip:
-		Name: Maintenance Turret
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	GrantConditionOnPowerState@LOWPOWER:
-		Condition: lowpower
-		ValidPowerStates: Low, Critical
-	Health:
-		HP: 50000
-	BodyOrientation:
-		QuantizedFacings: 32
-	RenderRangeCircle:
-		RangeCircleType: aa
-	Turreted:
-		TurnSpeed: 40
-		InitialFacing: 368
-	AttackTurreted:
-	WithSpriteTurret:
-		Recoils: false
-	Power:
-		Amount: -60
-	Armament:
-		Weapon: Repair
-		LocalOffset: 512,0,512
-		TargetStances: Ally
-		ForceTargetStances: None
-	RequiresBuildableArea:
-		AreaTypes: building
 
 MASTL:
 	Inherits: ^DeployedVehicle

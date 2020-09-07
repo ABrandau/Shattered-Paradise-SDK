@@ -24,6 +24,8 @@ NEUTRALFABRICATOR:
 		Sequence: vehicle
 	Selectable:
 		Bounds: 40,50,0, -15
+	RenderSprites:
+		PlayerPalette: playerunittem
 
 NEUTRALFABRICATORDEP:
 	Inherits: ^Building
@@ -64,6 +66,7 @@ NEUTRALFABRICATORDEP:
 		DecorationHeight: 36
 	RenderSprites:
 		Image: neutralfabricator
+		PlayerPalette: playerunittem
 
 WELL:
 	Inherits: ^TechBuilding
@@ -312,6 +315,123 @@ SCRINREINFPAD:
 		Type: Vehicle
 		ChargeDuration: 3000
 		RequiresCondition: BuildStuffSCR
+
+NEUTRALSONICTUR:
+	Inherits: ^TechBuilding
+	Inherits@0: ^1x1Shape
+	Inherits@1: ^11CellVision
+	Inherits@2: ^AutoTargetAll
+	Tooltip:
+		Name: Tech Shockwave Turret
+	TooltipDescription:
+		Description: Damages units in a straight line.
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	Armor:
+		Type: DefenseArmor
+	Health:
+		HP: 200000
+	RenderRangeCircle:
+	Turreted:
+		TurnSpeed: 12
+	WithSpriteTurret:
+	AttackTurreted:
+		PauseOnCondition: empdisable
+	Armament@1:
+		Weapon: SonicEmitterProj
+		PauseOnCondition: empdisable
+		LocalOffset: 1500,0, 0
+
+CABCANNON:
+	Inherits: ^TechBuilding
+	Inherits@1: ^CabRender
+	Inherits@3: ^TowerStealthDetection
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Cannon Turret
+	TooltipDescription:
+		Description: Defensive turret.
+	Building:
+	Health:
+		HP: 45000
+	BodyOrientation:
+		QuantizedFacings: 32
+	WithMuzzleOverlay:
+	Turreted:
+		TurnSpeed: 12
+	WithSpriteTurret:
+	AttackTurreted:
+		PauseOnCondition: empdisable
+	Armament:
+		Weapon: CTurretCannon
+		LocalOffset: 650,0,550
+		MuzzleSequence: muzzle
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+CABGRINDER:
+	Inherits: ^TechBuilding
+	Inherits@1: ^CabRender
+	Inherits@2: ^2x3Shape
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Stasis Chamber
+	TooltipDescription:
+		Description: Allows to process units into credits.
+	AcceptsDeliveredCash:
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	Health:
+		HP: 25000
+	Armor:
+		Type: BuildingArmor
+	ProvidesPrerequisite@buildingname:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+REPAIRTUR:
+	Inherits: ^TechBuilding
+	Inherits@2: ^2x2Shape
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Maintenance Turret
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 50000
+	BodyOrientation:
+		QuantizedFacings: 32
+	RenderRangeCircle:
+		RangeCircleType: aa
+	Turreted:
+		TurnSpeed: 12
+	WithSpriteTurret:
+	AttackTurreted:
+		PauseOnCondition: empdisable
+	Armament:
+		Weapon: RepairNeutralTurret
+		LocalOffset: 512,0,512
+		TargetStances: Ally
+		ForceTargetStances: None
+	Armament@1:
+		Weapon: RepairNeutralTurret
+		LocalOffset: 512,0,512
+		TargetStances: Ally
+		ForceTargetStances: None
+		Delay: 5
+	Armament@2:
+		Weapon: RepairNeutralTurret
+		LocalOffset: 512,0,512
+		TargetStances: Ally
+		ForceTargetStances: None
+		Delay: 10
 
 BLUETIBBARREL:
 	Inherits: ^CivBuilding

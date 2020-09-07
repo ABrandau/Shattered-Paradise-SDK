@@ -264,20 +264,18 @@ CenturionVulcan:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
 	ReloadDelay: 40
-	Burst: 2
+	Burst: 4
+	BurstDelay: 2
 	Range: 6c0
 	Projectile: InstantHit
 		Inaccuracy: 0c512
 	Warhead@1Dam: SpreadDamage
-		Damage: 3000
+		Damage: 1500
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 CenturionVulcanCasing:
 	Inherits: CenturionVulcan
 	Report: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
-	ReloadDelay: 32 # 40 - 4*2
-	Burst: 4
-	BurstDelay: 2
 	Projectile: InstantExplode
 	-Warhead@1Dam:
 	-Warhead@2Eff:
@@ -286,7 +284,19 @@ CenturionVulcanCasing:
 		Weapon: CasingDebris
 		ImpactActors: false
 		AllowDirectHit: false
+		Amount: 2
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
+CenturionVulcanLine:
+	Inherits: CenturionVulcan
+	Projectile: BulletAS
+		Speed: 0c800
+		Image: line
+		Inaccuracy: 0c762
+		Palette: effect
+	-Warhead@1Dam:
+	-Warhead@2Eff:
+	-Warhead@3EffWater:
 
 RepairVehicleRep:
 	Inherits: ^SparkSpawner
