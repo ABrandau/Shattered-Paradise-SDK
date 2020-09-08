@@ -90,7 +90,7 @@ function build_platform()
 
 	SRC_DIR="$(pwd)"
 
-	pushd "${SRCDIR}" > /dev/null || exit 1
+	pushd "${SRC_DIR}" > /dev/null || exit 1
 	make clean
 	make core "${IS_WIN32}"
 	make version VERSION="${ENGINE_VERSION}"
