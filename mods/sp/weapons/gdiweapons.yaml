@@ -177,6 +177,20 @@ Titan120mm:
 		Damage: 7000
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
+Titan120mmShellCasing:
+	Inherits: Titan120mm
+	-Report:
+	Projectile: InstantExplode
+	-Warhead@1Dam:
+	-Warhead@2Eff:
+	-Warhead@3EffWater:
+	Warhead@4Sharpnel: FireShrapnel
+		Weapon: ShellCasingDebris
+		ImpactActors: false
+		AllowDirectHit: false
+		Amount: 1
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
 HoverMissile:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn

@@ -1077,6 +1077,10 @@
 		Weapon: BuildingFireBigParticleSpawner
 		EmptyWeapon: BuildingFireBigParticleSpawner
 		Type: Footprint
+	Explodes@BuildingSmokeSpawner:
+		Weapon: BuildingSmokeSpawner
+		EmptyWeapon: BuildingSmokeSpawner
+		Type: Footprint
 	Explodes:
 		Weapon: BuildingExplode
 		EmptyWeapon: BuildingExplode
@@ -1475,8 +1479,8 @@
  	WithDeathAnimation@blood1:
 		DeathSequencePalette: gradientred
 		DeathPaletteIsPlayerPalette: false
+		CrushedSequence: dieblood1
 		DeathTypes:
-		CrushedSequence: blood1
 			BulletDeath: blood1, blood2, blood3, blood4, blood5, blood6
 			CabalDeath: blood1, blood2, blood3, blood4, blood5, blood6
 			CabalDeathCrate: blood1, blood2, blood3, blood4, blood5, blood6
@@ -1653,6 +1657,7 @@
 	-SpawnActorOnDeath@tiberium:
 	-SpawnActorOnDeath@conversion:
 	-DamagedByTerrain:
+ 	-WithDeathAnimation@blood1:
 	Voiced:
 		VoiceSet: Limpet
 	Mobile:

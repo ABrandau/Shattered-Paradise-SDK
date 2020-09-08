@@ -239,9 +239,9 @@ DevilsFlame:
 		Versus:
 			InfantryArmor: 200
 
+
 BCLazor:
 	Inherits: ^FullDamage
-	Inherits@2: ^Large_Explosion
 	ReloadDelay: 200
 	Burst: 4
 	BurstDelays: 10
@@ -451,43 +451,64 @@ ProtonAA:
 		Spread: 128
 		Damage: 5000
 		ValidTargets: Air
-
-CerberusLazorCharge:
-	ValidTargets: Ground, Water
-	ReloadDelay: 125
-	Range: 7c0
-	Burst: 7
-	MinRange: 3c0
-	BurstDelays: 10
-	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
-		ValidTargets: Ground, Water
-
+#Unused
 CerberusLazor:
 	Inherits: BCLazor
-	Inherits@2: ^Large_Explosion
 	ReloadDelay: 75
 	Range: 7c0
-	Burst: 3
+	Burst: 1
 	Report: laserchaingunfire.wav
 	ValidTargets: Ground, Water
 	Projectile: LaserZap
-		Width: 2
 		Duration: 20
-		ZOffset: 4000
-		SecondaryBeamZOffset: 4000
-	MinRange: 3c0
+	MinRange: 4c0
 	InvalidTargets: Air
 	Warhead@1Dam: SpreadDamage
 		Spread: 96
-		Damage: 5000
+		Damage: 4000
 		Versus:
 			DefenseArmor: 75
 		ValidTargets: Ground, Water, water, Infantry, Vehicle, Building
 		InvalidTargets: Air
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+
+CerberusSublazor1:
+	FirstBurstTargetOffset: 240,-620,0
+	FollowingBurstTargetOffset: 140,120,0
+	ReloadDelay: 75
+	Range: 7c0
+	Burst: 24
+	BurstDelays: 1
+	MinRange: 4c0
+	Report: obelpowr.aud
+	ValidTargets: Ground, Water
+	Projectile: LaserZap
+		TrackTarget: false
+		Width: 50
+		Duration: 2
+		ZOffset: 4000
+		Color: FF0000
+		SecondaryBeam: true
+		SecondaryBeamWidth: 60
+		SecondaryBeamZOffset: 4000
+		SecondaryBeamColor: FFFF00
+	InvalidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		Spread: 96
+		Damage: 800
+		Versus:
+			DefenseArmor: 75
+		ValidTargets: Ground, Water, water, Infantry, Vehicle, Building
+		InvalidTargets: Air
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+	Warhead@1Eff_impact: CreateEffect
+		Explosions: laserscorch
+		ExplosionPalette: gradientgray
+
+CerberusSublazor2:
+	Inherits: CerberusSublazor1
+	FirstBurstTargetOffset: 240,620,0
+	FollowingBurstTargetOffset: 140,-120,0
 
 TurretLaserFire:
 	Inherits: ^FullDamage

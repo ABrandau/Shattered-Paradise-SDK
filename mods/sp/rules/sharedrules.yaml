@@ -458,9 +458,6 @@ GACNST:
 		Amount: -30
 	StoresResources:
 		Capacity: 1000
-	Explodes:
-		Weapon: TiberiumExplosion
-		EmptyWeapon: TiberiumExplosion
 	ProximityExternalCondition@RefineryLock:
 		Condition: RefineryLock
 		Range: 2c0
@@ -508,7 +505,18 @@ PROC:
 		AreaTypes: building
 	IsometricSelectable:
 		DecorationHeight: 36
-
+	ThrowsShrapnel@SMALL:
+		Pieces: 1, 2
+		Weapons: SmallDebris
+	ThrowsShrapnel@LARGE:
+		Pieces: 1, 2
+		Weapons: LargeDebris
+	ThrowsShrapnel@TSMALL:
+		Pieces: 3, 6
+		Weapons: TSmallDebris
+	ThrowsShrapnel@TLARGE:
+		Pieces: 2, 4
+		Weapons: TLargeDebris
 FLIPPEDPROC:
 	Inherits: ^Building
 	Inherits@1: ^FlippedRefineryHitshape
