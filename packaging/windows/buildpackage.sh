@@ -123,11 +123,18 @@ function build_platform()
 	sed "s|DISPLAY_NAME|${PACKAGING_DISPLAY_NAME}|" "${SRC_DIR}/packaging/windows/WindowsLauncher.cs.in" | sed "s|MOD_ID|${MOD_ID}|" | sed "s|FAQ_URL|${PACKAGING_FAQ_URL}|" > "${BUILTDIR}/WindowsLauncher.cs"
 	csc "${BUILTDIR}/WindowsLauncher.cs" -nologo -warn:4 -warnaserror -platform:"$1" -out:"${BUILTDIR}/${PACKAGING_WINDOWS_LAUNCHER_NAME}.exe" -t:winexe ${LAUNCHER_LIBS} -win32icon:"${BUILTDIR}/${MOD_ID}.ico"
 	rm "${BUILTDIR}/WindowsLauncher.cs"
-	mono "${SRC_DIR}/OpenRA.PostProcess.exe" "${BUILTDIR}/${PACKAGING_WINDOWS_LAUNCHER_NAME}.exe" -LAA > /dev/null
+
+	if [ "$1" = "x86" ]; then
+		# Enable the full 4GB address space for the 32 bit game executable
+		# The server and utility do not use enough memory to need this 
+		csc "${SRC_DIR}/packaging/windows/MakeLAA.cs" -warn:4 -warnaserror -out:"MakeLAA.exe"
+		mono "MakeLAA.exe" "${BUILTDIR}/${PACKAGING_WINDOWS_LAUNCHER_NAME}.exe"
+		rm MakeLAA.exe
+	fi
 
  	echo "Building Windows setup.exe ($1)"
 	pushd "${PACKAGING_DIR}" > /dev/null
-	makensis -V2 -DSRCDIR="${BUILTDIR}" -DDEPSDIR="${SRC_DIR}/thirdparty/download/windows" -DTAG="${TAG}" -DMOD_ID="${MOD_ID}" -DPACKAGING_WINDOWS_INSTALL_DIR_NAME="${PACKAGING_WINDOWS_INSTALL_DIR_NAME}" -DPACKAGING_WINDOWS_LAUNCHER_NAME="${PACKAGING_WINDOWS_LAUNCHER_NAME}" -DPACKAGING_DISPLAY_NAME="${PACKAGING_DISPLAY_NAME}" -DPACKAGING_WEBSITE_URL="${PACKAGING_WEBSITE_URL}" -DPACKAGING_AUTHORS="${PACKAGING_AUTHORS}" -DPACKAGING_WINDOWS_REGISTRY_KEY="${PACKAGING_WINDOWS_REGISTRY_KEY}" -DPACKAGING_WINDOWS_LICENSE_FILE="${TEMPLATE_ROOT}/${PACKAGING_WINDOWS_LICENSE_FILE}" buildpackage.nsi
+	makensis -V2 -DSRCDIR="${BUILTDIR}" -DTAG="${TAG}" -DMOD_ID="${MOD_ID}" -DPACKAGING_WINDOWS_INSTALL_DIR_NAME="${PACKAGING_WINDOWS_INSTALL_DIR_NAME}" -DPACKAGING_WINDOWS_LAUNCHER_NAME="${PACKAGING_WINDOWS_LAUNCHER_NAME}" -DPACKAGING_DISPLAY_NAME="${PACKAGING_DISPLAY_NAME}" -DPACKAGING_WEBSITE_URL="${PACKAGING_WEBSITE_URL}" -DPACKAGING_AUTHORS="${PACKAGING_AUTHORS}" -DPACKAGING_WINDOWS_REGISTRY_KEY="${PACKAGING_WINDOWS_REGISTRY_KEY}" -DPACKAGING_WINDOWS_LICENSE_FILE="${TEMPLATE_ROOT}/${PACKAGING_WINDOWS_LICENSE_FILE}" buildpackage.nsi
 	if [ $? -eq 0 ]; then
 		mv OpenRA.Setup.exe "${OUTPUTDIR}/${PACKAGING_INSTALLER_NAME}-${TAG}-${1}.exe"
 	fi
@@ -135,7 +142,6 @@ function build_platform()
 
 	echo "Packaging zip archive ($1)"
 	pushd "${BUILTDIR}" > /dev/null
-	find "${SRC_DIR}/thirdparty/download/windows/" -name '*.dll' -exec cp '{}' '.' ';'
 	zip "${PACKAGING_INSTALLER_NAME}-${TAG}-${1}-winportable.zip" -r -9 * --quiet
 	mv "${PACKAGING_INSTALLER_NAME}-${TAG}-${1}-winportable.zip" "${OUTPUTDIR}"
 	popd > /dev/null
