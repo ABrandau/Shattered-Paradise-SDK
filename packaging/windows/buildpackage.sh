@@ -90,15 +90,12 @@ function build_platform()
 
 	SRC_DIR="$(pwd)"
 
-	pushd "${SRC_DIR}" > /dev/null || exit 1
 	make clean
-	make core "${IS_WIN32}"
+	make core "${TARGETPLATFORM}" "${IS_WIN32}"
 	make version VERSION="${ENGINE_VERSION}"
 	make install-engine "${TARGETPLATFORM}" gameinstalldir="" DESTDIR="${BUILTDIR}"
 	make install-common-mod-files gameinstalldir="" DESTDIR="${BUILTDIR}"
-	make install-default-mods gameinstalldir="" DESTDIR="${BUILTDIR}"
 	make install-dependencies "${TARGETPLATFORM}" gameinstalldir="" DESTDIR="${BUILTDIR}"
-	popd > /dev/null || exit 1
 
 	for f in ${PACKAGING_COPY_ENGINE_FILES}; do
 		mkdir -p "${BUILTDIR}/$(dirname "${f}")"
