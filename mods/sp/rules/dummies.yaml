@@ -24,6 +24,31 @@
 	BodyOrientation:
 		QuantizedFacings: 32
 
+BigFireSpawnerDummy:
+	Inherits: ^DUMMYAIRCRAFT
+	ExplodeWeapon:
+		Weapon: BuildingFireBigShrapnel
+	Health:
+		HP: 30
+	ChangesHealth:
+		Step: -10
+		Delay: 5
+		StartIfBelow: 200
+
+SmallFireSpawnerDummy:
+	Inherits: BigFireSpawnerDummy
+	Health:
+		HP: 50
+	ExplodeWeapon:
+		Weapon: BuildingFireSmallShrapnel
+
+SmokeSpawnerDummy:
+	Inherits: BigFireSpawnerDummy
+	Health:
+		HP: 50
+	ExplodeWeapon:
+		Weapon: BuildingSmokeShrapnel
+
 NukeCrateDummy:
 	Inherits: ^DUMMYAIRCRAFT
 	Inherits: ^HasNukePower

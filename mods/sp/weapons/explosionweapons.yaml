@@ -448,19 +448,24 @@ QuickFire:
 
 BuildingFireBigParticleSpawner:
 	Inherits: ^ParticleSpawner
-	Warhead@2: SpawnSmokeParticle
+	Warhead@5Actor: SpawnActor
+		Actors: BigFireSpawnerDummy
+		FallRate: 5000
+		Range: 3
 		ImpactActors: false
-		Duration: 40
-		Weapon: BuildingFireBigShrapnel
 
 BuildingFireSmallParticleSpawner:
 	Inherits: BuildingFireBigParticleSpawner
-	Warhead@2: SpawnSmokeParticle
-		ImpactActors: false
-		Weapon: BuildingFireSmallShrapnel
+	Warhead@5Actor: SpawnActor
+		Actors: SmallFireSpawnerDummy
+
+BuildingSmokeSpawner:
+	Inherits: BuildingFireBigParticleSpawner
+	Warhead@5Actor: SpawnActor
+		Actors: SmokeSpawnerDummy
 
 BuildingFireBigShrapnel:
-	ReloadDelay: 15
+	ReloadDelay: 2
 	Projectile: InstantExplode
 	Warhead@op: FireShrapnel
 		Weapon: BuildingFireBig
@@ -470,10 +475,19 @@ BuildingFireBigShrapnel:
 
 BuildingFireSmallShrapnel:
 	Inherits: BuildingFireBigShrapnel
-	ReloadDelay: 6
+	ReloadDelay: 4
 	Warhead@op: FireShrapnel
 		Weapon: BuildingFireSmall
 		ImpactActors: false
+		Amount: 2
+
+BuildingSmokeShrapnel:
+	Inherits: BuildingFireBigShrapnel
+	ReloadDelay: 5
+	Warhead@op: FireShrapnel
+		Weapon: BuildingSmoke
+		ImpactActors: false
+		Amount: 3
 
 BuildingFireBig:
 	Inherits: ^FlameWarhead
@@ -487,7 +501,7 @@ BuildingFireBig:
 		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
-		Duration: 25, 600
+		Duration: 75, 600
 		Image: explosion
 		Sequences: fire3, fire4
 		Palette: effectalpha50
@@ -499,7 +513,15 @@ BuildingFireSmall:
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
 		Sequences: fire2, fire1
-		Duration: 25, 300
+		Duration: 75, 300
+
+BuildingSmoke:
+	Range: 3c0
+	MinRange: 0c256
+	Warhead@2: SpawnSmokeParticle
+		ImpactActors: false
+		Sequences: wrecksmoke, wrecksmoke2, wrecksmoke3
+		Duration: 250, 900
 
 BuildingCriticalDamageFireSpawner:
 	Inherits: BuildingFireBigShrapnel
