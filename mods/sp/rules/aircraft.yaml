@@ -411,6 +411,14 @@ SCRIN:
 		FullSequence: pip-ammo
 		EmptySequence: pip-ammoempty
 		Palette: pips
+	Contrail@1:
+		Offset: -300,-143,0
+		Color: 00E00090
+		UsePlayerColor: false
+	Contrail@2:
+		Offset: -300,143,0
+		Color: 00E00090
+		UsePlayerColor: false
 
 CERBERUS:
 	Inherits: ^CombatHelicopter
@@ -594,6 +602,20 @@ WETP:
 		FullSequence: pip-ammo
 		EmptySequence: pip-ammoempty
 		Palette: pips
+	Contrail@1:
+		Offset: -100,-700,0
+		Color: 555555
+		UsePlayerColor: false
+	Contrail@2:
+		Offset: -100,700,0
+		Color: 555555
+		UsePlayerColor: false
+	Contrail@FlameTrail:
+		Offset: -1000,0,-100
+		Color: FFEA0080
+		UsePlayerColor: false
+		TrailWidth: 128
+		TrailLength: 7
 
 MUTQUEEN:
 	Inherits: ^CombatHelicopter
@@ -775,6 +797,14 @@ STORMRIDER:
 	SmokeParticleEmitter:
 		Image: scrsmoke
 		Palette: gradientblue40
+	Contrail@1:
+		Offset: -300,-143,0
+		Color: 33008880
+		UsePlayerColor: false
+	Contrail@2:
+		Offset: -300,143,0
+		Color: 33008880
+		UsePlayerColor: false
 
 ^ScrinAircraftGeneric:
 	Inherits@4: ^ScrinAircratVoice
@@ -1088,6 +1118,11 @@ STORMRIDERSPAWN:
 	-Selectable:
 	-SelectionDecorations:
 	Interactable:
+	Contrail@1:
+		Offset: 0,0,0
+		Color: 33008880
+		UsePlayerColor: false
+		TrailWidth: 32
 
 CABDRONEJET:
 	Inherits: STORMRIDERSPAWN
@@ -1298,6 +1333,16 @@ BASILISK:
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel
+	Contrail@1:
+		Offset: -1000,-300,-300
+		Color: FFEA0080
+		UsePlayerColor: false
+		TrailLength: 10
+	Contrail@2:
+		Offset: -1000,300,-300
+		Color: FFEA0080
+		UsePlayerColor: false
+		TrailLength: 10
 
 DEVOURER:
 	Inherits: ^CombatHelicopter
