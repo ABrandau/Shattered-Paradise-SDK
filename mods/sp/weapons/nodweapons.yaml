@@ -473,23 +473,23 @@ CerberusLazor:
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
 CerberusSublazor1:
-	FirstBurstTargetOffset: 240,-620,0
-	FollowingBurstTargetOffset: 140,120,0
-	ReloadDelay: 75
+	FirstBurstTargetOffset: 0,-800,0
+	FollowingBurstTargetOffset: 0,80,0
+	ReloadDelay: 120
 	Range: 7c0
-	Burst: 24
+	Burst: 20
 	BurstDelays: 1
 	MinRange: 4c0
 	Report: obelpowr.aud
 	ValidTargets: Ground, Water
 	Projectile: LaserZap
 		TrackTarget: false
-		Width: 50
+		Width: 60
 		Duration: 2
 		ZOffset: 4000
 		Color: FF0000
 		SecondaryBeam: true
-		SecondaryBeamWidth: 60
+		SecondaryBeamWidth: 80
 		SecondaryBeamZOffset: 4000
 		SecondaryBeamColor: FFFF00
 	InvalidTargets: Air
@@ -504,11 +504,15 @@ CerberusSublazor1:
 	Warhead@1Eff_impact: CreateEffect
 		Explosions: laserscorch
 		ExplosionPalette: gradientgray
+	Warhead@2Eff_impact: CreateEffect
+		Explosions: fire3
 
 CerberusSublazor2:
 	Inherits: CerberusSublazor1
-	FirstBurstTargetOffset: 240,620,0
-	FollowingBurstTargetOffset: 140,-120,0
+	FirstBurstTargetOffset: 0,800,0
+	FollowingBurstTargetOffset: 0,-80,0
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: Prone60Percent, TriggerProne, FireDeath
 
 TurretLaserFire:
 	Inherits: ^FullDamage
