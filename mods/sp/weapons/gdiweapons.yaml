@@ -256,6 +256,13 @@ JuggCannon:
 			InfantryArmor: 150
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 
+
+JuggCannonShellCasing:
+	Inherits: ^ShellCasing
+	ReloadDelay: 75
+	Range: 15c0
+	MinRange: 5c0
+
 SonicZap:
 	ReloadDelay: 60
 	Range: 5c384
@@ -332,6 +339,7 @@ SonicZap:
 	ReloadDelay: 80
 	Range: 6c0
 	Burst: 2
+	BurstDelays: 8
 
 MammothTusk:
 	Inherits: ^RocketWarhead
@@ -488,6 +496,20 @@ VulcanTower:
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+
+VulcanTowerCasing:
+	Inherits: ^BulletCasing
+	ReloadDelay: 23
+	BurstDelays: 2
+	Burst: 3
+	Range: 6c768
+
+VulcanTowerLine:
+	Inherits: ^LineProjectile
+	ReloadDelay: 23
+	BurstDelays: 2
+	Burst: 3
+	Range: 6c768
 
 GdiRedEye:
 	Inherits: ^RocketWarhead

@@ -27,9 +27,6 @@ SMECH:
 	AutoTarget:
 	Voiced:
 		VoiceSet: Mech
-	WithInfantryBody:
-		DefaultAttackSequence: shoot
-		RequiresCondition: !inside-tunnel
 	Selectable:
 		Bounds: 20, 32, 0, -8
 	Armament:
@@ -83,7 +80,7 @@ MMCH:
 		Recoil: 127
 		RecoilRecovery: 26
 		MuzzleSequence: muzzle
-		LocalOffset: 600, 300, 700
+		LocalOffset: 800, 300, 700
 		PauseOnCondition: empdisable
 	Armament@1:
 		Weapon: Titan120mmShellCasing
@@ -260,23 +257,20 @@ JUG:
 		PauseOnCondition: empdisable
 	Armament@1:
 		Weapon: JuggCannon
-		LocalOffset: 600, -200, 2650
-		Name: secondary
+		LocalOffset: 300, 200, 2650
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
+		Delay: 5
+	Armament@3:
+		Weapon: JuggCannonShellCasing
+		LocalOffset: 0, -200, 1800
+		PauseOnCondition: empdisable
+	Armament@4:
+		Weapon: JuggCannonShellCasing
+		LocalOffset: 0, 200, 1800
+		PauseOnCondition: empdisable
+		Delay: 5
 	WithMuzzleOverlay:
-	QuantizeFacingsFromSequence:
-		Sequence: stand
-		RequiresCondition: !inside-tunnel
-	WithFacingSpriteBody:
-		Sequence: stand
-		RequiresCondition: !inside-tunnel
-	WithAttackAnimation:
-		Sequence: shoot
-		RequiresCondition: !inside-tunnel
-	WithMoveAnimation:
-		MoveSequence: run
-		RequiresCondition: !inside-tunnel
 	Selectable:
 		Bounds: 40, 60, 0, -20
 	BodyOrientation:
@@ -318,8 +312,11 @@ SONIC:
 		TargetTypes: AllySonicImmune
 	Turreted:
 		TurnSpeed: 12
+		Offset: -500,0,0
 	AutoTarget:
 		ScanRadius: 7
+	BodyOrientation:
+		CameraPitch: 240
 
 G4TNK:
 	Inherits: ^TurretedTank
@@ -2338,8 +2335,6 @@ PALADIN:
 	BodyOrientation:
 		QuantizedFacings: 8
 		CameraPitch: 250
-	WithInfantryBody:
-		DefaultAttackSequence: shoot
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable

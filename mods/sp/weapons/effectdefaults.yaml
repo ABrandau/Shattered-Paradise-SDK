@@ -29,17 +29,47 @@
 		Palette: effectalpha25
 		Weapon: DummyWeapon
 
+^MarnFlash5:
+	Warhead@MarnFlash: CreateEffect
+		Explosions: marnflash5
+		ExplosionPalette: MarnAlphaAlpha
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Air
+		ImpactActors: false
+
+^MarnFlash6:
+	Warhead@MarnFlash: CreateEffect
+		Explosions: marnflash6
+		ExplosionPalette: MarnAlphaAlpha
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Air
+		ImpactActors: false
+
+^MarnFlash7:
+	Warhead@MarnFlash: CreateEffect
+		Explosions: marnflash6
+		ExplosionPalette: MarnAlphaAlpha
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Air
+		ImpactActors: false
+
 ^Piffs:
+	Inherits: ^MarnFlash7
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
 		InvalidTargets: Water
+		Delay: 5
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piffs
 		ExplosionPalette: ra
 		ValidTargets: Water
 		InvalidTargets: Ground
+		Delay: 5
+	Warhead@1: CreateEffect
+		Explosions: marnflash7
+		ExplosionPalette: MarnAlphaAlpha
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Air
+		ImpactActors: false
 
 ^Tiny_Explo:
+	Inherits: ^MarnFlash6
 	Warhead@2Eff: CreateEffect
 		Explosions: infdeathexplo1, infdeathexplo2, infdeathexplo3
 		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
@@ -59,6 +89,7 @@
 		ImpactActors: false
 
 ^Small_Clsn:
+	Inherits: ^MarnFlash6
 	Warhead@2Eff: CreateEffect
 		Explosions: jsclsn16, jsclsn16b, jexplosml, jexplosml
 		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
@@ -78,6 +109,7 @@
 		ImpactActors: false
 
 ^Mediuml_Clsn:
+	Inherits: ^MarnFlash6
 	Warhead@2Eff: CreateEffect
 		Explosions: jsmkpuff, jsbrnl20, jsclsn30b, jxgrysml2
 		ExplosionPalette: gensmkexploj
@@ -96,6 +128,7 @@
 		InvalidTargets: Vehicle, Building, Wall
 
 ^Large_Clsn:
+	Inherits: ^MarnFlash6
 	Warhead@2Eff: CreateEffect
 		Explosions: jsclsn42, jsclsn42b, jsbang34, jsclsn58b
 		ExplosionPalette: gensmkexploj
