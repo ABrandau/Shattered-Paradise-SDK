@@ -495,7 +495,7 @@ CerberusLazor:
 
 CerberusSublazor1:
 	FirstBurstTargetOffset: 0,-800,0
-	FollowingBurstTargetOffset: 0,80,0
+	FollowingBurstTargetOffset: 75,80,0
 	ReloadDelay: 120
 	Range: 7c0
 	Burst: 20
@@ -505,18 +505,18 @@ CerberusSublazor1:
 	ValidTargets: Ground, Water
 	Projectile: LaserZap
 		TrackTarget: false
-		Width: 60
+		Width: 45
 		Duration: 2
 		ZOffset: 4000
 		Color: FF0000
 		SecondaryBeam: true
-		SecondaryBeamWidth: 80
+		SecondaryBeamWidth: 22
 		SecondaryBeamZOffset: 4000
 		SecondaryBeamColor: FFFF00
 	InvalidTargets: Air
 	Warhead@1Dam: SpreadDamage
 		Spread: 96
-		Damage: 800
+		Damage: 1500
 		Versus:
 			DefenseArmor: 75
 		ValidTargets: Ground, Water, water, Infantry, Vehicle, Building
@@ -531,7 +531,7 @@ CerberusSublazor1:
 CerberusSublazor2:
 	Inherits: CerberusSublazor1
 	FirstBurstTargetOffset: 0,800,0
-	FollowingBurstTargetOffset: 0,-80,0
+	FollowingBurstTargetOffset: 75,-80,0
 	Warhead@1Dam: SpreadDamage
 		DamageTypes: Prone60Percent, TriggerProne, FireDeath
 
