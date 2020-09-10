@@ -191,7 +191,6 @@ JUMPJETAIR:
 		Sequence: shoot
 		RequiresCondition: JJBuff
 	-Repairable:
-	RenderSprites:
 	WithShadow:
 	Hovers@CRUISING:
 		RequiresCondition: cruising
@@ -230,6 +229,8 @@ JUMPJETAIR:
 	-GrantConditionOnDamageState@spawnsparks:
 	-ExplodeWeapon@spawnsparks:
 	-ExternalCondition@spawnsparks:
+	QuantizeFacingsFromSequence:
+		Sequence: stand
 
 EAGLEGUARD:
 	Inherits: ^Soldier
