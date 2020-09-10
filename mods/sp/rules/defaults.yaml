@@ -1954,13 +1954,16 @@
 	WithVoxelBody:
 		RequiresCondition: !inside-tunnel
 	-WithFacingSpriteBody:
-
-^VoxelTank:
-	Inherits: ^Tank
 	BodyOrientation:
 		QuantizedFacings: 0
 		CameraPitch: 85
+
+^VoxelTank:
+	Inherits: ^Tank
 	RenderVoxels:
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
 	WithVoxelBody:
 		RequiresCondition: !inside-tunnel
 	-WithFacingSpriteBody:
