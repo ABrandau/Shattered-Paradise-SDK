@@ -63,14 +63,14 @@ BlackHandLasor:
 	Report: laserriflefire01.wav
 	Projectile: LaserZap
 		Blockable: true
-		Color: C80000
+		Color: 980000
 		Width: 0c42
 		Duration: 20
 		ZOffset: 4000
 		SecondaryBeam: true
-		SecondaryBeamWidth: 0c21
+		SecondaryBeamWidth: 0c15
 		SecondaryBeamZOffset: 4000
-		SecondaryBeamColor: FFFFFF
+		SecondaryBeamColor: C80000
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 2400
@@ -217,6 +217,11 @@ Tick90mm:
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+Tick90mmShellCasing:
+	Inherits: ^ShellCasing
+	ReloadDelay: 70
+	Range: 7c0
 
 DevilsFlame:
 	Inherits: ^FlameWarhead
@@ -398,6 +403,22 @@ HarpyClawAA:
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
+HarpyClawCasing:
+	Inherits ^BulletCasing
+	Range: 6c0
+	ReloadDelay: 27
+	Burst: 3
+	BurstDelays: 1
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry, Air
+
+HarpyClawBullet:
+	Inherits: ^BulletProjectile
+	Range: 6c0
+	ReloadDelay: 27
+	Burst: 3
+	BurstDelays: 1
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry, Air
+
 Proton:
 	Inherits: ^APWarhead
 	Inherits@2: ^Small_Bang
@@ -523,11 +544,11 @@ TurretLaserFire:
 		Duration: 15
 		Width: 100
 		ZOffset: 2047
-		Color: FF000080
+		Color: 980000
 		SecondaryBeam: true
 		SecondaryBeamWidth: 25
 		SecondaryBeamZOffset: 2047
-		SecondaryBeamColor: FFFFFF
+		SecondaryBeamColor: C80000
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 3500
@@ -550,7 +571,7 @@ ObeliskLaserFire:
 		ZOffset: 4000
 		Color: FF000080
 		SecondaryBeam: true
-		SecondaryBeamWidth: 45
+		SecondaryBeamWidth: 30
 		SecondaryBeamZOffset: 4000
 		SecondaryBeamColor: FFFFFF
 	Warhead@1Dam: SpreadDamage

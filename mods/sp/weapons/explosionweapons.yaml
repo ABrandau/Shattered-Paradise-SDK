@@ -317,6 +317,7 @@ SparkDebris:
 CasingDebris:
 	ReloadDelay: 60
 	Range: 0c764
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Projectile: Bullet
 		Speed: 100, 200
 		Inaccuracy: 256
@@ -327,15 +328,18 @@ CasingDebris:
 	Warhead@: CreateEffect
 		Explosions: casingscorch, casingscorch2, casingscorch3, casingscorch4, casingscorch5, casingscorch6, casingscorch7
 		ExplosionPalette: effect
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Air, AirHit
 		InvalidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piffs
 		ExplosionPalette: ra
 		ValidTargets: Water
-		InvalidTargets: Ground
+		InvalidTargets: Infantry, Vehicle, Building, Wall, Ground, Air, AirHit
 
 ShellCasingDebris:
 	Inherits: CasingDebris
+	MinRange: 0c512
+	Range: 1c764
 	Projectile: Bullet
 		Speed: 75, 125
 		Inaccuracy: 256

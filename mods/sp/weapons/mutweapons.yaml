@@ -354,6 +354,11 @@ LynxCannon:
 		Damage: 4000
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
+LynxCannonShellCasing:
+	Inherits: ^ShellCasing
+	ReloadDelay: 50
+	Range: 6c0
+
 QuadFire:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
@@ -368,6 +373,22 @@ QuadFire:
 		InvalidTargets: Air
 		Damage: 3500
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+
+QuadFireCasing:
+	Inherits: ^BulletCasing
+	ReloadDelay: 50
+	Burst: 2
+	Range: 6c0
+	ValidTargets: Air, Ground, Water, Vehicle, Building, Infantry
+
+QuadFireLine:
+	Inherits: ^LineProjectile
+	ReloadDelay: 50
+	Burst: 2
+	Range: 6c0
+	ValidTargets: Air, Ground, Water, Vehicle, Building, Infantry
+	Projectile: BulletAS
+		Image: bullet
 
 QuadFireAA:
 	Inherits: QuadFire

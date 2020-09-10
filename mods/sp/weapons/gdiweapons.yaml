@@ -127,6 +127,22 @@ WolverineVulcan:
 		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
+WolverineVulcanCasing:
+	Inherits: ^BulletCasing
+	ReloadDelay: 36
+	Burst: 4
+	BurstDelays: 1
+	Range: 6c0
+
+WolverineVulcanLine:
+	Inherits: ^LineProjectile
+	ReloadDelay: 36
+	Burst: 4
+	BurstDelays: 1
+	Range: 6c0
+	Projectile: BulletAS
+		Image: bullet
+
 APCGrenade:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Bang
@@ -178,18 +194,9 @@ Titan120mm:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 Titan120mmShellCasing:
-	Inherits: Titan120mm
-	-Report:
-	Projectile: InstantExplode
-	-Warhead@1Dam:
-	-Warhead@2Eff:
-	-Warhead@3EffWater:
-	Warhead@4Sharpnel: FireShrapnel
-		Weapon: ShellCasingDebris
-		ImpactActors: false
-		AllowDirectHit: false
-		Amount: 1
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Inherits: ^ShellCasing
+	ReloadDelay: 80
+	Range: 6c0
 
 HoverMissile:
 	Inherits: ^RocketWarhead
@@ -319,6 +326,12 @@ SonicZap:
 		Spread: 128
 		Damage: 5000
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+4TNKGUNShellCasing:
+	Inherits: ^ShellCasing
+	ReloadDelay: 80
+	Range: 6c0
+	Burst: 2
 
 MammothTusk:
 	Inherits: ^RocketWarhead

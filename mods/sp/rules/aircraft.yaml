@@ -322,13 +322,24 @@ APACHE:
 	Armament:
 		Weapon: HarpyClaw
 		PauseOnCondition: !ammo
-	Armament@432:
+	Armament@AA:
 		Weapon: HarpyClawAA
 		PauseOnCondition: !ammo
+	Armament@Casing:
+		Weapon: MeteorElevator
+		PauseOnCondition: !ammo
+		Name: decoration
+		LocalOffset: 900,0,0
+	Armament@bullet:
+		Weapon: HarpyClawBullet
+		PauseOnCondition: !ammo
+		Name: decoration
+		LocalOffset: 900,0,0
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 20
 		Voice: Attack
+		Armaments: primary, secondary, decoration
 	AmmoPool:
 		Ammo: 10
 		ReloadCount: 2
@@ -458,8 +469,6 @@ CERBERUS:
 		Voice: Attack
 	RenderSprites:
 		PlayerPalette: playertemperate
-	BodyOrientation:
-		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: CERBERUS.Husk
 	ProximityExternalCondition:

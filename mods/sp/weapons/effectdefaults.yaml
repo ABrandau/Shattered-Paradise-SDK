@@ -5,6 +5,21 @@
 		ValidTargets: Ground
 		ImpactActors: false
 
+^DelayedSmokeEffect:
+	Warhead@smoke: CreateEffect
+		Explosions: wrecksmoke, wrecksmoke2, wrecksmoke3
+		ExplosionPalette: jascgraywhitetoalpha
+		ValidTargets: Ground
+		ImpactActors: false
+		Delay: 50
+
+^ShortFireEffect:
+	Warhead@smoke: CreateEffect
+		Explosions: fire1, fire2, fire3, fire4
+		ExplosionPalette: effectalpha25
+		ValidTargets: Ground
+		ImpactActors: false
+
 ^SpawnsFire:
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
@@ -310,3 +325,42 @@
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
+
+
+^ShellCasing:
+	Projectile: InstantExplode
+	Warhead@4Sharpnel: FireShrapnel
+		Weapon: ShellCasingDebris
+		ImpactActors: false
+		AllowDirectHit: false
+		Amount: 1
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
+^BulletCasing:
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Projectile: InstantExplode
+	Warhead@4Sharpnel: FireShrapnel
+		Weapon: CasingDebris
+		ImpactActors: false
+		AllowDirectHit: false
+		Amount: 2
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@Line: SpreadDamage
+		Damage: 1
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
+^LineProjectile:
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Projectile: BulletAS
+		Speed: 0c800
+		Image: line
+		Inaccuracy: 0c762
+		Palette: effect
+	Warhead@Line: SpreadDamage
+		Damage: 1
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
+^BulletProjectile:
+	Inherits: ^LineProjectile
+	Projectile: BulletAS
+		Image: bullet

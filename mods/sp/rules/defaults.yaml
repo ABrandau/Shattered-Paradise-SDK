@@ -1480,6 +1480,7 @@
 		DeathSequencePalette: gradientred
 		DeathPaletteIsPlayerPalette: false
 		CrushedSequence: dieblood1
+		CrushedSequencePalette: gradientred
 		DeathTypes:
 			BulletDeath: blood1, blood2, blood3, blood4, blood5, blood6
 			CabalDeath: blood1, blood2, blood3, blood4, blood5, blood6
@@ -1590,6 +1591,7 @@
 		Volume: 2
  	WithDeathAnimation@blood1:
 		DeathSequencePalette: gradientblue
+		CrushedSequencePalette: gradientblue
 	WithDeathAnimation@normal:
 		DeathSequencePalette: playerscrin
 		CrushedSequencePalette: playerscrin
@@ -2019,6 +2021,7 @@
 		Categories: Civilian Vehicle
 
 ^Aircraft:
+	Inherits: ^SpriteActor
 	Inherits@0: ^GainsExperience
 	Inherits@2: ^AircraftEffects
 	Inherits@3: ^ExistsInWorld
@@ -2062,9 +2065,6 @@
 	AttackMove:
 		Voice: Move
 	ActorLostNotification:
-	BodyOrientation:
-		QuantizedFacings: 0
-		CameraPitch: 90
 	RenderSprites:
 	WithFacingSpriteBody:
 	Guard:

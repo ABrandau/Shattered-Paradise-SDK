@@ -25,25 +25,24 @@ SMECH:
 		PauseOnCondition: empdisable
 		FacingTolerance: 2
 	AutoTarget:
-	Armament:
-		Weapon: WolverineVulcan
-		PauseOnCondition: empdisable
 	Voiced:
 		VoiceSet: Mech
-	QuantizeFacingsFromSequence:
-		Sequence: stand
-		RequiresCondition: !inside-tunnel
-	WithFacingSpriteBody:
-		Sequence: stand
-		RequiresCondition: !inside-tunnel
-	WithAttackAnimation:
-		Sequence: shoot
-		RequiresCondition: !inside-tunnel
-	WithMoveAnimation:
-		MoveSequence: run
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
 		RequiresCondition: !inside-tunnel
 	Selectable:
 		Bounds: 20, 32, 0, -8
+	Armament:
+		Weapon: WolverineVulcan
+		PauseOnCondition: empdisable
+	Armament@1Casing:
+		Weapon: WolverineVulcanCasing
+		PauseOnCondition: empdisable
+		LocalOffset: 0,-275,600, 0,275,600
+	Armament@2Bullet:
+		Weapon: WolverineVulcanLine
+		PauseOnCondition: empdisable
+		LocalOffset: 0,-275,600, 0,275,600
 
 MMCH:
 	Inherits: ^Walker
@@ -358,6 +357,10 @@ G4TNK:
 		MuzzleSequence: muzzle
 		Recoil: 127
 		RecoilRecovery: 26
+		PauseOnCondition: empdisable
+	Armament@CASINGPRIMARY:
+		Weapon: 4TNKGUNShellCasing
+		LocalOffset: 0,120,550, 0,-120,550
 		PauseOnCondition: empdisable
 	Armament@SECONDARY:
 		Weapon: MammothTusk
@@ -920,6 +923,16 @@ TTNK:
 		LocalOffset: 256,-0,600
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
+	Armament@CASINGPRIMARY:
+		Weapon: Tick90mmShellCasing
+		PauseOnCondition: empdisable
+	Armament@CASINGDEPLOYED:
+		Name: deployed
+		Turret: deployed
+		Recoil: 0c128
+		Weapon: Tick90mmShellCasing
+		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
 	WithMuzzleOverlay:
 	WithMakeAnimation:
 		BodyNames: deployed
@@ -1338,13 +1351,21 @@ MUTQUAD:
 		VoiceSet: Trike
 		Volume: 3
 	WithMuzzleOverlay:
-	Armament@primary:
+	Armament@1:
 		Weapon: QuadFire
 		MuzzleSequence: muzzle
 		LocalOffset: 800,0,700
 		MuzzlePalette: apgrey
 		PauseOnCondition: empdisable
-	Armament@Secondary:
+	Armament@2:
+		Weapon: QuadFireCasing
+		LocalOffset: 0,0,700
+		PauseOnCondition: empdisable
+	Armament@3:
+		Weapon: QuadFireLine
+		LocalOffset: 1200,0,1000
+		PauseOnCondition: empdisable
+	Armament@AA1:
 		Weapon: QuadFireAA
 		MuzzleSequence: muzzle
 		MuzzlePalette: apgrey
@@ -1402,6 +1423,10 @@ LYNX:
 		MuzzleSequence: muzzle
 		MuzzleSplitFacings: 8
 		Recoil: 0c128
+		PauseOnCondition: empdisable
+	Armament@casing:
+		Weapon: LynxCannonShellCasing
+		LocalOffset: 0,0,600
 		PauseOnCondition: empdisable
 
 STRUCK:
@@ -2326,18 +2351,27 @@ PALADIN:
 		Weapon: PalaLazor
 		LocalOffset: 555,500,1200
 		PauseOnCondition: empdisable
+		MuzzlePalette: gradientblue40
+		MuzzleSequence: muzzle
 	Armament@2:
 		Weapon: PalaLazorMute
 		LocalOffset: 555,-500,1200
 		PauseOnCondition: empdisable
+		MuzzlePalette: gradientblue40
+		MuzzleSequence: muzzle
 	Armament@3:
 		Weapon: PalaLazorMute
 		LocalOffset: 555,500,1350
 		PauseOnCondition: empdisable
+		MuzzlePalette: gradientblue40
+		MuzzleSequence: muzzle
 	Armament@4:
 		Weapon: PalaLazorMute
 		LocalOffset: 555,-500,1350
 		PauseOnCondition: empdisable
+		MuzzlePalette: gradientblue40
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
 	AutoTarget:
 	Selectable:
 		Bounds: 40, 60, 0, -20

@@ -263,6 +263,7 @@ Dogzooka:
 CenturionVulcan:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
+	Report: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
 	ReloadDelay: 40
 	Burst: 4
 	BurstDelay: 2
@@ -272,31 +273,24 @@ CenturionVulcan:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1500
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Delay: 5
+	Warhead@3EffWater: CreateEffect
+		Delay: 5
 
 CenturionVulcanCasing:
-	Inherits: CenturionVulcan
-	Report: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
-	Projectile: InstantExplode
-	-Warhead@1Dam:
-	-Warhead@2Eff:
-	-Warhead@3EffWater:
-	Warhead@4Sharpnel: FireShrapnel
-		Weapon: CasingDebris
-		ImpactActors: false
-		AllowDirectHit: false
-		Amount: 2
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Inherits: ^BulletCasing
+	ReloadDelay: 40
+	Burst: 4
+	BurstDelay: 2
+	Range: 6c0
 
 CenturionVulcanLine:
-	Inherits: CenturionVulcan
-	Projectile: BulletAS
-		Speed: 0c800
-		Image: line
-		Inaccuracy: 0c762
-		Palette: effect
-	-Warhead@1Dam:
-	-Warhead@2Eff:
-	-Warhead@3EffWater:
+	Inherits: ^LineProjectile
+	ReloadDelay: 40
+	Burst: 4
+	BurstDelay: 2
+	Range: 6c0
 
 RepairVehicleRep:
 	Inherits: ^SparkSpawner
@@ -391,13 +385,13 @@ PalaLazor:
 	Report: avatarlaser0000.wav, avatarlaser0001.wav, avatarlaser0002.wav
 	Projectile: LaserZap
 		Width: 60
-		Color: 0000FF
+		Color: 0000AB
 		Duration: 20
 		SecondaryBeam: true
-		SecondaryBeamWidth: 30
-		ZOffset: 4000
-		SecondaryBeamZOffset: 4000
-		SecondaryBeamColor: FFFFFF
+		SecondaryBeamWidth: 15
+		ZOffset: 3000
+		SecondaryBeamZOffset: 3000
+		SecondaryBeamColor: 0000FF
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
