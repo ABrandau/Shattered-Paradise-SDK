@@ -145,9 +145,11 @@ ORCAB:
 		Bounds: 30,24
 	Aircraft:
 		MaximumPitch: 120
-		TurnSpeed: 16
+		TurnSpeed: 20
 		IdealSeparation: 256
 		Speed: 130
+		IdleTurnSpeed: 20
+		IdleSpeed: 85
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 	Health:
@@ -391,6 +393,8 @@ SCRIN:
 		MaximumPitch: 90
 		TurnSpeed: 40
 		Speed: 170
+		IdleTurnSpeed: 20
+		IdleSpeed: 85
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 	Health:
@@ -489,25 +493,25 @@ CERBERUS:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel
 	Contrail@1:
-		Offset: -1500, 336,-150
+		Offset: -1500, 336, -50
 		Color: FFEA0080
 		UsePlayerColor: false
 		TrailLength: 10
 		TrailWidth: 96
 	Contrail@2:
-		Offset: -1500, 112,-150
+		Offset: -1500, 112, -50
 		Color: FFEA0080
 		UsePlayerColor: false
 		TrailLength: 10
 		TrailWidth: 96
 	Contrail@3:
-		Offset: -1500, -112,-150
+		Offset: -1500, -112, -50
 		Color: FFEA0080
 		UsePlayerColor: false
 		TrailLength: 10
 		TrailWidth: 96
 	Contrail@4:
-		Offset: -1500, -336,-150
+		Offset: -1500, -336, -50
 		Color: FFEA0080
 		UsePlayerColor: false
 		TrailLength: 10
@@ -602,9 +606,10 @@ WETP:
 		Bounds: 30,24
 	Aircraft:
 		MaximumPitch: 120
-		TurnSpeed: 36
-		IdleTurnSpeed: 16
+		TurnSpeed: 30
+		IdleTurnSpeed: 20
 		Speed: 150
+		IdleSpeed: 85
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 	Health:
@@ -640,17 +645,17 @@ WETP:
 		EmptySequence: pip-ammoempty
 		Palette: pips
 	Contrail@1:
-		Offset: -100,-700,0
-		Color: 555555
+		Offset: -100,-700,55
+		Color: 55555580
 		UsePlayerColor: false
 		TrailWidth: 32
 	Contrail@2:
-		Offset: -100,700,0
-		Color: 555555
+		Offset: -100,700,55
+		Color: 55555580
 		UsePlayerColor: false
 		TrailWidth: 32
 	Contrail@FlameTrail:
-		Offset: -950,0,100
+		Offset: -900,0,50
 		Color: FFEA0080
 		UsePlayerColor: false
 		TrailWidth: 96
@@ -818,6 +823,8 @@ STORMRIDER:
 		MaximumPitch: 90
 		TurnSpeed: 32
 		Speed: 170
+		IdleTurnSpeed: 20
+		IdleSpeed: 85
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 	-Rearmable:
@@ -837,12 +844,12 @@ STORMRIDER:
 		Image: scrsmoke
 		Palette: gradientblue40
 	Contrail@1:
-		Offset: -300,-143,0
-		Color: 33008880
+		Offset: -300,-150,-100
+		Color: 33008860
 		UsePlayerColor: false
 	Contrail@2:
-		Offset: -300,143,0
-		Color: 33008880
+		Offset: -300,150,-100
+		Color: 3300EE80
 		UsePlayerColor: false
 
 ^ScrinAircraftGeneric:
@@ -1012,6 +1019,12 @@ SCRDESTROYER:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRDESTROYER.Husk
+	Contrail@1:
+		Offset: -1300, -20, 600
+		Color: AAAAFFAA
+		UsePlayerColor: false
+		TrailLength: 10
+		TrailWidth: 128
 
 SCRTRANS:
 	Inherits: ^Helicopter
@@ -1051,6 +1064,12 @@ SCRTRANS:
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
+	Contrail@1:
+		Offset: -1600, -20, 100
+		Color: AAAAFFAA
+		UsePlayerColor: false
+		TrailLength: 10
+		TrailWidth: 128
 
 SCRCARRIER:
 	Inherits: ^CombatHelicopter
@@ -1106,6 +1125,12 @@ SCRCARRIER:
 		Palette: pips
 		Position: BottomLeft
 		RequiresSelection: true
+	Contrail@1:
+		Offset: -1300, -20, 100
+		Color: AAAAFFAA
+		UsePlayerColor: false
+		TrailLength: 10
+		TrailWidth: 128
 
 STORMRIDERSPAWN:
 	Inherits: STORMRIDER
@@ -1158,8 +1183,8 @@ STORMRIDERSPAWN:
 	-SelectionDecorations:
 	Interactable:
 	Contrail@1:
-		Offset: 0,0,0
-		Color: 33008880
+		Offset: 0,-30,0
+		Color: 3300EE80
 		UsePlayerColor: false
 		TrailWidth: 32
 
@@ -1235,6 +1260,24 @@ SCRBATTLESHIP:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRBATTLESHIP.Husk
+	Contrail@1:
+		Offset: -2200, -20, 350
+		Color: AAAAFFAA
+		UsePlayerColor: false
+		TrailLength: 15
+		TrailWidth: 128
+	Contrail@2:
+		Offset: -2300, 80, 350
+		Color: AA33FF80
+		UsePlayerColor: false
+		TrailLength: 8
+		TrailWidth: 128
+	Contrail@3:
+		Offset: -2300, -140, 350
+		Color: AA33FF80
+		UsePlayerColor: false
+		TrailLength: 8
+		TrailWidth: 128
 
 WASP:
 	Inherits: ^CombatHelicopter
@@ -1373,12 +1416,12 @@ BASILISK:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel
 	Contrail@1:
-		Offset: -1000,-300,-150
+		Offset: -1000,-330,40
 		Color: FFEA0080
 		UsePlayerColor: false
 		TrailLength: 10
 	Contrail@2:
-		Offset: -1000,300,-150
+		Offset: -1000,300,40
 		Color: FFEA0080
 		UsePlayerColor: false
 		TrailLength: 10
