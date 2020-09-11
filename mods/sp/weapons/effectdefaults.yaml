@@ -379,8 +379,7 @@
 		AllowDirectHit: false
 		Amount: 2
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
-	Warhead@Line: SpreadDamage
-		Damage: 1
+	Warhead@Line: TargetDamage
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
 ^LineProjectile:
@@ -390,11 +389,12 @@
 		Image: line
 		Inaccuracy: 0c762
 		Palette: effect
-	Warhead@Line: SpreadDamage
-		Damage: 1
+		Blockable: true
+	Warhead@Line: TargetDamage
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
 ^BulletProjectile:
 	Inherits: ^LineProjectile
 	Projectile: BulletAS
+		Blockable: true
 		Image: bullet
