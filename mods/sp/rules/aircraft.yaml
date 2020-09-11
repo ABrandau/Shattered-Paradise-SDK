@@ -327,16 +327,18 @@ APACHE:
 	Armament@AA:
 		Weapon: HarpyClawAA
 		PauseOnCondition: !ammo
-	Armament@Casing:
-		Weapon: MeteorElevator
-		PauseOnCondition: !ammo
-		Name: decoration
-		LocalOffset: 900,0,0
 	Armament@bullet:
 		Weapon: HarpyClawBullet
 		PauseOnCondition: !ammo
 		Name: decoration
 		LocalOffset: 900,0,0
+	GrantConditionOnAttack@Casing:
+		Condition: attack
+		ArmamentNames: decoration
+	ExplodeWeapon@Casing:
+		Weapon: HarpyClawCasing
+		RequiresCondition: attack
+		RevokeDelay: 1
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 20
