@@ -485,7 +485,6 @@ BuildingFireBigShrapnel:
 		Weapon: BuildingFireBig
 		ImpactActors: false
 		AllowDirectHit: false
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
 BuildingFireSmallShrapnel:
 	Inherits: BuildingFireBigShrapnel
@@ -516,15 +515,9 @@ ScrinBuildingFireSmallShrapnel:
 		ImpactActors: false
 
 BuildingFireBig:
-	Inherits: ^FlameWarhead
-	Inherits@2: ^FlameScorch
 	Range: 1c0
 	MinRange: 0c128
 	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
-		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
 		Duration: 75, 600
@@ -575,8 +568,6 @@ BuildingCriticalDamageFireSmall:
 		Duration: 250
 		Sequences: fire1, fire2
 		Image: buildingfire
-	-Warhead@2Smu:
-	-Warhead@3Eff:
 
 DefenceCriticalDamageFireSpawner:
 	Inherits: BuildingCriticalDamageFireSpawner
