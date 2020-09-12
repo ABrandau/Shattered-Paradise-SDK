@@ -321,14 +321,13 @@ APACHE:
 		MoveIntoShroud: true
 	Health:
 		HP: 12000
-	Armament:
-		Weapon: HarpyClaw
-		PauseOnCondition: !ammo
-	Armament@AA:
-		Weapon: HarpyClawAA
-		PauseOnCondition: !ammo
-	Armament@bullet:
+	Armament@Fakebullet:
 		Weapon: HarpyClawBullet
+		PauseOnCondition: !ammo
+		Name: decoration
+		LocalOffset: 900,0,0
+	Armament@FakebulletAA:
+		Weapon: HarpyClawBulletAA
 		PauseOnCondition: !ammo
 		Name: decoration
 		LocalOffset: 900,0,0
@@ -339,6 +338,12 @@ APACHE:
 		Weapon: HarpyClawCasing
 		RequiresCondition: attack
 		RevokeDelay: 1
+	Armament:
+		Weapon: HarpyClaw
+		PauseOnCondition: !ammo
+	Armament@AA:
+		Weapon: HarpyClawAA
+		PauseOnCondition: !ammo
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 20
@@ -554,6 +559,23 @@ MUTHELI:
 		Offset: 300,0,500
 		Sequence: slow-rotor
 		RequiresCondition: !airborne
+	Armament@CannonDecoration:
+		Weapon: GargoylACannonFakeProj
+		PauseOnCondition: !ammo
+		Name: decoration
+		LocalOffset: 950,0,0
+	Armament@CannonDecorationAA:
+		Weapon: GargoylACannonFakeProjAA
+		PauseOnCondition: !ammo
+		Name: decoration
+		LocalOffset: 950,0,0
+	GrantConditionOnAttack@Casing:
+		Condition: attack
+		ArmamentNames: decoration
+	ExplodeWeapon@Casing:
+		Weapon: GargoylACannonCasing
+		RequiresCondition: attack
+		RevokeDelay: 1
 	Armament@primary:
 		Weapon: GargoylACannon
 		MuzzleSequence: muzzle
@@ -569,6 +591,7 @@ MUTHELI:
 		AttackType: Hover
 		FacingTolerance: 20
 		Voice: Attack
+		Armaments: primary, secondary, decoration
 	AmmoPool:
 		Ammo: 10
 		ReloadCount: 2

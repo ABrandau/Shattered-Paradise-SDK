@@ -623,6 +623,31 @@ GargoylACannonAA:
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		Damage: 3000
 
+GargoylACannonCasing:
+	Inherits: ^AircraftCasing
+	ReloadDelay: 300000 #One casing per fire
+	Warhead@op: FireShrapnel
+		Weapon: ShellCasingDebris
+
+GargoylACannonFakeProj:
+	Inherits: ^BulletProjectile
+	MinRange: 0c100
+	Range: 6c0
+	ReloadDelay: 20
+	ValidTargets: Ground, Water
+	InvalidTargets: Air
+	Projectile: BulletAS
+		Image: 120mm
+		ContrailLength: 20
+		ContrailColor: 888888
+		ContrailWidth: 0c21
+
+GargoylACannonFakeProjAA:
+	Inherits: GargoylACannonFakeProj
+	ReloadDelay: 30
+	ValidTargets: Air
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+
 FalconPunch:
 	Inherits: ^BombWarhead
 	Inherits@2: ^Mediuml_Clsn
