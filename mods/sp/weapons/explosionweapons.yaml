@@ -436,7 +436,7 @@ QuickFire:
 	Range: 2c0
 	Projectile: InstantHit
 
-
+##Unused, probably
 ^ParticleSpawner:
 	Projectile: InstantExplode
 	Warhead@1Dam: SpreadDamage
@@ -451,7 +451,7 @@ QuickFire:
 		Palette: effectalpha25
 
 BuildingFireBigParticleSpawner:
-	Inherits: ^ParticleSpawner
+	Projectile: InstantExplode
 	Warhead@5Actor: SpawnActor
 		Actors: BigFireSpawnerDummy
 		FallRate: 5000
@@ -467,6 +467,16 @@ BuildingSmokeSpawner:
 	Inherits: BuildingFireBigParticleSpawner
 	Warhead@5Actor: SpawnActor
 		Actors: SmokeSpawnerDummy
+
+ScrinBuildingFireBigParticleSpawner:
+	Inherits: BuildingFireBigParticleSpawner
+	Warhead@5Actor: SpawnActor
+		Actors: ScrinBigFireSpawnerDummy
+
+ScrinBuildingFireSmallParticleSpawner:
+	Inherits: BuildingFireSmallParticleSpawner
+	Warhead@5Actor: SpawnActor
+		Actors: ScrinSmallFireSpawnerDummy
 
 BuildingFireBigShrapnel:
 	ReloadDelay: 2
@@ -492,6 +502,18 @@ BuildingSmokeShrapnel:
 		Weapon: BuildingSmoke
 		ImpactActors: false
 		Amount: 3
+
+ScrinBuildingFireBigShrapnel:
+	Inherits: BuildingFireBigShrapnel
+	Warhead@op: FireShrapnel
+		Weapon: ScrinBuildingFireBig
+		ImpactActors: false
+
+ScrinBuildingFireSmallShrapnel:
+	Inherits: BuildingFireSmallShrapnel
+	Warhead@op: FireShrapnel
+		Weapon: ScrinBuildingFireSmall
+		ImpactActors: false
 
 BuildingFireBig:
 	Inherits: ^FlameWarhead
@@ -526,6 +548,17 @@ BuildingSmoke:
 		ImpactActors: false
 		Sequences: wrecksmoke, wrecksmoke2, wrecksmoke3
 		Duration: 250, 900
+		Image: explosion
+
+ScrinBuildingFireBig:
+	Inherits: BuildingFireBig
+	Warhead@2: SpawnSmokeParticle
+		Palette: gensmkexplojFblue #apolbluealpha 
+
+ScrinBuildingFireSmall:
+	Inherits: BuildingFireSmall
+	Warhead@2: SpawnSmokeParticle
+		Palette: gensmkexplojFblue 
 
 BuildingCriticalDamageFireSpawner:
 	Inherits: BuildingFireBigShrapnel
@@ -554,6 +587,25 @@ DefenceCriticalDamageFireSpawner:
 
 DefenceCriticalDamageFireSmall:
 	Inherits: BuildingCriticalDamageFireSmall
+	Range: 0c400
+
+ScrinBuildingCriticalDamageFireSpawner:
+	Inherits: BuildingCriticalDamageFireSpawner
+	Warhead@op: FireShrapnel
+		Weapon: ScrinBuildingCriticalDamageFireSmall
+
+ScrinBuildingCriticalDamageFireSmall:
+	Inherits: BuildingCriticalDamageFireSmall
+	Warhead@2: SpawnSmokeParticle
+		Palette: gensmkexplojFblue
+
+ScrinDefenceCriticalDamageFireSpawner:
+	Inherits: ScrinBuildingCriticalDamageFireSpawner
+	Warhead@op: FireShrapnel
+		Weapon: ScrinDefenceCriticalDamageFireSmall
+
+ScrinDefenceCriticalDamageFireSmall:
+	Inherits: ScrinBuildingCriticalDamageFireSmall
 	Range: 0c400
 
 DummyWeapon:
