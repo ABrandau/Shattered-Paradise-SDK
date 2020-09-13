@@ -828,7 +828,7 @@ muproc2:
 
 muproc3:
 	Defaults:
-		Offset: 12, -42, 20
+		Offset: 12, -24, 20
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -878,7 +878,7 @@ muproc3:
 
 muproc4:
 	Defaults:
-		Offset: 12, -36, 20
+		Offset: 6, 6, 20
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -1354,3 +1354,22 @@ mutsw2:
 	icon: mutsw2icon
 		Offset: 0, 0
 		UseTilesetCode: false
+
+minivein:
+	Inherits: ^InfantryDeathAnims
+	defaults:
+		UseTilesetExtension: false
+		ZOffset: -512
+	idle:
+		Length: 39
+	dead: sushimake2
+		Length: *
+	stand:
+		Length: 39
+	make: sushimake
+		Length: 29
+	shoot:
+		Length: 39
+	sushi1: sushimake
+		ZOffset: -2048
+		Start: 30

@@ -1768,13 +1768,10 @@
 	Huntable:
 	CaptureManager:
 
-^Vehicle:
-	Inherits@0: ^GainsExperience
-	Inherits@1: ^VehicleEffects
-	Inherits@2: ^ExistsInWorld
+^BasicVehicle:
 	Inherits@3: ^VehicleShape
-	Inherits@4: ^5CellVision
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
+	Inherits@4: ^5CellVision
 	ActorLostNotification:
 	Huntable:
 	Armor:
@@ -1860,6 +1857,22 @@
 		Sequence: vehicle
 		Palette: player
 		IsPlayerPalette: true
+        
+^Vehicle:
+	Inherits@0: ^BasicVehicle
+	Inherits@1: ^GainsExperience
+	Inherits@2: ^VehicleEffects
+	Inherits@3: ^ExistsInWorld
+
+^IWantToRunButICanMove:
+	Inherits@0: ^BasicVehicle
+	Mobile:
+		Locomotor: Vehicle
+		TurnSpeed: 28
+		Voice: Move
+		RequiresCondition: !IWantToRunButICanMove
+	GrantCondition@IWantToRunButICanMove:
+		Condition: IWantToRunButICanMove
 
 ^Tank:
 	Inherits: ^Vehicle

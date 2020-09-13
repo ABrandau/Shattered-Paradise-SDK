@@ -270,12 +270,9 @@ BERSERKER:
 		Categories: Creep
 
 EGGS:
-	Inherits: ^CivBuilding
+	Inherits: ^IWantToRunButICanMove
 	Tooltip:
 		Name: Crab Eggs (Menacing)
-	Building:
-		Footprint: x
-		Dimensions: 1, 1
 	Armor:
 		Type: BuildingArmor
 	RevealsShroud:
@@ -286,14 +283,6 @@ EGGS:
 		Palette: playermut
 	Targetable:
 		TargetTypes: Defence, Ground, C4, NeutralTibCritter
-	-Demolishable:
-	-ThrowsShrapnel@SMALL:
-	-ThrowsShrapnel@LARGE:
-	-Explodes:
-	-Explodes@BuildingFireBigSpawn:
-	-Explodes@BuildingFireSmallParticleSpawner:
-	-SoundOnDamageTransition:
-	-ShakeOnDeath:
 	ExternalCondition@SpawnCrabs:
 		Condition: SpawnCrabs
 	GrantPeriodicCondition:
@@ -313,10 +302,9 @@ EGGS:
 		InternalOwner: Creeps
 		DeathType: SpawnCrabs
 		RequiresLobbyCreeps: true
-	RequiresBuildableArea:
-		AreaTypes: building
 	MapEditorData:
 		Categories: Creep
+	-ThrowsShrapnel:
 
 CRAB:
 	Inherits: ^Beast
