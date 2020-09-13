@@ -231,6 +231,7 @@ DSHP:
 		Repulsable: false
 		AltitudeVelocity: 500
 		IdleBehavior: LeaveMap
+		VTOL: false
 	-Rearmable:
 	-Targetable@AIRBORNE:
 	-Targetable@GROUND:
@@ -259,9 +260,12 @@ DSHP:
 		Bounds: 1,1
 	-Selectable:
 	-SelectionDecorations:
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
 
 ORCATRAN:
-	Inherits: ^CombatHelicopter
+	Inherits: ^Helicopter
 	Inherits@1: ^6CellVision
 	Inherits@PIPS: ^CargoPips
 	Valued:
@@ -281,7 +285,6 @@ ORCATRAN:
 		Speed: 84
 		InitialFacing: 0
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
-	-Rearmable:
 	Health:
 		HP: 20000
 	Cargo:
@@ -294,6 +297,9 @@ ORCATRAN:
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
 
 APACHE:
 	Inherits: ^CombatHelicopter

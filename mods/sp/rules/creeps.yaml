@@ -33,7 +33,7 @@ WEASAU4:
 	Tooltip:
 		Name: Weasaurus minor
 	Health:
-		HP: 250
+		HP: 50000
 	Armor:
 		Type: InfantryArmor
 	-RevealsShroud:
@@ -47,7 +47,20 @@ WEASAU4:
 	Targetable:
 		TargetTypes: Infantry, Ground
 	Armament:
-		Weapon: FiendShard
+		Weapon: WeasaurusShard
+		LocalOffset: 300,0,400
+	Armament@1:
+		Weapon: WeasaurusShard
+		LocalOffset: 300,0,400
+	Armament@2:
+		Weapon: WeasaurusShard
+		LocalOffset: 300,0,400
+	Armament@3:
+		Weapon: WeasaurusShard
+	Armament@4:
+		Weapon: WeasaurusShard
+	Armament@5:
+		Weapon: WeasaurusShard
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
@@ -60,18 +73,35 @@ WEASAU4:
 	MapEditorData:
 		Categories: Creep
 
-WEASAU:
-	Inherits: WEASAU4
-
 WEASAU2:
 	Inherits: WEASAU4
+	Health:
+		HP: 100000
+	Armament:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@1:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@2:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@3:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@4:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@5:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
 
 VISC_SML:
 	Inherits: ^Visceroid
 	Tooltip:
 		Name: Baby Visceroid
 	Health:
-		HP: 15000
+		HP: 7500
 	Armor:
 		Type: InfantryArmor
 	AttackWander:
@@ -384,13 +414,13 @@ PERMACRAB:
 	MapEditorData:
 		Categories: Creep
 
-FLOATER:
+jfish:
 	Inherits: ^HoverVehicle
 	Inherits@1: ^AutoTargetGroundAssaultMove
 	Tooltip:
 		Name: Floater
 	Health:
-		HP: 10000
+		HP: 40000
 	Valued:
 		Cost: 100
 	Armor:
@@ -433,12 +463,5 @@ FLOATER:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
 	MapEditorData:
 		Categories: Creep
-
-jfish:
-	Inherits: FLOATER
 	RenderSprites:
 		Image: floater
-	EditorOnlyTooltip:
-		Name: Duplicated Floater (It helps avoid map inportation issues)
-	MapEditorData:
-		Categories: Creep

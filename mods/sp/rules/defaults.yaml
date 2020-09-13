@@ -490,7 +490,7 @@
 		Step: 0
 		Delay: 75
 		DamageCooldown: 200
-		StartIfBelow: 105
+		StartIfBelow: 100
 
 ^HealsOnTiberium:
 	GrantConditionOnTerrain@Tib:
@@ -501,7 +501,7 @@
 		Step: 300
 		Delay: 100
 		DamageCooldown: 0
-		StartIfBelow: 105
+		StartIfBelow: 100
 		RequiresCondition: TiberiumHealing
 
 ^HopspitalHeal:
@@ -564,7 +564,7 @@
 		PercentageStep: 0
 		Step: -500
 		Delay: 10
-		StartIfBelow: 105
+		StartIfBelow: 100
 		RequiresCondition: veinholedrain
 	ExternalCondition@veinholedrain:
 		Condition: veinholedrain
@@ -587,7 +587,7 @@
 		PercentageStep: -1
 		Step: 0
 		Delay: 25
-		StartIfBelow: 101
+		StartIfBelow: 100
 		RequiresCondition: BugPoison && !stoppoison
 	ExternalCondition@BugPoison:
 		Condition: BugPoison
@@ -686,7 +686,7 @@
 		PercentageStep: 2
 		Step: 0
 		Delay: 25
-		StartIfBelow: 102
+		StartIfBelow: 100
 		RequiresCondition: nanomachineburst
 	SpawnActorOnDeath@nanomachineburst:
 		Actor: KILLEDACTOR
@@ -727,7 +727,7 @@
 		Delay: 50
 		RequiresCondition: GetsOneShotedbySuperweapons
 		DamageCooldown: 0
-		StartIfBelow: 101
+		StartIfBelow: 100
 		DamageTypes: FireDeath
 	ExternalCondition@GetsOneShotedbySuperweapons:
 		Condition: GetsOneShotedbySuperweapons
@@ -1961,8 +1961,6 @@
 
 ^VoxelVehicle:
 	Inherits: ^Vehicle
-	BodyOrientation:
-		QuantizedFacings: 0
 	RenderVoxels:
 	WithVoxelBody:
 		RequiresCondition: !inside-tunnel
@@ -2639,7 +2637,7 @@
 		PercentageStep: 1
 		Step: 0
 		Delay: 25
-		StartIfBelow: 101
+		StartIfBelow: 100
 		RequiresCondition: batteryboost
 
 ^InfantryStealthDetection:
