@@ -33,15 +33,13 @@ WEASAU4:
 	Tooltip:
 		Name: Weasaurus minor
 	Health:
-		HP: 50000
+		HP: 25000
 	Armor:
 		Type: InfantryArmor
 	-RevealsShroud:
 	-GainsExperience:
 	Mobile:
-		Speed: 60
-	RenderSprites:
-		Palette: orgatem
+		Speed: 80
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
@@ -72,11 +70,18 @@ WEASAU4:
 		IdleSequences: idle1
 	MapEditorData:
 		Categories: Creep
-
+	WithDeathAnimation@normal:
+		DeathSequencePalette: orgatem
+	RenderSprites:
+		Palette: orgatem
 WEASAU2:
 	Inherits: WEASAU4
+	Tooltip:
+		Name: Weasaurus
 	Health:
-		HP: 100000
+		HP: 75000
+	Mobile:
+		Speed: 50
 	Armament:
 		Weapon: WeasaurusShard
 		LocalOffset: 700,0,700
@@ -93,6 +98,18 @@ WEASAU2:
 		Weapon: WeasaurusShard
 		LocalOffset: 700,0,700
 	Armament@5:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@6:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@7:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@8:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@9:
 		Weapon: WeasaurusShard
 		LocalOffset: 700,0,700
 
@@ -420,7 +437,7 @@ jfish:
 	Tooltip:
 		Name: Floater
 	Health:
-		HP: 40000
+		HP: 90000
 	Valued:
 		Cost: 100
 	Armor:
