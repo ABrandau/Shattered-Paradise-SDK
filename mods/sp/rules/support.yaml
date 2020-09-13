@@ -1428,7 +1428,7 @@ NAWAST:
 		FullSequence: pip-red
 
 MUMINE:
-	Inherits: ^Defence
+	Inherits: ^IWantToRunButICanMove
 	Inherits@1: ^3CellVision
 	Valued:
 		Cost: 50
@@ -1437,13 +1437,6 @@ MUMINE:
 	Health:
 		HP: 5000
 	-SpawnActorOnDeath@ScrinEssence:
-	-UpdatesPlayerStatistics:
-	-Sellable:
-	-SpawnActorsOnSell@gdi:
-	-SpawnActorsOnSell@nod:
-	-SpawnActorsOnSell@cab:
-	-SpawnActorsOnSell@mut:
-	-SpawnActorsOnSell@scr:
 	Armor:
 		Type: Mine
 	Targetable:
@@ -1451,7 +1444,7 @@ MUMINE:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Cloak@cloakgenerator:
-		RequiresCondition: !lawea
+		-RequiresCondition:
 		CloakSound:
 		InitialDelay: 50
 		CloakDelay: 50
@@ -1465,26 +1458,8 @@ MUMINE:
 		BlockFriendly: false
 	Explodes:
 		Weapon: MineExplode
-	-AutoTarget:
-	-AutoTargetPriority@DEFAULT:
-	-AutoTargetPriority@ATTACKANYTHING:
-	-WithColoredOverlay@IDISABLE:
-	-GrantConditionOnPowerState@LOWPOWER:
-	-GrantCondition@IDISABLE:
-	-ToggleConditionOnOrder:
-	-WithDecoration@POWERDOWN:
-	-PowerMultiplier@POWERDOWN:
-	-RenderRangeCircle:
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
-	-GrantConditionOnDamageState@spawnsparks:
-	-ExplodeWeapon@spawnsparks:
-	-ExternalCondition@spawnsparks:
-	-GrantConditionOnDamageState@SpawnFire:
-	-ExplodeWeapon@SpawnFire:
-	-ExternalCondition@SpawnFire:
-	-SoundOnDamageTransition:
+	Targetable@Defence:
+		TargetTypes: Defence
 
 MUWARD:
 	Inherits: ^DeployedVehicle
