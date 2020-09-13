@@ -28,6 +28,7 @@ BigFireSpawnerDummy:
 	Inherits: ^DUMMYAIRCRAFT
 	ExplodeWeapon:
 		Weapon: BuildingFireBigShrapnel
+		ResetReloadWhenEnabled: false
 	Health:
 		HP: 30
 	ChangesHealth:
@@ -48,6 +49,16 @@ SmokeSpawnerDummy:
 		HP: 50
 	ExplodeWeapon:
 		Weapon: BuildingSmokeShrapnel
+
+ScrinBigFireSpawnerDummy:
+	Inherits: BigFireSpawnerDummy
+	ExplodeWeapon:
+		Weapon: ScrinBuildingFireBigShrapnel
+
+ScrinSmallFireSpawnerDummy:
+	Inherits: SmallFireSpawnerDummy
+	ExplodeWeapon:
+		Weapon: ScrinBuildingFireSmallShrapnel
 
 NukeCrateDummy:
 	Inherits: ^DUMMYAIRCRAFT

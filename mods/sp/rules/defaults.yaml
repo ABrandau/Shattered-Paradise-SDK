@@ -2526,11 +2526,27 @@
 		Weapon: ScrinBuildingExplode
 		EmptyWeapon: ScrinBuildingExplode
 		Type: Footprint
+	Explodes@BuildingFireSmallParticleSpawner:
+		Weapon: ScrinBuildingFireSmallParticleSpawner
+		EmptyWeapon: ScrinBuildingFireSmallParticleSpawner
+	Explodes@BuildingFireBigSpawn:
+		Weapon: ScrinBuildingFireBigParticleSpawner
+		EmptyWeapon: ScrinBuildingFireBigParticleSpawner
 	SmokeParticleEmitter:
 		Image: scrsmoke
 		Palette: gradientblue40
 	Building:
 		BuildSounds: scrinplacebuilding.wav
+
+^ScrinBuildingFire:
+	Inherits: ^SpawnFire
+	ExplodeWeapon@SpawnFire:
+		Weapon: ScrinBuildingCriticalDamageFireSpawner
+
+^ScrinDefenceFire:
+	Inherits: ^ScrinBuildingFire
+	ExplodeWeapon@SpawnFire:
+		Weapon: ScrinDefenceCriticalDamageFireSpawner
 
 ^ScrinAircratVoice:
 	Voiced:

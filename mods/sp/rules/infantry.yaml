@@ -514,6 +514,9 @@ FlameHologram:
 		Image: altnode1
 	EditorOnlyTooltip:
 		Name: Militant Hollogram
+	AutoTarget:
+		ScanRadius: 6
+		InitialStance: AttackAnything
 
 MARAUDER:
 	Inherits: ^Mutant
@@ -1606,7 +1609,6 @@ MOTH:
 	WithSpriteBody@DeloyedBody:
 		Sequence: deployed
 		RequiresCondition: !undeployed
-		Name: deployed
 	-WithInfantryBody:
 	Armament@1:
 		Weapon: LurkerProj
