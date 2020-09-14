@@ -1353,19 +1353,27 @@ MUTQUAD:
 		VoiceSet: Trike
 		Volume: 3
 	WithMuzzleOverlay:
+	ExplodeWeapon@Casing:
+		Weapon: QuadFireCasing
+		LocalOffset: -200,0,1200
+		RequiresCondition: attack
+		RevokeDelay: 1
+	GrantConditionOnAttack@Casing:
+		Condition: attack
+		ArmamentNames: primary
+	Armament@Fakebullet:
+		Weapon: QuadFireLine
+		LocalOffset: 1200,0,1000
+		PauseOnCondition: empdisable
+	Armament@FakebulletAA:
+		Weapon: QuadFireLineAA
+		LocalOffset: 1200,0,1000
+		PauseOnCondition: empdisable
 	Armament@1:
 		Weapon: QuadFire
 		MuzzleSequence: muzzle
 		LocalOffset: 800,0,700
 		MuzzlePalette: apgrey
-		PauseOnCondition: empdisable
-	Armament@2:
-		Weapon: QuadFireCasing
-		LocalOffset: 0,0,700
-		PauseOnCondition: empdisable
-	Armament@3:
-		Weapon: QuadFireBullet
-		LocalOffset: 1200,0,1000
 		PauseOnCondition: empdisable
 	Armament@AA1:
 		Weapon: QuadFireAA
