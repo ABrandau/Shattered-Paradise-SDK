@@ -444,6 +444,7 @@ StormRiderBlastAA:
 Glyder1Cannon:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Scrin_Pulse
+	Inherits@3: ^MarnFlash7
 	ReloadDelay: 50
 	Range: 6c0
 	Burst: 3
@@ -452,14 +453,11 @@ Glyder1Cannon:
 	ValidTargets: Ground, Water
 	Projectile: BulletAS
 		Speed: 500
-		Image: torpedo
+		Image: lightpan
 		Shadow: true
 		-TrailImage: small_smoke_trail
 		-TrailPalette: effectalpha75
 		Palette: apblue
-		ContrailLength: 10
-		ContrailColor: 000ba8
-		ContrailWidth: 0c35
 	Warhead@1Dam: SpreadDamage
 		Spread: 200
 		Damage: 3000
@@ -470,11 +468,16 @@ Glyder1Cannon:
 			DefenseArmor: 15
 			ConcreteArmor: 25
 		ValidTargets: Ground, Water
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: marnflash7
+		ExplosionPalette: MarnAlphaAlpha
+		ImpactSounds: photon1.wav
 
 Glyder2Cannon:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Scrin_Pulse
+	Inherits@3: ^MarnFlash7
 	ReloadDelay: 50
 	Range: 8c0
 	Burst: 3
@@ -484,17 +487,19 @@ Glyder2Cannon:
 	Projectile: Missile
 		-TrailImage: small_smoke_trail
 		-TrailPalette: effectalpha75
-		Image: torpedo
+		Image: lightpan
 		RangeLimit: 15c0
 		Palette: apblue
-		ContrailLength: 10
-		ContrailColor: 000ba8
-		ContrailWidth: 0c35
 	Warhead@1Dam: SpreadDamage
 		Spread: 90
 		Damage: 2000
 		ValidTargets: Air
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
+		Warhead@2Eff: CreateEffect
+	Warhead@2Eff: CreateEffect
+		Explosions: marnflash7
+		ExplosionPalette: MarnAlphaAlpha
+		ImpactSounds: photon1.wav
 
 AIGlyder1AimingDummyWeapon:
 	ReloadDelay: 50
