@@ -374,22 +374,6 @@ QuadFire:
 		Damage: 3500
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
-QuadFireCasing:
-	Inherits: ^BulletCasing
-	ReloadDelay: 52
-	Burst: 4
-	BurstDelays: 1
-	Range: 6c0
-	ValidTargets: Air, Ground, Water, Vehicle, Building, Infantry
-
-QuadFireBullet:
-	Inherits: ^BulletProjectile
-	ReloadDelay: 52
-	Burst: 4
-	BurstDelays: 1
-	Range: 6c0
-	ValidTargets: Air, Ground, Water, Vehicle, Building, Infantry
-
 QuadFireAA:
 	Inherits: QuadFire
 	Range: 7c0
@@ -401,6 +385,30 @@ QuadFireAA:
 		Damage: 1750
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+
+# Used in explode weapon
+QuadFireCasing:
+	Inherits: ^BulletCasing
+	ReloadDelay: 200000 #fire once
+	Burst: 2
+	Range: 6c0
+	ValidTargets: Air, Ground, Water, Vehicle, Building, Infantry
+
+QuadFireLine:
+	Inherits: ^LineProjectile
+	ReloadDelay: 50
+	Burst: 2
+	Range: 6c0
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
+	InvalidTargets: Air
+	Projectile: BulletAS
+		Image: bullet
+
+QuadFireLineAA:
+	Inherits: QuadFireLine
+	Range: 7c0
+	ValidTargets: Air
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 
 TiberianRocket:
 	Inherits: ^ArtilleryWarhead
