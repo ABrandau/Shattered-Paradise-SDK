@@ -24,35 +24,22 @@
 	BodyOrientation:
 		QuantizedFacings: 32
 
+## Used for absolute timer with best performance, on the ground and static
+## No image and sight, pls add those function yourself if want new functions
 ^GROUNDDUMMY:
 	Inherits: ^1x1Shape
-	Inherits@1: ^GenericEffects
-	Inherits@3: ^SpriteActor
-	Inherits@2: ^ExistsInWorld
-	Inherits@5: ^5CellVision
 	HiddenUnderFog:
-	Interactable:
-	Mobile:
-		Speed: 0
-		Locomotor: Infantry
-	QuantizeFacingsFromSequence:
-		Sequence: stand
-	RenderSprites:
-		Image: blackhanddummy
-	Valued:
-		Cost: 1
-	RevealsShroud:
-		RequiresCondition: !inside-tunnel
-		Type: CenterPosition
-		MaxHeightDelta: 3
-		Range: 4c0
+	Immobile:
+		OccupiesSpace: false
 	Health:
 		HP: 100
 		NotifyAppliedDamage: false
-
+	BodyOrientation:
+		QuantizedFacings: 1
+	RenderDebugState:
 
 BigFireSpawnerDummy:
-	Inherits: ^DUMMYAIRCRAFT
+	Inherits: ^GROUNDDUMMY
 	ExplodeWeapon:
 		Weapon: BuildingFireBigShrapnel
 		ResetReloadWhenEnabled: false
@@ -454,6 +441,10 @@ FOGCAMERADUMMY:
 		StartIfBelow: 200
 		DamageCooldown: 25
 		RequiresCondition: !sustaincamera
+	RevealsShroud:
+		Type: CenterPosition
+		MaxHeightDelta: 3
+		Range: 4c0
 
 INFTIBSPAWN:
 	Inherits: ^DUMMYAIRCRAFT
