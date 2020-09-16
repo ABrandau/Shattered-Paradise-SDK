@@ -317,9 +317,11 @@ BERSERKER:
 		Categories: Creep
 
 EGGS:
-	Inherits: ^IWantToRunButICanMove
+	Inherits: ^NonBuildingStaticActor
 	Tooltip:
 		Name: Crab Eggs (Menacing)
+	Mobile:
+		Locomotor: Vehicle
 	Armor:
 		Type: BuildingArmor
 	RevealsShroud:
@@ -329,7 +331,7 @@ EGGS:
 	RenderSprites:
 		Palette: playermut
 	Targetable:
-		TargetTypes: Defence, Ground, C4, NeutralTibCritter
+		TargetTypes: Defence, Ground, NeutralTibCritter, MindControlInmune
 	ExternalCondition@SpawnCrabs:
 		Condition: SpawnCrabs
 	GrantPeriodicCondition:
@@ -351,7 +353,6 @@ EGGS:
 		RequiresLobbyCreeps: true
 	MapEditorData:
 		Categories: Creep
-	-ThrowsShrapnel:
 
 CRAB:
 	Inherits: ^Beast

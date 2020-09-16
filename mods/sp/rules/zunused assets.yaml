@@ -346,45 +346,6 @@ NAWAST:
 	RequiresBuildableArea:
 		AreaTypes: building
 
-MUMINE:
-	Inherits: ^DeployedVehicle
-	Valued:
-		Cost: 100
-	Tooltip:
-		Name: Mine
-	Selectable:
-		Priority: 1
-	Health:
-		HP: 5000
-	-AttackTurreted:
-	-SpawnActorOnDeath@ScrinEssence:
-	-AutoTarget:
-	-RenderRangeCircle:
-	-ActorLostNotification:
-	-UpdatesPlayerStatistics:
-	-Voiced:
-	Armor:
-		Type: Mine
-	Targetable:
-		TargetTypes: Ground, Repair, MindControlInmune, Mine
-	BodyOrientation:
-		QuantizedFacings: 32
-	Cloak@cloakgenerator:
-		RequiresCondition: !lawea
-		CloakSound:
-		InitialDelay: 50
-		CloakDelay: 50
-		UncloakSound:
-		Palette: cloakmut
-		IsPlayerPalette: true
-		CloakTypes: mine
-	Mine:
-		CrushClasses: crate
-		DetonateClasses: crate
-		AvoidFriendly: true
-	Explodes:
-		Weapon: MineExplode
-
 MUWARD:
 	Inherits: ^DeployedVehicle
 	Valued:

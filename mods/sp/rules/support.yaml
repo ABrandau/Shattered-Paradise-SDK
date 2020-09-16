@@ -1389,29 +1389,28 @@ NAWAST:
 		FullSequence: pip-red
 
 MUMINE:
-	Inherits: ^IWantToRunButICanMove
+	Inherits: ^NonBuildingStaticActor
 	Inherits@1: ^3CellVision
 	Valued:
-		Cost: 50
+		Cost: 0
 	Tooltip:
 		Name: Mine
 	Health:
 		HP: 5000
-	-SpawnActorOnDeath@ScrinEssence:
 	Armor:
 		Type: Mine
 	Targetable:
 		TargetTypes: Ground, MindControlInmune, Mine
 	BodyOrientation:
-		QuantizedFacings: 32
+		QuantizedFacings: 1
 	Cloak@cloakgenerator:
-		-RequiresCondition:
 		CloakSound:
 		InitialDelay: 50
 		CloakDelay: 50
 		UncloakSound:
 		Palette: cloakmut
 		IsPlayerPalette: true
+		UncloakOn: Attack, Demolish
 	Mine:
 		CrushClasses: crate
 		DetonateClasses: crate
@@ -1421,6 +1420,8 @@ MUMINE:
 		Weapon: MineExplode
 	Targetable@Defence:
 		TargetTypes: Defence
+	RenderSprites:
+		Image: mumine
 
 MUWARD:
 	Inherits: ^DeployedVehicle
@@ -1472,9 +1473,3 @@ MUSTABLE:
 	RequiresBuildableArea:
 		AreaTypes: building
 
-SCRMINE:
-	Inherits: ^ScrinRender
-	Inherits@1: MUMINE
-	Tooltip:
-		Name: Scrin Mine
-	-Buildable:
