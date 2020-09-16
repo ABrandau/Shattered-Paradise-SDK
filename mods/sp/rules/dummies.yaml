@@ -24,6 +24,33 @@
 	BodyOrientation:
 		QuantizedFacings: 32
 
+^GROUNDDUMMY:
+	Inherits: ^1x1Shape
+	Inherits@1: ^GenericEffects
+	Inherits@3: ^SpriteActor
+	Inherits@2: ^ExistsInWorld
+	Inherits@5: ^5CellVision
+	HiddenUnderFog:
+	Interactable:
+	Mobile:
+		Speed: 0
+		Locomotor: Infantry
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	RenderSprites:
+		Image: blackhanddummy
+	Valued:
+		Cost: 1
+	RevealsShroud:
+		RequiresCondition: !inside-tunnel
+		Type: CenterPosition
+		MaxHeightDelta: 3
+		Range: 4c0
+	Health:
+		HP: 100
+		NotifyAppliedDamage: false
+
+
 BigFireSpawnerDummy:
 	Inherits: ^DUMMYAIRCRAFT
 	ExplodeWeapon:
@@ -396,14 +423,7 @@ EGGSPAWNER:
 		OwnerType: Victim
 
 VEINHOLESPAWNERDUMMY:
-	Inherits: ^Infantry
-	-Targetable:
-	-UpdatesPlayerStatistics:
-	-SelectionDecorations:
-	-Selectable:
-	-ActorLostNotification:
-	RenderSprites:
-		Image: blackhanddummy
+	Inherits: ^GROUNDDUMMY
 	ChangesHealth:
 		Step: -10
 		StartIfBelow: 200
@@ -413,11 +433,27 @@ VEINHOLESPAWNERDUMMY:
 	SpawnActorOnDeath@cabalcrate:
 		Actor: MINIVEIN
 		Probability: 100
-		OwnerType: Victim
+		OwnerType: InternalName
+		InternalOwner: Creeps
 		RequiresLobbyCreeps: true
 		SkipMakeAnimations: false
-	-SpawnActorOnDeath@nanomachineburst:
-	Interactable:
+	SpawnActorOnDeath@camera:
+		Actor: FOGCAMERADUMMY
+		Probability: 100
+		OwnerType: Victim
+
+FOGCAMERADUMMY:
+	Inherits: ^GROUNDDUMMY
+	ExternalCondition@sustaincamera:
+		Condition: sustaincamera
+	Health:
+		HP: 50
+		NotifyAppliedDamage: false
+	ChangesHealth:
+		Step: -25
+		StartIfBelow: 200
+		DamageCooldown: 25
+		RequiresCondition: !sustaincamera
 
 INFTIBSPAWN:
 	Inherits: ^DUMMYAIRCRAFT
