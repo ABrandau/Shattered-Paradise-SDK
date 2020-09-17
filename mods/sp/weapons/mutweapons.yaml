@@ -415,7 +415,7 @@ TiberianRocket:
 	Inherits@1: ^SpawnsIrradiation
 	ReloadDelay: 90
 	Range: 12c0
-	Burst: 8
+	Burst: 6
 	Report: rketinf1.aud
 	ValidTargets: Ground, Water
 	MinRange: 3c0
@@ -451,16 +451,14 @@ TiberianRocket:
 	Warhead@3Radio: CreateTintedCells
 		Level: 10
 
-TiberianRocketClean:
+TiberianRocketClould:
 	Inherits: TiberianRocket
-	-Warhead@3Radio:
-	-Warhead@4Eff:
-	Warhead@2Eff: CreateEffect
-		Explosions: gasexplo #jsclsn16, jsclsn16b, jexplosml, jexplosml
-		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
-		ExplosionPalette: gensmkexploj
-		InvalidTargets: Water
-		ValidTargets: Ground, Air
+	Burst: 2
+	BurstDelays: 20
+	Warhead@5Actor: SpawnActor
+		Actors: cloud1, cloud1
+		FallRate: 5000
+		Range: 3
 
 DemoTruckDummyWeapon:
 	ReloadDelay: 100
