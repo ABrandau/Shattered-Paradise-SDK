@@ -16,11 +16,18 @@ CLOUD1:
 		MoveIntoShroud: true
 	Health:
 		HP: 650
-	ChangesHealth:
+	ChangesHealth@1:
 		Step: -600
 		Delay: 200
 		StartIfBelow: 5000
 		DamageTypes: CloudDie
+		RequiresCondition: body2
+	ChangesHealth@2:
+		Step: -600
+		Delay: 150
+		StartIfBelow: 5000
+		DamageTypes: CloudDie
+		RequiresCondition: body2
 	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
