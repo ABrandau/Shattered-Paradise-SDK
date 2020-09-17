@@ -24,35 +24,23 @@
 	BodyOrientation:
 		QuantizedFacings: 32
 
+## Used for absolute timer with best performance, on the ground and static
+## No image and sight, pls add those function yourself if want new functions
 ^GROUNDDUMMY:
 	Inherits: ^1x1Shape
-	Inherits@1: ^GenericEffects
-	Inherits@3: ^SpriteActor
-	Inherits@2: ^ExistsInWorld
-	Inherits@5: ^5CellVision
 	HiddenUnderFog:
-	Interactable:
-	Mobile:
-		Speed: 0
-		Locomotor: Infantry
-	QuantizeFacingsFromSequence:
-		Sequence: stand
-	RenderSprites:
-		Image: blackhanddummy
-	Valued:
-		Cost: 1
-	RevealsShroud:
-		RequiresCondition: !inside-tunnel
-		Type: CenterPosition
-		MaxHeightDelta: 3
-		Range: 4c0
+	Immobile:
+		OccupiesSpace: false
 	Health:
 		HP: 100
 		NotifyAppliedDamage: false
-
+	BodyOrientation:
+		QuantizedFacings: 1
+	RenderDebugState:
+	Interactable:
 
 BigFireSpawnerDummy:
-	Inherits: ^DUMMYAIRCRAFT
+	Inherits: ^GROUNDDUMMY
 	ExplodeWeapon:
 		Weapon: BuildingFireBigShrapnel
 		ResetReloadWhenEnabled: false
@@ -135,8 +123,7 @@ RADARSCANDUMMY:
 		Palette: radarscanpalette
 
 IONBEAMTARGET:
-	Inherits: ^DUMMYAIRCRAFT
-	Inherits@3: ^1x1Shape
+	Inherits: ^GROUNDDUMMY
 	Tooltip:
 		Name: Target
 	Health:
@@ -279,9 +266,10 @@ IONBEAMMINI:
 		Weapon: IonScorch
 	HiddenUnderFog:
 		AlwaysVisibleStances: Ally, Enemy, Neutral
+	
 
 IONBEAMROAMER:
-	Inherits: ^DUMMYAIRCRAFT
+	Inherits: ^GROUNDDUMMY
 	Aircraft:
 		CruiseAltitude: 0
 		TurnSpeed: 80
@@ -327,10 +315,9 @@ IONBEAMROAMER:
 		Weapon: IonScorch
 
 KILLEDACTOR:
-	Inherits: ^DUMMYAIRCRAFT
+	Inherits: ^GROUNDDUMMY
 	ChangesHealth:
 		Step: -25
-		# PercentageStep: -50
 		StartIfBelow: 110
 		RequiresCondition: !nanomachineburst
 	Health:
@@ -348,13 +335,10 @@ KILLEDACTOR:
 		Condition: nanomachineburst
 
 NANOMACHINEBURSTSPAWNER:
-	Inherits: ^DUMMYAIRCRAFT
-	RenderSprites:
-		Image: blackhanddummy
+	Inherits: ^GROUNDDUMMY
 	ChangesHealth:
 		Step: -10
 		StartIfBelow: 200
-	-Tooltip:
 	Health:
 		HP: 5
 		NotifyAppliedDamage: false
@@ -407,10 +391,7 @@ NANOMACHINEBURSTDUMMY:
 	AutoTarget:
 
 EGGSPAWNER:
-	Inherits: ^DUMMYAIRCRAFT
-	Tooltip:
-		Name: Fire
-	-RevealsShroud:
+	Inherits: ^GROUNDDUMMY
 	Health:
 		HP: 1
 	ChangesHealth:
@@ -454,33 +435,45 @@ FOGCAMERADUMMY:
 		StartIfBelow: 200
 		DamageCooldown: 25
 		RequiresCondition: !sustaincamera
+	RevealsShroud:
+		Type: CenterPosition
+		MaxHeightDelta: 3
+		Range: 4c0
 
 INFTIBSPAWN:
-	Inherits: ^DUMMYAIRCRAFT
-	Tooltip:
-		Name: Fire
-	-RevealsShroud:
+	Inherits: ^GROUNDDUMMY
 	Health:
 		HP: 30
 	ChangesHealth:
 		Step: -30
 		Delay: 25
 		StartIfBelow: 200
-	Explodes:
-		Weapon: SpawnZombie
-		EmptyWeapon: SpawnZombie
-		RequiresCondition: zombie
-	Explodes@Visc:
-		Weapon: SpawnVisc
-		EmptyWeapon: SpawnVisc
-		RequiresCondition: visc
 	GrantRandomCondition:
 		Conditions: visc, zombie
+	SpawnActorOnDeath@zombie:
+		RequiresCondition: zombie
+		Actor: zombie
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		RequiresLobbyCreeps: true
+		SkipMakeAnimations: false
+	SpawnActorOnDeath@visc:
+		RequiresCondition: visc
+		Actor: visc_sml
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		RequiresLobbyCreeps: true
+		SkipMakeAnimations: false
+
 
 VEHICLETIBSPAWN:
 	Inherits: INFTIBSPAWN
-	Explodes:
-		Weapon: SpawnBerserker
+	SpawnActorOnDeath@zombie:
+		Actor: berserker
+	SpawnActorOnDeath@visc:
+		Actor: visc_lrg
 
 SCRINESSENCESMALL:
 	Inherits: ^DUMMYAIRCRAFT

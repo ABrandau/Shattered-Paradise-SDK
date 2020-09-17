@@ -413,6 +413,9 @@
 
 ^MindControllable:
 	WithMindControlArc:
+		ZOffset: 8000
+		Transparency: 64
+		QuantizedSegments: 28
 	MindControllable:
 		RevokeControlSounds: bleep5.aud
 
@@ -1864,16 +1867,6 @@
 	Inherits@2: ^VehicleEffects
 	Inherits@3: ^ExistsInWorld
 
-^IWantToRunButICanMove:
-	Inherits@0: ^BasicVehicle
-	Mobile:
-		Locomotor: Vehicle
-		TurnSpeed: 28
-		Voice: Move
-		RequiresCondition: !IWantToRunButICanMove
-	GrantCondition@IWantToRunButICanMove:
-		Condition: IWantToRunButICanMove
-
 ^Tank:
 	Inherits: ^Vehicle
 	Inherits@2: ^AutoTargetGroundAssaultMove
@@ -2680,3 +2673,29 @@
 	IsometricSelectionDecorations:
 	WithTextControlGroupDecoration:
 		Margin: 1, 1
+
+^NonBuildingStaticActor:
+	Inherits: ^1x1Shape
+	Inherits@1: ^GenericEffects
+	Inherits@3: ^SpriteActor
+	Inherits@2: ^ExistsInWorld
+	Inherits@5: ^5CellVision
+	HiddenUnderFog:
+	Interactable:
+	Mobile:
+		Speed: 0
+		Locomotor: Infantry
+	Valued:
+		Cost: 1
+	RevealsShroud:
+		RequiresCondition: !inside-tunnel
+		Type: CenterPosition
+		MaxHeightDelta: 3
+		Range: 4c0
+	Health:
+		HP: 100
+	BodyOrientation:
+		QuantizedFacings: 1
+	WithSpriteBody:
+	RenderSprites:
+	Huntable:

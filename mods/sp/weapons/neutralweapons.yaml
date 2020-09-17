@@ -351,33 +351,6 @@ BlueTibRadiation:
 	Warhead@8Radio: CreateTintedCells
 		LayerName: BlueRadiation
 
-SpawnVisc:
-	ReloadDelay: 25
-	Range: 2c0
-	Burst: 1
-	BurstDelays: 1
-	ValidTargets: ViscMale
-	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		ValidTargets: ViscMale
-		Damage: 1
-		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
-	Warhead@5Actor: SpawnActor
-		Actors: visc_sml
-		FallRate: 5000
-		Range: 3
-		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
-
-SpawnZombie:
-	Inherits: SpawnVisc
-	Warhead@5Actor: SpawnActor
-		Actors: zombie
-
-SpawnBerserker:
-	Inherits: SpawnVisc
-	Warhead@5Actor: SpawnActor
-		Actors: berserker
-
 SlimeAttack:
 	Inherits: ^RifleWarhead
 	ReloadDelay: 80
