@@ -37,6 +37,7 @@
 	BodyOrientation:
 		QuantizedFacings: 1
 	RenderDebugState:
+	Interactable:
 
 BigFireSpawnerDummy:
 	Inherits: ^GROUNDDUMMY
@@ -122,8 +123,7 @@ RADARSCANDUMMY:
 		Palette: radarscanpalette
 
 IONBEAMTARGET:
-	Inherits: ^DUMMYAIRCRAFT
-	Inherits@3: ^1x1Shape
+	Inherits: ^GROUNDDUMMY
 	Tooltip:
 		Name: Target
 	Health:
@@ -266,9 +266,10 @@ IONBEAMMINI:
 		Weapon: IonScorch
 	HiddenUnderFog:
 		AlwaysVisibleStances: Ally, Enemy, Neutral
+	
 
 IONBEAMROAMER:
-	Inherits: ^DUMMYAIRCRAFT
+	Inherits: ^GROUNDDUMMY
 	Aircraft:
 		CruiseAltitude: 0
 		TurnSpeed: 80
@@ -314,10 +315,9 @@ IONBEAMROAMER:
 		Weapon: IonScorch
 
 KILLEDACTOR:
-	Inherits: ^DUMMYAIRCRAFT
+	Inherits: ^GROUNDDUMMY
 	ChangesHealth:
 		Step: -25
-		# PercentageStep: -50
 		StartIfBelow: 110
 		RequiresCondition: !nanomachineburst
 	Health:
@@ -335,13 +335,10 @@ KILLEDACTOR:
 		Condition: nanomachineburst
 
 NANOMACHINEBURSTSPAWNER:
-	Inherits: ^DUMMYAIRCRAFT
-	RenderSprites:
-		Image: blackhanddummy
+	Inherits: ^GROUNDDUMMY
 	ChangesHealth:
 		Step: -10
 		StartIfBelow: 200
-	-Tooltip:
 	Health:
 		HP: 5
 		NotifyAppliedDamage: false
@@ -394,10 +391,7 @@ NANOMACHINEBURSTDUMMY:
 	AutoTarget:
 
 EGGSPAWNER:
-	Inherits: ^DUMMYAIRCRAFT
-	Tooltip:
-		Name: Fire
-	-RevealsShroud:
+	Inherits: ^GROUNDDUMMY
 	Health:
 		HP: 1
 	ChangesHealth:
@@ -447,31 +441,39 @@ FOGCAMERADUMMY:
 		Range: 4c0
 
 INFTIBSPAWN:
-	Inherits: ^DUMMYAIRCRAFT
-	Tooltip:
-		Name: Fire
-	-RevealsShroud:
+	Inherits: ^GROUNDDUMMY
 	Health:
 		HP: 30
 	ChangesHealth:
 		Step: -30
 		Delay: 25
 		StartIfBelow: 200
-	Explodes:
-		Weapon: SpawnZombie
-		EmptyWeapon: SpawnZombie
-		RequiresCondition: zombie
-	Explodes@Visc:
-		Weapon: SpawnVisc
-		EmptyWeapon: SpawnVisc
-		RequiresCondition: visc
 	GrantRandomCondition:
 		Conditions: visc, zombie
+	SpawnActorOnDeath@zombie:
+		RequiresCondition: zombie
+		Actor: zombie
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		RequiresLobbyCreeps: true
+		SkipMakeAnimations: false
+	SpawnActorOnDeath@visc:
+		RequiresCondition: visc
+		Actor: visc_sml
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		RequiresLobbyCreeps: true
+		SkipMakeAnimations: false
+
 
 VEHICLETIBSPAWN:
 	Inherits: INFTIBSPAWN
-	Explodes:
-		Weapon: SpawnBerserker
+	SpawnActorOnDeath@zombie:
+		Actor: berserker
+	SpawnActorOnDeath@visc:
+		Actor: visc_lrg
 
 SCRINESSENCESMALL:
 	Inherits: ^DUMMYAIRCRAFT
