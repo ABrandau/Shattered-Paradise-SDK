@@ -439,7 +439,7 @@ HMEC:
 		PauseOnCondition: empdisable
 		MuzzleSequence: muzzle
 	Targetable@MindControl:
-		TargetTypes: MindControlInmune
+		TargetTypes: MindControlImmune
 	Turreted:
 		Offset: -500,0,0
 		TurnSpeed: 10
@@ -1521,9 +1521,7 @@ WOLF:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Targetable@MindControlImmunity:
-		TargetTypes: MindControlInmune
-	Targetable@MCImmune:
-		TargetTypes: MCImmune
+		TargetTypes: MindControlImmune
 	Armament@PRIMARY:
 		Weapon: BullAcid
 		LocalOffset: 128,0,400
@@ -1609,9 +1607,7 @@ DEATHCLAW:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Targetable@MindControlImmunity:
-		TargetTypes: MindControlInmune
-	Targetable@MCImmune:
-		TargetTypes: MCImmune
+		TargetTypes: MindControlImmune
 	AutoTarget:
 		ScanRadius: 6
 		InitialStance: AttackAnything
@@ -1895,10 +1891,10 @@ SCRMOBMINE:
 		ControllingCondition: slaving
 		Policy: DiscardOldest
 	Targetable@MindControlImmunity:
-		TargetTypes: MindControlInmune
+		TargetTypes: MindControlImmune
 	ExplodeWeapon@Casing:
 		Weapon: MindEnergyCasing
-		LocalOffset: -200,0,1200
+		LocalOffset: 0,0,2600
 		RequiresCondition: attack
 		RevokeDelay: 1
 	GrantConditionOnAttack@Casing:

@@ -293,30 +293,23 @@ MindController:
 	ReloadDelay: 100
 	Range: 6c0
 	ValidTargets: Vehicle
-	InvalidTargets: MCImmune, MindControlInmune
+	InvalidTargets: MindControlImmune
 	Report: iyurat1a.wav
-	Projectile: ArcLaserZap
+	Projectile: InstantHit
 		Blockable: false
-		ZOffset: 1000
-		Width: 50
-		Duration: 10
-		Color: FF666670
-		HitAnim: explosion
-		HitAnimSequence: cldrngl1
-		HitAnimPalette: apolredalpha
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
 		Damage: 0
 		ValidTargets: Infantry, Vehicle
-		InvalidTargets: Structure, Wall, Husk, Trees, Creep, MCImmune, MindControlInmune
+		InvalidTargets: Structure, Wall, Husk, Trees, Creep, MindControlImmune
 	Warhead@2Eff: CreateEffect
 		Explosions: cldrngl1
 		ExplosionPalette: apolredalpha
-		Delay: 15
+		ValidTargets: Infantry, Vehicle
+		InvalidTargets: Structure, Wall, Husk, Trees, Creep, MindControlImmune
 
 MindEnergyCasing:
 	ReloadDelay: 200000
-	Burst: 2
 	Projectile: AthenaProjectile
 		Altitude: 800
 	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
@@ -325,15 +318,21 @@ MindEnergyCasing:
 	Warhead@op: FireShrapnel
 		Weapon: RedSpark
 		ImpactActors: false
-		Amount: 2
+		Amount: 3
+		ValidTargets: Ground, Water, Air, AirHit
+		InvalidTargets: Infantry, Vehicle, Building, Wall
+	Warhead@2Eff: CreateEffect
+		Explosions: cldrngl1
+		ExplosionPalette: apolredalpha
 		ValidTargets: Ground, Water, Air, AirHit
 		InvalidTargets: Infantry, Vehicle, Building, Wall
 
 RedSpark:
 	Inherits: ^NoDamage
 	ReloadDelay: 80
-	Range: 1c0
+	Range: 0c20
 	Projectile: TeslaZap
+		ZOffset: 3500
 		Palette: apolredalpha
 	Warhead@1Dam: TargetDamage
 		ImpactActors: false
