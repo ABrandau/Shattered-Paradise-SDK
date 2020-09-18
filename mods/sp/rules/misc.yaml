@@ -179,6 +179,109 @@ colorpicker:
 		Image: ttnk
 		Palette: colorpicker
 
+^PowerupCrate:
+	Inherits: ^Crate
+	RenderSprites:
+		Palette: unittemred
+		Image: abilitycrates
+
+MONEYCRATE:
+	Inherits: ^PowerupCrate
+	Tooltip:
+		Name: Gold Lingots (Provides $2000)
+	WithCrateBody:
+		IdleSequence: money
+	GiveCashCrateAction:
+		Amount: 2000
+		SelectionShares: 100
+		Sequence: dollar
+		UseCashTick: true
+
+VETERANCYCRATE:
+	Inherits: ^PowerupCrate
+	Tooltip:
+		Name: Veterancy Crate
+	WithCrateBody:
+		IdleSequence: veterancy
+	LevelUpCrateAction:
+		SelectionShares: 100
+		Sequence: levelup
+		Sound: gunitpra.aud
+
+HEALCRATE:
+	Inherits: ^PowerupCrate
+	Tooltip:
+		Name: Medical Supplies (Heals units)
+	WithCrateBody:
+		IdleSequence: healing
+	HealActorsCrateAction:
+		SelectionShares: 100
+		Sequence: heal
+		Sound: healer1.aud
+
+BUFFCRATE:
+	Inherits: ^PowerupCrate
+	Tooltip:
+		Name: Upgrade Kit
+	WithCrateBody:
+		IdleSequence: upgrade
+	GrantExternalConditionCrateAction@cloak:
+		SelectionShares: 20
+		Sequence: stealth
+		Condition: cloakgenerator
+	GrantExternalConditionCrateAction@firepower:
+		SelectionShares: 20
+		Sequence: firepower
+		Condition: firepowercrate
+		Notification: UnitArmourUpgraded
+	GrantExternalConditionCrateAction@armor:
+		SelectionShares: 20
+		Sequence: armor
+		Condition: damagecrate
+		Notification: UnitArmourUpgraded
+	GrantExternalConditionCrateAction@speed:
+		SelectionShares: 20
+		Condition: speedcrate
+		Notification: UnitSpeedUpgraded
+
+UNITCRATE:
+	Inherits: ^PowerupCrate
+	Tooltip:
+		Name: Unit Crate
+	WithCrateBody:
+		IdleSequence: unit
+	GiveMcvCrateAction@gdi:
+		SelectionShares: 0
+		NoBaseSelectionShares: 1000
+		Units: mcv
+		ValidFactions: gdi
+	GiveMcvCrateAction@nod:
+		SelectionShares: 0
+		NoBaseSelectionShares: 1000
+		Units: nodmcv
+		ValidFactions: nod
+	GiveMcvCrateAction@mut:
+		SelectionShares: 0
+		NoBaseSelectionShares: 1000
+		Units: mutmcv
+		ValidFactions: mut
+	GiveMcvCrateAction@cab:
+		SelectionShares: 0
+		NoBaseSelectionShares: 1000
+		Units: cabmcv
+		ValidFactions: cab
+	GiveMcvCrateAction@scr:
+		SelectionShares: 0
+		NoBaseSelectionShares: 1000
+		Units: drache
+		ValidFactions: scr
+	GiveUnitCrateAction:
+		Units: ghost
+		SelectionShares: 100
+	GiveUnitCrateAction@1:
+		Units: ghost
+		SelectionShares: 100
+
 CRATE:
 	Inherits: ^Crate
 	GiveCashCrateAction:
