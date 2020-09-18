@@ -2187,8 +2187,8 @@ REPAIRVEHICLE:
 		Speed: 70
 		TurnSpeed: 28
 		Locomotor: InfantryCrusherVehicle
-	Armament:
-		Weapon: RepairVehicleRep
+	Armament@1:
+		Weapon: RepairVehicleLasor
 		Cursor: repair
 		OutsideRangeCursor: repair
 		TargetStances: Ally
@@ -2205,6 +2205,13 @@ REPAIRVEHICLE:
 	-GainsExperience:
 	AutoTarget:
 		InitialStance: AttackAnything
+	ExplodeWeapon@Spark:
+		Weapon: SparkShrapnel
+		RequiresCondition: SpawnSparks
+		LocalOffset: 200,0,950
+	GrantConditionOnAttack
+		Condition: SpawnSparks
+		RevokeDelay: 4
 
 ECM:
 	Inherits: ^Vehicle

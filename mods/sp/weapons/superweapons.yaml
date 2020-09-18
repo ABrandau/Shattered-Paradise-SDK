@@ -776,14 +776,12 @@ RecoveryGun:
 		ValidTargets: KilledUnit
 
 IonStormSpawnerWeapon: ### THIS ONE GENERATES THE ION STORM PARTICLE
-	Inherits: IonCannonSpawner
 	ReloadDelay: 6
 	Range: 12c0
 	Projectile: InstantExplode
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
-	-Warhead@op:
 	Warhead@Ion: SpawnSmokeParticle
 		Weapon: RandomBoltSpawner
 		ImpactActors: false

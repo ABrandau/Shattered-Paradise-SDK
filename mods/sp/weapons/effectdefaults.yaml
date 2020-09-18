@@ -413,3 +413,12 @@
 	Projectile: BulletAS
 		Blockable: true
 		Image: bullet
+
+SparkShrapnel:
+	Inherits: ^SparkSpawner
+	Warhead@op: FireShrapnel
+		Weapon: SparkDebris
+		ImpactActors: false
+		Amount: 12
+		ValidTargets: Ground, Water, Air, AirHit
+		InvalidTargets: Infantry, Vehicle, Building, Wall

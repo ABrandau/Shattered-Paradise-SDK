@@ -295,10 +295,27 @@ CenturionVulcanLine:
 	ValidTargets: Ground, Water
 
 RepairVehicleRep:
-	Inherits: ^SparkSpawner
 	ReloadDelay: 60
 	Range: 4c0
 	Report: repair11.aud
+	TargetActorCenter: true
+	AffectsParent: false
+	InvalidTargets: FullHealth, NoRepair
+	ValidTargets: Vehicle
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 80
+		Damage: -2499
+		AffectsParent: false
+		ValidTargets: Vehicle
+		InvalidTargets: FullHealth, NoRepair
+        
+RepairVehicleLasor:
+	ReloadDelay: 60
+	Range: 4c0
+	Report: repair11.aud
+	TargetActorCenter: true
+	AffectsParent: false
 	InvalidTargets: FullHealth, NoRepair
 	ValidTargets: Vehicle
 	Projectile: LaserZap
