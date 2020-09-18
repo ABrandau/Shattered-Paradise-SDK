@@ -390,19 +390,6 @@ NANOMACHINEBURSTDUMMY:
 		TargetStances: Ally, Enemy, Neutral
 	AutoTarget:
 
-EGGSPAWNER:
-	Inherits: ^GROUNDDUMMY
-	Health:
-		HP: 1
-	ChangesHealth:
-		Step: -10
-		Delay: 25
-		StartIfBelow: 200
-	SpawnActorOnDeath@workerspawn:
-		Actor: EGGS
-		Probability: 100
-		OwnerType: Victim
-
 VEINHOLESPAWNERDUMMY:
 	Inherits: ^GROUNDDUMMY
 	ChangesHealth:
@@ -439,6 +426,10 @@ FOGCAMERADUMMY:
 		Type: CenterPosition
 		MaxHeightDelta: 3
 		Range: 4c0
+	ExplodeWeapon@1:  ## Because now some weapon cannot used on creeps so here we are
+		Weapon: VeinholeAttack
+	OwnerLostAction: ## For sustain the cloud when owner is dead (to Netural on defualt)
+		Action: ChangeOwner
 
 INFTIBSPAWN:
 	Inherits: ^GROUNDDUMMY
