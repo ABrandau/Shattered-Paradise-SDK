@@ -481,27 +481,17 @@ jfish:
 		Image: floater
 
 MINIVEIN:
-	Inherits: VEINHOLE
-	Inherits@2: ^1x1Shape
-	Building:
-		Footprint: x
-		Dimensions: 1, 1
+	Inherits: ^NonBuildingStaticActor
+	RadarColorFromTerrain:
+		Terrain: Veins
 	Tooltip:
 		Name: Baby Veinhole
 	WithIdleOverlay@sushi:
 		Sequence: sushi1
-		RequiresCondition: !Building-Buildup
+		RequiresCondition: !growing
 	WithDeathAnimation:
+		DeathSequence: dead
 		UseDeathTypeSuffix: false
-	-Explodes:
-	-Explodes@BuildingFireBigSpawn:
-	-Explodes@BuildingFireSmallParticleSpawner:
-	-SeedsResource:
-	-DamageMultiplier@Veinhole:
-	-Sellable:
-	-RepairableBuilding:
-	-MustBeDestroyed:
-	-WithBuildingRepairDecoration:
 	AmbientSound:
 		SoundFiles: tentaclem0001.wav, tentaclem0002.wav, tentaclem0003.wav
 		Delay: 0, 100
@@ -509,7 +499,7 @@ MINIVEIN:
 	Health:
 		HP: 70000
 	Targetable:
-		TargetTypes: Building, Ground, C4, NeutralTibCritter
+		TargetTypes: Building, Ground, NeutralTibCritter
 	ExplodeWeapon@2:
 		Weapon: VeinholeEggElevator
 	ProximityExternalCondition:
@@ -525,4 +515,4 @@ MINIVEIN:
 	Targetable@Defence:
 		TargetTypes: Defence
 	WithMakeAnimation:
-		Condition: Building-Buildup
+		Condition: growing
