@@ -127,7 +127,7 @@ VISC_SML:
 		MaxMoveDelay: 60
 		RequiresCondition: !Evolve
 	Targetable@MindControl:
-		TargetTypes: MindControlInmune
+		TargetTypes: MindControlImmune
 	RenderSprites:
 		Image: vissml
 	Targetable@ViscMale:
@@ -156,7 +156,7 @@ VISC_LRG:
 	RevealsShroud:
 		Range: 4c0
 	Targetable@MindControl:
-		TargetTypes: MindControlInmune
+		TargetTypes: MindControlImmune
 	Armament:
 		Weapon: SlimeAttack
 		FireDelay: 10
@@ -196,7 +196,7 @@ VISC_LRG_SCRIN:
 	EditorOnlyTooltip:
 		Name: Visceroid Hive Visc (Do not place in editor)
 	Targetable@MindControl:
-		TargetTypes: MindControlInmune
+		TargetTypes: MindControlImmune
 	AutoTarget:
 		ScanRadius: 5
 		InitialStance: AttackAnything
@@ -320,17 +320,14 @@ EGGS:
 	Inherits: ^NonBuildingStaticActor
 	Tooltip:
 		Name: Crab Eggs (Menacing)
-	Mobile:
-		Locomotor: Vehicle
 	Armor:
 		Type: BuildingArmor
-	-RevealsShroud:
 	Health:
 		HP: 50000
 	RenderSprites:
 		Palette: playermut
 	Targetable:
-		TargetTypes: Defence, Ground, NeutralTibCritter, MindControlInmune
+		TargetTypes: Defence, Ground, NeutralTibCritter, MindControlImmune
 	ExternalCondition@SpawnCrabs:
 		Condition: SpawnCrabs
 	GrantPeriodicCondition:
@@ -376,7 +373,7 @@ CRAB:
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
-		TargetTypes: Infantry, Ground, NeutralTibCritter, MCImmune
+		TargetTypes: Infantry, Ground, NeutralTibCritter, MindControlImmune
 	Armament:
 		Weapon: CrabAcid
 	WithInfantryBody:
@@ -484,27 +481,21 @@ jfish:
 		Image: floater
 
 MINIVEIN:
-	Inherits: VEINHOLE
-	Inherits@2: ^1x1Shape
-	Building:
-		Footprint: x
-		Dimensions: 1, 1
+	Inherits: ^NonBuildingStaticActor
+	RadarColorFromTerrain:
+		Terrain: Veins
 	Tooltip:
 		Name: Baby Veinhole
+	-Interactable:
+	Selectable:
+		Bounds: 40,30
+	SelectionDecorations:
 	WithIdleOverlay@sushi:
 		Sequence: sushi1
-		RequiresCondition: !Building-Buildup
+		RequiresCondition: !growing
 	WithDeathAnimation:
+		DeathSequence: dead
 		UseDeathTypeSuffix: false
-	-Explodes:
-	-Explodes@BuildingFireBigSpawn:
-	-Explodes@BuildingFireSmallParticleSpawner:
-	-SeedsResource:
-	-DamageMultiplier@Veinhole:
-	-Sellable:
-	-RepairableBuilding:
-	-MustBeDestroyed:
-	-WithBuildingRepairDecoration:
 	AmbientSound:
 		SoundFiles: tentaclem0001.wav, tentaclem0002.wav, tentaclem0003.wav
 		Delay: 0, 100
@@ -512,9 +503,7 @@ MINIVEIN:
 	Health:
 		HP: 70000
 	Targetable:
-		TargetTypes: Building, Ground, C4, NeutralTibCritter
-	ExplodeWeapon@1:
-		Weapon: VeinholeAttack
+		TargetTypes: Building, Ground, NeutralTibCritter
 	ExplodeWeapon@2:
 		Weapon: VeinholeEggElevator
 	ProximityExternalCondition:
@@ -530,4 +519,4 @@ MINIVEIN:
 	Targetable@Defence:
 		TargetTypes: Defence
 	WithMakeAnimation:
-		Condition: Building-Buildup
+		Condition: growing
