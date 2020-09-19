@@ -2677,26 +2677,17 @@
 
 ^NonBuildingStaticActor:
 	Inherits: ^1x1Shape
-	Inherits@1: ^GenericEffects
 	Inherits@3: ^SpriteActor
 	Inherits@2: ^ExistsInWorld
-	Inherits@5: ^5CellVision
-	HiddenUnderFog:
-	Interactable:
-	Mobile:
-		Speed: 0
-		Locomotor: Infantry
-	Valued:
-		Cost: 1
-	RevealsShroud:
-		RequiresCondition: !inside-tunnel
-		Type: CenterPosition
-		MaxHeightDelta: 3
-		Range: 4c0
+	Immobile:
+		OccupiesSpace: true
 	Health:
 		HP: 100
 	BodyOrientation:
 		QuantizedFacings: 1
+	Interactable:
+	HiddenUnderFog:
+	OwnerLostAction:
+		Action: Kill
 	WithSpriteBody:
 	RenderSprites:
-	Huntable:
