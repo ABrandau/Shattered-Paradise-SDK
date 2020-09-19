@@ -359,9 +359,7 @@ FloaterCloudSpawn:
 	Range: 5c0
 	Report:
 	Projectile: InstantExplode
-	InvalidTargets: Veinhole
-	Warhead@1Dam: SpreadDamage
-		Damage: 1
+	Warhead@1Dam: TargetDamage
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 	Warhead@5Actor: SpawnActor
 		Actors: cloud1
@@ -383,6 +381,7 @@ VeinholeAttack:
 		MaxLevel: 150
 		Falloff: 100, 75, 50, 40
 	Warhead@1Dam: SpreadDamage
+		InvalidTargets: Veinhole
 		Damage: 500
 		Spread: 1c512
 		DamageTypes: TiberiumDeath

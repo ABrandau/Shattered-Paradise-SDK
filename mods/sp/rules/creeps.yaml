@@ -503,7 +503,7 @@ MINIVEIN:
 	Health:
 		HP: 70000
 	Targetable:
-		TargetTypes: Building, Ground, NeutralTibCritter
+		TargetTypes: Building, Ground, NeutralTibCritter, Veinhole
 	ExplodeWeapon@2:
 		Weapon: VeinholeEggElevator
 	ProximityExternalCondition:
@@ -520,3 +520,8 @@ MINIVEIN:
 		TargetTypes: Defence
 	WithMakeAnimation:
 		Condition: growing
+	ChangesHealth:
+		PercentageStep: 1
+		StartIfBelow: 200
+		DamageCooldown: 50
+		Delay: 25
