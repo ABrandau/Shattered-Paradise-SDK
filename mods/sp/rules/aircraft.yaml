@@ -21,7 +21,7 @@ CLOUD1:
 		Delay: 200
 		StartIfBelow: 5000
 		DamageTypes: CloudDie
-		RequiresCondition: body2
+		RequiresCondition: body1
 	ChangesHealth@2:
 		Step: -600
 		Delay: 150
@@ -491,6 +491,13 @@ CERBERUS:
 	Armament@sweep2:
 		Weapon: CerberusSublazor2
 		LocalOffset: 1400, -225, 0
+	AmbientSound:
+		SoundFiles: NUBeamC_wea1Loopa.wav ,NUBeamC_wea1Loopb.wav, NUBeamC_wea1Loopc.wav, NUBeamC_wea1Loopd.wav, NUBeamC_wea1Loope.wav
+		Interval: 2
+		RequiresCondition: Attacking
+	GrantConditionOnAttack:
+		Condition: Attacking
+		RevokeDelay: 3
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 10
@@ -981,7 +988,7 @@ SCRGLYDER1:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Selectable:
-		Bounds: 40,30
+		Bounds: 40,30,0,-10
 	Transforms:
 		IntoActor: scrglyder2
 	Aircraft:
@@ -1502,11 +1509,15 @@ DEVOURER:
 		HP: 175000
 	Voiced:
 		VoiceSet: Limpet
-	GrantConditionOnAttack:
-		Condition: DevoBuff
-		RevokeDelay: 35
 	Armament@Primary:
 		Weapon: DevourerGrinder
+	AmbientSound:
+		SoundFiles: ChainLoop0000.wav, ChainLoop0001.wav, ChainLoop0002.wav, ChainLoop0003.wav, ChainLoop0004.wav, ChainLoop0005.wav
+		Interval: 13
+		RequiresCondition: Attacking
+	GrantConditionOnAttack:
+		Condition: Attacking
+		RevokeDelay: 25
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -1516,18 +1527,16 @@ DEVOURER:
 		ScanRadius: 5
 	RenderSprites:
 	WithFacingSpriteBody:
-		RequiresCondition: !DevoBuff
+		RequiresCondition: !Attacking
 		Sequence: idle
 	WithFacingSpriteBody@attack:
 		Sequence: shoot
-		RequiresCondition: DevoBuff
+		RequiresCondition: Attacking
 		Name: Nomnomnom
 	BodyOrientation:
 		QuantizedFacings: 8
 	SpawnActorOnDeath:
 		Actor: DEVOURER.Husk
-	ExternalCondition@DevoBuff:
-		Condition: DevoBuff
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel
