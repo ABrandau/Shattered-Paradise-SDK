@@ -338,20 +338,6 @@ LightTowerClaxon:
 	ValidTargets: Ground, Water, Air
 	Projectile: InstantExplode
 
-GreenTibRadiation:
-	ReloadDelay: 100
-	Projectile: InstantExplode
-	Warhead@8Radio: CreateTintedCells
-		Spread: 0c768
-		Falloff: 100, 65, 45, 25, 5
-		Level: 96
-		LayerName: HarmlessRadiationGreen
-
-BlueTibRadiation:
-	Inherits: GreenTibRadiation
-	Warhead@8Radio: CreateTintedCells
-		LayerName: BlueRadiation
-
 SlimeAttack:
 	Inherits: ^RifleWarhead
 	ReloadDelay: 80
@@ -367,9 +353,9 @@ SlimeAttack:
 			ConcreteArmor: 20
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 
-VeinholeAttack:
+FloaterCloudSpawn:
 	Inherits: ^RifleWarhead
-	ReloadDelay: 50
+	ReloadDelay: 150
 	Range: 5c0
 	Report:
 	Projectile: InstantExplode
@@ -388,9 +374,18 @@ VeinholeAttack:
 		Falloff: 100, 50, 25, 5
 		MaxLevel: 1000
 
-FloaterCloudSpawn:
-	Inherits: VeinholeAttack
-	ReloadDelay: 150
+VeinholeAttack:
+	Inherits: FloaterCloudSpawn
+	ReloadDelay: 50
+	Warhead@8Radio: CreateTintedCells
+		Spread: 1c512
+		Level: 5
+		MaxLevel: 150
+		Falloff: 100, 75, 50, 40
+	Warhead@1Dam: SpreadDamage
+		Damage: 500
+		Spread: 1c512
+		DamageTypes: TiberiumDeath
 
 Veins:
 	Inherits: ^RifleWarhead
