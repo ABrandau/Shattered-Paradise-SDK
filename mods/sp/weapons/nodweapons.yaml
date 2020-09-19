@@ -43,17 +43,17 @@ TemplarFlame:
 	Range: 4c0
 	Report: flamtnk1.aud
 	Projectile: BulletAS
-		Speed: 130
+		Speed: 200
 		Image: FLAMEALL
 		Inaccuracy: 1c0
 		Palette: FlameEffectPal
 		Blockable: true
 	Warhead@1Dam: SpreadDamage
-		Spread: 250
+		Spread: 0c256
 		Damage: 400
 		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 		Versus:
-			InfantryArmor: 150
+			InfantryArmor: 200
 
 BlackHandLasor:
 	Inherits: ^FullDamage
@@ -63,14 +63,14 @@ BlackHandLasor:
 	Report: laserriflefire01.wav
 	Projectile: LaserZap
 		Blockable: true
-		Color: C80000
-		Width: 0c42
-		BeamDuration: 20
-		ZOffset: 4000
+		Color: 98000055
+		Width: 60
+		Duration: 20
+		ZOffset: 3047
 		SecondaryBeam: true
-		SecondaryBeamWidth: 0c21
-		SecondaryBeamZOffset: 4000
-		SecondaryBeamColor: FFFFFF
+		SecondaryBeamWidth: 30
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: FFFFFF55
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 2400
@@ -99,11 +99,11 @@ ToxinCommandoRifle:
 		Explosions: hallugren
 		ImpactSounds: expnew12.aud
 		ExplosionPalette: apolra2yalpha
-		InvalidImpactTypes: Water, Air, AirHit
+		InvalidTargets:: Water, Air, AirHit
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piff
 		ExplosionPalette: ra
-		ValidImpactTypes: Water
+		ValidTargets: Water
 	Warhead@emp: GrantExternalCondition
 		Range: 2c0
 		Duration: 125
@@ -186,6 +186,7 @@ BikeExplo:
 			ConcreteArmor: 15
 	Warhead@5Sharpnel: FireShrapnel
 		Weapon: NukeFlame3
+		ImpactActors: false
 		Amount: 60
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
@@ -194,7 +195,7 @@ NukeFlame3:
 	Inherits: NukeFlame
 	Range: 2c0
 	Projectile: BulletAS
-		Blockable: False
+		Blockable: false
 	-MinRange:
 
 Tick90mm:
@@ -217,6 +218,11 @@ Tick90mm:
 		Damage: 4000
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
+Tick90mmShellCasing:
+	Inherits: ^ShellCasing
+	ReloadDelay: 70
+	Range: 7c0
+
 DevilsFlame:
 	Inherits: ^FlameWarhead
 	Inherits@2: ^FlameScorch
@@ -224,7 +230,7 @@ DevilsFlame:
 	Range: 4c0
 	Report: flamtnk1.aud
 	Projectile: BulletAS
-		Speed: 130
+		Speed: 200
 		Image: FLAMEALL
 		Inaccuracy: 1c0
 		Palette: FlameEffectPal
@@ -232,11 +238,36 @@ DevilsFlame:
 	Burst: 14
 	BurstDelays: 2
 	Warhead@1Dam: SpreadDamage
-		Spread: 200
+		Spread: 0c256
 		Damage: 400
 		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 		Versus:
 			InfantryArmor: 200
+
+
+BCLazor:
+	Inherits: ^FullDamage
+	ReloadDelay: 200
+	Burst: 4
+	BurstDelays: 10
+	Range: 12c0
+	Report: laserchaingunfire.wav
+	MinRange: 3c0
+	Projectile: LaserZap
+		Duration: 20
+		Width: 90
+		Color: FA0F0F
+		SecondaryBeam: true
+		SecondaryBeamWidth: 30
+		ZOffset: 4000
+		SecondaryBeamZOffset: 4000
+		SecondaryBeamColor: FFFFFF
+	Warhead@1Dam: SpreadDamage
+		Spread: 200
+		Damage: 4000
+		Versus:
+			BuildingArmor: 150
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
 FlameHoloShrapnel:
 	Inherits: ^NoDamage
@@ -246,9 +277,10 @@ FlameHoloShrapnel:
 	BurstDelays: 2
 	Warhead@op: FireShrapnel
 		Weapon: FlameHologram
+		ImpactActors: false
 		Amount: 1
 		AimChance: 1
-		ThrowWithoutTarget: True
+		ThrowWithoutTarget: true
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
 TickHoloShrapnel:
@@ -256,6 +288,7 @@ TickHoloShrapnel:
 	Burst: 1
 	Warhead@op: FireShrapnel
 		Weapon: TickHologram
+		ImpactActors: false
 
 FlameHologram:
 	Inherits: ^NoDamage
@@ -283,31 +316,6 @@ TickHologram:
 	Inherits: FlameHologram
 	Warhead@5Actor: SpawnActor
 		Actors: tickhologram
-
-BCLazor:
-	Inherits: ^FullDamage
-	Inherits@2: ^Large_Explosion
-	ReloadDelay: 200
-	Burst: 4
-	BurstDelays: 10
-	Range: 12c0
-	Report: laserchaingunfire.wav
-	MinRange: 3c0
-	Projectile: LaserZap
-		BeamDuration: 20
-		Width: 90
-		Color: FA0F0F
-		SecondaryBeam: True
-		SecondaryBeamWidth: 30
-		ZOffset: 4000
-		SecondaryBeamZOffset: 4000
-		SecondaryBeamColor: FFFFFF
-	Warhead@1Dam: SpreadDamage
-		Spread: 200
-		Damage: 4000
-		Versus:
-			BuildingArmor: 150
-		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
 SpectreCannon:
 	Inherits: ^ArtilleryWarhead
@@ -353,8 +361,11 @@ StealthRocket:
 
 StealthRocketAA:
 	Inherits: StealthRocket
+	Inherits@1: ^AARocketWarhead
 	ValidTargets: Air
 	Range: 9c0
+	Projectile: Missile
+		RangeLimit: 15c0
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 
@@ -392,6 +403,30 @@ HarpyClawAA:
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
+HarpyClawCasing:
+	Inherits: ^AircraftCasing
+	Range: 6c0
+	MinRange: 0c100
+	Projectile: BulletAS
+		Speed: 0c850
+
+HarpyClawBullet:
+	Inherits: ^BulletProjectile
+	Range: 6c0
+	ReloadDelay: 17
+	Burst: 3
+	BurstDelays: 1
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
+	InvalidTargets: Air
+
+HarpyClawBulletAA:
+	Inherits: HarpyClawBullet
+	ReloadDelay: 27
+	Burst: 3
+	BurstDelays: 1
+	ValidTargets: Air
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+
 Proton:
 	Inherits: ^APWarhead
 	Inherits@2: ^Small_Bang
@@ -404,17 +439,19 @@ Proton:
 	BurstDelays: 2
 	Projectile: Missile
 		Speed: 400
-		MinimumLaunchAngle: 50
+		MinimumLaunchAngle: -256 # -90 degrees
 		MaximumLaunchAngle: 50
 		MaximumLaunchSpeed: 0c543
 		MinimumLaunchSpeed: 0c301
-		TerrainHeightAware: True
+		TerrainHeightAware: true
 		RangeLimit: 15c0
 		Blockable: false
 		Shadow: true
 		Inaccuracy: 0
 		Palette: effect
 		Image: TORPEDO
+		HorizontalRateOfTurn: 15
+		VerticalRateOfTurn: 15
 	Warhead@1Dam: SpreadDamage
 		Spread: 250
 		Damage: 5000
@@ -428,7 +465,7 @@ ProtonAA:
 	BurstDelays: 3
 	ValidTargets: Air
 	Projectile: Missile
-		TerrainHeightAware: True
+		TerrainHeightAware: true
 		CruiseAltitude: 5000
 		MinimumLaunchAngle: 255
 		MaximumLaunchAngle: 255
@@ -439,49 +476,74 @@ ProtonAA:
 		CloseEnough: 200
 		Speed: 400
 		Blockable: false
-		HorizontalRateOfTurn: 60
-		VerticalRateOfTurn: 60
+		HorizontalRateOfTurn: 240
+		VerticalRateOfTurn: 240
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 5000
 		ValidTargets: Air
-
-CerberusLazorCharge:
-	ValidTargets: Ground, Water
-	ReloadDelay: 125
-	Range: 7c0
-	Burst: 7
-	MinRange: 3c0
-	BurstDelays: 10
-	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
-		ValidTargets: Ground, Water
-
+#Unused
 CerberusLazor:
 	Inherits: BCLazor
-	Inherits@2: ^Large_Explosion
 	ReloadDelay: 75
 	Range: 7c0
-	Burst: 3
+	Burst: 1
 	Report: laserchaingunfire.wav
 	ValidTargets: Ground, Water
 	Projectile: LaserZap
-		BeamWidth: 2
-		BeamDuration: 20
-		ZOffset: 4000
-		SecondaryBeamZOffset: 4000
-	MinRange: 3c0
+		Duration: 20
+	MinRange: 4c0
 	InvalidTargets: Air
 	Warhead@1Dam: SpreadDamage
 		Spread: 96
-		Damage: 5000
+		Damage: 4000
 		Versus:
 			DefenseArmor: 75
 		ValidTargets: Ground, Water, water, Infantry, Vehicle, Building
 		InvalidTargets: Air
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+
+CerberusSublazor1:
+	FirstBurstTargetOffset: -180,-810,0
+	FollowingBurstTargetOffset: 20,90,0
+	ReloadDelay: 140
+	Range: 7c0
+	Burst: 18
+	BurstDelays: 1
+	MinRange: 4c0
+	ValidTargets: Ground, Water
+	TargetActorCenter: true
+	Projectile: LaserZap
+		TrackTarget: false
+		Width: 45
+		Duration: 2
+		ZOffset: 4000
+		Color: FF0000
+		SecondaryBeam: true
+		SecondaryBeamWidth: 22
+		SecondaryBeamZOffset: 4000
+		SecondaryBeamColor: FFFF00
+	InvalidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		Spread: 96
+		Damage: 900
+		Versus:
+			DefenseArmor: 75
+		ValidTargets: Ground, Water, water, Infantry, Vehicle, Building
+		InvalidTargets: Air
+		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
+	Warhead@1Eff_impact: CreateEffect
+		Explosions: laserscorch
+		ExplosionPalette: gradientgray
+	Warhead@2Eff_impact: CreateEffect
+		Explosions: fire3
+
+CerberusSublazor2:
+	Inherits: CerberusSublazor1
+	FirstBurstTargetOffset: -180,810,0
+	FollowingBurstTargetOffset: 20,-90,0
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 
 TurretLaserFire:
 	Inherits: ^FullDamage
@@ -490,13 +552,13 @@ TurretLaserFire:
 	Report: lastur1.aud
 	Projectile: LaserZap
 		Duration: 15
-		Width: 100
-		ZOffset: 2047
-		Color: FF000080
+		Width: 80
+		ZOffset: 3047
+		Color: 98000055
 		SecondaryBeam: true
 		SecondaryBeamWidth: 25
 		SecondaryBeamZOffset: 2047
-		SecondaryBeamColor: FFFFFF
+		SecondaryBeamColor: FFFFFF55
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 3500
@@ -516,11 +578,11 @@ ObeliskLaserFire:
 	Report: obelray1.aud
 	Projectile: LaserZap
 		Width: 210
-		ZOffset: 4000
+		ZOffset: 3047
 		Color: FF000080
 		SecondaryBeam: true
-		SecondaryBeamWidth: 45
-		SecondaryBeamZOffset: 4000
+		SecondaryBeamWidth: 30
+		SecondaryBeamZOffset: 2047
 		SecondaryBeamColor: FFFFFF
 	Warhead@1Dam: SpreadDamage
 		Damage: 30000

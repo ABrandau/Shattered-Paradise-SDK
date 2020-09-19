@@ -26,7 +26,7 @@
 ^RocketWarhead:
 	Inherits: ^WeaponGenericUpgrades
 	Projectile: Missile
-		TerrainHeightAware: True
+		TerrainHeightAware: true
 		CruiseAltitude: 6000
 		MinimumLaunchAngle: 255
 		MaximumLaunchAngle: 255
@@ -39,8 +39,8 @@
 		TrailInterval: 1
 		Inaccuracy: 0c181
 		Image: DRAGON
-		HorizontalRateOfTurn: 40
-		VerticalRateOfTurn: 40
+		HorizontalRateOfTurn: 160
+		VerticalRateOfTurn: 160
 		RangeLimit: 15c0
 		TrailImage: small_smoke_trail
 		TrailPalette: effectalpha75
@@ -63,6 +63,7 @@
 ^AARocketWarhead:
 	Projectile: Missile
 		Speed: 400
+		RangeLimit: 12c0
 
 ^APWarhead:
 	Inherits: ^WeaponGenericUpgrades
@@ -175,6 +176,8 @@
 	ValidTargets: Air
 	ReloadDelay: 40
 	Range: 10c0
+	Projectile: Missile
+		RangeLimit: 12c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 5000
@@ -189,8 +192,11 @@
 
 ^ExploDefaults:
 	Inherits: ^WeaponGenericUpgrades
+	Inherits@1: ^ShortFireEffect
+	Inherits@2: ^DelayedSmokeEffect
 	Warhead@op: FireShrapnel
 		Weapon: SmallDebris
+		ImpactActors: false
 		Amount: 2
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit

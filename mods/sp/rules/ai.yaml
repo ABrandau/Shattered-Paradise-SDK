@@ -1,15 +1,15 @@
 Player:
 	ModularBot@EasyAI:
-		Name: EasyAI
+		Name: Easy AI
 		Type: EasyAI
 	ModularBot@Cheater:
-		Name: CheaterAI
+		Name: Cheater AI
 		Type: CheaterAI
 	ModularBot@ShatteredAI:
-		Name: ShatteredAI
+		Name: Shattered AI
 		Type: ShatteredAI
-	GrantConditionOnBotOwner@AIReload:
-		Condition: AIReload
+	GrantConditionOnBotOwner@AIBase:
+		Condition: AIBase
 		Bots: CheaterAI, EasyAI, ShatteredAI
 	GrantConditionOnBotOwner@AIEasy:
 		Condition: AIEasy
@@ -21,11 +21,11 @@ Player:
 		Condition: AIShattered
 		Bots: ShatteredAI
 	HarvesterBotModule:
-		RequiresCondition: AIReload
+		RequiresCondition: AIBase
 		HarvesterTypes: harv, scrharv
 		RefineryTypes: gdiref, nodref, scrproc, cabproc, muproc
 	BaseBuilderBotModule@AINormal:
-		RequiresCondition: AIReload && !AIShattered
+		RequiresCondition: AIBase && !AIShattered
 		MinimumExcessPower: 90
 		MaximumExcessPower: 250
 		ExcessPowerIncrement: 50
@@ -374,16 +374,16 @@ Player:
 			cabtech: 6000
 			gadept: 6000
 	BuildingRepairBotModule:
-		RequiresCondition: AIReload
+		RequiresCondition: AIBase
 	SquadManagerBotModule@test:
-		RequiresCondition: AIReload
+		RequiresCondition: AIBase
 		SquadSize: 35
 		SquadSizeRandomBonus: 30
 		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, e2, swarmling, shapeshifter,mcv, drache, drache_bot, cabmcv, nodmcv, mutmcv, repairvehicle
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
 		DangerScanRadius: 18
 		AttackForceInterval: 50
-		RushInterval : 20000
+		RushInterval: 20000
 		MinimumAttackForceDelay: 2500
 		ProtectUnitScanRadius: 25
 		AssignRolesInterval: 75
@@ -391,14 +391,14 @@ Player:
 		AttackScanRadius: 14
 		ProtectionScanRadius: 15
 	UnitBuilderBotModule@test:
-		RequiresCondition: AIReload
+		RequiresCondition: AIBase
 		UnitQueues: Infantry, Vehicle, Air
 		IdleBaseUnitsMaximum: 60
 		UnitsToBuild:
 			harv: 90
 			scrharv: 90
 			cabharv: 90
-			gdie1: 5
+			gdie1: 1
 			altnode1: 5
 			pdrone: 5
 			shark: 1
@@ -410,12 +410,12 @@ Player:
 			cyborg: 15
 			cborg: 15
 			legio: 20
-			grenadier: 5
-			medic: 5
+			grenadier: 20
+			medic: 50
 			templar: 10
 			mutfiend: 3
 			reapercab: 20
-			colossi: 5
+			colossi: 1
 			seer: 10
 			eagleguard: 1
 			bhs: 30
@@ -424,8 +424,8 @@ Player:
 			cyc2: 30
 			float: 3
 			bug: 30
-			mmch: 50
-			smech: 1
+			mmch: 30
+			smech: 60
 			riflebggy: 1
 			rocketbggy: 1
 			flamebggy: 10
@@ -441,7 +441,7 @@ Player:
 			lynx: 50
 			mutquad: 30
 			wolf: 5
-			g4tnk: 90
+			g4tnk: 20
 			scrmbt: 1
 			sonic: 5
 			jug: 40
@@ -462,7 +462,7 @@ Player:
 			wetp: 20
 			stormrider: 60
 			scrcarrier: 50
-			scrdestroyer: 10
+			scrdestroyer: 5
 			scrbattleship: 50
 			howtlizer: 30
 			stnk: 40
@@ -471,12 +471,13 @@ Player:
 			scrrecharger: 100
 			scrmobmine: 5
 			mutqueen: 1
-			lazorbggy : 15
-			apc_bot: 20
+			lazorbggy: 15
+			apc_bot: 1
 			moth: 2
 			nukecarryall_bot: 5
 			sonicarryall_bot: 5
-			repairvehicle : 2
+			apcarryall_bot: 1
+			#repairvehicle: 2
 			engineer: 1
 			e2: 1
 			swarmling: 1
@@ -486,18 +487,24 @@ Player:
 			scrharv: 4
 			scrrecharger: 1
 			scrmobmine: 2
-			mrls: 1
-			repairvehicle : 2
-			medic: 5
+			bike: 1
+			colossi: 3
+			mrls: 2
+			#repairvehicle: 2
 			engineer: 1
 			e2: 1
 			swarmling: 1
 			shapeshifter: 1
-			scrdestroyer: 3
+			scrdestroyer: 5
+			wasp: 8
 			devourer: 5
-			bike: 1
+			basilisk: 8
+			cerberus: 8
+			scrcarrier: 9
+			mutqueen: 10
 			## nukecarryall_bot: 1 but not restrict here
 			## sonicarryall_bot: 1 but not restrict here
+			## apcarryall_bot: 1 but not restrict here
 		UnitDelays:
 			crusader: 3000
 			mutfiend: 3000
@@ -507,7 +514,7 @@ Player:
 			grenadier: 4000
 			medic: 4000
 	McvManagerBotModule@AIEasy:
-		RequiresCondition: AIEasy 
+		RequiresCondition: AIEasy
 		McvTypes: mcv, cabmcv, nodmcv, mutmcv, drache_bot, drache
 		ConstructionYardTypes: gacnst, mutyard, cabyard, nodyard, drached
 		McvFactoryTypes: gaweap, naweap, muweap, cabweap, scrair
@@ -525,7 +532,7 @@ Player:
 		McvFactoryTypes: gaweap, naweap, muweap, cabweap, scrair
 		MinimumConstructionYardCount: 5
 	SupportPowerBotASModule:
-		RequiresCondition: AIReload
+		RequiresCondition: AIBase
 		Decisions:
 			gdiradarscan:
 				OrderName: GDIRadarScan

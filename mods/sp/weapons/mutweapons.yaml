@@ -9,6 +9,7 @@ MarauderShotgun:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@op: FireShrapnel
 		Weapon: MarauderShotgunInnacurate
+		ImpactActors: false
 		Amount: 3
 		AimChance: 30
 		AllowDirectHit: false
@@ -21,7 +22,7 @@ DeployedMarauderShotgun:
 MarauderShotgunInnacurate:
 	Inherits: MarauderShotgun
 	Range: 1c0
-	-Report: shotfire.wav
+	-Report:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1000
 		Versus:
@@ -30,13 +31,13 @@ MarauderShotgunInnacurate:
 			VehicleArmor: 7
 			DefenseArmor: 7
 			ConcreteArmor: 2
-	-Warhead@op: FireShrapnel
+	-Warhead@op:
 
 SkirmisherMortar:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Clsn
 	Inherits@3: ^SpawnsIrradiation
-	ReloadDelay: 150
+	ReloadDelay: 75
 	Range: 10c0
 	MinRange: 1c0
 	Report: 120mmf.aud
@@ -48,13 +49,14 @@ SkirmisherMortar:
 		Inaccuracy: 0c512
 		Blockable: false
 		ContrailLength: 6
-		ContrailUsePlayerColor: true
+		ContrailUsePlayerColor: false
+		ContrailColor: 00FF00
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 300
 		Damage: 3500
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
-	-Warhead@5Smu: LeaveSmudge
+	-Warhead@5Smu:
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplogreen
 
@@ -69,8 +71,6 @@ FiendShard2:
 		Speed: 800
 		Image: CRYSTAL4
 		Inaccuracy: 512
-		HorizontalRateOfTurn: 40
-		VerticalRateOfTurn: 40
 		Shadow: true
 		LaunchAngle: 60
 		Palette: greentiberium
@@ -94,7 +94,7 @@ FiendShardAA:
 	Inherits@1: ^AARocketWarhead
 	ValidTargets: Air
 	Burst: 6
-	BurstDelay: 2
+	BurstDelays: 2
 	Range: 6c0
 	Projectile: Missile
 		Image: CRYSTAL4
@@ -110,12 +110,10 @@ SeerTesla:
 	ReloadDelay: 125
 	Range: 6c0
 	Report: voltautofire.wav
-	Charges: yes
 	ValidTargets: Ground, Water
 	Projectile: TeslaZap
 		Palette: apolbluealpha
 		Duration: 10
-		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Damage: 7000
 		ValidTargets: Ground, Water
@@ -139,7 +137,8 @@ SeerTeslaAA:
 SparkExplo:
 	Warhead@op: FireShrapnel
 		Weapon: SeerTeslaSpark
-		Amount: 5
+		ImpactActors: false
+		Amount: 2
 		AimChance: 30
 		AllowDirectHit: false
 		AimTargetStances: Ally, Neutral, Enemy
@@ -191,9 +190,10 @@ SeerTyranyInstakillSpawn:
 		InvalidTargets: Colossi
 	Warhead@op: FireShrapnel
 		Weapon: SeerTyranyInstakill
-		Amount: 1
+		ImpactActors: false
+		Amount: 3
 		AllowDirectHit: false
-		ThrowWithoutTarget: False
+		ThrowWithoutTarget: false
 		AimChance: 100
 		AimTargetStances: Ally
 
@@ -222,7 +222,7 @@ KnightAcid:
 	Projectile: BulletAS
 		Speed: 250
 		Image: acidall32mini
-		Inaccuracy: 2c0
+		Inaccuracy  : 2c0
 		Palette: apolgreenalpha
 	Warhead@1Dam: SpreadDamage
 		Spread: 256
@@ -240,7 +240,7 @@ KnightAcid:
 KnightAcid2:
 	Inherits: KnightAcid
 	Projectile: BulletAS
-		Innacuracy: 256
+		Inaccuracy: 256
 
 PsykerRay:
 	Inherits: ^FullDamage
@@ -252,7 +252,7 @@ PsykerRay:
 	Projectile: BulletAS
 		Speed: 4c6824
 		Inaccuracy: 2c512
-		Blockable: False
+		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Spread: 400
 		Damage: 10000
@@ -264,6 +264,7 @@ PsykerRay:
 		SmudgeType: SmallCrater
 	Warhead@op: FireShrapnel
 		Weapon: SmallDebris
+		ImpactActors: false
 		Amount: 2
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
@@ -276,11 +277,10 @@ BerserkerBlow:
 	Report: fiend2.aud
 	Projectile: BulletAS
 		Speed: 5c682
-		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath, TiberiumDeath
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		ValidTargets: Ground, Water
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
+		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath, TiberiumDeath
 
 BullAcid:
 	Inherits: ^AcidWarhead
@@ -291,7 +291,7 @@ BullAcid:
 	Projectile: BulletAS
 		Speed: 500
 		Image: acidall32mini
-		Palette: apolgreenalpha
+		Palette: jascgreen
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 1250
@@ -310,6 +310,7 @@ BullAcid:
 		Condition: WolfDebuff
 	Warhead@op: FireShrapnel
 		Weapon: BullAcidJump
+		ImpactActors: false
 		Amount: 1
 		AimChance: 100
 		AllowDirectHit: true
@@ -319,15 +320,14 @@ BullAcid:
 BullAcidJump:
 	Inherits: BullAcid
 	Range: 1c0
-	-Warhead@op: FireShrapnel
-	-Warhead@Acid: GrantExternalCondition
+	-Warhead@op:
+	-Warhead@Acid:
 
 RavagerStrike:
 	Inherits: ^FullDamage
-	Inherits@2: ^Small_Clsn
 	ReloadDelay: 30
 	Range: 1c512
-	Report: fiend2.aud
+	Report: SSUSBLargeMonster0000.aud, SSUSBLargeMonster0001.aud, SSUSBLargeMonster0002.aud, SSUSBLargeMonster0003.aud, SSUSBLargeMonster0004.aud
 	Projectile: BulletAS
 		Speed: 5c682
 	Warhead@1Dam: SpreadDamage
@@ -354,6 +354,11 @@ LynxCannon:
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+LynxCannonShellCasing:
+	Inherits: ^ShellCasing
+	ReloadDelay: 50
+	Range: 6c0
 
 QuadFire:
 	Inherits: ^RifleWarhead
@@ -382,12 +387,36 @@ QuadFireAA:
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
+# Used in explode weapon
+QuadFireCasing:
+	Inherits: ^BulletCasing
+	ReloadDelay: 200000 #fire once
+	Burst: 2
+	Range: 6c0
+	ValidTargets: Air, Ground, Water, Vehicle, Building, Infantry
+
+QuadFireLine:
+	Inherits: ^LineProjectile
+	ReloadDelay: 50
+	Burst: 2
+	Range: 6c0
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
+	InvalidTargets: Air
+	Projectile: BulletAS
+		Image: bullet
+
+QuadFireLineAA:
+	Inherits: QuadFireLine
+	Range: 7c0
+	ValidTargets: Air
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+
 TiberianRocket:
 	Inherits: ^ArtilleryWarhead
 	Inherits@1: ^SpawnsIrradiation
 	ReloadDelay: 90
 	Range: 12c0
-	Burst: 8
+	Burst: 6
 	Report: rketinf1.aud
 	ValidTargets: Ground, Water
 	MinRange: 3c0
@@ -423,16 +452,14 @@ TiberianRocket:
 	Warhead@3Radio: CreateTintedCells
 		Level: 10
 
-TiberianRocketClean:
+TiberianRocketClould:
 	Inherits: TiberianRocket
-	-Warhead@3Radio: CreateTintedCells
-	-Warhead@4Eff: CreateEffect
-	Warhead@2Eff: CreateEffect
-		Explosions: jsclsn16, jsclsn16b, jexplosml, jexplosml
-		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
-		ExplosionPalette: gensmkexploj
-		InvalidTargets: Water
-		ValidTargets: Ground, Air
+	Burst: 2
+	BurstDelays: 20
+	Warhead@5Actor: SpawnActor
+		Actors: cloud1, cloud1
+		FallRate: 5000
+		Range: 3
 
 DemoTruckDummyWeapon:
 	ReloadDelay: 100
@@ -481,7 +508,7 @@ QueenShard:
 		Shadow: true
 		LaunchAngle: 60
 		Palette: apgreen
-		Blockable: False
+		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Damage: 9000
 		ValidTargets: Ground, Water
@@ -507,17 +534,19 @@ SpawnEggShrapnel:
 		Damage: -1
 	Warhead@op: FireShrapnel
 		Weapon: EggElevator
+		ImpactActors: false
 		Amount: 1
 		AimChance: 100
 		AllowDirectHit: true
 		ValidStances: Enemy
 		ValidTargets: Infantry, Building, Vehicle, Defence, Air, Airhit
 
- 
+
 SpawnEggShrapnelE:
 	Inherits: SpawnEggShrapnel
 	Warhead@op2: FireShrapnel
 		Weapon: EggElevator
+		ImpactActors: false
 		Amount: 2
 		AimChance: 100
 		AllowDirectHit: true
@@ -536,6 +565,7 @@ EggElevator:
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@op: FireShrapnel
 		Weapon: SpawnEgg
+		ImpactActors: false
 		Amount: 1
 		ValidTargets: Ground, Water, Air, AirHit
 		InvalidTargets: Infantry, Vehicle, Building, Wall
@@ -550,7 +580,7 @@ SpawnEgg:
 		Blockable: false
 		Image: eggproj
 		Palette: playermut
-		Shadow: True
+		Shadow: true
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1
 		Damage: 1
@@ -558,33 +588,11 @@ SpawnEgg:
 		InvalidTargets: Water, Cliff
 		ValidTargets: Ground, Water, Air
 	Warhead@5Actor: SpawnActor
-		Actors: eggspawner
+		Actors: eggs
 		FallRate: 5000
 		Range: 2
 		InvalidTargets: Water, Cliff
 		ValidTargets: Ground, Water, Air
-
-FirestormExplo:
-	Inherits: ^FullDamage
-	ReloadDelay: 5
-	Range: 12c0
-	MinRange: 12c0
-	Projectile: BulletAS
-		Speed: 100c0
-		Blockable: false
-	Warhead@3Dam_area: SpreadDamage
-		Spread: 300
-		Damage: 7500
-		ValidTargets: Ground, Water, Air
-		ValidStances: Enemy, Neutral
-	Warhead@2Eff: CreateEffect
-		Explosions: fsidle, fsgrnd
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: SmallScorch
-		InvalidTargets: Vehicle, Building, Wall
-	Warhead@3Eff: CreateEffect
-		Explosions: fire3, fire4
-		InvalidTargets: Water, Air, AirHit
 
 GargoylACannon:
 	Inherits: ^FullDamage
@@ -622,18 +630,30 @@ GargoylACannonAA:
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		Damage: 3000
 
-CloudDamage:
-	Inherits: ^RifleWarhead
-	ReloadDelay: 5
-	Projectile: InstantExplode
-	InvalidTargets: CloudInmune
-	Warhead@1Dam: SpreadDamage
-		Spread: 164
-		Damage: 200
-		DamageTypes: TiberiumDeath
-		InvalidTargets: CloudInmune, NeutralTibCritter
-		Versus:
-			InfantryArmor: 300
+GargoylACannonCasing:
+	Inherits: ^AircraftCasing
+	ReloadDelay: 300000 #One casing per fire
+	Warhead@op: FireShrapnel
+		Weapon: ShellCasingDebris
+
+GargoylACannonFakeProj:
+	Inherits: ^BulletProjectile
+	MinRange: 0c100
+	Range: 6c0
+	ReloadDelay: 20
+	ValidTargets: Ground, Water
+	InvalidTargets: Air
+	Projectile: BulletAS
+		Image: 120mm
+		ContrailLength: 20
+		ContrailColor: 888888
+		ContrailWidth: 0c21
+
+GargoylACannonFakeProjAA:
+	Inherits: GargoylACannonFakeProj
+	ReloadDelay: 30
+	ValidTargets: Air
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 
 FalconPunch:
 	Inherits: ^BombWarhead
@@ -645,7 +665,7 @@ FalconPunch:
 	MinRange: 0c100
 	Range: 6c0
 	Projectile: Missile
-		TerrainHeightAware: True
+		TerrainHeightAware: true
 		CruiseAltitude: 6000
 		MinimumLaunchAngle: 255
 		MaximumLaunchAngle: 255
@@ -656,8 +676,8 @@ FalconPunch:
 		Shadow: true
 		Inaccuracy: 0c181
 		Image: DRAGON
-		HorizontalRateOfTurn: 40
-		VerticalRateOfTurn: 40
+		HorizontalRateOfTurn: 160
+		VerticalRateOfTurn: 160
 		RangeLimit: 28c291
 		Palette: effect
 		AllowSnapping: true
@@ -672,6 +692,10 @@ FalconPunch:
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, TiberiumDeath
 		Versus:
 			VehicleArmor: 100
+	Warhead@2Eff: CreateEffect
+		Explosions: gasexplo
+		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
+		ExplosionPalette: effect
 	Warhead@5Actor: SpawnActor
 		Actors: cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1
 		FallRate: 5000
@@ -687,7 +711,7 @@ ForgottenCannonWeapon:
 		ContrailLength: 10
 		ContrailColor: FFFFFF
 		ContrailWidth: 0c21
-		Blockable: False
+		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Damage: 4600
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -714,12 +738,12 @@ VeinholeEggElevator:
 	ReloadDelay: 800
 
 AITransportAimingDummyWeapon:
-	Inherits: ^FullDamage
-	ReloadDelay: 60
+	ReloadDelay: 20
 	MinRange: 2c0
 	Range: 4c0
 	ValidTargets: Ground, Water
 	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Damage: 0
+		Blockable: false
+	Warhead@NoDam: TargetDamage
 		ValidTargets: Ground, Water
+

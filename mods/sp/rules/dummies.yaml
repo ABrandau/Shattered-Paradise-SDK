@@ -9,106 +9,87 @@
 		Range: 3c0
 		Type: CenterPosition
 	Aircraft:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 0
-		CanHover: True
+		CanHover: true
 		IdealSeparation: 300
 		TakeOffOnResupply: true
-		LandWhenIdle: False
 		VTOL: true
-		CanSlide: True
+		CanSlide: true
 	HiddenUnderFog:
 		Type: CenterPosition
 	Interactable:
 	RenderSprites:
 		Image: dot
-	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
+	OwnerLostAction:
+		Action: Dispose
+
+## Used for absolute timer with best performance, on the ground and static
+## No image and sight, pls add those function yourself if want new functions
+^GROUNDDUMMY:
+	Inherits: ^1x1Shape
+	HiddenUnderFog:
+	Immobile:
+		OccupiesSpace: false
+	Health:
+		HP: 100
+		NotifyAppliedDamage: false
+	BodyOrientation:
+		QuantizedFacings: 1
+	RenderDebugState:
+	Interactable:
+	OwnerLostAction:
+		Action: Dispose
+
+BigFireSpawnerDummy:
+	Inherits: ^GROUNDDUMMY
+	ExplodeWeapon:
+		Weapon: BuildingFireBigShrapnel
+		ResetReloadWhenEnabled: false
+	Health:
+		HP: 30
+	ChangesHealth:
+		Step: -10
+		Delay: 5
+		StartIfBelow: 200
+
+SmallFireSpawnerDummy:
+	Inherits: BigFireSpawnerDummy
+	Health:
+		HP: 50
+	ExplodeWeapon:
+		Weapon: BuildingFireSmallShrapnel
+
+SmokeSpawnerDummy:
+	Inherits: BigFireSpawnerDummy
+	Health:
+		HP: 50
+	ExplodeWeapon:
+		Weapon: BuildingSmokeShrapnel
+
+ScrinBigFireSpawnerDummy:
+	Inherits: BigFireSpawnerDummy
+	ExplodeWeapon:
+		Weapon: ScrinBuildingFireBigShrapnel
+
+ScrinSmallFireSpawnerDummy:
+	Inherits: SmallFireSpawnerDummy
+	ExplodeWeapon:
+		Weapon: ScrinBuildingFireSmallShrapnel
 
 NukeCrateDummy:
 	Inherits: ^DUMMYAIRCRAFT
+	Inherits: ^HasNukePower
 	-RevealsShroud:
-	NukePower@CrateNuke:
-		Cursor: nuke
-		Icon: clustermissile
-		ChargeInterval: 9000
-		Description: Atomic Bomb
-		LongDesc: Launches a conventional warhead at a target location.\n\nSpecial:\n- Instant kills ground units and aircraft
-		BeginChargeSound:
-		EndChargeSound: SuperWeaponReady
-		EndChargeSpeechNotification: SuperWeaponReady
-		SelectTargetSound:
-		InsufficientPowerSound:
-		MissileWeapon: ClusterMissile
-		LaunchSpeechNotification: SuperweaponFired
-		IncomingSpeechNotification: SuperweaponFired
-		IncomingSound: SuperweaponFired
-		# IncomingSound: incomingnuke.wav
-		LaunchSound: n_swlaunch.aud
-		SpawnOffset: 0,427,0
-		DisplayTimerStances: Ally, Neutral, Enemy
-		DisplayTimer: True
-		DisplayBeacon: True
-		DisplayRadarPing: True
-		MissilePalette: player
-		IsPlayerPalette: True
-		BeaconPoster: minimltiicon
-		OrderName: CrateNuke
-		CameraActor: camera
-		CameraRange: 10c0
-		CameraSpawnAdvance: 25
-		CameraRemoveDelay: 350
-		ArrowSequence: arrow
-		ClockSequence: clock
-		CircleSequence: circles
-		FlightDelay: 200
-		OneShot: True
-		StartFullyCharged: True
-		SkipAscent: True
-		AllowMultiple: True
 
 HealerNukeDummy:
-	Inherits: ^DUMMYAIRCRAFT
-	-RevealsShroud:
+	Inherits: NukeCrateDummy
 	NukePower@CrateNuke:
-		Cursor: nuke
-		Icon: clustermissile
-		ChargeInterval: 9000
-		Description: Atomic Bomb
-		LongDesc: Launches a conventional warhead at a target location.\n\nSpecial:\n- Instant kills ground units and aircraft
-		BeginChargeSound:
-		EndChargeSound: SuperWeaponReady
-		EndChargeSpeechNotification: SuperWeaponReady
-		SelectTargetSound:
 		InsufficientPowerSound:
 		MissileWeapon: HealerNuke
-		LaunchSpeechNotification: SuperweaponFired
-		IncomingSpeechNotification: SuperweaponFired
-		IncomingSound: SuperweaponFired
-		# IncomingSound: incomingnuke.wav
-		LaunchSound: n_swlaunch.aud
-		SpawnOffset: 0,427,0
-		DisplayTimerStances: Ally, Neutral, Enemy
-		DisplayTimer: True
-		DisplayBeacon: True
-		DisplayRadarPing: True
-		MissilePalette: player
-		IsPlayerPalette: True
-		BeaconPoster: minimltiicon
 		OrderName: HealerNuke
-		CameraActor: camera
-		CameraRange: 10c0
-		CameraSpawnAdvance: 25
-		CameraRemoveDelay: 350
-		ArrowSequence: arrow
-		ClockSequence: clock
-		CircleSequence: circles
-		FlightDelay: 200
-		OneShot: True
-		StartFullyCharged: True
-		SkipAscent: True
-		AllowMultiple: True
 
 VISIONACTOR:
 	Inherits: ^DUMMYAIRCRAFT
@@ -116,10 +97,10 @@ VISIONACTOR:
 		Range: 3c0
 	Health:
 		HP: 50
-	SelfHealing:
+	ChangesHealth:
 		Step: -10
 		Delay: 10
-		HealIfBelow: 200
+		StartIfBelow: 200
 
 SWVISIONDUMMY:
 	Inherits: ^DUMMYAIRCRAFT
@@ -127,10 +108,10 @@ SWVISIONDUMMY:
 		Range: 7c0
 	Health:
 		HP: 7
-	SelfHealing:
+	ChangesHealth:
 		Step: -1
 		Delay: 25
-		HealIfBelow: 200
+		StartIfBelow: 200
 
 RADARSCANDUMMY:
 	Inherits: ^DUMMYAIRCRAFT
@@ -138,12 +119,6 @@ RADARSCANDUMMY:
 		CruiseAltitude: 1
 	RevealsShroud:
 		Range: 8c0
-	Health:
-		HP: 10
-	SelfHealing:
-		Step: -1
-		Delay: 25
-		HealIfBelow: 200
 	WithSpriteBody:
 		Sequence: idle
 	-Tooltip:
@@ -152,23 +127,19 @@ RADARSCANDUMMY:
 		Palette: radarscanpalette
 
 IONBEAMTARGET:
-	Inherits: ^DUMMYAIRCRAFT
-	Inherits@3: ^1x1Shape
+	Inherits: ^GROUNDDUMMY
 	Tooltip:
 		Name: Target
 	Health:
 		HP: 50
-	SelfHealing:
+	ChangesHealth:
 		Step: -10
 		Delay: 25
-		HealIfBelow: 200
+		StartIfBelow: 200
 	Targetable:
 		TargetTypes: IonSpawner
-	Selectable:
-		Bounds: 1,1
 	ShakeOnDeath:
-	RejectsOrders@berserk:
-		RequiresCondition: !lawea
+	RejectsOrders:
 	RevealsShroud:
 		Range: 3c0
 	RenderSprites:
@@ -178,7 +149,7 @@ IONBEAMTARGET:
 		Radius: 4c0
 	AmbientSound:
 		SoundFiles: sparlo4a.wav, sparlo4b.wav, sparlo4c.wav, sparlo4d.wav, sparlo4e.wav
-		Interval: 15
+		Interval: 19
 
 IONBEAMMINI:
 	Inherits: ^DUMMYAIRCRAFT
@@ -188,18 +159,18 @@ IONBEAMMINI:
 		ValidStances: Ally
 	Aircraft:
 		CruiseAltitude: 1
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Repulsable: false
-		AltitudeVelocity: 400
-		Speed: 43
+		AltitudeVelocity: 4000
+		Speed: 74
 		MoveIntoShroud: true
 	-Tooltip:
 	Health:
 		HP: 50
-	SelfHealing:
+	ChangesHealth:
 		Step: -10
 		Delay: 25
-		HealIfBelow: 200
+		StartIfBelow: 200
 	RevealsShroud:
 		Range: 3c0
 	AttackAircraft:
@@ -218,69 +189,94 @@ IONBEAMMINI:
 	WithDeathAnimation:
 		DeathSequencePalette: effectalpha
 		DeathPaletteIsPlayerPalette: false
-	RejectsOrders@berserk:
-		RequiresCondition: !lawea
+	RejectsOrders:
 	RenderSprites:
 		Palette: effectalpha
-	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
-	WithSpriteBody:
-		Sequence: beamsky
+	WithSpriteBody@0:
+		Sequence: beamsky0
+		Name: body0
 	WithSpriteBody@1:
-		Sequence: beamsky2
+		Sequence: beamsky1
+		Name: body1
 	WithSpriteBody@2:
-		Sequence: beamsky3
+		Sequence: beamsky2
+		Name: body2
 	WithSpriteBody@3:
-		Sequence: beamsky4
+		Sequence: beamsky3
+		Name: body3
 	WithSpriteBody@4:
-		Sequence: beamsky5
+		Sequence: beamsky4
+		Name: body4
 	WithSpriteBody@5:
-		Sequence: beamsky6
+		Sequence: beamsky5
+		Name: body5
 	WithSpriteBody@6:
-		Sequence: beamsky7
+		Sequence: beamsky6
+		Name: body6
 	WithSpriteBody@7:
-		Sequence: beamsky8
+		Sequence: beamsky7
+		Name: body7
 	WithSpriteBody@8:
-		Sequence: beamsky9
+		Sequence: beamsky8
+		Name: body8
 	WithSpriteBody@9:
-		Sequence: beamsky10
+		Sequence: beamsky9
+		Name: body9
 	WithSpriteBody@10:
 		Sequence: beamsky10
-	WithSpriteBody@12:
+		Name: body10
+	WithSpriteBody@11:
 		Sequence: beamsky11
-	WithSpriteBody@13:
+		Name: body11
+	WithSpriteBody@12:
 		Sequence: beamsky12
-	WithSpriteBody@14:
+		Name: body12
+	WithSpriteBody@13:
 		Sequence: beamsky13
-	WithSpriteBody@15:
+		Name: body13
+	WithSpriteBody@14:
 		Sequence: beamsky14
-	WithSpriteBody@16:
+		Name: body14
+	WithSpriteBody@15:
 		Sequence: beamsky15
-	WithSpriteBody@17:
+		Name: body15
+	WithSpriteBody@16:
 		Sequence: beamsky16
-	WithSpriteBody@18:
+		Name: body16
+	WithSpriteBody@17:
 		Sequence: beamsky17
-	WithSpriteBody@19:
+		Name: body17
+	WithSpriteBody@18:
 		Sequence: beamsky18
-	WithSpriteBody@20:
+		Name: body18
+	WithSpriteBody@19:
 		Sequence: beamsky19
-	WithSpriteBody@21:
+		Name: body19
+	WithSpriteBody@20:
 		Sequence: beamsky20
-	WithSpriteBody@22:
+		Name: body20
+	WithSpriteBody@21:
+		Sequence: beamsky21
+		Name: body21
+	WithSpriteBody@m1:
 		Sequence: muzzle
-	WithSpriteBody@23:
+		Name: m1
+	WithSpriteBody@m2:
 		Sequence: muzzle2
+		Name: m2
 	ExplodeWeapon:
 		Weapon: IonScorch
 	HiddenUnderFog:
 		AlwaysVisibleStances: Ally, Enemy, Neutral
+	
 
 IONBEAMROAMER:
-	Inherits: ^DUMMYAIRCRAFT
+	Inherits: ^GROUNDDUMMY
 	Aircraft:
 		CruiseAltitude: 0
-		TurnSpeed: 20
+		TurnSpeed: 80
 		Repulsable: false
 		AltitudeVelocity: 400
 		Speed: 25
@@ -289,17 +285,16 @@ IONBEAMROAMER:
 		Range: 3c0
 	Health:
 		HP: 75
-	SelfHealing:
+	ChangesHealth:
 		Step: -1
 		Delay: 15
-		HealIfBelow: 200
+		StartIfBelow: 200
 	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
 	AttackMove:
 	AttackWander:
-	RejectsOrders@berserk:
-		RequiresCondition: !lawea
+	RejectsOrders:
 	RenderSprites:
 		Image: ionbeam
 		Palette: effectalpha
@@ -324,15 +319,14 @@ IONBEAMROAMER:
 		Weapon: IonScorch
 
 KILLEDACTOR:
-	Inherits: ^DUMMYAIRCRAFT
-	SelfHealing:
+	Inherits: ^GROUNDDUMMY
+	ChangesHealth:
 		Step: -25
-		# PercentageStep: -50
-		HealIfBelow: 110
+		StartIfBelow: 110
 		RequiresCondition: !nanomachineburst
 	Health:
 		HP: 50
-		NotifyAppliedDamage: False
+		NotifyAppliedDamage: false
 	Targetable@asdf:
 		TargetTypes: KilledUnit
 	SpawnActorOnDeath@workerspawn:
@@ -345,22 +339,19 @@ KILLEDACTOR:
 		Condition: nanomachineburst
 
 NANOMACHINEBURSTSPAWNER:
-	Inherits: ^DUMMYAIRCRAFT
-	RenderSprites:
-		Image: blackhanddummy
-	SelfHealing:
+	Inherits: ^GROUNDDUMMY
+	ChangesHealth:
 		Step: -10
-		HealIfBelow: 200
-	-Tooltip:
+		StartIfBelow: 200
 	Health:
 		HP: 5
-		NotifyAppliedDamage: False
+		NotifyAppliedDamage: false
 	SpawnActorOnDeath@workerspawn:
 		Actor: NANOMACHINEBURSTDUMMY
 		Probability: 100
 		RequiresLobbyCreeps: false
 		SkipMakeAnimations: false
-		EffectiveOwnerFromOwner: True
+		EffectiveOwnerFromOwner: true
 		OwnerType: Victim
 	AmbientSound:
 		SoundFiles: nanomachine0000.wav, nanomachine0001.wav, nanomachine0002.wav, nanomachine0003.wav, nanomachine0004.wav
@@ -372,17 +363,17 @@ NANOMACHINEBURSTDUMMY:
 	Inherits@1: ^AutoTargetAll
 	Aircraft:
 		CruiseAltitude: 1
-	SelfHealing:
+	ChangesHealth:
 		Step: -1
 		Delay: 25
-		HealIfBelow: 200
+		StartIfBelow: 200
 	-Tooltip:
 	RenderSprites:
 		Image: nanomachineswarmdummy
 		Palette: apolgreyalpha
 	Health:
 		HP: 20
-		NotifyAppliedDamage: False
+		NotifyAppliedDamage: false
 	RevealsShroud:
 		Range: 8c0
 	ProximityExternalCondition:
@@ -398,100 +389,107 @@ NANOMACHINEBURSTDUMMY:
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: KilledUnit
 	AttackOmni:
-		IngoresVisibility: True
 	Armament:
 		Weapon: RecoveryGun
 		TargetStances: Ally, Enemy, Neutral
 	AutoTarget:
 
-EGGSPAWNER:
-	Inherits: ^DUMMYAIRCRAFT
-	Tooltip:
-		Name: Fire
-	-RevealsShroud:
-	Health:
-		HP: 1
-	SelfHealing:
-		Step: -10
-		Delay: 25
-		HealIfBelow: 200
-	SpawnActorOnDeath@workerspawn:
-		Actor: EGGS
-		Probability: 100
-		OwnerType: Victim
-
 VEINHOLESPAWNERDUMMY:
-	Inherits: ^Infantry
-	-Targetable:
-	-UpdatesPlayerStatistics:
-	-SelectionDecorations:
-	-Selectable:
-	-ActorLostNotification:
-	RenderSprites:
-		Image: blackhanddummy
-	SelfHealing:
+	Inherits: ^GROUNDDUMMY
+	ChangesHealth:
 		Step: -10
-		HealIfBelow: 200
+		StartIfBelow: 200
 	Health:
 		HP: 5
-		NotifyAppliedDamage: False
+		NotifyAppliedDamage: false
 	SpawnActorOnDeath@cabalcrate:
 		Actor: MINIVEIN
 		Probability: 100
-		OwnerType: Victim
+		OwnerType: InternalName
+		InternalOwner: Creeps
 		RequiresLobbyCreeps: true
 		SkipMakeAnimations: false
-	-SpawnActorOnDeath@nanomachineburst:
-	Interactable:
+	SpawnActorOnDeath@camera:
+		Actor: FOGCAMERADUMMY
+		Probability: 100
+		OwnerType: Victim
+
+FOGCAMERADUMMY:
+	Inherits: ^GROUNDDUMMY
+	ExternalCondition@sustaincamera:
+		Condition: sustaincamera
+	Health:
+		HP: 50
+		NotifyAppliedDamage: false
+	ChangesHealth:
+		Step: -25
+		StartIfBelow: 200
+		DamageCooldown: 25
+		RequiresCondition: !sustaincamera
+	RevealsShroud:
+		Type: CenterPosition
+		MaxHeightDelta: 3
+		Range: 4c0
+	ExplodeWeapon@1:  ## Because now some weapon cannot used on creeps so here we are
+		Weapon: VeinholeAttack
+	OwnerLostAction: ## For sustain the cloud when owner is dead (to Netural on defualt)
+		Action: ChangeOwner
 
 INFTIBSPAWN:
-	Inherits: ^DUMMYAIRCRAFT
-	ConditionManager:
-	Tooltip:
-		Name: Fire
-	-RevealsShroud:
+	Inherits: ^GROUNDDUMMY
 	Health:
 		HP: 30
-	SelfHealing:
+	ChangesHealth:
 		Step: -30
 		Delay: 25
-		HealIfBelow: 200
-	Explodes:
-		Weapon: SpawnZombie
-		EmptyWeapon: SpawnZombie
-		RequiresCondition: zombie
-	Explodes@Visc:
-		Weapon: SpawnVisc
-		EmptyWeapon: SpawnVisc
-		RequiresCondition: visc
+		StartIfBelow: 200
 	GrantRandomCondition:
-		Conditions:	visc, zombie
+		Conditions: visc, zombie
+	SpawnActorOnDeath@zombie:
+		RequiresCondition: zombie
+		Actor: zombie
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		RequiresLobbyCreeps: true
+		SkipMakeAnimations: false
+	SpawnActorOnDeath@visc:
+		RequiresCondition: visc
+		Actor: visc_sml
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		RequiresLobbyCreeps: true
+		SkipMakeAnimations: false
+
 
 VEHICLETIBSPAWN:
 	Inherits: INFTIBSPAWN
-	Explodes:
-		Weapon: SpawnBerserker
+	SpawnActorOnDeath@zombie:
+		Actor: berserker
+	SpawnActorOnDeath@visc:
+		Actor: visc_lrg
 
 SCRINESSENCESMALL:
 	Inherits: ^DUMMYAIRCRAFT
-	SelfHealing:
+	ChangesHealth:
 		Step: -1
 		Delay: 50
-		HealIfBelow: 200
+		StartIfBelow: 200
 	-Tooltip:
 	Targetable@Esscence:
 		TargetTypes: ScrinEssence
 	AttackMove:
 	Aircraft:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 30
 		CruiseAltitude: 1
 		TakeOffOnCreation: false
 	Health:
 		HP: 2
-		NotifyAppliedDamage: False
+		NotifyAppliedDamage: false
 	Turreted:
-		TurnSpeed: 99
+		TurnSpeed: 396
 	RevealsShroud:
 	RenderSprites:
 		Image: scrinessencesmall

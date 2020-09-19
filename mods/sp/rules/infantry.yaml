@@ -73,6 +73,7 @@ GRENADIER:
 MEDIC:
 	Inherits@1: ^Soldier
 	Inherits@2: ^5CellVision
+	Inherits@3: ^LowPrioritySelectionMode
 	Valued:
 		Cost: 200
 	Tooltip:
@@ -106,7 +107,7 @@ MEDIC:
 	AttackFrontal:
 		FacingTolerance: 2
 	Passenger:
-		PipType: Red
+		CustomPipType: red
 	-GainsExperience:
 
 JUMPJET:
@@ -124,19 +125,22 @@ JUMPJET:
 	Mobile:
 		Speed: 60
 	Health:
-		HP: 9000
+		HP: 11000
 	Transforms:
 		IntoActor: jumpjetair
 		RequiresCondition: !inside-tunnel
+		PauseOnCondition: WebDisable
 	Armament@1:
 		Weapon: JJGroundGrenade
+		LocalOffset: 300,0,900
 		PauseOnCondition: WebDisable
 		Name: OnFoot
 	Armament@2:
 		Weapon: GJJGrenade
+		LocalOffset: 300,0,900
 		PauseOnCondition: WebDisable
 	Passenger:
-		PipType: Blue
+		CustomPipType: blue
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -157,7 +161,7 @@ JUMPJETAIR:
 		Queue: Infantry
 		BuildPaletteOrder: 5
 		Prerequisites: ~gapile, garadr
-		Description: Soldiers with jetpacks armed with a grenade launcher.\n\nGood vs: Infantry, Structures.\n\nSpecial:\n- Can fly\n- Will land when ordered to deploy\n- Can shoot over walls
+		Description: Soldiers with jetpacks armed with a disc grenade launcher.\n\nGood vs: Infantry, Structures.\n\nSpecial:\n- Can fly\n- Will land when ordered to deploy\n- Can shoot over walls\n- Disc Grenade bounces twice after missing the target
 	Voiced:
 		VoiceSet: Jumpjet
 		Volume: 8
@@ -172,9 +176,10 @@ JUMPJETAIR:
 			TopLeft: -250, -250
 			BottomRight: 250, 250
 	Health:
-		HP: 9000
+		HP: 11000
 	Armament@1:
 		Weapon: JJGrenade
+		LocalOffset: 300,0,1000
 	Transforms:
 		IntoActor: jumpjet
 	Armor:
@@ -183,41 +188,41 @@ JUMPJETAIR:
 		RequiresCondition: !JJBuff
 		Sequence: run
 	WithFacingSpriteBody@attack:
+		Name: Body1
 		Sequence: shoot
 		RequiresCondition: JJBuff
 	-Repairable:
-	RenderSprites:
 	WithShadow:
 	Hovers@CRUISING:
 		RequiresCondition: cruising
 	Aircraft:
-		TurnSpeed: 10
+		TurnSpeed: 40
 		Speed: 130
 		AirborneCondition: airborne
 		CruisingCondition: cruising
 		CruiseAltitude: 2c500
 		IdealSeparation: 1c0
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
-		LandWhenIdle: False
 		CanHover: true
 		Repulsable: true
 		MoveIntoShroud: true
 		TakeOffOnResupply: true
 		VTOL: true
-		CanSlide: True
+		CanSlide: true
 	Targetable@GROUND:
 		TargetTypes: Infantry, Ground
 		RequiresCondition: !airborne
 	Targetable@AIRBORNE:
 		TargetTypes: Air, Helicopter, Jumpjet
 		RequiresCondition: airborne
+	TimedConditionBar@powershot:
+		Condition: JJBuff
+		Color: FFFFFF
 	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
 		AttackType: Hover
-	Armament@SelfBuff:
-		Weapon: JJBuff
-	ExternalCondition@JJBuff:
+	GrantConditionOnAttack:
 		Condition: JJBuff
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
@@ -225,6 +230,8 @@ JUMPJETAIR:
 	-GrantConditionOnDamageState@spawnsparks:
 	-ExplodeWeapon@spawnsparks:
 	-ExternalCondition@spawnsparks:
+	QuantizeFacingsFromSequence:
+		Sequence: stand
 
 EAGLEGUARD:
 	Inherits: ^Soldier
@@ -335,7 +342,7 @@ CRUSADER:
 		Armaments: OnFoot
 	Turreted:
 	Passenger:
-		PipType: Blue
+		CustomPipType: blue
 	RenderSprites:
 
 TEMPLAR:
@@ -359,11 +366,6 @@ TEMPLAR:
 		Volume: 5
 	Mobile:
 		Speed: 70
-		TerrainSpeeds:
-			Tiberium: 70
-				PathingCost: 70
-			BlueTiberium: 70
-				PathingCost: 70
 	Armament@1:
 		Weapon: TemplarFlame
 		LocalOffset: 200,50,320
@@ -428,7 +430,7 @@ NCONF:
 		DeployedCondition: HologramSpawn
 		CooldownTicks: 4000
 		DeployedTicks: 10
-		StartsFullyCharged: True
+		StartsFullyCharged: true
 	ExternalCondition@MineSpawn:
 		Condition: HologramSpawn
 	ExplodeWeapon@1:
@@ -441,9 +443,9 @@ NCONF:
 		Weapon: TickHoloShrapnel
 		RequiresCondition: HologramSpawn
 	AIDeployHelper:
-		DeployChance : 100
-		DeployTicks : 4000
-		UndeployTicks : 1
+		DeployChance: 100
+		DeployTicks: 4000
+		UndeployTicks: 1
 
 BHS:
 	Inherits: ^Soldier
@@ -452,7 +454,7 @@ BHS:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 10
-		Description: Kanes Elite Commando armed with a Toxin sniper rifle.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes strcutures with C4\n- Shots fired release toxins that slow nearby units.\n- Cloacks when idling\n- Cannot be mindcontrolled\n- Crush class: crushable
+		Description: Kanes Elite Commando armed with a Toxin sniper rifle.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes strcutures with C4\n- Shots fired release toxins that slow nearby units.\n- Cloaks when idling\n- Cannot be mindcontrolled\n- Crush class: crushable
 		Prerequisites: ~nahand, natech
 		BuildLimit: 1
 	Valued:
@@ -461,20 +463,13 @@ BHS:
 		Name: Toxin Commando
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	Targetable@MindControlImmunity:
-		TargetTypes: MindControlInmune
-	Targetable@MCImmune:
-		TargetTypes: MCImmune
+	Targetable@MindControl:
+		TargetTypes: MindControlImmune
 	-TakeCover:
 	Health:
 		HP: 25000
 	Mobile:
 		Speed: 75
-		TerrainSpeeds:
-			Tiberium: 70
-				PathingCost: 70
-			BlueTiberium: 70
-				PathingCost: 70
 	Voiced:
 		VoiceSet: Oxanna
 	Armament@1:
@@ -502,9 +497,9 @@ BHS:
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage, move
 	Passenger:
-		PipType: red
+		CustomPipType: red
 	SharedPassenger:
-		PipType: red
+		CustomPipType: red
 	RenderSprites:
 	-DamagedByTerrain:
 
@@ -518,11 +513,15 @@ FlameHologram:
 		Image: altnode1
 	EditorOnlyTooltip:
 		Name: Militant Hollogram
+	AutoTarget:
+		ScanRadius: 6
+		InitialStance: AttackAnything
 
 MARAUDER:
 	Inherits: ^Mutant
 	Inherits@1: ^MutRender
 	Inherits@2: ^6CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 11
@@ -536,7 +535,7 @@ MARAUDER:
 		AddToArmyValue: true
 	Voiced:
 		VoiceSet: Marauder
-		Volume: 8
+		Volume: 7
 	Health:
 		HP: 10000
 	AutoTarget:
@@ -563,10 +562,9 @@ MARAUDER:
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
-		DeployAnimation: make
 		CanDeployOnRamps: true
 		SmartDeploy: true
-		Facing: 160
+		Facing: 640
 		DeploySounds:
 		UndeploySounds:
 		UndeployOnMove: true
@@ -581,8 +579,8 @@ MARAUDER:
 	WithMakeAnimation:
 		BodyNames: dot
 	Turreted:
-		TurnSpeed: 50
-		InitialFacing: 160
+		TurnSpeed: 200
+		InitialFacing: 640
 		RealignDelay: -1
 		Turret: Marauderturr
 	WithSpriteTurret@idle:
@@ -620,7 +618,7 @@ MARAUDER:
 	AIDeployHelper:
 		DeployChance: 100
 		DeployTrigger: Attack
-		DeployTicks : 0
+		DeployTicks: 0
 	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
@@ -659,10 +657,12 @@ MUTFIEND:
 		Weapon: FiendShard2
 		Name: OnFoot
 		PauseOnCondition: WebDisable
+		LocalOffset: 500, 0, 700
 	Armament@AA:
 		Weapon: FiendShardAA
 		Name: OnFoot
 		PauseOnCondition: WebDisable
+		LocalOffset: 500, 0, 700
 	Armament@Garrison:
 		Weapon: GFiendShard2
 	Armament@AAGarrison:
@@ -685,6 +685,23 @@ MUTFIEND:
 			EnergyDeath: 1, 2
 			FireDeath: 1, 2
 			MilitantFireDeath: 1, 2
+	WithInfantryBody:
+		IdleSequences: idle1
+ 	WithDeathAnimation@blood1:
+		DeathSequencePalette: jasccyan
+		CrushedSequencePalette: jasccyan
+	WithDeathAnimation@body:
+		Delay: 15
+		DeathSequencePalette: player
+		DeathTypes:
+			BulletDeath: body1
+			CabalDeath: body1
+			CabalDeathCrate: body1
+			BlackHandRfle: body1
+			HeadshotDeath: body1
+			SmallExplosionDeath: body1
+			EnergyDeath: body1
+			ExplosionDeath: body1
 
 E2:
 	Inherits@1: ENGINEER
@@ -704,7 +721,7 @@ E2:
 		Voice: Move
 		Speed: 50
 	WithInfantryBody:
-		AttackSequence: throw
+		AttackSequences: throw
 	Mobile:
 		Locomotor: TibInmuneInfantry
 	RenderSprites:
@@ -746,11 +763,11 @@ E3:
 		Weapon: GSkirmisherMortar
 		LocalOffset: 128,0,640
 	Passenger:
-		PipType: Blue
+		CustomPipType: blue
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
-		TargetFrozenActors: True
+		TargetFrozenActors: true
 		FacingTolerance: 2
 	-DamagedByTintedCells@Default:
 
@@ -805,7 +822,7 @@ SEER:
 		DeployedCondition: deployed
 		CooldownTicks: 2000
 		DeployedTicks: 60
-		StartsFullyCharged: True
+		StartsFullyCharged: true
 		PauseOnCondition: WebDisable
 	ExplodeWeapon:
 		Weapon: SeerTyranyBuff
@@ -814,10 +831,10 @@ SEER:
 		Weapon: SeerTyranyInstakillSpawn
 		RequiresCondition: deployed
 	AIDeployHelper:
-		DeployChance : 50
-		DeployTicks : 2000
-		UndeployTicks : 1
-		DeployTrigger : Attack
+		DeployChance: 50
+		DeployTicks: 2000
+		UndeployTicks: 1
+		DeployTrigger: Attack
 
 PSYKER:
 	Inherits: ^Mutant
@@ -845,7 +862,7 @@ PSYKER:
 	Mobile:
 		Speed: 60
 	Targetable@MindControlImmunity:
-		TargetTypes: MindControlInmune
+		TargetTypes: MindControlImmune
 	Armament@PRIMARY:
 		Weapon: PsykerRay
 		Name: OnFoot
@@ -855,12 +872,12 @@ PSYKER:
 		Weapon: GPsykerRay
 		LocalOffset: 128,0,640
 	Passenger:
-		PipType: red
+		CustomPipType: red
 	SharedPassenger:
-		PipType: red
+		CustomPipType: red
 	AttackFrontal:
 		Voice: Attack
-		Armament: OnFoot
+		Armaments: OnFoot
 		FacingTolerance: 2
 
 SHARK:
@@ -935,7 +952,7 @@ LEGIO:
 	Health:
 		HP: 9500
 	Passenger:
-		PipType: Blue
+		CustomPipType: blue
 	Armament:
 		Weapon: LegioNeedler
 		LocalOffset: 350,200,800
@@ -1043,7 +1060,7 @@ FLOAT:
 	-ReloadDelayMultiplier@RANK-2:
 	-ReloadDelayMultiplier@RANK-ELITE:
 	-SpeedMultiplier@RANK-ELITE:
-	-SelfHealing@ELITE:
+	-ChangesHealth@ELITE:
 	-WithDecoration@RANK-1:
 	-WithDecoration@RANK-2:
 	-WithDecoration@RANK-ELITE:
@@ -1066,7 +1083,7 @@ BUG:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Targetable@MindControlImmunity:
-		TargetTypes: MindControlInmune
+		TargetTypes: MindControlImmune
 	-SpawnActorOnDeath@FLAMEGUY:
 	-SpawnActorOnDeath@FLAMEGUY2:
 	WithDeathAnimation@normal:
@@ -1157,19 +1174,18 @@ COLOSSI:
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
-		DeployAnimation: make
-		Facing: 160
+		Facing: 640
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Green, Tiberium, BlueTiberium, Veins
 		DeploySounds:
 		UndeploySounds:
 		SmartDeploy: true
 		UndeployOnMove: true
-		CanDeployOnRamps: True
+		CanDeployOnRamps: true
 		RequiresCondition: !inside-tunnel
+	WithMakeAnimation:
 	WithInfantryBody:
 		RequiresCondition: undeployed &&  !WebDisable && !inside-tunnel
 	WithSpriteBody@deployed:
-		StandSequences: deployed
 		Sequence: deployed
 		RequiresCondition: !undeployed
 	ExplodeWeapon@1:
@@ -1183,9 +1199,10 @@ COLOSSI:
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: deployed
- 
+
 COLOSSI_CHRONO:
 	Inherits: COLOSSI
+	Inherits@AImicroManagable: ^AImicroManagable
 	-Buildable:
 	Selectable:
 		Class: colossi
@@ -1208,10 +1225,10 @@ COLOSSI_CHRONO:
 		PauseOnCondition: WebDisable
 		Name: OnFoot
 	AIDeployHelper:
-		DeployChance : 100
-		DeployTicks : 0
-		UndeployTicks : 250
-		DeployTrigger : Attack
+		DeployChance: 100
+		DeployTicks: 0
+		UndeployTicks: 250
+		DeployTrigger: Attack
 	RenderSprites:
 		Image: colossi
 	## TODO: needs updating when engine upgrade
@@ -1261,7 +1278,6 @@ CABSENTRY:
 	AutoTarget:
 		ScanRadius: 8
 		InitialStance: AttackAnything
-		FacingTolerance: 2
 	-Armor:
 	Armor@2:
 		Type: VehicleArmor
@@ -1370,12 +1386,8 @@ SWARMLING:
 		Weapon: DroneExplode
 		EmptyWeapon: DroneExplode
 	-DamagedByTerrain:
-	Mobile:
-		TerrainSpeeds:
-			Tiberium: 70
-				PathingCost: 50
-			BlueTiberium: 70
-				PathingCost: 50
+	WithInfantryBody:
+		-IdleSequences:
 	RenderSprites:
 		Image: swarmling
 		-FactionImages:
@@ -1390,6 +1402,7 @@ SWARMLING:
 	-SpawnActorOnDeath@FLAMEGUY:
 	-SpawnActorOnDeath@FLAMEGUY2:
 	-SpawnActorOnDeath@conversion:
+ 	-WithDeathAnimation@blood1:
 
 PDRONE:
 	Inherits: ^CabalDroneInfantry
@@ -1443,21 +1456,26 @@ PDRONE:
 			MilitantFireDeath: 1, 2
 	WithDeathAnimation@explosion:
 		DeathSequencePalette: effect
-		DeathPaletteIsPlayerPalette: False
+		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
 			ExplosionDeath: 4
 	WithDeathAnimation@energy:
 		DeathSequencePalette: ra
-		DeathPaletteIsPlayerPalette: False
+		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
 			EnergyDeath: 6
 	-WithIdleOverlay@web:
 	-ExternalCondition@WebDisable:
+	-WithDeathAnimation@body:
 	KillsSelf@hoverunitonwater:
 		RequiresCondition: hoverunitonwater && WebDisable
 	GrantConditionOnTerrain:
 		Condition: hoverunitonwater
 		TerrainTypes: Water
+	Explodes:
+		Weapon: DroneExplode
+		EmptyWeapon: DroneExplode
+	-WithDeathAnimation@tib:
 
 GLAD:
 	Inherits: ^Cyborg
@@ -1477,7 +1495,7 @@ GLAD:
 	Selectable:
 		Bounds: 35,30,0,-10
 	Passenger:
-		PipType: Blue
+		CustomPipType: blue
 	WithMuzzleOverlay:
 	Mobile:
 		Speed: 50
@@ -1516,6 +1534,7 @@ MOTH:
 	Inherits@1: ^CabRender
 	Inherits@2: ^8CellVision
 	Inherits@3: ^PermanentSelfHeal
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -1562,7 +1581,7 @@ MOTH:
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
-		Facing: 160
+		Facing: 640
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Tiberium, BlueTiberium
 		DeploySounds: place2.aud
 		UndeploySounds: clicky1.aud
@@ -1589,10 +1608,10 @@ MOTH:
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 	WithMakeAnimation:
-	WithFacingSpriteBody:
+	WithFacingSpriteBody@UndeloyedBody:
 		Sequence: idle
 		RequiresCondition: !deployed && !inside-tunnel
-	WithSpriteBody:
+	WithSpriteBody@DeloyedBody:
 		Sequence: deployed
 		RequiresCondition: !undeployed
 	-WithInfantryBody:
@@ -1609,7 +1628,7 @@ MOTH:
 		RequiresCondition: AImicroManage || deployed
 		PauseOnCondition: WebDisable
 		Armaments: OnFoot
-	Armament@AIAimOnly
+	Armament@AIAimOnly:
 		RequiresCondition: AImicroManage && !deployed
 		Weapon: LurkerAimDummyWeapon
 		Name: OnFoot
@@ -1618,8 +1637,8 @@ MOTH:
 	-WithIdleOverlay@web:
 	-Crushable:
 	AIDeployHelper:
-		DeployChance : 100
-		DeployTicks : 0
+		DeployChance: 100
+		DeployTicks: 0
 
 CYC2:
 	Inherits: ^Cyborg
@@ -1646,10 +1665,8 @@ CYC2:
 		Speed: 50
 	Health:
 		HP: 100000
-	Targetable@MindControlImmunity:
-		TargetTypes: MindControlInmune
-	Targetable@MCImmune:
-		TargetTypes: MCImmune
+	Targetable@MindControl:
+		TargetTypes: MindControlImmune
 	Armament:
 		Weapon: CyCannon
 		LocalOffset: 170,85,683
@@ -1662,11 +1679,10 @@ CYC2:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
-		RequiresCondition: !Moving
 	Passenger:
-		PipType: red
+		CustomPipType: red
 	SharedPassenger:
-		PipType: red
+		CustomPipType: red
 	SelectionDecorations:
 	Selectable:
 		DecorationBounds: 16,32,-1,-12
@@ -1701,6 +1717,8 @@ WORKER:
 	-SpawnActorOnDeath@nanomachineburst:
 	-SpawnActorOnDeath@conversion:
 	-DamagedByTerrain:
+	DeliversCash:
+		Payload: 75
 
 CYBDOG:
 	Inherits: ^Soldier
@@ -1737,6 +1755,8 @@ CYBDOG:
 	-SpawnActorOnDeath@nanomachineburst:
 	-SpawnActorOnDeath@conversion:
 	-DamagedByTerrain:
+	DeliversCash:
+		Payload: 75
 
 FLAMEGUY:
 	Inherits@1: ^ExistsInWorld
@@ -1750,10 +1770,10 @@ FLAMEGUY:
 		IdleSequences: run
 	Health:
 		HP: 160
-	SelfHealing:
+	ChangesHealth:
 		PercentageStep: -5
 		Step: 0
-		HealIfBelow: 101
+		StartIfBelow: 101
 	ScaredyCat:
 	WithDeathAnimation:
 		FallbackSequence: die

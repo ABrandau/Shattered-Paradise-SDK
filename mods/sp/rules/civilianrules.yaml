@@ -2,7 +2,6 @@ GHOST:
 	Inherits: ^Mutant
 	Tooltip:
 		Name: Ghost Stalker
-		Description: Elite commando infantry, armed with\na railgun and C4.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4\nMaximum 1 can be trained.
 	Voiced:
 		VoiceSet: Ghost
 	Mobile:
@@ -24,7 +23,7 @@ GHOST:
 		DetonationDelay: 45
 		Voice: Attack
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 WEEDGUY:
 	Inherits: ^Soldier
@@ -64,7 +63,7 @@ UMAGON:
 		Voice: Attack
 		PauseOnCondition: WebDisable
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 CHAMSPY:
 	Inherits: ^Soldier
@@ -84,17 +83,15 @@ CHAMSPY:
 		Image: pips
 		Sequence: pip-disguise
 		Palette: pips
-		ReferencePoint: Top, Right
-		ZOffset: 256
+		Position: TopRight
 		RequiresCondition: disguise
-		ConditionMinEnabledLevel: 1
 	Infiltrates:
 		Types: SpyInfiltrate
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 MUTANT:
 	Inherits: ^Mutant
@@ -114,7 +111,7 @@ MUTANT:
 		Voice: Attack
 		PauseOnCondition: WebDisable
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 MWMN:
 	Inherits: ^Mutant
@@ -134,7 +131,7 @@ MWMN:
 		Voice: Attack
 		PauseOnCondition: WebDisable
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 MUTANT3:
 	Inherits: ^Mutant
@@ -154,7 +151,7 @@ MUTANT3:
 		Voice: Attack
 		PauseOnCondition: WebDisable
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 TRATOS:
 	Inherits: ^Mutant
@@ -172,7 +169,7 @@ TRATOS:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 OXANNA:
 	Inherits: ^Soldier
@@ -190,7 +187,7 @@ OXANNA:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 SLAV:
 	Inherits: ^Soldier
@@ -208,361 +205,12 @@ SLAV:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
 	WithInfantryBody:
-		AttackSequence: shoot
-
-DOGGIE:
-	Inherits: ^Beast
-	Tooltip:
-		Name: Tiberian Fiend
-	Health:
-		HP: 250
-		Shape: Circle
-			Radius: 213
-	Armor:
-		Type: InfantryArmor
-	-RevealsShroud:
-	-GainsExperience:
-	Mobile:
-		Speed: 120
-		Crushes: nada
-	Voiced:
-		VoiceSet: Fiend
-	Targetable:
-		TargetTypes: Infantry, Ground
-	Armament:
-		Weapon: FiendShard
-	AttackFrontal:
-		Voice: Attack
-		PauseOnCondition: WebDisable
-	AttackWander:
-		WanderMoveRadius: 2
-		MinMoveDelay: 25
-		MaxMoveDelay: 45
-
-VISC_SML:
-	Inherits: ^Visceroid
-	Tooltip:
-		Name: Baby Visceroid
-	Health:
-		HP: 15000
-	Armor:
-		Type: InfantryArmor
-	AttackWander:
-		WanderMoveRadius: 3
-		MinMoveDelay: 30
-		MaxMoveDelay: 60
-		RequiresCondition: !Evolve
-	Targetable@MindControl:
-		TargetTypes: MindControlInmune
-	RenderSprites:
-		Image: vissml
-	Targetable@ViscMale:
-		TargetTypes: ViscMale
-	Mobile:
-		Crushes: nada
-	TransformOnCondition:
-		IntoActor: visc_lrg
-		RequiresCondition: Transform
-	GrantPeriodicCondition:
-		Condition: Transform
-		CooldownDuration: 1000
-	-AutoTarget:
-	-AutoTargetPriority@DEFAULT:
-	-AutoTargetPriority@ATTACKANYTHING:
-
-VISC_LRG:
-	Inherits: ^Visceroid
-	Tooltip:
-		Name: Adult Visceroid
-	Health:
-		HP: 15000
-	Armor:
-		Type: InfantryArmor
-	RevealsShroud:
-		Range: 4c0
-	Targetable@MindControl:
-		TargetTypes: MindControlInmune
-	Armament:
-		Weapon: SlimeAttack
-		FireDelay: 10
-	AutoTarget:
-		ScanRadius: 5
-	AttackFrontal:
-		Voice: Attack
-	Wanders:
-	WithAttackAnimation:
-		AttackSequence: attack
-	Mobile:
-		Crushes: nada
-	RenderSprites:
-		Image: vislrg
-
-VISC_LRG_SCRIN:
-	Inherits: VISC_LRG
-	Health:
-		HP: 10000
-	-DamagedByTerrain:
-	RejectsOrders:
-	-UpdatesPlayerStatistics:
-	-AppearsOnRadar:
-	EditorOnlyTooltip:
-		Name: Visceroid Hive Visc (Do not place in editor)
-	Targetable@MindControl:
-		TargetTypes: MindControlInmune
-	AutoTarget:
-		ScanRadius: 5
-		InitialStance: AttackAnything
-	SelfHealing:
-		PercentageStep: -10
-		Step: 0
-		Delay: 50
-		HealIfBelow: 200
-	RenderSprites:
-		Image: vislrg
-
-ZOMBIE:
-	Inherits: ^Mutant
-	Tooltip:
-		Name: Haunt
-	-GainsExperience:
-	Valued:
-		Cost: 50
-	Health:
-		HP: 7500
-		Shape: Circle
-			Radius: 213
-	RevealsShroud:
-		Range: 4c0
-	Explodes:
-		Weapon: ZombieExplosion
-		EmptyWeapon: ZombieExplosion
-		Chance: 80
-	AutoTarget:
-		ScanRadius: 3
-	Mobile:
-		Speed: 55
-		Crushes: nada
-	-SpawnActorOnDeath@conversion:
-	-TakeCover:
-	Voiced:
-		VoiceSet: Fiend
-	Targetable:
-		TargetTypes: Ground, Infantry, NeutralTibCritter
-	Armament:
-		Weapon: SlimeAttack
-	WithInfantryBody:
-		AttackSequence: shoot
-	AttackFrontal:
-		Voice: Attack
-		PauseOnCondition: WebDisable
-	AttackWander:
-		WanderMoveRadius: 2
-		MinMoveDelay: 25
-		MaxMoveDelay: 45
-	-SpawnActorOnDeath@tiberium:
-	-DamagedByTintedCells@Default:
-	TransformOnCondition:
-		IntoActor: berserker
-		RequiresCondition: Transform
-	GrantPeriodicCondition:
-		Condition: Transform
-		CooldownDuration: 1000
-	AutoTargetPriority@DEFAULT:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
-	AutoTargetPriority@ATTACKANYTHING:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
-
-BERSERKER:
-	Inherits: ^Mutant
-	Inherits@1: ^MutRender
-	Tooltip:
-		Name: Berserker
-	-GainsExperience:
-	Valued:
-		Cost: 100
-	Health:
-		HP: 20000
-		Shape: Circle
-			Radius: 213
-	RevealsShroud:
-		Range: 5c0
-	-SpawnActorOnDeath@conversion:
-	SelfHealing:
-		PercentageStep: 1
-		Step: 0
-		Delay: 200
-	Mobile:
-		Speed: 100
-		Crushes: nada
-		SharesCell: False
-	Armor:
-		Type: VehicleArmor
-	-Crushable:
-	Voiced:
-		VoiceSet: Fiend
-	-TakeCover:
-	Targetable:
-		TargetTypes: Infantry, Ground, NeutralTibCritter
-	Armament:
-		Weapon: BerserkerBlow
-	AutoTarget:
-		ScanRadius: 4
-	WithInfantryBody:
-		AttackSequence: shoot
-		IdleSequences: idle1, idle2, idle3
-		PauseOnCondition: WebDisable
-	AttackFrontal:
-		Voice: Attack
-	AttackWander:
-		WanderMoveRadius: 1
-		ReduceMoveRadiusDelay: 5
-		MinMoveDelay: 100
-		MaxMoveDelay: 200
-	-SpawnActorOnDeath@tiberium:
-	-DamagedByTintedCells@Default:
-	AutoTargetPriority@DEFAULT:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
-	AutoTargetPriority@ATTACKANYTHING:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
-
-CRAB:
-	Inherits: ^Beast
-	Inherits@1: ^MutRender
-	EditorOnlyTooltip:
-		Name: Queen Crab (Dies after some time)
-	Tooltip:
-		Name: Crab
-	Valued:
-		Cost: 50
-	-GainsExperience:
-	-DamagedByTintedCells@Default:
-	Health:
-		HP: 17000
-		Shape: Circle
-			Radius: 213
-	Armor:
-		Type: InfantryArmor
-	RevealsShroud:
-		Range: 8c0
-	AutoTarget:
-		ScanRadius: 7
-		InitialStance: AttackAnything
-	-SpawnActorOnDeath@conversion:
-	-Crushable:
-	Mobile:
-		Speed: 50
-		Crushes: nada
-	Voiced:
-		VoiceSet: Fiend
-	Targetable:
-		TargetTypes: Infantry, Ground, NeutralTibCritter, MCImmune
-	Armament:
-		Weapon: CrabAcid
-	WithInfantryBody:
-		AttackSequence: shoot
-		IdleSequences: Idle1, Idle2
-		PauseOnCondition: WebDisable
-	GrantPeriodicCondition:
-		Condition: SpawnCrabs
-		CooldownDuration: 2250
-	SelfHealing@crab:
-		PercentageStep: -100
-		Step: 0
-		Delay: 50
-		HealIfBelow: 150
-		RequiresCondition: SpawnCrabs
-	AttackFrontal:
-		Voice: Attack
-	AttackWander:
-		WanderMoveRadius: 5
-		ReduceMoveRadiusDelay: 1
-		MinMoveDelay: 25
-		MaxMoveDelay: 100
-	AutoTargetPriority@DEFAULT:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
-	AutoTargetPriority@ATTACKANYTHING:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
-
-PERMACRAB:
-	Inherits: CRAB
-	EditorOnlyTooltip:
-		Name: Permanent Crab
-	RenderSprites:
-		Image: crab
-	-GrantPeriodicCondition:
-	-SelfHealing@crab:
-	SelfHealing@ELITE:
-		PercentageStep: 5
-		Delay: 75
-		HealIfBelow: 100
-		DamageCooldown: 300
-	AutoTargetPriority@DEFAULT:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
-	AutoTargetPriority@ATTACKANYTHING:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
-
-FLOATER:
-	Inherits: ^HoverVehicle
-	Inherits@1: ^AutoTargetGroundAssaultMove
-	Tooltip:
-		Name: Floater
-	Health:
-		HP: 10000
-		Shape: Circle
-			Radius: 213
-	Valued:
-		Cost: 100
-	Armor:
-		Type: VehicleArmor
-	RevealsShroud:
-		Range: 5c0
-	ExplodeWeapon:
-		Weapon: FloaterCloudSpawn
-	QuantizeFacingsFromSequence:
-		Sequence: stand
-	-WithFacingSpriteBody:
-	WithSpriteBody:
-	Mobile:
-		Speed: 100
-		Crushes: nada
-	Voiced:
-		VoiceSet: Fiend
-	Targetable:
-		TargetTypes: Infantry, Ground, NeutralTibCritter, CloudInmune
-	Armament:
-		Weapon: Tentacle
-	AutoTarget:
-		ScanRadius: 6
-	WithAttackAnimation:
-		AttackSequence: attack
-	Explodes:
-		Weapon: UnitExplodeSmall
-		EmptyWeapon: UnitExplodeSmall
-	AttackFrontal:
-		Voice: Attack
-	AttackWander:
-		WanderMoveRadius: 1
-		ReduceMoveRadiusDelay: 5
-		MinMoveDelay: 100
-		MaxMoveDelay: 200
-	-DamagedByTintedCells@Default:
-	-DamagedByTintedCells@OrangeRadiation:
-	AutoTargetPriority@DEFAULT:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
-	AutoTargetPriority@ATTACKANYTHING:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
-
-jfish:
-	Inherits: FLOATER
-	RenderSprites:
-		Image: floater
-	EditorOnlyTooltip:
-		Name: Duplicated Floater (It helps avoid map inportation issues)
+		AttackSequences: shoot
 
 CIV1:
 	Inherits: ^CivilianInfantry
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 CIV2:
 	Inherits: ^CivilianInfantry
@@ -570,7 +218,7 @@ CIV2:
 CIV3:
 	Inherits: ^CivilianInfantry
 	WithInfantryBody:
-		AttackSequence: shoot
+		AttackSequences: shoot
 
 4TNK:
 	Inherits: ^VoxelTank
@@ -580,8 +228,7 @@ CIV3:
 		Name: Mammoth Tank
 	Mobile:
 		Speed: 65
-		TurnSpeed: 5
-		Crushes: wall, crate, infantry
+		TurnSpeed: 20
 	Health:
 		HP: 60000
 	Armor:
@@ -589,7 +236,7 @@ CIV3:
 	RevealsShroud:
 		Range: 6c0
 	Turreted:
-		TurnSpeed: 3
+		TurnSpeed: 12
 	Armament@PRIMARY:
 		Weapon: 4tnkgun
 		LocalOffset: 500,60,360, 500,-85,360
@@ -600,21 +247,14 @@ CIV3:
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
-	SelfHealing:
+	ChangesHealth:
 		PercentageStep: 1
 		Step: 0
-		HealIfBelow: 50
+		StartIfBelow: 50
 		DamageCooldown: 200
 	WithVoxelTurret:
 	WithVoxelBarrel:
 	WithMuzzleOverlay:
-
-GTWIMAM:
-	Inherits: 4TNK
-	RenderVoxels:
-		Scale: 0.80
-	Turreted:
-		Offset: -100,0,400
 
 ^TRUCK:
 	Inherits: ^CivilianVoxelVehicle
@@ -649,13 +289,13 @@ ICBM:
 		Type: VehicleArmor
 	Mobile:
 		Speed: 95
-		TurnSpeed: 5
+		TurnSpeed: 20
 	RevealsShroud:
 		Range: 7c0
 	Transforms:
 		IntoActor: gaicbm
 		Offset: -1,-1
-		Facing: 96
+		Facing: 384
 		TransformSounds:
 		NoTransformSounds:
 		Voice: Move
@@ -666,7 +306,6 @@ WEED:
 		Cost: 100
 	Tooltip:
 		Name: Weed Eater
-		Description: Collects veins for processing.\n  Unarmed
 	Harvester:
 		DeliveryBuildings: nawast
 		Capacity: 7
@@ -679,7 +318,7 @@ WEED:
 		DeliverVoice: Move
 	Mobile:
 		Speed: 80
-		TurnSpeed: 5
+		TurnSpeed: 20
 	Health:
 		HP: 600
 	Armor:
@@ -688,41 +327,17 @@ WEED:
 		Range: 4c0
 	-WithVoxelBody:
 	WithVoxelUnloadBody:
+	WithHarvesterPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 7
 
 BUS:
 	Inherits: ^CivilianVoxelVehicle
 	Tooltip:
 		Name: School Bus
 	Mobile:
-		TurnSpeed: 5
-		Speed: 120
-	Health:
-		HP: 10000
-	Armor:
-		Type: Light
-	RevealsShroud:
-		Range: 5c0
-
-PICK:
-	Inherits: ^CivilianVoxelVehicle
-	Tooltip:
-		Name: Pickup
-	Mobile:
-		TurnSpeed: 5
-		Speed: 120
-	Health:
-		HP: 10000
-	Armor:
-		Type: Light
-	RevealsShroud:
-		Range: 5c0
-
-CAR:
-	Inherits: ^CivilianVoxelVehicle
-	Tooltip:
-		Name: Automobile
-	Mobile:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 120
 	Health:
 		HP: 10000
@@ -736,7 +351,7 @@ CAR2:
 	Tooltip:
 		Name: Automobile
 	Mobile:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 120
 	Health:
 		HP: 10000
@@ -745,10 +360,10 @@ CAR2:
 	RevealsShroud:
 		Range: 5c0
 
-CARCOBRA:
+CAR:
 	Inherits: CAR2
 
-CARPANTERA:
+CARCOBRA:
 	Inherits: CAR2
 
 CARPANTERB:
@@ -758,9 +373,6 @@ CARPANTERC:
 	Inherits: CAR2
 
 CARBMW850:
-	Inherits: CAR2
-
-CARWINI:
 	Inherits: CAR2
 
 CARBUS01:
@@ -784,15 +396,27 @@ CARWINI:
 CARBIGCAMION:
 	Inherits: CAR2
 
-CARPICKUP:
+PICKUPBENDER:
 	Inherits: CAR2
+	Tooltip:
+		Name: Pickup
+
+PICK:
+	Inherits: CAR2
+	Tooltip:
+		Name: Pickup
+
+CATEXCAVATOR:
+	Inherits: CAR2
+	Tooltip:
+		Name: Excavator
 
 WINI:
-	Inherits: ^CivilianVoxelVehicle
+	Inherits: CAR2
 	Tooltip:
 		Name: Recreational Vehicle
 	Mobile:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 120
 	Health:
 		HP: 20000
@@ -842,7 +466,6 @@ GAWALL:
 		Value: 0
 	Tooltip:
 		Name: Concrete Wall
-		Description: Stops infantry and blocks enemy fire.\nCan NOT be crushed by tanks.
 	RenderSprites:
 		Image: wall.gdi
 	Crushable:
@@ -862,7 +485,6 @@ NAWALL:
 		Value: 0
 	Tooltip:
 		Name: Nod Wall
-		Description: Stops infantry and blocks enemy fire.\nCan NOT be crushed by tanks.
 	RenderSprites:
 		Image: wall.nod
 	Crushable:
@@ -938,6 +560,8 @@ ABAN01:
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
 		Weapons: LargeDebris
+	IsometricSelectable:
+		DecorationHeight: 72
 
 ABAN02:
 	Inherits: ^CivBuilding
@@ -957,6 +581,8 @@ ABAN02:
 		Pieces: 5, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
+	IsometricSelectable:
+		DecorationHeight: 48
 
 ABAN03:
 	Inherits: ^CivBuilding
@@ -976,6 +602,8 @@ ABAN03:
 		Pieces: 5, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
+	IsometricSelectable:
+		DecorationHeight: 48
 
 ABAN04:
 	Inherits: ^CivBuilding
@@ -1205,6 +833,42 @@ ABAN18:
 	MapEditorData:
 		ExcludeTilesets: TEMPERATE
 
+FOUNTAIN:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^2x2Shape
+	Tooltip:
+		Name: Fountain
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	RenderSprites:
+		Palette: unittemblue
+	WithIdleOverlay:
+		Sequence: water
+		Palette: unittemblue
+
+FOUNTAINTIB:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^2x2Shape
+	Tooltip:
+		Name: Fountain
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	RenderSprites:
+		Palette: unittemgreen
+
+FOUNTAINBLOOD:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^2x2Shape
+	Tooltip:
+		Name: Fountain
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	RenderSprites:
+		Palette: unittemred
+
 AMMOCRAT:
 	Inherits: ^CivBuilding
 	Tooltip:
@@ -1218,21 +882,6 @@ AMMOCRAT:
 		HP: 1
 	RenderSprites:
 		Palette: player
-
-TIBERUMBILLBOARD:
-	Inherits: ^CivBillboard
-	Inherits@1: ^3x1Shape
-	Tooltip:
-		Name: TibeRUM, Mutants love it!!
-	Building:
-		Dimensions: 3,1
-		Footprint: xxx
-	RenderSprites:
-		Palette: player
-	Interactable:
-		Bounds: 120, 60, 10, -18
-	Selectable:
-		Bounds: 120, 60, 10, -18
 
 BBOARD01:
 	Inherits: ^CivBillboard
@@ -1355,6 +1004,33 @@ BBOARD16:
 	Building:
 		Footprint: xx
 		Dimensions: 2, 1
+
+TIBERUMBILLBOARD:
+	Inherits: ^CivBillboard
+	Inherits@1: ^3x1Shape
+	Tooltip:
+		Name: TibeRUM, Mutants love it!!
+	Building:
+		Dimensions: 3,1
+		Footprint: xxx
+	RenderSprites:
+		Palette: player
+	IsometricSelectable:
+		DecorationHeight: 60
+
+BILLBOARDWATER:
+	Inherits: ^CivBillboard
+	Tooltip:
+		Name: Drink Water!
+	RenderSprites:
+		Palette: unittemgreen
+
+BILLBOARDTIBBUX:
+	Inherits: ^CivBillboard
+	Tooltip:
+		Name: Get Tibbux: Charm Girls
+	RenderSprites:
+		Palette: unittemgreen
 
 CA0001:
 	Inherits: ^CivBuilding
@@ -1519,6 +1195,8 @@ CA0012:
 		Type: light
 	Health:
 		HP: 10000
+	IsometricSelectable:
+		DecorationHeight: 36
 
 CA0013:
 	Inherits: ^CivBuilding
@@ -1532,6 +1210,8 @@ CA0013:
 		Type: BuildingArmor
 	Health:
 		HP: 30000
+	IsometricSelectable:
+		DecorationHeight: 48
 
 CA0014:
 	Inherits: ^CivBuilding
@@ -1544,6 +1224,8 @@ CA0014:
 		Type: BuildingArmor
 	Health:
 		HP: 30000
+	IsometricSelectable:
+		DecorationHeight: 48
 
 CA0015:
 	Inherits: ^CivBuilding
@@ -1568,6 +1250,8 @@ CA0016:
 		Type: light
 	Health:
 		HP: 30000
+	IsometricSelectable:
+		DecorationHeight: 48
 
 CA0017:
 	Inherits: ^CivBuilding
@@ -1580,6 +1264,8 @@ CA0017:
 		Type: BuildingArmor
 	Health:
 		HP: 30000
+	IsometricSelectable:
+		DecorationHeight: 48
 
 CA0018:
 	Inherits: ^CivBuilding
@@ -1596,6 +1282,8 @@ CA0018:
 		Type: light
 	Health:
 		HP: 20000
+	IsometricSelectable:
+		DecorationHeight: 48
 
 CA0019:
 	Inherits: ^CivBuilding
@@ -1612,6 +1300,8 @@ CA0019:
 		Type: light
 	Health:
 		HP: 20000
+	IsometricSelectable:
+		DecorationHeight: 48
 
 CA0020:
 	Inherits: ^CivBuilding
@@ -1628,6 +1318,8 @@ CA0020:
 		Type: light
 	Health:
 		HP: 20000
+	IsometricSelectable:
+		DecorationHeight: 48
 
 CA0021:
 	Inherits: ^CivBuilding
@@ -1644,6 +1336,8 @@ CA0021:
 		Type: light
 	Health:
 		HP: 20000
+	IsometricSelectable:
+		DecorationHeight: 48
 
 CAARAY:
 	Inherits: ^CivBuilding
@@ -1671,6 +1365,8 @@ CAARAY:
 		Pieces: 5, 7
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
+	IsometricSelectable:
+		DecorationHeight: 72
 
 CAARMR:
 	Inherits: ^TechBuilding
@@ -1694,7 +1390,7 @@ CAARMR:
 	ProvidesPrerequisite:
 		Prerequisite: ArmoryExpBuff
 	#DetonateWeaponPower:
-	#	AllowMultiple: True
+	#	AllowMultiple: true
 	#	Cursor: emp
 	#	MaximumFiringInstances: 1000
 	#	ArmamentName: primary
@@ -1709,41 +1405,6 @@ CAARMR:
 	#	PauseOnCondition: disabled
 	#	TargetCircleRange: 1c512
 	#	Weapon: VeterancyWeapon
-
-NEUTRALSONICTUR:
-	Inherits: ^TechBuilding
-	Inherits@0: ^1x1Shape
-	Inherits@1: ^11CellVision
-	Inherits@2: ^AutoTargetAll
-	Tooltip:
-		Name: Tech Shockwave Turret
-	TooltipDescription:
-		Description: Damages units in a straight line.
-	Building:
-		Footprint: x
-		Dimensions: 1, 1
-	Health:
-	ThrowsShrapnel@SMALL:
-		Pieces: 6, 9
-	ThrowsShrapnel@LARGE:
-		Pieces: 3, 4
-	Armor:
-		Type: DefenseArmor
-	Health:
-		HP: 200000
-	RenderRangeCircle:
-	Turreted:
-		TurnSpeed: 3
-	WithSpriteTurret:
-	AttackTurreted:
-		PauseOnCondition: empdisable
-	Armament@1:
-		Weapon: SonicEmitterProj
-		PauseOnCondition: empdisable
-		LocalOffset: 1500,0, 0
-	Selectable:
-		Bounds: 40, 54, -3, -16
-		DecorationBounds: 40, 54, -3, -16
 
 CACRSH01:
 	Inherits: ^Decoration
@@ -1762,6 +1423,40 @@ CACRSH04:
 CACRSH05:
 	Inherits: CACRSH01
 
+FLAGNOD:
+	Inherits: CACRSH01
+	RenderSprites:
+		Palette: unittemred
+	Tooltip:
+		Name: Flag
+
+FLAGMUT:
+	Inherits: FLAGNOD
+	RenderSprites:
+		Palette: unittemgreen
+
+FLAGSCR:
+	Inherits: FLAGNOD
+	RenderSprites:
+		Palette: unittempurp
+
+FLAGCAB:
+	Inherits: FLAGNOD
+	RenderSprites:
+		Palette: unittemblue
+
+FLAGGDI:
+	Inherits: FLAGNOD
+	RenderSprites:
+		Palette: player
+
+FLAGNEUTRAL:
+	Inherits: ^TechBuilding
+	RenderSprites:
+		PlayerPalette: unittemremapplayer
+	Tooltip:
+		Name: Flag
+
 CAHOSP:
 	Inherits: ^TechBuilding
 	Inherits@shape: ^3x4Shape
@@ -1775,17 +1470,11 @@ CAHOSP:
 	Health:
 		HP: 80000
 	ProvidesPrerequisite@BuildingName:
-	ThrowsShrapnel@SMALL:
-		Pieces: 5, 9
-	ThrowsShrapnel@LARGE:
-		Pieces: 2, 4
-	MapEditorData:
-		Categories: Civilian building
 	WithIdleOverlay:
 		Sequence: flag
-	WithIdleOverlay@g:
-		Sequence: flagg
 	ProvidesPrerequisite@buildingname:
+	IsometricSelectable:
+		DecorationHeight: 48
 
 CAPYR01:
 	Inherits: ^CivBuilding
@@ -1801,6 +1490,8 @@ CAPYR01:
 		HP: 40000
 	MapEditorData:
 		ExcludeTilesets: SNOW
+	IsometricSelectable:
+		DecorationHeight: 48
 
 CAPYR02:
 	Inherits: ^CivBuilding
@@ -1820,6 +1511,8 @@ CAPYR02:
 		Pieces: 6, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 3, 4
+	IsometricSelectable:
+		DecorationHeight: 96
 
 CAPYR03:
 	Inherits: ^CivBuilding
@@ -1839,6 +1532,8 @@ CAPYR03:
 		Pieces: 6, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 3, 4
+	IsometricSelectable:
+		DecorationHeight: 96
 
 CITY01:
 	Inherits: ^CivBuilding
@@ -1858,6 +1553,8 @@ CITY01:
 		Pieces: 5, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
+	IsometricSelectable:
+		DecorationHeight: 72
 
 CITY02:
 	Inherits: ^CivBuilding
@@ -1877,6 +1574,8 @@ CITY02:
 		Pieces: 5, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
+	IsometricSelectable:
+		DecorationHeight: 72
 
 CITY03:
 	Inherits: ^CivBuilding
@@ -1896,6 +1595,8 @@ CITY03:
 		Pieces: 5, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
+	IsometricSelectable:
+		DecorationHeight: 48
 
 CITY04:
 	Inherits: ^CivBuilding
@@ -1915,6 +1616,8 @@ CITY04:
 		Pieces: 5, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
+	IsometricSelectable:
+		DecorationHeight: 72
 
 CITY05:
 	Inherits: ^CivBuilding
@@ -1934,6 +1637,8 @@ CITY05:
 		Pieces: 5, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
+	IsometricSelectable:
+		DecorationHeight: 96
 
 CITY06:
 	Inherits: ^CivBuilding
@@ -1953,6 +1658,8 @@ CITY06:
 		Pieces: 7, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 3, 4
+	IsometricSelectable:
+		DecorationHeight: 72
 
 CITY07:
 	Inherits: ^CivBuilding
@@ -1972,6 +1679,8 @@ CITY07:
 		Pieces: 7, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 3, 4
+	IsometricSelectable:
+		DecorationHeight: 600
 
 CITY08:
 	Inherits: ^CivBuilding
@@ -2002,6 +1711,8 @@ CITY09:
 		HP: 40000
 	MapEditorData:
 		RequireTilesets: TEMPERATE
+	IsometricSelectable:
+		DecorationHeight: 48
 
 CITY10:
 	Inherits: ^CivBuilding
@@ -2017,6 +1728,8 @@ CITY10:
 		HP: 30000
 	MapEditorData:
 		RequireTilesets: TEMPERATE
+	IsometricSelectable:
+		DecorationHeight: 48
 
 CITY11:
 	Inherits: ^CivBuilding
@@ -2032,6 +1745,8 @@ CITY11:
 		HP: 50000
 	MapEditorData:
 		RequireTilesets: TEMPERATE
+	IsometricSelectable:
+		DecorationHeight: 96
 
 CITY12:
 	Inherits: ^CivBuilding
@@ -2047,6 +1762,8 @@ CITY12:
 		HP: 60000
 	MapEditorData:
 		RequireTilesets: TEMPERATE
+	IsometricSelectable:
+		DecorationHeight: 96
 
 CITY13:
 	Inherits: ^CivBuilding
@@ -2062,6 +1779,8 @@ CITY13:
 		HP: 50000
 	MapEditorData:
 		RequireTilesets: TEMPERATE
+	IsometricSelectable:
+		DecorationHeight: 96
 
 CITY14:
 	Inherits: ^CivBuilding
@@ -2076,6 +1795,8 @@ CITY14:
 		HP: 60000
 	MapEditorData:
 		RequireTilesets: TEMPERATE
+	IsometricSelectable:
+		DecorationHeight: 96
 
 CITY15:
 	Inherits: ^CivBuilding
@@ -2114,6 +1835,8 @@ CITY16:
 		Pieces: 7, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 3, 4
+	IsometricSelectable:
+		DecorationHeight: 72
 
 CITY17:
 	Inherits: ^CivBuilding
@@ -2133,6 +1856,8 @@ CITY17:
 		Pieces: 7, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 3, 4
+	IsometricSelectable:
+		DecorationHeight: 108
 
 CITY18:
 	Inherits: ^CivBuilding
@@ -2152,6 +1877,8 @@ CITY18:
 		Pieces: 8, 12
 	ThrowsShrapnel@LARGE:
 		Pieces: 5, 7
+	IsometricSelectable:
+		DecorationHeight: 72
 
 CITY19:
 	Inherits: ^CivBuilding
@@ -2210,6 +1937,8 @@ CITY22:
 		HP: 10000
 	MapEditorData:
 		RequireTilesets: TEMPERATE
+	IsometricSelectable:
+		DecorationHeight: 72
 
 CTDAM:
 	Inherits: ^CivBuilding
@@ -2257,6 +1986,8 @@ CTVEGA:
 		Pieces: 7, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 3, 4
+	IsometricSelectable:
+		DecorationHeight: 72
 
 GAKODK:
 	Inherits: ^CivBuilding
@@ -2305,16 +2036,22 @@ GAOLDCC2:
 		Name: Old Temple
 	Building:
 		Footprint: xx xX
+	IsometricSelectable:
+		DecorationHeight: 36
 
 GAOLDCC3:
 	Inherits: ^OldBase
 	Tooltip:
 		Name: Old Weapons Factory
+	IsometricSelectable:
+		DecorationHeight: 36
 
 GAOLDCC4:
 	Inherits: ^OldBase
 	Tooltip:
 		Name: Old Refinery
+	IsometricSelectable:
+		DecorationHeight: 36
 
 GAOLDCC5:
 	Inherits: ^OldBase
@@ -2366,9 +2103,6 @@ GASPOT:
 	Building:
 		Footprint: x
 		Dimensions: 1, 1
-	Selectable:
-		Bounds: 48, 30, 0, -4
-		DecorationBounds: 48, 82, 0, -25
 	Armor:
 		Type: BuildingArmor
 	Health:
@@ -2378,13 +2112,14 @@ GASPOT:
 		MaxHeightDelta: 3
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
-	SelectionDecorations:
 	Armament:
 		Weapon: LightTowerClaxon
 	GivesCashOnCapture:
 		Amount: 300
 	AttackOmni:
 	RenderSprites:
+	IsometricSelectable:
+		DecorationHeight: 72
 
 GALITE:
 	Inherits: ^CivBuilding
@@ -2393,6 +2128,7 @@ GALITE:
 	Tooltip:
 		Name: Light Post
 	RenderSprites:
+		Image: galite
 		Palette: terraindecoration
 	Health:
 		HP: 60000
@@ -2403,22 +2139,85 @@ GALITE:
 		MaxHeightDelta: 3
 	Power:
 		Amount: 0
-	# TODO: should use terrain lighting instead, depends on https://github.com/OpenRA/OpenRA/issues/3605
-	WithIdleOverlay@LIGHTING:
-		Sequence: lighting
-		Palette: alpha
-	Selectable:
-		Bounds: 24, 24, 0, -4
-		DecorationBounds: 25, 35, 0, -12
-	SelectionDecorations:
-	MapEditorData:
-		Categories: Civilian building
+	TerrainLightSource:
+		Range: 19c544
+		Intensity: 0.2
+		RedTint: 0.05
+		GreenTint: 0.05
+		BlueTint: 0.01
+
+REDLAMP:
+	Inherits: GALITE
+	Tooltip:
+		Name: Red Light Post
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: 0.01
+		RedTint: 1.5
+		GreenTint: 0.01
+		BlueTint: 0.01
+
+NEGRED:
+	Inherits: GALITE
+	Tooltip:
+		Name: Negative Red Light Post
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: -0.05
+		RedTint: -1.5
+		GreenTint: 0.01
+		BlueTint: 0.01
+
+GRENLAMP:
+	Inherits: GALITE
+	Tooltip:
+		Name: Green Light Post
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: 0.01
+		RedTint: 0.01
+		GreenTint: 1.5
+		BlueTint: 0.01
+
+BLUELAMP:
+	Inherits: GALITE
+	Tooltip:
+		Name: Blue Light Post
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: 0.01
+		RedTint: 0.01
+		GreenTint: 0.01
+		BlueTint: 0.7
+
+YELWLAMP:
+	Inherits: GALITE
+	Tooltip:
+		Name: Yellow Light Post
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: 0.01
+		RedTint: 1.5
+		GreenTint: 1.5
+		BlueTint: 0.01
+
+PURPLAMP:
+	Inherits: GALITE
+	Tooltip:
+		Name: Purple Light Post
+	TerrainLightSource:
+		Range: 11c736
+		Intensity: 0.01
+		RedTint: 2.0
+		GreenTint: 0.01
+		BlueTint: 2.0
 
 TSTLAMP:
 	Inherits: GALITE
-	RenderSprites:
-		Image: galite
-	Tooltip:
+	-TerrainLightSource:
+	WithIdleOverlay@LIGHTING:
+		Sequence: lighting
+		Palette: alpha
 
 GAICBM:
 	Inherits: ^CivBuilding
@@ -2436,11 +2235,13 @@ GAICBM:
 	Transforms:
 		IntoActor: icbm
 		Offset: 1,1
-		Facing: 96
+		Facing: 384
 		TransformSounds: place2.aud
 		NoTransformSounds:
 	MapEditorData:
 		Categories: Vehicle
+	IsometricSelectable:
+		DecorationHeight: 48
 
 NAMNTK:
 	Inherits: ^CivBuilding
@@ -2458,6 +2259,8 @@ NAMNTK:
 		Palette: player
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+	IsometricSelectable:
+		DecorationHeight: 36
 
 NTPYRA:
 	Inherits: ^CivBuilding
@@ -2481,6 +2284,8 @@ NTPYRA:
 		Pieces: 3, 5
 	DamageMultiplier@cantkillme:
 		Modifier: 0
+	IsometricSelectable:
+		DecorationHeight: 72
 
 UFO:
 	Inherits: ^CivBuilding
@@ -2490,9 +2295,6 @@ UFO:
 		Footprint: xxxxxx xxxxxx xxxxxx xxxxxx
 	RenderSprites:
 		Palette: terraindecoration
-	Selectable:
-		Bounds: 144, 72, 0, 0
-		DecorationBounds: 144, 72, 0, 0
 	Tooltip:
 		Name: Scrin Ship
 	Health:
@@ -2501,11 +2303,12 @@ UFO:
 		Type: BuildingArmor
 	MapEditorData:
 		RequireTilesets: TEMPERATE
-	SelectionDecorations:
 	ThrowsShrapnel@SMALL:
 		Pieces: 9, 12
 	ThrowsShrapnel@LARGE:
 		Pieces: 6, 8
+	IsometricSelectable:
+		DecorationHeight: 144
 
 C_KODIAK:
 	Inherits: ^CivBuilding
@@ -2521,404 +2324,32 @@ C_KODIAK:
 	RenderSprites:
 	WithSpriteBody:
 	BodyOrientation:
-		UseClassicPerspectiveFudge: False
+		UseClassicPerspectiveFudge: false
 		QuantizedFacings: 1
 	FrozenUnderFog:
 	RequiresBuildableArea:
 		AreaTypes: building
 	Interactable:
 
-WELL:
-	Inherits: ^TechBuilding
-	Inherits@1: ^SpawnSmoke
-	Inherits@2: ^3x3Shape
-	Inherits@3: ^MutRender
-	Tooltip:
-		Name: Tiberium Extractor
-	TooltipDescription:
-		Description: Provides additional funds.
-	Building:
-		Footprint: xxx xxx xxx
-		Dimensions: 3, 3
-	Selectable:
-		Bounds: 100, 70, 0, -12
-	CashTrickler:
-		Interval: 400
-		Amount: 100
-	Health:
-		HP: 135000
-	WithIdleOverlay:
-		Sequence: anim
-		Palette: effect
-	Explodes:
-		Weapon: TiberiumExplosion
-	SmokeParticleEmitter:
-		Image: scrsmoke
-		Palette: apolgreenalpha
-		Offset: 1300,0,0
-	GivesCashOnCapture:
-		Amount: 250
-	UpdatesDerrickCount:
-
-MACHINESHOP:
-	Inherits: ^TechBuilding
-	Inherits@2: ^2x2Shape
-	Tooltip:
-		Name: Machine Shop
-	TooltipDescription:
-		Description: Provides global repairs for vehicles.
-	Building:
-		Footprint: xx xx
-		Dimensions: 2, 2
-	Selectable:
-		Bounds: 90, 60, 0, -12
-	Health:
-		HP: 100000
-	RenderSprites:
-	ProvidesPrerequisite@buildingname:
-
-BLOODDERRICK:
-	Inherits: ^CivBuilding
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^3x3Shape
-	Tooltip:
-		Name: Crab Hive
-	TooltipDescription:
-		Description: Spawns hostile crabs when destroyed.
-	Building:
-		Footprint: xxx xxx xxx
-		Dimensions: 3, 3
-	Selectable:
-		Bounds: 102, 60, 0, 0
-	Health:
-		HP: 40000
-	Explodes:
-		Weapon: TiberiumExplosion
-	SelectionDecorations:
-		VisualBounds: 102, 60, 0, 0
-	RenderSprites:
-		-Palette: playerscrin
-		PlayerPalette: playerscrin
-	SpawnActorOnDeath@1:
-		Actor: permacrab
-		Probability: 100
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		Offset: -1,-1
-	SpawnActorOnDeath@2:
-		Actor: permacrab
-		Probability: 100
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		Offset: 0,-1
-	SpawnActorOnDeath@3:
-		Actor: permacrab
-		Probability: 100
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		Offset: 1,-1
-	SpawnActorOnDeath@4:
-		Actor: permacrab
-		Probability: 100
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		Offset: 1,0
-	SpawnActorOnDeath@5:
-		Actor: permacrab
-		Probability: 100
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		Offset: 0,1
-	SpawnActorOnDeath@6:
-		Actor: permacrab
-		Probability: 100
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		Offset: 1,0
-	SpawnActorOnDeath@7:
-		Actor: permacrab
-		Probability: 100
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		Offset: 1,1
-	SpawnActorOnDeath@8:
-		Actor: permacrab
-		Probability: 100
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		Offset: 1,1
-	SpawnActorOnDeath@9:
-		Actor: permacrab
-		Probability: 100
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		Offset: 1,1
-	SpawnActorOnDeath@10:
-		Actor: permacrab
-		Probability: 100
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		Offset: 1,1
-
-NEUTRALRADAR:
-	Inherits: ^TechBuilding
-	Inherits@3: ^2x2Shape
-	Tooltip:
-		Name: Spy Satellite
-	TooltipDescription:
-		Description: Provides vision.
-	Building:
-		Footprint: xx xx
-		Dimensions: 2, 2
-	Selectable:
-		Bounds: 70, 100, 0, -30
-	Health:
-		HP: 250000
-	RenderSprites:
-	SelectionDecorations:
-		VisualBounds: 70, 100, 0, -30
-	RevealsShroud:
-		Range: 14c0
-	ProvidesRadar:
-
-NEUTRALPOWERPLANT:
-	Inherits: ^TechBuilding
-	Inherits@3: ^3x3Shape
-	Tooltip:
-		Name: Nuclear Powerplant
-	TooltipDescription:
-		Description: Provides build radius & explodes violently when destroyed.
-	Building:
-		Footprint: xxx xxx xxx
-		Dimensions: 3, 3
-		Adjacent: 5
-	Selectable:
-		Bounds: 150, 110, 0, -32
-	Health:
-		HP: 150000
-	Power:
-		Amount: 200
-	RenderSprites:
-	SelectionDecorations:
-		VisualBounds: 150, 110, 0, -32
-	RevealsShroud:
-		Range: 5c0
-	GivesBuildableArea:
-		AreaTypes: building
-	BaseProvider:
-		Range: 8c0
-	RequiresBuildableArea:
-		AreaTypes: building
-	Explodes:
-		Weapon: PowerplantNuke
-		EmptyWeapon: PowerplantNuke
-
-SCRINREINFPAD:
-	Inherits: ^TechBuilding
-	Inherits@3: ^3x3Shape
-	Tooltip:
-		Name: Scrin Replicator
-	TooltipDescription:
-		Description: Builds a main battle tanks periodically.
-	Building:
-		Footprint: xxx xxx xxx
-		Dimensions: 3, 3
-	Selectable:
-		Bounds: 120, 90, 0, -24
-	Health:
-		HP: 120000
-	RenderSprites:
-		PlayerPalette: playerscrin
-	SelectionDecorations:
-		# VisualBounds: 120, 90, 0, -32
-	RevealsShroud:
-		Range: 5c0
-	RallyPoint:
-		Offset: 1,4
-		Palette: mouse
-		IsPlayerPalette: false
-	WithIdleOverlay@ROOF:
-		Sequence: idle-roof
-	WithIdleOverlay@production:
-		Sequence: production-lights
-		RequiresCondition: BuildStuffGDI || BuildStuffNOD || BuildStuffMUT || BuildStuffCAB || BuildStuffSCR
-	Exit@1:
-		SpawnOffset: 0,-256,0
-		ExitCell: 2,2
-		ExitDelay: 5
-	Production:
-		Produces: Vehicle
-	GrantConditionOnPrerequisite@GDI:
-		Condition: BuildStuffGDI
-		Prerequisites: structures.gdi
-	GrantConditionOnPrerequisite@NOD:
-		Condition: BuildStuffNOD
-		Prerequisites: structures.nod
-	GrantConditionOnPrerequisite@MUT:
-		Condition: BuildStuffMUT
-		Prerequisites: structures.mut
-	GrantConditionOnPrerequisite@CAB:
-		Condition: BuildStuffCAB
-		Prerequisites: structures.cab
-	GrantConditionOnPrerequisite@SCR:
-		Condition: BuildStuffSCR
-		Prerequisites: structures.scr
-	PeriodicProducer@GDI:
-		Actors: mmch
-		Type: Vehicle
-		ChargeDuration: 3000
-		RequiresCondition: BuildStuffGDI
-	PeriodicProducer@NOD:
-		Actors: ttnk
-		Type: Vehicle
-		ChargeDuration: 3000
-		RequiresCondition: BuildStuffNOD
-	PeriodicProducer@mut:
-		Actors: lynx
-		Type: Vehicle
-		ChargeDuration: 3000
-		RequiresCondition: BuildStuffMUT
-	PeriodicProducer@cab:
-		Actors: reapercab
-		Type: Vehicle
-		ChargeDuration: 3000
-		RequiresCondition: BuildStuffCAB
-	PeriodicProducer@scr:
-		Actors: scrmbt
-		Type: Vehicle
-		ChargeDuration: 3000
-		RequiresCondition: BuildStuffSCR
-
-EGGS:
-	Inherits: ^CivBuilding
-	Tooltip:
-		Name: Crab Eggs (Menacing)
-	Building:
-		Footprint: x
-		Dimensions: 1, 1
-	Armor:
-		Type: BuildingArmor
-	RevealsShroud:
-		Range: 4c0
-	Health:
-		HP: 50000
-	RenderSprites:
-		Palette: playermut
-	Targetable:
-		TargetTypes: Defence, Ground, C4, NeutralTibCritter
-	-Demolishable:
-	-ThrowsShrapnel@SMALL:
-	-ThrowsShrapnel@LARGE:
-	-Explodes:
-	-Explodes@BuildingFireBigSpawn:
-	-Explodes@BuildingFireSmallParticleSpawner:
-	-SoundOnDamageTransition:
-	-ShakeOnDeath:
-	ExternalCondition@SpawnCrabs:
-		Condition: SpawnCrabs
-	GrantPeriodicCondition:
-		Condition: SpawnCrabs
-		CooldownDuration: 400
-	SelfHealing@crab:
-		PercentageStep: -100
-		Step: 0
-		Delay: 50
-		HealIfBelow: 150
-		RequiresCondition: SpawnCrabs
-		DamageTypes: SpawnCrabs
-	SpawnActorOnDeath@crab1:
-		Actor: crab
-		Probability: 100
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		DeathType: SpawnCrabs
-		RequiresLobbyCreeps: true
-	RequiresBuildableArea:
-		AreaTypes: building
-
 RADIOTOWER:
 	Inherits: ^CivBuilding
 	Tooltip:
-		Name: Communications Tower
-	Health:
-		HP: 20000
-	Armor:
-		Type: BuildingArmor
-	RenderSprites:
-		Palette: player
-	Selectable:
-		Bounds: 40,140,0,-52
-
-TANKBARRIER:
-	Inherits: ^CivBuilding
-	Tooltip:
-		Name: Tank Barrier
-	Health:
-		HP: 50000
-	Armor:
-		Type: ConcreteArmor
-	RenderSprites:
-		Palette: player
-
-TANKBARRIER2:
-	Inherits: TANKBARRIER
-
-CONCRETEBARRIER:
-	Inherits: ^CivBuilding
-	Tooltip:
-		Name: Civilian Barrier
-	Health:
-		HP: 25000
-	Armor:
-		Type: ConcreteArmor
-	RenderSprites:
-		Palette: player
-
-CONCRETEBARRIER2:
-	Inherits: CONCRETEBARRIER
-
-CONCRETEBARRIER3:
-	Inherits: CONCRETEBARRIER
-
-CONCRETEBARRIER4:
-	Inherits: CONCRETEBARRIER
-
-CONCRETEBARRIER5:
-	Inherits: CONCRETEBARRIER
-
-CONCRETEBARRIER6:
-	Inherits: CONCRETEBARRIER
-
-CONCRETEBARRIER7:
-	Inherits: CONCRETEBARRIER
-
-CONCRETEBARRIER8:
-	Inherits: CONCRETEBARRIER
-
-FENCE:
-	Inherits: ^Wall
-	Tooltip:
-		Name: Fence
-	Crushable:
-		CrushClasses: infantry
-	-BlocksProjectiles:
-	Armor:
-		Type: BuildingArmor
-
-TRASHDUMP:
-	Inherits: ^CivBuilding
-	Inherits@2: ^1x1Shape
-	Building:
-		Footprint: x
-		Dimensions: 1,1
-	Tooltip:
-		Name: Trash Dump
+		Name: Radio Tower
 	Health:
 		HP: 15000
 	Armor:
 		Type: BuildingArmor
 	RenderSprites:
 		Palette: player
+	IsometricSelectable:
+		DecorationHeight: 120
+
+SIGNALTOWER:
+	Inherits: RADIOTOWER
+	Tooltip:
+		Name: Communications Tower
+	Health:
+		HP: 30000
 
 CONTAINER:
 	Inherits: ^CivBuilding
@@ -2963,8 +2394,17 @@ CONTAINER5:
 		Footprint: xx xx
 		Dimensions: 2,2
 
-CONTAINER2X2:
+^FakeTurretedProp:
 	Inherits: ^CivBuilding
+	-WithSpriteBody:
+	WithSpriteTurret:
+	Turreted:
+	Armament:
+		Weapon: LightTowerClaxon
+	AttackTurreted:
+
+CONTAINER2X2:
+	Inherits@1: ^FakeTurretedProp
 	Inherits@2: ^1x2Shape
 	Building:
 		Footprint: xx xx
@@ -2976,13 +2416,7 @@ CONTAINER2X2:
 	Armor:
 		Type: BuildingArmor
 	RenderSprites:
-		Palette: player
-	-WithSpriteBody:
-	WithSpriteTurret:
-	Turreted:
-	Armament:
-		Weapon: LightTowerClaxon
-	AttackTurreted:
+		Palette: unittem
 
 CONTAINER1X2:
 	Inherits: ^CivBuilding
@@ -2997,7 +2431,7 @@ CONTAINER1X2:
 	Armor:
 		Type: BuildingArmor
 	RenderSprites:
-		Palette: player
+		Palette: unittem
 
 CONTAINER1X2STACKED:
 	Inherits: CONTAINER1X2
@@ -3015,11 +2449,11 @@ CONTAINER2X1:
 	Armor:
 		Type: BuildingArmor
 	RenderSprites:
-		Palette: player
+		Palette: unittem
 
 CONTAINER2X1STACKED:
 	Inherits: CONTAINER2X1
-    
+	
 CONTAINERDIAGONAL:
 	Inherits: ^CivBuilding
 	Inherits@2: ^2x2DiagonalShape
@@ -3033,10 +2467,79 @@ CONTAINERDIAGONAL:
 	Armor:
 		Type: BuildingArmor
 	RenderSprites:
-		Palette: player
+		Palette: unittem
 
 CONTAINERDIAGONALSTACKED:
 	Inherits: CONTAINERDIAGONAL
+
+^1x1TurretedProp:
+	Inherits@1: ^FakeTurretedProp
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	Crushable:
+		CrushClasses: infantry
+
+STREETSIGNS:
+	Inherits@1: ^1x1TurretedProp
+	Tooltip:
+		Name: Street sign
+	EditorOnlyTooltip:
+		Name: Street Sign set (Supports facings)
+	RenderSprites:
+		Palette: unittemred
+
+STREETSIGNS2:
+	Inherits@1: ^1x1TurretedProp
+	Tooltip:
+		Name: Street sign
+	EditorOnlyTooltip:
+		Name: Street Sign set (Supports facings)
+	RenderSprites:
+		Palette: unittemred
+
+TRAFFICLIGHTS:
+	Inherits@1: ^1x1TurretedProp
+	Tooltip:
+		Name: Traffic Light
+	EditorOnlyTooltip:
+		Name: Traffic Light set (Supports facings)
+	RenderSprites:
+		Palette: unittemred
+
+BENCH:
+	Inherits@1: ^1x1TurretedProp
+	Tooltip:
+		Name: Bench
+	EditorOnlyTooltip:
+		Name: Bench set (Supports facings)
+	Health:
+		HP: 2500
+	RenderSprites:
+		Palette: player
+
+BUSSTOP:
+	Inherits: ^1x1TurretedProp
+	Tooltip:
+		Name: Bus Stop
+	EditorOnlyTooltip:
+		Name: Bus Stop (Supports facings)
+	RenderSprites:
+		Palette: unittem
+    
+LIGHTPOST4x4:
+	Inherits: ^CivBuilding
+	Inherits@2: ^1x1Shape
+	Tooltip:
+		Name: Light Post
+	Health:
+		HP: 15000
+	Armor:
+		Type: BuildingArmor
+	RenderSprites:
+		Palette: player
+	Crushable:
+		CrushClasses: infantry
 
 CONSTRUCTIONBARRIER:
 	Inherits: ^CivBuilding
@@ -3053,41 +2556,5 @@ CONSTRUCTIONBARRIER:
 	RenderSprites:
 		Palette: player
 
-
 CONSTRUCTIONBARRIER2:
 	Inherits: CONSTRUCTIONBARRIER
-
-BLUETIBBARREL:
-	Inherits: ^CivBuilding
-	Inherits@2: ^1x1Shape
-	Building:
-		Footprint: x
-		Dimensions: 1,1
-	Tooltip:
-		Name: Blue Tib-fuel Barrel
-	TooltipDescription:
-		Description: Explodes when destroyed.
-	Health:
-		HP: 200
-	Armor:
-		Type: BuildingArmor
-	RenderSprites:
-		Palette: player
-	Explodes:
-		Weapon: BlueTibBarrelExplo
-		EmptyWeapon: BlueTibBarrelExplo
-
-BLUETIBBARREL2:
-	Inherits: BLUETIBBARREL
-
-BLUETIBBARREL3:
-	Inherits: BLUETIBBARREL
-
-BLUETIBBARREL4:
-	Inherits: BLUETIBBARREL
-
-BLUETIBBARREL5:
-	Inherits: BLUETIBBARREL
-
-BLUETIBBARREL6:
-	Inherits: BLUETIBBARREL

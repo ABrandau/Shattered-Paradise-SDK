@@ -473,7 +473,7 @@ jug:
 		Start: 136
 		Length: 7
 		Facings: 8
-        Stride: 8
+		Stride: 8
 		ShadowStart: 334
 	icon: jugicon
 		UseTilesetCode: false
@@ -823,12 +823,12 @@ garadr:
 		Tick: 400
 	idle-dish: gtradr_a
 		Length: 15
-		Reverses: True
+		Reverses: true
 		Tick: 200
 	damaged-idle-dish: gtradr_a
 		Start: 15
 		Length: 15
-		Reverses: True
+		Reverses: true
 		Tick: 240
 	make: gtradrmk
 		Length: 20
@@ -1093,30 +1093,27 @@ gavulc:
 		ShadowStart: 11
 	turret: gtctwr_b
 		Facings: 32
-	muzzle0: mgun-n
-		Length: *
-		UseTilesetCode: false
-	muzzle1: mgun-nw
-		Length: *
-		UseTilesetCode: false
-	muzzle2: mgun-w
-		Length: *
-		UseTilesetCode: false
-	muzzle3: mgun-sw
-		Length: *
-		UseTilesetCode: false
-	muzzle4: mgun-s
-		Length: *
-		UseTilesetCode: false
-	muzzle5: mgun-se
-		Length: *
-		UseTilesetCode: false
-	muzzle6: mgun-e
-		Length: *
-		UseTilesetCode: false
-	muzzle7: mgun-ne
-		Length: *
-		UseTilesetCode: false
+	muzzle: mgun-n
+		Combine:
+			mgun-n:
+				Length: 6
+			mgun-nw:
+				Length: 6
+			mgun-w:
+				Length: 6
+			mgun-sw:
+				Length: 6
+			mgun-s:
+				Length: 6
+			mgun-se:
+				Length: 6
+			mgun-e:
+				Length: 6
+			mgun-ne:
+				Length: 6
+		Facings: 8
+		Length: 6
+		Offset: 0, 0, 12
 	icon: twr1icon
 		Offset: 0, 0
 		UseTilesetCode: false
@@ -1386,69 +1383,73 @@ ionbeammini:
 	defaults:
 		UseTilesetCode: false
 	idle:
-		Offset: 0,-30
 		Length: *
 	stand:
+		Length: *
+	beamsky0:
+		Offset: 0,-30
+		Length: *
+	beamsky1:
 		Offset: 0,-60
 		Length: *
-	beamsky:
+	beamsky2:
 		Offset: 0,-90
 		Length: *
-	beamsky2:
+	beamsky3:
 		Offset: 0,-120
 		Length: *
-	beamsky3:
+	beamsky4:
 		Offset: 0,-150
 		Length: *
-	beamsky4:
+	beamsky5:
 		Offset: 0,-180
 		Length: *
-	beamsky5:
+	beamsky6:
 		Offset: 0,-240
 		Length: *
-	beamsky6:
+	beamsky7:
 		Offset: 0,-270
 		Length: *
-	beamsky7:
+	beamsky8:
 		Offset: 0,-300
 		Length: *
-	beamsky8:
+	beamsky9:
 		Offset: 0,-330
 		Length: *
-	beamsky9:
+	beamsky10:
 		Offset: 0,-360
 		Length: *
-	beamsky10:
+	beamsky11:
 		Offset: 0,-390
 		Length: *
-	beamsky11:
+	beamsky12:
 		Offset: 0,-420
 		Length: *
-	beamsky12:
+	beamsky13:
 		Offset: 0,-450
 		Length: *
-	beamsky13:
+	beamsky14:
 		Offset: 0,-480
 		Length: *
-	beamsky14:
+	beamsky15:
 		Offset: 0,-510
 		Length: *
-	beamsky15:
+	beamsky16:
 		Offset: 0,-540
 		Length: *
-	beamsky16:
+	beamsky17:
 		Offset: 0,-570
 		Length: *
-	beamsky17:
+	beamsky18:
 		Offset: 0,-600
 		Length: *
-	beamsky18:
+	beamsky19:
 		Offset: 0,-630
 		Length: *
-	beamsky19:
+	beamsky20:
 		Offset: 0,-660
 		Length: *
-	beamsky20:
+	beamsky21:
 		Offset: 0,-690
 		Length: *
 	muzzle: ringmini

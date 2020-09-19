@@ -9,51 +9,73 @@ CLOUD1:
 	-Repairable:
 	Aircraft:
 		CruiseAltitude: 1
-		TurnSpeed: 6
+		TurnSpeed: 2
 		Repulsable: false
 		AltitudeVelocity: 400
 		Speed: 20
 		MoveIntoShroud: true
-	-Targetable@GROUND:
-	-Targetable@AIRBORNE:
-	-Targetable@Academy:
-	-Targetable@FullHealth:
-	-RevealsShroud:
-	-Voiced:
 	Health:
 		HP: 650
-	SelfHealing:
+	ChangesHealth@1:
 		Step: -600
 		Delay: 200
-		HealIfBelow: 5000
+		StartIfBelow: 5000
 		DamageTypes: CloudDie
+		RequiresCondition: body1
+	ChangesHealth@2:
+		Step: -600
+		Delay: 150
+		StartIfBelow: 5000
+		DamageTypes: CloudDie
+		RequiresCondition: body2
 	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
 	RejectsOrders:
-	Cloak@CLOAKGENERATOR:
-		RequiresCondition: HolaSoyVinceConSlapShopMiraLaPapaUnCorteNoSePuedeCortar
 	RenderSprites:
 		Image: cloud1
 		Palette: effectalpha
 	BodyOrientation:
 		QuantizedFacings: 32
 	AttackWander:
-	WithDeathAnimation:
-		DeathSequence: die
+	Interactable:
+	GrantRandomCondition:
+		Conditions: body1, body2
+	WithSpriteBody@1:
+		Name: body1
+		Sequence: cloud1
+		RequiresCondition: body1
+	WithSpriteBody@2:
+		Name: body2
+		Sequence: cloud2
+		RequiresCondition: body2
+	WithDeathAnimation@1:
+		DeathSequence: die1
 		UseDeathTypeSuffix: false
 		DeathSequencePalette: effectalpha
 		DeathPaletteIsPlayerPalette: false
-	ExplodeWeapon:
-		Weapon: CloudDamage
+		RequiresCondition: body1
+	WithDeathAnimation@2:
+		DeathSequence: die2
+		UseDeathTypeSuffix: false
+		DeathSequencePalette: effectalpha
+		DeathPaletteIsPlayerPalette: false
+		RequiresCondition: body2
+	-WithFacingSpriteBody:
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
-	Interactable:
 	-GainsExperience:
 	-GrantConditionOnDamageState@spawnsparks:
 	-ExplodeWeapon@spawnsparks:
 	-Explodes@Shrapnel:
 	-SpawnActorOnDeath@nanomachineburst:
+	-Targetable@GROUND:
+	-Targetable@AIRBORNE:
+	-Targetable@Academy:
+	-Targetable@FullHealth:
+	-RevealsShroud:
+	-Voiced:
+	-Cloak@CLOAKGENERATOR:
 
 ORCA:
 	Inherits: ^CombatHelicopter
@@ -76,7 +98,7 @@ ORCA:
 	Selectable:
 		Bounds: 30,24
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 150
 		MoveIntoShroud: true
 	AutoTarget:
@@ -96,14 +118,18 @@ ORCA:
 		Voice: Attack
 	AmmoPool:
 		Ammo: 10
-		PipCount: 5
-		PipType: Ammo
 		ReloadCount: 2
 		ReloadDelay: 50
-		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
 	SpawnActorOnDeath:
 		Actor: ORCA.Husk
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 5
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
+		Palette: pips
 
 ORCAB:
 	Inherits: ^CombatPlane
@@ -126,9 +152,11 @@ ORCAB:
 		Bounds: 30,24
 	Aircraft:
 		MaximumPitch: 120
-		TurnSpeed: 4
+		TurnSpeed: 20
 		IdealSeparation: 256
 		Speed: 130
+		IdleTurnSpeed: 20
+		IdleSpeed: 85
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 	Health:
@@ -143,16 +171,20 @@ ORCAB:
 		InitialStanceAI: AttackAnything
 	AmmoPool:
 		Ammo: 20
-		PipCount: 2
 		ReloadCount: 10
 		ReloadDelay: 125
-		PipType: Ammo
-		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
 	Hovers@CRUISING:
 		RequiresCondition: cruising
 	SpawnActorOnDeath:
 		Actor: ORCAB.Husk
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 2
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
+		Palette: pips
 
 DPOD:
 	Inherits: ^CombatHelicopter
@@ -161,8 +193,7 @@ DPOD:
 	Tooltip:
 		Name: Drop Pod
 	Aircraft:
-		LandWhenIdle: true
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 160
 		InitialFacing: 0
 	-Rearmable:
@@ -173,7 +204,6 @@ DPOD:
 	Cargo:
 		Types: Infantry
 		MaxWeight: 1
-		PipCount: 1
 		UnloadVoice: Move
 	Armament:
 		Weapon: Vulcan2
@@ -185,25 +215,30 @@ DPOD:
 		Voice: Attack
 	AmmoPool:
 		Ammo: 5
-		PipCount: 5
-		PipType: Ammo
-		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
 	AutoTarget:
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
+		Palette: pips
 
 DSHP:
 	Inherits: ^CombatHelicopter
+	Inherits@PIPS: ^CargoPips
 	Valued:
 		Cost: 1000
 	Tooltip:
 		Name: Dropship
 	Aircraft:
-		TurnSpeed: 10
+		TurnSpeed: 40
 		Speed: 200
 		InitialFacing: 0
-		Repulsable: False
+		Repulsable: false
 		AltitudeVelocity: 500
 		IdleBehavior: LeaveMap
+		VTOL: false
 	-Rearmable:
 	-Targetable@AIRBORNE:
 	-Targetable@GROUND:
@@ -214,7 +249,6 @@ DSHP:
 	Cargo:
 		Types: Infantry, Vehicle
 		MaxWeight: 5
-		PipCount: 5
 		UnloadVoice: Move
 	SpawnActorOnDeath:
 		Actor: DSHP.Husk
@@ -231,14 +265,16 @@ DSHP:
 		Condition: DropshipCloak
 	Interactable:
 		Bounds: 1,1
-	Selectable:
-		Bounds: 1,1
-	SelectionDecorations:
-		Bounds: 1,1
+	-Selectable:
+	-SelectionDecorations:
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
 
 ORCATRAN:
-	Inherits: ^CombatHelicopter
+	Inherits: ^Helicopter
 	Inherits@1: ^6CellVision
+	Inherits@PIPS: ^CargoPips
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -252,21 +288,25 @@ ORCATRAN:
 	RenderVoxels:
 	-WithFacingSpriteBody:
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 84
 		InitialFacing: 0
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
-	-Rearmable:
 	Health:
 		HP: 20000
 	Cargo:
 		Types: Infantry
 		MaxWeight: 5
-		PipCount: 5
 		UnloadVoice: Move
 	SpawnActorOnDeath:
 		Actor: ORCATRAN.Husk
 	-GainsExperience:
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
 
 APACHE:
 	Inherits: ^CombatHelicopter
@@ -289,27 +329,42 @@ APACHE:
 	Selectable:
 		Bounds: 30,24
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 150
 		MoveIntoShroud: true
 	Health:
 		HP: 12000
+	Armament@Fakebullet:
+		Weapon: HarpyClawBullet
+		PauseOnCondition: !ammo
+		Name: decoration
+		LocalOffset: 900,0,0
+	Armament@FakebulletAA:
+		Weapon: HarpyClawBulletAA
+		PauseOnCondition: !ammo
+		Name: decoration
+		LocalOffset: 900,0,0
+	GrantConditionOnAttack@Casing:
+		Condition: attack
+		ArmamentNames: decoration
+	ExplodeWeapon@Casing:
+		Weapon: HarpyClawCasing
+		RequiresCondition: attack
+		RevokeDelay: 1
 	Armament:
 		Weapon: HarpyClaw
 		PauseOnCondition: !ammo
-	Armament@432:
+	Armament@AA:
 		Weapon: HarpyClawAA
 		PauseOnCondition: !ammo
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 20
 		Voice: Attack
+		Armaments: primary, secondary, decoration
 	AmmoPool:
 		Ammo: 10
-		PipCount: 5
 		ReloadCount: 2
-		PipType: Ammo
-		PipTypeEmpty: AmmoEmpty
 		ReloadDelay: 50
 		AmmoCondition: ammo
 	AutoTarget:
@@ -317,7 +372,7 @@ APACHE:
 		InitialStanceAI: AttackAnything
 	WithIdleOverlay@ROTORAIR:
 		Offset: 150,0,200
-		Sequence: rotor2
+		Sequence: rotor
 		RequiresCondition: airborne
 	WithIdleOverlay@ROTORGROUND:
 		Offset: 150,0,200
@@ -325,6 +380,13 @@ APACHE:
 		RequiresCondition: !airborne
 	SpawnActorOnDeath:
 		Actor: APACHE.Husk
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 5
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
+		Palette: pips
 
 SCRIN:
 	Inherits: ^CombatPlane
@@ -349,8 +411,10 @@ SCRIN:
 		VoiceSet: Scrin
 	Aircraft:
 		MaximumPitch: 90
-		TurnSpeed: 10
+		TurnSpeed: 40
 		Speed: 170
+		IdleTurnSpeed: 20
+		IdleSpeed: 85
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 	Health:
@@ -366,11 +430,8 @@ SCRIN:
 		FacingTolerance: 20
 	AmmoPool:
 		Ammo: 15
-		PipCount: 3
 		ReloadCount: 5
 		ReloadDelay: 83
-		PipType: Ammo
-		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
 	AutoTarget:
 		InitialStance: HoldFire
@@ -378,6 +439,25 @@ SCRIN:
 	DeathSounds:
 	SpawnActorOnDeath:
 		Actor: SCRIN.Husk
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 3
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
+		Palette: pips
+	Contrail@1:
+		Offset: -325,-143,100
+		Color: 00E00090
+		UsePlayerColor: false
+		TrailWidth: 48
+		TrailLength: 15
+	Contrail@2:
+		Offset: -325,143,100
+		Color: 00E00090
+		UsePlayerColor: false
+		TrailWidth: 48
+		TrailLength: 15
 
 CERBERUS:
 	Inherits: ^CombatHelicopter
@@ -398,24 +478,32 @@ CERBERUS:
 	Selectable:
 		Bounds: 90,45
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 60
 		Repulsable: true
 		MoveIntoShroud: true
 	-Rearmable:
 	Health:
 		HP: 45000
-	Armament:
-		Weapon: CerberusLazor
-		LocalOffset: 500,0,0, 150, 400, 0, 150, -400, 0, -600,0,0
+	Armament@sweep1:
+		Weapon: CerberusSublazor1
+		LocalOffset: 1400, 225, 0
+	Armament@sweep2:
+		Weapon: CerberusSublazor2
+		LocalOffset: 1400, -225, 0
+	AmbientSound:
+		SoundFiles: NUBeamC_wea1Loopa.wav ,NUBeamC_wea1Loopb.wav, NUBeamC_wea1Loopc.wav, NUBeamC_wea1Loopd.wav, NUBeamC_wea1Loope.wav
+		Interval: 2
+		RequiresCondition: Attacking
+	GrantConditionOnAttack:
+		Condition: Attacking
+		RevokeDelay: 3
 	AttackAircraft:
 		AttackType: Hover
-		FacingTolerance: 64
+		FacingTolerance: 10
 		Voice: Attack
 	RenderSprites:
 		PlayerPalette: playertemperate
-	BodyOrientation:
-		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: CERBERUS.Husk
 	ProximityExternalCondition:
@@ -423,7 +511,7 @@ CERBERUS:
 		Range: 5c0
 		EnableSound: cloak5.aud
 		DisableSound: cloak5.aud
-		AffectsParent: False
+		AffectsParent: false
 	-Cloak@CLOAKGENERATOR:
 	WithRangeCircle:
 		Range: 4c0
@@ -431,6 +519,30 @@ CERBERUS:
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel
+	Contrail@1:
+		Offset: -1500, 336, -50
+		Color: FFEA0080
+		UsePlayerColor: false
+		TrailLength: 10
+		TrailWidth: 96
+	Contrail@2:
+		Offset: -1500, 112, -50
+		Color: FFEA0080
+		UsePlayerColor: false
+		TrailLength: 10
+		TrailWidth: 96
+	Contrail@3:
+		Offset: -1500, -112, -50
+		Color: FFEA0080
+		UsePlayerColor: false
+		TrailLength: 10
+		TrailWidth: 96
+	Contrail@4:
+		Offset: -1500, -336, -50
+		Color: FFEA0080
+		UsePlayerColor: false
+		TrailLength: 10
+		TrailWidth: 96
 
 MUTHELI:
 	Inherits: ^CombatHelicopter
@@ -454,10 +566,9 @@ MUTHELI:
 	Selectable:
 		Bounds: 30,24
 	Aircraft:
-		TurnSpeed: 7
+		TurnSpeed: 28
 		Speed: 150
 		MoveIntoShroud: true
-		RearmBuildings: muair, gahpad, nahpad
 	Health:
 		HP: 12000
 	WithIdleOverlay@ROTORAIR:
@@ -468,6 +579,23 @@ MUTHELI:
 		Offset: 300,0,500
 		Sequence: slow-rotor
 		RequiresCondition: !airborne
+	Armament@CannonDecoration:
+		Weapon: GargoylACannonFakeProj
+		PauseOnCondition: !ammo
+		Name: decoration
+		LocalOffset: 950,0,0
+	Armament@CannonDecorationAA:
+		Weapon: GargoylACannonFakeProjAA
+		PauseOnCondition: !ammo
+		Name: decoration
+		LocalOffset: 950,0,0
+	GrantConditionOnAttack@Casing:
+		Condition: attack
+		ArmamentNames: decoration
+	ExplodeWeapon@Casing:
+		Weapon: GargoylACannonCasing
+		RequiresCondition: attack
+		RevokeDelay: 1
 	Armament@primary:
 		Weapon: GargoylACannon
 		MuzzleSequence: muzzle
@@ -483,19 +611,24 @@ MUTHELI:
 		AttackType: Hover
 		FacingTolerance: 20
 		Voice: Attack
+		Armaments: primary, secondary, decoration
 	AmmoPool:
 		Ammo: 10
-		PipCount: 5
 		ReloadCount: 2
 		ReloadDelay: 50
-		PipType: Ammo
-		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
 	SpawnActorOnDeath:
 		Actor: MUTHELI.Husk
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 5
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
+		Palette: pips
 
 WETP:
 	Inherits: ^CombatPlane
@@ -518,9 +651,10 @@ WETP:
 		Bounds: 30,24
 	Aircraft:
 		MaximumPitch: 120
-		TurnSpeed: 9
-		IdleTurnSpeed: 4
+		TurnSpeed: 30
+		IdleTurnSpeed: 20
 		Speed: 150
+		IdleSpeed: 85
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 	Health:
@@ -532,11 +666,8 @@ WETP:
 		FacingTolerance: 20
 	AmmoPool:
 		Ammo: 1
-		PipCount: 1
 		ReloadCount: 1
 		ReloadDelay: 250
-		PipType: Ammo
-		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
 	AutoTarget:
 		ScanRadius: 6
@@ -552,6 +683,28 @@ WETP:
 	SpeedMultiplier@Supersonic:
 		RequiresCondition: attacking && ammo
 		Modifier: 300
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
+		Palette: pips
+	Contrail@1:
+		Offset: -100,-700,55
+		Color: 55555580
+		UsePlayerColor: false
+		TrailWidth: 32
+	Contrail@2:
+		Offset: -100,700,55
+		Color: 55555580
+		UsePlayerColor: false
+		TrailWidth: 32
+	Contrail@FlameTrail:
+		Offset: -900,0,50
+		Color: FFEA0080
+		UsePlayerColor: false
+		TrailWidth: 96
+		TrailLength: 7
 
 MUTQUEEN:
 	Inherits: ^CombatHelicopter
@@ -561,6 +714,7 @@ MUTQUEEN:
 	Inherits@4: ^PermanentSelfHeal
 	Inherits@5: ^9CellVision
 	Inherits@Shadow: ^AircraftShadow
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -575,9 +729,9 @@ MUTQUEEN:
 	Selectable:
 		Bounds: 30,24
 	Voiced:
-		VoiceSet: Fiend
+		VoiceSet: LargeBeast
 	Aircraft:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 125
 		Repulsable: true
 		MoveIntoShroud: true
@@ -585,17 +739,15 @@ MUTQUEEN:
 	-Rearmable:
 	Health:
 		HP: 10000
-	-WithFacingSpriteBody:
-	WithInfantryBody:
-		IdleSequences: run
-		StandSequences: run
+	WithFacingSpriteBody:
+		Sequence: run
 	BodyOrientation:
 		QuantizedFacings: 8
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: deployed
 		CooldownTicks: 4500
 		DeployedTicks: 15
-		StartsFullyCharged: True
+		StartsFullyCharged: true
 	ExplodeWeapon:
 		Weapon: EggElevator
 		RequiresCondition: deployed
@@ -628,11 +780,12 @@ MUTBIRD:
 NUKECARRYALL_BOT:
 	Inherits: TRNSPORT
 	Inherits@1: ^AutoTargetAllAssaultMove
+	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Description: AI Nuke Transport
 		Queue: Air
 		BuildPaletteOrder: 6
-		Prerequisites: ~muair, muhall, ~AImoney, ~!LoadedExists
+		Prerequisites: ~muair, muhall, ~AIOnly, ~!LoadedExists
 	Selectable:
 		Class: trnsport
 	Valued:
@@ -643,33 +796,26 @@ NUKECARRYALL_BOT:
 		Experience: 600
 	Cargo:
 		InitialUnits: hvrtruk3_bot
-	Armament@AIaiming:
-		RequireCondition: AImicroManage
+	Armament@AIunloadingDummyWeapon:
 		Weapon: AITransportAimingDummyWeapon
-		LocalOffset: 950,0,0
-		ReloadingCondition: unloading
-		PauseOnCondition: unloading
+		RequiresCondition: AImicroManage && !notmobile && loaded
 	##TODO: If engine upgrade can help on it, needs update here
-	RejectsOrders@unloading:
+	RejectsOrders@AIunloading:
 		Except: Unload
-		RequiresCondition: unloading && AImicroManage
+		RequiresCondition: AImicroManage && (notmobile || !loaded)
 	## --TODO
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 128
 	AIDeployHelper:
-		DeployChance : 100
-		DeployTicks : 50
-		UndeployTicks : 50
+		DeployChance: 100
+		DeployTicks: 50
+		UndeployTicks: 50
 	AutoTarget:
 		ScanRadius: 9
 		InitialStanceAI: AttackAnything
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	GrantConditionOnDamageState:
-		RequiresCondition: AImicroManage
-		Condition: unloading
-		ValidDamageStates: Medium
 	ProvidesPrerequisite@AIbuildinglimit:
 		RequiresCondition: loaded
 		Prerequisite: LoadedExists
@@ -680,11 +826,23 @@ SONICARRYALL_BOT:
 		Description: AI Sonic Transport
 		Queue: Air
 		BuildPaletteOrder: 6
-		Prerequisites: ~gahpad, gatech, ~AImoney, ~!LoadedExists
+		Prerequisites: ~gahpad, gatech, ~AIOnly, ~!LoadedExists
 	Valued:
 		Cost: 1200
 	Cargo:
 		InitialUnits: sonic
+
+APCARRYALL_BOT:
+	Inherits: NUKECARRYALL_BOT
+	Buildable:
+		Description: AI APC Transport
+		Queue: Air
+		BuildPaletteOrder: 6
+		Prerequisites: ~gahpad, gapile, ~AIOnly, ~!LoadedExists
+	Valued:
+		Cost: 1000
+	Cargo:
+		InitialUnits: apc_bot
 
 STORMRIDER:
 	Inherits: ^CombatPlane
@@ -708,8 +866,10 @@ STORMRIDER:
 	Hovers:
 	Aircraft:
 		MaximumPitch: 90
-		TurnSpeed: 8
+		TurnSpeed: 32
 		Speed: 170
+		IdleTurnSpeed: 20
+		IdleSpeed: 85
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 	-Rearmable:
@@ -727,14 +887,31 @@ STORMRIDER:
 		Actor: STORMRIDER.Husk
 	SmokeParticleEmitter:
 		Image: scrsmoke
-		Palette: apolbluealpha60
+		Palette: gradientblue40
+	Contrail@1:
+		Offset: -300,-150,-100
+		Color: 33008860
+		UsePlayerColor: false
+	Contrail@2:
+		Offset: -300,150,-100
+		Color: 3300EE80
+		UsePlayerColor: false
+
+^ScrinAircraftGeneric:
+	Inherits@4: ^ScrinAircratVoice
+	Inherits@2: ^ScrinRender
+	Inherits@Shadow: ^AircraftShadow
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: gradientblue40
+	Explodes@Shrapnel:
+		Weapon: BigAircraftShrapnel
+		EmptyWeapon: BigAircraftShrapnel
 
 DRACHE:
 	Inherits: ^CombatHelicopter
-	Inherits@5: ^8CellVision
-	Inherits@2: ^ScrinRender
-	Inherits@4: ^ScrinAircratVoice
-	Inherits@Shadow: ^AircraftShadow
+	Inherits@1: ^8CellVision
+	Inherits@2: ^ScrinAircraftGeneric
 	Buildable:
 		Queue: Air
 		BuildPaletteOrder: 110
@@ -749,10 +926,10 @@ DRACHE:
 		Priority: 4
 	Health:
 		HP: 60000
-	Targetable@MindControlInmune:
-		TargetTypes: MindControlInmune
+	Targetable@MindControlImmune:
+		TargetTypes: MindControlImmune
 	Aircraft:
-		TurnSpeed: 3
+		TurnSpeed: 12
 		Speed: 50
 		MoveIntoShroud: true
 		TakeOffOnCreation: false
@@ -764,24 +941,24 @@ DRACHE:
 	Transforms:
 		IntoActor: drached
 		Offset: -1,-1
-		Facing: 96
+		Facing: 384
 		TransformSounds: place2.aud
 		DeployCursor: deploy
 		NoTransformSounds:
 		Voice: Move
+		PauseOnCondition: mindcontrolled || empdisable
 	SelectionDecorations:
 	WithFacingSpriteBody:
 		Sequence: stand
 	Hovers:
 	SpawnActorOnDeath:
 		Actor: DRACHE.Husk
-	SmokeParticleEmitter:
-		Image: scrsmoke
-		Palette: apolbluealpha60
 	-GainsExperience:
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel
+	SmokeParticleEmitter:
+		Offset: 0,0,1000,0,0,1000
 
 DRACHE_BOT:
 	Inherits: DRACHE
@@ -800,11 +977,10 @@ DRACHE_BOT:
 SCRGLYDER1:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^ScrinRender
+	Inherits@2: ^ScrinAircraftGeneric
 	Inherits@3: ^BasicStealthDetectionAir
-	Inherits@4: ^ScrinAircratVoice
 	Inherits@5: ^9CellVision
-	Inherits@Shadow: ^AircraftShadow
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -812,11 +988,11 @@ SCRGLYDER1:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Selectable:
-		Bounds: 40,30
+		Bounds: 40,30,0,-10
 	Transforms:
 		IntoActor: scrglyder2
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 120
 		Repulsable: true
 		MoveIntoShroud: true
@@ -826,7 +1002,7 @@ SCRGLYDER1:
 		HP: 20000
 	Armament:
 		Weapon: Glyder1Cannon
-		LocalOffset: 0,0,-100
+		LocalOffset: 0,0,0
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 20
@@ -835,25 +1011,22 @@ SCRGLYDER1:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: GLYDER1.Husk
-	SmokeParticleEmitter:
-		Image: scrsmoke
-		Palette: apolbluealpha60
-	Armament@AIaimOnly:
+	Armament@AITransformDummyWeapon:
 		Weapon: AIGlyder1AimingDummyWeapon
 		RequiresCondition: AImicroManage
 		PauseOnCondition: empdisable
 		ReloadingCondition: AIattackGround
-	TransformOnCondition:
+	TransformOnCondition@AITransform:
 		RequiresCondition: AIattackGround
 		IntoActor: scrglyder2
+	SmokeParticleEmitter:
+		Offset: 0,0,500,0,0,500
 
 SCRDESTROYER:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^ScrinRender
+	Inherits@2: ^ScrinAircraftGeneric
 	Inherits@3: ^7CellVision
-	Inherits@4: ^ScrinAircratVoice
-	Inherits@Shadow: ^AircraftShadow
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -871,7 +1044,7 @@ SCRDESTROYER:
 	AutoTarget:
 		ScanRadius: 15
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 60
 		Repulsable: true
 		MoveIntoShroud: true
@@ -886,25 +1059,24 @@ SCRDESTROYER:
 		AttackType: Hover
 		FacingTolerance: 20
 		Voice: Attack
-		TargetFrozenActors: True
+		TargetFrozenActors: true
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRDESTROYER.Husk
-	SmokeParticleEmitter:
-		Image: scrsmoke
-		Palette: apolbluealpha60
-	Explodes@Shrapnel:
-		Weapon: BigAircraftShrapnel
-		EmptyWeapon: BigAircraftShrapnel
+	Contrail@1:
+		Offset: -1300, -20, 600
+		Color: AAAAFFAA
+		UsePlayerColor: false
+		TrailLength: 10
+		TrailWidth: 128
 
 SCRTRANS:
 	Inherits: ^Helicopter
 	Inherits@1: ^9CellVision
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinAircratVoice
+	Inherits@2: ^ScrinAircraftGeneric
 	Inherits@4: ^LowPrioritySelectionMode
-	Inherits@Shadow: ^AircraftShadow
+	Inherits@PIPS: ^CargoPips
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -917,14 +1089,13 @@ SCRTRANS:
 	Cargo:
 		Types: Infantry, Vehicle
 		MaxWeight: 10
-		PipCount: 10
 		UnloadVoice: Unload
 		LoadingCondition: notmobile
 	Selectable:
 		Bounds: 90,50
 		Priority: 4
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 150
 		Repulsable: true
 		MoveIntoShroud: true
@@ -935,18 +1106,22 @@ SCRTRANS:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRTRANS.Husk
-	SmokeParticleEmitter:
-		Image: scrsmoke
-		Palette: apolbluealpha60
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+	Contrail@1:
+		Offset: -1600, -20, 100
+		Color: AAAAFFAA
+		UsePlayerColor: false
+		TrailLength: 10
+		TrailWidth: 128
 
 SCRCARRIER:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^ScrinRender
+	Inherits@2: ^ScrinAircraftGeneric
 	Inherits@3: ^BasicStealthDetectionAir
-	Inherits@4: ^ScrinAircratVoice
 	Inherits@5: ^9CellVision
-	Inherits@Shadow: ^AircraftShadow
 	Valued:
 		Cost: 2500
 	Tooltip:
@@ -963,7 +1138,7 @@ SCRCARRIER:
 	Selectable:
 		Bounds: 90,55
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 50
 		Repulsable: true
 		MoveIntoShroud: true
@@ -971,16 +1146,16 @@ SCRCARRIER:
 	Health:
 		HP: 60000
 	Targetable@GROUND:
-		TargetTypes: Vehicle, MindControlInmune, Mothership
+		TargetTypes: Vehicle, MindControlImmune, Mothership
 	Targetable@AIRBORNE:
-		TargetTypes: Air, MindControlInmune, Mothership
+		TargetTypes: Air, MindControlImmune, Mothership
 	Armament:
 		Weapon: FighterSpawn
 	CarrierMaster:
 		Actors: STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN
 		RespawnTicks: 200
 		RearmTicks: 10
-		InstaRepair: true
+		InstantRepair: true
 	AttackTurreted:
 	Turreted:
 	AutoTarget:
@@ -990,17 +1165,21 @@ SCRCARRIER:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRCARRIER.Husk
-	SmokeParticleEmitter:
-		Image: scrsmoke
-		Palette: apolbluealpha60
-	Explodes@Shrapnel:
-		Weapon: BigAircraftShrapnel
-		EmptyWeapon: BigAircraftShrapnel
+	WithSpawnerMasterPipsDecoration:
+		Margin: 4, 3
+		Palette: pips
+		Position: BottomLeft
+		RequiresSelection: true
+	Contrail@1:
+		Offset: -1300, -20, 100
+		Color: AAAAFFAA
+		UsePlayerColor: false
+		TrailLength: 10
+		TrailWidth: 128
 
 STORMRIDERSPAWN:
 	Inherits: STORMRIDER
-	Inherits@1: ^ScrinRender
-	Inherits@Shadow: ^AircraftShadow
+	Inherits@1: ^ScrinAircraftGeneric
 	EditorOnlyTooltip:
 		Name: Assault Carrier Drone (Do not place in editor)
 	Tooltip:
@@ -1017,7 +1196,7 @@ STORMRIDERSPAWN:
 		Class: Stormrider
 	Aircraft:
 		Repulsable: false
-		TurnSpeed: 20
+		TurnSpeed: 80
 		Speed: 150
 		AltitudeVelocity: 200
 		VTOL: true
@@ -1048,6 +1227,13 @@ STORMRIDERSPAWN:
 	-Selectable:
 	-SelectionDecorations:
 	Interactable:
+	Contrail@1:
+		Offset: 0,-30,0
+		Color: 3300EE80
+		UsePlayerColor: false
+		TrailWidth: 32
+	-Contrail@2: 
+	-Explodes@Shrapnel:
 
 CABDRONEJET:
 	Inherits: STORMRIDERSPAWN
@@ -1067,24 +1253,26 @@ CABDRONEJET:
 		Image: cabdronejet
 	Aircraft:
 		MaximumPitch: 90
-		TurnSpeed: 30
+		TurnSpeed: 120
 		Speed: 200
 		AirborneCondition: airborne
 		AltitudeVelocity: 600
 		MoveIntoShroud: true
 	AttackAircraft:
-		AttackTurnDelay: 25
 	RejectsOrders:
+	Contrail@1:
+		Offset: 0,-30,0
+		Color: FFFF0050
+		UsePlayerColor: false
+		TrailWidth: 32
 
 SCRBATTLESHIP:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^ScrinRender
+	Inherits@2: ^ScrinAircraftGeneric
 	Inherits@3: ^PermanentSelfHeal
 	Inherits@4: ^CommandoIcon
-	Inherits@5: ^ScrinAircratVoice
 	Inherits@6: ^11CellVision
-	Inherits@Shadow: ^AircraftShadow
 	Valued:
 		Cost: 4000
 	Tooltip:
@@ -1104,7 +1292,7 @@ SCRBATTLESHIP:
 	AnnounceOnSeen:
 		Notification: BattleCruiserDetected
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 60
 		Repulsable: true
 		MoveIntoShroud: true
@@ -1113,7 +1301,10 @@ SCRBATTLESHIP:
 		HP: 150000
 	Armament:
 		Weapon: BattleshipCannon
-		LocalOffset: 0,0,0, 450,-200,0, -750,500,0, 600,-500,0, -750,0,300
+		LocalOffset: 0,0,0, 1000,0,0, -1000,0,0, 600,-500,0, -600,-500,0, -600,500,0, 600,500,0
+		MuzzleSequence: muzzle
+		MuzzlePalette: gradientblue60
+	WithMuzzleOverlay:
 	AttackTurreted:
 	Turreted:
 	AutoTarget:
@@ -1121,12 +1312,24 @@ SCRBATTLESHIP:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRBATTLESHIP.Husk
-	SmokeParticleEmitter:
-		Image: scrsmoke
-		Palette: apolbluealpha60
-	Explodes@Shrapnel:
-		Weapon: BigAircraftShrapnel
-		EmptyWeapon: BigAircraftShrapnel
+	Contrail@1:
+		Offset: -2200, -20, 350
+		Color: AAAAFFAA
+		UsePlayerColor: false
+		TrailLength: 15
+		TrailWidth: 128
+	Contrail@2:
+		Offset: -2300, 80, 350
+		Color: AA33FF80
+		UsePlayerColor: false
+		TrailLength: 8
+		TrailWidth: 128
+	Contrail@3:
+		Offset: -2300, -140, 350
+		Color: AA33FF80
+		UsePlayerColor: false
+		TrailLength: 8
+		TrailWidth: 128
 
 WASP:
 	Inherits: ^CombatHelicopter
@@ -1149,7 +1352,7 @@ WASP:
 	Selectable:
 		Bounds: 40,30
 	Aircraft:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 130
 		Repulsable: true
 		MoveIntoShroud: true
@@ -1163,15 +1366,12 @@ WASP:
 		LocalOffset: 250,350,-100
 	Armament@2:
 		Weapon: WaspLasor
-		AmmoPoolName: Rocket
 		LocalOffset: 250,-350,-100
 	Armament@3:
 		Weapon: WaspLasorAA
-		AmmoPoolName: Rocket
 		LocalOffset: 250,-350,-100
 	Armament@4:
 		Weapon: WaspLasorAA
-		AmmoPoolName: Rocket
 		LocalOffset: 250, 350,-100
 	Armament@TheRealThing:
 		Weapon: WaspBullet
@@ -1208,11 +1408,11 @@ FIREFLY:
 	Voiced:
 		VoiceSet: Limpet
 	Aircraft:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 120
 		Repulsable: true
 		MoveIntoShroud: true
-		AllowedTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	-Rearmable:
 	Health:
 		HP: 10000
@@ -1246,7 +1446,7 @@ BASILISK:
 	Voiced:
 		VoiceSet: Limpet
 	Aircraft:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 75
 		MoveIntoShroud: true
 	-Rearmable:
@@ -1267,6 +1467,16 @@ BASILISK:
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel
+	Contrail@1:
+		Offset: -1000,-330,40
+		Color: FFEA0080
+		UsePlayerColor: false
+		TrailLength: 10
+	Contrail@2:
+		Offset: -1000,300,40
+		Color: FFEA0080
+		UsePlayerColor: false
+		TrailLength: 10
 
 DEVOURER:
 	Inherits: ^CombatHelicopter
@@ -1289,7 +1499,7 @@ DEVOURER:
 	Selectable:
 		Bounds: 80, 60, 0, -24
 	Aircraft:
-		TurnSpeed: 6
+		TurnSpeed: 24
 		Speed: 35
 		CruiseAltitude: 0c750
 		Repulsable: true
@@ -1299,31 +1509,34 @@ DEVOURER:
 		HP: 175000
 	Voiced:
 		VoiceSet: Limpet
-	GrantConditionOnAttack:
-		Condition: DevoBuff
-		RevokeDelay: 35
 	Armament@Primary:
 		Weapon: DevourerGrinder
+	AmbientSound:
+		SoundFiles: ChainLoop0000.wav, ChainLoop0001.wav, ChainLoop0002.wav, ChainLoop0003.wav, ChainLoop0004.wav, ChainLoop0005.wav
+		Interval: 13
+		RequiresCondition: Attacking
+	GrantConditionOnAttack:
+		Condition: Attacking
+		RevokeDelay: 25
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	Turreted:
-		TurnSpeed: 3
+		TurnSpeed: 12
 	AutoTarget:
 		ScanRadius: 5
 	RenderSprites:
-	WithFacingSpriteBody@idle:
-		RequiresCondition: !DevoBuff
+	WithFacingSpriteBody:
+		RequiresCondition: !Attacking
 		Sequence: idle
 	WithFacingSpriteBody@attack:
 		Sequence: shoot
-		RequiresCondition: DevoBuff
+		RequiresCondition: Attacking
+		Name: Nomnomnom
 	BodyOrientation:
 		QuantizedFacings: 8
 	SpawnActorOnDeath:
 		Actor: DEVOURER.Husk
-	ExternalCondition@DevoBuff:
-		Condition: DevoBuff
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel

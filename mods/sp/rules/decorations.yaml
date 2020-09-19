@@ -1,0 +1,495 @@
+
+GEYSER:
+	Inherits: ^CivBuilding
+	-Tooltip:
+	RenderSprites:
+		-Palette:
+		PlayerPalette: playerunittem
+	WithIdleOverlay:
+		Sequence: gasanim
+		Palette: jascgreenalpha
+	-Targetable:
+	-IsometricSelectable:
+	-IsometricSelectionDecorations:
+
+GEYSER2:
+	Inherits: GEYSER
+
+PALLET:
+	Inherits: ^1x1TurretedProp
+	Tooltip:
+		Name: Pallet
+	EditorOnlyTooltip:
+		Name: Pallet (Supports facings)
+	RenderSprites:
+		Palette: player
+
+BOXSET1:
+	Inherits: ^1x1TurretedProp
+	Tooltip:
+		Name: Boxes
+	EditorOnlyTooltip:
+		Name: Boxes (Supports facings)
+	RenderSprites:
+		Palette: unittem
+
+GRAVE:
+	Inherits@1: ^1x1TurretedProp
+	Tooltip:
+		Name: Grave
+	EditorOnlyTooltip:
+		Name: Grave (Supports facings)
+	RenderSprites:
+		Palette: unittem
+
+TANKBARRIER:
+	Inherits: ^CivBuilding
+	Tooltip:
+		Name: Tank Barrier
+	Health:
+		HP: 50000
+	Armor:
+		Type: ConcreteArmor
+	RenderSprites:
+		Palette: player
+
+TANKBARRIER2:
+	Inherits: TANKBARRIER
+
+CONCRETEBARRIER:
+	Inherits: ^CivBuilding
+	Tooltip:
+		Name: Civilian Barrier
+	Health:
+		HP: 25000
+	Armor:
+		Type: ConcreteArmor
+	RenderSprites:
+		Palette: player
+
+CONCRETEBARRIER2:
+	Inherits: CONCRETEBARRIER
+
+CONCRETEBARRIER3:
+	Inherits: CONCRETEBARRIER
+
+CONCRETEBARRIER4:
+	Inherits: CONCRETEBARRIER
+
+CONCRETEBARRIER5:
+	Inherits: CONCRETEBARRIER
+
+CONCRETEBARRIER6:
+	Inherits: CONCRETEBARRIER
+
+CONCRETEBARRIER7:
+	Inherits: CONCRETEBARRIER
+
+CONCRETEBARRIER8:
+	Inherits: CONCRETEBARRIER
+
+FENCE:
+	Inherits: ^Wall
+	Tooltip:
+		Name: Fence
+	Crushable:
+		CrushClasses: infantry
+	-BlocksProjectiles:
+	Armor:
+		Type: BuildingArmor
+
+CERMWALL:
+	Inherits: FENCE
+	Tooltip:
+		Name: Wall
+
+TRASHDUMP:
+	Inherits: ^CivBuilding
+	Inherits@2: ^1x1Shape
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Tooltip:
+		Name: Trash Dump
+	Health:
+		HP: 15000
+	Armor:
+		Type: BuildingArmor
+	RenderSprites:
+		Palette: player
+
+TIBGLACIER:
+	Inherits: ^CivBuilding
+	Inherits@2: ^1x2Shape
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 25000
+	Armor:
+		Type: BuildingArmor
+	RenderSprites:
+		Palette: scipberium
+
+TIBGLACIER2:
+	Inherits: TIBGLACIER
+
+TIBGLACIER3:
+	Inherits: TIBGLACIER
+
+TIBGLACIER4:
+	Inherits: TIBGLACIER
+
+ROCKS1:
+	Inherits@1: ^1x1TurretedProp
+	-Tooltip:
+	EditorOnlyTooltip:
+		Name:Rock set (Supports facings)
+	RenderSprites:
+		Palette: player
+
+TIBTRE01:
+	Inherits: ^BlossomTree
+
+TIBTRE02:
+	Inherits: ^BlossomTree
+
+TIBTRE03:
+	Inherits: ^BlossomTree
+
+BIGBLUE:
+	Inherits: ^BlossomTree
+	RenderSprites:
+		Palette: bluetiberium
+	RadarColorFromTerrain:
+		Terrain: BlueTiberium
+	Tooltip:
+		Name: Blue Tiberium Crystal
+	SeedsResource:
+		ResourceType: BlueTiberium
+	TerrainLightSource:
+		RedTint: 0
+		GreenTint: 0
+		BlueTint: 0.7
+
+BIGBLUE3:
+	Inherits: BIGBLUE
+	RenderSprites:
+		Image: bigblue
+	EditorOnlyTooltip:
+		Name: Duplicated vinifera (It helps avoid map importation issues)
+
+BIGGREEN:
+	Inherits: ^BlossomTree
+	Tooltip:
+		Name: Tiberium Crystal
+	RenderSprites:
+		Image: BIGBLUE
+		Palette: greentiberium
+
+^Fona:
+	Inherits: ^Tree
+	-Tooltip:
+	TerrainLightSource@1:
+		Range: 2c640
+		Intensity: 0.0005
+		RedTint: 0.05
+		GreenTint: 0.05
+		BlueTint: 0.6
+
+^FonaGreen:
+	Inherits: ^Fona
+	TerrainLightSource@1:
+		Intensity: 0.0005
+		RedTint: 0.07
+		GreenTint: 0.36
+		BlueTint: 0.07
+
+TREE01:
+	Inherits: ^Tree
+
+TREE02:
+	Inherits: ^Tree
+
+TREE03:
+	Inherits: ^Tree
+
+TREE04:
+	Inherits: ^Tree
+
+TREE05:
+	Inherits: ^Tree
+
+TREE06:
+	Inherits: ^Tree
+
+TREE07:
+	Inherits: ^Tree
+
+TREE08:
+	Inherits: ^Tree
+
+TREE09:
+	Inherits: ^Tree
+
+TREE10:
+	Inherits: ^Tree
+
+TREE11:
+	Inherits: ^Tree
+
+TREE12:
+	Inherits: ^Tree
+
+TREE13:
+	Inherits: ^Tree
+
+TREE14:
+	Inherits: ^Tree
+
+TREE15:
+	Inherits: ^Tree
+
+TREE16:
+	Inherits: ^Tree
+
+TREE17:
+	Inherits: ^Tree
+
+TREE18:
+	Inherits: ^Tree
+
+TREE19:
+	Inherits: ^Tree
+
+TREE20:
+	Inherits: ^Tree
+
+TREE21:
+	Inherits: ^Tree
+
+TREE22:
+	Inherits: ^Tree
+
+TREE23:
+	Inherits: ^Tree
+
+TREE24:
+	Inherits: ^Tree
+
+TREE25:
+	Inherits: ^Tree
+
+fona01:
+	Inherits: ^Fona
+	Tooltip:
+		Name: Fona
+
+fona02:
+	Inherits: ^Fona
+	Tooltip:
+		Name: Fona
+
+fona03:
+	Inherits: ^Fona
+	Tooltip:
+		Name: Fona
+
+fona04:
+	Inherits: ^Fona
+	Tooltip:
+		Name: Fona
+
+fona05:
+	Inherits: ^Fona
+	Tooltip:
+		Name: Fona
+
+fona06:
+	Inherits: ^FonaGreen
+	Tooltip:
+		Name: Fona
+
+fona07:
+	Inherits: ^FonaGreen
+	Tooltip:
+		Name: Fona
+
+fona08:
+	Inherits: ^FonaGreen
+	Tooltip:
+		Name: Fona
+
+fona09:
+	Inherits: ^FonaGreen
+	Tooltip:
+		Name: Fona
+
+fona10:
+	Inherits: ^FonaGreen
+	Tooltip:
+		Name: Fona
+
+fona11:
+	Inherits: ^FonaGreen
+	Tooltip:
+		Name: Fona
+
+fona12:
+	Inherits: ^FonaGreen
+	Tooltip:
+		Name: Fona
+
+fona13:
+	Inherits: ^FonaGreen
+	Tooltip:
+		Name: Fona
+
+fona14:
+	Inherits: ^FonaGreen
+	Tooltip:
+		Name: Fona
+
+fona15:
+	Inherits: ^FonaGreen
+	Tooltip:
+		Name: Fona
+
+treepine:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+treepine2:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+treepine3:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+treepine4:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+treepine5:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+treepine6:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+treeoak:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+
+treeoak2:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+treeoak3:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+treeoak4:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+treeoak5:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+treeoak6:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+treegeneric:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+
+treegeneric2:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+treegeneric3:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+treegeneric4:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+treegeneric5:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+treegeneric6:
+	Inherits: ^Tree
+	RenderSprites:
+		Palette: dropship
+
+VEINHOLE:
+	Inherits: ^Building
+	Inherits@2: ^2x2Shape
+	-CaptureManager:
+	RadarColorFromTerrain:
+		Terrain: Veins
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	BodyOrientation:
+		QuantizedFacings: 1
+	Tooltip:
+		Name: Veinhole Monster
+	SeedsResource:
+		Interval: 5
+		ResourceType: Veins
+		MaxRange: 24
+	RenderSprites:
+		Palette: player
+	DamageMultiplier@Veinhole:
+		Modifier: 0
+		RequiresCondition: !lawea
+	ChangesHealth:
+		PercentageStep: 1
+		StartIfBelow: 200
+		DamageCooldown: 50
+		Delay: 25
+	WithSpriteBody:
+	ShakeOnDeath:
+	Targetable:
+		TargetTypes: Building, Ground, Veinhole
+	AmbientSound:
+		SoundFiles: tentaclem0001.wav, tentaclem0002.wav, tentaclem0003.wav
+		Delay: 0, 100
+		Interval: 150, 300
+	Health:
+		HP: 200000
+	Armor:
+		Type: BuildingArmor
+	-WithColoredOverlay@EMPDISABLE:
+	-TimedConditionBar@EMPDISABLE:
+	-WithIdleOverlay@EMPDISABLE:
+	MapEditorData:
+		Categories: Tree
+	RequiresBuildableArea:
+		AreaTypes: building
+	Interactable:
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
+	-ThrowsShrapnel@SMALL:
+	-ThrowsShrapnel@LARGE:
+	-GrantConditionOnDamageState@SpawnFire:
+	-ExplodeWeapon@SpawnFire:
+	-ExternalCondition@SpawnFire:
+	-CapturableProgressBlink:
+	-CapturableProgressBar:
+	-Capturable:
+
+VEINHOLE2:
+	Inherits: VEINHOLE
+	EditorOnlyTooltip:
+		Name: Low ground veinhole

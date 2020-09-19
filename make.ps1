@@ -5,6 +5,11 @@
 ###############################################################
 function All-Command
 {
+	If (!(Test-Path "*.sln"))
+	{
+		return
+	}
+
 	if ((CheckForDotnet) -eq 1)
 	{
 		return
@@ -117,6 +122,12 @@ function Test-Command
 
 function Check-Command
 {
+	If (!(Test-Path "*.sln"))
+	{
+		Write-Host "No custom solution file found. Skipping static code checks." -ForegroundColor Cyan
+		return
+	}
+
 	Write-Host "Compiling in debug configuration..." -ForegroundColor Cyan
 	dotnet build /p:Configuration=Debug /nologo
 	if ($lastexitcode -ne 0)
@@ -167,7 +178,7 @@ function Docs-Command
 
 function CheckForUtility
 {
-	if (Test-Path OpenRA.Utility.exe)
+	if (Test-Path $utilityPath)
 	{
 		return 0
 	}
@@ -222,6 +233,7 @@ function ParseConfigFile($fileName)
 			ReadConfigLine $line $name
 		}
 	}
+	$reader.Close()
 
 	$missing = @()
 	foreach ($name in $names)
@@ -297,7 +309,9 @@ if ($command -eq "all" -or $command -eq "clean")
 	$currentEngine = ""
 	if (Test-Path $versionFile)
 	{
-		$currentEngine = [System.IO.File]::OpenText($versionFile).ReadLine()
+		$reader = [System.IO.File]::OpenText($versionFile)
+		$currentEngine = $reader.ReadLine()
+		$reader.Close()
 	}
 
 	if ($currentEngine -ne "" -and $currentEngine -eq $env:ENGINE_VERSION)

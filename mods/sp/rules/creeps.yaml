@@ -1,0 +1,522 @@
+DOGGIE:
+	Inherits: ^Beast
+	Tooltip:
+		Name: Tiberian Fiend
+	Health:
+		HP: 250
+	Armor:
+		Type: InfantryArmor
+	-RevealsShroud:
+	-GainsExperience:
+	Mobile:
+		Speed: 120
+	Voiced:
+		VoiceSet: Fiend
+	Targetable:
+		TargetTypes: Infantry, Ground
+	Armament:
+		Weapon: FiendShard
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: WebDisable
+	AttackWander:
+		WanderMoveRadius: 2
+		MinMoveDelay: 25
+		MaxMoveDelay: 45
+	WithInfantryBody:
+		IdleSequences: idle1
+	MapEditorData:
+		Categories: Creep
+
+WEASAU4:
+	Inherits: ^Beast
+	Tooltip:
+		Name: Weasaurus minor
+	Health:
+		HP: 25000
+	Armor:
+		Type: InfantryArmor
+	-RevealsShroud:
+	-GainsExperience:
+	Mobile:
+		Speed: 80
+	Voiced:
+		VoiceSet: Fiend
+	Targetable:
+		TargetTypes: Infantry, Ground
+	Armament:
+		Weapon: WeasaurusShard
+		LocalOffset: 300,0,400
+	Armament@1:
+		Weapon: WeasaurusShard
+		LocalOffset: 300,0,400
+	Armament@2:
+		Weapon: WeasaurusShard
+		LocalOffset: 300,0,400
+	Armament@3:
+		Weapon: WeasaurusShard
+	Armament@4:
+		Weapon: WeasaurusShard
+	Armament@5:
+		Weapon: WeasaurusShard
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: WebDisable
+	AttackWander:
+		WanderMoveRadius: 2
+		MinMoveDelay: 25
+		MaxMoveDelay: 45
+	WithInfantryBody:
+		IdleSequences: idle1
+	MapEditorData:
+		Categories: Creep
+	WithDeathAnimation@normal:
+		DeathSequencePalette: orgatem
+	RenderSprites:
+		Palette: orgatem
+WEASAU2:
+	Inherits: WEASAU4
+	Tooltip:
+		Name: Weasaurus
+	Health:
+		HP: 75000
+	Mobile:
+		Speed: 50
+	Armament:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@1:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@2:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@3:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@4:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@5:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@6:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@7:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@8:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@9:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+
+VISC_SML:
+	Inherits: ^Visceroid
+	Tooltip:
+		Name: Baby Visceroid
+	Health:
+		HP: 7500
+	Armor:
+		Type: InfantryArmor
+	AttackWander:
+		WanderMoveRadius: 3
+		MinMoveDelay: 30
+		MaxMoveDelay: 60
+		RequiresCondition: !Evolve
+	Targetable@MindControl:
+		TargetTypes: MindControlImmune
+	RenderSprites:
+		Image: vissml
+	Targetable@ViscMale:
+		TargetTypes: ViscMale
+	Mobile:
+	TransformOnCondition:
+		IntoActor: visc_lrg
+		RequiresCondition: Transform
+	GrantPeriodicCondition:
+		Condition: Transform
+		CooldownDuration: 1000
+	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
+	MapEditorData:
+		Categories: Creep
+
+VISC_LRG:
+	Inherits: ^Visceroid
+	Tooltip:
+		Name: Adult Visceroid
+	Health:
+		HP: 15000
+	Armor:
+		Type: InfantryArmor
+	RevealsShroud:
+		Range: 4c0
+	Targetable@MindControl:
+		TargetTypes: MindControlImmune
+	Armament:
+		Weapon: SlimeAttack
+		FireDelay: 10
+	AutoTarget:
+		ScanRadius: 5
+	AttackFrontal:
+		Voice: Attack
+	Wanders:
+	WithAttackAnimation:
+		Sequence: attack
+	Mobile:
+	RenderSprites:
+		Image: vislrg
+	SpawnActorOnDeath@smallVisceroid1:
+		Actor: visc_sml
+		Probability: 100
+		OwnerType: Victim
+	SpawnActorOnDeath@smallVisceroid2:
+		Actor: visc_sml
+		Probability: 100
+		OwnerType: Victim
+	Explodes@adultExplodes:
+		Weapon: ZombieExplosion
+		EmptyWeapon: ZombieExplosion
+		Chance: 100
+	MapEditorData:
+		Categories: Creep
+
+VISC_LRG_SCRIN:
+	Inherits: VISC_LRG
+	Health:
+		HP: 10000
+	-DamagedByTerrain:
+	RejectsOrders:
+	-UpdatesPlayerStatistics:
+	-AppearsOnRadar:
+	EditorOnlyTooltip:
+		Name: Visceroid Hive Visc (Do not place in editor)
+	Targetable@MindControl:
+		TargetTypes: MindControlImmune
+	AutoTarget:
+		ScanRadius: 5
+		InitialStance: AttackAnything
+	ChangesHealth:
+		PercentageStep: -10
+		Step: 0
+		Delay: 50
+		StartIfBelow: 200
+	RenderSprites:
+		Image: vislrg
+	-SpawnActorOnDeath@smallVisceroid1:
+	-SpawnActorOnDeath@smallVisceroid2:
+	-Explodes@adultExplodes:
+	MapEditorData:
+		Categories: Creep
+
+ZOMBIE:
+	Inherits: ^Mutant
+	Tooltip:
+		Name: Haunt
+	-GainsExperience:
+	Valued:
+		Cost: 50
+	Health:
+		HP: 7500
+	RevealsShroud:
+		Range: 4c0
+	Explodes:
+		Weapon: ZombieExplosion
+		EmptyWeapon: ZombieExplosion
+		Chance: 80
+	AutoTarget:
+		ScanRadius: 3
+	Mobile:
+		Speed: 55
+	-SpawnActorOnDeath@conversion:
+	-TakeCover:
+	Voiced:
+		VoiceSet: Fiend
+	Targetable:
+		TargetTypes: Ground, Infantry, NeutralTibCritter
+	Armament:
+		Weapon: SlimeAttack
+	WithInfantryBody:
+		AttackSequences: shoot
+		RequiresCondition: !WebDisable
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: WebDisable
+	AttackWander:
+		WanderMoveRadius: 2
+		MinMoveDelay: 25
+		MaxMoveDelay: 45
+	-SpawnActorOnDeath@tiberium:
+	-DamagedByTintedCells@Default:
+	TransformOnCondition:
+		IntoActor: berserker
+		RequiresCondition: Transform
+	GrantPeriodicCondition:
+		Condition: Transform
+		CooldownDuration: 1000
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
+	AutoTargetPriority@ATTACKANYTHING:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
+	MapEditorData:
+		Categories: Creep
+
+BERSERKER:
+	Inherits: ^Mutant
+	Inherits@1: ^MutRender
+	Tooltip:
+		Name: Berserker
+	-GainsExperience:
+	Valued:
+		Cost: 100
+	Health:
+		HP: 20000
+	RevealsShroud:
+		Range: 5c0
+	-SpawnActorOnDeath@conversion:
+	ChangesHealth:
+		PercentageStep: 1
+		Step: 0
+		Delay: 200
+	Mobile:
+		Speed: 100
+	Armor:
+		Type: VehicleArmor
+	-Crushable:
+	Voiced:
+		VoiceSet: Fiend
+	-TakeCover:
+	Targetable:
+		TargetTypes: Infantry, Ground, NeutralTibCritter
+	Armament:
+		Weapon: BerserkerBlow
+	AutoTarget:
+		ScanRadius: 4
+	WithInfantryBody:
+		AttackSequences: shoot
+		IdleSequences: idle1, idle2, idle3
+		RequiresCondition: !WebDisable
+	AttackFrontal:
+		Voice: Attack
+	AttackWander:
+		WanderMoveRadius: 1
+		ReduceMoveRadiusDelay: 5
+		MinMoveDelay: 100
+		MaxMoveDelay: 200
+	-SpawnActorOnDeath@tiberium:
+	-DamagedByTintedCells@Default:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
+	AutoTargetPriority@ATTACKANYTHING:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
+	MapEditorData:
+		Categories: Creep
+
+EGGS:
+	Inherits: ^NonBuildingStaticActor
+	Tooltip:
+		Name: Crab Eggs (Menacing)
+	Armor:
+		Type: BuildingArmor
+	Health:
+		HP: 50000
+	RenderSprites:
+		Palette: playermut
+	Targetable:
+		TargetTypes: Defence, Ground, NeutralTibCritter, MindControlImmune
+	ExternalCondition@SpawnCrabs:
+		Condition: SpawnCrabs
+	GrantPeriodicCondition:
+		Condition: SpawnCrabs
+		CooldownDuration: 400
+	ChangesHealth@crab:
+		PercentageStep: -100
+		Step: 0
+		Delay: 50
+		StartIfBelow: 150
+		RequiresCondition: SpawnCrabs
+		DamageTypes: SpawnCrabs
+	SpawnActorOnDeath@crab1:
+		Actor: crab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType: SpawnCrabs
+		RequiresLobbyCreeps: true
+	MapEditorData:
+		Categories: Creep
+
+CRAB:
+	Inherits: ^Beast
+	Inherits@1: ^MutRender
+	EditorOnlyTooltip:
+		Name: Tiberian Cravicus
+	Tooltip:
+		Name: Crab
+	Valued:
+		Cost: 50
+	Health:
+		HP: 17000
+	Armor:
+		Type: InfantryArmor
+	RevealsShroud:
+		Range: 8c0
+	AutoTarget:
+		ScanRadius: 7
+		InitialStance: AttackAnything
+	Mobile:
+		Speed: 50
+	Voiced:
+		VoiceSet: Fiend
+	Targetable:
+		TargetTypes: Infantry, Ground, NeutralTibCritter, MindControlImmune
+	Armament:
+		Weapon: CrabAcid
+	WithInfantryBody:
+		AttackSequences: shoot
+		IdleSequences: idle1, idle2
+		RequiresCondition: !WebDisable
+	GrantPeriodicCondition:
+		Condition: SpawnCrabs
+		CooldownDuration: 2250
+	ChangesHealth@crab:
+		PercentageStep: -100
+		Step: 0
+		Delay: 50
+		StartIfBelow: 150
+		RequiresCondition: SpawnCrabs
+	AttackFrontal:
+		Voice: Attack
+	AttackWander:
+		WanderMoveRadius: 5
+		ReduceMoveRadiusDelay: 1
+		MinMoveDelay: 25
+		MaxMoveDelay: 100
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
+	AutoTargetPriority@ATTACKANYTHING:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
+	-SpawnActorOnDeath@conversion:
+	-Crushable:
+	-GainsExperience:
+	-DamagedByTintedCells@Default:
+ 	-WithDeathAnimation@blood1:
+	MapEditorData:
+		Categories: Creep
+
+PERMACRAB:
+	Inherits: CRAB
+	EditorOnlyTooltip:
+		Name: Permanent Crab
+	RenderSprites:
+		Image: crab
+	-GrantPeriodicCondition:
+	-ChangesHealth@crab:
+	ChangesHealth@ELITE:
+		PercentageStep: 5
+		Delay: 75
+		StartIfBelow: 100
+		DamageCooldown: 300
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
+	AutoTargetPriority@ATTACKANYTHING:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
+	MapEditorData:
+		Categories: Creep
+
+jfish:
+	Inherits: ^HoverVehicle
+	Inherits@1: ^AutoTargetGroundAssaultMove
+	Tooltip:
+		Name: Floater
+	Health:
+		HP: 90000
+	Valued:
+		Cost: 100
+	Armor:
+		Type: VehicleArmor
+	RevealsShroud:
+		Range: 5c0
+	ExplodeWeapon:
+		Weapon: FloaterCloudSpawn
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	-WithFacingSpriteBody:
+	WithSpriteBody:
+	Mobile:
+		Speed: 100
+	Voiced:
+		VoiceSet: Fiend
+	Targetable:
+		TargetTypes: Infantry, Ground, NeutralTibCritter, CloudInmune
+	Armament:
+		Weapon: Tentacle
+	AutoTarget:
+		ScanRadius: 6
+	WithAttackAnimation:
+		Sequence: attack
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	AttackFrontal:
+		Voice: Attack
+	AttackWander:
+		WanderMoveRadius: 1
+		ReduceMoveRadiusDelay: 5
+		MinMoveDelay: 100
+		MaxMoveDelay: 200
+	-DamagedByTintedCells@Default:
+	-DamagedByTintedCells@OrangeRadiation:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
+	AutoTargetPriority@ATTACKANYTHING:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
+	MapEditorData:
+		Categories: Creep
+	RenderSprites:
+		Image: floater
+
+MINIVEIN:
+	Inherits: ^NonBuildingStaticActor
+	RadarColorFromTerrain:
+		Terrain: Veins
+	Tooltip:
+		Name: Baby Veinhole
+	-Interactable:
+	Selectable:
+		Bounds: 40,30
+	SelectionDecorations:
+	WithIdleOverlay@sushi:
+		Sequence: sushi1
+		RequiresCondition: !growing
+	WithDeathAnimation:
+		DeathSequence: dead
+		UseDeathTypeSuffix: false
+	AmbientSound:
+		SoundFiles: tentaclem0001.wav, tentaclem0002.wav, tentaclem0003.wav
+		Delay: 0, 100
+		Interval: 150, 300
+	Health:
+		HP: 70000
+	Targetable:
+		TargetTypes: Building, Ground, NeutralTibCritter
+	ExplodeWeapon@2:
+		Weapon: VeinholeEggElevator
+	ProximityExternalCondition:
+		Condition: veinholedrain
+		Range: 4c0
+		AffectsParent: false
+		ValidStances: Ally, Enemy, Neutral
+	ProximityExternalCondition@sustaincamera:
+		Condition: sustaincamera
+		Range: 1c0
+		AffectsParent: false
+		ValidStances: Ally, Enemy, Neutral
+	Targetable@Defence:
+		TargetTypes: Defence
+	WithMakeAnimation:
+		Condition: growing

@@ -2,64 +2,6 @@
 # UNUSED
 ###########################################################################
 
-ARMH:
-	Inherits: ^Tank
-	Inherits@1: ^5CellVision
-	Valued:
-		Cost: 1300
-	Tooltip:
-		Name: Beam Cannon
-	Health:
-		HP: 16000
-	Mobile:
-		Speed: 70
-		TurnSpeed: 5
-		Locomotor: Vehicle
-	WithFacingSpriteBody:
-	Armament:
-		Weapon: BCLazor
-		LocalOffset: 600,0,450
-		PauseOnCondition: empdisable
-	AttackFrontal:
-		Voice: Attack
-		PauseOnCondition: empdisable
-	AutoTarget:
-	Voiced:
-		VoiceSet: BeamCannonVO
-		Volume: 3
-	AnnounceOnKillAS:
-		Voice: Kill
-		Interval: 1000
-		OnlyToOwner: True
-
-CABGRINDER:
-	Inherits: ^Building
-	Inherits@1: ^CabRender
-	Inherits@2: ^2x3Shape
-	Valued:
-		Cost: 350
-	Tooltip:
-		Name: Stasis Chamber
-	ProvidesPrerequisite:
-		Prerequisite: tech
-	AcceptsDeliveredCash:
-	Building:
-		Footprint: xx xx xx
-		Dimensions: 2,3
-	Selectable:
-		Bounds: 120, 72, 0, -10
-		DecorationBounds: 120, 72, 0, -10
-	Health:
-		HP: 25000
-	Armor:
-		Type: BuildingArmor
-	Power:
-		Amount: -30
-	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
-	RequiresBuildableArea:
-		AreaTypes: building
-
 CABSENTRYTURRET:
 	# Inherits: ^MiscTurret
 	# Inherits@1: ^CabRender
@@ -96,40 +38,6 @@ CABSENTRYTURRET:
 	# -GrantConditionOnDamageState@smoke:
 	# -SmokeParticleEmitter:
 	# -ExternalCondition@smoketrail:
-
-CABCANNON:
-	Inherits: ^Defence
-	Inherits@1: ^CabRender
-	Inherits@3: ^TowerStealthDetection
-	Valued:
-		Cost: 500
-	Tooltip:
-		Name: Cannon Turret
-	Building:
-	Selectable:
-		Bounds: 40, 30, -3, -8
-		DecorationBounds: 40, 36, -3, -8
-	Health:
-		HP: 45000
-	BodyOrientation:
-		QuantizedFacings: 32
-	WithMuzzleOverlay:
-	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 50
-	AttackTurreted:
-		PauseOnCondition: empdisable || disabled
-	WithSpriteTurret:
-		Recoils: no
-	Armament:
-		Weapon: CTurretCannon
-		LocalOffset: 650,0,550
-		MuzzleSequence: muzzle
-	Power:
-		Amount: -20
-	SelectionDecorations:
-	RequiresBuildableArea:
-		AreaTypes: building
 
 GACTWR:
 	Inherits: ^Defence
@@ -258,45 +166,6 @@ GAPLUG3:
 	Power:
 		Amount: -100
 
-REPAIRTUR:
-	Inherits: ^Defence
-	Inherits@2: ^2x2Shape
-	Valued:
-		Cost: 1400
-	Tooltip:
-		Name: Maintenance Turret
-		Description: GDI utility structure, repairs\nnearby vehciles. Requires power to operate.\n  Unnarmed.
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	Selectable:
-		Bounds: 40, 30, -3, -8
-		DecorationBounds: 40, 36, -3, -8
-	GrantConditionOnPowerState@LOWPOWER:
-		Condition: lowpower
-		ValidPowerStates: Low, Critical
-	Health:
-		HP: 50000
-	BodyOrientation:
-		QuantizedFacings: 32
-	RenderRangeCircle:
-		RangeCircleType: aa
-	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 50
-	AttackTurreted:
-	WithSpriteTurret:
-		Recoils: no
-	Power:
-		Amount: -60
-	SelectionDecorations:
-	Armament:
-		Weapon: Repair
-		LocalOffset: 512,0,512
-		TargetStances: Ally
-		ForceTargetStances: None
-	RequiresBuildableArea:
-		AreaTypes: building
 
 	# GUARDIANDEP:
 	# Inherits: ^Building
@@ -368,7 +237,7 @@ MASTL:
 		Range: 5c0
 		EnableSound: cloak5.aud
 		DisableSound: cloak5.aud
-		AffectsParent: True
+		AffectsParent: true
 
 DLIMPET:
 	Inherits: ^DeployedVehicle
@@ -476,45 +345,6 @@ NAWAST:
 	RenderSprites:
 	RequiresBuildableArea:
 		AreaTypes: building
-
-MUMINE:
-	Inherits: ^DeployedVehicle
-	Valued:
-		Cost: 100
-	Tooltip:
-		Name: Mine
-	Selectable:
-		Priority: 1
-	Health:
-		HP: 5000
-	-AttackTurreted:
-	-SpawnActorOnDeath@ScrinEssence:
-	-AutoTarget:
-	-RenderRangeCircle:
-	-ActorLostNotification:
-	-UpdatesPlayerStatistics:
-	-Voiced:
-	Armor:
-		Type: Mine
-	Targetable:
-		TargetTypes: Ground, Repair, MindControlInmune, Mine
-	BodyOrientation:
-		QuantizedFacings: 32
-	Cloak@cloakgenerator:
-		RequiresCondition: !lawea
-		CloakSound:
-		InitialDelay: 50
-		CloakDelay: 50
-		UncloakSound:
-		Palette: cloakmut
-		IsPlayerPalette: true
-		CloakTypes: mine
-	Mine:
-		CrushClasses: crate
-		DetonateClasses: crate
-		AvoidFriendly: true
-	Explodes:
-		Weapon: MineExplode
 
 MUWARD:
 	Inherits: ^DeployedVehicle
@@ -662,14 +492,14 @@ MHIJACK:
 	Health:
 		HP: 9000
 	Targetable@MindControlImmunity:
-		TargetTypes: MindControlInmune
+		TargetTypes: MindControlImmune
 	Mobile:
 		Speed: 85
 	Infiltrates:
 		Types: SpyInfiltrate
 	Captures:
 		CaptureTypes: Vehicle
-		Sabotage: True
+		Sabotage: true
 	Cloak@CLOAKGENERATOR:
 		InitialDelay: 100
 		CloakDelay: 100
@@ -730,8 +560,8 @@ AWARRIOR:
 		Probability: 7
 		InternalOwner: Victim
 	WithMuzzleOverlay:
-	Targetable@MCImmune:
-		TargetTypes: MCImmune
+	Targetable@MindControl:
+		TargetTypes: MindControlImmune
 
 STALKER:
 	Inherits: ^Infantry

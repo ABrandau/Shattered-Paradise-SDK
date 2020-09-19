@@ -1,5 +1,7 @@
 ^BaseWorld:
 	Inherits: ^Palettes
+	Inherits@1: ^PalettesGradient
+	Inherits@2: ^PalettesSP
 	AlwaysVisible:
 	ActorMap:
 	ScreenMap:
@@ -8,6 +10,7 @@
 		VictoryMusic: score
 		DefeatMusic: maps
 	TerrainGeometryOverlay:
+	TerrainLighting:
 	TerrainRenderer:
 	DebugVisualizations:
 	ShroudRenderer:
@@ -43,7 +46,6 @@
 	ResourceType@Tiberium:
 		Type: Tiberium
 		Name: Tiberium
-		PipColor: Green
 		ResourceType: 1
 		Palette: greentiberium
 		Sequences: tib01, tib02, tib03, tib04, tib05, tib06, tib07, tib08, tib09, tib10, tib11, tib12
@@ -60,7 +62,6 @@
 		Sequences: tib01, tib02, tib03, tib04, tib05, tib06, tib07, tib08, tib09, tib10, tib11, tib12
 		MaxDensity: 15
 		ValuePerUnit: 50
-		PipColor: Blue
 		AllowedTerrainTypes: Clear, Rough, DirtRoad
 		AllowUnderActors: true
 		TerrainType: BlueTiberium
@@ -72,7 +73,6 @@
 		MaxDensity: 1
 		ValuePerUnit: 0
 		Name: Veins
-		PipColor: Red
 		AllowedTerrainTypes: Clear, Rough, DirtRoad
 		AllowUnderActors: true
 		TerrainType: Veins
@@ -265,7 +265,7 @@
 	Locomotor@HOVERINFANTRY:
 		Name: HoverInfantry
 		Crushes: crate
-		SharesCell: True
+		SharesCell: true
 		TerrainSpeeds:
 			Clear: 100
 			Ice: 100
@@ -277,6 +277,9 @@
 			BlueTiberium: 100
 			Veins: 100
 			Water: 80
+	ResourceRenderer:
+		RenderTypes: Tiberium, BlueTiberium, Veins
+
 World:
 	Inherits: ^BaseWorld
 	ChatCommands:
@@ -294,20 +297,12 @@ World:
 		FadeoutDelay: 150
 		Darkest: 16
 		Brightest: 256
-	TintedCellsLayer@HarmlessRadiationGreen:
-		Color: 00FF00
-		Name: HarmlessRadiationGreen
-		Brightest: 64
 	TintedCellsLayer@OrangeRadiation:
 		Color: EFFF00
 		Name: OrangeRadiation
 		UpdateDelay: 25
 		FadeoutDelay: 150
 		Darkest: 8
-	TintedCellsLayer@BlueRadiation:
-		Color: 0061ff
-		Darkest: 6
-		Name: BlueRadiation
 	TintedCellsLayer@ColossusRadiation:
 		Color: 000099
 		FadeoutDelay: 25
@@ -342,11 +337,11 @@ World:
 		SmokeType: largesmoke
 		Sequence: largecraters
 	ResourceLayer:
-	CustomTerrainDebugOverlay:
 	ResourceClaimLayer:
+	CustomTerrainDebugOverlay:
 	WarheadDebugOverlay:
 	MapCreeps:
-		CheckboxVisible: False
+		CheckboxVisible: false
 	SpawnMapActors:
 	MapBuildRadius:
 		AllyBuildRadiusCheckboxDisplayOrder: 4
@@ -411,6 +406,126 @@ World:
 		Factions: scr
 		BaseActor: drache
 		SupportActors: limped
+	MPStartUnits@LightGDI:
+		Class: Light
+		ClassName: Light Support
+		Factions: gdi
+		BaseActor: mcv
+		SupportActors: gdie1, gdie1, gdie1, grenadier
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	MPStartUnits@LightNOD:
+		Class: Light
+		ClassName: Light Support
+		Factions: nod
+		BaseActor: nodmcv
+		SupportActors: altnode1, altnode1, altnode1, crusader
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	MPStartUnits@LightCab:
+		Class: Light
+		ClassName: Light Support
+		Factions: cab
+		BaseActor: cabmcv
+		SupportActors: cyborg, cyborg, cborg
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	MPStartUnits@LightMut:
+		Class: Light
+		ClassName: Light Support
+		Factions: mut
+		BaseActor: mutmcv
+		SupportActors: marauder, marauder, marauder, mutfiend
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	MPStartUnits@LightScr:
+		Class: Light
+		ClassName: Light Support
+		Factions: scr
+		BaseActor: drache
+		SupportActors: shark, shark, shark, shark, legio
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	MPStartUnits@MediumGDI:
+		Class: Medium
+		ClassName: Medium Support
+		Factions: gdi
+		BaseActor: mcv
+		SupportActors: gdie1, gdie1, gdie1, gdie1, grenadier, medic, smech
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	MPStartUnits@MediumNOD:
+		Class: Medium
+		ClassName: Medium Support
+		Factions: nod
+		BaseActor: nodmcv
+		SupportActors: altnode1, altnode1, altnode1, altnode1, crusader, crusader, bggy
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	MPStartUnits@MediumCab:
+		Class: Medium
+		ClassName: Medium Support
+		Factions: cab
+		BaseActor: cabmcv
+		SupportActors: cyborg, cyborg, cyborg, cborg, pdrone, reapercab
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	MPStartUnits@MediumMut:
+		Class: Medium
+		ClassName: Medium Support
+		Factions: mut
+		BaseActor: mutmcv
+		SupportActors: marauder, marauder, marauder, marauder, mutfiend, mutfiend, mutquad
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	MPStartUnits@MediumScr:
+		Class: Medium
+		ClassName: Medium Support
+		Factions: scr
+		BaseActor: drache
+		SupportActors: shark, shark, shark, shark, shark, legio, float, scrscorpion
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	MPStartUnits@HeavyGDI:
+		Class: Heavy
+		ClassName: Heavy Support
+		Factions: gdi
+		BaseActor: mcv
+		SupportActors: gdie1, gdie1, gdie1, gdie1, grenadier, grenadier,, medic, smech, mmch
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	MPStartUnits@HeavyNOD:
+		Class: Heavy
+		ClassName: Heavy Support
+		Factions: nod
+		BaseActor: nodmcv
+		SupportActors: altnode1, altnode1, altnode1, altnode1, crusader, crusader, templar, bggy, ttnk
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	MPStartUnits@HeavyCab:
+		Class: Heavy
+		ClassName: Heavy Support
+		Factions: cab
+		BaseActor: cabmcv
+		SupportActors: cyborg, cyborg, cyborg, cborg, cborg, pdrone, reapercab, centurion
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	MPStartUnits@HeavyMut:
+		Class: Heavy
+		ClassName: Heavy Support
+		Factions: mut
+		BaseActor: mutmcv
+		SupportActors: marauder, marauder, marauder, marauder, mutfiend, mutfiend, e3, mutquad, lynx
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	MPStartUnits@HeavyScr:
+		Class: Heavy
+		ClassName: Heavy Support
+		Factions: scr
+		BaseActor: drache
+		SupportActors: shark, shark, shark, shark, shark, legio, legio, float, scrscorpion, scrmbt
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
 	MPStartLocations:
 		SeparateTeamSpawnsCheckboxDisplayOrder: 6
 	SpawnMPUnits:
@@ -422,7 +537,7 @@ World:
 		WaterChance: 0
 		ValidGround: Clear, Rough, Road, DirtRoad, Tiberium, BlueTiberium
 		InitialSpawnDelay: 750
-		CheckboxEnabled: False
+		CheckboxEnabled: false
 		CheckboxDisplayOrder: 1
 	PathFinder:
 	ValidateOrder:
@@ -435,10 +550,35 @@ World:
 	LoadWidgetAtGameStart:
 		ShellmapRoot: MAINMENU_PRERELEASE_NOTIFICATION
 	TimeLimitManager:
+	#CloudSpawner:
+	#	Image: skycloudkothviropaque
+	#	Sequences: cloud1, cloud2, cloud3, cloud4, cloud5, cloud6, cloud7, cloud8, cloud9, cloud10, cloud11, cloud12, cloud13, cloud14, cloud15, cloud16, cloud17, cloud18
+	#	Palette: cloud
+	#	Speed: 3, 6
+	#	SpawnInterval: 2000
+	#	CruiseAltitude: 3c0
+	#	WindDirection: 19
+	# CloudSpawner@2:
+	# 	Image: dustcloud1
+	# 	Sequences: anim1, anim2, anim3, anim4, anim5, anim6, anim7, anim8
+	# 	Palette: cloud-nq8
+	# 	Speed: 5, 8
+	# 	SpawnInterval: 500
+	# 	CruiseAltitude: 3c0
+	# 	WindDirection: 19
+	CloudSpawner@3:
+		Image: smoothclouds
+		Sequences: idle0, idle1, idle2, idle3, idle4, idle5, idle6, idle7, idle8, idle9, idle10, idle11, idle12, idle13, idle14, idle15, idle16, idle17, idle18
+		Palette: jascgrey
+		Speed: 5, 8
+		SpawnInterval: 1000
+		CruiseAltitude: 3c0
+		WindDirection: 19
 
 EditorWorld:
 	Inherits: ^BaseWorld
 	EditorActorLayer:
+	EditorCursorLayer:
 	EditorResourceLayer:
 	EditorSelectionLayer:
 		Palette: placefootprint

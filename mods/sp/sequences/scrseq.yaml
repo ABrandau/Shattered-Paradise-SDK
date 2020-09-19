@@ -6,55 +6,63 @@ shark:
 	stand:
 		Start: 145
 		Facings: -8
-		ShadowStart: 714
+		ShadowStart: 715
 	run:
 		Start: 153
 		Length: 16
 		Facings: -8
 		Tick: 40
-		ShadowStart: 722
+		ShadowStart: 723
 	idle1:
 		Length: 23
-		ShadowStart: 569
+		ShadowStart: 570
 	idle2:
 		Start: 23
 		Length: 25
-		ShadowStart: 592
+		ShadowStart: 593
 	idle3:
 		Start: 49
 		Length: 39
-		ShadowStart: 618
+		ShadowStart: 619
 	idle4:
 		Start: 90
 		Length: 16
-		ShadowStart: 659
+		ShadowStart: 660
 	idle5:
 		Start: 106
 		Length: 24
-		ShadowStart: 675
+		ShadowStart: 676
 	die1:
 		Start: 130
 		Length: 8
-		ShadowStart: 699
+		ShadowStart: 700
 	die2:
 		Start: 138
 		Length: 7
-		ShadowStart: 707
+		ShadowStart: 708
 	die-crushed:
 		Start: 138
 		Length: 7
-		ShadowStart: 707
+		ShadowStart: 708
 	shoot:
 		Start: 281
 		Length: 18
 		Facings: -8
-		ShadowStart: 850
+		ShadowStart: 851
 	shoot2:
 		Start: 425
 		Length: 18
 		Facings: -8
-		ShadowStart: 994
+		ShadowStart: 995
 	icon: sharkicon
+	diebody1: shark
+		Start: 137
+		Length: 1
+		Tick: 4000
+	diebody2: shark
+		Start: 144
+		Length: 1
+		Tick: 4000
 
 legio:
 	Inherits@1: ^InfantryDeathAnims
@@ -114,6 +122,14 @@ legio:
 		Facings: -8
 		# ShadowStart: 556
 	icon: scrlegio
+	diebody1: legio
+		Start: 284
+		Length: 1
+		Tick: 4000
+	diebody2: legio
+		Start: 293
+		Length: 1
+		Tick: 4000
 
 shapeshifter:
 	Inherits@1: ^InfantryDeathAnims
@@ -217,6 +233,14 @@ bug:
 		Length: 5
 		Facings: -8
 	icon: bugicon
+	diebody1: bug
+		Start: 148
+		Length: 1
+		Tick: 4000
+	diebody2: bug
+		Start: 158
+ 		Length: 1
+		Tick: 4000
 
 float:
 	Inherits@1: ^InfantryDeathAnims
@@ -257,6 +281,14 @@ float:
 		Facings: 8
 		ShadowStart: 300
 	icon: scrfloater
+	diebody1: float
+		Start: 191
+		Length: 1
+		Tick: 4000
+	diebody2: float
+		Start: 191
+ 		Length: 1
+		Tick: 4000
 
 stalker:
 	Inherits@1: ^InfantryDeathAnims
@@ -356,6 +388,14 @@ colossi:
 		Length: 17
 		ShadowStart: 477
 	icon: colossiicon
+	diebody1: colossi
+		Start: 217
+		Length: 1
+		Tick: 4000
+	diebody2: colossi
+		Start: 225
+ 		Length: 1
+		Tick: 4000
 
 drache:
 	Inherits: ^EmpOverlay
@@ -473,6 +513,8 @@ tripod:
 	shield: shieldtrip
 		Length: 1
 	icon: tripodicon
+	emp-overlay: emp_fx01
+		Offset: 0, -64, 0
 
 scrpod:
 	Inherits: ^SpriteVehicle
@@ -517,6 +559,8 @@ scrbattleship:
 	idle:
 		Facings: 32
 	icon: scrbattleshipicon
+	muzzle: scrinmuzzlemini
+		Length: *
 
 scrcarrier:
 	Inherits: ^EmpOverlay
@@ -623,6 +667,7 @@ scradvpowr:
 		UseTilesetCode: false
 	idle:
 		Start: 29
+	active:
 	damaged-idle:
 		Start: 39
 	dead:
@@ -682,12 +727,15 @@ scrproc:
 		Offset: 0, -30, 42
 		UseTilesetCode: false
 	idle:
-		Start: 31
+		Start: 30
+		ShadowStart: 64
 	damaged-idle:
-		Start: 33
+		Start: 31
+		ShadowStart: 66
 	dead:
-		Start: 33
+		Start: 31
 		Tick: 400
+		ShadowStart: 66
 	make:
 		Length: 30
 	bib:
@@ -721,12 +769,15 @@ scrproc2:
 		Offset: 6, 34, 20
 		UseTilesetCode: false
 	idle:
-		Start: 31
+		Start: 30
+		ShadowStart: 64
 	damaged-idle:
-		Start: 33
+		Start: 31
+		ShadowStart: 66
 	dead:
-		Start: 33
+		Start: 31
 		Tick: 400
+		ShadowStart: 66
 	make:
 		Length: 30
 	bib:
@@ -760,27 +811,30 @@ scrproc3:
 		Offset: 12, -42, 20
 		UseTilesetCode: false
 	idle:
-		Start: 31
+		Start: 30
+		ShadowStart: 64
 	damaged-idle:
-		Start: 33
+		Start: 32
+		ShadowStart: 66
 	dead:
-		Start: 33
+		Start: 32
 		Tick: 400
+		ShadowStart: 66
 	make:
 		Length: 30
 	bib:
-		Start: 32
+		Start: 31
 		Length: 1
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
 	damaged-bib:
-		Start: 32
+		Start: 31
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
 	dead-bib:
-		Start: 32
+		Start: 31
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
@@ -799,27 +853,30 @@ scrproc4:
 		Offset: 12, -42, 20
 		UseTilesetCode: false
 	idle:
-		Start: 31
+		Start: 30
+		ShadowStart: 64
 	damaged-idle:
-		Start: 33
+		Start: 32
+		ShadowStart: 66
 	dead:
-		Start: 33
+		Start: 32
 		Tick: 400
+		ShadowStart: 66
 	make:
 		Length: 30
 	bib:
-		Start: 32
+		Start: 31
 		Length: 1
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
 	damaged-bib:
-		Start: 32
+		Start: 31
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
 	dead-bib:
-		Start: 32
+		Start: 31
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
@@ -1085,10 +1142,12 @@ scrneedler:
 		Start: 26
 		Facings: 32
 		Offset: -0,-12
+		ShadowStart: 120
 	damaged-turret:
 		Start: 59
 		Facings: 32
 		Offset: -0,-12
+		ShadowStart: 153
 	make:
 		Length: 25
 		ShadowStart: 94
@@ -1101,6 +1160,9 @@ scrneedler:
 	icon: scrneedlericon
 		Offset: 0, 0
 		UseTilesetCode: false
+	muzzle: scrinmuzzlemini
+		Length: *
+		Offset: 0, 0
 
 scrtractor:
 	Defaults:
@@ -1261,13 +1323,13 @@ scrinessencesmall:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults: essence
 		Offset: 0, 0, 30
-		UseTilesetCode: False
+		UseTilesetCode: false
 	idle:
 		Start: 21
 		Length: 16
 	make:
 		Length: 21
-		SkipMakeAnimations: False
+		SkipMakeAnimations: false
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0

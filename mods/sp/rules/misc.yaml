@@ -44,7 +44,7 @@ cashnotifier:
 	CashTrickler@InfiniteCash:
 		Interval: 1000
 		Amount: 99999
-		ShowTicks: False
+		ShowTicks: false
 
 CAMERA:
 	Inherits: ^EditorNotifier
@@ -59,23 +59,233 @@ CAMERA:
 	DetectCloaked:
 		Range: 10c0
 
+INGALITE:
+	Interactable:
+	EditorOnlyTooltip:
+		Name: (Invisible Light Post)
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: false
+	RenderSpritesEditorOnly:
+		Image: lightnotifier
+		Palette: apgrey
+	WithSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 1
+	MapEditorData:
+		Categories: Other
+	RequiresSpecificOwners:
+		ValidOwnerNames: Neutral
+	TerrainLightSource:
+		Range: 6c0
+		Intensity: 0.8
+		RedTint: 0.05
+		GreenTint: 0.05
+		BlueTint: 0.01
+
+INPURPLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: (Invisible Purple Light Post)
+	TerrainLightSource:
+		Intensity: 0.01
+		RedTint: 0.8
+		GreenTint: 0.01
+		BlueTint: 0.8
+	RenderSpritesEditorOnly:
+		Palette: appurp
+
+NEGLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: (Invisible Negative Light Post)
+	RenderSpritesEditorOnly:
+		Image: lightnotifier
+		Palette: apgrey
+	TerrainLightSource:
+		Intensity: -0.3
+		RedTint: 0.04
+		GreenTint: 0.04
+		BlueTint: 0.04
+
+INORANLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: (Invisible Orange Light Post)
+	RenderSpritesEditorOnly:
+		Palette: apolog
+	TerrainLightSource:
+		Intensity: 0.01
+		RedTint: 1
+		GreenTint: 0.7
+		BlueTint: 0.15
+
+INGRNLMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: (Invisible Green Light Post)
+	RenderSpritesEditorOnly:
+		Palette: apgreen
+	TerrainLightSource:
+		RedTint: 0.1
+		GreenTint: 0.8
+		BlueTint: 0.1
+		Intensity: 0.1
+
+INREDLMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: (Invisible Red Light Post)
+	RenderSpritesEditorOnly:
+		Palette: apred
+	TerrainLightSource:
+		Intensity: 0.01
+		RedTint: 0.8
+		GreenTint: 0.01
+		BlueTint: 0.01
+
+INBLULMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: (Invisible Blue Light Post)
+	RenderSpritesEditorOnly:
+		Palette: apblue
+	TerrainLightSource:
+		Intensity: 0.01
+		RedTint: 0.01
+		GreenTint: 0.01
+		BlueTint: 0.8
+
+INYELWLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: (Invisible Yellow Light Post)
+	RenderSpritesEditorOnly:
+		Palette: apyel
+	TerrainLightSource:
+		Intensity: 0.01
+		RedTint: 0.7
+		GreenTint: 0.7
+		BlueTint: 0.01
+
 colorpicker:
 	Inherits: MUTMCV
 	EditorOnlyTooltip:
 		Name: Color picker unit (Do not place in editor)
 	Mobile:
-		InitialFacing: 160
+		InitialFacing: 640
 	-Buildable:
 	RenderSprites:
 		Image: ttnk
 		Palette: colorpicker
+
+^PowerupCrate:
+	Inherits: ^Crate
+	RenderSprites:
+		Palette: unittemred
+		Image: abilitycrates
+
+MONEYCRATE:
+	Inherits: ^PowerupCrate
+	Tooltip:
+		Name: Gold Lingots (Provides $2000)
+	WithCrateBody:
+		IdleSequence: money
+	GiveCashCrateAction:
+		Amount: 2000
+		SelectionShares: 100
+		Sequence: dollar
+		UseCashTick: true
+
+VETERANCYCRATE:
+	Inherits: ^PowerupCrate
+	Tooltip:
+		Name: Veterancy Crate
+	WithCrateBody:
+		IdleSequence: veterancy
+	LevelUpCrateAction:
+		SelectionShares: 100
+		Sequence: levelup
+		Sound: gunitpra.aud
+
+HEALCRATE:
+	Inherits: ^PowerupCrate
+	Tooltip:
+		Name: Medical Supplies (Heals units)
+	WithCrateBody:
+		IdleSequence: healing
+	HealActorsCrateAction:
+		SelectionShares: 100
+		Sequence: heal
+		Sound: healer1.aud
+
+BUFFCRATE:
+	Inherits: ^PowerupCrate
+	Tooltip:
+		Name: Upgrade Kit
+	WithCrateBody:
+		IdleSequence: upgrade
+	GrantExternalConditionCrateAction@cloak:
+		SelectionShares: 20
+		Sequence: stealth
+		Condition: cloakgenerator
+	GrantExternalConditionCrateAction@firepower:
+		SelectionShares: 20
+		Sequence: firepower
+		Condition: firepowercrate
+		Notification: UnitArmourUpgraded
+	GrantExternalConditionCrateAction@armor:
+		SelectionShares: 20
+		Sequence: armor
+		Condition: damagecrate
+		Notification: UnitArmourUpgraded
+	GrantExternalConditionCrateAction@speed:
+		SelectionShares: 20
+		Condition: speedcrate
+		Notification: UnitSpeedUpgraded
+
+UNITCRATE:
+	Inherits: ^PowerupCrate
+	Tooltip:
+		Name: Unit Crate
+	WithCrateBody:
+		IdleSequence: unit
+	GiveMcvCrateAction@gdi:
+		SelectionShares: 0
+		NoBaseSelectionShares: 1000
+		Units: mcv
+		ValidFactions: gdi
+	GiveMcvCrateAction@nod:
+		SelectionShares: 0
+		NoBaseSelectionShares: 1000
+		Units: nodmcv
+		ValidFactions: nod
+	GiveMcvCrateAction@mut:
+		SelectionShares: 0
+		NoBaseSelectionShares: 1000
+		Units: mutmcv
+		ValidFactions: mut
+	GiveMcvCrateAction@cab:
+		SelectionShares: 0
+		NoBaseSelectionShares: 1000
+		Units: cabmcv
+		ValidFactions: cab
+	GiveMcvCrateAction@scr:
+		SelectionShares: 0
+		NoBaseSelectionShares: 1000
+		Units: drache
+		ValidFactions: scr
+	GiveUnitCrateAction:
+		Units: ghost
+		SelectionShares: 100
+		Sound: ReinforcementsArrived
 
 CRATE:
 	Inherits: ^Crate
 	GiveCashCrateAction:
 		Amount: 2000
 		SelectionShares: 80
-		Effect: dollar
+		Sequence: dollar
 		UseCashTick: true
 	SupportPowerCrateAction@nuke:
 		SelectionShares: 4
@@ -85,22 +295,29 @@ CRATE:
 		SelectionShares: 1
 		Proxy: HealerNukeDummy
 		Sequence: nuke
+	GiveUnitCrateAction@fabricator:
+		Units: neutralfabricator
+		SelectionShares: 50
+	GiveUnitCrateAction@crabs:
+		Units: permacrab, permacrab, permacrab
+		Owner: Creeps
+		SelectionShares: 15
 	ExplodeCrateAction:
 		Weapon: ToxinMissile
 		SelectionShares: 20
 	LevelUpCrateAction:
-		SelectionShares: 160
-		Effect: levelup
+		SelectionShares: 100
+		Sequence: levelup
 	DuplicateUnitCrateAction:
 		MaxAmount: 4
 		SelectionShares: 80
-		Effect: levelup
+		Sequence: levelup
 	HideMapCrateAction:
 		SelectionShares: 4
 		Sequence: hide-map
 	RevealMapCrateAction:
 		SelectionShares: 4
-		Effect: reveal-map
+		Sequence: reveal-map
 	GiveMcvCrateAction@gdi:
 		SelectionShares: 0
 		NoBaseSelectionShares: 1000
@@ -128,16 +345,16 @@ CRATE:
 		ValidFactions: scr
 	GrantExternalConditionCrateAction@cloak:
 		SelectionShares: 20
-		Effect: stealth
+		Sequence: stealth
 		Condition: cloakgenerator
 	GrantExternalConditionCrateAction@firepower:
 		SelectionShares: 20
-		Effect: firepower
+		Sequence: firepower
 		Condition: firepowercrate
 		Notification: UnitArmourUpgraded
 	GrantExternalConditionCrateAction@armor:
 		SelectionShares: 20
-		Effect: armor
+		Sequence: armor
 		Condition: damagecrate
 		Notification: UnitArmourUpgraded
 	GrantExternalConditionCrateAction@speed:

@@ -1,6 +1,6 @@
 Player:
 	-ConquestVictoryConditions:
-	Shroud
+	Shroud:
 		FogCheckboxEnabled: False
 
 World:
@@ -16,7 +16,7 @@ World:
 	GlobalLightingPaletteEffect:
 		Red: 0.8
 		Green: 0.7
-		Ambient: 0.575
+		Ambient: 0.675
 
 ^GenericEffects:
 	ExternalCondition@PRODUCED:
@@ -29,15 +29,26 @@ World:
 	DamageMultiplier@Shellmap:
 		Modifier: 0
 
+^BlossomTree:
+	TerrainLightSource:
+		RedTint: 0
+		GreenTint: 1.5
+		BlueTint: 0
+		Intensity: 0
+		Range: 7c0
+
+BIGBLUE:
+	TerrainLightSource:
+		RedTint: 0
+		GreenTint: 0
+		BlueTint: 1.4
+
 ^ProducesStuff:
 	GrantExternalConditionToProduced:
 		Condition: produced
 
 ^Barracks:
 	-ProximityExternalCondition@hospitalheal:
-
-^BlossomTree:
-	-ExplodeWeapon@1234567:
 
 GAPOWR:
 	Power:
@@ -105,14 +116,11 @@ NAPULS:
 		TargetStances: Enemy, Neutral
 
 EMPDUMMY:
-	Inherits: CAR
-	-WithVoxelBody:
-	-Tooltip:
+	Inherits: ^GROUNDDUMMY
+	Inherits@1: ^EmpDisable
 	-WithIdleOverlay@EMPDISABLE:
 	Targetable:
 		RequiresCondition: !empdisable
-	RenderVoxels:
-		Image: car
 	RenderSprites:
 		Image: car
 

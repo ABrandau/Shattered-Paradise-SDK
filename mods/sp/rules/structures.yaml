@@ -17,9 +17,6 @@ GAPOWR:
 	WithIdleOverlay@PLUG:
 		Sequence: idle-plug
 		RequiresCondition: !Building-Buildup
-	Selectable:
-		Bounds: 90, 48, 0, -6
-		DecorationBounds: 90, 84, 0, -12
 	Pluggable@pluga:
 		Conditions:
 			powrup: powrup.a
@@ -32,7 +29,6 @@ GAPOWR:
 	WithIdleOverlay@plugb:
 		RequiresCondition: powrup.a
 		Sequence: idle-powrupb
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -49,9 +45,6 @@ GAPILE:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	Selectable:
-		Bounds: 88, 48, 0, -8
-		DecorationBounds: 88, 56, 0, -8
 	Exit@1:
 		SpawnOffset: -512,768,0
 		ExitCell: 1,2
@@ -100,7 +93,6 @@ GAPILE:
 		Sequence: idle-flag
 		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	ProvidesPrerequisite@SharedEngie:
 		Prerequisite: SharedEngie
 	RequiresBuildableArea:
@@ -154,7 +146,7 @@ GAWEAP:
 		BuildPaletteOrder: 4
 		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
 		Prerequisites: proc, ~structures.gdi
-	ProvidesPrerequisite@ShowMammMkII
+	ProvidesPrerequisite@ShowMammMkII:
 		Prerequisite: showmammmk2
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
@@ -173,6 +165,8 @@ GAWEAP:
 	WithIdleOverlay@BIB:
 		Sequence: bib
 		RequiresCondition: !Building-Buildup
+	IsometricSelectable:
+		DecorationHeight: 36
 
 GARADR:
 	Inherits: ^Radar
@@ -188,12 +182,12 @@ GARADR:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
 		RequiresCondition: !Building-Buildup
-	Selectable:
-		Bounds: 96, 48, 0, -6
-		DecorationBounds: 96, 118, 0, -38
-	SelectionDecorations:
-	DetonateWeaponPower:
+	SpawnActorPower:
 		OrderName: GDIRadarScan
+		Icons:
+			1: GDIradarscan
+	IsometricSelectable:
+		DecorationHeight: 72
 
 GAHPAD:
 	Inherits@1: ^Helipad
@@ -219,11 +213,7 @@ GAHPAD:
 	WithDeathAnimation@BIB:
 		DeathSequence: dead-platform
 		UseDeathTypeSuffix: false
-	Selectable:
-		Bounds: 88, 66, 0, -5
-		DecorationBounds: 88, 66, 0, -5
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -242,15 +232,13 @@ GATECH:
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
-	Selectable:
-		Bounds: 110, 60, 3, -4
-		DecorationBounds: 110, 60, 3, -4
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
+	IsometricSelectable:
+		DecorationHeight: 36
 
 GTDROP:
 	Inherits: ^Building
@@ -269,8 +257,6 @@ GTDROP:
 	Building:
 		Footprint: xxx x== x==
 		Dimensions: 3,3
-	Selectable:
-		Bounds: 144, 80, 8, -12
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		RequiresCondition: !Building-Buildup
@@ -278,16 +264,22 @@ GTDROP:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@buildingname:
-	ProvidesPrerequisite@ShowMammMkII
+	ProvidesPrerequisite@ShowMammMkII:
 		Prerequisite: showmammmk2
 	DetonateWeaponPower@pods:
-		Icon: droppods
-		Description: Helldiver Drop
+		Prerequisites:
+			1: gtdrop
+		Icons:
+			1: droppods
+		Descriptions:
+			1: Helldiver Drop
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
-		LongDesc: Deploys shock troopers at the targetted location.
+		LongDescs:
+			1: Deploys shock troopers at the targetted location.
 		OrderName: Droppod
-		Weapon: DroppodSpawner
+		Weapons:
+			1: DroppodSpawner
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: empdisable || disabled
 		ChargeInterval: 4500
@@ -297,9 +289,9 @@ GTDROP:
 		IncomingSound: SuperweaponFired
 		LaunchSound: n_swlaunch.aud
 		ActivationSequence: idle
-		DisplayTimer: True
-		DisplayBeacon: True
-		TargetCircleRange: 6c0
+		DisplayTimer: true
+		TargetCircleRanges:
+			1: 6c0
 		CameraRange: 7c0
 		CameraSpawnAdvance: 25
 		CameraRemoveDelay: 350
@@ -308,7 +300,7 @@ GTDROP:
 	RequiresBuildableArea:
 		AreaTypes: building
 	RallyPoint:
-		Offset: 4,4
+		Path: 4,4
 	Exit@1:
 		SpawnOffset: 350,450,0 #-280,400,0
 		ExitCell: 2,2
@@ -330,8 +322,9 @@ NODYARD:
 	Transforms:
 		IntoActor: nodmcv
 		Offset: 1,1
-		Facing: 96
+		Facing: 384
 		DeployCursor: undeploy
+		PauseOnCondition: mindcontrolled || empdisable
 	-WithIdleOverlay@TOP:
 	-WithIdleOverlay@SIDE:
 	-WithIdleOverlay@FRONT:
@@ -354,13 +347,9 @@ NAPOWR:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	Selectable:
-		Bounds: 88, 48, 2, -6
-		DecorationBounds: 88, 80, 2, -12
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -377,9 +366,6 @@ NAHAND:
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
-	Selectable:
-		Bounds: 116, 60, 3, -6
-		DecorationBounds: 116, 60, 3, -6
 	Exit@1:
 		SpawnOffset: 384,768,0
 		ExitCell: 2,2
@@ -430,7 +416,6 @@ NAHAND:
 	WithProductionOverlay@LIGHT:
 		Sequence: production-light
 		RequiresCondition: !Building-Buildup
-	SelectionDecorations:
 	ProvidesPrerequisite@SharedEngie:
 		Prerequisite: SharedEngie
 	RequiresBuildableArea:
@@ -512,12 +497,12 @@ NARADR:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
 		RequiresCondition: !Building-Buildup
-	Selectable:
-		Bounds: 96, 48, 0, -6
-		DecorationBounds: 96, 72, 0, -12
-	SelectionDecorations:
-	DetonateWeaponPower:
+	SpawnActorPower:
 		OrderName: NodRadarScan
+		Icons:
+			1: NODradarscan
+	IsometricSelectable:
+		DecorationHeight: 48
 
 NAAPWR:
 	Inherits: ^Powerplant
@@ -534,9 +519,6 @@ NAAPWR:
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 2,3
-	Selectable:
-		Bounds: 100, 54, 0, -4
-		DecorationBounds: 100, 74, 0, -12
 	Health:
 		HP: 100000
 	WithIdleOverlay@LIGHTS:
@@ -544,7 +526,6 @@ NAAPWR:
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: 300
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 	ProvidesPrerequisite:
@@ -575,11 +556,7 @@ NAHPAD:
 	WithDeathAnimation@BIB:
 		DeathSequence: dead-platform
 		UseDeathTypeSuffix: false
-	Selectable:
-		Bounds: 78, 48, 0, -6
-		DecorationBounds: 78, 54, 0, -8
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -598,13 +575,9 @@ NATECH:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	Selectable:
-		Bounds: 86, 48, 0, -4
-		DecorationBounds: 86, 58, 0, -4
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -612,6 +585,7 @@ NAMISL:
 	Inherits: ^Building
 	Inherits@2: ^2x2Shape
 	Inherits@3: ^SuperWeapon
+	Inherits@4: ^HasNukePower
 	Tooltip:
 		Name: Chemical Missile Silo
 	Buildable:
@@ -627,9 +601,6 @@ NAMISL:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	Selectable:
-		Bounds: 75,48
-		DecorationBounds: 75,48
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
@@ -639,43 +610,35 @@ NAMISL:
 		Condition: powerdown
 		OrderName: PowerDown
 	ProvidesPrerequisite@buildingname:
-	NukePower@ToxinMissile:
-		Cursor: nuke
-		Icon: toxinmissile
+	NukePower:
+		Prerequisites:
+			1: namisl
+		Icons:
+			1: toxinmissile
 		ChargeInterval: 6000
-		Description: Chemical Missile
-		LongDesc: Launches a warhead filled with tiberium, it spawns gas clouds and radiates the area.\nHas a fast reaction time.
-		BeginChargeSound:
-		EndChargeSound: SuperWeaponReady
-		EndChargeSpeechNotification: SuperWeaponReady
-		SelectTargetSound:
-		InsufficientPowerSound:
+		Descriptions:
+			1: Chemical Missile
+		LongDescs:
+			1: Launches a warhead filled with tiberium, it spawns gas clouds and radiates the area.\nHas a fast reaction time.
 		FlightDelay: 100
 		MissileWeapon: ToxinMissile
 		DisplayTimerStances: Ally, Neutral, Enemy
 		SpawnOffset: 0,427,0
-		LaunchSpeechNotification: SuperweaponFired
-		IncomingSpeechNotification: SuperweaponFired
-		IncomingSound: SuperweaponFired
-		LaunchSound: n_swlaunch.aud
-		BeaconPoster: minichemicon
+		BeaconPosters:
+			1: minichemicon
 		ArrowSequence: arrow
-		ClockSequence: clock
-		CircleSequence: circles
-		DisplayTimer: True
-		DisplayBeacon: True
-		DisplayRadarPing: True
 		MissilePalette: player
 		IconPalette: chem
 		BeaconPosterPalette: chem
-		IsPlayerPalette: True
+		IsPlayerPalette: true
 		OrderName: ToxinMissile
-		CameraActor: camera
 		CameraRange: 7c0
 		CameraSpawnAdvance: 25
 		CameraRemoveDelay: 350
 		PauseOnCondition: empdisable || disabled
-	SelectionDecorations:
+		TrailImage: meteortrail
+		TrailPalette: effectalpha
+		TrailSequences: idle3
 	Health:
 		HP: 300000
 	WithDecoration@POWERDOWN:
@@ -683,13 +646,13 @@ NAMISL:
 		Sequence: offline
 		Palette: mouse
 		RequiresCondition: powerdown
-		ReferencePoint: Center
+		Position: Center
 	RequiresBuildableArea:
 		AreaTypes: building
 	PowerMultiplier@POWERDOWN:
 		RequiresCondition: powerdown
 		Modifier: 0
-	WithNukeLaunchAnimation:
+	WithSupportPowerActivationAnimation:
 	Power:
 		Amount: -200
 
@@ -699,8 +662,9 @@ MUTYARD:
 	Transforms:
 		IntoActor: mutmcv
 		Offset: 1,1
-		Facing: 160
+		Facing: 640
 		DeployCursor: undeploy
+		PauseOnCondition: mindcontrolled || empdisable
 	-WithIdleOverlay@TOP:
 	-WithIdleOverlay@SIDE:
 	-WithIdleOverlay@FRONT:
@@ -733,10 +697,6 @@ MUPOWR:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
-	Selectable:
-		Bounds: 90, 48, 0, -6
-		DecorationBounds: 90, 84, 0, -12
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -756,10 +716,6 @@ MURAX:
 		Dimensions: 2,2
 	ProvidesPrerequisite:
 		Prerequisite: murax
-	Selectable:
-		Bounds: 88, 48, 0, -8
-		DecorationBounds: 88, 56, 0, -8
-	SelectionDecorations:
 	Exit@1:
 		SpawnOffset: -362,1086,0
 		ExitCell: 1,2
@@ -800,6 +756,8 @@ MURAX:
 		ExitCell: -1,2
 	RequiresBuildableArea:
 		AreaTypes: building
+	IsometricSelectable:
+		DecorationHeight: 36
 
 MUPROC:
 	Inherits: PROC
@@ -880,12 +838,12 @@ MURADR:
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		BuildPaletteOrder: 6
 		Prerequisites: proc, ~structures.mut
-	Selectable:
-		Bounds: 96, 66, 0, -10
-		DecorationBounds: 96, 66, 0, -13
-	SelectionDecorations:
-	DetonateWeaponPower:
+	SpawnActorPower:
 		OrderName: MutantRadarScan
+		Icons:
+			1: MUTradarscan
+	IsometricSelectable:
+		DecorationHeight: 48
 
 MUAIR:
 	Inherits@1: ^MutRender
@@ -902,11 +860,7 @@ MUAIR:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	Selectable:
-		Bounds: 88, 66, 0, -5
-		DecorationBounds: 88, 66, 0, -5
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -924,10 +878,6 @@ MUHALL:
 	Building:
 		Footprint: xxx xxx xxx xxx
 		Dimensions: 3,4
-	Selectable:
-		Bounds: 110, 60, 3, -4
-		DecorationBounds: 110, 60, 3, -4
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -949,27 +899,30 @@ MUTSW2:
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
-	Selectable:
-		Bounds: 130, 80, 0, -24
-		DecorationBounds: 130, 100, 0, -24
-	SelectionDecorations:
+	ProvidesPrerequisite@buildingname:
 	DetonateWeaponPower@Jeff:
-		Weapon: VeinholeSummonerWeapon
+		Prerequisites:
+			1: mutsw2
+		Weapons:
+			1: VeinholeSummonerWeapon
 		Effect: dot
-		Icon: veinholesw
+		Icons:
+			1: veinholesw
 		ChargeInterval: 5000
 		OrderName: Veinhole
-		TargetCircleRange: 5c0
-		DisplayTimer: True
-		DisplayBeacon: True
+		TargetCircleRanges:
+			1: 5c0
+		DisplayTimer: true
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
 		LaunchSpeechNotification: SuperweaponFired
 		IncomingSpeechNotification: SuperweaponFired
 		IncomingSound: SuperweaponFired
 		LaunchSound: n_swlaunch.aud
-		Description: Veinhole Spawn
-		LongDesc: Spawns a cluster of veinholes\non the targetted location.\nVeinholes spawn gas clouds, radiation, and tiberian crabs.\nThey also provide vision.
+		Descriptions:
+			1: Veinhole Spawn
+		LongDescs:
+			1: Spawns a cluster of veinholes\non the targetted location.\nVeinholes spawn gas clouds, radiation, and tiberian crabs.\nThey also provide vision.
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: empdisable || disabled
 		CameraActor: camera
@@ -987,21 +940,18 @@ drached:
 	Inherits: GACNST
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@6: ^ScrinBuildingFire
 	Tooltip:
 		Name: Deployed Host Station
 	Transforms:
 		IntoActor: drache
 		Offset: 1,1
-		Facing: 96
+		Facing: 384
 		DeployCursor: undeploy
-	Selectable:
-		Bounds: 144, 60, 0, -6
-		DecorationBounds: 144, 80, 0, -12
 	ProvidesPrerequisite@12321:
 		Prerequisite: scrinstuff
 		Factions: scr
-		ResetOnOwnerChange: True
-	SelectionDecorations:
+		ResetOnOwnerChange: true
 	-WithIdleOverlay@TOP:
 	-WithIdleOverlay@SIDE:
 	-WithIdleOverlay@FRONT:
@@ -1017,7 +967,8 @@ SCRPOWR:
 	Inherits: ^Powerplant
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
-	Inherits@2: ^3x2Shape
+	Inherits@4: ^3x2Shape
+	Inherits@6: ^ScrinBuildingFire
 	Tooltip:
 		Name: Scrin Generator
 	Buildable:
@@ -1032,9 +983,6 @@ SCRPOWR:
 		Dimensions: 3,2
 	Health:
 		HP: 65000
-	Selectable:
-		Bounds: 90, 48, 0, -6
-		DecorationBounds: 90, 84, 0, -12
 	Power:
 		Amount: 150
 	RequiresBuildableArea:
@@ -1045,6 +993,7 @@ SCRRAX:
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
 	Inherits@4: ^2x2Shape
+	Inherits@6: ^ScrinBuildingFire
 	Tooltip:
 		Name: Landing Zone
 	Buildable:
@@ -1055,10 +1004,6 @@ SCRRAX:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	Selectable:
-		Bounds: 88, 48, 0, -8
-		DecorationBounds: 88, 56, 0, -8
-	SelectionDecorations:
 	Exit@1:
 		SpawnOffset: -640,640,0
 		ExitCell: 1,2
@@ -1104,11 +1049,14 @@ SCRRAX:
 		Amount: -20
 	RequiresBuildableArea:
 		AreaTypes: building
+	IsometricSelectable:
+		DecorationHeight: 36
 
 SCRPROC:
 	Inherits: PROC
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@6: ^ScrinBuildingFire
 	Tooltip:
 		Name: Scrin Refinery
 	Buildable:
@@ -1117,11 +1065,7 @@ SCRPROC:
 		Prerequisites: scrpowr, ~structures.scr, ~AIantiRush
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 4000$.
 		IconPalette: UnittemIconScrin
-	Selectable:
-		Bounds: 100, 70, -30, -4
-		DecorationBounds: 102, 70, -26, -4
 	StoresResources:
-		PipCount: 17
 		Capacity: 4000
 	FreeActor:
 		Actor: SCRHARV
@@ -1130,11 +1074,19 @@ SCRPROC:
 	-WithDockedOverlay@flame:
 	PlaceBuildingVariants:
 		Actors: scrproc3, scrproc2, scrproc4
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 17
+		FullSequence: pip-yellow
+	IsometricSelectable:
+		DecorationHeight: 24
 
 SCRPROC2:
 	Inherits: FLIPPEDPROC
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@6: ^ScrinBuildingFire
 	Tooltip:
 		Name: Scrin Refinery
 	-WithIdleOverlay@REDLIGHTS:
@@ -1142,13 +1094,20 @@ SCRPROC2:
 	FreeActor:
 		Actor: SCRHARV
 	StoresResources:
-		PipCount: 17
 		Capacity: 4000
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 17
+		FullSequence: pip-yellow
+	IsometricSelectable:
+		DecorationHeight: 24
 
 SCRPROC3:
 	Inherits: FLIPPEDXPROC
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@6: ^ScrinBuildingFire
 	Tooltip:
 		Name: Scrin Refinery
 	-WithIdleOverlay@REDLIGHTS:
@@ -1156,13 +1115,20 @@ SCRPROC3:
 	FreeActor:
 		Actor: SCRHARV
 	StoresResources:
-		PipCount: 17
 		Capacity: 4000
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 17
+		FullSequence: pip-yellow
+	IsometricSelectable:
+		DecorationHeight: 24
 
 SCRPROC4:
 	Inherits: FLIPPEDYPROC
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@6: ^ScrinBuildingFire
 	Tooltip:
 		Name: Scrin Refinery
 	-WithIdleOverlay@REDLIGHTS:
@@ -1170,13 +1136,20 @@ SCRPROC4:
 	FreeActor:
 		Actor: SCRHARV
 	StoresResources:
-		PipCount: 17
 		Capacity: 4000
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 17
+		FullSequence: pip-yellow
+	IsometricSelectable:
+		DecorationHeight: 24
 
 SCRWEAP:
 	Inherits: ^Factory
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@6: ^ScrinBuildingFire
 	Tooltip:
 		Name: Scrin Forge
 	ProvidesPrerequisite:
@@ -1198,6 +1171,7 @@ SCRRADR:
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
 	Inherits@4: ^3x3Shape
+	Inherits@6: ^ScrinBuildingFire
 	Tooltip:
 		Name: Scrin Radar
 	Buildable:
@@ -1208,24 +1182,26 @@ SCRRADR:
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
-	Selectable:
-		Bounds: 120, 90, 0, -20
-		DecorationBounds: 120, 90, 0, -20
-	SelectionDecorations:
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
 		RequiresCondition: !Building-Buildup
 	RequiresBuildableArea:
 		AreaTypes: building
-	DetonateWeaponPower:
+	SpawnActorPower:
 		OrderName: ScrinRadarScan
+		Icons:
+			1: SCRradarscan
+	IsometricSelectable:
+		DecorationHeight: 48
 
 SCRAIR:
 	Inherits: ^Helipad
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
 	Inherits@4: ^3x3Shape
+	Inherits@6: ^ScrinBuildingFire
+	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Tooltip:
 		Name: Stargate
 	Buildable:
@@ -1255,26 +1231,26 @@ SCRAIR:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
-	Selectable:
-		Bounds: 120, 130, 0, -40
-		DecorationBounds: 120, 130, 0, -40
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	WithTextDecoration@primary:
 		Text: PRIMARY
-		ReferencePoint: Top
+		Position: Top
 		Color: E0D048
-		ZOffset: 9999
 		RequiresCondition: primary
-		ConditionMinEnabledLevel: 1
 	RequiresBuildableArea:
 		AreaTypes: building
+	IsometricSelectable:
+		DecorationHeight: 72
+	ProvidesPrerequisite@fixAIUndeployDracheBug:
+		RequiresCondition: AIbuildingMicroControl
+		Prerequisite: fixUndeployDracheBug
 
 SCRTECH:
 	Inherits: ^TechCenter
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
-	Inherits@2: ^2x3Shape
+	Inherits@4: ^2x3Shape
+	Inherits@6: ^ScrinBuildingFire
 	Tooltip:
 		Name: Scrin Laboratory
 	Buildable:
@@ -1289,11 +1265,7 @@ SCRTECH:
 	Building:
 		Footprint: xx xx xx
 		Dimensions: 2,3
-	Selectable:
-		Bounds: 110, 60, 3, -4
-		DecorationBounds: 110, 60, 3, -4
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -1303,13 +1275,15 @@ SCRADVPOWR:
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
 	Inherits@4: ^3x3Shape
+	Inherits@6: ^ScrinBuildingFire
+	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Tooltip:
 		Name: Wormhole Generator
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 9
 		Prerequisites: scrtech, ~structures.scr, ~techlevel.unrestricted
-		Description: Teleports infantry and vehicles to a selected area.\n\nSpecial:\n- Provides access to the reality desestabilizer support power.\n- Requires power to operate.
+		Description: Teleports infantry and vehicles to a selected area.\n\nSpecial:\n- Provides access to the Instant Wormhole support power.\n- Requires power to operate.
 		BuildLimit: 1
 	Valued:
 		Cost: 1500
@@ -1321,26 +1295,27 @@ SCRADVPOWR:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
-	Selectable:
-		Bounds: 90, 48, 0, -6
-		DecorationBounds: 90, 84, 0, -12
-	SelectionDecorations:
 	ChronoshiftPower@chronoshift:
 		RequiresCondition: !AIbuildingMicroControl
-		Range: 2
 		OrderName: Chronoshift
 		PauseOnCondition: empdisable || disabled
-		Icon: wormholeicon
+		Prerequisites:
+			1: scradvpowr
+		Icons:
+			1: wormholeicon
 		IconPalette: playerscrin
 		ChargeInterval: 6000
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
-		Description: Instant Wormhole
-		LongDesc: Teleports infantry and vehicles.
+		Descriptions:
+			1: Instant Wormhole
+		LongDescs:
+			1: Teleports infantry and vehicles.
 		SelectTargetSpeechNotification: SelectTarget
-		Duration: 500
+		Durations:
+			1: 500
 		KillCargo: false
-		DisplayRadarPing: True
+		DisplayRadarPing: true
 		LaunchSpeechNotification: SuperweaponFired
 		IncomingSpeechNotification: SuperweaponFired
 		IncomingSound: SuperweaponFired
@@ -1351,24 +1326,34 @@ SCRADVPOWR:
 		InvalidTileSequence: build-invalid-
 		SourceTileSequence: build-valid-
 		DisplayTimerStances: Ally, Neutral, Enemy
+		Dimensions:
+			1: 5, 5
+		Footprints:
+			1: __x__ _xxx_ xxxxx _xxx_ __x__
 	DetonateWeaponPower@AIbuilding:
 		RequiresCondition: AIbuildingMicroControl
-		Weapon: ColossiSummonerWeapon
-		Icon: wormholeicon
+		Prerequisites:
+			1: scradvpowr
+		Weapons:
+			1: ColossiSummonerWeapon
+		Icons:
+			1: wormholeicon
 		IconPalette: playerscrin
 		ChargeInterval: 6000
 		OrderName: ChronoshiftSummon
-		TargetCircleRange: 5c0
-		DisplayTimer: True
-		DisplayBeacon: True
+		TargetCircleRanges:
+			1: 5c0
+		DisplayTimer: true
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
 		LaunchSpeechNotification: SuperweaponFired
 		IncomingSpeechNotification: SuperweaponFired
 		IncomingSound: SuperweaponFired
 		LaunchSound: n_swlaunch.aud
-		Description: Instant Wormhole
-		LongDesc: Instant Wormhole for AI
+		Descriptions:
+			1: Instant Wormhole
+		LongDescs:
+			1: Instant Wormhole for AI
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: empdisable || disabled
 	Health:
@@ -1377,6 +1362,8 @@ SCRADVPOWR:
 		AreaTypes: building
 	Power:
 		Amount: -200
+	IsometricSelectable:
+		DecorationHeight: 48
 
 CABYARD:
 	Inherits: GACNST
@@ -1386,8 +1373,9 @@ CABYARD:
 	Transforms:
 		IntoActor: cabmcv
 		Offset: 1,1
-		Facing: 160
+		Facing: 640
 		DeployCursor: undeploy
+		PauseOnCondition: mindcontrolled || empdisable
 	-WithIdleOverlay@TOP:
 	-WithIdleOverlay@SIDE:
 	-WithIdleOverlay@FRONT:
@@ -1419,12 +1407,8 @@ CABPOWR:
 		Dimensions: 2,2
 	Health:
 		HP: 80000
-	Selectable:
-		Bounds: 90, 48, 0, -6
-		DecorationBounds: 90, 84, 0, -12
 	Power:
 		Amount: 200
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -1439,12 +1423,10 @@ CABCLAW:
 		BuildPaletteOrder: 2
 		Description: Processes Infantry.\n\nSpecial:\n- Heals infantry in an area around it.\n- Maximun production speed is reached with 7 barracks.\n- Max production speed reduces production time by 50%.
 		Prerequisites: anypower, ~structures.cab
+	WithProductionOverlay:
 	Building:
 		Footprint: xx xx xx
 		Dimensions: 2,3
-	Selectable:
-		Bounds: 102, 70, 0, -24
-		DecorationBounds: 102, 70, 0, -24
 	Exit@1:
 		SpawnOffset: 724,362,0
 		ExitCell: 2,2
@@ -1489,9 +1471,10 @@ CABCLAW:
 	Exit@fallback12:
 		SpawnOffset: 724,362,0
 		ExitCell: 2,0
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
+	IsometricSelectable:
+		DecorationHeight: 48
 
 CABPROC:
 	Inherits: PROC
@@ -1571,6 +1554,8 @@ CABWEAP:
 	WithIdleOverlay@BIB:
 		Sequence: bib
 		RequiresCondition: !Building-Buildup
+	IsometricSelectable:
+		DecorationHeight: 36
 
 CABRADR:
 	Inherits: ^Radar
@@ -1586,14 +1571,14 @@ CABRADR:
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
-	Selectable:
-		Bounds: 102, 118, 0, -38
-		DecorationBounds: 102, 118, 0, -38
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
-	DetonateWeaponPower:
+	SpawnActorPower:
 		OrderName: CabalRadarScan
+		Icons:
+			1: CABradarscan
+	IsometricSelectable:
+		DecorationHeight: 96
 
 CABAIR:
 	Inherits: ^Helipad
@@ -1624,16 +1609,11 @@ CABAIR:
 		PrimaryCondition: primary
 	Reservable:
 	RepairsUnits:
-	Selectable:
-		Bounds: 88, 66, 0, -5
-		DecorationBounds: 88, 66, 0, -5
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
 	WithTextDecoration@primary:
 		Text: PRIMARY
-		ReferencePoint: Top
+		Position: Top
 		Color: E0D048
-		ZOffset: 9999
 		RequiresCondition: primary
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -1652,10 +1632,6 @@ CABTECH:
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
-	Selectable:
-		Bounds: 110, 60, 3, -4
-		DecorationBounds: 110, 60, 3, -4
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -1677,27 +1653,30 @@ CABOBELISK:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	Selectable:
-		Bounds: 75,48
-		DecorationBounds: 75,48
 	BodyOrientation:
 		QuantizedFacings: 32
-	SelectionDecorations:
-	DetonateWeaponPower@nanomachinesson:
+	ProvidesPrerequisite@buildingname:
+	SpawnActorPower@nanomachinesson:
 		Cursor: ioncannon
-		Icon: nanomachineswarm
-		Description: Nanomachine Swarm
-		LongDesc: Fills an area with nanomachines.\n- Heals friendly units up to 40% (Even buildings)\n- Turns fallen units into workers (Friendly and Hostile).
+		Prerequisites:
+			1: cabobelisk
+		Icons:
+			1: nanomachineswarm
+		Descriptions:
+			1: Nanomachine Swarm
+		LongDescs:
+			1: Fills an area with nanomachines.\n- Heals friendly units up to 40% (Even buildings)\n- Turns fallen units into workers (Friendly and Hostile).
 		OrderName: NanomachineSwarm
-		Weapon: NanoMachineBurst
-		TargetCircleRange: 7c0
+		Actors:
+			1: nanomachineburstspawner
+		TargetCircleRanges:
+			1: 7c0
 		BeginChargeSound:
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
-		DisplayTimer: True
-		DisplayBeacon: True
+		DisplayTimer: true
 		ChargeInterval: 6000
-		DisplayRadarPing: True
+		DisplayRadarPing: true
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: empdisable || disabled
 		LaunchSpeechNotification: SuperweaponFired

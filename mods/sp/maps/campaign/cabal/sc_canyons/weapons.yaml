@@ -1,0 +1,45 @@
+FighterHellfireLongbow:
+	Inherits: FighterHellfire
+	ReloadDelay: 37
+	Range: 7c0
+	MinRange: 0c100
+	Report: orcamis1.aud
+	Burst: 1
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
+	Projectile: Missile
+		Arm: 2
+		Blockable: false
+		Shadow: true
+		Image: DRAGON
+		TrailImage: small_smoke_trail
+		Palette: ra
+		Speed: 500
+		RangeLimit: 20c0
+		Inaccuracy: 0c150
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		
+FighterHellfireLongbowSnipe:
+	Inherits: FighterHellfire
+	ReloadDelay: 150
+	Range: 14c0
+	MinRange: 0c100
+	Report: orcamis1.aud
+	Burst: 1
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
+	Projectile: Missile
+		Arm: 2
+		Blockable: false
+		Shadow: true
+		Image: DRAGON
+		TrailImage: small_smoke_trail
+		Palette: ra
+		Speed: 500
+		RangeLimit: 20c0
+		Inaccuracy: 0c150
+	Warhead@1Dam: SpreadDamage
+		Damage: 15000
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath

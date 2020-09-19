@@ -38,7 +38,7 @@ Hellfire:
 		Inaccuracy: 128
 		Image: DRAGON
 		TrailImage: small_smoke_trail
-		HorizontalRateOfTurn: 8
+		HorizontalRateOfTurn: 32
 		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
@@ -55,15 +55,15 @@ Hellfire:
 	Warhead@2Eff: CreateEffect
 		Explosions: small_clsn
 		ImpactSounds: expnew12.aud
-		InvalidImpactTypes: Water, Air, AirHit
+		InvalidTargets: Water, Air, AirHit
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player
 		ImpactSounds: ssplash3.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 	Warhead@4EffAir: CreateEffect
 		Explosions: small_twlt
-		ValidImpactTypes: Air, AirHit
+		ValidTargets: Air, AirHit
 		ImpactSounds: expnew06.aud
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: SmallCrater
@@ -81,7 +81,7 @@ CrabAcid:
 		Speed: 200
 		Image: acidall32mini
 		Inaccuracy: 384
-		Palette: apolgreenalpha
+		Palette: jascgreen
 	Burst: 5
 	BurstDelays: 5
 	Warhead@1Dam: SpreadDamage
@@ -100,7 +100,7 @@ CrabAcid:
 
 Tentacle:
 	Inherits@wh: ^AcidWarhead
-	ReloadDelay: 80
+	ReloadDelay: 60
 	Range: 1c967
 	Report: floatk1.aud
 	ValidTargets: Ground, Water, Vehicle, Infantry, Building
@@ -108,12 +108,12 @@ Tentacle:
 		Speed: 0c602
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 1600
+		Damage: 20000
 		DamageTypes: TriggerProne, BulletDeath
 		ValidTargets: Ground, Water, Vehicle, Infantry, Building
 	Warhead@emp1: GrantExternalCondition
 		Range: 2c124
-		Duration: 50
+		Duration: 35
 		Condition: empdisable
 		ValidTargets: Ground, Water
 
@@ -123,6 +123,7 @@ CrabSpawnerPrior:
 	Projectile: InstantExplode
 	Warhead@op: FireShrapnel
 		Weapon: CrabSpawner
+		ImpactActors: false
 		Amount: 1
 		AllowDirectHit: false
 
@@ -151,6 +152,7 @@ TibBurst:
 	Projectile: InstantExplode
 	Warhead@op: FireShrapnel
 		Weapon: TibBurstExplo
+		ImpactActors: false
 		Amount: 1
 
 TibBurstExplo:
@@ -163,13 +165,14 @@ TibBurstExplo:
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
 		ImpactSounds: expnew14.aud
-		InvalidImpactTypes: Water
+		InvalidTargets: Water
 
 BlueTibBurst:
 	ReloadDelay: 150
 	Projectile: InstantExplode
 	Warhead@op: FireShrapnel
 		Weapon: BlueTibBurstExplo
+		ImpactActors: false
 		Amount: 1
 
 BlueTibBurstExplo:
@@ -182,7 +185,7 @@ BlueTibBurstExplo:
 		Explosions: tibexp2
 		ExplosionPalette: apolbluealpha
 		ImpactSounds: expnew14.aud
-		InvalidImpactTypes: Water
+		InvalidTargets: Water
 
 SonicEmitterProj:
 	Inherits: ^FullDamage
@@ -190,13 +193,13 @@ SonicEmitterProj:
 	Range: 11c0
 	Projectile: WarheadTrailProjectile
 		Offsets: 0,128,0 #, 64,96,0, -64,96,0
-		Firemode: Line # try putting "Line" or "Spread" here, "Focus"
+		FireMode: Line # try putting "Line" or "Spread" here, "Focus"
 		Inaccuracy: 0c0
 		Weapon: SonicEmitterHit
 		Speed: 250
 		ExplosionInterval: 4
 		ExplodeUnderThisAltitude: -9999
-		Blockable: False
+		Blockable: false
 		KillProjectilesWhenReachedTargetLocation: false #try putting true
 	Warhead@1Dam: SpreadDamage
 		Damage: 1
@@ -225,6 +228,7 @@ SonicEmitterHit:
 		ExplosionPalette: gensmkexplojFblue
 	Warhead@4Sharpnel: FireShrapnel
 		Weapon: SmallDebris
+		ImpactActors: false
 		Amount: 1
 		ValidTargets: Ground, Water, Air, AirHit
 		InvalidTargets: Infantry, Vehicle, Building, Wall
@@ -247,9 +251,10 @@ ServDepoShrapnelSpawn:
 		InvalidTargets: Colossi
 	Warhead@op: FireShrapnel
 		Weapon: ServDepoShrapnel
+		ImpactActors: false
 		Amount: 3
 		AllowDirectHit: false
-		ThrowWithoutTarget: False
+		ThrowWithoutTarget: false
 		AimChance: 100
 		AimTargetStances: Ally
 
@@ -270,12 +275,13 @@ ServDepoShrapnel:
 LTrail:
 	ReloadDelay: 60
 	Range: 6c0
-	Report: biggun1.aud
+	Report: bigggun1.aud
+	Burst: 2
 	Projectile: AreaBeam
 		Speed: 20c0
 		Duration: 3
 		DamageInterval: 2
-		Width: 0c128
+		Width: 30
 		BeyondTargetRange: 0c64
 		Blockable: true
 		Color: 0080FFC8
@@ -283,7 +289,6 @@ LTrail:
 		Range: 0, 32
 		Falloff: 100, 100
 		Damage: 15000
-		InfDeath: 6
 		AffectsParent: false
 		ValidStances: Neutral, Enemy
 		Versus:
@@ -297,7 +302,6 @@ LTrail:
 		Range: 0, 32
 		Falloff: 50, 50
 		Damage: 15000
-		InfDeath: 6
 		AffectsParent: false
 		ValidStances: Ally
 		Versus:
@@ -334,47 +338,6 @@ LightTowerClaxon:
 	ValidTargets: Ground, Water, Air
 	Projectile: InstantExplode
 
-GreenTibRadiation:
-	ReloadDelay: 100
-	Projectile: InstantExplode
-	Warhead@8Radio: CreateTintedCells
-		Spread: 0c768
-		Falloff: 100, 65, 45, 25, 5
-		Level: 96
-		LayerName: HarmlessRadiationGreen
-
-BlueTibRadiation:
-	Inherits: GreenTibRadiation
-	Warhead@8Radio: CreateTintedCells
-		LayerName: BlueRadiation
-
-SpawnVisc:
-	ReloadDelay: 25
-	Range: 2c0
-	Burst: 1
-	BurstDelays: 1
-	ValidTargets: ViscMale
-	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		ValidTargets: ViscMale
-		Damage: 1
-		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
-	Warhead@5Actor: SpawnActor
-		Actors: visc_sml
-		FallRate: 5000
-		Range: 3
-		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
-
-SpawnZombie:
-	Inherits: SpawnVisc
-	Warhead@5Actor: SpawnActor
-		Actors: zombie
-
-SpawnBerserker:
-	Inherits: SpawnVisc
-	Warhead@5Actor: SpawnActor
-		Actors: berserker
-
 SlimeAttack:
 	Inherits: ^RifleWarhead
 	ReloadDelay: 80
@@ -390,9 +353,9 @@ SlimeAttack:
 			ConcreteArmor: 20
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 
-VeinholeAttack:
+FloaterCloudSpawn:
 	Inherits: ^RifleWarhead
-	ReloadDelay: 50
+	ReloadDelay: 150
 	Range: 5c0
 	Report:
 	Projectile: InstantExplode
@@ -411,9 +374,18 @@ VeinholeAttack:
 		Falloff: 100, 50, 25, 5
 		MaxLevel: 1000
 
-FloaterCloudSpawn:
-	Inherits: VeinholeAttack
-	ReloadDelay: 100
+VeinholeAttack:
+	Inherits: FloaterCloudSpawn
+	ReloadDelay: 50
+	Warhead@8Radio: CreateTintedCells
+		Spread: 1c512
+		Level: 5
+		MaxLevel: 150
+		Falloff: 100, 75, 50, 40
+	Warhead@1Dam: SpreadDamage
+		Damage: 500
+		Spread: 1c512
+		DamageTypes: TiberiumDeath
 
 Veins:
 	Inherits: ^RifleWarhead
@@ -438,6 +410,10 @@ Repair:
 		Spread: 213
 		Damage: -5000
 		ValidTargets: Repair
+
+RepairNeutralTurret:
+	Inherits: Repair
+	Range: 5c0
 
 Demolish:
 	Warhead@1Dam: SpreadDamage

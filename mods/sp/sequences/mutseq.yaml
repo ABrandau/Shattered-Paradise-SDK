@@ -278,6 +278,11 @@ doggie:
 		ShadowStart: 224
 		Tick: 800
 		ZOffset: -511
+	diebody1: doggie
+		Start: 105
+		Length: 1
+		ShadowStart: 224
+		Tick: 4000
 	icon: fiendicon
 		Offset: 0, 0
 
@@ -560,13 +565,13 @@ lynx:
 	idle:
 		Facings: -32
 		ShadowStart: 64
-		UseTilesetCode: False
+		UseTilesetCode: false
 	turret:
 		Start: 32
 		Facings: -32
-		UseTilesetCode: False
-
+		UseTilesetCode: false
 	icon: lynxicon
+
 
 trike:
 	Inherits: ^EmpOverlay
@@ -656,12 +661,41 @@ mutmcv:
 	Inherits: ^EmpOverlay
 	Defaults:
 		Offset: 0,-3,0
-		UseTilesetCode: False
+		UseTilesetCode: false
 	idle:
 		Facings: 32
 	stand:
 		Facings: 32
 	icon: mutmcvicon
+		Offset: 0, 0
+
+mutyard:
+	Inherits: ^EmpOverlay
+	Defaults: mutmcv
+		UseTilesetCode: false
+		Offset: 0, -36, 24
+	idle:
+		Start: 65
+		Length: 45
+		ShadowStart: 221
+		Tick: 80
+		UseTilesetCode: false
+	damaged-idle:
+		Start: 110
+		Length: 45
+		ShadowStart: 266
+		Tick: 80
+		UseTilesetCode: false
+	dead:
+		Start: 110
+		ShadowStart: 266
+		Ticks: 125
+		Tick: 400
+		UseTilesetCode: false
+	make: mutmcvmake
+		Length: 33
+		ShadowStart: 33
+	icon: mutyardicon
 		Offset: 0, 0
 
 mupowr:
@@ -823,7 +857,7 @@ muproc2:
 
 muproc3:
 	Defaults:
-		Offset: 12, -42, 20
+		Offset: 12, -24, 20
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -873,7 +907,7 @@ muproc3:
 
 muproc4:
 	Defaults:
-		Offset: 12, -36, 20
+		Offset: 6, 6, 20
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -1097,7 +1131,7 @@ mutgate_a:
 		Length: 12
 	damaged-idle: mutgate
 		Start: 24
-		Length 12
+		Length 12:
 	open:
 		Start: 11
 		ZRamp: 1
@@ -1332,8 +1366,6 @@ mutsw2:
 		Start: 31
 		Length: 19
 	active:
-		Start: 31
-		Length: 19
 	damaged-idle:
 		Start: 51
 		Length: 19
@@ -1351,3 +1383,22 @@ mutsw2:
 	icon: mutsw2icon
 		Offset: 0, 0
 		UseTilesetCode: false
+
+minivein:
+	Inherits: ^InfantryDeathAnims
+	Defaults:
+		UseTilesetExtension: false
+		Offset: 0,-6
+	idle:
+		Length: 39
+	dead: sushimake2
+		Length: *
+	stand:
+		Length: 39
+	make: sushimake
+		Length: 29
+	shoot:
+		Length: 39
+	sushi1: sushimake
+		ZOffset: -2048
+		Start: 30

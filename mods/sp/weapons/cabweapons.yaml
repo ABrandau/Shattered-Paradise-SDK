@@ -50,9 +50,6 @@ SentinelGun:
 	ReloadDelay: 60
 	Range: 4c0
 	Projectile: InstantHit
-		Image: 120mm
-		Shadow: true
-		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
 		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
@@ -71,12 +68,12 @@ ReaperWeb:
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 500
+		Damage: 1
 		ValidTargets: Infantry
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@emp: GrantExternalCondition
 		Range: 1c0
-		Duration: 125
+		Duration: 200
 		ValidTargets: Infantry
 		Condition: WebDisable
 
@@ -101,6 +98,7 @@ ReaperScythe:
 
 ReaperScytheAA:
 	Inherits: ReaperScythe
+	Inherits@1: ^AARocketWarhead
 	Range: 8c0
 	ValidTargets: Air
 	ReloadDelay: 75
@@ -138,12 +136,13 @@ GLAD120mm:
 			BuildingArmor: 75
 
 LurkerAimDummyWeapon:
-	Inherits: ^RifleWarhead
 	ReloadDelay: 40
 	Range: 9c0
-	Warhead@1Dam: SpreadDamage
-		Damage: 0
-		ValidTargets: Infantry, Vehicle, Building
+	ValidTargets: Ground, Water, Infantry, Vehicle, Building
+	Projectile: InstantHit
+		Blockable: false
+	Warhead@NoDam: TargetDamage
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building
 
 LurkerProj:
 	Inherits: ^FullDamage
@@ -151,13 +150,13 @@ LurkerProj:
 	Range: 10c0
 	Projectile: WarheadTrailProjectile
 		Offsets: 0,128,0 #, 64,96,0, -64,96,0
-		Firemode: Line # try putting "Line" or "Spread" here, "Focus"
+		FireMode: Line # try putting "Line" or "Spread" here, "Focus"
 		Inaccuracy: 0c0
 		Weapon: LurkerHit
 		Speed: 200
 		ExplosionInterval: 3
 		ExplodeUnderThisAltitude: -9999
-		Blockable: False
+		Blockable: false
 		KillProjectilesWhenReachedTargetLocation: false #try putting true
 	Warhead@1Dam: SpreadDamage
 		Damage: 1
@@ -171,12 +170,8 @@ LurkerHit:
 		Speed: 400
 		TrailImage: lurkertrail
 		TrailPalette: playercab
-		HorizontalRateOfTurn: 8
-		RangeLimit: 10c0
-		MaximumLaunchSpeed: 213
-		Blockable: False
+		Blockable: false
 	Warhead@1Dam: SpreadDamage
-		# Spread: 0c190
 		Damage: 11000
 		Versus:
 			InfantryArmor: 100
@@ -197,20 +192,20 @@ LurkerHit:
 CyCannon:
 	Inherits: ^APWarhead
 	Inherits: ^Mediuml_Clsn
-	ReloadDelay: 100
+	ReloadDelay: 75
 	Range: 8c0
 	Report: scrin5b.aud
 	ValidTargets: Ground, Water
 	Projectile: Missile
 		Blockable: true
-		TerrainHeightAware: True
+		TerrainHeightAware: true
 		Speed: 350
 		Acceleration: 50
 		Shadow: true
 		Palette: effect
 		Image: TORPEDO
 		ContrailLength: 10
-		ContrailColor:  0cd957 
+		ContrailColor: 0cd957
 		ContrailWidth: 0c35
 	Warhead@1Dam: SpreadDamage
 		Spread: 350
@@ -226,7 +221,7 @@ CyCannon:
 	Warhead@2Eff: CreateEffect
 		Explosions: large_bang
 		ImpactSounds: expnew12.aud
-		InvalidValidTargets: Water
+		InvalidTargets: Water
 		ExplosionPalette: FlameEffectPal
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
@@ -245,7 +240,7 @@ WorkerMinigun:
 	Report: infgun3.aud, gostgun1.aud, slvkgun1.aud
 	Warhead@1Dam: SpreadDamage
 		Damage: 1600
-		DamageTypes: Prone70Percent, TriggerProne
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 Dogzooka:
 	Inherits: JJGrenade
@@ -268,21 +263,59 @@ Dogzooka:
 CenturionVulcan:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
-	ReloadDelay: 45
-	Burst: 2
-	Range: 6c0
 	Report: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
+	ReloadDelay: 40
+	Burst: 4
+	BurstDelay: 2
+	Range: 6c0
 	Projectile: InstantHit
 		Inaccuracy: 0c512
 	Warhead@1Dam: SpreadDamage
-		Damage: 3000
+		Damage: 1500
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Delay: 5
+	Warhead@3EffWater: CreateEffect
+		Delay: 5
+
+CenturionVulcanCasing:
+	Inherits: ^BulletCasing
+	ReloadDelay: 40
+	Burst: 4
+	BurstDelay: 2
+	Range: 6c0
+	ValidTargets: Ground, Water
+
+CenturionVulcanLine:
+	Inherits: ^LineProjectile
+	ReloadDelay: 40
+	Burst: 4
+	BurstDelay: 2
+	Range: 6c0
+	ValidTargets: Ground, Water
 
 RepairVehicleRep:
-	Inherits: ^SparkSpawner
 	ReloadDelay: 60
 	Range: 4c0
 	Report: repair11.aud
+	TargetActorCenter: true
+	AffectsParent: false
+	InvalidTargets: FullHealth, NoRepair
+	ValidTargets: Vehicle
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 80
+		Damage: -2499
+		AffectsParent: false
+		ValidTargets: Vehicle
+		InvalidTargets: FullHealth, NoRepair
+        
+RepairVehicleLasor:
+	ReloadDelay: 60
+	Range: 4c0
+	Report: repair11.aud
+	TargetActorCenter: true
+	AffectsParent: false
 	InvalidTargets: FullHealth, NoRepair
 	ValidTargets: Vehicle
 	Projectile: LaserZap
@@ -296,6 +329,7 @@ RepairVehicleRep:
 	Warhead@1Dam: SpreadDamage
 		Spread: 80
 		Damage: -2500
+		AffectsParent: false
 		ValidTargets: Vehicle
 		InvalidTargets: FullHealth, NoRepair
 
@@ -320,10 +354,12 @@ DroneHostMissile:
 	Warhead@1: FireShrapnel
 		Amount: 1
 		Weapon: DroneHostShell
+		ImpactActors: false
 		ValidTargets: Ground, Air, Water, Airhit
 	Warhead@2: FireShrapnel
 		Amount: 1
 		Weapon: DroneHostShellSpawner
+		ImpactActors: false
 		ValidTargets: Ground, Air, Water, Airhit
 
 DroneHostShell:
@@ -340,7 +376,6 @@ DroneHostShell:
 		Image: dronemissilemini
 		TrailImage: small_smoke_trail
 		TrailPalette: effectalpha75
-		RangeLimit: 25
 	Warhead@1Dam: SpreadDamage
 		Spread: 350
 		Damage: 1000
@@ -368,15 +403,14 @@ PalaLazor:
 	Range: 8c0
 	Report: avatarlaser0000.wav, avatarlaser0001.wav, avatarlaser0002.wav
 	Projectile: LaserZap
-		Width: 60
-		BeamDuration: 7
-		Color: 0000FF
-		BeamDuration: 20
-		SecondaryBeam: True
-		SecondaryBeamWidth: 30
-		ZOffset: 4000
-		SecondaryBeamZOffset: 4000
-		SecondaryBeamColor: FFFFFF
+		Width: 90
+		Color: 0000AB55
+		Duration: 20
+		SecondaryBeam: true
+		SecondaryBeamWidth: 45
+		ZOffset: 3047
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: FFFFFF55
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
@@ -385,7 +419,7 @@ PalaLazor:
 
 PalaLazorMute:
 	Inherits: PalaLazor
-	-Report: lastur1.aud
+	-Report:
 
 WaspBullet:
 	Inherits: ^APWarhead
@@ -406,14 +440,14 @@ WaspBullet:
 WaspLasor:
 	Inherits: WaspBullet
 	Projectile: LaserZap
-		Color: 0dc7b8
-		BeamDuration: 20
-		Width: 90
-		SecondaryBeam: True
-		SecondaryBeamWidth: 30
-		ZOffset: 4000
-		SecondaryBeamZOffset: 4000
-		SecondaryBeamColor: FFFFFF
+		Color: 0dc7b855
+		Duration: 20
+		Width: 80
+		SecondaryBeam: true
+		SecondaryBeamWidth: 40
+		ZOffset: 3047
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: FFFFFF55
 	Warhead@1Dam: SpreadDamage
 		Damage: 1
 
@@ -434,18 +468,17 @@ WaspBulletAA:
 
 DevourerGrinder:
 	Inherits: ^ArtilleryWarhead
-	ReloadDelay: 35
-	Range: 1c512
+	ReloadDelay: 24
+	Range: 1c0
 	MinRange: 50
-	Report: repair11.aud
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Spread: 90
-		Damage: 9000
+		Damage: 7000
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 	Warhead@Shake: ScreenShaker
-		Intensity: 2
-		Duration: 7
+		Intensity: 1
+		Duration: 10
 	Warhead@2Eff: CreateEffect
 		Explosions: cabspark
 		ExplosionPalette: apolra2
@@ -467,7 +500,6 @@ BasiliskBomb:
 		Inaccuracy: 1c512
 		Image: DRAGON
 		TrailImage: small_smoke_trail
-		HorizontalRateOfTurn: 8
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 250
@@ -575,6 +607,9 @@ BlasterProton:
 		Inaccuracy: 1c0
 		LaunchAngle: 120
 		Image: TORPEDO
+		ContrailLength: 10
+		ContrailColor: 0cd957
+		ContrailWidth: 0c35
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c500
 		Damage: 6000
@@ -590,9 +625,10 @@ CABRAILAA:
 	Inherits: ^AntiAirTurretWeapon
 	Report: railgunfire.wav
 	Projectile: Railgun
-		Width: 75
+		BeamWidth: 75
 		ZOffset: 2047
-		Color: 0008ED
+		BeamColor: AAAAAA
+		HelixColor: BBBBBB
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 2500

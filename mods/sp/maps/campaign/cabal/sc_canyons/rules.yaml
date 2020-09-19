@@ -1,0 +1,204 @@
+World:
+	LuaScript:
+		Scripts: script.lua
+	
+	
+^CivBuilding:
+	Cargo:
+		PipCount: 6
+		MaxWeight: 6
+		Types: Infantry
+		EjectOnDeath: True
+		LoadedCondition: loaded
+	AttackGarrisoned:
+		PortOffsets: 384,0,300, 224,-341,400, -224,-341,350, -384,0,500, -224,341,450, 224,341,450
+		PortYaws: 0, 176, 341, 512, 682, 853
+		PortCones: 88, 88, 88, 88, 88, 887
+
+^Infantry:
+	Crushable:
+		WarnProbability: 75
+		CrushSound: squish6.aud
+^Wall:
+	Health:
+		HP: 125000
+	Armor:
+		Type: BuildingArmor
+
+^Gate:
+	Health:
+		HP: 100000
+	Armor:
+		Type: BuildingArmor
+
+MARAUDERCOOP:
+	Inherits: MARAUDER
+	RenderSprites:
+		Image: marauder
+		Palette: playermut
+	-Buildable:
+	-GrantConditionOnDeploy:
+	-WithMakeAnimation:
+	-Turreted:
+	WithInfantryBody:
+		-RequiresCondition: !inside-tunnel
+	-WithSpriteTurret@idle:
+	-WithSpriteTurret@animated:
+	-AttackTurreted@deployed:
+	AttackFrontal:
+		-RequiresCondition: undeployed
+	-GrantConditionOnAttack:ot
+	-DamageMultiplier@MarauderBuff:
+	-RejectsOrders@deployment:
+	
+ORCAH2:
+	Inherits: ORCA
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Orca Hunter
+	Buildable:
+	RenderSprites:
+		Image: ORCA
+		Palette: effectalpha
+	RenderRangeCircle:
+		RangeCircleType: Tier2
+	AttackAircraft:
+		AttackType: Hover
+		FacingTolerance: 20
+		Voice: Attack
+		PersistentTargeting: False
+	Armament:
+		Name: secondary
+		Weapon: FighterHellfireLongbow
+		PauseOnCondition: !ammo
+		ReloadingCondition: reloading
+		RequiresCondition: fired
+	Armament@Snipe:
+		Name: primary
+		Weapon: FighterHellfireLongbowSnipe
+		PauseOnCondition: !ammo
+		ReloadingCondition: reloading
+		RequiresCondition: !fired
+	ReloadArmamentsBar:
+		Armaments: primary
+	GrantConditionOnAttack@1:
+		Condition: fired
+		RevokeDelay: 150
+	TimedConditionBar@powershot:
+		Condition: fired
+	GrantConditionOnAttack@2:
+		Condition: firedshort
+		RevokeDelay: 20
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 150
+		MoveIntoShroud: true
+	RevealsShroudMultiplier:
+		Modifier: 155
+		RequiresCondition: !fired
+	AmmoPool:
+		Ammo: 4
+		PipCount: 4
+		PipType: Ammo
+		ReloadCount: 1
+		ReloadDelay: 75
+		PipTypeEmpty: AmmoEmpty
+		AmmoCondition: ammo
+	
+ORCAH:
+	Inherits: ORCA
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Orca Hunter
+	-Buildable:
+	RenderSprites:
+		Image: ORCA
+		Palette: effectalpha
+	AttackAircraft:
+		AttackType: Hover
+		FacingTolerance: 20
+		Voice: Attack
+		PersistentTargeting: False
+	Armament:
+		Weapon: FighterHellfireLongbow
+		PauseOnCondition: !ammo
+		ReloadingCondition: reloading
+	GrantConditionOnAttack@1:
+		Condition: fired
+		RevokeDelay: 150
+	RenderRangeCircle:
+		RangeCircleType: Tier2
+	TimedConditionBar@powershot:
+		Condition: fired
+	GrantConditionOnAttack@2:
+		Condition: firedshort
+		RevokeDelay: 20
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 150
+		MoveIntoShroud: true
+	RangeMultiplier:
+		Modifier: 200
+		#RequiresCondition: !fired
+	RevealsShroudMultiplier:
+		Modifier: 155
+		RequiresCondition: !fired
+	ReloadDelayMultiplier:
+		Modifier: 200
+		RequiresCondition: !fired
+	FirepowerMultiplier:
+		Modifier: 300
+		RequiresCondition: !fired
+	AmmoPool:
+		Ammo: 4
+		PipCount: 4
+		PipType: Ammo
+		ReloadCount: 1
+		ReloadDelay: 75
+		PipTypeEmpty: AmmoEmpty
+		AmmoCondition: ammo
+
+RECONPOSTPACKED:
+	Inherits: WINI
+	RenderVoxels:
+		Image: wini
+	RenderSprites:
+		Image: wini
+		Palette: player
+	Transforms:
+		IntoActor: reconpost
+	Tooltip:
+		Name: Recon Outpost (Packed)
+
+RECONPOST:
+	Inherits: ^Building
+	Inherits: ^1x1Shape
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Recon Outpost
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	Selectable:
+		Bounds: 48, 30, 0, -4
+		DecorationBounds: 48, 82, 0, -25
+	Armor:
+		Type: BuildingArmor
+	Targetable:
+		TargetTypes: Building, Ground, C4, SpyInfiltrate, MindControlInmune, ConsideredValuableForAI
+	Health:
+		HP: 120000
+	BaseProvider:
+		Range: 6c0
+	BaseBuilding:
+	RevealsShroud:
+		Range: 14c0
+		MaxHeightDelta: 3
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	RenderSprites:
+		Image: GASPOT
+		Palette: player
