@@ -444,7 +444,7 @@ NCONF:
 		RequiresCondition: HologramSpawn
 	AIDeployHelper:
 		DeployChance: 100
-		DeployTicks: 4000
+		DeployTicks: 4005
 		UndeployTicks: 1
 
 BHS:
@@ -618,7 +618,7 @@ MARAUDER:
 	AIDeployHelper:
 		DeployChance: 100
 		DeployTrigger: Attack
-		DeployTicks: 0
+		DeployTicks: 10
 	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
@@ -832,7 +832,7 @@ SEER:
 		RequiresCondition: deployed
 	AIDeployHelper:
 		DeployChance: 50
-		DeployTicks: 2000
+		DeployTicks: 2005
 		UndeployTicks: 1
 		DeployTrigger: Attack
 
@@ -1226,8 +1226,8 @@ COLOSSI_CHRONO:
 		Name: OnFoot
 	AIDeployHelper:
 		DeployChance: 100
-		DeployTicks: 0
-		UndeployTicks: 250
+		DeployTicks: 10
+		UndeployTicks: 30000
 		DeployTrigger: Attack
 	RenderSprites:
 		Image: colossi
@@ -1638,7 +1638,7 @@ MOTH:
 	-Crushable:
 	AIDeployHelper:
 		DeployChance: 100
-		DeployTicks: 0
+		DeployTicks: 10
 
 CYC2:
 	Inherits: ^Cyborg
