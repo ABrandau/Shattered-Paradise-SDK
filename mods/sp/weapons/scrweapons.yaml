@@ -395,6 +395,9 @@ TripodBlast:
 		LaunchAngle: 62
 		Palette: gradientblue60
 		Blockable: false
+		ContrailLength: 8
+		ContrailColor: 9A8AFFAA
+		ContrailWidth: 0c52
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
 		Damage: 12500
@@ -406,11 +409,17 @@ TripodBlast:
 			ConcreteArmor: 30
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 	Warhead@4Sharpnel: FireShrapnel
-		Weapon: SmallDebris
+		Weapon: TripodDebris
 		ImpactActors: false
-		Amount: 2
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
+TripodDebris:
+	Inherits: SmallDebris
+	Range: 2c60
+	Warhead@smoke: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@2: SpawnSmokeParticle
+		Palette: jascbluealpha
 
 TripodBlast2:
 	Inherits: TripodBlast
