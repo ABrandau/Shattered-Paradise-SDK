@@ -56,13 +56,13 @@ CLOUD1:
 		HP: 650
 	ChangesHealth@1:
 		Step: -600
-		Delay: 70
+		Delay: 100
 		StartIfBelow: 5000
 		DamageTypes: CloudDie
 		RequiresCondition: body1
 	ChangesHealth@2:
 		Step: -600
-		Delay: 55
+		Delay: 75
 		StartIfBelow: 5000
 		DamageTypes: CloudDie
 		RequiresCondition: body2
@@ -93,6 +93,14 @@ CLOUD1:
 		DeathSequencePalette: effectalpha
 		DeathPaletteIsPlayerPalette: false
 		RequiresCondition: body2
+
+## Longer
+CLOUD2:
+	Inherits: CLOUD1
+	ChangesHealth@1:
+		Delay: 150
+	ChangesHealth@2:
+		Delay: 100
 
 BigFireSpawnerDummy:
 	Inherits: ^GROUNDDUMMY

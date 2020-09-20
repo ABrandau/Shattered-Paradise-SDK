@@ -374,17 +374,19 @@ FloaterCloudSpawn:
 
 VeinholeAttack:
 	Inherits: FloaterCloudSpawn
-	ReloadDelay: 50
+	ReloadDelay: 100
 	Warhead@8Radio: CreateTintedCells
 		Spread: 1c512
-		Level: 5
+		Level: 10
 		MaxLevel: 150
 		Falloff: 100, 75, 50, 40
 	Warhead@1Dam: SpreadDamage
 		InvalidTargets: Veinhole
-		Damage: 500
+		Damage: 1000
 		Spread: 1c512
 		DamageTypes: TiberiumDeath
+	Warhead@5Actor: SpawnActor
+		Actors: cloud2
 
 Veins:
 	Inherits: ^RifleWarhead
