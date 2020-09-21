@@ -379,7 +379,7 @@ Player:
 		RequiresCondition: AIBase
 		SquadSize: 35
 		SquadSizeRandomBonus: 30
-		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, e2, swarmling, shapeshifter,mcv, drache, drache_bot, cabmcv, nodmcv, mutmcv, repairvehicle
+		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, e2, swarmling, shapeshifter,mcv, drache, drache_bot, cabmcv, nodmcv, mutmcv, repairvehicle, ecm, mumine, eggs, cabsentry
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
 		DangerScanRadius: 18
 		AttackForceInterval: 50
@@ -390,6 +390,7 @@ Player:
 		IdleScanRadius: 15
 		AttackScanRadius: 14
 		ProtectionScanRadius: 15
+		IgnoredEnemyTargetTypes: Mine
 	UnitBuilderBotModule@test:
 		RequiresCondition: AIBase
 		UnitQueues: Infantry, Vehicle, Air
@@ -477,11 +478,12 @@ Player:
 			nukecarryall_bot: 5
 			sonicarryall_bot: 5
 			apcarryall_bot: 1
-			#repairvehicle: 2
+			repairvehicle: 2
 			engineer: 1
 			e2: 1
 			swarmling: 1
 			shapeshifter: 1
+			ecm: 1
 		UnitLimits:
 			harv: 4
 			scrharv: 4
@@ -490,7 +492,7 @@ Player:
 			bike: 1
 			colossi: 3
 			mrls: 2
-			#repairvehicle: 2
+			repairvehicle: 2
 			engineer: 1
 			e2: 1
 			swarmling: 1
@@ -502,6 +504,7 @@ Player:
 			cerberus: 8
 			scrcarrier: 9
 			mutqueen: 10
+			ecm: 2
 			## nukecarryall_bot: 1 but not restrict here
 			## sonicarryall_bot: 1 but not restrict here
 			## apcarryall_bot: 1 but not restrict here
