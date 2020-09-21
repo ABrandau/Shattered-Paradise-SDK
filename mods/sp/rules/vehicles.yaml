@@ -2215,6 +2215,7 @@ ECM:
 	Inherits@2: ^CabRender
 	Inherits@3: ^LowPrioritySelectionMode
 	Inherits@4: ^5CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -2255,6 +2256,19 @@ ECM:
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
+	Wanders@AI:
+		RequiresCondition: AImicroManage
+		WanderMoveRadius: 10
+		MinMoveDelay: 12
+		MaxMoveDelay: 18
+	AIDeployHelper:
+		DeployTrigger: Periodically
+		DeployTicks: 500
+	ReloadAmmoPool@AIAmmoCheat:
+		AmmoPool: primary
+		RequiresCondition: AImicroManage 
+		Count: 10
+		Delay: 2000
 
 CABAPC:
 	Inherits@2: ^HoverVehicle
