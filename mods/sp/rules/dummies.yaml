@@ -43,6 +43,65 @@
 	OwnerLostAction:
 		Action: Dispose
 
+CLOUD1:
+	Inherits: ^DUMMYAIRCRAFT
+	Aircraft:
+		CruiseAltitude: 1
+		TurnSpeed: 2
+		Repulsable: false
+		AltitudeVelocity: 400
+		Speed: 20
+		MoveIntoShroud: true
+	Health:
+		HP: 650
+	ChangesHealth@1:
+		Step: -600
+		Delay: 100
+		StartIfBelow: 5000
+		DamageTypes: CloudDie
+		RequiresCondition: body1
+	ChangesHealth@2:
+		Step: -600
+		Delay: 75
+		StartIfBelow: 5000
+		DamageTypes: CloudDie
+		RequiresCondition: body2
+	RenderSprites:
+		Image: cloud1
+		Palette: effectalpha
+	Wanders:
+	-RevealsShroud:
+	GrantRandomCondition:
+		Conditions: body1, body2
+	WithSpriteBody@1:
+		Name: body1
+		Sequence: cloud1
+		RequiresCondition: body1
+	WithSpriteBody@2:
+		Name: body2
+		Sequence: cloud2
+		RequiresCondition: body2
+	WithDeathAnimation@1:
+		DeathSequence: die1
+		UseDeathTypeSuffix: false
+		DeathSequencePalette: effectalpha
+		DeathPaletteIsPlayerPalette: false
+		RequiresCondition: body1
+	WithDeathAnimation@2:
+		DeathSequence: die2
+		UseDeathTypeSuffix: false
+		DeathSequencePalette: effectalpha
+		DeathPaletteIsPlayerPalette: false
+		RequiresCondition: body2
+
+## Longer
+CLOUD2:
+	Inherits: CLOUD1
+	ChangesHealth@1:
+		Delay: 150
+	ChangesHealth@2:
+		Delay: 100
+
 BigFireSpawnerDummy:
 	Inherits: ^GROUNDDUMMY
 	ExplodeWeapon:
