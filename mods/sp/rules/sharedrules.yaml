@@ -1510,3 +1510,58 @@ SCRGATE_B:
 		ClosingSound: scrinplacebuilding.wav
 		BlocksProjectilesHeight: 640
 		CloseDelay: 40
+
+^SuperSupportPowerBased:
+	NukePower:
+		Cursor: nuke
+		Prerequisites:
+			1: natmpl
+		Icons:
+			1: clustermissile
+		ChargeInterval: 9000
+		Descriptions:
+			1: Atomic Bomb
+		LongDescs:
+			1: Launches a conventional warhead at a target location.\n\nSpecial:\n- Instant kills ground units and aircraft
+		BeginChargeSound:
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
+		SelectTargetSound:
+		InsufficientPowerSound:
+		MissileWeapon: ClusterMissile
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
+		SpawnOffset: 0,427,0
+		DisplayTimerStances: Ally, Neutral, Enemy
+		DisplayBeacon: true
+		DisplayRadarPing: true
+		MissilePalette: player
+		IsPlayerPalette: true
+		BeaconPosters:
+			1: minimltiicon
+		OrderName: ClusterMissile
+		CameraRange: 10c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		FlightDelay: 200
+		FlightVelocity: 1c0
+		PauseOnCondition: empdisable || disabled
+
+^HasMisslePower:
+	Inherits: ^SuperSupportPowerBased
+	NukePower:
+		TrailImage: meteortrail
+		TrailPalette: effectalpha
+		TrailSequences: idle2
+
+^HasSuperSupportPower:
+	Inherits: ^SuperSupportPowerBased
+	NukePower:
+		FlightDelay: 1
+		FlightVelocity: 1c0
+		DisplayBeacon: false

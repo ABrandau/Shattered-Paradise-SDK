@@ -627,6 +627,7 @@ GAPLUG:
 	Inherits: ^Building
 	Inherits@2: ^2x3Shape
 	Inherits@3: ^SuperWeapon
+	Inherits@4: ^HasSuperSupportPower
 	Valued:
 		Cost: 2500
 	Tooltip:
@@ -649,32 +650,22 @@ GAPLUG:
 	WithIdleOverlay@STRIP:
 		Sequence: idle-strip
 		RequiresCondition: !Building-Buildup
-	DetonateWeaponPower@ioncannon:
+	NukePower:
 		Prerequisites:
 			1: gaplug
 		Icons:
 			1: ioncannon
 		Descriptions:
 			1: Ion Cannon Array
-		DisplayTimer: true
 		TargetCircleRanges:
 			1: 6c0
 		LongDescs:
 			1: Fires an array of ion cannons on the targetted area.
 		ChargeInterval: 6000
 		ActivationSequence: idle
-		EndChargeSound: SuperWeaponReady
-		EndChargeSpeechNotification: SuperWeaponReady
-		LaunchSpeechNotification: SuperweaponFired
-		IncomingSpeechNotification: SuperweaponFired
-		IncomingSound: SuperweaponFired
-		LaunchSound: n_swlaunch.aud
-		Weapons:
-			1: IonCannonSpawner
+		MissileWeapon: IonCannonSpawner
 		OrderName: IonCannon2
 		Cursor: ioncannon
-		DisplayTimerStances: Ally, Neutral, Enemy
-		PauseOnCondition: empdisable || disabled
 	SupportPowerChargeBar:
 	WithIdleOverlay@ioncannona:
 		Sequence: idle-ioncannona
@@ -729,55 +720,11 @@ NASTLH:
 	RequiresBuildableArea:
 		AreaTypes: building
 
-^HasNukePower:
-	NukePower:
-		Cursor: nuke
-		Prerequisites:
-			1: natmpl
-		Icons:
-			1: clustermissile
-		ChargeInterval: 9000
-		Descriptions:
-			1: Atomic Bomb
-		LongDescs:
-			1: Launches a conventional warhead at a target location.\n\nSpecial:\n- Instant kills ground units and aircraft
-		BeginChargeSound:
-		EndChargeSound: SuperWeaponReady
-		EndChargeSpeechNotification: SuperWeaponReady
-		SelectTargetSound:
-		InsufficientPowerSound:
-		MissileWeapon: ClusterMissile
-		LaunchSpeechNotification: SuperweaponFired
-		IncomingSpeechNotification: SuperweaponFired
-		IncomingSound: SuperweaponFired
-		LaunchSound: n_swlaunch.aud
-		SpawnOffset: 0,427,0
-		DisplayTimerStances: Ally, Neutral, Enemy
-		DisplayBeacon: true
-		DisplayRadarPing: true
-		MissilePalette: player
-		IsPlayerPalette: true
-		BeaconPosters:
-			1: minimltiicon
-		OrderName: ClusterMissile
-		CameraRange: 10c0
-		CameraSpawnAdvance: 25
-		CameraRemoveDelay: 350
-		ArrowSequence: arrow
-		ClockSequence: clock
-		CircleSequence: circles
-		FlightDelay: 200
-		FlightVelocity: 1c0
-		PauseOnCondition: empdisable || disabled
-		TrailImage: meteortrail
-		TrailPalette: effectalpha
-		TrailSequences: idle2
-
 NATMPL:
 	Inherits: ^Building
 	Inherits@2: ^3x3Shape
 	Inherits@3: ^SuperWeapon
-	Inherits@4: ^HasNukePower
+	Inherits@4: ^HasMisslePower
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 44
@@ -863,6 +810,7 @@ MUTSW1:
 	Inherits@1: ^MutRender
 	Inherits@2: ^3x2Shape
 	Inherits@3: ^SuperWeapon
+	Inherits@4: ^HasSuperSupportPower
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 47
@@ -877,30 +825,20 @@ MUTSW1:
 		Footprint: xxx xxx
 		Dimensions: 3,2
 	ProvidesPrerequisite@buildingname:
-	DetonateWeaponPower@IonStorm:
+	NukePower:
 		Prerequisites:
 			1: mutsw1
-		Weapons:
-			1: IonStormSpawnerWeapon
+		MissileWeapon: IonStormSpawnerWeapon
 		Icons:
 			1: ionstorm
 		ChargeInterval: 9000
 		TargetCircleRanges:
 			1: 8c0
-		EndChargeSound: SuperWeaponReady
-		EndChargeSpeechNotification: SuperWeaponReady
-		LaunchSpeechNotification: SuperweaponFired
-		IncomingSpeechNotification: SuperweaponFired
-		IncomingSound: SuperweaponFired
-		LaunchSound: n_swlaunch.aud
 		OrderName: IonStorm
-		DisplayTimer: true
 		Descriptions:
 			1: Ion Storm
 		LongDescs:
 			1: Allows the player to generate Ion Storms.\n\nSpecial:\n- Instant kills ground units and aircraft.
-		DisplayTimerStances: Ally, Neutral, Enemy
-		DisplayRadarPing: true
 		PauseOnCondition: empdisable || disabled
 		CameraRange: 8c0
 		CameraSpawnAdvance: 25
@@ -951,6 +889,7 @@ SCRSW1:
 	Inherits@4: ^3x2Shape
 	Inherits@5: ^SuperWeapon
 	Inherits@6: ^ScrinBuildingFire
+	Inherits@7: ^HasSuperSupportPower
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 50
@@ -964,7 +903,7 @@ SCRSW1:
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
-	DetonateWeaponPower@MeteorStorm:
+	NukePower:
 		Cursor: emp
 		Icons:
 			1: meteor
@@ -975,19 +914,10 @@ SCRSW1:
 			1: Drags meteors from orbit dealing moderate damage over a wide area.\n\nSpecial:\n- Instant kills ground units and aircraft.
 		Prerequisites:
 			1: MeteorSpawner
-		Weapons:
-			1: MeteorSpawner
+		MissileWeapon: MeteorSpawner
 		TargetCircleRanges:
 			1: 5c0
 		OrderName: MeteorSpawner
-		EndChargeSound: SuperWeaponReady
-		EndChargeSpeechNotification: SuperWeaponReady
-		DisplayTimerStances: Ally, Neutral, Enemy
-		PauseOnCondition: empdisable || disabled
-		LaunchSpeechNotification: SuperweaponFired
-		IncomingSpeechNotification: SuperweaponFired
-		IncomingSound: SuperweaponFired
-		LaunchSound: n_swlaunch.aud
 		CameraRange: 10c0
 		CameraSpawnAdvance: 25
 		CameraRemoveDelay: 350
