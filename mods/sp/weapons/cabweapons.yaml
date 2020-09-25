@@ -302,6 +302,7 @@ RepairVehicleRep:
 		InvalidTargets: FullHealth, NoRepair
         
 RepairVehicleLasor:
+	Inherits: ^SparkSpawner
 	ReloadDelay: 60
 	Range: 4c0
 	Report: repair11.aud
@@ -309,21 +310,16 @@ RepairVehicleLasor:
 	AffectsParent: false
 	InvalidTargets: FullHealth, NoRepair
 	ValidTargets: Vehicle
-	Projectile: LaserZap
-		Width: 110
+	Projectile: RadBeam
 		ZOffset: 4000
-		Color: 009900
-		SecondaryBeam: true
-		SecondaryBeamWidth: 35
-		SecondaryBeamZOffset: 4500
-		SecondaryBeamColor: 00CC00
+		Color: FFFF70
 	Warhead@1Dam: SpreadDamage
 		Spread: 80
 		Damage: -2500
 		AffectsParent: false
 		ValidTargets: Vehicle
 		InvalidTargets: FullHealth, NoRepair
-
+	
 DroneHostMissile:
 	Inherits: ^RocketWarhead
 	ReloadDelay: 150
