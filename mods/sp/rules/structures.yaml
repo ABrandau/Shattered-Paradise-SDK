@@ -244,6 +244,7 @@ GTDROP:
 	Inherits: ^Building
 	Inherits@2: ^3x3Shape
 	Inherits@3: ^SuperWeapon
+	Inherits@4: ^HasSuperSupportPower
 	Tooltip:
 		Name: Dropship Bay
 	Buildable:
@@ -266,30 +267,20 @@ GTDROP:
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@ShowMammMkII:
 		Prerequisite: showmammmk2
-	DetonateWeaponPower@pods:
+	NukePower:
 		Prerequisites:
 			1: gtdrop
 		Icons:
 			1: droppods
 		Descriptions:
 			1: Helldiver Drop
-		EndChargeSound: SuperWeaponReady
-		EndChargeSpeechNotification: SuperWeaponReady
 		LongDescs:
 			1: Deploys shock troopers at the targetted location.
 		OrderName: Droppod
-		Weapons:
-			1: DroppodSpawner
-		DisplayTimerStances: Ally, Neutral, Enemy
-		PauseOnCondition: empdisable || disabled
+		MissileWeapon: DroppodSpawner
 		ChargeInterval: 4500
 		CameraActor: camera
-		LaunchSpeechNotification: SuperweaponFired
-		IncomingSpeechNotification: SuperweaponFired
-		IncomingSound: SuperweaponFired
-		LaunchSound: n_swlaunch.aud
 		ActivationSequence: idle
-		DisplayTimer: true
 		TargetCircleRanges:
 			1: 6c0
 		CameraRange: 7c0
@@ -585,7 +576,7 @@ NAMISL:
 	Inherits: ^Building
 	Inherits@2: ^2x2Shape
 	Inherits@3: ^SuperWeapon
-	Inherits@4: ^HasNukePower
+	Inherits@4: ^HasMisslePower
 	Tooltip:
 		Name: Chemical Missile Silo
 	Buildable:
@@ -886,6 +877,7 @@ MUTSW2:
 	Inherits@1: ^MutRender
 	Inherits@2: ^3x3Shape
 	Inherits@3: ^SuperWeapon
+	Inherits@4: ^HasSuperSupportPower
 	Tooltip:
 		Name: Mother Veinhole
 	Buildable:
@@ -900,31 +892,20 @@ MUTSW2:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
 	ProvidesPrerequisite@buildingname:
-	DetonateWeaponPower@Jeff:
+	NukePower:
 		Prerequisites:
 			1: mutsw2
-		Weapons:
-			1: VeinholeSummonerWeapon
-		Effect: dot
+		MissileWeapon: VeinholeSummonerWeapon
 		Icons:
 			1: veinholesw
 		ChargeInterval: 5000
 		OrderName: Veinhole
 		TargetCircleRanges:
 			1: 5c0
-		DisplayTimer: true
-		EndChargeSound: SuperWeaponReady
-		EndChargeSpeechNotification: SuperWeaponReady
-		LaunchSpeechNotification: SuperweaponFired
-		IncomingSpeechNotification: SuperweaponFired
-		IncomingSound: SuperweaponFired
-		LaunchSound: n_swlaunch.aud
 		Descriptions:
 			1: Veinhole Spawn
 		LongDescs:
 			1: Spawns a cluster of veinholes\non the targetted location.\nVeinholes spawn gas clouds, radiation, and tiberian crabs.\nThey also provide vision.
-		DisplayTimerStances: Ally, Neutral, Enemy
-		PauseOnCondition: empdisable || disabled
 		CameraActor: camera
 		CameraRange: 10c0
 		CameraSpawnAdvance: 25
@@ -1276,6 +1257,7 @@ SCRADVPOWR:
 	Inherits@3: ^ScrinDeathExplo
 	Inherits@4: ^3x3Shape
 	Inherits@6: ^ScrinBuildingFire
+	Inherits@AISupportPower: ^HasSuperSupportPower
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Tooltip:
 		Name: Wormhole Generator
@@ -1330,12 +1312,11 @@ SCRADVPOWR:
 			1: 5, 5
 		Footprints:
 			1: __x__ _xxx_ xxxxx _xxx_ __x__
-	DetonateWeaponPower@AIbuilding:
+	NukePower:
 		RequiresCondition: AIbuildingMicroControl
 		Prerequisites:
 			1: scradvpowr
-		Weapons:
-			1: ColossiSummonerWeapon
+		MissileWeapon: ColossiSummonerWeapon
 		Icons:
 			1: wormholeicon
 		IconPalette: playerscrin
@@ -1343,19 +1324,10 @@ SCRADVPOWR:
 		OrderName: ChronoshiftSummon
 		TargetCircleRanges:
 			1: 5c0
-		DisplayTimer: true
-		EndChargeSound: SuperWeaponReady
-		EndChargeSpeechNotification: SuperWeaponReady
-		LaunchSpeechNotification: SuperweaponFired
-		IncomingSpeechNotification: SuperweaponFired
-		IncomingSound: SuperweaponFired
-		LaunchSound: n_swlaunch.aud
 		Descriptions:
 			1: Instant Wormhole
 		LongDescs:
 			1: Instant Wormhole for AI
-		DisplayTimerStances: Ally, Neutral, Enemy
-		PauseOnCondition: empdisable || disabled
 	Health:
 		HP: 300000
 	RequiresBuildableArea:
