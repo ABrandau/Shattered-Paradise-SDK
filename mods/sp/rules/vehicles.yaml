@@ -989,8 +989,8 @@ TTNK:
 	AIDeployHelper:
 		DeployChance: 100
 		DeployTrigger: Attack
-		DeployTicks: 10
-		UndeployTicks: 30000
+		DeployTicks: 5
+		UndeployTicks: 50
 
 TICKHOLOGRAM:
 	Inherits: TTNK
@@ -2202,13 +2202,6 @@ REPAIRVEHICLE:
 	-GainsExperience:
 	AutoTarget:
 		InitialStance: AttackAnything
-	ExplodeWeapon@Spark:
-		Weapon: SparkShrapnel
-		RequiresCondition: SpawnSparks
-		LocalOffset: 200,0,950
-	GrantConditionOnAttack
-		Condition: SpawnSparks
-		RevokeDelay: 4
 
 ECM:
 	Inherits: ^Vehicle
