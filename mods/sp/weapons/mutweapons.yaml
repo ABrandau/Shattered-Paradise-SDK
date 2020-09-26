@@ -244,7 +244,7 @@ KnightAcid2:
 
 PsykerRay:
 	Inherits: ^FullDamage
-	Inherits@2: ^Large_Explosion
+	Inherits@3: ^LightningDefault
 	ReloadDelay: 150
 	Range: 14c0
 	Burst: 4
@@ -257,17 +257,6 @@ PsykerRay:
 		Spread: 400
 		Damage: 10000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
-	Warhead@3Eff: CreateEffect
-		Explosions: bolt1, bolt2, bolt3, bolt4, bolt5, bolt6, bolt7, bolt8, bolt9, bolt10
-		ImpactSounds: expnew09.aud
-	Warhead@4: LeaveSmudge
-		SmudgeType: SmallCrater
-	Warhead@op: FireShrapnel
-		Weapon: SmallDebris
-		ImpactActors: false
-		Amount: 2
-		AllowDirectHit: false
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
 BerserkerBlow:
 	Inherits: ^ArtilleryWarhead
