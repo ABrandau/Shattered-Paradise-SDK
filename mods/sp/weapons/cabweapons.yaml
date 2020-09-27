@@ -302,7 +302,6 @@ RepairVehicleRep:
 		InvalidTargets: FullHealth, NoRepair
         
 RepairVehicleLasor:
-	Inherits: ^SparkSpawner
 	ReloadDelay: 60
 	Range: 4c0
 	Report: repair11.aud
@@ -310,6 +309,7 @@ RepairVehicleLasor:
 	AffectsParent: false
 	InvalidTargets: FullHealth, NoRepair
 	ValidTargets: Vehicle
+	Projectile: InstantHit
 	Projectile: RadBeam
 		ZOffset: 4000
 		Color: FFFF70
@@ -319,7 +319,36 @@ RepairVehicleLasor:
 		AffectsParent: false
 		ValidTargets: Vehicle
 		InvalidTargets: FullHealth, NoRepair
-	
+	Warhead@op: FireShrapnel
+		Weapon: SparkDebris
+		ImpactActors: false
+		Amount: 12
+		ValidTargets: Vehicle
+		InvalidTargets: FullHealth, NoRepair
+		ImpactActors: true
+	Warhead@op2: FireShrapnel
+		Weapon: MarnFlash6
+		ImpactActors: false
+		Amount: 1
+		ValidTargets: Vehicle
+		InvalidTargets: FullHealth, NoRepair
+		ImpactActors: true
+
+MarnFlash6:
+	Range: 0c1
+	TargetActorCenter: true
+	Projectile: InstantHit
+	ValidTargets: Ground, Water, Infantry, Vehicle, Building, Air
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+	Warhead@MarnFlash: CreateEffect
+		Explosions: marnflash6
+		ExplosionPalette: MarnAlphaAlpha
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Air
+		ImpactActors: false
+
+
 DroneHostMissile:
 	Inherits: ^RocketWarhead
 	ReloadDelay: 150

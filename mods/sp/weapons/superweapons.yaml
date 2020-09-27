@@ -1,11 +1,11 @@
 ^SWBaseEffects:
 	Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
 		Range: 5c0
-		Duration: 250
+		Duration: 5
 		Condition: GetsOneShotedbySuperweapons
 	Warhead@GetsOneShotedbySuperweaponsAA: GrantExternalCondition
 		Range: 3c0
-		Duration: 250
+		Duration: 5
 		Condition: GetsOneShotedbySuperweapons
 		ValidTargets: Aircraft, Air, Airhit
 
@@ -339,7 +339,7 @@ droppod5:
 		Actors: eagleguard
 		Range: 3
 
-ClusterMissile:
+NuclearMissile:
 	Inherits: ^SWBaseEffects
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air
 	Warhead@ImpactDamage0: SpreadDamage
@@ -431,7 +431,7 @@ ClusterMissile:
 		LayerName: OrangeRadiation
 
 HealerNuke:
-	Inherits: ClusterMissile
+	Inherits: NuclearMissile
 	Warhead@ImpactDamage0: SpreadDamage
 		Damage: -320000
 	Warhead@ClusterDamage3: SpreadDamage
@@ -688,7 +688,7 @@ MeteorRainFast:
 	Projectile: BulletAS
 		Speed: 450
 
-FistRaiser:
+IronSavior:
 	Inherits: ^FullDamage
 	Inherits@2: ^SWBaseEffects
 	ReloadDelay: 200
@@ -725,7 +725,7 @@ FistRaiser:
 		Intensity: 10
 		Duration: 15
 	Warhead@6Spawn: SpawnActor
-		Actors: visionactor
+		Actors: ironsaviorvisiondummy
 		Range: 3
 	Warhead@7ClusterSmudges: LeaveSmudge
 		SmudgeType: SmallScorch
@@ -735,14 +735,14 @@ FistRaiser:
 	Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
 		Range: 4c0
 	Warhead@op: FireShrapnel
-		Weapon: FistRaiserShrapnel
+		Weapon: IronSaviorShrapnel
 		ImpactActors: false
 		Amount: 20
 		AllowDirectHit: false
 		ValidTargets: Ground, Water, Infantry, Vehicle, BlueTiberium, Tiberium, Air
 
-FistRaiserShrapnel:
-	Inherits: FistRaiser
+IronSaviorShrapnel:
+	Inherits: IronSavior
 	Range: 5c0
 	MinRange: 2c0
 	-Report:

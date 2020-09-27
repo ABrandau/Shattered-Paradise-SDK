@@ -459,7 +459,7 @@ DemoTruckDummyWeapon:
 		DamageTypes: BulletDeath
 
 MiniNuke:
-	Inherits: ClusterMissile
+	Inherits: NuclearMissile
 	ValidTargets: Ground, Water, Water, Air
 	Warhead@ImpactDamage0: SpreadDamage
 		Spread: 1c0
@@ -482,6 +482,12 @@ MiniNuke:
 		Spread: 0c756
 		Level: 1000
 		LayerName: OrangeRadiation
+	Warhead@5Actor: SpawnActor
+		Actors: swvisiondummy
+		FallRate: 5000
+		Range: 2
+		InvalidTargets: Water, Cliff
+		ValidTargets: Ground, Water, Air
 
 QueenShard:
 	Inherits: ^APWarhead
