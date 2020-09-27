@@ -1073,6 +1073,38 @@ CABSW1:
 	IsometricSelectable:
 		DecorationHeight: 36
 
+MUMINE:
+	Inherits: ^NonBuildingStaticActor
+	Valued:
+		Cost: 50
+	Tooltip:
+		Name: Mine
+	Health:
+		HP: 5000
+	Armor:
+		Type: Mine
+	Targetable:
+		TargetTypes: Ground, MindControlImmune, Mine
+	BodyOrientation:
+		QuantizedFacings: 1
+	Cloak@cloakgenerator:
+		CloakSound:
+		InitialDelay: 50
+		CloakDelay: 50
+		UncloakSound:
+		Palette: cloakmut
+		IsPlayerPalette: true
+		UncloakOn: Attack, Demolish
+	Mine:
+		CrushClasses: crate
+		DetonateClasses: crate
+		AvoidFriendly: true
+		BlockFriendly: false
+	Explodes:
+		Weapon: MineExplode
+	Targetable@Defence:
+		TargetTypes: Defence
+
 ###########################################################################
 # UNUSED
 ###########################################################################
@@ -1323,38 +1355,6 @@ NAWAST:
 		RequiresSelection: true
 		PipCount: 15
 		FullSequence: pip-red
-
-MUMINE:
-	Inherits: ^NonBuildingStaticActor
-	Valued:
-		Cost: 50
-	Tooltip:
-		Name: Mine
-	Health:
-		HP: 5000
-	Armor:
-		Type: Mine
-	Targetable:
-		TargetTypes: Ground, MindControlImmune, Mine
-	BodyOrientation:
-		QuantizedFacings: 1
-	Cloak@cloakgenerator:
-		CloakSound:
-		InitialDelay: 50
-		CloakDelay: 50
-		UncloakSound:
-		Palette: cloakmut
-		IsPlayerPalette: true
-		UncloakOn: Attack, Demolish
-	Mine:
-		CrushClasses: crate
-		DetonateClasses: crate
-		AvoidFriendly: true
-		BlockFriendly: false
-	Explodes:
-		Weapon: MineExplode
-	Targetable@Defence:
-		TargetTypes: Defence
 
 MUWARD:
 	Inherits: ^DeployedVehicle

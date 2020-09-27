@@ -813,24 +813,14 @@ RandomBoltSpawner:
 
 IonRay:
 	Inherits: ^ArtilleryWarhead
+	Inherits@1: ^LightningDefault
 	Inherits@2: ^SWBaseEffects
-	Inherits@3: ^Medium_Bang
 	ReloadDelay: 10
 	Range: 7c0
-	Projectile: InstantHit
-		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Spread: 256
 		Damage: 7500
-	Warhead@3Eff: CreateEffect
-		Explosions: bolt1, bolt2, bolt3, bolt4, bolt5, bolt6, bolt7, bolt8, bolt9, bolt10
-		ImpactSounds: expnew09.aud, expnew08.aud
-	Warhead@4: LeaveSmudge
-		SmudgeType: SmallCrater
-		InvalidTargets: Vehicle, Building, Wall
-	Warhead@6Eff: CreateEffect
-		Explosions: fire1, fire2, fire3, fire4
-		ExplosionPalette: FlameEffectPal
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 	Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
 		Range: 0c768
 

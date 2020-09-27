@@ -1,6 +1,10 @@
 MineExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_twlt
+	Report: mine-alert.wav
+	Warhead@2Eff: CreateEffect
+		Explosions: large_explosion
+		ExplosionPalette: effect
 	Warhead@1Dam: SpreadDamage
 		Spread: 320
 		Damage: 32000
@@ -313,6 +317,17 @@ SparkDebris:
 		Inaccuracy: 256
 		LaunchAngle: 150, 250
 		Image: sparkprojectile
+
+LightningSparkDebris:
+	Range: 4c0
+	Projectile: Bullet
+		Speed: 55, 90
+		Inaccuracy: 256
+		LaunchAngle: 150, 250
+		Image: sparkprojectile
+	Warhead@2Eff: CreateEffect
+		Explosions: marnflash7
+		ExplosionPalette: MarnAlphaAlpha
 
 CasingDebris:
 	ReloadDelay: 60

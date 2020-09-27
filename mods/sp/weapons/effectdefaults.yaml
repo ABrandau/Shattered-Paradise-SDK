@@ -414,6 +414,27 @@
 		Blockable: true
 		Image: bullet
 
+^LightningDefault:
+	Inherits: ^GreyExplo
+	Projectile: InstantHit
+		Blockable: false
+	Warhead@2Eff: CreateEffect
+		Explosions: marnflash1
+		ExplosionPalette: MarnAlphaAlpha
+	Warhead@3Eff: CreateEffect
+		Explosions: bolt1, bolt2, bolt3, bolt4, bolt5, bolt6, bolt7, bolt8, bolt9, bolt10
+		ImpactSounds: expnew09.aud, expnew08.aud
+	Warhead@4: LeaveSmudge
+		SmudgeType: SmallCrater
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@5op: FireShrapnel
+		Weapon: LightningSparkDebris
+		ImpactActors: false
+		Amount: 2
+	Warhead@6Eff: CreateEffect
+		Explosions: fire1, fire2, fire3
+		ExplosionPalette: FlameEffectPal
+
 SparkShrapnel:
 	Inherits: ^SparkSpawner
 	Warhead@op: FireShrapnel
