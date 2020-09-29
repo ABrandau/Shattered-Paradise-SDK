@@ -80,7 +80,7 @@ RadarScanWeapon:
 
 IonCannon: ### THIS IS THE MAIN ION CANON WEAPON
 	Inherits: ^SWBaseEffects
-	ReloadDelay: 100
+	ReloadDelay: 1000
 	ValidTargets: Ground, Air, IonSpawner
 	Warhead@1Dam_area: SpreadDamage
 		Spread: 1c0
@@ -134,27 +134,52 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1
 		ValidTargets: Ground, Water, Air
-	Warhead@op: FireShrapnel
+	## use mutipile Warhead with delay to increase performance
+	Warhead@op: FireShrapnel 
 		Weapon: IonBeamCreator
 		ImpactActors: false
-		Amount: 20
+		Amount: 3
 		AllowDirectHit: false
+	Warhead@op2: FireShrapnel
+		Weapon: IonBeamCreator
+		ImpactActors: false
+		Amount: 4
+		AllowDirectHit: false
+		Delay: 1
+	Warhead@op3: FireShrapnel
+		Weapon: IonBeamCreator
+		ImpactActors: false
+		Amount: 3
+		AllowDirectHit: false
+		Delay: 2
+	Warhead@op4: FireShrapnel
+		Weapon: IonBeamCreator
+		ImpactActors: false
+		Amount: 4
+		AllowDirectHit: false
+		Delay: 3
+	Warhead@op5: FireShrapnel
+		Weapon: IonBeamCreator
+		ImpactActors: false
+		Amount: 3
+		AllowDirectHit: false
+		Delay: 4
 	Warhead@Spawn: SpawnActor
 		Actors: ionbeamtarget
 		Range: 3
 	Warhead@Ion: SpawnSmokeParticle
 		Weapon: IonCannon
 		ImpactActors: false
-		Delay: 103
+		Delay: 109
 		Duration: 5
 		Sequences: idle
 		Image: dot
-		Palette: effectalpha25
+		Palette: effect
 
 IonBeamCreator: ### THIS ONE GENERATES THE MINI BEAMS
 	ReloadDelay: 6
 	Range: 5c0
-	MinRange: 5c0
+	MinRange: 4c99
 	Projectile: BulletAS
 		Speed: 100c0
 	Warhead@3Dam_area: SpreadDamage
@@ -165,7 +190,7 @@ IonBeamCreator: ### THIS ONE GENERATES THE MINI BEAMS
 		Range: 15
 
 IonScorch: ### THESE ARE THE WEAPONS OF THE MINI BEAMS ON THE SIDES
-	ReloadDelay: 1
+	ReloadDelay: 2
 	Projectile: InstantExplode
 	ValidTargets: Ground, Water, Air, IonSpawner
 	Warhead@1Eff_impact: CreateEffect
@@ -173,7 +198,7 @@ IonScorch: ### THESE ARE THE WEAPONS OF THE MINI BEAMS ON THE SIDES
 		ExplosionPalette: gradientgray
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 200
-		Damage: 250
+		Damage: 500
 		InvalidTargets: IonBeam
 		DamageTypes: SmallExplosionDeath
 			InfantryArmor: 500
