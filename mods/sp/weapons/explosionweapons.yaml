@@ -14,6 +14,21 @@ MineExplode:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 		InvalidTargets: Mine, Air
 
+BuildingSmokeExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Large_twlt
+	Warhead@1Dam: SpreadDamage
+		Spread: 380
+		Damage: 1
+		AffectsParent: true
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		InvalidTargets: Air
+	Warhead@2Eff: CreateEffect
+		Explosions: jdurasmoke, jgcmuzzle, japocexp, jvtexplod, jvtexplodb
+		ExplosionPalette: jascgraywhitetoalpha
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
+
 BuildingExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_twlt
