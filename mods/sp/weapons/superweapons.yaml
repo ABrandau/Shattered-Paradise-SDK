@@ -93,11 +93,6 @@ IonCannon: ### THIS IS THE MAIN ION CANON WEAPON
 		SmudgeType: SmallScorch
 		Size: 2,1
 		InvalidTargets: Vehicle, Building, Wall
-	Warhead@4Sharpnel: FireShrapnel
-		Weapon: LargeDebris
-		ImpactActors: false
-		Amount: 6
-		AllowDirectHit: false
 	Warhead@3Effect: CreateEffect
 		Explosions: ionring
 		ImpactSounds: ion1.aud
@@ -120,10 +115,6 @@ IonCannon: ### THIS IS THE MAIN ION CANON WEAPON
 		AffectsParent: true
 	Warhead@8Effect: CreateEffect
 		Explosions: ionbeam5
-		ExplosionPalette: effect-ignore-lighting-alpha75
-		AffectsParent: true
-	Warhead@9Effect: CreateEffect
-		Explosions: ionbeam6
 		ExplosionPalette: effect-ignore-lighting-alpha75
 		AffectsParent: true
 
@@ -212,14 +203,12 @@ IonScorch: ### THESE ARE THE WEAPONS OF THE MINI BEAMS ON THE SIDES
 		Duration: 400
 
 IonDrag:
-	ReloadDelay: 5
-	Range: 5
+	ReloadDelay: 900
+	Range: 1
 	ValidTargets: IonSpawner
-	Projectile: Missile
-	Warhead@1Dam: SpreadDamage
-		Spread: 110
+	Projectile: InstantHit
+	Warhead@1Dam: TargetDamage
 		ValidTargets: IonSpawner
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 DroppodSpawner:
 	ReloadDelay: 6
