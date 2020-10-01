@@ -1,0 +1,444 @@
+overlay:
+	Defaults: place2
+		Offset: 0, -12, 1
+		ZRamp: 1
+	build-valid-snow:
+	build-valid-temperate:
+	build-valid:
+	build-valid-:
+	build-invalid:
+		Start: 1
+	build-invalid-:
+		Start: 1
+	build-invalid-snow:
+		Start: 1
+	build-invalid-temperate:
+		Start: 1
+	target-valid:
+	target-select:
+	target-invalid:
+		Start: 1
+
+shroud:
+	Defaults:
+		Offset: 0, -1, 1
+		ZRamp: 1
+	shroud:
+		Length: *
+	fog: fog
+		Length: *
+
+editor-overlay:
+	Defaults: place2
+		Offset: 0, -12, 1
+		ZRamp: 1
+	copy:
+	paste:
+		Start: 1
+
+resources:
+	Defaults:
+		UseTilesetExtension: true
+		Length: 12
+		ShadowStart: 12
+		Offset: 0, -12, 1.5
+		ZRamp: 1
+		IgnoreWorldTint: false
+	tib01: tib01
+	tib02: tib02
+	tib03: tib03
+	tib04: tib04
+	tib05: tib05
+	tib06: tib06
+	tib07: tib07
+	tib08: tib08
+	tib09: tib09
+	tib10: tib10
+	tib11: tib11
+	tib12: tib12
+	tib13: tib13
+	tib14: tib14
+	tib15: tib15
+	tib16: tib16
+	tib17: tib17
+	tib18: tib18
+	tib19: tib19
+	tib20: tib20
+	veins: veins
+		Length: 1
+		Start: 52
+		ShadowStart: -1
+		Tick: 180
+		IgnoreWorldTint: false
+
+poweroff:
+	offline:
+		Length: *
+		Tick: 160
+		ZOffset: 2047
+
+allyrepair:
+	repair: wrench
+		Length: *
+		Tick: 160
+		ZOffset: 2047
+
+rallypoint:
+	flag: mouse
+		Start: 221
+		Length: 8
+		ZOffset: 3072
+	circles: null
+
+beacon:
+	idle: beaconsp
+		Length: *
+		Tick: 25
+		ZOffset: 2047
+	arrow: mouse
+		Start: 6
+		Offset: 1,-12, 12
+		ZOffset: 2535
+	circles: ring
+		Length: 12
+		BlendMode: Additive
+		ZOffset: 2047
+		Offset: 0, 0, 24
+	minimltiicon: nodnukeiconmini
+		Length: *
+		Offset: 0,-42
+	minichemicon: chemmissileiconmini
+		Length: *
+		Offset: 0,-42
+	minipulsicon: minipulsicon
+		Length: *
+		Offset: 0,-42
+	minicabsw1powericon: minicabsw1powericon
+		Length: *
+		Offset: 0,-42
+	miniionstromicon: miniionstromicon
+		Length: *
+		Offset: 1,-41
+	clock: beaconclock
+		Length: *
+		Offset: 0,-42
+
+abilitycrates:
+	Defaults:
+		UseTilesetExtension: false
+		Offset: 0, 0, 10
+	money:
+		ShadowStart: 5
+	veterancy:
+		Start: 1
+		ShadowStart: 6
+	healing:
+		Start: 2
+		ShadowStart: 7
+	upgrade:
+		Start: 3
+		ShadowStart: 8 
+	unit:
+		Start: 4
+		ShadowStart: 9
+
+crate:
+	idle:
+		ShadowStart: 1
+		UseTilesetExtension: true
+		Offset: 0, -10, 10
+
+crate-effects:
+	Defaults:
+		Length: *
+		ZOffset: 2047
+		Offset: 0,0,12
+	dollar: money
+	reveal-map: reveal
+	hide-map: shroudx
+	firepower: firepowr
+	armor: armor
+	stealth: cloak
+	heal: healall
+	nuke: mltimisl
+	levelup: veteran
+
+rank:
+	rank-veteran-1: newpips
+	rank-veteran-2: newpips
+		Start: 1
+	rank-elite: newpips
+		Start: 3
+
+healpip:
+	idle:
+		Length: *
+		ZOffset: 511
+		Offset: 0, 0
+
+dot:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Length: *
+	idle:
+		UseTilesetExtension: false
+		Offset: 0,99999
+	idle:
+	active:
+	damaged-idle:
+	dead:
+	idle-lights:
+	damaged-idle-lights: nttmpl_a
+	make:
+	emp-overlay:
+	icon:
+
+^IngameIcon:
+	Defaults:
+		Offset: 0,0, 15
+	idle:
+		Length: *
+
+tibicon:
+	Inherits: ^IngameIcon
+	idle: tibicon
+
+firestormicon:
+	Inherits: ^IngameIcon
+	idle: firestormicon
+
+bombicon:
+	Inherits: ^IngameIcon
+	idle: bombicon
+
+holoicon:
+	Inherits: ^IngameIcon
+	idle: holoicon
+
+wrenchicon:
+	Inherits: ^IngameIcon
+	idle: wrenchicon
+
+skullicon:
+	Inherits: ^IngameIcon
+	idle: skullicon
+
+mpspawn:
+	Inherits: ^IngameIcon
+
+waypoint:
+	Inherits: ^IngameIcon
+
+camera:
+	Inherits: ^IngameIcon
+
+lightnotifier:
+	Inherits: ^IngameIcon
+
+musicnotifier:
+	Inherits: ^IngameIcon
+
+cashnotifier:
+	Inherits: ^IngameIcon
+
+clock:
+	Inherits: ^IngameIcon
+	idle: gclock2
+
+darken:
+	Inherits: ^IngameIcon
+	idle: gclock2
+		Length: 1
+
+pips:
+	Defaults:
+		Offset: 0, 0, 12
+	medic:
+		Start: 6
+	groups: pipsra
+		Start: 8
+		Length: 10
+	tag-primary: pipsra
+		Start: 2
+		Offset: 0, 2, 2
+	pip-empty: pips2
+	pip-green: pips2
+		Start: 1
+	pip-yellow: pips2
+		Start: 2
+	pip-gray: pips2
+		Start: 3
+	pip-red: pips2
+		Start: 4
+	pip-blue: pips2
+		Start: 5
+	pip-ammo: ammopips
+	pip-ammoempty: ammopips
+		Start: 1
+	pip-disguise: pip-disguise
+		Length: *
+		Tick: 300
+		Offset: 0, -6, 6
+	pip-empty-building:
+	pip-green-building:
+		Start: 1
+	pip-yellow-building:
+		Start: 2
+	pip-gray-building:
+		Start: 3
+	pip-red-building:
+		Start: 4
+	pip-blue-building:
+		Start: 5
+
+smallscorches:
+	Defaults:
+		UseTilesetExtension: true
+		Offset: 0, -12, 1
+		ZRamp: 1
+	sc1: burnt01
+	sc2: burnt02
+	sc3: burnt03
+	sc4: burnt04
+	sc5: burnt05
+	sc6: burnt06
+
+mediumscorches:
+	Defaults:
+		UseTilesetExtension: true
+		Offset: 0, -18, 1
+		ZRamp: 1
+	sc7: burnt07
+	sc8: burnt08
+	sc9: burnt09
+	sc10: burnt10
+
+largescorches:
+	Defaults:
+		UseTilesetExtension: true
+		Offset: 0, -24, 1
+		ZRamp: 1
+	sc11: burnt11
+	sc12: burnt12
+
+smallcraters:
+	Defaults:
+		UseTilesetExtension: true
+		Offset: 0, -12, 1
+		ZRamp: 1
+	cr1: crater01
+	cr2: crater02
+	cr3: crater03
+	cr4: crater04
+	cr5: crater05
+	cr6: crater06
+
+mediumcraters:
+	Defaults:
+		UseTilesetExtension: true
+		Offset: 0, -12, 1
+		ZRamp: 1
+	cr7: crater07
+	cr8: crater08
+	cr9: crater09
+	cr10: crater10
+
+largecraters:
+	Defaults:
+		UseTilesetExtension: true
+		Offset: 0, -24, 1
+		ZRamp: 1
+	cr11: crater11
+	cr12: crater12
+
+icon:
+	clustermissile: nodnukeicon
+	toxinmissile: chemmissileicon
+	ioncannon: ioncicon
+	droppods: podsicon
+	emp: pulsicon
+	meteor: metricon
+	cabcannon: cabsw1powericon
+	nanomachineswarm: cabswarmicon
+	ionstorm: ionstormicon
+	veinholesw: mutsw2icon
+	hunterseeker: detnicon
+	ScrStasis: scrshieldicon
+	mothershipicon: councilicon
+	wormholeicon: wormholeicon
+	veterancyicon: veterancysupportpowericon
+	GDIradarscan: radarscanicon
+		Start: 4
+	NODradarscan: radarscanicon
+		Start: 3
+	MUTradarscan: radarscanicon
+		Start: 1
+	CABradarscan: radarscanicon
+	SCRradarscan: radarscanicon
+		Start: 2
+
+radarscananim:
+	idle:
+		Length: *
+
+nuclearmissile:
+	up: atnukemini
+		ZOffset: 1023
+		Offset: 0,-45, 45
+	down: atnukemini
+		Start: 1
+		ZOffset: 1023
+		Offset: 0, 35
+
+healernuke:
+	up: atnukemini
+		ZOffset: 1023
+		Offset: 0,-45, 45
+	down: atnukemini
+		Start: 1
+		ZOffset: 1023
+		Offset: 0, 35
+
+toxinmissile:
+	up: chemnuke
+		ZOffset: 1023
+	down: chemnuke
+		Start: 1
+		ZOffset: 1023
+
+## Fake missle image for superweapon use NukePower
+ioncannonspawner:
+	up: dot
+	down: dot
+
+ionstormspawnerweapon:
+	up: dot
+	down: dot
+
+meteorspawner:
+	up: dot
+	down: dot
+
+droppodspawner:
+	up: dot
+	down: dot
+
+veinholesummonerweapon:
+	up: dot
+	down: dot
+
+colossisummonerweapon:
+	up: dot
+	down: dot
+## -- Fake missle image for superweapon use NukePower
+
+typeglyphs:
+	infantry:
+	vehicle:
+		Start: 1
+	helicopter:
+		Start: 2
+	harvester:
+		Start: 3
+	structure:
+		Start: 4
