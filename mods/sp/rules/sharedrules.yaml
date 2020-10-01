@@ -99,7 +99,7 @@ HARV:
 		BuildPaletteOrder: 1
 		Prerequisites: ~humanharvester, factory
 		BuildAtProductionType: Tank
-		Description: Collects Tiberium for processing.\n\nSpecial:\n- Harvests Tiberium.\n- Immune to Veins.\n- Can crush infantry.\n- Cannot be mindcontrolled.
+		Description: Collects Tiberium for processing.\n\nSpecial:\n- Harvests Tiberium\n- Immune to Veins\n- Can crush infantry\n- Cannot be mindcontrolled\n- Selfheal
 	Selectable:
 		Bounds: 36,36
 		Class: HumanHarv
@@ -129,6 +129,12 @@ HARV:
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 50000
+	ChangesHealth:
+		PercentageStep: 1
+		Step: 0
+		Delay: 100
+		DamageCooldown: 100
+		StartIfBelow: 100
 	Targetable@MindControl:
 		TargetTypes: MindControlImmune
 	Armor:

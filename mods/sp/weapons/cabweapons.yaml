@@ -439,49 +439,31 @@ PalaLazorMute:
 
 WaspBullet:
 	Inherits: ^APWarhead
-	ReloadDelay: 30
+	ReloadDelay: 50
 	Range: 6c0
-	MinRange: 0c100
-	Report: lastur1.aud
-	ValidTargets: Ground, Water, Vehicle, Building, Infantry
-	InvalidTargets: Air
-	Projectile: Bullet
-		Speed: 100c0
+	Burst: 2
+	BurstDelays: 10
+	Report: railgunfire.wav
+	Projectile: Railgun
+		BeamWidth: 75
+		ZOffset: 2047
+		BeamColor: AAAAAA
+		HelixColor: BBBBBB
 	Warhead@1Dam: SpreadDamage
+		Spread: 0c045
 		Damage: 3000
-		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+		DamageTypes: Prone60Percent, TriggerProne, BulletDeath
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		InvalidTargets: Air
 
-WaspLasor:
+WaspBulletAA:
 	Inherits: WaspBullet
-	Projectile: LaserZap
-		Color: 0dc7b855
-		Duration: 20
-		Width: 80
-		SecondaryBeam: true
-		SecondaryBeamWidth: 40
-		ZOffset: 3047
-		SecondaryBeamZOffset: 2047
-		SecondaryBeamColor: FFFFFF55
-	Warhead@1Dam: SpreadDamage
-		Damage: 1
-
-WaspLasorAA:
-	Inherits: WaspLasor
 	ValidTargets: Air
 	InvalidTargets: Infantry, Vehicle, Building, Defence, Ground, Water
 	Warhead@1Dam: SpreadDamage
-		Damage: 1
 		ValidTargets: Air
 		InvalidTargets: Infantry, Vehicle, Building, Defence, Ground, Water
-
-WaspBulletAA:
-	Inherits: WaspLasorAA
-	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Damage: 3000
-
+        
 DevourerGrinder:
 	Inherits: ^ArtilleryWarhead
 	ReloadDelay: 24

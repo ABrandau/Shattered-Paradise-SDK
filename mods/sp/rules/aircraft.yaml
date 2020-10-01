@@ -6,7 +6,7 @@ ORCA:
 	Inherits@4: ^UsesAmmunition
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 1400
+		Cost: 1300
 	Tooltip:
 		Name: Orca Fighter
 	UpdatesPlayerStatistics:
@@ -237,7 +237,7 @@ APACHE:
 	Inherits@4: ^UsesAmmunition
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 1400
+		Cost: 1300
 	Tooltip:
 		Name: Harpy
 	UpdatesPlayerStatistics:
@@ -474,7 +474,7 @@ MUTHELI:
 	Inherits@6: ^UsesAmmunition
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 1400
+		Cost: 1300
 	Tooltip:
 		Name: Gargoyle
 	UpdatesPlayerStatistics:
@@ -772,7 +772,7 @@ STORMRIDER:
 	Inherits@4: ^ScrinAircratVoice
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 700
+		Cost: 600
 	Tooltip:
 		Name: Storm Rider
 	UpdatesPlayerStatistics:
@@ -1260,13 +1260,13 @@ WASP:
 	Inherits@5: ^CabRender
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 1400
+		Cost: 1500
 	Tooltip:
 		Name: Wasp
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: Aerial drone armed with dual laser cannons.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Detects cloaked units
+		Description: Aerial drone armed with dual railgun cannons.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Detects cloaked units
 		Queue: Air
 		BuildPaletteOrder: 1
 		Prerequisites: ~cabair
@@ -1279,25 +1279,15 @@ WASP:
 		MoveIntoShroud: true
 	-Rearmable:
 	Health:
-		HP: 12000
+		HP: 18000
 	Voiced:
 		VoiceSet: Limpet
-	Armament@1:
-		Weapon: WaspLasor
-		LocalOffset: 250,350,-100
-	Armament@2:
-		Weapon: WaspLasor
-		LocalOffset: 250,-350,-100
-	Armament@3:
-		Weapon: WaspLasorAA
-		LocalOffset: 250,-350,-100
-	Armament@4:
-		Weapon: WaspLasorAA
-		LocalOffset: 250, 350,-100
-	Armament@TheRealThing:
+	Armament@PRIMARY:
 		Weapon: WaspBullet
-	Armament@TheRealThingAA:
+		LocalOffset: 250,350,-100, 250,-350,-100
+	Armament@SECONDARY:
 		Weapon: WaspBulletAA
+		LocalOffset: 250,-350,-100, 250,350,-100
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 20

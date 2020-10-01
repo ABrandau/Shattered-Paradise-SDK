@@ -589,7 +589,7 @@
 	ChangesHealth@BugPoison:
 		PercentageStep: -1
 		Step: 0
-		Delay: 25
+		Delay: 20
 		StartIfBelow: 100
 		RequiresCondition: BugPoison && !stoppoison
 	ExternalCondition@BugPoison:
@@ -1122,7 +1122,7 @@
 ^Building:
 	Inherits@0: ^BasicBuilding
 	Inherits@1: ^StructureEffects
-	Inherits@2: ^4CellVision
+	Inherits@2: ^6CellVision
 	GivesBuildableArea:
 		AreaTypes: building
 	CaptureNotification:
@@ -2680,6 +2680,8 @@
 
 ^BasicStealthDetectionAir:
 	Inherits: ^BasicStealthDetection
+	DetectCloaked:
+		Range: 6c0
 	RenderDetectionCircle:
 
 ^TowerStealthDetection:
