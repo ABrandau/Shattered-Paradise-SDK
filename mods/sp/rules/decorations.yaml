@@ -1,22 +1,126 @@
+#### Should not be destroyable
 
 GEYSER:
-	Inherits: ^CivBuilding
-	-Tooltip:
+	Inherits: ^TiberiumDecoration
 	RenderSprites:
 		-Palette:
 		PlayerPalette: playerunittem
 	WithIdleOverlay:
 		Sequence: gasanim
 		Palette: jascgreenalpha
-	-Targetable:
-	-IsometricSelectable:
-	-IsometricSelectionDecorations:
 
 GEYSER2:
 	Inherits: GEYSER
 
+TIBGLACIER:
+	Inherits: ^TiberiumDecoration
+	Inherits@2: ^1x2Shape
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	RenderSprites:
+		Palette: scipberium
+
+TIBGLACIER2:
+	Inherits: TIBGLACIER
+
+TIBGLACIER3:
+	Inherits: TIBGLACIER
+
+TIBGLACIER4:
+	Inherits: TIBGLACIER
+
+ROCKS1:
+	Inherits@1: ^1x1TurretedCivBuilding
+	-Tooltip:
+	EditorOnlyTooltip:
+		Name:Rock set (Supports facings)
+	RenderSprites:
+		Palette: player
+
+
+SROCK01:
+	Inherits: ^Rock
+
+SROCK02:
+	Inherits: ^Rock
+
+SROCK03:
+	Inherits: ^Rock
+
+SROCK04:
+	Inherits: ^Rock
+
+SROCK05:
+	Inherits: ^Rock
+
+TROCK01:
+	Inherits: ^Rock
+
+TROCK02:
+	Inherits: ^Rock
+
+TROCK03:
+	Inherits: ^Rock
+
+TROCK04:
+	Inherits: ^Rock
+
+TROCK05:
+	Inherits: ^Rock
+
+TRACKS01:
+	Inherits: ^Railway
+
+TRACKS02:
+	Inherits: ^Railway
+
+TRACKS03:
+	Inherits: ^Railway
+
+TRACKS04:
+	Inherits: ^Railway
+
+TRACKS05:
+	Inherits: ^Railway
+
+TRACKS06:
+	Inherits: ^Railway
+
+TRACKS07:
+	Inherits: ^Railway
+
+TRACKS08:
+	Inherits: ^Railway
+
+TRACKS09:
+	Inherits: ^Railway
+
+TRACKS10:
+	Inherits: ^Railway
+
+TRACKS11:
+	Inherits: ^Railway
+
+TRACKS12:
+	Inherits: ^Railway
+
+TRACKS13:
+	Inherits: ^Railway
+
+TRACKS14:
+	Inherits: ^Railway
+
+TRACKS15:
+	Inherits: ^Railway
+
+TRACKS16:
+	Inherits: ^Railway
+
+#### Should be destroyable
+
 PALLET:
-	Inherits: ^1x1TurretedProp
+	Inherits: ^1x1TurretedCivBuilding
 	Tooltip:
 		Name: Pallet
 	EditorOnlyTooltip:
@@ -25,7 +129,7 @@ PALLET:
 		Palette: player
 
 BOXSET1:
-	Inherits: ^1x1TurretedProp
+	Inherits: ^1x1TurretedCivBuilding
 	Tooltip:
 		Name: Boxes
 	EditorOnlyTooltip:
@@ -34,7 +138,7 @@ BOXSET1:
 		Palette: unittem
 
 GRAVE:
-	Inherits@1: ^1x1TurretedProp
+	Inherits@1: ^1x1TurretedCivBuilding
 	Tooltip:
 		Name: Grave
 	EditorOnlyTooltip:
@@ -113,40 +217,30 @@ TRASHDUMP:
 		Name: Trash Dump
 	Health:
 		HP: 15000
-	Armor:
-		Type: BuildingArmor
 	RenderSprites:
 		Palette: player
 
-TIBGLACIER:
-	Inherits: ^CivBuilding
-	Inherits@2: ^1x2Shape
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	Health:
-		HP: 25000
-	Armor:
-		Type: BuildingArmor
-	RenderSprites:
-		Palette: scipberium
-
-TIBGLACIER2:
-	Inherits: TIBGLACIER
-
-TIBGLACIER3:
-	Inherits: TIBGLACIER
-
-TIBGLACIER4:
-	Inherits: TIBGLACIER
-
-ROCKS1:
-	Inherits@1: ^1x1TurretedProp
+SC_TUBES:
+	Inherits@1: ^1x1TurretedCivBuilding
 	-Tooltip:
 	EditorOnlyTooltip:
-		Name:Rock set (Supports facings)
+		Name: Tube set (Supports facings)
+	Health:
+		HP: 15000
 	RenderSprites:
-		Palette: player
+		-Palette:
+		PlayerPalette: playerunittem
+
+SC_BOXES:
+	Inherits@1: ^1x1TurretedCivBuilding
+	-Tooltip:
+	EditorOnlyTooltip:
+		Name: Tube set (Supports facings)
+	Health:
+		HP: 15000
+	RenderSprites:
+		-Palette:
+		PlayerPalette: playerunittem
 
 TIBTRE01:
 	Inherits: ^BlossomTree
@@ -359,51 +453,63 @@ treepine:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
+
 treepine2:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
+
 treepine3:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
+
 treepine4:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
+
 treepine5:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
+
 treepine6:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
+
 treeoak:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
 
+
 treeoak2:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
+
 treeoak3:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
+
 treeoak4:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
+
 treeoak5:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
+
 treeoak6:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
+
 treegeneric:
 	Inherits: ^Tree
 	RenderSprites:
@@ -413,83 +519,142 @@ treegeneric2:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
+
 treegeneric3:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
+
 treegeneric4:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
+
 treegeneric5:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
+
 treegeneric6:
 	Inherits: ^Tree
 	RenderSprites:
 		Palette: dropship
 
-VEINHOLE:
-	Inherits: ^Building
-	Inherits@2: ^2x2Shape
-	-CaptureManager:
-	RadarColorFromTerrain:
-		Terrain: Veins
-	Building:
-		Footprint: xx xx
-		Dimensions: 2, 2
-	BodyOrientation:
-		QuantizedFacings: 1
+CRAT01:
+	Inherits: ^Box
+
+CRAT02:
+	Inherits: ^Box
+
+CRAT03:
+	Inherits: ^Box
+
+CRAT04:
+	Inherits: ^Box
+
+CRAT0A:
+	Inherits: ^Box
+
+CRAT0B:
+	Inherits: ^Box
+
+CRAT0C:
+	Inherits: ^Box
+
+DRUM01:
+	Inherits: ^Drum
+
+DRUM02:
+	Inherits: ^Drum
+
+PALET01:
+	Inherits: ^Palette
+
+PALET02:
+	Inherits: ^Palette
+
+PALET03:
+	Inherits: ^Palette
+
+PALET04:
+	Inherits: ^Palette
+
+
+STREETSIGNS:
+	Inherits@1: ^1x1TurretedCivBuilding
 	Tooltip:
-		Name: Veinhole Monster
-	SeedsResource:
-		Interval: 5
-		ResourceType: Veins
-		MaxRange: 24
+		Name: Street sign
+	EditorOnlyTooltip:
+		Name: Street Sign set (Supports facings)
+	RenderSprites:
+		Palette: unittemred
+
+STREETSIGNS2:
+	Inherits@1: ^1x1TurretedCivBuilding
+	Tooltip:
+		Name: Street sign
+	EditorOnlyTooltip:
+		Name: Street Sign set (Supports facings)
+	RenderSprites:
+		Palette: unittemred
+
+TRAFFICLIGHTS:
+	Inherits@1: ^1x1TurretedCivBuilding
+	Tooltip:
+		Name: Traffic Light
+	EditorOnlyTooltip:
+		Name: Traffic Light set (Supports facings)
+	RenderSprites:
+		Palette: unittemred
+
+BENCH:
+	Inherits@1: ^1x1TurretedCivBuilding
+	Tooltip:
+		Name: Bench
+	EditorOnlyTooltip:
+		Name: Bench set (Supports facings)
+	Health:
+		HP: 2500
 	RenderSprites:
 		Palette: player
-	DamageMultiplier@Veinhole:
-		Modifier: 0
-		RequiresCondition: !lawea
-	ChangesHealth:
-		PercentageStep: 1
-		StartIfBelow: 200
-		DamageCooldown: 50
-		Delay: 25
-	WithSpriteBody:
-	ShakeOnDeath:
-	Targetable:
-		TargetTypes: Building, Ground, Veinhole
-	AmbientSound:
-		SoundFiles: tentaclem0001.wav, tentaclem0002.wav, tentaclem0003.wav
-		Delay: 0, 100
-		Interval: 150, 300
+
+BUSSTOP:
+	Inherits: ^1x1TurretedCivBuilding
+	Tooltip:
+		Name: Bus Stop
+	EditorOnlyTooltip:
+		Name: Bus Stop (Supports facings)
+	RenderSprites:
+		Palette: unittem
+    
+LIGHTPOST4x4:
+	Inherits: ^CivBuilding
+	Inherits@2: ^1x1Shape
+	Tooltip:
+		Name: Light Post
 	Health:
-		HP: 200000
+		HP: 15000
 	Armor:
 		Type: BuildingArmor
-	-WithColoredOverlay@EMPDISABLE:
-	-TimedConditionBar@EMPDISABLE:
-	-WithIdleOverlay@EMPDISABLE:
-	MapEditorData:
-		Categories: Tree
-	RequiresBuildableArea:
-		AreaTypes: building
-	Interactable:
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
-	-ThrowsShrapnel@SMALL:
-	-ThrowsShrapnel@LARGE:
-	-GrantConditionOnDamageState@SpawnFire:
-	-ExplodeWeapon@SpawnFire:
-	-ExternalCondition@SpawnFire:
-	-CapturableProgressBlink:
-	-CapturableProgressBar:
-	-Capturable:
+	RenderSprites:
+		Palette: player
+	Crushable:
+		CrushClasses: infantry
 
-VEINHOLE2:
-	Inherits: VEINHOLE
-	EditorOnlyTooltip:
-		Name: Low ground veinhole
+CONSTRUCTIONBARRIER:
+	Inherits: ^CivBuilding
+	Inherits@2: ^1x1Shape
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Tooltip:
+		Name: Construction Barrier
+	Health:
+		HP: 5000
+	Armor:
+		Type: BuildingArmor
+	RenderSprites:
+		Palette: player
+
+CONSTRUCTIONBARRIER2:
+	Inherits: CONSTRUCTIONBARRIER

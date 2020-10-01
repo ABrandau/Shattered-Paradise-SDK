@@ -523,3 +523,67 @@ MINIVEIN:
 		StartIfBelow: 200
 		DamageCooldown: 50
 		Delay: 25
+
+VEINHOLE:
+	Inherits: ^Building
+	Inherits@2: ^2x2Shape
+	-CaptureManager:
+	RadarColorFromTerrain:
+		Terrain: Veins
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	BodyOrientation:
+		QuantizedFacings: 1
+	Tooltip:
+		Name: Veinhole Monster
+	SeedsResource:
+		Interval: 5
+		ResourceType: Veins
+		MaxRange: 24
+	RenderSprites:
+		Palette: player
+	DamageMultiplier@Veinhole:
+		Modifier: 0
+		RequiresCondition: !lawea
+	ChangesHealth:
+		PercentageStep: 1
+		StartIfBelow: 200
+		DamageCooldown: 50
+		Delay: 25
+	WithSpriteBody:
+	ShakeOnDeath:
+	Targetable:
+		TargetTypes: Building, Ground, Veinhole
+	AmbientSound:
+		SoundFiles: tentaclem0001.wav, tentaclem0002.wav, tentaclem0003.wav
+		Delay: 0, 100
+		Interval: 150, 300
+	Health:
+		HP: 200000
+	Armor:
+		Type: BuildingArmor
+	-WithColoredOverlay@EMPDISABLE:
+	-TimedConditionBar@EMPDISABLE:
+	-WithIdleOverlay@EMPDISABLE:
+	MapEditorData:
+		Categories: Tree
+	RequiresBuildableArea:
+		AreaTypes: building
+	Interactable:
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
+	-ThrowsShrapnel@SMALL:
+	-ThrowsShrapnel@LARGE:
+	-GrantConditionOnDamageState@SpawnFire:
+	-ExplodeWeapon@SpawnFire:
+	-ExternalCondition@SpawnFire:
+	-CapturableProgressBlink:
+	-CapturableProgressBar:
+	-Capturable:
+
+VEINHOLE2:
+	Inherits: VEINHOLE
+	EditorOnlyTooltip:
+		Name: Low ground veinhole

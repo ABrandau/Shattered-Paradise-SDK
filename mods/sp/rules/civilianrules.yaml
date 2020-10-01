@@ -2394,17 +2394,8 @@ CONTAINER5:
 		Footprint: xx xx
 		Dimensions: 2,2
 
-^FakeTurretedProp:
-	Inherits: ^CivBuilding
-	-WithSpriteBody:
-	WithSpriteTurret:
-	Turreted:
-	Armament:
-		Weapon: LightTowerClaxon
-	AttackTurreted:
-
 CONTAINER2X2:
-	Inherits@1: ^FakeTurretedProp
+	Inherits@1: ^FakeTurretedCivBuilding
 	Inherits@2: ^1x2Shape
 	Building:
 		Footprint: xx xx
@@ -2471,93 +2462,6 @@ CONTAINERDIAGONAL:
 
 CONTAINERDIAGONALSTACKED:
 	Inherits: CONTAINERDIAGONAL
-
-^1x1TurretedProp:
-	Inherits@1: ^FakeTurretedProp
-	Building:
-		Footprint: x
-		Dimensions: 1, 1
-	Crushable:
-		CrushClasses: infantry
-
-STREETSIGNS:
-	Inherits@1: ^1x1TurretedProp
-	Tooltip:
-		Name: Street sign
-	EditorOnlyTooltip:
-		Name: Street Sign set (Supports facings)
-	RenderSprites:
-		Palette: unittemred
-
-STREETSIGNS2:
-	Inherits@1: ^1x1TurretedProp
-	Tooltip:
-		Name: Street sign
-	EditorOnlyTooltip:
-		Name: Street Sign set (Supports facings)
-	RenderSprites:
-		Palette: unittemred
-
-TRAFFICLIGHTS:
-	Inherits@1: ^1x1TurretedProp
-	Tooltip:
-		Name: Traffic Light
-	EditorOnlyTooltip:
-		Name: Traffic Light set (Supports facings)
-	RenderSprites:
-		Palette: unittemred
-
-BENCH:
-	Inherits@1: ^1x1TurretedProp
-	Tooltip:
-		Name: Bench
-	EditorOnlyTooltip:
-		Name: Bench set (Supports facings)
-	Health:
-		HP: 2500
-	RenderSprites:
-		Palette: player
-
-BUSSTOP:
-	Inherits: ^1x1TurretedProp
-	Tooltip:
-		Name: Bus Stop
-	EditorOnlyTooltip:
-		Name: Bus Stop (Supports facings)
-	RenderSprites:
-		Palette: unittem
-    
-LIGHTPOST4x4:
-	Inherits: ^CivBuilding
-	Inherits@2: ^1x1Shape
-	Tooltip:
-		Name: Light Post
-	Health:
-		HP: 15000
-	Armor:
-		Type: BuildingArmor
-	RenderSprites:
-		Palette: player
-	Crushable:
-		CrushClasses: infantry
-
-CONSTRUCTIONBARRIER:
-	Inherits: ^CivBuilding
-	Inherits@2: ^1x1Shape
-	Building:
-		Footprint: x
-		Dimensions: 1,1
-	Tooltip:
-		Name: Construction Barrier
-	Health:
-		HP: 5000
-	Armor:
-		Type: BuildingArmor
-	RenderSprites:
-		Palette: player
-
-CONSTRUCTIONBARRIER2:
-	Inherits: CONSTRUCTIONBARRIER
 
 TENT1:
 	Inherits: ^CivBuilding
@@ -2672,3 +2576,16 @@ TENTSMINI9:
 
 TENTSMINI10:
 	Inherits: TENTSMINI1
+
+CPWRP:
+	Inherits: ^CivBuilding
+	Inherits@2: ^3x4Shape
+	Tooltip:
+		Name: Power station
+	Building:
+		Footprint: xxx xxx xxx xxx
+		Dimensions: 3, 4
+	Health:
+		HP: 200000
+	RenderSprites:
+		Palette: isotem

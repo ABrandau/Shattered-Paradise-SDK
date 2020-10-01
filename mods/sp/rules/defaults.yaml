@@ -730,6 +730,10 @@
 	ExternalCondition@GetsOneShotedbySuperweapons:
 		Condition: GetsOneShotedbySuperweapons
 
+^Unkillable:
+	DamageMultiplier@Unkillable:
+		Modifier: 0
+
 ^SpawnSmoke:
 	GrantConditionOnDamageState@smoke:
 		Condition: smoketrail
@@ -1264,6 +1268,25 @@
 	-ExplodeWeapon@SpawnFire:
 	-ExternalCondition@SpawnFire:
 	-ExternalCondition@DisableSpawnFire:
+	RadarColorFromTerrain:
+		Terrain: CivilianBuilding
+
+^FakeTurretedCivBuilding:
+	Inherits: ^CivBuilding
+	-WithSpriteBody:
+	WithSpriteTurret:
+	Turreted:
+	Armament:
+		Weapon: LightTowerClaxon
+	AttackTurreted:
+
+^1x1TurretedCivBuilding:
+	Inherits@1: ^FakeTurretedCivBuilding
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	Crushable:
+		CrushClasses: infantry
 
 ^TechBuilding:
 	Inherits: ^BasicBuilding
@@ -2214,7 +2237,7 @@
 	Tooltip:
 		Name: Tree
 	MapEditorData:
-		Categories: Tree
+		Categories: Decoration
 	Targetable:
 		TargetTypes: Building, Ground, C4
 	Health:
@@ -2229,6 +2252,7 @@
 		Weapons: WoodDebrisBig
 		Pieces: 3, 6
 		Range: 0c256, 1c0
+
 ^Rock:
 	Inherits@1: ^SpriteActor
 	HiddenUnderShroud:
@@ -2245,7 +2269,7 @@
 	Tooltip:
 		Name: Rock
 	MapEditorData:
-		Categories: Rock and Roll
+		Categories: Decoration
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -2264,6 +2288,28 @@
 	Building:
 		Footprint: x
 		Dimensions: 1, 1
+	MapEditorData:
+		Categories: Decoration
+	RequiresBuildableArea:
+		AreaTypes: building
+	RadarColorFromTerrain:
+		Terrain: CivilianProp
+
+^TiberiumDecoration:
+	Inherits@1: ^SpriteActor
+	HiddenUnderShroud:
+	Interactable:
+	RenderSprites:
+		Palette: terraindecoration
+	WithSpriteBody:
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	AppearsOnRadar:
+	RadarColorFromTerrain:
+		Terrain: TiberiumGlacier
+	Tooltip:
+		Name: Tiberium Formation
 	MapEditorData:
 		Categories: Decoration
 	RequiresBuildableArea:
