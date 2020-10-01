@@ -610,16 +610,12 @@ DestroyerCannon:
 		InvalidTargets: Vehicle, Building, Wall
 
 FighterSpawn:
-	Inherits: ^ArtilleryWarhead
 	ReloadDelay: 15
 	Range: 8c0
 	MinRange: 0c100
 	Projectile: InstantExplode
 	ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
-	Warhead@1Dam: SpreadDamage
-		Spread: 400
-		Damage: 1
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@1Dam: TargetDamage
 		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
 
 WyvermBlast:
