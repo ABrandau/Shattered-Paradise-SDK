@@ -1528,6 +1528,13 @@ CABWEAP:
 		RequiresCondition: !Building-Buildup
 	IsometricSelectable:
 		DecorationHeight: 36
+	## Disable minelayer production for EasyAI and NormalAI 
+	GrantConditionOnBotOwner@AIsNotAllowed:
+		Condition: AIsNotAllowed
+		Bots: EasyAI, NormalAI
+	ProvidesPrerequisite@AIsNotAllowed:
+		RequiresCondition: AIsNotAllowed
+		Prerequisite: AIsNotAllowed
 
 CABRADR:
 	Inherits: ^Radar

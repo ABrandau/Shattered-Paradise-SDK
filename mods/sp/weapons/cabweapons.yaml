@@ -32,17 +32,21 @@ CyborgRocketAA:
 
 SentryGun:
 	Inherits: ^FullDamage
-	Inherits@1: ^Mediuml_Clsn
+	Inherits: ^Small_Clsn
 	ReloadDelay: 40
 	Range: 4c0
 	Projectile: BulletAS
-		Speed: 682
-		Image: 120mm
+		Speed: 500
+		Image: minitibshard
 		Shadow: true
-		Palette: ra
+		Palette: apolra2
 	Warhead@1Dam: SpreadDamage
 		Damage: 1200
 		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: sparks
+		ImpactSounds: rketinf1.aud
+		ExplosionPalette: apolra2
 
 SentinelGun:
 	Inherits: ^RifleWarhead
@@ -322,7 +326,7 @@ RepairVehicleLasor:
 	Warhead@op: FireShrapnel
 		Weapon: SparkDebris
 		ImpactActors: false
-		Amount: 12
+		Amount: 8
 		ValidTargets: Vehicle
 		InvalidTargets: FullHealth, NoRepair
 		ImpactActors: true
@@ -557,15 +561,12 @@ CTurretCannon:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 CabPitFighterSpawn:
-	Inherits: ^ArtilleryWarhead
 	ReloadDelay: 25
 	Range: 7c768
 	Projectile: InstantExplode
 	ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
-	Warhead@1Dam: SpreadDamage
-		Spread: 400
-		Damage: 1
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@1Dam: TargetDamage
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
 
 CabJetMiniBomb:
 	Inherits: ^RifleWarhead

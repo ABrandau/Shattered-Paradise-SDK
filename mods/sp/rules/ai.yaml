@@ -2,30 +2,44 @@ Player:
 	ModularBot@EasyAI:
 		Name: Easy AI
 		Type: EasyAI
+	ModularBot@NormalAI:
+		Name: Normal AI
+		Type: NormalAI
 	ModularBot@Cheater:
 		Name: Cheater AI
 		Type: CheaterAI
 	ModularBot@ShatteredAI:
 		Name: Shattered AI
 		Type: ShatteredAI
-	GrantConditionOnBotOwner@AIBase:
-		Condition: AIBase
-		Bots: CheaterAI, EasyAI, ShatteredAI
+
+	### Condition Defination
 	GrantConditionOnBotOwner@AIEasy:
 		Condition: AIEasy
 		Bots: EasyAI
+	GrantConditionOnBotOwner@AIBase:
+		Condition: AIBase
+		Bots: CheaterAI, NormalAI, ShatteredAI
+	GrantConditionOnBotOwner@AINormal:
+		Condition: AINormal
+		Bots: NormalAI
 	GrantConditionOnBotOwner@AICheater:
 		Condition: AICheater
 		Bots: CheaterAI
 	GrantConditionOnBotOwner@AIShattered:
 		Condition: AIShattered
 		Bots: ShatteredAI
-	HarvesterBotModule:
-		RequiresCondition: AIBase
-		HarvesterTypes: harv, scrharv
-		RefineryTypes: gdiref, nodref, scrproc, cabproc, muproc
-	BaseBuilderBotModule@AINormal:
-		RequiresCondition: AIBase && !AIShattered
+
+	### BotModule and BotLogic
+
+	## Drop "HarvesterBotModule" due to it is senseless when we now use Building as cash cheat,
+	##  and sub base is impossible for OpenRA at present. Also this module is heavily performance questionable
+	#HarvesterBotModule: 
+	#	RequiresCondition: AIBase
+	#	HarvesterTypes: harv, scrharv
+	#	RefineryTypes: gdiref, nodref, scrproc, cabproc, muproc
+
+	BaseBuilderBotModule@AIBase:
+		RequiresCondition: AIEasy || AINormal || AICheater
 		MinimumExcessPower: 90
 		MaximumExcessPower: 250
 		ExcessPowerIncrement: 50
@@ -375,7 +389,7 @@ Player:
 			gadept: 6000
 	BuildingRepairBotModule:
 		RequiresCondition: AIBase
-	SquadManagerBotModule@test:
+	SquadManagerBotModule@AIBase:
 		RequiresCondition: AIBase
 		SquadSize: 35
 		SquadSizeRandomBonus: 30
@@ -391,8 +405,8 @@ Player:
 		AttackScanRadius: 14
 		ProtectionScanRadius: 15
 		IgnoredEnemyTargetTypes: Mine
-	UnitBuilderBotModule@test:
-		RequiresCondition: AIBase
+	UnitBuilderBotModule@AIBase:
+		RequiresCondition: AIEasy || AIBase
 		UnitQueues: Infantry, Vehicle, Air
 		IdleBaseUnitsMaximum: 60
 		UnitsToBuild:
@@ -516,8 +530,8 @@ Player:
 			rocketbggy: 3500
 			grenadier: 4000
 			medic: 4000
-	McvManagerBotModule@AIEasy:
-		RequiresCondition: AIEasy
+	McvManagerBotModule@AINormal:
+		RequiresCondition: AINormal || AIEasy
 		McvTypes: mcv, cabmcv, nodmcv, mutmcv, drache_bot, drache
 		ConstructionYardTypes: gacnst, mutyard, cabyard, nodyard, drached
 		McvFactoryTypes: gaweap, naweap, muweap, cabweap, scrair
@@ -611,13 +625,6 @@ Player:
 					Attractiveness: -10
 					TargetMetric: Value
 					CheckRadius: 5c0
-				Consideration@4:
-					Against: Enemy
-					Types: ConsideredValuableForAI
-					IgnoreVisibility: true
-					Attractiveness: 50
-					TargetMetric: Value
-					CheckRadius: 4c0
 			nuclearmissile:
 				OrderName: NuclearMissile
 				MinimumAttractiveness: 15000
@@ -659,8 +666,8 @@ Player:
 					Attractiveness: 1
 					TargetMetric: Value
 					CheckRadius: 7c0
-			singularity:
-				OrderName: singularity
+			ironsavior:
+				OrderName: IronSavior
 				MinimumAttractiveness: 12000
 				MinimumScanTimeInterval: 75
 				MaximumScanTimeInterval: 100

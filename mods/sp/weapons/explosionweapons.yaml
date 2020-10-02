@@ -316,13 +316,9 @@ BlueTibBarrelExplo:
 
 SparkSpawner:
 	Inherits: ^SparkSpawner
-	Inherits: ^NoDamage
 	ReloadDelay: 100
-	Projectile: InstantExplode
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@op: FireShrapnel
+		Amount: 4
 
 SparkDebris:
 	Range: 1c0
