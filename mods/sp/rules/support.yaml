@@ -1014,8 +1014,8 @@ CABSW1:
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
-	ProvidesPrerequisite@singularity:
-		Prerequisite: singularity
+	ProvidesPrerequisite@ironsavior:
+		Prerequisite: ironsavior
 		Factions: gdi, mut, nod, cab, scr
 		ResetOnOwnerChange: true
 	FireArmamentPower:
@@ -1033,8 +1033,8 @@ CABSW1:
 		EndChargeSpeechNotification: SuperWeaponReady
 		SelectTargetSound: speech-nod|00-i042.aud
 		Prerequisites:
-			1: singularity
-		OrderName: singularity
+			1: ironsavior
+		OrderName: IronSavior
 		LaunchSpeechNotification: SuperweaponFired
 		IncomingSpeechNotification: SuperweaponFired
 		IncomingSound: SuperweaponFired
@@ -1086,7 +1086,7 @@ MUMINE:
 	GivesExperience:
 		Experience: 10
 	Targetable:
-		TargetTypes: Ground, MindControlImmune, Mine
+		TargetTypes: Defence, Ground, MindControlImmune, Mine
 	BodyOrientation:
 		QuantizedFacings: 1
 	Cloak@cloakgenerator:
@@ -1104,8 +1104,6 @@ MUMINE:
 		BlockFriendly: false
 	Explodes:
 		Weapon: MineExplode
-	Targetable@Defence:
-		TargetTypes: Defence
 
 ###########################################################################
 # UNUSED

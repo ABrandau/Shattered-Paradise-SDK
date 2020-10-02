@@ -879,7 +879,7 @@
 		Delay: 1500
 	GrantConditionOnBotOwner@AIBase:
 		Condition: AIBase
-		Bots: CheaterAI, EasyAI, ShatteredAI
+		Bots: CheaterAI, NormalAI, ShatteredAI
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -887,7 +887,7 @@
 ^AICashCheat:
 	CashTrickler@AICashDevour:
 		Interval: 500
-		Amount: 400
+		Amount: 300
 		ShowTicks: false
 		RequiresCondition: AIShattered
 	CashTrickler@AICashCheater:
@@ -897,12 +897,12 @@
 		RequiresCondition: AICheater
 	CashTrickler@AICashNormal:
 		Interval: 500
-		Amount: 50
+		Amount: 100
 		ShowTicks: false
-		RequiresCondition: AIEasy
-	GrantConditionOnBotOwner@AIEasy:
-		Condition: AIEasy
-		Bots: EasyAI
+		RequiresCondition: AINormal
+	GrantConditionOnBotOwner@AINormal:
+		Condition: AINormal
+		Bots: NormalAI
 	GrantConditionOnBotOwner@AICheater:
 		Condition: AICheater
 		Bots: CheaterAI
@@ -913,12 +913,12 @@
 ^AImicroManagable:
 	GrantConditionOnBotOwner@AImicroManage:
 		Condition: AImicroManage
-		Bots: EasyAI, CheaterAI, ShatteredAI
+		Bots: NormalAI, CheaterAI, ShatteredAI
 
 ^AIbuildingMicroControl:
 	GrantConditionOnBotOwner@AIbuildingMicroControl:
 		Condition: AIbuildingMicroControl
-		Bots: CheaterAI, EasyAI, ShatteredAI
+		Bots: EasyAI, NormalAI, CheaterAI,  ShatteredAI
 	GrantConditionOnBotOwner@AISpecialProduce:
 		Condition: AISpecialProduce
 		Bots: CheaterAI, ShatteredAI
