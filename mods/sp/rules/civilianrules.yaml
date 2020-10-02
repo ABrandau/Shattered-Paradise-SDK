@@ -1457,25 +1457,6 @@ FLAGNEUTRAL:
 	Tooltip:
 		Name: Flag
 
-CAHOSP:
-	Inherits: ^TechBuilding
-	Inherits@shape: ^3x4Shape
-	Tooltip:
-		Name: Civilian Hospital
-	TooltipDescription:
-		Description: Provides global healing for infantry.
-	Building:
-		Footprint: XxX xxx xxx xxx
-		Dimensions: 3, 4
-	Health:
-		HP: 80000
-	ProvidesPrerequisite@BuildingName:
-	WithIdleOverlay:
-		Sequence: flag
-	ProvidesPrerequisite@buildingname:
-	IsometricSelectable:
-		DecorationHeight: 48
-
 CAPYR01:
 	Inherits: ^CivBuilding
 	Inherits@shape: ^2x2Shape
@@ -2579,13 +2560,40 @@ TENTSMINI10:
 
 CPWRP:
 	Inherits: ^CivBuilding
-	Inherits@2: ^3x4Shape
+	Inherits@2: ^4x3Shape
 	Tooltip:
 		Name: Power station
+	Building:
+		Footprint: xxxx xxxx xxxx 
+		Dimensions: 4, 3
+	Health:
+		HP: 150000
+	RenderSprites:
+		Palette: isotem
+
+CITY35:
+	Inherits: ^CivBuilding
+	Inherits@2: ^3x4Shape
+	Tooltip:
+		Name: Apartment complex
 	Building:
 		Footprint: xxx xxx xxx xxx
 		Dimensions: 3, 4
 	Health:
-		HP: 200000
+		HP: 150000
 	RenderSprites:
 		Palette: isotem
+
+CARPUB:
+	Inherits: ^CivBuilding
+	Inherits@2: ^3x3Shape
+	Tooltip:
+		Name: Pub
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Health:
+		HP: 20000
+	RenderSprites:
+		-Palette:
+		PlayerPalette: playerunittem

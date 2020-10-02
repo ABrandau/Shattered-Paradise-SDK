@@ -38,7 +38,6 @@ ROCKS1:
 	RenderSprites:
 		Palette: player
 
-
 SROCK01:
 	Inherits: ^Rock
 
@@ -283,7 +282,8 @@ BIGGREEN:
 
 ^Fona:
 	Inherits: ^Tree
-	-Tooltip:
+	Tooltip:
+		Name: Fona
 	TerrainLightSource@1:
 		Range: 2c640
 		Intensity: 0.0005
@@ -298,6 +298,27 @@ BIGGREEN:
 		RedTint: 0.07
 		GreenTint: 0.36
 		BlueTint: 0.07
+
+^FonaYellow:
+	Inherits: ^Fona
+	TerrainLightSource@1:
+		Intensity: 0.0005
+		RedTint: 0.36
+		GreenTint: 0.36
+		BlueTint: 0.01
+	RenderSprites:
+		Palette: isotem
+
+^FonaWhite:
+	Inherits: ^Fona
+	TerrainLightSource@1:
+		Intensity: 0.36
+		RedTint: 0
+		GreenTint: 0
+		BlueTint: 0
+	RenderSprites:
+		Palette: isotem
+
 
 TREE01:
 	Inherits: ^Tree
@@ -376,78 +397,69 @@ TREE25:
 
 fona01:
 	Inherits: ^Fona
-	Tooltip:
-		Name: Fona
 
 fona02:
 	Inherits: ^Fona
-	Tooltip:
-		Name: Fona
 
 fona03:
 	Inherits: ^Fona
-	Tooltip:
-		Name: Fona
 
 fona04:
 	Inherits: ^Fona
-	Tooltip:
-		Name: Fona
 
 fona05:
 	Inherits: ^Fona
-	Tooltip:
-		Name: Fona
 
 fona06:
 	Inherits: ^FonaGreen
-	Tooltip:
-		Name: Fona
 
 fona07:
 	Inherits: ^FonaGreen
-	Tooltip:
-		Name: Fona
 
 fona08:
 	Inherits: ^FonaGreen
-	Tooltip:
-		Name: Fona
 
 fona09:
 	Inherits: ^FonaGreen
-	Tooltip:
-		Name: Fona
 
 fona10:
 	Inherits: ^FonaGreen
-	Tooltip:
-		Name: Fona
 
 fona11:
 	Inherits: ^FonaGreen
-	Tooltip:
-		Name: Fona
 
 fona12:
 	Inherits: ^FonaGreen
-	Tooltip:
-		Name: Fona
 
 fona13:
 	Inherits: ^FonaGreen
-	Tooltip:
-		Name: Fona
 
 fona14:
 	Inherits: ^FonaGreen
-	Tooltip:
-		Name: Fona
 
 fona15:
 	Inherits: ^FonaGreen
-	Tooltip:
-		Name: Fona
+
+fona16:
+	Inherits: ^FonaWhite
+
+fona17:
+	Inherits: ^FonaWhite
+
+fona18:
+	Inherits: ^FonaWhite
+
+fona19:
+	Inherits: ^FonaWhite
+
+fona20:
+	Inherits: ^FonaWhite
+
+yellowfona01:
+	Inherits: ^FonaYellow
+
+yellowfona02:
+	Inherits: ^FonaYellow
 
 treepine:
 	Inherits: ^Tree

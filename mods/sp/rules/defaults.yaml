@@ -605,6 +605,13 @@
 	ExternalCondition@ToxinTrooperDebuff:
 		Condition: ToxinTrooperDebuff
 
+^RavagerSlowdown:
+	SpeedMultiplier:
+		RequiresCondition: RavagerSlowdown
+		Modifier: 50
+	ExternalCondition@RavagerSlowdown:
+		Condition: RavagerSlowdown
+
 ^EmpDisable:
 	WithColoredOverlay@EMPDISABLE:
 		RequiresCondition: empdisable
@@ -966,6 +973,7 @@
 	Inherits@11: ^GetsOneShotedbySuperweapons
 	Inherits@12: ^BarracksHeal
 	Inherits@13: ^FullHealthRepairCondition
+	Inherits@14: ^RavagerSlowdown
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
 	GrantCondition@DisableSpawnFire:
@@ -992,6 +1000,7 @@
 	Inherits@14: ^Chronoshiftable
 	Inherits@15: ^FullHealthRepairCondition
 	Inherits@16: ^ToxinTrooperDebuff
+	Inherits@17: ^RavagerSlowdown
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
 	GrantCondition@CloakDisableSmoke:
@@ -2134,14 +2143,14 @@
 	Inherits: ^Helicopter
 	Inherits@0: ^GainsExperience
 	Rearmable:
-		RearmActors: nahpad, gahpad, muair, scrair, cabair
+		RearmActors: nahpad, gahpad, muair, scrair, cabair, civheli
 
 ^Plane:
 	Inherits: ^Aircraft
 	Inherits@3: ^AutoTargetAir
 	Aircraft:
 	Rearmable:
-		RearmActors: nahpad, gahpad, muair, scrair, cabair
+		RearmActors: nahpad, gahpad, muair, scrair, cabair, civheli
 
 ^CombatPlane:
 	Inherits: ^Plane

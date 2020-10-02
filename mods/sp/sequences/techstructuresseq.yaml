@@ -236,3 +236,51 @@ neutralsonictur:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+
+cahosp:
+	Defaults:
+		DepthSprite: isodepth.shp
+		DepthSpriteOffset: 15, 0
+		UseTilesetCode: true
+		Offset: 15, -36, 36
+	idle:
+		ShadowStart: 3
+	damaged-idle:
+		Start: 1
+		ShadowStart: 4
+	critical-idle:
+		Start: 2
+		ShadowStart: 5
+	dead:
+		Start: 2
+		ShadowStart: 5
+		Tick: 400
+	flag: techstructureflag
+		Length: 80
+		ShadowStart: 80
+		Offset: -48,-9
+		UseTilesetCode: false
+
+civheli:
+	Defaults:
+		DepthSprite: isodepth.shp
+		Offset: 0,12,0
+		UseTilesetCode: false
+	idle:
+		ShadowStart: 2
+		ZOffset: -256
+	damaged-idle:
+		Start: 1
+		ShadowStart: 3
+		ZOffset: -256
+	flag: techstructureflag
+		Length: 80
+		ShadowStart: 80
+		Offset: 38,-4
+		UseTilesetCode: false
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive

@@ -68,6 +68,25 @@ NEUTRALFABRICATORDEP:
 		Image: neutralfabricator
 		PlayerPalette: playerunittem
 
+CAHOSP:
+	Inherits: ^TechBuilding
+	Inherits@shape: ^3x4Shape
+	Tooltip:
+		Name: Civilian Hospital
+	TooltipDescription:
+		Description: Provides global healing for infantry.
+	Building:
+		Footprint: XxX xxx xxx xxx
+		Dimensions: 3, 4
+	Health:
+		HP: 80000
+	ProvidesPrerequisite@BuildingName:
+	WithIdleOverlay:
+		Sequence: flag
+	ProvidesPrerequisite@buildingname:
+	IsometricSelectable:
+		DecorationHeight: 48
+
 WELL:
 	Inherits: ^TechBuilding
 	Inherits@1: ^SpawnSmoke
@@ -469,3 +488,18 @@ BLUETIBBARREL5:
 
 BLUETIBBARREL6:
 	Inherits: BLUETIBBARREL
+
+CIVHELI:
+	Inherits: ^TechBuilding
+	Inherits@3: ^Helipad
+	Tooltip:
+		Name: Civilian Helipad
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 20000
+	RenderSprites:
+		PlayerPalette: playerunittem
+	WithIdleOverlay:
+		Sequence: flag

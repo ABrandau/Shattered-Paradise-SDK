@@ -325,6 +325,12 @@ RavagerStrike:
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 		Versus:
 			InfantryArmor: 150
+	Warhead@emp: GrantExternalCondition
+		Range: 1c0
+		Duration: 45
+		Condition: RavagerSlowdown
+		ValidTargets: Infantry, Vehicle
+		InvalidTargets: Building, Defence
 
 LynxCannon:
 	Inherits: ^APWarhead
