@@ -568,7 +568,7 @@ MARAUDER:
 		DeploySounds:
 		UndeploySounds:
 		UndeployOnMove: true
-		RequiresCondition: !inside-tunnel
+		RequiresCondition: !inside-tunnel && !WebDisable
 	GrantCondition:
 		Condition: editorhack
 	WithInfantryBody@Editor: # HACK: negative conditions don't count in EnabledByDefault, we can use this duplicate WIB to render it on map editor
@@ -1181,7 +1181,7 @@ COLOSSI:
 		SmartDeploy: true
 		UndeployOnMove: true
 		CanDeployOnRamps: true
-		RequiresCondition: !inside-tunnel
+		RequiresCondition: !inside-tunnel && !WebDisable
 	WithMakeAnimation:
 	WithInfantryBody:
 		RequiresCondition: undeployed &&  !WebDisable && !inside-tunnel
@@ -1589,7 +1589,7 @@ MOTH:
 		SmartDeploy: true
 		UndeployOnMove: true
 		CanDeployOnRamps: true
-		RequiresCondition: !inside-tunnel
+		RequiresCondition: !inside-tunnel  && !WebDisable
 	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove

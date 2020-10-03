@@ -946,7 +946,7 @@ TTNK:
 		UndeployOnMove: true
 		UndeploySounds: clicky1.aud
 		PauseOnCondition: RefineryLock
-		RequiresCondition: !inside-tunnel
+		RequiresCondition: !inside-tunnel && !empdisable
 	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
