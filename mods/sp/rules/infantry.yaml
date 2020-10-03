@@ -569,7 +569,6 @@ MARAUDER:
 		UndeploySounds:
 		UndeployOnMove: true
 		RequiresCondition: !inside-tunnel
-		PauseOnCondition: deployed && AImicroManage
 	GrantCondition:
 		Condition: editorhack
 	WithInfantryBody@Editor: # HACK: negative conditions don't count in EnabledByDefault, we can use this duplicate WIB to render it on map editor
@@ -1591,7 +1590,6 @@ MOTH:
 		UndeployOnMove: true
 		CanDeployOnRamps: true
 		RequiresCondition: !inside-tunnel
-		PauseOnCondition: deployed && AImicroManage
 	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
