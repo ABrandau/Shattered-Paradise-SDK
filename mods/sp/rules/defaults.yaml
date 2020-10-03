@@ -1568,9 +1568,6 @@
 	Inherits@1: ^HealsOnTiberium
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
-		Probability: 100
-		OwnerType: Killer
-		DeathType: CabalDeathInfantry
 	-DamagedByTerrain:
 	WithDeathAnimation@normal:
 		DeathTypes:
@@ -1678,6 +1675,8 @@
 	SpeedMultiplier@CRITICAL:
 		RequiresCondition: criticalspeed
 		Modifier: 50
+	SpawnActorOnDeath@conversion:
+		Actor: workermech
 
 ^CabalDroneInfantry:
 	Inherits@1: ^Infantry
@@ -1688,13 +1687,14 @@
 	-SpawnActorOnDeath@FLAMEGUY:
 	-SpawnActorOnDeath@FLAMEGUY2:
 	-SpawnActorOnDeath@tiberium:
-	-SpawnActorOnDeath@conversion:
 	-DamagedByTerrain:
  	-WithDeathAnimation@blood1:
 	Voiced:
 		VoiceSet: Limpet
 	Mobile:
 		Locomotor: TibInmuneInfantry
+	SpawnActorOnDeath@conversion:
+		Actor: workermech
 
 ^CivilianInfantry:
 	Inherits: ^Infantry
