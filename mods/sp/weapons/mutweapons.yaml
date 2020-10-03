@@ -604,9 +604,10 @@ GargoylACannon:
 	Report: 120mmf.aud
 	ValidTargets: Ground, Water
 	InvalidTargets: Air
-	Projectile: BulletAS
-		Speed: 1c682
-		Innacuracy: 0c512
+	Projectile: LaserZap
+		Duration: 4
+		Width: 35
+		Color: 888888
 	Warhead@1Dam: SpreadDamage
 		Damage: 3500
 		Versus:
@@ -624,7 +625,6 @@ GargoylACannonAA:
 	MinRange: 0c100
 	ValidTargets: Air
 	ReloadDelay: 30
-	Projectile: InstantHit
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
@@ -636,25 +636,6 @@ GargoylACannonCasing:
 	ReloadDelay: 300000 #One casing per fire
 	Warhead@op: FireShrapnel
 		Weapon: ShellCasingDebris
-
-GargoylACannonFakeProj:
-	Inherits: ^BulletProjectile
-	MinRange: 0c100
-	Range: 6c0
-	ReloadDelay: 20
-	ValidTargets: Ground, Water
-	InvalidTargets: Air
-	Projectile: BulletAS
-		Image: 120mm
-		ContrailLength: 20
-		ContrailColor: 888888
-		ContrailWidth: 0c21
-
-GargoylACannonFakeProjAA:
-	Inherits: GargoylACannonFakeProj
-	ReloadDelay: 30
-	ValidTargets: Air
-	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 
 FalconPunch:
 	Inherits: ^BombWarhead
