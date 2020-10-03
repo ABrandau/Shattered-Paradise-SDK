@@ -1504,15 +1504,31 @@ GLAD:
 	Health:
 		HP: 50000
 	Armament@1:
+		RequiresCondition: !criticalspeed
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 200,250,550
 		PauseOnCondition: WebDisable
 		Name: OnFoot
 	Armament@2:
+		RequiresCondition: !criticalspeed
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 200,-250,550
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@1Cripple:
+		RequiresCondition: criticalspeed
+		Weapon: GLAD120mm
+		MuzzleSequence: muzzle
+		LocalOffset: 300,250,-150
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2Cripple:
+		RequiresCondition: criticalspeed
+		Weapon: GLAD120mm
+		MuzzleSequence: muzzle
+		LocalOffset: 300,-250,-150
 		PauseOnCondition: WebDisable
 		Name: OnFoot
 	Armament@3:
