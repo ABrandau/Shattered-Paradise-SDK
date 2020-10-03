@@ -134,16 +134,16 @@ SeerTeslaAA:
 		Damage: 7000
 		ValidTargets: Air
 
-SparkExplo:
+SeerTyranyInstakillSpawn:
 	Warhead@op: FireShrapnel
-		Weapon: SeerTeslaSpark
+		Weapon: SeerTyranyInstakill
 		ImpactActors: false
 		Amount: 2
 		AimChance: 30
 		AllowDirectHit: false
 		AimTargetStances: Ally, Neutral, Enemy
 
-SeerTeslaSpark:
+SeerTyranyInstakill:
 	Inherits: SeerTesla
 	Range: 3c0
 	InvalidTargets: seer
@@ -172,7 +172,7 @@ SeerTyranyBuff:
 		Condition: TyrannyBuff
 		ValidStances: Ally
 
-SeerTyranyInstakillSpawn:
+SparkExplo:
 	ReloadDelay: 10
 	Range: 5c0
 	Projectile: InstantExplode
@@ -189,7 +189,7 @@ SeerTyranyInstakillSpawn:
 		DamageTypes: FireDeath, ScrinEssenceKill
 		InvalidTargets: Colossi
 	Warhead@op: FireShrapnel
-		Weapon: SeerTyranyInstakill
+		Weapon: SeerTeslaSpark
 		ImpactActors: false
 		Amount: 2
 		AllowDirectHit: false
@@ -197,7 +197,7 @@ SeerTyranyInstakillSpawn:
 		AimChance: 100
 		AimTargetStances: Ally
 
-SeerTyranyInstakill:
+SeerTeslaSpark:
 	Inherits: SeerTesla
 	Range: 5c0
 	InvalidTargets: seer
