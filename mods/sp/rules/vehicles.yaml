@@ -662,13 +662,13 @@ BGGY:
 		RequiresCondition: ifv.pdrone
 	Armament@glad:
 		Weapon: GLAD120mm
-		LocalOffset: 250,0,125
+		LocalOffset: 400,-200,125
 		RequiresCondition: ifv.glad
 		MuzzleSequence: muzzle
 		MuzzleSplitFacings: 8
 	Armament@glad2:
 		Weapon: GLAD120mm
-		LocalOffset: 250,0,125
+		LocalOffset: 400,200,125
 		RequiresCondition: ifv.glad
 		MuzzleSequence: muzzle
 		MuzzleSplitFacings: 8
@@ -945,8 +945,8 @@ TTNK:
 		CanDeployOnRamps: true
 		UndeployOnMove: true
 		UndeploySounds: clicky1.aud
-		PauseOnCondition: RefineryLock || (deployed && AImicroManage)
-		RequiresCondition: !inside-tunnel
+		PauseOnCondition: RefineryLock
+		RequiresCondition: !inside-tunnel && !empdisable
 	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
@@ -2455,28 +2455,6 @@ JUGGER:
 		MoveSequence: run
 	Selectable:
 		Bounds: 30, 35, 0, -8
-
-LIMPED:
-	Inherits: ^HoverVehicle
-	Inherits@1: ^8CellVision
-	Valued:
-		Cost: 400
-	Tooltip:
-		Name: Scout Drone
-	Health:
-		HP: 10000
-	Mobile:
-		Speed: 55
-		Locomotor: Vehicle
-	Crushable:
-		CrushClasses: infantry
-		WarnProbability: 0
-	WithSpriteBody:
-	-WithFacingSpriteBody:
-	Voiced:
-		VoiceSet: Limpet
-	Selectable:
-		Bounds: 20, 30, 0, -6
 
 REPAIR:
 	Inherits: ^VoxelTank

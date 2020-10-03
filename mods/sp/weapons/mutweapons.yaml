@@ -134,16 +134,16 @@ SeerTeslaAA:
 		Damage: 7000
 		ValidTargets: Air
 
-SparkExplo:
+SeerTyranyInstakillSpawn:
 	Warhead@op: FireShrapnel
-		Weapon: SeerTeslaSpark
+		Weapon: SeerTyranyInstakill
 		ImpactActors: false
 		Amount: 2
 		AimChance: 30
 		AllowDirectHit: false
 		AimTargetStances: Ally, Neutral, Enemy
 
-SeerTeslaSpark:
+SeerTyranyInstakill:
 	Inherits: SeerTesla
 	Range: 3c0
 	InvalidTargets: seer
@@ -172,7 +172,7 @@ SeerTyranyBuff:
 		Condition: TyrannyBuff
 		ValidStances: Ally
 
-SeerTyranyInstakillSpawn:
+SparkExplo:
 	ReloadDelay: 10
 	Range: 5c0
 	Projectile: InstantExplode
@@ -189,7 +189,7 @@ SeerTyranyInstakillSpawn:
 		DamageTypes: FireDeath, ScrinEssenceKill
 		InvalidTargets: Colossi
 	Warhead@op: FireShrapnel
-		Weapon: SeerTyranyInstakill
+		Weapon: SeerTeslaSpark
 		ImpactActors: false
 		Amount: 2
 		AllowDirectHit: false
@@ -197,7 +197,7 @@ SeerTyranyInstakillSpawn:
 		AimChance: 100
 		AimTargetStances: Ally
 
-SeerTyranyInstakill:
+SeerTeslaSpark:
 	Inherits: SeerTesla
 	Range: 5c0
 	InvalidTargets: seer
@@ -604,9 +604,10 @@ GargoylACannon:
 	Report: 120mmf.aud
 	ValidTargets: Ground, Water
 	InvalidTargets: Air
-	Projectile: BulletAS
-		Speed: 1c682
-		Innacuracy: 0c512
+	Projectile: LaserZap
+		Duration: 4
+		Width: 35
+		Color: 888888
 	Warhead@1Dam: SpreadDamage
 		Damage: 3500
 		Versus:
@@ -624,7 +625,6 @@ GargoylACannonAA:
 	MinRange: 0c100
 	ValidTargets: Air
 	ReloadDelay: 30
-	Projectile: InstantHit
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
@@ -636,25 +636,6 @@ GargoylACannonCasing:
 	ReloadDelay: 300000 #One casing per fire
 	Warhead@op: FireShrapnel
 		Weapon: ShellCasingDebris
-
-GargoylACannonFakeProj:
-	Inherits: ^BulletProjectile
-	MinRange: 0c100
-	Range: 6c0
-	ReloadDelay: 20
-	ValidTargets: Ground, Water
-	InvalidTargets: Air
-	Projectile: BulletAS
-		Image: 120mm
-		ContrailLength: 20
-		ContrailColor: 888888
-		ContrailWidth: 0c21
-
-GargoylACannonFakeProjAA:
-	Inherits: GargoylACannonFakeProj
-	ReloadDelay: 30
-	ValidTargets: Air
-	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 
 FalconPunch:
 	Inherits: ^BombWarhead
@@ -690,7 +671,7 @@ FalconPunch:
 		Spread: 1c0
 		Damage: 30000
 		ValidTargets: Building, Structure, Infantry, Vehicle
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath, TiberiumDeath
+		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
 		Versus:
 			VehicleArmor: 100
 	Warhead@2Eff: CreateEffect

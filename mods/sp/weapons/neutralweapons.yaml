@@ -98,24 +98,50 @@ CrabAcid:
 	Warhead@3Radio: CreateTintedCells
 		Level: 10
 
-Tentacle:
-	Inherits@wh: ^AcidWarhead
+JellyAttackPrepare:
+	ValidTargets: Ground, Water, Vehicle, Infantry, Building
+	Projectile: InstantHit
 	ReloadDelay: 60
+	Range: 1c512
+	Warhead@1Dam: TargetDamage
+		ValidTargets: Ground, Water, Vehicle, Infantry, Building
+
+ElectricTentacle:
+	Inherits@wh: ^FullDamage
+	ReloadDelay: 10
 	Range: 1c967
 	Report: floatk1.aud
+	SoundVolume: 4
 	ValidTargets: Ground, Water, Vehicle, Infantry, Building
-	Projectile: BulletAS
-		Speed: 0c602
+	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 20000
-		DamageTypes: TriggerProne, BulletDeath
+		Spread: 2c0
+		Damage: 3000
+		DamageTypes: TriggerProne, EnergyDeath
 		ValidTargets: Ground, Water, Vehicle, Infantry, Building
+		ValidStances: Enemy, Neutral
 	Warhead@emp1: GrantExternalCondition
-		Range: 2c124
+		Range: 2c0
 		Duration: 35
 		Condition: empdisable
 		ValidTargets: Ground, Water
+	Warhead@op: FireShrapnel
+		Weapon: JellyBlastTesla
+		ImpactActors: false
+		Amount: 4
+		AllowDirectHit: false
+
+JellyBlastTesla
+	ReloadDelay: 80
+	Range: 2c01
+	MinRange: 2c0
+	ValidTargets: Ground, Water, Vehicle, Infantry, Building
+	Projectile: TeslaZap
+		BrightZaps: 1
+		DimZaps: 1
+		Palette: apolbluealpha
+	Warhead@1Dam: TargetDamage
+	ValidTargets: Ground, Water, Vehicle, Infantry, Building
 
 CrabSpawnerPrior:
 	ReloadDelay: 250

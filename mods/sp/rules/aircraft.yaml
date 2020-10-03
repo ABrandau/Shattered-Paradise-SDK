@@ -500,23 +500,6 @@ MUTHELI:
 		Offset: 300,0,500
 		Sequence: slow-rotor
 		RequiresCondition: !airborne
-	Armament@CannonDecoration:
-		Weapon: GargoylACannonFakeProj
-		PauseOnCondition: !ammo
-		Name: decoration
-		LocalOffset: 950,0,0
-	Armament@CannonDecorationAA:
-		Weapon: GargoylACannonFakeProjAA
-		PauseOnCondition: !ammo
-		Name: decoration
-		LocalOffset: 950,0,0
-	GrantConditionOnAttack@Casing:
-		Condition: attack
-		ArmamentNames: decoration
-	ExplodeWeapon@Casing:
-		Weapon: GargoylACannonCasing
-		RequiresCondition: attack
-		RevokeDelay: 1
 	Armament@primary:
 		Weapon: GargoylACannon
 		MuzzleSequence: muzzle
@@ -527,12 +510,19 @@ MUTHELI:
 		MuzzleSequence: muzzle
 		LocalOffset: 950,0,0
 		PauseOnCondition: !ammo
+	GrantConditionOnAttack@Casing:
+		Condition: attack
+		ArmamentNames: primary
+	ExplodeWeapon@Casing:
+		Weapon: GargoylACannonCasing
+		RequiresCondition: attack
+		RevokeDelay: 1
 	WithMuzzleOverlay:
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 20
 		Voice: Attack
-		Armaments: primary, secondary, decoration
+		Armaments: primary
 	AmmoPool:
 		Ammo: 10
 		ReloadCount: 2

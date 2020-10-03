@@ -1,3 +1,52 @@
+LIMPED:
+	Inherits: ^HoverVehicle
+	Inherits@1: ^8CellVision
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Limped Drone
+	Health:
+		HP: 10000
+	Mobile:
+		Speed: 55
+	-WithFacingSpriteBody:
+	Voiced:
+		VoiceSet: Limpet
+	Selectable:
+		Bounds: 16, 35, 0, 0
+	Hovers:
+		RequiresCondition: !deployed
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		Facing: 640
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Tiberium, BlueTiberium
+		DeploySounds: clicky1.aud
+		UndeploySounds: clicky1.aud
+		SmartDeploy: true
+		UndeployOnMove: true
+		CanDeployOnRamps: true
+		RequiresCondition: !inside-tunnel && !empdisable
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: deployed
+	Cloak@cloakgenerator:
+		RequiresCondition: deployed && !empdisable
+		InitialDelay: 40
+		CloakDelay: 40
+		Palette: cloakcab
+		-CloakSound: cloak5.aud
+		-UncloakSound: cloak5.aud
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
+	WithSpriteBody@UndeloyedBody:
+		Sequence: idle
+		RequiresCondition: !deployed && !inside-tunnel
+	WithMakeAnimation:
+	WithSpriteBody@DeloyedBody:
+		Sequence: deployed
+		RequiresCondition: !undeployed
+
 GHOST:
 	Inherits: ^Mutant
 	Tooltip:

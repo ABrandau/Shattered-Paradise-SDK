@@ -473,10 +473,12 @@ BHS:
 	Voiced:
 		VoiceSet: Oxanna
 	Armament@1:
+		LocalOffset: 200,0,800
 		Weapon: ToxinCommandoRifle
 		PauseOnCondition: WebDisable
 		Name: OnFoot
 	Armament@2:
+		LocalOffset: 200,0,800
 		Weapon: GToxinCommandoRifle
 		PauseOnCondition: WebDisable
 	AnnounceOnSeen:
@@ -568,8 +570,7 @@ MARAUDER:
 		DeploySounds:
 		UndeploySounds:
 		UndeployOnMove: true
-		RequiresCondition: !inside-tunnel
-		PauseOnCondition: deployed && AImicroManage
+		RequiresCondition: !inside-tunnel && !WebDisable
 	GrantCondition:
 		Condition: editorhack
 	WithInfantryBody@Editor: # HACK: negative conditions don't count in EnabledByDefault, we can use this duplicate WIB to render it on map editor
@@ -815,8 +816,8 @@ SEER:
 		Armaments: OnFoot
 		FacingTolerance: 2
 	Explodes:
-		Weapon: SparkExplo
-		EmptyWeapon: SparkExplo
+		Weapon: SeerTyranyInstakillSpawn
+		EmptyWeapon: SeerTyranyInstakillSpawn
 		LoadedChance: 100
 		Chance: 100
 	GrantTimedConditionOnDeploy:
@@ -829,7 +830,7 @@ SEER:
 		Weapon: SeerTyranyBuff
 		RequiresCondition: deployed
 	ExplodeWeapon@2:
-		Weapon: SeerTyranyInstakillSpawn
+		Weapon: SparkExplo
 		RequiresCondition: deployed
 	AIDeployHelper:
 		DeployChance: 50
@@ -1182,7 +1183,7 @@ COLOSSI:
 		SmartDeploy: true
 		UndeployOnMove: true
 		CanDeployOnRamps: true
-		RequiresCondition: !inside-tunnel
+		RequiresCondition: !inside-tunnel && !WebDisable
 	WithMakeAnimation:
 	WithInfantryBody:
 		RequiresCondition: undeployed &&  !WebDisable && !inside-tunnel
@@ -1505,15 +1506,31 @@ GLAD:
 	Health:
 		HP: 50000
 	Armament@1:
+		RequiresCondition: !criticalspeed
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 200,250,550
 		PauseOnCondition: WebDisable
 		Name: OnFoot
 	Armament@2:
+		RequiresCondition: !criticalspeed
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 200,-250,550
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@1Cripple:
+		RequiresCondition: criticalspeed
+		Weapon: GLAD120mm
+		MuzzleSequence: muzzle
+		LocalOffset: 300,250,-150
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2Cripple:
+		RequiresCondition: criticalspeed
+		Weapon: GLAD120mm
+		MuzzleSequence: muzzle
+		LocalOffset: 300,-250,-150
 		PauseOnCondition: WebDisable
 		Name: OnFoot
 	Armament@3:
@@ -1590,8 +1607,7 @@ MOTH:
 		SmartDeploy: true
 		UndeployOnMove: true
 		CanDeployOnRamps: true
-		RequiresCondition: !inside-tunnel
-		PauseOnCondition: deployed && AImicroManage
+		RequiresCondition: !inside-tunnel  && !WebDisable
 	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
