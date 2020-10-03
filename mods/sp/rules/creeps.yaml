@@ -429,7 +429,7 @@ PERMACRAB:
 		Categories: Creep
 
 jfish:
-	Inherits: ^HoverVehicle
+	Inherits: ^Visceroid
 	Inherits@1: ^AutoTargetGroundAssaultMove
 	Tooltip:
 		Name: Floater
@@ -447,21 +447,26 @@ jfish:
 		Sequence: stand
 	-WithFacingSpriteBody:
 	WithSpriteBody:
+	Hovers:
 	Mobile:
+		Locomotor: Hover
 		Speed: 100
-	Voiced:
-		VoiceSet: Fiend
 	Targetable:
 		TargetTypes: Infantry, Ground, NeutralTibCritter, CloudInmune
 	Armament:
-		Weapon: Tentacle
+		Weapon: JellyAttackPrepare
+	GrantConditionOnAttack@JellyAttackPrepare:
+		Condition: attack
+		ArmamentNames: primary
+	ExplodeWeapon@ElectricTentacle:
+		Weapon: ElectricTentacle
+		RequiresCondition: attack
+		RevokeDelay: 40
 	AutoTarget:
 		ScanRadius: 6
+		InitialStance: AttackAnything
 	WithAttackAnimation:
 		Sequence: attack
-	Explodes:
-		Weapon: UnitExplodeSmall
-		EmptyWeapon: UnitExplodeSmall
 	AttackFrontal:
 		Voice: Attack
 	AttackWander:
@@ -469,8 +474,6 @@ jfish:
 		ReduceMoveRadiusDelay: 5
 		MinMoveDelay: 100
 		MaxMoveDelay: 200
-	-DamagedByTintedCells@Default:
-	-DamagedByTintedCells@OrangeRadiation:
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
@@ -479,6 +482,15 @@ jfish:
 		Categories: Creep
 	RenderSprites:
 		Image: floater
+	LeavesTrails:
+		Image: wake
+		Palette: effect
+		TerrainTypes: Water
+		StationaryInterval: 18
+		MovingInterval: 6
+	Explodes@VisceroidDefault:
+		Weapon: JellyExplode
+		EmptyWeapon: JellyExplode
 
 MINIVEIN:
 	Inherits: ^NonBuildingStaticActor
