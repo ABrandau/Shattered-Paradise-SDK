@@ -1479,6 +1479,7 @@ PDRONE:
 		Weapon: DroneExplode
 		EmptyWeapon: DroneExplode
 	-WithDeathAnimation@tib:
+	-SpawnActorOnDeath@conversion:
 
 GLAD:
 	Inherits: ^Cyborg
@@ -1776,6 +1777,45 @@ CYBDOG:
 	-DamagedByTerrain:
 	DeliversCash:
 		Payload: 75
+
+WORKERMECH:
+	Inherits: ^CabalDroneInfantry
+	Inherits@2: ^CabRender
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Worker Unit
+	Health:
+		HP: 7000
+	Mobile:
+		Speed: 60
+	Voiced:
+		VoiceSet: Limpet
+	Armor@worker:
+		Type: Worker
+	DeliversCash:
+		Payload: 350
+		Voice: Move
+	BodyOrientation:
+		QuantizedFacings: 32
+	WithInfantryBody:
+	Turreted:
+		TurnSpeed: 30
+	AttackTurreted:
+		Voice: Attack
+	WithSpriteTurret:
+		Recoils: true
+	Armament@1:
+		Weapon: WorkerMinigun
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2:
+		Weapon: GWorkerMinigun
+		PauseOnCondition: WebDisable
+	Selectable:
+		Bounds: 25, 22, 0, -5
+	-SpawnActorOnDeath@nanomachineburst:
+	-SpawnActorOnDeath@conversion:
 
 FLAMEGUY:
 	Inherits@1: ^ExistsInWorld
