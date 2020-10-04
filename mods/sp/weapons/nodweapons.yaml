@@ -426,7 +426,7 @@ HarpyClawBulletAA:
 
 Proton:
 	Inherits: ^APWarhead
-	Inherits@2: ^Small_Bang
+	Inherits@2: ^GreenPlasmaExplosion
 	ReloadDelay: 75
 	Range: 5c512
 	MinRange: 0c100
@@ -443,10 +443,10 @@ Proton:
 		TerrainHeightAware: true
 		RangeLimit: 15c0
 		Blockable: false
-		Shadow: true
+		Shadow: false
 		Inaccuracy: 0
-		Palette: effect
-		Image: TORPEDO
+		Palette: jascgreen
+		Image: greenplasma2
 		HorizontalRateOfTurn: 15
 		VerticalRateOfTurn: 15
 	Warhead@1Dam: SpreadDamage
@@ -454,8 +454,8 @@ Proton:
 		Damage: 5000
 		Versus:
 			InfantryArmor: 100
-		ValidTargets: Ground, Water, water, Infantry, Vehicle, Building
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building
+		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
 
 ProtonAA:
 	Inherits: Proton
@@ -478,6 +478,7 @@ ProtonAA:
 		Spread: 128
 		Damage: 3000
 		ValidTargets: Air
+
 #Unused
 CerberusLazor:
 	Inherits: BCLazor

@@ -150,7 +150,7 @@
 		Explosions: wrecksmoke, wrecksmoke2
 		ExplosionPalette: gensmkexploj
 		InvalidTargets: Water
-		ValidTargets: Groun
+		ValidTargets: Ground
 		ImpactActors: false
 
 ^Small_Brnl:
@@ -434,3 +434,14 @@
 	Warhead@6Eff: CreateEffect
 		Explosions: fire1, fire2, fire3
 		ExplosionPalette: FlameEffectPal
+
+^GreenPlasmaExplosion:
+	Warhead@2Eff: CreateEffect
+		Explosions: plasmaballexplosion
+		ImpactSounds: expnew12.aud
+		ValidTargets: Ground, Air, Water
+		ExplosionPalette: gensmkexplogreen
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall, Air, Water
+		ImpactActors: false
