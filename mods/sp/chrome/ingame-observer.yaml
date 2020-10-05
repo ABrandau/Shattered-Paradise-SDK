@@ -1,7 +1,32 @@
 Container@OBSERVER_WIDGETS:
 	Logic: MenuButtonsChromeLogic
 	Children:
+		SupportPowerTimerAS@SUPPORT_POWER_TIMER:
+			X: WINDOW_RIGHT - WIDTH - 260
+			Align: Right
+			Format: {1} : {0}
+			Order: Descending
 		LogicKeyListener@OBSERVER_KEY_LISTENER:
+		Container@MUTE_INDICATOR:
+			Logic: MuteIndicatorLogic
+			X: (WINDOW_RIGHT / 2) - 156
+			Y: 30
+			Width: 200
+			Height: 25
+			Children:
+				Image@ICON:
+					X: PARENT_RIGHT - WIDTH
+					Y: 1
+					Width: 24
+					Height: 24
+					ImageCollection: sidebar-bits
+					ImageName: indicator-muted
+				Label@LABEL:
+					Width: PARENT_RIGHT - 30
+					Height: 25
+					Align: Right
+					Text: Audio Muted
+					Contrast: true
 		MenuButton@OPTIONS_BUTTON:
 			X: 5
 			Y: 5
