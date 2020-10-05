@@ -271,7 +271,7 @@ SCRINREINFPAD:
 	Tooltip:
 		Name: Scrin Replicator
 	TooltipDescription:
-		Description: Builds a main battle tanks periodically.
+		Description: Builds a main battle tank periodically.
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3, 3
@@ -289,53 +289,72 @@ SCRINREINFPAD:
 		Sequence: idle-roof
 	WithIdleOverlay@production:
 		Sequence: production-lights
-		RequiresCondition: BuildStuffGDI || BuildStuffNOD || BuildStuffMUT || BuildStuffCAB || BuildStuffSCR
+		RequiresCondition: enabled && (BuildStuffGDI || BuildStuffNOD || BuildStuffMUT || BuildStuffCAB || BuildStuffSCR)
 	Exit@1:
 		SpawnOffset: 0,-256,0
-		ExitCell: 2,2
+		ExitCell: 1,2
 		ExitDelay: 5
 	Production:
-		Produces: Vehicle
-	GrantConditionOnPrerequisite@GDI:
+		Produces: Replicator
+	GrantConditionOnFaction@GDI:
 		Condition: BuildStuffGDI
-		Prerequisites: structures.gdi
-	GrantConditionOnPrerequisite@NOD:
+		Factions: gdi
+		ResetOnOwnerChange: true
+	GrantConditionOnFaction@NOD:
 		Condition: BuildStuffNOD
-		Prerequisites: structures.nod
-	GrantConditionOnPrerequisite@MUT:
+		Factions: nod
+		ResetOnOwnerChange: true
+	GrantConditionOnFaction@MUT:
 		Condition: BuildStuffMUT
-		Prerequisites: structures.mut
-	GrantConditionOnPrerequisite@CAB:
+		Factions: mut
+		ResetOnOwnerChange: true
+	GrantConditionOnFaction@CAB:
 		Condition: BuildStuffCAB
-		Prerequisites: structures.cab
-	GrantConditionOnPrerequisite@SCR:
+		Factions: cab
+		ResetOnOwnerChange: true
+	GrantConditionOnFaction@SCR:
 		Condition: BuildStuffSCR
-		Prerequisites: structures.scr
+		Factions: scr
+		ResetOnOwnerChange: true
 	PeriodicProducer@GDI:
 		Actors: mmch
-		Type: Vehicle
+		Type: Replicator
 		ChargeDuration: 3000
-		RequiresCondition: BuildStuffGDI
+		ShowSelectionBar: true
+		ChargeColor: FF00FF
+		RequiresCondition: enabled && BuildStuffGDI
 	PeriodicProducer@NOD:
 		Actors: ttnk
-		Type: Vehicle
+		Type: Replicator
 		ChargeDuration: 3000
-		RequiresCondition: BuildStuffNOD
+		ShowSelectionBar: true
+		ChargeColor: FF00FF
+		RequiresCondition: enabled && BuildStuffNOD
 	PeriodicProducer@mut:
 		Actors: lynx
-		Type: Vehicle
+		Type: Replicator
 		ChargeDuration: 3000
-		RequiresCondition: BuildStuffMUT
+		ShowSelectionBar: true
+		ChargeColor: FF00FF
+		RequiresCondition: enabled && BuildStuffMUT
 	PeriodicProducer@cab:
 		Actors: reapercab
-		Type: Vehicle
+		Type: Replicator
 		ChargeDuration: 3000
-		RequiresCondition: BuildStuffCAB
+		ShowSelectionBar: true
+		ChargeColor: FF00FF
+		RequiresCondition: enabled && BuildStuffCAB
 	PeriodicProducer@scr:
 		Actors: scrmbt
-		Type: Vehicle
+		Type: Replicator
 		ChargeDuration: 3000
-		RequiresCondition: BuildStuffSCR
+		ShowSelectionBar: true
+		ChargeColor: FF00FF
+		RequiresCondition: enabled && BuildStuffSCR
+	GrantConditionOnCombatantOwner:
+		Condition: enabled
+	IsometricSelectable:
+		DecorationHeight: 48
 
 NEUTRALSONICTUR:
 	Inherits: ^TechBuilding
