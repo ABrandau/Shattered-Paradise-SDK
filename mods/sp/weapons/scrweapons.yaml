@@ -413,6 +413,9 @@ TripodBlast:
 		ImpactActors: false
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+
 TripodDebris:
 	Inherits: SmallDebris
 	Range: 2c60
@@ -420,6 +423,7 @@ TripodDebris:
 		Image: sparkprojectile
 		Palette: jascbluealpha
 		Sequences: idle
+	-Warhead@2Eff:
 	Warhead@smoke: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
 	Warhead@2: SpawnSmokeParticle
