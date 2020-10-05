@@ -1,6 +1,7 @@
 LIMPED:
 	Inherits: ^HoverVehicle
 	Inherits@1: ^8CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -9,6 +10,8 @@ LIMPED:
 		HP: 10000
 	Mobile:
 		Speed: 55
+		TurnSpeed: 1023
+		Locomotor: Hover
 	-WithFacingSpriteBody:
 	Voiced:
 		VoiceSet: Limpet
@@ -46,6 +49,15 @@ LIMPED:
 	WithSpriteBody@DeloyedBody:
 		Sequence: deployed
 		RequiresCondition: !undeployed
+	### AI Control
+	Wanders@AI:
+		RequiresCondition: AImicroManage
+		WanderMoveRadius: 15
+		MinMoveDelay: 1000
+		MaxMoveDelay: 1200
+	AIDeployHelper:
+		DeployTrigger: Periodically
+		DeployTicks: 500
 
 GHOST:
 	Inherits: ^Mutant

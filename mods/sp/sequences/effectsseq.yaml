@@ -151,6 +151,12 @@ explosion:
 	sparks: sparks
 	sparks2: sparks2
 	sparks3: sparks3
+	emp_fx01: emp_fx01
+		Length: *
+		Offset: 0, 0, 37
+		UseTilesetCode: false
+		BlendMode: Additive
+	plasmaballexplosion: plasmaballexplosion ## It is the emp + marnflash1, in doing so can save lots of batches
 	fsidlewall: fsidle
 		Offset: 0,-90, 90
 		Tick: 35
@@ -1003,7 +1009,10 @@ greenplasma:
 greenplasmamini:
 	idle:
 		Facings: 32
-
+greenplasma2:
+	idle:
+		Length: *
+		ZOffset: 1023
 blueballmini:
 	idle:
 		Facings: 1

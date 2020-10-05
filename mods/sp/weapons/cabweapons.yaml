@@ -187,7 +187,8 @@ LurkerHit:
 
 CyCannon:
 	Inherits: ^APWarhead
-	Inherits: ^Mediuml_Clsn
+	Inherits@2: ^GreenPlasmaExplosion
+	Inherits@3: ^MarnFlash6
 	ReloadDelay: 75
 	Range: 8c0
 	Report: scrin5b.aud
@@ -197,12 +198,12 @@ CyCannon:
 		TerrainHeightAware: true
 		Speed: 350
 		Acceleration: 50
-		Shadow: true
-		Palette: effect
-		Image: TORPEDO
-		ContrailLength: 10
-		ContrailColor: 0cd957
-		ContrailWidth: 0c35
+		Shadow: false
+		Palette: jascgreen
+		Image: greenplasma2
+		ContrailLength: 20
+		ContrailColor: 0CD95740
+		ContrailWidth: 0c90
 	Warhead@1Dam: SpreadDamage
 		Spread: 350
 		Damage: 30000
@@ -214,19 +215,10 @@ CyCannon:
 			DefenseArmor: 100
 			ConcreteArmor: 35
 		DamageTypes: Prone350Percent, TriggerProne, EnergyDeath
-	Warhead@2Eff: CreateEffect
-		Explosions: large_bang
-		ImpactSounds: expnew12.aud
-		InvalidTargets: Water
-		ExplosionPalette: FlameEffectPal
-	Warhead@3EffWater: CreateEffect
-		Explosions: small_watersplash
-		ExplosionPalette: player
-		ImpactSounds: ssplash3.aud
-		ValidTargets: Water
-	Warhead@4Smu: LeaveSmudge
-		SmudgeType: SmallScorch
-		InvalidTargets: Vehicle, Building, Wall
+	Warhead@3Eff: CreateEffect
+		ExplosionPalette: gensmkexplogreen
+		Explosions: sparks
+		ImpactActors: false
 
 WorkerMinigun:
 	Inherits: ^RifleWarhead
@@ -595,7 +587,7 @@ CabJetMiniBomb:
 
 BlasterProton:
 	Inherits: ^FullDamage
-	Inherits@2: ^Small_Clsn
+	Inherits@2: ^GreenPlasmaExplosion
 	ReloadDelay: 100
 	Burst: 5
 	Range: 11c0
@@ -605,13 +597,14 @@ BlasterProton:
 	Projectile: BulletAS
 		Speed: 450
 		Blockable: false
-		Shadow: true
+		Shadow: false
 		Inaccuracy: 1c0
 		LaunchAngle: 120
-		Image: TORPEDO
-		ContrailLength: 10
-		ContrailColor: 0cd957
-		ContrailWidth: 0c35
+		Palette: jascgreen
+		Image: greenplasma2
+		ContrailLength: 7
+		ContrailColor: 0CD95730
+		ContrailWidth: 0c90
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c500
 		Damage: 6000
@@ -620,7 +613,7 @@ BlasterProton:
 			DefenseArmor: 50
 			VehicleArmor: 100
 		ValidTargets: Ground, Water, Vehicle, Infantry, water
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
 
 CABRAILAA:
 	ReloadDelay: 50
