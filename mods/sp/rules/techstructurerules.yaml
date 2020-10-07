@@ -48,17 +48,17 @@ NEUTRALFABRICATORDEP:
 		Facing: 888
 		DeployCursor: undeploy
 	TransformsIntoMobile:
-		RequiresCondition: !Building-Buildup
+		RequiresCondition: !Building-Buildup && Campaign
 		Locomotor: InfantryCrusherVehicle
 		Voice: Move
 		RequiresForceMove: true
 	TransformsIntoRepairable:
-		RequiresCondition: !Building-Buildup
+		RequiresCondition: !Building-Buildup && Campaign
 		RepairActors: gadept, scrdepot
 		Voice: Move
 		RequiresForceMove: true
 	TransformsIntoPassenger:
-		RequiresCondition: !Building-Buildup
+		RequiresCondition: !Building-Buildup && Campaign
 		CargoType: Vehicle
 		Voice: Move
 		RequiresForceMove: true
@@ -503,3 +503,54 @@ CIVHELI:
 		PlayerPalette: playerunittem
 	WithIdleOverlay:
 		Sequence: flag
+
+SGEN:
+	Inherits: ^VoxelVehicle
+	Valued:
+		Cost: 1100
+	Tooltip:
+		Name: Mobile Stealth Generator
+	Mobile:
+		TurnSpeed: 2#6
+		Speed: 90
+	RenderVoxels:
+	Health:
+		HP: 20000
+	Transforms:
+		IntoActor: mastl
+		Facing: 96
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+	Carryable:
+
+MASTL:
+	Inherits: ^DeployedVehicle
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Deployed Stealth Generator
+	Health:
+		HP: 25000
+	-AttackTurreted:
+	-AutoTarget:
+	-RenderRangeCircle:
+	WithRangeCircle:
+		Range: 6c0
+		Type: cloakgenerator
+	Selectable:
+		Priority: 6
+	BodyOrientation:
+		QuantizedFacings: 32
+	Transforms:
+		IntoActor: sgen
+		Facing: 96
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+	ProximityExternalCondition:
+		Condition: cloakgenerator
+		Range: 5c0
+		EnableSound: cloak5.aud
+		DisableSound: cloak5.aud
+		AffectsParent: true

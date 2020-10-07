@@ -208,62 +208,6 @@ GAPLUG3:
 	# RequiresBuildableArea:
 	# 	AreaTypes: building
 
-MASTL:
-	Inherits: ^DeployedVehicle
-	Valued:
-		Cost: 800
-	Tooltip:
-		Name: Deployed Stealth Generator
-	Health:
-		HP: 25000
-	-AttackTurreted:
-	-AutoTarget:
-	-RenderRangeCircle:
-	WithRangeCircle:
-		Range: 6c0
-		Type: cloakgenerator
-	Selectable:
-		Priority: 6
-	BodyOrientation:
-		QuantizedFacings: 32
-	Transforms:
-		IntoActor: sgen
-		Facing: 96
-		TransformSounds: place2.aud
-		NoTransformSounds:
-		Voice: Move
-	ProximityExternalCondition:
-		Condition: cloakgenerator
-		Range: 5c0
-		EnableSound: cloak5.aud
-		DisableSound: cloak5.aud
-		AffectsParent: true
-
-DLIMPET:
-	Inherits: ^DeployedVehicle
-	Inherits@1: ^12CellVision
-	Valued:
-		Cost: 800
-	Tooltip:
-		Name: Deployed Scout Drone
-	Health:
-		HP: 10000
-	Voiced:
-		VoiceSet: Limpet
-	-AttackTurreted:
-	-AutoTarget:
-	-RenderRangeCircle:
-	BodyOrientation:
-		QuantizedFacings: 32
-	Transforms:
-		IntoActor: limped
-		Facing: 96
-		TransformSounds: place2.aud
-		NoTransformSounds:
-		Voice: Move
-	Selectable:
-		Bounds: 30, 30, 0, 12
-
 GAARTY:
 	Inherits@1: ^DeployedVehicle
 	Valued:
@@ -624,32 +568,6 @@ REPAIR:
 		Voice: Attack
 	-GainsExperience:
 
-SGEN:
-	Inherits: ^VoxelVehicle
-	Valued:
-		Cost: 1100
-	Tooltip:
-		Name: Mobile Stealth Generator
-	Mobile:
-		TurnSpeed: 2#6
-		Speed: 90
-	RenderVoxels:
-	Health:
-		HP: 20000
-	Transforms:
-		IntoActor: mastl
-		Facing: 96
-		TransformSounds: place2.aud
-		NoTransformSounds:
-		Voice: Move
-	Carryable:
-
-ART2:
-	Inherits: HOWTLIZER
-	-Buildable:
-	RenderSprites:
-		Image: howtlizer
-
 SCRINCOUNCIL:
 	Inherits: ^CombatHelicopter
 	Inherits@2: ^ScrinRender
@@ -697,38 +615,3 @@ SCRINCOUNCIL:
 		Palette: apolbluealpha60
 	ProvidesPrerequisite:
 		Prerequisite: scrweap
-
-	# SCRDRONEC:
-	# Inherits@1: ^AutoTargetGround
-	# Inherits@2: ^HoverVehicle
-	# Inherits: ^ScrinVehicle
-	# Valued:
-	# 	Cost: 950
-	# Tooltip:
-	# 	Name: Vanguard
-	# Health:
-	# 	HP: 25000
-	# Mobile:
-	# 	Speed: 80
-	# RenderSprites:
-	# -WithIdleOverlay@shield:
-	# WithFacingSpriteBody:
-	# -Cloak@CLOAKGENERATOR:
-	# BodyOrientation:
-	# 	QuantizedFacings: 32
-	# -Targetable@Shield:
-	# AttackFrontal:
-	# 	PauseOnCondition: empdisable
-	# Armament:
-	# 	Weapon: VanguardShrapnel
-	# 	TargetStances: Ally
-	# ProximityExternalCondition@VanguardShield:
-	# 	Condition: VanguardShield
-	# 	# Range: 3c0 # 2c0
-	# 	AffectsParent: false
-	# WithRangeCircle:
-	# 	Range: 3c0
-	# 	Type: VanguardShield
-	# Targetable:
-	# 	TargetTypes: Ground, Vehicle
-	# AutoTarget:
