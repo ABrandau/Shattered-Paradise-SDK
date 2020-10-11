@@ -62,81 +62,63 @@ zombie:
 		Facings: 8
 		ShadowStart: 378
 
-weasau4:
+weasau:
 	Inherits: ^InfantryDeathAnims
-	Defaults:
-		Tick: 80
 	stand:
 		Facings: 8
-		ShadowStart: 951
+		ShadowStart: 1066
 	run:
 		Start: 8
 		Length: 12
 		Facings: 8
-		ShadowStart: 959
-	shoot:
+		ShadowStart: 1074
+	melee:
 		Start: 104
 		Length: 21
 		Facings: 8
-		ShadowStart: 1055
-	idle1:
-		Start: 89
-		Length: 17
-		ShadowStart: 327
-	idle2:
-		Start: 71
-		Length: 15
-		ShadowStart: 344
-	die1:
-		Start: 204
-		Length: 9
-		ShadowStart: 442
-	die2:
-		Start: 230
-		Length: 9
-		ShadowStart: 451
-	die-crushed:
-		Start: 204
-		Length: 10
-		ShadowStart: 442
-
-weasau2:
-	Inherits: weasau4
-
-weasaumayor:
-	stand:
-		Facings: 8
-		ShadowStart: 951
-	run:
-		Start: 8
-		Length: 12
-		Facings: 8
-		ShadowStart: 959
+		ShadowStart: 1170
 	shoot:
 		Start: 104
-		Length: 21
+		Length: 6
+		Stride: 21
 		Facings: 8
-		ShadowStart: 1055
+		ShadowStart: 1170
 	idle1:
 		Start: 272
-		Length: 78
-		ShadowStart: 327
+		Length: 128
+		ShadowStart: 1338
    	idle2:
 		Start: 799
-		Length: 149
-		ShadowStart: 344
+		Length: 151
+		ShadowStart: 1866
   	die1:
 		Start: 950
 		Length: 49
-		ShadowStart: 442
+		ShadowStart: 2017
 	die2:
 		Start: 1001
-		Length: 9
-		ShadowStart: 451
+		Length: 65
+		ShadowStart: 2067
 	die-crushed:
-		Start: 1001
-		Length: 9
-		ShadowStart: 451
+		Start: 1065
+		Length: 1
+		ShadowStart: 2131
+		Tick: 2000
+
+weasaugreen:
+    Inherits: weasau
+	run:
+		Tick: 90
+
+weasaublue:
+    Inherits: weasau
+	run:
+		Tick: 100
+
+weasaublue2:
+    Inherits: weasau
+	run:
+		Tick: 100
 
 berserker:
 	Inherits: ^InfantryDeathAnims

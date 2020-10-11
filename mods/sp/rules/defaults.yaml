@@ -275,72 +275,82 @@
 	GainsExperience:
 		LevelUpNotification: LevelUp
 		Conditions:
-			200: rank-veteran
-			400: rank-veteran
-			650: rank-veteran
+			200: rank-promotion
+			400: rank-promotion
+			600: rank-promotion
 		LevelUpImage: crate-effects
-	GrantCondition@RANK-ELITE:
-		RequiresCondition: rank-veteran >= 3
+	GrantCondition@rank-veteran:
+		RequiresCondition: rank-promotion == 1
+		Condition: rank-veteran
+	GrantCondition@rank-elite:
+		RequiresCondition: rank-promotion == 2
 		Condition: rank-elite
-	DamageMultiplier@RANK-1:
-		RequiresCondition: rank-veteran == 1
+	GrantCondition@rank-heroic:
+		RequiresCondition: rank-promotion >= 3
+		Condition: rank-heroic
+	DamageMultiplier@rank-veteran:
+		RequiresCondition: rank-veteran
 		Modifier: 90
-	DamageMultiplier@RANK-2:
-		RequiresCondition: rank-veteran == 2
-		Modifier: 80
-	DamageMultiplier@RANK-ELITE:
+	DamageMultiplier@rank-elite:
 		RequiresCondition: rank-elite
+		Modifier: 80
+	DamageMultiplier@rank-heroic:
+		RequiresCondition: rank-heroic
 		Modifier: 70
-	FirepowerMultiplier@RANK-1:
-		RequiresCondition: rank-veteran == 1
+	FirepowerMultiplier@rank-veteran:
+		RequiresCondition: rank-veteran
 		Modifier: 110
-	FirepowerMultiplier@RANK-2:
-		RequiresCondition: rank-veteran == 2
+	FirepowerMultiplier@rank-elite:
+		RequiresCondition: rank-elite
 		Modifier: 120
-	FirepowerMultiplier@RANK-ELITE:
-		RequiresCondition: rank-elite
+	FirepowerMultiplier@rank-heroic:
+		RequiresCondition: rank-heroic
 		Modifier: 130
-	ReloadDelayMultiplier@RANK-1:
-		RequiresCondition: rank-veteran == 1
+	ReloadDelayMultiplier@rank-veteran:
+		RequiresCondition: rank-veteran
 		Modifier: 90
-	ReloadDelayMultiplier@RANK-2:
-		RequiresCondition: rank-veteran == 2
+	ReloadDelayMultiplier@rank-elite:
+		RequiresCondition: rank-elite
 		Modifier: 80
-	ReloadDelayMultiplier@RANK-ELITE:
-		RequiresCondition: rank-elite
+	ReloadDelayMultiplier@rank-heroic:
+		RequiresCondition: rank-heroic
 		Modifier: 70
-	SpeedMultiplier@RANK-ELITE:
-		RequiresCondition: rank-elite
+	SpeedMultiplier@rank-heroic:
+		RequiresCondition: rank-heroic
 		Modifier: 130
-	ChangesHealth@ELITE:
-		PercentageStep: 5
-		Delay: 75
+	ChangesHealth@rank-heroic:
+		PercentageStep: 2
+		Delay: 100
 		StartIfBelow: 100
-		DamageCooldown: 150
-		RequiresCondition: rank-elite
-	WithDecoration@RANK-1:
+		DamageCooldown: 0
+		RequiresCondition: rank-heroic
+	RevealsShroudMultiplier@rank-heroic:
+		RequiresCondition: rank-heroic
+		Modifier: 130
+	RangeMultiplier@rank-heroic:
+		RequiresCondition: rank-heroic
+		Modifier: 130
+	WithDecoration@rank-veteran:
 		Image: rank
-		Sequence: rank-veteran-1
+		Sequence: rank-veteran
 		Palette: pips
 		Position: BottomRight
-		RequiresCondition: rank-veteran == 1
+		RequiresCondition: rank-veteran
 		ValidStances: Ally, Enemy, Neutral
-	WithDecoration@RANK-2:
-		Image: rank
-		Sequence: rank-veteran-2
-		Palette: pips
-		Position: BottomRight
-		RequiresCondition: rank-veteran == 2
-		ValidStances: Ally, Enemy, Neutral
-	WithDecoration@RANK-ELITE:
+	WithDecoration@rank-elite:
 		Image: rank
 		Sequence: rank-elite
 		Palette: pips
 		Position: BottomRight
 		RequiresCondition: rank-elite
 		ValidStances: Ally, Enemy, Neutral
-	Targetable@Academy:
-		TargetTypes: CanTakeVeterancyPower
+	WithDecoration@rank-heroic:
+		Image: rank
+		Sequence: rank-heroic
+		Palette: pips
+		Position: BottomRight
+		RequiresCondition: rank-heroic
+		ValidStances: Ally, Enemy, Neutral
 	GainsExperienceMultiplier@armory:
 		Modifier: 150
 		RequiresCondition: ArmoryBuff

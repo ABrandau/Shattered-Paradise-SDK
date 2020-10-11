@@ -6,8 +6,6 @@ DOGGIE:
 		HP: 250
 	Armor:
 		Type: InfantryArmor
-	-RevealsShroud:
-	-GainsExperience:
 	Mobile:
 		Speed: 120
 	Voiced:
@@ -27,61 +25,83 @@ DOGGIE:
 		IdleSequences: idle1
 	MapEditorData:
 		Categories: Creep
+	-GrantCondition@rank-veteran:
+	-GrantCondition@rank-elite:
+	-GrantCondition@rank-heroic:
+	-DamageMultiplier@rank-veteran:
+	-DamageMultiplier@rank-elite:
+	-DamageMultiplier@rank-heroic:
+	-FirepowerMultiplier@rank-veteran:
+	-FirepowerMultiplier@rank-elite:
+	-FirepowerMultiplier@rank-heroic:
+	-ReloadDelayMultiplier@rank-veteran:
+	-ReloadDelayMultiplier@rank-elite:
+	-ReloadDelayMultiplier@rank-heroic:
+	-SpeedMultiplier@rank-heroic:
+	-ChangesHealth@rank-heroic:
+	-WithDecoration@rank-veteran:
+	-WithDecoration@rank-elite:
+	-WithDecoration@rank-heroic:
+	-GainsExperienceMultiplier@armory:
+	-GrantConditionOnPrerequisite@ArmoryBuff:
 
-WEASAU4:
+WEASAU:
 	Inherits: ^Beast
+	Inherits@2: ^6CellVision
 	Tooltip:
-		Name: Weasaurus minor
+		Name: Baby Weasaurus
 	Health:
 		HP: 25000
 	Armor:
 		Type: InfantryArmor
-	-RevealsShroud:
-	-GainsExperience:
 	Mobile:
-		Speed: 80
+		Speed: 130
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
 		TargetTypes: Infantry, Ground
 	Armament:
-		Weapon: WeasaurusShard
-		LocalOffset: 300,0,400
-	Armament@1:
-		Weapon: WeasaurusShard
-		LocalOffset: 300,0,400
-	Armament@2:
-		Weapon: WeasaurusShard
-		LocalOffset: 300,0,400
-	Armament@3:
-		Weapon: WeasaurusShard
-	Armament@4:
-		Weapon: WeasaurusShard
-	Armament@5:
-		Weapon: WeasaurusShard
+		Weapon: WeasauBabyStrike
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
-	AttackWander:
-		WanderMoveRadius: 2
-		MinMoveDelay: 25
-		MaxMoveDelay: 45
 	WithInfantryBody:
 		IdleSequences: idle1
+        AttackSequences: melee
 	MapEditorData:
 		Categories: Creep
 	WithDeathAnimation@normal:
 		DeathSequencePalette: orgatem
 	RenderSprites:
-		Palette: orgatem
-WEASAU2:
-	Inherits: WEASAU4
+		Palette: orgatemgreen
+	-GrantCondition@rank-veteran:
+	-GrantCondition@rank-elite:
+	-GrantCondition@rank-heroic:
+	-DamageMultiplier@rank-veteran:
+	-DamageMultiplier@rank-elite:
+	-DamageMultiplier@rank-heroic:
+	-FirepowerMultiplier@rank-veteran:
+	-FirepowerMultiplier@rank-elite:
+	-FirepowerMultiplier@rank-heroic:
+	-ReloadDelayMultiplier@rank-veteran:
+	-ReloadDelayMultiplier@rank-elite:
+	-ReloadDelayMultiplier@rank-heroic:
+	-SpeedMultiplier@rank-heroic:
+	-ChangesHealth@rank-heroic:
+	-WithDecoration@rank-veteran:
+	-WithDecoration@rank-elite:
+	-WithDecoration@rank-heroic:
+	-GainsExperienceMultiplier@armory:
+	-GrantConditionOnPrerequisite@ArmoryBuff:
+
+WEASAUGREEN:
+	Inherits: WEASAU
 	Tooltip:
-		Name: Weasaurus
+		Name: Weasaurus 
 	Health:
-		HP: 75000
+		HP: 10000
 	Mobile:
-		Speed: 50
+		Speed: 80
 	Armament:
 		Weapon: WeasaurusShard
 		LocalOffset: 700,0,700
@@ -97,20 +117,48 @@ WEASAU2:
 	Armament@4:
 		Weapon: WeasaurusShard
 		LocalOffset: 700,0,700
-	Armament@5:
-		Weapon: WeasaurusShard
+	WithInfantryBody:
+		IdleSequences: idle1
+        AttackSequences: shoot
+
+WEASAUBLUE:
+	Inherits: WEASAU
+	Tooltip:
+		Name: Weasaurus Mayor
+	Health:
+		HP: 150000
+	Mobile:
+		Speed: 90
+	Armament:
+		Weapon: WeasauBlueStrike
+	RenderSprites:
+		Palette: orgatemblue
+
+WEASAUBLUE2:
+	Inherits: WEASAUGREEN
+	Inherits@2: ^PermanentSelfHeal
+	Tooltip:
+		Name: Weasaurus Patriarch
+	Health:
+		HP: 150000
+	Mobile:
+		Speed: 70
+	RenderSprites:
+		Palette: orgatemblue
+	Armament:
+		Weapon: WeasaurusBlueShard
 		LocalOffset: 700,0,700
-	Armament@6:
-		Weapon: WeasaurusShard
+	Armament@1:
+		Weapon: WeasaurusBlueShard
 		LocalOffset: 700,0,700
-	Armament@7:
-		Weapon: WeasaurusShard
+	Armament@2:
+		Weapon: WeasaurusBlueShard
 		LocalOffset: 700,0,700
-	Armament@8:
-		Weapon: WeasaurusShard
+	Armament@3:
+		Weapon: WeasaurusBlueShard
 		LocalOffset: 700,0,700
-	Armament@9:
-		Weapon: WeasaurusShard
+	Armament@4:
+		Weapon: WeasaurusBlueShard
 		LocalOffset: 700,0,700
 
 VISC_SML:
@@ -215,7 +263,6 @@ ZOMBIE:
 	Inherits: ^Mutant
 	Tooltip:
 		Name: Haunt
-	-GainsExperience:
 	Valued:
 		Cost: 50
 	Health:
@@ -262,6 +309,25 @@ ZOMBIE:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
 	MapEditorData:
 		Categories: Creep
+	-GrantCondition@rank-veteran:
+	-GrantCondition@rank-elite:
+	-GrantCondition@rank-heroic:
+	-DamageMultiplier@rank-veteran:
+	-DamageMultiplier@rank-elite:
+	-DamageMultiplier@rank-heroic:
+	-FirepowerMultiplier@rank-veteran:
+	-FirepowerMultiplier@rank-elite:
+	-FirepowerMultiplier@rank-heroic:
+	-ReloadDelayMultiplier@rank-veteran:
+	-ReloadDelayMultiplier@rank-elite:
+	-ReloadDelayMultiplier@rank-heroic:
+	-SpeedMultiplier@rank-heroic:
+	-ChangesHealth@rank-heroic:
+	-WithDecoration@rank-veteran:
+	-WithDecoration@rank-elite:
+	-WithDecoration@rank-heroic:
+	-GainsExperienceMultiplier@armory:
+	-GrantConditionOnPrerequisite@ArmoryBuff:
 
 BERSERKER:
 	Inherits: ^Mutant
@@ -402,11 +468,29 @@ CRAB:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
 	-SpawnActorOnDeath@conversion:
 	-Crushable:
-	-GainsExperience:
 	-DamagedByTintedCells@Default:
  	-WithDeathAnimation@blood1:
 	MapEditorData:
 		Categories: Creep
+	-GrantCondition@rank-veteran:
+	-GrantCondition@rank-elite:
+	-GrantCondition@rank-heroic:
+	-DamageMultiplier@rank-veteran:
+	-DamageMultiplier@rank-elite:
+	-DamageMultiplier@rank-heroic:
+	-FirepowerMultiplier@rank-veteran:
+	-FirepowerMultiplier@rank-elite:
+	-FirepowerMultiplier@rank-heroic:
+	-ReloadDelayMultiplier@rank-veteran:
+	-ReloadDelayMultiplier@rank-elite:
+	-ReloadDelayMultiplier@rank-heroic:
+	-SpeedMultiplier@rank-heroic:
+	-ChangesHealth@rank-heroic:
+	-WithDecoration@rank-veteran:
+	-WithDecoration@rank-elite:
+	-WithDecoration@rank-heroic:
+	-GainsExperienceMultiplier@armory:
+	-GrantConditionOnPrerequisite@ArmoryBuff:
 
 PERMACRAB:
 	Inherits: CRAB
