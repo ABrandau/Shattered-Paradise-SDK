@@ -17,9 +17,10 @@ Container@PLAYER_WIDGETS:
 					ClockPalette: iconclock
 					HotkeyPrefix: SupportPower
 					HotkeyCount: 6
-		SupportPowerTimer@SUPPORT_POWER_TIMER:
-			X: 80
-			Y: 10
+		SupportPowerTimerAS@SUPPORT_POWER_TIMER:
+			X: WINDOW_RIGHT - WIDTH - 240
+			Align: Right
+			Format: {1} : {0}
 			Order: Descending
 		Image@COMMAND_BAR_BACKGROUND:
 			Logic: AddFactionSuffixLogic
@@ -268,6 +269,26 @@ Container@PLAYER_WIDGETS:
 							Y: 5
 							ImageCollection: stance-icons
 							ImageName: hold-fire
+		Container@MUTE_INDICATOR:
+			Logic: MuteIndicatorLogic
+			X: (WINDOW_RIGHT / 2) - 156
+			Y: 30
+			Width: 200
+			Height: 25
+			Children:
+				Image@ICON:
+					X: PARENT_RIGHT - WIDTH
+					Y: 1
+					Width: 24
+					Height: 24
+					ImageCollection: sidebar-bits
+					ImageName: indicator-muted
+				Label@LABEL:
+					Width: PARENT_RIGHT - 30
+					Height: 25
+					Align: Right
+					Text: Audio Muted
+					Contrast: true
 		Image@SIDEBAR_BACKGROUND_TOP:
 			Logic: AddFactionSuffixLogic
 			X: WINDOW_RIGHT - 235
