@@ -362,6 +362,105 @@ CRATE:
 		Condition: speedcrate
 		Notification: UnitSpeedUpgraded
 
+
+GALITE:
+	Inherits: ^CivBuilding
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Light Post
+	RenderSprites:
+		Image: galite
+		Palette: terraindecoration
+	Health:
+		HP: 60000
+	Armor:
+		Type: BuildingArmor
+	RevealsShroud:
+		Range: 2c0
+		MaxHeightDelta: 3
+	Power:
+		Amount: 0
+	TerrainLightSource:
+		Range: 19c544
+		Intensity: 0.2
+		RedTint: 0.05
+		GreenTint: 0.05
+		BlueTint: 0.01
+
+REDLAMP:
+	Inherits: GALITE
+	Tooltip:
+		Name: Red Light Post
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: 0.01
+		RedTint: 1.5
+		GreenTint: 0.01
+		BlueTint: 0.01
+
+NEGRED:
+	Inherits: GALITE
+	Tooltip:
+		Name: Negative Red Light Post
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: -0.05
+		RedTint: -1.5
+		GreenTint: 0.01
+		BlueTint: 0.01
+
+GRENLAMP:
+	Inherits: GALITE
+	Tooltip:
+		Name: Green Light Post
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: 0.01
+		RedTint: 0.01
+		GreenTint: 1.5
+		BlueTint: 0.01
+
+BLUELAMP:
+	Inherits: GALITE
+	Tooltip:
+		Name: Blue Light Post
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: 0.01
+		RedTint: 0.01
+		GreenTint: 0.01
+		BlueTint: 0.7
+
+YELWLAMP:
+	Inherits: GALITE
+	Tooltip:
+		Name: Yellow Light Post
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: 0.01
+		RedTint: 1.5
+		GreenTint: 1.5
+		BlueTint: 0.01
+
+PURPLAMP:
+	Inherits: GALITE
+	Tooltip:
+		Name: Purple Light Post
+	TerrainLightSource:
+		Range: 11c736
+		Intensity: 0.01
+		RedTint: 2.0
+		GreenTint: 0.01
+		BlueTint: 2.0
+
+TSTLAMP:
+	Inherits: GALITE
+	-TerrainLightSource:
+	WithIdleOverlay@LIGHTING:
+		Sequence: lighting
+		Palette: alpha
+
 TUNTOP01:
 	Inherits: ^Tunnel
 	TunnelEntrance:

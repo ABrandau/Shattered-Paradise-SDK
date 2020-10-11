@@ -1982,77 +1982,97 @@ CITY22:
 	IsometricSelectable:
 		DecorationHeight: 72
 
-CTDAM:
+CPWRP:
 	Inherits: ^CivBuilding
-	Inherits@shape: ^2x5Shape
+	Inherits@2: ^4x3Shape
 	Tooltip:
-		Name: Hydroelectric Dam
+		Name: Power station
 	Building:
-		Footprint: xx xx xx xx xx
-		Dimensions: 2, 5
-	Power:
-		Amount: 200
-	PowerTooltip:
-	Armor:
-		Type: BuildingArmor
-	Health:
-		HP: 100000
-	ProvidesPrerequisite:
-		Prerequisite: anypower
-	MapEditorData:
-		ExcludeTilesets: SNOW
-	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
-	WithIdleOverlay@WATER:
-		Sequence: idle-water
-	ThrowsShrapnel@SMALL:
-		Pieces: 5, 9
-	ThrowsShrapnel@LARGE:
-		Pieces: 2, 4
-
-CTVEGA:
-	Inherits: ^CivBuilding
-	Inherits@shape: ^4x4Shape
-	Tooltip:
-		Name: Vega's Pyramid
-	Building:
-		Footprint: xxxx xxxx xxxx xxxx
-		Dimensions: 4, 4
-	Armor:
-		Type: none
-	Health:
-		HP: 10000
-	MapEditorData:
-		ExcludeTilesets: SNOW
-	ThrowsShrapnel@SMALL:
-		Pieces: 7, 9
-	ThrowsShrapnel@LARGE:
-		Pieces: 3, 4
-	IsometricSelectable:
-		DecorationHeight: 72
-
-GAKODK:
-	Inherits: ^CivBuilding
-	Inherits@shape: ^4x2Shape
-	HitShape:
-		TargetableOffsets: 0,0,0, -512,512,0, -950,1024,0
-	Tooltip:
-		Name: GDI Kodiak
-	Building:
-		Footprint: xxXX xxXX
-		Dimensions: 4, 2
-	Armor:
-		Type: BuildingArmor
+		Footprint: xxxx xxxx xxxx 
+		Dimensions: 4, 3
 	Health:
 		HP: 150000
 	RenderSprites:
-		Palette: player
-	WithIdleOverlay@LARGELIGHTS:
-		Sequence: large-lights
-	WithIdleOverlay@SMALLLIGHT:
-		Sequence: small-light
-	WithIdleOverlay@SMALLLIGHTS:
-		Sequence: small-lights
+		Palette: isotem
+
+CITY35:
+	Inherits: ^CivBuilding
+	Inherits@2: ^3x4Shape
+	Tooltip:
+		Name: Apartment complex
+	Building:
+		Footprint: xxx xxx xxx xxx
+		Dimensions: 3, 4
+	Health:
+		HP: 150000
+	RenderSprites:
+		Palette: isotem
+
+CARPUB:
+	Inherits: ^CivBuilding
+	Inherits@2: ^3x3Shape
+	Tooltip:
+		Name: Pub
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Health:
+		HP: 20000
+	RenderSprites:
+		-Palette:
+		PlayerPalette: playerunittem
+
+APARTMENT1:
+	Inherits: ^CivBuilding
+	Inherits@2: ^3x3Shape
+	Tooltip:
+		Name: Apartment
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Health:
+		HP: 20000
+	RenderSprites:
+		Palette: isotem
+
+APARTMENT2:
+	Inherits: ^CivBuilding
+	Inherits@2: ^2x4Shape
+	Tooltip:
+		Name: Apartment
+	Building:
+		Footprint: xx xx xx xx
+		Dimensions: 2,4
+	Health:
+		HP: 20000
+	RenderSprites:
+		Palette: isotem
+
+APARTMENT3:
+	Inherits: ^CivBuilding
+	Inherits@2: ^3x3Shape
+	Tooltip:
+		Name: Apartment
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Health:
+		HP: 20000
+	RenderSprites:
+		Palette: isotem
+
+WATERTOWER:
+	Inherits: ^CivBuilding
+	Inherits@2: ^1x1Shape
+	Tooltip:
+		Name: Water Tower
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Health:
+		HP: 20000
+	RenderSprites:
+		Palette: isotem
 
 ^OldBase:
 	Inherits: ^CivBuilding
@@ -2162,216 +2182,6 @@ GASPOT:
 	RenderSprites:
 	IsometricSelectable:
 		DecorationHeight: 72
-
-GALITE:
-	Inherits: ^CivBuilding
-	Valued:
-		Cost: 200
-	Tooltip:
-		Name: Light Post
-	RenderSprites:
-		Image: galite
-		Palette: terraindecoration
-	Health:
-		HP: 60000
-	Armor:
-		Type: BuildingArmor
-	RevealsShroud:
-		Range: 2c0
-		MaxHeightDelta: 3
-	Power:
-		Amount: 0
-	TerrainLightSource:
-		Range: 19c544
-		Intensity: 0.2
-		RedTint: 0.05
-		GreenTint: 0.05
-		BlueTint: 0.01
-
-REDLAMP:
-	Inherits: GALITE
-	Tooltip:
-		Name: Red Light Post
-	TerrainLightSource:
-		Range: 15c640
-		Intensity: 0.01
-		RedTint: 1.5
-		GreenTint: 0.01
-		BlueTint: 0.01
-
-NEGRED:
-	Inherits: GALITE
-	Tooltip:
-		Name: Negative Red Light Post
-	TerrainLightSource:
-		Range: 15c640
-		Intensity: -0.05
-		RedTint: -1.5
-		GreenTint: 0.01
-		BlueTint: 0.01
-
-GRENLAMP:
-	Inherits: GALITE
-	Tooltip:
-		Name: Green Light Post
-	TerrainLightSource:
-		Range: 15c640
-		Intensity: 0.01
-		RedTint: 0.01
-		GreenTint: 1.5
-		BlueTint: 0.01
-
-BLUELAMP:
-	Inherits: GALITE
-	Tooltip:
-		Name: Blue Light Post
-	TerrainLightSource:
-		Range: 15c640
-		Intensity: 0.01
-		RedTint: 0.01
-		GreenTint: 0.01
-		BlueTint: 0.7
-
-YELWLAMP:
-	Inherits: GALITE
-	Tooltip:
-		Name: Yellow Light Post
-	TerrainLightSource:
-		Range: 15c640
-		Intensity: 0.01
-		RedTint: 1.5
-		GreenTint: 1.5
-		BlueTint: 0.01
-
-PURPLAMP:
-	Inherits: GALITE
-	Tooltip:
-		Name: Purple Light Post
-	TerrainLightSource:
-		Range: 11c736
-		Intensity: 0.01
-		RedTint: 2.0
-		GreenTint: 0.01
-		BlueTint: 2.0
-
-TSTLAMP:
-	Inherits: GALITE
-	-TerrainLightSource:
-	WithIdleOverlay@LIGHTING:
-		Sequence: lighting
-		Palette: alpha
-
-GAICBM:
-	Inherits: ^CivBuilding
-	Valued:
-		Cost: 800
-	Tooltip:
-		Name: Deployed ICBM
-	Health:
-		HP: 40000
-	Armor:
-		Type: BuildingArmor
-	RevealsShroud:
-		Range: 5c0
-		MaxHeightDelta: 3
-	Transforms:
-		IntoActor: icbm
-		Offset: 1,1
-		Facing: 384
-		TransformSounds: place2.aud
-		NoTransformSounds:
-	MapEditorData:
-		Categories: Vehicle
-	IsometricSelectable:
-		DecorationHeight: 48
-
-NAMNTK:
-	Inherits: ^CivBuilding
-	Inherits@shape: ^1x3Shape
-	Tooltip:
-		Name: Nod Montauk
-	Building:
-		Footprint: x x x
-		Dimensions: 1, 3
-	Armor:
-		Type: BuildingArmor
-	Health:
-		HP: 150000
-	RenderSprites:
-		Palette: player
-	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
-	IsometricSelectable:
-		DecorationHeight: 36
-
-NTPYRA:
-	Inherits: ^CivBuilding
-	Inherits@shape: ^4x4Shape
-	Tooltip:
-		Name: Nod Pyramid
-	Building:
-		Footprint: xxxx xxxx xxxx xxxx
-		Dimensions: 4, 4
-	Armor:
-		Type: BuildingArmor
-	Health:
-		HP: 150000
-	RenderSprites:
-		Palette: player
-	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
-	ThrowsShrapnel@SMALL:
-		Pieces: 7, 9
-	ThrowsShrapnel@LARGE:
-		Pieces: 3, 5
-	DamageMultiplier@cantkillme:
-		Modifier: 0
-	IsometricSelectable:
-		DecorationHeight: 72
-
-UFO:
-	Inherits: ^CivBuilding
-	Inherits@shape: ^6x4Shape
-	Building:
-		Dimensions: 6, 4
-		Footprint: xxxxxx xxxxxx xxxxxx xxxxxx
-	RenderSprites:
-		Palette: terraindecoration
-	Tooltip:
-		Name: Scrin Ship
-	Health:
-		HP: 100000
-	Armor:
-		Type: BuildingArmor
-	MapEditorData:
-		RequireTilesets: TEMPERATE
-	ThrowsShrapnel@SMALL:
-		Pieces: 9, 12
-	ThrowsShrapnel@LARGE:
-		Pieces: 6, 8
-	IsometricSelectable:
-		DecorationHeight: 144
-
-C_KODIAK:
-	Inherits: ^CivBuilding
-	Tooltip:
-		Name: Kodiak Crash
-	Armor:
-		Type: BuildingArmor
-	Health:
-		HP: 1000
-	Building:
-		Dimensions: 3,3
-		Footprint: xxx xxx xxx
-	RenderSprites:
-	WithSpriteBody:
-	BodyOrientation:
-		UseClassicPerspectiveFudge: false
-		QuantizedFacings: 1
-	FrozenUnderFog:
-	RequiresBuildableArea:
-		AreaTypes: building
-	Interactable:
 
 RADIOTOWER:
 	Inherits: ^CivBuilding
@@ -2619,81 +2429,186 @@ TENTSMINI9:
 TENTSMINI10:
 	Inherits: TENTSMINI1
 
-CPWRP:
+CTDAM:
 	Inherits: ^CivBuilding
-	Inherits@2: ^4x3Shape
+	Inherits@shape: ^2x5Shape
 	Tooltip:
-		Name: Power station
+		Name: Hydroelectric Dam
 	Building:
-		Footprint: xxxx xxxx xxxx 
-		Dimensions: 4, 3
+		Footprint: xx xx xx xx xx
+		Dimensions: 2, 5
+	Power:
+		Amount: 200
+	PowerTooltip:
+	Armor:
+		Type: BuildingArmor
+	Health:
+		HP: 100000
+	ProvidesPrerequisite:
+		Prerequisite: anypower
+	MapEditorData:
+		ExcludeTilesets: SNOW
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	WithIdleOverlay@WATER:
+		Sequence: idle-water
+	ThrowsShrapnel@SMALL:
+		Pieces: 5, 9
+	ThrowsShrapnel@LARGE:
+		Pieces: 2, 4
+
+CTVEGA:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^4x4Shape
+	Tooltip:
+		Name: Vega's Pyramid
+	Building:
+		Footprint: xxxx xxxx xxxx xxxx
+		Dimensions: 4, 4
+	Armor:
+		Type: none
+	Health:
+		HP: 10000
+	MapEditorData:
+		ExcludeTilesets: SNOW
+	ThrowsShrapnel@SMALL:
+		Pieces: 7, 9
+	ThrowsShrapnel@LARGE:
+		Pieces: 3, 4
+	IsometricSelectable:
+		DecorationHeight: 72
+
+GAKODK:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^4x2Shape
+	HitShape:
+		TargetableOffsets: 0,0,0, -512,512,0, -950,1024,0
+	Tooltip:
+		Name: GDI Kodiak
+	Building:
+		Footprint: xxXX xxXX
+		Dimensions: 4, 2
+	Armor:
+		Type: BuildingArmor
 	Health:
 		HP: 150000
 	RenderSprites:
-		Palette: isotem
+		Palette: player
+	WithIdleOverlay@LARGELIGHTS:
+		Sequence: large-lights
+	WithIdleOverlay@SMALLLIGHT:
+		Sequence: small-light
+	WithIdleOverlay@SMALLLIGHTS:
+		Sequence: small-lights
 
-CITY35:
+GAICBM:
 	Inherits: ^CivBuilding
-	Inherits@2: ^3x4Shape
+	Valued:
+		Cost: 800
 	Tooltip:
-		Name: Apartment complex
+		Name: Deployed ICBM
+	Health:
+		HP: 40000
+	Armor:
+		Type: BuildingArmor
+	RevealsShroud:
+		Range: 5c0
+		MaxHeightDelta: 3
+	Transforms:
+		IntoActor: icbm
+		Offset: 1,1
+		Facing: 384
+		TransformSounds: place2.aud
+		NoTransformSounds:
+	MapEditorData:
+		Categories: Vehicle
+	IsometricSelectable:
+		DecorationHeight: 48
+
+NAMNTK:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^1x3Shape
+	Tooltip:
+		Name: Nod Montauk
 	Building:
-		Footprint: xxx xxx xxx xxx
-		Dimensions: 3, 4
+		Footprint: x x x
+		Dimensions: 1, 3
+	Armor:
+		Type: BuildingArmor
 	Health:
 		HP: 150000
 	RenderSprites:
-		Palette: isotem
+		Palette: player
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	IsometricSelectable:
+		DecorationHeight: 36
 
-CARPUB:
+NTPYRA:
 	Inherits: ^CivBuilding
-	Inherits@2: ^3x3Shape
+	Inherits@shape: ^4x4Shape
 	Tooltip:
-		Name: Pub
+		Name: Nod Pyramid
 	Building:
-		Footprint: xxx xxx xxx
+		Footprint: xxxx xxxx xxxx xxxx
+		Dimensions: 4, 4
+	Armor:
+		Type: BuildingArmor
+	Health:
+		HP: 150000
+	RenderSprites:
+		Palette: player
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	ThrowsShrapnel@SMALL:
+		Pieces: 7, 9
+	ThrowsShrapnel@LARGE:
+		Pieces: 3, 5
+	DamageMultiplier@cantkillme:
+		Modifier: 0
+	IsometricSelectable:
+		DecorationHeight: 72
+
+UFO:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^6x4Shape
+	Building:
+		Dimensions: 6, 4
+		Footprint: xxxxxx xxxxxx xxxxxx xxxxxx
+	RenderSprites:
+		Palette: terraindecoration
+	Tooltip:
+		Name: Scrin Ship
+	Health:
+		HP: 100000
+	Armor:
+		Type: BuildingArmor
+	MapEditorData:
+		RequireTilesets: TEMPERATE
+	ThrowsShrapnel@SMALL:
+		Pieces: 9, 12
+	ThrowsShrapnel@LARGE:
+		Pieces: 6, 8
+	IsometricSelectable:
+		DecorationHeight: 144
+
+C_KODIAK:
+	Inherits: ^CivBuilding
+	Tooltip:
+		Name: Kodiak Crash
+	Armor:
+		Type: BuildingArmor
+	Health:
+		HP: 1000
+	Building:
 		Dimensions: 3,3
-	Health:
-		HP: 20000
-	RenderSprites:
-		-Palette:
-		PlayerPalette: playerunittem
-
-APARTMENT1:
-	Inherits: ^CivBuilding
-	Inherits@2: ^3x3Shape
-	Tooltip:
-		Name: Apartment
-	Building:
 		Footprint: xxx xxx xxx
-		Dimensions: 3,3
-	Health:
-		HP: 20000
 	RenderSprites:
-		Palette: isotem
-
-APARTMENT2:
-	Inherits: ^CivBuilding
-	Inherits@2: ^4x2Shape
-	Tooltip:
-		Name: Apartment
-	Building:
-		Footprint: xxxx xxxx
-		Dimensions: 4,2
-	Health:
-		HP: 20000
-	RenderSprites:
-		Palette: isotem
-
-WATERTOWER:
-	Inherits: ^CivBuilding
-	Inherits@2: ^1x1Shape
-	Tooltip:
-		Name: Water Tower
-	Building:
-		Footprint: x
-		Dimensions: 1,1
-	Health:
-		HP: 20000
-	RenderSprites:
-		Palette: isotem
+	WithSpriteBody:
+	BodyOrientation:
+		UseClassicPerspectiveFudge: false
+		QuantizedFacings: 1
+	FrozenUnderFog:
+	RequiresBuildableArea:
+		AreaTypes: building
+	Interactable:
