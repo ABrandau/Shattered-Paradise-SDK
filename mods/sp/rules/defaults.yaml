@@ -609,21 +609,24 @@
 		ValidDamageStates: Critical
 
 ^ToxinTrooperDebuff:
-	SpeedMultiplier:
+	SpeedMultiplier@ToxinTrooperDebuff:
 		RequiresCondition: ToxinTrooperDebuff
 		Modifier: 15
 	ExternalCondition@ToxinTrooperDebuff:
 		Condition: ToxinTrooperDebuff
-	TimedConditionBar@SlowDown:
+	TimedConditionBar@ToxinTrooperDebuff:
 		Condition: ToxinTrooperDebuff
 		Color: 88AA12
 
 ^RavagerSlowdown:
-	SpeedMultiplier:
+	SpeedMultiplier@RavagerSlowdown:
 		RequiresCondition: RavagerSlowdown
 		Modifier: 50
 	ExternalCondition@RavagerSlowdown:
 		Condition: RavagerSlowdown
+	TimedConditionBar@RavagerSlowdown:
+		Condition: RavagerSlowdown
+		Color: 88AA12
 
 ^EmpDisable:
 	WithColoredOverlay@EMPDISABLE:
