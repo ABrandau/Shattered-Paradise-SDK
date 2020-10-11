@@ -1487,8 +1487,8 @@
 			BulletDeath: 1, 2
 			CabalDeath: 1, 2
 			CabalDeathCrate: 1, 2
-			BlackHandRfle: 3
-			HeadshotDeath: 3
+			BlackHandRfle: 1, 2
+			HeadshotDeath: 1 ,2
 	WithDeathAnimation@tib:
 		DeathSequencePalette: apolra2galpha
 		DeathPaletteIsPlayerPalette: false
@@ -1582,10 +1582,14 @@
 	-DamagedByTerrain:
 	WithDeathAnimation@normal:
 		DeathTypes:
-			TiberiumDeath: 1, 2
-			EnergyDeath: 1, 2
-			FireDeath: 1, 2
-			MilitantFireDeath: 1, 2
+			BulletDeath: 1, 2
+			CabalDeath: 1, 2
+			CabalDeathCrate: 1, 2
+			BlackHandRfle: 1, 2
+			HeadshotDeath: 1 ,2
+			FireDeath: 1 ,2
+			ExplosionDeath: 1, 2
+			SmallExplosionDeath: 1, 2
 	Mobile:
 		Locomotor: Vehicle
 		-PauseOnCondition:
@@ -1620,6 +1624,9 @@
 		QuantizedFacings: 8
 		CameraPitch: 250
 	SelectionDecorations:
+	TurnOnIdle:
+		MinDelay: 125
+		MaxDelay: 325
 
 ^ScrinSoldier:
 	Inherits: ^Soldier
