@@ -71,7 +71,11 @@ WEASAU:
 	MapEditorData:
 		Categories: Creep
 	WithDeathAnimation@normal:
-		DeathSequencePalette: orgatem
+		DeathSequencePalette: orgatemgreen
+        DeathPaletteIsPlayerPalette: false
+ 	WithDeathAnimation@blood1:
+		DeathSequencePalette: gradientgreen
+		CrushedSequencePalette: gradientgreen
 	RenderSprites:
 		Palette: orgatemgreen
 	-GrantCondition@rank-veteran:
@@ -100,6 +104,8 @@ WEASAUGREEN:
 		Name: Weasaurus 
 	Health:
 		HP: 10000
+	Armor:
+		Type: VehicleArmor
 	Mobile:
 		Speed: 80
 	Armament:
@@ -126,13 +132,20 @@ WEASAUBLUE:
 	Tooltip:
 		Name: Weasaurus Mayor
 	Health:
-		HP: 150000
+		HP: 50000
 	Mobile:
 		Speed: 90
+	Armor:
+		Type: VehicleArmor
 	Armament:
 		Weapon: WeasauBlueStrike
 	RenderSprites:
 		Palette: orgatemblue
+	WithDeathAnimation@normal:
+		DeathSequencePalette: orgatemblue
+ 	WithDeathAnimation@blood1:
+		DeathSequencePalette: jasccyan
+		CrushedSequencePalette: jasccyan
 
 WEASAUBLUE2:
 	Inherits: WEASAUGREEN
@@ -140,9 +153,11 @@ WEASAUBLUE2:
 	Tooltip:
 		Name: Weasaurus Patriarch
 	Health:
-		HP: 150000
+		HP: 90000
 	Mobile:
 		Speed: 70
+	Armor:
+		Type: VehicleArmor
 	RenderSprites:
 		Palette: orgatemblue
 	Armament:
@@ -160,6 +175,11 @@ WEASAUBLUE2:
 	Armament@4:
 		Weapon: WeasaurusBlueShard
 		LocalOffset: 700,0,700
+	WithDeathAnimation@normal:
+		DeathSequencePalette: orgatemblue
+ 	WithDeathAnimation@blood1:
+		DeathSequencePalette: jasccyan
+		CrushedSequencePalette: jasccyan
 
 VISC_SML:
 	Inherits: ^Visceroid

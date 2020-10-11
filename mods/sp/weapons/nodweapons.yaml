@@ -81,15 +81,18 @@ ToxinCommandoRifle:
 	ReloadDelay: 100
 	Range: 10c0
 	Report: ramjetfire.wav
-	ValidTargets: Infantry, LandedAircraft, Ground
+	ValidTargets: Infantry, Vehicle, Ground, Water
 	InvalidTargets: Building, Defence
 	Projectile: LaserZap
 		Duration: 3
 		Width: 25
 		Color: 22F245
+		HitAnim: explosion
+		HitAnimSequence: hallugren
+		HitAnimPalette: apolra2yalpha
 	Warhead@1Dam: SpreadDamage
 		Damage: 7500
-		ValidTargets: Infantry, LandedAircraft, Ground
+		ValidTargets: Infantry, Vehicle, Ground, Water
 		Versus:
 			InfantryArmor: 670
 			BuildingArmor: 5
@@ -98,21 +101,16 @@ ToxinCommandoRifle:
 			AircraftArmor: 50
 			ConcreteArmor: 5
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
-	Warhead@2Eff: CreateEffect
-		Explosions: hallugren
-		ImpactSounds: expnew12.aud
-		ExplosionPalette: apolra2yalpha
-		InvalidTargets:: Water, Air, AirHit
+	Warhead@emp1: GrantExternalCondition
+		Range: 2c0
+		Duration: 125
+		Condition: ToxinTrooperDebuff
+		ValidTargets: Infantry, Vehicle, Ground, Water
+		InvalidTargets: Building, Defence
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piff
 		ExplosionPalette: ra
 		ValidTargets: Water
-	Warhead@emp: GrantExternalCondition
-		Range: 2c0
-		Duration: 125
-		Condition: ToxinTrooperDebuff
-		ValidTargets: Infantry, Vehicle
-		InvalidTargets: Building, Defence
 
 BuggyCannon:
 	Inherits: ^RifleWarhead
