@@ -486,6 +486,34 @@ WINI:
 	RevealsShroud:
 		Range: 5c0
 
+VAN:
+	Inherits: CAR2
+	Tooltip:
+		Name: Van
+	Mobile:
+		TurnSpeed: 20
+		Speed: 120
+	Health:
+		HP: 20000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 5c0
+
+FUELTRUCK:
+	Inherits: CAR2
+	Tooltip:
+		Name: Fuel Truck
+	Mobile:
+		TurnSpeed: 20
+		Speed: 120
+	Health:
+		HP: 20000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 5c0
+
 LOCOMOTIVE:
 	Inherits: ^Train
 	Valued:
@@ -1450,39 +1478,6 @@ CAARMR:
 		HP: 120000
 	ProvidesPrerequisite:
 		Prerequisite: ArmoryExpBuff
-	#DetonateWeaponPower:
-	#	AllowMultiple: true
-	#	Cursor: emp
-	#	MaximumFiringInstances: 1000
-	#	ArmamentName: primary
-	#	Icon: veterancyicon
-	#	ChargeInterval: 3000
-	#	Description: Advanced training
-	#	LongDesc: Adds an extra level of experience to the selected units (1 range radius), does not affect aircraft
-	#	EndChargeSound: AdvTrainingReady.aud
-	#	SelectTargetSound: n_00-i042.aud
-	#	OrderName: Veterancy
-	#	ActivationSequence: idle
-	#	PauseOnCondition: disabled
-	#	TargetCircleRange: 1c512
-	#	Weapon: VeterancyWeapon
-
-CACRSH01:
-	Inherits: ^Decoration
-	Tooltip:
-		Name: Crash Site
-
-CACRSH02:
-	Inherits: CACRSH01
-
-CACRSH03:
-	Inherits: CACRSH01
-
-CACRSH04:
-	Inherits: CACRSH01
-
-CACRSH05:
-	Inherits: CACRSH01
 
 FLAGNOD:
 	Inherits: CACRSH01
@@ -2034,6 +2029,8 @@ APARTMENT1:
 		HP: 20000
 	RenderSprites:
 		Palette: isotem
+	IsometricSelectable:
+		DecorationHeight: 96
 
 APARTMENT2:
 	Inherits: ^CivBuilding
@@ -2047,6 +2044,8 @@ APARTMENT2:
 		HP: 20000
 	RenderSprites:
 		Palette: isotem
+	IsometricSelectable:
+		DecorationHeight: 96
 
 APARTMENT3:
 	Inherits: ^CivBuilding
@@ -2060,6 +2059,8 @@ APARTMENT3:
 		HP: 20000
 	RenderSprites:
 		Palette: isotem
+	IsometricSelectable:
+		DecorationHeight: 96
 
 WATERTOWER:
 	Inherits: ^CivBuilding
@@ -2073,6 +2074,8 @@ WATERTOWER:
 		HP: 20000
 	RenderSprites:
 		Palette: isotem
+	IsometricSelectable:
+		DecorationHeight: 96
 
 ^OldBase:
 	Inherits: ^CivBuilding
