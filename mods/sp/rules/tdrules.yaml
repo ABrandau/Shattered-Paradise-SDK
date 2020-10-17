@@ -7,10 +7,12 @@ TDADVGTWR:
 		QuantizedFacings: 32
 	Armament:
 		Weapon: HoverMissile
-		LocalOffset: 100,150,384, 100,-150,384
+		LocalOffset: 500,200,2800, 500,-200,2800
+		PauseOnCondition: empdisable
 	Armament@AA:
 		Weapon: HoverMissileAA
-		LocalOffset: 100,150,384, 100,-150,384
+		LocalOffset: 500,200,2800, 500,-200,2800
+		PauseOnCondition: empdisable
 	RenderSprites:
 	-Capturable:
 	-CapturableProgressBar:
@@ -29,10 +31,10 @@ ADVHQ:
 		Name: Old Advanced Communications Center
 	WithIdleOverlay@anim:
 		Sequence: anima
-		PauseOnCondition: stop
+		PauseOnCondition: stop || empdisable
 	WithIdleOverlay@anim:
 		Sequence: animb
-		PauseOnCondition: stop
+		PauseOnCondition: stop || empdisable
 	RenderSprites:
 		Image: tdadvhq
 	GrantCondition:
@@ -139,6 +141,15 @@ TDGTWR:
 		Name: Guard Tower
 	Armament:
 		Weapon: WolverineVulcan
+		PauseOnCondition: empdisable
+	Armament@1Casing:
+		Weapon: WolverineVulcanCasing
+		PauseOnCondition: empdisable
+		LocalOffset: 0,-275,1300, 0,275,1300
+	Armament@2Bullet:
+		Weapon: WolverineVulcanLine
+		PauseOnCondition: empdisable
+		LocalOffset: 0,-275,1300, 0,275,1300
 	AttackOmni:
 	-Capturable:
 	-CapturableProgressBar:
@@ -242,14 +253,13 @@ TDHELIPAD:
 
 TDNTUR:
 	Inherits: ^TurretedDefence
-	Inherits@1: ^AntiAir
 	Tooltip:
 		Name: Old gun turret
 	BodyOrientation:
 		QuantizedFacings: 32
 	Armament:
 		Weapon: Titan120mm
-		LocalOffset: 100,150,384, 100,-150,384
+		LocalOffset: 800,0,500
 		PauseOnCondition: empdisable
 	-Capturable:
 	-CapturableProgressBar:
@@ -273,7 +283,7 @@ TDOBELISK:
 	WithMuzzleOverlay:
 	Armament:
 		Weapon: ObeliskLaserFire
-		LocalOffset: 1980,297,1131
+		LocalOffset: 190,-190,3800
 		MuzzleSequence: muzzle
 		MuzzlePalette: obelpal
 		RequiresCondition: !Building-Buildup
@@ -362,10 +372,11 @@ TDSAMSITE:
 		Dimensions: 2,2
 	Armament@AA:
 		Weapon: HoverMissileAA
-		LocalOffset: 100,150,384, 100,-150,384
+		LocalOffset: 1200,200,2000, 1200,-200,2000
 		PauseOnCondition: empdisable
 	-AttackTurreted:
 	AttackPopupTurreted:
+		CloseDelay: 50
 	WithEmbeddedTurretSpriteBody:
 	-WithSpriteTurret:
 	WithSpriteBody:
