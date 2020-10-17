@@ -19,6 +19,8 @@ TDADVGTWR:
 	-CapturableProgressBlink:
 	EditorOnlyTooltip:
 		Name: TD Building
+	IsometricSelectable:
+		DecorationHeight: 60
 
 ADVHQ:
 	Inherits: ^Radar
@@ -65,6 +67,7 @@ TDADVPP:
 
 TDAIRSTRIP:
 	Inherits: ^Factory
+	Inherits@1: ^5x3Shape
 	Tooltip:
 		Name: Airstrip
 	WithIdleOverlay@anima:
@@ -75,6 +78,14 @@ TDAIRSTRIP:
 	-CapturableProgressBlink:
 	EditorOnlyTooltip:
 		Name: TD Building
+	Building:
+		Footprint: xxxx= xxxx= xxxxx
+		Dimensions: 5,3
+	Exit@1:
+		ExitCell: 6,1
+		SpawnOffset: -1024,-256,0
+	IsometricSelectable:
+		DecorationHeight: 40
 
 TDBARR:
 	Inherits: ^Barracks
@@ -216,20 +227,24 @@ TDNHAND:
 	-CapturableProgressBlink:
 	EditorOnlyTooltip:
 		Name: TD Building
+	IsometricSelectable:
+		DecorationHeight: 90
 
 TDNTPL:
-	Inherits: ^Powerplant
-	Inherits@2: ^2x2Shape
+	Inherits: ^Building
+	Inherits@2: ^6x4Shape
 	Tooltip:
 		Name: Old temple of Nod
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
 	EditorOnlyTooltip:
 		Name: TD Building
+	Building:
+		Footprint: xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx
+		Dimensions: 6,6
+	IsometricSelectable:
+		DecorationHeight: 90
 
 TDHELIPAD:
 	Inherits@1: ^Helipad
@@ -299,12 +314,13 @@ TDOBELISK:
 		Palette: player
 		IsPlayerPalette: true
 		RequiresCondition: !Building-Buildup
-		DecorationHeight: 48
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
 	EditorOnlyTooltip:
 		Name: TD Building
+	IsometricSelectable:
+		DecorationHeight: 60
 
 TDREFINERY:
 	Inherits: FLIPPEDXPROC
@@ -455,6 +471,7 @@ TDSILO:
 
 TDWF:
 	Inherits: ^Factory
+	Inherits@1: ^4x4Shape
 	Tooltip:
 		Name: War Factory
 	ProvidesPrerequisite@ShowMammMkII:
@@ -470,6 +487,12 @@ TDWF:
 	WithIdleOverlay@BIB:
 		Sequence: bib
 		RequiresCondition: !Building-Buildup
+	Building:
+		Footprint: xx== xx== xxxx xxxx 
+		Dimensions: 4,4
+	Exit@1:
+		ExitCell: 3,2
+		SpawnOffset: -1024, 0, 0
 	IsometricSelectable:
 		DecorationHeight: 36
 	-Capturable:
