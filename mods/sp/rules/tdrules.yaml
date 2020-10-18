@@ -7,16 +7,20 @@ TDADVGTWR:
 		QuantizedFacings: 32
 	Armament:
 		Weapon: HoverMissile
-		LocalOffset: 100,150,384, 100,-150,384
+		LocalOffset: 500,200,2800, 500,-200,2800
+		PauseOnCondition: empdisable
 	Armament@AA:
 		Weapon: HoverMissileAA
-		LocalOffset: 100,150,384, 100,-150,384
+		LocalOffset: 500,200,2800, 500,-200,2800
+		PauseOnCondition: empdisable
 	RenderSprites:
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
 	EditorOnlyTooltip:
 		Name: TD Building
+	IsometricSelectable:
+		DecorationHeight: 60
 
 ADVHQ:
 	Inherits: ^Radar
@@ -29,10 +33,10 @@ ADVHQ:
 		Name: Old Advanced Communications Center
 	WithIdleOverlay@anim:
 		Sequence: anima
-		PauseOnCondition: stop
+		PauseOnCondition: stop || empdisable
 	WithIdleOverlay@anim:
 		Sequence: animb
-		PauseOnCondition: stop
+		PauseOnCondition: stop || empdisable
 	RenderSprites:
 		Image: tdadvhq
 	GrantCondition:
@@ -63,6 +67,7 @@ TDADVPP:
 
 TDAIRSTRIP:
 	Inherits: ^Factory
+	Inherits@1: ^5x3Shape
 	Tooltip:
 		Name: Airstrip
 	WithIdleOverlay@anima:
@@ -73,6 +78,16 @@ TDAIRSTRIP:
 	-CapturableProgressBlink:
 	EditorOnlyTooltip:
 		Name: TD Building
+	Building:
+		Footprint: xxxx= xxxx= xxxxx
+		Dimensions: 5,3
+	RallyPoint:
+		Path: 7,1
+	Exit@1:
+		ExitCell: 6,1
+		SpawnOffset: -1536,-1536,0
+	IsometricSelectable:
+		DecorationHeight: 40
 
 TDBARR:
 	Inherits: ^Barracks
@@ -139,6 +154,15 @@ TDGTWR:
 		Name: Guard Tower
 	Armament:
 		Weapon: WolverineVulcan
+		PauseOnCondition: empdisable
+	Armament@1Casing:
+		Weapon: WolverineVulcanCasing
+		PauseOnCondition: empdisable
+		LocalOffset: 0,-275,1300, 0,275,1300
+	Armament@2Bullet:
+		Weapon: WolverineVulcanLine
+		PauseOnCondition: empdisable
+		LocalOffset: 0,-275,1300, 0,275,1300
 	AttackOmni:
 	-Capturable:
 	-CapturableProgressBar:
@@ -205,20 +229,24 @@ TDNHAND:
 	-CapturableProgressBlink:
 	EditorOnlyTooltip:
 		Name: TD Building
+	IsometricSelectable:
+		DecorationHeight: 90
 
 TDNTPL:
-	Inherits: ^Powerplant
-	Inherits@2: ^2x2Shape
+	Inherits: ^Building
+	Inherits@2: ^6x4Shape
 	Tooltip:
 		Name: Old temple of Nod
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
 	EditorOnlyTooltip:
 		Name: TD Building
+	Building:
+		Footprint: xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx
+		Dimensions: 6,6
+	IsometricSelectable:
+		DecorationHeight: 90
 
 TDHELIPAD:
 	Inherits@1: ^Helipad
@@ -242,14 +270,13 @@ TDHELIPAD:
 
 TDNTUR:
 	Inherits: ^TurretedDefence
-	Inherits@1: ^AntiAir
 	Tooltip:
 		Name: Old gun turret
 	BodyOrientation:
 		QuantizedFacings: 32
 	Armament:
 		Weapon: Titan120mm
-		LocalOffset: 100,150,384, 100,-150,384
+		LocalOffset: 800,0,500
 		PauseOnCondition: empdisable
 	-Capturable:
 	-CapturableProgressBar:
@@ -273,7 +300,7 @@ TDOBELISK:
 	WithMuzzleOverlay:
 	Armament:
 		Weapon: ObeliskLaserFire
-		LocalOffset: 1980,297,1131
+		LocalOffset: 190,-190,3800
 		MuzzleSequence: muzzle
 		MuzzlePalette: obelpal
 		RequiresCondition: !Building-Buildup
@@ -289,12 +316,13 @@ TDOBELISK:
 		Palette: player
 		IsPlayerPalette: true
 		RequiresCondition: !Building-Buildup
-		DecorationHeight: 48
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
 	EditorOnlyTooltip:
 		Name: TD Building
+	IsometricSelectable:
+		DecorationHeight: 60
 
 TDREFINERY:
 	Inherits: FLIPPEDXPROC
@@ -312,6 +340,8 @@ TDREFINERY:
 	-WithIdleOverlay@REDLIGHTS:
 	-WithDockedOverlay@flame:
 	-FreeActor:
+	Refinery:
+		DockOffset: 1,3
 	Tooltip:
 		Name: Old Refinery
 	-Capturable:
@@ -321,35 +351,25 @@ TDREFINERY:
 		Name: TD Building
 
 TDREPD:
-	Inherits: ^Building
-	Inherits@1: ^3x3Shape
-	Valued:
-		Cost: 900
+	Inherits: GADEPT
 	Tooltip:
 		Name: Old Service Depot
-	Building:
-		Footprint: =+= x++ x+=
-		Dimensions: 3,3
-	Health:
-		HP: 110000
-	Reservable:
-	RepairsUnits:
-		HpPerStep: 2000
-		FinishRepairingNotification: UnitRepaired
-		PlayerExperience: 15
-	WithSpriteBody:
-		PauseOnCondition: disabled
-	RallyPoint:
-		Palette: mouse
-		IsPlayerPalette: false
-	WithIdleOverlay@anima:
+	WithRepairOverlay@PLATFORM:
 		Sequence: anima
-	RenderSprites:
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
 	EditorOnlyTooltip:
 		Name: TD Building
+	RenderSprites:
+		Image: tdrepd
+		-FactionImages:
+	ProvidesPrerequisite@buildingname:
+	-WithIdleOverlay@LIGHT:
+	-WithIdleOverlay@GROUND:
+	-WithIdleOverlay@CIRCUITS:
+	-WithRepairOverlay@CRANE:
+	-WithDeathAnimation@BIB:
 
 TDSAMSITE:
 	Inherits: ^TurretedDefence
@@ -362,10 +382,12 @@ TDSAMSITE:
 		Dimensions: 2,2
 	Armament@AA:
 		Weapon: HoverMissileAA
-		LocalOffset: 100,150,384, 100,-150,384
+		LocalOffset: 1200,200,2000, 1200,-200,2000
 		PauseOnCondition: empdisable
 	-AttackTurreted:
 	AttackPopupTurreted:
+		CloseDelay: 50
+		DefaultFacing: 640
 	WithEmbeddedTurretSpriteBody:
 	-WithSpriteTurret:
 	WithSpriteBody:
@@ -444,6 +466,7 @@ TDSILO:
 
 TDWF:
 	Inherits: ^Factory
+	Inherits@1: ^4x4Shape
 	Tooltip:
 		Name: War Factory
 	ProvidesPrerequisite@ShowMammMkII:
@@ -459,6 +482,12 @@ TDWF:
 	WithIdleOverlay@BIB:
 		Sequence: bib
 		RequiresCondition: !Building-Buildup
+	Building:
+		Footprint: xx== xx== xxxx xxxx 
+		Dimensions: 4,4
+	Exit@1:
+		ExitCell: 3,2
+		SpawnOffset: -1024, 0, 0
 	IsometricSelectable:
 		DecorationHeight: 36
 	-Capturable:
