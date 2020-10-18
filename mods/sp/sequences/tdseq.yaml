@@ -73,10 +73,12 @@ tdadvpp:
 tdairstrip:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: -12, -48, 20
+		Offset: -25, -64, 20
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
+		ZOffset: -1c611
+		ZRamp: 1
 	idle:
 		ShadowStart: 94
 	damaged-idle:
@@ -144,6 +146,7 @@ tdhelipad:
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
+		ZOffset: -1c611
 	idle:
 		ShadowStart: 2
 	damaged-idle:
@@ -168,24 +171,25 @@ tdnhand:
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
 	idle:
-		ShadowStart: 51
+		ShadowStart: 56
 	damaged-idle:
 		Start: 1
-		ShadowStart: 52
+		ShadowStart: 57
 	dead:
 		Start: 1
-		ShadowStart: 52
+		ShadowStart: 57
 	make:
 		Start: 2
 		Length: 47
 		ShadowStart: 58
 	anima:
 		Start: 50
+		Length: 6
 
 tdntpl:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: 0, -30, 20
+		Offset: 0, -65, 20
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -261,6 +265,8 @@ tdrepd:
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
+		ZOffset: -1c611
+		ZRamp: 1
 	idle:
 		ShadowStart: 2
 	damaged-idle:
@@ -294,12 +300,17 @@ tdrefinery:
 		ShadowStart: 158
 		Tick: 400
 	bib:
+		Start: 0
+		ZOffset: -1c611
 	make:
 		Start: 4
 		Length: 50
 		ShadowStart: 159
+		ZRamp: 1
 	damaged-bib:
 		Start: 2
+		ZOffset: -1c611
+		ZRamp: 1
 	anim:
 		Start: 55
 		Length: 20
@@ -336,25 +347,32 @@ tdsamsite:
 		Offset: 0, -24, 20
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
+		ZRamp: 1
 	closed-idle:
 		Start: 0
+		ZOffset: -1c611
 	damaged-closed-idle:
 		Start: 1
+		ZOffset: -1c611
 	dead:
 		Start: 1
+		ZOffset: -1c611
 	opening:
 		Start: 4
 		Length: 25
 		ShadowStart: 82
+		-ZRamp:
 	closing:
 		ShadowStart: 82
 		Length: 21
 		Frames: 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4
+		-ZRamp:
 	idle:
 		Start: 46
 		Facings: 32
 		ShadowStart: 124
 		UseClassicFacings: True
+		-ZRamp:
 	base:
 		ShadowStart: 78
 	damaged-base:
@@ -366,12 +384,15 @@ tdsamsite:
 	idle-open:
 		Start: 2
 		ShadowStart: 80
+		-ZRamp:
 	damaged-idle-open:
 		Start: 3
 		ShadowStart: 81
+		-ZRamp:
 	make:
 		Length: 15
 		ShadowStart: 108
+		ZOffset: -1c611
 
 tdpp:
 	Inherits: ^EmpOverlay
@@ -403,6 +424,7 @@ tdsilo:
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
+		ZRamp: 1
 	idle:
 		ShadowStart: 2
 	damaged-idle:
@@ -412,7 +434,7 @@ tdsilo:
 		Start: 1
 		ShadowStart: 3
 	stages: tdsilo_a1
-		Length: 8
+		Length: 4
 	make: tdsilo_mkup
 		Length: 23
 		ShadowStart: 23
