@@ -12,6 +12,11 @@ TDADVGTWR:
 		Weapon: HoverMissileAA
 		LocalOffset: 100,150,384, 100,-150,384
 	RenderSprites:
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
 
 ADVHQ:
 	Inherits: ^Radar
@@ -33,6 +38,11 @@ ADVHQ:
 	GrantCondition:
 		Condition: stop
 	-SpawnActorPower:
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
 
 TDADVPP:
 	Inherits: ^Powerplant
@@ -45,6 +55,11 @@ TDADVPP:
 	WithIdleOverlay@LIGHTS:
 		Sequence: anima
 		RequiresCondition: !Building-Buildup
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
 
 TDAIRSTRIP:
 	Inherits: ^Factory
@@ -53,6 +68,11 @@ TDAIRSTRIP:
 	WithIdleOverlay@anima:
 		Sequence: anima
 		Palette: player
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
 
 TDBARR:
 	Inherits: ^Barracks
@@ -107,6 +127,11 @@ TDBARR:
 		Prerequisite: SharedEngie
 	RequiresBuildableArea:
 		AreaTypes: building
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
 
 TDGTWR:
 	Inherits: ^Defence
@@ -115,6 +140,11 @@ TDGTWR:
 	Armament:
 		Weapon: WolverineVulcan
 	AttackOmni:
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
 
 TDNHAND:
 	Inherits: ^Barracks
@@ -170,6 +200,11 @@ TDNHAND:
 		ExitCell: 0,2
 	WithIdleOverlay:
 		Sequence: anima
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
 
 TDNTPL:
 	Inherits: ^Powerplant
@@ -179,6 +214,11 @@ TDNTPL:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
 
 TDHELIPAD:
 	Inherits@1: ^Helipad
@@ -194,6 +234,11 @@ TDHELIPAD:
 	WithIdleOverlay@anima:
 		Sequence: anima
 		RequiresCondition: !Building-Buildup
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
 
 TDNTUR:
 	Inherits: ^TurretedDefence
@@ -206,6 +251,11 @@ TDNTUR:
 		Weapon: Titan120mm
 		LocalOffset: 100,150,384, 100,-150,384
 		PauseOnCondition: empdisable
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
 
 TDOBELISK:
 	Inherits: ^Defence
@@ -240,6 +290,11 @@ TDOBELISK:
 		IsPlayerPalette: true
 		RequiresCondition: !Building-Buildup
 		DecorationHeight: 48
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
 
 TDREFINERY:
 	Inherits: FLIPPEDXPROC
@@ -259,6 +314,11 @@ TDREFINERY:
 	-FreeActor:
 	Tooltip:
 		Name: Old Refinery
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
 
 TDREPD:
 	Inherits: ^Building
@@ -285,6 +345,11 @@ TDREPD:
 	WithIdleOverlay@anima:
 		Sequence: anima
 	RenderSprites:
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
 
 TDSAMSITE:
 	Inherits: ^TurretedDefence
@@ -306,6 +371,11 @@ TDSAMSITE:
 	WithSpriteBody:
 		Name: base
 		Sequence: base
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
 
 TDPP:
 	Inherits: ^Powerplant
@@ -324,6 +394,11 @@ TDPP:
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: 300
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
 
 TDSILO:
 	Inherits: ^Building
@@ -361,6 +436,11 @@ TDSILO:
 		PipStride: 4, 2
 		PipCount: 12
 		Palette: pips
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
 
 TDWF:
 	Inherits: ^Factory
@@ -381,3 +461,8 @@ TDWF:
 		RequiresCondition: !Building-Buildup
 	IsometricSelectable:
 		DecorationHeight: 36
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building

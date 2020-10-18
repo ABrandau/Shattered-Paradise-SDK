@@ -93,7 +93,7 @@ FiendShardAA:
 	Inherits: ^RocketWarhead
 	Inherits@1: ^AARocketWarhead
 	ValidTargets: Air
-	Burst: 6
+	Burst: 2
 	BurstDelays: 2
 	Range: 6c0
 	Projectile: Missile
@@ -103,7 +103,23 @@ FiendShardAA:
 		-TrailImage: small_smoke_trail
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
-		Damage: 1200
+		Damage: 3600
+	Warhead@op: FireShrapnel
+		Weapon: FiendShardAAEffect
+		ImpactActors: false
+		Amount: 2
+		ValidTargets: Ground, Air, Water
+
+FiendShardAAEffect:
+	ValidTargets: Ground, Air, Water
+	Range: 0c512
+	Projectile: Missile
+		RangeLimit: 0c64
+	Warhead@2Eff: CreateEffect
+		Explosions: juccons, jsmokey, jucflash, jsmkblastmini
+		ExplosionPalette: jascgreenalpha
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
 
 SeerTesla:
 	Inherits: ^FullDamage
