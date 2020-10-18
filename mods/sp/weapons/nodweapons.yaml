@@ -239,31 +239,6 @@ DevilsFlame:
 		Versus:
 			InfantryArmor: 200
 
-## Unused
-BCLazor:
-	Inherits: ^FullDamage
-	ReloadDelay: 200
-	Burst: 4
-	BurstDelays: 10
-	Range: 12c0
-	Report: laserchaingunfire.wav
-	MinRange: 3c0
-	Projectile: LaserZap
-		Duration: 20
-		Width: 90
-		Color: FA0F0F
-		SecondaryBeam: true
-		SecondaryBeamWidth: 30
-		ZOffset: 4000
-		SecondaryBeamZOffset: 4000
-		SecondaryBeamColor: FFFFFF
-	Warhead@1Dam: SpreadDamage
-		Spread: 200
-		Damage: 4000
-		Versus:
-			BuildingArmor: 150
-		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
-
 FlameHoloShrapnel:
 	Inherits: ^NoDamage
 	ReloadDelay: 300
@@ -490,14 +465,17 @@ CerberusSublazor1:
 	TargetActorCenter: true
 	Projectile: LaserZap
 		TrackTarget: false
-		Width: 45
+		Width: 60
 		Duration: 2
 		ZOffset: 4000
 		Color: FF0000
 		SecondaryBeam: true
 		SecondaryBeamWidth: 22
 		SecondaryBeamZOffset: 4000
-		SecondaryBeamColor: FFFF00
+		SecondaryBeamColor: FFFFFF
+		HitAnim: explosion
+		HitAnimSequence: lazerflare
+		HitAnimPalette: apred
 	InvalidTargets: Air
 	Warhead@1Dam: SpreadDamage
 		Spread: 96
@@ -510,8 +488,6 @@ CerberusSublazor1:
 	Warhead@1Eff_impact: CreateEffect
 		Explosions: laserscorch
 		ExplosionPalette: gradientgray
-	Warhead@2Eff_impact: CreateEffect
-		Explosions: fire3
 
 CerberusSublazor2:
 	Inherits: CerberusSublazor1
