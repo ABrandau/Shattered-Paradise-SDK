@@ -81,9 +81,11 @@ TDAIRSTRIP:
 	Building:
 		Footprint: xxxx= xxxx= xxxxx
 		Dimensions: 5,3
+	RallyPoint:
+		Path: 7,1
 	Exit@1:
 		ExitCell: 6,1
-		SpawnOffset: -1024,-256,0
+		SpawnOffset: -1536,-1536,0
 	IsometricSelectable:
 		DecorationHeight: 40
 
@@ -338,6 +340,8 @@ TDREFINERY:
 	-WithIdleOverlay@REDLIGHTS:
 	-WithDockedOverlay@flame:
 	-FreeActor:
+	Refinery:
+		DockOffset: 1,3
 	Tooltip:
 		Name: Old Refinery
 	-Capturable:
@@ -347,35 +351,25 @@ TDREFINERY:
 		Name: TD Building
 
 TDREPD:
-	Inherits: ^Building
-	Inherits@1: ^3x3Shape
-	Valued:
-		Cost: 900
+	Inherits: GADEPT
 	Tooltip:
 		Name: Old Service Depot
-	Building:
-		Footprint: =+= x++ x+=
-		Dimensions: 3,3
-	Health:
-		HP: 110000
-	Reservable:
-	RepairsUnits:
-		HpPerStep: 2000
-		FinishRepairingNotification: UnitRepaired
-		PlayerExperience: 15
-	WithSpriteBody:
-		PauseOnCondition: disabled
-	RallyPoint:
-		Palette: mouse
-		IsPlayerPalette: false
-	WithIdleOverlay@anima:
+	WithRepairOverlay@PLATFORM:
 		Sequence: anima
-	RenderSprites:
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
 	EditorOnlyTooltip:
 		Name: TD Building
+	RenderSprites:
+		Image: tdrepd
+		-FactionImages:
+	ProvidesPrerequisite@buildingname:
+	-WithIdleOverlay@LIGHT:
+	-WithIdleOverlay@GROUND:
+	-WithIdleOverlay@CIRCUITS:
+	-WithRepairOverlay@CRANE:
+	-WithDeathAnimation@BIB:
 
 TDSAMSITE:
 	Inherits: ^TurretedDefence
@@ -393,6 +387,7 @@ TDSAMSITE:
 	-AttackTurreted:
 	AttackPopupTurreted:
 		CloseDelay: 50
+		DefaultFacing: 640
 	WithEmbeddedTurretSpriteBody:
 	-WithSpriteTurret:
 	WithSpriteBody:

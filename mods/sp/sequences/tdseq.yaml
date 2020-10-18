@@ -73,10 +73,11 @@ tdadvpp:
 tdairstrip:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: -25, -64, 20 #-12, -48, 20 #-45, -54, 20 
+		Offset: -25, -64, 20
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
+		ZOffset: -1c611
 	idle:
 		ShadowStart: 94
 	damaged-idle:
@@ -144,6 +145,7 @@ tdhelipad:
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
+		ZOffset: -1c611
 	idle:
 		ShadowStart: 2
 	damaged-idle:
@@ -168,19 +170,20 @@ tdnhand:
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
 	idle:
-		ShadowStart: 51
+		ShadowStart: 56
 	damaged-idle:
 		Start: 1
-		ShadowStart: 52
+		ShadowStart: 57
 	dead:
 		Start: 1
-		ShadowStart: 52
+		ShadowStart: 57
 	make:
 		Start: 2
 		Length: 47
 		ShadowStart: 58
 	anima:
 		Start: 50
+		Length: 6
 
 tdntpl:
 	Inherits: ^EmpOverlay
@@ -261,6 +264,7 @@ tdrepd:
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
+		ZOffset: -1c611
 	idle:
 		ShadowStart: 2
 	damaged-idle:
@@ -294,12 +298,15 @@ tdrefinery:
 		ShadowStart: 158
 		Tick: 400
 	bib:
+		Start: 0
+		ZOffset: -1c611
 	make:
 		Start: 4
 		Length: 50
 		ShadowStart: 159
 	damaged-bib:
 		Start: 2
+		ZOffset: -1c611
 	anim:
 		Start: 55
 		Length: 20
@@ -412,7 +419,7 @@ tdsilo:
 		Start: 1
 		ShadowStart: 3
 	stages: tdsilo_a1
-		Length: 8
+		Length: 4
 	make: tdsilo_mkup
 		Length: 23
 		ShadowStart: 23
