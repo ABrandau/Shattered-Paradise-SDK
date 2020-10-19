@@ -216,8 +216,23 @@ JellyExplode:
 
 UnitExplode:
 	Inherits: ^ExploDefaults
-	Warhead@1Dam: SpreadDamage
 	Inherits@2: ^Medium_Brnl
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2: SpawnSmokeParticle
+		ImpactActors: false
+		Duration: 25, 600
+		Image: explosion
+		Sequences: fire4
+		Palette: effectalpha25
+		Weapon: DummyWeapon
+
+BigUnitExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^GreyExplo
+	Warhead@1Dam: SpreadDamage
 		Spread: 1
 		Damage: 1
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath

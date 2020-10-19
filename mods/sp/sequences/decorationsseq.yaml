@@ -525,13 +525,68 @@ tuntop04:
 geyser:
 	idle:
 	gasanim: tibgeysergas1
-		Length: *
-		Tick: 80
+		Start: 15
+		Length: 20
+		Tick: 60
+		Offset: 0,-6
 		UseTilesetCode: false
 
 geyser2:
 	Inherits: geyser
-	gasanim: tibgeysergas2
+	idle: geyser
+		Start: 1
+		ShadowStart: 5
+	gasanim: tibgeysergas1
+		Start: 35
+
+geyser3:
+	Inherits: geyser
+	idle: geyser
+		Start: 2
+		ShadowStart: 6
+	gasanim: tibgeysergas1
+		Start: 55
+
+geyser4:
+	idle: geyser
+		Start: 3
+		ShadowStart: 7
+	Inherits: geyser
+	gasanim: tibgeysergas1
+		Start: 72
+
+geysermini:
+	idle:
+	gasanim: tibgeysergasmini
+		Start: 4
+		Length: 15
+		Tick: 60
+		Offset: 0,-24
+		UseTilesetCode: false
+
+geysermini2:
+	Inherits: geysermini
+	idle: geysermini
+		Start: 1
+		ShadowStart: 5
+	gasanim: tibgeysergasmini
+		Start: 19
+
+geysermini3:
+	Inherits: geysermini
+	idle: geysermini
+		Start: 2
+		ShadowStart: 6
+	gasanim: tibgeysergasmini
+		Start: 35
+
+geysermini4:
+	Inherits: geysermini
+	idle: geysermini
+		Start: 3
+		ShadowStart: 7
+	gasanim: tibgeysergasmini
+		Start: 50
 
 constructionbarrier:
 	Defaults:
