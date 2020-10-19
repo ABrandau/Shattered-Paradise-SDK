@@ -1156,17 +1156,25 @@ CABDRONEJET:
 	Inherits@1: ^CabRender
 	Armament:
 		Weapon: CabJetMiniBomb
-	EditorOnlyTooltip:
-		Name: Drone pit Drone (Do not place in editor)
-	Tooltip:
-		Name: Cabal Drone
+		RequiresCondition}
+		PauseOnCondition: !ammo
 	-Armament@AA:
+	AmmoPool:
+		Ammo: 3
+		AmmoCondition: ammo
+		ReloadDelay: 5
+	EditorOnlyTooltip:
+		Name: Imp (Do not place in editor)
+	Tooltip:
+		Name: Imp
 	Valued:
 		Cost: 50
 	Health:
 		HP: 8000
 	RenderSprites:
 		Image: cabdronejet
+	Rearmable:
+		RearmActors: cabpit
 	Aircraft:
 		MaximumPitch: 90
 		TurnSpeed: 120
@@ -1420,6 +1428,7 @@ DEVOURER:
 	AmbientSound:
 		SoundFiles: ChainLoop0000.wav, ChainLoop0001.wav, ChainLoop0002.wav, ChainLoop0003.wav, ChainLoop0004.wav, ChainLoop0005.wav
 		Interval: 13
+		Volume: 0.08
 		RequiresCondition: Attacking
 	GrantConditionOnAttack:
 		Condition: Attacking
