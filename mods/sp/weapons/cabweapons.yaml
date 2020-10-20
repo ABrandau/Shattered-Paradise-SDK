@@ -516,7 +516,7 @@ BasiliskBomb:
 		Explosions: firestormexplo, firestormexplo1, firestormexplo2
 		ExplosionPalette: apolbluealpha
 		ImpactSounds: firstrm1.aud
-		ValidTargets: Ground, Water, Water
+		ValidTargets: Ground, Water
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
@@ -571,10 +571,10 @@ CabJetMiniBomb:
 	ValidTargets: Ground, Water, Building, Infantry, Vehicle
 	Range: 1c512
 	Projectile: BulletAS
-		Speed: 600
-		Image: 120mm
+		Speed: 500
+		Image: clusterbomb
 		Shadow: true
-		Palette: ra
+		Palette: effect
 	Warhead@1Dam: SpreadDamage
 		Falloff: 100, 80, 70, 60, 50
 		Spread: 200
@@ -587,6 +587,9 @@ CabJetMiniBomb:
 			ConcreteArmor: 1
 		ValidTargets: Ground, Water, Building, Infantry, Vehicle
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: medium_clsn
+		ExplosionPalette: effect-ignore-lighting-alpha75
 
 BlasterProton:
 	Inherits: ^FullDamage
