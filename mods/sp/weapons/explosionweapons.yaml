@@ -652,3 +652,25 @@ VisceroidExplode:
 		Explosions: viscexplo
 		ExplosionPalette: effect
 		ImpactSounds: ssplash3.aud
+
+PowerlineExplosion:
+	ValidTargets: Wall, Ground, PowerLine
+	Warhead@PowerlineExplosion: GrantExternalCondition
+		Range: 1c0
+		Duration: 650
+		Condition: powerlineexploding
+		ValidTargets: Wall, Ground, PowerLine
+	Warhead@4: GrantExternalCondition
+		Range: 1c0
+		Duration: 125
+		Condition: empdisable
+		ValidTargets: Vehicle, Building
+	Warhead@5: CreateEffect
+		Explosions: powerlinexplosion
+		ImpactSounds: expnew12.aud
+		ValidTargets: Ground, Air, Water
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@6: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall, Air, Water
+		ImpactActors: false
