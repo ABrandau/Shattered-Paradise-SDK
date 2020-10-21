@@ -228,6 +228,52 @@ CERMWALL:
 	Tooltip:
 		Name: Wall
 
+POWERLINE:
+	Inherits: ^Wall
+	Tooltip:
+		Name: Power line
+	Pluggable:
+		Conditions:
+			powerlinepost: powerlinepost
+		EditorOptions:
+			powerlinepost: Power post (Doesnt explode when the cables do)
+	Building:
+		Footprint: +
+	Health:
+		HP: 5000
+	-BlocksProjectiles:
+	Armor:
+		Type: BuildingArmor
+	Crushable:
+		CrushClasses: infantry
+		RequiresCondition: powerlinepost
+	Targetable:
+		RequiresCondition: powerlinepost
+    Targetable@PowerLine:
+        TargetTypes: PowerLine
+        RequiresCondition: !powerlinepost
+	KillsSelf:
+		RequiresCondition: powerlineexploding && !powerlinepost
+	ExternalCondition@powerlineexploding:
+		Condition: powerlineexploding
+	Explodes@UnitExplode:
+		EmptyWeapon: UnitExplode
+		Weapon: UnitExplode
+		RequiresCondition: powerlinepost
+	Explodes@powerlinepost:
+		EmptyWeapon: PowerlineExplosion
+		Weapon: PowerlineExplosion
+	RenderSprites:
+		Palette: isotem
+
+POWERLINESINGLE:
+	Inherits: POWERLINE
+
+POWERLINEPLUGPOST:
+	Inherits: ^BuildingPlug
+	Plug:
+		Type: powerlinepost
+
 TRASHDUMP:
 	Inherits: ^CivBuilding
 	Inherits@2: ^1x1Shape
