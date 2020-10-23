@@ -242,46 +242,6 @@ SCRHARV:
 	Selectable:
 		DecorationBounds: 36,36
 
-LPST:
-	Inherits: ^VoxelVehicle
-	-AppearsOnRadar:
-	-GainsExperience:
-	Valued:
-		Cost: 950
-	Tooltip:
-		Name: Mobile Sensor Array
-	Health:
-		HP: 60000
-	Armor:
-		Type: BuildingArmor
-	Mobile:
-		Speed: 85
-		TurnSpeed: 20
-	RenderSprites:
-		Image: lpst.gdi
-		FactionImages:
-			gdi: lpst.gdi
-			nod: lpst.nod
-	GrantConditionOnDeploy:
-		DeployedCondition: deployed, notmobile
-		UndeployedCondition: undeployed
-		DeployAnimation: make
-		Facing: 640
-		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
-		DeploySounds: place2.aud
-		UndeploySounds: clicky1.aud
-	WithMakeAnimation:
-	WithVoxelBody:
-		Sequence: lpst
-		RequiresCondition: undeployed
-	WithSpriteBody@deployed:
-		RequiresCondition: undeployed
-	DetectCloaked:
-		RequiresCondition: deployed
-		Range: 18c0
-	RenderDetectionCircle:
-		TrailCount: 3
-
 GACNST:
 	Inherits: ^Building
 	Inherits@1: ^3x3Shape

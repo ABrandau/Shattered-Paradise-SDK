@@ -1,73 +1,3 @@
-NEUTRALFABRICATOR:
-	Inherits: ^Vehicle
-	Inherits@2: ^SpriteActor
-	Inherits@3: ^7CellVision
-	Tooltip:
-		Name: Packed up Fabricator
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Mobile:
-		TurnSpeed: 20
-		Speed: 45
-		Locomotor: InfantryCrusherVehicle
-	Passenger:
-		RequireForceMoveCondition: !undeployed
-	Health:
-		HP: 150000
-	Transforms:
-		IntoActor: neutralfabricatordep
-		Facing: 888
-	Capturable:
-		Types: Building
-		RequiresCondition: !Building-Buildup
-	WithFacingSpriteBody:
-		Sequence: vehicle
-	Selectable:
-		Bounds: 40,50,0, -15
-	RenderSprites:
-		PlayerPalette: playerunittem
-
-NEUTRALFABRICATORDEP:
-	Inherits: ^Building
-	Inherits@1: ^1x1Shape
-	Building:
-		Footprint: x
-		BuildSounds: facbld1.aud
-		Dimensions: 1,1
-	Health:
-		HP: 150000
-	Tooltip:
-		Name: Civilian Fabricator
-	BaseProvider:
-		Range: 8c0
-	Targetable:
-		TargetTypes: Building, Ground, C4, SpyInfiltrate, MindControlImmune, ConsideredValuableForAI
-	BaseBuilding:
-	Transforms:
-		IntoActor: neutralfabricator
-		Facing: 888
-		DeployCursor: undeploy
-	TransformsIntoMobile:
-		RequiresCondition: !Building-Buildup && Campaign
-		Locomotor: InfantryCrusherVehicle
-		Voice: Move
-		RequiresForceMove: true
-	TransformsIntoRepairable:
-		RequiresCondition: !Building-Buildup && Campaign
-		RepairActors: gadept, scrdepot
-		Voice: Move
-		RequiresForceMove: true
-	TransformsIntoPassenger:
-		RequiresCondition: !Building-Buildup && Campaign
-		CargoType: Vehicle
-		Voice: Move
-		RequiresForceMove: true
-	IsometricSelectable:
-		DecorationHeight: 36
-	RenderSprites:
-		Image: neutralfabricator
-		PlayerPalette: playerunittem
-
 CAHOSP:
 	Inherits: ^TechBuilding
 	Inherits@shape: ^3x4Shape
@@ -409,28 +339,6 @@ CABCANNON:
 		LocalOffset: 650,0,550
 		MuzzleSequence: muzzle
 	SelectionDecorations:
-	RequiresBuildableArea:
-		AreaTypes: building
-
-CABGRINDER:
-	Inherits: ^TechBuilding
-	Inherits@1: ^CabRender
-	Inherits@2: ^2x3Shape
-	Valued:
-		Cost: 350
-	Tooltip:
-		Name: Stasis Chamber
-	TooltipDescription:
-		Description: Allows to process units into credits.
-	AcceptsDeliveredCash:
-	Building:
-		Footprint: xx xx xx
-		Dimensions: 2,3
-	Health:
-		HP: 25000
-	Armor:
-		Type: BuildingArmor
-	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
 
