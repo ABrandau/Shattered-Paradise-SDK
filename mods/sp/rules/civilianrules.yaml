@@ -2615,3 +2615,749 @@ C_KODIAK:
 	RequiresBuildableArea:
 		AreaTypes: building
 	Interactable:
+
+LPST:
+	Inherits: ^VoxelVehicle
+	Inherits@4: ^EngineerCapturableVehicle
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Sensor Array
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 32
+		Speed: 45
+		Locomotor: InfantryCrusherVehicle
+		PauseOnCondition: empdisable
+		RequireForceMoveCondition: !AImicroManage && !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
+	Health:
+		HP: 25000
+	WithMakeAnimation:
+		BodyNames: deployed
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		Facing: 640
+		SmartDeploy: true
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
+		DeploySounds: place2.aud
+		CanDeployOnRamps: true
+		UndeployOnMove: true
+		UndeploySounds: clicky1.aud
+		PauseOnCondition: RefineryLock
+		RequiresCondition: !inside-tunnel && !empdisable
+	## TODO: needs updating when engine upgrade
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: !AImicroManage && deployed
+	## --TODO
+	Carryable:
+		RequiresCondition: undeployed
+	WithSpriteBody@deployed:
+		Sequence: deployed
+		Name: deployed
+		RequiresCondition: !undeployed
+	WithVoxelBody:
+		RequiresCondition: undeployed
+	ExternalCondition@deployed:
+		Condition: deployed
+	ExternalCondition@undeployed:
+		Condition: undeployed
+	RenderDetectionCircle:
+		TrailCount: 3
+	RenderVoxels:
+		Scale: 11.5
+	DetectCloaked:
+		RequiresCondition: !empdisable && deployed
+		Range: 15c0
+	RevealsShroud:
+		RequiresCondition: !inside-tunnel && undeployed
+		Range: 4c0
+		MaxHeightDelta: 3
+	RevealsShroud@DEPLOYED:
+		RequiresCondition: !undeployed
+		Range: 15c0
+		MaxHeightDelta: 3
+
+SGEN:
+	Inherits: ^VoxelVehicle
+	Inherits@4: ^EngineerCapturableVehicle
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Mobile stealth generator
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 32
+		Speed: 45
+		Locomotor: InfantryCrusherVehicle
+		PauseOnCondition: empdisable
+		RequireForceMoveCondition: !AImicroManage && !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
+	Health:
+		HP: 25000
+	WithMakeAnimation:
+		BodyNames: deployed
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		Facing: 384
+		SmartDeploy: true
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
+		DeploySounds: place2.aud
+		CanDeployOnRamps: true
+		UndeployOnMove: true
+		UndeploySounds: clicky1.aud
+		PauseOnCondition: RefineryLock
+		RequiresCondition: !inside-tunnel && !empdisable
+	## TODO: needs updating when engine upgrade
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: !AImicroManage && deployed
+	## --TODO
+	Carryable:
+		RequiresCondition: undeployed
+	WithSpriteBody@deployed:
+		Sequence: deployed
+		Name: deployed
+		RequiresCondition: !undeployed
+	WithVoxelBody:
+		RequiresCondition: undeployed
+	ExternalCondition@deployed:
+		Condition: deployed
+	ExternalCondition@undeployed:
+		Condition: undeployed
+	RenderVoxels:
+		Scale: 11.5
+	ProximityExternalCondition:
+		Condition: cloakgenerator
+		RequiresCondition: deployed
+		Range: 6c0
+		EnableSound: cloak5.aud
+		DisableSound: cloak5.aud
+		AffectsParent: true
+	WithRangeCircle:
+		Range: 6c0
+		Type: cloakgenerator
+		RequiresCondition: deployed
+
+MASTL:
+	Inherits: ^TechBuilding
+	Inherits@1: ^EngineerCapturableVehicle
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Deployed Stealth Generator
+	Health:
+		HP: 25000
+	WithRangeCircle:
+		Range: 6c0
+		Type: cloakgenerator
+	Transforms:
+		IntoActor: sgen
+		Facing: 384
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+	ProximityExternalCondition:
+		Condition: cloakgenerator
+		Range: 6c0
+		EnableSound: cloak5.aud
+		DisableSound: cloak5.aud
+		AffectsParent: true
+
+MWAR:
+	Inherits: ^VoxelVehicle
+	Inherits@4: ^EngineerCapturableVehicle
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Mobile warfactory
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 32
+		Speed: 45
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 25000
+		BodyNames: deployed
+	RenderVoxels:
+		Scale: 11.5
+	Transforms:
+		IntoActor: mtar
+		Facing: 384
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+		Offset: -1,-1
+
+MTAR:
+	Inherits: ^TechBuilding
+	Inherits@1: ^EngineerCapturableVehicle
+	Inherits@2: ^Factory
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Mobile warfactory
+	Health:
+		HP: 25000   
+	Transforms:
+		IntoActor: mwar
+		Facing: 384
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+		Offset: 1,1
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+		RequiresCondition: !Building-Buildup
+	WithProductionDoorOverlay@DOOR:
+		RequiresCondition: !Building-Buildup
+	WithProductionOverlay@WHITELIGHTS:
+		Sequence: production-lights-white
+		RequiresCondition: !Building-Buildup
+	WithProductionOverlay@REDLIGHTS:
+		Sequence: production-lights-red
+		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@TURBINES:
+		Sequence: idle-turbines
+		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@BIB:
+		Sequence: bib
+		RequiresCondition: !Building-Buildup
+	IsometricSelectable:
+		DecorationHeight: 36
+
+GAARTY:
+	Inherits@1: ^DeployedVehicle
+	Valued:
+		Cost: 975
+	Tooltip:
+		Name: Deployed Artillery
+	Health:
+		HP: 30000
+	Turreted:
+		TurnSpeed: 20
+		InitialFacing: 512
+		Offset: 0,0,171
+	Armament:
+		Weapon: 155mm
+		LocalOffset: 811,0,0
+		MuzzleSequence: muzzle
+	BodyOrientation:
+		QuantizedFacings: 32
+	RenderVoxels:
+		LightAmbientColor: 0.4, 0.4, 0.4
+	WithVoxelBarrel:
+		LocalOffset: 0,0,-512
+	WithVoxelTurret:
+	WithMuzzleOverlay:
+
+###################################################
+# TIBERIAN DAWN BUILDINGS
+###################################################
+
+TDADVGTWR:
+	Inherits: ^TurretedDefence
+	Inherits@1: ^AntiAir
+	Tooltip:
+		Name: Advanced Guard Tower
+	BodyOrientation:
+		QuantizedFacings: 32
+	Armament:
+		Weapon: HoverMissile
+		LocalOffset: 500,200,2800, 500,-200,2800
+		PauseOnCondition: empdisable
+	Armament@AA:
+		Weapon: HoverMissileAA
+		LocalOffset: 500,200,2800, 500,-200,2800
+		PauseOnCondition: empdisable
+	RenderSprites:
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
+	IsometricSelectable:
+		DecorationHeight: 60
+
+ADVHQ:
+	Inherits: ^Radar
+	ProvidesPrerequisite:
+		Prerequisite: radar
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Tooltip:
+		Name: Old Advanced Communications Center
+	WithIdleOverlay@anim:
+		Sequence: anima
+		PauseOnCondition: stop || empdisable
+	WithIdleOverlay@anim:
+		Sequence: animb
+		PauseOnCondition: stop || empdisable
+	RenderSprites:
+		Image: tdadvhq
+	GrantCondition:
+		Condition: stop
+	-SpawnActorPower:
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
+
+TDADVPP:
+	Inherits: ^Powerplant
+	Inherits@2: ^2x2Shape
+	Tooltip:
+		Name: Old advanced power plant
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	WithIdleOverlay@LIGHTS:
+		Sequence: anima
+		RequiresCondition: !Building-Buildup
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
+
+TDAIRSTRIP:
+	Inherits: ^Factory
+	Inherits@1: ^5x3Shape
+	Tooltip:
+		Name: Airstrip
+	WithIdleOverlay@anima:
+		Sequence: anima
+		Palette: player
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
+	Building:
+		Footprint: xxxx= xxxx= xxxxx
+		Dimensions: 5,3
+	RallyPoint:
+		Path: 7,1
+	Exit@1:
+		ExitCell: 6,1
+		SpawnOffset: -1536,-1536,0
+	IsometricSelectable:
+		DecorationHeight: 40
+
+TDBARR:
+	Inherits: ^Barracks
+	Inherits@2: ^3x3Shape
+	Tooltip:
+		Name: Barracks
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Exit@1:
+		SpawnOffset: -512,768,0
+		ExitCell: 1,2
+		Priority: 2
+	Exit@2:
+		SpawnOffset: -512,768,0
+		ExitCell: 0,2
+		Priority: 2
+	Exit@fallback1:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,2
+	Exit@fallback2:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,1
+	Exit@fallback3:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,0
+	Exit@fallback4:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,-1
+	Exit@fallback5:
+		SpawnOffset: 724,0,0
+		ExitCell: 1,-1
+	Exit@fallback6:
+		SpawnOffset: 0,-724,0
+		ExitCell: 0,-1
+	Exit@fallback7:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,-1
+	Exit@fallback8:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,0
+	Exit@fallback9:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,1
+	Exit@fallback10:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,2
+	WithIdleOverlay@anima:
+		Sequence: anima
+		RequiresCondition: !Building-Buildup
+	ProvidesPrerequisite@SharedEngie:
+		Prerequisite: SharedEngie
+	RequiresBuildableArea:
+		AreaTypes: building
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
+
+TDGTWR:
+	Inherits: ^Defence
+	Tooltip:
+		Name: Guard Tower
+	Armament:
+		Weapon: WolverineVulcan
+		PauseOnCondition: empdisable
+	Armament@1Casing:
+		Weapon: WolverineVulcanCasing
+		PauseOnCondition: empdisable
+		LocalOffset: 0,-275,1300, 0,275,1300
+	Armament@2Bullet:
+		Weapon: WolverineVulcanLine
+		PauseOnCondition: empdisable
+		LocalOffset: 0,-275,1300, 0,275,1300
+	AttackOmni:
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
+
+TDNHAND:
+	Inherits: ^Barracks
+	Inherits@2: ^3x2Shape
+	Tooltip:
+		Name: Hand of Nod
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Exit@1:
+		SpawnOffset: 384,768,0
+		ExitCell: 2,2
+		Priority: 2
+	Exit@2:
+		SpawnOffset: 384,768,0
+		ExitCell: 3,2
+		Priority: 2
+	Exit@fallback1:
+		SpawnOffset: 384,768,0
+		ExitCell: 1,2
+	Exit@fallback2:
+		SpawnOffset: 384,768,0
+		ExitCell: 3,1
+	Exit@fallback3:
+		SpawnOffset: 1086,362,0
+		ExitCell: 3,0
+	Exit@fallback4:
+		SpawnOffset: 1086,362,0
+		ExitCell: 3,-1
+	Exit@fallback5:
+		SpawnOffset: 1086,362,0
+		ExitCell: 2,-1
+	Exit@fallback6:
+		SpawnOffset: 362,-362,0
+		ExitCell: 1,-1
+	Exit@fallback7:
+		SpawnOffset: -362,-1086,0
+		ExitCell: 0,-1
+	Exit@fallback8:
+		SpawnOffset: -362,-1086,0
+		ExitCell: -1,-1
+	Exit@fallback9:
+		SpawnOffset: -362,-1086,0
+		ExitCell: -1,0
+	Exit@fallback10:
+		SpawnOffset: -1086,-362,0
+		ExitCell: -1,1
+	Exit@fallback11:
+		SpawnOffset: -1086,-362,0
+		ExitCell: -1,2
+	Exit@fallback12:
+		SpawnOffset: -1086,-362,0
+		ExitCell: 0,2
+	WithIdleOverlay:
+		Sequence: anima
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
+	IsometricSelectable:
+		DecorationHeight: 90
+
+TDNTPL:
+	Inherits: ^Building
+	Inherits@2: ^6x4Shape
+	Tooltip:
+		Name: Old temple of Nod
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
+	Building:
+		Footprint: xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx
+		Dimensions: 6,6
+	IsometricSelectable:
+		DecorationHeight: 90
+
+TDHELIPAD:
+	Inherits@1: ^Helipad
+	Inherits@2: ^2x2Shape
+	Tooltip:
+		Name: Helipad
+	Valued:
+		Cost: 500
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	PrimaryBuilding:
+	WithIdleOverlay@anima:
+		Sequence: anima
+		RequiresCondition: !Building-Buildup
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
+
+TDNTUR:
+	Inherits: ^TurretedDefence
+	Tooltip:
+		Name: Old gun turret
+	BodyOrientation:
+		QuantizedFacings: 32
+	Armament:
+		Weapon: Titan120mm
+		LocalOffset: 800,0,500
+		PauseOnCondition: empdisable
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
+
+TDOBELISK:
+	Inherits: ^Defence
+	Inherits@1: ^TowerStealthDetection
+	Inherits@2: ^1x1Shape
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Obelisk of Light
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Health:
+		HP: 100000
+	WithMuzzleOverlay:
+	Armament:
+		Weapon: ObeliskLaserFire
+		LocalOffset: 190,-190,3800
+		MuzzleSequence: muzzle
+		MuzzlePalette: obelpal
+		RequiresCondition: !Building-Buildup
+	AttackCharges:
+		PauseOnCondition: empdisable || disabled
+		ChargeLevel: 40
+		ChargingCondition: charging
+	AmbientSound:
+		RequiresCondition: charging && !disabled
+		SoundFiles: obelpowr.aud
+	WithChargeOverlay:
+		Sequence: powerup
+		Palette: player
+		IsPlayerPalette: true
+		RequiresCondition: !Building-Buildup
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
+	IsometricSelectable:
+		DecorationHeight: 60
+
+TDREFINERY:
+	Inherits: FLIPPEDXPROC
+	Building:
+		Footprint: xxx xxx X=X ===
+	WithIdleOverlay@anim:
+		Sequence: anim
+		Palette: player
+	WithIdleOverlay@animb:
+		Sequence: animb
+		Palette: player
+	WithIdleOverlay@animd:
+		Sequence: animd
+		Palette: player
+	-WithIdleOverlay@REDLIGHTS:
+	-WithDockedOverlay@flame:
+	-FreeActor:
+	Refinery:
+		DockOffset: 1,3
+	Tooltip:
+		Name: Old Refinery
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
+
+TDREPD:
+	Inherits: GADEPT
+	Tooltip:
+		Name: Old Service Depot
+	WithRepairOverlay@PLATFORM:
+		Sequence: anima
+	-Buildable:
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
+	RenderSprites:
+		Image: tdrepd
+		-FactionImages:
+	ProvidesPrerequisite@buildingname:
+	-WithIdleOverlay@LIGHT:
+	-WithIdleOverlay@GROUND:
+	-WithIdleOverlay@CIRCUITS:
+	-WithRepairOverlay@CRANE:
+	-WithDeathAnimation@BIB:
+
+TDSAMSITE:
+	Inherits: ^TurretedDefence
+	Inherits@1: ^2x2Shape
+	Inherits@1: ^AntiAir
+	Tooltip:
+		Name: Sam Site
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Armament@AA:
+		Weapon: HoverMissileAA
+		LocalOffset: 1200,200,2000, 1200,-200,2000
+		PauseOnCondition: empdisable
+	-AttackTurreted:
+	AttackPopupTurreted:
+		CloseDelay: 50
+		DefaultFacing: 640
+	WithEmbeddedTurretSpriteBody:
+	-WithSpriteTurret:
+	WithSpriteBody:
+		Name: base
+		Sequence: base
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
+
+TDPP:
+	Inherits: ^Powerplant
+	Inherits@2: ^2x3Shape
+	Tooltip:
+		Name: Power Plant
+	Valued:
+		Cost: 700
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 2,3
+	Health:
+		HP: 100000
+	WithIdleOverlay@anima:
+		Sequence: anima
+		RequiresCondition: !Building-Buildup
+	Power:
+		Amount: 300
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
+
+TDSILO:
+	Inherits: ^Building
+	Inherits: ^2x2Shape
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Old Silo
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	-GivesBuildableArea:
+	Health:
+		HP: 10000
+	Armor:
+		Type: BuildingArmor
+	RenderSprites:
+	WithSpriteBody:
+	StoresResources:
+		Capacity: 3000
+	GrantConditionOnPlayerResources:
+		Condition: contains-tiberium
+	Explodes:
+		RequiresCondition: contains-tiberium
+		Weapon: TiberiumExplosion
+	WithResourceLevelOverlay@FILLSTAGE:
+		RequiresCondition: !build-incomplete
+		Sequence: stages
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		Margin: 8, 2
+		FullSequence: pip-green-building
+		EmptySequence: pip-empty-building
+		PipStride: 4, 2
+		PipCount: 12
+		Palette: pips
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building
+
+TDWF:
+	Inherits: ^Factory
+	Inherits@1: ^4x4Shape
+	Tooltip:
+		Name: War Factory
+	ProvidesPrerequisite@ShowMammMkII:
+		Prerequisite: showmammmk2
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+		RequiresCondition: !Building-Buildup
+	WithProductionDoorOverlay@DOOR:
+		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@anima:
+		Sequence: anima
+		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@BIB:
+		Sequence: bib
+		RequiresCondition: !Building-Buildup
+	Building:
+		Footprint: xx== xx== xxxx xxxx 
+		Dimensions: 4,4
+	Exit@1:
+		ExitCell: 3,2
+		SpawnOffset: -1024, 0, 0
+	IsometricSelectable:
+		DecorationHeight: 36
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	EditorOnlyTooltip:
+		Name: TD Building

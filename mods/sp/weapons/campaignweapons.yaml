@@ -1,0 +1,32 @@
+#######################################################
+# CREEPS
+#######################################################
+
+WeasaurusShard:
+	Inherits: FiendShard
+	-Burst:
+	Projectile: BulletAS
+		Inaccuracy: 1024
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
+
+WeasaurusBlueShard:
+	Inherits: WeasaurusShard
+	Projectile: BulletAS
+		Inaccuracy: 1024
+		Palette: apblue
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
+
+WeasauBabyStrike:
+	Inherits: RavagerStrike
+	Warhead@1Dam: SpreadDamage
+		Damage: 1500
+	-Warhead@emp:
+
+WeasauBlueStrike:
+	Inherits: RavagerStrike
+	Warhead@1Dam: SpreadDamage
+		Damage: 10000
+	Warhead@emp: GrantExternalCondition
+		Duration: 20

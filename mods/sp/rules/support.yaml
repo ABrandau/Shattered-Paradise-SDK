@@ -1221,62 +1221,6 @@ GAPLUG3:
 	Power:
 		Amount: -100
 
-MASTL:
-	Inherits: ^DeployedVehicle
-	Valued:
-		Cost: 800
-	Tooltip:
-		Name: Deployed Stealth Generator
-	Health:
-		HP: 25000
-	-AttackTurreted:
-	-AutoTarget:
-	-RenderRangeCircle:
-	WithRangeCircle:
-		Range: 6c0
-		Type: cloakgenerator
-	Selectable:
-		Priority: 6
-	BodyOrientation:
-		QuantizedFacings: 32
-	Transforms:
-		IntoActor: sgen
-		Facing: 384
-		TransformSounds: place2.aud
-		NoTransformSounds:
-		Voice: Move
-	ProximityExternalCondition:
-		Condition: cloakgenerator
-		Range: 5c0
-		EnableSound: cloak5.aud
-		DisableSound: cloak5.aud
-		AffectsParent: true
-
-GAARTY:
-	Inherits@1: ^DeployedVehicle
-	Valued:
-		Cost: 975
-	Tooltip:
-		Name: Deployed Artillery
-	Health:
-		HP: 30000
-	Turreted:
-		TurnSpeed: 20
-		InitialFacing: 512
-		Offset: 0,0,171
-	Armament:
-		Weapon: 155mm
-		LocalOffset: 811,0,0
-		MuzzleSequence: muzzle
-	BodyOrientation:
-		QuantizedFacings: 32
-	RenderVoxels:
-		LightAmbientColor: 0.4, 0.4, 0.4
-	WithVoxelBarrel:
-		LocalOffset: 0,0,-512
-	WithVoxelTurret:
-	WithMuzzleOverlay:
-
 GAWALL:
 	Inherits: ^Wall
 	SoundOnDamageTransition:
