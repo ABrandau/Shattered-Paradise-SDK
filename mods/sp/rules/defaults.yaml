@@ -249,6 +249,14 @@
 			TopLeft: -3072, -2048
 			BottomRight: 3072, 2048
 
+^EngineerCapturableVehicle:
+	CaptureManager:
+	Capturable:
+		Types: Building
+		RequiresCondition: !Building-Buildup
+	CapturableProgressBar:
+	CapturableProgressBlink:
+
 ^CrateBuffs:
 	SpeedMultiplier@speedcrate:
 		RequiresCondition: speedcrate
@@ -1524,7 +1532,7 @@
 			EnergyDeath: body1, body2, body3, body4, body5
 			ExplosionDeath: body1, body2, body3, body4, body5
 		Delay: 10
- 	WithDeathAnimation@blood1:
+	WithDeathAnimation@blood1:
 		DeathSequencePalette: gradientred
 		DeathPaletteIsPlayerPalette: false
 		CrushedSequence: dieblood1
@@ -1641,7 +1649,7 @@
 	Voiced:
 		VoiceSet: Desintegrator
 		Volume: 2
- 	WithDeathAnimation@blood1:
+	WithDeathAnimation@blood1:
 		DeathSequencePalette: gradientblue
 		CrushedSequencePalette: gradientblue
 	WithDeathAnimation@normal:
@@ -1712,7 +1720,7 @@
 	-SpawnActorOnDeath@FLAMEGUY2:
 	-SpawnActorOnDeath@tiberium:
 	-DamagedByTerrain:
- 	-WithDeathAnimation@blood1:
+	-WithDeathAnimation@blood1:
 	Voiced:
 		VoiceSet: Limpet
 	Mobile:
@@ -1788,7 +1796,7 @@
 	-SpawnActorOnDeath@tiberium:
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@ScrinEssence:
- 	-WithDeathAnimation@blood1:
+	-WithDeathAnimation@blood1:
 
 ^Engineer:
 	Inherits@1: ^InfantryShape
@@ -2243,8 +2251,6 @@
 	WithIdleAnimation:
 	MapEditorData:
 		Categories: Blossom Tree
-	RequiresBuildableArea:
-		AreaTypes: building
 	Interactable:
 	TerrainLightSource:
 		RedTint: 0
@@ -2323,8 +2329,21 @@
 		Dimensions: 1, 1
 	MapEditorData:
 		Categories: Decoration
-	RequiresBuildableArea:
-		AreaTypes: building
+	RadarColorFromTerrain:
+		Terrain: CivilianProp
+
+^CrossableDecoration:
+	Inherits@1: ^SpriteActor
+	Interactable:
+	HiddenUnderShroud:
+	RenderSprites:
+		Palette: terraindecoration
+	WithSpriteBody:
+	Building:
+		Footprint: _
+		Dimensions: 1, 1
+	MapEditorData:
+		Categories: Crossable Decoration
 	RadarColorFromTerrain:
 		Terrain: CivilianProp
 
