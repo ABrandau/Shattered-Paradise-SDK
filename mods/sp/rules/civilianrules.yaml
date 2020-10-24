@@ -1,6 +1,8 @@
 LIMPED:
 	Inherits: ^HoverVehicle
 	Inherits@1: ^8CellVision
+	Inherits@2: ^EngineerHackableDrone
+	Inherits@3: ^BasicStealthDetection
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 400
@@ -53,11 +55,11 @@ LIMPED:
 	Wanders@AI:
 		RequiresCondition: AImicroManage
 		WanderMoveRadius: 15
-		MinMoveDelay: 1000
-		MaxMoveDelay: 1200
+		MinMoveDelay: 450
+		MaxMoveDelay: 500
 	AIDeployHelper:
 		DeployTrigger: Periodically
-		DeployTicks: 500
+		DeployTicks: 600
 
 GHOST:
 	Inherits: ^Mutant
@@ -2799,7 +2801,6 @@ MWAR:
 
 MTAR:
 	Inherits: ^TechBuilding
-	Inherits@1: ^EngineerCapturableVehicle
 	Inherits@2: ^Factory
 	Valued:
 		Cost: 800

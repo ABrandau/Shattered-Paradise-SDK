@@ -252,8 +252,16 @@
 ^EngineerCapturableVehicle:
 	CaptureManager:
 	Capturable:
-		Types: Building
-		RequiresCondition: !Building-Buildup
+		Types: TechBuilding
+		ValidStances: Neutral
+	CapturableProgressBar:
+	CapturableProgressBlink:
+
+^EngineerHackableDrone:
+	CaptureManager:
+	Capturable:
+		Types: Drone
+		ValidStances: Neutral
 	CapturableProgressBar:
 	CapturableProgressBlink:
 
@@ -1818,16 +1826,23 @@
 		CustomPipType: yellow
 	EngineerRepair:
 	RepairsBridges:
-	Captures:
+	Captures@NormalBuilding:
 		CaptureTypes: Building
 		RequiresCondition: !global-reusable-engineers
 		PlayerExperience: 25
 		CaptureDelay: 125
-	Captures@1:
+	Captures@TechBuilding:
 		CaptureTypes: TechBuilding
 		RequiresCondition: !global-reusable-engineers
 		PlayerExperience: 25
 		CaptureDelay: 175
+	Captures@HackTechDrone:
+		CaptureTypes: Drone
+		PlayerExperience: 10
+		CaptureDelay: 80
+		ConsumedByCapture: false
+		EnterCursor: powerdown
+		EnterBlockedCursor: powerdown-blocked
 	Huntable:
 	CaptureManager:
 
