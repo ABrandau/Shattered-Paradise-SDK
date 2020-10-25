@@ -952,7 +952,7 @@
 ^AImicroManagable:
 	GrantConditionOnBotOwner@AImicroManage:
 		Condition: AImicroManage
-		Bots: NormalAI, CheaterAI, ShatteredAI
+		Bots: EasyAI, NormalAI, CheaterAI, ShatteredAI
 
 ^AIbuildingMicroControl:
 	GrantConditionOnBotOwner@AIbuildingMicroControl:
@@ -1238,6 +1238,8 @@
 	AutoTarget:
 	-MustBeDestroyed:
 	RenderRangeCircle:
+		Color: FFFF00CC
+		BorderColor: 000000CC
 	Targetable@Defence:
 		TargetTypes: Defence
 	Armor:
@@ -2755,6 +2757,8 @@
 	DetectCloaked:
 		Range: 5c0
 	RenderDetectionCircle:
+		TrailCount: 1
+		UpdateLineTick: -3
 
 ^BasicStealthDetectionAir:
 	Inherits: ^BasicStealthDetection
@@ -2762,12 +2766,16 @@
 		Range: 6c0
 	RenderDetectionCircle:
 		RenderOnGround: true
+		TrailCount: 1
+		UpdateLineTick: -3
 
 ^TowerStealthDetection:
 	DetectCloaked:
 		Range: 7c0
 		RequiresCondition: !empdisable && !disabled
 	RenderDetectionCircle:
+		TrailCount: 1
+		UpdateLineTick: -3
 
 ^CargoPips:
 	WithCargoPipsDecoration:
