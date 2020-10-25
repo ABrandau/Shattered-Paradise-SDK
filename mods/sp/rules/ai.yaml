@@ -393,7 +393,7 @@ Player:
 		RequiresCondition: AIBase
 		SquadSize: 35
 		SquadSizeRandomBonus: 30
-		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, e2, swarmling, shapeshifter,mcv, drache, drache_bot, cabmcv, nodmcv, mutmcv, repairvehicle, ecm, mumine, eggs, cabsentry
+		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, e2, swarmling, shapeshifter,mcv, drache, drache_bot, cabmcv, nodmcv, mutmcv, repairvehicle, ecm, mwar, mumine, eggs, cabsentry
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
 		DangerScanRadius: 18
 		AttackForceInterval: 53
@@ -405,7 +405,7 @@ Player:
 		AttackScanRadius: 14
 		ProtectionScanRadius: 15
 		IgnoredEnemyTargetTypes: Mine
-	UnitBuilderBotModule@AIBase:
+	UnitBuilderBotModule@AIAll:
 		RequiresCondition: AIEasy || AIBase
 		UnitQueues: Infantry, Vehicle, Air
 		IdleBaseUnitsMaximum: 60
@@ -549,6 +549,9 @@ Player:
 		ConstructionYardTypes: gacnst, mutyard, cabyard, nodyard, drached
 		McvFactoryTypes: gaweap, naweap, muweap, cabweap, scrair
 		MinimumConstructionYardCount: 5
+	McvManagerBotModule@ControlTechMCV:
+		RequiresCondition: AIEasy || AIBase
+		McvTypes: mwar
 	SupportPowerBotASModule:
 		RequiresCondition: AIBase
 		Decisions:
@@ -829,5 +832,5 @@ Player:
 					CheckRadius: 5c0
 	CaptureManagerBotModule:
 		CapturingActorTypes: engineer, e2, swarmling, shapeshifter
-		CapturableActorTypes: cahosp, neutralsonictur, caarmr, well, machineshop, scrinreinfpad, gacnst, mutyard, cabyard, nodyard, drached, limped
+		CapturableActorTypes: cahosp, neutralsonictur, caarmr, well, machineshop, scrinreinfpad, gacnst, mutyard, cabyard, nodyard, drached, limped, mwar, mtar
 		CheckCaptureTargetsForVisibility: false

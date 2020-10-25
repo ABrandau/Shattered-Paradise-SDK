@@ -14,6 +14,9 @@ LIMPED:
 		Speed: 55
 		TurnSpeed: 1023
 		Locomotor: Hover
+		RequireForceMoveCondition: !AImicroManage && !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
 	-WithFacingSpriteBody:
 	Voiced:
 		VoiceSet: Limpet
@@ -55,11 +58,12 @@ LIMPED:
 	Wanders@AI:
 		RequiresCondition: AImicroManage
 		WanderMoveRadius: 15
-		MinMoveDelay: 450
-		MaxMoveDelay: 500
+		MinMoveDelay: 300
+		MaxMoveDelay: 300
 	AIDeployHelper:
 		DeployTrigger: Periodically
 		DeployTicks: 600
+		UndeployTicks: 800
 
 GHOST:
 	Inherits: ^Mutant
@@ -2621,6 +2625,7 @@ C_KODIAK:
 LPST:
 	Inherits: ^VoxelVehicle
 	Inherits@4: ^EngineerCapturableVehicle
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -2655,6 +2660,9 @@ LPST:
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
+	RejectsOrders@deploymentAI:
+		Reject: GrantConditionOnDeploy
+		RequiresCondition: AImicroManage && deployed
 	## --TODO
 	Carryable:
 		RequiresCondition: undeployed
@@ -2687,6 +2695,7 @@ LPST:
 SGEN:
 	Inherits: ^VoxelVehicle
 	Inherits@4: ^EngineerCapturableVehicle
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -2721,6 +2730,9 @@ SGEN:
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
+	RejectsOrders@deploymentAI:
+		Reject: GrantConditionOnDeploy
+		RequiresCondition: AImicroManage && deployed
 	## --TODO
 	Carryable:
 		RequiresCondition: undeployed
@@ -2751,6 +2763,7 @@ SGEN:
 MASTL:
 	Inherits: ^TechBuilding
 	Inherits@1: ^EngineerCapturableVehicle
+	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -2773,6 +2786,7 @@ MASTL:
 		DisableSound: cloak5.aud
 		AffectsParent: true
 
+## AI control it by using McvManagerBotModule@ControlTechMCV
 MWAR:
 	Inherits: ^VoxelVehicle
 	Inherits@4: ^EngineerCapturableVehicle
@@ -2802,6 +2816,7 @@ MWAR:
 MTAR:
 	Inherits: ^TechBuilding
 	Inherits@2: ^Factory
+	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -2834,7 +2849,17 @@ MTAR:
 		RequiresCondition: !Building-Buildup
 	IsometricSelectable:
 		DecorationHeight: 36
+	-ProvidesPrerequisite:
+	### AI Control
+	RejectsOrders@deploymentAI:
+		Reject: DeployTransform
+		RequiresCondition: Building-Buildup && AIbuildingMicroControl
+	AIDeployHelper:
+		DeployTrigger: Periodically
+		DeployTicks: 1500
+		UndeployTicks: 2000
 
+## will probably not used forever
 GAARTY:
 	Inherits@1: ^DeployedVehicle
 	Valued:
