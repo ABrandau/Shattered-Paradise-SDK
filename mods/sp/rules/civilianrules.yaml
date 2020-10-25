@@ -2691,6 +2691,16 @@ LPST:
 		RequiresCondition: !undeployed
 		Range: 15c0
 		MaxHeightDelta: 3
+	### AI Control
+	Wanders@AI:
+		RequiresCondition: AImicroManage
+		WanderMoveRadius: 10
+		MinMoveDelay: 300
+		MaxMoveDelay: 300
+	AIDeployHelper:
+		DeployTrigger: Periodically
+		DeployTicks: 600
+		UndeployTicks: 600
 
 SGEN:
 	Inherits: ^VoxelVehicle
