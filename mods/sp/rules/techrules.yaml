@@ -430,3 +430,330 @@ CIVHELI:
 		PlayerPalette: playerunittem
 	WithIdleOverlay:
 		Sequence: flag
+
+### Tech Units
+
+LIMPED:
+	Inherits: ^HoverVehicle
+	Inherits@1: ^8CellVision
+	Inherits@2: ^EngineerHackableDrone
+	Inherits@3: ^BasicStealthDetection
+	Inherits@AImicroManagable: ^AImicroManagable
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Limped Drone
+	Health:
+		HP: 10000
+	Mobile:
+		Speed: 55
+		TurnSpeed: 1023
+		Locomotor: Hover
+		RequireForceMoveCondition: !AImicroManage && !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
+	-WithFacingSpriteBody:
+	Voiced:
+		VoiceSet: Limpet
+	Selectable:
+		Bounds: 16, 35, 0, 0
+	Hovers:
+		RequiresCondition: !deployed
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		Facing: 640
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Tiberium, BlueTiberium
+		DeploySounds: clicky1.aud
+		UndeploySounds: clicky1.aud
+		SmartDeploy: true
+		UndeployOnMove: true
+		CanDeployOnRamps: true
+		RequiresCondition: !inside-tunnel && !empdisable
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: deployed
+	Cloak@cloakgenerator:
+		RequiresCondition: deployed && !empdisable
+		InitialDelay: 40
+		CloakDelay: 40
+		Palette: cloakcab
+		-CloakSound: cloak5.aud
+		-UncloakSound: cloak5.aud
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
+	WithSpriteBody@UndeloyedBody:
+		Sequence: idle
+		RequiresCondition: !deployed && !inside-tunnel
+	WithMakeAnimation:
+	WithSpriteBody@DeloyedBody:
+		Sequence: deployed
+		RequiresCondition: !undeployed
+	### AI Control
+	Wanders@AI:
+		RequiresCondition: AImicroManage
+		WanderMoveRadius: 15
+		MinMoveDelay: 300
+		MaxMoveDelay: 300
+	AIDeployHelper:
+		DeployTrigger: Periodically
+		DeployTicks: 600
+		UndeployTicks: 800
+
+LPST:
+	Inherits: ^VoxelVehicle
+	Inherits@4: ^EngineerCapturableVehicle
+	Inherits@AImicroManagable: ^AImicroManagable
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Sensor Array
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 32
+		Speed: 45
+		Locomotor: InfantryCrusherVehicle
+		PauseOnCondition: empdisable
+		RequireForceMoveCondition: !AImicroManage && !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
+	Health:
+		HP: 25000
+	WithMakeAnimation:
+		BodyNames: deployed
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		Facing: 640
+		SmartDeploy: true
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
+		DeploySounds: place2.aud
+		CanDeployOnRamps: true
+		UndeployOnMove: true
+		UndeploySounds: clicky1.aud
+		PauseOnCondition: RefineryLock
+		RequiresCondition: !inside-tunnel && !empdisable
+	## TODO: needs updating when engine upgrade
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: !AImicroManage && deployed
+	RejectsOrders@deploymentAI:
+		Reject: GrantConditionOnDeploy
+		RequiresCondition: AImicroManage && deployed
+	## --TODO
+	Carryable:
+		RequiresCondition: undeployed
+	WithSpriteBody@deployed:
+		Sequence: deployed
+		Name: deployed
+		RequiresCondition: !undeployed
+	WithVoxelBody:
+		RequiresCondition: undeployed
+	#ExternalCondition@deployed:
+	#	Condition: deployed
+	#ExternalCondition@undeployed:
+	#	Condition: undeployed
+	RenderDetectionCircle:
+		TrailCount: 3
+	RenderVoxels:
+		Scale: 11.5
+	DetectCloaked:
+		RequiresCondition: !empdisable && deployed
+		Range: 15c0
+	RevealsShroud:
+		RequiresCondition: !inside-tunnel && undeployed
+		Range: 4c0
+		MaxHeightDelta: 3
+	RevealsShroud@DEPLOYED:
+		RequiresCondition: !undeployed
+		Range: 15c0
+		MaxHeightDelta: 3
+	### AI Control
+	Wanders@AI:
+		RequiresCondition: AImicroManage
+		WanderMoveRadius: 10
+		MinMoveDelay: 300
+		MaxMoveDelay: 300
+	AIDeployHelper:
+		DeployTrigger: Periodically
+		DeployTicks: 600
+		UndeployTicks: 600
+
+SGEN:
+	Inherits: ^VoxelVehicle
+	Inherits@4: ^EngineerCapturableVehicle
+	Inherits@AImicroManagable: ^AImicroManagable
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Mobile stealth generator
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 32
+		Speed: 45
+		Locomotor: InfantryCrusherVehicle
+		PauseOnCondition: empdisable
+		RequireForceMoveCondition: !AImicroManage && !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
+	Health:
+		HP: 25000
+	WithMakeAnimation:
+		BodyNames: deployed
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		Facing: 384
+		SmartDeploy: true
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
+		DeploySounds: place2.aud
+		CanDeployOnRamps: true
+		UndeployOnMove: true
+		UndeploySounds: clicky1.aud
+		PauseOnCondition: RefineryLock
+		RequiresCondition: !inside-tunnel && !empdisable
+	## TODO: needs updating when engine upgrade
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: !AImicroManage && deployed
+	RejectsOrders@deploymentAI:
+		Reject: GrantConditionOnDeploy
+		RequiresCondition: AImicroManage && deployed
+	## --TODO
+	Carryable:
+		RequiresCondition: undeployed
+	WithSpriteBody@deployed:
+		Sequence: deployed
+		Name: deployed
+		RequiresCondition: !undeployed
+	WithVoxelBody:
+		RequiresCondition: undeployed
+	#ExternalCondition@deployed:
+	#	Condition: deployed
+	#ExternalCondition@undeployed:
+	#	Condition: undeployed
+	RenderVoxels:
+		Scale: 11.5
+	ProximityExternalCondition:
+		Condition: cloakgenerator
+		RequiresCondition: deployed
+		Range: 3c0
+		EnableSound: cloak5.aud
+		DisableSound: cloak5.aud
+		AffectsParent: true
+	WithRangeCircle:
+		Range: 3c0
+		Type: cloakgenerator
+		Color: 00FF7FCC
+		RequiresCondition: deployed
+	### AI Control
+	Wanders@AI:
+		RequiresCondition: AImicroManage
+		WanderMoveRadius: 10
+		MinMoveDelay: 300
+		MaxMoveDelay: 300
+	AIDeployHelper:
+		DeployTrigger: Periodically
+		DeployTicks: 600
+		UndeployTicks: 600
+
+## AI control it by using McvManagerBotModule@ControlTechMCV
+MWAR:
+	Inherits: ^VoxelVehicle
+	Inherits@4: ^EngineerCapturableVehicle
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Mobile warfactory
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 32
+		Speed: 45
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 25000
+		BodyNames: deployed
+	RenderVoxels:
+		Scale: 11.5
+	Transforms:
+		IntoActor: mtar
+		Facing: 384
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+		Offset: -1,-1
+
+MTAR:
+	Inherits: ^TechBuilding
+	Inherits@2: ^Factory
+	Inherits@AIbuilding: ^AIbuildingMicroControl
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Mobile warfactory
+	Health:
+		HP: 25000   
+	Transforms:
+		IntoActor: mwar
+		Facing: 384
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+		Offset: 1,1
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+		RequiresCondition: !Building-Buildup
+	WithProductionDoorOverlay@DOOR:
+		RequiresCondition: !Building-Buildup
+	WithProductionOverlay@WHITELIGHTS:
+		Sequence: production-lights-white
+		RequiresCondition: !Building-Buildup
+	WithProductionOverlay@REDLIGHTS:
+		Sequence: production-lights-red
+		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@TURBINES:
+		Sequence: idle-turbines
+		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@BIB:
+		Sequence: bib
+		RequiresCondition: !Building-Buildup
+	IsometricSelectable:
+		DecorationHeight: 36
+	-ProvidesPrerequisite:
+	### AI Control
+	RejectsOrders@deploymentAI:
+		Reject: DeployTransform
+		RequiresCondition: Building-Buildup && AIbuildingMicroControl
+	AIDeployHelper:
+		DeployTrigger: Periodically
+		DeployTicks: 1500
+		UndeployTicks: 2000
+
+## will probably not used forever
+GAARTY:
+	Inherits@1: ^DeployedVehicle
+	Valued:
+		Cost: 975
+	Tooltip:
+		Name: Deployed Artillery
+	Health:
+		HP: 30000
+	Turreted:
+		TurnSpeed: 20
+		InitialFacing: 512
+		Offset: 0,0,171
+	Armament:
+		Weapon: 155mm
+		LocalOffset: 811,0,0
+		MuzzleSequence: muzzle
+	BodyOrientation:
+		QuantizedFacings: 32
+	RenderVoxels:
+		LightAmbientColor: 0.4, 0.4, 0.4
+	WithVoxelBarrel:
+		LocalOffset: 0,0,-512
+	WithVoxelTurret:
+	WithMuzzleOverlay:
