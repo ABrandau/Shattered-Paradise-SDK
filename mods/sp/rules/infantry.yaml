@@ -1291,8 +1291,8 @@ CABSENTRY:
 	Tooltip:
 		Name: Sentry Drone
 	Explodes:
-		Weapon: DroneExplode
-		EmptyWeapon: DroneExplode
+		Weapon: SimpleDroneExplode
+		EmptyWeapon: SimpleDroneExplode
 	Voiced:
 		VoiceSet: Limpet
 	-ActorLostNotification:
@@ -1314,7 +1314,8 @@ CABSENTRY:
 		HP: 7500
 	Armament@primary:
 		Weapon: SentryGun
-		PauseOnCondition: WebDisable
+		LocalOffset: 250,0,100
+		PauseOnCondition: WebDisable || initializing
 	AutoTarget:
 		ScanRadius: 8
 		InitialStance: AttackAnything
@@ -1325,8 +1326,11 @@ CABSENTRY:
 	AttackFrontal:
 		Voice: Attack
 	SelectionDecorations:
-	Hovers:
-	WithInfantryBody:
+	-WithInfantryBody:
+	WithFacingSpriteBody:
+		Sequence: stand
+	WithMakeAnimation:
+		Condition: initializing
 	Selectable:
 		DecorationBounds: 22,32,-1,-9
 	-GrantCondition@rank-veteran:
@@ -1709,6 +1713,8 @@ MOTH:
 		Name: OnFoot
 		PauseOnCondition: WebDisable
 	RenderRangeCircle:
+		Color: FFFF00CC
+		BorderColor: 000000CC
 	-WithIdleOverlay@web:
 	-Crushable:
 	AIDeployHelper:
