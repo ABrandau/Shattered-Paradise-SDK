@@ -37,16 +37,15 @@ SentryGun:
 	Range: 4c0
 	Projectile: BulletAS
 		Speed: 500
-		Image: minitibshard
+		Image: clusterbomb
 		Shadow: true
-		Palette: apolra2
+		Palette: effect
 	Warhead@1Dam: SpreadDamage
 		Damage: 1200
 		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
 	Warhead@2Eff: CreateEffect
-		Explosions: sparks
-		ImpactSounds: rketinf1.aud
-		ExplosionPalette: apolra2
+		Explosions: small_grey_explosion
+		ExplosionPalette: effect
 
 SentinelGun:
 	Inherits: ^RifleWarhead
@@ -234,14 +233,20 @@ WorkerMinigun:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 Dogzooka:
-	Inherits: JJGrenade
-	Inherits@2: ^Small_Clsn
+	Inherits: ^ArtilleryWarhead
+	Inherits@2: ^Small_Bang
 	ReloadDelay: 50
 	Range: 4c512
 	Report: rketinf1.aud
 	ValidTargets: Ground, Water
+	Projectile: BulletAS
+		Speed: 400
+		Image: minitibshard
+		Shadow: true
+		Palette: gradientgray
 	Warhead@1Dam: SpreadDamage
 		Damage: 1600
+		Spread: 300
 		Versus:
 			InfantryArmor: 100
 			BuildingArmor: 30
@@ -250,6 +255,12 @@ Dogzooka:
 			AircraftArmor: 100
 			ConcreteArmor: 5
 			Shield: 0
+		ValidTargets: Ground, Water
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: sparks
+		ImpactSounds: rketinf1.aud
+		ExplosionPalette: gensmkexploj
 
 CenturionVulcan:
 	Inherits: ^RifleWarhead
@@ -388,10 +399,8 @@ DroneHostShell:
 		Speed: 200
 		Blockable: false
 		Shadow: true
-		Palette: ra
-		Image: dronemissilemini
-		TrailImage: small_smoke_trail
-		TrailPalette: effectalpha75
+		Palette: effect
+		Image: clusterbomb
 	Warhead@1Dam: SpreadDamage
 		Spread: 350
 		Damage: 1000
@@ -399,11 +408,19 @@ DroneHostShell:
 			Worker: 25
 		ValidTargets: Ground, Water, Vehicle, Infantry, water
 		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: small_grey_explosion
+		ExplosionPalette: effect
 
 DroneHostShellSpawner:
 	Inherits: DroneHostShell
 	Range: 4c0
 	MinRange: 2c0
+	Projectile: BulletAS
+		Palette: ra
+		Image: dronemissilemini
+		TrailImage: small_smoke_trail
+		TrailPalette: effectalpha75
 	Warhead@5Actor: SpawnActor
 		Actors: cabsentry
 		FallRate: 5000
@@ -412,6 +429,11 @@ DroneHostShellSpawner:
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
 		Damage: 1
+	Warhead@2Eff: CreateEffect
+		Explosions: infdeathexplo1
+		ExplosionPalette: gensmkexploj
+	-Warhead@5Smu:
+	-Warhead@ShieldUpgrade:
 
 PalaLazor:
 	Inherits: ^FullDamage
@@ -588,7 +610,7 @@ CabJetMiniBomb:
 		ValidTargets: Ground, Water, Building, Infantry, Vehicle
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
-		Explosions: medium_clsn
+		Explosions: small_clsn
 		ExplosionPalette: effect-ignore-lighting-alpha75
 
 BlasterProton:

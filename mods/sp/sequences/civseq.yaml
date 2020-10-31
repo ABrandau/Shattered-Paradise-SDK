@@ -1927,7 +1927,7 @@ tdadvgtwr:
 	idle:
 		ShadowStart: 2
 	damaged-idle:
-		Start: 2
+		Start: 1
 		ShadowStart: 3
 	dead:
 		Start: 2
@@ -2269,13 +2269,10 @@ tdsamsite:
 		ZRamp: 1
 	closed-idle:
 		Start: 0
-		ZOffset: -1c611
 	damaged-closed-idle:
 		Start: 1
-		ZOffset: -1c611
 	dead:
 		Start: 1
-		ZOffset: -1c611
 	opening:
 		Start: 4
 		Length: 25
@@ -2292,26 +2289,19 @@ tdsamsite:
 		ShadowStart: 124
 		UseClassicFacings: True
 		-ZRamp:
-	base:
-		ShadowStart: 78
-	damaged-base:
-		Start: 1
-		ShadowStart: 79
-	dead-base:
-		Start: 1
-		ShadowStart: 79
 	idle-open:
 		Start: 2
 		ShadowStart: 80
-		-ZRamp:
+		ZOffset: -1c611
 	damaged-idle-open:
 		Start: 3
 		ShadowStart: 81
-		-ZRamp:
+		ZOffset: -1c611
 	make:
 		Length: 15
 		ShadowStart: 108
-		ZOffset: -1c611
+	place:
+		Start: 0
 
 tdpp:
 	Inherits: ^EmpOverlay
