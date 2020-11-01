@@ -617,11 +617,12 @@ GAFIRE:
 	Armament@AIAimOnly:
 		RequiresCondition: AIbuildingMicroControl && !FirestormGen && !disabled && !empdisable && !Building-Buildup
 		Weapon: FirestormAIAimingDummyWeapon
-	AttackOmni:
+	AttackOmni@AIAimOnly:
 		RequiresCondition: !Building-Buildup
 		PauseOnCondition: empdisable || disabled
-	AutoTarget:
-	AIDeployHelper:
+	AutoTarget@AIAimOnly:
+	AutoDeployer@AI:
+		RequiresCondition: AIbuildingMicroControl
 		DeployChance: 100
 		DeployTicks: 200
 		UndeployTicks: 0
