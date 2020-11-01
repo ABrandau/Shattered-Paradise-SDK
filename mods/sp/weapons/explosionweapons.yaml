@@ -93,7 +93,7 @@ SmallPlaneExplosion:
 		Spread: 1
 		Damage: 1
 
-DestroyerExplode:
+BigAircraftExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_Explosion
 	Warhead@1Dam: SpreadDamage
@@ -102,20 +102,28 @@ DestroyerExplode:
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		InvalidTargets: Air
 	Warhead@1: FireShrapnel
-		Amount: 6
-		Weapon: DestroyerExplosion
+		Amount: 5
+		Weapon: BigAircraftExplosion
 		ImpactActors: false
 		ValidTargets: Ground, Air, Water, Airhit
-	Warhead@2Eff: CreateEffect
-		ExplosionPalette: gensmkexplojFblue
 
-DestroyerExplosion:
+BigAircraftExplosion:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_Explosion
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
 		Damage: 1
+
+DestroyerExplode:
+	Inherits: BigAircraftExplode
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@1: FireShrapnel
+		Weapon: DestroyerExplosion
+
+DestroyerExplosion:
+	Inherits: BigAircraftExplosion
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
 
@@ -150,11 +158,12 @@ DracheExplode:
 	Warhead@1Dam: SpreadDamage
 		Damage: 8000
 
-SimpleDroneExplode:
-	Inherits: ^ExploDefaults
-	Inherits@2: ^Tiny_Explo
-	-Warhead@op:
-	-Warhead@smoke:
+SimpleDroneExplode: ## save performance, used for spamming summoned actor
+	Warhead@2Eff: CreateEffect
+		Explosions: infdeathexplo1, infdeathexplo2, infdeathexplo3
+		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
+		ExplosionPalette: gensmkexploj
+		ImpactActors: false
 
 DroneExplode:
 	Inherits: ^ExploDefaults
@@ -182,7 +191,7 @@ BigAircraftShrapnel:
 	Warhead@op: FireShrapnel
 		Weapon: SmallDebris
 		ImpactActors: false
-		Amount: 9
+		Amount: 6
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
