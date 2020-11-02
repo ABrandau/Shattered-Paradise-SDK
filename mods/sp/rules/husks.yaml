@@ -32,7 +32,7 @@
 	FallsToEarth:
 		Moves: true
 		Velocity: 100
-		Explosion: DestroyerExplode
+		Explosion: BigAircraftExplode
 
 DSHP.Husk:
 	Inherits: ^AircraftHusk
@@ -229,8 +229,6 @@ DEVOURER.Husk:
 		QuantizedFacings: 32
 	RenderSprites:
 		Image: devourer
-	FallsToEarth:
-		Explosion: BattleshipExplode
 
 FIREFLY.Husk:
 	Inherits: ^AircraftHusk
@@ -257,8 +255,6 @@ BASILISK.Husk:
 		Speed: 168
 	RenderSprites:
 		Image: basilisk
-	FallsToEarth:
-		Explosion: DestroyerExplode
 
 STORMRIDER.Husk:
 	Inherits: ^AircraftHusk
@@ -271,11 +267,9 @@ STORMRIDER.Husk:
 		Image: stormrider
 	FallsToEarth:
 		Moves: true
-		Explosion: ScrinUnitExplode2
+		Explosion: StormriderExplode #ScrinUnitExplode2
 		MaximumSpinSpeed: 0
-	FallsToEarth:
-		Explosion: StormriderExplode
-
+		
 WYVERM2.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@2: ^ScrinRender
@@ -283,8 +277,6 @@ WYVERM2.Husk:
 		Name: Wyverm
 	WithShadow:
 	WithFacingSpriteBody:
-	FallsToEarth:
-		Explosion: ScrinUnitExplode2
 	BodyOrientation:
 		QuantizedFacings: 32
 	Aircraft:
@@ -305,7 +297,7 @@ GLYDER1.Husk:
 	WithShadow:
 	WithFacingSpriteBody:
 	FallsToEarth:
-		Explosion: ScrinUnitExplode2
+		Explosion: ScrinUnitExplode
 	BodyOrientation:
 		QuantizedFacings: 32
 	Aircraft:
@@ -313,8 +305,6 @@ GLYDER1.Husk:
 		Speed: 149
 	RenderSprites:
 		Image: scrglyder1
-	FallsToEarth:
-		Explosion: SmallPlaneExplode
 
 DRACHE.Husk:
 	Inherits: ^BigAircraftHusk
@@ -390,7 +380,7 @@ SCRTRANS.Husk:
 	Tooltip:
 		Name: Scrin Transport
 	FallsToEarth:
-		Explosion: ScrinUnitExplode3
+		Explosion: DestroyerExplode
 	WithShadow:
 	WithFacingSpriteBody:
 	BodyOrientation:

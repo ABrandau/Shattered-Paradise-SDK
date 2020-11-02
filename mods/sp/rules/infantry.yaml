@@ -402,6 +402,7 @@ TEMPLAR:
 NCONF:
 	Inherits: ^Soldier
 	Inherits@1: ^6CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 9
@@ -459,7 +460,8 @@ NCONF:
 	ExplodeWeapon@3:
 		Weapon: TickHoloShrapnel
 		RequiresCondition: HologramSpawn
-	AIDeployHelper:
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage
 		DeployChance: 100
 		DeployTicks: 4005
 		UndeployTicks: 1
@@ -633,19 +635,14 @@ MARAUDER:
 	DamageMultiplier@MarauderBuff:
 		Modifier: 75
 		RequiresCondition: deployed
-	AIDeployHelper:
-		DeployChance: 100
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && !deployed
 		DeployTrigger: Attack
 		DeployTicks: 5
 		UndeployTicks: 50
-	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
-	RejectsOrders@deploymentAI:
-		Reject: GrantConditionOnDeploy
-		RequiresCondition: AImicroManage && deployed
-	## --TODO
 
 MUTFIEND:
 	Inherits: ^Mutant
@@ -812,6 +809,7 @@ E3:
 SEER:
 	Inherits: ^Mutant
 	Inherits@1: ^7CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 15
@@ -868,7 +866,8 @@ SEER:
 	ExplodeWeapon@2:
 		Weapon: SparkExplo
 		RequiresCondition: deployed
-	AIDeployHelper:
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage
 		DeployChance: 50
 		DeployTicks: 2005
 		UndeployTicks: 1
@@ -1263,21 +1262,17 @@ COLOSSI_CHRONO:
 		Weapon: SharkJump
 		PauseOnCondition: WebDisable
 		Name: OnFoot
-	AIDeployHelper:
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && !deployed
 		DeployChance: 100
 		DeployTicks: 5
 		UndeployTicks: 50
 		DeployTrigger: Attack
 	RenderSprites:
 		Image: colossi
-	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
-	RejectsOrders@deploymentAI:
-		Reject: GrantConditionOnDeploy
-		RequiresCondition: AImicroManage && deployed
-	## --TODO
 
 CABSENTRY:
 	Inherits: ^CabalDroneInfantry
@@ -1669,14 +1664,9 @@ MOTH:
 		UndeployOnMove: true
 		CanDeployOnRamps: true
 		RequiresCondition: !inside-tunnel  && !WebDisable
-	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
-	RejectsOrders@deploymentAI:
-		Reject: GrantConditionOnDeploy
-		RequiresCondition: AImicroManage && deployed
-	## --TODO
 	Cloak@cloakgenerator:
 		RequiresCondition: deployed
 		InitialDelay: 40
@@ -1717,7 +1707,8 @@ MOTH:
 		BorderColor: 000000CC
 	-WithIdleOverlay@web:
 	-Crushable:
-	AIDeployHelper:
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && !deployed
 		DeployChance: 100
 		DeployTicks: 5
 		UndeployTicks: 50

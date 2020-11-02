@@ -166,6 +166,7 @@ APC:
 
 APC_BOT:
 	Inherits: APC
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 1100
 	Selectable:
@@ -179,7 +180,8 @@ APC_BOT:
 		Description: APC (full)
 	Cargo:
 		InitialUnits: gdie1, gdie1, medic, gdie1, grenadier
-	AIDeployHelper:
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage
 	AutoTarget:
 		ScanRadius: 7
 
@@ -952,14 +954,9 @@ TTNK:
 		UndeploySounds: clicky1.aud
 		PauseOnCondition: RefineryLock
 		RequiresCondition: !inside-tunnel && !empdisable
-	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
-	RejectsOrders@deploymentAI:
-		Reject: GrantConditionOnDeploy
-		RequiresCondition: AImicroManage && deployed
-	## --TODO
 	Carryable:
 		RequiresCondition: undeployed
 	WithFacingSpriteBody:
@@ -991,7 +988,8 @@ TTNK:
 		Condition: undeployed
 	ExternalCondition@RefineryLock:
 		Condition: RefineryLock
-	AIDeployHelper:
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && !deployed
 		DeployChance: 100
 		DeployTrigger: Attack
 		DeployTicks: 5
@@ -2267,7 +2265,8 @@ ECM:
 		WanderMoveRadius: 10
 		MinMoveDelay: 12
 		MaxMoveDelay: 18
-	AIDeployHelper:
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage
 		DeployTrigger: Periodically
 		DeployTicks: 500
 	ReloadAmmoPool@AIAmmoCheat:

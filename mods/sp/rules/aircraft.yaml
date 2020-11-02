@@ -715,18 +715,14 @@ NUKECARRYALL_BOT:
 	Armament@AIunloadingDummyWeapon:
 		Weapon: AITransportAimingDummyWeapon
 		RequiresCondition: AImicroManage && !notmobile && loaded
-	##TODO: If engine upgrade can help on it, needs update here
-	RejectsOrders@AIunloading:
-		Except: Unload
-		RequiresCondition: AImicroManage && (notmobile || !loaded)
-	## --TODO
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 128
-	AIDeployHelper:
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && loaded
 		DeployChance: 100
 		DeployTicks: 50
-		UndeployTicks: 50
+		UndeployTicks: 200
 	AutoTarget:
 		ScanRadius: 9
 		InitialStanceAI: AttackAnything

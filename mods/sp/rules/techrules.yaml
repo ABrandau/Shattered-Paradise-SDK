@@ -495,10 +495,11 @@ LIMPED:
 		WanderMoveRadius: 15
 		MinMoveDelay: 300
 		MaxMoveDelay: 300
-	AIDeployHelper:
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && !deployed
 		DeployTrigger: Periodically
-		DeployTicks: 600
-		UndeployTicks: 800
+		DeployTicks: 150
+		UndeployTicks: 150
 
 LPST:
 	Inherits: ^VoxelVehicle
@@ -534,14 +535,9 @@ LPST:
 		UndeploySounds: clicky1.aud
 		PauseOnCondition: RefineryLock
 		RequiresCondition: !inside-tunnel && !empdisable
-	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
-	RejectsOrders@deploymentAI:
-		Reject: GrantConditionOnDeploy
-		RequiresCondition: AImicroManage && deployed
-	## --TODO
 	Carryable:
 		RequiresCondition: undeployed
 	WithSpriteBody@deployed:
@@ -571,10 +567,11 @@ LPST:
 		WanderMoveRadius: 10
 		MinMoveDelay: 300
 		MaxMoveDelay: 300
-	AIDeployHelper:
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && !deployed
 		DeployTrigger: Periodically
-		DeployTicks: 600
-		UndeployTicks: 600
+		DeployTicks: 150
+		UndeployTicks: 150
 
 SGEN:
 	Inherits: ^VoxelVehicle
@@ -610,14 +607,9 @@ SGEN:
 		UndeploySounds: clicky1.aud
 		PauseOnCondition: RefineryLock
 		RequiresCondition: !inside-tunnel && !empdisable
-	## TODO: needs updating when engine upgrade
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
-	RejectsOrders@deploymentAI:
-		Reject: GrantConditionOnDeploy
-		RequiresCondition: AImicroManage && deployed
-	## --TODO
 	Carryable:
 		RequiresCondition: undeployed
 	WithSpriteBody@deployed:
@@ -646,10 +638,11 @@ SGEN:
 		WanderMoveRadius: 10
 		MinMoveDelay: 300
 		MaxMoveDelay: 300
-	AIDeployHelper:
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && !deployed
 		DeployTrigger: Periodically
-		DeployTicks: 600
-		UndeployTicks: 600
+		DeployTicks: 150
+		UndeployTicks: 150
 
 ## AI control it by using McvManagerBotModule
 MWAR:
@@ -716,12 +709,13 @@ MTAR:
 		DecorationHeight: 36
 	-ProvidesPrerequisite:
 	### AI Control
-	RejectsOrders@deploymentAI:
+	RejectsOrders@deploymentAI: ## Hack: Need to prevent first time deploy
 		Reject: DeployTransform
 		RequiresCondition: Building-Buildup && AIbuildingMicroControl
-	AIDeployHelper:
+	AutoDeployer@AI:
+		RequiresCondition: AIbuildingMicroControl
 		DeployTrigger: Periodically
-		DeployTicks: 1500
+		DeployTicks: 1700
 		UndeployTicks: 2000
 
 ## will probably not used forever
