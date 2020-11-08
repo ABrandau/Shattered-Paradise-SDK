@@ -64,7 +64,7 @@ ReaperWeb:
 	Report: fireweb1.aud
 	ValidTargets: Infantry
 	Projectile: BulletAS
-		Speed: 150
+		Speed: 300
 		Image: web2
 		Shadow: true
 		LaunchAngle: 130
@@ -102,11 +102,12 @@ ReaperScythe:
 ReaperScytheAA:
 	Inherits: ReaperScythe
 	Inherits@1: ^AARocketWarhead
+	ReloadDelay: 75
 	Range: 8c0
 	ValidTargets: Air
 	ReloadDelay: 75
 	Warhead@1Dam: SpreadDamage
-		Damage: 2900
+		Damage: 3000
 		ValidTargets: Air
 
 ReclaimerHit:
@@ -311,7 +312,7 @@ RepairVehicleRep:
 		AffectsParent: false
 		ValidTargets: Vehicle
 		InvalidTargets: FullHealth, NoRepair
-        
+
 RepairVehicleLasor:
 	ReloadDelay: 60
 	Range: 4c0
@@ -358,7 +359,6 @@ MarnFlash6:
 		ExplosionPalette: MarnAlphaAlpha
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Air
 		ImpactActors: false
-
 
 DroneHostMissile:
 	Inherits: ^RocketWarhead
@@ -466,8 +466,9 @@ WaspBullet:
 	Burst: 2
 	BurstDelays: 10
 	Report: railgunfire.wav
+	SoundVolume: 0.5
 	Projectile: Railgun
-		BeamWidth: 75
+		BeamWidth: 10
 		ZOffset: 2047
 		BeamColor: AAAAAA
 		HelixColor: BBBBBB

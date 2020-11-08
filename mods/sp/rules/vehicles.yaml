@@ -3,7 +3,7 @@ SMECH:
 	Inherits@1: ^8CellVision
 	Inherits@2: ^BasicStealthDetection
 	Valued:
-		Cost: 400
+		Cost: 300
 	Tooltip:
 		Name: Wolverine
 	UpdatesPlayerStatistics:
@@ -19,7 +19,7 @@ SMECH:
 		Speed: 100
 		Locomotor: Vehicle
 	Health:
-		HP: 20000
+		HP: 15000
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -111,10 +111,10 @@ APC:
 		Prerequisites: ~gaweap, gapile
 	Mobile:
 		TurnSpeed: 20
-		Speed: 100
+		Speed: 90
 		Locomotor: AmphAPCLocomotor
 	Health:
-		HP: 35000
+		HP: 40000
 	Turreted:
 		TurnSpeed: 20
 		Offset: -200,0,0
@@ -202,7 +202,7 @@ HVR:
 		BuildPaletteOrder: 5
 		Prerequisites: ~gaweap, garadr
 	Mobile:
-		Speed: 100
+		Speed: 115
 		TurnSpeed: 1023
 		Locomotor: Hover
 	Health:
@@ -1334,7 +1334,7 @@ MUTQUAD:
 		Prerequisites: ~muweap
 	Mobile:
 		TurnSpeed: 28
-		Speed: 80
+		Speed: 85
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 25000
@@ -1396,7 +1396,7 @@ LYNX:
 		AddToArmyValue: true
 	Mobile:
 		TurnSpeed: 40
-		Speed: 95
+		Speed: 90
 		Locomotor: InfantryCrusherVehicle
 	WithFacingSpriteBody:
 	Health:
@@ -1618,6 +1618,8 @@ DEATHCLAW:
 	Voiced:
 		VoiceSet: LargeBeast
 		Volume: 2
+	AttackFrontal:
+		FacingTolerance: 2
 
 HVRTRUK3:
 	Inherits@2: ^HoverVehicle
@@ -1753,7 +1755,7 @@ SCRMBT:
 		HP: 25000
 	Mobile:
 		TurnSpeed: 1023
-		Speed: 80
+		Speed: 90
 		Locomotor: Hover
 	Turreted:
 		TurnSpeed: 24
@@ -1872,7 +1874,7 @@ SCRMOBMINE:
 		Queue: Vehicle
 		BuildPaletteOrder: 28
 		BuildAtProductionType: Tank
-		Description: Mind Control unit\n\nSpecial:\n- Can mind control vehicles\n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol MCVs, Harvesters and Heroics\n- Can shoot over walls.\n- Can mind control units while moving.
+		Description: Mind Control unit\n\nSpecial:\n- Can overtake vehicles\n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol MCVs, Harvesters and Heroics\n- Can shoot over walls.\n- Can mind control units while moving.
 		Prerequisites: ~scrweap, scrtech
 	Valued:
 		Cost: 1400
@@ -2122,13 +2124,13 @@ REAPERCAB:
 		Bounds: 40,40,0,-10
 	Mobile:
 		TurnSpeed: 56
-		Speed: 95
+		Speed: 105
 		Locomotor: Vehicle
 	Explodes:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
 	Health:
-		HP: 27500
+		HP: 30000
 	Voiced:
 		VoiceSet: CyborgReap
 	Armament@primary:
