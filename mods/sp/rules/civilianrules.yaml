@@ -3105,6 +3105,8 @@ TDSILO:
 	WithSpriteBody:
 	StoresResources:
 		Capacity: 3000
+	GivesCashOnCapture:
+		Amount: 3000
 	GrantConditionOnPlayerResources:
 		Condition: contains-tiberium
 	Explodes:
@@ -3122,9 +3124,6 @@ TDSILO:
 		PipStride: 4, 2
 		PipCount: 12
 		Palette: pips
-	-Capturable:
-	-CapturableProgressBar:
-	-CapturableProgressBlink:
 	EditorOnlyTooltip:
 		Name: TD Building
 	-Sellable:
@@ -3133,6 +3132,8 @@ TDSILO:
 	-SpawnActorsOnSell@cab:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
+	IsometricSelectable:
+		DecorationHeight: 20
 
 TDWF:
 	Inherits: ^Factory

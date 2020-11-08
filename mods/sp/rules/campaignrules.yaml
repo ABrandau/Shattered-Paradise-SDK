@@ -88,6 +88,47 @@ NEUTRALFABRICATORDEP:
 		Image: neutralfabricator
 		PlayerPalette: playerunittem
 
+CONTAINMENTUNIT:
+	Inherits: ^Building
+	Inherits@2: ^3x3Shape
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Containment unit
+	TooltipDescription:
+		Description: Holds a captive tiberium lifeform
+	AcceptsDeliveredCash:
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Health:
+		HP: 15000
+	Armor:
+		Type: BuildingArmor
+	ProvidesPrerequisite@buildingname:
+	RequiresBuildableArea:
+		AreaTypes: building
+	RenderSprites:
+		PlayerPalette: playersilo
+	UpdatesDerrickCount:
+	IsometricSelectable:
+		DecorationHeight: 15
+	Explodes@tib:
+		Weapon: TiberiumExplosion
+		EmptyWeapon: TiberiumExplosion
+	BaseProvider:
+		Range: 3c0
+	SpawnActorOnDeath:
+		Actor: BIGGREEN
+		Offset: 1,1
+
+CONTAINMENTUNITVEINHOLE:
+	Inherits: CONTAINMENTUNIT
+	SpawnActorOnDeath:
+		Actor: VEINHOLE2
+	RenderSprites:
+		Image: containmentunit
+
 #######################################################
 # CREEPS
 #######################################################
