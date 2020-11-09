@@ -391,8 +391,8 @@ Player:
 		RequiresCondition: AIBase
 	SquadManagerBotModule@AIBase:
 		RequiresCondition: AIBase
-		SquadSize: 35
-		SquadSizeRandomBonus: 30
+		SquadSize: 25
+		SquadSizeRandomBonus: 10
 		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, e2, swarmling, shapeshifter,mcv, drache, drache_bot, cabmcv, nodmcv, mutmcv, repairvehicle, ecm, mwar, lpst, limped, sgen, mumine, eggs, cabsentry
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
 		DangerScanRadius: 18
@@ -404,11 +404,11 @@ Player:
 		IdleScanRadius: 15
 		AttackScanRadius: 14
 		ProtectionScanRadius: 15
-		IgnoredEnemyTargetTypes: Mine
+		IgnoredEnemyTargetTypes: Mine, Summoned, Wall
 	UnitBuilderBotModule@AIAll:
 		RequiresCondition: AIEasy || AIBase
 		UnitQueues: Infantry, Vehicle, Air
-		IdleBaseUnitsMaximum: 60
+		IdleBaseUnitsMaximum: 39
 		UnitsToBuild:
 			harv: 90
 			scrharv: 90
@@ -421,7 +421,6 @@ Player:
 			crusader: 10
 			e3: 1
 			marauder: 10
-			cabsentry: 10
 			cyborg: 15
 			cborg: 15
 			legio: 20
@@ -452,7 +451,7 @@ Player:
 			scrglyder2: 30
 			hvr: 5
 			ttnk: 20
-			subtank: 90
+			subtank: 30
 			lynx: 50
 			mutquad: 30
 			wolf: 5
@@ -506,7 +505,6 @@ Player:
 			scrmobmine: 2
 			bike: 1
 			colossi: 3
-			mrls: 2
 			repairvehicle: 2
 			engineer: 1
 			e2: 1
