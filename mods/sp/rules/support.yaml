@@ -215,8 +215,11 @@ MUBUNKR:
 	Health:
 		HP: 60000
 	Cargo:
-		MaxWeight: 5
 		Types: Infantry
+		MaxWeight: 5
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
 		EjectOnDeath: false
 		LoadedCondition: loaded
 		InitialUnits: marauder
@@ -783,6 +786,8 @@ MUVENTI:
 	-EngineerRepairable:
 	SharedCargo:
 		Types: Infantry, Vehicle
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
 	Exit:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
