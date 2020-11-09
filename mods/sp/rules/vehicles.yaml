@@ -867,6 +867,40 @@ LAZORBGGY:
 	EditorOnlyTooltip:
 		Name: Laser Buggy
 
+ATTACKBIKE:
+	Inherits: ^Tank
+	Inherits@1: ^AutoTargetGround
+	Inherits@2: ^6CellVision
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Attack Bike
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 11
+		BuildAtProductionType: Tank
+		Prerequisites: ~naweap
+		Description: Fast scout vehicle, armed with\nrockets.\n  Strong vs Vehicles, Aircraft
+	Mobile:
+		TurnSpeed: 40
+		Speed: 135
+		Locomotor: Vehicle
+	Health:
+		HP: 15000
+	Armament@PRIMARY:
+		Weapon: BikeMissile
+		LocalOffset: -153,-204,509, -153,204,509
+		PauseOnCondition: empdisable
+	Armament@AA:
+		Weapon: BikeMissileAA
+		LocalOffset: -153,-204,509, -153,204,509
+		PauseOnCondition: empdisable
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+
 TTNK:
 	Inherits: ^Tank
 	Inherits@2: ^SpriteActor
