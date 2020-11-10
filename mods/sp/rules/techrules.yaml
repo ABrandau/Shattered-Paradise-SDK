@@ -33,6 +33,7 @@ WELL:
 	CashTrickler:
 		Interval: 400
 		Amount: 100
+		RequiresCondition: enabled
 	Health:
 		HP: 135000
 	WithIdleOverlay:
@@ -44,8 +45,16 @@ WELL:
 		Image: scrsmoke
 		Palette: gradientgreen60
 		Offset: 1300,0,0
+	GrantConditionOnCombatantOwner:
+		Condition: enabled
+	GrantConditionAfterDelay@Cash:
+		Delay: 1
+		ShowSelectionBar: false
+		Condition: cashgiven
+		RequiresCondition: enabled
 	GivesCashOnCapture:
 		Amount: 250
+		RequiresCondition: !cashgiven
 	UpdatesDerrickCount:
 	IsometricSelectable:
 		DecorationHeight: 144
