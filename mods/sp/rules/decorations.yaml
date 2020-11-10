@@ -53,12 +53,19 @@ TIBGLACIER4:
 	Inherits: TIBGLACIER
 
 ROCKS1:
-	Inherits@1: ^1x1TurretedCivBuilding
+	Inherits@1: ^Rock
 	-Tooltip:
 	EditorOnlyTooltip:
 		Name:Rock set (Supports facings)
 	RenderSprites:
 		Palette: player
+	-WithSpriteBody:
+	WithSpriteTurret:
+	Turreted:
+		RealignDelay: -1
+	Armament:
+		Weapon: LightTowerClaxon
+	AttackTurreted:
 
 SROCK01:
 	Inherits: ^Rock
