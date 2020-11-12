@@ -1,3 +1,17 @@
+E2:
+	Inherits@1: ^Soldier
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Disc Thrower
+	Mobile:
+		Voice: Move
+		Speed: 50
+	WithInfantryBody:
+		AttackSequences: throw
+	RenderSprites:
+		Image: e2
+
 GHOST:
 	Inherits: ^Mutant
 	Tooltip:
@@ -2381,6 +2395,88 @@ TENTSMINI9:
 
 TENTSMINI10:
 	Inherits: TENTSMINI1
+
+CIVDOCK01:
+	Inherits: ^CivBuilding
+	Inherits@2: ^3x3Shape
+	Tooltip:
+		Name: Civilian Dock
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Health:
+		HP: 5000
+	RenderSprites:
+		Palette: unittem
+
+CIVDOCK02:
+	Inherits: CIVDOCK01
+
+CIVDOCK03:
+	Inherits: CIVDOCK01
+
+CIVDOCK04:
+	Inherits: CIVDOCK01
+
+###################################################
+# NAVAL CRAP
+###################################################
+
+CARGOSHIP01:
+	Inherits@1: ^Ship
+	Inherits@1: ^4CellVision
+	Mobile:
+		TurnSpeed: 20
+		Speed: 130
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Tooltip:
+		Name: Cargo ship
+	Valued:
+		Cost: 700
+	Health:
+		HP: 400000
+
+FISHINGSHIP01:
+	Inherits@1: ^Ship
+	Inherits@1: ^4CellVision
+	Mobile:
+		TurnSpeed: 20
+		Speed: 130
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Tooltip:
+		Name: Fishing ship
+	Valued:
+		Cost: 700
+	Health:
+		HP: 4000
+
+GDIHYPERION:
+	Inherits@1: ^Ship
+	Inherits@2: ^6CellVision
+	Mobile:
+		TurnSpeed: 20
+		Speed: 90
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Tooltip:
+		Name: Hyperion Patrol Ship
+	Valued:
+		Cost: 700
+	Health:
+		HP: 400000
+	AttackFrontal:
+		PauseOnCondition: empdisable
+	Armament@1:
+		Weapon: LTrail
+		LocalOffset: 1200,0,600
+		PauseOnCondition: empdisable
+		MuzzleSequence: muzzle
+
+###################################################
+# SITUATIONAL
+###################################################
 
 CTDAM:
 	Inherits: ^CivBuilding

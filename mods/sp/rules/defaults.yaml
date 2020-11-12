@@ -1937,7 +1937,7 @@
 		Sequence: vehicle
 		Palette: player
 		IsPlayerPalette: true
-        
+
 ^Vehicle:
 	Inherits@0: ^BasicVehicle
 	Inherits@1: ^GainsExperience
@@ -2104,6 +2104,25 @@
 	-MustBeDestroyed:
 	MapEditorData:
 		Categories: Civilian Vehicle
+
+^Ship:
+	Inherits@0: ^BasicVehicle
+	Inherits@1: ^GainsExperience
+	Inherits@2: ^VehicleEffects
+	Inherits@3: ^ExistsInWorld
+	Mobile:
+		Locomotor: Naval
+		TurnSpeed: 28
+		Voice: Move
+	LeavesTrails:
+		Image: wake
+		Palette: effect
+		TerrainTypes: Water
+		StationaryInterval: 18
+		MovingInterval: 6
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
 
 ^Aircraft:
 	Inherits: ^SpriteActor
