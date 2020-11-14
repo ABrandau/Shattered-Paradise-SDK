@@ -733,6 +733,7 @@ CUTMAN:
 		BuildPaletteOrder: 13
 		Prerequisites: ~murax
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Heals on tiberium fields.
+		IconPalette: unittemgreen
 	Voiced:
 		VoiceSet: Engineer
 	Mobile:
@@ -767,6 +768,20 @@ CUTMAN:
 	-GrantConditionOnPrerequisite@ArmoryBuff:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
+	RenderSprites:
+		PlayerPalette: playerunittemgreen
+	Cloak@CLOAKGENERATOR:
+		Palette: cloakplayerunittemgreen
+		IsPlayerPalette: true
+	ExternalCondition@cloakgenerator:
+		Condition: cloakgenerator
+	WithDeathAnimation:
+		DeathSequencePalette: playerunittemgreen
+		CrushedSequencePalette: playerunittemgreen
+		CrushedPaletteIsPlayerPalette: true
+	ActorPreviewPlaceBuildingPreview:
+		OverridePalette: placebuildingmut
+
 
 E3:
 	Inherits: ^Mutant
