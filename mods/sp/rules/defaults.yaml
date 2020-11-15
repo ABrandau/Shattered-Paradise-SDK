@@ -1083,286 +1083,6 @@
 		Palette: mouse
 		IsPlayerPalette: false
 
-^BasicBuilding:
-	Inherits@1: ^ExistsInWorld
-	Inherits@2: ^SpriteActor
-	Inherits@3: ^SpawnFire
-	Inherits@4: ^SelectableBuilding
-	Valued:
-		Cost: 1
-	Armor@Building:
-		Type: BuildingArmor
-	Targetable:
-		TargetTypes: Building, Ground, C4, DetonateAttack
-	Building:
-		Dimensions: 1,1
-		Footprint: x
-		BuildSounds: place2.aud
-		UndeploySounds: cashturn.aud
-		TerrainTypes: Clear, Road, DirtRoad, Rough
-		RequiresBaseProvider: true
-	ActorPreviewPlaceBuildingPreview:
-		Palette: placefootprint
-		LineBuildSegmentPalette: placelinesegment
-		OverridePalette: placebuilding
-		FootprintUnderPreview: Valid, LineBuild, Invalid
-		FootprintOverPreview: None
-	FrozenUnderFog:
-	SoundOnDamageTransition:
-		DamagedSounds: expnew01.aud
-		DestroyedSounds: crmble2.aud
-	WithSpriteBody:
-	Explodes@BuildingFireSmallParticleSpawner:
-		Weapon: BuildingFireSmallParticleSpawner
-		EmptyWeapon: BuildingFireSmallParticleSpawner
-		Type: Footprint
-	Explodes@BuildingFireBigSpawn:
-		Weapon: BuildingFireBigParticleSpawner
-		EmptyWeapon: BuildingFireBigParticleSpawner
-		Type: Footprint
-	Explodes@BuildingSmokeSpawner:
-		Weapon: BuildingSmokeSpawner
-		EmptyWeapon: BuildingSmokeSpawner
-		Type: Footprint
-	Explodes:
-		Weapon: BuildingExplode
-		EmptyWeapon: BuildingExplode
-		Type: Footprint
-	EngineerRepairable:
-	ShakeOnDeath:
-	Guardable:
-		Range: 6c0
-	Health:
-		HP: 28000
-	HitShape:
-		UseTargetableCellsOffsets: true
-		Type: Rectangle
-			LocalYaw: -128
-			TopLeft: -512, -512
-			BottomRight: 512, 512
-	Demolishable:
-	SpawnActorOnDeath@tiberium2:
-		Actor: inftibspawn
-		Probability: 25
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		DeathType: TiberiumDeath
-		RequiresLobbyCreeps: true
-	MapEditorData:
-		Categories: Civ Building
-	RequiresBuildableArea:
-		AreaTypes: building
-		Adjacent: 3
-	ThrowsShrapnel@SMALL:
-		Pieces: 5, 9
-		Weapons: SmallDebris
-	ThrowsShrapnel@LARGE:
-		Pieces: 2, 4
-		Weapons: LargeDebris
-
-^Building:
-	Inherits@0: ^BasicBuilding
-	Inherits@1: ^StructureEffects
-	Inherits@2: ^6CellVision
-	GivesBuildableArea:
-		AreaTypes: building
-	CaptureNotification:
-		Notification: BuildingCaptured
-		LoseNotification: BuildingLostToCapture
-	CaptureManager:
-	Capturable:
-		Types: Building
-		RequiresCondition: !Building-Buildup
-	CapturableProgressBar:
-	CapturableProgressBlink:
-	GivesExperience:
-		PlayerExperienceModifier: 100
-	RevealsShroud:
-		Type: Footprint
-		MaxHeightDelta: 3
-	RepairableBuilding:
-		RepairingNotification: Repairing
-		RepairStep: 700
-	WithDeathAnimation:
-		DeathSequence: dead
-		UseDeathTypeSuffix: false
-	RevealOnDeath:
-		Duration: 50
-		Radius: 3c0
-	SpawnActorsOnSell@gdi:
-		ValuePercent: 30
-		ActorTypes: gdie1
-		Factions: gdi
-	SpawnActorsOnSell@nod:
-		ValuePercent: 30
-		ActorTypes: altnode1
-		Factions: nod
-	SpawnActorsOnSell@cab:
-		ValuePercent: 30
-		ActorTypes: worker
-		Factions: cab
-	SpawnActorsOnSell@mut:
-		ValuePercent: 30
-		ActorTypes: marauder
-		Factions: mut
-	SpawnActorsOnSell@scr:
-		ValuePercent: 30
-		ActorTypes: shark
-		Factions: scr
-	MustBeDestroyed:
-		RequiredForShortGame: true
-	Sellable:
-		SellSounds: cashturn.aud
-		RequiresCondition: !Building-Buildup
-	WithMakeAnimation:
-		Condition: Building-Buildup
-	MapEditorData:
-		Categories: Buildable Structure
-	WithBuildingRepairDecoration:
-		Image: allyrepair
-		Sequence: repair
-		Position: Center
-		Palette: mouse
-	Huntable:
-
-^Defence:
-	Inherits: ^Building
-	Inherits@1: ^AutoTargetAll
-	Inherits@2: ^DisableOnLowPowerOrPowerDown
-	Inherits@3: ^8CellVision
-	RevealsShroud:
-		Type: Footprint
-		MaxHeightDelta: 3
-	-GivesBuildableArea:
-	-SpawnActorOnDeath@tiberium2:
-	AutoTarget:
-	-MustBeDestroyed:
-	RenderRangeCircle:
-		Color: FFFF00CC
-		BorderColor: 000000CC
-	Targetable@Defence:
-		TargetTypes: Defence
-	Armor:
-		Type: DefenseArmor
-	MapEditorData:
-		Categories: Defence
-	Replacement:
-		ReplaceableTypes: Tower
-	ExplodeWeapon@SpawnFire:
-		Weapon: DefenceCriticalDamageFireSpawner
-	RequiresBuildableArea:
-		AreaTypes: building
-
-^TurretedDefence:
-	Inherits: ^Defence
-	Turreted:
-		TurnSpeed: 40
-	Turreted:
-		InitialFacing: 368
-		RealignDelay: -1
-	AttackTurreted:
-		PauseOnCondition: empdisable || disabled
-	WithSpriteTurret:
-		Recoils: true
-		RequiresCondition: !Building-Buildup
-	Power:
-		Amount: -20
-	BodyOrientation:
-		QuantizedFacings: 32
-
-^AntiAir:
-	Inherits@0: ^6CellVision
-	RenderRangeCircle:
-		RangeCircleType: AA
-	RevealsShroud:
-		Type: Footprint
-	Valued:
-		Cost: 800
-	Health:
-		HP: 60000
-	Power:
-		Amount: -20
-
-^Tier2:
-	RenderRangeCircle:
-		RangeCircleType: Tier2
-
-^MiscTurret:
-	Inherits: ^Defence
-	RenderRangeCircle:
-		RangeCircleType: MiscTurret
-
-^CivBuilding:
-	Inherits: ^BasicBuilding
-	Inherits@0: ^7CellVision
-	-UpdatesPlayerStatistics:
-	RevealsShroud:
-		Type: Footprint
-		MaxHeightDelta: 3
-	Health:
-		HP: 90000
-	Tooltip:
-		Name: Civilian Building
-	RenderSprites:
-		Palette: terraindecoration
-	MapEditorData:
-		Categories: Civilian Structure
-	-GrantConditionOnDamageState@SpawnFire:
-	-ExplodeWeapon@SpawnFire:
-	-ExternalCondition@SpawnFire:
-	-ExternalCondition@DisableSpawnFire:
-	RadarColorFromTerrain:
-		Terrain: CivilianBuilding
-
-^FakeTurretedCivBuilding:
-	Inherits: ^CivBuilding
-	-WithSpriteBody:
-	WithSpriteTurret:
-	Turreted:
-		RealignDelay: -1
-	Armament:
-		Weapon: LightTowerClaxon
-	AttackTurreted:
-
-^1x1TurretedCivBuilding:
-	Inherits@1: ^FakeTurretedCivBuilding
-	Building:
-		Footprint: x
-		Dimensions: 1, 1
-	Crushable:
-		CrushClasses: infantry
-
-^TechBuilding:
-	Inherits: ^BasicBuilding
-	Inherits@0: ^Cloakable
-	Inherits@1: ^3CellVision
-	RevealsShroud:
-		Type: Footprint
-		MaxHeightDelta: 3
-	CapturableProgressBar:
-	CapturableProgressBlink:
-	CaptureNotification:
-		Notification: BuildingCaptured
-		LoseNotification: BuildingLostToCapture
-	RepairableBuilding:
-		RepairStep: 700
-	OwnerLostAction:
-		Action: ChangeOwner
-	Capturable:
-		Types: TechBuilding
-	RenderSprites:
-	MapEditorData:
-		Categories: Tech Structure
-	CaptureManager:
-	WithDeathAnimation:
-		DeathSequence: dead
-		UseDeathTypeSuffix: false
-	WithBuildingRepairDecoration:
-		Image: allyrepair
-		Sequence: repair
-		Position: Center
-		Palette: mouse
-
 ^CivBillboard:
 	Inherits: ^CivBuilding
 	Building:
@@ -2266,53 +1986,336 @@
 		Weapon: VisceroidExplode
 		EmptyWeapon: VisceroidExplode
 
-^BlossomTree:
+^BasicBuilding:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Inherits@3: ^SpawnFire
+	Valued:
+		Cost: 1
+	Armor@Building:
+		Type: BuildingArmor
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack
+	Building:
+		Dimensions: 1,1
+		Footprint: x
+		BuildSounds: place2.aud
+		UndeploySounds: cashturn.aud
+		TerrainTypes: Clear, Road, DirtRoad, Rough
+		RequiresBaseProvider: true
+	ActorPreviewPlaceBuildingPreview:
+		Palette: placefootprint
+		LineBuildSegmentPalette: placelinesegment
+		OverridePalette: placebuilding
+		FootprintUnderPreview: Valid, LineBuild, Invalid
+		FootprintOverPreview: None
+	FrozenUnderFog:
+	SoundOnDamageTransition:
+		DamagedSounds: expnew01.aud
+		DestroyedSounds: crmble2.aud
+	WithSpriteBody:
+	Explodes@BuildingFireSmallParticleSpawner:
+		Weapon: BuildingFireSmallParticleSpawner
+		EmptyWeapon: BuildingFireSmallParticleSpawner
+		Type: Footprint
+	Explodes@BuildingFireBigSpawn:
+		Weapon: BuildingFireBigParticleSpawner
+		EmptyWeapon: BuildingFireBigParticleSpawner
+		Type: Footprint
+	Explodes@BuildingSmokeSpawner:
+		Weapon: BuildingSmokeSpawner
+		EmptyWeapon: BuildingSmokeSpawner
+		Type: Footprint
+	Explodes:
+		Weapon: BuildingExplode
+		EmptyWeapon: BuildingExplode
+		Type: Footprint
+	EngineerRepairable:
+	ShakeOnDeath:
+	Guardable:
+		Range: 6c0
+	Health:
+		HP: 28000
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -512, -512
+			BottomRight: 512, 512
+	Demolishable:
+	SpawnActorOnDeath@tiberium2:
+		Actor: inftibspawn
+		Probability: 25
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType: TiberiumDeath
+		RequiresLobbyCreeps: true
+	MapEditorData:
+		Categories: Civ Building
+	RequiresBuildableArea:
+		AreaTypes: building
+		Adjacent: 3
+	ThrowsShrapnel@SMALL:
+		Pieces: 5, 9
+		Weapons: SmallDebris
+	ThrowsShrapnel@LARGE:
+		Pieces: 2, 4
+		Weapons: LargeDebris
+
+^Building:
+	Inherits@0: ^BasicBuilding
+	Inherits@1: ^StructureEffects
+	Inherits@2: ^6CellVision
+	Inherits@3: ^SelectableBuilding
+	GivesBuildableArea:
+		AreaTypes: building
+	CaptureNotification:
+		Notification: BuildingCaptured
+		LoseNotification: BuildingLostToCapture
+	CaptureManager:
+	Capturable:
+		Types: Building
+		RequiresCondition: !Building-Buildup
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	GivesExperience:
+		PlayerExperienceModifier: 100
+	RevealsShroud:
+		Type: Footprint
+		MaxHeightDelta: 3
+	RepairableBuilding:
+		RepairingNotification: Repairing
+		RepairStep: 700
+	WithDeathAnimation:
+		DeathSequence: dead
+		UseDeathTypeSuffix: false
+	RevealOnDeath:
+		Duration: 50
+		Radius: 3c0
+	SpawnActorsOnSell@gdi:
+		ValuePercent: 30
+		ActorTypes: gdie1
+		Factions: gdi
+	SpawnActorsOnSell@nod:
+		ValuePercent: 30
+		ActorTypes: altnode1
+		Factions: nod
+	SpawnActorsOnSell@cab:
+		ValuePercent: 30
+		ActorTypes: worker
+		Factions: cab
+	SpawnActorsOnSell@mut:
+		ValuePercent: 30
+		ActorTypes: marauder
+		Factions: mut
+	SpawnActorsOnSell@scr:
+		ValuePercent: 30
+		ActorTypes: shark
+		Factions: scr
+	MustBeDestroyed:
+		RequiredForShortGame: true
+	Sellable:
+		SellSounds: cashturn.aud
+		RequiresCondition: !Building-Buildup
+	WithMakeAnimation:
+		Condition: Building-Buildup
+	MapEditorData:
+		Categories: Buildable Structure
+	WithBuildingRepairDecoration:
+		Image: allyrepair
+		Sequence: repair
+		Position: Center
+		Palette: mouse
+	Huntable:
+
+^Defence:
+	Inherits: ^Building
+	Inherits@1: ^AutoTargetAll
+	Inherits@2: ^DisableOnLowPowerOrPowerDown
+	Inherits@3: ^8CellVision
+	RevealsShroud:
+		Type: Footprint
+		MaxHeightDelta: 3
+	-GivesBuildableArea:
+	-SpawnActorOnDeath@tiberium2:
+	AutoTarget:
+	-MustBeDestroyed:
+	RenderRangeCircle:
+		Color: FFFF00CC
+		BorderColor: 000000CC
+	Targetable@Defence:
+		TargetTypes: Defence
+	Armor:
+		Type: DefenseArmor
+	MapEditorData:
+		Categories: Defence
+	Replacement:
+		ReplaceableTypes: Tower
+	ExplodeWeapon@SpawnFire:
+		Weapon: DefenceCriticalDamageFireSpawner
+	RequiresBuildableArea:
+		AreaTypes: building
+
+^TurretedDefence:
+	Inherits: ^Defence
+	Turreted:
+		TurnSpeed: 40
+	Turreted:
+		InitialFacing: 368
+		RealignDelay: -1
+	AttackTurreted:
+		PauseOnCondition: empdisable || disabled
+	WithSpriteTurret:
+		Recoils: true
+		RequiresCondition: !Building-Buildup
+	Power:
+		Amount: -20
+	BodyOrientation:
+		QuantizedFacings: 32
+
+^AntiAir:
+	Inherits@0: ^6CellVision
+	RenderRangeCircle:
+		RangeCircleType: AA
+	RevealsShroud:
+		Type: Footprint
+	Valued:
+		Cost: 800
+	Health:
+		HP: 60000
+	Power:
+		Amount: -20
+
+^Tier2:
+	RenderRangeCircle:
+		RangeCircleType: Tier2
+
+^MiscTurret:
+	Inherits: ^Defence
+	RenderRangeCircle:
+		RangeCircleType: MiscTurret
+
+^CivBuilding:
+	Inherits: ^BasicBuilding
+	Inherits@0: ^4CellVision
+	-UpdatesPlayerStatistics:
+	RevealsShroud:
+		Type: Footprint
+		MaxHeightDelta: 3
+	Health:
+		HP: 90000
+	Tooltip:
+		Name: Civilian Building
+	RenderSprites:
+		Palette: terraindecoration
+	MapEditorData:
+		Categories: Civilian Structure
+	-GrantConditionOnDamageState@SpawnFire:
+	-ExplodeWeapon@SpawnFire:
+	-ExternalCondition@SpawnFire:
+	-ExternalCondition@DisableSpawnFire:
+	RadarColorFromTerrain:
+		Terrain: CivilianBuilding
+	Interactable:
+
+^FakeTurretedCivBuilding:
+	Inherits: ^CivBuilding
+	-WithSpriteBody:
+	WithSpriteTurret:
+	Turreted:
+		RealignDelay: -1
+	Armament:
+		Weapon: LightTowerClaxon
+	AttackTurreted:
+
+^1x1TurretedCivBuilding:
+	Inherits@1: ^FakeTurretedCivBuilding
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	Crushable:
+		CrushClasses: infantry
+
+^TechBuilding:
+	Inherits: ^BasicBuilding
+	Inherits@0: ^Cloakable
+	Inherits@1: ^3CellVision
+	Inherits@2: ^SelectableBuilding
+	RevealsShroud:
+		Type: Footprint
+		MaxHeightDelta: 3
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	CaptureNotification:
+		Notification: BuildingCaptured
+		LoseNotification: BuildingLostToCapture
+	RepairableBuilding:
+		RepairStep: 700
+	OwnerLostAction:
+		Action: ChangeOwner
+	Capturable:
+		Types: TechBuilding
+	RenderSprites:
+	MapEditorData:
+		Categories: Tech Structure
+	CaptureManager:
+	WithDeathAnimation:
+		DeathSequence: dead
+		UseDeathTypeSuffix: false
+	WithBuildingRepairDecoration:
+		Image: allyrepair
+		Sequence: repair
+		Position: Center
+		Palette: mouse
+
+^Decoration:
 	Inherits@1: ^SpriteActor
+	Inherits@2: ^1x1Shape
+	Interactable:
+	HiddenUnderShroud:
+	RenderSprites:
+		Palette: terraindecoration
+	WithSpriteBody:
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	MapEditorData:
+		Categories: Decoration
+	RadarColorFromTerrain:
+		Terrain: CivilianProp
+	AppearsOnRadar:
+	Interactable:
+
+^BlossomTree:
+	Inherits: ^Decoration
 	RenderSprites:
 		Palette: player
-	WithSpriteBody:
 	Tooltip:
 		Name: Blossom Tree
 		ShowOwnerRow: false
-	Building:
-		Footprint: x
-		Dimensions: 1,1
-	AppearsOnRadar:
 	RadarColorFromTerrain:
 		Terrain: Tiberium
-	FrozenUnderFog:
 	SeedsResource:
 		ResourceType: Tiberium
 		Interval: 50
 	WithIdleAnimation:
-	MapEditorData:
-		Categories: Riparius Blossom Tree
-	Interactable:
 	TerrainLightSource:
 		RedTint: 0
 		GreenTint: 0.4
 		BlueTint: 0
 		Intensity: 0
 		Range: 7c0
+	MapEditorData:
+		Categories: Tib Spawners
 
 ^Tree:
-	Inherits@1: ^SpriteActor
-	Inherits@0: ^1x1Shape
-	HiddenUnderShroud:
-	RenderSprites:
-		Palette: terraindecoration
-	Interactable:
-	WithSpriteBody:
-	Building:
-		Footprint: x
-		Dimensions: 1, 1
-	AppearsOnRadar:
+	Inherits: ^Decoration
 	RadarColorFromTerrain:
 		Terrain: Tree
 	Tooltip:
 		Name: Tree
 	MapEditorData:
-		Categories: Decoration
+		Categories: Trees
 	Targetable:
 		TargetTypes: Building, Ground, C4
 	Health:
@@ -2329,44 +2332,18 @@
 		Range: 0c256, 1c0
 
 ^Rock:
-	Inherits@1: ^SpriteActor
-	HiddenUnderShroud:
-	Interactable:
+	Inherits: ^Decoration
 	RenderSprites:
 		Palette: terraindecoration
-	WithSpriteBody:
-	Building:
-		Footprint: x
-		Dimensions: 1, 1
-	AppearsOnRadar:
 	RadarColorFromTerrain:
 		Terrain: Rock
 	Tooltip:
 		Name: Rock
 	MapEditorData:
-		Categories: Decoration
-	RequiresBuildableArea:
-		AreaTypes: building
-
-^Decoration:
-	Inherits@1: ^SpriteActor
-	Inherits@2: ^1x1Shape
-	Interactable:
-	HiddenUnderShroud:
-	RenderSprites:
-		Palette: terraindecoration
-	Targetable:
-		TargetTypes: Building, Ground, C4
-	Health:
-		HP: 50000
-	WithSpriteBody:
+		Categories: Rock
 	Building:
 		Footprint: x
 		Dimensions: 1, 1
-	MapEditorData:
-		Categories: Decoration
-	RadarColorFromTerrain:
-		Terrain: CivilianProp
 
 ^CrossableDecoration:
 	Inherits@1: ^Decoration
@@ -2404,16 +2381,6 @@
 		Categories: Decoration
 	RequiresBuildableArea:
 		AreaTypes: building
-
-^Box:
-	Inherits: ^Decoration
-	Tooltip:
-		Name: Box
-
-^Drum:
-	Inherits: ^Decoration
-	Tooltip:
-		Name: Drum
 
 ^Palette:
 	Inherits: ^Decoration
