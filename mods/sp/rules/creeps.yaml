@@ -53,7 +53,7 @@ VISC_SML:
 		HP: 7500
 	Armor:
 		Type: InfantryArmor
-	AttackWander:
+	Wanders:
 		WanderMoveRadius: 3
 		MinMoveDelay: 30
 		MaxMoveDelay: 60
@@ -93,7 +93,7 @@ VISC_LRG:
 		ScanRadius: 5
 	AttackFrontal:
 		Voice: Attack
-	Wanders:
+	AttackWander:
 	WithAttackAnimation:
 		Sequence: attack
 	Mobile:
@@ -467,8 +467,10 @@ MINIVEIN:
 		Interval: 150, 300
 	Health:
 		HP: 70000
+	Armor:
+		Type: BuildingArmor
 	Targetable:
-		TargetTypes: Building, Ground, NeutralTibCritter, Veinhole
+		TargetTypes: Building, Ground, NeutralTibCritter
 	ExplodeWeapon@2:
 		Weapon: VeinholeEggElevator
 	ProximityExternalCondition:
@@ -486,7 +488,7 @@ MINIVEIN:
 	WithMakeAnimation:
 		Condition: growing
 	ChangesHealth:
-		PercentageStep: 1
+		PercentageStep: 2
 		StartIfBelow: 200
 		DamageCooldown: 50
 		Delay: 25
@@ -494,6 +496,7 @@ MINIVEIN:
 VEINHOLE:
 	Inherits: ^Building
 	Inherits@2: ^2x2Shape
+	Inherits@3: ^Unkillable
 	-CaptureManager:
 	RadarColorFromTerrain:
 		Terrain: Veins
@@ -510,9 +513,6 @@ VEINHOLE:
 		MaxRange: 24
 	RenderSprites:
 		Palette: player
-	DamageMultiplier@Veinhole:
-		Modifier: 0
-		RequiresCondition: !lawea
 	ChangesHealth:
 		PercentageStep: 1
 		StartIfBelow: 200
