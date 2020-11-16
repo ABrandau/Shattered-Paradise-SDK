@@ -1482,14 +1482,9 @@
 	-SpawnActorOnDeath@tiberium:
 
 ^HologramKillTimer:
-	GrantPeriodicCondition:
-		Condition: KillMe
-		CooldownDuration: 375
-	KillsSelf@KillMe:
-		RequiresCondition: KillMe
+	KillsSelf@TimedLife:
+		Delay: 375
 		DamageTypes: BulletDeath
-	ExternalCondition@KillMe:
-		Condition: KillMe
 	WithDecoration@holoicon:
 		Image: holoicon
 		Sequence: idle

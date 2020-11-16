@@ -57,7 +57,6 @@ VISC_SML:
 		WanderMoveRadius: 3
 		MinMoveDelay: 30
 		MaxMoveDelay: 60
-		RequiresCondition: !Evolve
 	Targetable@MindControl:
 		TargetTypes: MindControlImmune
 	RenderSprites:
@@ -280,17 +279,8 @@ EGGS:
 		Experience: 10
 	Targetable:
 		TargetTypes: Defence, Ground, NeutralTibCritter, MindControlImmune
-	ExternalCondition@SpawnCrabs:
-		Condition: SpawnCrabs
-	GrantPeriodicCondition:
-		Condition: SpawnCrabs
-		CooldownDuration: 400
-	ChangesHealth@crab:
-		PercentageStep: -100
-		Step: 0
-		Delay: 50
-		StartIfBelow: 150
-		RequiresCondition: SpawnCrabs
+	KillsSelf@TimedLife:
+		Delay: 450
 		DamageTypes: SpawnCrabs
 	SpawnActorOnDeath@crab1:
 		Actor: crab
@@ -332,15 +322,9 @@ CRAB:
 		AttackSequences: shoot
 		IdleSequences: idle1, idle2
 		RequiresCondition: !WebDisable
-	GrantPeriodicCondition:
-		Condition: SpawnCrabs
-		CooldownDuration: 2250
-	ChangesHealth@crab:
-		PercentageStep: -100
-		Step: 0
-		Delay: 50
-		StartIfBelow: 150
-		RequiresCondition: SpawnCrabs
+	KillsSelf@TimedLife:
+		Delay: 2300
+		RemoveInstead: true ##We don't have effect for natrual death, use this for performance
 	AttackFrontal:
 		Voice: Attack
 	AttackWander:
@@ -384,8 +368,6 @@ PERMACRAB:
 		Name: Permanent Crab
 	RenderSprites:
 		Image: crab
-	-GrantPeriodicCondition:
-	-ChangesHealth@crab:
 	ChangesHealth@ELITE:
 		PercentageStep: 5
 		Delay: 75
@@ -397,6 +379,7 @@ PERMACRAB:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
 	MapEditorData:
 		Categories: Creep
+	-KillsSelf@TimedLife:
 
 jfish:
 	Inherits: ^Visceroid
