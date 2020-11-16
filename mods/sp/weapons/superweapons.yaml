@@ -1,14 +1,30 @@
-^SWBaseEffects:
-	Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
-		Range: 5c0
-		Duration: 5
-		Condition: GetsOneShotedbySuperweapons
-	Warhead@GetsOneShotedbySuperweaponsAA: GrantExternalCondition
-		Range: 3c0
-		Duration: 5
-		Condition: GetsOneShotedbySuperweapons
-		ValidTargets: Aircraft, Air, Airhit
 
+^SWBaseEffects:
+	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
+		Falloff: 1000, 700, 500, 300, 150, 50, 0
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 0
+			VehicleArmor: 100
+			DefenseArmor: 0
+			AircraftArmor: 100
+			ConcreteArmor: 0
+		Spread: 0c100
+		Damage: 9000000
+	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
+		Falloff: 1000, 700, 500, 300, 150, 50, 0
+		ValidTargets: Air
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 0
+			VehicleArmor: 100
+			DefenseArmor: 0
+			AircraftArmor: 100
+			ConcreteArmor: 0
+		Spread: 0c768
+		Damage: 9000000
+		
 SuicideBomb:
 	ReloadDelay: 1
 	Range: 0c512
@@ -81,14 +97,20 @@ RadarScanWeapon:
 IonCannon: ### THIS IS THE MAIN ION CANON WEAPON
 	Inherits: ^SWBaseEffects
 	ReloadDelay: 1000
-	ValidTargets: Ground, Air, IonSpawner
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air, IonSpawner
 	Warhead@1Dam_area: SpreadDamage
 		Spread: 1c0
 		Damage: 200000
 		Falloff: 100, 50, 25, 0
 		AffectsParent: true
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air, IonSpawner
 		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
+	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
+		Spread: 1c0
+		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
+	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
+		Spread: 1c0
+		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
 	Warhead@3Smu_area: LeaveSmudge
 		SmudgeType: SmallScorch
 		Size: 2,1
@@ -171,8 +193,7 @@ IonBeamCreator: ### THIS ONE GENERATES THE MINI BEAMS
 	ReloadDelay: 6
 	Range: 5c0
 	MinRange: 4c99
-	Projectile: BulletAS
-		Speed: 100c0
+	Projectile: InstantHit
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1
 		ValidTargets: Ground, Water, Air
@@ -391,6 +412,11 @@ NuclearMissile:
 			DefenseArmor: 50
 			ConcreteArmor: 5
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
+		Spread: 1c200
+	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
+		Spread: 1c200
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@SoundEffect0: CreateEffect
 		Explosions: nuke1, nuke2, nuke3
 		ExplosionPalette: effect
@@ -435,8 +461,6 @@ NuclearMissile:
 	Warhead@Shake: ScreenShaker
 		Intensity: 10
 		Duration: 15
-	Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
-		Range: 6c0
 	Warhead@8Radio: CreateTintedCells
 		Spread: 1c0
 		Level: 1500
@@ -456,6 +480,7 @@ HealerNuke:
 		Intensity: 999
 		Duration: 100
 	-Warhead@GetsOneShotedbySuperweapons:
+	-Warhead@GetsOneShotedbySuperweaponsAA:
 	Warhead@SoundEffect0: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
 	Warhead@8Radio: CreateTintedCells
@@ -617,6 +642,11 @@ MeteorSpawner6:
 	Inherits: MeteorSpawner
 	-Warhead@6:
 
+MeteorAirHit:
+	Inherits@1: ^SWBaseEffects
+	Projectile: InstantHit
+	-Warhead@GetsOneShotedbySuperweapons: SpreadDamage ## This for Air only, we cannot expect meteor fall on the ground to hit Air
+
 MeteorElevator:
 	ReloadDelay: 6
 	Report: meteor1.aud, meteor2.aud
@@ -628,6 +658,10 @@ MeteorElevator:
 		Weapon: MeteorRainSlow
 		ImpactActors: false
 		AimChance: 25
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@AirHit: FireShrapnel
+		Weapon: MeteorAirHit
+		ImpactActors: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
 MeteorElevator2:
@@ -643,9 +677,9 @@ MeteorElevator3:
 		ImpactActors: false
 
 MeteorRainNormal:
-	Inherits@3: ^SWBaseEffects
-	Inherits: ^BombWarhead
-	Inherits@2: ^Small_Twlt
+	Inherits@1: ^SWBaseEffects
+	Inherits@2: ^BombWarhead
+	Inherits@3: ^Small_Twlt
 	ReloadDelay: 8
 	Range: 1c0
 	Report: mehit1.aud
@@ -665,6 +699,9 @@ MeteorRainNormal:
 		Damage: 10000
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
+		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+	-Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage ## This for Ground only, we cannot expect meteor fall on the ground to hit Air
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
@@ -686,8 +723,6 @@ MeteorRainNormal:
 		Amount: 3
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
-	Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
-		Range: 1c0
 	Warhead@Shake: ScreenShaker
 		Intensity: 10
 		Duration: 7
@@ -733,7 +768,7 @@ IronSavior:
 		ImpactSounds: expnew09.aud, expnew02.aud, expnew03.aud, expnew04.aud
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: LargeCrater
-		InvalidTargets:: Water
+		InvalidTargets: Water
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@Shake: ScreenShaker
 		Intensity: 10
@@ -746,8 +781,9 @@ IronSavior:
 		Size: 2
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 15
-	Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
-		Range: 4c0
+	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
+		Spread: 0c768
+		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
 	Warhead@op: FireShrapnel
 		Weapon: IronSaviorShrapnel
 		ImpactActors: false
@@ -770,6 +806,8 @@ IronSaviorShrapnel:
 	Warhead@1Dam: SpreadDamage
 		Spread: 700
 		Damage: 8000
+	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
+		Spread: 0c400
 
 NanoMachineBurst:
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
@@ -835,8 +873,8 @@ IonRay:
 		Spread: 256
 		Damage: 7500
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
-	Warhead@GetsOneShotedbySuperweapons: GrantExternalCondition
-		Range: 0c768
+	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
+		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
 
 VeinholeSummonerWeapon:
 	Inherits: ^BombWarhead
