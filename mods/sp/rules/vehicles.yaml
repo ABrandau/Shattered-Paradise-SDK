@@ -1041,6 +1041,8 @@ TICKHOLOGRAM:
 		-RequireForceMoveCondition:
 	Passenger:
 		-RequireForceMoveCondition:
+	Armament@PRIMARY:
+		Weapon: HologramTick90mm
 	-Explodes:
 	-GrantConditionOnDeploy:
 	-WithSpriteBody@deployed:
@@ -1049,8 +1051,6 @@ TICKHOLOGRAM:
 		-RequiresCondition: undeployed
 	RenderSprites:
 		Image: ttnk
-	FirepowerMultiplier@Hologram:
-		Modifier: 20
 	WithDeathAnimation@body:
 		DeathSequencePalette: apolra2i
 		DeathPaletteIsPlayerPalette: false
@@ -1072,14 +1072,11 @@ TICKHOLOGRAM:
 	-AttackTurreted@deployed:
 	AttackFrontal:
 		-RequiresCondition:
-	KillsSelf@KillMe:
-		RequiresCondition: KillMe
-	ExternalCondition@KillMe:
-		Condition: KillMe
 	-ActorLostNotification:
 	AutoTarget:
-		ScanRadius: 6
+		ScanRadius: 7
 		InitialStance: AttackAnything
+		InitialStanceAI: AttackAnything
 
 BIKE:
 	Inherits: ^Vehicle

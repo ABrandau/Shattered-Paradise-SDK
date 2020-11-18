@@ -1,6 +1,6 @@
+## Used for flying dummy ignore terrain type while moving
 ^DUMMYAIRCRAFT:
 	Inherits: ^SpriteActor
-	Inherits@2: ^1x1Shape
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -26,16 +26,12 @@
 	OwnerLostAction:
 		Action: Dispose
 
-## Used for absolute timer with best performance, on the ground and static
+## Used for dummy that on the ground and static
 ## No image and sight, pls add those function yourself if want new functions
 ^GROUNDDUMMY:
-	Inherits: ^1x1Shape
 	HiddenUnderFog:
 	Immobile:
 		OccupiesSpace: false
-	Health:
-		HP: 100
-		NotifyAppliedDamage: false
 	BodyOrientation:
 		QuantizedFacings: 1
 	RenderDebugState:
@@ -43,8 +39,29 @@
 	OwnerLostAction:
 		Action: Dispose
 
+## Dummy usage:
+## 1. Add 'KillsSelf' for timer control, better with '@TimedLife''
+## 2. HACK&Note: if you want to trigger the death effect traits, actor must have Health.
+## Otherwise 'KillsSelf' only disposals the actor without triggering death effect traits.
+## 3. For time-affecting-only dummy with Health, pls also use '^Unkillable' to avoid other damage kills the actor.
+
+^WithDeathEffects:
+	Inherits: ^1x1Shape
+	Health:
+		HP: 50
+		NotifyAppliedDamage: false
+
+^TimedDeathOnlyWithDeathEffects:
+	Inherits: ^WithDeathEffects
+	Inherits@1: ^Unkillable
+
+########################################################
+# Dummy Instances
+#######################################################
+
 CLOUD1:
 	Inherits: ^DUMMYAIRCRAFT
+	Inherits@2: ^TimedDeathOnlyWithDeathEffects
 	Aircraft:
 		CruiseAltitude: 1
 		TurnSpeed: 2
@@ -52,81 +69,53 @@ CLOUD1:
 		AltitudeVelocity: 400
 		Speed: 20
 		MoveIntoShroud: true
-	Health:
-		HP: 650
-	ChangesHealth@1:
-		Step: -600
-		Delay: 100
-		StartIfBelow: 5000
-		DamageTypes: CloudDie
-		RequiresCondition: body1
-	ChangesHealth@2:
-		Step: -600
-		Delay: 75
-		StartIfBelow: 5000
-		DamageTypes: CloudDie
-		RequiresCondition: body2
 	RenderSprites:
 		Image: cloud1
 		Palette: effectalpha
 	Wanders:
 	-RevealsShroud:
-	GrantRandomCondition:
-		Conditions: body1, body2
-	WithSpriteBody@1:
-		Name: body1
-		Sequence: cloud1
-		RequiresCondition: body1
-	WithSpriteBody@2:
-		Name: body2
+	KillsSelf@TimedLife:
+		Delay: 40, 90
+		DamageTypes: CloudDie
+	WithSpriteBody:
 		Sequence: cloud2
-		RequiresCondition: body2
-	WithDeathAnimation@1:
-		DeathSequence: die1
-		UseDeathTypeSuffix: false
-		DeathSequencePalette: effectalpha
-		DeathPaletteIsPlayerPalette: false
-		RequiresCondition: body1
-	WithDeathAnimation@2:
+	WithDeathAnimation:
 		DeathSequence: die2
 		UseDeathTypeSuffix: false
 		DeathSequencePalette: effectalpha
 		DeathPaletteIsPlayerPalette: false
-		RequiresCondition: body2
 
-## Longer
+## Longer, Bigger
 CLOUD2:
 	Inherits: CLOUD1
-	ChangesHealth@1:
-		Delay: 150
-	ChangesHealth@2:
-		Delay: 100
+	KillsSelf@TimedLife:
+		Delay: 100, 150
+	WithSpriteBody:
+		Sequence: cloud1
+	WithDeathAnimation:
+		DeathSequence: die1
 
 BigFireSpawnerDummy:
 	Inherits: ^GROUNDDUMMY
 	ExplodeWeapon:
 		Weapon: BuildingFireBigShrapnel
 		ResetReloadWhenEnabled: false
-	Health:
-		HP: 30
-	ChangesHealth:
-		Step: -10
-		Delay: 5
-		StartIfBelow: 200
+	KillsSelf@TimedLife:
+		Delay: 10
 
 SmallFireSpawnerDummy:
 	Inherits: BigFireSpawnerDummy
-	Health:
-		HP: 50
 	ExplodeWeapon:
 		Weapon: BuildingFireSmallShrapnel
+	KillsSelf@TimedLife:
+		Delay: 15
 
 SmokeSpawnerDummy:
 	Inherits: BigFireSpawnerDummy
-	Health:
-		HP: 50
 	ExplodeWeapon:
 		Weapon: BuildingSmokeShrapnel
+	KillsSelf@TimedLife:
+		Delay: 15
 
 ScrinBigFireSpawnerDummy:
 	Inherits: BigFireSpawnerDummy
@@ -154,34 +143,22 @@ VISIONACTOR:
 	Inherits: ^DUMMYAIRCRAFT
 	RevealsShroud:
 		Range: 3c0
-	Health:
-		HP: 50
-	ChangesHealth:
-		Step: -10
-		Delay: 10
-		StartIfBelow: 200
+	KillsSelf@TimedLife:
+		Delay: 40
 
 SWVISIONDUMMY:
 	Inherits: ^DUMMYAIRCRAFT
 	RevealsShroud:
 		Range: 10c0
-	Health:
-		HP: 7
-	ChangesHealth:
-		Step: -1
-		Delay: 25
-		StartIfBelow: 200
+	KillsSelf@TimedLife:
+		Delay: 150
 
 IRONSAVIORVISIONDUMMY:
 	Inherits: ^DUMMYAIRCRAFT
 	RevealsShroud:
 		Range: 6c0
-	Health:
-		HP: 7
-	ChangesHealth:
-		Step: -1
-		Delay: 25
-		StartIfBelow: 200
+	KillsSelf@TimedLife:
+		Delay: 150
 
 RADARSCANDUMMY:
 	Inherits: ^DUMMYAIRCRAFT
@@ -198,14 +175,11 @@ RADARSCANDUMMY:
 
 IONBEAMTARGET:
 	Inherits: ^GROUNDDUMMY
+	Inherits@2: ^TimedDeathOnlyWithDeathEffects ##Hacked: For targetable
 	Tooltip:
 		Name: Target
-	Health:
-		HP: 50
-	ChangesHealth:
-		Step: -10
-		Delay: 25
-		StartIfBelow: 200
+	KillsSelf@TimedLife:
+		Delay: 100
 	Targetable:
 		TargetTypes: IonSpawner
 	ShakeOnDeath:
@@ -235,12 +209,8 @@ IONBEAMMINI:
 		Speed: 74
 		MoveIntoShroud: true
 	-Tooltip:
-	Health:
-		HP: 50
-	ChangesHealth:
-		Step: -10
-		Delay: 25
-		StartIfBelow: 200
+	KillsSelf@TimedLife:
+		Delay: 100
 	RevealsShroud:
 		Range: 3c0
 	AttackAircraft:
@@ -332,61 +302,13 @@ IONBEAMMINI:
 	HiddenUnderFog:
 		AlwaysVisibleStances: Ally, Enemy, Neutral
 
-IONBEAMROAMER:
-	Inherits: ^GROUNDDUMMY
-	Aircraft:
-		CruiseAltitude: 0
-		TurnSpeed: 80
-		Repulsable: false
-		AltitudeVelocity: 400
-		Speed: 25
-		MoveIntoShroud: true
-	RevealsShroud:
-		Range: 3c0
-	Health:
-		HP: 75
-	ChangesHealth:
-		Step: -1
-		Delay: 15
-		StartIfBelow: 200
-	AttackAircraft:
-		FacingTolerance: 20
-		Voice: Attack
-	AttackMove:
-	AttackWander:
-	RejectsOrders:
-	RenderSprites:
-		Image: ionbeam
-		Palette: effectalpha
-	WithFacingSpriteBody:
-	BodyOrientation:
-		QuantizedFacings: 32
-	WithIdleOverlay:
-		Sequence: beamsky
-	WithIdleOverlay@1:
-		Sequence: beamsky2
-	WithIdleOverlay@2:
-		Sequence: beamsky3
-	WithIdleOverlay@3:
-		Sequence: beamsky4
-	WithIdleOverlay@4:
-		Sequence: beamsky5
-	WithIdleOverlay@5:
-		Sequence: muzzle
-	WithIdleOverlay@6:
-		Sequence: muzzle2
-	ExplodeWeapon:
-		Weapon: IonScorch
-
 KILLEDACTOR:
 	Inherits: ^GROUNDDUMMY
-	ChangesHealth:
-		Step: -25
-		StartIfBelow: 110
+	Inherits@2: ^WithDeathEffects
+	KillsSelf@TimedLife:
+		Delay: 1
+		RemoveInstead: true
 		RequiresCondition: !nanomachineburst
-	Health:
-		HP: 50
-		NotifyAppliedDamage: false
 	Targetable@asdf:
 		TargetTypes: KilledUnit
 	SpawnActorOnDeath@workerspawn:
@@ -400,12 +322,9 @@ KILLEDACTOR:
 
 NANOMACHINEBURSTSPAWNER:
 	Inherits: ^GROUNDDUMMY
-	ChangesHealth:
-		Step: -10
-		StartIfBelow: 200
-	Health:
-		HP: 5
-		NotifyAppliedDamage: false
+	Inherits@2: ^TimedDeathOnlyWithDeathEffects
+	KillsSelf@TimedLife:
+		Delay: 0
 	SpawnActorOnDeath@workerspawn:
 		Actor: NANOMACHINEBURSTDUMMY
 		Probability: 100
@@ -423,17 +342,12 @@ NANOMACHINEBURSTDUMMY:
 	Inherits@1: ^AutoTargetAll
 	Aircraft:
 		CruiseAltitude: 1
-	ChangesHealth:
-		Step: -1
-		Delay: 25
-		StartIfBelow: 200
+	KillsSelf@TimedLife:
+		Delay: 475
 	-Tooltip:
 	RenderSprites:
 		Image: nanomachineswarmdummy
 		Palette: apolgreyalpha
-	Health:
-		HP: 20
-		NotifyAppliedDamage: false
 	RevealsShroud:
 		Range: 8c0
 	ProximityExternalCondition:
@@ -442,10 +356,10 @@ NANOMACHINEBURSTDUMMY:
 	WithIdleOverlay:
 		Sequence: stand
 		Palette: apolgreyalpha
-	WithDeathAnimation:
-		DeathPaletteIsPlayerPalette: false
-		DeathSequencePalette: apolgreyalpha
-		UseDeathTypeSuffix: false
+	#WithDeathAnimation: ##It is useless at present
+	#	DeathPaletteIsPlayerPalette: false
+	#	DeathSequencePalette: apolgreyalpha
+	#	UseDeathTypeSuffix: false
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: KilledUnit
 	AttackOmni:
@@ -456,12 +370,9 @@ NANOMACHINEBURSTDUMMY:
 
 VEINHOLESPAWNERDUMMY:
 	Inherits: ^GROUNDDUMMY
-	ChangesHealth:
-		Step: -10
-		StartIfBelow: 200
-	Health:
-		HP: 5
-		NotifyAppliedDamage: false
+	Inherits@2: ^TimedDeathOnlyWithDeathEffects
+	KillsSelf@TimedLife:
+		Delay: 0
 	SpawnActorOnDeath@cabalcrate:
 		Actor: MINIVEIN
 		Probability: 100
@@ -478,13 +389,8 @@ FOGCAMERADUMMY:
 	Inherits: ^GROUNDDUMMY
 	ExternalCondition@sustaincamera:
 		Condition: sustaincamera
-	Health:
-		HP: 50
-		NotifyAppliedDamage: false
-	ChangesHealth:
-		Step: -25
-		StartIfBelow: 200
-		DamageCooldown: 25
+	KillsSelf@TimedLife:
+		Delay: 1
 		RequiresCondition: !sustaincamera
 	RevealsShroud:
 		Type: CenterPosition
@@ -497,12 +403,9 @@ FOGCAMERADUMMY:
 
 INFTIBSPAWN:
 	Inherits: ^GROUNDDUMMY
-	Health:
-		HP: 30
-	ChangesHealth:
-		Step: -30
-		Delay: 25
-		StartIfBelow: 200
+	Inherits@2: ^TimedDeathOnlyWithDeathEffects
+	KillsSelf@TimedLife:
+		Delay: 0
 	GrantRandomCondition:
 		Conditions: visc, zombie
 	SpawnActorOnDeath@zombie:
@@ -532,10 +435,9 @@ VEHICLETIBSPAWN:
 
 SCRINESSENCESMALL:
 	Inherits: ^DUMMYAIRCRAFT
-	ChangesHealth:
-		Step: -1
+	Inherits@2: ^TimedDeathOnlyWithDeathEffects
+	KillsSelf@TimedLife:
 		Delay: 50
-		StartIfBelow: 200
 	-Tooltip:
 	Targetable@Esscence:
 		TargetTypes: ScrinEssence
@@ -545,9 +447,6 @@ SCRINESSENCESMALL:
 		Speed: 30
 		CruiseAltitude: 1
 		TakeOffOnCreation: false
-	Health:
-		HP: 2
-		NotifyAppliedDamage: false
 	Turreted:
 		TurnSpeed: 396
 	RevealsShroud:

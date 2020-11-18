@@ -530,13 +530,13 @@ FlameHologram:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: false
 	Armament:
-		Weapon: MilitantRifle
+		Weapon: HologramMilitantRifle
 	RenderSprites:
 		Image: altnode1
 	EditorOnlyTooltip:
 		Name: Militant Hollogram
 	AutoTarget:
-		ScanRadius: 6
+		ScanRadius: 7
 		InitialStance: AttackAnything
 
 MARAUDER:
@@ -1316,13 +1316,8 @@ CABSENTRY:
 	Mobile:
 		Speed: 70
 		Locomotor: HeavyInfantry
-	GrantPeriodicCondition:
-		Condition: KillMe
-		CooldownDuration: 250
-	KillsSelf@KillMe:
-		RequiresCondition: KillMe
-	ExternalCondition@KillMe:
-		Condition: KillMe
+	KillsSelf@TimedLife:
+		Delay: 250
 	Health:
 		HP: 7500
 	Armament@primary:

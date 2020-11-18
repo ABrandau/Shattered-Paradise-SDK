@@ -53,11 +53,10 @@ VISC_SML:
 		HP: 7500
 	Armor:
 		Type: InfantryArmor
-	AttackWander:
+	Wanders:
 		WanderMoveRadius: 3
 		MinMoveDelay: 30
 		MaxMoveDelay: 60
-		RequiresCondition: !Evolve
 	Targetable@MindControl:
 		TargetTypes: MindControlImmune
 	RenderSprites:
@@ -94,7 +93,7 @@ VISC_LRG:
 		ScanRadius: 5
 	AttackFrontal:
 		Voice: Attack
-	Wanders:
+	AttackWander:
 	WithAttackAnimation:
 		Sequence: attack
 	Mobile:
@@ -280,17 +279,8 @@ EGGS:
 		Experience: 10
 	Targetable:
 		TargetTypes: Defence, Ground, NeutralTibCritter, MindControlImmune
-	ExternalCondition@SpawnCrabs:
-		Condition: SpawnCrabs
-	GrantPeriodicCondition:
-		Condition: SpawnCrabs
-		CooldownDuration: 400
-	ChangesHealth@crab:
-		PercentageStep: -100
-		Step: 0
-		Delay: 50
-		StartIfBelow: 150
-		RequiresCondition: SpawnCrabs
+	KillsSelf@TimedLife:
+		Delay: 450
 		DamageTypes: SpawnCrabs
 	SpawnActorOnDeath@crab1:
 		Actor: crab
@@ -332,15 +322,9 @@ CRAB:
 		AttackSequences: shoot
 		IdleSequences: idle1, idle2
 		RequiresCondition: !WebDisable
-	GrantPeriodicCondition:
-		Condition: SpawnCrabs
-		CooldownDuration: 2250
-	ChangesHealth@crab:
-		PercentageStep: -100
-		Step: 0
-		Delay: 50
-		StartIfBelow: 150
-		RequiresCondition: SpawnCrabs
+	KillsSelf@TimedLife:
+		Delay: 2300
+		RemoveInstead: true ##We don't have effect for natrual death, use this for performance
 	AttackFrontal:
 		Voice: Attack
 	AttackWander:
@@ -384,8 +368,6 @@ PERMACRAB:
 		Name: Permanent Crab
 	RenderSprites:
 		Image: crab
-	-GrantPeriodicCondition:
-	-ChangesHealth@crab:
 	ChangesHealth@ELITE:
 		PercentageStep: 5
 		Delay: 75
@@ -397,6 +379,7 @@ PERMACRAB:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
 	MapEditorData:
 		Categories: Creep
+	-KillsSelf@TimedLife:
 
 jfish:
 	Inherits: ^Visceroid
@@ -484,8 +467,10 @@ MINIVEIN:
 		Interval: 150, 300
 	Health:
 		HP: 70000
+	Armor:
+		Type: BuildingArmor
 	Targetable:
-		TargetTypes: Building, Ground, NeutralTibCritter, Veinhole
+		TargetTypes: Building, Ground, NeutralTibCritter
 	ExplodeWeapon@2:
 		Weapon: VeinholeEggElevator
 	ProximityExternalCondition:
@@ -503,7 +488,7 @@ MINIVEIN:
 	WithMakeAnimation:
 		Condition: growing
 	ChangesHealth:
-		PercentageStep: 1
+		PercentageStep: 2
 		StartIfBelow: 200
 		DamageCooldown: 50
 		Delay: 25
@@ -511,6 +496,7 @@ MINIVEIN:
 VEINHOLE:
 	Inherits: ^Building
 	Inherits@2: ^2x2Shape
+	Inherits@3: ^Unkillable
 	-CaptureManager:
 	RadarColorFromTerrain:
 		Terrain: Veins
@@ -527,9 +513,6 @@ VEINHOLE:
 		MaxRange: 24
 	RenderSprites:
 		Palette: player
-	DamageMultiplier@Veinhole:
-		Modifier: 0
-		RequiresCondition: !lawea
 	ChangesHealth:
 		PercentageStep: 1
 		StartIfBelow: 200
