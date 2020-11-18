@@ -738,6 +738,10 @@ NUKECARRYALL_BOT:
 	ProvidesPrerequisite@AIbuildinglimit:
 		RequiresCondition: loaded
 		Prerequisite: LoadedExists
+	KillsSelf@DisappearsIfUnload:
+		Delay: 500
+		RequiresCondition: AImicroManage && !loaded
+		RemoveInstead: true
 
 SONICARRYALL_BOT:
 	Inherits: NUKECARRYALL_BOT
