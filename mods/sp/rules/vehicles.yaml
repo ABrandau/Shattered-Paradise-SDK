@@ -1531,7 +1531,7 @@ STRUCKFULL:
 		Prerequisites: ~muweap, murax, ~AIOnly
 		Description: Bus(full)
 	Valued:
-		Cost: 9500
+		Cost: 950
 	GivesExperience:
 		Experience: 500
 	Cargo:
@@ -1540,6 +1540,18 @@ STRUCKFULL:
 		Image: struck
 	EditorOnlyTooltip:
 		Name: Filled Battle bus
+
+STRUCKFULL_T3:
+	Inherits: STRUCKFULL
+	Buildable:
+		Prerequisites: ~muweap, murax, muhall, !psyker, ~AIOnly ##Hack: Use the buildlimit = prerequisite bug in techtree to save lines
+		Description: Bus(full with T3)
+		BuildDurationModifier: 30
+		BuildLimit: 1
+	Valued:
+		Cost: 2000
+	Cargo:
+		InitialUnits: psyker, seer, seer, e3, e3
 
 WOLF:
 	Inherits: ^Beast

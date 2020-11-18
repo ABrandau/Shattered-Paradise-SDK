@@ -391,13 +391,13 @@ Player:
 		RequiresCondition: AIBase
 	SquadManagerBotModule@AIBase:
 		RequiresCondition: AIBase
-		SquadSize: 25
-		SquadSizeRandomBonus: 10
+		SquadSize: 30
+		SquadSizeRandomBonus: 15
 		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, e2, swarmling, shapeshifter,mcv, drache, drache_bot, cabmcv, nodmcv, mutmcv, repairvehicle, ecm, mwar, lpst, limped, sgen, mumine, eggs, cabsentry, tickhologram, flamehologram
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
 		DangerScanRadius: 18
-		AttackForceInterval: 53
-		RushInterval: 20000
+		AttackForceInterval: 59
+		RushInterval: 900000000
 		MinimumAttackForceDelay: 2500
 		ProtectUnitScanRadius: 25
 		AssignRolesInterval: 73
@@ -408,7 +408,7 @@ Player:
 	UnitBuilderBotModule@AIAll:
 		RequiresCondition: AIEasy || AIBase
 		UnitQueues: Infantry, Vehicle, Air
-		IdleBaseUnitsMaximum: 39
+		IdleBaseUnitsMaximum: 43
 		UnitsToBuild:
 			harv: 90
 			scrharv: 90
@@ -433,7 +433,7 @@ Player:
 			seer: 10
 			eagleguard: 1
 			bhs: 30
-			psyker: 10
+			psyker: 1
 			glad: 30
 			cyc2: 30
 			float: 3
@@ -446,6 +446,7 @@ Player:
 			attackbike: 10
 			bike: 1
 			struckfull: 2
+			struckfull_t3: 80
 			centurion: 40
 			scrdronec: 40
 			scrscorpion: 60
@@ -519,6 +520,7 @@ Player:
 			scrcarrier: 9
 			mutqueen: 10
 			ecm: 2
+			struckfull_t3: 1
 			## nukecarryall_bot: 1 but not restrict here
 			## sonicarryall_bot: 1 but not restrict here
 			## apcarryall_bot: 1 but not restrict here
