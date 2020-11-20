@@ -38,6 +38,9 @@ Player:
 	#	HarvesterTypes: harv, scrharv
 	#	RefineryTypes: gdiref, nodref, scrproc, cabproc, muproc
 
+	ProvidesPrerequisite@AISpecialProduce:
+		RequiresCondition: AICheater || AIShattered
+		Prerequisite: AIOnly
 	BaseBuilderBotModule@AIBase:
 		RequiresCondition: AIEasy || AINormal || AICheater
 		MinimumExcessPower: 90
