@@ -43,12 +43,10 @@ COLOSSI_CHRONO:
 APC_BOT:
 	Inherits: APC
 	Inherits@AImicroManagable: ^AImicroManagable
-	Valued:
-		Cost: 1100
 	Selectable:
 		Class: apc
-	GivesExperience:
-		Experience: 700
+	ProductionCostMultiplier:
+		Multiplier: 150
 	RenderSprites:
 		Image: apc
 	Buildable:
@@ -62,15 +60,12 @@ APC_BOT:
 	AutoTarget:
 		ScanRadius: 7
 
-
 RIFLEBGGY:
 	Inherits: BGGY
-	Valued:
-		Cost: 350
+	ProductionCostMultiplier:
+		Multiplier: 125
 	Selectable:
 		Class: bggy
-	GivesExperience:
-		Experience: 300
 	EditorOnlyTooltip:
 		Name: Anti Infantry Buggy
 	RenderSprites:
@@ -83,8 +78,8 @@ RIFLEBGGY:
 
 ROCKETBGGY:
 	Inherits: RIFLEBGGY
-	Valued:
-		Cost: 450
+	ProductionCostMultiplier:
+		Multiplier: 200
 	EditorOnlyTooltip:
 		Name: Rocket Buggy
 	Buildable:
@@ -95,8 +90,8 @@ ROCKETBGGY:
 
 FLAMEBGGY:
 	Inherits: RIFLEBGGY
-	Valued:
-		Cost: 450
+	ProductionCostMultiplier:
+		Multiplier: 200
 	Buildable:
 		Prerequisites: ~naweap, naradr, ~AIOnly
 		Description: Flame Buggy
@@ -107,8 +102,8 @@ FLAMEBGGY:
 
 LAZORBGGY:
 	Inherits: RIFLEBGGY
-	Valued:
-		Cost: 700
+	ProductionCostMultiplier:
+		Multiplier: 300
 	Buildable:
 		Prerequisites: ~naweap, natech, ~AIOnly
 		Description: Laser Buggy
@@ -124,10 +119,8 @@ STRUCKFULL:
 	Buildable:
 		Prerequisites: ~muweap, murax, ~AIOnly
 		Description: Bus(full)
-	Valued:
-		Cost: 950
-	GivesExperience:
-		Experience: 500
+	ProductionCostMultiplier:
+		Multiplier: 190
 	Cargo:
 		InitialUnits: marauder, marauder, mutfiend, mutfiend, e3
 	RenderSprites:
@@ -142,8 +135,8 @@ STRUCKFULL_T3:
 		Description: Bus(full with T3)
 		BuildDurationModifier: 30
 		BuildLimit: 1
-	Valued:
-		Cost: 2000
+	ProductionCostMultiplier:
+		Multiplier: 350
 	Cargo:
 		InitialUnits: psyker, seer, seer, e3, e3
 
@@ -159,12 +152,10 @@ NUKECARRYALL_BOT:
 		Prerequisites: ~muair, muhall, ~AIOnly, ~!LoadedExists
 	Selectable:
 		Class: trnsport
-	Valued:
-		Cost: 2000
+	ProductionCostMultiplier:
+		Multiplier: 400
 	Health:
 		HP: 18000
-	GivesExperience:
-		Experience: 600
 	Cargo:
 		InitialUnits: hvrtruk3
 	Armament@AIunloadingDummyWeapon:
@@ -198,8 +189,8 @@ SONICARRYALL_BOT:
 		Queue: Air
 		BuildPaletteOrder: 6
 		Prerequisites: ~gahpad, gatech, ~AIOnly, ~!LoadedExists
-	Valued:
-		Cost: 1200
+	ProductionCostMultiplier:
+		Multiplier: 200
 	Cargo:
 		InitialUnits: sonic
 
@@ -210,8 +201,8 @@ APCARRYALL_BOT:
 		Queue: Air
 		BuildPaletteOrder: 6
 		Prerequisites: ~gahpad, gapile, ~AIOnly, ~!LoadedExists
-	Valued:
-		Cost: 1000
+	ProductionCostMultiplier:
+		Multiplier: 180
 	Cargo:
 		InitialUnits: apc_bot
 
@@ -236,10 +227,8 @@ MUBUNKRFULL:
 		Description: Bunker(full)
 	IsometricSelectable:
 		Class: mubunkr
-	Valued:
-		Cost: 850
-	GivesExperience:
-		Experience: 500
+	ProductionCostMultiplier:
+		Multiplier: 200
 	RenderSprites:
 		Image: mubunkr
 	EditorOnlyTooltip:
