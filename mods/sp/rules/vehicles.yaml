@@ -166,29 +166,6 @@ APC:
 		Position: BottomLeft
 		RequiresSelection: true
 
-
-APC_BOT:
-	Inherits: APC
-	Inherits@AImicroManagable: ^AImicroManagable
-	Valued:
-		Cost: 1100
-	Selectable:
-		Class: apc
-	GivesExperience:
-		Experience: 700
-	RenderSprites:
-		Image: apc
-	Buildable:
-		Prerequisites: ~gaweap, gapile, ~AIOnly
-		Description: APC (full)
-	Cargo:
-		InitialUnits: gdie1, gdie1, medic, gdie1, grenadier
-	AutoDeployer@AI:
-		RequiresCondition: AImicroManage
-		DeployChance: 100
-	AutoTarget:
-		ScanRadius: 7
-
 HVR:
 	Inherits@1: ^HoverTank
 	Inherits@4: ^8CellVision
@@ -819,60 +796,6 @@ BGGY:
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
-
-RIFLEBGGY:
-	Inherits: BGGY
-	Valued:
-		Cost: 350
-	Selectable:
-		Class: bggy
-	GivesExperience:
-		Experience: 300
-	EditorOnlyTooltip:
-		Name: Anti Infantry Buggy
-	RenderSprites:
-		Image: bggy
-	Buildable:
-		Prerequisites: ~naweap, ~AIOnly
-		Description: Anti Infantry Buggy
-	Cargo:
-		InitialUnits: altnode1
-
-ROCKETBGGY:
-	Inherits: RIFLEBGGY
-	Valued:
-		Cost: 450
-	EditorOnlyTooltip:
-		Name: Rocket Buggy
-	Buildable:
-		Prerequisites: ~naweap, ~AIOnly
-		Description: Rocket Buggy
-	Cargo:
-		InitialUnits: crusader
-
-FLAMEBGGY:
-	Inherits: RIFLEBGGY
-	Valued:
-		Cost: 450
-	Buildable:
-		Prerequisites: ~naweap, naradr, ~AIOnly
-		Description: Flame Buggy
-	Cargo:
-		InitialUnits: templar
-	EditorOnlyTooltip:
-		Name: Flame Buggy
-
-LAZORBGGY:
-	Inherits: RIFLEBGGY
-	Valued:
-		Cost: 700
-	Buildable:
-		Prerequisites: ~naweap, natech, ~AIOnly
-		Description: Laser Buggy
-	Cargo:
-		InitialUnits: nconf
-	EditorOnlyTooltip:
-		Name: Laser Buggy
 
 ATTACKBIKE:
 	Inherits: ^Tank
@@ -1527,36 +1450,6 @@ STRUCK:
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
-
-STRUCKFULL:
-	Inherits: STRUCK
-	Selectable:
-		Class: struck
-	Buildable:
-		Prerequisites: ~muweap, murax, ~AIOnly
-		Description: Bus(full)
-	Valued:
-		Cost: 950
-	GivesExperience:
-		Experience: 500
-	Cargo:
-		InitialUnits: marauder, marauder, mutfiend, mutfiend, e3
-	RenderSprites:
-		Image: struck
-	EditorOnlyTooltip:
-		Name: Filled Battle bus
-
-STRUCKFULL_T3:
-	Inherits: STRUCKFULL
-	Buildable:
-		Prerequisites: ~muweap, murax, muhall, !psyker, ~AIOnly ##Hack: Use the buildlimit = prerequisite bug in techtree to save lines
-		Description: Bus(full with T3)
-		BuildDurationModifier: 30
-		BuildLimit: 1
-	Valued:
-		Cost: 2000
-	Cargo:
-		InitialUnits: psyker, seer, seer, e3, e3
 
 WOLF:
 	Inherits: ^Beast

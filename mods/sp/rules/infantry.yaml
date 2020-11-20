@@ -1254,42 +1254,6 @@ COLOSSI:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: deployed
 
-COLOSSI_CHRONO:
-	Inherits: COLOSSI
-	Inherits@AImicroManagable: ^AImicroManagable
-	-Buildable:
-	Selectable:
-		Class: colossi
-	Mobile:
-		RequireForceMoveCondition: !AImicroManage && !undeployed
-	Armament@1:
-		Weapon: ColossiShard
-		LocalOffset: 400,0,1300
-		RequiresCondition: !AImicroManage && undeployed
-		PauseOnCondition: WebDisable
-		Name: OnFoot
-	Armament@2:
-		Weapon: GColossiShard
-		LocalOffset: 300,0,1000
-		RequiresCondition: !AImicroManage && undeployed
-		PauseOnCondition: WebDisable
-	Armament@AI:
-		RequiresCondition: AImicroManage && undeployed
-		Weapon: SharkJump
-		PauseOnCondition: WebDisable
-		Name: OnFoot
-	AutoDeployer@AI:
-		RequiresCondition: AImicroManage && !deployed
-		DeployChance: 100
-		DeployTicks: 5
-		UndeployTicks: 50
-		DeployTrigger: Attack
-	RenderSprites:
-		Image: colossi
-	RejectsOrders@deployment:
-		Reject: AttackMove, AssaultMove
-		RequiresCondition: !AImicroManage && deployed
-
 CABSENTRY:
 	Inherits: ^CabalDroneInfantry
 	Inherits@1: ^CabRender
