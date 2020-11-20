@@ -1080,6 +1080,7 @@ TICKHOLOGRAM:
 
 BIKE:
 	Inherits: ^Vehicle
+	Inherits@1: ^AutoTargetGroundAssaultMove
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -1122,8 +1123,10 @@ BIKE:
 		RequiresCondition: DetonateDemoTruck
 	Armament@DemoTruck:
 		Weapon: DemoTruckDummyWeapon
-	AttackOmni:
+	AttackFrontal:
 		PauseOnCondition: empdisable
+		TargetFrozenActors: true ## For better AI control
+		FacingTolerance: 128
 	WithDecoration@TNT:
 		Image: bombicon
 		Sequence: idle
@@ -1131,7 +1134,9 @@ BIKE:
 		Palette: mouse
 		ValidStances: Ally, Enemy, Neutral
 	AutoTarget:
-	AttackFrontal:
+		ScanRadius: 8
+		InitialStance: HoldFire
+		InitialStanceAI: AttackAnything
 
 SAPC:
 	Inherits: ^SubterraneanVoxelVehicle
@@ -1680,6 +1685,7 @@ DEATHCLAW:
 		FacingTolerance: 2
 
 HVRTRUK3:
+	Inherits@1: ^AutoTargetGroundAssaultMove
 	Inherits@2: ^HoverVehicle
 	Inherits@3: ^MutRender
 	Valued:
@@ -1725,9 +1731,10 @@ HVRTRUK3:
 		Range: 6c0
 		Type: ExplosionRange
 		Color: FFA500CC
-	Turreted:
-	AttackTurreted:
+	AttackFrontal:
 		PauseOnCondition: empdisable
+		TargetFrozenActors: true ## For better AI control
+		FacingTolerance: 128
 	WithDecoration@TNT:
 		Image: bombicon
 		Sequence: idle
@@ -1735,21 +1742,9 @@ HVRTRUK3:
 		Palette: mouse
 		ValidStances: Ally, Enemy, Neutral
 	AutoTarget:
-
-HVRTRUK3_BOT:
-	Inherits: HVRTRUK3
-	Inherits@1: ^AutoTargetGroundAssaultMove
-	-Buildable:
-	Selectable:
-		Class: hvrtruk3
-	AutoTarget:
 		ScanRadius: 8
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
-	AttackFrontal:
-		TargetFrozenActors: true
-	RenderSprites:
-		Image: HVRTRUK3
 
 ###########################################################
 # SCRIN

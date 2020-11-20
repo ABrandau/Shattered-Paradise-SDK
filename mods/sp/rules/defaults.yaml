@@ -1693,7 +1693,8 @@
 		TerrainTypes: Water
 	ExternalCondition@hoverunitonwater:
 		Condition: hoverunitonwater
-	-Explodes:
+	Explodes:
+		RequiresCondition: !hoverunitonwater || !empdisable
 	-ChangesHealth@veinholedrain:
 	-ExternalCondition@veinholedrain:
 	-WithIdleOverlay@veinholedrain:
