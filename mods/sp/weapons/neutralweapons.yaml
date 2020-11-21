@@ -450,3 +450,15 @@ Demolish:
 		Explosions: large_twlt
 		ExplosionPalette: effectalpha75
 		ImpactSounds: expnew09.aud
+
+BerserkerBlow:
+	Inherits: ^ArtilleryWarhead
+	Inherits@1: ^MeleeClaw
+	ReloadDelay: 50
+	Range: 1c512
+	Report: fiend2.aud
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+		ValidTargets: Ground, Water
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath

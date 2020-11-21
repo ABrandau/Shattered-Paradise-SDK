@@ -350,12 +350,9 @@ GACNST:
 		AreaTypes: building
 	ProvidesPrerequisite@AIantiRush:
 		RequiresCondition: !AIbuildingMicroControl
-		Prerequisite: AIantiRush
+		Prerequisite: AIantiRush ## Hack: AI Building control. AI build refinary only when it has a combat producing line.
 	IsometricSelectable:
 		DecorationHeight: 36
-	ProvidesPrerequisite@AISpecialProduce:
-		RequiresCondition: AISpecialProduce
-		Prerequisite: AIOnly
 	Power@AICheatPower:
 		RequiresCondition: AIShattered
 		Amount: 80
@@ -407,10 +404,7 @@ GACNST:
 	GrantExternalConditionToProduced:
 		Condition: produced
 	ProvidesPrerequisite@AIantiRush:
-		Prerequisite: AIantiRush
-	ProvidesPrerequisite@AISpecialProduce:
-		RequiresCondition: AISpecialProduce
-		Prerequisite: AIOnly
+		Prerequisite: AIantiRush ## Hack: AI Building control. AI build refinary only when it has a combat producing line.
 
 ^RefineryHP:
 	Health:
@@ -637,9 +631,6 @@ FLIPPEDYPROC:
 		Prerequisite: AIantiRush
 	IsometricSelectable:
 		DecorationHeight: 48
-	ProvidesPrerequisite@AISpecialProduce:
-		RequiresCondition: AISpecialProduce
-		Prerequisite: AIOnly
 
 ^Helipad:
 	Inherits: ^Building
@@ -676,9 +667,6 @@ FLIPPEDYPROC:
 		PauseOnCondition: disabled
 	ProvidesPrerequisite@AIantiRush:
 		Prerequisite: AIantiRush
-	ProvidesPrerequisite@AISpecialProduce:
-		RequiresCondition: AISpecialProduce
-		Prerequisite: AIOnly
 
 ^Radar:
 	Inherits: ^Building

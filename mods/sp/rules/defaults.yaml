@@ -959,9 +959,6 @@
 	GrantConditionOnBotOwner@AIbuildingMicroControl:
 		Condition: AIbuildingMicroControl
 		Bots: EasyAI, NormalAI, CheaterAI, ShatteredAI
-	GrantConditionOnBotOwner@AISpecialProduce:
-		Condition: AISpecialProduce
-		Bots: CheaterAI, ShatteredAI
 
 ^GenericEffects:
 	Inherits@0: ^KillSelf
@@ -1693,7 +1690,8 @@
 		TerrainTypes: Water
 	ExternalCondition@hoverunitonwater:
 		Condition: hoverunitonwater
-	-Explodes:
+	Explodes:
+		RequiresCondition: !hoverunitonwater || !empdisable
 	-ChangesHealth@veinholedrain:
 	-ExternalCondition@veinholedrain:
 	-WithIdleOverlay@veinholedrain:

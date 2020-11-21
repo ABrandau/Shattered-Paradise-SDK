@@ -1,4 +1,24 @@
-## Dummy weapon is AI used for triggering AIDeployHelper
+## Dummy weapon: not have any effect, used for trait triggring
+
+
+DummyWeapon: ## used for effect-only-SpawnSmokeParticle warhead
+	Projectile: InstantHit
+	ReloadDelay: 500
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+
+DemoTruckDummyWeapon:
+	ReloadDelay: 100
+	Range: 1c512
+	Projectile: InstantHit
+	Warhead@1Dam: TargetDamage
+		Damage: 0
+
+
+#############################
+## AI related trait triggering
+#############################
 LurkerAimDummyWeapon:
 	ReloadDelay: 40
 	Range: 9c0

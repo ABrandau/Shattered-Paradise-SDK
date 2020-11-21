@@ -700,73 +700,6 @@ MUTBIRD:
 		Name: Seeder Bird
 	-Buildable:
 
-NUKECARRYALL_BOT:
-	Inherits: TRNSPORT
-	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@AImicroManagable: ^AImicroManagable
-	Buildable:
-		Description: AI Nuke Transport
-		Queue: Air
-		BuildPaletteOrder: 6
-		Prerequisites: ~muair, muhall, ~AIOnly, ~!LoadedExists
-	Selectable:
-		Class: trnsport
-	Valued:
-		Cost: 2000
-	Health:
-		HP: 18000
-	GivesExperience:
-		Experience: 600
-	Cargo:
-		InitialUnits: hvrtruk3_bot
-	Armament@AIunloadingDummyWeapon:
-		Weapon: AITransportAimingDummyWeapon
-		RequiresCondition: AImicroManage && !notmobile && loaded
-	AttackAircraft:
-		AttackType: Hover
-		FacingTolerance: 128
-	AutoDeployer@AI:
-		RequiresCondition: AImicroManage && loaded
-		DeployChance: 100
-		DeployTicks: 50
-		UndeployTicks: 200
-	AutoTarget:
-		ScanRadius: 9
-		InitialStanceAI: AttackAnything
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	ProvidesPrerequisite@AIbuildinglimit:
-		RequiresCondition: loaded
-		Prerequisite: LoadedExists
-	KillsSelf@DisappearsIfUnload:
-		Delay: 500
-		RequiresCondition: AImicroManage && !loaded
-		RemoveInstead: true
-
-SONICARRYALL_BOT:
-	Inherits: NUKECARRYALL_BOT
-	Buildable:
-		Description: AI Sonic Transport
-		Queue: Air
-		BuildPaletteOrder: 6
-		Prerequisites: ~gahpad, gatech, ~AIOnly, ~!LoadedExists
-	Valued:
-		Cost: 1200
-	Cargo:
-		InitialUnits: sonic
-
-APCARRYALL_BOT:
-	Inherits: NUKECARRYALL_BOT
-	Buildable:
-		Description: AI APC Transport
-		Queue: Air
-		BuildPaletteOrder: 6
-		Prerequisites: ~gahpad, gapile, ~AIOnly, ~!LoadedExists
-	Valued:
-		Cost: 1000
-	Cargo:
-		InitialUnits: apc_bot
-
 STORMRIDER:
 	Inherits: ^CombatPlane
 	Inherits@1: ^AutoTargetAllAssaultMove
@@ -882,20 +815,6 @@ DRACHE:
 		EmptyWeapon: BigAircraftShrapnel
 	SmokeParticleEmitter:
 		Offset: 0,0,1000,0,0,1000
-
-DRACHE_BOT:
-	Inherits: DRACHE
-	Selectable:
-		Class: drache
-	Buildable:
-		Queue: Air
-		BuildPaletteOrder: 110
-		Description: AI Scrin Host Station
-		Prerequisites: ~scrair, ~fixUndeployDracheBug
-	Aircraft:
-		IdleBehavior: Land
-	RenderSprites:
-		Image: drache
 
 SCRGLYDER1:
 	Inherits: ^CombatHelicopter

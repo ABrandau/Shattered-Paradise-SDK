@@ -273,19 +273,6 @@ PsykerRay:
 		Damage: 10000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
-BerserkerBlow:
-	Inherits: ^ArtilleryWarhead
-	Inherits@2: ^Small_Clsn
-	ReloadDelay: 50
-	Range: 1c512
-	Report: fiend2.aud
-	Projectile: BulletAS
-		Speed: 5c682
-	Warhead@1Dam: SpreadDamage
-		Damage: 4000
-		ValidTargets: Ground, Water
-		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath, TiberiumDeath
-
 BullAcid:
 	Inherits: ^AcidWarhead
 	ReloadDelay: 60
@@ -329,11 +316,11 @@ BullAcidJump:
 
 RavagerStrike:
 	Inherits: ^FullDamage
+	Inherits@1: ^MeleeClaw
 	ReloadDelay: 30
 	Range: 1c650
 	Report: SSUSBLargeMonster0000.aud, SSUSBLargeMonster0001.aud, SSUSBLargeMonster0002.aud, SSUSBLargeMonster0003.aud, SSUSBLargeMonster0004.aud
-	Projectile: BulletAS
-		Speed: 5c682
+	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c090
 		Damage: 5000
@@ -341,7 +328,7 @@ RavagerStrike:
 		Versus:
 			InfantryArmor: 150
 	Warhead@emp: GrantExternalCondition
-		Range: 1c0
+		Range: 1
 		Duration: 45
 		Condition: RavagerSlowdown
 		ValidTargets: Infantry, Vehicle
@@ -471,14 +458,6 @@ TiberianRocketClould:
 		Actors: cloud1, cloud1
 		FallRate: 5000
 		Range: 3
-
-DemoTruckDummyWeapon:
-	ReloadDelay: 100
-	Range: 1c512
-	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Damage: 1
-		DamageTypes: BulletDeath
 
 MiniNuke:
 	Inherits: NuclearMissile

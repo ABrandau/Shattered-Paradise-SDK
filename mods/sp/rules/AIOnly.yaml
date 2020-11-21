@@ -1,0 +1,237 @@
+### This file defines units can be only built by AI player, which
+### 1. will use a diffirent set of logic compared to orignal units used by AI/Player
+### 2. are pre-loaded transprot units with unload logic.
+
+
+COLOSSI_CHRONO:
+	Inherits: COLOSSI
+	Inherits@AImicroManagable: ^AImicroManagable
+	-Buildable:
+	Selectable:
+		Class: colossi
+	Mobile:
+		RequireForceMoveCondition: !AImicroManage && !undeployed
+	Armament@1:
+		Weapon: ColossiShard
+		LocalOffset: 400,0,1300
+		RequiresCondition: !AImicroManage && undeployed
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2:
+		Weapon: GColossiShard
+		LocalOffset: 300,0,1000
+		RequiresCondition: !AImicroManage && undeployed
+		PauseOnCondition: WebDisable
+	Armament@AI:
+		RequiresCondition: AImicroManage && undeployed
+		Weapon: SharkJump
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && !deployed
+		DeployChance: 100
+		DeployTicks: 5
+		UndeployTicks: 50
+		DeployTrigger: Attack
+	RenderSprites:
+		Image: colossi
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: !AImicroManage && deployed
+
+
+APC_BOT:
+	Inherits: APC
+	Inherits@AImicroManagable: ^AImicroManagable
+	Selectable:
+		Class: apc
+	ProductionCostMultiplier:
+		Multiplier: 150
+	RenderSprites:
+		Image: apc
+	Buildable:
+		Prerequisites: ~gaweap, gapile, ~AIOnly
+		Description: APC (full)
+	Cargo:
+		InitialUnits: gdie1, gdie1, medic, gdie1, grenadier
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage
+		DeployChance: 100
+	AutoTarget:
+		ScanRadius: 7
+
+RIFLEBGGY:
+	Inherits: BGGY
+	ProductionCostMultiplier:
+		Multiplier: 125
+	Selectable:
+		Class: bggy
+	EditorOnlyTooltip:
+		Name: Anti Infantry Buggy
+	RenderSprites:
+		Image: bggy
+	Buildable:
+		Prerequisites: ~naweap, ~AIOnly
+		Description: Anti Infantry Buggy
+	Cargo:
+		InitialUnits: altnode1
+
+ROCKETBGGY:
+	Inherits: RIFLEBGGY
+	ProductionCostMultiplier:
+		Multiplier: 200
+	EditorOnlyTooltip:
+		Name: Rocket Buggy
+	Buildable:
+		Prerequisites: ~naweap, ~AIOnly
+		Description: Rocket Buggy
+	Cargo:
+		InitialUnits: crusader
+
+FLAMEBGGY:
+	Inherits: RIFLEBGGY
+	ProductionCostMultiplier:
+		Multiplier: 200
+	Buildable:
+		Prerequisites: ~naweap, naradr, ~AIOnly
+		Description: Flame Buggy
+	Cargo:
+		InitialUnits: templar
+	EditorOnlyTooltip:
+		Name: Flame Buggy
+
+LAZORBGGY:
+	Inherits: RIFLEBGGY
+	ProductionCostMultiplier:
+		Multiplier: 300
+	Buildable:
+		Prerequisites: ~naweap, natech, ~AIOnly
+		Description: Laser Buggy
+	Cargo:
+		InitialUnits: nconf
+	EditorOnlyTooltip:
+		Name: Laser Buggy
+
+STRUCKFULL:
+	Inherits: STRUCK
+	Selectable:
+		Class: struck
+	Buildable:
+		Prerequisites: ~muweap, murax, ~AIOnly
+		Description: Bus(full)
+	ProductionCostMultiplier:
+		Multiplier: 190
+	Cargo:
+		InitialUnits: marauder, marauder, mutfiend, mutfiend, e3
+	RenderSprites:
+		Image: struck
+	EditorOnlyTooltip:
+		Name: Filled Battle bus
+
+STRUCKFULL_T3:
+	Inherits: STRUCKFULL
+	Buildable:
+		Prerequisites: ~muweap, murax, muhall, !psyker, ~AIOnly ##Hack: Use the buildlimit = prerequisite bug in techtree to save lines
+		Description: Bus(full with T3)
+		BuildDurationModifier: 30
+		BuildLimit: 1
+	ProductionCostMultiplier:
+		Multiplier: 350
+	Cargo:
+		InitialUnits: psyker, seer, seer, e3, e3
+
+
+NUKECARRYALL_BOT:
+	Inherits: TRNSPORT
+	Inherits@1: ^AutoTargetAllAssaultMove
+	Inherits@AImicroManagable: ^AImicroManagable
+	Buildable:
+		Description: AI Nuke Transport
+		Queue: Air
+		BuildPaletteOrder: 6
+		Prerequisites: ~muair, muhall, ~AIOnly, ~!LoadedExists
+	Selectable:
+		Class: trnsport
+	ProductionCostMultiplier:
+		Multiplier: 400
+	Health:
+		HP: 18000
+	Cargo:
+		InitialUnits: hvrtruk3
+	Armament@AIunloadingDummyWeapon:
+		Weapon: AITransportAimingDummyWeapon
+		RequiresCondition: AImicroManage && !notmobile && loaded
+	AttackAircraft:
+		AttackType: Hover
+		FacingTolerance: 128
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && loaded
+		DeployChance: 100
+		DeployTicks: 50
+		UndeployTicks: 200
+	AutoTarget:
+		ScanRadius: 9
+		InitialStanceAI: AttackAnything
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: loaded
+		Prerequisite: LoadedExists
+	KillsSelf@DisappearsIfUnload:
+		Delay: 500
+		RequiresCondition: AImicroManage && !loaded
+		RemoveInstead: true
+
+SONICARRYALL_BOT:
+	Inherits: NUKECARRYALL_BOT
+	Buildable:
+		Description: AI Sonic Transport
+		Queue: Air
+		BuildPaletteOrder: 6
+		Prerequisites: ~gahpad, gatech, ~AIOnly, ~!LoadedExists
+	ProductionCostMultiplier:
+		Multiplier: 200
+	Cargo:
+		InitialUnits: sonic
+
+APCARRYALL_BOT:
+	Inherits: NUKECARRYALL_BOT
+	Buildable:
+		Description: AI APC Transport
+		Queue: Air
+		BuildPaletteOrder: 6
+		Prerequisites: ~gahpad, gapile, ~AIOnly, ~!LoadedExists
+	ProductionCostMultiplier:
+		Multiplier: 180
+	Cargo:
+		InitialUnits: apc_bot
+
+DRACHE_BOT:
+	Inherits: DRACHE
+	Selectable:
+		Class: drache
+	Buildable:
+		Queue: Air
+		BuildPaletteOrder: 110
+		Description: AI Scrin Host Station
+		Prerequisites: ~scrair, ~fixUndeployDracheBug
+	Aircraft:
+		IdleBehavior: Land
+	RenderSprites:
+		Image: drache
+
+MUBUNKRFULL:
+	Inherits: MUBUNKR
+	Buildable:
+		Prerequisites: murax, ~structures.mut, ~AIOnly
+		Description: Bunker(full)
+	IsometricSelectable:
+		Class: mubunkr
+	ProductionCostMultiplier:
+		Multiplier: 200
+	RenderSprites:
+		Image: mubunkr
+	EditorOnlyTooltip:
+		Name: Filled Bunker
+	Cargo:
+		InitialUnits: marauder, marauder, mutfiend, marauder, marauder
