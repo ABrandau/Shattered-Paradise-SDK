@@ -370,15 +370,23 @@ SlimeAttack:
 	ReloadDelay: 80
 	Range: 1c512
 	Report: vicer1.aud
-	Projectile: BulletAS
-		Speed: 426
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 7500
+		Versus:
+			VehicleArmor: 60
+			DefenseArmor: 60
+			ConcreteArmor: 30
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
+
+ZombieAttack:
+	Inherits: SlimeAttack
 	Warhead@1Dam: SpreadDamage
 		Damage: 6000
 		Versus:
 			VehicleArmor: 60
 			DefenseArmor: 60
 			ConcreteArmor: 20
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 
 FloaterCloudSpawn:
 	Inherits: ^RifleWarhead
