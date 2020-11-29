@@ -306,8 +306,8 @@
 		ValidTargets: Ground, Water, Air, AirHit
 		InvalidTargets: Infantry, Vehicle, Building, Wall
 	Warhead@1: CreateEffect
-		Explosions: marnflash6
-		ExplosionPalette: MarnAlphaAlpha
+		Explosions: smallspark
+		ExplosionPalette: effect
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Air
 		ImpactActors: false
 
@@ -449,3 +449,11 @@
 	Warhead@2Eff: CreateEffect
 		Explosions: claw1, claw2
 		ExplosionPalette: jascgreen
+
+^DamagedSpark:
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@2Eff: CreateEffect
+		Explosions: smallspark
+		ExplosionPalette: effect
+		ImpactActors: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
