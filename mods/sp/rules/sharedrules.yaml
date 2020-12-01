@@ -1159,6 +1159,12 @@ TRNSPORT:
 		OwnerChangedAffectsPassengers: false
 	WithCargo:
 		DisplayTypes: Infantry, Vehicle, Apc
+	GrantConditionOnFaction@Helicopter:
+		Factions: mut
+		Condition: MutRotor
+	GrantConditionOnFaction@GDIStyle:
+		Factions: gdi, scr
+		Condition: GDIFan
 	# WithRoof:
 	SpawnActorOnDeath:
 		Actor: TRNSPORT.Husk
@@ -1179,9 +1185,6 @@ TRNSPORT:
 		Offset: -700,0,900
 		Sequence: slow-rotor
 		RequiresCondition: !airborne && MutRotor && !loaded
-	GrantConditionOnFaction:
-		Factions: mut
-		Condition: MutRotor
 	WithIdleOverlay@5Air:
 		Offset: 500,0,2150
 		Sequence: rotor
@@ -1198,6 +1201,30 @@ TRNSPORT:
 		Offset: -700,0,2400
 		Sequence: slow-rotor
 		RequiresCondition: !airborne && MutRotor && loaded
+	WithIdleOverlay@Wind1:
+		Image: orcawind
+		Sequence: idle
+		Offset: 500, 350, -600
+		RequiresCondition: airborne && GDIFan
+		Palette: effectalpha60
+	WithIdleOverlay@Wind2:
+		Image: orcawind
+		Sequence: idle
+		Offset: 500, -350, -600
+		RequiresCondition: airborne && GDIFan
+		Palette: effectalpha60
+	WithIdleOverlay@Wind3:
+		Image: orcawind
+		Sequence: idle
+		Offset: -550, 400, -600
+		RequiresCondition: airborne && GDIFan
+		Palette: effectalpha60
+	WithIdleOverlay@Wind4:
+		Image: orcawind
+		Sequence: idle
+		Offset: -550, -400, -600
+		RequiresCondition: airborne && GDIFan
+		Palette: effectalpha60
 	WithCargoPipsDecoration:
 		PipCount: 1
 
@@ -1209,11 +1236,20 @@ trnsport.gdi:
 		Prerequisites: ~disabled
 	RenderSprites:
 		-FactionImages:
+	WithIdleOverlay@Wind1:
+		RequiresCondition: airborne
+	WithIdleOverlay@Wind2:
+		RequiresCondition: airborne
+	WithIdleOverlay@Wind3:
+		RequiresCondition: airborne
+	WithIdleOverlay@Wind4:
+		RequiresCondition: airborne
+	-GrantConditionOnFaction@Helicopter:
+	-GrantConditionOnFaction@GDIStyle:
 	-WithIdleOverlay@1Air:
 	-WithIdleOverlay@2Ground:
 	-WithIdleOverlay@3Air:
 	-WithIdleOverlay@4Ground:
-	-GrantConditionOnFaction:
 	-WithIdleOverlay@5Air:
 	-WithIdleOverlay@6Ground:
 	-WithIdleOverlay@7Air:
@@ -1235,6 +1271,10 @@ trnsport.nod:
 		UsePlayerColor: false
 		TrailLength: 10
 		ZOffset: 4100
+	-WithIdleOverlay@Wind1:
+	-WithIdleOverlay@Wind2:
+	-WithIdleOverlay@Wind3:
+	-WithIdleOverlay@Wind4:
 
 trnsport.mut:
 	Inherits: TRNSPORT
@@ -1261,6 +1301,12 @@ trnsport.mut:
 		RequiresCondition: airborne && loaded
 	WithIdleOverlay@8Ground:
 		RequiresCondition: !airborne && loaded
+	-WithIdleOverlay@Wind1:
+	-WithIdleOverlay@Wind2:
+	-WithIdleOverlay@Wind3:
+	-WithIdleOverlay@Wind4:
+	-GrantConditionOnFaction@Helicopter:
+	-GrantConditionOnFaction@GDIStyle:
 
 trnsport.cab:
 	Inherits: trnsport.gdi
@@ -1278,6 +1324,10 @@ trnsport.cab:
 		UsePlayerColor: false
 		TrailLength: 10
 		ZOffset: 4100
+	-WithIdleOverlay@Wind1:
+	-WithIdleOverlay@Wind2:
+	-WithIdleOverlay@Wind3:
+	-WithIdleOverlay@Wind4:
 
 NAPULS:
 	Inherits: ^Defence
