@@ -116,7 +116,7 @@ ColossiTeslaSplash:
 
 ColossiBlast:
 	Inherits: ^RifleWarhead
-	ReloadDelay: 2
+	ReloadDelay: 4
 	Range: 8c0
 	Projectile: InstantExplode
 	Warhead@1Dam: SpreadDamage
@@ -134,17 +134,6 @@ ColossiBlast:
 		Level: 30
 		Falloff: 100, 85, 60, 45, 30, 15
 		LayerName: ColossusRadiation
-
-ColossiBlastSound:
-	Inherits: ^RifleWarhead
-	ReloadDelay: 75
-	Projectile: InstantExplode
-	Report: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
-	Warhead@1Dam: SpreadDamage
-		Falloff: 100, 100, 100, 100
-		Spread: 1
-		Damage: 1
-		DamageTypes: FireDeath, ScrinEssenceKill
 
 ColossiBlastTesla:
 	Inherits: ^NoDamage

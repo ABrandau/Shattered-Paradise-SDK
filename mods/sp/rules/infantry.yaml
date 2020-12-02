@@ -456,9 +456,6 @@ NCONF:
 		Weapon: FlameHoloShrapnel
 		RequiresCondition: HologramSpawn
 	ExplodeWeapon@2:
-		Weapon: FlameHoloShrapnel
-		RequiresCondition: HologramSpawn
-	ExplodeWeapon@3:
 		Weapon: TickHoloShrapnel
 		RequiresCondition: HologramSpawn
 	AutoDeployer@AI:
@@ -1246,8 +1243,9 @@ COLOSSI:
 		Weapon: ColossiBlast
 		RequiresCondition: deployed
 		PauseOnCondition: WebDisable
-	ExplodeWeapon@2:
-		Weapon: ColossiBlastSound
+	AmbientSound:
+		SoundFiles: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
+		Interval: 75
 		RequiresCondition: deployed
 		PauseOnCondition: WebDisable
 	RejectsOrders@deployment:
