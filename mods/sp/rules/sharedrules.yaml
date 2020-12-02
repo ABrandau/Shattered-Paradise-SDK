@@ -1167,6 +1167,7 @@ TRNSPORT:
 		Condition: GDIFan
 	# WithRoof:
 	SpawnActorOnDeath:
+		RequiresCondition: airborne
 		Actor: TRNSPORT.Husk
 	-GainsExperience:
 	WithIdleOverlay@1Air:
@@ -1204,27 +1205,27 @@ TRNSPORT:
 	WithIdleOverlay@Wind1:
 		Image: orcawind
 		Sequence: idle
-		Offset: 500, 350, -600
+		Offset: 500, 350, -500
 		RequiresCondition: airborne && GDIFan
-		Palette: effectalpha60
+		Palette: effect
 	WithIdleOverlay@Wind2:
 		Image: orcawind
 		Sequence: idle
-		Offset: 500, -350, -600
+		Offset: 500, -350, -500
 		RequiresCondition: airborne && GDIFan
-		Palette: effectalpha60
+		Palette: effect
 	WithIdleOverlay@Wind3:
 		Image: orcawind
 		Sequence: idle
-		Offset: -550, 400, -600
+		Offset: -550, 400, -500
 		RequiresCondition: airborne && GDIFan
-		Palette: effectalpha60
+		Palette: effect
 	WithIdleOverlay@Wind4:
 		Image: orcawind
 		Sequence: idle
-		Offset: -550, -400, -600
+		Offset: -550, -400, -500
 		RequiresCondition: airborne && GDIFan
-		Palette: effectalpha60
+		Palette: effect
 	WithCargoPipsDecoration:
 		PipCount: 1
 

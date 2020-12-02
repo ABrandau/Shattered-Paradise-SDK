@@ -44,18 +44,19 @@ ORCA:
 		AmmoCondition: ammo
 	SpawnActorOnDeath:
 		Actor: ORCA.Husk
+		RequiresCondition: airborne
 	WithIdleOverlay@Wind1:
 		Image: orcawind
 		Sequence: idle
-		Offset: -50, 100, -1000
+		Offset: -25, 100, -750
 		RequiresCondition: airborne
-		Palette: effectalpha60
+		Palette: effect
 	WithIdleOverlay@Wind2:
 		Image: orcawind
 		Sequence: idle
-		Offset: -50, -100, -1000
+		Offset: -25, -100, -750
 		RequiresCondition: airborne
-		Palette: effectalpha60
+		Palette: effect
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -111,18 +112,19 @@ ORCAB:
 		RequiresCondition: cruising
 	SpawnActorOnDeath:
 		Actor: ORCAB.Husk
+		RequiresCondition: airborne
 	WithIdleOverlay@Wind1:
 		Image: orcawind
 		Sequence: idle
-		Offset: 200, 300, -800
+		Offset: 150, 350, -750
 		RequiresCondition: airborne
-		Palette: effectalpha60
+		Palette: effect
 	WithIdleOverlay@Wind2:
 		Image: orcawind
 		Sequence: idle
-		Offset: 200, -300, -800
+		Offset: 150, -350, -750
 		RequiresCondition: airborne
-		Palette: effectalpha60
+		Palette: effect
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -202,6 +204,7 @@ DSHP:
 		OwnerChangedAffectsPassengers: false
 	SpawnActorOnDeath:
 		Actor: DSHP.Husk
+		RequiresCondition: airborne
 	RenderSprites:
 	WithVoxelBody:
 	RenderVoxels:
@@ -254,6 +257,7 @@ ORCATRAN:
 		OwnerChangedAffectsPassengers: false
 	SpawnActorOnDeath:
 		Actor: ORCATRAN.Husk
+		RequiresCondition: airborne
 	-GainsExperience:
 	WithCargoPipsDecoration:
 		Position: BottomLeft
@@ -335,6 +339,7 @@ APACHE:
 		RequiresCondition: !airborne
 	SpawnActorOnDeath:
 		Actor: APACHE.Husk
+		RequiresCondition: airborne
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -394,6 +399,7 @@ SCRIN:
 	DeathSounds:
 	SpawnActorOnDeath:
 		Actor: SCRIN.Husk
+		RequiresCondition: airborne
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -467,6 +473,7 @@ CERBERUS:
 		PlayerPalette: playertemperate
 	SpawnActorOnDeath:
 		Actor: CERBERUS.Husk
+		RequiresCondition: airborne
 	ProximityExternalCondition:
 		Condition: cloakgenerator
 		Range: 5c0
@@ -569,6 +576,7 @@ MUTHELI:
 		InitialStanceAI: AttackAnything
 	SpawnActorOnDeath:
 		Actor: MUTHELI.Husk
+		RequiresCondition: airborne
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -625,6 +633,7 @@ WETP:
 		RequiresCondition: cruising
 	SpawnActorOnDeath:
 		Actor: WETP.Husk
+		RequiresCondition: airborne
 	GrantConditionOnActivity:
 		Condition: attacking
 	SpeedMultiplier@Supersonic:
@@ -724,11 +733,24 @@ MUTBIRD:
 		Name: Seeder Bird
 	-Buildable:
 
+
+^ScrinAircraftGeneric:
+	Inherits@4: ^ScrinAircratVoice
+	Inherits@2: ^ScrinRender
+	Inherits@Shadow: ^AircraftShadow
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: gradientblue40
+	Explodes@Shrapnel:
+		Weapon: BigScrinAircraftShrapnel
+		EmptyWeapon: BigScrinAircraftShrapnel
+	-WithDeathAnimation:
+
 STORMRIDER:
 	Inherits: ^CombatPlane
 	Inherits@1: ^AutoTargetAllAssaultMove
+	Inherits@2: ^ScrinAircraftGeneric
 	Inherits@3: ^9CellVision
-	Inherits@4: ^ScrinAircratVoice
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
 		Cost: 600
@@ -765,9 +787,13 @@ STORMRIDER:
 	Turreted:
 	SpawnActorOnDeath:
 		Actor: STORMRIDER.Husk
+		RequiresCondition: airborne
 	SmokeParticleEmitter:
 		Image: scrsmoke
 		Palette: gradientblue40
+	Explodes@Shrapnel:
+		Weapon: SmalLScrinAircraftShrapnel
+		EmptyWeapon: SmalLScrinAircraftShrapnel
 	Contrail@1:
 		Offset: -300,-150,-100
 		Color: 33008860
@@ -777,16 +803,6 @@ STORMRIDER:
 		Color: 3300EE80
 		UsePlayerColor: false
 
-^ScrinAircraftGeneric:
-	Inherits@4: ^ScrinAircratVoice
-	Inherits@2: ^ScrinRender
-	Inherits@Shadow: ^AircraftShadow
-	SmokeParticleEmitter:
-		Image: scrsmoke
-		Palette: gradientblue40
-	Explodes@Shrapnel:
-		Weapon: BigAircraftShrapnel
-		EmptyWeapon: BigAircraftShrapnel
 
 DRACHE:
 	Inherits: ^CombatHelicopter
@@ -833,10 +849,8 @@ DRACHE:
 	Hovers:
 	SpawnActorOnDeath:
 		Actor: DRACHE.Husk
+		RequiresCondition: airborne
 	-GainsExperience:
-	Explodes@Shrapnel:
-		Weapon: BigAircraftShrapnel
-		EmptyWeapon: BigAircraftShrapnel
 	SmokeParticleEmitter:
 		Offset: 0,0,1000,0,0,1000
 
@@ -877,6 +891,7 @@ SCRGLYDER1:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: GLYDER1.Husk
+		RequiresCondition: airborne
 	Armament@AITransformDummyWeapon:
 		Weapon: AIGlyder1AimingDummyWeapon
 		RequiresCondition: AImicroManage
@@ -887,6 +902,9 @@ SCRGLYDER1:
 		IntoActor: scrglyder2
 	SmokeParticleEmitter:
 		Offset: 0,0,500,0,0,500
+	Explodes@Shrapnel:
+		Weapon: SmalLScrinAircraftShrapnel
+		EmptyWeapon: SmalLScrinAircraftShrapnel
 
 SCRDESTROYER:
 	Inherits: ^CombatHelicopter
@@ -930,6 +948,7 @@ SCRDESTROYER:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRDESTROYER.Husk
+		RequiresCondition: airborne
 	Contrail@1:
 		Offset: -1300, -20, 600
 		Color: AAAAFFAA
@@ -976,6 +995,7 @@ SCRTRANS:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRTRANS.Husk
+		RequiresCondition: airborne
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1035,6 +1055,7 @@ SCRCARRIER:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRCARRIER.Husk
+		RequiresCondition: airborne
 	WithSpawnerMasterPipsDecoration:
 		Margin: 4, 3
 		Palette: pips
@@ -1190,6 +1211,7 @@ SCRBATTLESHIP:
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
+		RequiresCondition: airborne
 		Actor: SCRBATTLESHIP.Husk
 	Contrail@1:
 		Offset: -2200, -20, 350
@@ -1256,6 +1278,7 @@ WASP:
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
+		RequiresCondition: airborne
 		Actor: WASP.Husk
 
 FIREFLY:
@@ -1290,6 +1313,7 @@ FIREFLY:
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
+		RequiresCondition: airborne
 		Actor: FIREFLY.Husk
 	-GainsExperience:
 
@@ -1332,6 +1356,7 @@ BASILISK:
 	RenderSprites:
 	WithFacingSpriteBody:
 	SpawnActorOnDeath:
+		RequiresCondition: airborne
 		Actor: BASILISK.Husk
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
@@ -1406,6 +1431,7 @@ DEVOURER:
 	BodyOrientation:
 		QuantizedFacings: 8
 	SpawnActorOnDeath:
+		RequiresCondition: airborne
 		Actor: DEVOURER.Husk
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel

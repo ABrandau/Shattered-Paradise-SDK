@@ -185,6 +185,11 @@ SmalLAircraftShrapnel:
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
+SmalLScrinAircraftShrapnel:
+	Inherits: SmalLAircraftShrapnel
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+
 BigAircraftShrapnel:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_Clsn
@@ -194,6 +199,11 @@ BigAircraftShrapnel:
 		Amount: 6
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
+BigScrinAircraftShrapnel:
+	Inherits: BigAircraftShrapnel
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
 
 UnitExplodeSmall:
 	Inherits@2: ^Small_Brnl
