@@ -406,38 +406,6 @@ FOGCAMERADUMMY:
 	OwnerLostAction: ## For sustain the cloud when owner is dead (to Netural on defualt)
 		Action: ChangeOwner
 
-INFTIBSPAWN:
-	Inherits: ^GROUNDDUMMY
-	Inherits@2: ^TimedDeathOnlyWithDeathEffects
-	KillsSelf@TimedLife:
-		Delay: 0
-	GrantRandomCondition:
-		Conditions: visc, zombie
-	SpawnActorOnDeath@zombie:
-		RequiresCondition: zombie
-		Actor: zombie
-		Probability: 100
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		RequiresLobbyCreeps: true
-		SkipMakeAnimations: false
-	SpawnActorOnDeath@visc:
-		RequiresCondition: visc
-		Actor: visc_sml
-		Probability: 100
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		RequiresLobbyCreeps: true
-		SkipMakeAnimations: false
-
-
-VEHICLETIBSPAWN:
-	Inherits: INFTIBSPAWN
-	SpawnActorOnDeath@zombie:
-		Actor: berserker
-	SpawnActorOnDeath@visc:
-		Actor: visc_lrg
-
 SCRINESSENCESMALL:
 	Inherits: ^DUMMYAIRCRAFT
 	Inherits@2: ^TimedDeathOnlyWithDeathEffects

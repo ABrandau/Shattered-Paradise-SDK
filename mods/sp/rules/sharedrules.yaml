@@ -1,5 +1,6 @@
 E1:
 	Inherits: ^Soldier
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 120
 	Tooltip:
@@ -33,7 +34,6 @@ ENGINEER:
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable.
 	Valued:
 		Cost: 400
-	-GainsExperience:
 	Voiced:
 		VoiceSet: Engineer
 	RenderSprites:
@@ -139,7 +139,6 @@ HARV:
 		TargetTypes: MindControlImmune
 	Armor:
 		Type: VehicleArmor
-	-GainsExperience:
 	Explodes:
 		Weapon: TiberiumExplosion
 	WithHarvestOverlay:
@@ -229,7 +228,6 @@ SCRHARV:
 		Locomotor: InfantryCrusherVehicle
 	Targetable@MindControl:
 		TargetTypes: MindControlImmune
-	-GainsExperience:
 	SelectionDecorations:
 	RenderSprites:
 		Image: scrharv
@@ -1169,7 +1167,6 @@ TRNSPORT:
 	SpawnActorOnDeath:
 		RequiresCondition: airborne
 		Actor: TRNSPORT.Husk
-	-GainsExperience:
 	WithIdleOverlay@1Air:
 		Offset: 500,0,650
 		Sequence: rotor

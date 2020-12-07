@@ -25,25 +25,6 @@ DOGGIE:
 		IdleSequences: idle1
 	MapEditorData:
 		Categories: Creep
-	-GrantCondition@rank-veteran:
-	-GrantCondition@rank-elite:
-	-GrantCondition@rank-heroic:
-	-DamageMultiplier@rank-veteran:
-	-DamageMultiplier@rank-elite:
-	-DamageMultiplier@rank-heroic:
-	-FirepowerMultiplier@rank-veteran:
-	-FirepowerMultiplier@rank-elite:
-	-FirepowerMultiplier@rank-heroic:
-	-ReloadDelayMultiplier@rank-veteran:
-	-ReloadDelayMultiplier@rank-elite:
-	-ReloadDelayMultiplier@rank-heroic:
-	-SpeedMultiplier@rank-heroic:
-	-ChangesHealth@rank-heroic:
-	-WithDecoration@rank-veteran:
-	-WithDecoration@rank-elite:
-	-WithDecoration@rank-heroic:
-	-GainsExperienceMultiplier@armory:
-	-GrantConditionOnPrerequisite@ArmoryBuff:
 
 VISC_SML:
 	Inherits: ^Visceroid
@@ -183,7 +164,9 @@ ZOMBIE:
 		WanderMoveRadius: 2
 		MinMoveDelay: 25
 		MaxMoveDelay: 45
-	-SpawnActorOnDeath@tiberium:
+	-GrantRandomCondition@tiberium:
+	-SpawnActorOnDeath@tiberium1:
+	-SpawnActorOnDeath@tiberium2:
 	-DamagedByTintedCells@Default:
 	TransformOnCondition:
 		IntoActor: berserker
@@ -197,32 +180,12 @@ ZOMBIE:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
 	MapEditorData:
 		Categories: Creep
-	-GrantCondition@rank-veteran:
-	-GrantCondition@rank-elite:
-	-GrantCondition@rank-heroic:
-	-DamageMultiplier@rank-veteran:
-	-DamageMultiplier@rank-elite:
-	-DamageMultiplier@rank-heroic:
-	-FirepowerMultiplier@rank-veteran:
-	-FirepowerMultiplier@rank-elite:
-	-FirepowerMultiplier@rank-heroic:
-	-ReloadDelayMultiplier@rank-veteran:
-	-ReloadDelayMultiplier@rank-elite:
-	-ReloadDelayMultiplier@rank-heroic:
-	-SpeedMultiplier@rank-heroic:
-	-ChangesHealth@rank-heroic:
-	-WithDecoration@rank-veteran:
-	-WithDecoration@rank-elite:
-	-WithDecoration@rank-heroic:
-	-GainsExperienceMultiplier@armory:
-	-GrantConditionOnPrerequisite@ArmoryBuff:
 
 BERSERKER:
 	Inherits: ^Mutant
 	Inherits@1: ^MutRender
 	Tooltip:
 		Name: Berserker
-	-GainsExperience:
 	Valued:
 		Cost: 100
 	Health:
@@ -259,7 +222,9 @@ BERSERKER:
 		ReduceMoveRadiusDelay: 5
 		MinMoveDelay: 100
 		MaxMoveDelay: 200
-	-SpawnActorOnDeath@tiberium:
+	-GrantRandomCondition@tiberium:
+	-SpawnActorOnDeath@tiberium1:
+	-SpawnActorOnDeath@tiberium2:
 	-DamagedByTintedCells@Default:
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
@@ -345,25 +310,6 @@ CRAB:
  	-WithDeathAnimation@blood1:
 	MapEditorData:
 		Categories: Creep
-	-GrantCondition@rank-veteran:
-	-GrantCondition@rank-elite:
-	-GrantCondition@rank-heroic:
-	-DamageMultiplier@rank-veteran:
-	-DamageMultiplier@rank-elite:
-	-DamageMultiplier@rank-heroic:
-	-FirepowerMultiplier@rank-veteran:
-	-FirepowerMultiplier@rank-elite:
-	-FirepowerMultiplier@rank-heroic:
-	-ReloadDelayMultiplier@rank-veteran:
-	-ReloadDelayMultiplier@rank-elite:
-	-ReloadDelayMultiplier@rank-heroic:
-	-SpeedMultiplier@rank-heroic:
-	-ChangesHealth@rank-heroic:
-	-WithDecoration@rank-veteran:
-	-WithDecoration@rank-elite:
-	-WithDecoration@rank-heroic:
-	-GainsExperienceMultiplier@armory:
-	-GrantConditionOnPrerequisite@ArmoryBuff:
 
 PERMACRAB:
 	Inherits: CRAB

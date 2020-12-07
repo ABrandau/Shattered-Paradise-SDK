@@ -1126,7 +1126,6 @@
 		AreaTypes: building
 
 ^Infantry:
-	Inherits@0: ^GainsExperience
 	Inherits@1: ^InfantryEffects
 	Inherits@2: ^ExistsInWorld
 	Inherits@3: ^SpriteActor
@@ -1204,8 +1203,19 @@
 	SpawnActorOnDeath@FLAMEGUY2:
 		Actor: FLAMEGUY
 		DeathType: MilitantFireDeath
-	SpawnActorOnDeath@tiberium:
-		Actor: inftibspawn
+	GrantRandomCondition@tiberium:
+		Conditions: visc, zombie
+	SpawnActorOnDeath@tiberium1:
+		RequiresCondition: zombie
+		Actor: zombie
+		Probability: 10
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType: TiberiumDeath
+		RequiresLobbyCreeps: true
+	SpawnActorOnDeath@tiberium2:
+		RequiresCondition: visc
+		Actor: visc_sml
 		Probability: 10
 		OwnerType: InternalName
 		InternalOwner: Creeps
@@ -1448,7 +1458,9 @@
 	-WithDeathAnimation@body:
 	-SpawnActorOnDeath@FLAMEGUY:
 	-SpawnActorOnDeath@FLAMEGUY2:
-	-SpawnActorOnDeath@tiberium:
+	-GrantRandomCondition@tiberium:
+	-SpawnActorOnDeath@tiberium1:
+	-SpawnActorOnDeath@tiberium2:
 	-DamagedByTerrain:
 	-WithDeathAnimation@blood1:
 	Voiced:
@@ -1478,7 +1490,9 @@
 		WanderMoveRadius: 1
 		MinMoveDelay: 100
 		MaxMoveDelay: 200
-	-SpawnActorOnDeath@tiberium:
+	-GrantRandomCondition@tiberium:
+	-SpawnActorOnDeath@tiberium1:
+	-SpawnActorOnDeath@tiberium2:
 
 ^HologramKillTimer:
 	KillsSelf@TimedLife:
@@ -1503,8 +1517,9 @@
 	Inherits@2: ^HologramKillTimer
 	Health:
 		HP: 4500
-	-GainsExperience:
-	-GivesExperience:
+	GivesExperience:
+		Experience: 50
+	-UpdatesPlayerStatistics:
 	-Passenger:
 	-DamagedByTerrain:
 	-ActorLostNotification:
@@ -1516,7 +1531,9 @@
 	-WithDeathAnimation@energy:
 	-SpawnActorOnDeath@FLAMEGUY:
 	-SpawnActorOnDeath@FLAMEGUY2:
-	-SpawnActorOnDeath@tiberium:
+	-GrantRandomCondition@tiberium:
+	-SpawnActorOnDeath@tiberium1:
+	-SpawnActorOnDeath@tiberium2:
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@ScrinEssence:
 	-WithDeathAnimation@blood1:
@@ -1597,8 +1614,19 @@
 	Selectable:
 		Bounds: 40,30
 	SelectionDecorations:
+	GrantRandomCondition@tiberium:
+		Conditions: visc, zombie
+	SpawnActorOnDeath@tiberium1:
+		RequiresCondition: zombie
+		Actor: berserker
+		Probability: 25
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType: TiberiumDeath
+		RequiresLobbyCreeps: true
 	SpawnActorOnDeath@tiberium2:
-		Actor: vehicletibspawn
+		RequiresCondition: visc
+		Actor: visc_lrg
 		Probability: 25
 		OwnerType: InternalName
 		InternalOwner: Creeps
@@ -1653,7 +1681,6 @@
 
 ^Vehicle:
 	Inherits@0: ^BasicVehicle
-	Inherits@1: ^GainsExperience
 	Inherits@2: ^VehicleEffects
 	Inherits@3: ^ExistsInWorld
 
@@ -1821,7 +1848,6 @@
 
 ^Ship:
 	Inherits@0: ^BasicVehicle
-	Inherits@1: ^GainsExperience
 	Inherits@2: ^VehicleEffects
 	Inherits@3: ^ExistsInWorld
 	Mobile:
@@ -1840,7 +1866,6 @@
 
 ^Aircraft:
 	Inherits: ^SpriteActor
-	Inherits@0: ^GainsExperience
 	Inherits@2: ^AircraftEffects
 	Inherits@3: ^ExistsInWorld
 	Inherits@4: ^VehicleShape
@@ -1923,7 +1948,6 @@
 
 ^CombatHelicopter:
 	Inherits: ^Helicopter
-	Inherits@0: ^GainsExperience
 	Rearmable:
 		RearmActors: nahpad, gahpad, muair, scrair, cabair, civheli, tdhelipad
 
@@ -1936,7 +1960,6 @@
 
 ^CombatPlane:
 	Inherits: ^Plane
-	Inherits@0: ^GainsExperience
 
 ^Visceroid:
 	Inherits@1: ^ExistsInWorld
@@ -2037,8 +2060,19 @@
 			TopLeft: -512, -512
 			BottomRight: 512, 512
 	Demolishable:
+	GrantRandomCondition@tiberium:
+		Conditions: visc, zombie
+	SpawnActorOnDeath@tiberium1:
+		RequiresCondition: zombie
+		Actor: berserker
+		Probability: 25
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType: TiberiumDeath
+		RequiresLobbyCreeps: true
 	SpawnActorOnDeath@tiberium2:
-		Actor: inftibspawn
+		RequiresCondition: visc
+		Actor: visc_lrg
 		Probability: 25
 		OwnerType: InternalName
 		InternalOwner: Creeps
@@ -2131,7 +2165,6 @@
 		Type: Footprint
 		MaxHeightDelta: 3
 	-GivesBuildableArea:
-	-SpawnActorOnDeath@tiberium2:
 	AutoTarget:
 	-MustBeDestroyed:
 	RenderRangeCircle:
