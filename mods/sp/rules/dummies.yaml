@@ -153,13 +153,6 @@ SWVISIONDUMMY:
 	KillsSelf@TimedLife:
 		Delay: 150
 
-IRONSAVIORVISIONDUMMY:
-	Inherits: ^DUMMYAIRCRAFT
-	RevealsShroud:
-		Range: 6c0
-	KillsSelf@TimedLife:
-		Delay: 150
-
 RADARSCANDUMMY:
 	Inherits: ^DUMMYAIRCRAFT
 	Aircraft:
@@ -172,6 +165,20 @@ RADARSCANDUMMY:
 	RenderSprites:
 		Image: radarscananim
 		Palette: radarscanpalette
+
+IRONSAVIORDUMMY:
+	Inherits: ^GROUNDDUMMY
+	Inherits@2: ^TimedDeathOnlyWithDeathEffects
+	KillsSelf@TimedLife:
+		Delay: 2
+	RevealsShroud:
+		Range: 3c0
+	RevealOnDeath:
+		Duration: 200
+		Radius: 6c0
+	Explodes:
+		Weapon: IronSaviorExplode
+		EmptyWeapon: IronSaviorExplode
 
 IONBEAMTARGET:
 	Inherits: ^GROUNDDUMMY
@@ -186,8 +193,6 @@ IONBEAMTARGET:
 	RejectsOrders:
 	RevealsShroud:
 		Range: 3c0
-	RenderSprites:
-		Image: ionbeamtarget
 	RevealOnDeath:
 		Duration: 200
 		Radius: 4c0
