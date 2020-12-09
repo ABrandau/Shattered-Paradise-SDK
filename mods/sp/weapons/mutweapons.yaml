@@ -528,15 +528,10 @@ SpawnEggShrapnelE:
 		ValidTargets: Infantry, Building, Vehicle, Defence, Air, Airhit
 
 EggElevator:
-	Inherits: ^NoDamage
 	ReloadDelay: 5
 	Projectile: AthenaProjectile
 		Altitude: 2560
 	InvalidTargets: Infantry, Vehicle, Building, Water, Cliff, Defence
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@op: FireShrapnel
 		Weapon: SpawnEgg
 		ImpactActors: false
@@ -545,7 +540,6 @@ EggElevator:
 		InvalidTargets: Infantry, Vehicle, Building, Wall
 
 SpawnEgg:
-	Inherits: ^FullDamage
 	ReloadDelay: 5
 	Range: 2c0
 	InvalidTargets: Infantry, Vehicle, Building, Water, Cliff
@@ -555,12 +549,6 @@ SpawnEgg:
 		Image: eggproj
 		Palette: playermut
 		Shadow: true
-	Warhead@3Dam_area: SpreadDamage
-		Spread: 1
-		Damage: 1
-		ValidStances: Enemy, Neutral
-		InvalidTargets: Water, Cliff
-		ValidTargets: Ground, Water, Air
 	Warhead@5Actor: SpawnActor
 		Actors: eggs
 		FallRate: 5000

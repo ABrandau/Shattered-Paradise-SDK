@@ -392,7 +392,6 @@ FloaterCloudSpawn:
 	Inherits: ^RifleWarhead
 	ReloadDelay: 150
 	Range: 5c0
-	Report:
 	Projectile: InstantExplode
 	Warhead@1Dam: TargetDamage
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
@@ -402,7 +401,7 @@ FloaterCloudSpawn:
 		Range: 3
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@8Radio: CreateTintedCells
-		Spread: 1024
+		Spread: 512
 		Level: 10
 		Falloff: 100, 50, 25, 5
 		MaxLevel: 1000
@@ -410,15 +409,13 @@ FloaterCloudSpawn:
 VeinholeAttack:
 	Inherits: FloaterCloudSpawn
 	ReloadDelay: 100
+	Projectile: AthenaProjectile
+		Altitude: 2560
 	Warhead@8Radio: CreateTintedCells
 		Spread: 1c512
 		Level: 10
 		MaxLevel: 150
 		Falloff: 100, 75, 50, 40
-	Warhead@1Dam: SpreadDamage
-		Damage: 1000
-		Spread: 1c512
-		DamageTypes: TiberiumDeath
 	Warhead@5Actor: SpawnActor
 		Actors: cloud2
 
