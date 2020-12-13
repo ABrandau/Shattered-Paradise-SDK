@@ -701,7 +701,11 @@ WasteTurretWeaponMini:
 TractorBeam:
 	Inherits: ^AntiAirTurretWeapon
 	Report: triplasor0000.wav, triplasor0001.wav, triplasor0002.wav
-	Projectile: InstantHit
+	Projectile: ArcLaserZap
+		Color: FFAAFF55
+		Width: 50
+		Duration: 15
+		ZOffset: 4000
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		ValidTargets: Air
@@ -715,13 +719,8 @@ TractorBeam:
 TractorBeam2:
 	Inherits: TractorBeam
 	-Report:
-	Projectile: ArcLaserZap
-		Color: FFAAFF55
-		Width: 50
-		Duration: 15
-		ZOffset: 4000
-	Warhead@1Dam: SpreadDamage
-		Damage: 1
+	-Warhead@1Dam: SpreadDamage
+	-Warhead@TractorStop: GrantExternalCondition
 
 DronePlane:
 	Inherits: ^BombWarhead
