@@ -562,34 +562,29 @@ RepairGun:
 		ValidTargets: Repair
 
 FirestormSpawner:
-	Inherits: ^NoDamage
 	ReloadDelay: 2
 	Report: firstrm1.aud
-	Projectile: InstantExplode
-	Warhead@3Dam_area: SpreadDamage
-		Spread: 1
-		Damage: 1
-		ValidTargets: Ground, Water
+	ValidTargets: Ground, Water
 	Warhead@op: FireShrapnel
 		Weapon: FirestormExplo
 		ImpactActors: false
-		Amount: 100
+		Amount: 50
+		ValidTargets: Ground, Water
 
 FirestormExplo:
 	Inherits: ^FullDamage
+	Inherits: ^SWBaseEffects
 	Range: 12c0
 	MinRange: 12c0
 	Projectile: InstantHit
-	Warhead@diealready: GrantExternalCondition
-		Range: 0c512
-		ValidTargets: Vehicle, Infantry, Water, LandedAircraft, Air
-		ValidStances: Enemy, Neutral
-		Condition: KillSelf
-	Warhead@3damage: SpreadDamage
-		Spread: 150
-		Damage: 150000
-		ValidTargets: Ground, Water, Air
-		ValidStances: Enemy, Neutral
+	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
+		Versus:
+			BuildingArmor: 10
+			DefenseArmor: 10
+			ConcreteArmor: 10
+		ValidStances: Neutral, Enemy
+	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
+		ValidStances: Neutral, Enemy
 	Warhead@2Eff: CreateEffect
 		Explosions: fsidle, fsgrnd
 	Warhead@2Smu: LeaveSmudge

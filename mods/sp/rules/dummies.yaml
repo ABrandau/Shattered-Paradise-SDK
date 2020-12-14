@@ -3,8 +3,6 @@
 	Inherits: ^SpriteActor
 	Valued:
 		Cost: 900
-	Tooltip:
-		Name: Target
 	RevealsShroud:
 		Range: 3c0
 		Type: CenterPosition
@@ -71,7 +69,7 @@ CLOUD1:
 		MoveIntoShroud: true
 	RenderSprites:
 		Image: cloud1
-		Palette: effectalpha
+		Palette: effect
 	Wanders:
 	-RevealsShroud:
 	KillsSelf@TimedLife:
@@ -82,7 +80,7 @@ CLOUD1:
 	WithDeathAnimation:
 		DeathSequence: die2
 		UseDeathTypeSuffix: false
-		DeathSequencePalette: effectalpha
+		DeathSequencePalette: effect
 		DeathPaletteIsPlayerPalette: false
 
 ## Longer, Bigger
@@ -153,13 +151,6 @@ SWVISIONDUMMY:
 	KillsSelf@TimedLife:
 		Delay: 150
 
-IRONSAVIORVISIONDUMMY:
-	Inherits: ^DUMMYAIRCRAFT
-	RevealsShroud:
-		Range: 6c0
-	KillsSelf@TimedLife:
-		Delay: 150
-
 RADARSCANDUMMY:
 	Inherits: ^DUMMYAIRCRAFT
 	Aircraft:
@@ -168,16 +159,27 @@ RADARSCANDUMMY:
 		Range: 8c0
 	WithSpriteBody:
 		Sequence: idle
-	-Tooltip:
 	RenderSprites:
 		Image: radarscananim
 		Palette: radarscanpalette
 
+IRONSAVIORDUMMY:
+	Inherits: ^GROUNDDUMMY
+	Inherits@2: ^TimedDeathOnlyWithDeathEffects
+	KillsSelf@TimedLife:
+		Delay: 2
+	RevealsShroud:
+		Range: 3c0
+	RevealOnDeath:
+		Duration: 200
+		Radius: 6c0
+	Explodes:
+		Weapon: IronSaviorExplode
+		EmptyWeapon: IronSaviorExplode
+
 IONBEAMTARGET:
 	Inherits: ^GROUNDDUMMY
 	Inherits@2: ^TimedDeathOnlyWithDeathEffects ##Hacked: For targetable
-	Tooltip:
-		Name: Target
 	KillsSelf@TimedLife:
 		Delay: 100
 	Targetable:
@@ -186,8 +188,6 @@ IONBEAMTARGET:
 	RejectsOrders:
 	RevealsShroud:
 		Range: 3c0
-	RenderSprites:
-		Image: ionbeamtarget
 	RevealOnDeath:
 		Duration: 200
 		Radius: 4c0
@@ -208,7 +208,6 @@ IONBEAMMINI:
 		AltitudeVelocity: 4000
 		Speed: 74
 		MoveIntoShroud: true
-	-Tooltip:
 	KillsSelf@TimedLife:
 		Delay: 100
 	RevealsShroud:
@@ -344,7 +343,6 @@ NANOMACHINEBURSTDUMMY:
 		CruiseAltitude: 1
 	KillsSelf@TimedLife:
 		Delay: 475
-	-Tooltip:
 	RenderSprites:
 		Image: nanomachineswarmdummy
 		Palette: apolgreyalpha
@@ -396,49 +394,12 @@ FOGCAMERADUMMY:
 		Type: CenterPosition
 		MaxHeightDelta: 3
 		Range: 4c0
-	ExplodeWeapon@1:  ## Because now some weapon cannot used on creeps so here we are
-		Weapon: VeinholeAttack
-	OwnerLostAction: ## For sustain the cloud when owner is dead (to Netural on defualt)
-		Action: ChangeOwner
-
-INFTIBSPAWN:
-	Inherits: ^GROUNDDUMMY
-	Inherits@2: ^TimedDeathOnlyWithDeathEffects
-	KillsSelf@TimedLife:
-		Delay: 0
-	GrantRandomCondition:
-		Conditions: visc, zombie
-	SpawnActorOnDeath@zombie:
-		RequiresCondition: zombie
-		Actor: zombie
-		Probability: 100
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		RequiresLobbyCreeps: true
-		SkipMakeAnimations: false
-	SpawnActorOnDeath@visc:
-		RequiresCondition: visc
-		Actor: visc_sml
-		Probability: 100
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		RequiresLobbyCreeps: true
-		SkipMakeAnimations: false
-
-
-VEHICLETIBSPAWN:
-	Inherits: INFTIBSPAWN
-	SpawnActorOnDeath@zombie:
-		Actor: berserker
-	SpawnActorOnDeath@visc:
-		Actor: visc_lrg
 
 SCRINESSENCESMALL:
 	Inherits: ^DUMMYAIRCRAFT
 	Inherits@2: ^TimedDeathOnlyWithDeathEffects
 	KillsSelf@TimedLife:
 		Delay: 50
-	-Tooltip:
 	Targetable@Esscence:
 		TargetTypes: ScrinEssence
 	AttackMove:

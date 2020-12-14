@@ -5,6 +5,7 @@ ORCA:
 	Inherits@3: ^9CellVision
 	Inherits@4: ^UsesAmmunition
 	Inherits@Shadow: ^AircraftShadow
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -44,18 +45,19 @@ ORCA:
 		AmmoCondition: ammo
 	SpawnActorOnDeath:
 		Actor: ORCA.Husk
+		RequiresCondition: airborne
 	WithIdleOverlay@Wind1:
 		Image: orcawind
 		Sequence: idle
-		Offset: -50, 100, -1000
+		Offset: -25, 100, -750
 		RequiresCondition: airborne
-		Palette: effectalpha60
+		Palette: effect
 	WithIdleOverlay@Wind2:
 		Image: orcawind
 		Sequence: idle
-		Offset: -50, -100, -1000
+		Offset: -25, -100, -750
 		RequiresCondition: airborne
-		Palette: effectalpha60
+		Palette: effect
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -70,6 +72,7 @@ ORCAB:
 	Inherits@2: ^9CellVision
 	Inherits@3: ^UsesAmmunition
 	Inherits@Shadow: ^AircraftShadow
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -111,18 +114,19 @@ ORCAB:
 		RequiresCondition: cruising
 	SpawnActorOnDeath:
 		Actor: ORCAB.Husk
+		RequiresCondition: airborne
 	WithIdleOverlay@Wind1:
 		Image: orcawind
 		Sequence: idle
-		Offset: 200, 300, -800
+		Offset: 150, 350, -750
 		RequiresCondition: airborne
-		Palette: effectalpha60
+		Palette: effect
 	WithIdleOverlay@Wind2:
 		Image: orcawind
 		Sequence: idle
-		Offset: 200, -300, -800
+		Offset: 150, -350, -750
 		RequiresCondition: airborne
-		Palette: effectalpha60
+		Palette: effect
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -202,6 +206,7 @@ DSHP:
 		OwnerChangedAffectsPassengers: false
 	SpawnActorOnDeath:
 		Actor: DSHP.Husk
+		RequiresCondition: airborne
 	RenderSprites:
 	WithVoxelBody:
 	RenderVoxels:
@@ -254,7 +259,7 @@ ORCATRAN:
 		OwnerChangedAffectsPassengers: false
 	SpawnActorOnDeath:
 		Actor: ORCATRAN.Husk
-	-GainsExperience:
+		RequiresCondition: airborne
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -269,6 +274,7 @@ APACHE:
 	Inherits@3: ^9CellVision
 	Inherits@4: ^UsesAmmunition
 	Inherits@Shadow: ^AircraftShadow
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -335,6 +341,7 @@ APACHE:
 		RequiresCondition: !airborne
 	SpawnActorOnDeath:
 		Actor: APACHE.Husk
+		RequiresCondition: airborne
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -349,6 +356,7 @@ SCRIN:
 	Inherits@2: ^UsesAmmunition
 	Inherits@3: ^11CellVision
 	Inherits@Shadow: ^AircraftShadow
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -394,6 +402,7 @@ SCRIN:
 	DeathSounds:
 	SpawnActorOnDeath:
 		Actor: SCRIN.Husk
+		RequiresCondition: airborne
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -419,6 +428,7 @@ CERBERUS:
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@2: ^9CellVision
 	Inherits@Shadow: ^AircraftShadow
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -467,6 +477,7 @@ CERBERUS:
 		PlayerPalette: playertemperate
 	SpawnActorOnDeath:
 		Actor: CERBERUS.Husk
+		RequiresCondition: airborne
 	ProximityExternalCondition:
 		Condition: cloakgenerator
 		Range: 5c0
@@ -509,6 +520,7 @@ MUTHELI:
 	Inherits@5: ^9CellVision
 	Inherits@6: ^UsesAmmunition
 	Inherits@Shadow: ^AircraftShadow
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -569,6 +581,7 @@ MUTHELI:
 		InitialStanceAI: AttackAnything
 	SpawnActorOnDeath:
 		Actor: MUTHELI.Husk
+		RequiresCondition: airborne
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -583,6 +596,7 @@ WETP:
 	Inherits@3: ^UsesAmmunition
 	Inherits@4: ^9CellVision
 	Inherits@Shadow: ^AircraftShadow
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -625,6 +639,7 @@ WETP:
 		RequiresCondition: cruising
 	SpawnActorOnDeath:
 		Actor: WETP.Husk
+		RequiresCondition: airborne
 	GrantConditionOnActivity:
 		Condition: attacking
 	SpeedMultiplier@Supersonic:
@@ -661,6 +676,7 @@ MUTQUEEN:
 	Inherits@4: ^PermanentSelfHeal
 	Inherits@5: ^9CellVision
 	Inherits@Shadow: ^AircraftShadow
+	Inherits@GainsExperience: ^GainsExperience
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 1000
@@ -724,12 +740,26 @@ MUTBIRD:
 		Name: Seeder Bird
 	-Buildable:
 
+
+^ScrinAircraftGeneric:
+	Inherits@4: ^ScrinAircratVoice
+	Inherits@2: ^ScrinRender
+	Inherits@Shadow: ^AircraftShadow
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: gradientblue40
+	Explodes@Shrapnel:
+		Weapon: BigScrinAircraftShrapnel
+		EmptyWeapon: BigScrinAircraftShrapnel
+	-WithDeathAnimation:
+
 STORMRIDER:
 	Inherits: ^CombatPlane
 	Inherits@1: ^AutoTargetAllAssaultMove
+	Inherits@2: ^ScrinAircraftGeneric
 	Inherits@3: ^9CellVision
-	Inherits@4: ^ScrinAircratVoice
 	Inherits@Shadow: ^AircraftShadow
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -762,12 +792,15 @@ STORMRIDER:
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 120
-	Turreted:
 	SpawnActorOnDeath:
 		Actor: STORMRIDER.Husk
+		RequiresCondition: airborne
 	SmokeParticleEmitter:
 		Image: scrsmoke
 		Palette: gradientblue40
+	Explodes@Shrapnel:
+		Weapon: SmalLScrinAircraftShrapnel
+		EmptyWeapon: SmalLScrinAircraftShrapnel
 	Contrail@1:
 		Offset: -300,-150,-100
 		Color: 33008860
@@ -777,16 +810,6 @@ STORMRIDER:
 		Color: 3300EE80
 		UsePlayerColor: false
 
-^ScrinAircraftGeneric:
-	Inherits@4: ^ScrinAircratVoice
-	Inherits@2: ^ScrinRender
-	Inherits@Shadow: ^AircraftShadow
-	SmokeParticleEmitter:
-		Image: scrsmoke
-		Palette: gradientblue40
-	Explodes@Shrapnel:
-		Weapon: BigAircraftShrapnel
-		EmptyWeapon: BigAircraftShrapnel
 
 DRACHE:
 	Inherits: ^CombatHelicopter
@@ -833,10 +856,7 @@ DRACHE:
 	Hovers:
 	SpawnActorOnDeath:
 		Actor: DRACHE.Husk
-	-GainsExperience:
-	Explodes@Shrapnel:
-		Weapon: BigAircraftShrapnel
-		EmptyWeapon: BigAircraftShrapnel
+		RequiresCondition: airborne
 	SmokeParticleEmitter:
 		Offset: 0,0,1000,0,0,1000
 
@@ -846,6 +866,7 @@ SCRGLYDER1:
 	Inherits@2: ^ScrinAircraftGeneric
 	Inherits@3: ^BasicStealthDetectionAir
 	Inherits@5: ^9CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 700
@@ -877,6 +898,7 @@ SCRGLYDER1:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: GLYDER1.Husk
+		RequiresCondition: airborne
 	Armament@AITransformDummyWeapon:
 		Weapon: AIGlyder1AimingDummyWeapon
 		RequiresCondition: AImicroManage
@@ -887,12 +909,16 @@ SCRGLYDER1:
 		IntoActor: scrglyder2
 	SmokeParticleEmitter:
 		Offset: 0,0,500,0,0,500
+	Explodes@Shrapnel:
+		Weapon: SmalLScrinAircraftShrapnel
+		EmptyWeapon: SmalLScrinAircraftShrapnel
 
 SCRDESTROYER:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@2: ^ScrinAircraftGeneric
 	Inherits@3: ^7CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -930,6 +956,7 @@ SCRDESTROYER:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRDESTROYER.Husk
+		RequiresCondition: airborne
 	Contrail@1:
 		Offset: -1300, -20, 600
 		Color: AAAAFFAA
@@ -976,6 +1003,7 @@ SCRTRANS:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRTRANS.Husk
+		RequiresCondition: airborne
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1035,6 +1063,7 @@ SCRCARRIER:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRCARRIER.Husk
+		RequiresCondition: airborne
 	WithSpawnerMasterPipsDecoration:
 		Margin: 4, 3
 		Palette: pips
@@ -1048,32 +1077,44 @@ SCRCARRIER:
 		TrailWidth: 128
 
 STORMRIDERSPAWN:
-	Inherits: STORMRIDER
-	Inherits@1: ^ScrinAircraftGeneric
+	Inherits: ^CombatPlane
+	Inherits@1: ^AutoTargetAllAssaultMove
+	Inherits@2: ^ScrinAircraftGeneric
+	Inherits@3: ^3CellVision
+	Inherits@Shadow: ^AircraftShadow
 	EditorOnlyTooltip:
 		Name: Assault Carrier Drone (Do not place in editor)
 	Tooltip:
 		Name: Wyverm
-	UpdatesPlayerStatistics:
-		AddToArmyValue: false
-	GainsExperienceMultiplier:
-		Modifier: 10
-	Valued:
-		Cost: 30
-	-Buildable:
-	Selectable:
-		Bounds: 30,24
-		Class: Stormrider
+	Interactable:
+	Contrail@1:
+		Offset: 0,-30,0
+		Color: 3300EE80
+		UsePlayerColor: false
+		TrailWidth: 32
+	GivesExperience:
+		Experience: 50
 	Aircraft:
+		MaximumPitch: 90
 		Repulsable: false
 		TurnSpeed: 80
 		Speed: 150
 		AltitudeVelocity: 200
-		VTOL: true
+		VTOL: false #Hack: avoid unable entering carrier while carrier moving
+		AirborneCondition: airborne
+		MoveIntoShroud: true
 	Armament:
 		Weapon: WyvermBlast
 	Armament@AA:
 		Weapon: WyvermBlastAA
+	AttackAircraft:
+		FacingTolerance: 120
+	RejectsOrders:
+	RenderSprites:
+		Image: wyverm2
+	ExternalCondition@Return:
+		Condition: ForceReturn
+	-Rearmable:
 	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
@@ -1086,25 +1127,12 @@ STORMRIDERSPAWN:
 	-UpdatesPlayerStatistics:
 	-ActorLostNotification:
 	-AppearsOnRadar:
-	RejectsOrders:
-	RenderSprites:
-		Image: wyverm2
-	ExternalCondition@Return:
-		Condition: ForceReturn
-	-SpawnActorOnDeath:
 	-SmokeParticleEmitter:
 	-GrantConditionOnDamageState@spawnsparks:
 	-ExplodeWeapon@spawnsparks:
 	-ExternalCondition@spawnsparks:
 	-Selectable:
 	-SelectionDecorations:
-	Interactable:
-	Contrail@1:
-		Offset: 0,-30,0
-		Color: 3300EE80
-		UsePlayerColor: false
-		TrailWidth: 32
-	-Contrail@2: 
 	-Explodes@Shrapnel:
 
 CABDRONEJET:
@@ -1137,6 +1165,7 @@ CABDRONEJET:
 		AirborneCondition: airborne
 		AltitudeVelocity: 600
 		MoveIntoShroud: true
+		VTOL: true
 	AttackAircraft:
 	RejectsOrders:
 	Contrail@1:
@@ -1152,6 +1181,7 @@ SCRBATTLESHIP:
 	Inherits@3: ^PermanentSelfHeal
 	Inherits@4: ^CommandoIcon
 	Inherits@6: ^11CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 4000
 	Tooltip:
@@ -1190,6 +1220,7 @@ SCRBATTLESHIP:
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
+		RequiresCondition: airborne
 		Actor: SCRBATTLESHIP.Husk
 	Contrail@1:
 		Offset: -2200, -20, 350
@@ -1217,6 +1248,7 @@ WASP:
 	Inherits@4: ^9CellVision
 	Inherits@5: ^CabRender
 	Inherits@Shadow: ^AircraftShadow
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -1256,6 +1288,7 @@ WASP:
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
+		RequiresCondition: airborne
 		Actor: WASP.Husk
 
 FIREFLY:
@@ -1290,8 +1323,8 @@ FIREFLY:
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
+		RequiresCondition: airborne
 		Actor: FIREFLY.Husk
-	-GainsExperience:
 
 BASILISK:
 	Inherits: ^CombatHelicopter
@@ -1299,6 +1332,7 @@ BASILISK:
 	Inherits@2: ^9CellVision
 	Inherits@4: ^CabRender
 	Inherits@Shadow: ^AircraftShadow
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 1800
 	Tooltip:
@@ -1332,6 +1366,7 @@ BASILISK:
 	RenderSprites:
 	WithFacingSpriteBody:
 	SpawnActorOnDeath:
+		RequiresCondition: airborne
 		Actor: BASILISK.Husk
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
@@ -1354,6 +1389,7 @@ DEVOURER:
 	Inherits@3: ^CabRender
 	Inherits@4: ^9CellVision
 	Inherits@Shadow: ^AircraftShadow
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -1406,6 +1442,7 @@ DEVOURER:
 	BodyOrientation:
 		QuantizedFacings: 8
 	SpawnActorOnDeath:
+		RequiresCondition: airborne
 		Actor: DEVOURER.Husk
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel

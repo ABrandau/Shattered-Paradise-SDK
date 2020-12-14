@@ -143,10 +143,7 @@ IonCannon: ### THIS IS THE MAIN ION CANON WEAPON
 IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 	ReloadDelay: 6
 	Range: 12c0
-	Projectile: InstantExplode
-	Warhead@3Dam_area: SpreadDamage
-		Spread: 1
-		ValidTargets: Ground, Water, Air
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air, IonSpawner
 	## use mutipile Warhead with delay to increase performance
 	Warhead@op: FireShrapnel 
 		Weapon: IonBeamCreator
@@ -180,6 +177,7 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 	Warhead@Spawn: SpawnActor
 		Actors: ionbeamtarget
 		Range: 3
+		ForceGround: true
 	Warhead@Ion: SpawnSmokeParticle
 		Weapon: IonCannon
 		ImpactActors: false
@@ -193,10 +191,8 @@ IonBeamCreator: ### THIS ONE GENERATES THE MINI BEAMS
 	ReloadDelay: 6
 	Range: 5c0
 	MinRange: 4c99
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air, IonSpawner
 	Projectile: InstantHit
-	Warhead@3Dam_area: SpreadDamage
-		Spread: 1
-		ValidTargets: Ground, Water, Air
 	Warhead@Spawn: SpawnActor
 		Actors: ionbeammini
 		Range: 15
@@ -579,6 +575,7 @@ MeteorSpawner:
 	Burst: 6
 	BurstDelays: 25
 	Range: 1c0
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
 	Projectile: BulletAS
 		Speed: 9999
 		Blockable: false
@@ -738,8 +735,6 @@ MeteorRainFast:
 		Speed: 450
 
 IronSavior:
-	Inherits: ^FullDamage
-	Inherits@2: ^SWBaseEffects
 	ReloadDelay: 200
 	Range: 300c0
 	MinRange: 6c0
@@ -754,6 +749,13 @@ IronSavior:
 		TrailImage: cabswproj2
 		TrailPalette: apolcyanalpha
 		Blockable: false
+	Warhead@6Spawn: SpawnActor ##In doing so, AI protection squad won't rush iron savior when get hit by this superweapon
+		Actors: ironsaviordummy
+		ForceGround: true
+
+IronSaviorExplode:
+	Inherits: ^FullDamage
+	Inherits@2: ^SWBaseEffects
 	Warhead@1Dam: SpreadDamage
 		Spread: 700
 		Damage: 18000
@@ -773,9 +775,6 @@ IronSavior:
 	Warhead@Shake: ScreenShaker
 		Intensity: 10
 		Duration: 15
-	Warhead@6Spawn: SpawnActor
-		Actors: ironsaviorvisiondummy
-		Range: 3
 	Warhead@7ClusterSmudges: LeaveSmudge
 		SmudgeType: SmallScorch
 		Size: 2
@@ -792,28 +791,51 @@ IronSavior:
 		ValidTargets: Ground, Water, Infantry, Vehicle, BlueTiberium, Tiberium, Air
 
 IronSaviorShrapnel:
-	Inherits: IronSavior
+	Inherits: ^FullDamage
+	Inherits@2: ^SWBaseEffects
+	ReloadDelay: 2000
 	Range: 5c0
 	MinRange: 2c0
-	-Report:
-	-Warhead@op:
+	ValidTargets: Vehicle, Infantry, Building, Ground, Water
 	Projectile: BulletAS
-		LaunchAngle: 160
 		Speed: 90
-	Warhead@Shake: ScreenShaker
-		Intensity: 4
-		Duration: 7
+		Image: cabswproj
+		LaunchAngle: 160
+		Shadow: true
+		Palette: apcyan
+		TrailImage: cabswproj2
+		TrailPalette: apolcyanalpha
+		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Spread: 700
 		Damage: 8000
+		Versus:
+			BuildingArmor: 600
+		ValidTargets: Vehicle, Infantry, Building, Ground, Water
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: cabexplo
+		ExplosionPalette: apolcyanalpha
+		ValidTargets: Ground, Air
+		ImpactSounds: expnew09.aud, expnew02.aud, expnew03.aud, expnew04.aud
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: LargeCrater
+		InvalidTargets: Water
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@Shake: ScreenShaker
+		Intensity: 4
+		Duration: 7
+	Warhead@7ClusterSmudges: LeaveSmudge
+		SmudgeType: SmallScorch
+		Size: 2
+		InvalidTargets: Vehicle, Building, Wall
+		Delay: 15
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		Spread: 0c400
+		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
 
 NanoMachineBurst:
-	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
-	Warhead@1Dam_impact: SpreadDamage
-		Spread: 1
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
 	Warhead@5Actor: SpawnActor
 		Actors: nanomachineburstspawner
 		FallRate: 5000
@@ -834,10 +856,7 @@ RecoveryGun:
 IonStormSpawnerWeapon: ### THIS ONE GENERATES THE ION STORM PARTICLE
 	ReloadDelay: 6
 	Range: 12c0
-	Projectile: InstantExplode
-	Warhead@3Dam_area: SpreadDamage
-		Spread: 1
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
 	Warhead@Ion: SpawnSmokeParticle
 		Weapon: RandomBoltSpawner
 		ImpactActors: false
@@ -848,7 +867,7 @@ IonStormSpawnerWeapon: ### THIS ONE GENERATES THE ION STORM PARTICLE
 
 RandomBoltSpawner:
 	ReloadDelay: 5
-	Projectile: InstantExplode
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
 	Warhead@1: FireShrapnel
 		Weapon: IonRay
 		ImpactActors: false
@@ -877,15 +896,9 @@ IonRay:
 		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
 
 VeinholeSummonerWeapon:
-	Inherits: ^BombWarhead
 	ReloadDelay: 8
 	Range: 3c0
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
-	Warhead@1Dam: SpreadDamage
-		Spread: 650
-		Falloff: 1000, 500, 250, 125, 75, 50, 25, 12, 0
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
-		DamageTypes:
 	Warhead@5Actor: SpawnActor
 		Actors: veinholespawnerdummy
 		FallRate: 5000
@@ -902,25 +915,15 @@ VeinholeShrapnel:
 	Range: 5c0
 	MinRange: 4c0
 	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 	Warhead@5Actor: SpawnActor
 		Actors: veinholespawnerdummy
 		FallRate: 5000
 		Range: 3
 
 ColossiSummonerWeapon:
-	Inherits: ^BombWarhead
 	ReloadDelay: 8
 	Range: 3c0
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
-	Warhead@1Dam: SpreadDamage
-		Spread: 650
-		Damage: 0
-		Falloff: 1000, 500, 250, 125, 75, 50, 25, 12, 0
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
-		DamageTypes:
 	Warhead@5Actor: SpawnActor
 		Actors: colossi_chrono
 		FallRate: 5000
@@ -940,9 +943,6 @@ ColossiShrapnel:
 	Range: 3c0
 	MinRange: 1c0
 	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 	Warhead@5Actor: SpawnActor
 		Actors: colossi_chrono
 		ForceGround: true

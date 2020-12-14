@@ -1,6 +1,7 @@
 GDIE1:
 	Inherits: ^Soldier
 	Inherits@2: ^6CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 1
@@ -32,6 +33,7 @@ GDIE1:
 GRENADIER:
 	Inherits: ^Soldier
 	Inherits@1: ^6CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 2
@@ -107,29 +109,11 @@ MEDIC:
 		FacingTolerance: 2
 	Passenger:
 		CustomPipType: red
-	-GrantCondition@rank-veteran:
-	-GrantCondition@rank-elite:
-	-GrantCondition@rank-heroic:
-	-DamageMultiplier@rank-veteran:
-	-DamageMultiplier@rank-elite:
-	-DamageMultiplier@rank-heroic:
-	-FirepowerMultiplier@rank-veteran:
-	-FirepowerMultiplier@rank-elite:
-	-FirepowerMultiplier@rank-heroic:
-	-ReloadDelayMultiplier@rank-veteran:
-	-ReloadDelayMultiplier@rank-elite:
-	-ReloadDelayMultiplier@rank-heroic:
-	-SpeedMultiplier@rank-heroic:
-	-ChangesHealth@rank-heroic:
-	-WithDecoration@rank-veteran:
-	-WithDecoration@rank-elite:
-	-WithDecoration@rank-heroic:
-	-GainsExperienceMultiplier@armory:
-	-GrantConditionOnPrerequisite@ArmoryBuff:
 
 JUMPJET:
 	Inherits: ^Soldier
 	Inherits@2: ^6CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 450
 	Tooltip:
@@ -169,6 +153,7 @@ JUMPJETAIR:
 	Inherits@2: ^AutoTargetAll
 	Inherits@3: ^8CellVision
 	Inherits@4: ^FullHealthRepairCondition
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 450
 	Tooltip:
@@ -254,6 +239,7 @@ JUMPJETAIR:
 EAGLEGUARD:
 	Inherits: ^Soldier
 	Inherits@1: ^6CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -291,6 +277,7 @@ EAGLEGUARD:
 ALTNODE1:
 	Inherits: ^Soldier
 	Inherits@1: ^6CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 1
@@ -323,6 +310,7 @@ ALTNODE1:
 CRUSADER:
 	Inherits: ^Soldier
 	Inherits@1: ^6CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 2
@@ -366,6 +354,7 @@ CRUSADER:
 TEMPLAR:
 	Inherits: ^Soldier
 	Inherits@1: ^6CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 8
@@ -403,6 +392,7 @@ TEMPLAR:
 NCONF:
 	Inherits: ^Soldier
 	Inherits@1: ^6CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry
@@ -456,9 +446,6 @@ NCONF:
 		Weapon: FlameHoloShrapnel
 		RequiresCondition: HologramSpawn
 	ExplodeWeapon@2:
-		Weapon: FlameHoloShrapnel
-		RequiresCondition: HologramSpawn
-	ExplodeWeapon@3:
 		Weapon: TickHoloShrapnel
 		RequiresCondition: HologramSpawn
 	AutoDeployer@AI:
@@ -471,6 +458,7 @@ BHS:
 	Inherits: ^Soldier
 	Inherits@1: ^10CellVision
 	Inherits@2: ^CommandoIcon
+	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 10
@@ -527,8 +515,6 @@ BHS:
 
 FlameHologram:
 	Inherits@2: ^HologramSoldier
-	UpdatesPlayerStatistics:
-		AddToArmyValue: false
 	Armament:
 		Weapon: HologramMilitantRifle
 	RenderSprites:
@@ -543,6 +529,7 @@ MARAUDER:
 	Inherits: ^Mutant
 	Inherits@1: ^MutRender
 	Inherits@2: ^6CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry
@@ -649,6 +636,7 @@ MARAUDER:
 MUTFIEND:
 	Inherits: ^Mutant
 	Inherits@1: ^6CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Tooltip:
 		Name: Tiberian Fiend
 	UpdatesPlayerStatistics:
@@ -748,25 +736,6 @@ CUTMAN:
 		-FactionImages:
 	-DamagedByTerrain:
 	-AutoTarget:
-	-GrantCondition@rank-veteran:
-	-GrantCondition@rank-elite:
-	-GrantCondition@rank-heroic:
-	-DamageMultiplier@rank-veteran:
-	-DamageMultiplier@rank-elite:
-	-DamageMultiplier@rank-heroic:
-	-FirepowerMultiplier@rank-veteran:
-	-FirepowerMultiplier@rank-elite:
-	-FirepowerMultiplier@rank-heroic:
-	-ReloadDelayMultiplier@rank-veteran:
-	-ReloadDelayMultiplier@rank-elite:
-	-ReloadDelayMultiplier@rank-heroic:
-	-SpeedMultiplier@rank-heroic:
-	-ChangesHealth@rank-heroic:
-	-WithDecoration@rank-veteran:
-	-WithDecoration@rank-elite:
-	-WithDecoration@rank-heroic:
-	-GainsExperienceMultiplier@armory:
-	-GrantConditionOnPrerequisite@ArmoryBuff:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
 	RenderSprites:
@@ -787,6 +756,7 @@ CUTMAN:
 E3:
 	Inherits: ^Mutant
 	Inherits@1: ^5CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 14
@@ -825,6 +795,7 @@ E3:
 SEER:
 	Inherits: ^Mutant
 	Inherits@1: ^7CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry
@@ -894,6 +865,7 @@ PSYKER:
 	Inherits@1: ^MutRender
 	Inherits@2: ^10CellVision
 	Inherits@3: ^CommandoIcon
+	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 16
@@ -936,6 +908,7 @@ PSYKER:
 SHARK:
 	Inherits: ^ScrinSoldier
 	Inherits@1: ^6CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 17
@@ -991,6 +964,7 @@ SHARK:
 LEGIO:
 	Inherits: ^ScrinSoldier
 	Inherits@1: ^6CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 18
@@ -1062,6 +1036,7 @@ SHAPESHIFTER:
 FLOAT:
 	Inherits: ^ScrinSoldier
 	Inherits@1: ^7CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 20
@@ -1101,30 +1076,11 @@ FLOAT:
 		Armaments: OnFoot
 		FacingTolerance: 2
 	-TakeCover:
-	-GainsExperience:
-	-GrantCondition@rank-veteran:
-	-GrantCondition@rank-elite:
-	-GrantCondition@rank-heroic:
-	-DamageMultiplier@rank-veteran:
-	-DamageMultiplier@rank-elite:
-	-DamageMultiplier@rank-heroic:
-	-FirepowerMultiplier@rank-veteran:
-	-FirepowerMultiplier@rank-elite:
-	-FirepowerMultiplier@rank-heroic:
-	-ReloadDelayMultiplier@rank-veteran:
-	-ReloadDelayMultiplier@rank-elite:
-	-ReloadDelayMultiplier@rank-heroic:
-	-SpeedMultiplier@rank-heroic:
-	-ChangesHealth@rank-heroic:
-	-WithDecoration@rank-veteran:
-	-WithDecoration@rank-elite:
-	-WithDecoration@rank-heroic:
-	-GainsExperienceMultiplier@armory:
-	-GrantConditionOnPrerequisite@ArmoryBuff:
 
 BUG:
 	Inherits: ^ScrinSoldier
 	Inherits@1: ^6CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 21
@@ -1173,6 +1129,7 @@ BUG:
 COLOSSI:
 	Inherits: ^ScrinSoldier
 	Inherits@1: ^6CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 22
@@ -1246,8 +1203,9 @@ COLOSSI:
 		Weapon: ColossiBlast
 		RequiresCondition: deployed
 		PauseOnCondition: WebDisable
-	ExplodeWeapon@2:
-		Weapon: ColossiBlastSound
+	AmbientSound:
+		SoundFiles: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
+		Interval: 75
 		RequiresCondition: deployed
 		PauseOnCondition: WebDisable
 	RejectsOrders@deployment:
@@ -1257,7 +1215,7 @@ COLOSSI:
 CABSENTRY:
 	Inherits: ^CabalDroneInfantry
 	Inherits@1: ^CabRender
-	Inherits@1: ^6CellVision
+	Inherits@2: ^6CellVision
 	Armor@worker:
 		Type: Worker
 	-Valued:
@@ -1305,29 +1263,11 @@ CABSENTRY:
 		Condition: initializing
 	Selectable:
 		DecorationBounds: 22,32,-1,-9
-	-GrantCondition@rank-veteran:
-	-GrantCondition@rank-elite:
-	-GrantCondition@rank-heroic:
-	-DamageMultiplier@rank-veteran:
-	-DamageMultiplier@rank-elite:
-	-DamageMultiplier@rank-heroic:
-	-FirepowerMultiplier@rank-veteran:
-	-FirepowerMultiplier@rank-elite:
-	-FirepowerMultiplier@rank-heroic:
-	-ReloadDelayMultiplier@rank-veteran:
-	-ReloadDelayMultiplier@rank-elite:
-	-ReloadDelayMultiplier@rank-heroic:
-	-SpeedMultiplier@rank-heroic:
-	-ChangesHealth@rank-heroic:
-	-WithDecoration@rank-veteran:
-	-WithDecoration@rank-elite:
-	-WithDecoration@rank-heroic:
-	-GainsExperienceMultiplier@armory:
-	-GrantConditionOnPrerequisite@ArmoryBuff:
 
 CYBORG:
 	Inherits: ^Cyborg
 	Inherits@1: ^6CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -1365,6 +1305,7 @@ CBORG:
 	Inherits: ^Cyborg
 	Inherits@1: ^6CellVision
 	Inherits@2: ^CabRender
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -1442,6 +1383,7 @@ SWARMLING:
 PDRONE:
 	Inherits: ^CabalDroneInfantry
 	Inherits@1: ^8CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 100
 	Tooltip:
@@ -1515,6 +1457,7 @@ GLAD:
 	Inherits: ^Cyborg
 	Inherits@1: ^6CellVision
 	Inherits@2: ^PermanentSelfHeal
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 750
 	Tooltip:
@@ -1584,6 +1527,7 @@ MOTH:
 	Inherits@1: ^CabRender
 	Inherits@2: ^8CellVision
 	Inherits@3: ^PermanentSelfHeal
+	Inherits@GainsExperience: ^GainsExperience
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 900
@@ -1693,6 +1637,7 @@ CYC2:
 	Inherits@1: ^8CellVision
 	Inherits@2: ^PermanentSelfHeal
 	Inherits@3: ^CommandoIcon
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -1738,6 +1683,7 @@ CYC2:
 WORKER:
 	Inherits: ^Soldier
 	Inherits@1: ^6CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 100
 	Tooltip:
@@ -1771,6 +1717,7 @@ WORKER:
 CYBDOG:
 	Inherits: ^Soldier
 	Inherits@1: ^6CellVision
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 100
 	Tooltip:
@@ -1809,6 +1756,7 @@ CYBDOG:
 WORKERMECH:
 	Inherits: ^CabalDroneInfantry
 	Inherits@2: ^CabRender
+	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 100
 	Tooltip:

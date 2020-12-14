@@ -89,41 +89,9 @@ ColossiShard:
 		ExplosionPalette: apolbluealpha
 		InvalidTargets: Water
 
-ColossiTesla:
-	Inherits: ^RifleWarhead
-	ReloadDelay: 80
-	Range: 5c0
-	Projectile: TeslaZap
-		Palette: appurp
-	Warhead@1Dam: SpreadDamage
-		Damage: 20000
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath, ScrinEssenceKill
-	Warhead@op: FireShrapnel
-		Weapon: ColossiTeslaSplash
-		ImpactActors: false
-		Amount: 2
-		AimChance: 70
-		AllowDirectHit: false
-
-ColossiTeslaSplash:
-	Inherits: ColossiTesla
-	Range: 3c0
-	Projectile: TeslaZap
-		Palette: appurp
-	Warhead@1Dam: SpreadDamage
-		Damage: 1
-	-Warhead@op:
-
 ColossiBlast:
-	Inherits: ^RifleWarhead
-	ReloadDelay: 2
+	ReloadDelay: 4
 	Range: 8c0
-	Projectile: InstantExplode
-	Warhead@1Dam: SpreadDamage
-		Falloff: 100, 100, 100, 100
-		Spread: 1
-		Damage: 1
-		DamageTypes: FireDeath, ScrinEssenceKill
 	Warhead@op: FireShrapnel
 		Weapon: ColossiBlastTesla
 		ImpactActors: false
@@ -135,30 +103,13 @@ ColossiBlast:
 		Falloff: 100, 85, 60, 45, 30, 15
 		LayerName: ColossusRadiation
 
-ColossiBlastSound:
-	Inherits: ^RifleWarhead
-	ReloadDelay: 75
-	Projectile: InstantExplode
-	Report: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
-	Warhead@1Dam: SpreadDamage
-		Falloff: 100, 100, 100, 100
-		Spread: 1
-		Damage: 1
-		DamageTypes: FireDeath, ScrinEssenceKill
-
 ColossiBlastTesla:
-	Inherits: ^NoDamage
-	Inherits: ^RifleWarhead
 	ReloadDelay: 80
 	Range: 4c0
 	Projectile: TeslaZap
 		BrightZaps: 1
 		DimZaps: 1
 		Palette: appurp
-	Warhead@1Dam: SpreadDamage
-		Spread: 42
-		Damage: 1
-		DamageTypes: FireDeath
 	Warhead@op: FireShrapnel
 		Weapon: ColTeslaSparks
 		ImpactActors: false
@@ -170,10 +121,11 @@ ColossiBlastTesla:
 		InvalidTargets: Water
 
 ColTeslaSparks:
-	Inherits: ColossiTesla
+	ReloadDelay: 80
 	Range: 1c0
-	-Warhead@1Dam:
-	-Warhead@op:
+	Projectile: TeslaZap
+		DimZaps: 0
+		Palette: appurp
 
 FloatTesla:
 	Inherits: ^RifleWarhead
@@ -749,7 +701,11 @@ WasteTurretWeaponMini:
 TractorBeam:
 	Inherits: ^AntiAirTurretWeapon
 	Report: triplasor0000.wav, triplasor0001.wav, triplasor0002.wav
-	Projectile: InstantHit
+	Projectile: ArcLaserZap
+		Color: FFAAFF55
+		Width: 50
+		Duration: 15
+		ZOffset: 4000
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		ValidTargets: Air
@@ -763,13 +719,8 @@ TractorBeam:
 TractorBeam2:
 	Inherits: TractorBeam
 	-Report:
-	Projectile: ArcLaserZap
-		Color: FFAAFF55
-		Width: 50
-		Duration: 15
-		ZOffset: 4000
-	Warhead@1Dam: SpreadDamage
-		Damage: 1
+	-Warhead@1Dam: SpreadDamage
+	-Warhead@TractorStop: GrantExternalCondition
 
 DronePlane:
 	Inherits: ^BombWarhead

@@ -150,6 +150,7 @@ SeerTeslaAA:
 		ValidTargets: Air
 
 SeerTyranyInstakillSpawn:
+	ValidTargets: Ground, Water
 	Warhead@op: FireShrapnel
 		Weapon: SeerTyranyInstakill
 		ImpactActors: false
@@ -157,30 +158,19 @@ SeerTyranyInstakillSpawn:
 		AimChance: 30
 		AllowDirectHit: false
 		AimTargetStances: Ally, Neutral, Enemy
+		ValidTargets: Ground, Water
 
 SeerTyranyInstakill:
 	Inherits: SeerTesla
 	Range: 3c0
-	InvalidTargets: seer
 	Projectile: TeslaZap
 		Palette: apolbluealpha
 	Warhead@1Dam: SpreadDamage
 		Damage: 1
-
 SeerTyranyBuff:
 	ReloadDelay: 50
 	Projectile: InstantExplode
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
-		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 30
-			VehicleArmor: 2
-			DefenseArmor: 2
-			ConcreteArmor: 2
-		DamageTypes: FireDeath, ScrinEssenceKill
-		InvalidTargets: Colossi
+	ValidTargets: Ground, Water
 	Warhead@Acid: GrantExternalCondition
 		Range: 3c0
 		Duration: 375
@@ -191,18 +181,7 @@ SparkExplo:
 	ReloadDelay: 10
 	Range: 5c0
 	Projectile: InstantExplode
-	Warhead@1Dam: SpreadDamage
-		Falloff: 100, 100, 100, 100
-		Spread: 1500
-		Damage: 1
-		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 30
-			VehicleArmor: 2
-			DefenseArmor: 2
-			ConcreteArmor: 2
-		DamageTypes: FireDeath, ScrinEssenceKill
-		InvalidTargets: Colossi
+	ValidTargets: Ground, Water
 	Warhead@op: FireShrapnel
 		Weapon: SeerTeslaSpark
 		ImpactActors: false
@@ -211,6 +190,7 @@ SparkExplo:
 		ThrowWithoutTarget: false
 		AimChance: 100
 		AimTargetStances: Ally
+		ValidTargets: Ground, Water
 
 SeerTeslaSpark:
 	Inherits: SeerTesla
@@ -219,13 +199,7 @@ SeerTeslaSpark:
 	Projectile: TeslaZap
 		Palette:  apolgreenalpha
 	Warhead@1Dam: SpreadDamage
-		Damage: 1
-		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 70
-			VehicleArmor: 70
-			DefenseArmor: 70
-			ConcreteArmor: 40
+		Damage: 0
 
 KnightAcid:
 	Inherits: ^AcidWarhead
@@ -455,7 +429,7 @@ TiberianRocketClould:
 	Burst: 2
 	BurstDelays: 20
 	Warhead@5Actor: SpawnActor
-		Actors: cloud1, cloud1
+		Actors: cloud1
 		FallRate: 5000
 		Range: 3
 
@@ -554,15 +528,10 @@ SpawnEggShrapnelE:
 		ValidTargets: Infantry, Building, Vehicle, Defence, Air, Airhit
 
 EggElevator:
-	Inherits: ^NoDamage
 	ReloadDelay: 5
 	Projectile: AthenaProjectile
 		Altitude: 2560
 	InvalidTargets: Infantry, Vehicle, Building, Water, Cliff, Defence
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@op: FireShrapnel
 		Weapon: SpawnEgg
 		ImpactActors: false
@@ -571,7 +540,6 @@ EggElevator:
 		InvalidTargets: Infantry, Vehicle, Building, Wall
 
 SpawnEgg:
-	Inherits: ^FullDamage
 	ReloadDelay: 5
 	Range: 2c0
 	InvalidTargets: Infantry, Vehicle, Building, Water, Cliff
@@ -581,12 +549,6 @@ SpawnEgg:
 		Image: eggproj
 		Palette: playermut
 		Shadow: true
-	Warhead@3Dam_area: SpreadDamage
-		Spread: 1
-		Damage: 1
-		ValidStances: Enemy, Neutral
-		InvalidTargets: Water, Cliff
-		ValidTargets: Ground, Water, Air
 	Warhead@5Actor: SpawnActor
 		Actors: eggs
 		FallRate: 5000
