@@ -1,17 +1,16 @@
 Metadata:
 	Title: Shattered Paradise
-	Version: SP-Playtest-20201111
+	Version: SP-Playtest-20201214
 	Website: http://www.moddb.com/mods/shattered-paradise
 	WebIcon32: https://raw.githubusercontent.com/ABrandau/Shattered-Paradise-SDK/master/packaging/linux/mod_32x32.png
 
 PackageFormats: Mix
 
 Packages:
-	~^Content/ts
-	~^Content/ts/firestorm
-	.
-	./mods/common: common
-	./mods/as: as
+	~^SupportDir|Content/ts
+	~^SupportDir|Content/ts/firestorm
+	^EngineDir
+	^EngineDir|mods/common: common
 	$sp: sp
 	$ts: ts
 	# Tiberian Sun
@@ -106,7 +105,6 @@ Packages:
 	sp|bits/neutral/techstructures
 	sp|bits/neutral/tdstuff
 	sp|bits/neutral/props
-	sp|bits/neutral/naval
 	sp|bits/neutral/campaignstuff
 	sp|uibits
 
@@ -114,7 +112,7 @@ MapFolders:
 	sp|maps/multiplayer: System
 	sp|maps/others: System
 	sp|maps/campaign/cabal: System
-	~^maps/sp/SP-Playtest-20201021: User
+	~^SupportDir|maps/sp/SP-Playtest-20201214: User
 
 Rules:
 	sp|rules/ai.yaml
@@ -138,7 +136,6 @@ Rules:
 	sp|rules/decorations.yaml
 	sp|rules/misc.yaml
 	sp|rules/dummies.yaml
-	sp|rules/AIOnly.yaml
 
 Weapons:
 	sp|weapons/weapondefaults.yaml
@@ -194,10 +191,10 @@ Chrome:
 	sp|chrome.yaml
 
 Assemblies:
-	common|OpenRA.Mods.Common.dll
-	common|OpenRA.Mods.Cnc.dll
-	as|OpenRA.Mods.AS.dll
-	sp|OpenRA.Mods.Sp.dll
+	^BinDir|OpenRA.Mods.Common.dll
+	^BinDir|OpenRA.Mods.Cnc.dll
+	^BinDir|OpenRA.Mods.AS.dll
+	^BinDir|OpenRA.Mods.Sp.dll
 
 ChromeLayout:
 	common|chrome/ingame.yaml
@@ -367,24 +364,25 @@ ColorValidator:
 
 ModContent:
 	InstallPromptMessage: Tiberian Sun requires artwork and audio from the original game.\n\nQuick Install will automatically download this content (without music\nor videos) from a mirror of the 2012 Tiberian Sun freeware release.\n\nAdvanced Install includes options for copying the music, videos, and\nother content from an original game disc or digital installation.
+	QuickDownload: quickinstall
 	HeaderMessage: Game content may be extracted from the original game discs or an\nexisting digital install. OpenRA can also download the base game\nfiles from an online mirror of the 2012 freeware release of TS.
 	Packages:
 		tibsun: Base Game Files
-			TestFiles: ^Content/ts/cache.mix, ^Content/ts/conquer.mix, ^Content/ts/isosnow.mix, ^Content/ts/isotemp.mix, ^Content/ts/local.mix, ^Content/ts/sidec01.mix, ^Content/ts/sidec02.mix, ^Content/ts/sno.mix, ^Content/ts/snow.mix, ^Content/ts/sounds.mix, ^Content/ts/speech01.mix, ^Content/ts/tem.mix, ^Content/ts/temperat.mix
+			TestFiles: ^SupportDir|Content/ts/cache.mix, ^SupportDir|Content/ts/conquer.mix, ^SupportDir|Content/ts/isosnow.mix, ^SupportDir|Content/ts/isotemp.mix, ^SupportDir|Content/ts/local.mix, ^SupportDir|Content/ts/sidec01.mix, ^SupportDir|Content/ts/sidec02.mix, ^SupportDir|Content/ts/sno.mix, ^SupportDir|Content/ts/snow.mix, ^SupportDir|Content/ts/sounds.mix, ^SupportDir|Content/ts/speech01.mix, ^SupportDir|Content/ts/tem.mix, ^SupportDir|Content/ts/temperat.mix
 			Sources: tibsun, tibsun-linux, tfd, origin
 			Required: true
 			Download: basefiles
 		tibsun-music: Base Game Music
-			TestFiles: ^Content/ts/scores.mix
+			TestFiles: ^SupportDir|Content/ts/scores.mix
 			Sources: tibsun, tibsun-linux, tfd, origin
 		fstorm: Expansion Freeware Content
-			TestFiles: ^Content/ts/firestorm/e01sc01.mix, ^Content/ts/firestorm/e01sc02.mix, ^Content/ts/firestorm/e01vox01.mix, ^Content/ts/firestorm/e01vox02.mix
+			TestFiles: ^SupportDir|Content/ts/firestorm/e01sc01.mix, ^SupportDir|Content/ts/firestorm/e01sc02.mix, ^SupportDir|Content/ts/firestorm/e01vox01.mix, ^SupportDir|Content/ts/firestorm/e01vox02.mix
 			Sources: tfd, origin, fstorm
 			Required: true
 			Download: fstorm
 		fstorm-music: Expansion Freeware Music
 			Sources: tfd, origin, fstorm
-			TestFiles: ^Content/ts/firestorm/linkup.aud, ^Content/ts/firestorm/hacker.aud
+			TestFiles: ^SupportDir|Content/ts/firestorm/linkup.aud, ^SupportDir|Content/ts/firestorm/hacker.aud
 	Downloads:
 		ts|installer/downloads.yaml
 	Sources:

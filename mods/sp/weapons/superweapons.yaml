@@ -82,7 +82,7 @@ VeterancyWeapon:
 	Range: 999c0
 	Warhead@1Eff: Promotion
 		Range: 1c512
-		ValidStances: Ally, Neutral
+		ValidRelationships: Ally, Neutral
 
 RadarScanWeapon:
 	ReloadDelay: 6
@@ -145,7 +145,7 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 	Range: 12c0
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air, IonSpawner
 	## use mutipile Warhead with delay to increase performance
-	Warhead@op: FireShrapnel 
+	Warhead@op: FireShrapnel
 		Weapon: IonBeamCreator
 		ImpactActors: false
 		Amount: 3
@@ -454,7 +454,7 @@ NuclearMissile:
 		Amount: 150
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
-	Warhead@Shake: ScreenShaker
+	Warhead@Shake: ShakeScreen
 		Intensity: 10
 		Duration: 15
 	Warhead@8Radio: CreateTintedCells
@@ -472,7 +472,7 @@ HealerNuke:
 		Damage: -470000
 	Warhead@7Dam_areanukeb: SpreadDamage
 		Damage: -20000
-	Warhead@Shake: ScreenShaker
+	Warhead@Shake: ShakeScreen
 		Intensity: 999
 		Duration: 100
 	-Warhead@GetsOneShotedbySuperweapons:
@@ -720,7 +720,7 @@ MeteorRainNormal:
 		Amount: 3
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
-	Warhead@Shake: ScreenShaker
+	Warhead@Shake: ShakeScreen
 		Intensity: 10
 		Duration: 7
 
@@ -772,7 +772,7 @@ IronSaviorExplode:
 		SmudgeType: LargeCrater
 		InvalidTargets: Water
 		InvalidTargets: Vehicle, Building, Wall
-	Warhead@Shake: ScreenShaker
+	Warhead@Shake: ShakeScreen
 		Intensity: 10
 		Duration: 15
 	Warhead@7ClusterSmudges: LeaveSmudge
@@ -822,7 +822,7 @@ IronSaviorShrapnel:
 		SmudgeType: LargeCrater
 		InvalidTargets: Water
 		InvalidTargets: Vehicle, Building, Wall
-	Warhead@Shake: ScreenShaker
+	Warhead@Shake: ShakeScreen
 		Intensity: 4
 		Duration: 7
 	Warhead@7ClusterSmudges: LeaveSmudge

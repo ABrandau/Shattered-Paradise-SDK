@@ -119,7 +119,7 @@ ElectricTentacle:
 		Damage: 3000
 		DamageTypes: TriggerProne, EnergyDeath
 		ValidTargets: Ground, Water, Vehicle, Infantry, Building
-		ValidStances: Enemy, Neutral
+		ValidRelationships: Enemy, Neutral
 	Warhead@emp1: GrantExternalCondition
 		Range: 2c0
 		Duration: 35
@@ -131,7 +131,7 @@ ElectricTentacle:
 		Amount: 4
 		AllowDirectHit: false
 
-JellyBlastTesla
+JellyBlastTesla:
 	ReloadDelay: 80
 	Range: 2c01
 	MinRange: 2c0
@@ -248,7 +248,7 @@ SonicEmitterHit:
 			DefenseArmor: 50
 			AircraftArmor: 100
 			ConcreteArmor: 30
-		ValidStances: Enemy, Neutral, Ally
+		ValidRelationships: Enemy, Neutral, Ally
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 	Warhead@2Eff: CreateEffect
@@ -297,7 +297,7 @@ ServDepoShrapnel:
 		Range: 200
 		Duration: 50
 		Condition: DisplayWrench
-		ValidStances: Ally
+		ValidRelationships: Ally
 
 LTrail:
 	ReloadDelay: 60
@@ -317,7 +317,7 @@ LTrail:
 		Falloff: 100, 100
 		Damage: 15000
 		AffectsParent: false
-		ValidStances: Neutral, Enemy
+		ValidRelationships: Neutral, Enemy
 		Versus:
 			InfantryArmor: 100
 			BuildingArmor: 130
@@ -330,7 +330,7 @@ LTrail:
 		Falloff: 50, 50
 		Damage: 15000
 		AffectsParent: false
-		ValidStances: Ally
+		ValidRelationships: Ally
 		Versus:
 			InfantryArmor: 100
 			BuildingArmor: 130

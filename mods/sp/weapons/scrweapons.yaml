@@ -19,7 +19,7 @@ SharkJump:
 		Spread: 0c030
 		DamageTypes: BulletDeath, ScrinEssenceKill
 		InvalidTargets: Building, Vehicle
-		ValidStances: Enemy, Neutral
+		ValidRelationships: Enemy, Neutral
 
 LegioNeedler:
 	Inherits: ^RocketWarhead
@@ -47,7 +47,7 @@ LegioNeedler:
 		Damage: 3000
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
 		InvalidTargets: Building, Vehicle, Air
-		ValidStances: Enemy, Neutral
+		ValidRelationships: Enemy, Neutral
 		ValidTargets: Shark
 
 LegioNeedlerAA:
@@ -236,7 +236,7 @@ ScorpAcid:
 			BuildingArmor: 75
 		ValidTargets: Shark
 		InvalidTargets: Building, Vehicle
-		ValidStances: Enemy, Neutral
+		ValidRelationships: Enemy, Neutral
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
@@ -330,7 +330,7 @@ ScrMbtLasor:
 			InfantryArmor: 45
 		DamageTypes: Prone60Percent, TriggerProne, FireDeath, ScrinEssenceKill
 		InvalidTargets: Building, Vehicle
-		ValidStances: Enemy, Neutral
+		ValidRelationships: Enemy, Neutral
 	Warhead@2Eff: CreateEffect
 		-ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
 
@@ -430,7 +430,7 @@ StormRiderBlast:
 		Damage: 4500
 		ValidTargets: Shark
 		InvalidTargets: Building, Vehicle, Air
-		ValidStances: Enemy, Neutral
+		ValidRelationships: Enemy, Neutral
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 		Versus:
 			InfantryArmor: 50
@@ -654,11 +654,11 @@ WasteTurretWeapon:
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		ValidTargets: Shark
 		InvalidTargets: Building, Structure, Infantry, Vehicle, Ground
-		ValidStances: Enemy, Neutral
+		ValidRelationships: Enemy, Neutral
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
-		InvalidTargets:: Water
+		InvalidTargets: : Water
 	Warhead@3Radio: CreateTintedCells
 		Spread: 512
 		Level: 24
@@ -752,7 +752,7 @@ DronePlane:
 		Explosions: viscexplo
 		ExplosionPalette: effect
 		ImpactSounds: expnew14.aud
-		InvalidTargets:: Water
+		InvalidTargets: : Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: viscexplo
 		ExplosionPalette: effect

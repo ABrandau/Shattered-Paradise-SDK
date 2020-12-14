@@ -137,6 +137,9 @@ function Check-Command
 
 	if ((CheckForUtility) -eq 0)
 	{
+		Write-Host "Checking runtime assemblies..." -ForegroundColor Cyan
+		Invoke-Expression "$utilityPath $modID --check-runtime-assemblies $(WHITELISTED_OPENRA_ASSEMBLIES) $(WHITELISTED_THIRDPARTY_ASSEMBLIES) $(WHITELISTED_CORE_ASSEMBLIES) $(WHITELISTED_MOD_ASSEMBLIES)"
+
 		Write-Host "Checking for explicit interface violations..." -ForegroundColor Cyan
 		Invoke-Expression "$utilityPath $modID --check-explicit-interfaces"
 
@@ -223,7 +226,9 @@ function ReadConfigLine($line, $name)
 function ParseConfigFile($fileName)
 {
 	$names = @("MOD_ID", "ENGINE_VERSION", "AUTOMATIC_ENGINE_MANAGEMENT", "AUTOMATIC_ENGINE_SOURCE",
-		"AUTOMATIC_ENGINE_EXTRACT_DIRECTORY", "AUTOMATIC_ENGINE_TEMP_ARCHIVE_NAME", "ENGINE_DIRECTORY")
+		"AUTOMATIC_ENGINE_EXTRACT_DIRECTORY", "AUTOMATIC_ENGINE_TEMP_ARCHIVE_NAME", "ENGINE_DIRECTORY",
+		"WHITELISTED_OPENRA_ASSEMBLIES", "WHITELISTED_THIRDPARTY_ASSEMBLIES", "WHITELISTED_CORE_ASSEMBLIES",
+		"WHITELISTED_MOD_ASSEMBLIES")
 
 	$reader = [System.IO.File]::OpenText($fileName)
 	while($null -ne ($line = $reader.ReadLine()))
@@ -301,8 +306,8 @@ $modID = $env:MOD_ID
 
 $env:MOD_SEARCH_PATHS = (Get-Item -Path ".\" -Verbose).FullName + "\mods,./mods"
 
-# Run the same command on the engine's make file
-if ($command -eq "all" -or $command -eq "clean")
+# Fetch the engine if required
+if ($command -eq "all" -or $command -eq "clean" -or $command -eq "check")
 {
 	$templateDir = $pwd.Path
 	$versionFile = $env:ENGINE_DIRECTORY + "/VERSION"
@@ -372,7 +377,16 @@ if ($command -eq "all" -or $command -eq "clean")
 		Rename-Item $extractedDir.Name (Split-Path -leaf $env:ENGINE_DIRECTORY)
 
 		rm $env:AUTOMATIC_ENGINE_EXTRACT_DIRECTORY -r
+	}
+}
 
+
+
+# Run the same command on the engine's make file
+if ($command -eq "all" -or $command -eq "clean")
+{
+	if (Test-Path $env:ENGINE_DIRECTORY)
+	{
 		cd $env:ENGINE_DIRECTORY
 		Invoke-Expression ".\make.cmd version $env:ENGINE_VERSION"
 		Invoke-Expression ".\make.cmd $command"

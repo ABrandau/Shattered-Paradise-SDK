@@ -11,7 +11,6 @@ Player:
 	ModularBot@ShatteredAI:
 		Name: Shattered AI
 		Type: ShatteredAI
-
 	### Condition Defination
 	GrantConditionOnBotOwner@AIEasy:
 		Condition: AIEasy
@@ -28,16 +27,13 @@ Player:
 	GrantConditionOnBotOwner@AIShattered:
 		Condition: AIShattered
 		Bots: ShatteredAI
-
 	### BotModule and BotLogic
-
 	## Drop "HarvesterBotModule" due to it is senseless when we now use Building as cash cheat,
 	##  and sub base is impossible for OpenRA at present. Also this module is heavily performance questionable
 	#HarvesterBotModule: 
 	#	RequiresCondition: AIBase
 	#	HarvesterTypes: harv, scrharv
 	#	RefineryTypes: gdiref, nodref, scrproc, cabproc, muproc
-
 	ProvidesPrerequisite@AISpecialProduce:
 		RequiresCondition: AICheater || AIShattered
 		Prerequisite: AIOnly
@@ -535,7 +531,6 @@ Player:
 			rocketbggy: 3500
 			grenadier: 4000
 			medic: 4000
-
 	## Mcv Manager also control some tech vehicle's depoyment
 	McvManagerBotModule@AINormal:
 		RequiresCondition: AINormal || AIEasy

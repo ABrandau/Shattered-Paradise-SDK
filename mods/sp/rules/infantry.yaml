@@ -102,8 +102,8 @@ MEDIC:
 		Weapon: Heal
 		Cursor: heal
 		OutsideRangeCursor: heal
-		TargetStances: Ally
-		ForceTargetStances: None
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
 		PauseOnCondition: WebDisable
 	AttackFrontal:
 		FacingTolerance: 2
@@ -694,7 +694,7 @@ MUTFIEND:
 			MilitantFireDeath: 1, 2
 	WithInfantryBody:
 		IdleSequences: idle1
- 	WithDeathAnimation@blood1:
+	WithDeathAnimation@blood1:
 		DeathSequencePalette: jasccyan
 		CrushedSequencePalette: jasccyan
 	WithDeathAnimation@body:
@@ -1063,14 +1063,14 @@ FLOAT:
 		LocalOffset: 0,0,500
 		FireDelay: 10
 		PauseOnCondition: WebDisable
-		ForceTargetStances: Enemy
+		ForceTargetRelationships: Enemy
 		Name: OnFoot
 	Armament@2:
 		Weapon: GFloatTesla
 		LocalOffset: 0,0,500
 		FireDelay: 10
 		PauseOnCondition: WebDisable
-		ForceTargetStances: Enemy
+		ForceTargetRelationships: Enemy
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -1378,7 +1378,7 @@ SWARMLING:
 	-SpawnActorOnDeath@FLAMEGUY:
 	-SpawnActorOnDeath@FLAMEGUY2:
 	-SpawnActorOnDeath@conversion:
- 	-WithDeathAnimation@blood1:
+	-WithDeathAnimation@blood1:
 
 PDRONE:
 	Inherits: ^CabalDroneInfantry

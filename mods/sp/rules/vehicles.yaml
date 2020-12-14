@@ -610,16 +610,16 @@ BGGY:
 		RequiresCondition: ifv.medic
 		Cursor: heal
 		OutsideRangeCursor: heal
-		TargetStances: Ally
-		ForceTargetStances: None
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
 	Armament@engineer:
 		Weapon: BuggyRepair
 		LocalOffset: 250,0,125
 		RequiresCondition: ifv.engineer
 		Cursor: repair
 		OutsideRangeCursor: repair
-		TargetStances: Ally
-		ForceTargetStances: None
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
 	Armament@eagleguard:
 		Weapon: TrooperRail
 		LocalOffset: 250,0,125
@@ -1064,7 +1064,7 @@ BIKE:
 		Sequence: idle
 		Position: BottomLeft
 		Palette: mouse
-		ValidStances: Ally, Enemy, Neutral
+		ValidRelationships: Ally, Enemy, Neutral
 	AutoTarget:
 		ScanRadius: 8
 		InitialStance: HoldFire
@@ -1650,7 +1650,7 @@ HVRTRUK3:
 		Sequence: idle
 		Position: BottomLeft
 		Palette: mouse
-		ValidStances: Ally, Enemy, Neutral
+		ValidRelationships: Ally, Enemy, Neutral
 	AutoTarget:
 		ScanRadius: 8
 		InitialStance: HoldFire
@@ -1807,7 +1807,7 @@ SCRRECHARGER:
 	-Armor@Shield:
 	Armament:
 		Weapon: VanguardShrapnel
-		TargetStances: Ally
+		TargetRelationships: Ally
 	ProximityExternalCondition@VanguardShield:
 		RequiresCondition: !empdisable
 		Condition: VanguardShield
@@ -2149,8 +2149,8 @@ REPAIRVEHICLE:
 		Weapon: RepairVehicleLasor
 		Cursor: repair
 		OutsideRangeCursor: repair
-		TargetStances: Ally
-		ForceTargetStances: None
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
 		PauseOnCondition: empdisable
 		LocalOffset: 200,0,950
 	AttackFrontal:
@@ -2220,7 +2220,7 @@ ECM:
 		DeployTicks: 500
 	ReloadAmmoPool@AIAmmoCheat:
 		AmmoPool: primary
-		RequiresCondition: AImicroManage 
+		RequiresCondition: AImicroManage
 		Count: 10
 		Delay: 2000
 
@@ -2442,8 +2442,8 @@ REPAIR:
 		Weapon: RepairVehicleRep
 		Cursor: repair
 		OutsideRangeCursor: repair
-		TargetStances: Ally
-		ForceTargetStances: None
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
 	AttackFrontal:
 		Voice: Attack
 

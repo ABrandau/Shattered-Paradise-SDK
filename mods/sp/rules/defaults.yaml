@@ -253,7 +253,7 @@
 	CaptureManager:
 	Capturable:
 		Types: TechBuilding
-		ValidStances: Neutral
+		ValidRelationships: Neutral
 	CapturableProgressBar:
 	CapturableProgressBlink:
 
@@ -261,7 +261,7 @@
 	CaptureManager:
 	Capturable:
 		Types: Drone
-		ValidStances: Neutral
+		ValidRelationships: Neutral
 	CapturableProgressBar:
 	CapturableProgressBlink:
 
@@ -352,21 +352,21 @@
 		Palette: pips
 		Position: BottomRight
 		RequiresCondition: rank-veteran
-		ValidStances: Ally, Enemy, Neutral
+		ValidRelationships: Ally, Enemy, Neutral
 	WithDecoration@rank-elite:
 		Image: rank
 		Sequence: rank-elite
 		Palette: pips
 		Position: BottomRight
 		RequiresCondition: rank-elite
-		ValidStances: Ally, Enemy, Neutral
+		ValidRelationships: Ally, Enemy, Neutral
 	WithDecoration@rank-heroic:
 		Image: rank
 		Sequence: rank-heroic
 		Palette: pips
 		Position: BottomRight
 		RequiresCondition: rank-heroic
-		ValidStances: Ally, Enemy, Neutral
+		ValidRelationships: Ally, Enemy, Neutral
 	GainsExperienceMultiplier@armory:
 		Modifier: 150
 		RequiresCondition: ArmoryBuff
@@ -389,7 +389,7 @@
 		Sequence: idle
 		Position: BottomLeft
 		Palette: mouse
-		ValidStances: Enemy, Neutral, Ally
+		ValidRelationships: Enemy, Neutral, Ally
 		RequiresCondition: TyrannyBuff
 	ExternalCondition@TyrannyBuff:
 		Condition: TyrannyBuff
@@ -399,7 +399,7 @@
 		Image: skullicon
 		Sequence: idle
 		Palette: mouse
-		ValidStances: Enemy, Neutral, Ally
+		ValidRelationships: Enemy, Neutral, Ally
 
 ^WolfDebuff:
 	WithIdleOverlay@WolfDebuff:
@@ -418,7 +418,7 @@
 		Sequence: idle
 		Position: BottomLeft
 		Palette: apgrey
-		ValidStances: Ally, Enemy
+		ValidRelationships: Ally, Enemy
 		RequiresCondition: DisplayWrench
 	ExternalCondition@DisplayWrench:
 		Condition: DisplayWrench
@@ -434,7 +434,7 @@
 		Sequence: idle
 		Position: BottomLeft
 		Palette: mouse
-		ValidStances: Ally, Enemy
+		ValidRelationships: Ally, Enemy
 		RequiresCondition: FirestormWallCondition
 
 ^MindControllable:
@@ -468,7 +468,7 @@
 ^SuperWeapon:
 	Inherits@3: ^DisableOnLowPowerOrPowerDown
 	RevealsShroud@revealhimself:
-		ValidStances: Neutral, Enemy
+		ValidRelationships: Neutral, Enemy
 		MaxHeightDelta: 3
 		Range: 2c0
 	Power:
@@ -477,7 +477,7 @@
 	VoiceAnnouncement:
 		Voice: Build
 		PlayToOwner: false
-		ValidStances: Neutral, Enemy
+		ValidRelationships: Neutral, Enemy
 	Voiced:
 		VoiceSet: SWVoice
 		Volume: 15
@@ -548,7 +548,7 @@
 		Sequence: idle
 		Position: BottomLeft
 		Palette: mouse
-		ValidStances: Ally, Enemy
+		ValidRelationships: Ally, Enemy
 		RequiresCondition: hospitalheal
 	ExternalCondition@hospitalheal:
 		Condition: hospitalheal
@@ -565,7 +565,7 @@
 		Sequence: idle
 		Position: BottomLeft
 		Palette: mouse
-		ValidStances: Ally, Enemy
+		ValidRelationships: Ally, Enemy
 		RequiresCondition: BarracksHeal
 	ExternalCondition@BarracksHeal:
 		Condition: BarracksHeal
@@ -584,7 +584,7 @@
 		Image: wrenchicon
 		Sequence: idle
 		Position: BottomLeft
-		ValidStances: Ally, Enemy
+		ValidRelationships: Ally, Enemy
 		Palette: player
 		RequiresCondition: MachineShopHeal
 
@@ -1503,7 +1503,7 @@
 		Sequence: idle
 		Position: BottomRight
 		Palette: mouse
-		ValidStances: Ally, Neutral
+		ValidRelationships: Ally, Neutral
 	WithDeathAnimation@body:
 		DeathSequencePalette: jasccyan
 		DeathPaletteIsPlayerPalette: false
