@@ -377,7 +377,9 @@ CABALVehicleAttack = function()
 				end)
 			end)
 			Trigger.AfterDelay(DateTime.Seconds(22), function()
-				demo.Kill()
+				if not demo.IsDead then
+					demo.Kill()
+				end
 			end)
 
 			Trigger.OnAllRemovedFromWorld(actors, function()
