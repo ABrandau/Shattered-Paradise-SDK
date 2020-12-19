@@ -76,7 +76,6 @@ JJBuff:
 Heal:
 	ReloadDelay: 80
 	Range: 4c0
-	Report: healer1.aud
 	ValidTargets: Infantry, Jumpjet, OrganicVehicle
 	InvalidTargets: FullHealth
 	TargetActorCenter: true
@@ -91,6 +90,11 @@ Heal:
 		ValidTargets: Infantry, Jumpjet, OrganicVehicle
 		InvalidTargets: FullHealth
 		AffectsParent: false
+	Warhead@2Eff: CreateEffect
+		ValidTargets: Ground, Water, Air
+		ImpactSounds: healer1.aud
+		ImpactActors: false
+		Volume: 0.8
 
 TrooperRail:
 	Inherits: ^APWarhead
