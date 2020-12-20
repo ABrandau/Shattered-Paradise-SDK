@@ -315,7 +315,6 @@ RepairVehicleRep:
 RepairVehicleLasor:
 	ReloadDelay: 80
 	Range: 4c0
-	Report: repair11.aud
 	TargetActorCenter: true
 	AffectsParent: false
 	InvalidTargets: FullHealth, NoRepair
@@ -344,6 +343,11 @@ RepairVehicleLasor:
 		ValidTargets: Vehicle
 		InvalidTargets: FullHealth, NoRepair
 		ImpactActors: true
+	Warhead@2Eff: CreateEffect
+		ValidTargets: Ground, Water, Air
+		ImpactSounds: repair11.aud
+		ImpactActors: false
+		Volume: 0.8
 
 MarnFlash6:
 	Range: 0c1
