@@ -271,7 +271,7 @@ SONIC:
 	Inherits@1: ^6CellVision
 	Inherits@GainsExperience: ^GainsExperience
 	Valued:
-		Cost: 1200
+		Cost: 1300
 	Tooltip:
 		Name: Disruptor
 	UpdatesPlayerStatistics:
@@ -279,7 +279,7 @@ SONIC:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Armored high-tech vehicle with sonic armament.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Deals damage over time to any unit in line of fire\n- Can crush infantry.\n- Does not automatically fire while moving.
+		Description: Armored high-tech vehicle with sonic armament.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Deals heavy damage over time to any unit in the line of fire\n- Can crush infantry
 		BuildPaletteOrder: 7
 		Prerequisites: ~gaweap, gatech
 	Mobile:
@@ -297,11 +297,10 @@ SONIC:
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
-		OpportunityFire: false
 	Targetable@AllySonicImmune:
 		TargetTypes: AllySonicImmune
 	Turreted:
-		TurnSpeed: 12
+		TurnSpeed: 16
 		Offset: -500,0,0
 	AutoTarget:
 		ScanRadius: 7
