@@ -377,20 +377,18 @@ MammothTuskAA:
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 
-MechRailgun:
-	Inherits: ^APWarhead
+MechRailgun: ##For hit effect
+	Inherits: ^Large_Clsn
 	ReloadDelay: 100
 	Range: 7c0
 	Burst: 2
 	BurstDelays: 10
 	Report: railuse5.aud
 	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Spread: 42
-		Damage: 1
-		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
+	-Warhead@2Eff: CreateEffect
 
 MechRailgun2:
+	Inherits:  ^WeaponGenericUpgrades
 	ReloadDelay: 100
 	Range: 7c0
 	Burst: 2
