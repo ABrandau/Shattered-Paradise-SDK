@@ -75,6 +75,7 @@ GRENADIER:
 MEDIC:
 	Inherits@1: ^Soldier
 	Inherits@2: ^5CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 200
 	Tooltip:
@@ -109,6 +110,8 @@ MEDIC:
 		FacingTolerance: 2
 	Passenger:
 		CustomPipType: red
+	DamagedByTerrain:
+		RequiresCondition: !AImicroManage
 
 JUMPJET:
 	Inherits: ^Soldier
