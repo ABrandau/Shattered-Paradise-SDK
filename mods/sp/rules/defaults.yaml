@@ -774,12 +774,17 @@
 	DamageMultiplier@Unkillable:
 		Modifier: 0
 
-^SpawnSmoke:
-	GrantConditionOnDamageState@smoke:
-		Condition: smoketrail
+^HeavyDamagedEffect:
+	GrantConditionOnDamageState@HeavyDamaged:
+		Condition: HeavyDamaged
 		ValidDamageStates: Critical, Heavy
+	ExternalCondition@DisableHeavyDamagedEffect:
+		Condition: DisableHeavyDamagedEffect
+
+^SpawnSmoke:
+	Inherits: ^HeavyDamagedEffect
 	SmokeParticleEmitter:
-		RequiresCondition: smoketrail && !DisableSmoke
+		RequiresCondition: HeavyDamaged && !DisableHeavyDamagedEffect
 		Sequences: idle
 		SpawnFrequency: 6, 12
 		Speed: 6
@@ -789,35 +794,19 @@
 		Palette: effectalpha50
 		Duration: 75
 		RandomFacing: True
-	ExternalCondition@smoketrail:
-		Condition: smoketrail
-	ExternalCondition@DisableSmoke:
-		Condition: DisableSmoke
 
 ^SpawnSpark:
-	GrantConditionOnDamageState@spawnsparks:
-		Condition: spawnsparks
-		ValidDamageStates: Critical, Heavy
+	Inherits: ^HeavyDamagedEffect
 	ExplodeWeapon@spawnsparks:
-		RequiresCondition: spawnsparks && !DisableSparks
+		RequiresCondition: HeavyDamaged && !DisableHeavyDamagedEffect
 		Weapon: SparkSpawner
-	ExternalCondition@spawnsparks:
-		Condition: spawnsparks
-	ExternalCondition@DisableSparks:
-		Condition: DisableSparks
 
 ^SpawnFire:
-	GrantConditionOnDamageState@SpawnFire:
-		Condition: SpawnFire
-		ValidDamageStates: Critical, Heavy
+	Inherits: ^HeavyDamagedEffect
 	ExplodeWeapon@SpawnFire:
-		RequiresCondition: SpawnFire && !DisableSpawnFire
+		RequiresCondition: HeavyDamaged && !DisableHeavyDamagedEffect
 		Weapon: BuildingCriticalDamageFireSpawner
 		ResetReloadWhenEnabled: false
-	ExternalCondition@SpawnFire:
-		Condition: SpawnFire
-	ExternalCondition@DisableSpawnFire:
-		Condition: DisableSpawnFire
 
 ^DamagedByTintedCells: #Damage = DamageCoeff * RadioactivityLevel / MaxLevel
 	DamagedByTintedCells@Default:
@@ -978,14 +967,8 @@
 	Inherits@1: ^EmpDisable
 	Inherits@2: ^SpawnSmoke
 	Inherits@3: ^SpawnSpark
-	GrantCondition@CloakDisableSparks:
-		Condition: DisableSparks
-		RequiresCondition: cloakgenerator
-	GrantCondition@CloakDisableSmoke:
-		Condition: DisableSmoke
-		RequiresCondition: cloakgenerator
-	GrantCondition@DisableSpawnFire:
-		Condition: DisableSpawnFire
+	GrantCondition@DisableHeavyDamagedEffect:
+		Condition: DisableHeavyDamagedEffect
 		RequiresCondition: cloakgenerator
 
 ^InfantryEffects:
@@ -1006,7 +989,7 @@
 	Inherits@14: ^RavagerSlowdown
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
-	GrantCondition@DisableSpawnFire:
+	GrantCondition@DisableRepairInTunnel:
 		Condition: DisableFullHealthRepairCondition
 		RequiresCondition: inside-tunnel
 	DeliversCash:
@@ -1033,19 +1016,10 @@
 	Inherits@17: ^RavagerSlowdown
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
-	GrantCondition@CloakDisableSmoke:
-		Condition: DisableSmoke
-		RequiresCondition: cloakgenerator
-	GrantCondition@CloakDisableSparks:
-		Condition: DisableSparks
-		RequiresCondition: cloakgenerator
-	GrantCondition@TunnelDisableSmoke:
-		Condition: DisableSmoke
-		RequiresCondition: inside-tunnel
-	GrantCondition@TunnelDisableSparks:
-		Condition: DisableSparks
-		RequiresCondition: inside-tunnel
-	GrantCondition@DisableSpawnFire:
+	GrantCondition@DisableHeavyDamagedEffect:
+		Condition: DisableHeavyDamagedEffect
+		RequiresCondition: inside-tunnel || cloakgenerator
+	GrantCondition@DisableRepairInTunnel:
 		Condition: DisableFullHealthRepairCondition
 		RequiresCondition: inside-tunnel
 	DeliversCash:
@@ -1059,11 +1033,8 @@
 	#Inherits@4: ^GetsOneShotedbySuperweapons #deprecated, but may be useful later
 	Inherits@5: ^MindControllable
 	Inherits@6: ^FullHealthRepairCondition
-	GrantCondition@CloakDisableSmoke:
-		Condition: DisableSmoke
-		RequiresCondition: cloakgenerator
-	GrantCondition@CloakDisableSparks:
-		Condition: DisableSparks
+	GrantCondition@DisableHeavyDamagedEffect:
+		Condition: DisableHeavyDamagedEffect
 		RequiresCondition: cloakgenerator
 
 ^ProducesStuff:
@@ -1816,9 +1787,7 @@
 		RequiresCondition: !inside-tunnel && !submerged
 	Targetable:
 		RequiresCondition: !inside-tunnel && !submerged
-	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 	AnnounceOnSeen@subterranean:
 		Notification: SubterraneanUnitDetected
 		PingRadar: true
@@ -2237,10 +2206,7 @@
 		Palette: terraindecoration
 	MapEditorData:
 		Categories: Civilian Structure
-	-GrantConditionOnDamageState@SpawnFire:
 	-ExplodeWeapon@SpawnFire:
-	-ExternalCondition@SpawnFire:
-	-ExternalCondition@DisableSpawnFire:
 	RadarColorFromTerrain:
 		Terrain: CivilianBuilding
 	Interactable:

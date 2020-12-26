@@ -468,6 +468,8 @@ CERBERUS:
 		FacingTolerance: 10
 		Voice: Attack
 	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@CLOAKGENERATOR:
+	-ExternalCondition@crate-cloak:
 	WithRangeCircle:
 		Range: 4c0
 		Type: cloakgenerator
@@ -719,12 +721,11 @@ MUTQUEEN:
 		FacingTolerance: 20
 	Armament@1:
 		Weapon: QueenShard
-	-GrantConditionOnDamageState@spawnsparks:
+	-GrantConditionOnDamageState@HeavyDamaged:
 	-ExplodeWeapon@spawnsparks:
-	-ExternalCondition@spawnsparks:
-	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
+	-ExternalCondition@DisableHeavyDamagedEffect:
+	-GrantCondition@DisableHeavyDamagedEffect:
 	-Explodes@Shrapnel:
 	Explodes:
 		Weapon: QueenExplode
@@ -1127,13 +1128,14 @@ STORMRIDERSPAWN:
 	-UpdatesPlayerStatistics:
 	-ActorLostNotification:
 	-AppearsOnRadar:
-	-SmokeParticleEmitter:
-	-GrantConditionOnDamageState@spawnsparks:
-	-ExplodeWeapon@spawnsparks:
-	-ExternalCondition@spawnsparks:
 	-Selectable:
 	-SelectionDecorations:
 	-Explodes@Shrapnel:
+	-GrantConditionOnDamageState@HeavyDamaged:
+	-ExplodeWeapon@spawnsparks:
+	-SmokeParticleEmitter:
+	-ExternalCondition@DisableHeavyDamagedEffect:
+	-GrantCondition@DisableHeavyDamagedEffect:
 
 CABDRONEJET:
 	Inherits: STORMRIDERSPAWN

@@ -227,12 +227,11 @@ JUMPJETAIR:
 		AttackType: Hover
 	GrantConditionOnAttack:
 		Condition: JJBuff
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
-	-GrantConditionOnDamageState@spawnsparks:
+	-GrantConditionOnDamageState@HeavyDamaged:
 	-ExplodeWeapon@spawnsparks:
-	-ExternalCondition@spawnsparks:
+	-SmokeParticleEmitter:
+	-ExternalCondition@DisableHeavyDamagedEffect:
+	-GrantCondition@DisableHeavyDamagedEffect:
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 
