@@ -114,14 +114,16 @@ TrooperRail:
 		Versus:
 			InfantryArmor: 50
 			ConcreteArmor: 5
-	Warhead@1: GrantExternalCondition
-		Range: 0c768
-		Duration: 30
-		Condition: notmobile
 	Warhead@2: GrantExternalCondition
 		Range: 0c768
 		Duration: 30
 		Condition: empdisable
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_watersplash
+		ImpactSounds: ssplash1.aud, ssplash2.aud, ssplash3.aud
+		ExplosionPalette: player
+		ValidTargets: Water
+		ImpactActors: false
 
 WolverineVulcan:
 	Inherits: ^RifleWarhead

@@ -651,9 +651,6 @@
 	TimedConditionBar@EMPDISABLE:
 		Condition: empdisable
 		Color: FFFFFF
-	SpeedMultiplier@WebDisable:
-		RequiresCondition: empdisable
-		Modifier: 0
 	WithIdleOverlay@EMPDISABLE:
 		Sequence: emp-overlay
 		Palette: effect
@@ -665,11 +662,7 @@
 ^EmpDisableMobile:
 	Inherits: ^EmpDisable
 	Mobile:
-		PauseOnCondition: notmobile
-	ExternalCondition@empdisable:
-		Condition: empdisable
-	ExternalCondition@notmobile:
-		Condition: notmobile
+		PauseOnCondition: empdisable
 
 ^DisableOnLowPower:
 	WithColoredOverlay@IDISABLE:
@@ -709,9 +702,6 @@
 	TimedConditionBar@WebDisable:
 		Condition: WebDisable
 		Color: FFFFFF
-	SpeedMultiplier@WebDisable:
-		RequiresCondition: WebDisable
-		Modifier: 0
 	Mobile:
 		PauseOnCondition: WebDisable
 	WithInfantryBody:
@@ -1326,7 +1316,6 @@
 		Weight: 3
 	-WithColoredOverlay@WebDisable:
 	-TimedConditionBar@WebDisable:
-	-SpeedMultiplier@WebDisable:
 	WithInfantryBody:
 		IdleSequences: idle2, idle3
 		-RequiresCondition: !WebDisable
