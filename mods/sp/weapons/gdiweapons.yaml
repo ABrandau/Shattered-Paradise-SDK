@@ -114,14 +114,16 @@ TrooperRail:
 		Versus:
 			InfantryArmor: 50
 			ConcreteArmor: 5
-	Warhead@1: GrantExternalCondition
-		Range: 0c768
-		Duration: 30
-		Condition: notmobile
 	Warhead@2: GrantExternalCondition
 		Range: 0c768
 		Duration: 30
 		Condition: empdisable
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_watersplash
+		ImpactSounds: ssplash1.aud, ssplash2.aud, ssplash3.aud
+		ExplosionPalette: player
+		ValidTargets: Water
+		ImpactActors: false
 
 WolverineVulcan:
 	Inherits: ^RifleWarhead
@@ -321,7 +323,7 @@ SonicZap:
 
 4TNKGUN:
 	Inherits: ^APWarhead
-	Inherits@2: ^Large_Clsn
+	Inherits@2: ^Mediuml_Clsn
 	ReloadDelay: 90
 	Range: 6c0
 	Report: tankmediumfire.wav
@@ -377,20 +379,18 @@ MammothTuskAA:
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 
-MechRailgun:
-	Inherits: ^APWarhead
+MechRailgun: ##For hit effect
+	Inherits: ^Large_Clsn
 	ReloadDelay: 100
 	Range: 7c0
 	Burst: 2
 	BurstDelays: 10
 	Report: railuse5.aud
 	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Spread: 42
-		Damage: 1
-		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
+	-Warhead@2Eff: CreateEffect
 
 MechRailgun2:
+	Inherits:  ^WeaponGenericUpgrades
 	ReloadDelay: 100
 	Range: 7c0
 	Burst: 2

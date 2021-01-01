@@ -75,6 +75,7 @@ GRENADIER:
 MEDIC:
 	Inherits@1: ^Soldier
 	Inherits@2: ^5CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 200
 	Tooltip:
@@ -109,6 +110,8 @@ MEDIC:
 		FacingTolerance: 2
 	Passenger:
 		CustomPipType: red
+	DamagedByTerrain:
+		RequiresCondition: !AImicroManage
 
 JUMPJET:
 	Inherits: ^Soldier
@@ -227,12 +230,11 @@ JUMPJETAIR:
 		AttackType: Hover
 	GrantConditionOnAttack:
 		Condition: JJBuff
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
-	-GrantConditionOnDamageState@spawnsparks:
+	-GrantConditionOnDamageState@HeavyDamaged:
 	-ExplodeWeapon@spawnsparks:
-	-ExternalCondition@spawnsparks:
+	-SmokeParticleEmitter:
+	-ExternalCondition@DisableHeavyDamagedEffect:
+	-GrantCondition@DisableHeavyDamagedEffect:
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 

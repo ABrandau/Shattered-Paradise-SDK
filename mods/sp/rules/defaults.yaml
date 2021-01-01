@@ -458,7 +458,7 @@
 		ReturnToOrigin: false
 		ChronoshiftSound: instantrift.wav
 
-^KillSelf:
+^KillSelf: ##Unused for now
 	KillsSelf:
 		RequiresCondition: KillSelf
 		DamageTypes: FireDeath
@@ -651,9 +651,6 @@
 	TimedConditionBar@EMPDISABLE:
 		Condition: empdisable
 		Color: FFFFFF
-	SpeedMultiplier@WebDisable:
-		RequiresCondition: empdisable
-		Modifier: 0
 	WithIdleOverlay@EMPDISABLE:
 		Sequence: emp-overlay
 		Palette: effect
@@ -665,11 +662,7 @@
 ^EmpDisableMobile:
 	Inherits: ^EmpDisable
 	Mobile:
-		PauseOnCondition: notmobile
-	ExternalCondition@empdisable:
-		Condition: empdisable
-	ExternalCondition@notmobile:
-		Condition: notmobile
+		PauseOnCondition: empdisable
 
 ^DisableOnLowPower:
 	WithColoredOverlay@IDISABLE:
@@ -709,9 +702,6 @@
 	TimedConditionBar@WebDisable:
 		Condition: WebDisable
 		Color: FFFFFF
-	SpeedMultiplier@WebDisable:
-		RequiresCondition: WebDisable
-		Modifier: 0
 	Mobile:
 		PauseOnCondition: WebDisable
 	WithInfantryBody:
@@ -750,7 +740,7 @@
 		Sequence: shield
 		IsPlayerPalette: true
 		Palette: cloakscrinshield
-		RequiresCondition: VanguardShield && BreakShield <= 4
+		RequiresCondition: VanguardShield && BreakShield < 4
 	ExternalCondition@VanguardShield:
 		Condition: VanguardShield
 	ExternalCondition@BreakShield:
@@ -762,24 +752,21 @@
 		RequiresCondition: VanguardShield && BreakShield <= 4
 		Type: Shield
 
-## Deprecated
-^GetsOneShotedbySuperweapons:
-	KillsSelf@GetsOneShotedbySuperweapons:
-		RequiresCondition: GetsOneShotedbySuperweapons
-		DamageTypes: FireDeath
-	ExternalCondition@GetsOneShotedbySuperweapons:
-		Condition: GetsOneShotedbySuperweapons
-
 ^Unkillable:
 	DamageMultiplier@Unkillable:
 		Modifier: 0
 
-^SpawnSmoke:
-	GrantConditionOnDamageState@smoke:
-		Condition: smoketrail
+^HeavyDamagedEffect:
+	GrantConditionOnDamageState@HeavyDamaged:
+		Condition: HeavyDamaged
 		ValidDamageStates: Critical, Heavy
+	ExternalCondition@DisableHeavyDamagedEffect:
+		Condition: DisableHeavyDamagedEffect
+
+^SpawnSmoke:
+	Inherits: ^HeavyDamagedEffect
 	SmokeParticleEmitter:
-		RequiresCondition: smoketrail && !DisableSmoke
+		RequiresCondition: HeavyDamaged && !DisableHeavyDamagedEffect
 		Sequences: idle
 		SpawnFrequency: 6, 12
 		Speed: 6
@@ -789,35 +776,19 @@
 		Palette: effectalpha50
 		Duration: 75
 		RandomFacing: True
-	ExternalCondition@smoketrail:
-		Condition: smoketrail
-	ExternalCondition@DisableSmoke:
-		Condition: DisableSmoke
 
 ^SpawnSpark:
-	GrantConditionOnDamageState@spawnsparks:
-		Condition: spawnsparks
-		ValidDamageStates: Critical, Heavy
+	Inherits: ^HeavyDamagedEffect
 	ExplodeWeapon@spawnsparks:
-		RequiresCondition: spawnsparks && !DisableSparks
+		RequiresCondition: HeavyDamaged && !DisableHeavyDamagedEffect
 		Weapon: SparkSpawner
-	ExternalCondition@spawnsparks:
-		Condition: spawnsparks
-	ExternalCondition@DisableSparks:
-		Condition: DisableSparks
 
 ^SpawnFire:
-	GrantConditionOnDamageState@SpawnFire:
-		Condition: SpawnFire
-		ValidDamageStates: Critical, Heavy
+	Inherits: ^HeavyDamagedEffect
 	ExplodeWeapon@SpawnFire:
-		RequiresCondition: SpawnFire && !DisableSpawnFire
+		RequiresCondition: HeavyDamaged && !DisableHeavyDamagedEffect
 		Weapon: BuildingCriticalDamageFireSpawner
 		ResetReloadWhenEnabled: false
-	ExternalCondition@SpawnFire:
-		Condition: SpawnFire
-	ExternalCondition@DisableSpawnFire:
-		Condition: DisableSpawnFire
 
 ^DamagedByTintedCells: #Damage = DamageCoeff * RadioactivityLevel / MaxLevel
 	DamagedByTintedCells@Default:
@@ -961,7 +932,7 @@
 		Bots: EasyAI, NormalAI, CheaterAI, ShatteredAI
 
 ^GenericEffects:
-	Inherits@0: ^KillSelf
+	#Inherits@0: ^KillSelf #deprecated, now firestorm use very high damage to kill
 	Inherits@1: ^Cloakable
 	Inherits@2: ^ScrinEssence
 	Inherits@3: ^BurstRecovery
@@ -978,14 +949,8 @@
 	Inherits@1: ^EmpDisable
 	Inherits@2: ^SpawnSmoke
 	Inherits@3: ^SpawnSpark
-	GrantCondition@CloakDisableSparks:
-		Condition: DisableSparks
-		RequiresCondition: cloakgenerator
-	GrantCondition@CloakDisableSmoke:
-		Condition: DisableSmoke
-		RequiresCondition: cloakgenerator
-	GrantCondition@DisableSpawnFire:
-		Condition: DisableSpawnFire
+	GrantCondition@DisableHeavyDamagedEffect:
+		Condition: DisableHeavyDamagedEffect
 		RequiresCondition: cloakgenerator
 
 ^InfantryEffects:
@@ -1000,13 +965,12 @@
 	Inherits@8: ^DisplayVanguardShield
 	Inherits@9: ^DamagedByTintedCells
 	Inherits@10: ^WolfDebuff
-	#Inherits@11: ^GetsOneShotedbySuperweapons #deprecated, but may be useful later
 	Inherits@12: ^BarracksHeal
 	Inherits@13: ^FullHealthRepairCondition
 	Inherits@14: ^RavagerSlowdown
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
-	GrantCondition@DisableSpawnFire:
+	GrantCondition@DisableRepairInTunnel:
 		Condition: DisableFullHealthRepairCondition
 		RequiresCondition: inside-tunnel
 	DeliversCash:
@@ -1026,26 +990,16 @@
 	Inherits@10: ^VeinholePoisonVehicle
 	Inherits@11: ^DamagedByTintedCells
 	Inherits@12: ^WolfDebuff
-	#Inherits@13: ^GetsOneShotedbySuperweapons #deprecated, but may be useful later
 	Inherits@14: ^Chronoshiftable
 	Inherits@15: ^FullHealthRepairCondition
 	Inherits@16: ^ToxinTrooperDebuff
 	Inherits@17: ^RavagerSlowdown
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
-	GrantCondition@CloakDisableSmoke:
-		Condition: DisableSmoke
-		RequiresCondition: cloakgenerator
-	GrantCondition@CloakDisableSparks:
-		Condition: DisableSparks
-		RequiresCondition: cloakgenerator
-	GrantCondition@TunnelDisableSmoke:
-		Condition: DisableSmoke
-		RequiresCondition: inside-tunnel
-	GrantCondition@TunnelDisableSparks:
-		Condition: DisableSparks
-		RequiresCondition: inside-tunnel
-	GrantCondition@DisableSpawnFire:
+	GrantCondition@DisableHeavyDamagedEffect:
+		Condition: DisableHeavyDamagedEffect
+		RequiresCondition: inside-tunnel || cloakgenerator
+	GrantCondition@DisableRepairInTunnel:
 		Condition: DisableFullHealthRepairCondition
 		RequiresCondition: inside-tunnel
 	DeliversCash:
@@ -1056,14 +1010,10 @@
 	Inherits@1: ^tractorstop
 	Inherits@2: ^SpawnSmoke
 	Inherits@3: ^SpawnSpark
-	#Inherits@4: ^GetsOneShotedbySuperweapons #deprecated, but may be useful later
 	Inherits@5: ^MindControllable
 	Inherits@6: ^FullHealthRepairCondition
-	GrantCondition@CloakDisableSmoke:
-		Condition: DisableSmoke
-		RequiresCondition: cloakgenerator
-	GrantCondition@CloakDisableSparks:
-		Condition: DisableSparks
+	GrantCondition@DisableHeavyDamagedEffect:
+		Condition: DisableHeavyDamagedEffect
 		RequiresCondition: cloakgenerator
 
 ^ProducesStuff:
@@ -1366,7 +1316,6 @@
 		Weight: 3
 	-WithColoredOverlay@WebDisable:
 	-TimedConditionBar@WebDisable:
-	-SpeedMultiplier@WebDisable:
 	WithInfantryBody:
 		IdleSequences: idle2, idle3
 		-RequiresCondition: !WebDisable
@@ -1816,9 +1765,7 @@
 		RequiresCondition: !inside-tunnel && !submerged
 	Targetable:
 		RequiresCondition: !inside-tunnel && !submerged
-	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 	AnnounceOnSeen@subterranean:
 		Notification: SubterraneanUnitDetected
 		PingRadar: true
@@ -2237,10 +2184,7 @@
 		Palette: terraindecoration
 	MapEditorData:
 		Categories: Civilian Structure
-	-GrantConditionOnDamageState@SpawnFire:
 	-ExplodeWeapon@SpawnFire:
-	-ExternalCondition@SpawnFire:
-	-ExternalCondition@DisableSpawnFire:
 	RadarColorFromTerrain:
 		Terrain: CivilianBuilding
 	Interactable:
