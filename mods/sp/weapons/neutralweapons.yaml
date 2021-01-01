@@ -467,3 +467,96 @@ BerserkerBlow:
 		Damage: 4000
 		ValidTargets: Ground, Water
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
+
+CrystalColor:
+	ReloadDelay: 300
+	Range: 7c0
+	Projectile: WarheadTrailProjectile
+		Offsets: 0,128,0 #, 64,96,0, -64,96,0
+		FireMode: Line # try putting "Line" or "Spread" here, "Focus"
+		Inaccuracy: 0c0
+		Weapon: CrystalAurora
+		Speed: 200
+		ForceAtGroundLevel: true
+		ExplosionInterval: 6
+		ExplodeUnderThisAltitude: -9999
+		Blockable: false
+		KillProjectilesWhenReachedTargetLocation: false #try putting true
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+
+CrystalAurora:
+	ReloadDelay: 80
+	Range: 7c0
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gradientgreen
+		Image: tibtilegasanim
+		Explosions: idle
+		ValidTargets: Ground, Air, Water
+	Warhead@8Radio: CreateTintedCells
+		Spread: 512
+		Level: 80
+		Falloff: 75, 50, 25, 5
+		MaxLevel: 1000
+		Delay: 15
+	Warhead@emp: GrantExternalCondition
+		Range: 1c200
+		Duration: 400
+		Condition: RavagerSlowdown
+		ValidRelationships: Enemy, Neutral
+		ValidTargets: Infantry, Vehicle
+		InvalidTargets: Building, Defence
+		Delay: 15
+
+CrystalLaser:
+	Inherits: ^FullDamage
+	ReloadDelay: 100
+	Range: 7c0
+	ValidTargets: Ground, Water
+	InvalidTargets: Air
+	Report: SeekerShot0000.wav,  SeekerShot0001.wav,  SeekerShot0002.wav,  SeekerShot0003.wav
+	Projectile: LaserZap
+		TrackTarget: false
+		Width: 60
+		Duration: 8
+		ZOffset: 4000
+		Color: 00FF11
+		SecondaryBeam: true
+		SecondaryBeamWidth: 30
+		SecondaryBeamZOffset: 4000
+		SecondaryBeamColor: AAFF00
+		HitAnim: explosion
+		HitAnimSequence: lazerflare
+		HitAnimPalette: apgreen
+	Warhead@1Dam: SpreadDamage
+		Damage: 10000
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building
+		InvalidTargets: Air
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
+	Warhead@4Sharpnel: FireShrapnel
+		Weapon: CrystalLaserMini
+		ImpactActors: false
+		Amount: 3
+		AimChance: 100
+		AllowDirectHit: true
+		ValidTargets: Ground, Water, Air, AirHit
+		InvalidTargets: Infantry, Vehicle, Building, Wall
+
+CrystalLaserMini:
+	Inherits: CrystalLaser
+	Range: 2c0
+	MinRange: 1c0
+	ValidRelationships: Neutral, Enemy
+	-Report: 
+	Projectile: LaserZap
+		-HitAnim:
+		-HitAnimSequence:
+		-HitAnimPalette:
+	-Warhead@4Sharpnel: FireShrapnel
+	Warhead@1Dam: SpreadDamage
+		ValidRelationships: Neutral, Enemy
+		Damage: 5000
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: apgreen
+		Explosions: lazerflare
+		ValidTargets: Ground, Water

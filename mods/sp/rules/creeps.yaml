@@ -354,7 +354,7 @@ jfish:
 		Locomotor: Hover
 		Speed: 100
 	Targetable:
-		TargetTypes: Infantry, Ground, NeutralTibCritter, CloudInmune
+		TargetTypes: Infantry, Ground, NeutralTibCritter, MindControlImmune
 	Armament:
 		Weapon: JellyAttackPrepare
 	GrantConditionOnAttack@JellyAttackPrepare:
@@ -393,6 +393,75 @@ jfish:
 	Explodes@VisceroidDefault:
 		Weapon: JellyExplode
 		EmptyWeapon: JellyExplode
+
+HERALD:
+	Inherits@1: ^Visceroid
+	Tooltip:
+		Name: Sleeper's Herald
+	Health:
+		HP: 90000
+	Selectable:
+		Bounds: 50, 50, 0, -5
+	Armor:
+		Type: VehicleArmor
+	Mobile:
+		Speed: 80
+		Locomotor: Hover
+	WithIdleAnimation:
+		Sequences: idle-action
+		Interval: 50, 200
+	Targetable:
+		TargetTypes: Infantry, Ground, NeutralTibCritter, MindControlImmune
+	DamagedByTintedCells@Default:
+		Damage: -30
+		DamageInterval: 25
+		DamageLevel: 5
+	DamagedByTintedCells@OrangeRadiation:
+		Damage: -10
+	DamagedByTintedCells@Colossus:
+		Damage: -10
+	AutoTarget:
+		InitialStance: AttackAnything
+	AttackFrontal:
+		Armaments: primary, secondary
+	WithAttackAnimation:
+		Sequence: shoot
+	Armament@1:
+		Weapon: CrystalLaser
+		Name: primary
+	Armament@3:
+		Weapon: CrystalColor
+		Name: secondary
+	MapEditorData:
+		Categories: Creep
+	Hovers:
+		FallTicks: 40
+		RiseTicks: 40
+		BobDistance: -100
+		InitialHeight: 200
+	LeavesTrails:
+		Image: wake
+		Palette: effect
+		TerrainTypes: Water
+		StationaryInterval: 18
+		MovingInterval: 6
+	RenderSprites:
+		Image: float-crystal
+		Scale: 0.6
+		Palette: unittemgreen
+	Explodes@VisceroidDefault:
+		Weapon: TiberiumExplosion
+		EmptyWeapon: TiberiumExplosion
+	AttackWander:
+		WanderMoveRadius: 1
+		ReduceMoveRadiusDelay: 5
+		MinMoveDelay: 150
+		MaxMoveDelay: 200
+	ChangesHealth:
+		PercentageStep: 1
+		StartIfBelow: 200
+		DamageCooldown: 50
+		Delay: 25
 
 MINIVEIN:
 	Inherits: ^NonBuildingStaticActor
