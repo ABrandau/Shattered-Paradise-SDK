@@ -771,13 +771,7 @@ EssenceSmall:
 	ReloadDelay: 45
 	Range: 10c0
 	MinRange: 1c0
-	ValidTargets: ScrinUnit
 	Projectile: InstantExplode
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: -1
-		AffectsParent: true
-		ValidTargets: ScrinUnit
 	Warhead@op: FireShrapnel
 		Weapon: EssenceMissile
 		ImpactActors: false
@@ -808,32 +802,3 @@ EssenceMissile:
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolra2ialpha
-	Warhead@emp: GrantExternalCondition
-		Range: 75
-		Duration: 175
-		Condition: batteryboost
-	Warhead@emp: GrantExternalCondition
-		Range: 200
-		Duration: 3
-		Condition: EssenceGrab
-
-HealScrin:
-	ReloadDelay: 150
-	Range: 2c0
-	ValidTargets: ScrinUnit
-	InvalidTargets: EssenceBattery
-	Projectile: InstantExplode
-	Warhead@1Dam: SpreadDamage
-		DebugOverlayColor: 00FF00
-		Spread: 1c0
-		Damage: -10000
-		AffectsParent: true
-		Versus:
-			InfantryArmor: 50
-			VehicleArmor: 100
-			DefenseArmor: 100
-		ValidTargets: ScrinUnit
-	Warhead@emp: GrantExternalCondition
-		Range: 200
-		Duration: 50
-		Condition: ScrinDamageBoost
