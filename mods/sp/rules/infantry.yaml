@@ -1614,10 +1614,14 @@ MOTH:
 		Weapon: GLurkerProj
 		RequiresCondition: deployed
 		PauseOnCondition: WebDisable
-	AttackOmni:
+	AttackTurreted:
 		RequiresCondition: AImicroManage || deployed
 		PauseOnCondition: WebDisable
 		Armaments: OnFoot
+	Turreted:
+		TurnSpeed: 200
+		InitialFacing: 640
+		RealignDelay: -1
 	Armament@AIAimOnly:
 		RequiresCondition: AImicroManage && !deployed
 		Weapon: LurkerAimDummyWeapon

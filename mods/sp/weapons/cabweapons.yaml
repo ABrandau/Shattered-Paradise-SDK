@@ -141,7 +141,6 @@ GLAD120mm:
 			BuildingArmor: 75
 
 LurkerProj:
-	Inherits: ^FullDamage
 	ReloadDelay: 100
 	Range: 10c0
 	Projectile: WarheadTrailProjectile
@@ -155,19 +154,16 @@ LurkerProj:
 		ExplodeUnderThisAltitude: -9999
 		Blockable: false
 		KillProjectilesWhenReachedTargetLocation: false #try putting true
-	Warhead@1Dam: SpreadDamage
-		Damage: 1
+	Warhead@1Dam: TargetDamage
+		Damage: 0
 
 LurkerHit:
 	Inherits: ^FullDamage
 	ReloadDelay: 80
 	Range: 10c0
 	Report: lasershotgun.wav
-	Projectile: BulletAS
-		Speed: 400
-		TrailImage: lurkertrail
-		TrailPalette: playercab
-		Blockable: false
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 512
 	Warhead@1Dam: SpreadDamage
 		Damage: 11000
 		Versus:
@@ -179,13 +175,11 @@ LurkerHit:
 			ConcreteArmor: 5
 		ValidRelationships: Enemy, Neutral
 		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
-	Warhead@ShieldUpgrade: GrantExternalCondition
-		Range: 512
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: playercab
 		Explosions: lurkertentacle
 		ImpactSounds: expdirt1.aud
-		ValidTargets: Ground, Air
+		ValidTargets: Ground
 
 CyCannon:
 	Inherits: ^APWarhead
