@@ -473,8 +473,8 @@ BHS:
 		Name: Toxin Commando
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	Targetable@MindControl:
-		TargetTypes: MindControlImmune
+	Targetable:
+		TargetTypes: Ground, Infantry, MindControlImmune
 	-TakeCover:
 	Health:
 		HP: 25000
@@ -888,8 +888,8 @@ PSYKER:
 		Notification: CommandoDetected
 	Mobile:
 		Speed: 60
-	Targetable@MindControlImmunity:
-		TargetTypes: MindControlImmune
+	Targetable:
+		TargetTypes: Ground, Infantry, MindControlImmune
 	Armament@PRIMARY:
 		Weapon: PsykerRay
 		Name: OnFoot
@@ -924,8 +924,8 @@ SHARK:
 		AddToArmyValue: true
 	Selectable:
 		Class: Shark
-	Targetable@Shark:
-		TargetTypes: Shark
+	Targetable:
+		TargetTypes: Ground, Infantry, Shark
 	Health:
 		HP: 8800
 	Mobile:
@@ -1094,8 +1094,8 @@ BUG:
 		Name: Plague Trooper
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	Targetable@MindControlImmunity:
-		TargetTypes: MindControlImmune
+	Targetable:
+		TargetTypes: Ground, Infantry, MindControlImmune
 	-SpawnActorOnDeath@FLAMEGUY:
 	-SpawnActorOnDeath@FLAMEGUY2:
 	WithDeathAnimation@normal:
@@ -1235,8 +1235,8 @@ CABSENTRY:
 	-SpawnActorOnDeath@nanomachineburst:
 	-SpawnActorOnDeath@conversion:
 	-Passenger:
-	Targetable@Summoned:
-		TargetTypes: Summoned
+	Targetable:
+		TargetTypes: Ground, Infantry, Summoned
 	Mobile:
 		Speed: 70
 		Locomotor: HeavyInfantry
@@ -1660,8 +1660,8 @@ CYC2:
 		Speed: 50
 	Health:
 		HP: 100000
-	Targetable@MindControl:
-		TargetTypes: MindControlImmune
+	Targetable:
+		TargetTypes: Ground, Infantry, MindControlImmune
 	Armament:
 		Weapon: CyCannon
 		LocalOffset: 170,85,683

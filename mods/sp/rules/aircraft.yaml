@@ -830,8 +830,6 @@ DRACHE:
 		Priority: 4
 	Health:
 		HP: 60000
-	Targetable@MindControlImmune:
-		TargetTypes: MindControlImmune
 	Aircraft:
 		TurnSpeed: 12
 		Speed: 50
@@ -1123,8 +1121,10 @@ STORMRIDERSPAWN:
 		HP: 5000
 	CarrierSlave:
 		LandingDistance: 1c0
-	Targetable@Summoned:
-		TargetTypes: Summoned
+	Targetable@GROUND:
+		TargetTypes: Vehicle, Ground, LandedAircraft, MindControlImmune, Summoned
+	Targetable@AIRBORNE:
+		TargetTypes: Air, MindControlImmune, Summoned
 	-UpdatesPlayerStatistics:
 	-ActorLostNotification:
 	-AppearsOnRadar:
