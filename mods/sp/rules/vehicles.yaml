@@ -1802,10 +1802,9 @@ SCRRECHARGER:
 	Health:
 		HP: 20000
 	-WithIdleOverlay@shield:
-	-Targetable@Shield:
 	-Armor@Shield:
 	Armament:
-		Weapon: VanguardShrapnel
+		Weapon: VanguardFollow
 		TargetRelationships: Ally
 	ProximityExternalCondition@VanguardShield:
 		RequiresCondition: !empdisable
@@ -1817,7 +1816,7 @@ SCRRECHARGER:
 		Type: VanguardShield
 		Color: 8A2BE2CC
 	Targetable:
-		TargetTypes: Ground, Vehicle
+		TargetTypes: Ground, Vehicle, ShieldGenerator
 	WithMuzzleOverlay:
 	AttackFrontal:
 		PauseOnCondition: empdisable
@@ -2471,7 +2470,6 @@ ART2:
 	# -Cloak@CLOAKGENERATOR:
 	# BodyOrientation:
 	# 	QuantizedFacings: 32
-	# -Targetable@Shield:
 	# AttackFrontal:
 	# 	PauseOnCondition: empdisable
 	# Armament:

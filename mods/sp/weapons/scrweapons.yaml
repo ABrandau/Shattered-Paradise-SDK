@@ -280,7 +280,6 @@ MindEnergyCasing:
 		InvalidTargets: Infantry, Vehicle, Building, Wall
 
 RedSpark:
-	Inherits: ^NoDamage
 	ReloadDelay: 80
 	Range: 0c20
 	Projectile: TeslaZap
@@ -289,15 +288,13 @@ RedSpark:
 	Warhead@1Dam: TargetDamage
 		ImpactActors: false
 
-VanguardShrapnel:
-	ReloadDelay: 50
+VanguardFollow:
+	ReloadDelay: 200
 	Range: 2c0
-	ValidTargets: ShieldedUnit
-	Projectile: InstantExplode
-	Warhead@1Dam: SpreadDamage
-		Spread: 24
-		Damage: -1
-		ValidTargets: ShieldedUnit
+	ValidTargets: Infantry, Vehicle
+	InvalidTargets: ShieldGenerator
+	Warhead@1Dam: TargetDamage
+		ImpactActors: false
 
 ScrMbtLasor:
 	Inherits: ^FullDamage
