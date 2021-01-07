@@ -622,7 +622,7 @@ BlasterProton:
 	Range: 11c0
 	MinRange: 3c0
 	Report: scrin5b.aud
-	ValidTargets: Ground, Water, Vehicle, Infantry, water
+	ValidTargets: Ground, Water, Vehicle, Infantry
 	Projectile: BulletAS
 		Speed: 450
 		Blockable: false
@@ -664,3 +664,170 @@ LaserFence:
 		DebugOverlayColor: FF0000
 		Damage: 99999
 		DamageTypes: FireDeath
+
+^CoreDefLazerProjectile:
+	Inherits: ^FullDamage
+	TargetActorCenter: true
+	Projectile: LaserZap
+		TrackTarget: false
+		Width: 250
+		Duration: 2
+		ZOffset: 3000
+		Color: 0000AB99
+		SecondaryBeam: true
+		SecondaryBeamWidth: 30
+		SecondaryBeamZOffset: 3000
+		SecondaryBeamColor: 55fffff0
+		HitAnim: explosion
+		HitAnimSequence: lazerflare
+		HitAnimPalette: apblue
+
+CoreDefLazer1:
+	Inherits: ^CoreDefLazerProjectile
+	FirstBurstTargetOffset: 0,-500,0
+	FollowingBurstTargetOffset: 0,62,0
+	StartBurstReport: avatarlaser0000.wav, avatarlaser0001.wav, avatarlaser0002.wav
+	ReloadDelay: 17
+	Range: 8c0
+	Burst: 16
+	BurstDelays: 1
+	ValidTargets: Ground, Water
+	InvalidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 1200
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building
+		InvalidTargets: Air
+		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
+	Warhead@1Eff_impact: CreateEffect
+		Explosions: laserscorch
+		ExplosionPalette: gradientgray
+
+CoreDefLazer1Mute:
+	Inherits: CoreDefLazer1
+	-StartBurstReport:
+
+CoreDefLazer2:
+	Inherits: CoreDefLazer1Mute
+	FirstBurstTargetOffset: 0,500,0
+	FollowingBurstTargetOffset: 0,-62,0
+
+CoreDefLazerAA:
+	Inherits: ^CoreDefLazerProjectile
+	Report: avatarlaser0000.wav, avatarlaser0001.wav, avatarlaser0002.wav
+	ReloadDelay: 50
+	Range: 8c0
+	Projectile: LaserZap
+		-Duration: 2
+		SecondaryBeamWidth: 45
+	ValidTargets: Air
+	InvalidTargets: Ground, Water
+	Warhead@1Dam: SpreadDamage
+		Damage: 20000
+		ValidTargets: Air
+		InvalidTargets: Ground, Water, Infantry, Vehicle, Building
+
+CoreDefenderCannon:
+	Inherits: ^APWarhead
+	Inherits@2: ^GreenPlasmaExplosion
+	Inherits@3: ^MarnFlash6
+	ReloadDelay: 100
+	Burst: 6
+	Range: 8c0
+	Report: scrin5b.aud
+	ValidTargets: Ground, Water, Vehicle, Infantry
+	Projectile: BulletAS
+		Speed: 450
+		Blockable: false
+		Shadow: false
+		Inaccuracy: 2c0
+		LaunchAngle: 90
+		Palette: jascbluealpha
+		Image: greenplasma2
+		ContrailLength: 10
+		ContrailColor: 2255AB88
+		ContrailWidth: 0c80
+	Warhead@1Dam: SpreadDamage
+		Spread: 350
+		Damage: 15000
+		ValidTargets: Ground, Water
+		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@3Eff: CreateEffect
+		ExplosionPalette: jascbluealpha
+		Explosions: sparks2
+		ImpactActors: false
+	Warhead@4: GrantExternalCondition
+		Range: 1c0
+		Duration: 60
+		Condition: empdisable
+
+CoreDefenderCannonAA:
+	Inherits: ^RocketWarhead
+	Inherits@2: ^Scrin_Pulse
+	Inherits@3: ^MarnFlash7
+	ReloadDelay: 10
+	Range: 8c0
+	Report: photon1.wav
+	ValidTargets: Air
+	Projectile: Missile
+		-TrailImage: small_smoke_trail
+		-TrailPalette: effectalpha75
+		MaximumLaunchAngle: 0
+		MinimumLaunchAngle: 0
+		Image: lightpan
+		RangeLimit: 15c0
+		Palette: apblue
+		ContrailLength: 7
+		ContrailColor: 000ba855
+		ContrailWidth: 0c70
+	Warhead@1Dam: SpreadDamage
+		Spread: 90
+		Damage: 5300
+		ValidTargets: Air
+	Warhead@2Eff: CreateEffect
+		Explosions: marnflash7
+		ExplosionPalette: MarnAlphaAlpha
+		ImpactSounds: photon1.wav
+
+CoreDefSuper:
+	Inherits: CoreDefLazer1
+	Inherits@1: ^SWBaseEffects
+	ReloadDelay: 200
+	Range: 300c0
+	FirstBurstTargetOffset: 0,-4000,0
+	FollowingBurstTargetOffset: 0,200,0
+	ReloadDelay: 60
+	Burst: 40
+	ValidTargets: Vehicle, Infantry, Building, Ground, Water
+	Projectile: LaserZap
+		Width: 400
+		Color: 6969f480
+		ZOffset: 3047
+		SecondaryBeamWidth: 90
+		HitAnim: coredefender
+		HitAnimSequence: muzzle3
+		HitAnimPalette: apblue
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: ffffff
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 10000
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building
+		InvalidTargets: Air
+		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
+	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
+		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
+	Warhead@1Eff_impact: CreateEffect
+		Explosions: ionscorch
+		ExplosionPalette: gradientgray
+	Warhead@2Eff: CreateEffect
+		Explosions: firestormexplo, firestormexplo1, firestormexplo2, fsidle
+		ExplosionPalette:  apblue
+		ImpactSounds: firstrm1.aud
+		Volume: 3
+		Delay: 2
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall

@@ -458,7 +458,7 @@ HMEC:
 	WithMoveAnimation:
 		MoveSequence: run
 	Selectable:
-		Bounds: 40, 40, 0, -8
+		Bounds: 80, 67, 0, -25
 	SharedPassenger:
 		CustomPipType: red
 	Explodes:
@@ -488,6 +488,9 @@ NODMCV:
 		NoTransformSounds:
 		Voice: Move
 		PauseOnCondition: mindcontrolled || empdisable
+	Selectable:
+		Bounds: 70, 50, 0, -10
+		-DecorationBounds: 42,42
 
 BGGY:
 	Inherits: ^Tank
@@ -1297,6 +1300,9 @@ MUTMCV:
 	Voiced:
 		VoiceSet: MutantMCV
 		Volume: 0.8
+	Selectable:
+		Bounds: 74, 60, 0, -15
+		-DecorationBounds: 42,42
 
 MUTQUAD:
 	Inherits: ^TurretedTank
@@ -1803,6 +1809,8 @@ SCRRECHARGER:
 		HP: 20000
 	-WithIdleOverlay@shield:
 	-Armor@Shield:
+	-ExternalCondition@VanguardShield:
+	-ExternalCondition@BreakShield:
 	Armament:
 		Weapon: VanguardFollow
 		TargetRelationships: Ally
@@ -1985,6 +1993,9 @@ CABMCV:
 		NoTransformSounds:
 		Voice: Move
 		PauseOnCondition: mindcontrolled || empdisable
+	Selectable:
+		Bounds: 74, 60, 0, -15
+		-DecorationBounds: 42,42
 
 CENTURION:
 	Inherits: ^Walker
