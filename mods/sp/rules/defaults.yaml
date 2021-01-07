@@ -745,9 +745,6 @@
 		Condition: VanguardShield
 	ExternalCondition@BreakShield:
 		Condition: BreakShield
-	Targetable@Shield:
-		TargetTypes: ShieldedUnit
-		RequiresCondition: VanguardShield
 	Armor@Shield:
 		RequiresCondition: VanguardShield && BreakShield <= 4
 		Type: Shield
@@ -1582,7 +1579,7 @@
 		DeathType: TiberiumDeath
 		RequiresLobbyCreeps: true
 	SpawnActorOnDeath@ScrinEssence:
-		Actor: SCRINESSENCESMALL
+		Actor: scrinessencesmall
 	Voiced:
 		VoiceSet: Vehicle
 	WithTextControlGroupDecoration:
@@ -2117,8 +2114,8 @@
 	RenderRangeCircle:
 		Color: FFFF00CC
 		BorderColor: 000000CC
-	Targetable@Defence:
-		TargetTypes: Defence
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, Defence
 	Armor:
 		Type: DefenseArmor
 	MapEditorData:
@@ -2689,17 +2686,6 @@
 ^ScrinReaper:
 	Targetable@Essence:
 		TargetTypes: ScrinUnit
-	SpawnActorOnDeath@ScrinEssence:
-		DeathType:
-	Targetable@ScrinUnitBeingHealed:
-		TargetTypes: ScrinUnitBeingHealed
-		RequiresCondition: batteryboost
-	ChangesHealth@batteryboost:
-		PercentageStep: 1
-		Step: 0
-		Delay: 25
-		StartIfBelow: 100
-		RequiresCondition: batteryboost
 
 ^InfantryStealthDetection:
 	DetectCloaked:

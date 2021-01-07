@@ -38,8 +38,8 @@ VISC_SML:
 		WanderMoveRadius: 3
 		MinMoveDelay: 30
 		MaxMoveDelay: 60
-	Targetable@MindControl:
-		TargetTypes: MindControlImmune
+	Targetable:
+		TargetTypes: Ground, NeutralTibCritter, Vehicle, NoRepair, MindControlImmune
 	RenderSprites:
 		Image: vissml
 	Mobile:
@@ -65,8 +65,8 @@ VISC_LRG:
 		Type: InfantryArmor
 	RevealsShroud:
 		Range: 4c0
-	Targetable@MindControl:
-		TargetTypes: MindControlImmune
+	Targetable:
+		TargetTypes: Ground, NeutralTibCritter, Vehicle, NoRepair, MindControlImmune
 	Armament:
 		Weapon: SlimeAttack
 		FireDelay: 10
@@ -108,10 +108,8 @@ VISC_LRG_SCRIN:
 	-AppearsOnRadar:
 	EditorOnlyTooltip:
 		Name: Visceroid Hive Visc (Do not place in editor)
-	Targetable@MindControl:
-		TargetTypes: MindControlImmune
-	Targetable@Summoned:
-		TargetTypes: Summoned
+	Targetable:
+		TargetTypes: Ground, NeutralTibCritter, Vehicle, NoRepair, MindControlImmune, Summoned
 	AutoTarget:
 		ScanRadius: 5
 		InitialStance: AttackAnything
@@ -354,7 +352,7 @@ jfish:
 		Locomotor: Hover
 		Speed: 100
 	Targetable:
-		TargetTypes: Infantry, Ground, NeutralTibCritter, CloudInmune
+		TargetTypes: Ground, NeutralTibCritter, Vehicle, NoRepair, MindControlImmune
 	Armament:
 		Weapon: JellyAttackPrepare
 	GrantConditionOnAttack@JellyAttackPrepare:
@@ -419,7 +417,7 @@ MINIVEIN:
 	Armor:
 		Type: BuildingArmor
 	Targetable:
-		TargetTypes: Building, Ground, NeutralTibCritter
+		TargetTypes: Building, Defence, Ground, NeutralTibCritter
 	ExplodeWeapon@2:
 		Weapon: VeinholeEggElevator
 	ProximityExternalCondition:
@@ -432,8 +430,6 @@ MINIVEIN:
 		Range: 1c0
 		AffectsParent: false
 		ValidRelationships: Ally, Enemy, Neutral
-	Targetable@Defence:
-		TargetTypes: Defence
 	WithMakeAnimation:
 		Condition: growing
 	ChangesHealth:

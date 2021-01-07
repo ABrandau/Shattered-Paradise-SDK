@@ -135,8 +135,8 @@ HARV:
 		Delay: 100
 		DamageCooldown: 100
 		StartIfBelow: 100
-	Targetable@MindControl:
-		TargetTypes: MindControlImmune
+	Targetable:
+		TargetTypes: Ground, Vehicle, MindControlImmune
 	Armor:
 		Type: VehicleArmor
 	Explodes:
@@ -226,8 +226,8 @@ SCRHARV:
 		Prerequisites: proc, ~scrweap
 	Mobile:
 		Locomotor: InfantryCrusherVehicle
-	Targetable@MindControl:
-		TargetTypes: MindControlImmune
+	Targetable:
+		TargetTypes: Ground, Vehicle, MindControlImmune
 	SelectionDecorations:
 	RenderSprites:
 		Image: scrharv
@@ -904,9 +904,7 @@ NAPOST:
 	BlocksProjectiles:
 	Armor:
 		Type: ConcreteArmor
-	-Targetable:
-	-Targetable@Defence:
-	Targetable@Fence:
+	Targetable:
 		TargetTypes: Building, Ground, NoAutoTarget
 	LineBuild:
 		Range: 10

@@ -396,25 +396,14 @@ FOGCAMERADUMMY:
 		Range: 4c0
 
 SCRINESSENCESMALL:
-	Inherits: ^DUMMYAIRCRAFT
+	Inherits: ^GROUNDDUMMY
 	Inherits@2: ^TimedDeathOnlyWithDeathEffects
 	KillsSelf@TimedLife:
 		Delay: 50
-	Targetable@Esscence:
-		TargetTypes: ScrinEssence
-	AttackMove:
-	Aircraft:
-		TurnSpeed: 24
-		Speed: 30
-		CruiseAltitude: 1
-		TakeOffOnCreation: false
-	Turreted:
-		TurnSpeed: 396
-	RevealsShroud:
 	RenderSprites:
 		Image: scrinessencesmall
 		Palette: apolra2ialpha
-		PlayerPalette: apolra2ialpha
+	WithSpriteBody:
 	Explodes:
 		Weapon: EssenceSmall
 		EmptyWeapon: EssenceSmall

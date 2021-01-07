@@ -297,8 +297,8 @@ SONIC:
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
-	Targetable@AllySonicImmune:
-		TargetTypes: AllySonicImmune
+	Targetable:
+		TargetTypes: Ground, Vehicle, AllySonicImmune
 	Turreted:
 		TurnSpeed: 16
 		Offset: -500,0,0
@@ -429,8 +429,8 @@ HMEC:
 		LocalOffset: 1200,-250,2650, 1200,250,2650
 		PauseOnCondition: empdisable
 		MuzzleSequence: muzzle
-	Targetable@MindControl:
-		TargetTypes: MindControlImmune
+	Targetable:
+		TargetTypes: Ground, Vehicle, MindControlImmune
 	Turreted:
 		Offset: -500,0,0
 		TurnSpeed: 10
@@ -1481,8 +1481,8 @@ WOLF:
 		Name: Carnotaurus
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	Targetable@MindControlImmunity:
-		TargetTypes: MindControlImmune
+	Targetable:
+		TargetTypes: Ground, Vehicle, OrganicVehicle, NoRepair, MindControlImmune
 	Armament@PRIMARY:
 		Weapon: BullAcid
 		LocalOffset: 128,0,400
@@ -1568,8 +1568,8 @@ DEATHCLAW:
 		Name: Ravager
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	Targetable@MindControlImmunity:
-		TargetTypes: MindControlImmune
+	Targetable:
+		TargetTypes: Ground, Vehicle, OrganicVehicle, NoRepair, MindControlImmune
 	AutoTarget:
 		ScanRadius: 6
 		InitialStance: AttackAnything
@@ -1802,10 +1802,9 @@ SCRRECHARGER:
 	Health:
 		HP: 20000
 	-WithIdleOverlay@shield:
-	-Targetable@Shield:
 	-Armor@Shield:
 	Armament:
-		Weapon: VanguardShrapnel
+		Weapon: VanguardFollow
 		TargetRelationships: Ally
 	ProximityExternalCondition@VanguardShield:
 		RequiresCondition: !empdisable
@@ -1817,7 +1816,7 @@ SCRRECHARGER:
 		Type: VanguardShield
 		Color: 8A2BE2CC
 	Targetable:
-		TargetTypes: Ground, Vehicle
+		TargetTypes: Ground, Vehicle, ShieldGenerator
 	WithMuzzleOverlay:
 	AttackFrontal:
 		PauseOnCondition: empdisable
@@ -1851,8 +1850,8 @@ SCRMOBMINE:
 		Sounds: sonpulse.aud
 		ControllingCondition: slaving
 		Policy: DiscardOldest
-	Targetable@MindControlImmunity:
-		TargetTypes: MindControlImmune
+	Targetable:
+		TargetTypes: Ground, Vehicle, MindControlImmune
 	ExplodeWeapon@Casing:
 		Weapon: MindEnergyCasing
 		LocalOffset: 0,0,2600
@@ -2471,7 +2470,6 @@ ART2:
 	# -Cloak@CLOAKGENERATOR:
 	# BodyOrientation:
 	# 	QuantizedFacings: 32
-	# -Targetable@Shield:
 	# AttackFrontal:
 	# 	PauseOnCondition: empdisable
 	# Armament:
