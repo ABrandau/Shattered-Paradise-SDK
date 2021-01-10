@@ -450,17 +450,12 @@ CERBERUS:
 	-Rearmable:
 	Health:
 		HP: 45000
-	WithMuzzleOverlay:
 	Armament@sweep1:
 		Weapon: CerberusSublazor1
 		LocalOffset: 1400, 225, 0
-		MuzzleSequence: muzzle
-		MuzzlePalette: apred
 	Armament@sweep2:
 		Weapon: CerberusSublazor2
 		LocalOffset: 1400, -225, 0
-		MuzzleSequence: muzzle
-		MuzzlePalette: apred
 	AmbientSound:
 		SoundFiles: NUBeamC_wea1Loopa.wav, NUBeamC_wea1Loopb.wav, NUBeamC_wea1Loopc.wav, NUBeamC_wea1Loopd.wav, NUBeamC_wea1Loope.wav
 		Interval: 2
@@ -468,6 +463,16 @@ CERBERUS:
 	GrantConditionOnAttack:
 		Condition: Attacking
 		RevokeDelay: 3
+	WithIdleOverlay@WeaponMuzzle1:
+		Offset: 1400, 225, 0
+		Sequence: muzzle
+		Palette: apred
+		RequiresCondition: Attacking
+	WithIdleOverlay@WeaponMuzzle2:
+		Offset: 1400, -225, 0
+		Sequence: muzzle
+		Palette: apred
+		RequiresCondition: Attacking
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 10
