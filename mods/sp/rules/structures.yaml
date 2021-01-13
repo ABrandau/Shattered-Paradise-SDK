@@ -11,6 +11,9 @@ GAPOWR:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
+	ProvidesPrerequisite@no-plug:
+		Prerequisite: gapowr.pluggable
+		RequiresCondition: !powrup.a
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
