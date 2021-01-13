@@ -27,6 +27,14 @@ Player:
 	GrantConditionOnBotOwner@AIShattered:
 		Condition: AIShattered
 		Bots: ShatteredAI
+	PlugSpawnerBotModule@AIBase:
+		Plug: gapowrup
+		Pluggables: gapowr
+		Interval: 750
+		RequiresCondition: AIBase && powerplug
+	GrantConditionOnPrerequisite@powerplug:
+		Condition: powerplug
+		Prerequisites: gapowr, garadr, ~structures.gdi
 	### BotModule and BotLogic
 	## Drop "HarvesterBotModule" due to it is senseless when we now use Building as cash cheat,
 	##  and sub base is impossible for OpenRA at present. Also this module is heavily performance questionable
