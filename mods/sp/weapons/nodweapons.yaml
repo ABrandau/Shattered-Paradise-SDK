@@ -565,6 +565,7 @@ RedEye2:
 
 ObeliskLaserFire:
 	Inherits: ^FullDamage
+	Inherits@1: ^DebrisSmokeEffect
 	ReloadDelay: 40
 	Range: 9c0
 	Report: obelray1.aud
@@ -579,3 +580,9 @@ ObeliskLaserFire:
 	Warhead@1Dam: SpreadDamage
 		Damage: 30000
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: lazerflare
+		ExplosionPalette: apred
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall
