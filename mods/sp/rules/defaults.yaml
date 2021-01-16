@@ -663,6 +663,9 @@
 	Inherits: ^EmpDisable
 	Mobile:
 		PauseOnCondition: empdisable
+	SpeedMultiplier@InstantStop:
+		RequiresCondition: empdisable
+		Modifier: 0
 
 ^DisableOnLowPower:
 	WithColoredOverlay@IDISABLE:
@@ -704,6 +707,9 @@
 		Color: FFFFFF
 	Mobile:
 		PauseOnCondition: WebDisable
+	SpeedMultiplier@InstantStop:
+		RequiresCondition: WebDisable
+		Modifier: 0
 	WithInfantryBody:
 		RequiresCondition: !WebDisable
 	WithIdleOverlay@web:
@@ -1313,6 +1319,7 @@
 		Weight: 3
 	-WithColoredOverlay@WebDisable:
 	-TimedConditionBar@WebDisable:
+	-SpeedMultiplier@InstantStop:
 	WithInfantryBody:
 		IdleSequences: idle2, idle3
 		-RequiresCondition: !WebDisable
