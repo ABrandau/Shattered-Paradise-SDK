@@ -1377,6 +1377,11 @@ SWARMLING:
 	-WithDeathAnimation@energy:
 	-WithDeathAnimation@body:
 	-WithIdleOverlay@web:
+	WithColoredOverlay@web:
+		RequiresCondition: WebDisable
+		Palette: gradientgray
+	WithInfantryBody:
+		-RequiresCondition:
 	-SpawnActorOnDeath@FLAMEGUY:
 	-SpawnActorOnDeath@FLAMEGUY2:
 	-SpawnActorOnDeath@conversion:
@@ -1443,8 +1448,6 @@ PDRONE:
 		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
 			EnergyDeath: 6
-	-WithIdleOverlay@web:
-	-ExternalCondition@WebDisable:
 	KillsSelf@hoverunitonwater:
 		RequiresCondition: hoverunitonwater && WebDisable
 	GrantConditionOnTerrain:
@@ -1630,7 +1633,6 @@ MOTH:
 	RenderRangeCircle:
 		Color: FFFF00CC
 		BorderColor: 000000CC
-	-WithIdleOverlay@web:
 	-Crushable:
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && !deployed

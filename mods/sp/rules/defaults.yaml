@@ -1380,11 +1380,11 @@
 	DeathSounds:
 	MustBeDestroyed:
 	WithInfantryBody:
-		RequiresCondition: !criticalspeed
+		RequiresCondition: !criticalspeed && !WebDisable
 		DefaultAttackSequence: shoot
 		IdleSequences: idle1, idle2
 	WithInfantryBody@Damaged:
-		RequiresCondition: criticalspeed
+		RequiresCondition: criticalspeed  && !WebDisable
 		MoveSequence: crippled-run
 		AttackSequences: crippled-shoot
 		StandSequences: crippled-stand
@@ -1418,6 +1418,12 @@
 		Locomotor: TibInmuneInfantry
 	SpawnActorOnDeath@conversion:
 		Actor: workermech
+	-WithIdleOverlay@web:
+	WithColoredOverlay@web:
+		RequiresCondition: WebDisable
+		Palette: gradientgray
+	WithInfantryBody:
+		-RequiresCondition:
 
 ^CivilianInfantry:
 	Inherits: ^Infantry
