@@ -400,7 +400,7 @@ Player:
 		RequiresCondition: AIBase
 		SquadSize: 25
 		SquadSizeRandomBonus: 3
-		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, cutman, swarmling, shapeshifter,mcv, drache, drache_bot, cabmcv, nodmcv, mutmcv, repairvehicle, ecm, mwar, lpst, limped, sgen, mumine, eggs, cabsentry, tickhologram, flamehologram
+		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, cutman, swarmling, shapeshifter,mcv, drache, drache_bot, cabmcv, nodmcv, mutmcv, repairvehicle, ecm, mwar, lpst, limped, sgen, mumine, eggs, cabsentry, tickhologram, flamehologram, STORMRIDERSPAWN, CABDRONEJET
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
 		DangerScanRadius: 18
 		AttackForceInterval: 59
@@ -846,3 +846,5 @@ Player:
 		CapturingActorTypes: engineer, cutman, swarmling, shapeshifter
 		CapturableActorTypes: cahosp, neutralsonictur, caarmr, well, machineshop, scrinreinfpad, limped, mwar, mtar, lpst, sgen, gacnst, mutyard, cabyard, nodyard, drached
 		CheckCaptureTargetsForVisibility: false
+	PowerDownBotModule:
+		RequiresCondition: AIShattered || AICheater

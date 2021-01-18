@@ -663,6 +663,9 @@
 	Inherits: ^EmpDisable
 	Mobile:
 		PauseOnCondition: empdisable
+	SpeedMultiplier@InstantStop:
+		RequiresCondition: empdisable
+		Modifier: 0
 
 ^DisableOnLowPower:
 	WithColoredOverlay@IDISABLE:
@@ -696,19 +699,20 @@
 		Modifier: 0
 
 ^WebDisable:
-	WithColoredOverlay@WebDisable:
-		RequiresCondition: WebDisable
-		Palette: disabled
 	TimedConditionBar@WebDisable:
 		Condition: WebDisable
 		Color: FFFFFF
 	Mobile:
 		PauseOnCondition: WebDisable
+	SpeedMultiplier@InstantStop:
+		RequiresCondition: WebDisable
+		Modifier: 0
 	WithInfantryBody:
 		RequiresCondition: !WebDisable
 	WithIdleOverlay@web:
 		Sequence: webguy
 		Palette: player
+		IsPlayerPalette: true
 		RequiresCondition: WebDisable
 	ExternalCondition@WebDisable:
 		Condition: WebDisable
@@ -1311,8 +1315,8 @@
 		CargoType: Vehicle
 		Voice: Move
 		Weight: 3
-	-WithColoredOverlay@WebDisable:
 	-TimedConditionBar@WebDisable:
+	-SpeedMultiplier@InstantStop:
 	WithInfantryBody:
 		IdleSequences: idle2, idle3
 		-RequiresCondition: !WebDisable
@@ -1377,11 +1381,11 @@
 	DeathSounds:
 	MustBeDestroyed:
 	WithInfantryBody:
-		RequiresCondition: !criticalspeed
+		RequiresCondition: !criticalspeed && !WebDisable
 		DefaultAttackSequence: shoot
 		IdleSequences: idle1, idle2
 	WithInfantryBody@Damaged:
-		RequiresCondition: criticalspeed
+		RequiresCondition: criticalspeed  && !WebDisable
 		MoveSequence: crippled-run
 		AttackSequences: crippled-shoot
 		StandSequences: crippled-stand
@@ -1415,6 +1419,12 @@
 		Locomotor: TibInmuneInfantry
 	SpawnActorOnDeath@conversion:
 		Actor: workermech
+	-WithIdleOverlay@web:
+	WithColoredOverlay@web:
+		RequiresCondition: WebDisable
+		Palette: gradientgray
+	WithInfantryBody:
+		-RequiresCondition:
 
 ^CivilianInfantry:
 	Inherits: ^Infantry

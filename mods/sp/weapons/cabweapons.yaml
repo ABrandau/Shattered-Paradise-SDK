@@ -58,7 +58,6 @@ SentinelGun:
 		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
 
 ReaperWeb:
-	Inherits: ^RifleWarhead
 	ReloadDelay: 250
 	Range: 7c0
 	Report: fireweb1.aud
@@ -69,16 +68,15 @@ ReaperWeb:
 		Shadow: true
 		LaunchAngle: 130
 		Palette: ra
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 1
-		ValidTargets: Infantry
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@emp: GrantExternalCondition
 		Range: 1c0
 		Duration: 200
 		ValidTargets: Infantry
 		Condition: WebDisable
+		ValidRelationships: Neutral, Enemy
+	Warhead@2Eff: CreateEffect
+		Explosions: spiderweb
+		ExplosionPalette: gradientgray
 
 ReaperScythe:
 	Inherits: ^RocketWarhead
@@ -399,10 +397,9 @@ DroneHostShell:
 		Palette: effect
 		Image: clusterbomb
 	Warhead@1Dam: SpreadDamage
+		ValidRelationships: Neutral, Enemy
 		Spread: 350
 		Damage: 1000
-		Versus:
-			Worker: 25
 		ValidTargets: Ground, Water, Vehicle, Infantry, water
 		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
 	Warhead@2Eff: CreateEffect

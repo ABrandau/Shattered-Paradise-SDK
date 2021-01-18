@@ -1218,8 +1218,6 @@ CABSENTRY:
 	Inherits: ^CabalDroneInfantry
 	Inherits@1: ^CabRender
 	Inherits@2: ^6CellVision
-	Armor@worker:
-		Type: Worker
 	-Valued:
 	GivesExperience:
 		Experience: 50
@@ -1377,6 +1375,11 @@ SWARMLING:
 	-WithDeathAnimation@energy:
 	-WithDeathAnimation@body:
 	-WithIdleOverlay@web:
+	WithColoredOverlay@web:
+		RequiresCondition: WebDisable
+		Palette: gradientgray
+	WithInfantryBody:
+		-RequiresCondition:
 	-SpawnActorOnDeath@FLAMEGUY:
 	-SpawnActorOnDeath@FLAMEGUY2:
 	-SpawnActorOnDeath@conversion:
@@ -1443,8 +1446,6 @@ PDRONE:
 		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
 			EnergyDeath: 6
-	-WithIdleOverlay@web:
-	-ExternalCondition@WebDisable:
 	KillsSelf@hoverunitonwater:
 		RequiresCondition: hoverunitonwater && WebDisable
 	GrantConditionOnTerrain:
@@ -1630,7 +1631,6 @@ MOTH:
 	RenderRangeCircle:
 		Color: FFFF00CC
 		BorderColor: 000000CC
-	-WithIdleOverlay@web:
 	-Crushable:
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && !deployed
@@ -1700,8 +1700,6 @@ WORKER:
 		Speed: 60
 	Voiced:
 		VoiceSet: Cyborg
-	Armor@worker:
-		Type: Worker
 	Armament@1:
 		Weapon: WorkerMinigun
 		PauseOnCondition: WebDisable
@@ -1737,8 +1735,6 @@ CYBDOG:
 		Speed: 60
 	Health:
 		HP: 7000
-	Armor@worker:
-		Type: Worker
 	Armament:
 		Weapon: Dogzooka
 		LocalOffset: 0,-100,300
@@ -1773,8 +1769,6 @@ WORKERMECH:
 		Speed: 60
 	Voiced:
 		VoiceSet: Limpet
-	Armor@worker:
-		Type: Worker
 	DeliversCash:
 		Payload: 350
 		Voice: Move
