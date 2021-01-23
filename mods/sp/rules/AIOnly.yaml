@@ -235,3 +235,250 @@ MUBUNKRFULL:
 		Name: Filled Bunker
 	Cargo:
 		InitialUnits: marauder, marauder, mutfiend, marauder, marauder
+
+COREDEFENDER:
+	Inherits: ^Walker
+	Inherits@1: ^10CellVision
+	Inherits@2: ^CabRender
+	Inherits@3: ^PermanentSelfHeal
+	Inherits@4: ^CabalVehicleVoice
+	Inherits@5: ^CommandoIcon
+	Inherits@GainsExperience: ^GainsExperience
+	Valued:
+		Cost: 10000
+	Tooltip:
+		Name: Core Defender
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 30
+		Speed: 60
+		Locomotor: VehicleCrusher
+	-Crushable:
+	ChangesHealth@Permanent:
+		DamageCooldown: 0
+		Delay: 75
+	AnnounceOnSeen:
+		Notification: MammothDetected
+	AmbientSound@WalkAnim:
+		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
+		Delay: 50
+		Interval: 16
+		RequiresCondition: walking
+	GrantConditionOnMovement:
+		Condition: walking
+	SmokeParticleEmitter:
+		Offset: 0,0,3000
+	Armor@Boss:
+		Type: BossArmor
+	ExplodeWeapon@spawnsparks:
+		LocalOffset: 0,0,3000
+	Health:
+		HP: 650000
+	-WithIdleOverlay@shield:
+	-Armor@Shield:
+	-ExternalCondition@VanguardShield:
+	-ExternalCondition@BreakShield:
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+		FacingTolerance: 3
+		Armaments: ArmArmament, HeadArmament, ShoulderArmament
+	Targetable:
+		TargetTypes: Ground, Vehicle, MindControlImmune
+	AutoTarget:
+		ScanRadius: 9
+		InitialStanceAI: AttackAnything
+	RenderSprites:
+	WithMuzzleOverlay:
+	AutoTarget:
+	Selectable:
+		Bounds: 60, 90, 0, -40
+	Carryable:
+		LocalOffset: 0,0,1200
+	SmokeParticleEmitter:
+		Offset: 0,0,1000
+	Explodes:
+		Weapon: BigUnitExplode
+		EmptyWeapon: BigUnitExplode
+	WithInfantryBody:
+		-DefaultAttackSequence: 
+		RequiresCondition: !inside-tunnel
+		AttackSequences:
+			ArmArmament: shoot2
+	MustBeDestroyed:
+		RequiredForShortGame: true
+	####### arm weapon###########
+	Armament@RightArm1:
+		Weapon: CoreDefLazer1
+		LocalOffset: 1580,500,3400
+		PauseOnCondition: empdisable
+		MuzzlePalette: apblue
+		MuzzleSequence: muzzle1
+		Name: ArmArmament
+	Armament@RightArm2:
+		Weapon: CoreDefLazer2
+		LocalOffset: 1580,500,3400
+		PauseOnCondition: empdisable
+		MuzzlePalette: apblue
+		MuzzleSequence: muzzle2
+		Name: ArmArmament
+	Armament@LeftArm1:
+		Weapon: CoreDefLazer1Mute
+		LocalOffset: 1480,-800,3350
+		PauseOnCondition: empdisable
+		MuzzlePalette: apblue
+		MuzzleSequence: muzzle1
+		Name: ArmArmament
+	Armament@LeftArm2:
+		Weapon: CoreDefLazer2
+		LocalOffset: 1480,-800,3350
+		PauseOnCondition: empdisable
+		MuzzlePalette: apblue
+		MuzzleSequence: muzzle2
+		Name: ArmArmament
+	####### shoulder weapon###########
+	Armament@Shoulder:
+		Weapon: CoreDefenderCannon
+		LocalOffset: 600,450,4000
+		PauseOnCondition: empdisable
+		MuzzlePalette: apblue
+		MuzzleSequence: muzzle1
+		Name: ShoulderArmament
+	Armament@ShoulderAA:
+		Weapon: CoreDefenderCannonAA
+		LocalOffset: 600,450,4000
+		PauseOnCondition: empdisable
+		MuzzlePalette: apblue
+		MuzzleSequence: muzzle1
+		Name: ShoulderArmament
+	####### head weapon###########
+	Armament@Head:
+		Weapon: CoreDefLazerAA
+		LocalOffset: 700,0,4900
+		PauseOnCondition: empdisable
+		MuzzlePalette: apblue
+		MuzzleSequence: muzzle1
+		Name: HeadArmament
+		RequiresCondition: !SuperAttack ##Head AA laser weapon cannot use when superweapon attack
+	Armament@HeadSuper:
+		Weapon: CoreDefSuper
+		LocalOffset: 700,0,4900
+		Name: HeadSuperWeapon
+	ProvidesPrerequisite@HeadSuper:
+		Prerequisite: CoreDefSuper
+		Factions: gdi, mut, nod, cab, scr
+		ResetOnOwnerChange: true
+	FireArmamentPower:
+		Cursor: emp
+		Icons:
+			1: cabcannon
+		TargetCircleRanges:
+			1: 1c0
+		ChargeInterval: 2500
+		ArmamentName: HeadSuperWeapon
+		Descriptions:
+			1: Core Defender Rage
+		LongDescs:
+			1: Fires Firestorm laser sweep through target location.\n\nSpecial:\n- Instant kills ground units and aircraft
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
+		SelectTargetSound: speech-nod|00-i042.aud
+		Prerequisites:
+			1: CoreDefSuper
+		OrderName: CoreDefSuper
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
+		DisplayTimerRelationships: Ally, Neutral, Enemy
+		PauseOnCondition: empdisable || disabled
+		CameraRange: 10c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
+	GrantConditionOnAttack@muzzle:
+		Condition: SuperAttack
+		ArmamentNames: HeadSuperWeapon
+	WithIdleOverlay@SuperWeaponMuzzle:
+		Offset: 700,0,4900
+		Sequence: muzzle3
+		Palette: apblue
+		RequiresCondition: SuperAttack
+	Explodes@shattered:
+		Weapon: DefenderExplosion
+		EmptyWeapon: DefenderExplosion
+	Explodes:
+		Weapon: BuildingExplode
+		EmptyWeapon: BuildingExplode
+	ProvidesPrerequisite@AIbuildinglimit:
+		Prerequisite: DefenderExists
+	RevealsShroud@revealhimself:
+		ValidRelationships: Neutral, Enemy
+		MaxHeightDelta: 3
+		Range: 1c0
+
+DEFD:
+	Inherits: ^BasicBuilding
+	Inherits@1: ^StructureEffects
+	Inherits@2: ^6CellVision
+	Inherits@3: ^SelectableBuilding
+	Inherits@4: ^3x3Shape
+	Inherits@AIbuilding: ^AIbuildingMicroControl
+	Valued:
+		Cost: 10000
+	Health:
+		HP: 1100000
+	Buildable:
+		Queue: Building
+		Prerequisites: cabtech, ~structures.cab, ~AIOnly, ~!DefenderExists
+		Description: Cabal's final creation armed with crazy weapon.\n\nGood vs: Everything\n\nSpecial:\n- Needs preparing before rising.\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle
+		BuildPaletteOrder: 9
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	CaptureNotification:
+		Notification: BuildingCaptured
+		LoseNotification: BuildingLostToCapture
+	CaptureManager:
+	Capturable:
+		Types: Building
+		RequiresCondition: !Building-Buildup
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	GivesExperience:
+		PlayerExperienceModifier: 100
+	RevealsShroud:
+		Type: Footprint
+		MaxHeightDelta: 3
+	MustBeDestroyed:
+		RequiredForShortGame: true
+	WithMakeAnimation:
+		Condition: Building-Buildup
+	GrantConditionAfterDelay:
+		Delay: 10000
+		Condition: Rising
+		PauseOnCondition: empdisable
+	Transforms:
+		RequiresCondition: Rising
+		IntoActor: coredefender
+		Offset: 1, 1
+		Facing: 384
+		TransformSounds: place2.aud
+		NoTransformSounds:
+	AutoDeployer@AI:
+		RequiresCondition: Rising && AIbuildingMicroControl
+		DeployChance: 100
+		DeployTrigger: Periodically
+		DeployTicks: 20
+		UndeployTicks: 20
+	Tooltip:
+		Name: Core Defender
+	RevealsShroud@revealhimself:
+		ValidRelationships: Neutral, Enemy
+		MaxHeightDelta: 3
+		Range: 2c0
+	ProvidesPrerequisite@AIbuildinglimit:
+		Prerequisite: DefenderExists

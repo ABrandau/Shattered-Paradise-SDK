@@ -1,4 +1,8 @@
 Player:
+	#################################
+	## Bots Defination
+	#################################
+
 	ModularBot@EasyAI:
 		Name: Easy AI
 		Type: EasyAI
@@ -11,7 +15,11 @@ Player:
 	ModularBot@ShatteredAI:
 		Name: Shattered AI
 		Type: ShatteredAI
-	### Condition Defination
+
+	#################################
+	## Condition Defination
+	#################################
+
 	GrantConditionOnBotOwner@AIEasy:
 		Condition: AIEasy
 		Bots: EasyAI
@@ -27,7 +35,20 @@ Player:
 	GrantConditionOnBotOwner@AIShattered:
 		Condition: AIShattered
 		Bots: ShatteredAI
-	PlugSpawnerBotModule@AIBase:
+
+	#################################
+	## BotModule and BotLogic
+	#################################
+
+	## Drop "HarvesterBotModule" due to it is senseless when we now use Building as cash cheat,
+	##  and sub base is impossible for OpenRA at present. Also this module is heavily performance questionable
+	#HarvesterBotModule: 
+	#	RequiresCondition: AIBase
+	#	HarvesterTypes: harv, scrharv
+	#	RefineryTypes: gdiref, nodref, scrproc, cabproc, muproc
+	AutoDeployManager@AIall:
+		RequiresCondition: AIBase || AIEasy
+	PlugSpawnerBotModule@AIBase: ##GDI only
 		Plug: gapowrup
 		Pluggables: gapowr
 		Interval: 750
@@ -35,13 +56,6 @@ Player:
 	GrantConditionOnPrerequisite@powerplug:
 		Condition: powerplug
 		Prerequisites: gapowr.pluggable, garadr, ~structures.gdi
-	### BotModule and BotLogic
-	## Drop "HarvesterBotModule" due to it is senseless when we now use Building as cash cheat,
-	##  and sub base is impossible for OpenRA at present. Also this module is heavily performance questionable
-	#HarvesterBotModule: 
-	#	RequiresCondition: AIBase
-	#	HarvesterTypes: harv, scrharv
-	#	RefineryTypes: gdiref, nodref, scrproc, cabproc, muproc
 	ProvidesPrerequisite@AISpecialProduce:
 		RequiresCondition: AICheater || AIShattered
 		Prerequisite: AIOnly
@@ -128,6 +142,7 @@ Player:
 			namisl: 1
 			mutsw2: 1
 			cabobelisk: 1
+			defd: 1
 		BuildingFractions:
 			gadept: 1
 			scrdepot: 1
@@ -196,6 +211,7 @@ Player:
 			namisl: 1
 			mutsw2: 1
 			cabobelisk: 1
+			defd: 1
 		BuildingDelays:
 			gaplug: 30000
 			natmpl: 30000
@@ -220,6 +236,7 @@ Player:
 			cabtech: 6000
 			nalasr: 3500
 			gadept: 6000
+			defd: 60000
 	BaseBuilderBotModule@AIShattered:
 		RequiresCondition: AIShattered
 		MinimumExcessPower: 90
@@ -303,6 +320,7 @@ Player:
 			namisl: 1
 			mutsw2: 1
 			cabobelisk: 1
+			defd: 1
 		BuildingFractions:
 			gadept: 1
 			scrdepot: 1
@@ -371,6 +389,7 @@ Player:
 			namisl: 1
 			mutsw2: 1
 			cabobelisk: 1
+			defd: 1
 		BuildingDelays:
 			gaplug: 30000
 			natmpl: 30000
@@ -394,6 +413,7 @@ Player:
 			scrtech: 6000
 			cabtech: 6000
 			gadept: 6000
+			defd: 60000
 	BuildingRepairBotModule:
 		RequiresCondition: AIBase
 	SquadManagerBotModule@AIBase:
@@ -808,18 +828,12 @@ Player:
 					TargetMetric: None
 					CheckRadius: 5c0
 				Consideration@2:
-					Against: Ally
-					Types: Air, Ground, Water
-					Attractiveness: -10
-					TargetMetric: Value
-					CheckRadius: 7c0
-				Consideration@3:
 					Against: Enemy
 					Types: Building
 					Attractiveness: 10
 					TargetMetric: Value
 					CheckRadius: 5c0
-				Consideration@4:
+				Consideration@3:
 					Against: Enemy
 					Types: Defence
 					Attractiveness: -50
@@ -842,6 +856,29 @@ Player:
 					Attractiveness: 1
 					TargetMetric: Value
 					CheckRadius: 5c0
+			coredefsuper:
+				OrderName: CoreDefSuper
+				MinimumAttractiveness: 3000
+				MinimumScanTimeInterval: 83
+				MaximumScanTimeInterval: 100
+				Consideration@1:
+					Against: Enemy
+					Types: Infantry, Vehicle, Defence, Air
+					Attractiveness: 3
+					TargetMetric: Value
+					CheckRadius: 4c0
+				Consideration@2:
+					Against: Enemy
+					Types: Building
+					Attractiveness: 1
+					TargetMetric: Value
+					CheckRadius: 4c0
+				Consideration@3:
+					Against: Ally
+					Types: Air, Ground, Water
+					Attractiveness: -10
+					TargetMetric: Value
+					CheckRadius: 4c0
 	CaptureManagerBotModule:
 		CapturingActorTypes: engineer, cutman, swarmling, shapeshifter
 		CapturableActorTypes: cahosp, neutralsonictur, caarmr, well, machineshop, scrinreinfpad, limped, mwar, mtar, lpst, sgen, gacnst, mutyard, cabyard, nodyard, drached

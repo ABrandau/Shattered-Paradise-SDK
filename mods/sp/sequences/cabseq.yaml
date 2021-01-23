@@ -1413,4 +1413,83 @@ gate_a.cab:
 gate_b.cab:
 	Inherits: gate_b.nod
 	icon: cabgate1icon
-	
+
+coredefender:
+	Inherits: ^EmpOverlay
+	Defaults:
+	idle: defender
+		Facings: -8
+		ShadowStart: 168
+	dead: defender
+		Facings: -8
+		ShadowStart: 168
+		Tick: 60
+	shoot1: defender ##WW orignal design
+		Start: 72
+		Length: 12
+		Facings: -8
+		ShadowStart: 240
+		Tick: 100
+	shoot2: defender
+		Start: 79
+		Length: 4
+		Stride: 12
+		Facings: -8
+		ShadowStart: 247
+		Tick: 100
+	stand: defender
+		Facings: -8
+		ShadowStart: 168
+	run: defender
+		Start: 8
+		Length: 8
+		Facings: -8
+		Tick: 100
+		ShadowStart: 176
+	muzzle1: lazerflare
+		Length: *
+		Offset: 0, 0, 0
+		UseTilesetCode: false
+		ZOffset: 6000
+		Tick: 50
+	muzzle2: lazerflare
+		Frames: 1,2,3
+		Length: *
+		Offset: 0, 0, 0
+		UseTilesetCode: false
+		ZOffset: 6000
+		Tick: 50
+	muzzle3: lightmuzzle
+		Offset: 0, 0
+		Length: *
+		UseTilesetCode: false
+		BlendMode: Additive
+		ZOffset: 6000
+	dead_explosion: defd_exp
+		Offset: 0, 0
+		Length: *
+		UseTilesetCode: false
+		Tick: 100
+	shield: shieldlarge
+		Length: *
+
+defd:
+	Defaults:
+		Offset: 1, -11, 24
+		UseTilesetCode: false
+	idle: 
+		Start: 0
+		Length: 3
+		ShadowStart: 3
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 21
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	make: defdmk
+		Start: 0
+		Length: 24
+		ShadowStart: 24
+	icon: cabgate2icon ## Place holder
+		Offset: 0, 0

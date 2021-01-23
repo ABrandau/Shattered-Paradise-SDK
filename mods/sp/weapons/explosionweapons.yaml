@@ -713,8 +713,18 @@ PowerlineExplosion:
 		Explosions: powerlinexplosion
 		ImpactSounds: voltautofire.wav
 		ValidTargets: Ground, Air, Water
-		ExplosionPalette: gensmkexplojFblue
+		ExplosionPalette: effect
 	Warhead@6: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall, Air, Water
 		ImpactActors: false
+
+DefenderExplosion:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Large_twlt
+	Warhead@5: CreateEffect
+		Image: coredefender
+		Explosions: dead_explosion
+		ImpactSounds: voltautofire.wav
+		ValidTargets: Ground, Air, Water
+		ExplosionPalette: effect
