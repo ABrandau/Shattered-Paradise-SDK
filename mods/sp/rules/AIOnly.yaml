@@ -252,7 +252,7 @@ COREDEFENDER:
 		AddToArmyValue: true
 	Mobile:
 		TurnSpeed: 30
-		Speed: 70
+		Speed: 60
 		Locomotor: VehicleCrusher
 	-Crushable:
 	ChangesHealth@Permanent:
@@ -415,6 +415,10 @@ COREDEFENDER:
 		EmptyWeapon: BuildingExplode
 	ProvidesPrerequisite@AIbuildinglimit:
 		Prerequisite: DefenderExists
+	RevealsShroud@revealhimself:
+		ValidRelationships: Neutral, Enemy
+		MaxHeightDelta: 3
+		Range: 1c0
 
 DEFD:
 	Inherits: ^BasicBuilding
