@@ -441,10 +441,9 @@ MINIVEIN:
 		Weapon: VeinholeAttack
 
 VEINHOLE:
-	Inherits: ^Building
+	Inherits: ^BasicBuilding
 	Inherits@2: ^2x2Shape
 	Inherits@3: ^Unkillable
-	-CaptureManager:
 	RadarColorFromTerrain:
 		Terrain: Veins
 	Building:
@@ -477,24 +476,19 @@ VEINHOLE:
 		HP: 200000
 	Armor:
 		Type: BuildingArmor
-	-WithColoredOverlay@EMPDISABLE:
-	-TimedConditionBar@EMPDISABLE:
-	-WithIdleOverlay@EMPDISABLE:
 	MapEditorData:
 		Categories: Tree
 	RequiresBuildableArea:
 		AreaTypes: building
 	Interactable:
 	-GrantConditionOnDamageState@HeavyDamaged:
-	-ExplodeWeapon@spawnsparks:
 	-ExplodeWeapon@SpawnFire:
-	-SmokeParticleEmitter:
 	-ExternalCondition@DisableHeavyDamagedEffect:
 	-ThrowsShrapnel@SMALL:
 	-ThrowsShrapnel@LARGE:
-	-CapturableProgressBlink:
-	-CapturableProgressBar:
-	-Capturable:
+	WithIdleAnimation:
+		Sequences: active1, active2
+		Interval: 150
 
 VEINHOLE2:
 	Inherits: VEINHOLE
