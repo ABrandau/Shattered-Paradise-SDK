@@ -324,6 +324,8 @@ SonicZap:
 4TNKGUN:
 	Inherits: ^APWarhead
 	Inherits@2: ^Mediuml_Clsn
+	FirstBurstTargetOffset: 0,50,0
+	FollowingBurstTargetOffset: 0,-100,0
 	ReloadDelay: 90
 	Range: 6c0
 	Report: tankmediumfire.wav
@@ -381,6 +383,8 @@ MammothTuskAA:
 
 MechRailgun: ##For hit effect
 	Inherits: ^Large_Clsn
+	FirstBurstTargetOffset: 0,-150,0
+	FollowingBurstTargetOffset: 0,300,0
 	ReloadDelay: 100
 	Range: 7c0
 	Burst: 2
@@ -391,6 +395,8 @@ MechRailgun: ##For hit effect
 
 MechRailgun2:
 	Inherits:  ^WeaponGenericUpgrades
+	FirstBurstTargetOffset: 0,-150,0
+	FollowingBurstTargetOffset: 0,300,0
 	ReloadDelay: 100
 	Range: 7c0
 	Burst: 2
@@ -405,10 +411,10 @@ MechRailgun2:
 		HelixRadiusDeltaPerTick: 16
 		HelixColor: 44FFFF
 		HitAnim: explosion
-		HitAnimSequence: marnflash2
-		HitAnimPalette: MarnAlphaAlpha
+		HitAnimSequence: railgunexp
+		HitAnimPalette: effect
 	Warhead@1Dam: SpreadDamage
-		Spread: 42
+		Spread: 50
 		Damage: 15000
 		Versus:
 			InfantryArmor: 200
