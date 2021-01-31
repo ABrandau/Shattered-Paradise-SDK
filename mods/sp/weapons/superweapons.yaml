@@ -833,13 +833,6 @@ IronSaviorShrapnel:
 		Spread: 0c400
 		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
 
-NanoMachineBurst:
-	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
-	Warhead@5Actor: SpawnActor
-		Actors: nanomachineburstspawner
-		FallRate: 5000
-		Range: 3
-
 RecoveryGun:
 	Inherits: ^FullDamage
 	ReloadDelay: 1
@@ -951,3 +944,15 @@ ColossiShrapnel:
 		Range: 3
 	Warhead@5Sound: CreateEffect
 		ImpactSounds: instantrift.wav
+
+nanomachineswarmdeath:
+	Warhead@2Eff: CreateEffect
+		Image: nanomachineswarmdummy
+		Explosions: dead
+		ExplosionPalette: apolgreyalpha
+	Warhead@1Dam: SpreadDamage
+		Spread: 2c0
+		Falloff: 100, 100, 100, 100
+		Damage: 1
+		ImpactActors: false
+		ValidTargets: remaining

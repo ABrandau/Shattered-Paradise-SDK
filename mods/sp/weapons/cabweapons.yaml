@@ -253,6 +253,24 @@ Dogzooka:
 		Explosions: sparks
 		ImpactSounds: rketinf1.aud
 		ExplosionPalette: gensmkexploj
+	-Warhead@5Smu: LeaveSmudge
+
+NanoNeedle:
+	Inherits: Dogzooka
+	-Report: rketinf1.aud
+	Projectile: BulletAS
+		Image: CRYSTAL4
+		Palette: gradientgray
+	Warhead@2Eff: CreateEffect
+		Explosions: piffs
+		InvalidTargets: Water
+		ExplosionPalette: gradientgray
+		-ImpactSounds:
+	Warhead@3EffWater: CreateEffect
+		Explosions: water_piffs
+		ExplosionPalette: ra
+		ValidTargets: Water
+		InvalidTargets: Ground	
 
 CenturionVulcan:
 	Inherits: ^RifleWarhead

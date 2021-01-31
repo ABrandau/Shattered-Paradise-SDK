@@ -717,20 +717,23 @@
 	ExternalCondition@WebDisable:
 		Condition: WebDisable
 
-^BurstRecovery:
-	ChangesHealth@NanomachineBurst:
+^Nanomachinebuff:
+	ChangesHealth@nanomachinerecovery:
 		PercentageStep: 2
 		Step: 0
 		Delay: 25
 		StartIfBelow: 100
-		RequiresCondition: nanomachineburst
-	SpawnActorOnDeath@nanomachineburst:
+		RequiresCondition: nanomachinerecovery
+	SpawnActorOnDeath@nanomachinereanimate:
+		RequiresCondition: nanomachinereanimate
 		Actor: KILLEDACTOR
 		Probability: 100
-		OwnerType: Killer
+		OwnerType: InternalName #Netrual
 		RequiresLobbyCreeps: false
-	ExternalCondition@nanomachineburst:
-		Condition: nanomachineburst
+	ExternalCondition@nanomachinerecovery:
+		Condition: nanomachinerecovery
+	ExternalCondition@nanomachinereanimate:
+		Condition: nanomachinereanimate
 
 ^tractorstop:
 	SpeedMultiplier:
@@ -936,7 +939,7 @@
 	#Inherits@0: ^KillSelf #deprecated, now firestorm use very high damage to kill
 	Inherits@1: ^Cloakable
 	Inherits@2: ^ScrinEssence
-	Inherits@3: ^BurstRecovery
+	Inherits@3: ^Nanomachinebuff
 	Inherits@4: ^FirestormGenBuff
 	Inherits@5: ^CrateBuffs
 	RevealOnFire:
