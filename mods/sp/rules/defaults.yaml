@@ -404,7 +404,7 @@
 ^WolfDebuff:
 	WithIdleOverlay@WolfDebuff:
 		Sequence: bullparticle
-		Palette: gradientgreen
+		Palette: gradientgreen60
 		RequiresCondition: WolfDebuff
 	ReloadDelayMultiplier@WolfDebuff:
 		RequiresCondition: WolfDebuff
@@ -724,6 +724,11 @@
 		Delay: 25
 		StartIfBelow: 100
 		RequiresCondition: nanomachinerecovery
+	WithIdleOverlay@nanomachinerecovery:
+		Image: nanoparticle
+		Sequence: idle-big
+		Palette: gradientgray60
+		RequiresCondition: nanomachinerecovery
 	SpawnActorOnDeath@nanomachinereanimate:
 		RequiresCondition: nanomachinereanimate
 		Actor: KILLEDACTOR
@@ -977,6 +982,9 @@
 	GrantCondition@DisableRepairInTunnel:
 		Condition: DisableFullHealthRepairCondition
 		RequiresCondition: inside-tunnel
+	WithIdleOverlay@nanomachinerecovery:
+		Image: nanoparticle
+		Sequence: idle-small
 	DeliversCash:
 		Payload: 50
 
