@@ -259,18 +259,16 @@ NanoNeedle:
 	Inherits: Dogzooka
 	-Report: rketinf1.aud
 	Projectile: BulletAS
-		Image: CRYSTAL4
-		Palette: gradientgray
+		Speed: 200
+		Image: naswarm
+		Palette: effect
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: Prone100Percent, TriggerProne
 	Warhead@2Eff: CreateEffect
-		Explosions: piffs
-		InvalidTargets: Water
-		ExplosionPalette: gradientgray
-		-ImpactSounds:
-	Warhead@3EffWater: CreateEffect
-		Explosions: water_piffs
-		ExplosionPalette: ra
-		ValidTargets: Water
-		InvalidTargets: Ground	
+		Explosions: nanoexp
+		-InvalidTargets:
+		ExplosionPalette: effect
+		-ImpactSounds:	
 
 CenturionVulcan:
 	Inherits: ^RifleWarhead
