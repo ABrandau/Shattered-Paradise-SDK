@@ -404,7 +404,7 @@
 ^WolfDebuff:
 	WithIdleOverlay@WolfDebuff:
 		Sequence: bullparticle
-		Palette: apolgreenalpha
+		Palette: gradientgreen60
 		RequiresCondition: WolfDebuff
 	ReloadDelayMultiplier@WolfDebuff:
 		RequiresCondition: WolfDebuff
@@ -717,20 +717,28 @@
 	ExternalCondition@WebDisable:
 		Condition: WebDisable
 
-^BurstRecovery:
-	ChangesHealth@NanomachineBurst:
+^Nanomachinebuff:
+	ChangesHealth@nanomachinerecovery:
 		PercentageStep: 2
 		Step: 0
 		Delay: 25
 		StartIfBelow: 100
-		RequiresCondition: nanomachineburst
-	SpawnActorOnDeath@nanomachineburst:
+		RequiresCondition: nanomachinerecovery
+	WithIdleOverlay@nanomachinerecovery:
+		Image: nanoparticle
+		Sequence: idle-big
+		Palette: gradientgray60
+		RequiresCondition: nanomachinerecovery
+	SpawnActorOnDeath@nanomachinereanimate:
+		RequiresCondition: nanomachinereanimate
 		Actor: KILLEDACTOR
 		Probability: 100
-		OwnerType: Killer
+		OwnerType: InternalName #Netrual
 		RequiresLobbyCreeps: false
-	ExternalCondition@nanomachineburst:
-		Condition: nanomachineburst
+	ExternalCondition@nanomachinerecovery:
+		Condition: nanomachinerecovery
+	ExternalCondition@nanomachinereanimate:
+		Condition: nanomachinereanimate
 
 ^tractorstop:
 	SpeedMultiplier:
@@ -936,7 +944,7 @@
 	#Inherits@0: ^KillSelf #deprecated, now firestorm use very high damage to kill
 	Inherits@1: ^Cloakable
 	Inherits@2: ^ScrinEssence
-	Inherits@3: ^BurstRecovery
+	Inherits@3: ^Nanomachinebuff
 	Inherits@4: ^FirestormGenBuff
 	Inherits@5: ^CrateBuffs
 	RevealOnFire:
@@ -974,6 +982,9 @@
 	GrantCondition@DisableRepairInTunnel:
 		Condition: DisableFullHealthRepairCondition
 		RequiresCondition: inside-tunnel
+	WithIdleOverlay@nanomachinerecovery:
+		Image: nanoparticle
+		Sequence: idle-small
 	DeliversCash:
 		Payload: 50
 
@@ -1488,6 +1499,8 @@
 	-GrantRandomCondition@tiberium:
 	-SpawnActorOnDeath@tiberium1:
 	-SpawnActorOnDeath@tiberium2:
+	-SpawnActorOnDeath@nanomachinereanimate:
+	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@ScrinEssence:
 	-WithDeathAnimation@blood1:

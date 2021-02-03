@@ -253,6 +253,22 @@ Dogzooka:
 		Explosions: sparks
 		ImpactSounds: rketinf1.aud
 		ExplosionPalette: gensmkexploj
+	-Warhead@5Smu: LeaveSmudge
+
+NanoNeedle:
+	Inherits: Dogzooka
+	-Report: rketinf1.aud
+	Projectile: BulletAS
+		Speed: 200
+		Image: naswarm
+		Palette: effect
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: Prone100Percent, TriggerProne
+	Warhead@2Eff: CreateEffect
+		Explosions: nanoexp
+		-InvalidTargets:
+		ExplosionPalette: effect
+		-ImpactSounds:	
 
 CenturionVulcan:
 	Inherits: ^RifleWarhead
@@ -311,49 +327,19 @@ RepairVehicleLasor:
 	AffectsParent: false
 	InvalidTargets: FullHealth, NoRepair
 	ValidTargets: Vehicle
-	Projectile: InstantHit
+	Report: repair11.aud
 	Projectile: RadBeam
 		ZOffset: 4000
 		Color: FFFF70
+		HitAnim: explosion
+		HitAnimSequence: repairsparks
+		HitAnimPalette: player
 	Warhead@1Dam: SpreadDamage
 		Spread: 80
 		Damage: -4000
 		AffectsParent: false
 		ValidTargets: Vehicle
 		InvalidTargets: FullHealth, NoRepair
-	Warhead@op: FireShrapnel
-		Weapon: SparkDebris
-		ImpactActors: false
-		Amount: 8
-		ValidTargets: Vehicle
-		InvalidTargets: FullHealth, NoRepair
-		ImpactActors: true
-	Warhead@op2: FireShrapnel
-		Weapon: MarnFlash6
-		ImpactActors: false
-		Amount: 1
-		ValidTargets: Vehicle
-		InvalidTargets: FullHealth, NoRepair
-		ImpactActors: true
-	Warhead@2Eff: CreateEffect
-		ValidTargets: Ground, Water, Air
-		ImpactSounds: repair11.aud
-		ImpactActors: false
-		Volume: 0.8
-
-MarnFlash6:
-	Range: 0c1
-	TargetActorCenter: true
-	Projectile: InstantHit
-	ValidTargets: Ground, Water, Infantry, Vehicle, Building, Air
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
-	Warhead@MarnFlash: CreateEffect
-		Explosions: marnflash6
-		ExplosionPalette: MarnAlphaAlpha
-		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Air
-		ImpactActors: false
 
 DroneHostMissile:
 	Inherits: ^RocketWarhead

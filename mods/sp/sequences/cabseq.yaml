@@ -1387,24 +1387,30 @@ cabsw1:
 nanomachineswarmdummy:
 	Defaults:
 		Offset: 0,-36
-	idle: dot
+		ZRamp: 1
+		ZOffset: -5c512
 		UseTilesetCode: false
-		ZOffset: -1024
+	idle: dot
 	make: smokebomb4
 		Length: 19
-		UseTilesetCode: false
-		ZOffset: -1024
 	stand: smokebomb4
 		Start: 19
 		Length: 25
 		Tick: 100
+	dead: smokebomb4
+		Start: 50
+		Length: 10
+
+nanos:
+	Inherits@1: ^InfantryDeathAnims
+	Defaults:
+		Offset: 0,0
+		ZRamp: 1
 		UseTilesetCode: false
-		ZOffset: -1024
-	die: smokebomb4
-		Start: 45
-		Length: 15
-		UseTilesetCode: false
-		ZOffset: -1024
+	idle:
+		Facings: 1
+		Start: 0
+		Length: 61
 
 gate_a.cab:
 	Inherits: gate_a.nod

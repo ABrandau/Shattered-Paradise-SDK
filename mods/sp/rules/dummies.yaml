@@ -41,17 +41,13 @@
 ## 1. Add 'KillsSelf' for timer control, better with '@TimedLife''
 ## 2. HACK&Note: if you want to trigger the death effect traits, actor must have Health.
 ## Otherwise 'KillsSelf' only disposals the actor without triggering death effect traits.
-## 3. For time-affecting-only dummy with Health, pls also use '^Unkillable' to avoid other damage kills the actor.
+## 3. You can use '^Unkillable' to avoid other damage kills the actor.
 
 ^WithDeathEffects:
 	Inherits: ^1x1Shape
 	Health:
-		HP: 50
+		HP: 1
 		NotifyAppliedDamage: false
-
-^TimedDeathOnlyWithDeathEffects:
-	Inherits: ^WithDeathEffects
-	Inherits@1: ^Unkillable
 
 ########################################################
 # Dummy Instances
@@ -59,7 +55,7 @@
 
 CLOUD1:
 	Inherits: ^DUMMYAIRCRAFT
-	Inherits@2: ^TimedDeathOnlyWithDeathEffects
+	Inherits@2: ^WithDeathEffects
 	Aircraft:
 		CruiseAltitude: 1
 		TurnSpeed: 2
@@ -165,7 +161,7 @@ RADARSCANDUMMY:
 
 IRONSAVIORDUMMY:
 	Inherits: ^GROUNDDUMMY
-	Inherits@2: ^TimedDeathOnlyWithDeathEffects
+	Inherits@2: ^WithDeathEffects
 	KillsSelf@TimedLife:
 		Delay: 2
 	RevealsShroud:
@@ -179,7 +175,7 @@ IRONSAVIORDUMMY:
 
 IONBEAMTARGET:
 	Inherits: ^GROUNDDUMMY
-	Inherits@2: ^TimedDeathOnlyWithDeathEffects ##Hacked: For targetable
+	Inherits@2: ^WithDeathEffects ##Hacked: For targetable
 	KillsSelf@TimedLife:
 		Delay: 100
 	Targetable:
@@ -301,44 +297,9 @@ IONBEAMMINI:
 	HiddenUnderFog:
 		AlwaysVisibleRelationships: Ally, Enemy, Neutral
 
-KILLEDACTOR:
-	Inherits: ^GROUNDDUMMY
-	Inherits@2: ^WithDeathEffects
-	KillsSelf@TimedLife:
-		Delay: 1
-		RemoveInstead: true
-		RequiresCondition: !nanomachineburst
-	Targetable@asdf:
-		TargetTypes: KilledUnit
-	SpawnActorOnDeath@workerspawn:
-		Actor: worker
-		Probability: 100
-		OwnerType: Killer
-		DeathType: WorkerSummon
-		RequiresLobbyCreeps: true
-	ExternalCondition@nanomachineburst:
-		Condition: nanomachineburst
-
-NANOMACHINEBURSTSPAWNER:
-	Inherits: ^GROUNDDUMMY
-	Inherits@2: ^TimedDeathOnlyWithDeathEffects
-	KillsSelf@TimedLife:
-		Delay: 0
-	SpawnActorOnDeath@workerspawn:
-		Actor: NANOMACHINEBURSTDUMMY
-		Probability: 100
-		RequiresLobbyCreeps: false
-		SkipMakeAnimations: false
-		EffectiveOwnerFromOwner: true
-		OwnerType: Victim
-	AmbientSound:
-		SoundFiles: nanomachine0000.wav, nanomachine0001.wav, nanomachine0002.wav, nanomachine0003.wav, nanomachine0004.wav
-		Delay: 0, 5
-		Interval: 0, 5
-
-NANOMACHINEBURSTDUMMY:
+NANOBURSTDUMMY:
 	Inherits: ^DUMMYAIRCRAFT
-	Inherits@1: ^AutoTargetAll
+	Inherits@2: ^WithDeathEffects
 	Aircraft:
 		CruiseAltitude: 1
 	KillsSelf@TimedLife:
@@ -348,27 +309,42 @@ NANOMACHINEBURSTDUMMY:
 		Palette: apolgreyalpha
 	RevealsShroud:
 		Range: 8c0
-	ProximityExternalCondition:
-		Condition: nanomachineburst
+	ProximityExternalCondition@1:
+		RequiresCondition: !spreading
+		Condition: nanomachinerecovery
 		Range: 7c0
-	WithIdleOverlay:
+		EnableSound: nanomachine0000.wav, nanomachine0001.wav, nanomachine0002.wav, nanomachine0003.wav, nanomachine0004.wav
+	ProximityExternalCondition@2:
+		Condition: nanomachinereanimate
+		Range: 7c0
+		ValidRelationships: Ally, Enemy, Neutral
+	WithMakeAnimation:
+		Condition: spreading
+	WithSpriteBody:
 		Sequence: stand
-		Palette: apolgreyalpha
-	#WithDeathAnimation: ##It is useless at present
-	#	DeathPaletteIsPlayerPalette: false
-	#	DeathSequencePalette: apolgreyalpha
-	#	UseDeathTypeSuffix: false
-	AutoTargetPriority@DEFAULT:
-		ValidTargets: KilledUnit
-	AttackOmni:
-	Armament:
-		Weapon: RecoveryGun
-		TargetRelationships: Ally, Enemy, Neutral
-	AutoTarget:
+	Explodes:
+		Weapon: nanomachineswarmdeath
+
+KILLEDACTOR:
+	Inherits: ^GROUNDDUMMY
+	Inherits@2: ^WithDeathEffects
+	ExternalCondition@nanomachinereanimate:
+		Condition: nanomachinereanimate
+	KillsSelf@TimedLife:
+		Delay: 10
+		RemoveInstead: true
+		RequiresCondition: !nanomachinereanimate
+	SpawnActorOnDeath@workerspawn:
+		Actor: nanos
+		Probability: 100
+		OwnerType: Killer
+		RequiresLobbyCreeps: true
+	Targetable@remaining:
+		TargetTypes: remaining
 
 VEINHOLESPAWNERDUMMY:
 	Inherits: ^GROUNDDUMMY
-	Inherits@2: ^TimedDeathOnlyWithDeathEffects
+	Inherits@2: ^WithDeathEffects
 	KillsSelf@TimedLife:
 		Delay: 0
 	SpawnActorOnDeath@cabalcrate:
@@ -397,7 +373,7 @@ FOGCAMERADUMMY:
 
 SCRINESSENCESMALL:
 	Inherits: ^GROUNDDUMMY
-	Inherits@2: ^TimedDeathOnlyWithDeathEffects
+	Inherits@2: ^WithDeathEffects
 	KillsSelf@TimedLife:
 		Delay: 50
 	RenderSprites:
@@ -413,7 +389,7 @@ SCRINESSENCESMALL:
 FLAMEGUY:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
-	Inherits@3: ^TimedDeathOnlyWithDeathEffects
+	Inherits@3: ^WithDeathEffects
 	Mobile:
 		Speed: 80
 		Locomotor: Infantry

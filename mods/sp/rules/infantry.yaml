@@ -1230,7 +1230,8 @@ CABSENTRY:
 		VoiceSet: Limpet
 	-ActorLostNotification:
 	-UpdatesPlayerStatistics:
-	-SpawnActorOnDeath@nanomachineburst:
+	-SpawnActorOnDeath@nanomachinereanimate:
+	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
 	-Passenger:
 	Targetable:
@@ -1452,8 +1453,8 @@ PDRONE:
 		Condition: hoverunitonwater
 		TerrainTypes: Water
 	Explodes:
-		Weapon: DroneExplode
-		EmptyWeapon: DroneExplode
+		Weapon: SimpleDroneExplode
+		EmptyWeapon: SimpleDroneExplode
 	-SpawnActorOnDeath@conversion:
 
 GLAD:
@@ -1711,7 +1712,8 @@ WORKER:
 		Armaments: OnFoot
 		FacingTolerance: 2
 	RenderSprites:
-	-SpawnActorOnDeath@nanomachineburst:
+	-SpawnActorOnDeath@nanomachinereanimate:
+	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
 	-DamagedByTerrain:
 	DeliversCash:
@@ -1748,7 +1750,8 @@ CYBDOG:
 		Armaments: OnFoot
 		FacingTolerance: 2
 	SelectionDecorations:
-	-SpawnActorOnDeath@nanomachineburst:
+	-SpawnActorOnDeath@nanomachinereanimate:
+	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
 	-DamagedByTerrain:
 	DeliversCash:
@@ -1789,5 +1792,55 @@ WORKERMECH:
 		PauseOnCondition: WebDisable
 	Selectable:
 		Bounds: 25, 22, 0, -5
-	-SpawnActorOnDeath@nanomachineburst:
+	-SpawnActorOnDeath@nanomachinereanimate:
+	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
+	Explodes:
+		Weapon: SimpleDroneExplode
+		EmptyWeapon: SimpleDroneExplode
+
+nanos:
+	Inherits: ^CabalDroneInfantry
+	Valued:
+		Cost: 10
+	Tooltip:
+		Name: Small Nano Swarm
+	Health:
+		HP: 7000
+	Mobile:
+		Speed: 60
+		Locomotor: HoverInfantry
+		PauseOnCondition: WebDisable
+	Hovers:
+	Voiced:
+		VoiceSet: Limpet
+	DeliversCash:
+		Payload: 100
+		Voice: Move
+	BodyOrientation:
+		QuantizedFacings: 1
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+		FacingTolerance: 2
+	Armament@1:
+		Weapon: NanoNeedle
+		LocalOffset: 0, 0, 350
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@Garrison:
+		Weapon: NanoNeedle
+		LocalOffset: 0, 0, 350
+		PauseOnCondition: WebDisable
+	Selectable:
+		Bounds: 25, 22, 0, 0
+	-WithInfantryBody:
+	WithSpriteBody:
+		Sequence: idle
+	Explodes:
+		Weapon: SimpleDroneExplode
+		EmptyWeapon: SimpleDroneExplode
+	-SpawnActorOnDeath@nanomachinereanimate:
+	-ExternalCondition@nanomachinereanimate:
+	-SpawnActorOnDeath@conversion:
+	-Crushable:
