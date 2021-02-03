@@ -875,6 +875,12 @@ SCREXTRACTOR:
 	RequiresBuildableArea:
 		AreaTypes: building
 	ProvidesPrerequisite@buildingname:
+	WithIdleOverlay@shieldpower:
+		RequiresCondition: !disabled && !Building-Buildup && !empdisable
+		Sequence: idle
+		Image: shieldpower
+		Palette: scrinenergystuffsalpha
+		Offset: 0, 0, 1800
 
 SCRSW1:
 	Inherits: ^Building
