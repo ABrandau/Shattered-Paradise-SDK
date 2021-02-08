@@ -484,3 +484,8 @@ DEFD:
 		Prerequisite: DefenderExists
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack, ConsideredThreatForAI
+	WithIdleOverlay@charging:
+		RequiresCondition: !Building-Buildup
+		Sequence: flag
+		Palette: playercab
+		IsPlayerPalette: true
