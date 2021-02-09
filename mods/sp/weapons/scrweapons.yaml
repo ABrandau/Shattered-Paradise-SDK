@@ -33,9 +33,10 @@ LegioNeedler:
 		Shadow: true
 		Palette: apblue
 		Image: smallblueplasma
-		ContrailLength: 10
-		ContrailColor: 000ba8
-		ContrailWidth: 0c35
+		ContrailLength: 5
+		ContrailColor: 000ba833
+		ContrailWidth: 0c100
+		ContrailDelay: 0
 		-TrailImage: small_smoke_trail
 		-TrailPalette: effectalpha75
 	Warhead@1Dam: SpreadDamage
@@ -344,9 +345,9 @@ TripodBlast:
 		LaunchAngle: 62
 		Palette: gradientblue60
 		Blockable: false
-		ContrailLength: 8
-		ContrailColor: 9A8AFFAA
-		ContrailWidth: 0c52
+		ContrailLength: 7
+		ContrailColor: 9A8AFF44
+		ContrailWidth: 0c70
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
 		Damage: 12500
@@ -357,28 +358,12 @@ TripodBlast:
 			DefenseArmor: 50
 			ConcreteArmor: 30
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
-	Warhead@4Sharpnel: FireShrapnel
-		Weapon: TripodDebris
-		ImpactActors: false
-		AllowDirectHit: false
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
-
-TripodDebris:
-	Inherits: SmallDebris
-	Range: 2c60
-	Projectile: Bullet
-		Image: sparkprojectile
-		Palette: jascbluealpha
-		Sequences: idle
-	-Warhead@2Eff:
 	Warhead@smoke: CreateEffect
+		Explosions: wrecksmoke, wrecksmoke2, wrecksmoke3
 		ExplosionPalette: gensmkexplojFblue
-	Warhead@2: SpawnSmokeParticle
-		Palette: jascbluealpha
-		Duration: 75
 
 TripodBlast2:
 	Inherits: TripodBlast
@@ -391,7 +376,7 @@ TripodBlast2:
 
 StormRiderBlast:
 	Inherits: ^FullDamage
-	Inherits@2: ^Scrin_Explo
+	Inherits@2: ^GreenPlasmaExplosion
 	ReloadDelay: 100
 	Range: 6c512
 	MinRange: 0c300
@@ -400,26 +385,26 @@ StormRiderBlast:
 	InvalidTargets: Air
 	Projectile: Missile
 		TerrainHeightAware: true
-		CruiseAltitude: 4000
-		Speed: 500
-		MinimumLaunchAngle: 255
-		MaximumLaunchAngle: 255
+		Speed: 400
+		MinimumLaunchAngle: -256 # -90 degrees
+		MaximumLaunchAngle: 50
 		MaximumLaunchSpeed: 0c543
 		MinimumLaunchSpeed: 0c301
 		Blockable: false
-		Shadow: true
-		HorizontalRateOfTurn: 160
-		VerticalRateOfTurn: 160
+		HorizontalRateOfTurn: 50
+		VerticalRateOfTurn: 15
 		RangeLimit: 20c0
 		AllowSnapping: true
-		Palette: pips
-		TrailPalette: apblue
-		TrailImage: blueballminitrail
-		Image: blueplasma
+		Palette: gradientpurple
+		Image: greenplasma2
+		ContrailLength: 5
+		ContrailColor: ad00ff44
+		ContrailWidth: 0c100
+		ContrailDelay: 0
 	Warhead@1Dam: SpreadDamage
 		Damage: 4500
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 		InvalidTargets: Shark, Air
 		Versus:
 			InfantryArmor: 50
@@ -428,16 +413,31 @@ StormRiderBlast:
 		ValidTargets: Shark
 		InvalidTargets: Building, Vehicle, Air
 		ValidRelationships: Enemy, Neutral
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 		Versus:
 			InfantryArmor: 50
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Range: 96
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplopurple
 
 StormRiderBlastAA:
 	Inherits@2: StormRiderBlast
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+	Projectile: Missile
+		TerrainHeightAware: true
+		CruiseAltitude: 5000
+		MinimumLaunchAngle: 255
+		MaximumLaunchAngle: 255
+		MaximumLaunchSpeed: 0c543
+		MinimumLaunchSpeed: 0c301
+		AllowSnapping: true
+		CloseEnough: 200
+		Speed: 400
+		Blockable: false
+		HorizontalRateOfTurn: 240
+		VerticalRateOfTurn: 240
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
 		ValidTargets: Air
@@ -514,7 +514,7 @@ BattleshipCannon:
 	ReloadDelay: 25
 	Range: 5c768
 	Report: SeekerShot0000.wav,  SeekerShot0001.wav,  SeekerShot0002.wav,  SeekerShot0003.wav
-	Burst: 16
+	Burst: 13
 	BurstDelays: 2
 	MinRange: 0c100
 	ValidTargets: Ground, Water, Infantry, Vehicle, water
@@ -522,14 +522,54 @@ BattleshipCannon:
 		Speed: 500
 		Image: fatballprojectile
 		Inaccuracy: 1c0
-		Palette: gradientblue60
-		ContrailLength: 7
-		ContrailColor: ca00f7
-		ContrailWidth: 0c35
+		Palette: gradientblue
+		ContrailLength: 5
+		ContrailColor: 8800f733
+		ContrailWidth: 0c90
+		ContrailDelay: 0
 	Warhead@1Dam: SpreadDamage
 		Damage: 4500
 		ValidTargets: Ground, Water, Infantry, Vehicle, water
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
+
+BattleshipPlasma:
+	Inherits: ^FullDamage
+	Inherits@2: ^GreenPlasmaExplosion
+	ReloadDelay: 35
+	Range: 5c768
+	Burst: 3
+	BurstDelays: 5
+	Report: laserpistol.wav
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
+	InvalidTargets: Air
+	Projectile: Missile
+		TerrainHeightAware: true
+		Speed: 400
+		MinimumLaunchAngle: 256 # 90 degrees
+		MaximumLaunchAngle: 256
+		MaximumLaunchSpeed: 0c743
+		MinimumLaunchSpeed: 0c743
+		Blockable: false
+		HorizontalRateOfTurn: 20
+		VerticalRateOfTurn: 50
+		HomingActivationDelay: 10
+		RangeLimit: 40c0
+		AllowSnapping: true
+		Palette: gradientpurple
+		Image: greenplasma2
+		ContrailLength: 5
+		ContrailColor: ad00ff44
+		ContrailWidth: 0c100
+		ContrailDelay: 0
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
+		InvalidTargets: Air
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 96
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplopurple
 
 DestroyerCannon:
 	Inherits: ^ArtilleryWarhead

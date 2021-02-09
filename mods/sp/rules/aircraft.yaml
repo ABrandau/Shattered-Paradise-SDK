@@ -382,11 +382,18 @@ SCRIN:
 		MoveIntoShroud: true
 	Health:
 		HP: 20000
+	WithMuzzleOverlay:
 	Armament@1:
 		Weapon: Proton
+		MuzzleSequence: muzzle
+		LocalOffset: 450,0,0
+		MuzzlePalette: apgreen
 		PauseOnCondition: !ammo
 	Armament@2:
 		Weapon: ProtonAA
+		MuzzleSequence: muzzle
+		LocalOffset: 450,0,0
+		MuzzlePalette: apgreen
 		PauseOnCondition: !ammo
 	AttackAircraft:
 		Voice: Attack
@@ -798,8 +805,13 @@ STORMRIDER:
 		HP: 10000
 	Armament:
 		Weapon: StormRiderBlast
+		MuzzleSequence: muzzle
+		MuzzlePalette: appurp
 	Armament@AA:
 		Weapon: StormRiderBlastAA
+		MuzzleSequence: muzzle
+		MuzzlePalette: appurp
+	WithMuzzleOverlay:	
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 120
@@ -814,11 +826,11 @@ STORMRIDER:
 		EmptyWeapon: SmalLScrinAircraftShrapnel
 	Contrail@1:
 		Offset: -300,-150,-100
-		Color: 33008860
+		Color: ad00ff60
 		UsePlayerColor: false
 	Contrail@2:
 		Offset: -300,150,-100
-		Color: 3300EE80
+		Color: 5500EE80
 		UsePlayerColor: false
 
 
@@ -1220,11 +1232,16 @@ SCRBATTLESHIP:
 	-Rearmable:
 	Health:
 		HP: 150000
-	Armament:
+	Armament@1:
 		Weapon: BattleshipCannon
 		LocalOffset: 0,0,0, 1000,0,0, -1000,0,0, 600,-500,0, -600,-500,0, -600,500,0, 600,500,0
-		MuzzleSequence: muzzle
+		MuzzleSequence: muzzle1
 		MuzzlePalette: gradientblue60
+	Armament@2:
+		Weapon: BattleshipPlasma
+		LocalOffset: 0,0,0
+		MuzzleSequence: muzzle2
+		MuzzlePalette: appurp
 	WithMuzzleOverlay:
 	AttackTurreted:
 	Turreted:
