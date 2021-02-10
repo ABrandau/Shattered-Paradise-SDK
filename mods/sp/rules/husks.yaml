@@ -96,6 +96,33 @@ TRNSPORT.Husk:
 			nod: nodcarryall
 			cab: cabcarryall
 			mut: forgcarryall
+			scr: scrpod
+
+TRNSPORT.gdi.Husk:
+	Inherits: TRNSPORT.Husk
+	RenderSprites:
+		Image: trnsport
+		-FactionImages:
+
+TRNSPORT.nod.Husk:
+	Inherits: TRNSPORT.gdi.Husk
+	RenderSprites:
+		Image: nodcarryall
+
+TRNSPORT.cab.Husk:
+	Inherits: TRNSPORT.gdi.Husk
+	RenderSprites:
+		Image: cabcarryall
+
+TRNSPORT.scr.Husk:
+	Inherits: TRNSPORT.gdi.Husk
+	RenderSprites:
+		Image: scrpod
+
+TRNSPORT.mut.Husk:
+	Inherits: TRNSPORT.gdi.Husk
+	RenderSprites:
+		Image: forgcarryall
 
 GUARDIAN.Husk:
 	Inherits: ^AircraftHusk
