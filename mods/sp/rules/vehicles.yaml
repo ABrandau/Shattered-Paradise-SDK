@@ -1475,7 +1475,6 @@ STRUCK:
 WOLF:
 	Inherits: ^Beast
 	Inherits@1: ^6CellVision
-	Inherits@2: ^MindControllable
 	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Vehicle
@@ -1562,7 +1561,6 @@ DEATHCLAW:
 	Inherits: ^Beast
 	Inherits@1: ^MutRender
 	Inherits@2: ^8CellVision
-	Inherits@3: ^MindControllable
 	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Vehicle
@@ -1784,8 +1782,6 @@ SCRGLYDER2:
 	TransformOnCondition@AITransform:
 		RequiresCondition: AIattackAir && !inside-tunnel && !mindcontrolled
 		IntoActor: scrglyder1
-	MindControllable:
-		Condition: mindcontrolled
 
 SCRRECHARGER:
 	Inherits@1: ^Walker
