@@ -967,7 +967,14 @@ SCRDESTROYER:
 		HP: 25000
 	Armament:
 		Weapon: DestroyerCannon
-		LocalOffset: 300,0,0
+		LocalOffset: 1000,0,600
+		ReloadingCondition: charging
+	WithIdleOverlay@Charged:
+		Image: destroshell
+		RequiresCondition: !charging
+		Sequence: idle
+		Palette: pips
+		Offset: 1000, 0, 600
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 20
