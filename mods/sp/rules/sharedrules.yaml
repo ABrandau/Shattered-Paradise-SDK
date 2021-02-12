@@ -1502,9 +1502,14 @@ NAPULS:
 		Factions: gdi, mut, nod, cab, scr
 		ResetOnOwnerChange: true
 	AttackTurreted:
-	Armament:
+	Armament@trueweapon:
 		Weapon: EMPulseCannon
-		LocalOffset: 200,0,1500
+		LocalOffset: 200,0,1900
+		LocalYaw: 0,100
+		Name: Superweapon
+	Armament@muzzle:	##HACK: FireArmamentPower muzzle
+		Weapon: EMPulseCannonMuzzle
+		LocalOffset: 200,0,1900
 		LocalYaw: 0,100
 		Name: Superweapon
 	FireArmamentPower:
@@ -1689,6 +1694,8 @@ SCRGATE_B:
 		TrailImage: meteortrail
 		TrailPalette: effectalpha
 		TrailSequences: idle2
+		TrailDelay: 0
+		TrailInterval: 0
 
 ^HasSuperSupportPower:
 	Inherits: ^SuperSupportPowerBased

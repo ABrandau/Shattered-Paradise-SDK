@@ -7,7 +7,7 @@ explosion:
 	building: twlt070
 	pulse_explosion: pulsefx2
 		BlendMode: Additive
-		Tick: 80
+		Tick: 60
 	small_watersplash: h2o_exp2
 	large_watersplash: h2o_exp1
 	water_piff: w_piff
@@ -169,7 +169,8 @@ explosion:
 		BlendMode: Additive
 	plasmaballexplosion: plasmaballexplosion ## It is the emp + marnflash1, in doing so can save lots of batches
 	powerlinexplosion: emp_fx01
-		Offset: 0,-48, 90
+		Length: *
+		UseTilesetCode: false
 	fsidlewall: fsidle
 		Offset: 0,-90, 90
 		Tick: 35
@@ -506,6 +507,7 @@ explosion:
 	claw1: claw1
 	claw2: claw2
 	spiderweb: spiderweb
+	ironsaviormuzzle: ironsaviormuzzle
 
 buildingfire:
 	Defaults:
@@ -640,6 +642,7 @@ gdidroppod:
 		Length: 1
 		Facings: 32
 		ZOffset: 1023
+		#Offset: 1, 0, 1
 
 canister:
 	idle:
@@ -811,6 +814,12 @@ meteortrail:
 		Length: *
 		ZOffset: 3000
 		Tick: 75
+		BlendMode: Additive
+	idle4:
+		Start: 14
+		Length: *
+		ZOffset: 3000
+		Tick: 50
 		BlendMode: Additive
 
 largefire:
@@ -1061,4 +1070,3 @@ shieldpower:
 	idle:
 		ZOffset: 511
 		Length: *
-	

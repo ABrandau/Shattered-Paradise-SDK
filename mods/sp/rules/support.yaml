@@ -1006,9 +1006,13 @@ CABSW1:
 	WithSpriteTurret:
 		Recoils: false
 		RequiresCondition: !Building-Buildup
-	Armament:
+	Armament@trueweapon:
 		Weapon: IronSavior
-		LocalOffset: 1000,0,1500
+		LocalOffset: 1300,0,2300
+		Name: superweapon
+	Armament@muzzle:	##HACK: FireArmamentPower muzzle
+		Weapon: IronSaviorMuzzle
+		LocalOffset: 1300,0,2300
 		Name: superweapon
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:

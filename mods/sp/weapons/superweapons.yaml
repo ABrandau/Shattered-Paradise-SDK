@@ -42,6 +42,16 @@ SuicideBomb:
 			ConcreteArmor: 50
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 
+EMPulseCannonMuzzle:
+	ReloadDelay: 25
+	Range: 25c0
+	MinRange: 4c0
+	Projectile: InstantExplode
+	Warhead@1Eff: CreateEffect
+		Explosions: powerlinexplosion
+		ExplosionPalette: effect
+		ValidTargets: Ground, Air, Water
+
 EMPulseCannon:
 	ReloadDelay: 25
 	Range: 25c0
@@ -56,6 +66,7 @@ EMPulseCannon:
 		Image: pulsball
 	Warhead@1Eff: CreateEffect
 		Explosions: pulse_explosion
+		ImpactActors: false
 	Warhead@1: GrantExternalCondition
 		Range: 1c512
 		Duration: 250
@@ -67,6 +78,23 @@ EMPulseCannon:
 		Condition: empdisable
 		ValidTargets: Vehicle, Building
 		Delay: 10
+	Warhead@5: FireShrapnel
+		Weapon: EMPulseCannonShrapnel
+		ImpactActors: false
+		Amount: 12
+		AllowDirectHit: false
+		Delay: 10
+
+EMPulseCannonShrapnel:
+	Range: 4c0
+	Projectile: InstantHit
+	Warhead@particle: SpawnSmokeParticle
+		Image: explosion
+		Sequences: powerlinexplosion
+		Palette: effect
+		Duration: 120, 245
+		ValidTargets: Ground, Air, Water
+		Weapon: DummyWeapon
 
 VeterancyWeapon:
 	ReloadDelay: 25
@@ -312,21 +340,24 @@ droppod1:
 		Palette: player
 		Shadow: true
 		TrailImage: meteortrail
+		TrailSequences: idle4
 		TrailPalette: effectalpha
+		TrailInterval: 1
+		TrailDelay: 0
 		Inaccuracy: 600
+		ContrailLength: 12
+		ContrailColor: EECCAA77
+		ContrailWidth: 120
+		ContrailDelay: 0
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallCrater
-	Warhead@3Eff: CreateEffect
-		Explosions: small_clsn, large_twlt, medium_brnl
-		ImpactSounds: expnew12.aud
-		InvalidTargets: Vehicle, Building, Wall
+	-Warhead@2Eff: CreateEffect
 	Warhead@4Eff: CreateEffect
 		Explosions: podring
 		ImpactSounds: expnew12.aud
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@5Eff: CreateEffect
 		Explosions: droppod, droppod2
-		ImpactSounds: expnew12.aud
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: SmallCrater
@@ -686,6 +717,10 @@ MeteorRainNormal:
 		TrailPalette: effectalpha
 		TrailInterval: 1
 		Blockable: false
+		ContrailLength: 18
+		ContrailColor: 8888FF55
+		ContrailWidth: 250
+		ContrailDelay: 10
 	Warhead@1Dam: SpreadDamage
 		Spread: 300
 		Damage: 10000
@@ -730,6 +765,16 @@ MeteorRainFast:
 	Inherits: MeteorRainNormal
 	Projectile: BulletAS
 		Speed: 450
+
+IronSaviorMuzzle: 	##HACK: FireArmamentPower
+	ReloadDelay: 200
+	Range: 300c0
+	MinRange: 6c0
+	Projectile: InstantExplode
+	Warhead@2Eff: CreateEffect
+		Explosions: ironsaviormuzzle
+		ExplosionPalette: apolcyanalpha
+		ValidTargets:  Ground, Air, Water
 
 IronSavior:
 	ReloadDelay: 200

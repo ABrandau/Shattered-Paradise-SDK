@@ -116,9 +116,15 @@ BERSERKER:
 
 NAPULS:
 	-FireArmamentPower:
-	Armament:
+	Armament@muzzle:
 		Name: primary
 		TargetRelationships: Enemy, Neutral
+		PauseOnCondition: disabled || empdisable
+	Armament@trueweapon:
+		Name: primary
+		TargetRelationships: Enemy, Neutral
+		PauseOnCondition: disabled || empdisable
+		
 
 EMPDUMMY:
 	Inherits: ^GROUNDDUMMY
