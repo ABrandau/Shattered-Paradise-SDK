@@ -110,13 +110,15 @@ JellyAttackPrepare:
 ElectricTentacle:
 	Inherits@wh: ^FullDamage
 	ReloadDelay: 10
-	Range: 1c967
 	Report: floatk1.aud
 	SoundVolume: 4
 	ValidTargets: Ground, Water, Vehicle, Infantry, Building
-	Projectile: InstantHit
+	Projectile: InstantExplode
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Condition: BreakShield
+		Range: 2c0
 	Warhead@1Dam: SpreadDamage
-		Spread: 1c100
+		Spread: 1c200
 		Damage: 3000
 		DamageTypes: TriggerProne, EnergyDeath
 		ValidTargets: Ground, Water, Vehicle, Infantry, Building
