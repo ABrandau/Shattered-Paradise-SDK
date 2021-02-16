@@ -382,11 +382,18 @@ SCRIN:
 		MoveIntoShroud: true
 	Health:
 		HP: 20000
+	WithMuzzleOverlay:
 	Armament@1:
 		Weapon: Proton
+		MuzzleSequence: muzzle
+		LocalOffset: 450,0,0
+		MuzzlePalette: apgreen
 		PauseOnCondition: !ammo
 	Armament@2:
 		Weapon: ProtonAA
+		MuzzleSequence: muzzle
+		LocalOffset: 450,0,0
+		MuzzlePalette: apgreen
 		PauseOnCondition: !ammo
 	AttackAircraft:
 		Voice: Attack
@@ -665,12 +672,12 @@ WETP:
 		Palette: pips
 	Contrail@1:
 		Offset: -100,-700,55
-		Color: 55555580
+		Color: AAAAAAAA
 		UsePlayerColor: false
 		TrailWidth: 32
 	Contrail@2:
 		Offset: -100,700,55
-		Color: 55555580
+		Color: AAAAAAAA
 		UsePlayerColor: false
 		TrailWidth: 32
 	Contrail@FlameTrail:
@@ -798,8 +805,13 @@ STORMRIDER:
 		HP: 10000
 	Armament:
 		Weapon: StormRiderBlast
+		MuzzleSequence: muzzle
+		MuzzlePalette: appurp
 	Armament@AA:
 		Weapon: StormRiderBlastAA
+		MuzzleSequence: muzzle
+		MuzzlePalette: appurp
+	WithMuzzleOverlay:	
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 120
@@ -814,11 +826,11 @@ STORMRIDER:
 		EmptyWeapon: SmalLScrinAircraftShrapnel
 	Contrail@1:
 		Offset: -300,-150,-100
-		Color: 33008860
+		Color: ad00ff60
 		UsePlayerColor: false
 	Contrail@2:
 		Offset: -300,150,-100
-		Color: 3300EE80
+		Color: 5500EE80
 		UsePlayerColor: false
 
 
@@ -858,7 +870,7 @@ DRACHE:
 		DeployCursor: deploy
 		NoTransformSounds:
 		Voice: Move
-		PauseOnCondition: mindcontrolled || empdisable
+		PauseOnCondition: empdisable
 	SelectionDecorations:
 	WithFacingSpriteBody:
 		Sequence: stand
@@ -955,7 +967,13 @@ SCRDESTROYER:
 		HP: 25000
 	Armament:
 		Weapon: DestroyerCannon
-		LocalOffset: 300,0,0
+		LocalOffset: 820, 0, 600
+		ReloadingCondition: charging
+	WithIdleOverlay@Charged:
+		RequiresCondition: !charging
+		Sequence: charged
+		Palette: pips
+		Offset: 820, 0, 600
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 20
@@ -1220,11 +1238,16 @@ SCRBATTLESHIP:
 	-Rearmable:
 	Health:
 		HP: 150000
-	Armament:
+	Armament@1:
 		Weapon: BattleshipCannon
 		LocalOffset: 0,0,0, 1000,0,0, -1000,0,0, 600,-500,0, -600,-500,0, -600,500,0, 600,500,0
-		MuzzleSequence: muzzle
+		MuzzleSequence: muzzle1
 		MuzzlePalette: gradientblue60
+	Armament@2:
+		Weapon: BattleshipPlasma
+		LocalOffset: 0,0,0
+		MuzzleSequence: muzzle2
+		MuzzlePalette: appurp
 	WithMuzzleOverlay:
 	AttackTurreted:
 	Turreted:

@@ -69,8 +69,6 @@ MCV:
 		Speed: 60
 		TurnSpeed: 20
 		Locomotor: InfantryCrusherVehicle
-	MindControllable:
-		Condition: mindcontrolled
 	MustBeDestroyed:
 		RequiredForShortGame: true
 	-Capturable:
@@ -272,7 +270,7 @@ GACNST:
 		Offset: 1,1
 		Facing: 384
 		DeployCursor: undeploy
-		PauseOnCondition: mindcontrolled || empdisable
+		PauseOnCondition: empdisable
 	TransformsIntoMobile:
 		RequiresCondition: !Building-Buildup
 		Locomotor: InfantryCrusherVehicle
@@ -1100,6 +1098,7 @@ GASILO:
 		PipCount: 12
 		Palette: pips
 
+################## Carryall ##############
 TRNSPORT:
 	Inherits@1: ^Helicopter
 	Inherits@2: ^9CellVision
@@ -1143,6 +1142,7 @@ TRNSPORT:
 			nod: nodcarryall
 			cab: cabcarryall
 			mut: forgcarryall
+			scr: scrpod
 	Selectable:
 		Bounds: 46,48,0,-11
 	Cargo:
@@ -1159,12 +1159,20 @@ TRNSPORT:
 		Factions: mut
 		Condition: MutRotor
 	GrantConditionOnFaction@GDIStyle:
-		Factions: gdi, scr
+		Factions: gdi
 		Condition: GDIFan
-	# WithRoof:
+	GrantConditionOnFaction@NodStyle:
+		Factions: nod
+		Condition: nodcontrail
+	GrantConditionOnFaction@CabStyle:
+		Factions: cab
+		Condition: cabcontrail
+	WithCargoPipsDecoration:
+		PipCount: 1
 	SpawnActorOnDeath:
 		RequiresCondition: airborne
 		Actor: TRNSPORT.Husk
+	### Mut helicopter ####
 	WithIdleOverlay@1Air:
 		Offset: 500,0,650
 		Sequence: rotor
@@ -1197,51 +1205,101 @@ TRNSPORT:
 		Offset: -700,0,2400
 		Sequence: slow-rotor
 		RequiresCondition: !airborne && MutRotor && loaded
+	#### GDI Orca ######
 	WithIdleOverlay@Wind1:
 		Image: orcawind
 		Sequence: idle
 		Offset: 500, 350, -500
-		RequiresCondition: airborne && GDIFan
+		RequiresCondition: airborne && GDIFan && !loaded
 		Palette: effect
 	WithIdleOverlay@Wind2:
 		Image: orcawind
 		Sequence: idle
 		Offset: 500, -350, -500
-		RequiresCondition: airborne && GDIFan
+		RequiresCondition: airborne && GDIFan && !loaded
 		Palette: effect
 	WithIdleOverlay@Wind3:
 		Image: orcawind
 		Sequence: idle
 		Offset: -550, 400, -500
-		RequiresCondition: airborne && GDIFan
+		RequiresCondition: airborne && GDIFan && !loaded
 		Palette: effect
 	WithIdleOverlay@Wind4:
 		Image: orcawind
 		Sequence: idle
 		Offset: -550, -400, -500
-		RequiresCondition: airborne && GDIFan
+		RequiresCondition: airborne && GDIFan && !loaded
 		Palette: effect
-	WithCargoPipsDecoration:
-		PipCount: 1
+	WithIdleOverlay@Wind1loaded:
+		Image: orcawind
+		Sequence: idle
+		Offset: 500, 350, 1000
+		RequiresCondition: airborne && GDIFan && loaded
+		Palette: effect
+	WithIdleOverlay@Wind2loaded:
+		Image: orcawind
+		Sequence: idle
+		Offset: 500, -350, 1000
+		RequiresCondition: airborne && GDIFan && loaded
+		Palette: effect
+	WithIdleOverlay@Wind3loaded:
+		Image: orcawind
+		Sequence: idle
+		Offset: -550, 400, 1000
+		RequiresCondition: airborne && GDIFan && loaded
+		Palette: effect
+	WithIdleOverlay@Wind4loaded:
+		Image: orcawind
+		Sequence: idle
+		Offset: -550, -400,1000
+		RequiresCondition: airborne && GDIFan && loaded
+		Palette: effect
+	##### Nod ship ####
+	Contrail@Nod1:
+		RequiresCondition: nodcontrail
+		Offset: -850,-190,340
+		Color: FFEA0080
+		UsePlayerColor: false
+		TrailLength: 10
+		ZOffset: 4100
+	Contrail@Nod2:
+		RequiresCondition: nodcontrail
+		Offset: -850,190,340
+		Color: FFEA0080
+		UsePlayerColor: false
+		TrailLength: 10
+		ZOffset: 4100
+	##### Cabal ship ####
+	Contrail@Cab1:
+		RequiresCondition: cabcontrail
+		Offset: -1200,-175, 40
+		Color: FFEA0080
+		UsePlayerColor: false
+		TrailLength: 10
+		ZOffset: 4100
+	Contrail@Cab2:
+		RequiresCondition: cabcontrail
+		Offset: -1200,175, 40
+		Color: FFEA0080
+		UsePlayerColor: false
+		TrailLength: 10
+		ZOffset: 4100
 
-trnsport.gdi:
+trnsport.scr
 	Inherits: TRNSPORT
 	Selectable:
 		Class: trnsport
 	Buildable:
 		Prerequisites: ~disabled
 	RenderSprites:
+		Image: scrpod
 		-FactionImages:
-	WithIdleOverlay@Wind1:
-		RequiresCondition: airborne
-	WithIdleOverlay@Wind2:
-		RequiresCondition: airborne
-	WithIdleOverlay@Wind3:
-		RequiresCondition: airborne
-	WithIdleOverlay@Wind4:
-		RequiresCondition: airborne
+	SpawnActorOnDeath:
+		Actor: TRNSPORT.scr.Husk
 	-GrantConditionOnFaction@Helicopter:
 	-GrantConditionOnFaction@GDIStyle:
+	-GrantConditionOnFaction@NodStyle:
+	-GrantConditionOnFaction@CabStyle:
 	-WithIdleOverlay@1Air:
 	-WithIdleOverlay@2Ground:
 	-WithIdleOverlay@3Air:
@@ -1250,11 +1308,80 @@ trnsport.gdi:
 	-WithIdleOverlay@6Ground:
 	-WithIdleOverlay@7Air:
 	-WithIdleOverlay@8Ground:
+	-WithIdleOverlay@Wind1:
+	-WithIdleOverlay@Wind2:
+	-WithIdleOverlay@Wind3:
+	-WithIdleOverlay@Wind4:
+	-WithIdleOverlay@Wind1loaded:
+	-WithIdleOverlay@Wind2loaded:
+	-WithIdleOverlay@Wind3loaded:
+	-WithIdleOverlay@Wind4loaded:
+	-Contrail@Nod1:
+	-Contrail@Nod2:
+	-Contrail@Cab1:
+	-Contrail@Cab2:
+
+trnsport.gdi:
+	Inherits: trnsport.scr
+	RenderSprites:
+		Image: trnsport
+	SpawnActorOnDeath:
+		Actor: TRNSPORT.gdi.Husk
+	#### GDI Orca ######
+	WithIdleOverlay@Wind1:
+		Image: orcawind
+		Sequence: idle
+		Offset: 500, 350, -500
+		RequiresCondition: airborne && !loaded
+		Palette: effect
+	WithIdleOverlay@Wind2:
+		Image: orcawind
+		Sequence: idle
+		Offset: 500, -350, -500
+		RequiresCondition: airborne && !loaded
+		Palette: effect
+	WithIdleOverlay@Wind3:
+		Image: orcawind
+		Sequence: idle
+		Offset: -550, 400, -500
+		RequiresCondition: airborne && !loaded
+		Palette: effect
+	WithIdleOverlay@Wind4:
+		Image: orcawind
+		Sequence: idle
+		Offset: -550, -400, -500
+		RequiresCondition: airborne && !loaded
+		Palette: effect
+	WithIdleOverlay@Wind1loaded:
+		Image: orcawind
+		Sequence: idle
+		Offset: 500, 350, 1000
+		RequiresCondition: airborne && loaded
+		Palette: effect
+	WithIdleOverlay@Wind2loaded:
+		Image: orcawind
+		Sequence: idle
+		Offset: 500, -350, 1000
+		RequiresCondition: airborne && loaded
+		Palette: effect
+	WithIdleOverlay@Wind3loaded:
+		Image: orcawind
+		Sequence: idle
+		Offset: -550, 400, 1000
+		RequiresCondition: airborne && loaded
+		Palette: effect
+	WithIdleOverlay@Wind4loaded:
+		Image: orcawind
+		Sequence: idle
+		Offset: -550, -400,1000
+		RequiresCondition: airborne && loaded
 
 trnsport.nod:
-	Inherits: trnsport.gdi
+	Inherits: trnsport.scr
 	RenderSprites:
 		Image: nodcarryall
+	SpawnActorOnDeath:
+		Actor: TRNSPORT.nod.Husk
 	Contrail@1:
 		Offset: -850,-190,340
 		Color: FFEA0080
@@ -1267,47 +1394,54 @@ trnsport.nod:
 		UsePlayerColor: false
 		TrailLength: 10
 		ZOffset: 4100
-	-WithIdleOverlay@Wind1:
-	-WithIdleOverlay@Wind2:
-	-WithIdleOverlay@Wind3:
-	-WithIdleOverlay@Wind4:
+
 
 trnsport.mut:
-	Inherits: TRNSPORT
-	Buildable:
-		Prerequisites: ~disabled
-	Selectable:
-		Class: trnsport
+	Inherits: trnsport.scr
 	RenderSprites:
-		-FactionImages:
 		Image: forgcarryall
+	SpawnActorOnDeath:
+		Actor: TRNSPORT.mut.Husk
+	### Mut helicopter ####
 	WithIdleOverlay@1Air:
+		Offset: 500,0,650
+		Sequence: rotor
 		RequiresCondition: airborne && !loaded
 	WithIdleOverlay@2Ground:
+		Offset: 500,0,650
+		Sequence: slow-rotor
 		RequiresCondition: !airborne && !loaded
 	WithIdleOverlay@3Air:
+		Offset: -700,0,900
+		Sequence: rotor
 		RequiresCondition: airborne && !loaded
 	WithIdleOverlay@4Ground:
+		Offset: -700,0,900
+		Sequence: slow-rotor
 		RequiresCondition: !airborne && !loaded
 	WithIdleOverlay@5Air:
+		Offset: 500,0,2150
+		Sequence: rotor
 		RequiresCondition: airborne && loaded
 	WithIdleOverlay@6Ground:
+		Offset: 500,0,2150
+		Sequence: slow-rotor
 		RequiresCondition: !airborne && loaded
 	WithIdleOverlay@7Air:
+		Offset: -700,0,2400
+		Sequence: rotor
 		RequiresCondition: airborne && loaded
 	WithIdleOverlay@8Ground:
+		Offset: -700,0,2400
+		Sequence: slow-rotor
 		RequiresCondition: !airborne && loaded
-	-WithIdleOverlay@Wind1:
-	-WithIdleOverlay@Wind2:
-	-WithIdleOverlay@Wind3:
-	-WithIdleOverlay@Wind4:
-	-GrantConditionOnFaction@Helicopter:
-	-GrantConditionOnFaction@GDIStyle:
 
 trnsport.cab:
-	Inherits: trnsport.gdi
+	Inherits: trnsport.scr
 	RenderSprites:
 		Image: cabcarryall
+	SpawnActorOnDeath:
+		Actor: TRNSPORT.cab.Husk
 	Contrail@1:
 		Offset: -1200,-175, 40
 		Color: FFEA0080
@@ -1320,10 +1454,8 @@ trnsport.cab:
 		UsePlayerColor: false
 		TrailLength: 10
 		ZOffset: 4100
-	-WithIdleOverlay@Wind1:
-	-WithIdleOverlay@Wind2:
-	-WithIdleOverlay@Wind3:
-	-WithIdleOverlay@Wind4:
+
+################## Carryall ##############
 
 NAPULS:
 	Inherits: ^Defence
@@ -1370,9 +1502,14 @@ NAPULS:
 		Factions: gdi, mut, nod, cab, scr
 		ResetOnOwnerChange: true
 	AttackTurreted:
-	Armament:
+	Armament@trueweapon:
 		Weapon: EMPulseCannon
-		LocalOffset: 200,0,1500
+		LocalOffset: 200,0,1900
+		LocalYaw: 0,100
+		Name: Superweapon
+	Armament@muzzle:	##HACK: FireArmamentPower muzzle
+		Weapon: EMPulseCannonMuzzle
+		LocalOffset: 200,0,1900
 		LocalYaw: 0,100
 		Name: Superweapon
 	FireArmamentPower:
@@ -1557,6 +1694,8 @@ SCRGATE_B:
 		TrailImage: meteortrail
 		TrailPalette: effectalpha
 		TrailSequences: idle2
+		TrailDelay: 0
+		TrailInterval: 0
 
 ^HasSuperSupportPower:
 	Inherits: ^SuperSupportPowerBased

@@ -440,10 +440,17 @@
 ^MindControllable:
 	WithMindControlArc:
 		ZOffset: 8000
-		Transparency: 64
-		QuantizedSegments: 28
+		Transparency: 128
+		QuantizedSegments: 24
+		UsePlayerColor: true
 	MindControllable:
 		RevokeControlSounds: bleep5.aud
+		Condition: mindcontrolled
+	WithIdleOverlay@mindcontrolled:
+		Sequence: mindcontrolled
+		IsPlayerPalette: true
+		Palette: player
+		RequiresCondition: mindcontrolled
 
 ^ScrinEssence:
 	SpawnActorOnDeath@ScrinEssence:
@@ -647,7 +654,7 @@
 ^EmpDisable:
 	WithColoredOverlay@EMPDISABLE:
 		RequiresCondition: empdisable
-		Palette: disabled
+		Color: 000000AA
 	TimedConditionBar@EMPDISABLE:
 		Condition: empdisable
 		Color: FFFFFF
@@ -670,7 +677,7 @@
 ^DisableOnLowPower:
 	WithColoredOverlay@IDISABLE:
 		RequiresCondition: disabled
-		Palette: disabled
+		Color: 000000AA
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower
 		ValidPowerStates: Low, Critical
@@ -1022,7 +1029,7 @@
 	Inherits@1: ^tractorstop
 	Inherits@2: ^SpawnSmoke
 	Inherits@3: ^SpawnSpark
-	Inherits@5: ^MindControllable
+	#Inherits@5: ^MindControllable
 	Inherits@6: ^FullHealthRepairCondition
 	GrantCondition@DisableHeavyDamagedEffect:
 		Condition: DisableHeavyDamagedEffect
@@ -1431,7 +1438,7 @@
 	-WithIdleOverlay@web:
 	WithColoredOverlay@web:
 		RequiresCondition: WebDisable
-		Palette: gradientgray
+		Color: FFFFFF33
 	WithInfantryBody:
 		-RequiresCondition:
 
@@ -1948,7 +1955,7 @@
 	Selectable:
 		Bounds: 26,26,0,-3
 	Targetable:
-		TargetTypes: Ground, NeutralTibCritter, Vehicle, NoRepair
+		TargetTypes: Ground, NeutralTibCritter, Vehicle, NoRepair, MindControlImmune
 	AttackMove:
 	HiddenUnderFog:
 	DamagedByTerrain:
@@ -1959,7 +1966,6 @@
 	WithFacingSpriteBody:
 	MapEditorData:
 		Categories: Tib Critters
-	MindControllable:
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget, Wall
 	AutoTargetPriority@ATTACKANYTHING:

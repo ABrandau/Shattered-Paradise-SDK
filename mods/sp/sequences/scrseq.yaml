@@ -404,7 +404,7 @@ colossi:
 		ShadowStart: 6
 	shield: shieldmedium
 		Length: 1
-		Offset: 0,12
+		Offset: 0,-12
 
 drache:
 	Inherits: ^EmpOverlay
@@ -521,18 +521,24 @@ tripod:
 		ShadowStart: 618
 	shield: shieldtrip
 		Length: 1
+		Offset: 0,-32
+	mindcontrolled: mclabel
+		Length: *
+		Offset: 0, -56, 0
 	icon: tripodicon
 	emp-overlay: emp_fx01
 		Offset: 0, -64, 0
-
-scrpod:
-	Inherits: ^SpriteVehicle
-	icon: scrdestroyericon
 
 stormrider:
 	Inherits: ^SpriteVehicle
 	idle:
 		Facings: 32
+	muzzle: lightmuzzle
+		Offset: 0, 0
+		Start: 3
+		Length: *
+		UseTilesetCode: false
+		BlendMode: Additive
 	icon: stormridericon
 
 scrglyder1:
@@ -553,6 +559,13 @@ scrdestroyer:
 	Inherits: ^SpriteVehicle
 	idle:
 		Facings: 32
+	charged: destroshell
+		Facings: 1
+		Offset: 0, 0
+		Start: 0
+		Length: *
+		UseTilesetCode: false
+		Scale: 0.7
 	icon: scrdestroyericon
 
 scrtrans:
@@ -568,8 +581,14 @@ scrbattleship:
 	idle:
 		Facings: 32
 	icon: scrbattleshipicon
-	muzzle: scrinmuzzlemini
+	muzzle1: scrinmuzzlemini
 		Length: *
+	muzzle2: lightmuzzle
+		Offset: 0, 0
+		Start: 3
+		Length: *
+		UseTilesetCode: false
+		BlendMode: Additive
 
 scrcarrier:
 	Inherits: ^EmpOverlay

@@ -1475,7 +1475,6 @@ STRUCK:
 WOLF:
 	Inherits: ^Beast
 	Inherits@1: ^6CellVision
-	Inherits@2: ^MindControllable
 	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Vehicle
@@ -1562,7 +1561,6 @@ DEATHCLAW:
 	Inherits: ^Beast
 	Inherits@1: ^MutRender
 	Inherits@2: ^8CellVision
-	Inherits@3: ^MindControllable
 	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Vehicle
@@ -1784,8 +1782,6 @@ SCRGLYDER2:
 	TransformOnCondition@AITransform:
 		RequiresCondition: AIattackAir && !inside-tunnel && !mindcontrolled
 		IntoActor: scrglyder1
-	MindControllable:
-		Condition: mindcontrolled
 
 SCRRECHARGER:
 	Inherits@1: ^Walker
@@ -1854,7 +1850,7 @@ SCRMOBMINE:
 		Queue: Vehicle
 		BuildPaletteOrder: 28
 		BuildAtProductionType: Tank
-		Description: Mind Control unit\n\nSpecial:\n- Can overtake vehicles\n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol MCVs, Harvesters and Heroics\n- Can shoot over walls.\n- Can mind control units while moving.
+		Description: Mind Control unit\n\nSpecial:\n- Can overtake vehicles \n- Can overtake/release mind controlled vehicles\n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol Harvesters and Heroics\n- Can shoot over walls.\n- Can mind control units while moving.
 		Prerequisites: ~scrweap, scrtech
 	Valued:
 		Cost: 1400

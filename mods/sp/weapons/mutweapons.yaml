@@ -389,7 +389,7 @@ TiberianRocket:
 	Inherits@1: ^SpawnsIrradiation
 	ReloadDelay: 90
 	Range: 12c0
-	Burst: 6
+	Burst: 7
 	Report: rketinf1.aud
 	ValidTargets: Ground, Water
 	MinRange: 3c0
@@ -427,8 +427,8 @@ TiberianRocket:
 
 TiberianRocketClould:
 	Inherits: TiberianRocket
-	Burst: 2
-	BurstDelays: 20
+	ReloadDelay: 125
+	Burst: 1
 	Warhead@5Actor: SpawnActor
 		Actors: cloud1
 		FallRate: 5000
@@ -614,9 +614,10 @@ FalconPunch:
 		CruiseAltitude: 6000
 		MinimumLaunchAngle: 255
 		MaximumLaunchAngle: 255
-		MaximumLaunchSpeed: 0c543
-		MinimumLaunchSpeed: 0c301
-		Speed: 0c600
+		#MaximumLaunchSpeed: 0c543
+		#MinimumLaunchSpeed: 0c301
+		Speed: 0c400
+		Acceleration: 0
 		Blockable: false
 		Shadow: true
 		Inaccuracy: 0c181
@@ -644,7 +645,7 @@ FalconPunch:
 		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
 		ExplosionPalette: effect
 	Warhead@5Actor: SpawnActor
-		Actors: cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1
+		Actors: cloud1, cloud1, cloud1, cloud1, cloud1, cloud1
 		FallRate: 5000
 		Range: 3
 

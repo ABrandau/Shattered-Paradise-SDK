@@ -30,10 +30,10 @@
 		CruiseAltitude: 6000
 		MinimumLaunchAngle: 255
 		MaximumLaunchAngle: 255
-		MaximumLaunchSpeed: 0c543
-		Speed: 500
-		Acceleration: 100
-		MinimumLaunchSpeed: 75
+		#MaximumLaunchSpeed: 0c543
+		Speed: 400
+		Acceleration: 0
+		#MinimumLaunchSpeed: 75
 		Blockable: false
 		Shadow: true
 		TrailInterval: 1
@@ -63,6 +63,7 @@
 ^AARocketWarhead:
 	Projectile: Missile
 		Speed: 400
+		Acceleration: 0
 		RangeLimit: 12c0
 
 ^APWarhead:
@@ -126,8 +127,6 @@
 			AircraftArmor: 100
 			ConcreteArmor: 20
 			Shield: 0
-	Warhead@BounceUpgrade: GrantExternalCondition
-		Condition: ArtilleryWarhead
 
 ^AcidWarhead:
 	Inherits: ^WeaponGenericUpgrades
@@ -178,6 +177,7 @@
 	Range: 10c0
 	Projectile: Missile
 		RangeLimit: 12c0
+		Acceleration: 0
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 5000

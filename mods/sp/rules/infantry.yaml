@@ -1378,7 +1378,7 @@ SWARMLING:
 	-WithIdleOverlay@web:
 	WithColoredOverlay@web:
 		RequiresCondition: WebDisable
-		Palette: gradientgray
+		Color: FFFFFF33
 	WithInfantryBody:
 		-RequiresCondition:
 	-SpawnActorOnDeath@FLAMEGUY:
@@ -1428,25 +1428,17 @@ PDRONE:
 		FacingTolerance: 2
 	WithDeathAnimation@normal:
 		DeathTypes:
-			BulletDeath: 1
-			SmallExplosionDeath: 2
-			HeadshotDeath: 3
-			CabalDeath: 2
-			CabalDeathCrate: 2
-			TiberiumDeath: 3
-			BlackHandRfle: 2
+			BulletDeath: 1, 2
+			SmallExplosionDeath: 1, 2
+			HeadshotDeath: 1
+			CabalDeath: 1, 2
+			CabalDeathCrate: 1, 2
+			TiberiumDeath: 1, 2
+			BlackHandRfle: 1, 2
 			FireDeath: 1, 2
 			MilitantFireDeath: 1, 2
-	WithDeathAnimation@explosion:
-		DeathSequencePalette: effect
-		DeathPaletteIsPlayerPalette: false
-		DeathTypes:
-			ExplosionDeath: 4
-	WithDeathAnimation@energy:
-		DeathSequencePalette: ra
-		DeathPaletteIsPlayerPalette: false
-		DeathTypes:
-			EnergyDeath: 6
+			ExplosionDeath: 1,2
+			EnergyDeath: 1,2	
 	KillsSelf@hoverunitonwater:
 		RequiresCondition: hoverunitonwater && WebDisable
 	GrantConditionOnTerrain:
@@ -1634,6 +1626,7 @@ MOTH:
 	-Crushable:
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && !deployed
+		DeployTrigger: Attack
 		DeployChance: 100
 		DeployTicks: 5
 		UndeployTicks: 50
@@ -1838,8 +1831,8 @@ nanos:
 	WithSpriteBody:
 		Sequence: idle
 	Explodes:
-		Weapon: SimpleDroneExplode
-		EmptyWeapon: SimpleDroneExplode
+		Weapon: NanoDroneExplode
+		EmptyWeapon: NanoDroneExplode
 	-SpawnActorOnDeath@nanomachinereanimate:
 	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:

@@ -96,6 +96,33 @@ TRNSPORT.Husk:
 			nod: nodcarryall
 			cab: cabcarryall
 			mut: forgcarryall
+			scr: scrpod
+
+TRNSPORT.gdi.Husk:
+	Inherits: TRNSPORT.Husk
+	RenderSprites:
+		Image: trnsport
+		-FactionImages:
+
+TRNSPORT.nod.Husk:
+	Inherits: TRNSPORT.gdi.Husk
+	RenderSprites:
+		Image: nodcarryall
+
+TRNSPORT.cab.Husk:
+	Inherits: TRNSPORT.gdi.Husk
+	RenderSprites:
+		Image: cabcarryall
+
+TRNSPORT.scr.Husk:
+	Inherits: TRNSPORT.gdi.Husk
+	RenderSprites:
+		Image: scrpod
+
+TRNSPORT.mut.Husk:
+	Inherits: TRNSPORT.gdi.Husk
+	RenderSprites:
+		Image: forgcarryall
 
 GUARDIAN.Husk:
 	Inherits: ^AircraftHusk
@@ -184,6 +211,16 @@ WETP.Husk:
 	FallsToEarth:
 		Moves: true
 		MaximumSpinSpeed: 0
+	Contrail@1:
+		Offset: -100,-700,55
+		Color: AAAAAAAA
+		UsePlayerColor: false
+		TrailWidth: 32
+	Contrail@2:
+		Offset: -100,700,55
+		Color: AAAAAAAA
+		UsePlayerColor: false
+		TrailWidth: 32
 
 WASP.Husk:
 	Inherits: ^AircraftHusk
