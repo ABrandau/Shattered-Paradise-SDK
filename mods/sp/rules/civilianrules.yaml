@@ -9,6 +9,10 @@ E2:
 		Speed: 50
 	WithInfantryBody:
 		AttackSequences: throw
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+		FacingTolerance: 2
 	RenderSprites:
 		Image: e2
 
@@ -92,18 +96,19 @@ CHAMSPY:
 	RevealsShroud:
 		Range: 9c0
 	Passenger:
-	Disguise:
-	WithDecoration@disguise:
-		Image: pips
-		Sequence: pip-disguise
-		Palette: pips
-		Position: TopRight
-		RequiresCondition: disguise
+	#Disguise:
+	#WithDecoration@disguise:
+	#	Image: pips
+	#	Sequence: pip-disguise
+	#	Palette: pips
+	#	Position: TopRight
+	#	RequiresCondition: disguise
 	Infiltrates:
 		Types: SpyInfiltrate
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
+	-AttackMove:
 	WithInfantryBody:
 		AttackSequences: shoot
 
@@ -182,6 +187,7 @@ TRATOS:
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
+	-AttackMove:
 	WithInfantryBody:
 		AttackSequences: shoot
 
@@ -200,6 +206,7 @@ OXANNA:
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
+	-AttackMove:
 	WithInfantryBody:
 		AttackSequences: shoot
 
@@ -218,6 +225,7 @@ SLAV:
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
+	-AttackMove:
 	WithInfantryBody:
 		AttackSequences: shoot
 
@@ -2664,6 +2672,29 @@ C_KODIAK:
 		AreaTypes: building
 	Interactable:
 
+MUSTABLE:
+	Inherits: ^Building
+	Inherits@1: ^MutRender
+	Inherits@2: ^2x3Shape
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Training Grounds
+	ProvidesPrerequisite:
+		Prerequisite: tech
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	Health:
+		HP: 23000
+	Armor:
+		Type: BuildingArmor
+	Power:
+		Amount: -40
+	ProvidesPrerequisite@buildingname:
+	RequiresBuildableArea:
+		AreaTypes: building
+
 ###################################################
 # TIBERIAN DAWN BUILDINGS: cannot be captured
 ###################################################
@@ -2679,10 +2710,12 @@ TDADVGTWR:
 		Weapon: HoverMissile
 		LocalOffset: 500,200,2800, 500,-200,2800
 		PauseOnCondition: empdisable
+		RequiresCondition: !Building-Buildup
 	Armament@AA:
 		Weapon: HoverMissileAA
 		LocalOffset: 500,200,2800, 500,-200,2800
 		PauseOnCondition: empdisable
+		RequiresCondition: !Building-Buildup
 	RenderSprites:
 	-Capturable:
 	-CapturableProgressBar:
@@ -2711,9 +2744,11 @@ ADVHQ:
 	WithIdleOverlay@anim:
 		Sequence: anima
 		PauseOnCondition: stop || empdisable
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@anim:
 		Sequence: animb
 		PauseOnCondition: stop || empdisable
+		RequiresCondition: !Building-Buildup
 	RenderSprites:
 		Image: tdadvhq
 	GrantCondition:
@@ -2762,6 +2797,7 @@ TDAIRSTRIP:
 	WithIdleOverlay@anima:
 		Sequence: anima
 		Palette: player
+		RequiresCondition: !Building-Buildup
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
@@ -2860,10 +2896,12 @@ TDGTWR:
 		Weapon: WolverineVulcanCasing
 		PauseOnCondition: empdisable
 		LocalOffset: 0,-275,1300, 0,275,1300
+		RequiresCondition: !Building-Buildup
 	Armament@2Bullet:
 		Weapon: WolverineVulcanLine
 		PauseOnCondition: empdisable
 		LocalOffset: 0,-275,1300, 0,275,1300
+		RequiresCondition: !Building-Buildup
 	AttackOmni:
 	-Capturable:
 	-CapturableProgressBar:
@@ -2931,6 +2969,7 @@ TDNHAND:
 		ExitCell: 0,2
 	WithIdleOverlay:
 		Sequence: anima
+		RequiresCondition: !Building-Buildup
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
@@ -2960,6 +2999,9 @@ TDNTPL:
 		Dimensions: 6,6
 	IsometricSelectable:
 		DecorationHeight: 90
+	AmbientSound:
+		RequiresCondition: Building-Buildup
+		SoundFiles: obelpowr.aud
 	-Sellable:
 	-SpawnActorsOnSell@gdi:
 	-SpawnActorsOnSell@nod:
@@ -3003,6 +3045,7 @@ TDNTUR:
 		Weapon: Titan120mm
 		LocalOffset: 800,0,500
 		PauseOnCondition: empdisable
+		RequiresCondition: !Building-Buildup
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
@@ -3068,12 +3111,15 @@ TDREFINERY:
 	WithIdleOverlay@anim:
 		Sequence: anim
 		Palette: player
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@animb:
 		Sequence: animb
 		Palette: player
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@animd:
 		Sequence: animd
 		Palette: player
+		RequiresCondition: !Building-Buildup
 	-WithIdleOverlay@REDLIGHTS:
 	-WithDockedOverlay@flame:
 	-FreeActor:
@@ -3099,6 +3145,7 @@ TDREPD:
 		Name: Old Service Depot
 	WithRepairOverlay@PLATFORM:
 		Sequence: anima
+		RequiresCondition: !Building-Buildup
 	-Buildable:
 	-Capturable:
 	-CapturableProgressBar:
@@ -3134,6 +3181,7 @@ TDSAMSITE:
 		Weapon: HoverMissileAA
 		LocalOffset: 1200,200,2000, 1200,-200,2000
 		PauseOnCondition: empdisable
+		RequiresCondition: !Building-Buildup
 	-AttackTurreted:
 	AttackPopupTurreted:
 		CloseDelay: 50
@@ -3211,7 +3259,7 @@ TDSILO:
 		RequiresCondition: contains-tiberium
 		Weapon: TiberiumExplosion
 	WithResourceLevelOverlay@FILLSTAGE:
-		RequiresCondition: !build-incomplete
+		RequiresCondition: !Building-Buildup
 		Sequence: stages
 	WithResourceStoragePipsDecoration:
 		Position: BottomLeft

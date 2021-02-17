@@ -431,6 +431,11 @@ mmch:
 		Length: 1
 		Stride: 15
 		ShadowStart: 152
+	shoot:
+		Facings: -8
+		Length: 1
+		Stride: 15
+		ShadowStart: 152
 	dead:
 		Facings: -8
 		Length: 1
@@ -519,7 +524,11 @@ orcab:
 	icon: obmbicon
 
 orcatran:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicle
+	idle:
+		ZRamp: 1
+	stand:
+		ZRamp: 1
 	icon: crryicon
 
 guardian:

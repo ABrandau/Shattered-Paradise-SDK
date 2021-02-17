@@ -301,6 +301,7 @@ NEUTRALSONICTUR:
 	Inherits@0: ^1x1Shape
 	Inherits@1: ^11CellVision
 	Inherits@2: ^AutoTargetAll
+	Inherits@EMPDISABLE: ^EmpDisable
 	Tooltip:
 		Name: Tech Shockwave Turret
 	TooltipDescription:
@@ -327,7 +328,7 @@ NEUTRALSONICTUR:
 CABCANNON:
 	Inherits: ^TechBuilding
 	Inherits@1: ^CabRender
-	Inherits@3: ^TowerStealthDetection
+	Inherits@EMPDISABLE: ^EmpDisable
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -355,6 +356,7 @@ CABCANNON:
 REPAIRTUR:
 	Inherits: ^TechBuilding
 	Inherits@2: ^2x2Shape
+	Inherits@EMPDISABLE: ^EmpDisable
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -383,13 +385,13 @@ REPAIRTUR:
 		LocalOffset: 512,0,512
 		TargetRelationships: Ally
 		ForceTargetRelationships: None
-		Delay: 5
+		FireDelay: 5
 	Armament@2:
 		Weapon: RepairNeutralTurret
 		LocalOffset: 512,0,512
 		TargetRelationships: Ally
 		ForceTargetRelationships: None
-		Delay: 10
+		FireDelay: 10
 
 BLUETIBBARREL:
 	Inherits: ^CivBuilding
@@ -468,7 +470,7 @@ LIMPED:
 	Selectable:
 		Bounds: 16, 35, 0, 0
 	Hovers:
-		RequiresCondition: !deployed
+		RequiresCondition: undeployed
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
@@ -494,9 +496,11 @@ LIMPED:
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 	WithSpriteBody@UndeloyedBody:
 		Sequence: idle
-		RequiresCondition: !deployed && !inside-tunnel
+		RequiresCondition: undeployed && !inside-tunnel
 	WithMakeAnimation:
+		BodyNames: deployed
 	WithSpriteBody@DeloyedBody:
+		Name: deployed
 		Sequence: deployed
 		RequiresCondition: !undeployed
 	### AI Control
@@ -571,6 +575,8 @@ LPST:
 		RequiresCondition: !undeployed
 		Range: 15c0
 		MaxHeightDelta: 3
+	ExternalCondition@RefineryLock:
+		Condition: RefineryLock
 	### AI Control
 	Wanders@AI:
 		RequiresCondition: AImicroManage
@@ -642,6 +648,8 @@ SGEN:
 		Type: cloakgenerator
 		Color: 00FF7FCC
 		RequiresCondition: deployed
+	ExternalCondition@RefineryLock:
+		Condition: RefineryLock
 	### AI Control
 	Wanders@AI:
 		RequiresCondition: AImicroManage
@@ -670,7 +678,6 @@ MWAR:
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 25000
-		BodyNames: deployed
 	RenderVoxels:
 		Scale: 11.5
 	Transforms:

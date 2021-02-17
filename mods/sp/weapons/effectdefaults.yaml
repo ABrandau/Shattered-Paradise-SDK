@@ -87,7 +87,6 @@
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
-		ImpactActors: false
 
 ^Small_Clsn:
 	Inherits: ^MarnFlash6
@@ -107,7 +106,6 @@
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
-		ImpactActors: false
 
 ^Mediuml_Clsn:
 	Inherits: ^MarnFlash6
@@ -315,7 +313,6 @@
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
-		ImpactActors: false
 	Warhead@3Eff: CreateEffect
 		Explosions: fire1, fire2
 		ExplosionPalette: FlameEffectPal
@@ -400,10 +397,13 @@
 	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Projectile: BulletAS
 		Speed: 0c800
-		Image: line
 		Inaccuracy: 0c762
 		Palette: effect
 		Blockable: true
+		ContrailDelay: 0
+		ContrailColor: FFEE11
+		ContrailLength: 2
+		ContrailWidth: 28
 	Warhead@Line: TargetDamage
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
@@ -411,7 +411,7 @@
 	Inherits: ^LineProjectile
 	Projectile: BulletAS
 		Blockable: true
-		Image: bullet
+		ContrailWidth: 22
 
 ^LightningDefault:
 	Inherits: ^GreyExplo
@@ -443,7 +443,6 @@
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall, Air, Water
-		ImpactActors: false
 
 ^MeleeClaw:
 	Warhead@2Eff: CreateEffect

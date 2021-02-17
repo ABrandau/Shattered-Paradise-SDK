@@ -351,7 +351,7 @@ droppod1:
 		ContrailDelay: 0
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallCrater
-	-Warhead@2Eff: CreateEffect
+	-Warhead@2Eff:
 	Warhead@4Eff: CreateEffect
 		Explosions: podring
 		ImpactSounds: expnew12.aud
@@ -668,7 +668,7 @@ MeteorSpawner6:
 MeteorAirHit:
 	Inherits@1: ^SWBaseEffects
 	Projectile: InstantHit
-	-Warhead@GetsOneShotedbySuperweapons: SpreadDamage ## This for Air only, we cannot expect meteor fall on the ground to hit Air
+	-Warhead@GetsOneShotedbySuperweapons: ## This for Air only, we cannot expect meteor fall on the ground to hit Air
 
 MeteorElevator:
 	ReloadDelay: 6
@@ -730,7 +730,7 @@ MeteorRainNormal:
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
-	-Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage ## This for Ground only, we cannot expect meteor fall on the ground to hit Air
+	-Warhead@GetsOneShotedbySuperweaponsAA: ## This for Ground only, we cannot expect meteor fall on the ground to hit Air
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
@@ -999,5 +999,4 @@ nanomachineswarmdeath:
 		Spread: 2c0
 		Falloff: 100, 100, 100, 100
 		Damage: 1
-		ImpactActors: false
 		ValidTargets: remaining

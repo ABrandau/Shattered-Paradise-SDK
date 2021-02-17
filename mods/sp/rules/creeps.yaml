@@ -1,5 +1,6 @@
 DOGGIE:
 	Inherits: ^Beast
+	Inherits@2: ^WebDisable
 	Tooltip:
 		Name: Tiberian Fiend
 	Health:
@@ -52,6 +53,7 @@ VISC_SML:
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
+	-AttackMove:
 	MapEditorData:
 		Categories: Creep
 
@@ -261,6 +263,7 @@ EGGS:
 CRAB:
 	Inherits: ^Beast
 	Inherits@1: ^MutRender
+	Inherits@2: ^WebDisable
 	EditorOnlyTooltip:
 		Name: Tiberian Cravicus
 	Tooltip:
@@ -361,7 +364,6 @@ jfish:
 	ExplodeWeapon@ElectricTentacle:
 		Weapon: ElectricTentacle
 		RequiresCondition: attack
-		RevokeDelay: 40
 	AutoTarget:
 		ScanRadius: 6
 		InitialStance: AttackAnything

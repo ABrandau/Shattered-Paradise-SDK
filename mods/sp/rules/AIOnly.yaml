@@ -139,6 +139,8 @@ STRUCKFULL_T3:
 		Multiplier: 350
 	Cargo:
 		InitialUnits: psyker, seer, seer, e3, e3
+	ProvidesPrerequisite@AIbuildinglimit:
+		Prerequisite: psyker
 
 
 NUKECARRYALL_BOT:
@@ -160,7 +162,7 @@ NUKECARRYALL_BOT:
 		InitialUnits: hvrtruk3
 	Armament@AIunloadingDummyWeapon:
 		Weapon: AITransportAimingDummyWeapon
-		RequiresCondition: AImicroManage && !notmobile && loaded
+		RequiresCondition: AImicroManage && loaded
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 128
@@ -279,6 +281,8 @@ COREDEFENDER:
 	-Armor@Shield:
 	-ExternalCondition@VanguardShield:
 	-ExternalCondition@BreakShield:
+	DamagedByTintedCells@Default:
+		-RequiresCondition:
 	BodyOrientation:
 		QuantizedFacings: 8
 		CameraPitch: 250
@@ -376,8 +380,6 @@ COREDEFENDER:
 		Cursor: emp
 		Icons:
 			1: cabcannon
-		TargetCircleRanges:
-			1: 1c0
 		ChargeInterval: 2500
 		ArmamentName: HeadSuperWeapon
 		Descriptions:
@@ -395,7 +397,7 @@ COREDEFENDER:
 		IncomingSound: SuperweaponFired
 		LaunchSound: n_swlaunch.aud
 		DisplayTimerRelationships: Ally, Neutral, Enemy
-		PauseOnCondition: empdisable || disabled
+		PauseOnCondition: empdisable
 		CameraRange: 10c0
 		CameraSpawnAdvance: 25
 		CameraRemoveDelay: 350

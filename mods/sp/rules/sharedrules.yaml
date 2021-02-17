@@ -374,7 +374,6 @@ GACNST:
 ^Barracks:
 	Inherits: ^Building
 	Inherits@1: ^ProducesStuff
-	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Valued:
 		Cost: 500
 	ProvidesPrerequisite:
@@ -572,7 +571,6 @@ FLIPPEDYPROC:
 	Inherits: ^Building
 	Inherits@1: ^ProducesStuff
 	Inherits@4: ^4x3FactoryWithBibShape
-	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Valued:
 		Cost: 2000
 	ProvidesPrerequisite:
@@ -632,7 +630,6 @@ FLIPPEDYPROC:
 	Inherits: ^Building
 	Inherits@1: ^ProducesStuff
 	Inherits@2: ^2x2Shape
-	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Exit@1:
 		SpawnOffset: 0,-256,0
 	GrantExternalConditionToProduced:
@@ -660,7 +657,6 @@ FLIPPEDYPROC:
 	Power:
 		Amount: -20
 	WithSpriteBody:
-		PauseOnCondition: disabled
 	ProvidesPrerequisite@AIantiRush:
 		Prerequisite: AIantiRush
 
@@ -727,7 +723,7 @@ FLIPPEDYPROC:
 		DeploySound: sspysate.aud
 		OrderName: RadarScan
 		PauseOnCondition: disabled
-		TargetCircleRanges:
+		TargetCircleRanges: 
 			1: 8c0
 		Actors:
 			1: radarscandummy
@@ -757,7 +753,6 @@ GADEPT:
 		FinishRepairingNotification: UnitRepaired
 		PlayerExperience: 15
 	WithSpriteBody:
-		PauseOnCondition: disabled
 	RallyPoint:
 		Palette: mouse
 		IsPlayerPalette: false
@@ -824,7 +819,6 @@ SCRDEPOT:
 	Health:
 		HP: 75000
 	WithSpriteBody:
-		PauseOnCondition: disabled
 	Power:
 		Amount: -150
 	ProvidesPrerequisite@buildingname:
@@ -1014,6 +1008,8 @@ MUTWALL:
 	Tooltip:
 		Name: Forgotten Wall
 	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@CLOAKGENERATOR:
+	-ExternalCondition@crate-cloak:
 	RenderSprites:
 		Image: wall.mut
 	LineBuild:
@@ -1034,6 +1030,8 @@ SCRWALL:
 	CustomSellValue:
 		Value: 0
 	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@CLOAKGENERATOR:
+	-ExternalCondition@crate-cloak:
 	Tooltip:
 		Name: Energy Wall
 	LineBuild:
@@ -1086,7 +1084,7 @@ GASILO:
 		Weapon: TiberiumExplosion
 		EmptyWeapon: TiberiumExplosion
 	WithResourceLevelOverlay@FILLSTAGE:
-		RequiresCondition: !build-incomplete
+		RequiresCondition: !Building-Buildup
 		Sequence: stages
 	WithResourceStoragePipsDecoration:
 		Position: BottomLeft
@@ -1151,7 +1149,6 @@ TRNSPORT:
 		UnloadVoice: Unload
 		PassengerFacing: 4
 		LoadedCondition: loaded
-		LoadingCondition: notmobile
 		OwnerChangedAffectsPassengers: false
 	WithCargo:
 		DisplayTypes: Infantry, Vehicle, Apc
@@ -1475,7 +1472,6 @@ NAPULS:
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower
 		ValidPowerStates: Low, Critical
-	-ToggleConditionOnOrder:
 	Health:
 		HP: 100000
 	-AutoTarget:
@@ -1519,8 +1515,7 @@ NAPULS:
 		Icons:
 			1: emp
 		ChargeInterval: 3000
-		TargetCircleRanges:
-			1: 4c0
+		TargetCircleRange: 4c0
 		Descriptions:
 			1: E.M. Pulse
 		LongDescs:
