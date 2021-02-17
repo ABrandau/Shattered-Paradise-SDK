@@ -217,6 +217,7 @@ BERSERKER:
 		RequiresCondition: !WebDisable
 	AttackFrontal:
 		Voice: Attack
+		PauseOnCondition: WebDisable
 	AttackWander:
 		WanderMoveRadius: 1
 		ReduceMoveRadiusDelay: 5
@@ -287,6 +288,7 @@ CRAB:
 		TargetTypes: Infantry, Ground, NeutralTibCritter, MindControlImmune
 	Armament:
 		Weapon: CrabAcid
+		RequiresCondition: !WebDisable
 	WithInfantryBody:
 		AttackSequences: shoot
 		IdleSequences: idle1, idle2
@@ -296,6 +298,7 @@ CRAB:
 		RemoveInstead: true ##We don't have effect for natrual death, use this for performance
 	AttackFrontal:
 		Voice: Attack
+		PauseOnCondition: WebDisable
 	AttackWander:
 		WanderMoveRadius: 5
 		ReduceMoveRadiusDelay: 1
