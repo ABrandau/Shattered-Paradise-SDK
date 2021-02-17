@@ -221,11 +221,7 @@ HoverMissile:
 	Projectile: Missile
 		Arm: 2
 		Blockable: false
-		Shadow: true
 		Inaccuracy: 128
-		Image: DRAGON
-		TrailImage: small_smoke_trail
-		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 3500
 		InvalidTargets: Air
@@ -365,12 +361,8 @@ MammothTusk:
 	Burst: 2
 	Projectile: Missile
 		Blockable: false
-		Shadow: true
-		Image: DRAGON
-		TrailImage: small_smoke_trail
 		HorizontalRateOfTurn: 40
 		Speed: 313
-		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 3500
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
@@ -456,10 +448,6 @@ FighterHellfire:
 	Projectile: Missile
 		Arm: 2
 		Blockable: false
-		Shadow: true
-		Image: DRAGON
-		TrailImage: small_smoke_trail
-		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
@@ -539,11 +527,7 @@ GdiRedEye:
 	Projectile: Missile
 		Arm: 2
 		Blockable: false
-		Shadow: true
 		Inaccuracy: 128
-		Image: DRAGON
-		TrailImage: small_smoke_trail
-		Palette: ra
 
 RPGTower:
 	Inherits: ^RocketWarhead
@@ -557,6 +541,8 @@ RPGTower:
 		HorizontalRateOfTurn: 120
 		VerticalRateOfTurn: 120
 		Palette: player
+		Sequences: idle
+		IsPlayerPalette: false
 		-TrailImage: small_smoke_trail
 		-TrailPalette: effectalpha75
 	Warhead@1Dam: SpreadDamage

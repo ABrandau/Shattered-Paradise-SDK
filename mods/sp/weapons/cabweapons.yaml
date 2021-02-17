@@ -88,7 +88,6 @@ ReaperScythe:
 	ValidTargets: Ground, Water
 	Projectile: Missile
 		Blockable: false
-		Shadow: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 3000
@@ -353,8 +352,10 @@ DroneHostMissile:
 	Projectile: Missile
 		Blockable: false
 		Speed: 300
-		Shadow: true
 		Image: dronemissile
+		Sequences: idle
+		Palette: ra
+		IsPlayerPalette: false
 		AirburstAltitude: 5000
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
@@ -511,6 +512,7 @@ BasiliskBomb:
 		Inaccuracy: 1c512
 		Image: DRAGON
 		TrailImage: small_smoke_trail
+		TrailSequences: idle2
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 250
@@ -766,6 +768,8 @@ CoreDefenderCannonAA:
 		MaximumLaunchAngle: 0
 		MinimumLaunchAngle: 0
 		Image: lightpan
+		Sequences: idle
+		IsPlayerPalette: false
 		RangeLimit: 15c0
 		Palette: apblue
 		ContrailLength: 7
