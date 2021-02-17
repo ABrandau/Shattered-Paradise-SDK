@@ -422,7 +422,6 @@ NCONF:
 		LocalOffset: 400,0,778
 		PauseOnCondition: WebDisable
 	Cloak@cloakgenerator:
-		RequiresCondition: !lawea
 		InitialDelay: 80
 		CloakDelay: 80
 		CloakSound: cloak5.aud
@@ -501,7 +500,6 @@ BHS:
 		DetonationDelay: 45
 		Voice: Attack
 	Cloak@cloakgenerator:
-		RequiresCondition: !lawea
 		InitialDelay: 40
 		CloakDelay: 40
 		CloakSound: cloak5.aud
@@ -740,12 +738,13 @@ CUTMAN:
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
+	-AttackMove:
 	RenderSprites:
 		PlayerPalette: playerunittemgreen
 	Cloak@CLOAKGENERATOR:
 		Palette: cloakplayerunittemgreen
 		IsPlayerPalette: true
-	ExternalCondition@cloakgenerator:
+	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
 	WithDeathAnimation:
 		DeathSequencePalette: playerunittemgreen
@@ -753,7 +752,6 @@ CUTMAN:
 		CrushedPaletteIsPlayerPalette: true
 	ActorPreviewPlaceBuildingPreview:
 		OverridePalette: placebuildingmut
-
 
 E3:
 	Inherits: ^Mutant
@@ -1034,6 +1032,7 @@ SHAPESHIFTER:
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
+	-AttackMove:
 
 FLOAT:
 	Inherits: ^ScrinSoldier
@@ -1203,13 +1202,11 @@ COLOSSI:
 		RequiresCondition: !undeployed
 	ExplodeWeapon@1:
 		Weapon: ColossiBlast
-		RequiresCondition: deployed
-		PauseOnCondition: WebDisable
+		RequiresCondition: deployed && !WebDisable
 	AmbientSound:
 		SoundFiles: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
 		Interval: 75
-		RequiresCondition: deployed
-		PauseOnCondition: WebDisable
+		RequiresCondition: deployed && !WebDisable
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: deployed
@@ -1592,10 +1589,12 @@ MOTH:
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 	WithMakeAnimation:
+		BodyNames: deployed
 	WithFacingSpriteBody@UndeloyedBody:
 		Sequence: idle
-		RequiresCondition: !deployed && !inside-tunnel
+		RequiresCondition: undeployed && !inside-tunnel
 	WithSpriteBody@DeloyedBody:
+		Name: deployed
 		Sequence: deployed
 		RequiresCondition: !undeployed
 	-WithInfantryBody:
@@ -1812,6 +1811,7 @@ nanos:
 		Voice: Move
 	BodyOrientation:
 		QuantizedFacings: 1
+	-QuantizeFacingsFromSequence:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot

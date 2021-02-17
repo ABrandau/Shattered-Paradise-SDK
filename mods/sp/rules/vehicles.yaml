@@ -144,7 +144,6 @@ APC:
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 		UnloadVoice: Unload
-		LoadingCondition: notmobile
 		EjectOnDeath: false
 		OwnerChangedAffectsPassengers: false
 	Passenger:
@@ -159,7 +158,6 @@ APC:
 		Weapon: APCGrenade
 		LocalOffset: 350,0,1000
 		MuzzleSequence: muzzle
-		MuzzleSplitFacings: 8
 		PauseOnCondition: empdisable
 	BodyOrientation:
 		QuantizedFacings: 32
@@ -249,7 +247,7 @@ JUG:
 		LocalOffset: 300, 200, 2650
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
-		Delay: 5
+		FireDelay: 5
 	Armament@3:
 		Weapon: JuggCannonShellCasing
 		LocalOffset: 0, -200, 1800
@@ -258,7 +256,7 @@ JUG:
 		Weapon: JuggCannonShellCasing
 		LocalOffset: 0, 200, 1800
 		PauseOnCondition: empdisable
-		Delay: 5
+		FireDelay: 5
 	WithMuzzleOverlay:
 	Selectable:
 		Bounds: 40, 60, 0, -20
@@ -494,7 +492,6 @@ NODMCV:
 
 BGGY:
 	Inherits: ^Tank
-	Inherits@1: ^AutoTargetGround
 	Inherits@2: ^8CellVision
 	Inherits@3: ^BasicStealthDetection
 	Inherits@PIPS: ^CargoPips
@@ -536,7 +533,7 @@ BGGY:
 			marauder: ifv.militant
 			cyborg: ifv.militant
 			worker: ifv.militant
-			cyberdog: ifv.militant
+			cybdog: ifv.militant
 			crusader: ifv.crusader
 			grenadier: ifv.crusader
 			mutfiend: ifv.crusader
@@ -570,13 +567,11 @@ BGGY:
 		Weapon: BuggyCannon
 		LocalOffset: 250,0,125
 		MuzzleSequence: muzzle
-		MuzzleSplitFacings: 8
 		RequiresCondition: !loaded
 	Armament@militant1:
 		Weapon: BuggyCannonLoaded
 		LocalOffset: 250,0,125
 		MuzzleSequence: muzzle
-		MuzzleSplitFacings: 8
 		RequiresCondition: ifv.militant
 	Armament@crusa:
 		Weapon: CrusaderBazooka
@@ -598,13 +593,11 @@ BGGY:
 		Weapon: ToxinCommandoRifle
 		LocalOffset: 250,0,125
 		MuzzleSequence: muzzle
-		MuzzleSplitFacings: 8
 		RequiresCondition: ifv.bhs
 	Armament@jumpjet:
 		Weapon: JJGrenade
 		LocalOffset: 250,0,125
 		MuzzleSequence: muzzle
-		MuzzleSplitFacings: 8
 		RequiresCondition: ifv.jumpjet
 	Armament@medic:
 		Weapon: Heal
@@ -667,13 +660,11 @@ BGGY:
 		LocalOffset: 400,-200,125
 		RequiresCondition: ifv.glad
 		MuzzleSequence: muzzle
-		MuzzleSplitFacings: 8
 	Armament@glad2:
 		Weapon: GLAD120mm
 		LocalOffset: 400,200,125
 		RequiresCondition: ifv.glad
 		MuzzleSequence: muzzle
-		MuzzleSplitFacings: 8
 	Armament@moth:
 		Weapon: LurkerProj
 		LocalOffset: 250,0,125
@@ -810,7 +801,6 @@ BGGY:
 
 ATTACKBIKE:
 	Inherits: ^Tank
-	Inherits@1: ^AutoTargetGround
 	Inherits@2: ^7CellVision
 	Inherits@GainsExperience: ^GainsExperience
 	Valued:
@@ -1175,6 +1165,7 @@ HOWTLIZER:
 		TurnSpeed: 20
 		Locomotor: InfantryCrusherVehicle
 	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@crate-cloak:
 	Cloak@cloakgenerator:
 		InitialDelay: 170
 		CloakDelay: 170
@@ -1338,7 +1329,6 @@ MUTQUAD:
 		Weapon: QuadFireCasing
 		LocalOffset: -200,0,1200
 		RequiresCondition: attack
-		RevokeDelay: 1
 	GrantConditionOnAttack@Casing:
 		Condition: attack
 		ArmamentNames: primary
@@ -1413,7 +1403,6 @@ LYNX:
 		Weapon: LynxCannon
 		LocalOffset: 400,0,600
 		MuzzleSequence: muzzle
-		MuzzleSplitFacings: 8
 		Recoil: 0c128
 		PauseOnCondition: empdisable
 	Armament@casing:
@@ -1459,7 +1448,6 @@ STRUCK:
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 		UnloadVoice: Move
-		LoadingCondition: notmobile
 		OwnerChangedAffectsPassengers: false
 	Passenger:
 		CargoType: Apc
@@ -1538,14 +1526,11 @@ MRLS:
 	Armament:
 		Weapon: tiberianrocket
 		LocalOffset: 400,100,900, 400,-100,900
-		RequiresCondition: !deployed
 		PauseOnCondition: empdisable
 	Armament@1:
 		Weapon: TiberianRocketClould
 		LocalOffset: 400,100,900, 400,-100,900
-		RequiresCondition: !deployed
 		PauseOnCondition: empdisable
-		Delay: 7
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -1809,6 +1794,8 @@ SCRRECHARGER:
 	-Armor@Shield:
 	-ExternalCondition@VanguardShield:
 	-ExternalCondition@BreakShield:
+	DamagedByTintedCells@Default:
+		-RequiresCondition:
 	Armament:
 		Weapon: VanguardFollow
 		TargetRelationships: Ally
@@ -1861,15 +1848,13 @@ SCRMOBMINE:
 	MindController:
 		Capacity: 3
 		Sounds: sonpulse.aud
-		ControllingCondition: slaving
-		Policy: DiscardOldest
+		#ControllingCondition: slaving
 	Targetable:
 		TargetTypes: Ground, Vehicle, MindControlImmune
 	ExplodeWeapon@Casing:
 		Weapon: MindEnergyCasing
 		LocalOffset: 0,0,2600
 		RequiresCondition: attack
-		RevokeDelay: 1
 	GrantConditionOnAttack@Casing:
 		Condition: attack
 		ArmamentNames: primary
@@ -1886,7 +1871,7 @@ SCRMOBMINE:
 		PauseOnCondition: empdisable
 	Turreted:
 	RenderRangeCircle:
-		Type: Subjugator
+		#Type: Subjugator
 		Color: 800080CC
 	WithMindControllerPipsDecoration:
 		Margin: 4, 3
@@ -2048,7 +2033,7 @@ CENTURION:
 		PauseOnCondition: empdisable
 	Armament@1:
 		Weapon: CenturionVulcan
-		Delay: 5
+		FireDelay: 5
 		RecoilRecovery: 26
 		LocalOffset: 900,-550,1200
 		MuzzleSequence: muzzle
@@ -2061,7 +2046,7 @@ CENTURION:
 		PauseOnCondition: empdisable
 	Armament@3:
 		Weapon: CenturionVulcanCasing
-		Delay: 5
+		FireDelay: 5
 		RecoilRecovery: 26
 		LocalOffset: 900,-550,1200
 		MuzzleSequence: muzzle
@@ -2073,7 +2058,7 @@ CENTURION:
 		PauseOnCondition: empdisable
 	Armament@5:
 		Weapon: CenturionVulcanLine
-		Delay: 5
+		FireDelay: 5
 		RecoilRecovery: 26
 		LocalOffset: 1250,-550,1200
 		PauseOnCondition: empdisable
@@ -2209,7 +2194,6 @@ ECM:
 	Minelayer:
 		Mine: mumine
 		TileUnknownName: build-invalid
-		RearmBuildings: scrdepot, gadept
 	Health:
 		HP: 40000
 	SelectionDecorations:
@@ -2272,7 +2256,6 @@ CABAPC:
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 		UnloadVoice: Move
-		LoadingCondition: notmobile
 		OwnerChangedAffectsPassengers: false
 	Passenger:
 		CargoType: Apc
@@ -2403,101 +2386,3 @@ PALADIN:
 	Explodes:
 		Weapon: BigUnitExplode
 		EmptyWeapon: BigUnitExplode
-
-#########################################################
-# UNUSED
-#######################################################
-
-JUGGER:
-	Inherits: ^Walker
-	Inherits@1: ^5CellVision
-	Valued:
-		Cost: 900
-	Tooltip:
-		Name: Juggernaut
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Mobile:
-		TurnSpeed: 24
-		Speed: 75
-		Locomotor: InfantryCrusherVehicle
-	Health:
-		HP: 21000
-	AttackFrontal:
-		Voice: Attack
-		PauseOnCondition: empdisable
-	AutoTarget:
-	Armament:
-		Weapon: JuggCannon
-		LocalOffset: 600, 600, 6000
-	Armament@1:
-		Weapon: JuggCannon
-		LocalOffset: 600, -600, 6000
-	Voiced:
-		VoiceSet: Mech
-	WithMuzzleOverlay:
-	QuantizeFacingsFromSequence:
-		Sequence: stand
-	WithFacingSpriteBody:
-		Sequence: stand
-	WithMoveAnimation:
-		MoveSequence: run
-	Selectable:
-		Bounds: 30, 35, 0, -8
-
-REPAIR:
-	Inherits: ^VoxelTank
-	Tooltip:
-		Name: Mobile Repair Vehicle
-	Health:
-		HP: 20000
-	Mobile:
-		Speed: 70
-		TurnSpeed: 20
-	Armament:
-		Weapon: RepairVehicleRep
-		Cursor: repair
-		OutsideRangeCursor: repair
-		TargetRelationships: Ally
-		ForceTargetRelationships: None
-	AttackFrontal:
-		Voice: Attack
-
-ART2:
-	Inherits: HOWTLIZER
-	-Buildable:
-	RenderSprites:
-		Image: howtlizer
-	# SCRDRONEC:
-	# Inherits@1: ^AutoTargetGround
-	# Inherits@2: ^HoverVehicle
-	# Inherits: ^ScrinVehicle
-	# Valued:
-	# 	Cost: 950
-	# Tooltip:
-	# 	Name: Vanguard
-	# Health:
-	# 	HP: 25000
-	# Mobile:
-	# 	Speed: 80
-	# RenderSprites:
-	# -WithIdleOverlay@shield:
-	# WithFacingSpriteBody:
-	# -Cloak@CLOAKGENERATOR:
-	# BodyOrientation:
-	# 	QuantizedFacings: 32
-	# AttackFrontal:
-	# 	PauseOnCondition: empdisable
-	# Armament:
-	# 	Weapon: VanguardShrapnel
-	# 	TargetStances: Ally
-	# ProximityExternalCondition@VanguardShield:
-	# 	Condition: VanguardShield
-	# 	# Range: 3c0 # 2c0
-	# 	AffectsParent: false
-	# WithRangeCircle:
-	# 	Range: 3c0
-	# 	Type: VanguardShield
-	# Targetable:
-	# 	TargetTypes: Ground, Vehicle
-	# AutoTarget:

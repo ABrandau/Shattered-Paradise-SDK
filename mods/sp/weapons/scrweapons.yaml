@@ -286,10 +286,8 @@ RedSpark:
 	ReloadDelay: 80
 	Range: 0c20
 	Projectile: TeslaZap
-		ZOffset: 3500
 		Palette: apolredalpha
 	Warhead@1Dam: TargetDamage
-		ImpactActors: false
 
 VanguardFollow:
 	ReloadDelay: 200
@@ -297,7 +295,6 @@ VanguardFollow:
 	ValidTargets: Infantry, Vehicle
 	InvalidTargets: ShieldGenerator
 	Warhead@1Dam: TargetDamage
-		ImpactActors: false
 
 ScrMbtLasor:
 	Inherits: ^FullDamage
@@ -389,7 +386,7 @@ StormRiderBlast:
 		TerrainHeightAware: true
 		Speed: 400
 		Acceleration: 0
-		MinimumLaunchAngle: -256 # -90 degrees
+		MinimumLaunchAngle: -255 # -90 degrees
 		MaximumLaunchAngle: 50
 		#MaximumLaunchSpeed: 0c543
 		#MinimumLaunchSpeed: 0c301
@@ -553,8 +550,8 @@ BattleshipPlasma:
 		TerrainHeightAware: true
 		Speed: 300
 		Acceleration: 0
-		MinimumLaunchAngle: 256 # 90 degrees
-		MaximumLaunchAngle: 256
+		MinimumLaunchAngle: 255 # 90 degrees
+		MaximumLaunchAngle: 255
 		#MaximumLaunchSpeed: 0c743
 		#MinimumLaunchSpeed: 0c743
 		Blockable: false
@@ -676,7 +673,7 @@ WasteTurretWeapon:
 		Blockable: false
 		Inaccuracy: 0
 		Palette: jascgreen
-		Angle: 60
+		LaunchAngle: 60
 		Shadow: true
 		ContrailLength: 10
 		ContrailColor: 007000
@@ -765,8 +762,8 @@ TractorBeam:
 TractorBeam2:
 	Inherits: TractorBeam
 	-Report:
-	-Warhead@1Dam: SpreadDamage
-	-Warhead@TractorStop: GrantExternalCondition
+	-Warhead@1Dam:
+	-Warhead@TractorStop:
 
 DronePlane:
 	Inherits: ^BombWarhead

@@ -135,45 +135,6 @@ ORCAB:
 		EmptySequence: pip-ammoempty
 		Palette: pips
 
-DPOD:
-	Inherits: ^CombatHelicopter
-	Valued:
-		Cost: 10
-	Tooltip:
-		Name: Drop Pod
-	Aircraft:
-		TurnSpeed: 20
-		Speed: 160
-		InitialFacing: 0
-	-Rearmable:
-	Health:
-		HP: 6000
-	RevealsShroud:
-		Range: 0
-	Cargo:
-		Types: Infantry
-		MaxWeight: 1
-		UnloadVoice: Move
-		OwnerChangedAffectsPassengers: false
-	Armament:
-		Weapon: Vulcan2
-		PauseOnCondition: !ammo
-	RenderSprites:
-	RenderVoxels:
-	WithVoxelBody:
-	AttackAircraft:
-		Voice: Attack
-	AmmoPool:
-		Ammo: 5
-		AmmoCondition: ammo
-	AutoTarget:
-	WithAmmoPipsDecoration:
-		Position: BottomLeft
-		RequiresSelection: true
-		FullSequence: pip-ammo
-		EmptySequence: pip-ammoempty
-		Palette: pips
-
 DSHP:
 	Inherits: ^CombatHelicopter
 	Inherits@PIPS: ^CargoPips
@@ -310,7 +271,6 @@ APACHE:
 	ExplodeWeapon@Casing:
 		Weapon: HarpyClawCasing
 		RequiresCondition: attack
-		RevokeDelay: 1
 		LocalOffset: 800,0,0
 	Armament:
 		Weapon: HarpyClaw
@@ -487,6 +447,7 @@ CERBERUS:
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 	-ExternalCondition@crate-cloak:
+	-GrantCondition@DisableHeavyDamagedEffect:
 	WithRangeCircle:
 		Range: 4c0
 		Type: cloakgenerator
@@ -583,7 +544,6 @@ MUTHELI:
 	ExplodeWeapon@Casing:
 		Weapon: GargoylACannonCasing
 		RequiresCondition: attack
-		RevokeDelay: 1
 	WithMuzzleOverlay:
 	AttackAircraft:
 		AttackType: Hover
@@ -870,7 +830,6 @@ DRACHE:
 		DeployCursor: deploy
 		NoTransformSounds:
 		Voice: Move
-		PauseOnCondition: empdisable
 	SelectionDecorations:
 	WithFacingSpriteBody:
 		Sequence: stand
@@ -923,7 +882,6 @@ SCRGLYDER1:
 	Armament@AITransformDummyWeapon:
 		Weapon: AIGlyder1AimingDummyWeapon
 		RequiresCondition: AImicroManage
-		PauseOnCondition: empdisable
 		ReloadingCondition: AIattackGround
 	TransformOnCondition@AITransform:
 		RequiresCondition: AIattackGround
@@ -1013,7 +971,6 @@ SCRTRANS:
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 		UnloadVoice: Unload
-		LoadingCondition: notmobile
 		OwnerChangedAffectsPassengers: false
 	Selectable:
 		Bounds: 90,50
@@ -1139,8 +1096,6 @@ STORMRIDERSPAWN:
 	RejectsOrders:
 	RenderSprites:
 		Image: wyverm2
-	ExternalCondition@Return:
-		Condition: ForceReturn
 	-Rearmable:
 	WithFacingSpriteBody:
 	BodyOrientation:
@@ -1461,7 +1416,6 @@ DEVOURER:
 		RevokeDelay: 25
 	AttackTurreted:
 		Voice: Attack
-		PauseOnCondition: empdisable
 	Turreted:
 		TurnSpeed: 12
 	AutoTarget:

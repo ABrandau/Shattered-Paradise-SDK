@@ -28,6 +28,7 @@
 ## No image and sight, pls add those function yourself if want new functions
 ^GROUNDDUMMY:
 	HiddenUnderFog:
+		Type: CenterPosition
 	Immobile:
 		OccupiesSpace: false
 	BodyOrientation:
@@ -124,11 +125,17 @@ ScrinSmallFireSpawnerDummy:
 NukeCrateDummy:
 	Inherits: ^DUMMYAIRCRAFT
 	Inherits: ^HasMisslePower
+	NukePower:
+		CircleRanges:
+			1: 15c0
+		-PauseOnCondition:
 	-RevealsShroud:
 
 HealerNukeDummy:
 	Inherits: NukeCrateDummy
-	NukePower@CrateNuke:
+	NukePower:
+		CircleRanges:
+			1: 15c0
 		InsufficientPowerSound:
 		MissileWeapon: HealerNuke
 		OrderName: HealerNuke
@@ -165,6 +172,7 @@ IRONSAVIORDUMMY:
 	KillsSelf@TimedLife:
 		Delay: 2
 	RevealsShroud:
+		Type: CenterPosition
 		Range: 3c0
 	RevealOnDeath:
 		Duration: 200
@@ -183,6 +191,7 @@ IONBEAMTARGET:
 	ShakeOnDeath:
 	RejectsOrders:
 	RevealsShroud:
+		Type: CenterPosition
 		Range: 3c0
 	RevealOnDeath:
 		Duration: 200
@@ -207,6 +216,7 @@ IONBEAMMINI:
 	KillsSelf@TimedLife:
 		Delay: 100
 	RevealsShroud:
+		Type: CenterPosition
 		Range: 3c0
 	AttackAircraft:
 		FacingTolerance: 20
@@ -308,6 +318,7 @@ NANOBURSTDUMMY:
 		Image: nanomachineswarmdummy
 		Palette: apolgreyalpha
 	RevealsShroud:
+		Type: CenterPosition
 		Range: 8c0
 	ProximityExternalCondition@1:
 		RequiresCondition: !spreading

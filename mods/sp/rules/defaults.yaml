@@ -1534,12 +1534,10 @@
 	RepairsBridges:
 	Captures@NormalBuilding:
 		CaptureTypes: Building
-		RequiresCondition: !global-reusable-engineers
 		PlayerExperience: 25
 		CaptureDelay: 125
 	Captures@TechBuilding:
 		CaptureTypes: TechBuilding
-		RequiresCondition: !global-reusable-engineers
 		PlayerExperience: 25
 		CaptureDelay: 175
 	Captures@HackTechDrone:
@@ -2118,6 +2116,8 @@
 		RequiresCondition: !Building-Buildup
 	WithMakeAnimation:
 		Condition: Building-Buildup
+	ExternalCondition@Building-Buildup:
+		Condition: Building-Buildup
 	MapEditorData:
 		Categories: Buildable Structure
 	WithBuildingRepairDecoration:
@@ -2209,6 +2209,8 @@
 	MapEditorData:
 		Categories: Civilian Structure
 	-ExplodeWeapon@SpawnFire:
+	-GrantConditionOnDamageState@HeavyDamaged:
+	-ExternalCondition@DisableHeavyDamagedEffect:
 	RadarColorFromTerrain:
 		Terrain: CivilianBuilding
 	Interactable:
@@ -2437,7 +2439,6 @@
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 		UnloadVoice: Unload
-		LoadingCondition: notmobile
 		OwnerChangedAffectsPassengers: false
 	Health:
 		HP: 10000
@@ -2460,8 +2461,8 @@
 	Explodes:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
-	ExternalCondition@cloakgenerator:
-		Condition: cloakgenerator
+	#ExternalCondition@CLOAKGENERATOR:
+	#	Condition: cloakgenerator
 	ThrowsShrapnel:
 		Weapons: SmallDebris
 		Pieces: 3, 7
@@ -2657,7 +2658,7 @@
 		PlayerPalette: playerscrin
 	Cloak@CLOAKGENERATOR:
 		Palette: cloakscrin
-	ExternalCondition@cloakgenerator:
+	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
 	WithDeathAnimation:
 		DeathSequencePalette: playerscrin
@@ -2673,7 +2674,7 @@
 	Cloak@CLOAKGENERATOR:
 		Palette: cloakmut
 		IsPlayerPalette: true
-	ExternalCondition@cloakgenerator:
+	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
 	WithDeathAnimation:
 		DeathSequencePalette: playermut
@@ -2689,7 +2690,7 @@
 	Cloak@CLOAKGENERATOR:
 		Palette: cloakcab
 		IsPlayerPalette: true
-	ExternalCondition@cloakgenerator:
+	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
 	WithDeathAnimation:
 		DeathSequencePalette: playercab
@@ -2701,7 +2702,7 @@
 ^BuildingCloak:
 	Cloak@CLOAKGENERATOR:
 		RequiresCondition: cloakgenerator
-	ExternalCondition@cloakgenerator:
+	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
 
 ^Ra2vxl:

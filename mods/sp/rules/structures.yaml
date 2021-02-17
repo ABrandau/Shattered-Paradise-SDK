@@ -286,8 +286,6 @@ GTDROP:
 		OrderName: Droppod
 		MissileWeapon: DroppodSpawner
 		ChargeInterval: 4500
-		CameraActor: camera
-		ActivationSequence: idle
 		CircleRanges:
 			1: 6c0
 		CameraRange: 7c0
@@ -633,6 +631,8 @@ NAMISL:
 		IsPlayerPalette: true
 		OrderName: ToxinMissile
 		CameraRange: 7c0
+		CircleRanges:
+			1: 5c0
 		CameraSpawnAdvance: 25
 		CameraRemoveDelay: 350
 		PauseOnCondition: empdisable || disabled
@@ -912,12 +912,11 @@ MUTSW2:
 		ChargeInterval: 5000
 		OrderName: Veinhole
 		CircleRanges:
-			1: 5c0
+			1: 8c0
 		Descriptions:
 			1: Veinhole Spawn
 		LongDescs:
 			1: Spawns a cluster of veinholes\non the targetted location.\nVeinholes spawn gas clouds, radiation, and tiberian crabs.\nThey also provide vision.
-		CameraActor: camera
 		CameraRange: 10c0
 		CameraSpawnAdvance: 25
 		CameraRemoveDelay: 350
@@ -1317,8 +1316,8 @@ SCRADVPOWR:
 		SelectionCursor: emp
 		TargetCursor: emp
 		ValidFootprintSequence: build-valid
-		InvalidTileSequence: build-invalid-
-		SourceTileSequence: build-valid-
+		InvalidFootprintSequence: build-invalid-
+		SourceFootprintSequence: build-valid-
 		DisplayTimerRelationships: Ally, Neutral, Enemy
 		Dimensions:
 			1: 5, 5
@@ -1666,7 +1665,6 @@ CABOBELISK:
 		BeginChargeSound:
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
-		DisplayTimer: true
 		ChargeInterval: 6000
 		DisplayRadarPing: true
 		DisplayTimerRelationships: Ally, Neutral, Enemy
@@ -1675,10 +1673,6 @@ CABOBELISK:
 		IncomingSpeechNotification: SuperweaponFired
 		IncomingSound: SuperweaponFired
 		LaunchSound: n_swlaunch.aud
-		CameraActor: camera
-		CameraRange: 10c0
-		CameraSpawnAdvance: 25
-		CameraRemoveDelay: 350
 		LifeTime: -1
 	Health:
 		HP: 300000

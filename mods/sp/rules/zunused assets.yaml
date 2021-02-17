@@ -317,33 +317,6 @@ MUWARD:
 		CloakTypes: cloakgenerator
 		UncloakOn: Attack, Unload, Infiltrate, Demolish
 
-MUSTABLE:
-	Inherits: ^Building
-	Inherits@1: ^MutRender
-	Inherits@2: ^2x3Shape
-	Valued:
-		Cost: 500
-	Tooltip:
-		Name: Training Grounds
-	ProvidesPrerequisite:
-		Prerequisite: tech
-	Building:
-		Footprint: xx xx xx
-		Dimensions: 2,3
-	Selectable:
-		Bounds: 110, 60, 3, -4
-		DecorationBounds: 110, 60, 3, -4
-	Health:
-		HP: 23000
-	Armor:
-		Type: BuildingArmor
-	Power:
-		Amount: -40
-	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
-	RequiresBuildableArea:
-		AreaTypes: building
-
 CABNEXUS:
 	# Inherits: ^Defence
 	# Inherits@1: ^CabRender
@@ -613,3 +586,362 @@ SCRINCOUNCIL:
 		Palette: apolbluealpha60
 	ProvidesPrerequisite:
 		Prerequisite: scrweap
+
+###########################################################################
+# UNUSED
+###########################################################################
+
+GACTWR:
+	Inherits: ^Defence
+	-WithSpriteBody:
+	WithWallSpriteBody:
+		Type: wall
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Component Tower
+	Building:
+	Health:
+		HP: 50000
+	BodyOrientation:
+		QuantizedFacings: 32
+	Turreted:
+		TurnSpeed: 40
+		InitialFacing: 368
+	AttackTurreted:
+		RequiresCondition: tower
+	ToggleConditionOnOrder:
+		DisabledSpeech: EnablePower
+		EnabledSpeech: DisablePower
+		Condition: powerdown
+		OrderName: PowerDown
+	WithSpriteTurret@VULC:
+		RequiresCondition: tower.vulcan
+		Recoils: false
+		Sequence: turret-vulcan
+	WithSpriteTurret@ROCKET:
+		RequiresCondition: tower.rocket
+		Recoils: false
+		Sequence: turret-rocket
+	WithSpriteTurret@SAM:
+		RequiresCondition: tower.sam
+		Recoils: false
+		Sequence: turret-sam
+	Armament@VULCPRIMARY:
+		RequiresCondition: tower.vulcan
+		Weapon: VulcanTower
+		LocalOffset: 768,85,512
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+	Armament@VULCSECONDARY:
+		RequiresCondition: tower.vulcan
+		Name: secondary
+		Weapon: VulcanTower
+		LocalOffset: 768,-85,512
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+	Armament@ROCKET:
+		RequiresCondition: tower.rocket
+		Weapon: RPGTower
+		LocalOffset: 512,-128,512
+	Armament@SAM:
+		RequiresCondition: tower.sam
+		Weapon: GdiRedEye
+		LocalOffset: 512,0,512
+	WithMuzzleOverlay:
+		RequiresCondition: tower.vulcan
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	LineBuildNode:
+		Types: turret
+	Power@base:
+		Amount: -10
+	Power@turrets:
+		RequiresCondition: tower
+		Amount: -20
+	Power@samextra:
+		RequiresCondition: tower.sam
+		Amount: -10
+	Pluggable:
+		Conditions:
+			tower.vulcan: tower, tower.vulcan
+			tower.rocket: tower, tower.rocket
+			tower.sam: tower, tower.sam
+	ProvidesPrerequisite@buildingname:
+	WithDecoration@POWERDOWN:
+		Image: poweroff
+		Sequence: offline
+		Palette: mouse
+		RequiresCondition: powerdown
+		Position: Center
+	RequiresBuildableArea:
+		AreaTypes: building
+	PowerMultiplier@POWERDOWN:
+		RequiresCondition: powerdown
+		Modifier: 0
+
+GAPLUG2:
+	Inherits: ^BuildingPlug
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Drop pod Control
+	Plug:
+		Type: plug.hunterseeker
+	Power:
+		Amount: -50
+
+GAPLUG3:
+	Inherits: ^BuildingPlug
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Ion Cannon Uplink
+	Plug:
+		Type: plug.ioncannon
+	Power:
+		Amount: -100
+
+GAWALL:
+	Inherits: ^Wall
+	SoundOnDamageTransition:
+		DamagedSounds:
+		DestroyedSounds:
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Concrete Wall
+	Health:
+		HP: 30000
+	Armor:
+		Type: Concrete
+	RenderSprites:
+		Image: wall.gdi
+	BlocksProjectiles:
+		Height: 640
+	Crushable:
+		CrushClasses: heavywall
+	LineBuild:
+		NodeTypes: wall, turret
+
+NAWAST:
+	Inherits: ^Building
+	Inherits@2: ^3x3Shape
+	Valued:
+		Cost: 1600
+	Tooltip:
+		Name: Waste Refinery
+	Building:
+		Footprint: =x= xx= =x=
+		Dimensions: 3,3
+	Health:
+		HP: 40000
+	TiberianSunRefinery:
+		DockAngle: 640
+		DockOffset: 2,1
+	StoresResources:
+		Capacity: 56
+	WithIdleOverlay@GLOW:
+		Sequence: idle-glow
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	WithIdleOverlay@BIB:
+		Sequence: bib
+	ProvidesPrerequisite@buildingname:
+	RenderSprites:
+	RequiresBuildableArea:
+		AreaTypes: building
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 15
+		FullSequence: pip-red
+
+MUWARD:
+	Inherits: ^DeployedVehicle
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Forgotten Ward
+	Health:
+		HP: 5000
+	-AttackTurreted:
+	-AutoTarget:
+	-RenderRangeCircle:
+	Selectable:
+		Priority: 3
+	-Voiced:
+	BodyOrientation:
+		QuantizedFacings: 32
+	Cloak@cloakgenerator:
+		RequiresCondition: !lawea
+		InitialDelay: 50
+		CloakDelay: 50
+		CloakSound:
+		UncloakSound:
+		Palette: cloakmut
+		IsPlayerPalette: true
+		CloakTypes: cloakgenerator
+		UncloakOn: Attack, Unload, Infiltrate, Demolish
+
+MUSTABLE:
+	Inherits: ^Building
+	Inherits@1: ^MutRender
+	Inherits@2: ^2x3Shape
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Training Grounds
+	ProvidesPrerequisite:
+		Prerequisite: tech
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	Health:
+		HP: 23000
+	Armor:
+		Type: BuildingArmor
+	Power:
+		Amount: -40
+	ProvidesPrerequisite@buildingname:
+	RequiresBuildableArea:
+		AreaTypes: building
+
+
+#########################################################
+# UNUSED
+#######################################################
+
+JUGGER:
+	Inherits: ^Walker
+	Inherits@1: ^5CellVision
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Juggernaut
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 24
+		Speed: 75
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 21000
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	AutoTarget:
+	Armament:
+		Weapon: JuggCannon
+		LocalOffset: 600, 600, 6000
+	Armament@1:
+		Weapon: JuggCannon
+		LocalOffset: 600, -600, 6000
+	Voiced:
+		VoiceSet: Mech
+	WithMuzzleOverlay:
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithFacingSpriteBody:
+		Sequence: stand
+	WithMoveAnimation:
+		MoveSequence: run
+	Selectable:
+		Bounds: 30, 35, 0, -8
+
+REPAIR:
+	Inherits: ^VoxelTank
+	Tooltip:
+		Name: Mobile Repair Vehicle
+	Health:
+		HP: 20000
+	Mobile:
+		Speed: 70
+		TurnSpeed: 20
+	Armament:
+		Weapon: RepairVehicleRep
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+	AttackFrontal:
+		Voice: Attack
+
+ART2:
+	Inherits: HOWTLIZER
+	-Buildable:
+	RenderSprites:
+		Image: howtlizer
+	# SCRDRONEC:
+	# Inherits@1: ^AutoTargetGround
+	# Inherits@2: ^HoverVehicle
+	# Inherits: ^ScrinVehicle
+	# Valued:
+	# 	Cost: 950
+	# Tooltip:
+	# 	Name: Vanguard
+	# Health:
+	# 	HP: 25000
+	# Mobile:
+	# 	Speed: 80
+	# RenderSprites:
+	# -WithIdleOverlay@shield:
+	# WithFacingSpriteBody:
+	# -Cloak@CLOAKGENERATOR:
+	# BodyOrientation:
+	# 	QuantizedFacings: 32
+	# AttackFrontal:
+	# 	PauseOnCondition: empdisable
+	# Armament:
+	# 	Weapon: VanguardShrapnel
+	# 	TargetStances: Ally
+	# ProximityExternalCondition@VanguardShield:
+	# 	Condition: VanguardShield
+	# 	# Range: 3c0 # 2c0
+	# 	AffectsParent: false
+	# WithRangeCircle:
+	# 	Range: 3c0
+	# 	Type: VanguardShield
+	# Targetable:
+	# 	TargetTypes: Ground, Vehicle
+	# AutoTarget:
+
+
+DPOD:
+	Inherits: ^CombatHelicopter
+	Valued:
+		Cost: 10
+	Tooltip:
+		Name: Drop Pod
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 160
+		InitialFacing: 0
+	-Rearmable:
+	Health:
+		HP: 6000
+	RevealsShroud:
+		Range: 0
+	Cargo:
+		Types: Infantry
+		MaxWeight: 1
+		UnloadVoice: Move
+		OwnerChangedAffectsPassengers: false
+	Armament:
+		Weapon: Vulcan2
+		PauseOnCondition: !ammo
+	RenderSprites:
+	RenderVoxels:
+	WithVoxelBody:
+	AttackAircraft:
+		Voice: Attack
+	AmmoPool:
+		Ammo: 5
+		AmmoCondition: ammo
+	AutoTarget:
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
+		Palette: pips

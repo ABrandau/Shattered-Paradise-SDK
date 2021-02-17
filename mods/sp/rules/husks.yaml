@@ -121,6 +121,12 @@ TRNSPORT.scr.Husk:
 
 TRNSPORT.mut.Husk:
 	Inherits: TRNSPORT.gdi.Husk
+	WithIdleOverlay@1Air:
+		Offset: 500,0,650
+		Sequence: rotor
+	WithIdleOverlay@3Air:
+		Offset: -700,0,900
+		Sequence: rotor
 	RenderSprites:
 		Image: forgcarryall
 
@@ -191,11 +197,6 @@ MUTHELI.Husk:
 	WithIdleOverlay@ROTORAIR:
 		Offset: 85,0,384
 		Sequence: rotor
-		RequiresCondition: airborne
-	WithIdleOverlay@ROTORGROUND:
-		Offset: 85,0,384
-		Sequence: slow-rotor
-		RequiresCondition: airborne
 	RenderSprites:
 		Image: mutheli
 
@@ -328,7 +329,8 @@ GLYDER1.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@2: ^ScrinRender
 	-Cloak@CLOAKGENERATOR:
-	-ExternalCondition@cloakgenerator:
+	-ExternalCondition@CLOAKGENERATOR:
+	-ExternalCondition@crate-cloak:
 	Tooltip:
 		Name: Glyder
 	WithShadow:
@@ -354,6 +356,9 @@ DRACHE.Husk:
 	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
+	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@CLOAKGENERATOR:
+	-ExternalCondition@crate-cloak:
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 149
@@ -374,6 +379,9 @@ SCRDESTROYER.Husk:
 		Speed: 149
 	RenderSprites:
 		Image: scrdestroyer
+	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@CLOAKGENERATOR:
+	-ExternalCondition@crate-cloak:
 	FallsToEarth:
 		Explosion: DestroyerExplode
 
@@ -391,6 +399,9 @@ SCRBATTLESHIP.Husk:
 		Speed: 149
 	RenderSprites:
 		Image: scrbattleship
+	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@CLOAKGENERATOR:
+	-ExternalCondition@crate-cloak:
 	FallsToEarth:
 		Explosion: BattleshipExplode
 
@@ -408,6 +419,9 @@ SCRCARRIER.Husk:
 		Speed: 149
 	RenderSprites:
 		Image: scrcarrier
+	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@CLOAKGENERATOR:
+	-ExternalCondition@crate-cloak:
 	FallsToEarth:
 		Explosion: DestroyerExplode
 
@@ -425,6 +439,9 @@ SCRTRANS.Husk:
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 149
+	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@CLOAKGENERATOR:
+	-ExternalCondition@crate-cloak:
 	RenderSprites:
 		Image: scrtrans
 
@@ -440,6 +457,9 @@ SCRCOUNCIL.Husk:
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 149
+	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@CLOAKGENERATOR:
+	-ExternalCondition@crate-cloak:
 	RenderSprites:
 		Image: scrincouncil
 	FallsToEarth:
