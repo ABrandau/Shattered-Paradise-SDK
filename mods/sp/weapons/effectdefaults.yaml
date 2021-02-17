@@ -400,10 +400,13 @@
 	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Projectile: BulletAS
 		Speed: 0c800
-		Image: line
 		Inaccuracy: 0c762
 		Palette: effect
 		Blockable: true
+		ContrailDelay: 0
+		ContrailColor: FFEE11
+		ContrailLength: 2
+		ContrailWidth: 28
 	Warhead@Line: TargetDamage
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
@@ -411,7 +414,7 @@
 	Inherits: ^LineProjectile
 	Projectile: BulletAS
 		Blockable: true
-		Image: bullet
+		ContrailWidth: 22
 
 ^LightningDefault:
 	Inherits: ^GreyExplo
