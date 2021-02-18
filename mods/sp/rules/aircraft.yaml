@@ -36,7 +36,7 @@ ORCA:
 		PauseOnCondition: !ammo
 	AttackAircraft:
 		AttackType: Hover
-		FacingTolerance: 20
+		FacingTolerance: 40
 		Voice: Attack
 	AmmoPool:
 		Ammo: 10
@@ -101,7 +101,7 @@ ORCAB:
 		Weapon: OBBombFrontal
 		PauseOnCondition: !ammo
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 40
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
@@ -280,7 +280,7 @@ APACHE:
 		PauseOnCondition: !ammo
 	AttackAircraft:
 		AttackType: Hover
-		FacingTolerance: 20
+		FacingTolerance: 40
 		Voice: Attack
 		Armaments: primary, secondary, decoration
 	AmmoPool:
@@ -357,7 +357,7 @@ SCRIN:
 		PauseOnCondition: !ammo
 	AttackAircraft:
 		Voice: Attack
-		FacingTolerance: 20
+		FacingTolerance: 40
 	AmmoPool:
 		Ammo: 15
 		ReloadCount: 5
@@ -442,7 +442,7 @@ CERBERUS:
 		RequiresCondition: Attacking
 	AttackAircraft:
 		AttackType: Hover
-		FacingTolerance: 10
+		FacingTolerance: 20
 		Voice: Attack
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
@@ -547,7 +547,7 @@ MUTHELI:
 	WithMuzzleOverlay:
 	AttackAircraft:
 		AttackType: Hover
-		FacingTolerance: 32
+		FacingTolerance: 64
 		Voice: Attack
 		Armaments: primary
 	AmmoPool:
@@ -603,7 +603,7 @@ WETP:
 		Weapon: FalconPunch
 		PauseOnCondition: !ammo
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 40
 	AmmoPool:
 		Ammo: 1
 		ReloadCount: 1
@@ -695,7 +695,7 @@ MUTQUEEN:
 		RequiresCondition: deployed
 	AttackAircraft:
 		AttackType: Hover
-		FacingTolerance: 20
+		FacingTolerance: 40
 	Armament@1:
 		Weapon: QueenShard
 	-GrantConditionOnDamageState@HeavyDamaged:
@@ -774,7 +774,7 @@ STORMRIDER:
 	WithMuzzleOverlay:	
 	AttackAircraft:
 		Voice: Attack
-		FacingTolerance: 120
+		FacingTolerance: 512
 	SpawnActorOnDeath:
 		Actor: STORMRIDER.Husk
 		RequiresCondition: airborne
@@ -872,7 +872,7 @@ SCRGLYDER1:
 		LocalOffset: 0,0,0
 	AttackAircraft:
 		AttackType: Hover
-		FacingTolerance: 20
+		FacingTolerance: 40
 		Voice: Attack
 	BodyOrientation:
 		QuantizedFacings: 32
@@ -934,7 +934,7 @@ SCRDESTROYER:
 		Offset: 820, 0, 600
 	AttackAircraft:
 		AttackType: Hover
-		FacingTolerance: 20
+		FacingTolerance: 40
 		Voice: Attack
 		TargetFrozenActors: true
 	BodyOrientation:
@@ -1092,7 +1092,7 @@ STORMRIDERSPAWN:
 	Armament@AA:
 		Weapon: WyvermBlastAA
 	AttackAircraft:
-		FacingTolerance: 120
+		FacingTolerance: 512
 	RejectsOrders:
 	RenderSprites:
 		Image: wyverm2
@@ -1204,8 +1204,9 @@ SCRBATTLESHIP:
 		MuzzleSequence: muzzle2
 		MuzzlePalette: appurp
 	WithMuzzleOverlay:
-	AttackTurreted:
-	Turreted:
+	AttackAircraft:
+		Voice: Attack
+		FacingTolerance: 512
 	AutoTarget:
 	BodyOrientation:
 		QuantizedFacings: 32
@@ -1270,7 +1271,7 @@ WASP:
 		LocalOffset: 250,-350,-100, 250,350,-100
 	AttackAircraft:
 		AttackType: Hover
-		FacingTolerance: 20
+		FacingTolerance: 40
 		Voice: Attack
 	AutoTarget:
 	RenderSprites:
@@ -1350,7 +1351,7 @@ BASILISK:
 		LocalOffset: 128,0,0, 500,-700,0, 500,700,0
 	AttackAircraft:
 		AttackType: Hover
-		FacingTolerance: 20
+		FacingTolerance: 40
 		Voice: Attack
 	AutoTarget:
 	RenderSprites:

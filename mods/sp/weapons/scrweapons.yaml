@@ -386,13 +386,14 @@ StormRiderBlast:
 		TerrainHeightAware: true
 		Speed: 400
 		Acceleration: 0
-		MinimumLaunchAngle: -255 # -90 degrees
-		MaximumLaunchAngle: 50
+		MinimumLaunchAngle: 0 # -90 degrees
+		MaximumLaunchAngle: 0
+		HomingActivationDelay: 1
 		#MaximumLaunchSpeed: 0c543
 		#MinimumLaunchSpeed: 0c301
 		Blockable: false
-		HorizontalRateOfTurn: 50
-		VerticalRateOfTurn: 15
+		HorizontalRateOfTurn: 100
+		VerticalRateOfTurn: 100
 		RangeLimit: 20c0
 		AllowSnapping: true
 		Palette: gradientpurple
@@ -539,7 +540,7 @@ BattleshipCannon:
 BattleshipPlasma:
 	Inherits: ^FullDamage
 	Inherits@2: ^GreenPlasmaExplosion
-	ReloadDelay: 35
+	ReloadDelay: 37
 	Range: 5c768
 	Burst: 3
 	BurstDelays: 5
