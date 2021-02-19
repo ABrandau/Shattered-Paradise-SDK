@@ -670,18 +670,20 @@ ForgottenCannonWeapon:
 FlakFire:
 	Inherits: ^AntiAirTurretWeapon
 	Inherits: ^Small_Brnl
-	ReloadDelay: 50
+	Burst: 2
+	BurstDelays: 2
+	ReloadDelay: 49
 	Report: cygun1.aud
-	Projectile: InstantHit
+	Projectile: LaserZap
+		Duration: 4
+		Width: 35
+		Color: 888888
+		TrackTarget: false
 	Warhead@1Dam: SpreadDamage
-		Damage: 4000
+		Damage: 2000
 	Warhead@2Eff: CreateEffect
 		ValidTargets: Ground, Water, Air, AirHit
 		ExplosionPalette: apolra2salpha
-	Warhead@3EffWater: CreateEffect
-		Explosions: water_piffs
-		ExplosionPalette: ra
-		ValidTargets: Water
 
 VeinholeEggElevator:
 	Inherits: EggElevator
