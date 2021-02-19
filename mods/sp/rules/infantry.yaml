@@ -1477,28 +1477,28 @@ GLAD:
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 200,250,550
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || !ammo
 		Name: OnFoot
 	Armament@2:
 		RequiresCondition: !criticalspeed
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 200,-250,550
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || !ammo
 		Name: OnFoot
 	Armament@1Cripple:
 		RequiresCondition: criticalspeed
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 300,250,-150
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || !ammo
 		Name: OnFoot
 	Armament@2Cripple:
 		RequiresCondition: criticalspeed
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 300,-250,-150
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || !ammo
 		Name: OnFoot
 	Armament@Garrison1:
 		Weapon: GGLAD120mm
@@ -1510,6 +1510,13 @@ GLAD:
 		MuzzleSequence: muzzle
 		LocalOffset: 170,-250,500
 		PauseOnCondition: WebDisable
+	AmmoPool:
+		Ammo: 4
+		AmmoCondition: ammo
+		Armaments: OnFoot
+	ReloadAmmoPool:
+		Count: 4
+		Delay: 150
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
