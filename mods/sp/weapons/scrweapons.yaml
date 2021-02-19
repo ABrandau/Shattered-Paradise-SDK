@@ -28,7 +28,7 @@ LegioNeedler:
 	Range: 6c0
 	Report: photon1.wav
 	ValidTargets: Ground, Water, Infantry, Vehicle, Building
-	Projectile: Missile
+	Projectile: MissileTA
 		Blockable: false
 		Shadow: true
 		Palette: apblue
@@ -382,11 +382,11 @@ StormRiderBlast:
 	Report: laserpistol.wav
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	InvalidTargets: Air
-	Projectile: Missile
+	Projectile: MissileTA
 		TerrainHeightAware: true
 		Speed: 400
 		Acceleration: 0
-		MinimumLaunchAngle: 0 # -90 degrees
+		MinimumLaunchAngle: 0
 		MaximumLaunchAngle: 0
 		HomingActivationDelay: 1
 		#MaximumLaunchSpeed: 0c543
@@ -426,7 +426,7 @@ StormRiderBlastAA:
 	Inherits@2: StormRiderBlast
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
-	Projectile: Missile
+	Projectile: MissileTA
 		TerrainHeightAware: true
 		CruiseAltitude: 5000
 		MinimumLaunchAngle: 255
@@ -492,7 +492,7 @@ Glyder2Cannon:
 	MinRange: 0c100
 	Report: photon1.wav
 	ValidTargets: Air
-	Projectile: Missile
+	Projectile: MissileTA
 		-TrailImage: small_smoke_trail
 		-TrailPalette: effectalpha75
 		Image: lightpan
@@ -547,7 +547,7 @@ BattleshipPlasma:
 	Report: laserpistol.wav
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	InvalidTargets: Air
-	Projectile: Missile
+	Projectile: MissileTA
 		TerrainHeightAware: true
 		Speed: 300
 		Acceleration: 0
@@ -625,7 +625,7 @@ WyvermBlast:
 	MinRange: 0c100
 	Report: laserpistol.wav
 	ValidTargets: Ground, Water
-	Projectile: Missile
+	Projectile: MissileTA
 		TerrainHeightAware: true
 		Acceleration: 0
 		CruiseAltitude: 4000
@@ -720,7 +720,7 @@ WasteTurretWeaponMini:
 	Burst: 10
 	BurstDelays: 3
 	-Report:
-	Projectile: Missile
+	Projectile: MissileTA
 		Image: greenplasmamini
 		Blockable: false
 		Palette: jascgreen

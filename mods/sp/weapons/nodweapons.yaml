@@ -23,7 +23,7 @@ CrusaderBazooka:
 	Report: rketinf1.aud
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	InvalidTargets: Air
-	Projectile: Missile
+	Projectile: MissileTA
 	Warhead@1Dam: SpreadDamage
 		InvalidTargets: Air
 		Damage: 3000
@@ -178,7 +178,7 @@ BikeMissile:
 	Report: misl1.aud
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	InvalidTargets: Air
-	Projectile: Missile
+	Projectile: MissileTA
 	Warhead@1Dam: SpreadDamage
 		InvalidTargets: Air
 		Damage: 2500
@@ -360,7 +360,7 @@ StealthRocket:
 	Burst: 6
 	Report: misl1.aud
 	ValidTargets: Ground, Water
-	Projectile: Missile
+	Projectile: MissileTA
 		Inaccuracy: 0c362
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
@@ -374,7 +374,7 @@ StealthRocketAA:
 	Inherits@1: ^AARocketWarhead
 	ValidTargets: Air
 	Range: 9c0
-	Projectile: Missile
+	Projectile: MissileTA
 		RangeLimit: 15c0
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
@@ -448,18 +448,19 @@ Proton:
 	Burst: 5
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	BurstDelays: 2
-	Projectile: Missile
+	Projectile: MissileTA
 		Speed: 400
 		Acceleration: 0
-		MinimumLaunchAngle: -255 # -90 degrees
-		MaximumLaunchAngle: 50
+		HomingActivationDelay: 1
+		MinimumLaunchAngle: 0 #-255 # -90 degrees
+		MaximumLaunchAngle: 0
 		#MaximumLaunchSpeed: 0c543
 		#MinimumLaunchSpeed: 0c301
 		TerrainHeightAware: true
 		RangeLimit: 15c0
 		Blockable: false
-		HorizontalRateOfTurn: 50
-		VerticalRateOfTurn: 15
+		HorizontalRateOfTurn: 100
+		VerticalRateOfTurn: 100
 		Shadow: false
 		Inaccuracy: 0
 		Palette: jascgreen
@@ -475,7 +476,7 @@ Proton:
 ProtonAA:
 	Inherits: Proton
 	ValidTargets: Air
-	Projectile: Missile
+	Projectile: MissileTA
 		TerrainHeightAware: true
 		CruiseAltitude: 5000
 		MinimumLaunchAngle: 255
@@ -561,7 +562,7 @@ RedEye2:
 	Inherits@2: ^Small_Clsn
 	Inherits@3: ^AntiAirTurretWeapon
 	Report: samshot1.aud
-	Projectile: Missile
+	Projectile: MissileTA
 
 ObeliskLaserFire:
 	Inherits: ^FullDamage
