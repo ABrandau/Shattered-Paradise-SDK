@@ -1206,8 +1206,8 @@ SCRAIR:
 	Armor:
 		Type: BuildingArmor
 	Exit@1:
-		Facing: 0
-		SpawnOffset: 0,-256,600
+		Facing: 640
+		SpawnOffset: 0,-256,2300
 	RallyPoint:
 		Palette: mouse
 		IsPlayerPalette: false
@@ -1215,8 +1215,7 @@ SCRAIR:
 		Produces: Air
 	PrimaryBuilding:
 		PrimaryCondition: primary
-	Reservable:
-	RepairsUnits:
+	-Reservable:
 	WithIdleOverlay@PLATFORM:
 		Sequence: idle-platform
 		RequiresCondition: !Building-Buildup
@@ -1598,8 +1597,6 @@ CABAIR:
 		Produces: Air
 	PrimaryBuilding:
 		PrimaryCondition: primary
-	Reservable:
-	RepairsUnits:
 	ProvidesPrerequisite@buildingname:
 	WithTextDecoration@primary:
 		Text: PRIMARY
