@@ -379,16 +379,16 @@ SCRIN:
 		Palette: pips
 	Contrail@1:
 		Offset: -325,-143,100
-		Color: 00E00090
+		Color: 00E00050
 		UsePlayerColor: false
 		TrailWidth: 48
-		TrailLength: 15
+		TrailLength: 9
 	Contrail@2:
 		Offset: -325,143,100
-		Color: 00E00090
+		Color: 00E00050
 		UsePlayerColor: false
 		TrailWidth: 48
-		TrailLength: 15
+		TrailLength: 9
 
 CERBERUS:
 	Inherits: ^CombatHelicopter
@@ -471,25 +471,25 @@ CERBERUS:
 		Offset: -1500, 336, -50
 		Color: FFEA0080
 		UsePlayerColor: false
-		TrailLength: 10
+		TrailLength: 8
 		TrailWidth: 96
 	Contrail@2:
 		Offset: -1500, 112, -50
 		Color: FFEA0080
 		UsePlayerColor: false
-		TrailLength: 10
+		TrailLength: 8
 		TrailWidth: 96
 	Contrail@3:
 		Offset: -1500, -112, -50
 		Color: FFEA0080
 		UsePlayerColor: false
-		TrailLength: 10
+		TrailLength: 8
 		TrailWidth: 96
 	Contrail@4:
 		Offset: -1500, -336, -50
 		Color: FFEA0080
 		UsePlayerColor: false
-		TrailLength: 10
+		TrailLength: 8
 		TrailWidth: 96
 
 MUTHELI:
@@ -632,14 +632,16 @@ WETP:
 		Palette: pips
 	Contrail@1:
 		Offset: -100,-700,55
-		Color: AAAAAAAA
+		Color: AAAAAA80
 		UsePlayerColor: false
 		TrailWidth: 32
+		TrailLength: 16
 	Contrail@2:
 		Offset: -100,700,55
-		Color: AAAAAAAA
+		Color: AAAAAA80
 		UsePlayerColor: false
 		TrailWidth: 32
+		TrailLength: 16
 	Contrail@FlameTrail:
 		Offset: -900,0,50
 		Color: FFEA0080
@@ -785,14 +787,15 @@ STORMRIDER:
 		Weapon: SmalLScrinAircraftShrapnel
 		EmptyWeapon: SmalLScrinAircraftShrapnel
 	Contrail@1:
-		Offset: -300,-150,-100
-		Color: ad00ff60
+		Offset: -550,-150,-50
+		Color: AA00FF50
 		UsePlayerColor: false
+		TrailLength: 9
 	Contrail@2:
-		Offset: -300,150,-100
-		Color: 5500EE80
+		Offset: -550,150,-50
+		Color: 6600FF50
 		UsePlayerColor: false
-
+		TrailLength: 9
 
 DRACHE:
 	Inherits: ^CombatHelicopter
@@ -943,11 +946,17 @@ SCRDESTROYER:
 		Actor: SCRDESTROYER.Husk
 		RequiresCondition: airborne
 	Contrail@1:
-		Offset: -1300, -20, 600
-		Color: AAAAFFAA
+		Offset: -1300, -20, 660
+		Color: AA00FF88
 		UsePlayerColor: false
-		TrailLength: 10
+		TrailLength: 8
 		TrailWidth: 128
+	Contrail@2:
+		Offset: -1300, -20, 660
+		Color: 0000FF88
+		UsePlayerColor: false
+		TrailLength: 8
+		TrailWidth: 40
 
 SCRTRANS:
 	Inherits: ^Helicopter
@@ -993,10 +1002,16 @@ SCRTRANS:
 		RequiresSelection: true
 	Contrail@1:
 		Offset: -1600, -20, 100
-		Color: AAAAFFAA
+		Color: AA00FF88
 		UsePlayerColor: false
-		TrailLength: 10
+		TrailLength: 8
 		TrailWidth: 128
+	Contrail@2:
+		Offset: -1600, -20, 100
+		Color: 0000FF88
+		UsePlayerColor: false
+		TrailLength: 8
+		TrailWidth: 40
 
 SCRCARRIER:
 	Inherits: ^CombatHelicopter
@@ -1055,10 +1070,16 @@ SCRCARRIER:
 		RequiresSelection: true
 	Contrail@1:
 		Offset: -1300, -20, 100
-		Color: AAAAFFAA
+		Color: AA00FF88
 		UsePlayerColor: false
-		TrailLength: 10
+		TrailLength: 8
 		TrailWidth: 128
+	Contrail@2:
+		Offset: -1300, -20, 100
+		Color: 0000FF88
+		UsePlayerColor: false
+		TrailLength: 8
+		TrailWidth: 40
 
 STORMRIDERSPAWN:
 	Inherits: ^CombatPlane
@@ -1072,10 +1093,10 @@ STORMRIDERSPAWN:
 		Name: Wyverm
 	Interactable:
 	Contrail@1:
-		Offset: 0,-30,0
-		Color: 5511FF60
+		Offset: -50, -10 ,0
+		Color: 0000FF80
 		UsePlayerColor: false
-		TrailWidth: 60
+		TrailWidth: 32
 		TrailLength: 8
 	GivesExperience:
 		Experience: 50
@@ -1156,8 +1177,9 @@ CABDRONEJET:
 	RejectsOrders:
 	Contrail@1:
 		Offset: 0,-30,0
-		Color: FFFF0080
+		Color: FFFF0070
 		UsePlayerColor: false
+		TrailLength: 6
 		TrailWidth: 40
 
 SCRBATTLESHIP:
@@ -1216,19 +1238,19 @@ SCRBATTLESHIP:
 		Actor: SCRBATTLESHIP.Husk
 	Contrail@1:
 		Offset: -2200, -20, 350
-		Color: AAAAFFAA
+		Color: 0000FF99
 		UsePlayerColor: false
 		TrailLength: 15
-		TrailWidth: 128
+		TrailWidth: 64
 	Contrail@2:
 		Offset: -2300, 80, 350
-		Color: AA33FF80
+		Color: AA00FF88
 		UsePlayerColor: false
 		TrailLength: 8
 		TrailWidth: 128
 	Contrail@3:
 		Offset: -2300, -140, 350
-		Color: AA33FF80
+		Color: AA00FF88
 		UsePlayerColor: false
 		TrailLength: 8
 		TrailWidth: 128
