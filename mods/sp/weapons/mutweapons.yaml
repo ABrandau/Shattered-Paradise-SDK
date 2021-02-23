@@ -5,15 +5,15 @@ MarauderShotgun:
 	Range: 4c0
 	Report: shotfire.wav
 	Warhead@1Dam: SpreadDamage
-		Damage: 2000
+		Damage: 2300
+		Spread: 512
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
-	Warhead@op: FireShrapnel
+	Warhead@op: FireRadius
 		Weapon: MarauderShotgunInnacurate
 		ImpactActors: false
 		Amount: 3
-		AimChance: 30
-		AllowDirectHit: false
-		AimTargetStances: Ally, Neutral, Enemy
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 256
 
 DeployedMarauderShotgun:
 	Inherits: MarauderShotgun
@@ -21,16 +21,11 @@ DeployedMarauderShotgun:
 
 MarauderShotgunInnacurate:
 	Inherits: MarauderShotgun
-	Range: 1c0
+	Range: 0c512
+	TargetActorCenter: false
 	-Report:
-	Warhead@1Dam: SpreadDamage
-		Damage: 1000
-		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 15
-			VehicleArmor: 7
-			DefenseArmor: 7
-			ConcreteArmor: 2
+	-Warhead@ShieldUpgrade:
+	-Warhead@1Dam: SpreadDamage
 	-Warhead@op:
 
 SkirmisherMortar:
@@ -105,17 +100,18 @@ FiendShardAA:
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		Damage: 2250
-	Warhead@op: FireShrapnel
+	Warhead@op: FireRadius
 		Weapon: FiendShardAAEffect
 		ImpactActors: false
 		Amount: 2
 		ValidTargets: Ground, Air, Water
+	-Warhead@2Eff:
+	-Warhead@3EffWater:
 
 FiendShardAAEffect:
 	ValidTargets: Ground, Air, Water
-	Range: 0c64
-	Projectile: MissileTA
-		RangeLimit: 0c64
+	Range: 0c150
+	Projectile: BulletAS
 	Warhead@2Eff: CreateEffect
 		Explosions: juccons, jsmokey, jucflash, jsmkblastmini
 		ExplosionPalette: jascgreenalpha
@@ -153,14 +149,12 @@ SeerTeslaAA:
 
 SeerTyranyInstakillSpawn:
 	ValidTargets: Ground, Water
-	Warhead@op: FireShrapnel
+	Warhead@op: FireRadius
 		Weapon: SeerTyranyInstakill
-		ImpactActors: false
-		Amount: 2
-		AimChance: 30
-		AllowDirectHit: false
+		Amount: 3
 		AimTargetStances: Ally, Neutral, Enemy
 		ValidTargets: Ground, Water
+		ImpactActors: false
 
 SeerTyranyInstakill:
 	Inherits: SeerTesla
@@ -169,6 +163,7 @@ SeerTyranyInstakill:
 		Palette: apolbluealpha
 	Warhead@1Dam: SpreadDamage
 		Damage: 1
+
 SeerTyranyBuff:
 	ReloadDelay: 50
 	Projectile: InstantExplode
@@ -260,7 +255,7 @@ BullAcid:
 		Image: acidall32mini
 		Palette: jascgreen
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
+		Spread: 512
 		Damage: 1250
 		Versus:
 			VehicleArmor: 60
@@ -275,20 +270,8 @@ BullAcid:
 		Range: 1c0
 		Duration: 100
 		Condition: WolfDebuff
-	Warhead@op: FireShrapnel
-		Weapon: BullAcidJump
-		ImpactActors: false
-		Amount: 1
-		AimChance: 100
-		AllowDirectHit: true
-		AimTargetStances: Enemy
-		ValidTargets: Infantry, Vehicle, Building, Ground, Wall
-
-BullAcidJump:
-	Inherits: BullAcid
-	Range: 1c0
-	-Warhead@op:
-	-Warhead@Acid:
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 460
 
 RavagerStrike:
 	Inherits: ^FullDamage

@@ -213,11 +213,10 @@ BikeExplo:
 			BuildingArmor: 75
 			VehicleArmor: 35
 			ConcreteArmor: 15
-	Warhead@5Sharpnel: FireShrapnel
+	Warhead@5Sharpnel: FireRadius
 		Weapon: NukeFlame3
 		ImpactActors: false
 		Amount: 60
-		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
 NukeFlame3:
@@ -282,35 +281,31 @@ DevilsFlame:
 FlameHoloShrapnel:
 	Inherits: ^NoDamage
 	ReloadDelay: 300
-	Range: 3c0
-	Burst: 4
-	BurstDelays: 2
-	Warhead@op: FireShrapnel
+	Range: 2c0
+
+	Warhead@op: FireRadius
 		Weapon: FlameHologram
 		ImpactActors: false
-		Amount: 1
-		AimChance: 1
-		ThrowWithoutTarget: true
+		Amount: 4
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
-
-TickHoloShrapnel:
-	Inherits: FlameHoloShrapnel
-	Burst: 1
-	Warhead@op: FireShrapnel
-		Weapon: TickHologram
-		ImpactActors: false
+	Warhead@5Actor: SpawnActor
+		FallRate: 5000
+		Range: 5
+		Delay: 10
+		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+		Actors: tickhologram
 
 FlameHologram:
 	Inherits: ^NoDamage
 	ReloadDelay: 300
-	Range: 5c0
+	Range: 2c0
 	Report: cloak5.aud
 	Projectile: BulletAS
 		Speed: 100c0
 	ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
 	Warhead@1Dam: SpreadDamage
 		Spread: 400
-		Damage: 1
+		Damage: 0
 	Warhead@5Actor: SpawnActor
 		Actors: flamehologram
 		FallRate: 5000
@@ -321,11 +316,6 @@ FlameHologram:
 		Explosions: holosmoke1, holosmoke2, holosmoke3, holosmoke4
 		ExplosionPalette: cyanjascpal
 		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
-
-TickHologram:
-	Inherits: FlameHologram
-	Warhead@5Actor: SpawnActor
-		Actors: tickhologram
 
 SpectreCannon:
 	Inherits: ^ArtilleryWarhead

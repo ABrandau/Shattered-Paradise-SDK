@@ -166,35 +166,11 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 	Range: 12c0
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air, IonSpawner
 	## use mutipile Warhead with delay to increase performance
-	Warhead@op: FireShrapnel
+	Warhead@op: FireRadius
 		Weapon: IonBeamCreator
 		ImpactActors: false
-		Amount: 3
-		AllowDirectHit: false
-	Warhead@op2: FireShrapnel
-		Weapon: IonBeamCreator
-		ImpactActors: false
-		Amount: 4
-		AllowDirectHit: false
-		Delay: 1
-	Warhead@op3: FireShrapnel
-		Weapon: IonBeamCreator
-		ImpactActors: false
-		Amount: 3
-		AllowDirectHit: false
-		Delay: 2
-	Warhead@op4: FireShrapnel
-		Weapon: IonBeamCreator
-		ImpactActors: false
-		Amount: 4
-		AllowDirectHit: false
-		Delay: 3
-	Warhead@op5: FireShrapnel
-		Weapon: IonBeamCreator
-		ImpactActors: false
-		Amount: 3
-		AllowDirectHit: false
-		Delay: 4
+		Amount: 12
+
 	Warhead@Spawn: SpawnActor
 		Actors: ionbeamtarget
 		Range: 3
@@ -462,23 +438,22 @@ NuclearMissile:
 		Size: 4
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 25
-	Warhead@op: FireShrapnel
+	Warhead@op: FireRadius
 		Weapon: LargeDebris
 		ImpactActors: false
 		Amount: 10
-		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
-	Warhead@4Sharpnel: FireShrapnel
+	Warhead@4Sharpnel: FireRadius
 		Weapon: NukeFlame
 		ImpactActors: false
-		Amount: 120
-		AllowDirectHit: false
+		Amount: 128
+		Delay: 10
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
-	Warhead@5Sharpnel: FireShrapnel
+	Warhead@5Sharpnel: FireRadius
 		Weapon: NukeFlame2
 		ImpactActors: false
-		Amount: 150
-		AllowDirectHit: false
+		Amount: 120
+
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@Shake: ShakeScreen
 		Intensity: 10
@@ -562,17 +537,16 @@ ToxinMissile:
 		Level: 500
 		Spread: 1c512
 		Falloff: 100, 60, 30, 15
-	Warhead@4Sharpnel: FireShrapnel
+	Warhead@4Sharpnel: FireRadius
 		Weapon: ChemicalFlame
 		ImpactActors: false
 		Amount: 60
-		AllowDirectHit: false
+		Delay: 10
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
-	Warhead@5Sharpnel: FireShrapnel
+	Warhead@5Sharpnel: FireRadius
 		Weapon: ChemicalFlame2
 		ImpactActors: false
 		Amount: 45
-		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplogreen
@@ -877,18 +851,6 @@ IronSaviorShrapnel:
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		Spread: 0c400
 		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
-
-RecoveryGun:
-	Inherits: ^FullDamage
-	ReloadDelay: 1
-	Range: 7c0
-	ValidTargets: KilledUnit
-	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Spread: 15
-		Damage: 20000
-		DamageTypes: WorkerSummon
-		ValidTargets: KilledUnit
 
 IonStormSpawnerWeapon: ### THIS ONE GENERATES THE ION STORM PARTICLE
 	ReloadDelay: 6
