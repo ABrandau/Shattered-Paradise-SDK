@@ -88,6 +88,7 @@ ORCAB:
 		Bounds: 30,24
 	Aircraft:
 		MaximumPitch: 120
+		AltitudeVelocity: 200
 		TurnSpeed: 20
 		IdealSeparation: 256
 		Speed: 130
@@ -95,6 +96,7 @@ ORCAB:
 		IdleSpeed: 85
 		AirborneCondition: airborne
 		MoveIntoShroud: true
+		VTOL: true
 	Health:
 		HP: 25000
 	Armament@primary:
@@ -378,14 +380,16 @@ SCRIN:
 		EmptySequence: pip-ammoempty
 		Palette: pips
 	Contrail@1:
+		RequiresCondition: airborne
 		Offset: -325,-143,100
-		Color: 00E00060
+		Color: 00E00070
 		UsePlayerColor: false
 		TrailWidth: 48
 		TrailLength: 9
 	Contrail@2:
+		RequiresCondition: airborne
 		Offset: -325,143,100
-		Color: 00E00060
+		Color: 00E00070
 		UsePlayerColor: false
 		TrailWidth: 48
 		TrailLength: 9
@@ -410,6 +414,7 @@ CERBERUS:
 	Selectable:
 		Bounds: 90,45
 	Aircraft:
+		AltitudeVelocity: 180
 		TurnSpeed: 20
 		Speed: 60
 		Repulsable: true
@@ -468,24 +473,28 @@ CERBERUS:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel
 	Contrail@1:
+		RequiresCondition: airborne
 		Offset: -1500, 336, -50
 		Color: FFEA0080
 		UsePlayerColor: false
 		TrailLength: 8
 		TrailWidth: 96
 	Contrail@2:
+		RequiresCondition: airborne
 		Offset: -1500, 112, -50
 		Color: FFEA0080
 		UsePlayerColor: false
 		TrailLength: 8
 		TrailWidth: 96
 	Contrail@3:
+		RequiresCondition: airborne
 		Offset: -1500, -112, -50
 		Color: FFEA0080
 		UsePlayerColor: false
 		TrailLength: 8
 		TrailWidth: 96
 	Contrail@4:
+		RequiresCondition: airborne
 		Offset: -1500, -336, -50
 		Color: FFEA0080
 		UsePlayerColor: false
@@ -631,18 +640,21 @@ WETP:
 		EmptySequence: pip-ammoempty
 		Palette: pips
 	Contrail@1:
+		RequiresCondition: airborne
 		Offset: -100,-700,55
 		Color: AAAAAA80
 		UsePlayerColor: false
 		TrailWidth: 32
 		TrailLength: 16
 	Contrail@2:
+		RequiresCondition: airborne
 		Offset: -100,700,55
 		Color: AAAAAA80
 		UsePlayerColor: false
 		TrailWidth: 32
 		TrailLength: 16
 	Contrail@FlameTrail:
+		RequiresCondition: airborne
 		Offset: -900,0,50
 		Color: FFEA0080
 		UsePlayerColor: false
@@ -787,11 +799,13 @@ STORMRIDER:
 		Weapon: SmalLScrinAircraftShrapnel
 		EmptyWeapon: SmalLScrinAircraftShrapnel
 	Contrail@1:
+		RequiresCondition: airborne
 		Offset: -550,-150,-50
 		Color: AA00FF60
 		UsePlayerColor: false
 		TrailLength: 9
 	Contrail@2:
+		RequiresCondition: airborne
 		Offset: -550,150,-50
 		Color: 6600FF60
 		UsePlayerColor: false
@@ -818,6 +832,7 @@ DRACHE:
 	Aircraft:
 		TurnSpeed: 12
 		Speed: 50
+		AltitudeVelocity: 150
 		MoveIntoShroud: true
 		TakeOffOnCreation: false
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
@@ -918,6 +933,7 @@ SCRDESTROYER:
 	AutoTarget:
 		ScanRadius: 15
 	Aircraft:
+		AltitudeVelocity: 200
 		TurnSpeed: 20
 		Speed: 60
 		Repulsable: true
@@ -946,12 +962,14 @@ SCRDESTROYER:
 		Actor: SCRDESTROYER.Husk
 		RequiresCondition: airborne
 	Contrail@1:
+		RequiresCondition: airborne
 		Offset: -1300, -20, 660
 		Color: AA00FF80
 		UsePlayerColor: false
 		TrailLength: 8
 		TrailWidth: 128
 	Contrail@2:
+		RequiresCondition: airborne
 		Offset: -1300, -20, 660
 		Color: 0000FF60
 		UsePlayerColor: false
@@ -1001,12 +1019,14 @@ SCRTRANS:
 		Position: BottomLeft
 		RequiresSelection: true
 	Contrail@1:
+		RequiresCondition: airborne
 		Offset: -1600, -20, 100
 		Color: AA00FF80
 		UsePlayerColor: false
 		TrailLength: 8
 		TrailWidth: 128
 	Contrail@2:
+		RequiresCondition: airborne
 		Offset: -1600, -20, 100
 		Color: 0000FF60
 		UsePlayerColor: false
@@ -1035,6 +1055,7 @@ SCRCARRIER:
 	Selectable:
 		Bounds: 90,55
 	Aircraft:
+		AltitudeVelocity: 180
 		TurnSpeed: 20
 		Speed: 50
 		Repulsable: true
@@ -1069,12 +1090,14 @@ SCRCARRIER:
 		Position: BottomLeft
 		RequiresSelection: true
 	Contrail@1:
+		RequiresCondition: airborne
 		Offset: -1300, -20, 100
 		Color: AA00FF80
 		UsePlayerColor: false
 		TrailLength: 8
 		TrailWidth: 128
 	Contrail@2:
+		RequiresCondition: airborne
 		Offset: -1300, -20, 100
 		Color: 0000FF60
 		UsePlayerColor: false
@@ -1093,6 +1116,7 @@ STORMRIDERSPAWN:
 		Name: Wyverm
 	Interactable:
 	Contrail@1:
+		RequiresCondition: airborne
 		Offset: -50, -10 ,0
 		Color: 0000FF60
 		UsePlayerColor: false
@@ -1176,6 +1200,7 @@ CABDRONEJET:
 	AttackAircraft:
 	RejectsOrders:
 	Contrail@1:
+		RequiresCondition: airborne
 		Offset: 0,-30,0
 		Color: FFFF0070
 		UsePlayerColor: false
@@ -1209,6 +1234,7 @@ SCRBATTLESHIP:
 	AnnounceOnSeen:
 		Notification: BattleCruiserDetected
 	Aircraft:
+		AltitudeVelocity: 180
 		TurnSpeed: 20
 		Speed: 60
 		Repulsable: true
@@ -1237,18 +1263,21 @@ SCRBATTLESHIP:
 		RequiresCondition: airborne
 		Actor: SCRBATTLESHIP.Husk
 	Contrail@1:
+		RequiresCondition: airborne
 		Offset: -2200, -20, 350
 		Color: 0000FF60
 		UsePlayerColor: false
 		TrailLength: 15
 		TrailWidth: 64
 	Contrail@2:
+		RequiresCondition: airborne
 		Offset: -2300, 80, 350
 		Color: AA00FF80
 		UsePlayerColor: false
 		TrailLength: 8
 		TrailWidth: 128
 	Contrail@3:
+		RequiresCondition: airborne
 		Offset: -2300, -140, 350
 		Color: AA00FF80
 		UsePlayerColor: false
@@ -1363,6 +1392,7 @@ BASILISK:
 	Voiced:
 		VoiceSet: Limpet
 	Aircraft:
+		AltitudeVelocity: 180
 		TurnSpeed: 24
 		Speed: 75
 		MoveIntoShroud: true
@@ -1386,11 +1416,13 @@ BASILISK:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel
 	Contrail@1:
+		RequiresCondition: airborne
 		Offset: -1000,-330,40
 		Color: FFEA0080
 		UsePlayerColor: false
 		TrailLength: 10
 	Contrail@2:
+		RequiresCondition: airborne
 		Offset: -1000,300,40
 		Color: FFEA0080
 		UsePlayerColor: false
@@ -1418,6 +1450,7 @@ DEVOURER:
 	Selectable:
 		Bounds: 80, 60, 0, -24
 	Aircraft:
+		AltitudeVelocity: 150
 		TurnSpeed: 24
 		Speed: 35
 		CruiseAltitude: 0c750
