@@ -149,11 +149,12 @@ APC:
 	Passenger:
 		CargoType: Apc
 	LeavesTrails:
+		RequiresCondition: inwater
 		Image: wake
 		Palette: effect
-		TerrainTypes: Water
+		#TerrainTypes: Water
 		StationaryInterval: 18
-		MovingInterval: 6
+		MovingInterval: 12
 	Armament@primary:
 		Weapon: APCGrenade
 		LocalOffset: 350,0,1000
@@ -1720,6 +1721,8 @@ SCRMBT:
 		PauseOnCondition: empdisable
 	AttackTurreted:
 		PauseOnCondition: empdisable
+	-LeavesTrails@land:
+	-LeavesTrails@water:
 
 SCRGLYDER2:
 	Inherits: ^HoverVehicle
@@ -1767,6 +1770,8 @@ SCRGLYDER2:
 	TransformOnCondition@AITransform:
 		RequiresCondition: AIattackAir && !inside-tunnel && !mindcontrolled
 		IntoActor: scrglyder1
+	-LeavesTrails@land:
+	-LeavesTrails@water:
 
 SCRRECHARGER:
 	Inherits@1: ^Walker
@@ -1878,6 +1883,8 @@ SCRMOBMINE:
 		Palette: pips
 		Position: BottomLeft
 		RequiresSelection: true
+	-LeavesTrails@land:
+	-LeavesTrails@water:
 
 TRIPOD:
 	Inherits@1: ^Walker

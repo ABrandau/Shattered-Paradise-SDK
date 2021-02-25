@@ -1678,12 +1678,27 @@
 	Hovers:
 	Mobile:
 		Locomotor: Hover
-	LeavesTrails:
-		Image: wake
+	LeavesTrails@water:
+		RequiresCondition: hoverunitonwater
+		Image: hoverwind
+		Sequences: water
 		Palette: effect
-		TerrainTypes: Water
+		#TerrainTypes: Water #don't need since we get condition'
 		StationaryInterval: 18
 		MovingInterval: 6
+		TrailWhileStationary: true
+		StartDelay: -1
+	LeavesTrails@land:
+		RequiresCondition: !hoverunitonwater
+		Image: hoverwind
+		Sequences: non-water
+		Palette: effectalpha25
+		#TerrainTypes: Water
+		StationaryInterval: 18
+		MovingInterval: 12
+		SpawnAtLastPosition: false
+		TrailWhileStationary: true
+		StartDelay: -1
 	KillsSelf@hoverunitonwater:
 		RequiresCondition: hoverunitonwater && empdisable
 	GrantConditionOnTerrain:

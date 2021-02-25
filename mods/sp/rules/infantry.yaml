@@ -1438,6 +1438,14 @@ PDRONE:
 	GrantConditionOnTerrain:
 		Condition: hoverunitonwater
 		TerrainTypes: Water
+	LeavesTrails:
+		RequiresCondition: hoverunitonwater
+		Image: wake
+		Palette: effect
+		TerrainTypes: Water
+		StationaryInterval: 18
+		MovingInterval: 12
+		Sequences: idle2
 	Explodes:
 		Weapon: SimpleDroneExplode
 		EmptyWeapon: SimpleDroneExplode
@@ -1552,11 +1560,13 @@ MOTH:
 	Passenger:
 		RequireForceMoveCondition: !undeployed
 	LeavesTrails:
+		RequiresCondition: hoverunitonwater
 		Image: wake
 		Palette: effect
 		TerrainTypes: Water
 		StationaryInterval: 18
-		MovingInterval: 6
+		MovingInterval: 12
+		Sequences: idle2
 	KillsSelf@hoverunitonwater:
 		RequiresCondition: hoverunitonwater && WebDisable
 	GrantConditionOnTerrain:
