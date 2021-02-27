@@ -395,11 +395,12 @@ LightningSparkDebris:
 
 CasingDebris:
 	ReloadDelay: 60
-	Range: 0c764
+	Range: 0c1
 	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Projectile: Bullet
 		Speed: 100, 200
-		Inaccuracy: 256
+		Inaccuracy: 1c512
+		InaccuracyType: PerCellIncrement
 		LaunchAngle: 91, 140
 		Image: casing
 		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
@@ -414,6 +415,12 @@ CasingDebris:
 		ExplosionPalette: ra
 		ValidTargets: Water
 		InvalidTargets: Infantry, Vehicle, Building, Wall, Ground, Air, AirHit
+
+CasingDebrisAir:
+	Inherits: CasingDebris
+		Projectile: Bullet
+		Inaccuracy: 0c512
+		InaccuracyType: PerCellIncrement
 
 ShellCasingDebris:
 	Inherits: CasingDebris
@@ -677,9 +684,6 @@ ScrinDefenceCriticalDamageFireSpawner:
 	ReloadDelay: 250
 
 VisceroidExplode:
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
 	Warhead@2Eff: CreateEffect
 		Explosions: viscexplo
 		ExplosionPalette: effect
