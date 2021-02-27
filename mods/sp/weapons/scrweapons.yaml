@@ -154,6 +154,7 @@ FloatGlaive:
 	Range: 5c0
 	Report: ScrinPlague0000.wav,  ScrinPlague0001.wav,  ScrinPlague0002.wav,  ScrinPlague0003.wav
 	ValidTargets: Ground, Water
+	TargetActorCenter: true
 	Projectile: BulletAS
 		Speed: 300
 		Blockable: true
@@ -359,9 +360,6 @@ TripodBlast:
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
-	Warhead@smoke: CreateEffect
-		Explosions: wrecksmoke, wrecksmoke2, wrecksmoke3
-		ExplosionPalette: gensmkexplojFblue
 
 TripodBlast2:
 	Inherits: TripodBlast
@@ -371,6 +369,9 @@ TripodBlast2:
 		ExplosionPalette: jascbluealpha
 		ValidTargets: Infantry, Vehicle, LandedAircraft, Building, Wall, Ground, Water
 		ImpactActors: false
+	Warhead@smoke: CreateEffect
+		Explosions: wrecksmoke, wrecksmoke2, wrecksmoke3
+		ExplosionPalette: gensmkexplojFblue
 
 StormRiderBlast:
 	Inherits: ^FullDamage
