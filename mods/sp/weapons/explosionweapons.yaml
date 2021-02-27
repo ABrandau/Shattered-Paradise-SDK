@@ -44,10 +44,10 @@ BuildingExplode:
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
-	Warhead@QuickFire: FireShrapnel
+	Warhead@QuickFire: FireRadius
 		Weapon: QuickFire
 		ImpactActors: false
-	Warhead@QuickSmoke: FireShrapnel
+	Warhead@QuickSmoke: FireRadius
 		Weapon: QuickSmoke
 		ImpactActors: false
 
@@ -79,7 +79,7 @@ SmallPlaneExplode:
 		Damage: 5000
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		InvalidTargets: Air
-	Warhead@1: FireShrapnel
+	Warhead@1: FireRadius
 		Amount: 3
 		Weapon: SmallPlaneExplosion
 		ImpactActors: false
@@ -101,7 +101,7 @@ BigAircraftExplode:
 		Damage: 5000
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		InvalidTargets: Air
-	Warhead@1: FireShrapnel
+	Warhead@1: FireRadius
 		Amount: 5
 		Weapon: BigAircraftExplosion
 		ImpactActors: false
@@ -119,7 +119,7 @@ DestroyerExplode:
 	Inherits: BigAircraftExplode
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
-	Warhead@1: FireShrapnel
+	Warhead@1: FireRadius
 		Weapon: DestroyerExplosion
 
 DestroyerExplosion:
@@ -135,7 +135,7 @@ BattleshipExplode:
 		Damage: 10000
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		InvalidTargets: Air
-	Warhead@1: FireShrapnel
+	Warhead@1: FireRadius
 		Amount: 8
 		Weapon: BattleshipExplosion
 		ImpactActors: false
@@ -174,17 +174,11 @@ NanoDroneExplode: ## save performance, used for spamming summoned actor
 DroneExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Tiny_Explo
-	Warhead@op: FireShrapnel
-		Weapon: SmallDebris
-		ImpactActors: false
-		Amount: 1
-		AllowDirectHit: false
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
 SmalLAircraftShrapnel:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Tiny_Explo
-	Warhead@op: FireShrapnel
+	Warhead@op: FireRadius
 		Weapon: SmallDebris
 		ImpactActors: false
 		Amount: 3
@@ -199,7 +193,7 @@ SmalLScrinAircraftShrapnel:
 BigAircraftShrapnel:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_Clsn
-	Warhead@op: FireShrapnel
+	Warhead@op: FireRadius
 		Weapon: SmallDebris
 		ImpactActors: false
 		Amount: 6
@@ -224,12 +218,6 @@ UnitExplodeSmall:
 		Sequences: fire1
 		Palette: effectalpha25
 		Weapon: DummyWeapon
-	Warhead@4Sharpnel: FireShrapnel
-		Weapon: SmallDebris
-		ImpactActors: false
-		Amount: 2
-		AllowDirectHit: false
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
 QueenExplode:
 	Warhead@1Dam: SpreadDamage
@@ -578,43 +566,44 @@ ScrinBuildingFireSmallParticleSpawner:
 BuildingFireBigShrapnel:
 	ReloadDelay: 2
 	Projectile: InstantExplode
-	Warhead@op: FireShrapnel
+	Warhead@op: FireRadius
 		Weapon: BuildingFireBig
 		ImpactActors: false
-		AllowDirectHit: false
+		Amount: 2
 
 BuildingFireSmallShrapnel:
 	Inherits: BuildingFireBigShrapnel
 	ReloadDelay: 4
-	Warhead@op: FireShrapnel
+	Warhead@op: FireRadius
 		Weapon: BuildingFireSmall
 		ImpactActors: false
-		Amount: 2
+		Amount: 3
 
 BuildingSmokeShrapnel:
 	Inherits: BuildingFireBigShrapnel
 	ReloadDelay: 5
-	Warhead@op: FireShrapnel
+	Warhead@op: FireRadius
 		Weapon: BuildingSmoke
 		ImpactActors: false
 		Amount: 3
 
 ScrinBuildingFireBigShrapnel:
 	Inherits: BuildingFireBigShrapnel
-	Warhead@op: FireShrapnel
+	Warhead@op: FireRadius
 		Weapon: ScrinBuildingFireBig
 		ImpactActors: false
 
 ScrinBuildingFireSmallShrapnel:
 	Inherits: BuildingFireSmallShrapnel
-	Warhead@op: FireShrapnel
+	Warhead@op: FireRadius
 		Weapon: ScrinBuildingFireSmall
 		ImpactActors: false
 
 BuildingFireBig:
-	Range: 1c0
-	MinRange: 0c128
+	Range: 0c512
 	Projectile: InstantHit
+		Inaccuracy: 4c0
+		InaccuracyType: PerCellIncrement
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
 		Duration: 75, 600
@@ -624,16 +613,16 @@ BuildingFireBig:
 
 BuildingFireSmall:
 	Inherits: BuildingFireBig
-	Range: 2c0
-	MinRange: 0c512
+	Range: 1c0
+	Projectile: InstantHit
+		Inaccuracy: 3c0
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
 		Sequences: fire3, fire4
 		Duration: 75, 300
 
 BuildingSmoke:
-	Range: 3c0
-	MinRange: 0c256
+	Range: 1c0
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
 		Sequences: wrecksmoke, wrecksmoke2, wrecksmoke3
@@ -650,51 +639,48 @@ ScrinBuildingFireSmall:
 	Warhead@2: SpawnSmokeParticle
 		Palette: gensmkexplojFblue
 
-BuildingCriticalDamageFireSpawner:
-	Inherits: BuildingFireBigShrapnel
-	ReloadDelay: 125
-	Warhead@op: FireShrapnel
-		Weapon: BuildingCriticalDamageFireSmall
-		ImpactActors: false
-
 BuildingCriticalDamageFireSmall:
 	Inherits: BuildingFireBig
 	Range: 1c0
+	Projectile: InstantHit
+		Inaccuracy: 0c0
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
 		Duration: 250
 		Sequences: fire1, fire2
 		Image: buildingfire
 
-DefenceCriticalDamageFireSpawner:
-	Inherits: BuildingCriticalDamageFireSpawner
-	ReloadDelay: 250
-	Warhead@op: FireShrapnel
-		Weapon: DefenceCriticalDamageFireSmall
-		ImpactActors: false
-
 DefenceCriticalDamageFireSmall:
 	Inherits: BuildingCriticalDamageFireSmall
 	Range: 0c400
+	Warhead@2: SpawnSmokeParticle
+		Sequences: fire3, fire4
 
-ScrinBuildingCriticalDamageFireSpawner:
-	Inherits: BuildingCriticalDamageFireSpawner
-	Warhead@op: FireShrapnel
-		Weapon: ScrinBuildingCriticalDamageFireSmall
+BuildingCriticalDamageFireSpawner:
+	Inherits: BuildingCriticalDamageFireSmall
+	ReloadDelay: 250
+
+DefenceCriticalDamageFireSpawner:
+	Inherits: DefenceCriticalDamageFireSmall
+	ReloadDelay: 250
 
 ScrinBuildingCriticalDamageFireSmall:
 	Inherits: BuildingCriticalDamageFireSmall
 	Warhead@2: SpawnSmokeParticle
 		Palette: gensmkexplojFblue
 
-ScrinDefenceCriticalDamageFireSpawner:
-	Inherits: ScrinBuildingCriticalDamageFireSpawner
-	Warhead@op: FireShrapnel
-		Weapon: ScrinDefenceCriticalDamageFireSmall
-
 ScrinDefenceCriticalDamageFireSmall:
+	Inherits: DefenceCriticalDamageFireSpawner
+	Warhead@2: SpawnSmokeParticle
+		Palette: gensmkexplojFblue
+
+ScrinBuildingCriticalDamageFireSpawner:
 	Inherits: ScrinBuildingCriticalDamageFireSmall
-	Range: 0c400
+	ReloadDelay: 250
+
+ScrinDefenceCriticalDamageFireSpawner:
+	Inherits: ScrinDefenceCriticalDamageFireSmall
+	ReloadDelay: 250
 
 VisceroidExplode:
 	Warhead@1Dam: SpreadDamage
