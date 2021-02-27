@@ -87,11 +87,9 @@ SmallPlaneExplode:
 
 SmallPlaneExplosion:
 	Inherits: ^ExploDefaults
+	Range: 0c512
 	Inherits@2: ^Mediuml_Clsn
 	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
 
 BigAircraftExplode:
 	Inherits: ^ExploDefaults
@@ -110,10 +108,8 @@ BigAircraftExplode:
 BigAircraftExplosion:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_Explosion
+	Range: 1c0
 	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
 
 DestroyerExplode:
 	Inherits: BigAircraftExplode
@@ -146,10 +142,8 @@ BattleshipExplode:
 BattleshipExplosion:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^GreyExplo
+	Range: 1c0
 	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
 
@@ -600,7 +594,7 @@ ScrinBuildingFireSmallShrapnel:
 		ImpactActors: false
 
 BuildingFireBig:
-	Range: 0c512
+	Range: 0c256
 	Projectile: InstantHit
 		Inaccuracy: 4c0
 		InaccuracyType: PerCellIncrement
