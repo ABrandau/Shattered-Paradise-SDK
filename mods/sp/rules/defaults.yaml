@@ -1683,10 +1683,12 @@
 		Image: hoverwind
 		Sequences: water
 		Palette: effect
-		#TerrainTypes: Water #don't need since we get condition'
+		TrailType: CenterPosition
+		#TerrainTypes: Water #don't need since we get condition
 		StationaryInterval: 18
 		MovingInterval: 6
 		TrailWhileStationary: true
+		SpawnAtLastPosition: false
 		StartDelay: -1
 	LeavesTrails@land:
 		RequiresCondition: !hoverunitonwater
@@ -1694,6 +1696,7 @@
 		Sequences: non-water
 		Palette: effectalpha25
 		#TerrainTypes: Water
+		TrailType: CenterPosition
 		StationaryInterval: 18
 		MovingInterval: 12
 		SpawnAtLastPosition: false
