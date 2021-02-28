@@ -759,7 +759,7 @@ STORMRIDER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: Scrin fighter equiped with a blaster turret\n\nStrong vs Aircraft.\n\nSpecial:\n- Can absorb essence from killed units to heal.\n- Can attack enemies from all directions while moving
+		Description: Scrin scout aircraft. \n\nStrong vs Aircraft.\n\nSpecial:\n- Can absorb essence from killed units to heal.\n- Can attack enemies from all directions while moving
 		Queue: Air
 		BuildPaletteOrder: 1
 		Prerequisites: ~scrair
@@ -1064,9 +1064,9 @@ SCRCARRIER:
 	Health:
 		HP: 60000
 	Targetable@GROUND:
-		TargetTypes: Vehicle, MindControlImmune, Mothership
+		TargetTypes: Vehicle, MindControlImmune
 	Targetable@AIRBORNE:
-		TargetTypes: Air, MindControlImmune, Mothership
+		TargetTypes: Air, MindControlImmune
 	Armament:
 		Weapon: FighterSpawn
 	CarrierMaster:
@@ -1074,11 +1074,9 @@ SCRCARRIER:
 		RespawnTicks: 200
 		RearmTicks: 10
 		InstantRepair: true
-	AttackTurreted:
-	Turreted:
+	AttackAircraft:
+		FacingTolerance: 512
 	AutoTarget:
-	-WithFacingSpriteBody:
-	WithInfantryBody:
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
