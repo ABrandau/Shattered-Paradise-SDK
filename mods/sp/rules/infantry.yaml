@@ -1589,6 +1589,7 @@ MOTH:
 		SmartDeploy: true
 		UndeployOnMove: true
 		CanDeployOnRamps: true
+		PauseOnCondition: RefineryLock
 		RequiresCondition: !inside-tunnel  && !WebDisable
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
@@ -1637,6 +1638,9 @@ MOTH:
 		Color: FFFF00CC
 		BorderColor: 000000CC
 	-Crushable:
+	ExternalCondition@RefineryLock:
+		RequiresCondition: undeployed
+		Condition: RefineryLock
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && !deployed
 		DeployTrigger: Attack
