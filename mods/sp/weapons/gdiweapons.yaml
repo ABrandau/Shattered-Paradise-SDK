@@ -59,19 +59,8 @@ JJGrenade:
 JJGroundGrenade:
 	Inherits: JJGrenade
 	Range: 6c0
-
-JJBuff:
-	Inherits: ^NoDamage
-	ReloadDelay: 80
-	Range: 5c0
-	Projectile: InstantExplode
-	Warhead@Acid: GrantExternalCondition
-		Range: 32
-		Duration: 13
-		Condition: JJBuff
-		ValidRelationships: Ally
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
-		AffectsParent: true
+	Projectile: Bullet
+		LaunchAngle: 128
 
 Heal:
 	ReloadDelay: 80

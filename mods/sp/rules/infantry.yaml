@@ -221,15 +221,16 @@ JUMPJETAIR:
 	Targetable@AIRBORNE:
 		TargetTypes: Air, Helicopter, Jumpjet
 		RequiresCondition: airborne
-	TimedConditionBar@powershot:
-		Condition: JJBuff
-		Color: FFFFFF
+	#TimedConditionBar@powershot:
+	#	Condition: JJBuff
+	#	Color: FFFFFF
 	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
 		AttackType: Hover
 	GrantConditionOnAttack:
 		Condition: JJBuff
+		RevokeDelay: 8
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-ExplodeWeapon@spawnsparks:
 	-SmokeParticleEmitter:
