@@ -906,7 +906,7 @@ TTNK:
 		CanDeployOnRamps: true
 		UndeployOnMove: true
 		UndeploySounds: clicky1.aud
-		PauseOnCondition: RefineryLock
+		PauseOnCondition: RefineryLock && !deployed
 		RequiresCondition: !inside-tunnel && !empdisable
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
@@ -937,7 +937,6 @@ TTNK:
 		RequiresCondition: deployed
 		PauseOnCondition: empdisable
 	ExternalCondition@RefineryLock:
-		RequiresCondition: undeployed
 		Condition: RefineryLock
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && !deployed
