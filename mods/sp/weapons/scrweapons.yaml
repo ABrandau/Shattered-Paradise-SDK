@@ -556,8 +556,8 @@ BattleshipPlasma:
 		#MaximumLaunchSpeed: 0c743
 		#MinimumLaunchSpeed: 0c743
 		Blockable: false
-		HorizontalRateOfTurn: 20
-		VerticalRateOfTurn: 50
+		HorizontalRateOfTurn: 160
+		VerticalRateOfTurn: 160
 		HomingActivationDelay: 10
 		RangeLimit: 30c0
 		AllowSnapping: true
@@ -638,7 +638,7 @@ WyvermBlast:
 		Shadow: true
 		HorizontalRateOfTurn: 160
 		VerticalRateOfTurn: 160
-		RangeLimit: 28c291
+		RangeLimit: 15c0
 		AllowSnapping: true
 		Image: smallblueplasma
 		Palette: apblue
@@ -664,24 +664,25 @@ WyvermBlastAA:
 WasteTurretWeapon:
 	Inherits: ^AcidWarhead
 	Inherits@1: ^SpawnsIrradiation
-	ReloadDelay: 40
+	ReloadDelay: 30
+	Burst: 5
+	BurstDelays: 2
+	FirstBurstTargetOffset: -400,0,0
+	FollowingBurstTargetOffset: 200,0,0
 	Range: 6c768
 	ValidTargets: Building, Structure, Infantry, Vehicle, Ground
-	Report: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
+	StartBurstReport: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
 	Projectile: BulletAS
 		Speed: 500
-		Image: greenplasmamini
-		Blockable: false
-		Inaccuracy: 0
-		Palette: jascgreen
-		LaunchAngle: 60
-		Shadow: true
+		ContrailColor: 007000DD
+		ContrailWidth: 128
+		Inaccuracy: 1c512
 		ContrailLength: 5
-		ContrailColor: 007000
-		ContrailWidth: 0c20
+		LaunchAngle: 96
+		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c400
-		Damage: 8000
+		Damage: 400
 		Versus:
 			InfantryArmor: 200
 			BuildingArmor: 75
@@ -690,7 +691,7 @@ WasteTurretWeapon:
 		InvalidTargets: Shark
 	Warhead@2Shark: SpreadDamage
 		Spread: 0c400
-		Damage: 8000
+		Damage: 400
 		Versus:
 			InfantryArmor: 200
 			BuildingArmor: 75
@@ -701,46 +702,44 @@ WasteTurretWeapon:
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
-		InvalidTargets: : Water
 	Warhead@3Radio: CreateTintedCells
 		Spread: 512
 		Level: 24
-	Warhead@3Radio2: CreateTintedCells
-		Spread: 512
-		Level: 24
-		ValidTargets: Infantry, Vehicle, Building, LandedAircraft
-	Warhead@5Actor: SpawnActor
-		Actors: cloud1
-		FallRate: 5000
-		Range: 3
+	Warhead@smalldrop: FireFragment
+		Weapon: WasteSmall
+		Chance: 50
+		Offset: 640,0,0
+		ImpactActors: false
+		Rotate: true
 
-WasteTurretWeaponMini:
+WasteTurretWeapon2:
 	Inherits: WasteTurretWeapon
-	ReloadDelay: 10
-	Burst: 10
-	BurstDelays: 3
-	-Report:
-	Projectile: MissileTA
-		Image: greenplasmamini
-		Blockable: false
-		Palette: jascgreen
-		Inaccuracy: 1c0
-		HorizontalRateOfTurn: 8
-		Acceleration: 0
-		Speed: 350
-		ContrailLength: 5
-		ContrailColor: 007000
-		ContrailWidth: 0c20
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
-	Warhead@2Shark: SpreadDamage
-		Damage: 1
-		Spread: 1
+	-StartBurstReport:
+	Projectile: BulletAS
+		ContrailColor: 00A000DD
+		ContrailWidth: 128
+	Warhead@smalldrop: FireFragment
+		Weapon: WasteSmall2
+
+WasteSmall:
+	Range: 0c128
+	Report:
+	Projectile: Bullet
+		Speed: 95
+		Inaccuracy: 4c0
+		InaccuracyType: PerCellIncrement
+		LaunchAngle: 150, 240
+		ContrailColor: 007000DD
+		ContrailLength: 4
+		ContrailWidth: 64
 	Warhead@2Eff: CreateEffect
-	-Warhead@3Radio:
-	-Warhead@3Radio2:
-	-Warhead@5Actor:
+		Explosions: tibexp2
+		ExplosionPalette: apolgreenalpha
+
+WasteSmall2:
+	Inherits: WasteSmall
+	Projectile: Bullet
+		ContrailColor: 00A000DD
 
 TractorBeam:
 	Inherits: ^AntiAirTurretWeapon
