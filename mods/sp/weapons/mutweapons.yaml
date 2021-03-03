@@ -30,7 +30,7 @@ MarauderShotgunInnacurate:
 
 SkirmisherMortar:
 	Inherits: ^ArtilleryWarhead
-	Inherits@2: ^Small_Clsn
+	Inherits@2: ^Tiny_Explo
 	Inherits@3: ^SpawnsIrradiation
 	ReloadDelay: 75
 	Range: 10c0
@@ -566,6 +566,9 @@ GargoylACannon:
 		ValidTargets: Ground, Water
 		InvalidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: infdeathexplo1, infdeathexplo2
+		ExplosionPalette: apolra2salpha
 
 GargoylACannonAA:
 	Inherits: GargoylACannon
