@@ -225,18 +225,12 @@ WorkerMinigun:
 		Damage: 1600
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
-Dogzooka:
+^WorkerWarhead:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Bang
 	ReloadDelay: 50
 	Range: 4c512
-	Report: rketinf1.aud
 	ValidTargets: Ground, Water
-	Projectile: BulletAS
-		Speed: 400
-		Image: minitibshard
-		Shadow: true
-		Palette: gradientgray
 	Warhead@1Dam: SpreadDamage
 		Damage: 1600
 		Spread: 300
@@ -249,16 +243,47 @@ Dogzooka:
 			ConcreteArmor: 5
 			Shield: 0
 		ValidTargets: Ground, Water
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+	-Warhead@5Smu:
+
+DogBoomerang:
+	Inherits: ^WorkerWarhead
+	Report: rketinf1.aud
+	Projectile: BulletAS
+		Speed: 300
+		Image: boomerang
+		Shadow: true
+		Palette: playercab
+		IsPlayerPalette: true
 	Warhead@2Eff: CreateEffect
 		Explosions: sparks
 		ImpactSounds: rketinf1.aud
 		ExplosionPalette: gensmkexploj
-	-Warhead@5Smu:
+	Warhead@flyback: BackFireShrapnel
+		Weapon: DogBoomerangBack
+
+
+DogBoomerangBack:
+	Projectile: MissileTA
+		Acceleration: 0
+		MinimumLaunchAngle: 200
+		MaximumLaunchAngle: 200
+		Image: boomerang
+		Shadow: true
+		Palette: playercab
+		IsPlayerPalette: true
+		HorizontalRateOfTurn: 60
+		RangeLimit: 15c0
+		Arm: 0
+		Speed: 100
+		Inaccuracy: 0c0
+		Blockable: false
+		TerrainHeightAware: true
+		AllowSnapping: true
+		ExplodeUnderThisAltitude: -3c0
 
 NanoNeedle:
-	Inherits: Dogzooka
-	-Report:
+	Inherits: ^WorkerWarhead
 	Projectile: BulletAS
 		Speed: 200
 		Image: naswarm
