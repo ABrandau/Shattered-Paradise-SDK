@@ -249,12 +249,15 @@ WorkerMinigun:
 DogBoomerang:
 	Inherits: ^WorkerWarhead
 	Report: rketinf1.aud
+	Burst: 2
 	Projectile: BulletAS
 		Speed: 300
 		Image: boomerang
 		Shadow: true
 		Palette: playercab
 		IsPlayerPalette: true
+	Warhead@1Dam: SpreadDamage
+		Damage: 800
 	Warhead@2Eff: CreateEffect
 		Explosions: sparks
 		ImpactSounds: rketinf1.aud
@@ -281,6 +284,7 @@ DogBoomerangBack:
 		TerrainHeightAware: true
 		AllowSnapping: true
 		ExplodeUnderThisAltitude: -3c0
+		Gravity: 0
 
 NanoNeedle:
 	Inherits: ^WorkerWarhead
