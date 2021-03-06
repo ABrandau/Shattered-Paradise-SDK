@@ -654,6 +654,12 @@ ForgottenCannonWeapon:
 		Damage: 4600
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
+
+ForgottenCannonCasing:
+	Inherits: ^ShellCasing
+	ReloadDelay: 75
+	Range: 6c768
+
 FlakFire:
 	Inherits: ^AntiAirTurretWeapon
 	Inherits: ^Small_Brnl
@@ -671,6 +677,15 @@ FlakFire:
 	Warhead@2Eff: CreateEffect
 		ValidTargets: Ground, Water, Air, AirHit
 		ExplosionPalette: apolra2salpha
+
+FlakFireCasing:
+	Inherits: ^ShellCasing
+	ValidTargets: Air
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+	Range: 10c0
+	Burst: 2
+	BurstDelays: 5
+	ReloadDelay: 48
 
 VeinholeEggElevator:
 	Inherits: EggElevator
