@@ -206,7 +206,7 @@ JUMPJETAIR:
 		Speed: 130
 		AirborneCondition: airborne
 		CruisingCondition: cruising
-		CruiseAltitude: 2c500
+		CruiseAltitude: 3c0
 		IdealSeparation: 1c0
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 		CanHover: true
@@ -219,7 +219,7 @@ JUMPJETAIR:
 		TargetTypes: Infantry, Ground
 		RequiresCondition: !airborne
 	Targetable@AIRBORNE:
-		TargetTypes: Air, Helicopter, Jumpjet
+		TargetTypes: Air
 		RequiresCondition: airborne
 	#TimedConditionBar@powershot:
 	#	Condition: JJBuff
@@ -236,8 +236,12 @@ JUMPJETAIR:
 	-SmokeParticleEmitter:
 	-ExternalCondition@DisableHeavyDamagedEffect:
 	-GrantCondition@DisableHeavyDamagedEffect:
+	-Explodes@Shrapnel:
 	QuantizeFacingsFromSequence:
 		Sequence: stand
+	SpawnActorOnDeath:
+		Actor: JUMPJET.Husk
+		RequiresCondition: airborne
 
 EAGLEGUARD:
 	Inherits: ^Soldier

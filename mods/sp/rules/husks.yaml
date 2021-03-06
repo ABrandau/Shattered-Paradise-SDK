@@ -12,8 +12,6 @@
 	WithShadow:
 	Health:
 		HP: 28000
-	Armor:
-		Type: AircraftArmor
 	HiddenUnderFog:
 		Type: GroundPosition
 	Targetable@Ignore:
@@ -466,3 +464,17 @@ SCRCOUNCIL.Husk:
 		Image: scrincouncil
 	FallsToEarth:
 		Explosion: BattleshipExplode
+
+JUMPJET.Husk:
+	Inherits: ^AircraftHusk
+	RenderSprites:
+		Image: jumpjetair
+	-WithFacingSpriteBody:
+	WithSpriteBody:
+		StartSequence: die-make
+		Sequence: die-fall
+	FallsToEarth:
+		Moves: true
+		Velocity: 100
+		MaximumSpinSpeed: 0
+		Explosion: JumjetFall
