@@ -1198,12 +1198,16 @@ COLOSSI:
 	WithSpriteBody@deployed:
 		Sequence: deployed
 		RequiresCondition: !undeployed
-	ExplodeWeapon@1:
+	ExplodeWeapon@deploy:
 		Weapon: ColossiBlast
+		RequiresCondition: deployed && !WebDisable
+	WithIdleOverlay@deploy:
+		Sequence: colossideploy
+		Palette: gradientblue40
 		RequiresCondition: deployed && !WebDisable
 	AmbientSound:
 		SoundFiles: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
-		Interval: 75
+		Interval: 15
 		RequiresCondition: deployed && !WebDisable
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove

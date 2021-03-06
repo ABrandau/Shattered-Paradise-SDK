@@ -71,20 +71,21 @@ ColossiShard:
 	ReloadDelay: 70
 	Range: 6c0
 	Burst: 4
-	Report: fiend2.aud
+	Report:  oneshot04.wav
+	SoundVolume: 3
 	MinRange: 0c100
 	ValidTargets: Ground, Water
 	Projectile: BulletAS
 		Speed: 600
-		Image: minitibshard
+		Image: torpedo
 		Shadow: true
 		LaunchAngle: 60
-		Palette: apblue
+		Palette: gradientblue
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Damage: 5000
 		ValidTargets: Ground, Water
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
+		DamageTypes: Prone100Percent, TriggerProne, ScrinEssenceKill, EnergyDeath
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player
@@ -92,45 +93,33 @@ ColossiShard:
 		ValidTargets: Water
 	Warhead@2Eff: CreateEffect
 		Explosions: tib_expsmall
-		ExplosionPalette: apolbluealpha
+		ExplosionPalette: gradientblue40
 		InvalidTargets: Water
 
 ColossiBlast:
-	ReloadDelay: 4
+	ReloadDelay: 5
 	Range: 8c0
-	Warhead@op: FireShrapnel
-		Weapon: ColossiBlastTesla
+	Warhead@op: FireRadius
+		Weapon: ColossiBlastEnergy
 		ImpactActors: false
 		Amount: 3
-		AllowDirectHit: false
 	Warhead@8Radio: CreateTintedCells
 		Spread: 1c128
 		Level: 30
 		Falloff: 100, 85, 60, 45, 30, 15
 		LayerName: ColossusRadiation
 
-ColossiBlastTesla:
+ColossiBlastEnergy:
 	ReloadDelay: 80
-	Range: 4c0
-	Projectile: TeslaZap
-		BrightZaps: 1
-		DimZaps: 1
-		Palette: appurp
-	Warhead@op: FireRadius
-		Weapon: ColTeslaSparks
-		ImpactActors: false
-		Amount: 2
+	Range: 2c128
+	Projectile: InstantHit
+		Inaccuracy: 4c0
+	Warhead@smoke: CreateEffect
+		Explosions: wrecksmoke, wrecksmoke2, wrecksmoke3
+		ExplosionPalette: gradientblue20
 	Warhead@2Eff: CreateEffect
-		Explosions: lightningexplo
-		ExplosionPalette: apollightbluealpha
-		InvalidTargets: Water
-
-ColTeslaSparks:
-	ReloadDelay: 80
-	Range: 1c0
-	Projectile: TeslaZap
-		DimZaps: 0
-		Palette: appurp
+		Explosions: sparks
+		ExplosionPalette: gradientblue40
 
 FloatTesla:
 	Inherits: ^RifleWarhead
@@ -372,9 +361,6 @@ TripodBlast2:
 		ExplosionPalette: jascbluealpha
 		ValidTargets: Infantry, Vehicle, LandedAircraft, Building, Wall, Ground, Water
 		ImpactActors: false
-	Warhead@smoke: CreateEffect
-		Explosions: wrecksmoke, wrecksmoke2, wrecksmoke3
-		ExplosionPalette: gensmkexplojFblue
 
 StormRiderBlast:
 	Inherits: ^FullDamage
@@ -565,8 +551,8 @@ BattleshipPlasma:
 		#MaximumLaunchSpeed: 0c743
 		#MinimumLaunchSpeed: 0c743
 		Blockable: false
-		HorizontalRateOfTurn: 160
-		VerticalRateOfTurn: 160
+		HorizontalRateOfTurn: 120
+		VerticalRateOfTurn: 120
 		HomingActivationDelay: 10
 		RangeLimit: 30c0
 		AllowSnapping: true
