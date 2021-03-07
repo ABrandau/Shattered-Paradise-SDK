@@ -24,6 +24,16 @@
 		Velocity: 180
 		MaximumSpinSpeed: 100
 		Explosion: SmallPlaneExplode
+	SmokeParticleEmitter:
+		Sequences: idle
+		SpawnFrequency: 6, 12
+		Speed: 6
+		Gravity: 70
+		Offset: 0,0,0
+		Image: sgrysmk1
+		Palette: effectalpha40
+		Duration: 75
+		RandomFacing: True
 
 ^BigAircraftHusk:
 	Inherits: ^AircraftHusk
@@ -307,6 +317,10 @@ STORMRIDER.Husk:
 		Moves: true
 		Explosion: StormriderExplode #ScrinUnitExplode2
 		MaximumSpinSpeed: 0
+	SmokeParticleEmitter:
+		Duration: 100
+		Image: scrsmoke
+		Palette: gradientblue20
 		
 WYVERM2.Husk:
 	Inherits: ^AircraftHusk
@@ -344,6 +358,10 @@ GLYDER1.Husk:
 		Speed: 149
 	RenderSprites:
 		Image: scrglyder1
+	SmokeParticleEmitter:
+		Duration: 100
+		Image: scrsmoke
+		Palette: gradientblue20
 
 DRACHE.Husk:
 	Inherits: ^BigAircraftHusk
@@ -364,6 +382,10 @@ DRACHE.Husk:
 		Speed: 149
 	RenderSprites:
 		Image: drache.falling
+	SmokeParticleEmitter:
+		Duration: 100
+		Image: scrsmoke
+		Palette: gradientblue20
 
 SCRDESTROYER.Husk:
 	Inherits: ^BigAircraftHusk
@@ -384,6 +406,10 @@ SCRDESTROYER.Husk:
 	-ExternalCondition@crate-cloak:
 	FallsToEarth:
 		Explosion: DestroyerExplode
+	SmokeParticleEmitter:
+		Duration: 100
+		Image: scrsmoke
+		Palette: gradientblue20
 
 SCRBATTLESHIP.Husk:
 	Inherits: ^BigAircraftHusk
@@ -404,6 +430,10 @@ SCRBATTLESHIP.Husk:
 	-ExternalCondition@crate-cloak:
 	FallsToEarth:
 		Explosion: BattleshipExplode
+	SmokeParticleEmitter:
+		Duration: 100
+		Image: scrsmoke
+		Palette: gradientblue20
 
 SCRCARRIER.Husk:
 	Inherits: ^BigAircraftHusk
@@ -424,6 +454,10 @@ SCRCARRIER.Husk:
 	-ExternalCondition@crate-cloak:
 	FallsToEarth:
 		Explosion: DestroyerExplode
+	SmokeParticleEmitter:
+		Duration: 100
+		Image: scrsmoke
+		Palette: gradientblue20
 
 SCRTRANS.Husk:
 	Inherits: ^AircraftHusk
@@ -444,6 +478,10 @@ SCRTRANS.Husk:
 	-ExternalCondition@crate-cloak:
 	RenderSprites:
 		Image: scrtrans
+	SmokeParticleEmitter:
+		Duration: 100
+		Image: scrsmoke
+		Palette: gradientblue20
 
 SCRCOUNCIL.Husk:
 	Inherits: ^AircraftHusk
@@ -464,6 +502,10 @@ SCRCOUNCIL.Husk:
 		Image: scrincouncil
 	FallsToEarth:
 		Explosion: BattleshipExplode
+	SmokeParticleEmitter:
+		Duration: 100
+		Image: scrsmoke
+		Palette: gradientblue20
 
 JUMPJET.Husk:
 	Inherits: ^AircraftHusk
@@ -475,6 +517,15 @@ JUMPJET.Husk:
 		Sequence: die-fall
 	FallsToEarth:
 		Moves: true
-		Velocity: 100
-		MaximumSpinSpeed: 0
+		Velocity: 230
 		Explosion: JumjetFall
+	SmokeParticleEmitter:
+		Sequences: idle
+		SpawnFrequency: 6, 12
+		Speed: 6
+		Gravity: 70
+		Offset: 0,0,0
+		Image: sgrysmk1
+		Palette: effectalpha40
+		Duration: 75
+		RandomFacing: True
