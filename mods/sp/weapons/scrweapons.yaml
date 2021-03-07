@@ -669,10 +669,10 @@ WasteTurretWeapon:
 	StartBurstReport: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
 	Projectile: BulletAS
 		Speed: 500
-		ContrailColor: 007000DD
-		ContrailWidth: 128
+		ContrailColor: 007000BB
+		ContrailWidth: 146
 		Inaccuracy: 1c512
-		ContrailLength: 5
+		ContrailLength: 6
 		LaunchAngle: 96
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
@@ -700,31 +700,26 @@ WasteTurretWeapon:
 	Warhead@3Radio: CreateTintedCells
 		Spread: 512
 		Level: 24
-	Warhead@smalldrop: FireFragment
+	Warhead@smalldrop: FireRadius
 		Weapon: WasteSmall
-		Chance: 50
-		Offset: 640,0,0
 		ImpactActors: false
-		Rotate: true
 
 WasteTurretWeapon2:
 	Inherits: WasteTurretWeapon
 	-StartBurstReport:
 	Projectile: BulletAS
-		ContrailColor: 009800DD
-		ContrailWidth: 128
+		ContrailColor: 009800BB
 	Warhead@smalldrop: FireFragment
 		Weapon: WasteSmall2
 
 WasteSmall:
-	Range: 0c128
-	Report:
+	Range: 0c640
 	Projectile: Bullet
 		Speed: 95
 		Inaccuracy: 4c0
 		InaccuracyType: PerCellIncrement
 		LaunchAngle: 150, 240
-		ContrailColor: 007000DD
+		ContrailColor: 007000BB
 		ContrailLength: 4
 		ContrailWidth: 64
 	Warhead@2Eff: CreateEffect
@@ -734,7 +729,7 @@ WasteSmall:
 WasteSmall2:
 	Inherits: WasteSmall
 	Projectile: Bullet
-		ContrailColor: 009800DD
+		ContrailColor: 009800BB
 
 TractorBeam:
 	Inherits: ^AntiAirTurretWeapon
