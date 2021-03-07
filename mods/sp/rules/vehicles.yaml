@@ -368,6 +368,7 @@ HMEC:
 	Inherits@2: ^PermanentSelfHeal
 	Inherits@3: ^CommandoIcon
 	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 3000
 	Tooltip:
@@ -426,7 +427,12 @@ HMEC:
 	Armament@4:
 		Weapon: MechRailgun2
 		LocalOffset: 1200,-250,2650, 1200,250,2650
-		PauseOnCondition: empdisable
+		PauseOnCondition: empdisable || AImicroManage
+		MuzzleSequence: muzzle
+	Armament@4AI: ##Fake that AI use it better
+		Weapon: MechRailgun2AI
+		LocalOffset: 1200,-250,2650, 1200,250,2650
+		PauseOnCondition: empdisable || !AImicroManage
 		MuzzleSequence: muzzle
 	Targetable:
 		TargetTypes: Ground, Vehicle, MindControlImmune

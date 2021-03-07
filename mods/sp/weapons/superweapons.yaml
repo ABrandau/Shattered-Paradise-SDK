@@ -2,7 +2,7 @@
 ^SWBaseEffects:
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		Falloff: 1000, 700, 500, 300, 150, 50, 0
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium
 		Versus:
 			InfantryArmor: 100
 			BuildingArmor: 0
@@ -116,13 +116,13 @@ RadarScanWeapon:
 IonCannon: ### THIS IS THE MAIN ION CANON WEAPON
 	Inherits: ^SWBaseEffects
 	ReloadDelay: 1000
-	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air, IonSpawner
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
 	Warhead@1Dam_area: SpreadDamage
 		Spread: 1c0
 		Damage: 200000
 		Falloff: 100, 50, 25, 0
 		AffectsParent: true
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air, IonSpawner
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
 		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
 		Versus:
 			BossArmor: 200
@@ -164,13 +164,12 @@ IonCannon: ### THIS IS THE MAIN ION CANON WEAPON
 IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 	ReloadDelay: 6
 	Range: 12c0
-	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air, IonSpawner
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
 	## use mutipile Warhead with delay to increase performance
 	Warhead@op: FireRadius
 		Weapon: IonBeamCreator
 		ImpactActors: false
 		Amount: 12
-
 	Warhead@Spawn: SpawnActor
 		Actors: ionbeamtarget
 		Range: 3
@@ -188,7 +187,7 @@ IonBeamCreator: ### THIS ONE GENERATES THE MINI BEAMS
 	ReloadDelay: 6
 	Range: 5c0
 	MinRange: 4c99
-	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air, IonSpawner
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
 	Projectile: InstantHit
 	Warhead@Spawn: SpawnActor
 		Actors: ionbeammini
@@ -202,9 +201,10 @@ IonScorch: ### THESE ARE THE WEAPONS OF THE MINI BEAMS ON THE SIDES
 		Explosions: ionscorch
 		ExplosionPalette: gradientgray
 	Warhead@3Dam_area: SpreadDamage
-		Spread: 200
+		Spread: 1c0
 		Damage: 500
 		InvalidTargets: IonBeam
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium
 		DamageTypes: SmallExplosionDeath
 			InfantryArmor: 500
 			BuildingArmor: 100
@@ -385,12 +385,12 @@ droppod5:
 
 NuclearMissile:
 	Inherits: ^SWBaseEffects
-	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 	Warhead@ImpactDamage0: SpreadDamage
 		Spread: 1c512
 		Damage: 32000
 		Falloff: 1000, 700, 500, 300, 150, 50, 0
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 		Versus:
 			ConcreteArmor: 25
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
@@ -399,7 +399,7 @@ NuclearMissile:
 		Spread: 2c0
 		Falloff: 1000, 700, 500, 300, 150, 50, 0
 		Delay: 25
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 		Versus:
 			InfantryArmor: 500
 			BuildingArmor: 100
@@ -528,12 +528,12 @@ MeteorFlame:
 ToxinMissile:
 	Inherits: ^Large_Explosion
 	Inherits@1: ^SpawnsIrradiation
-	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 	Warhead@ImpactDamage0: SpreadDamage
 		Spread: 1c128
 		Damage: 6000
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Water, Air
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 		Versus:
 			InfantryArmor: 200
 			ConcreteArmor: 25

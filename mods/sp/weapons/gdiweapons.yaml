@@ -410,6 +410,11 @@ MechRailgun2:
 			Shield: 0
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 
+MechRailgun2AI: ## Becuase AI use it mostly on friendly fire, we make AI cheat here
+	Inherits:  MechRailgun2
+	Warhead@1Dam: SpreadDamage
+		ValidRelationships: Neutral, Enemy
+
 MKIITusk:
 	Inherits: MammothTusk
 	BurstDelays: 10

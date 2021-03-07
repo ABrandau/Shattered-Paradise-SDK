@@ -117,6 +117,7 @@ JUMPJET:
 	Inherits: ^Soldier
 	Inherits@2: ^6CellVision
 	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 450
 	Tooltip:
@@ -150,6 +151,12 @@ JUMPJET:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage
+		DeployTrigger: Damage
+		DeployTicks: 5
+		UndeployTicks: 500
+		DeployChance: 100
 
 JUMPJETAIR:
 	Inherits: ^Aircraft
@@ -448,11 +455,12 @@ NCONF:
 		StartsFullyCharged: true
 	ExternalCondition@MineSpawn:
 		Condition: HologramSpawn
-	ExplodeWeapon@1:
+	ExplodeWeapon@Deployed:
 		Weapon: FlameHoloShrapnel
 		RequiresCondition: HologramSpawn
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage
+		DeployTrigger: Attack
 		DeployChance: 100
 		DeployTicks: 4005
 		UndeployTicks: 1
@@ -620,7 +628,6 @@ MARAUDER:
 		PauseOnCondition: WebDisable
 	GrantConditionOnAttack:
 		Condition: AnimateTurret
-		# RevokeDelay: 10
 		ArmamentNames: OnFoot
 	DamageMultiplier@MarauderBuff:
 		Modifier: 75
