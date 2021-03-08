@@ -83,7 +83,7 @@ SmallPlaneExplode:
 		Amount: 3
 		Weapon: SmallPlaneExplosion
 		ImpactActors: false
-		ValidTargets: Ground, Air, Water, Airhit
+		ValidTargets: Ground, Air, Water
 
 SmallPlaneExplosion:
 	Inherits: ^ExploDefaults
@@ -103,7 +103,7 @@ BigAircraftExplode:
 		Amount: 5
 		Weapon: BigAircraftExplosion
 		ImpactActors: false
-		ValidTargets: Ground, Air, Water, Airhit
+		ValidTargets: Ground, Air, Water
 
 BigAircraftExplosion:
 	Inherits: ^ExploDefaults
@@ -135,7 +135,7 @@ BattleshipExplode:
 		Amount: 8
 		Weapon: BattleshipExplosion
 		ImpactActors: false
-		ValidTargets: Ground, Air, Water, Airhit
+		ValidTargets: Ground, Air, Water
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
 
@@ -176,7 +176,7 @@ SmalLAircraftShrapnel:
 		Weapon: SmallDebris
 		ImpactActors: false
 		Amount: 3
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 
 SmalLScrinAircraftShrapnel:
 	Inherits: SmalLAircraftShrapnel
@@ -190,7 +190,7 @@ BigAircraftShrapnel:
 		Weapon: SmallDebris
 		ImpactActors: false
 		Amount: 6
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 
 BigScrinAircraftShrapnel:
 	Inherits: BigAircraftShrapnel
@@ -394,7 +394,7 @@ LightningSparkDebris:
 CasingDebris:
 	ReloadDelay: 60
 	Range: 0c1
-	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 	Projectile: Bullet
 		Speed: 100, 200
 		Inaccuracy: 1c512
@@ -406,13 +406,13 @@ CasingDebris:
 	Warhead@: CreateEffect
 		Explosions: casingscorch, casingscorch2, casingscorch3, casingscorch4, casingscorch5, casingscorch6, casingscorch7
 		ExplosionPalette: effect
-	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Air, AirHit
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Air
 		InvalidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piffs
 		ExplosionPalette: ra
 		ValidTargets: Water
-		InvalidTargets: Infantry, Vehicle, Building, Wall, Ground, Air, AirHit
+		InvalidTargets: Infantry, Vehicle, Building, Wall, Ground, Air
 
 CasingDebrisAir:
 	Inherits: CasingDebris
