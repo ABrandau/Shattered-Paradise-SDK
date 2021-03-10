@@ -528,8 +528,8 @@ RPGTower:
 		Palette: player
 		Sequences: idle
 		IsPlayerPalette: false
-		-TrailImage: small_smoke_trail
-		-TrailPalette: effectalpha75
+		-TrailImage:
+		-TrailPalette:
 	Warhead@1Dam: SpreadDamage
 		Damage: 8000
 		DamageTypes: Prone70Percent, TriggerProne, SmallExplosionDeath
@@ -575,12 +575,3 @@ FirestormExplo:
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
-
-FirestormAIAimingDummyWeapon:
-	Inherits: ^FullDamage
-	Range: 11c0
-		ValidTargets: Air, Ground, Water
-	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Damage: 0
-		ValidTargets: Air, Ground, Water

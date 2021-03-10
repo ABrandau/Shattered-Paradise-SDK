@@ -55,3 +55,12 @@ AIGlyder2AimingDummyWeapon:
 		Blockable: false
 	Warhead@NoDam: TargetDamage
 		ValidTargets: Ground, Water
+
+FirestormAIAimingDummyWeapon:
+	Inherits: ^FullDamage
+	Range: 11c0
+	ValidTargets: Air, Ground, Water
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+		ValidTargets: Air, Ground, Water
