@@ -303,7 +303,7 @@
 		Weapon: SparkDebris
 		ImpactActors: false
 		Amount: 12
-		ValidTargets: Ground, Water, Air, AirHit
+		ValidTargets: Ground, Water, Air
 		InvalidTargets: Infantry, Vehicle, Building, Wall
 	Warhead@1: CreateEffect
 		Explosions: smallspark
@@ -318,7 +318,7 @@
 	Warhead@3Eff: CreateEffect
 		Explosions: fire1, fire2
 		ExplosionPalette: FlameEffectPal
-		InvalidTargets: Water, Air, AirHit
+		InvalidTargets: Water, Air
 		ImpactActors: false
 
 ^Shrapnel:
@@ -366,36 +366,36 @@
 		ImpactActors: false
 		AllowDirectHit: false
 		Amount: 1
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 
 ^BulletCasing:
-	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 	Projectile: InstantExplode
 	Warhead@4Sharpnel: FireRadius
 		Weapon: CasingDebris
 		ImpactActors: false
 		Amount: 2
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 	Warhead@Line: TargetDamage
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 
 ## Used in ExplodeWeapon only
 ^AircraftCasing:
 	ReloadDelay: 5
 	Projectile: AthenaProjectile
 		Altitude: 2560
-	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 	Warhead@0Dam: TargetDamage
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 	Warhead@op: FireRadius
 		Weapon: CasingDebrisAir
 		ImpactActors: false
 		Amount: 1
-		ValidTargets: Ground, Water, Air, AirHit
+		ValidTargets: Ground, Water, Air
 		InvalidTargets: Infantry, Vehicle, Building, Wall
 
 ^LineProjectile:
-	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 	Projectile: BulletAS
 		Speed: 0c800
 		Inaccuracy: 0c762
@@ -406,7 +406,7 @@
 		ContrailLength: 2
 		ContrailWidth: 26
 	Warhead@Line: TargetDamage
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 
 ^BulletProjectile:
 	Inherits: ^LineProjectile
@@ -451,9 +451,9 @@
 		ExplosionPalette: jascgreen
 
 ^DamagedSpark:
-	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 	Warhead@2Eff: CreateEffect
 		Explosions: smallspark
 		ExplosionPalette: effect
 		ImpactActors: false
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air

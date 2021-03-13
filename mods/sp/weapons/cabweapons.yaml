@@ -397,12 +397,12 @@ DroneHostMissile:
 		Amount: 1
 		Weapon: DroneHostShell
 		ImpactActors: false
-		ValidTargets: Ground, Air, Water, Airhit
+		ValidTargets: Ground, Air, Water
 	Warhead@2: FireShrapnel
 		Amount: 1
 		Weapon: DroneHostShellSpawner
 		ImpactActors: false
-		ValidTargets: Ground, Air, Water, Airhit
+		ValidTargets: Ground, Air, Water
 
 DroneHostShell:
 	Inherits: ^ArtilleryWarhead
@@ -439,7 +439,7 @@ DroneHostShellSpawner:
 		Actors: cabsentry
 		FallRate: 5000
 		Range: 3
-		ValidTargets: Ground, Vehicle, Infantry, Air, Airhit
+		ValidTargets: Ground, Vehicle, Infantry, Air
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
 		Damage: 1
