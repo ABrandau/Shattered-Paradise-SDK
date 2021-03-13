@@ -638,49 +638,6 @@ ScrinBuildingFireSmall:
 	Warhead@2: SpawnSmokeParticle
 		Palette: gensmkexplojFblue
 
-BuildingCriticalDamageFireSmall:
-	Inherits: BuildingFireBig
-	Range: 1c0
-	Projectile: InstantHit
-		Inaccuracy: 0c0
-	Warhead@2: SpawnSmokeParticle
-		ImpactActors: false
-		Duration: 250
-		Sequences: fire1, fire2
-		Image: buildingfire
-
-DefenceCriticalDamageFireSmall:
-	Inherits: BuildingCriticalDamageFireSmall
-	Range: 0c400
-	Warhead@2: SpawnSmokeParticle
-		Sequences: fire3, fire4
-
-BuildingCriticalDamageFireSpawner:
-	Inherits: BuildingCriticalDamageFireSmall
-	ReloadDelay: 250
-
-DefenceCriticalDamageFireSpawner:
-	Inherits: DefenceCriticalDamageFireSmall
-	ReloadDelay: 250
-
-ScrinBuildingCriticalDamageFireSmall:
-	Inherits: BuildingCriticalDamageFireSmall
-	Warhead@2: SpawnSmokeParticle
-		Palette: gensmkexplojFblue
-
-ScrinDefenceCriticalDamageFireSmall:
-	Inherits: DefenceCriticalDamageFireSpawner
-	Warhead@2: SpawnSmokeParticle
-		Palette: gensmkexplojFblue
-
-ScrinBuildingCriticalDamageFireSpawner:
-	Inherits: ScrinBuildingCriticalDamageFireSmall
-	ReloadDelay: 250
-
-ScrinDefenceCriticalDamageFireSpawner:
-	Inherits: ScrinDefenceCriticalDamageFireSmall
-	ReloadDelay: 250
-
 VisceroidExplode:
 	Warhead@2Eff: CreateEffect
 		Explosions: viscexplo
