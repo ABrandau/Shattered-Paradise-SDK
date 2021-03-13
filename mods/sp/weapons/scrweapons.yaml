@@ -127,17 +127,21 @@ FloatTesla:
 	Range: 7c0
 	Report: voltautofire.wav
 	ValidTargets: Infantry, Vehicle
+	InvalidTargets: Summoned
 	Projectile: TeslaZap
 		Palette: apolredalpha
 	Warhead@1Dam: SpreadDamage
 		Damage: 1
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath, ScrinEssenceKill
+		DamageTypes: TriggerProne, FireDeath, ScrinEssenceKill
+		InvalidTargets: Summoned
 	Warhead@op: FireShrapnel
 		Weapon: EssenceMissile
 		ImpactActors: false
 		Amount: 2
 		AimChance: 100
 		AllowDirectHit: true
+		ValidTargets: Infantry, Vehicle
+		InvalidTargets: Summoned
 
 FloatGlaive:
 	Inherits: ^FullDamage

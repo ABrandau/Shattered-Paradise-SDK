@@ -974,6 +974,8 @@ TICKHOLOGRAM:
 		Speed: 90
 		PauseOnCondition: empdisable
 		Locomotor: Vehicle
+	Targetable:
+		TargetTypes: Ground, Vehicle, Summoned
 	Armament@PRIMARY:
 		Weapon: HologramTick90mm
 	WithFacingSpriteBody:
@@ -996,7 +998,6 @@ TICKHOLOGRAM:
 			TiberiumDeathStrong: evaporate
 			EnergyDeath: evaporate
 			ExplosionDeath: evaporate
-
 	AttackFrontal:
 	AutoTarget:
 		ScanRadius: 7
@@ -1010,6 +1011,7 @@ TICKHOLOGRAM:
 	-SpawnActorOnDeath@tiberium2:
 	-SpawnActorOnDeath@nanomachinereanimate:
 	-ExternalCondition@nanomachinereanimate:
+	-SpawnActorOnDeath@ScrinEssence:
 
 BIKE:
 	Inherits: ^Vehicle

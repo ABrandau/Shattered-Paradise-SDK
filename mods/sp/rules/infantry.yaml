@@ -531,6 +531,8 @@ FlameHologram:
 	AutoTarget:
 		ScanRadius: 7
 		InitialStance: AttackAnything
+	Targetable:
+		TargetTypes: Ground, Infantry, Summoned
 
 MARAUDER:
 	Inherits: ^Mutant
@@ -1240,6 +1242,7 @@ CABSENTRY:
 	-SpawnActorOnDeath@nanomachinereanimate:
 	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@ScrinEssence:
 	-Passenger:
 	Targetable:
 		TargetTypes: Ground, Infantry, Summoned
