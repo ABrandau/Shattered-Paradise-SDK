@@ -801,10 +801,11 @@
 
 ^SpawnFire:
 	Inherits: ^HeavyDamagedEffect
-	ExplodeWeapon@SpawnFire:
+	WithIdleOverlay@SpawnFire:
 		RequiresCondition: HeavyDamaged && !DisableHeavyDamagedEffect
-		Weapon: BuildingCriticalDamageFireSpawner
-		ResetReloadWhenEnabled: false
+		Image: Explosion
+		Sequence: fire1
+		Palette: effectalpha75
 
 ^DamagedByTintedCells: #Damage = DamageCoeff * RadioactivityLevel / MaxLevel
 	DamagedByTintedCells@Default:
@@ -2167,8 +2168,8 @@
 		Categories: Defence
 	Replacement:
 		ReplaceableTypes: Tower
-	ExplodeWeapon@SpawnFire:
-		Weapon: DefenceCriticalDamageFireSpawner
+	WithIdleOverlay@SpawnFire:
+		Sequence: fire2
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -2226,7 +2227,7 @@
 		Palette: terraindecoration
 	MapEditorData:
 		Categories: Civilian Structure
-	-ExplodeWeapon@SpawnFire:
+	-WithIdleOverlay@SpawnFire:
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-ExternalCondition@DisableHeavyDamagedEffect:
 	RadarColorFromTerrain:
@@ -2655,13 +2656,14 @@
 
 ^ScrinBuildingFire:
 	Inherits: ^SpawnFire
-	ExplodeWeapon@SpawnFire:
-		Weapon: ScrinBuildingCriticalDamageFireSpawner
+	WithIdleOverlay@SpawnFire:
+		Palette: gensmkexplojFblue
 
 ^ScrinDefenceFire:
 	Inherits: ^ScrinBuildingFire
-	ExplodeWeapon@SpawnFire:
-		Weapon: ScrinDefenceCriticalDamageFireSpawner
+	WithIdleOverlay@SpawnFire:
+		Sequence: fire2
+		Palette: gensmkexplojFblue
 
 ^ScrinAircratVoice:
 	Voiced:
