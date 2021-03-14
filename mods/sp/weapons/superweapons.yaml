@@ -78,16 +78,17 @@ EMPulseCannon:
 		Condition: empdisable
 		ValidTargets: Vehicle, Building
 		Delay: 10
-	Warhead@5: FireShrapnel
+	Warhead@5: FireRadius
 		Weapon: EMPulseCannonShrapnel
 		ImpactActors: false
 		Amount: 12
-		AllowDirectHit: false
-		Delay: 10
+		Delay: 20
 
 EMPulseCannonShrapnel:
-	Range: 4c0
+	Range: 1c0
 	Projectile: InstantHit
+		Inaccuracy: 4c0
+		InaccuracyType: PerCellIncrement
 	Warhead@particle: SpawnSmokeParticle
 		Image: explosion
 		Sequences: powerlinexplosion
