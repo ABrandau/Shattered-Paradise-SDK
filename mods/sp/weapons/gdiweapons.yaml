@@ -229,16 +229,19 @@ HoverMissileAA:
 JuggCannon:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Clsn
+	FirstBurstTargetOffset: 0,-120,0
+	FollowingBurstTargetOffset: 0,240,0
 	ReloadDelay: 75
 	Range: 15c0
 	MinRange: 5c0
-	Report: jugger1.aud
+	Burst: 2
+	BurstDelays: 3
+	StartBurstReport: jugger1.aud
 	Projectile: BulletAS
 		Speed: 250
 		Image: 120mm
 		LaunchAngle: 165
 		Shadow: true
-		Inaccuracy: 2c0
 		Blockable: false
 		ContrailLength: 10
 		ContrailUsePlayerColor: true
@@ -254,6 +257,8 @@ JuggCannon:
 
 JuggCannonShellCasing:
 	Inherits: ^ShellCasing
+	Burst: 2
+	BurstDelays: 3
 	ReloadDelay: 75
 	Range: 15c0
 	MinRange: 5c0
