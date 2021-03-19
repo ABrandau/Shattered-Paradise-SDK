@@ -152,22 +152,6 @@ SeerTeslaAA:
 		Damage: 7000
 		ValidTargets: Air
 
-SeerTyranyInstakillSpawn:
-	ValidTargets: Ground, Water
-	Warhead@op: FireRadius
-		Weapon: SeerTyranyInstakill
-		Amount: 3
-		ValidTargets: Ground, Water
-		ImpactActors: false
-
-SeerTyranyInstakill:
-	Inherits: SeerTesla
-	Range: 3c0
-	Projectile: TeslaZap
-		Palette: apolbluealpha
-	Warhead@1Dam: SpreadDamage
-		Damage: 1
-
 SeerTyranyBuff:
 	ReloadDelay: 50
 	Projectile: InstantExplode
@@ -196,7 +180,6 @@ SparkExplo:
 SeerTeslaSpark:
 	Inherits: SeerTesla
 	Range: 5c0
-	InvalidTargets: seer
 	Projectile: TeslaZap
 		Palette: apolgreenalpha
 	Warhead@1Dam: SpreadDamage
