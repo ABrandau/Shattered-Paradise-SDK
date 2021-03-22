@@ -43,39 +43,6 @@
 		InternalName: Random
 		Description: Random\n Not everyone has a chance to choose his life.
 		RandomFactionMembers: gdi, nod, mut, cab, scr
-	ResourceType@Tiberium:
-		Type: Tiberium
-		Name: Tiberium Riparius
-		ResourceType: 1
-		Palette: greentibpal
-		Sequences: greentibtile01, greentibtile02, greentibtile03, greentibtile04, greentibtile05, greentibtile06, greentibtile07, greentibtile08, greentibtile09, greentibtile10, greentibtile11, greentibtile12, greentibtile13, greentibtile14, greentibtile15, greentibtile16
-		MaxDensity: 17
-		ValuePerUnit: 25
-		AllowedTerrainTypes: Clear, Rough, DirtRoad
-		AllowUnderActors: true
-		TerrainType: Tiberium
-	ResourceType@BlueTiberium:
-		Type: BlueTiberium
-		Name: Tiberium Vinifera
-		ResourceType: 2
-		Palette: bluetibpal
-		Sequences: greentibtile01, greentibtile02, greentibtile03, greentibtile04, greentibtile05, greentibtile06, greentibtile07, greentibtile08, greentibtile09, greentibtile10, greentibtile11, greentibtile12, greentibtile13, greentibtile14, greentibtile15, greentibtile16
-		MaxDensity: 17
-		ValuePerUnit: 50
-		AllowedTerrainTypes: Clear, Rough, DirtRoad
-		AllowUnderActors: true
-		TerrainType: BlueTiberium
-	ResourceType@Veins:
-		Type: Veins
-		ResourceType: 3
-		Palette: player
-		Sequences: veins
-		MaxDensity: 1
-		ValuePerUnit: 0
-		Name: Veins
-		AllowedTerrainTypes: Clear, Rough, DirtRoad
-		AllowUnderActors: true
-		TerrainType: Veins
 	ExitsDebugOverlayManager:
 	CliffBackImpassabilityLayer:
 	SubterraneanActorLayer:
@@ -292,7 +259,20 @@
 			Veins: 0
 			Water: 100
 	ResourceRenderer:
-		RenderTypes: Tiberium, BlueTiberium, Veins
+		ResourceTypes:
+			Tiberium:
+				Sequences: greentibtile01, greentibtile02, greentibtile03, greentibtile04, greentibtile05, greentibtile06, greentibtile07, greentibtile08, greentibtile09, greentibtile10, greentibtile11, greentibtile12, greentibtile13, greentibtile14, greentibtile15, greentibtile16
+				Palette: greentibpal
+				Name: Tiberium Riparius
+			BlueTiberium:
+				Sequences: greentibtile01, greentibtile02, greentibtile03, greentibtile04, greentibtile05, greentibtile06, greentibtile07, greentibtile08, greentibtile09, greentibtile10, greentibtile11, greentibtile12, greentibtile13, greentibtile14, greentibtile15, greentibtile16
+				Palette: bluetibpal
+				Name: Tiberium Vinifera
+	TSVeinsRenderer:
+		ResourceType: Veins
+		Name: Veins
+		Palette: player
+		VeinholeActors: veinhole
 
 World:
 	Inherits: ^BaseWorld
@@ -340,7 +320,24 @@ World:
 	SmudgeLayer@LARGECRATER:
 		Type: LargeCrater
 		Sequence: largecraters
-	ResourceLayer:
+	TSResourceLayer:
+		VeinholeActors: veinhole
+		ResourceTypes:
+			Tiberium:
+				ResourceIndex: 1
+				TerrainType: Tiberium
+				AllowedTerrainTypes: Clear, Rough, DirtRoad
+				MaxDensity: 17
+			BlueTiberium:
+				ResourceIndex: 2
+				TerrainType: BlueTiberium
+				AllowedTerrainTypes: Clear, Rough, DirtRoad
+				MaxDensity: 17
+			Veins:
+				ResourceIndex: 3
+				TerrainType: Veins
+				AllowedTerrainTypes: Clear, Rough, DirtRoad
+				MaxDensity: 2
 	ResourceClaimLayer:
 	CustomTerrainDebugOverlay:
 	WarheadDebugOverlay:
@@ -561,7 +558,24 @@ EditorWorld:
 	Inherits: ^BaseWorld
 	EditorActorLayer:
 	EditorCursorLayer:
-	EditorResourceLayer:
+	TSEditorResourceLayer:
+		ResourceTypes:
+			Tiberium:
+				ResourceIndex: 1
+				TerrainType: Tiberium
+				AllowedTerrainTypes: Clear, Rough, DirtRoad
+				MaxDensity: 17
+			BlueTiberium:
+				ResourceIndex: 2
+				TerrainType: BlueTiberium
+				AllowedTerrainTypes: Clear, Rough, DirtRoad
+				MaxDensity: 17
+			Veins:
+				ResourceIndex: 3
+				TerrainType: Veins
+				AllowedTerrainTypes: Clear, Rough, DirtRoad
+				MaxDensity: 2
+		VeinholeActors: veinhole
 	EditorSelectionLayer:
 		Palette: placefootprint
 	LoadWidgetAtGameStart:

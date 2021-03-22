@@ -489,6 +489,11 @@
 		VoiceSet: SWVoice
 		Volume: 15
 
+^PlayerHandicaps:
+	HandicapFirepowerMultiplier:
+	HandicapDamageMultiplier:
+	HandicapProductionTimeMultiplier:
+
 ^FlatSelectionMode:
 	Selectable:
 		PriorityModifiers: Ctrl
@@ -1087,7 +1092,7 @@
 		BuildSounds: place2.aud
 	SequencePlaceBuildingPreview:
 		Sequence: place
-		SequencePalette: placebuilding
+		SequenceAlpha: 0.55
 		Palette: placefootprint
 	KillsSelf:
 		RemoveInstead: true
@@ -1101,6 +1106,7 @@
 	Inherits@3: ^SpriteActor
 	Inherits@4: ^InfantryShape
 	Inherits@5: ^5CellVision
+	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	ActorLostNotification:
 	SharedPassenger:
@@ -1516,6 +1522,7 @@
 ^Engineer:
 	Inherits@1: ^InfantryShape
 	Inherits@2: ^LowPrioritySelectionMode
+	Inherits@HANDICAPS: ^PlayerHandicaps
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1553,6 +1560,7 @@
 
 ^BasicVehicle:
 	Inherits@3: ^VehicleShape
+	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	Inherits@4: ^5CellVision
 	ActorLostNotification:
@@ -1859,6 +1867,7 @@
 	Inherits@3: ^ExistsInWorld
 	Inherits@4: ^VehicleShape
 	Inherits@5: ^10CellVision
+	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	DrawLineToTarget:
 	WithTextControlGroupDecoration:
@@ -1956,6 +1965,7 @@
 	Inherits@3: ^AutoTargetGroundAssaultMove
 	Inherits@4: ^1x1Shape
 	Inherits@5: ^6CellVision
+	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	DrawLineToTarget:
 	Health:
@@ -1995,6 +2005,7 @@
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
 	Inherits@3: ^SpawnFire
+	Inherits@HANDICAPS: ^PlayerHandicaps
 	Valued:
 		Cost: 1
 	Armor:
@@ -2009,9 +2020,9 @@
 		TerrainTypes: Clear, Road, DirtRoad, Rough
 		RequiresBaseProvider: true
 	ActorPreviewPlaceBuildingPreview:
+		PreviewAlpha: 0.55
 		Palette: placefootprint
-		LineBuildSegmentPalette: placelinesegment
-		OverridePalette: placebuilding
+		LineBuildFootprintAlpha: 0.5
 		FootprintUnderPreview: Valid, LineBuild, Invalid
 		FootprintOverPreview: None
 	FrozenUnderFog:
@@ -2531,6 +2542,7 @@
 ^Wall:
 	Inherits: ^1x1Shape
 	Inherits@1: ^SpriteActor
+	Inherits@HANDICAPS: ^PlayerHandicaps
 	CombatDebugOverlay:
 	FrozenUnderFog:
 	AppearsOnRadar:
@@ -2545,7 +2557,7 @@
 		TerrainTypes: Clear, Rough, Road, DirtRoad, Green, Sand, Pavement
 	FootprintPlaceBuildingPreview:
 		Palette: placefootprint
-		LineBuildSegmentPalette: placelinesegment
+		LineBuildFootprintAlpha: 0.5
 	SoundOnDamageTransition:
 		DamagedSounds: expnew01.aud
 		DestroyedSounds: crmble2.aud
@@ -2688,8 +2700,6 @@
 		DeathSequencePalette: playerscrin
 		CrushedSequencePalette: playerscrin
 		CrushedPaletteIsPlayerPalette: true
-	ActorPreviewPlaceBuildingPreview:
-		OverridePalette: placebuildingscrin
 
 ^MutRender:
 	Inherits: ^Cloakable
@@ -2704,8 +2714,6 @@
 		DeathSequencePalette: playermut
 		CrushedSequencePalette: playermut
 		CrushedPaletteIsPlayerPalette: true
-	ActorPreviewPlaceBuildingPreview:
-		OverridePalette: placebuildingmut
 
 ^CabRender:
 	Inherits: ^Cloakable
@@ -2720,8 +2728,6 @@
 		DeathSequencePalette: playercab
 		CrushedSequencePalette: playercab
 		CrushedPaletteIsPlayerPalette: true
-	ActorPreviewPlaceBuildingPreview:
-		OverridePalette: placebuildingcab
 
 ^BuildingCloak:
 	Cloak@CLOAKGENERATOR:
