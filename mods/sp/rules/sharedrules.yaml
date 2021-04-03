@@ -1105,13 +1105,12 @@ TRNSPORT:
 	Inherits@3: ^SpriteActor
 	Inherits@4: ^LowPrioritySelectionMode
 	Inherits@5: ^AircraftShadow
-	Inherits@PIPS: ^CargoPips
 	Valued:
 		Cost: 600
 	Tooltip:
 		Name: Carryall
 	Buildable:
-		Description: VTOL aircraft for transporting vehicles.\n\nSpecial:\n- Can transport one vehicle.\n- Works as an APC (vehicle moves into carryall)
+		Description: VTOL aircraft for transporting vehicles.\n\nSpecial:\n- Can transport one vehicle.
 		Queue: Air
 		BuildPaletteOrder: 2
 		Prerequisites: ~humanstuff, gadept
@@ -1145,15 +1144,9 @@ TRNSPORT:
 			scr: scrpod
 	Selectable:
 		Bounds: 46,48,0,-11
-	Cargo:
-		Types: Vehicle, Apc
-		MaxWeight: 3
-		UnloadVoice: Unload
-		PassengerFacing: 4
-		LoadedCondition: loaded
-		OwnerChangedAffectsPassengers: false
-	WithCargo:
-		DisplayTypes: Infantry, Vehicle, Apc
+	Carryall:
+		LocalOffset: 0,0,-1024
+		Voice: Move
 	GrantConditionOnFaction@Helicopter:
 		Factions: mut
 		Condition: MutRotor
@@ -1166,8 +1159,6 @@ TRNSPORT:
 	GrantConditionOnFaction@CabStyle:
 		Factions: cab
 		Condition: cabcontrail
-	WithCargoPipsDecoration:
-		PipCount: 1
 	SpawnActorOnDeath:
 		RequiresCondition: airborne
 		Actor: TRNSPORT.Husk
@@ -1393,7 +1384,6 @@ trnsport.nod:
 		UsePlayerColor: false
 		TrailLength: 8
 		ZOffset: 4100
-
 
 trnsport.mut:
 	Inherits: trnsport.scr
