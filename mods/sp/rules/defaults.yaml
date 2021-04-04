@@ -1688,8 +1688,12 @@
 	Hovers:
 	Mobile:
 		Locomotor: Hover
+	Carryable:
+		CarriedCondition: carried
+	Passenger:
+		CargoCondition: ascargo
 	LeavesTrails@water:
-		RequiresCondition: hoverunitonwater
+		RequiresCondition: hoverunitonwater && !carried && !ascargo
 		Image: hoverwind
 		Sequences: water
 		Palette: effect
@@ -1701,7 +1705,7 @@
 		SpawnAtLastPosition: false
 		StartDelay: -1
 	LeavesTrails@land:
-		RequiresCondition: !hoverunitonwater
+		RequiresCondition: !hoverunitonwater && !carried && !ascargo
 		Image: hoverwind
 		Sequences: non-water
 		Palette: effectalpha25
