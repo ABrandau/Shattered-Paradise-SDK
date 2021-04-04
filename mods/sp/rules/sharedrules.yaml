@@ -1125,12 +1125,7 @@ TRNSPORT:
 	Health:
 		HP: 12000
 	WithFacingSpriteBody:
-		RequiresCondition: !loaded
 		Name: Body
-	WithFacingSpriteBody@attack:
-		Sequence: idle2
-		RequiresCondition: loaded
-		Name: Body1
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
@@ -1166,83 +1161,43 @@ TRNSPORT:
 	WithIdleOverlay@1Air:
 		Offset: 500,0,650
 		Sequence: rotor
-		RequiresCondition: airborne && MutRotor && !loaded
+		RequiresCondition: airborne && MutRotor
 	WithIdleOverlay@2Ground:
 		Offset: 500,0,650
 		Sequence: slow-rotor
-		RequiresCondition: !airborne && MutRotor && !loaded
+		RequiresCondition: !airborne && MutRotor
 	WithIdleOverlay@3Air:
 		Offset: -700,0,900
 		Sequence: rotor
-		RequiresCondition: airborne && MutRotor && !loaded
+		RequiresCondition: airborne && MutRotor
 	WithIdleOverlay@4Ground:
 		Offset: -700,0,900
 		Sequence: slow-rotor
-		RequiresCondition: !airborne && MutRotor && !loaded
-	WithIdleOverlay@5Air:
-		Offset: 500,0,2150
-		Sequence: rotor
-		RequiresCondition: airborne && MutRotor && loaded
-	WithIdleOverlay@6Ground:
-		Offset: 500,0,2150
-		Sequence: slow-rotor
-		RequiresCondition: !airborne && MutRotor && loaded
-	WithIdleOverlay@7Air:
-		Offset: -700,0,2400
-		Sequence: rotor
-		RequiresCondition: airborne && MutRotor && loaded
-	WithIdleOverlay@8Ground:
-		Offset: -700,0,2400
-		Sequence: slow-rotor
-		RequiresCondition: !airborne && MutRotor && loaded
+		RequiresCondition: !airborne && MutRotor
 	#### GDI Orca ######
 	WithIdleOverlay@Wind1:
 		Image: orcawind
 		Sequence: idle
 		Offset: 500, 350, -500
-		RequiresCondition: airborne && GDIFan && !loaded
+		RequiresCondition: airborne && GDIFan
 		Palette: effect
 	WithIdleOverlay@Wind2:
 		Image: orcawind
 		Sequence: idle
 		Offset: 500, -350, -500
-		RequiresCondition: airborne && GDIFan && !loaded
+		RequiresCondition: airborne && GDIFan
 		Palette: effect
 	WithIdleOverlay@Wind3:
 		Image: orcawind
 		Sequence: idle
 		Offset: -550, 400, -500
-		RequiresCondition: airborne && GDIFan && !loaded
+		RequiresCondition: airborne && GDIFan
 		Palette: effect
 	WithIdleOverlay@Wind4:
 		Image: orcawind
 		Sequence: idle
 		Offset: -550, -400, -500
-		RequiresCondition: airborne && GDIFan && !loaded
-		Palette: effect
-	WithIdleOverlay@Wind1loaded:
-		Image: orcawind
-		Sequence: idle
-		Offset: 500, 350, 1000
-		RequiresCondition: airborne && GDIFan && loaded
-		Palette: effect
-	WithIdleOverlay@Wind2loaded:
-		Image: orcawind
-		Sequence: idle
-		Offset: 500, -350, 1000
-		RequiresCondition: airborne && GDIFan && loaded
-		Palette: effect
-	WithIdleOverlay@Wind3loaded:
-		Image: orcawind
-		Sequence: idle
-		Offset: -550, 400, 1000
-		RequiresCondition: airborne && GDIFan && loaded
-		Palette: effect
-	WithIdleOverlay@Wind4loaded:
-		Image: orcawind
-		Sequence: idle
-		Offset: -550, -400,1000
-		RequiresCondition: airborne && GDIFan && loaded
+		RequiresCondition: airborne && GDIFan
 		Palette: effect
 	##### Nod ship ####
 	Contrail@Nod1:
@@ -1294,18 +1249,10 @@ trnsport.scr
 	-WithIdleOverlay@2Ground:
 	-WithIdleOverlay@3Air:
 	-WithIdleOverlay@4Ground:
-	-WithIdleOverlay@5Air:
-	-WithIdleOverlay@6Ground:
-	-WithIdleOverlay@7Air:
-	-WithIdleOverlay@8Ground:
 	-WithIdleOverlay@Wind1:
 	-WithIdleOverlay@Wind2:
 	-WithIdleOverlay@Wind3:
 	-WithIdleOverlay@Wind4:
-	-WithIdleOverlay@Wind1loaded:
-	-WithIdleOverlay@Wind2loaded:
-	-WithIdleOverlay@Wind3loaded:
-	-WithIdleOverlay@Wind4loaded:
 	-Contrail@Nod1:
 	-Contrail@Nod2:
 	-Contrail@Cab1:
@@ -1322,49 +1269,26 @@ trnsport.gdi:
 		Image: orcawind
 		Sequence: idle
 		Offset: 500, 350, -500
-		RequiresCondition: airborne && !loaded
+		RequiresCondition: airborne
 		Palette: effect
 	WithIdleOverlay@Wind2:
 		Image: orcawind
 		Sequence: idle
 		Offset: 500, -350, -500
-		RequiresCondition: airborne && !loaded
+		RequiresCondition: airborne
 		Palette: effect
 	WithIdleOverlay@Wind3:
 		Image: orcawind
 		Sequence: idle
 		Offset: -550, 400, -500
-		RequiresCondition: airborne && !loaded
+		RequiresCondition: airborne
 		Palette: effect
 	WithIdleOverlay@Wind4:
 		Image: orcawind
 		Sequence: idle
 		Offset: -550, -400, -500
-		RequiresCondition: airborne && !loaded
+		RequiresCondition: airborne
 		Palette: effect
-	WithIdleOverlay@Wind1loaded:
-		Image: orcawind
-		Sequence: idle
-		Offset: 500, 350, 1000
-		RequiresCondition: airborne && loaded
-		Palette: effect
-	WithIdleOverlay@Wind2loaded:
-		Image: orcawind
-		Sequence: idle
-		Offset: 500, -350, 1000
-		RequiresCondition: airborne && loaded
-		Palette: effect
-	WithIdleOverlay@Wind3loaded:
-		Image: orcawind
-		Sequence: idle
-		Offset: -550, 400, 1000
-		RequiresCondition: airborne && loaded
-		Palette: effect
-	WithIdleOverlay@Wind4loaded:
-		Image: orcawind
-		Sequence: idle
-		Offset: -550, -400,1000
-		RequiresCondition: airborne && loaded
 
 trnsport.nod:
 	Inherits: trnsport.scr
@@ -1395,35 +1319,19 @@ trnsport.mut:
 	WithIdleOverlay@1Air:
 		Offset: 500,0,650
 		Sequence: rotor
-		RequiresCondition: airborne && !loaded
+		RequiresCondition: airborne
 	WithIdleOverlay@2Ground:
 		Offset: 500,0,650
 		Sequence: slow-rotor
-		RequiresCondition: !airborne && !loaded
+		RequiresCondition: !airborne
 	WithIdleOverlay@3Air:
 		Offset: -700,0,900
 		Sequence: rotor
-		RequiresCondition: airborne && !loaded
+		RequiresCondition: airborne
 	WithIdleOverlay@4Ground:
 		Offset: -700,0,900
 		Sequence: slow-rotor
-		RequiresCondition: !airborne && !loaded
-	WithIdleOverlay@5Air:
-		Offset: 500,0,2150
-		Sequence: rotor
-		RequiresCondition: airborne && loaded
-	WithIdleOverlay@6Ground:
-		Offset: 500,0,2150
-		Sequence: slow-rotor
-		RequiresCondition: !airborne && loaded
-	WithIdleOverlay@7Air:
-		Offset: -700,0,2400
-		Sequence: rotor
-		RequiresCondition: airborne && loaded
-	WithIdleOverlay@8Ground:
-		Offset: -700,0,2400
-		Sequence: slow-rotor
-		RequiresCondition: !airborne && loaded
+		RequiresCondition: !airborne
 
 trnsport.cab:
 	Inherits: trnsport.scr
