@@ -158,8 +158,9 @@ NUKECARRYALL_BOT:
 		Multiplier: 400
 	Health:
 		HP: 18000
-	Cargo:
-		InitialUnits: hvrtruk3
+	Carryall:
+		InitialActor: hvrtruk3
+		CarryCondition: loaded
 	Armament@AIunloadingDummyWeapon:
 		Weapon: AITransportAimingDummyWeapon
 		RequiresCondition: AImicroManage && loaded
@@ -193,8 +194,9 @@ SONICARRYALL_BOT:
 		Prerequisites: ~gahpad, gatech, ~AIOnly, ~!LoadedExists
 	ProductionCostMultiplier:
 		Multiplier: 200
-	Cargo:
-		InitialUnits: sonic
+	Carryall:
+		InitialActor: sonic
+		CarryCondition: loaded
 
 APCARRYALL_BOT:
 	Inherits: NUKECARRYALL_BOT
@@ -205,8 +207,9 @@ APCARRYALL_BOT:
 		Prerequisites: ~gahpad, gapile, ~AIOnly, ~!LoadedExists
 	ProductionCostMultiplier:
 		Multiplier: 180
-	Cargo:
-		InitialUnits: apc_bot
+	Carryall:
+		InitialActor: apc_bot
+		CarryCondition: loaded
 
 DRACHE_BOT:
 	Inherits: DRACHE
