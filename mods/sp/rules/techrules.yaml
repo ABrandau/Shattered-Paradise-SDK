@@ -468,6 +468,8 @@ LIMPED:
 		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
+	Carryable:
+		RequiresCondition: undeployed
 	-WithFacingSpriteBody:
 	Voiced:
 		VoiceSet: Limpet
@@ -545,6 +547,8 @@ LPST:
 		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
+	Carryable:
+		RequiresCondition: undeployed
 	Health:
 		HP: 25000
 	WithMakeAnimation:
@@ -564,8 +568,6 @@ LPST:
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
-	#Carryable:
-	#	RequiresCondition: undeployed
 	WithSpriteBody@deployed:
 		Sequence: deployed
 		Name: deployed
@@ -619,6 +621,8 @@ SGEN:
 		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
+	Carryable:
+		RequiresCondition: undeployed
 	Health:
 		HP: 25000
 	WithMakeAnimation:
@@ -638,8 +642,6 @@ SGEN:
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
-	#Carryable:
-	#	RequiresCondition: undeployed
 	WithSpriteBody@deployed:
 		Sequence: deployed
 		Name: deployed
