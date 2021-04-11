@@ -341,34 +341,36 @@ SpriteSequenceFormat: TilesetSpecificSpriteSequence
 ModelSequenceFormat: VoxelModelSequence
 
 GameSpeeds:
-	slower:
-		Name: Slower
-		Timestep: 50
-		OrderLatency: 5
-	default2
-		Name: Normal (OL = 3)
-		Timestep: 40
-		OrderLatency: 3
-	default:
-		Name: Normal (OL = 5)
-		Timestep: 40
-		OrderLatency: 5
-	default3:
-		Name: Normal (OL = 9)
-		Timestep: 40
-		OrderLatency: 9
-	faster:
-		Name: Faster
-		Timestep: 30
-		OrderLatency: 5
-	fastest:
-		Name: Fastest
-		Timestep: 20
-		OrderLatency: 6
-	simulationspeed:
-		Name: 20 times Fastest
-		Timestep: 1
-		OrderLatency: 10
+	DefaultSpeed: default
+	Speeds:
+		slower:
+			Name: Slower
+			Timestep: 50
+			OrderLatency: 5
+		default2
+			Name: Normal (OL = 3)
+			Timestep: 40
+			OrderLatency: 3
+		default:
+			Name: Normal (OL = 5)
+			Timestep: 40
+			OrderLatency: 5
+		default3:
+			Name: Normal (OL = 9)
+			Timestep: 40
+			OrderLatency: 9
+		faster:
+			Name: Faster
+			Timestep: 30
+			OrderLatency: 5
+		fastest:
+			Name: Fastest
+			Timestep: 20
+			OrderLatency: 6
+		simulationspeed:
+			Name: 20 times Fastest
+			Timestep: 1
+			OrderLatency: 10
 
 ColorValidator:
 	TeamColorPresets: f70606, ff7a22, f8d3b3, f8e947, b6f706, f335a0, a64d6c, ce08f9, f5b2db, 12b572, 380135, 1d06f7, 328dff, 78dbf8, cef6b1, 000000
