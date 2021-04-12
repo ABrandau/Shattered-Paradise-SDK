@@ -29,7 +29,7 @@ SMECH:
 	Voiced:
 		VoiceSet: Mech
 	Selectable:
-		Bounds: 20, 32, 0, -8
+		Bounds: 603, 1568, 0, -482
 	Armament:
 		Weapon: WolverineVulcan
 		PauseOnCondition: empdisable
@@ -93,7 +93,7 @@ MMCH:
 		RequiresCondition: !inside-tunnel
 	WithMuzzleOverlay:
 	Selectable:
-		Bounds: 30, 42, 0, -8
+		Bounds: 903, 2533, 0, -482
 
 APC:
 	Inherits: ^Tank
@@ -249,7 +249,7 @@ JUG:
 		PauseOnCondition: empdisable
 	WithMuzzleOverlay:
 	Selectable:
-		Bounds: 40, 60, 0, -20
+		Bounds: 1206, 3619, 0, -1206
 	BodyOrientation:
 		QuantizedFacings: 8
 		CameraPitch: 250
@@ -452,7 +452,7 @@ HMEC:
 	WithMoveAnimation:
 		MoveSequence: run
 	Selectable:
-		Bounds: 80, 67, 0, -25
+		Bounds: 2413, 4041, 0, -1508
 	SharedPassenger:
 		CustomPipType: red
 	Explodes:
@@ -483,8 +483,8 @@ NODMCV:
 		Voice: Move
 		PauseOnCondition: mindcontrolled || empdisable
 	Selectable:
-		Bounds: 70, 50, 0, -10
-		-DecorationBounds: 42,42
+		Bounds: 2111, 3016, 0, -603
+		-DecorationBounds:
 
 BGGY:
 	Inherits: ^Tank
@@ -1295,8 +1295,8 @@ MUTMCV:
 		VoiceSet: MutantMCV
 		Volume: 0.8
 	Selectable:
-		Bounds: 74, 60, 0, -15
-		-DecorationBounds: 42,42
+		Bounds: 2232, 3619, 0, -905
+		-DecorationBounds:
 
 MUTQUAD:
 	Inherits: ^TurretedTank
@@ -1581,7 +1581,7 @@ DEATHCLAW:
 		StartIfBelow: 100
 		DamageCooldown: 100
 	Selectable:
-		DecorationBounds: 30,50,0,-20
+		DecorationBounds: 903,3015,0,-1207
 	Voiced:
 		VoiceSet: LargeBeast
 		Volume: 1.5
@@ -1692,7 +1692,7 @@ SCRSCORPION:
 		Sequence: stand
 	WithInfantryBody:
 	Selectable:
-		Bounds: 50, 32, 0, -8
+		Bounds: 1508, 1568, 0, -482
 	SmokeParticleEmitter:
 		Palette: gradientgreen40
 	-DamagedByTintedCells@Default:
@@ -1921,7 +1921,7 @@ TRIPOD:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Selectable:
-		Bounds: 50,100, 0, -30
+		Bounds: 1508,6031, 0, -1809
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 29
@@ -2014,8 +2014,8 @@ CABMCV:
 		Voice: Move
 		PauseOnCondition: mindcontrolled || empdisable
 	Selectable:
-		Bounds: 74, 60, 0, -15
-		-DecorationBounds: 42,42
+		Bounds: 2232, 3619, 0, -905
+		-DecorationBounds:
 
 CENTURION:
 	Inherits: ^Walker
@@ -2094,7 +2094,7 @@ CENTURION:
 		PauseOnCondition: empdisable
 	AutoTarget:
 	Selectable:
-		Bounds: 45, 42, 0, -8
+		Bounds: 1357, 2533, 0, -482
 	SmokeParticleEmitter:
 		Offset: 0,0,1000
 
@@ -2115,7 +2115,7 @@ REAPERCAB:
 		Description: Fast raiding walker armed with cluster missiles and web launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Can ensnare infantry with webs\n- Can shoot over walls
 		Prerequisites: ~cabweap
 	Selectable:
-		Bounds: 40,40,0,-10
+		Bounds: 1206,2412,0,-603
 	Mobile:
 		TurnSpeed: 56
 		Speed: 105
@@ -2230,7 +2230,7 @@ ECM:
 	SelectionDecorations:
 	WithFacingSpriteBody:
 	Selectable:
-		DecorationBounds: 50, 50, 0, 0
+		DecorationBounds: 1508, 3015, 0, 0
 	-ChangesHealth@veinholedrain:
 	-ExternalCondition@veinholedrain:
 	-WithIdleOverlay@veinholedrain:
@@ -2292,7 +2292,7 @@ CABAPC:
 		CargoType: Apc
 	SelectionDecorations:
 	Selectable:
-		DecorationBounds: 75, 45 , 0, -6
+		DecorationBounds: 2262, 2714 , 0, -181
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2341,7 +2341,7 @@ SPIDERARTY:
 		PauseOnCondition: empdisable
 	AutoTarget:
 	Selectable:
-		Bounds: 60, 65, 0, -14
+		Bounds: 1810, 3920, 0, -844
 	Explodes:
 		Weapon: BigUnitExplode
 		EmptyWeapon: BigUnitExplode
@@ -2409,7 +2409,7 @@ PALADIN:
 	WithMuzzleOverlay:
 	AutoTarget:
 	Selectable:
-		Bounds: 40, 60, 0, -20
+		Bounds: 1206, 3619, 0, -1206
 	#Carryable:
 	#	LocalOffset: 0,0,1200
 	SmokeParticleEmitter:
