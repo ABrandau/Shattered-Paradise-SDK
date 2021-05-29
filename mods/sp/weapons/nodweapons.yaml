@@ -277,7 +277,6 @@ FlameHoloShrapnel:
 	Inherits: ^NoDamage
 	ReloadDelay: 300
 	Range: 2c0
-
 	Warhead@op: FireRadius
 		Weapon: FlameHologram
 		ImpactActors: false
@@ -311,6 +310,22 @@ FlameHologram:
 		Explosions: holosmoke1, holosmoke2, holosmoke3, holosmoke4
 		ExplosionPalette: cyanjascpal
 		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+
+PersonalCloakEffect:
+	Report: cloak5.aud
+	Warhead@4EffAir: CreateEffect
+		Explosions:  marnflash7 #holosmoke1, holosmoke2, holosmoke3, holosmoke4
+		ExplosionPalette: jascgraywhitetoalpha95 #cyanjascpal #MarnAlphaAlpha #
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Air
+		ImpactActors: false
+
+PersonalVehicleCloakEffect:
+	Report: cloak5.aud
+	Warhead@4EffAir: CreateEffect
+		Explosions:  marnflash6 #holosmoke1, holosmoke2, holosmoke3, holosmoke4
+		ExplosionPalette: jascgraywhitetoalpha95 #cyanjascpal #MarnAlphaAlpha #
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Air
+		ImpactActors: false
 
 SpectreCannon:
 	Inherits: ^ArtilleryWarhead

@@ -403,6 +403,7 @@ TEMPLAR:
 NCONF:
 	Inherits: ^Soldier
 	Inherits@1: ^6CellVision
+	Inherits@2: ^WithTriggerCloakEffect-Infantry
 	Inherits@GainsExperience: ^GainsExperience
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
@@ -430,11 +431,10 @@ NCONF:
 		Weapon: GBlackHandLasor
 		LocalOffset: 800,100,778
 		PauseOnCondition: WebDisable
-	Cloak@cloakgenerator:
+	-ExternalCondition@crate-cloak:
+	Cloak@cloakgenerator-self:
 		InitialDelay: 80
 		CloakDelay: 80
-		CloakSound: cloak5.aud
-		UncloakSound: cloak5.aud
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 	AttackFrontal:
@@ -466,6 +466,7 @@ BHS:
 	Inherits: ^Soldier
 	Inherits@1: ^10CellVision
 	Inherits@2: ^CommandoIcon
+	Inherits@3: ^WithTriggerCloakEffect-Infantry
 	Inherits@GainsExperience: ^GainsExperience
 	Buildable:
 		Queue: Infantry
@@ -506,11 +507,10 @@ BHS:
 	Demolition:
 		DetonationDelay: 45
 		Voice: Attack
-	Cloak@cloakgenerator:
+	-ExternalCondition@crate-cloak:
+	Cloak@cloakgenerator-self:
 		InitialDelay: 40
 		CloakDelay: 40
-		CloakSound: cloak5.aud
-		UncloakSound: cloak5.aud
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage, move
 	Passenger:

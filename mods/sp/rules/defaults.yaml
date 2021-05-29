@@ -2822,3 +2822,51 @@
 	OwnerLostAction:
 		Action: Kill
 	WithSpriteBody:
+
+##Mainly used for NOD personal cloakgenerator effect, pre-require ^Cloakable
+^WithTriggerCloakEffect: 
+	Cloak@cloakgenerator-self:
+		CloakedCondition: cloaking-self
+	##EnterCloakEffect, with cloak sound
+	ExplodeWeapon@EnterCloak:
+		RequiresCondition: cloaking-self && !cloakgenerator
+		Weapon: PersonalCloakEffect
+		ResetReloadWhenEnabled: true
+		AmmoPoolName: CloakSys
+	##ExitCloakEffect, with uncloak sound
+	ExplodeWeapon@ExitCloak:
+		RequiresCondition: !cloaking-self && !entercloak && !cloakgenerator
+		Weapon: PersonalCloakEffect
+		ResetReloadWhenEnabled: true
+	##CloakEffectControl
+	AmmoPool@EnterCloak:
+		Name: CloakSys
+		Armaments: CloakSys
+		AmmoCondition: entercloak ## HACK: use AmmoCondition to save 2 traits
+	ReloadAmmoPool@EnterCloak:
+		RequiresCondition: !cloaking-self
+		Delay: 2
+		AmmoPool: CloakSys
+	GrantCondition@DisableHeavyDamagedEffect:
+		Condition: DisableHeavyDamagedEffect
+		RequiresCondition: inside-tunnel || cloakgenerator || cloaking-self
+	##Remove crate-cloak on those unit
+	Cloak@CLOAKGENERATOR:
+		RequiresCondition: cloakgenerator
+
+^WithTriggerCloakEffect-Infantry:
+	Inherits: ^WithTriggerCloakEffect
+	ExplodeWeapon@EnterCloak:
+		LocalOffset: 0, 0, 400
+	ExplodeWeapon@ExitCloak:
+		LocalOffset: 0, 0, 400
+
+
+^WithTriggerCloakEffect-Vehicle:
+	Inherits: ^WithTriggerCloakEffect
+	ExplodeWeapon@EnterCloak:
+		Weapon: PersonalVehicleCloakEffect
+		LocalOffset: 0, 0, 300
+	ExplodeWeapon@ExitCloak:
+		Weapon: PersonalVehicleCloakEffect
+		LocalOffset: 0, 0, 300

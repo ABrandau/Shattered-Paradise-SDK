@@ -1153,6 +1153,7 @@ SUBTANK:
 HOWTLIZER:
 	Inherits: ^Tank
 	Inherits@1: ^5CellVision
+	Inherits@2: ^WithTriggerCloakEffect-Vehicle
 	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 1400
@@ -1172,17 +1173,13 @@ HOWTLIZER:
 		Speed: 70
 		TurnSpeed: 20
 		Locomotor: InfantryCrusherVehicle
-	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@crate-cloak:
-	Cloak@cloakgenerator:
+	Cloak@cloakgenerator-self:
 		InitialDelay: 170
 		CloakDelay: 170
-		CloakSound: cloak5.aud
-		UncloakSound: cloak5.aud
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 		RequiresCondition: !CloakBreaks && !empdisable
-		CloakedCondition: cloakgenerator
 	WithIdleOverlay@shield:
 		Sequence: shield
 		IsPlayerPalette: true
@@ -1208,6 +1205,7 @@ HOWTLIZER:
 STNK:
 	Inherits: ^TurretedTank
 	Inherits@1: ^9CellVision
+	Inherits@2: ^WithTriggerCloakEffect-Vehicle
 	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 1100
@@ -1234,15 +1232,13 @@ STNK:
 	GrantConditionOnDamageState@CloakBreaks:
 		Condition: CloakBreaks
 		ValidDamageStates: Critical
-	Cloak@cloakgenerator:
+	-ExternalCondition@crate-cloak:
+	Cloak@cloakgenerator-self:
 		InitialDelay: 80
 		CloakDelay: 80
-		CloakSound: cloak5.aud
-		UncloakSound: cloak5.aud
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 		RequiresCondition: !CloakBreaks && !empdisable
-		CloakedCondition: cloakgenerator
 	Armament:
 		Weapon: StealthRocket
 		LocalOffset: 400,125,300, 400,-125,300
