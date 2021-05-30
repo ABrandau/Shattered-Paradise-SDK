@@ -361,6 +361,7 @@ HMEC:
 	Inherits@1: ^8CellVision
 	Inherits@2: ^PermanentSelfHeal
 	Inherits@3: ^CommandoIcon
+	Inherits@4:^WithTriggerCloakEffect-Defence
 	Inherits@GainsExperience: ^GainsExperience
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
@@ -468,6 +469,7 @@ HMEC:
 
 NODMCV:
 	Inherits: MCV
+	Inherits@2: ^WithTriggerCloakEffect-Defence
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 110
@@ -1154,7 +1156,6 @@ SUBTANK:
 HOWTLIZER:
 	Inherits: ^Tank
 	Inherits@1: ^5CellVision
-	Inherits@2: ^WithTriggerCloakEffect-Vehicle
 	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 1400
@@ -1175,12 +1176,12 @@ HOWTLIZER:
 		TurnSpeed: 20
 		Locomotor: InfantryCrusherVehicle
 	-ExternalCondition@crate-cloak:
-	Cloak@cloakgenerator-self:
+	Cloak@CLOAKGENERATOR:
 		InitialDelay: 170
 		CloakDelay: 170
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
-		RequiresCondition: !CloakBreaks && !empdisable
+		RequiresCondition: cloakgenerator || ( !CloakBreaks && !empdisable )
 	WithIdleOverlay@shield:
 		Sequence: shield
 		IsPlayerPalette: true
@@ -1206,7 +1207,6 @@ HOWTLIZER:
 STNK:
 	Inherits: ^TurretedTank
 	Inherits@1: ^9CellVision
-	Inherits@2: ^WithTriggerCloakEffect-Vehicle
 	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 1100
@@ -1234,12 +1234,12 @@ STNK:
 		Condition: CloakBreaks
 		ValidDamageStates: Critical
 	-ExternalCondition@crate-cloak:
-	Cloak@cloakgenerator-self:
+	Cloak@CLOAKGENERATOR:
 		InitialDelay: 80
 		CloakDelay: 80
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
-		RequiresCondition: !CloakBreaks && !empdisable
+		RequiresCondition: cloakgenerator || ( !CloakBreaks && !empdisable )
 	Armament:
 		Weapon: StealthRocket
 		LocalOffset: 400,125,300, 400,-125,300
@@ -1275,6 +1275,7 @@ MUTMCV:
 	Inherits: MCV
 	Inherits@1: ^MutRender
 	Inherits@2: ^5CellVision
+	Inherits@3: ^WithTriggerCloakEffect-Defence
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
@@ -1999,6 +2000,7 @@ CABMCV:
 	Inherits@1: ^CabRender
 	Inherits@2: ^CabalVehicleVoice
 	Inherits@3: ^5CellVision
+	Inherits@4: ^WithTriggerCloakEffect-Defence
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 110

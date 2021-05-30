@@ -491,13 +491,11 @@ LIMPED:
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: deployed
-	Cloak@cloakgenerator:
+	Cloak@bury-self:
 		RequiresCondition: deployed && !empdisable
 		InitialDelay: 40
 		CloakDelay: 40
 		Palette: cloakcab
-		-CloakSound: cloak5.aud
-		-UncloakSound: cloak5.aud
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 	WithSpriteBody@UndeloyedBody:

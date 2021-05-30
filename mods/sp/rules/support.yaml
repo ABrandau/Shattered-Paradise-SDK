@@ -877,6 +877,7 @@ SCREXTRACTOR:
 	Inherits@3: ^ScrinDeathExplo
 	Inherits@4: ^DisableOnLowPowerOrPowerDown
 	Inherits@5: ^ScrinDefenceFire
+	Inherits@6: ^WithTriggerCloakEffect-Defence
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -1120,11 +1121,9 @@ MUMINE:
 		TargetTypes: Defence, Ground, MindControlImmune, Mine
 	BodyOrientation:
 		QuantizedFacings: 1
-	Cloak@cloakgenerator:
-		CloakSound:
+	Cloak@cloakgenerator-self:
 		InitialDelay: 50
 		CloakDelay: 50
-		UncloakSound:
 		Palette: cloakmut
 		IsPlayerPalette: true
 		UncloakOn: Attack, Demolish
