@@ -1803,6 +1803,7 @@ SCRRECHARGER:
 	Inherits@1: ^Walker
 	Inherits@2: ^5CellVision
 	Inherits: ^ScrinVehicle
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -1830,6 +1831,8 @@ SCRRECHARGER:
 	Armament:
 		Weapon: VanguardFollow
 		TargetRelationships: Ally
+		ForceTargetRelationships: None
+		RequiresCondition:!AImicroManage
 	ProximityExternalCondition@VanguardShield:
 		RequiresCondition: !empdisable
 		Condition: VanguardShield
