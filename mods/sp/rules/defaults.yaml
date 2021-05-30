@@ -1285,7 +1285,7 @@
 		DeathTypes:
 			TiberiumDeath: evaporate, melt, shatter, cristalize1, cristalize2
 	WithDeathAnimation@explosion:
-		DeathSequencePalette: gensmkexploj
+		DeathSequencePalette: gensmkexplojFred
 		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
 			SmallExplosionDeath: 4, 5, 7
@@ -1300,13 +1300,9 @@
 		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
 			BulletDeath: body1, body2, body3, body4, body5
-			CabalDeath: body1, body2, body3, body4, body5
-			CabalDeathCrate: body1, body2, body3, body4, body5
 			BlackHandRfle: body1, body2, body3, body4, body5
 			HeadshotDeath: body1, body2, body3, body4, body5
-			SmallExplosionDeath: body1, body2, body3, body4, body5
 			EnergyDeath: body1, body2, body3, body4, body5
-			ExplosionDeath: body1, body2, body3, body4, body5
 		Delay: 10
 	WithDeathAnimation@blood1:
 		DeathSequencePalette: gradientred
@@ -1320,7 +1316,8 @@
 			BlackHandRfle: blood1, blood2, blood3, blood4, blood5, blood6
 			HeadshotDeath: blood1, blood2, blood3, blood4, blood5, blood6
 			SmallExplosionDeath: blood1, blood2, blood3, blood4, blood5, blood6
-		Delay: 10
+			ExplosionDeath: blood1, blood2, blood3, blood4, blood5, blood6
+		Delay: 12
 	WithTextControlGroupDecoration:
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
@@ -1378,8 +1375,11 @@
 			BlackHandRfle: 1, 2
 			HeadshotDeath: 1 ,2
 			FireDeath: 1 ,2
-			ExplosionDeath: 1, 2
-			SmallExplosionDeath: 1, 2
+	WithDeathAnimation@explosion:
+		DeathSequencePalette: gensmkexplogreen
+	WithDeathAnimation@blood1:
+		DeathSequencePalette: jasccyan
+		CrushedSequencePalette: jasccyan
 	Mobile:
 		Locomotor: Vehicle
 		-PauseOnCondition:
@@ -1424,6 +1424,8 @@
 	Voiced:
 		VoiceSet: Desintegrator
 		Volume: 2
+	WithDeathAnimation@explosion:
+		DeathSequencePalette: gensmkexplojFblue
 	WithDeathAnimation@blood1:
 		DeathSequencePalette: gradientblue
 		CrushedSequencePalette: gradientblue
@@ -1439,13 +1441,9 @@
 		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
 			BulletDeath: body1, body2
-			CabalDeath: body1, body2
-			CabalDeathCrate: body1, body2
 			BlackHandRfle: body1, body2
 			HeadshotDeath: body1, body2
-			SmallExplosionDeath: body1, body2
 			EnergyDeath: body1, body2
-			ExplosionDeath: body1, body2
 
 ^Cyborg:
 	Inherits@1: ^Infantry
