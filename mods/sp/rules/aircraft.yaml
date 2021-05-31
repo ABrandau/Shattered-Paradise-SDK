@@ -194,6 +194,7 @@ ORCATRAN:
 	Inherits: ^Helicopter
 	Inherits@1: ^6CellVision
 	Inherits@PIPS: ^CargoPips
+	Inherits@2:^WithTriggerCloakEffect-Building
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -1446,6 +1447,7 @@ DEVOURER:
 	Inherits@5:^WithTriggerCloakEffect-Building
 	Inherits@Shadow: ^AircraftShadow
 	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -1485,7 +1487,7 @@ DEVOURER:
 		Voice: Attack
 		FacingTolerance: 512
 	AutoTarget:
-		ScanRadius: 5
+		ScanRadius: 6
 	RenderSprites:
 	WithFacingSpriteBody:
 		RequiresCondition: !Attacking
@@ -1502,3 +1504,8 @@ DEVOURER:
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel
+	GrantConditionOnActivity@AI:
+		Condition: AIattack
+	RejectsOrders@AI:
+		Reject: Move, Attack, ReturnToBase
+		RequiresCondition: AImicroManage && AIattack
