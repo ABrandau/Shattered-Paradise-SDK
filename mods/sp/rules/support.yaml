@@ -725,6 +725,11 @@ NASTLH:
 		DisableSound: cloak5.aud
 		AffectsParent: false
 		RequiresCondition: !disabled && !Building-Buildup && !empdisable
+	WithIdleOverlay@cloakgeneratoreff:
+		Sequence: cloakgeneratorwaveBig
+		RequiresCondition: !disabled && !Building-Buildup && !empdisable
+		Image: explosion
+		Palette: effectalpha10
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 	-ExternalCondition@crate-cloak:

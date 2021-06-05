@@ -650,7 +650,7 @@ SGEN:
 		Scale: 11.5
 	ProximityExternalCondition:
 		Condition: cloakgenerator
-		RequiresCondition: deployed
+		RequiresCondition: deployed && !empdisable
 		Range: 3c0
 		EnableSound: cloak5.aud
 		DisableSound: cloak5.aud
@@ -661,7 +661,17 @@ SGEN:
 		Color: 00FF7FCC
 		BorderWidth: 0
 		Width: 2
-		RequiresCondition: deployed
+		RequiresCondition: deployed && !empdisable
+	SmokeParticleEmitter@cloakgeneratoreff:
+		RequiresCondition:  deployed && !empdisable
+		Sequences: cloakgeneratorwave
+		SpawnFrequency: 40
+		Speed: 0
+		Gravity: 0
+		Offset: 0,0,0
+		Image: explosion
+		Palette: effectalpha10
+		Duration: 18
 	ExternalCondition@RefineryLock:
 		Condition: RefineryLock
 	### AI Control

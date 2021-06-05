@@ -409,7 +409,7 @@ CERBERUS:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: High tech frigate armed with a mobile stealth generator.\n\nGood vs: Ground Targets\n\nSpecial:\n- Cloaks friendly units next to it
+		Description: High tech frigate armed with a mobile stealth generator.\n\nGood vs: Ground Targets\n\nSpecial:\n- Cloaks friendly units next to it \n- Stealth generator can't be used with weapon at the same time
 		Queue: Air
 		BuildPaletteOrder: 5
 		Prerequisites: ~nahpad, natech
@@ -427,9 +427,11 @@ CERBERUS:
 	Armament@sweep1:
 		Weapon: CerberusSublazor1
 		LocalOffset: 1400, 225, 0
+		ReloadingCondition: reloading
 	Armament@sweep2:
 		Weapon: CerberusSublazor2
 		LocalOffset: 1400, -225, 0
+		ReloadingCondition: reloading
 	AmbientSound:
 		SoundFiles: NUBeamC_wea1Loopa.wav, NUBeamC_wea1Loopb.wav, NUBeamC_wea1Loopc.wav, NUBeamC_wea1Loopd.wav, NUBeamC_wea1Loope.wav
 		Interval: 2
@@ -455,24 +457,37 @@ CERBERUS:
 	-ExternalCondition@CLOAKGENERATOR:
 	-ExternalCondition@crate-cloak:
 	-GrantCondition@DisableHeavyDamagedEffect:
-	WithRangeCircle:
+	RenderSprites:
+		PlayerPalette: playertemperate
+	SpawnActorOnDeath:
+		Actor: CERBERUS.Husk
+		RequiresCondition: airborne
+	ReloadArmamentsBar:
+	WithRangeCircle@cloakgenerator:
 		Range: 4c0
 		Type: cloakgenerator
 		RenderOnGround: true
 		Color: 00FF7FCC
 		BorderWidth: 0
 		Width: 2
-	RenderSprites:
-		PlayerPalette: playertemperate
-	SpawnActorOnDeath:
-		Actor: CERBERUS.Husk
-		RequiresCondition: airborne
-	ProximityExternalCondition:
+		RequiresCondition: !Attacking && !reloading
+	ProximityExternalCondition@cloakgenerator:
 		Condition: cloakgenerator
 		Range: 5c0
 		EnableSound: cloak5.aud
 		DisableSound: cloak5.aud
 		AffectsParent: false
+		RequiresCondition: !Attacking && !reloading
+	SmokeParticleEmitter@cloakgeneratoreff:
+		RequiresCondition:  !Attacking && !reloading
+		Sequences: cloakgeneratorwave
+		SpawnFrequency: 40
+		Speed: 0
+		Gravity: 0
+		Offset: 0,0,0
+		Image: explosion
+		Palette: effectalpha10
+		Duration: 18
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel
