@@ -870,7 +870,7 @@
 		RequiresCondition: HeavyDamaged && !DisableHeavyDamagedEffect
 		Image: Explosion
 		Sequence: fire1
-		Palette: effectalpha75
+		Palette: effect
 
 ^DamagedByTintedCells: #Damage = DamageCoeff * RadioactivityLevel / MaxLevel
 	DamagedByTintedCells@Default:
@@ -2112,10 +2112,6 @@
 		Weapon: BuildingFireBigParticleSpawner
 		EmptyWeapon: BuildingFireBigParticleSpawner
 		Type: Footprint
-	Explodes@BuildingSmokeSpawner:
-		Weapon: BuildingSmokeSpawner
-		EmptyWeapon: BuildingSmokeSpawner
-		Type: Footprint
 	Explodes:
 		Weapon: BuildingExplode
 		EmptyWeapon: BuildingExplode
@@ -2749,13 +2745,12 @@
 ^ScrinBuildingFire:
 	Inherits: ^SpawnFire
 	WithIdleOverlay@SpawnFire:
-		Palette: gensmkexplojFblue
+		Sequence: scrinfire1
 
 ^ScrinDefenceFire:
 	Inherits: ^ScrinBuildingFire
 	WithIdleOverlay@SpawnFire:
-		Sequence: fire2
-		Palette: gensmkexplojFblue
+		Sequence: scrinfire2
 
 ^ScrinAircratVoice:
 	Voiced:

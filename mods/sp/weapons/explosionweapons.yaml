@@ -56,6 +56,8 @@ ScrinBuildingExplode:
 	Inherits: BuildingExplode
 	Warhead@4EffAir: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
 
 CyborgExplode:
 	Inherits: ^ExploDefaults
@@ -71,6 +73,8 @@ StormriderExplode:
 		InvalidTargets: Air
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
 
 SmallPlaneExplode:
 	Inherits: ^ExploDefaults
@@ -123,6 +127,8 @@ DestroyerExplosion:
 	Inherits: BigAircraftExplosion
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
 
 BattleshipExplode:
 	Inherits: ^ExploDefaults
@@ -139,6 +145,8 @@ BattleshipExplode:
 		ValidTargets: Ground, Air, Water
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
 
 BattleshipExplosion:
 	Inherits: ^ExploDefaults
@@ -147,6 +155,8 @@ BattleshipExplosion:
 	Projectile: InstantHit
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
 
 DracheExplode:
 	Inherits: BattleshipExplosion
@@ -183,6 +193,8 @@ SmalLScrinAircraftShrapnel:
 	Inherits: SmalLAircraftShrapnel
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
 
 BigAircraftShrapnel:
 	Inherits: ^ExploDefaults
@@ -197,6 +209,8 @@ BigScrinAircraftShrapnel:
 	Inherits: BigAircraftShrapnel
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
 
 UnitExplodeSmall:
 	Inherits@2: ^Small_Brnl
@@ -206,10 +220,10 @@ UnitExplodeSmall:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
-		Duration: 25, 600
+		Duration: 100, 200
 		Image: explosion
-		Sequences: fire1
-		Palette: effectalpha25
+		Sequences: fire3
+		Palette: effect
 		Weapon: DummyWeapon
 
 QueenExplode:
@@ -245,10 +259,10 @@ UnitExplode:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
-		Duration: 25, 600
+		Duration: 100, 200
 		Image: explosion
-		Sequences: fire4
-		Palette: effectalpha25
+		Sequences: fire2
+		Palette: effect
 		Weapon: DummyWeapon
 
 BigUnitExplode:
@@ -260,10 +274,10 @@ BigUnitExplode:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
-		Duration: 25, 600
+		Duration: 100, 200
 		Image: explosion
-		Sequences: fire4
-		Palette: effectalpha25
+		Sequences: fire1
+		Palette: effect
 		Weapon: DummyWeapon
 
 ScrinUnitExplode:
@@ -277,11 +291,13 @@ ScrinUnitExplode:
 		ImpactSounds: expnew09.aud
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
-		Duration: 25, 600
+		Duration: 100, 200
 		Image: explosion
-		Sequences: fire4
-		Palette: effectalpha25
+		Sequences: scrinfire2
+		Palette: effect
 		Weapon: DummyWeapon
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
 
 ScrinUnitExplode2:
 	Inherits: ^ExploDefaults
@@ -294,11 +310,13 @@ ScrinUnitExplode2:
 		ImpactSounds: expnew09.aud
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
-		Duration: 25, 600
+		Duration: 100, 200
 		Image: explosion
-		Sequences: fire2
-		Palette: effectalpha25
+		Sequences: scrinfire2
+		Palette: effect
 		Weapon: DummyWeapon
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
 
 ScrinUnitExplode3:
 	Inherits: ^ExploDefaults
@@ -309,6 +327,8 @@ ScrinUnitExplode3:
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
 		ImpactSounds: expnew09.aud
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
 
 ScrinUnitExplode4:
 	Inherits: ^ExploDefaults
@@ -319,6 +339,8 @@ ScrinUnitExplode4:
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
 		ImpactSounds: expnew09.aud
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
 
 TiberiumExplosion:
 	Warhead@1Dam: SpreadDamage
@@ -474,6 +496,11 @@ SmallDebris:
 		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 		Shadow: true
 
+SmallDebrisScrin:
+	Inherits: SmallDebris
+	Warhead@2: SpawnSmokeParticle
+		Sequences: scrinfire3, scrinfire4
+
 LargeDebris:
 	Inherits@1: ^Large_Clsn
 	Inherits@2: ^FlameScorch
@@ -548,11 +575,6 @@ BuildingFireSmallParticleSpawner:
 	Warhead@5Actor: SpawnActor
 		Actors: SmallFireSpawnerDummy
 
-BuildingSmokeSpawner:
-	Inherits: BuildingFireBigParticleSpawner
-	Warhead@5Actor: SpawnActor
-		Actors: SmokeSpawnerDummy
-
 ScrinBuildingFireBigParticleSpawner:
 	Inherits: BuildingFireBigParticleSpawner
 	Warhead@5Actor: SpawnActor
@@ -579,14 +601,6 @@ BuildingFireSmallShrapnel:
 		ImpactActors: false
 		Amount: 3
 
-BuildingSmokeShrapnel:
-	Inherits: BuildingFireBigShrapnel
-	ReloadDelay: 5
-	Warhead@op: FireRadius
-		Weapon: BuildingSmoke
-		ImpactActors: false
-		Amount: 3
-
 ScrinBuildingFireBigShrapnel:
 	Inherits: BuildingFireBigShrapnel
 	Warhead@op: FireRadius
@@ -606,10 +620,10 @@ BuildingFireBig:
 		InaccuracyType: PerCellIncrement
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
-		Duration: 75, 600
+		Duration: 50, 200
 		Image: explosion
 		Sequences: fire1, fire2
-		Palette: effectalpha50
+		Palette: effect
 
 BuildingFireSmall:
 	Inherits: BuildingFireBig
@@ -619,25 +633,17 @@ BuildingFireSmall:
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
 		Sequences: fire3, fire4
-		Duration: 75, 300
-
-BuildingSmoke:
-	Range: 1c0
-	Warhead@2: SpawnSmokeParticle
-		ImpactActors: false
-		Sequences: wrecksmoke, wrecksmoke2, wrecksmoke3
-		Duration: 250, 900
-		Image: explosion
+		Duration: 250, 300
 
 ScrinBuildingFireBig:
 	Inherits: BuildingFireBig
 	Warhead@2: SpawnSmokeParticle
-		Palette: gensmkexplojFblue #apolbluealpha 
+		Sequences: scrinfire1, scrinfire2
 
 ScrinBuildingFireSmall:
 	Inherits: BuildingFireSmall
 	Warhead@2: SpawnSmokeParticle
-		Palette: gensmkexplojFblue
+		Sequences: scrinfire3, scrinfire4
 
 VisceroidExplode:
 	Warhead@2Eff: CreateEffect
@@ -667,8 +673,7 @@ PowerlineExplosion:
 		InvalidTargets: Vehicle, Building, Wall, Air, Water
 
 DefenderExplosion:
-	Inherits: ^ExploDefaults
-	Inherits@2: ^Large_twlt
+	Inherits: BuildingExplode
 	Warhead@5: CreateEffect
 		Image: coredefender
 		Explosions: dead_explosion

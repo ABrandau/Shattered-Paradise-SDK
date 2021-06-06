@@ -15,18 +15,18 @@
 
 ^ShortFireEffect:
 	Warhead@smoke: CreateEffect
-		Explosions: fire1, fire2, fire3, fire4
-		ExplosionPalette: effectalpha25
+		Explosions: fire1, fire2
+		ExplosionPalette: effect
 		ValidTargets: Ground
 		ImpactActors: false
 
 ^SpawnsFire:
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
-		Duration: 25, 600
+		Duration: 100, 200
 		Image: explosion
-		Sequences: fire1, fire2
-		Palette: effectalpha25
+		Sequences: fire3, fire4
+		Palette: effect
 		Weapon: DummyWeapon
 
 ^MarnFlash5:
@@ -316,7 +316,7 @@
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@3Eff: CreateEffect
 		Explosions: fire1, fire2
-		ExplosionPalette: FlameEffectPal
+		ExplosionPalette: effect
 		InvalidTargets: Water, Air
 		ImpactActors: false
 
@@ -432,7 +432,7 @@
 		Amount: 2
 	Warhead@6Eff: CreateEffect
 		Explosions: fire1, fire2, fire3
-		ExplosionPalette: FlameEffectPal
+		ExplosionPalette: effect
 
 ^GreenPlasmaExplosion:
 	Warhead@2Eff: CreateEffect
