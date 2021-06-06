@@ -431,7 +431,7 @@ NCONF:
 		LocalOffset: 800,100,778
 		PauseOnCondition: WebDisable
 	-ExternalCondition@crate-cloak:
-	Cloak@CLOAKGENERATOR:
+	CloakSP@CLOAKGENERATOR:
 		InitialDelay: 80
 		CloakDelay: 80
 		IsPlayerPalette: true
@@ -506,12 +506,17 @@ BHS:
 	Demolition:
 		DetonationDelay: 45
 		Voice: Attack
-	Cloak@old-cloakgenerator:
+	CloakSP@CLOAKGENERATOR:
+		CloakedCondition: bettercloak
+	CloakSP@personalskill:
+		RequiresCondition: !bettercloak
 		InitialDelay: 40
 		CloakDelay: 40
-		CloakedCondition: cloaking-self ##Enable NOD style enter/exit cloak
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage, move
+		EffectImage: explosion
+		EffectPalette: gradientgreen
+		EnterEffectSequence: infgas
 	Passenger:
 		CustomPipType: red
 	SharedPassenger:
@@ -743,7 +748,7 @@ CUTMAN:
 	-AttackMove:
 	RenderSprites:
 		PlayerPalette: playerunittemgreen
-	Cloak@CLOAKGENERATOR:
+	CloakSP@CLOAKGENERATOR:
 		Palette: cloakplayerunittemgreen
 		IsPlayerPalette: true
 	ExternalCondition@CLOAKGENERATOR:
@@ -1571,13 +1576,16 @@ MOTH:
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
-	Cloak@bury-self:
+	CloakSP@bury-self:
 		RequiresCondition: deployed
 		InitialDelay: 40
 		CloakDelay: 40
 		Palette: cloakcab
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
+		EffectImage: dig
+		EffectPalette: effect
+		EnterEffectSequence: smallidle
 	WithMakeAnimation:
 		BodyNames: deployed
 	WithFacingSpriteBody@UndeloyedBody:

@@ -730,7 +730,7 @@ NASTLH:
 		RequiresCondition: !disabled && !Building-Buildup && !empdisable
 		Image: explosion
 		Palette: effectalpha10
-	-Cloak@CLOAKGENERATOR:
+	-CloakSP@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 	-ExternalCondition@crate-cloak:
 	-GrantCondition@DisableHeavyDamagedEffect:
@@ -1126,12 +1126,12 @@ MUMINE:
 		TargetTypes: Defence, Ground, MindControlImmune, Mine
 	BodyOrientation:
 		QuantizedFacings: 1
-	Cloak@cloakgenerator-self:
+	CloakSP@cloakgenerator-self:
 		InitialDelay: 50
 		CloakDelay: 50
 		Palette: cloakmut
 		IsPlayerPalette: true
-		UncloakOn: Attack, Demolish
+		UncloakOn: None
 	Mine:
 		CrushClasses: crate
 		DetonateClasses: crate

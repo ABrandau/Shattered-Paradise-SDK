@@ -504,13 +504,12 @@
 		PriorityModifiers: Ctrl, Alt
 
 ^Cloakable: ##Mainly used for NOD cloak field effect
-	Cloak@CLOAKGENERATOR:
+	CloakSP@CLOAKGENERATOR:
 		RequiresCondition: cloakgenerator || crate-cloak
 		InitialDelay: 75
 		CloakDelay: 150
 		IsPlayerPalette: true
 		UncloakOn: Attack, Infiltrate, Demolish
-		CloakedCondition: cloaking-self
 	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
 	ExternalCondition@crate-cloak:
@@ -518,63 +517,39 @@
 
 ##Mainly used for NOD cloak field effect, pre-require ^Cloakable
 ^WithTriggerCloakEffect: 
-	##EnterCloakEffect, with cloak sound
-	ExplodeWeapon@EnterCloak:
-		RequiresCondition: cloaking-self
-		Weapon: PersonalCloakEffect
-		ResetReloadWhenEnabled: true
-		AmmoPoolName: CloakSys
-	##ExitCloakEffect, with uncloak sound
-	ExplodeWeapon@ExitCloak:
-		RequiresCondition: !cloaking-self && !entercloak
-		Weapon: PersonalCloakEffect
-		ResetReloadWhenEnabled: true
-	##CloakEffectControl
-	Cloak@CLOAKGENERATOR:
-		CloakedCondition: cloaking-self
-	AmmoPool@EnterCloak:
-		Name: CloakSys
-		Armaments: CloakSys
-		AmmoCondition: entercloak ## HACK: use AmmoCondition to save 2 traits
-	ReloadAmmoPool@EnterCloak:
-		RequiresCondition: !cloaking-self
-		Delay: 2
-		AmmoPool: CloakSys
+	CloakSP@CLOAKGENERATOR:
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		EffectImage: explosion
+		EffectPalette: MarnAlpha30
 
 ^WithTriggerCloakEffect-Infantry:
 	Inherits: ^WithTriggerCloakEffect
-	ExplodeWeapon@EnterCloak:
-		LocalOffset: 0, 0, 400
-	ExplodeWeapon@ExitCloak:
-		LocalOffset: 0, 0, 400
-
+	CloakSP@CLOAKGENERATOR:
+		EnterEffectSequence: marnflash7
+		ExitEffectSequence: marnflash7
+		EffectOffset: 0, 0, 400
 
 ^WithTriggerCloakEffect-Vehicle:
 	Inherits: ^WithTriggerCloakEffect
-	ExplodeWeapon@EnterCloak:
-		Weapon: PersonalVehicleCloakEffect
-		LocalOffset: 0, 0, 300
-	ExplodeWeapon@ExitCloak:
-		Weapon: PersonalVehicleCloakEffect
-		LocalOffset: 0, 0, 300
+	CloakSP@CLOAKGENERATOR:
+		EnterEffectSequence: marnflash3
+		ExitEffectSequence: marnflash3
+		EffectOffset: 0, 0, 300
 
 ^WithTriggerCloakEffect-Building:
 	Inherits: ^WithTriggerCloakEffect
-	ExplodeWeapon@EnterCloak:
-		Weapon: BuildingCloakEffect
-		LocalOffset: 0, 0, 300
-	ExplodeWeapon@ExitCloak:
-		Weapon: BuildingCloakEffect
-		LocalOffset: 0, 0, 300
+	CloakSP@CLOAKGENERATOR:
+		EnterEffectSequence: marnflash2
+		ExitEffectSequence: marnflash2
+		EffectOffset: 0, 0, 300
 
 ^WithTriggerCloakEffect-Defence:
 	Inherits: ^WithTriggerCloakEffect
-	ExplodeWeapon@EnterCloak:
-		Weapon: DefenceCloakEffect
-		LocalOffset: 0, 0, 300
-	ExplodeWeapon@ExitCloak:
-		Weapon: DefenceCloakEffect
-		LocalOffset: 0, 0, 300
+	CloakSP@CLOAKGENERATOR:
+		EnterEffectSequence: marnflash6
+		ExitEffectSequence: marnflash6
+		EffectOffset: 0, 0, 300
 
 
 ^IncompleteSelfHeal:
@@ -1857,7 +1832,7 @@
 		RequiresCondition: veinholedrain && !submerged
 	WithIdleOverlay@veinholedrain:
 		RequiresCondition: veinholedrain && !submerged
-	Cloak@subterranean:
+	CloakSP@subterranean:
 		RequiresCondition: submerged
 		InitialDelay: 25
 		CloakDelay: 25
@@ -2749,7 +2724,7 @@
 		IconPalette: chromescrin
 	RenderSprites:
 		PlayerPalette: playerscrin
-	Cloak@CLOAKGENERATOR:
+	CloakSP@CLOAKGENERATOR:
 		Palette: cloakscrin
 	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
@@ -2759,7 +2734,7 @@
 	Inherits: ^Cloakable
 	RenderSprites:
 		PlayerPalette: playermut
-	Cloak@CLOAKGENERATOR:
+	CloakSP@CLOAKGENERATOR:
 		Palette: cloakmut
 		IsPlayerPalette: true
 	ExternalCondition@CLOAKGENERATOR:
@@ -2769,7 +2744,7 @@
 	Inherits: ^Cloakable
 	RenderSprites:
 		PlayerPalette: playercab
-	Cloak@CLOAKGENERATOR:
+	CloakSP@CLOAKGENERATOR:
 		Palette: cloakcab
 		IsPlayerPalette: true
 	ExternalCondition@CLOAKGENERATOR:
@@ -2777,7 +2752,7 @@
 
 
 ^BuildingCloak:
-	Cloak@CLOAKGENERATOR:
+	CloakSP@CLOAKGENERATOR:
 		RequiresCondition: cloakgenerator
 	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator

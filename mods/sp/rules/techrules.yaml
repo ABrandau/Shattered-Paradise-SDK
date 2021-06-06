@@ -491,13 +491,16 @@ LIMPED:
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: deployed
-	Cloak@bury-self:
+	CloakSP@bury-self:
 		RequiresCondition: deployed && !empdisable
 		InitialDelay: 40
 		CloakDelay: 40
 		Palette: cloakcab
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
+		EffectImage: dig
+		EffectPalette: effect
+		EnterEffectSequence: smallidle
 	WithSpriteBody@UndeloyedBody:
 		Sequence: idle
 		RequiresCondition: undeployed && !inside-tunnel
