@@ -48,10 +48,10 @@ LegioNeedler:
 		Damage: 3000
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building
 		InvalidTargets: Air, Shark
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 	Warhead@2Shark: SpreadDamage
 		Damage: 3000
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 		InvalidTargets: Building, Vehicle, Air
 		ValidRelationships: Enemy, Neutral
 		ValidTargets: Shark
@@ -160,7 +160,7 @@ FloatGlaive:
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
 		ValidTargets: Ground, Water
-		DamageTypes: SmallExplosionDeath, ScrinEssenceKill
+		DamageTypes: ExplosionDeath, ScrinEssenceKill
 	Warhead@op: FireShrapnel
 		Weapon: FloatGlaive2
 		ImpactActors: false
@@ -365,6 +365,8 @@ TripodBlast2:
 		ExplosionPalette: jascbluealpha
 		ValidTargets: Infantry, Vehicle, LandedAircraft, Building, Wall, Ground, Water
 		ImpactActors: false
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: Prone60Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill 
 
 StormRiderBlast:
 	Inherits: ^FullDamage
@@ -534,7 +536,7 @@ BattleshipCannon:
 	Warhead@1Dam: SpreadDamage
 		Damage: 4500
 		ValidTargets: Ground, Water, Infantry, Vehicle, water
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 
 BattleshipPlasma:
 	Inherits: ^FullDamage
@@ -597,7 +599,7 @@ DestroyerCannon:
 	Warhead@1Dam: SpreadDamage
 		Spread: 400
 		Damage: 17000
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinpulse2
 		ExplosionPalette: effectalpha50
@@ -747,7 +749,7 @@ TractorBeam:
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		ValidTargets: Air
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@TractorStop: GrantExternalCondition
 		Range: 0c512
 		Duration: 10
@@ -785,7 +787,7 @@ DronePlane:
 			AircraftArmor: 100
 			ConcreteArmor: 15
 		ValidTargets: Ground, Water, Air
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 	Warhead@2Eff: CreateEffect
 		Explosions: viscexplo
 		ExplosionPalette: effect
