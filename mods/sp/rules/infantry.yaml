@@ -692,7 +692,6 @@ MUTFIEND:
 		Armaments: OnFoot
 		FacingTolerance: 2
 	-TakeCover:
-	-WithDeathAnimation@body:
 	-WithDeathAnimation@tib:
 	-SpawnActorOnDeath@FLAMEGUY:
 	SpawnActorOnDeath@conversion:
@@ -701,21 +700,12 @@ MUTFIEND:
 		DeathTypes:
 			TiberiumDeath: 1, 2
 			EnergyDeath: 1, 2
-			FireDeath: 1, 2
+			FireDeath: fire
 	WithInfantryBody:
 		IdleSequences: idle1
-	WithDeathAnimation@explosion:
-		DeathSequencePalette: gensmkexplogreen
-	WithDeathAnimation@blood1:
-		DeathSequencePalette: jasccyan
-		CrushedSequencePalette: jasccyan
 	WithDeathAnimation@body:
-		Delay: 15
-		DeathSequencePalette: player
-		DeathTypes:
-			BulletDeath: body1
-			CabalDeath: body1
-			EnergyDeath: body1
+		DeathSequencePalette: gradientred
+		CrushedSequencePalette: gradientred
 
 CUTMAN:
 	Inherits@1: ENGINEER
@@ -1185,7 +1175,7 @@ COLOSSI:
 		RequiresCondition: deployed && !WebDisable
 	WithIdleOverlay@deploy:
 		Sequence: colossideploy
-		Palette: gradientblue40
+		Palette: scrinenergystuffs
 		RequiresCondition: deployed && !WebDisable
 	AmbientSound:
 		SoundFiles: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav

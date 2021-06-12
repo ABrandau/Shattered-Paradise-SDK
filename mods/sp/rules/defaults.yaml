@@ -1266,6 +1266,8 @@
 	WithDeathAnimation@body:
 		DeathSequencePalette: effect
 		DeathPaletteIsPlayerPalette: false
+		CrushedSequence: diebody1
+		CrushedSequencePalette: effect
 		DeathTypes:
 			BulletDeath: body1, body2, body3, body4, body5
 			CabalDeath: body1, body2, body3, body4, body5
@@ -1338,15 +1340,16 @@
 			FireDeath: 1, 2
 			EnergyDeath: 1, 2
 	WithDeathAnimation@explosion:
-		DeathSequencePalette: gensmkexplogreen
+		DeathSequencePalette: apolredalpha
 	WithDeathAnimation@blood1:
-		DeathSequencePalette: jasccyan
-		CrushedSequencePalette: jasccyan
+		Delay: 0
+	WithDeathAnimation@body:
+		DeathSequencePalette: gradientred
+		CrushedSequencePalette: gradientred
 	Mobile:
 		Locomotor: Vehicle
 		-PauseOnCondition:
 	-TakeCover:
-	-WithDeathAnimation@body:
 	-WithDeathAnimation@tib:
 	-SpawnActorOnDeath@FLAMEGUY:
 	Armor:
@@ -1405,6 +1408,7 @@
 		Locomotor: TibInmuneInfantry
 	WithDeathAnimation@body:
 		DeathSequencePalette: playerscrin
+		CrushedSequencePalette: playerscrin
 		-DeathTypes:
 		DeathTypes:
 			BulletDeath: body1, body2
