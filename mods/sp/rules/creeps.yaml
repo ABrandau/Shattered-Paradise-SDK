@@ -262,8 +262,7 @@ EGGS:
 		Categories: Creep
 
 CRAB:
-	Inherits: ^Beast
-	Inherits@1: ^MutRender
+	Inherits@1: ^Beast
 	Inherits@2: ^WebDisable
 	EditorOnlyTooltip:
 		Name: Tiberian Cravicus
@@ -308,12 +307,16 @@ CRAB:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
-	-SpawnActorOnDeath@conversion:
-	-Crushable:
 	-DamagedByTintedCells@Default:
-	-WithDeathAnimation@blood1:
 	MapEditorData:
 		Categories: Creep
+	WithDeathAnimation@blood1:
+		DeathSequencePalette: gradientgreen
+	WithDeathAnimation@explosion:
+		DeathSequencePalette: apolgreenalpha
+	WithDeathAnimation@body:
+		DeathSequencePalette: gradientgreen
+		CrushedSequencePalette: gradientgreen
 
 PERMACRAB:
 	Inherits: CRAB
