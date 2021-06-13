@@ -33,6 +33,7 @@ BuildingSmokeExplode:
 BuildingExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_twlt
+	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
 		Spread: 380
 		Damage: 1
@@ -66,6 +67,7 @@ CyborgExplode:
 StormriderExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Mediuml_Clsn
+	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c080
 		Damage: 2500
@@ -79,6 +81,7 @@ StormriderExplode:
 SmallPlaneExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Mediuml_Clsn
+	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c350
 		Damage: 5000
@@ -92,13 +95,15 @@ SmallPlaneExplode:
 
 SmallPlaneExplosion:
 	Inherits: ^ExploDefaults
-	Range: 0c512
+	Inherits@3: ^DelayedSmokeEffect
 	Inherits@2: ^Mediuml_Clsn
+	Range: 0c512
 	Projectile: InstantHit
 
 BigAircraftExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_Explosion
+	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c400
 		Damage: 5000
@@ -113,6 +118,7 @@ BigAircraftExplode:
 BigAircraftExplosion:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_Explosion
+	Inherits@3: ^DelayedSmokeEffect
 	Range: 1c0
 	Projectile: InstantHit
 
@@ -133,6 +139,7 @@ DestroyerExplosion:
 BattleshipExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^GreyExplo
+	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c800
 		Damage: 10000
@@ -151,6 +158,7 @@ BattleshipExplode:
 BattleshipExplosion:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^GreyExplo
+	Inherits@3: ^DelayedSmokeEffect
 	Range: 1c0
 	Projectile: InstantHit
 	Warhead@2Eff: CreateEffect
@@ -253,6 +261,7 @@ JellyExplode:
 UnitExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Medium_Brnl
+	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
 		Damage: 1
@@ -268,6 +277,7 @@ UnitExplode:
 BigUnitExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^GreyExplo
+	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
 		Damage: 1
@@ -282,6 +292,7 @@ BigUnitExplode:
 
 ScrinUnitExplode:
 	Inherits: ^ExploDefaults
+	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
 		Damage: 1
@@ -301,6 +312,7 @@ ScrinUnitExplode:
 
 ScrinUnitExplode2:
 	Inherits: ^ExploDefaults
+	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
 		Damage: 1
@@ -320,6 +332,7 @@ ScrinUnitExplode2:
 
 ScrinUnitExplode3:
 	Inherits: ^ExploDefaults
+	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
 		Damage: 1
@@ -376,6 +389,7 @@ ZombieExplosion:
 BlueTibBarrelExplo:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_Explosion
+	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
 		Spread: 1c0
 		Damage: 10000
@@ -483,12 +497,11 @@ WoodDebrisBig:
 
 SmallDebris:
 	Inherits: ^Shrapnel
-	Inherits@2: ^DebrisSmokeEffect
 	Inherits@3: ^SpawnsFire
 	ReloadDelay: 60
 	Range: 4c0
 	Report:
-	Projectile: Bullet
+	Projectile: BulletAS
 		Speed: 50, 125
 		Inaccuracy: 256
 		LaunchAngle: 91, 255
@@ -504,7 +517,7 @@ SmallDebrisScrin:
 LargeDebris:
 	Inherits@1: ^Large_Clsn
 	Inherits@2: ^FlameScorch
-	Inherits@3: ^DebrisSmokeEffect
+	Inherits@3: ^DelayedSmokeEffect
 	Inherits@4: ^SpawnsFire
 	ReloadDelay: 60
 	Range: 4c0
@@ -532,12 +545,15 @@ TLargeDebris:
 		ExplosionPalette: gradientgreen60
 
 QuickSmoke:
-	Inherits: ^DebrisSmokeEffect
+	Inherits: ^DelayedSmokeEffect
 	Range: 2c0
 	Projectile: InstantHit
+	Warhead@smoke: CreateEffect
+		Delay: 0
+	
 
 QuickTibSmoke:
-	Inherits: ^DebrisSmokeEffect
+	Inherits: ^DelayedSmokeEffect
 	Range: 2c0
 	Projectile: InstantHit
 	Warhead@smoke: CreateEffect
@@ -624,6 +640,11 @@ BuildingFireBig:
 		Image: explosion
 		Sequences: fire1, fire2
 		Palette: effect
+	Warhead@smoke: CreateEffect
+		Explosions: wrecksmoke, wrecksmoke2, wrecksmoke3
+		ExplosionPalette: gradientgray60
+		ValidTargets: Ground
+		ImpactActors: false
 
 BuildingFireSmall:
 	Inherits: BuildingFireBig
@@ -634,6 +655,7 @@ BuildingFireSmall:
 		ImpactActors: false
 		Sequences: fire3, fire4
 		Duration: 250, 300
+	-Warhead@smoke:
 
 ScrinBuildingFireBig:
 	Inherits: BuildingFireBig
@@ -682,6 +704,7 @@ DefenderExplosion:
 		ExplosionPalette: effect
 
 JumjetFall:
+	Inherits: ^DelayedSmokeEffect
 	Warhead@1: CreateEffect
 		Image: jumpjetair
 		Explosions: die-onground

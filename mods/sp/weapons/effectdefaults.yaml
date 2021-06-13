@@ -1,17 +1,10 @@
-^DebrisSmokeEffect:
-	Warhead@smoke: CreateEffect
-		Explosions: wrecksmoke, wrecksmoke2, wrecksmoke3
-		ExplosionPalette: jascgraywhitetoalpha
-		ValidTargets: Ground
-		ImpactActors: false
-
 ^DelayedSmokeEffect:
 	Warhead@smoke: CreateEffect
 		Explosions: wrecksmoke, wrecksmoke2, wrecksmoke3
-		ExplosionPalette: jascgraywhitetoalpha
+		ExplosionPalette: gradientgray60
 		ValidTargets: Ground
 		ImpactActors: false
-		Delay: 50
+		Delay: 5
 
 ^ShortFireEffect:
 	Warhead@smoke: CreateEffect
@@ -210,7 +203,6 @@
 		InvalidTargets: Vehicle, Building, Wall
 
 ^GreyExplo:
-	Inherits: ^DebrisSmokeEffect
 	Warhead@2Eff: CreateEffect
 		Explosions: jxgrymed2b, jxgrymed2, jxgrymed1b, jxgrymed1
 		ExplosionPalette: gensmkexploj
@@ -229,7 +221,6 @@
 		InvalidTargets: Vehicle, Building, Wall
 
 ^Large_Explosion:
-	Inherits: ^DebrisSmokeEffect
 	Warhead@2Eff: CreateEffect
 		Explosions: jtwlt036, jtwlt036b, jtwlt050
 		ExplosionPalette: gensmkexploj
@@ -283,7 +274,6 @@
 		ValidTargets: Water
 
 ^Large_twlt:
-	Inherits: ^DebrisSmokeEffect
 	Warhead@2Eff: CreateEffect
 		Explosions: jtwlt070, jtwlt070b, jtwlt100, jtwlt100b, jcrivexpc
 		ExplosionPalette: gensmkexploj
