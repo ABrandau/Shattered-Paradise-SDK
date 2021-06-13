@@ -354,8 +354,8 @@ TripodBlast:
 			ConcreteArmor: 30
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 	Warhead@2Eff: CreateEffect
-		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
-		ExplosionPalette: apolbluealpha
+		Explosions: tripodfire
+		ExplosionPalette: jascbluealpha
 
 TripodBlast2:
 	Inherits: TripodBlast
@@ -367,6 +367,9 @@ TripodBlast2:
 		ImpactActors: false
 	Warhead@1Dam: SpreadDamage
 		DamageTypes: Prone60Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill 
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall
 
 StormRiderBlast:
 	Inherits: ^FullDamage
