@@ -503,7 +503,8 @@ SmallDebris:
 	Report:
 	Projectile: BulletAS
 		Speed: 50, 125
-		Inaccuracy: 256
+		Inaccuracy: 4c0
+		InaccuracyType: PerCellIncrement
 		LaunchAngle: 91, 255
 		Image: dbrissm
 		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
@@ -611,8 +612,8 @@ BuildingFireBigShrapnel:
 
 BuildingFireSmallShrapnel:
 	Inherits: BuildingFireBigShrapnel
-	ReloadDelay: 4
-	Warhead@op: FireReverseRadius
+	ReloadDelay: 3
+	Warhead@op: FireRadius
 		Weapon: BuildingFireSmall
 		ImpactActors: false
 		Amount: 2
@@ -630,7 +631,7 @@ ScrinBuildingFireSmallShrapnel:
 		ImpactActors: false
 
 BuildingFireBig:
-	Range: 0c256
+	Range: 0c300
 	Projectile: InstantHit
 		Inaccuracy: 4c0
 		InaccuracyType: PerCellIncrement
@@ -648,7 +649,7 @@ BuildingFireBig:
 
 BuildingFireSmall:
 	Inherits: BuildingFireBig
-	Range: 1c0
+	Range: 0c512
 	Projectile: InstantHit
 		Inaccuracy: 3c0
 	Warhead@2: SpawnSmokeParticle
