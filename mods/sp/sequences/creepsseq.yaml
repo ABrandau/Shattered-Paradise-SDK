@@ -176,6 +176,12 @@ crab:
 	diebody5: tibody05
 		Frames: 5, 4, 3, 2, 1, 0
 		Offset: 0, -15, 0
+	diedig: dig
+		Length: *
+		ZOffset: 511
+		Offset: 0, 0
+		Scale: 0.75
+		-Tick:
 	shoot:
 		Start: 103
 		Length: 5
@@ -956,12 +962,14 @@ mwarv:
 	icon: mwaricon
 
 eggs:
-	Inherits: ^EmpOverlay
 	Defaults:
 		Offset: 0, -12
-		UseTilesetCode: true
 	idle:
-	damaged-idle:
-	dead:
-		Tick: 400
-	make:
+		UseTilesetCode: true
+	dieblood: infblood2
+		Offset: 0, 0
+		Length: *
+		Tick: 50
+		ZOffset: -1024
+		ZRamp: 1
+

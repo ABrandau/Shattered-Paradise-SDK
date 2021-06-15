@@ -40,7 +40,7 @@ VISC_SML:
 		MinMoveDelay: 30
 		MaxMoveDelay: 60
 	Targetable:
-		TargetTypes: Ground, NeutralTibCritter, Vehicle, NoRepair, MindControlImmune
+		TargetTypes: Ground, Vehicle, NoRepair, MindControlImmune
 	RenderSprites:
 		Image: vissml
 	Mobile:
@@ -68,7 +68,7 @@ VISC_LRG:
 	RevealsShroud:
 		Range: 4c0
 	Targetable:
-		TargetTypes: Ground, NeutralTibCritter, Vehicle, NoRepair, MindControlImmune
+		TargetTypes: Ground, Vehicle, NoRepair, MindControlImmune
 	Armament:
 		Weapon: SlimeAttack
 		FireDelay: 10
@@ -111,7 +111,7 @@ VISC_LRG_SCRIN:
 	EditorOnlyTooltip:
 		Name: Visceroid Hive Visc (Do not place in editor)
 	Targetable:
-		TargetTypes: Ground, NeutralTibCritter, Vehicle, NoRepair, MindControlImmune, Summoned
+		TargetTypes: Ground, Vehicle, NoRepair, MindControlImmune, Summoned
 	AutoTarget:
 		ScanRadius: 5
 		InitialStance: AttackAnything
@@ -151,7 +151,7 @@ ZOMBIE:
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
-		TargetTypes: Ground, Infantry, NeutralTibCritter
+		TargetTypes: Ground, Infantry
 	Armament:
 		Weapon: ZombieAttack
 	WithInfantryBody:
@@ -206,7 +206,7 @@ BERSERKER:
 		VoiceSet: Fiend
 	-TakeCover:
 	Targetable:
-		TargetTypes: Infantry, Ground, NeutralTibCritter
+		TargetTypes: Infantry, Ground
 	Armament:
 		Weapon: BerserkerBlow
 	AutoTarget:
@@ -247,21 +247,30 @@ EGGS:
 	GivesExperience:
 		Experience: 10
 	Targetable:
-		TargetTypes: Defence, Ground, NeutralTibCritter, MindControlImmune
-	KillsSelf@TimedLife:
+		TargetTypes: Defence, Ground, MindControlImmune
+	GrantConditionAfterDelay@crab1:
 		Delay: 450
-		DamageTypes: SpawnCrabs
-	SpawnActorOnDeath@crab1:
-		Actor: crab
-		Probability: 100
-		DeathType: SpawnCrabs
-		RequiresLobbyCreeps: true
+		Condition: SpawnCrabs
+	TransformOnCondition@crab1:
+		RequiresCondition: SpawnCrabs
+		IntoActor: crab
+		ForceHealthPercentage: 100
+	Crushable:
+		CrushClasses: Vehicle
+	WithDeathAnimation@blood1:
+		DeathSequencePalette: gradientgreen
+		CrushedSequencePalette: gradientgreen
+		DeathPaletteIsPlayerPalette: false
+		DeathSequence: dieblood
+		CrushedSequence: dieblood
+		UseDeathTypeSuffix: false
 	MapEditorData:
 		Categories: Creep
 
 CRAB:
 	Inherits@1: ^Beast
 	Inherits@2: ^WebDisable
+	Inherits@3: ^MutRender
 	EditorOnlyTooltip:
 		Name: Tiberian Cravicus
 	Tooltip:
@@ -282,7 +291,7 @@ CRAB:
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
-		TargetTypes: Infantry, Ground, NeutralTibCritter, MindControlImmune
+		TargetTypes: Infantry, Ground, MindControlImmune
 	Armament:
 		Weapon: CrabAcid
 		RequiresCondition: !WebDisable
@@ -290,9 +299,6 @@ CRAB:
 		AttackSequences: shoot
 		IdleSequences: idle1, idle2
 		RequiresCondition: !WebDisable
-	KillsSelf@TimedLife:
-		Delay: 2300
-		RemoveInstead: true ##We don't have effect for natrual death, use this for performance
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
@@ -308,6 +314,17 @@ CRAB:
 	-DamagedByTintedCells@Default:
 	MapEditorData:
 		Categories: Creep
+	WithDeathAnimation@normal:
+		DeathSequencePalette: playermut
+		CrushedSequencePalette: playermut
+	KillsSelf@TimedLife:
+		Delay: 2300
+		DamageTypes: DigAway
+	WithDeathAnimation@DigAway: ## In game, when time is up the crabs will dig into ground and go for good
+		DeathSequencePalette: effect
+		DeathPaletteIsPlayerPalette: false
+		DeathTypes:
+			DigAway: dig
 	WithDeathAnimation@blood1:
 		DeathSequencePalette: gradientgreen
 		CrushedSequencePalette: gradientgreen
@@ -335,6 +352,7 @@ PERMACRAB:
 	MapEditorData:
 		Categories: Creep
 	-KillsSelf@TimedLife:
+	-WithDeathAnimation@DigAway:
 
 jfish:
 	Inherits: ^Visceroid
@@ -360,7 +378,7 @@ jfish:
 		Locomotor: Hover
 		Speed: 100
 	Targetable:
-		TargetTypes: Ground, NeutralTibCritter, Vehicle, NoRepair, MindControlImmune
+		TargetTypes: Ground, Vehicle, NoRepair, MindControlImmune
 	Armament:
 		Weapon: JellyAttackPrepare
 	GrantConditionOnAttack@JellyAttackPrepare:
@@ -424,7 +442,7 @@ MINIVEIN:
 	Armor:
 		Type: BuildingArmor
 	Targetable:
-		TargetTypes: Building, Defence, Ground, NeutralTibCritter
+		TargetTypes: Building, Defence, Ground
 	ExplodeWeapon@2:
 		Weapon: VeinholeEggElevator
 	ProximityExternalCondition:
