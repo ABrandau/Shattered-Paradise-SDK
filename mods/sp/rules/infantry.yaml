@@ -696,13 +696,15 @@ MUTFIEND:
 	-SpawnActorOnDeath@FLAMEGUY:
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
+	WithInfantryBody:
+		IdleSequences: idle1
 	WithDeathAnimation@normal:
 		DeathTypes:
 			TiberiumDeath: 1, 2
 			EnergyDeath: 1, 2
 			FireDeath: fire
-	WithInfantryBody:
-		IdleSequences: idle1
+	WithDeathAnimation@explosion:
+		DeathSequencePalette: apolredalpha
 	WithDeathAnimation@body:
 		DeathSequencePalette: gradientred
 		CrushedSequencePalette: gradientred

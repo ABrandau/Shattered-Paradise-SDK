@@ -320,11 +320,15 @@ CRAB:
 	KillsSelf@TimedLife:
 		Delay: 2300
 		DamageTypes: DigAway
-	WithDeathAnimation@DigAway: ## In game, when time is up the crabs will dig into ground and go for good
+	WithDeathAnimation@Dust: ## In game, when time is up the crabs will dig into ground and go for good
 		DeathSequencePalette: effect
 		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
 			DigAway: dig
+	WithDeathAnimation@Digging: ## In game, when time is up the crabs will dig into ground and go for good
+		DeathSequencePalette: playermut
+		DeathTypes:
+			DigAway: esc
 	WithDeathAnimation@blood1:
 		DeathSequencePalette: gradientgreen
 		CrushedSequencePalette: gradientgreen
@@ -352,7 +356,8 @@ PERMACRAB:
 	MapEditorData:
 		Categories: Creep
 	-KillsSelf@TimedLife:
-	-WithDeathAnimation@DigAway:
+	-WithDeathAnimation@Dust:
+	-WithDeathAnimation@Digging:
 
 jfish:
 	Inherits: ^Visceroid
