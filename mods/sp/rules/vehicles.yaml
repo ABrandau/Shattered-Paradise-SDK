@@ -1730,12 +1730,19 @@ SCRMBT:
 		PauseOnCondition: empdisable
 	AttackTurreted:
 		PauseOnCondition: empdisable
-	Carryable:
-		-CarriedCondition:
-	Passenger:
-		-CargoCondition:
 	-LeavesTrails@land:
 	-LeavesTrails@water:
+	LeavesTrails@gravity:
+		RequiresCondition: !carried && !ascargo
+		Image: wake
+		Sequences: idlescr
+		Palette: scrinenergystuffsalpha
+		Type: CenterPosition
+		StationaryInterval: 20
+		MovingInterval: 12
+		SpawnAtLastPosition: false
+		TrailWhileStationary: true
+		StartDelay: -1
 
 SCRGLYDER2:
 	Inherits: ^HoverVehicle
@@ -1784,12 +1791,19 @@ SCRGLYDER2:
 	TransformOnCondition@AITransform:
 		RequiresCondition: AIattackAir && !inside-tunnel && !mindcontrolled
 		IntoActor: scrglyder1
-	Carryable:
-		-CarriedCondition:
-	Passenger:
-		-CargoCondition:
 	-LeavesTrails@land:
 	-LeavesTrails@water:
+	LeavesTrails@gravity:
+		RequiresCondition: !carried && !ascargo
+		Image: wake
+		Sequences: idlescr
+		Palette: scrinenergystuffsalpha
+		Type: CenterPosition
+		StationaryInterval: 20
+		MovingInterval: 12
+		SpawnAtLastPosition: false
+		TrailWhileStationary: true
+		StartDelay: -1
 
 SCRRECHARGER:
 	Inherits@1: ^Walker
@@ -1909,13 +1923,19 @@ SCRMOBMINE:
 		Palette: pips
 		Position: BottomLeft
 		RequiresSelection: true
-	Carryable:
-		-CarriedCondition:
-	Passenger:
-		-CargoCondition:
 	-LeavesTrails@land:
 	-LeavesTrails@water:
-
+	LeavesTrails@gravity:
+		RequiresCondition: !carried && !ascargo
+		Image: wake
+		Sequences: idlescr
+		Palette: scrinenergystuffsalpha
+		Type: CenterPosition
+		StationaryInterval: 20
+		MovingInterval: 12
+		SpawnAtLastPosition: false
+		TrailWhileStationary: true
+		StartDelay: -1
 TRIPOD:
 	Inherits@1: ^Walker
 	Inherits@2: ^ScrinVehicle

@@ -294,20 +294,21 @@ VanguardFollow:
 
 ScrMbtLasor:
 	Inherits: ^FullDamage
-	Inherits@2: ^Scrin_Explo
 	ReloadDelay: 95
 	Range: 6c0
 	Report: SeekerShot0000.wav,  SeekerShot0001.wav,  SeekerShot0002.wav,  SeekerShot0003.wav
 	Projectile: LaserZap
-		Width: 50
+		Width: 64
 		Duration: 5
 		ZOffset: 2047
-		Color: f442f4
+		Color: 8888E4 #9999f4
 		SecondaryBeam: true
-		SecondaryBeamWidth: 30
+		SecondaryBeamWidth: 32
 		SecondaryBeamZOffset: 4000
 		SecondaryBeamColor: FFFFFF
 		Blockable: true
+		HitAnim: explosion
+		HitAnimSequence: scrinfire2hit
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 7500
@@ -324,8 +325,6 @@ ScrMbtLasor:
 		DamageTypes: Prone60Percent, TriggerProne, FireDeath, ScrinEssenceKill
 		InvalidTargets: Building, Vehicle
 		ValidRelationships: Enemy, Neutral
-	Warhead@2Eff: CreateEffect
-		-ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
 
 TripodBlast:
 	Inherits: ^RifleWarhead
@@ -745,10 +744,13 @@ TractorBeam:
 	Inherits: ^AntiAirTurretWeapon
 	Report: triplasor0000.wav, triplasor0001.wav, triplasor0002.wav
 	Projectile: ArcLaserZap
-		Color: FFAAFF55
+		Color: E288DD8F
 		Width: 50
 		Duration: 15
 		ZOffset: 4000
+		HitAnim: explosion
+		HitAnimPalette: scrinenergystuffsalpha
+		HitAnimSequence: wakescr
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		ValidTargets: Air
@@ -761,6 +763,10 @@ TractorBeam:
 
 TractorBeam2:
 	Inherits: TractorBeam
+	Projectile: ArcLaserZap
+		-HitAnim:
+		-HitAnimPalette:
+		-HitAnimSequence:
 	-Report:
 	-Warhead@1Dam:
 	-Warhead@TractorStop:
