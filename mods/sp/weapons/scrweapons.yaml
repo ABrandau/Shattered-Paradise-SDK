@@ -297,18 +297,15 @@ ScrMbtLasor:
 	ReloadDelay: 95
 	Range: 6c0
 	Report: SeekerShot0000.wav,  SeekerShot0001.wav,  SeekerShot0002.wav,  SeekerShot0003.wav
-	Projectile: LaserZap
-		Width: 64
-		Duration: 5
-		ZOffset: 2047
-		Color: 8888E4
-		SecondaryBeam: true
-		SecondaryBeamWidth: 32
-		SecondaryBeamZOffset: 4000
-		SecondaryBeamColor: FFFFFF
-		Blockable: true
-		HitAnim: explosion
-		HitAnimSequence: scrinfire2hit
+	Projectile: KKNDLaser
+		Duration: 4
+		Color: f422f4
+		Radius: 2
+		Distortion: 250
+		DistortionAnimation: 170
+		InnerLightness: 0xEE
+		SegmentLength: 512
+		ZOffset: 6024
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 7500
@@ -325,6 +322,13 @@ ScrMbtLasor:
 		DamageTypes: Prone60Percent, TriggerProne, FireDeath, ScrinEssenceKill
 		InvalidTargets: Building, Vehicle
 		ValidRelationships: Enemy, Neutral
+	Warhead@2Eff: CreateEffect
+		Explosions: scrinfire2
+		ExplosionPalette: gensmkexplopurple
+		ImpactActors: false
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall
 
 TripodBlast:
 	Inherits: ^RifleWarhead
@@ -747,7 +751,7 @@ TractorBeam:
 		Color: E288DD8F
 		Width: 50
 		Duration: 15
-		ZOffset: 4000
+		ZOffset: 6000
 		HitAnim: explosion
 		HitAnimPalette: scrinenergystuffsalpha
 		HitAnimSequence: wakescr
