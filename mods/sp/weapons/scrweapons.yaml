@@ -122,7 +122,6 @@ ColossiBlastEnergy:
 		ExplosionPalette: gradientblue
 
 FloatTesla:
-	Inherits: ^RifleWarhead
 	ReloadDelay: 75
 	Range: 7c0
 	Report: voltautofire.wav
@@ -131,8 +130,7 @@ FloatTesla:
 	Projectile: TeslaZap
 		Palette: apolredalpha
 	Warhead@1Dam: SpreadDamage
-		Damage: 1
-		DamageTypes: TriggerProne, FireDeath, ScrinEssenceKill
+		Damage: 0
 		InvalidTargets: Summoned
 	Warhead@op: FireShrapnel
 		Weapon: EssenceMissile
@@ -140,7 +138,9 @@ FloatTesla:
 		Amount: 2
 		AimChance: 100
 		AllowDirectHit: true
-		ValidTargets: Infantry, Vehicle
+		AimTargetStances: Ally
+		ThrowWithoutTarget: false
+		ValidTargets: Ground, Water, Air
 		InvalidTargets: Summoned
 
 FloatGlaive:
@@ -366,7 +366,7 @@ TripodBlast2:
 	Warhead@2Eff: CreateEffect
 		Explosions: tripodshockwave
 		ExplosionPalette: jascbluealpha
-		ValidTargets: Infantry, Vehicle, LandedAircraft, Building, Wall, Ground, Water
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 		ImpactActors: false
 	Warhead@1Dam: SpreadDamage
 		DamageTypes: Prone60Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill 
@@ -831,7 +831,7 @@ EssenceSmall:
 		ThrowWithoutTarget: false
 		AllowDirectHit: true
 		AimTargetStances: Ally
-		ValidTargets: Ground, Water, Air, ScrinUnit
+		ValidTargets: Ground, Water, Air
 
 EssenceMissile:
 	Inherits: ^FullDamage
