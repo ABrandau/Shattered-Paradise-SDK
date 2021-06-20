@@ -353,9 +353,10 @@ QuadFireLineAA:
 TiberianRocket:
 	Inherits: ^ArtilleryWarhead
 	Inherits@1: ^SpawnsIrradiation
+	Inherits@2: ^DelayedSmokeEffect
 	ReloadDelay: 90
 	Range: 12c0
-	Burst: 7
+	Burst: 8
 	Report: rketinf1.aud
 	ValidTargets: Ground, Water
 	MinRange: 3c0
@@ -387,19 +388,12 @@ TiberianRocket:
 		Explosions: tib_expsmall
 		ImpactSounds: expnew12.aud
 		InvalidTargets: Water, Air
+	Warhead@smoke: CreateEffect
+		ExplosionPalette: gradientgreen60
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Range: 460
 	Warhead@3Radio: CreateTintedCells
 		Level: 10
-
-TiberianRocketClould:
-	Inherits: TiberianRocket
-	ReloadDelay: 121
-	Burst: 1
-	Warhead@5Actor: SpawnActor
-		Actors: cloud1
-		FallRate: 5000
-		Range: 3
 
 MiniNuke:
 	Inherits: NuclearMissile
