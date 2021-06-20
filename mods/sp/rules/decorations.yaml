@@ -406,17 +406,38 @@ SC_BOXES:
 		-Palette:
 		PlayerPalette: playerunittem
 
+^TibutterflySpawner:
+	SmokeParticleEmitter@butterfly:
+		Image: tibutterfly
+		Sequences: f1
+		Palette: apgreen
+		Duration: 207
+		TurnRate: 96
+		Speed: 60
+		RandomFacing: false
+		SpawnFrequency: 121
+		Offset: 0, 0, 400
+		Gravity: 0, 5
+
 TIBTRE01:
 	Inherits: ^BlossomTree
+	Inherits@1: ^TibutterflySpawner
 
 TIBTRE02:
 	Inherits: ^BlossomTree
+	Inherits@1: ^TibutterflySpawner
 
 TIBTRE03:
 	Inherits: ^BlossomTree
+	Inherits@1: ^TibutterflySpawner
+
+### TODO
+^TibMonolithEffect:
+
 
 BIGBLUE:
 	Inherits: ^BlossomTree
+	Inherits@1:  ^TibMonolithEffect
 	RenderSprites:
 		Palette: bluetiberium
 	RadarColorFromTerrain:
