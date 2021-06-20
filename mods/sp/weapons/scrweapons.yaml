@@ -560,8 +560,6 @@ BattleshipPlasma:
 		Acceleration: 0
 		MinimumLaunchAngle: 255 # 90 degrees
 		MaximumLaunchAngle: 255
-		#MaximumLaunchSpeed: 0c743
-		#MinimumLaunchSpeed: 0c743
 		Blockable: false
 		HorizontalRateOfTurn: 120
 		VerticalRateOfTurn: 120
@@ -839,15 +837,19 @@ EssenceMissile:
 	Inherits: ^FullDamage
 	ReloadDelay: 45
 	Range: 10c0
-	MinRange: 1c0
 	ValidTargets: ScrinUnit
-	Projectile: BulletAS
+	Projectile: MissileTA
 		Image: essencetrail
 		TrailImage: essencetrailmini
 		TrailPalette: apolra2ialpha
 		Speed: 600
-		TrailInterval: 1
+		TrailInterval: 2
 		Palette: apolra2ialpha
+		Acceleration: 0
+		Blockable: false
+		AllowSnapping: true
+		CloseEnough: 200
+		ExplodeUnderThisAltitude: -5c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: -2000
