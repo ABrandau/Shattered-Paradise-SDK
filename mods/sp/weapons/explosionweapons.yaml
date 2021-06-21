@@ -373,10 +373,14 @@ ZombieExplosion:
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
 		Damage: 1
-	Warhead@5Actor: SpawnActor
-		Actors: cloud1
-		FallRate: 5000
-		Range: 3
+	Warhead@5cloud: SpawnSmokeParticle
+		Count: 1
+		Duration: 95
+		Speed: 30
+		TurnRate: 32
+		Image: tibcloud
+		Sequences: cloud2
+		Palette: effectalpha50
 	Warhead@3Eff: CreateEffect
 		Explosions: tibexp
 		ImpactSounds: expnew09.aud

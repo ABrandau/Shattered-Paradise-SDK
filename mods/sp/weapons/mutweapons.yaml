@@ -629,10 +629,14 @@ FalconPunch:
 		Explosions: gasexplo
 		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
 		ExplosionPalette: effect
-	Warhead@5Actor: SpawnActor
-		Actors: cloud1, cloud1, cloud1
-		FallRate: 5000
-		Range: 3
+	Warhead@5cloud: SpawnSmokeParticle
+		Count: 5
+		Duration: 95
+		Speed: 30
+		TurnRate: 32
+		Image: tibcloud
+		Sequences: cloud2
+		Palette: effectalpha50
 
 ForgottenCannonWeapon:
 	Inherits: ^APWarhead

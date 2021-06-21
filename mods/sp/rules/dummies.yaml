@@ -53,42 +53,6 @@
 # Dummy Instances
 #######################################################
 
-CLOUD1:
-	Inherits: ^DUMMYAIRCRAFT
-	Inherits@2: ^WithDeathEffects
-	Aircraft:
-		CruiseAltitude: 1
-		TurnSpeed: 2
-		Repulsable: false
-		AltitudeVelocity: 400
-		Speed: 20
-		MoveIntoShroud: true
-	RenderSprites:
-		Image: cloud1
-		Palette: effectalpha75
-	Wanders:
-	-RevealsShroud:
-	KillsSelf@TimedLife:
-		Delay: 40, 90
-		DamageTypes: CloudDie
-	WithSpriteBody:
-		Sequence: cloud2
-	WithDeathAnimation:
-		DeathSequence: die2
-		UseDeathTypeSuffix: false
-		DeathSequencePalette: effect
-		DeathPaletteIsPlayerPalette: false
-
-## Longer, Bigger
-CLOUD2:
-	Inherits: CLOUD1
-	KillsSelf@TimedLife:
-		Delay: 100, 150
-	WithSpriteBody:
-		Sequence: cloud1
-	WithDeathAnimation:
-		DeathSequence: die1
-
 BigFireSpawnerDummy:
 	Inherits: ^GROUNDDUMMY
 	ExplodeWeapon:

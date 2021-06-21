@@ -535,10 +535,14 @@ ToxinMissile:
 		SmudgeType: LargeCrater
 		Size: 1
 		InvalidTargets: Vehicle, Building, Wall
-	Warhead@5Actor: SpawnActor
-		Actors: cloud2, cloud2, cloud2, cloud2, cloud2, cloud2, cloud2, cloud2, cloud2, cloud2, cloud2, cloud2
-		FallRate: 5000
-		Range: 3
+	Warhead@5cloud: SpawnSmokeParticle
+		Count: 14
+		Duration: 179
+		Speed: 30
+		TurnRate: 32
+		Image: tibcloud
+		Sequences: cloud1
+		Palette: effectalpha50
 	Warhead@3Radio: CreateTintedCells
 		Level: 500
 		Spread: 1c512

@@ -392,11 +392,14 @@ FloaterCloudSpawn:
 	Projectile: InstantExplode
 	Warhead@1Dam: TargetDamage
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
-	Warhead@5Actor: SpawnActor
-		Actors: cloud1
-		FallRate: 5000
-		Range: 3
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+	Warhead@5cloud: SpawnSmokeParticle
+		Count: 1
+		Duration: 95
+		Speed: 30
+		TurnRate: 32
+		Image: tibcloud
+		Sequences: cloud2
+		Palette: effectalpha50
 	Warhead@8Radio: CreateTintedCells
 		Spread: 512
 		Level: 10
@@ -413,8 +416,9 @@ VeinholeAttack:
 		Level: 10
 		MaxLevel: 150
 		Falloff: 100, 75, 50, 40
-	Warhead@5Actor: SpawnActor
-		Actors: cloud2
+	Warhead@5cloud: SpawnSmokeParticle
+		Duration: 179
+		Sequences: cloud1
 
 Veins:
 	Inherits: ^RifleWarhead
