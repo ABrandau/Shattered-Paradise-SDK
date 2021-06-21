@@ -412,12 +412,11 @@ SC_BOXES:
 		Sequences: f1
 		Palette: apgreen
 		Duration: 207
-		TurnRate: 96
+		TurnRate: 72
 		Speed: 60
 		RandomFacing: false
-		SpawnFrequency: 121
-		Offset: 0, 0, 400
-		Gravity: 0, 5
+		SpawnFrequency: 64, 128
+		Offset: 0, 0, 600
 
 TIBTRE01:
 	Inherits: ^BlossomTree
@@ -433,7 +432,16 @@ TIBTRE03:
 
 ### TODO
 ^TibMonolithEffect:
-
+	SmokeParticleEmitter@acarus:
+		Image: tibacarus
+		Sequences: f1
+		Palette: bluetibpal
+		Duration: 167
+		TurnRate: 24
+		Speed: 30
+		RandomFacing: false
+		SpawnFrequency: 32, 64
+		Offset: 0, 10, 0
 
 BIGBLUE:
 	Inherits: ^BlossomTree
@@ -461,14 +469,18 @@ BIGBLUE3:
 
 BIGGREEN:
 	Inherits: ^BlossomTree
+	Inherits@1:  ^TibMonolithEffect
 	Tooltip:
 		Name: Riparius Monolith
 	RenderSprites:
 		Image: BIGBLUE
 		Palette: greentiberium
+	SmokeParticleEmitter@acarus:
+		Palette: greentibpal
 
 ^Fona:
 	Inherits: ^Tree
+	Inherits@1: ^TibutterflySpawner
 	Tooltip:
 		Name: Fona
 	TerrainLightSource@1:
@@ -477,6 +489,12 @@ BIGGREEN:
 		RedTint: 0.05
 		GreenTint: 0.05
 		BlueTint: 0.6
+	SmokeParticleEmitter@butterfly:
+		Palette: apblue
+		Duration: 468, 512
+		TurnRate: 256
+		SpawnFrequency: 512, 1024
+		Offset: 0, 0, 1300
 
 ^FonaGreen:
 	Inherits: ^Fona
@@ -485,6 +503,7 @@ BIGGREEN:
 		RedTint: 0.07
 		GreenTint: 0.36
 		BlueTint: 0.07
+	-SmokeParticleEmitter@butterfly:
 
 ^FonaYellow:
 	Inherits: ^Fona
@@ -495,6 +514,7 @@ BIGGREEN:
 		BlueTint: 0.01
 	RenderSprites:
 		Palette: isotem
+	-SmokeParticleEmitter@butterfly:
 
 ^FonaWhite:
 	Inherits: ^Fona
@@ -505,6 +525,7 @@ BIGGREEN:
 		BlueTint: 0
 	RenderSprites:
 		Palette: isotem
+	-SmokeParticleEmitter@butterfly:
 
 
 TREE01:
