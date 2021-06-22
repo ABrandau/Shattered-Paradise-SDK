@@ -583,28 +583,6 @@ QuickFire:
 		Sequences: fire2, fire1
 		Palette: effectalpha25
 
-BuildingFireBigParticleSpawner:
-	Projectile: InstantExplode
-	Warhead@5Actor: SpawnActor
-		Actors: BigFireSpawnerDummy
-		FallRate: 5000
-		Range: 3
-		ImpactActors: false
-
-BuildingFireSmallParticleSpawner:
-	Inherits: BuildingFireBigParticleSpawner
-	Warhead@5Actor: SpawnActor
-		Actors: SmallFireSpawnerDummy
-
-ScrinBuildingFireBigParticleSpawner:
-	Inherits: BuildingFireBigParticleSpawner
-	Warhead@5Actor: SpawnActor
-		Actors: ScrinBigFireSpawnerDummy
-
-ScrinBuildingFireSmallParticleSpawner:
-	Inherits: BuildingFireSmallParticleSpawner
-	Warhead@5Actor: SpawnActor
-		Actors: ScrinSmallFireSpawnerDummy
 
 BuildingFireBigShrapnel:
 	ReloadDelay: 2
@@ -612,7 +590,7 @@ BuildingFireBigShrapnel:
 	Warhead@op: FireRadius
 		Weapon: BuildingFireBig
 		ImpactActors: false
-		Amount: 2
+		Amount: 6
 
 BuildingFireSmallShrapnel:
 	Inherits: BuildingFireBigShrapnel
@@ -620,7 +598,7 @@ BuildingFireSmallShrapnel:
 	Warhead@op: FireRadius
 		Weapon: BuildingFireSmall
 		ImpactActors: false
-		Amount: 2
+		Amount: 11
 
 ScrinBuildingFireBigShrapnel:
 	Inherits: BuildingFireBigShrapnel
@@ -635,15 +613,15 @@ ScrinBuildingFireSmallShrapnel:
 		ImpactActors: false
 
 BuildingFireBig:
-	Range: 0c300
+	Range: 0c325
 	Projectile: InstantHit
 		Inaccuracy: 4c0
 		InaccuracyType: PerCellIncrement
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
-		Duration: 50, 200
+		Duration: 100, 200
 		Image: explosion
-		Sequences: fire1, fire2
+		Sequences: fire1, fire1, fire2, fire2, fire2
 		Palette: effect
 	Warhead@smoke: CreateEffect
 		Explosions: wrecksmoke, wrecksmoke2, wrecksmoke3
@@ -653,19 +631,19 @@ BuildingFireBig:
 
 BuildingFireSmall:
 	Inherits: BuildingFireBig
-	Range: 0c512
+	Range: 0c325
 	Projectile: InstantHit
-		Inaccuracy: 3c0
+		Inaccuracy: 4c0
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
 		Sequences: fire3, fire4
-		Duration: 250, 300
+		Duration: 275, 325
 	-Warhead@smoke:
 
 ScrinBuildingFireBig:
 	Inherits: BuildingFireBig
 	Warhead@2: SpawnSmokeParticle
-		Sequences: scrinfire1, scrinfire2
+		Sequences: scrinfire1,scrinfire1, scrinfire2, scrinfire2, scrinfire2
 
 ScrinBuildingFireSmall:
 	Inherits: BuildingFireSmall
