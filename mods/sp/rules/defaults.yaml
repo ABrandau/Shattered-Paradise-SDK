@@ -504,7 +504,7 @@
 		PriorityModifiers: Ctrl, Alt
 
 ^Cloakable: ##Mainly used for NOD cloak field effect
-	CloakSP@CLOAKGENERATOR:
+	Cloak@CLOAKGENERATOR:
 		RequiresCondition: cloakgenerator || crate-cloak
 		InitialDelay: 75
 		CloakDelay: 150
@@ -517,7 +517,7 @@
 
 ##Mainly used for NOD cloak field effect, pre-require ^Cloakable
 ^WithTriggerCloakEffect: 
-	CloakSP@CLOAKGENERATOR:
+	Cloak@CLOAKGENERATOR:
 		CloakSound: cloak5.aud
 		UncloakSound: cloak5.aud
 		EffectImage: explosion
@@ -525,28 +525,28 @@
 
 ^WithTriggerCloakEffect-Infantry:
 	Inherits: ^WithTriggerCloakEffect
-	CloakSP@CLOAKGENERATOR:
+	Cloak@CLOAKGENERATOR:
 		EnterEffectSequence: marnflash7
 		ExitEffectSequence: marnflash7
 		EffectOffset: 0, 0, 400
 
 ^WithTriggerCloakEffect-Vehicle:
 	Inherits: ^WithTriggerCloakEffect
-	CloakSP@CLOAKGENERATOR:
+	Cloak@CLOAKGENERATOR:
 		EnterEffectSequence: marnflash3
 		ExitEffectSequence: marnflash3
 		EffectOffset: 0, 0, 300
 
 ^WithTriggerCloakEffect-Building:
 	Inherits: ^WithTriggerCloakEffect
-	CloakSP@CLOAKGENERATOR:
+	Cloak@CLOAKGENERATOR:
 		EnterEffectSequence: marnflash2
 		ExitEffectSequence: marnflash2
 		EffectOffset: 0, 0, 300
 
 ^WithTriggerCloakEffect-Defence:
 	Inherits: ^WithTriggerCloakEffect
-	CloakSP@CLOAKGENERATOR:
+	Cloak@CLOAKGENERATOR:
 		EnterEffectSequence: marnflash6
 		ExitEffectSequence: marnflash6
 		EffectOffset: 0, 0, 300
@@ -1840,7 +1840,7 @@
 		RequiresCondition: veinholedrain && !submerged
 	WithIdleOverlay@veinholedrain:
 		RequiresCondition: veinholedrain && !submerged
-	CloakSP@subterranean:
+	Cloak@subterranean:
 		RequiresCondition: submerged
 		InitialDelay: 25
 		CloakDelay: 25
@@ -2732,7 +2732,7 @@
 		IconPalette: chromescrin
 	RenderSprites:
 		PlayerPalette: playerscrin
-	CloakSP@CLOAKGENERATOR:
+	Cloak@CLOAKGENERATOR:
 		Palette: cloakscrin
 	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
@@ -2742,7 +2742,7 @@
 	Inherits: ^Cloakable
 	RenderSprites:
 		PlayerPalette: playermut
-	CloakSP@CLOAKGENERATOR:
+	Cloak@CLOAKGENERATOR:
 		Palette: cloakmut
 		IsPlayerPalette: true
 	ExternalCondition@CLOAKGENERATOR:
@@ -2752,7 +2752,7 @@
 	Inherits: ^Cloakable
 	RenderSprites:
 		PlayerPalette: playercab
-	CloakSP@CLOAKGENERATOR:
+	Cloak@CLOAKGENERATOR:
 		Palette: cloakcab
 		IsPlayerPalette: true
 	ExternalCondition@CLOAKGENERATOR:
@@ -2760,7 +2760,7 @@
 
 
 ^BuildingCloak:
-	CloakSP@CLOAKGENERATOR:
+	Cloak@CLOAKGENERATOR:
 		RequiresCondition: cloakgenerator
 	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator

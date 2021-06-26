@@ -431,7 +431,7 @@ NCONF:
 		LocalOffset: 800,100,778
 		PauseOnCondition: WebDisable
 	-ExternalCondition@crate-cloak:
-	CloakSP@CLOAKGENERATOR:
+	Cloak@CLOAKGENERATOR:
 		InitialDelay: 80
 		CloakDelay: 80
 		IsPlayerPalette: true
@@ -506,9 +506,9 @@ BHS:
 	Demolition:
 		DetonationDelay: 45
 		Voice: Attack
-	CloakSP@CLOAKGENERATOR:
+	Cloak@CLOAKGENERATOR:
 		CloakedCondition: bettercloak
-	CloakSP@personalskill:
+	Cloak@personalskill:
 		RequiresCondition: !bettercloak
 		InitialDelay: 40
 		CloakDelay: 40
@@ -741,7 +741,7 @@ CUTMAN:
 	-AttackMove:
 	RenderSprites:
 		PlayerPalette: playerunittemgreen
-	CloakSP@CLOAKGENERATOR:
+	Cloak@CLOAKGENERATOR:
 		Palette: cloakplayerunittemgreen
 		IsPlayerPalette: true
 	ExternalCondition@CLOAKGENERATOR:
@@ -1569,7 +1569,7 @@ MOTH:
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
-	CloakSP@bury-self:
+	Cloak@bury-self:
 		RequiresCondition: deployed
 		InitialDelay: 40
 		CloakDelay: 40
