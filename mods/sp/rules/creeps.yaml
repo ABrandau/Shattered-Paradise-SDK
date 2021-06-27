@@ -524,3 +524,45 @@ VEINHOLE2:
 	Inherits: VEINHOLE
 	EditorOnlyTooltip:
 		Name: Low ground veinhole
+
+
+WEYE:
+	Inherits: ^BasicBuilding
+	Inherits@1: ^5CellVision
+	Inherits@2: ^Unkillable
+	Inherits@3: ^AutoTargetGround
+	DetectCloaked:
+		Range: 5c0
+	Tooltip:
+		Name: Nothing is here
+	Building:
+		Footprint: == ==
+		Dimensions: 2,2
+	Armament@AA:
+		Weapon: EyeLookingDummyWeapon
+		RequiresCondition: !Building-Buildup
+		TargetRelationships: 7 ## HACK: all relationships
+	AttackPopupTurreted:
+		CloseDelay: 10
+		DefaultFacing: 512
+	WithEmbeddedTurretSpriteBody:
+	WithSpriteBody: ##HACK: for map editor
+		Name: base
+		Sequence: idle-open
+		RequiresCondition: Building-Buildup
+	EditorOnlyTooltip:
+		Name: Nothing is here(Water only)
+	RenderSprites:
+		Palette: bluetibpalpha20
+		Image: weye
+	-Targetable:
+	Turreted:
+	Interactable:
+	-GrantConditionOnDamageState@HeavyDamaged:
+	-WithIdleOverlay@SpawnFire:
+	-ExternalCondition@DisableHeavyDamagedEffect:
+	-ThrowsShrapnel@SMALL:
+	-ThrowsShrapnel@LARGE:
+	WithColoredOverlay:
+		Color: 00000033
+
