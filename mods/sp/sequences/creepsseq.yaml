@@ -981,7 +981,6 @@ eggs:
 
 
 weye:
-	Inherits: ^EmpOverlay
 	Defaults:
 		Offset: 0, 0, 0
 		UseTilesetCode: false
@@ -1010,5 +1009,35 @@ weye:
 	make:
 		Start: 0
 		Length: 9
+	place:
+		Start: 0
+
+geye:
+	Defaults:
+		Offset: 0, 0, 0
+		UseTilesetCode: false
+		ShadowStart: 37
+	closed-idle:
+		Start: 0
+	damaged-closed-idle:
+		Start: 0
+	dead:
+		Start: 1
+	opening:
+		Start: 0
+		Length: 5
+	closing:
+		Length: 5
+		Frames:  4, 3, 2, 1, 0
+	idle:
+		Start: 5
+		Facings: -32
+	idle-open:
+		Start: 3
+	damaged-idle-open:
+		Start: 3
+	make:
+		Start: 0
+		Length: 5
 	place:
 		Start: 0

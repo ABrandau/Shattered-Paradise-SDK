@@ -526,7 +526,7 @@ VEINHOLE2:
 		Name: Low ground veinhole
 
 
-WEYE:
+GEYE:
 	Inherits: ^BasicBuilding
 	Inherits@1: ^5CellVision
 	Inherits@2: ^Unkillable
@@ -534,11 +534,11 @@ WEYE:
 	DetectCloaked:
 		Range: 5c0
 	Tooltip:
-		Name: Nothing is here
+		Name: Curiosity
 	Building:
-		Footprint: == ==
-		Dimensions: 2,2
-	Armament@AA:
+		Footprint: x
+		Dimensions: 1,1
+	Armament:
 		Weapon: EyeLookingDummyWeapon
 		RequiresCondition: !Building-Buildup
 		TargetRelationships: 7 ## HACK: all relationships
@@ -551,10 +551,10 @@ WEYE:
 		Sequence: idle-open
 		RequiresCondition: Building-Buildup
 	EditorOnlyTooltip:
-		Name: Nothing is here(Water only)
+		Name: Curiosity
 	RenderSprites:
-		Palette: bluetibpalpha20
-		Image: weye
+		Palette: player
+		Image: geye
 	-Targetable:
 	Turreted:
 	Interactable:
@@ -563,6 +563,21 @@ WEYE:
 	-ExternalCondition@DisableHeavyDamagedEffect:
 	-ThrowsShrapnel@SMALL:
 	-ThrowsShrapnel@LARGE:
+
+WEYE:
+	Inherits: GEYE
+	Tooltip:
+		Name: ...
+	EditorOnlyTooltip:
+		Name: ...(Water only)
+	Building:
+		Footprint: == ==
+		Dimensions: 2,2
 	WithColoredOverlay:
 		Color: 00000033
+	Turreted:
+	RenderSprites:
+		Palette: bluetibpalpha20
+		Image: weye
+		
 
