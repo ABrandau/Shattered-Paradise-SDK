@@ -471,8 +471,9 @@ MINIVEIN:
 		Weapon: VeinholeAttack
 
 VEINHOLE:
-	Inherits: ^BasicBuilding
-	Inherits@2: ^2x2Shape
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Inherits@4: ^2x2Shape
 	Inherits@3: ^Unkillable
 	RadarColorFromTerrain:
 		Terrain: Veins
@@ -483,10 +484,10 @@ VEINHOLE:
 		QuantizedFacings: 1
 	Tooltip:
 		Name: Veinhole Monster
-	SeedsResource:
-		Interval: 5
-		ResourceType: Veins
-		MaxRange: 24
+	#SeedsResource: ## The image of the slope vein layer is absent
+	#	Interval: 5
+	#	ResourceType: Veins
+	#	MaxRange: 24
 	RenderSprites:
 		Palette: player
 	ChangesHealth:
@@ -496,8 +497,8 @@ VEINHOLE:
 		Delay: 25
 	WithSpriteBody:
 	ShakeOnDeath:
-	Targetable:
-		TargetTypes: Building, Ground, Veinhole
+	#Targetable:
+	#	TargetTypes: Building, Ground, Veinhole
 	AmbientSound:
 		SoundFiles: tentaclem0001.wav, tentaclem0002.wav, tentaclem0003.wav
 		Delay: 0, 100
@@ -511,11 +512,7 @@ VEINHOLE:
 	RequiresBuildableArea:
 		AreaTypes: building
 	Interactable:
-	-GrantConditionOnDamageState@HeavyDamaged:
-	-WithIdleOverlay@SpawnFire:
-	-ExternalCondition@DisableHeavyDamagedEffect:
-	-ThrowsShrapnel@SMALL:
-	-ThrowsShrapnel@LARGE:
+	FrozenUnderFog:
 	WithIdleAnimation:
 		Sequences: active1, active2
 		Interval: 150
@@ -527,9 +524,10 @@ VEINHOLE2:
 
 
 GEYE:
-	Inherits: ^BasicBuilding
-	Inherits@1: ^5CellVision
-	Inherits@2: ^Unkillable
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Inherits@4: ^5CellVision
+	Inherits@5: ^1x1Shape
 	Inherits@3: ^AutoTargetGround
 	DetectCloaked:
 		Range: 5c0
@@ -538,6 +536,8 @@ GEYE:
 	Building:
 		Footprint: x
 		Dimensions: 1,1
+	Turreted:
+	Interactable:
 	Armament:
 		Weapon: EyeLookingDummyWeapon
 		RequiresCondition: !Building-Buildup
@@ -555,17 +555,25 @@ GEYE:
 	RenderSprites:
 		Palette: player
 		Image: geye
-	-Targetable:
-	Turreted:
-	Interactable:
-	-GrantConditionOnDamageState@HeavyDamaged:
-	-WithIdleOverlay@SpawnFire:
-	-ExternalCondition@DisableHeavyDamagedEffect:
-	-ThrowsShrapnel@SMALL:
-	-ThrowsShrapnel@LARGE:
+	Targetable:
+		TargetTypes: Ground, Infantry, Eye
+	Armor:
+		Type: InfantryArmor
+	Health:
+		HP: 20
+	Explodes:
+		Weapon: BloodTiny
+		EmptyWeapon: BloodTiny
+	FrozenUnderFog:
+	MapEditorData:
+		Categories: Tree
+	Crushable:
+		CrushClasses: Vehicle
 
 WEYE:
 	Inherits: GEYE
+	Inherits@2: ^Unkillable
+	Inherits@4: ^2x2Shape
 	Tooltip:
 		Name: ...
 	EditorOnlyTooltip:
@@ -579,5 +587,6 @@ WEYE:
 	RenderSprites:
 		Palette: bluetibpalpha20
 		Image: weye
-		
+	-Targetable:
+	-Crushable:
 
