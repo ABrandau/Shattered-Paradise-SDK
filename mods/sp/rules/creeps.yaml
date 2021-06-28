@@ -526,11 +526,11 @@ VEINHOLE2:
 GEYE:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
-	Inherits@4: ^5CellVision
+	Inherits@4: ^4CellVision
 	Inherits@5: ^1x1Shape
 	Inherits@3: ^AutoTargetGround
 	DetectCloaked:
-		Range: 5c0
+		Range: 4c0
 	Tooltip:
 		Name: Curiosity
 	Building:
@@ -539,7 +539,7 @@ GEYE:
 	Turreted:
 	Interactable:
 	Armament:
-		Weapon: EyeLookingDummyWeapon
+		Weapon: Eye2LookingDummyWeapon
 		RequiresCondition: !Building-Buildup
 		TargetRelationships: 7 ## HACK: all relationships
 	AttackPopupTurreted:
@@ -573,6 +573,7 @@ GEYE:
 WEYE:
 	Inherits: GEYE
 	Inherits@2: ^Unkillable
+	Inherits@3: ^5CellVision
 	Inherits@4: ^2x2Shape
 	Tooltip:
 		Name: ...
@@ -584,9 +585,13 @@ WEYE:
 	WithColoredOverlay:
 		Color: 00000033
 	Turreted:
+	DetectCloaked:
+		Range: 5c0
 	RenderSprites:
 		Palette: bluetibpalpha20
 		Image: weye
+	Armament:
+		Weapon: EyeLookingDummyWeapon
 	-Targetable:
 	-Crushable:
 
