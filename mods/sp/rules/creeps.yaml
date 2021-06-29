@@ -574,19 +574,23 @@ GEYE:
 WEYE:
 	Inherits: GEYE
 	Inherits@2: ^Unkillable
-	Inherits@3: ^5CellVision
+	Inherits@3: ^6CellVision
 	Inherits@4: ^2x2Shape
-	Tooltip:
-		Name: ...
+	-Tooltip:
 	EditorOnlyTooltip:
 		Name: ...(Water only)
 	Building:
-		Footprint: == ==
-		Dimensions: 2,2
+		Footprint: =
+		Dimensions: 1,1
+	Turreted:
+		TurnSpeed: 16
+	AttackPopupTurreted:
+		CloseDelay: 20
+		DefaultFacing: 0
 	DetectCloaked:
-		Range: 5c0
+		Range: 6c0
 	RenderSprites:
-		Palette: bluetibpalpha20
+		Palette: apolbluealpha30
 		Image: weye
 	Armament:
 		Weapon: EyeLookingDummyWeapon
