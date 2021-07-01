@@ -472,23 +472,6 @@
 	ExternalCondition@KillSelf:
 		Condition: KillSelf
 
-^SuperWeapon:
-	Inherits@3: ^DisableOnLowPowerOrPowerDown
-	RevealsShroud@revealhimself:
-		ValidRelationships: Neutral, Enemy
-		MaxHeightDelta: 3
-		Range: 2c0
-	Power:
-		Amount: -200
-	SupportPowerChargeBar:
-	VoiceAnnouncement:
-		Voice: Build
-		PlayToOwner: false
-		ValidRelationships: Neutral, Enemy
-	Voiced:
-		VoiceSet: SWVoice
-		Volume: 15
-
 ^PlayerHandicaps:
 	HandicapFirepowerMultiplier:
 	HandicapDamageMultiplier:
@@ -550,6 +533,26 @@
 		EnterEffectSequence: marnflash6
 		ExitEffectSequence: marnflash6
 		EffectOffset: 0, 0, 300
+
+^SuperWeapon:
+	Inherits@3: ^DisableOnLowPowerOrPowerDown
+	Cloak@CLOAKGENERATOR:
+		CloakedCondition: nodcloak
+	RevealsShroud@revealhimself:
+		RequiresCondition: !nodcloak
+		ValidRelationships: Neutral, Enemy
+		MaxHeightDelta: 3
+		Range: 2c0
+	Power:
+		Amount: -200
+	SupportPowerChargeBar:
+	VoiceAnnouncement:
+		Voice: Build
+		PlayToOwner: false
+		ValidRelationships: Neutral, Enemy
+	Voiced:
+		VoiceSet: SWVoice
+		Volume: 15
 
 
 ^IncompleteSelfHeal:
