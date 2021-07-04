@@ -14,6 +14,7 @@ MineExplode:
 		AffectsParent: true
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 		InvalidTargets: Mine, Air
+	-Warhead@op:
 
 BuildingSmokeExplode:
 	Inherits: ^ExploDefaults
@@ -29,6 +30,7 @@ BuildingSmokeExplode:
 		ExplosionPalette: jascgraywhitetoalpha
 		ValidTargets: Ground, Air, Water
 		ImpactActors: false
+	-Warhead@op:
 
 BuildingExplode:
 	Inherits: ^ExploDefaults
@@ -46,6 +48,7 @@ BuildingExplode:
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
+	-Warhead@op:
 
 ScrinBuildingExplode:
 	Inherits: BuildingExplode
@@ -53,10 +56,12 @@ ScrinBuildingExplode:
 		ExplosionPalette: gensmkexplojFblue
 	Warhead@op: FireRadius
 		Weapon: SmallDebrisScrin
+	-Warhead@op:
 
 CyborgExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Medium_Bang
+	-Warhead@op:
 
 StormriderExplode:
 	Inherits: ^ExploDefaults
@@ -267,6 +272,7 @@ UnitExplode:
 		Sequences: fire2
 		Palette: effect
 		Weapon: DummyWeapon
+	-Warhead@op:
 
 BigUnitExplode:
 	Inherits: ^ExploDefaults
@@ -283,6 +289,7 @@ BigUnitExplode:
 		Sequences: fire1
 		Palette: effect
 		Weapon: DummyWeapon
+	-Warhead@op:
 
 ScrinUnitExplode:
 	Inherits: ^ExploDefaults
@@ -301,7 +308,7 @@ ScrinUnitExplode:
 		Sequences: scrinfire2
 		Palette: effect
 		Weapon: DummyWeapon
-	Warhead@op: FireRadius
+	-Warhead@op:
 		Weapon: SmallDebrisScrin
 
 ScrinUnitExplode2:
@@ -321,8 +328,7 @@ ScrinUnitExplode2:
 		Sequences: scrinfire2
 		Palette: effect
 		Weapon: DummyWeapon
-	Warhead@op: FireRadius
-		Weapon: SmallDebrisScrin
+	-Warhead@op:
 
 ScrinUnitExplode3:
 	Inherits: ^ExploDefaults
@@ -334,8 +340,7 @@ ScrinUnitExplode3:
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
 		ImpactSounds: expnew09.aud
-	Warhead@op: FireRadius
-		Weapon: SmallDebrisScrin
+	-Warhead@op:
 
 ScrinUnitExplode4:
 	Inherits: ^ExploDefaults
@@ -346,8 +351,7 @@ ScrinUnitExplode4:
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
 		ImpactSounds: expnew09.aud
-	Warhead@op: FireRadius
-		Weapon: SmallDebrisScrin
+	-Warhead@op:
 
 TiberiumExplosion:
 	Warhead@1Dam: SpreadDamage
@@ -508,11 +512,6 @@ SmallDebris:
 		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 		Shadow: true
 
-SmallDebrisScrin:
-	Inherits: SmallDebris
-	Warhead@2: SpawnSmokeParticle
-		Sequences: scrinfire3, scrinfire4
-
 LargeDebris:
 	Inherits@1: ^Large_Clsn
 	Inherits@2: ^FlameScorch
@@ -533,15 +532,49 @@ LargeDebris:
 		ValidTargets: Ground
 		Delay: 100
 
+SmallDebrisScrin:
+	Inherits: SmallDebris
+	Projectile: BulletAS
+		Palette: gradientblue
+	Warhead@2: SpawnSmokeParticle
+		Sequences: scrinfire3, scrinfire4
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+
+LargeDebrisScrin:
+	Inherits: LargeDebris
+	Projectile: BulletAS
+		Palette: gradientblue
+	Warhead@2: SpawnSmokeParticle
+		Sequences: scrinfire2, scrinfire3
+	Warhead@3Eff: CreateEffect
+		Explosions: scrinfire1, scrinfire2
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+
 TSmallDebris:
 	Inherits: SmallDebris
+	Projectile: BulletAS
+		Palette: greentibpal
+	-Warhead@2: 
+	Warhead@2Eff: CreateEffect
+		Explosions: tibexp2mini
+		ExplosionPalette: apgreen
 	Warhead@smoke: CreateEffect
 		ExplosionPalette: gradientgreen60
+		Delay: 0
 
 TLargeDebris:
 	Inherits: LargeDebris
+	Projectile: BulletAS
+		Palette: greentibpal
+	-Warhead@2: 
+	Warhead@2Eff: CreateEffect
+		Explosions: tib_expsmall
+		ExplosionPalette: effect
 	Warhead@smoke: CreateEffect
 		ExplosionPalette: gradientgreen60
+		Delay: 0
 
 QuickSmoke:
 	Inherits: ^DelayedSmokeEffect

@@ -466,6 +466,11 @@ HMEC:
 	Explodes:
 		Weapon: BuildingExplode
 		EmptyWeapon: BuildingExplode
+	ThrowsShrapnel:
+		Pieces: 5, 9
+	ThrowsShrapnel@LARGE:
+		Pieces: 2, 4
+		Weapons: LargeDebris
 
 NODMCV:
 	Inherits: MCV
@@ -1693,6 +1698,8 @@ SCRSCORPION:
 	SmokeParticleEmitter:
 		Palette: gradientgreen40
 	-DamagedByTintedCells@Default:
+	ThrowsShrapnel:
+		Weapons: SmallDebrisScrin
 
 SCRMBT:
 	Inherits: ^HoverTank
@@ -1742,6 +1749,8 @@ SCRMBT:
 		SpawnAtLastPosition: false
 		TrailWhileStationary: true
 		StartDelay: -1
+	ThrowsShrapnel:
+		Weapons: SmallDebrisScrin
 
 SCRGLYDER2:
 	Inherits: ^HoverVehicle
@@ -1803,6 +1812,8 @@ SCRGLYDER2:
 		SpawnAtLastPosition: false
 		TrailWhileStationary: true
 		StartDelay: -1
+	ThrowsShrapnel:
+		Weapons: SmallDebrisScrin
 
 SCRRECHARGER:
 	Inherits@1: ^Walker
@@ -1867,7 +1878,8 @@ SCRRECHARGER:
 		Image: shieldpower
 		Palette: scrinenergystuffsalpha
 		Offset: 0, 0, 1800
-		
+	ThrowsShrapnel:
+		Weapons: SmallDebrisScrin
 
 SCRMOBMINE:
 	Inherits@0: ^HoverVehicle
@@ -1935,6 +1947,9 @@ SCRMOBMINE:
 		SpawnAtLastPosition: false
 		TrailWhileStationary: true
 		StartDelay: -1
+	ThrowsShrapnel:
+		Weapons: SmallDebrisScrin
+
 TRIPOD:
 	Inherits@1: ^Walker
 	Inherits@2: ^ScrinVehicle
@@ -1998,6 +2013,8 @@ TRIPOD:
 		LocalOffset: 0,0,3000
 	DeathSounds:
 		DeathTypes: BulletDeath, ExplosionDeath, CabalDeath, TiberiumDeath
+	ThrowsShrapnel:
+		Weapons: SmallDebrisScrin
 
 ###########################################################
 # CABAL
