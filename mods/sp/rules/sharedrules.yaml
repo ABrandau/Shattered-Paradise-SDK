@@ -33,7 +33,7 @@ ENGINEER:
 		Prerequisites: ~SharedEngie
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable.
 	Valued:
-		Cost: 400
+		Cost: 500
 	Voiced:
 		VoiceSet: Engineer
 	RenderSprites:
@@ -90,7 +90,7 @@ MCV:
 HARV:
 	Inherits: ^VoxelVehicle
 	Valued:
-		Cost: 1000
+		Cost: 1400
 	Tooltip:
 		Name: Harvester
 	Buildable:
@@ -116,7 +116,7 @@ HARV:
 		DeliveryBuildings: proc, muproc, muproc2, muproc3, muproc4, cabproc, cabproc2, cabproc3, cabproc4, scrproc, scrproc2, scrproc3, scrproc4, gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, tdrefinery
 		Resources: Tiberium, BlueTiberium
 		BaleUnloadDelay: 3
-		BaleLoadDelay: 6
+		BaleLoadDelay: 12
 		FullyLoadedSpeed: 100
 		# SearchFromProcRadius: 36
 		SearchForDeliveryBuildingDelay: 200
@@ -127,7 +127,7 @@ HARV:
 		Speed: 75
 		Locomotor: InfantryCrusherVehicle
 	Health:
-		HP: 50000
+		HP: 60000
 	ChangesHealth:
 		PercentageStep: 1
 		Step: 0
@@ -217,12 +217,14 @@ SCRHARV:
 	Inherits: HARV
 	Inherits@1: ^HoverVehicle
 	Inherits@2: ^ScrinVehicle
-	Valued:
-		Cost: 1000
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		Prerequisites: proc, ~scrweap
+	Valued:
+		Cost: 1400
+	Health:
+		HP: 60000
 	Mobile:
 		Locomotor: InfantryCrusherVehicle
 	Targetable:
@@ -410,9 +412,9 @@ GACNST:
 	Health:
 		HP: 100000
 	Valued:
-		Cost: 1500
+		Cost: 2000
 	CustomSellValue:
-		Value: 500
+		Value: 600
 	Tooltip:
 		Name: Tiberium Refinery
 	Power:
