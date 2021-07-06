@@ -6,14 +6,15 @@ MarauderShotgun:
 	Report: shotfire.wav
 	Warhead@1Dam: SpreadDamage
 		Damage: 2300
-		Spread: 512
+		Falloff: 100, 100, 50
+		Spread: 526
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@op: FireRadius
 		Weapon: MarauderShotgunInnacurate
 		ImpactActors: false
 		Amount: 3
 	Warhead@ShieldUpgrade: GrantExternalCondition
-		Range: 256
+		Range: 1c0
 
 DeployedMarauderShotgun:
 	Inherits: MarauderShotgun
@@ -243,7 +244,8 @@ BullAcid:
 		Image: acidall32mini
 		Palette: jascgreen
 	Warhead@1Dam: SpreadDamage
-		Spread: 512
+		Falloff: 100, 75, 75
+		Spread: 526
 		Damage: 1250
 		Versus:
 			VehicleArmor: 60
