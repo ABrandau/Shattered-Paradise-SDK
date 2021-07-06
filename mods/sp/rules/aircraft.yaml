@@ -697,7 +697,7 @@ MUTQUEEN:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: Harasser and mutator.\n\nGood vs: Vehicles, Buildings\n\nSpecial:\n- Can mutate killed enemy units\n- Lays eggs via deploy which later hatch as crabs that are hostile to anyone
+		Description: Harasser with eggs.\n\nGood vs: Vehicles, Buildings\n\nSpecial:\n- Can mutate killed enemy units\n- Lays eggs via deploy which later hatch as crabs that are hostile to anyone
 		Queue: Air
 		BuildPaletteOrder: 6
 		Prerequisites: ~muair
@@ -730,7 +730,8 @@ MUTQUEEN:
 		AttackType: Hover
 		FacingTolerance: 40
 	Armament@1:
-		Weapon: QueenShard
+		Weapon: QueenTooth
+		Offset: 200, 0, -600
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-ExplodeWeapon@spawnsparks:
 	-SmokeParticleEmitter:

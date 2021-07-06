@@ -54,7 +54,7 @@ SkirmisherMortar:
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 	-Warhead@5Smu:
 	Warhead@2Eff: CreateEffect
-		ExplosionPalette: apgreen
+		ExplosionPalette: apolgreenalpha75
 		Explosions: mortarexp
 
 FiendShard2:
@@ -446,7 +446,7 @@ NukeFlame2mini:
 	Inherits: NukeFlame
 	Range: 4c512
 
-QueenShard:
+QueenTooth:
 	Inherits: ^APWarhead
 	ReloadDelay: 70
 	Burst: 1
@@ -456,27 +456,50 @@ QueenShard:
 	ValidTargets: Ground, Water
 	Projectile: BulletAS
 		Speed: 200
-		Image: tibshard
+		Image: queentooth
 		Shadow: true
 		LaunchAngle: 60
-		Palette: apgreen
+		Palette: playermut
 		Blockable: false
 		-ContrailLength:
 		-TrailImage:
 	Warhead@1Dam: SpreadDamage
 		Damage: 9000
 		ValidTargets: Ground, Water
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
+		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player
 		ImpactSounds: ssplash3.aud
 		ValidTargets: Water
 	Warhead@2Eff: CreateEffect
-		Explosions: tib_expsmall
-		ExplosionPalette: apolgreenalpha
+		Explosions: cabspark
+		ExplosionPalette: gradientgreen
 		ImpactSounds: expnew14.aud
 		InvalidTargets: Water
+	Warhead@flyback: BackFireShrapnel
+		Weapon: QueenToothBack
+
+QueenToothBack:
+	Projectile: MissileTA
+		CruiseAltitude: 6000
+		Acceleration: 0
+		MinimumLaunchAngle: 200
+		MaximumLaunchAngle: 200
+		Image: queentooth
+		Shadow: true
+		Palette: playermut
+		HorizontalRateOfTurn: 60
+		RangeLimit: 15c0
+		Arm: 0
+		Speed: 200
+		Inaccuracy: 0c0
+		Blockable: false
+		TerrainHeightAware: true
+		AllowSnapping: true
+		ExplodeUnderThisAltitude: -3c0
+		RangeLimit: 40c0
+		Gravity: 0
 
 SpawnEggShrapnel:
 	ReloadDelay: 500
@@ -563,10 +586,9 @@ GargoylACannon:
 			ConcreteArmor: 30
 		ValidTargets: Ground, Water
 		InvalidTargets: Air
-		DamageTypes: Prone70Percent, TriggerProne, BulletDeath, BulletDeath
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: dustexplodetiny
-		ExplosionPalette: effect
 
 GargoylACannonAA:
 	Inherits: GargoylACannon
@@ -657,7 +679,7 @@ ForgottenCannonCasing:
 
 FlakFire:
 	Inherits: ^AntiAirTurretWeapon
-	Inherits: ^Medium_Brnl #^Small_Brnl
+	Inherits: ^Small_Brnl
 	Burst: 2
 	BurstDelays: 5
 	ReloadDelay: 48
@@ -672,7 +694,6 @@ FlakFire:
 	Warhead@2Eff: CreateEffect
 		Explosions: dustexplodetiny
 		ValidTargets: Ground, Water, Air
-		ExplosionPalette: effect
 	-Warhead@2Smu:
 
 FlakFireCasing:
