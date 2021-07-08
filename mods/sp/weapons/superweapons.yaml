@@ -1,7 +1,7 @@
 
 ^SWBaseEffects:
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
-		Falloff: 1000, 700, 500, 300, 150, 50, 0
+		Falloff: 100, 100
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium
 		Versus:
 			InfantryArmor: 100
@@ -11,10 +11,10 @@
 			AircraftArmor: 100
 			ConcreteArmor: 0
 			BossArmor: 0
-		Spread: 0c100
+		Spread: 0c690
 		Damage: 9000000
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
-		Falloff: 1000, 700, 500, 300, 150, 50, 0
+		Falloff: 100, 100
 		ValidTargets: Air
 		Versus:
 			InfantryArmor: 100
@@ -24,7 +24,7 @@
 			AircraftArmor: 100
 			ConcreteArmor: 0
 			BossArmor: 0
-		Spread: 0c768
+		Spread: 3c640 ### It can just hit the CruiseAltitude: 4c0 aircraft.
 		Damage: 9000000
 		
 SuicideBomb:
@@ -118,20 +118,19 @@ IonCannon: ### THIS IS THE MAIN ION CANON WEAPON
 	ReloadDelay: 1000
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
 	Warhead@1Dam_area: SpreadDamage
-		Spread: 1c0
+		Spread: 1c768
 		Damage: 200000
-		Falloff: 100, 50, 25, 0
+		Falloff: 100, 60, 30
 		AffectsParent: true
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
 		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
 		Versus:
 			BossArmor: 200
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
-		Spread: 0c800
+		Spread: 4c512
 		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
-		Spread: 0c900
-		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
+		Spread: 4c256
 	Warhead@3Smu_area: LeaveSmudge
 		SmudgeType: SmallScorch
 		Size: 2,1
@@ -212,7 +211,7 @@ IonScorch: ### THESE ARE THE WEAPONS OF THE MINI BEAMS ON THE SIDES
 			DefenseArmor: 50
 			ConcreteArmor: 5
 	Warhead@3Dam_areaAA: SpreadDamage
-		Falloff: 1000, 700, 500, 300, 150, 50, 0
+		Falloff: 100, 100
 		ValidTargets: Air
 		Versus:
 			InfantryArmor: 100
@@ -222,8 +221,8 @@ IonScorch: ### THESE ARE THE WEAPONS OF THE MINI BEAMS ON THE SIDES
 			AircraftArmor: 100
 			ConcreteArmor: 0
 			BossArmor: 0
-		Spread: 0c768
-		Damage: 500
+		Spread: 3c928
+		Damage: 750
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Condition: BreakShield
 		Range: 32
@@ -389,7 +388,7 @@ NuclearMissile:
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 		Versus:
 			ConcreteArmor: 25
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@ClusterDamage3: SpreadDamage
 		Damage: 47000
 		Spread: 2c0
@@ -418,11 +417,11 @@ NuclearMissile:
 			DefenseArmor: 50
 			ConcreteArmor: 5
 			BossArmor: 50
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
-		Spread: 1c200
+		Spread: 6c768
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
-		Spread: 1c200
+		Spread: 5c256
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@SoundEffect0: CreateEffect
 		Explosions: nuke1, nuke2, nuke3
@@ -647,6 +646,8 @@ MeteorAirHit:
 	Inherits@1: ^SWBaseEffects
 	Projectile: InstantHit
 	-Warhead@GetsOneShotedbySuperweapons: ## This for Air only, we cannot expect meteor fall on the ground to hit Air
+	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
+		Spread: 4c196
 
 MeteorElevator:
 	ReloadDelay: 6
@@ -802,7 +803,7 @@ IronSaviorExplode:
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 15
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
-		Spread: 0c768
+		Spread: 3c512
 		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
 	Warhead@op: FireShrapnel
 		Weapon: IronSaviorShrapnel
@@ -810,6 +811,8 @@ IronSaviorExplode:
 		Amount: 20
 		AllowDirectHit: false
 		ValidTargets: Ground, Water, Infantry, Vehicle, BlueTiberium, Tiberium, Air
+	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
+		Spread: 4c192
 
 IronSaviorShrapnel:
 	Inherits: ^FullDamage
@@ -853,8 +856,10 @@ IronSaviorShrapnel:
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 15
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
-		Spread: 0c400
+		Spread: 2c512
 		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
+	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
+		Spread: 3c896
 
 IonStormSpawnerWeapon: ### THIS ONE GENERATES THE ION STORM PARTICLE
 	ReloadDelay: 6
@@ -899,6 +904,8 @@ IonRay:
 			BossArmor: 250
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
+	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
+		Spread: 3c768
 
 VeinholeSummonerWeapon:
 	ReloadDelay: 8
