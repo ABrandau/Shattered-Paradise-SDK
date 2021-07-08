@@ -213,7 +213,7 @@ JUMPJETAIR:
 		Speed: 130
 		AirborneCondition: airborne
 		CruisingCondition: cruising
-		CruiseAltitude: 3c0
+		CruiseAltitude: 3c1021
 		IdealSeparation: 1c0
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 		CanHover: true
@@ -1033,7 +1033,7 @@ FLOAT:
 		Queue: Infantry
 		BuildPaletteOrder: 20
 		Description: Support unit that steals essence from enemy units.\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water)\n- Attack deals little to no damage but steals essence to heal friendly units.\n- Crush class: crushable.\n- Does not receive damage from tiberium fields.
-		Prerequisites: ~scrrax, scrdepot
+		Prerequisites: ~scrrax, scrradr
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -1191,7 +1191,7 @@ COLOSSI:
 CABSENTRY:
 	Inherits: ^CabalDroneInfantry
 	Inherits@1: ^CabRender
-	Inherits@2: ^6CellVision
+	Inherits@2: ^3CellVision
 	-Valued:
 	GivesExperience:
 		Experience: 50
@@ -1212,7 +1212,7 @@ CABSENTRY:
 	Targetable:
 		TargetTypes: Ground, Infantry, Summoned
 	Mobile:
-		Speed: 70
+		Speed: 50
 		Locomotor: HeavyInfantry
 	KillsSelf@TimedLife:
 		Delay: 250
@@ -1227,7 +1227,7 @@ CABSENTRY:
 		InitialStance: AttackAnything
 	-Armor:
 	Armor@2:
-		Type: VehicleArmor
+		Type: InfantryArmor
 	RenderSprites:
 	AttackFrontal:
 		Voice: Attack

@@ -348,8 +348,8 @@ MammothTusk:
 	Burst: 2
 	Projectile: MissileTA
 		Blockable: false
-		HorizontalRateOfTurn: 40
-		Speed: 313
+		Speed: 350
+		Inaccuracy: 128
 	Warhead@1Dam: SpreadDamage
 		Damage: 3500
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
@@ -398,12 +398,12 @@ MechRailgun2:
 		HitAnimPalette: effect
 	Warhead@1Dam: SpreadDamage
 		Spread: 50
-		Damage: 15000
+		Damage: 30000
 		Versus:
-			InfantryArmor: 200
-			BuildingArmor: 175
-			VehicleArmor: 160
-			DefenseArmor: 160
+			InfantryArmor: 100
+			BuildingArmor: 100
+			VehicleArmor: 100
+			DefenseArmor: 100
 			ConcreteArmor: 25
 			Shield: 0
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
@@ -578,8 +578,10 @@ FirestormExplo:
 		DamageTypes: ExplosionDeath
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
 		ValidRelationships: Neutral, Enemy
+		Spread: 3c768
 	Warhead@2Eff: CreateEffect
-		Explosions: fsidle, fsgrnd
+		Explosions: firestormexplo, fsidle, firestormexplo1, fsidle, firestormexplo2, fsidle #fsgrnd
+		ExplosionPalette: apblue
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
