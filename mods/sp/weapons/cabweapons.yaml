@@ -247,13 +247,12 @@ WorkerMinigun:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	-Warhead@5Smu:
 
-DogBoomerang:
+DogBomb:
 	Inherits: ^WorkerWarhead
-	Report: rketinf1.aud
 	Burst: 2
 	Projectile: BulletAS
 		Speed: 300
-		Image: boomerang
+		Image: DRAGON
 		Shadow: true
 		Palette: playercab
 		IsPlayerPalette: true
@@ -263,30 +262,7 @@ DogBoomerang:
 		Explosions: sparks
 		ImpactSounds: rketinf1.aud
 		ExplosionPalette: gensmkexploj
-	Warhead@flyback: BackFireShrapnel
-		Weapon: DogBoomerangBack
 
-
-DogBoomerangBack:
-	Projectile: MissileTA
-		CruiseAltitude: 6000
-		Acceleration: 0
-		MinimumLaunchAngle: 200
-		MaximumLaunchAngle: 200
-		Image: boomerang
-		Shadow: true
-		Palette: playercab
-		IsPlayerPalette: true
-		HorizontalRateOfTurn: 60
-		RangeLimit: 15c0
-		Arm: 0
-		Speed: 100
-		Inaccuracy: 0c0
-		Blockable: false
-		TerrainHeightAware: true
-		AllowSnapping: true
-		ExplodeUnderThisAltitude: -3c0
-		Gravity: 0
 
 NanoNeedle:
 	Inherits: ^WorkerWarhead
