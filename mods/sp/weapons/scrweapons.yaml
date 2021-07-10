@@ -208,21 +208,20 @@ ScorpAcid:
 	Inherits: ^AcidWarhead
 	Inherits@1: ^SpawnsIrradiation
 	ReloadDelay: 70
-	Range: 5c0
-	Burst: 12
-	BurstDelays: 1
+	Range: 6c0
+	Burst: 10
+	BurstDelays: 2
 	StartBurstReport: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
 	Projectile: BulletAS
-		Speed: 200
+		Speed: 400
 		Inaccuracy: 1c0
 		Palette: apolgreenalpha
 		Image: flameallremap
-	BurstDelays: 3
 	Warhead@1Dam: SpreadDamage
 		Spread: 250
 		Damage: 975
 		Versus:
-			InfantryArmor: 150
+			InfantryArmor: 200
 			BuildingArmor: 75
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		InvalidTargets: Shark
@@ -231,7 +230,7 @@ ScorpAcid:
 		Damage: 975
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		Versus:
-			InfantryArmor: 150
+			InfantryArmor: 200
 			BuildingArmor: 75
 		ValidTargets: Shark
 		InvalidTargets: Building, Vehicle
@@ -377,8 +376,8 @@ TripodBlast2:
 StormRiderBlast:
 	Inherits: ^FullDamage
 	Inherits@2: ^GreenPlasmaExplosion
-	ReloadDelay: 100
-	Range: 6c512
+	ReloadDelay: 30
+	Range: 6c0
 	MinRange: 0c300
 	Report: laserpistol.wav
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
@@ -404,14 +403,14 @@ StormRiderBlast:
 		ContrailWidth: 0c100
 		ContrailDelay: 0
 	Warhead@1Dam: SpreadDamage
-		Damage: 4500
+		Damage: 2000
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 		InvalidTargets: Shark, Air
 		Versus:
 			InfantryArmor: 50
 	Warhead@2Shark: SpreadDamage
-		Damage: 4500
+		Damage: 2000
 		ValidTargets: Shark
 		InvalidTargets: Building, Vehicle, Air
 		ValidRelationships: Enemy, Neutral
@@ -441,7 +440,7 @@ StormRiderBlastAA:
 		HorizontalRateOfTurn: 240
 		VerticalRateOfTurn: 240
 	Warhead@1Dam: SpreadDamage
-		Damage: 2000
+		Damage: 1500
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 
@@ -601,7 +600,7 @@ DestroyerCannon:
 		Shadow: true
 		LaunchAngle: 62
 	Warhead@1Dam: SpreadDamage
-		Spread: 400
+		Spread: 0c768
 		Damage: 17000
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 	Warhead@2Eff: CreateEffect
