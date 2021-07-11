@@ -596,28 +596,16 @@ QuickFire:
 	Range: 2c0
 	Projectile: InstantHit
 
-##Unused, probably
-^ParticleSpawner:
-	Projectile: InstantExplode
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
-		DamageTypes: Prone100Percent, TriggerProne, FireDeath
-	Warhead@2: SpawnSmokeParticle
-		ImpactActors: false
-		Duration: 25, 600
-		Image: explosion
-		Sequences: fire2, fire1
-		Palette: effectalpha25
-
 
 BuildingFireBigShrapnel:
 	ReloadDelay: 2
 	Projectile: InstantExplode
-	Warhead@op: FireRadius
-		Weapon: BuildingFireBig
+	Warhead@2: SpawnSmokeParticle
+		Image: explosion
 		ImpactActors: false
-		Amount: 6
+		Sequences: smallspark, fire1, fire2, fire1, fire1, fire2
+		Duration: 100, 200
+		Palette: effect
 
 BuildingFireSmallShrapnel:
 	Inherits: BuildingFireBigShrapnel
@@ -625,13 +613,13 @@ BuildingFireSmallShrapnel:
 	Warhead@op: FireRadius
 		Weapon: BuildingFireSmall
 		ImpactActors: false
-		Amount: 11
+		Amount: 6
 
 ScrinBuildingFireBigShrapnel:
 	Inherits: BuildingFireBigShrapnel
-	Warhead@op: FireRadius
-		Weapon: ScrinBuildingFireBig
-		ImpactActors: false
+	Warhead@2: SpawnSmokeParticle
+		Image: explosion
+		Sequences: smallspark, scrinfire1,scrinfire2, scrinfire1,scrinfire2, scrinfire1
 
 ScrinBuildingFireSmallShrapnel:
 	Inherits: BuildingFireSmallShrapnel
@@ -658,12 +646,12 @@ BuildingFireBig:
 
 BuildingFireSmall:
 	Inherits: BuildingFireBig
-	Range: 0c325
+	Range: 0c375
 	Projectile: InstantHit
 		Inaccuracy: 4c0
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
-		Sequences: fire3, fire4
+		Sequences: fire3, fire4, fire3, fire4, fire2
 		Duration: 275, 325
 	-Warhead@smoke:
 
@@ -675,7 +663,7 @@ ScrinBuildingFireBig:
 ScrinBuildingFireSmall:
 	Inherits: BuildingFireSmall
 	Warhead@2: SpawnSmokeParticle
-		Sequences: scrinfire3, scrinfire4
+		Sequences: scrinfire3, scrinfire4, scrinfire3, scrinfire4, scrinfire2
 
 VisceroidExplode:
 	Warhead@2Eff: CreateEffect

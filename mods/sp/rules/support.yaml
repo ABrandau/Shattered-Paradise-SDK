@@ -600,9 +600,9 @@ GAFIRE:
 		Color: 8888FFCC
 		BorderWidth: 0
 		Width: 2
-	PowerMultiplier:
+	Power@activated:
 		RequiresCondition: FirestormGen
-		Modifier: 600
+		Amount: -500
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: FirestormGen
 		CooldownTicks: 1500
@@ -626,6 +626,12 @@ GAFIRE:
 	WithIdleOverlay@2:
 		Sequence: idle2
 		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@firestormactived:
+		Image: explosion
+		Sequence: firestormactived
+		RequiresCondition: FirestormGen && !Building-Buildup && !empdisable
+		Palette: apolbluealpha
+		Offset: 80, 370, 0
 	Power:
 		Amount: -100
 	ProvidesPrerequisite@buildingname:
