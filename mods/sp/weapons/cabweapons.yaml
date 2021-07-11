@@ -434,30 +434,31 @@ PalaLazor:
 	Range: 8c0
 	Report: avatarlaser0000.wav, avatarlaser0001.wav, avatarlaser0002.wav
 	Projectile: LaserZap
-		Width: 90
-		Color: 0000AB55
-		Duration: 20
+		TrackTarget: false
+		Width: 250
+		Duration: 15
+		ZOffset: 3000
+		Color: 0000AB88
 		SecondaryBeam: true
-		SecondaryBeamWidth: 45
-		ZOffset: 3047
-		SecondaryBeamZOffset: 2047
-		SecondaryBeamColor: FFFFFF55
+		SecondaryBeamWidth: 30
+		SecondaryBeamZOffset: 3000
+		SecondaryBeamColor: 55ffffaa
 		Blockable: false
 		HitAnim: explosion
-		HitAnimSequence: dimlaserflare
-		HitAnimPalette: jascbluealpha
+		HitAnimSequence: lazerflare
+		HitAnimPalette: apblue
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
-		Damage: 3000
+		Damage: 6000
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
 PalaLazorMute:
 	Inherits: PalaLazor
 	Projectile: LaserZap
-		-HitAnim:
-		-HitAnimSequence:
-		-HitAnimPalette:
-	-Report:
+		HitAnimSequence: dimlaserflare
+		HitAnimPalette: jascbluealpha
+	-Report
+	
 
 WaspBullet:
 	Inherits: ^APWarhead
