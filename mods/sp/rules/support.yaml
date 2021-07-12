@@ -488,11 +488,11 @@ SCRDRONE:
 	Valued:
 		Cost: 1500
 	Tooltip:
-		Name: Visceroid Hive
+		Name: Pulsar Tower
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 49
-		Description: Advanced base defense.\n\nGood vs Ground targets.\n\nSpecial:\n- Throws Visceroids at enemies.\n- Requires power to operate.
+		Description: Advanced base defense.\n\nGood vs Ground targets.\n\nSpecial:\n- Warps a portion of a pulsar.\n- Dealing damage and slowing units enemy nearby.\n- Requires power to operate.
 		Prerequisites: scrtech, ~structures.scr
 	Building:
 		Footprint: xx xx
@@ -502,14 +502,38 @@ SCRDRONE:
 	AttackOmni:
 		PauseOnCondition: empdisable || disabled
 	Armament:
-		Weapon: DronePlane
-		ForceTargetRelationships: Enemy
-		LocalOffset: 0,0,1750
+		Weapon: SrcinOrb
+		LocalOffset: 0, 0, 3000
 		RequiresCondition: !Building-Buildup
+		ReloadingCondition: charging
 	Power:
 		Amount: -50
+	WithIdleOverlay@Charged1:
+		Image: explosion
+		Sequence: wakescr
+		Offset: 0, 0, 3000
+		RequiresCondition: !Building-Buildup && !charging  && !empdisable && !disabled
+		Palette: scrinenergystuffsalpha
+	WithIdleOverlay@Charged2:
+		Image: pulsar
+		Sequence: sorb
+		Offset: 0, 0, 3000
+		RequiresCondition: !Building-Buildup && !charging && !empdisable && !disabled
+		Palette: scrinenergystuffs
+	WithIdleOverlay@Charging1:
+		Image: pulsar
+		Sequence: sorbpulsetiny
+		Offset: 0, 0, 3000
+		RequiresCondition: !Building-Buildup && charging && !empdisable && !disabled
+		Palette: scrinenergystuffs
+	WithIdleOverlay@Charging2:
+		Image: pulsar
+		Sequence: sorbtiny
+		Offset: 0, 0, 3000
+		RequiresCondition: !Building-Buildup && charging && !empdisable && !disabled
+		Palette: scrinenergystuffs
 	IsometricSelectable:
-		DecorationHeight: 48
+		DecorationHeight: 52
 	ThrowsShrapnel@SMALL:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:

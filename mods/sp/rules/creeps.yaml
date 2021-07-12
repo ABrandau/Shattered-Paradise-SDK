@@ -100,34 +100,6 @@ VISC_LRG:
 	MapEditorData:
 		Categories: Creep
 
-VISC_LRG_SCRIN:
-	Inherits: VISC_LRG
-	Health:
-		HP: 10000
-	-DamagedByTerrain:
-	RejectsOrders:
-	-UpdatesPlayerStatistics:
-	-AppearsOnRadar:
-	EditorOnlyTooltip:
-		Name: Visceroid Hive Visc (Do not place in editor)
-	Targetable:
-		TargetTypes: Ground, Vehicle, NoRepair, MindControlImmune, Summoned
-	AutoTarget:
-		ScanRadius: 5
-		InitialStance: AttackAnything
-	ChangesHealth:
-		PercentageStep: -10
-		Step: 0
-		Delay: 50
-		StartIfBelow: 200
-	RenderSprites:
-		Image: vislrg
-	-SpawnActorOnDeath@smallVisceroid1:
-	-SpawnActorOnDeath@smallVisceroid2:
-	-Explodes@adultExplodes:
-	MapEditorData:
-		Categories: Creep
-
 ZOMBIE:
 	Inherits: ^Mutant
 	Tooltip:

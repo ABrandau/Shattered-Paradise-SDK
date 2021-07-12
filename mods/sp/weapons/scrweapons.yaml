@@ -772,50 +772,91 @@ TractorBeam2:
 	-Warhead@1Dam:
 	-Warhead@TractorStop:
 
-DronePlane:
-	Inherits: ^BombWarhead
-	ReloadDelay: 150
+SrcinOrb:
+	ReloadDelay: 260
 	Range: 7c0
-	Burst: 2
-	BurstDelays: 10
-	MinRange: 1c0
-	ValidTargets: Infantry, Vehicle, Building
+	ValidTargets: Infantry, Vehicle, Building, Ground, Water
+	TargetActorCenter: true
+	Report: devourerlasor0000.wav, devourerlasor0001.wav, devourerlasor0002.wav
 	Projectile: BulletAS
-		Speed: 360
-		Image: viscproj
-		Shadow: true
-		Palette: effect
-		LaunchAngle: 50
-	Warhead@1Dam: SpreadDamage
-		Spread: 150
-		Damage: 4000
-		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 100
-			VehicleArmor: 100
-			DefenseArmor: 100
-			AircraftArmor: 100
-			ConcreteArmor: 15
+		Speed: 256
+		Image: pulsar
+		Shadow: false
+		Palette: scrinenergystuffs
+		Sequences: sorb
+		TrailImage: pulsar
+		TrailSequences: sorbtail
+		TrailPalette: appurp
+		TrailInterval: 3
+		TrailDelay: 1
+	Warhead@1Dam: TargetDamage
+		Damage: 0
+		ValidTargets: Infantry, Vehicle, Building, Ground, Water
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@3: SpawnSmokeParticle
+		Image: pulsar
+		ImpactActors: false
+		Sequences: sorbpulse
+		Duration: 212
+		Palette: gradientpurple
+	Warhead@4: SpawnSmokeParticle
+		Image: pulsar
+		ImpactActors: false
+		Sequences: sorbray-down
+		Duration: 205
+		Palette: appurp
+	Warhead@5: SpawnSmokeParticle
+		Image: pulsar
+		ImpactActors: false
+		Sequences: sorbray-up
+		Duration: 205
+		Palette: appurp
+	Warhead@main: SpawnSmokeParticle
+		Weapon: OrbZapsShrapnel
+		Image: pulsar
+		ImpactActors: false
+		Sequences: sorb
+		Duration: 200
+		Palette: scrinenergystuffs
+
+OrbZapsShrapnel:
+	Warhead@Slowdown: GrantExternalCondition
+		Range: 2c0
+		Duration: 45
+		Condition: RavagerSlowdown
+		ValidRelationships: Enemy, Neutral, Ally
+		ValidTargets: Infantry, Vehicle
+		InvalidTargets: Building, Defence
+	Warhead@op: FireShrapnel
+		Weapon: OrbZaps
+		ImpactActors: false
+		Amount: 1
+		AimChance: 100
+		ThrowWithoutTarget: true
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
 		ValidTargets: Ground, Water, Air
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
+
+OrbZaps:
+	Inherits: ^FullDamage
+	ReloadDelay: 15
+	Range: 3c0
+	MinRange: 0c512
+	Projectile: ElectricBolt
+		ZOffset: 6024
+		Distortion: 200
+		Width: 50
+		Angle: 240
+		Colors: ff44ff
+		SegmentLength: 326
+		Duration: 4
+	Warhead@1Dam: TargetDamage
+		Damage: 1000
+		DamageTypes: Prone60Percent, TriggerProne, FireDeath, ScrinEssenceKill
 	Warhead@2Eff: CreateEffect
-		Explosions: viscexplo
-		ExplosionPalette: effect
-		ImpactSounds: expnew14.aud
-		InvalidTargets: : Water
-	Warhead@3EffWater: CreateEffect
-		Explosions: viscexplo
-		ExplosionPalette: effect
-		ImpactSounds: ssplash3.aud
-		ValidTargets: Water
-	Warhead@4Smu: LeaveSmudge
-		SmudgeType: MediumCrater
-		InvalidTargets: Vehicle, Building, Wall
-	Warhead@5Actor: SpawnActor
-		Actors: visc_lrg_scrin, visc_lrg_scrin
-		FallRate: 5000
-		Range: 3
-		ValidTargets: Ground, Infantry, Vehicle, Building, Structure, Water, Air
+		Explosions: lightpulsetiny
+		ExplosionPalette: appurp
+		ImpactActors: false
 
 EssenceSmall:
 	ReloadDelay: 45

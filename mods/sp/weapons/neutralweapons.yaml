@@ -470,3 +470,48 @@ BerserkerBlow:
 		Damage: 4000
 		ValidTargets: Ground, Water
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
+
+VisceLauncher:
+	Inherits: ^BombWarhead
+	ReloadDelay: 150
+	Range: 7c0
+	Burst: 2
+	BurstDelays: 10
+	MinRange: 1c0
+	ValidTargets: Infantry, Vehicle, Building
+	Projectile: BulletAS
+		Speed: 360
+		Image: viscproj
+		Shadow: true
+		Palette: effect
+		LaunchAngle: 50
+	Warhead@1Dam: SpreadDamage
+		Spread: 150
+		Damage: 4000
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 100
+			VehicleArmor: 100
+			DefenseArmor: 100
+			AircraftArmor: 100
+			ConcreteArmor: 15
+		ValidTargets: Ground, Water, Air
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
+	Warhead@2Eff: CreateEffect
+		Explosions: viscexplo
+		ExplosionPalette: effect
+		ImpactSounds: expnew14.aud
+		InvalidTargets: : Water
+	Warhead@3EffWater: CreateEffect
+		Explosions: viscexplo
+		ExplosionPalette: effect
+		ImpactSounds: ssplash3.aud
+		ValidTargets: Water
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: MediumCrater
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@5Actor: SpawnActor
+		Actors: visc_lrg, visc_lrg
+		FallRate: 5000
+		Range: 3
+		ValidTargets: Ground, Infantry, Vehicle, Building, Structure, Water, Air
