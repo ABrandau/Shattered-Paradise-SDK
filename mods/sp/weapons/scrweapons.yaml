@@ -247,8 +247,7 @@ MindController:
 	Report: iyurat1a.wav
 	Projectile: InstantHit
 		Blockable: false
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
+	Warhead@1Dam: TargetDamage
 		Damage: 0
 		ValidTargets: Infantry, Vehicle
 		InvalidTargets: Structure, Wall, Husk, Trees, Creep, MindControlImmune
@@ -600,7 +599,8 @@ DestroyerCannon:
 		Shadow: true
 		LaunchAngle: 62
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c768
+		Falloff: 100, 60, 30
+		Spread: 896
 		Damage: 17000
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 	Warhead@2Eff: CreateEffect
