@@ -297,14 +297,29 @@ GACNST:
 		ProductionType: Defense
 		Color: 8A8A8A
 	WithIdleOverlay@TOP:
+		RequiresCondition: !Building-Buildup
 		Sequence: idle-top
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@TOP-BRIGHT:
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-top-bright
+		Palette: bright
 	WithIdleOverlay@SIDE:
+		RequiresCondition: !Building-Buildup
 		Sequence: idle-side
-		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@FRONT:
-		Sequence: idle-front
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-front
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@FRONT-BRIGHT:
+		RequiresCondition: !Building-Buildup
+		Sequence: idle-front-bright
+		Palette: bright
+	WithMakeOverlay@MAKE-BRIGHT:
+		Sequence: make-bright
+		Palette: bright
 	WithBuildingPlacedOverlay:
 	ProvidesPrerequisite@walls:
 		Factions: gdi, cab
