@@ -912,20 +912,44 @@ namisl:
 	idle-lights: ntmisl_b
 		Length: 10
 		Tick: 120
+	idle-lights-bright: ntmisl_b
+		Length: 10
+		Tick: 120
+		IgnoreWorldTint: True
 	damaged-idle-lights: ntmisl_b
 		Start: 10
 		Length: 10
 		Tick: 120
+	damaged-idle-lights-bright: ntmisl_b
+		Start: 10
+		Length: 10
+		Tick: 120
+		IgnoreWorldTint: True
 	make: ntmislmk
 		Length: 18
 		ShadowStart: 18
 	active: ntmisl_a
-		Length: 10
+		Frames: 0, 1, 2, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 8, 9, 10, 11
+		Length: 25
 		Tick: 80
+		ZOffset: 2
+	active-bright: ntmisl_a
+		Frames: 11, 12, 13, 14, 14, 14, 14, 14, 15, 16, 16, 16, 16, 17, 17, 17, 17, 17, 17, 17, 17, 18, 19, 20, 12, 22
+		Length: 25
+		Tick: 80
+		ZOffset: 2
+		IgnoreWorldTint: True
 	damaged-active: ntmisl_a
-		Start: 10
+		Start: 11
 		Length: 10
 		Tick: 80
+		ZOffset: 1
+	damaged-active-bright: ntmisl_a
+		Start: 11
+		Length: 10
+		Tick: 80
+		ZOffset: 1
+		IgnoreWorldTint: True
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0

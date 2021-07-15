@@ -604,8 +604,14 @@ NAMISL:
 		Footprint: xx xx
 		Dimensions: 2,2
 	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights-bright
+		Palette: bright
 	ToggleConditionOnOrder:
 		DisabledSpeech: EnablePower
 		EnabledSpeech: DisablePower
@@ -623,10 +629,11 @@ NAMISL:
 		LongDescs:
 			1: Launches a warhead filled with tiberium, it spawns gas clouds and radiates the area.\nHas a fast reaction time.
 		SelectTargetSpeechNotification: SelectTarget
-		FlightDelay: 100
 		MissileWeapon: ToxinMissile
+		MissileDelay: 18
+		FlightDelay: 100
 		DisplayTimerRelationships: Ally, Neutral, Enemy
-		SpawnOffset: 0,427,0
+		SpawnOffset: 0, 0c128, 0c512
 		BeaconPosters:
 			1: minichemicon
 		ArrowSequence: arrow
@@ -657,7 +664,13 @@ NAMISL:
 	PowerMultiplier@POWERDOWN:
 		RequiresCondition: powerdown
 		Modifier: 0
-	WithSupportPowerActivationAnimation:
+	WithSupportPowerActivationOverlay:
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithSupportPowerActivationOverlay@BRIGHT:
+		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights-bright
+		Palette: bright
 	Power:
 		Amount: -200
 
