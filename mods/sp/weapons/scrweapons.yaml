@@ -128,7 +128,10 @@ FloatTesla:
 	ValidTargets: Infantry, Vehicle
 	InvalidTargets: Summoned
 	Projectile: TeslaZap
-		Palette: apred
+		Image: scrlitning
+		Palette: appurp
+		DimZaps: 0
+		Duration: 5
 	Warhead@1Dam: SpreadDamage
 		Damage: 0
 		InvalidTargets: Summoned
@@ -253,7 +256,7 @@ MindController:
 		InvalidTargets: Structure, Wall, Husk, Trees, Creep, MindControlImmune
 	Warhead@2Eff: CreateEffect
 		Explosions: cldrngl1
-		ExplosionPalette: apolredalpha
+		ExplosionPalette: appurp
 		ValidTargets: Infantry, Vehicle
 		InvalidTargets: Structure, Wall, Husk, Trees, Creep, MindControlImmune
 
@@ -265,22 +268,25 @@ MindEnergyCasing:
 	Warhead@0Dam: TargetDamage
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 	Warhead@op: FireRadius
-		Weapon: RedSpark
+		Weapon: MindSpark
 		ImpactActors: false
 		Amount: 3
 		ValidTargets: Ground, Water, Air
 		InvalidTargets: Infantry, Vehicle, Building, Wall
 	Warhead@2Eff: CreateEffect
 		Explosions: cldrngl1
-		ExplosionPalette: apolredalpha
+		ExplosionPalette: appurp
 		ValidTargets: Ground, Water, Air
 		InvalidTargets: Infantry, Vehicle, Building, Wall
 
-RedSpark:
+MindSpark:
 	ReloadDelay: 80
 	Range: 0c256
 	Projectile: TeslaZap
-		Palette: apred
+		Image: scrlitning
+		Palette: appurp
+		DimZaps: 0
+		Duration: 4
 	Warhead@1Dam: TargetDamage
 
 VanguardFollow:
