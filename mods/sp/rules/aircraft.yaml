@@ -617,6 +617,7 @@ WETP:
 	Inherits@4: ^9CellVision
 	Inherits@Shadow: ^AircraftShadow
 	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -624,7 +625,7 @@ WETP:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: Fast jet that throws a small tiberium bomb.\n\nGood vs: Ground Targets\nSpecial:\n- Can mutate killed enemy units\n- Emits tiberium gas damaging nearby units\n- Moves at high speed when attacking
+		Description: Fast jet that throws a small tiberium bomb.\n\nGood vs: Ground Targets\nSpecial:\n- Can mutate killed enemy units\n- Moves at super-sonic speed when attacking\n- ignore all attack when at super-sonic speed
 		Queue: Air
 		BuildPaletteOrder: 7
 		Prerequisites: ~muair, muhall
@@ -661,11 +662,6 @@ WETP:
 	SpawnActorOnDeath:
 		Actor: WETP.Husk
 		RequiresCondition: airborne
-	GrantConditionOnActivity:
-		Condition: attacking
-	SpeedMultiplier@Supersonic:
-		RequiresCondition: attacking && ammo
-		Modifier: 300
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -693,6 +689,30 @@ WETP:
 		UsePlayerColor: false
 		TrailWidth: 96
 		TrailLength: 7
+	GrantConditionOnActivity:
+		Condition: attacking
+	SpeedMultiplier@Supersonic:
+		RequiresCondition: ammo && attacking
+		Modifier: 300
+	HitShape:
+		RequiresCondition: !ammo || !attacking
+	HitShape@supersonic:
+		RequiresCondition: ammo && attacking
+		UseTargetableCellsOffsets: true
+		Type: Circle
+			Radius: 340
+			VerticalTopOffset: 512
+		TargetableOffsets: -1300, 0, 0
+	DamageMultiplier@supersonic:
+		RequiresCondition: ammo && attacking
+		Modifier: 0
+	ExternalCondition@tractorstop:
+		RequiresCondition: !ammo || !attacking
+	SpeedMultiplier@tractorstop:
+		RequiresCondition: (!ammo || !attacking) && tractorstop
+	RejectsOrders@AI:
+		Reject: Move, Attack, ReturnToBase
+		RequiresCondition: AImicroManage && ammo && attacking
 
 MUTQUEEN:
 	Inherits: ^CombatHelicopter
