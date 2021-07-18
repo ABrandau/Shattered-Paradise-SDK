@@ -491,16 +491,17 @@ CERBERUS:
 		DisableSound: cloak5.aud
 		AffectsParent: false
 		RequiresCondition: !Attacking && !reloading
-	SmokeParticleEmitter@cloakgeneratoreff:
+	-WithShadow:
+	WithFacingSpriteBody@Shadow: ## Note: use this to reduce performance cost. Don't use this method on those can cloak
+		ForceToGround: true
+		Palette: shadow
+		Name: shadow
+	WithIdleOverlay@cloakgeneratoreff:
+		Sequence: cloakgeneratorwave
+		Offset: -25, 0, 0
 		RequiresCondition:  !Attacking && !reloading
-		Sequences: cloakgeneratorwave
-		SpawnFrequency: 40
-		Speed: 0
-		Gravity: 0
-		Offset: 0,0,0
 		Image: explosion
 		Palette: effectalpha10
-		Duration: 18
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel
