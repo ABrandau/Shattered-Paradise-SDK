@@ -65,6 +65,7 @@ LegioNeedlerAA:
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Infantry, Vehicle, Building
+	-Warhead@ShieldUpgrade:
 
 ColossiShard:
 	Inherits: ^RifleWarhead
@@ -450,6 +451,7 @@ StormRiderBlastAA:
 		Damage: 1500
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+	-Warhead@ShieldUpgrade:
 
 Glyder1Cannon:
 	Inherits: ^RocketWarhead
@@ -525,6 +527,7 @@ Glyder2Cannon:
 		Explosions: marnflash7
 		ExplosionPalette: MarnAlphaAlpha
 		ImpactSounds: photon1.wav
+	-Warhead@ShieldUpgrade:
 
 BattleshipCannon:
 	Inherits: ^FullDamage
@@ -672,6 +675,7 @@ WyvermBlastAA:
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		Damage: 2500
+	-Warhead@ShieldUpgrade:
 
 WasteTurretWeapon:
 	Inherits: ^AcidWarhead
@@ -769,6 +773,7 @@ TractorBeam:
 		Duration: 10
 		Condition: tractorstop
 		ValidTargets: Air
+	-Warhead@ShieldUpgrade:
 
 TractorBeam2:
 	Inherits: TractorBeam
@@ -777,7 +782,8 @@ TractorBeam2:
 		-HitAnimPalette:
 		-HitAnimSequence:
 	-Report:
-	-Warhead@1Dam:
+	Warhead@1Dam: TargetDamage
+		Damage: 0
 	-Warhead@TractorStop:
 
 SrcinOrb:
