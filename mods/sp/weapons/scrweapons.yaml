@@ -70,7 +70,7 @@ LegioNeedlerAA:
 ColossiShard:
 	Inherits: ^RifleWarhead
 	ReloadDelay: 70
-	Range: 6c0
+	Range: 5c0
 	Burst: 4
 	Report:  oneshot04.wav
 	SoundVolume: 3
@@ -227,6 +227,8 @@ ScorpAcid:
 		Versus:
 			InfantryArmor: 200
 			BuildingArmor: 75
+			VehicleArmor: 25
+			DefenseArmor: 25
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		InvalidTargets: Shark
 	Warhead@2Shark: SpreadDamage
@@ -236,6 +238,8 @@ ScorpAcid:
 		Versus:
 			InfantryArmor: 200
 			BuildingArmor: 75
+			VehicleArmor: 25
+			DefenseArmor: 25
 		ValidTargets: Shark
 		InvalidTargets: Building, Vehicle
 		ValidRelationships: Enemy, Neutral
@@ -299,7 +303,7 @@ VanguardFollow:
 
 ScrMbtLasor:
 	Inherits: ^FullDamage
-	ReloadDelay: 95
+	ReloadDelay: 90
 	Range: 6c0
 	Report: SeekerShot0000.wav,  SeekerShot0001.wav,  SeekerShot0002.wav,  SeekerShot0003.wav
 	Projectile: KKNDLaser
@@ -313,14 +317,14 @@ ScrMbtLasor:
 		ZOffset: 6024
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
-		Damage: 7500
+		Damage: 8500
 		Versus:
 			InfantryArmor: 45
 		DamageTypes: Prone60Percent, TriggerProne, FireDeath, ScrinEssenceKill
 		InvalidTargets: Shark
 	Warhead@2shark: SpreadDamage
 		Spread: 0c045
-		Damage: 7500
+		Damage: 8500
 		ValidTargets: Shark
 		Versus:
 			InfantryArmor: 45
@@ -414,7 +418,7 @@ StormRiderBlast:
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 		InvalidTargets: Shark, Air
 		Versus:
-			InfantryArmor: 50
+			InfantryArmor: 35
 			DefenseArmor: 35
 	Warhead@2Shark: SpreadDamage
 		Damage: 2000
@@ -423,7 +427,7 @@ StormRiderBlast:
 		ValidRelationships: Enemy, Neutral
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 		Versus:
-			InfantryArmor: 50
+			InfantryArmor: 35
 			DefenseArmor: 35
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Range: 96
@@ -702,6 +706,7 @@ WasteTurretWeapon:
 		Versus:
 			InfantryArmor: 200
 			BuildingArmor: 75
+			VehicleArmor: 75
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		ValidTargets: Building, Structure, Infantry, Vehicle, Ground
 		InvalidTargets: Shark
@@ -711,6 +716,7 @@ WasteTurretWeapon:
 		Versus:
 			InfantryArmor: 200
 			BuildingArmor: 75
+			VehicleArmor: 75
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		ValidTargets: Shark
 		InvalidTargets: Building, Structure, Infantry, Vehicle, Ground
@@ -782,8 +788,7 @@ TractorBeam2:
 		-HitAnimPalette:
 		-HitAnimSequence:
 	-Report:
-	Warhead@1Dam: TargetDamage
-		Damage: 0
+	-Warhead@1Dam:
 	-Warhead@TractorStop:
 
 SrcinOrb:

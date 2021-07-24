@@ -59,8 +59,8 @@ MMCH:
 		Description: Well balanced main battle walker armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can shoot over walls\n- Can crush infantry
 		Prerequisites: ~gaweap
 	Mobile:
-		TurnSpeed: 20
-		Speed: 75
+		TurnSpeed: 24
+		Speed: 80
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 45000
@@ -70,7 +70,7 @@ MMCH:
 	WithInfantryBody:
 		RequiresCondition: !inside-tunnel
 	Turreted:
-		TurnSpeed: 16
+		TurnSpeed: 24
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -229,8 +229,8 @@ JUG:
 		BuildPaletteOrder: 6
 		Prerequisites: ~gaweap, gatech
 	Mobile:
-		TurnSpeed: 20
-		Speed: 75
+		TurnSpeed: 24
+		Speed: 80
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 25000
@@ -276,8 +276,8 @@ SONIC:
 		BuildPaletteOrder: 7
 		Prerequisites: ~gaweap, gatech
 	Mobile:
-		TurnSpeed: 16
-		Speed: 65
+		TurnSpeed: 24
+		Speed: 75
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 55000
@@ -293,7 +293,7 @@ SONIC:
 	Targetable:
 		TargetTypes: Ground, Vehicle, AllySonicImmune
 	Turreted:
-		TurnSpeed: 16
+		TurnSpeed: 24
 		Offset: -500,0,0
 	AutoTarget:
 		ScanRadius: 7
@@ -318,8 +318,8 @@ G4TNK:
 		BuildPaletteOrder: 8
 		Prerequisites: ~gaweap, gatech
 	Mobile:
-		Speed: 60
-		TurnSpeed: 16
+		Speed: 65
+		TurnSpeed: 20
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 80000
@@ -327,7 +327,7 @@ G4TNK:
 		VoiceSet: MammothTankVO
 		Volume: 3
 	Turreted:
-		TurnSpeed: 12
+		TurnSpeed: 20
 		Offset: -200,0,0
 	Armament@PRIMARY:
 		Weapon: 4tnkgun
@@ -433,14 +433,14 @@ HMEC:
 		TargetTypes: Ground, Vehicle, MindControlImmune
 	Turreted:
 		Offset: -500,0,0
-		TurnSpeed: 10
+		TurnSpeed: 16
 	Turreted@2:
 		Offset: 600,300,-400
-		TurnSpeed: 12
+		TurnSpeed: 16
 		Turret: secondary
 	Turreted@3:
 		Offset: 600,-300,-400
-		TurnSpeed: 12
+		TurnSpeed: 16
 		Turret: third
 	Carryable:
 		LocalOffset: 0, 0, 1536
@@ -830,7 +830,7 @@ ATTACKBIKE:
 		Speed: 140
 		Locomotor: Vehicle
 	Health:
-		HP: 15000
+		HP: 12000
 	Armament@PRIMARY:
 		Weapon: BikeMissile
 		LocalOffset: -120,-204,400, -120,204,400
@@ -1919,7 +1919,7 @@ SCRMOBMINE:
 	Mobile:
 		TurnSpeed: 40
 		CanMoveBackward: true
-		Speed: 95
+		Speed: 90
 		Locomotor: Hover
 	AttackTurreted:
 		PauseOnCondition: empdisable
