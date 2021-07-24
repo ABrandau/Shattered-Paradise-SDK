@@ -2448,3 +2448,104 @@ PALADIN:
 	Explodes:
 		Weapon: BigUnitExplode
 		EmptyWeapon: BigUnitExplode
+
+
+BCOREDEF:
+	Inherits: ^Walker
+	Inherits@1: ^8CellVision
+	Inherits@2: ^CabRender
+	Inherits@3: ^PermanentSelfHeal
+	Inherits@4: ^CabalVehicleVoice
+	Inherits@GainsExperience: ^GainsExperience
+	Inherits@5: ^CommandoIcon
+	Valued:
+		Cost: 3000
+	Tooltip:
+		Name: C.A.B.A.L Defender
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 35
+		BuildAtProductionType: Tank
+		Description: Epic walker armed with a twin laser cannons and blast proton weapon on the shoulder.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle
+		Prerequisites: ~disabled
+		BuildLimit: 1
+	Mobile:
+		TurnSpeed: 36
+		Speed: 80
+		Locomotor: VehicleCrusher
+	AmbientSound@WalkAnim:
+		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
+		Delay: 16
+		Interval: 16
+		RequiresCondition: walking
+	GrantConditionOnMovement:
+		Condition: walking
+	ChangesHealth@Permanent:
+		DamageCooldown: 0
+		Delay: 75
+	Voiced:
+		VoiceSet: coredef
+		Volume: 0.75
+	Health:
+		HP: 200000
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
+	RenderSprites:
+		Image: cdef-black
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+		FacingTolerance: 3
+		Armaments: ArmArmament, HeadArmament, ShoulderArmament
+	Targetable:
+		TargetTypes: Ground, Vehicle, MindControlImmune
+	WithInfantryBody:
+		-DefaultAttackSequence: 
+		RequiresCondition: !inside-tunnel
+		AttackSequences:
+			ArmArmament: shoot2
+	####### arm weapon###########
+	Armament@RightArm1:
+		Weapon: BlackCDefLazer2
+		LocalOffset: 1580,500,3400
+		PauseOnCondition: empdisable
+		MuzzlePalette: apgreen
+		MuzzleSequence: muzzle1
+		Name: ArmArmament
+	Armament@LeftArm2:
+		Weapon: BlackCDefLazer1
+		LocalOffset: 1480,-800,3350
+		PauseOnCondition: empdisable
+		MuzzlePalette: apgreen
+		MuzzleSequence: muzzle1
+		Name: ArmArmament
+	Armament@Shoulder:
+		Weapon: BlackCDefCannon
+		LocalOffset: 600,450,4000
+		PauseOnCondition: empdisable
+		MuzzlePalette: apgreen
+		MuzzleSequence: muzzle1
+		Name: ShoulderArmament
+	WithMuzzleOverlay:
+	AutoTarget:
+	Selectable:
+		Bounds: 1809, 5428, 0, -2412
+	Carryable:
+		LocalOffset: 0,0,1200
+	SmokeParticleEmitter:
+		Offset: 0,0,1000
+	Explodes:
+		Weapon: BuildingExplode
+		EmptyWeapon: BuildingExplode
+	ThrowsShrapnel:
+		Pieces: 5, 9
+	ThrowsShrapnel@LARGE:
+		Pieces: 2, 4
+		Weapons: LargeDebris
+	-Crushable:
+	AnnounceOnSeen:
+		Notification: MammothDetected
+

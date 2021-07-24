@@ -312,9 +312,6 @@ COREDEFENDER:
 	-Carryable:
 	SmokeParticleEmitter:
 		Offset: 0,0,1000
-	Explodes:
-		Weapon: BigUnitExplode
-		EmptyWeapon: BigUnitExplode
 	WithInfantryBody:
 		-DefaultAttackSequence: 
 		RequiresCondition: !inside-tunnel
@@ -423,6 +420,11 @@ COREDEFENDER:
 	Explodes:
 		Weapon: BuildingExplode
 		EmptyWeapon: BuildingExplode
+	ThrowsShrapnel:
+		Pieces: 5, 9
+	ThrowsShrapnel@LARGE:
+		Pieces: 2, 4
+		Weapons: LargeDebris
 	ProvidesPrerequisite@AIbuildinglimit:
 		Prerequisite: DefenderExists
 

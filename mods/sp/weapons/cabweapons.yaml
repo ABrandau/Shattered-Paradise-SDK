@@ -459,7 +459,10 @@ PalaLazorMute:
 	Projectile: LaserZap
 		HitAnimSequence: dimlaserflare
 		HitAnimPalette: jascbluealpha
-	-Report
+	-Report:
+	Warhead@5Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall
 	
 
 WaspBullet:
@@ -858,3 +861,64 @@ CoreDefSuper:
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
+
+BlackCDefLazer1:
+	Inherits: PalaLazor
+	Inherits@2: ^CoreDefLazerProjectile
+	ReloadDelay: 70
+	Range: 7c0
+	Projectile: LaserZap
+		Duration: 15
+		Color: 00AB0099
+		SecondaryBeamColor: 44ddaaf0
+		HitAnim: explosion
+		HitAnimSequence: radexplo
+		HitAnimPalette: gensmkexplogreen
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 100, 50
+		Damage: 17500
+		Spread: 384
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 1c0
+
+BlackCDefLazer2:
+	Inherits: BlackCDefLazer1
+	Projectile: LaserZap
+		HitAnimSequence: bigdimlaserflare
+		HitAnimPalette: jascgreenalpha
+	-Report:
+	Warhead@5Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall
+
+BlackCDefCannon:
+	Inherits: ^FullDamage
+	Inherits@2: ^GreenPlasmaExplosion
+	ReloadDelay: 100
+	Burst: 5
+	Range: 7c0
+	Report: scrin5b.aud
+	ValidTargets: Ground, Water, Vehicle, Infantry
+	Projectile: BulletAS
+		Speed: 300
+		Blockable: false
+		Shadow: false
+		Inaccuracy: 1c0
+		LaunchAngle: 42
+		Palette: jascgreen
+		Image: greenplasma2
+		ContrailLength: 5
+		ContrailColor: 0CD95730
+		ContrailWidth: 0c90
+		ContrailDelay: 0
+	Warhead@1Dam: SpreadDamage
+		Spread: 500
+		Damage: 6000
+		Versus:
+			BuildingArmor: 50
+			DefenseArmor: 50
+			VehicleArmor: 100
+		ValidTargets: Ground, Water, Vehicle, Infantry, water
+		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
+
