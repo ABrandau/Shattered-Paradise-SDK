@@ -690,7 +690,7 @@ LaserFence:
 		HitAnimSequence: lazerflare
 		HitAnimPalette: apblue
 
-CoreDefLazer1:
+CoreDefLazer1R:
 	Inherits: ^CoreDefLazerProjectile
 	FirstBurstTargetOffset: 0,-500,0
 	FollowingBurstTargetOffset: 0,62,0
@@ -712,14 +712,24 @@ CoreDefLazer1:
 		Explosions: laserscorch
 		ExplosionPalette: gradientgray
 
-CoreDefLazer1Mute:
-	Inherits: CoreDefLazer1
+CoreDefLazer1L:
+	Inherits: CoreDefLazer1R
 	-StartBurstReport:
+	Projectile: LaserZap
+		HitAnimSequence: dimlaserflare
+		HitAnimPalette: jascbluealpha
 
-CoreDefLazer2:
-	Inherits: CoreDefLazer1Mute
+CoreDefLazer2R:
+	Inherits: CoreDefLazer1R
+	-StartBurstReport:
 	FirstBurstTargetOffset: 0,500,0
 	FollowingBurstTargetOffset: 0,-62,0
+
+CoreDefLazer2L:
+	Inherits: CoreDefLazer2R
+	Projectile: LaserZap
+		HitAnimSequence: dimlaserflare
+		HitAnimPalette: jascbluealpha
 
 CoreDefLazerAA:
 	Inherits: ^CoreDefLazerProjectile
@@ -806,7 +816,7 @@ CoreDefenderCannonAA:
 	-Warhead@ShieldUpgrade:
 
 CoreDefSuper:
-	Inherits: CoreDefLazer1
+	Inherits: CoreDefLazer1R
 	Inherits@1: ^SWBaseEffects
 	ReloadDelay: 200
 	Range: 300c0
