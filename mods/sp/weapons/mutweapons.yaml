@@ -234,6 +234,44 @@ PsykerRay:
 		Damage: 10000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
+LtRail:
+	Inherits:  ^WeaponGenericUpgrades
+	ReloadDelay: 60
+	Range: 7c0
+	Report: bigggun1.aud
+	Projectile: Railgun
+		Duration: 20
+		Blockable: true
+		BeamWidth: 40
+		BeamColor: 2228ED
+		HelixColor: 888FFF
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 15000
+		AffectsParent: false
+		ValidRelationships: Neutral, Enemy
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 130
+			VehicleArmor: 150
+			DefenseArmor: 150
+			ConcreteArmor: 5
+		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+	Warhead@2Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 50, 50
+		Damage: 15000
+		AffectsParent: false
+		ValidRelationships: Ally
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 130
+			VehicleArmor: 150
+			DefenseArmor: 150
+			ConcreteArmor: 5
+		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+
 BullAcid:
 	Inherits: ^AcidWarhead
 	ReloadDelay: 60
