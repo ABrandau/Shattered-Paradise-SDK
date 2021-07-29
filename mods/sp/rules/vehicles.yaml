@@ -377,6 +377,9 @@ HMEC:
 		BuildAtProductionType: Mammoth
 		Description: GDI's super-heavy walker and the pride of their army.\n\nGood vs: Everything\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Can attack air\n- Can crush infantry\n- Immune to mind control\n- Can shoot over walls\n- Can crush vehicles and cyborgs\n- It is deployed via dropship at the Dropship Bay
 		BuildLimit: 1
+	Voiced:
+		VoiceSet: MammothMkII
+		Volume: 2
 	Mobile:
 		TurnSpeed: 12
 		Speed: 60
@@ -471,6 +474,11 @@ HMEC:
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
 		Weapons: LargeDebris
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
 
 NODMCV:
 	Inherits: MCV
@@ -1265,6 +1273,91 @@ STNK:
 	Voiced:
 		VoiceSet: StealthTankVO
 		Volume: 7
+
+SCORPION:
+	Inherits: ^Tank
+	Inherits@1: ^8CellVision
+	Inherits@2: ^PermanentSelfHeal
+	Inherits@3: ^CommandoIcon
+	Inherits@4: ^WithTriggerCloakEffect-Defence
+	Inherits@GainsExperience: ^GainsExperience
+	Valued:
+		Cost: 3000
+	Tooltip:
+		Name: Lightbringer
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 17
+		Prerequisites: ~naweap, natmpl
+		BuildAtProductionType: Tank
+		Description: Nod's super-heavy walker. One vision one purpose.\n\nGood vs: Ground\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Can crush infantry\n- Immune to mind control\n- Can shoot over walls\n- Can crush vehicles and cyborgs\n- Deployability: Enemy units get out of control for 10 seconds
+		BuildLimit: 1
+	Voiced:
+		VoiceSet: Scorpion
+		Volume: 2
+	Mobile:
+		TurnSpeed: 24
+		Speed: 80
+		Locomotor: VehicleCrusher
+	-Crushable:
+	Health:
+		HP: 150000
+	AnnounceOnSeen:
+		Notification: CommandoDetected
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+		FacingTolerance: 6
+	AutoTarget:
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
+	AmbientSound@WalkAnim:
+		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
+		Delay: 16
+		Interval: 16
+		RequiresCondition: walking
+	GrantConditionOnMovement:
+		Condition: walking
+	Armament:
+		Weapon: ScorpionLaser
+		Sequence: shoot
+		LocalOffset: 750,0,2000
+		MuzzleSequence: muzzle
+		MuzzlePalette: obelpal
+		PauseOnCondition: empdisable
+	WithInfantryBody:
+		DefaultAttackSequence: shoot1
+	WithDeathAnimation:
+	RenderSprites:
+		Scale: 1.0
+	Targetable:
+		TargetTypes: Ground, Vehicle, MindControlImmune
+	Carryable:
+		LocalOffset: 0, 0, 20
+	WithMuzzleOverlay:
+	Passenger:
+		CustomPipType: red
+	Selectable:
+		Bounds: 2413, 4041, 0, -1508
+	SharedPassenger:
+		CustomPipType: red
+	Explodes:
+		Weapon: BuildingExplode
+		EmptyWeapon: BuildingExplode
+	ThrowsShrapnel:
+		Pieces: 5, 9
+	ThrowsShrapnel@LARGE:
+		Pieces: 2, 4
+		Weapons: LargeDebris
+	-WithFacingSpriteBody
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
 
 #####################################################################
 # FORGOTTEN
@@ -2473,7 +2566,7 @@ BCOREDEF:
 		BuildLimit: 1
 	Mobile:
 		TurnSpeed: 36
-		Speed: 80
+		Speed: 60
 		Locomotor: VehicleCrusher
 	AmbientSound@WalkAnim:
 		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
@@ -2547,5 +2640,10 @@ BCOREDEF:
 		Weapons: LargeDebris
 	-Crushable:
 	AnnounceOnSeen:
-		Notification: MammothDetected
+		Notification: CommandoDetected
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
 
