@@ -91,12 +91,19 @@ TrooperRail:
 	Range: 5c0
 	Report: railgunfire.wav
 	TargetActorCenter: true
-	Projectile: Railgun
-		Duration: 20
-		Blockable: true
-		BeamWidth: 40
-		BeamColor: 2228ED
-		HelixColor: 44FFFF
+	Projectile: BulletAS
+		ContrailDelay: 0
+		ContrailColor: AAAAFF #5566ED
+		ContrailLength: 4
+		ContrailWidth: 45
+		Speed: 1c256
+		Image: litning
+		Palette: apblue
+		Sequences: bright
+		TrailImage: litning
+		TrailSequences: bright
+		TrailPalette: apblue
+		TrailInterval: 0
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 4000
@@ -108,6 +115,10 @@ TrooperRail:
 		Range: 0c768
 		Duration: 30
 		Condition: empdisable
+	Warhead@2Eff: CreateEffect
+		Image: explosion
+		Explosions: marnflash8
+		ExplosionPalette: gensmkexplojFblue
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ImpactSounds: ssplash1.aud, ssplash2.aud, ssplash3.aud

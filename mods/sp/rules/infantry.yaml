@@ -459,6 +459,8 @@ NCONF:
 		DeployChance: 100
 		DeployTicks: 4005
 		UndeployTicks: 1
+	TakeCover:
+		ProneOffset: 778, 0, -778
 
 BHS:
 	Inherits: ^Soldier
@@ -911,9 +913,12 @@ GHOST:
 		HP: 20000
 	Armament:
 		Weapon: LtRail
-		LocalOffset: 120,0,543
+		LocalOffset: 200,0,743
+	Armament@pit:
+		Weapon: LtRailSmudge
+		LocalOffset: 200,0,743
 	TakeCover:
-		ProneOffset: 256,32,-384
+		ProneOffset: 256,32,-584
 	Crushable:
 		CrushSound: squishy2.aud
 	AttackFrontal:

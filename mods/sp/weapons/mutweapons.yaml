@@ -239,12 +239,14 @@ LtRail:
 	ReloadDelay: 60
 	Range: 7c0
 	Report: bigggun1.aud
+	TargetActorCenter: true
 	Projectile: Railgun
 		Duration: 20
 		Blockable: true
-		BeamWidth: 40
-		BeamColor: 2228ED
-		HelixColor: 888FFF
+		BeamWidth: 72
+		BeamColor: 9940EE
+		HelixColor: 44FFFF
+		HelixThickness: 35
 	Warhead@1Dam: SpreadDamage
 		Range: 0, 32
 		Falloff: 100, 100
@@ -271,6 +273,17 @@ LtRail:
 			DefenseArmor: 150
 			ConcreteArmor: 5
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+
+LtRailSmudge:
+	Inherits@2: ^Mediuml_Clsn
+	ReloadDelay: 60
+	Range: 7c0
+	TargetActorCenter: true
+	Projectile: InstantHit
+	Warhead@1Dam: TargetDamage
+		Damage: 0
+	-Warhead@2Eff:
+
 
 BullAcid:
 	Inherits: ^AcidWarhead
