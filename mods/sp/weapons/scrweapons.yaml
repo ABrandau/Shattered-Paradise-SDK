@@ -250,20 +250,38 @@ ScorpAcid:
 MindController:
 	ReloadDelay: 100
 	Range: 6c0
-	ValidTargets: Vehicle
+	ValidTargets: MindControllable
 	InvalidTargets: MindControlImmune
 	Report: iyurat1a.wav
 	Projectile: InstantHit
 		Blockable: false
 	Warhead@1Dam: TargetDamage
 		Damage: 0
-		ValidTargets: Infantry, Vehicle
-		InvalidTargets: Structure, Wall, Husk, Trees, Creep, MindControlImmune
+		ValidTargets: MindControllable
+		InvalidTargets: MindControlImmune
 	Warhead@2Eff: CreateEffect
 		Explosions: cldrngl1
 		ExplosionPalette: appurp
-		ValidTargets: Infantry, Vehicle
-		InvalidTargets: Structure, Wall, Husk, Trees, Creep, MindControlImmune
+		ValidTargets: MindControllable
+		InvalidTargets: MindControlImmune
+
+MindControllerMastermind:
+	ReloadDelay: 100
+	Range: 6c0
+	ValidTargets: MindControllable, MindControllableMastermind
+	InvalidTargets: MindControlMastermindImmune
+	Report: iyurat1a.wav
+	Projectile: InstantHit
+		Blockable: false
+	Warhead@1Dam: TargetDamage
+		Damage: 0
+		ValidTargets: MindControllable, MindControllableMastermind
+		InvalidTargets: MindControlMastermindImmune
+	Warhead@2Eff: CreateEffect
+		Explosions: cldrngl1
+		ExplosionPalette: appurp
+		ValidTargets: MindControllable, MindControllableMastermind
+		InvalidTargets: MindControlMastermindImmune
 
 MindEnergyCasing:
 	ReloadDelay: 200000

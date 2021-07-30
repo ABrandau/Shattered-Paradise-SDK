@@ -400,6 +400,8 @@
 		Sequence: idle
 		Palette: mouse
 		ValidRelationships: Enemy, Neutral, Ally
+	Targetable@Commando:
+		TargetTypes: MindControlMastermindImmune
 
 ^WolfDebuff:
 	WithIdleOverlay@WolfDebuff:
@@ -449,11 +451,20 @@
 	MindControllable:
 		RevokeControlSounds: bleep5.aud
 		Condition: mindcontrolled
+	Targetable@MC:
+		TargetTypes: MindControllable
+		RequiresCondition: !mindcontrolled
 	WithIdleOverlay@mindcontrolled:
+		Image: mindcontrolled
 		Sequence: mindcontrolled
 		IsPlayerPalette: true
 		Palette: player
 		RequiresCondition: mindcontrolled
+
+^MindControllableMastermind:
+	Inherits: ^MindControllable
+	Targetable@MC:
+		TargetTypes: MindControllableMastermind
 
 ^ScrinEssence:
 	SpawnActorOnDeath@ScrinEssence:
@@ -1013,6 +1024,7 @@
 	Inherits@2: ^SpawnSmoke
 	Inherits@3: ^SpawnSpark
 	Inherits@4: ^WithTriggerCloakEffect-Building
+	Inherits@5: ^MindControllableMastermind
 	GrantCondition@DisableHeavyDamagedEffect:
 		Condition: DisableHeavyDamagedEffect
 		RequiresCondition: cloaking-self
@@ -1033,6 +1045,7 @@
 	Inherits@13: ^FullHealthRepairCondition
 	Inherits@14: ^RavagerSlowdown
 	Inherits@15: ^WithTriggerCloakEffect-Infantry
+	Inherits@16: ^MindControllableMastermind
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
 	GrantCondition@DisableRepairInTunnel:

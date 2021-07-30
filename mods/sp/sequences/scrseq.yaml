@@ -417,6 +417,29 @@ colossi:
 		ZOffset: -5c512
 		ZRamp: 1
 
+mastermind:
+	Inherits:  ^SrcinInfantryDeathAnims
+	Defaults:
+		Tick: 80
+	stand:
+		Start: 128
+		Facings: 8
+	run:
+		Start: 1
+		Length: 9
+		Facings: 8
+	shoot:
+		Start: 72
+		Length: 7
+		Facings: 8
+	icon: colossiicon
+	webguy: webguySPbig
+		Length: 6
+		ShadowStart: 6
+	shield: shieldmedium
+		Length: 1
+		Offset: 0,-12
+
 drache:
 	Inherits: ^EmpOverlay
 	Defaults:
@@ -542,9 +565,6 @@ tripod:
 	shield: shieldtrip
 		Length: 1
 		Offset: 0,-32
-	mindcontrolled: mclabel
-		Length: *
-		Offset: 0, -56, 0
 	icon: tripodicon
 	emp-overlay: emp_fx01
 		Offset: 0, -64, 0
