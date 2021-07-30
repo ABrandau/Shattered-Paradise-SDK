@@ -353,27 +353,27 @@ World:
 		TechLevelDropdownDisplayOrder: 2
 		GameSpeedDropdownDisplayOrder: 3
 	CreateMapPlayers:
-	StartingUnits@MCV:
+	StartingUnits@MCVGDI:
 		Class: none
 		ClassName: MCV Only
 		Factions: gdi
 		BaseActor: mcv
-	StartingUnits@MCVnod:
+	StartingUnits@MCVNod:
 		Class: none
 		ClassName: MCV Only
 		Factions: nod
 		BaseActor: nodmcv
-	StartingUnits@MCVcab:
+	StartingUnits@MCVCab:
 		Class: none
 		ClassName: MCV Only
 		Factions: cab
 		BaseActor: cabmcv
-	StartingUnits@MCVmut:
+	StartingUnits@MCVMut:
 		Class: none
 		ClassName: MCV Only
 		Factions: mut
 		BaseActor: mutmcv
-	StartingUnits@MCVscr:
+	StartingUnits@MCVScr:
 		Class: none
 		ClassName: MCV Only
 		Factions: scr
@@ -386,7 +386,7 @@ World:
 		SupportActors: gdie1, gdie1, gdie1, grenadier
 		InnerSupportRadius: 4
 		OuterSupportRadius: 5
-	StartingUnits@LightNOD:
+	StartingUnits@LightNod:
 		Class: Light
 		ClassName: Light Support
 		Factions: nod
@@ -426,7 +426,7 @@ World:
 		SupportActors: gdie1, gdie1, gdie1, gdie1, grenadier, medic, smech
 		InnerSupportRadius: 4
 		OuterSupportRadius: 5
-	StartingUnits@MediumNOD:
+	StartingUnits@MediumNod:
 		Class: Medium
 		ClassName: Medium Support
 		Factions: nod
@@ -466,7 +466,7 @@ World:
 		SupportActors: gdie1, gdie1, gdie1, gdie1, grenadier, grenadier,, medic, smech, mmch
 		InnerSupportRadius: 4
 		OuterSupportRadius: 5
-	StartingUnits@HeavyNOD:
+	StartingUnits@HeavyNod:
 		Class: Heavy
 		ClassName: Heavy Support
 		Factions: nod
@@ -496,6 +496,46 @@ World:
 		Factions: scr
 		BaseActor: drache
 		SupportActors: shark, shark, shark, shark, shark, legio, legio, float, scrscorpion, scrmbt
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	StartingUnits@UnholyGDI:
+		Class: unholy
+		ClassName: Unholy Alliance
+		Factions: gdi
+		BaseActor: mcv
+		SupportActors: nodmcv, cabmcv, mutmcv, drache
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	StartingUnits@UnholyNod:
+		Class: unholy
+		ClassName: Unholy Alliance
+		Factions: nod
+		BaseActor: nodmcv
+		SupportActors: mcv, cabmcv, mutmcv, drache
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	StartingUnits@UnholyCab:
+		Class: unholy
+		ClassName: Unholy Alliance
+		Factions: cab
+		BaseActor: cabmcv
+		SupportActors: mcv, nodmcv, mutmcv, drache
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	StartingUnits@UnholyMut:
+		Class: unholy
+		ClassName: Unholy Alliance
+		Factions: mut
+		BaseActor: mutmcv
+		SupportActors: mcv, nodmcv, cabmcv, drache
+		InnerSupportRadius: 4
+		OuterSupportRadius: 5
+	StartingUnits@UnholyScr:
+		Class: unholy
+		ClassName: Unholy Alliance
+		Factions: scr
+		BaseActor: drache
+		SupportActors: mcv, nodmcv, cabmcv, mutmcv
 		InnerSupportRadius: 4
 		OuterSupportRadius: 5
 	MapStartingLocations:
