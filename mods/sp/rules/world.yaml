@@ -546,6 +546,14 @@ World:
 	#	Ratio: 2
 	#	Interval: 100
 	#	Sequences: idle, idle2, idle3, idle4
+	ColorPickerManager:
+		PreviewActor: colorpicker
+		PresetHues: 0, 0.125, 0.185, 0.4, 0.54, 0.66, 0.79, 0.875, 0, 0.14, 0.23, 0.43, 0.54, 0.625, 0.77, 0.85
+		PresetSaturations: 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.4, 0.5, 0.4, 0.5, 0.4, 0.5, 0.4, 0.5
+	OrderEffects:
+		TerrainFlashImage: moveflsh
+		TerrainFlashSequence: idle
+		TerrainFlashPalette: moveflash
 
 EditorWorld:
 	Inherits: ^BaseWorld
@@ -573,3 +581,7 @@ EditorWorld:
 		Palette: placefootprint
 	LoadWidgetAtGameStart:
 	EditorActionManager:
+	BuildableTerrainOverlay:
+		AllowedTerrainTypes: Clear, Rough, Road, DirtRoad
+		Palette: ra
+		Alpha: 0.35
