@@ -44,7 +44,7 @@ GAPILE:
 		Name: GDI Barracks
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 2
+		BuildPaletteOrder: 6
 		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an area around it.\n- Maximun production speed is reached with 7 barracks.\n- Max production speed reduces production time by 50%.
 		Prerequisites: anypower, ~structures.gdi
 	Building:
@@ -109,7 +109,7 @@ GDIREF:
 		Name: GDI Refinery
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 3
+		BuildPaletteOrder: 11
 		Prerequisites: ~structures.gdi, anypower, ~AIantiRush
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 	FreeActor:
@@ -148,7 +148,7 @@ GAWEAP:
 		Name: GDI War Factory
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 4
+		BuildPaletteOrder: 16
 		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
 		Prerequisites: proc, ~structures.gdi
 	ProvidesPrerequisite@ShowMammMkII:
@@ -180,7 +180,7 @@ GARADR:
 		Name: GDI Radar
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 6
+		BuildPaletteOrder: 26
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		Prerequisites: proc, ~structures.gdi
 	WithIdleOverlay@DISH:
@@ -200,7 +200,7 @@ GAHPAD:
 	Tooltip:
 		Name: Helipad
 	Buildable:
-		BuildPaletteOrder: 7
+		BuildPaletteOrder: 36
 		Queue: Building
 		Description: Produces and rearms aircraft.\n\nSpecial:\n- Maximun production speed is reached with 7 helipads.
 		Prerequisites: garadr, ~structures.gdi
@@ -231,7 +231,7 @@ GATECH:
 		Name: GDI Tech Center
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 8
+		BuildPaletteOrder: 41
 		Description: Provides access to advanced G.D.I. technologies.
 		Prerequisites: garadr, ~structures.gdi
 	ProvidesPrerequisite:
@@ -256,7 +256,7 @@ GTDROP:
 		Name: Dropship Bay
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 9
+		BuildPaletteOrder: 46
 		Prerequisites: gatech, ~structures.gdi, ~techlevel.unrestricted
 		BuildLimit: 1
 		Description: Staging area for drop pod assault. \n\nSpecial:\n- Provides access to Helldiver Drop support\n- Unlocks the Mammoth MKII\n- Requires power to operate
@@ -316,6 +316,7 @@ GTDROP:
 NODYARD:
 	Inherits: GACNST
 	Buildable:
+		BuildPaletteOrder: 997
 	Transforms:
 		IntoActor: nodmcv
 		Offset: 1,1
@@ -341,7 +342,7 @@ NAPOWR:
 		Name: Nod Power Plant
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 1
+		BuildPaletteOrder: 2
 		Description: Provides power for other structures.
 		Prerequisites: ~structures.nod
 	Building:
@@ -360,7 +361,7 @@ NAHAND:
 		Name: Hand of Nod
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 2
+		BuildPaletteOrder: 6
 		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an area around it.\n- Maximun production speed is reached with 7 barracks.\n- Max production speed reduces production time by 50%.
 		Prerequisites: anypower, ~structures.nod
 	Building:
@@ -427,7 +428,7 @@ NODREF:
 		Name: Nod Refinery
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 3
+		BuildPaletteOrder: 12
 		Prerequisites: ~structures.nod, anypower, ~AIantiRush
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 	FreeActor:
@@ -468,7 +469,7 @@ NAWEAP:
 		Prerequisite: factory
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 4
+		BuildPaletteOrder: 17
 		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
 		Prerequisites: proc, ~structures.nod
 	WithIdleOverlay@ROOF:
@@ -490,7 +491,7 @@ NARADR:
 		Name: Nod Radar
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 6
+		BuildPaletteOrder: 27
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		Prerequisites: proc, ~structures.nod
 	WithIdleOverlay@DISH:
@@ -511,7 +512,7 @@ NAAPWR:
 		Name: Advanced Power Plant
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 7
+		BuildPaletteOrder: 32
 		Description: Provides more power than the standard powerplant\nusing less space.
 		Prerequisites: naradr, ~structures.nod
 	Valued:
@@ -537,7 +538,7 @@ NAHPAD:
 	Tooltip:
 		Name: Helipad
 	Buildable:
-		BuildPaletteOrder: 8
+		BuildPaletteOrder: 37
 		Queue: Building
 		Description: Produces and rearms aircraft.\n\nSpecial:\n- Maximun production speed is reached with 7 helipads.\n- Max production speed reduces production time by 50%.
 		Prerequisites: naradr, ~structures.nod
@@ -569,7 +570,7 @@ NATECH:
 		Name: Nod Tech Center
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 9
+		BuildPaletteOrder: 42
 		Description: Provides access to advanced Nod technologies.
 		Prerequisites: naradr, ~structures.nod
 	ProvidesPrerequisite:
@@ -592,7 +593,7 @@ NAMISL:
 		Name: Chemical Missile Silo
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 9
+		BuildPaletteOrder: 47
 		Prerequisites: natech, ~structures.nod, ~techlevel.unrestricted
 		Description: Provides access to Nod´s Chemical Missiles.\n\nSpecial:\n- Provides access to the Chemical Missile\n- Requires power to operate
 		BuildLimit: 1
@@ -677,6 +678,8 @@ NAMISL:
 MUTYARD:
 	Inherits: GACNST
 	Inherits@1: ^MutRender
+	Buildable:
+		BuildPaletteOrder: 998
 	Transforms:
 		IntoActor: mutmcv
 		Offset: 1,1
@@ -707,7 +710,7 @@ MUPOWR:
 		Name: Mutant Power Plant
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 1
+		BuildPaletteOrder: 3
 		Description: Provides power for other structures.
 		Prerequisites: ~structures.mut
 	Building:
@@ -725,7 +728,7 @@ MURAX:
 	Inherits@2: ^2x2Shape
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 2
+		BuildPaletteOrder: 7
 		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an area around it.\n- Maximun production speed is reached with 7 barracks.\n- Max production speed reduces production time by 50%.
 		Prerequisites: anypower, ~structures.mut
 	Tooltip:
@@ -785,7 +788,7 @@ MUPROC:
 		Name: Mutant Refinery
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 3
+		BuildPaletteOrder: 13
 		Prerequisites: ~structures.mut, anypower, ~AIantiRush
 		IconPalette: UnittemIconMut
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
@@ -834,7 +837,7 @@ MUWEAP:
 		Name: Mutant War Factory
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 4
+		BuildPaletteOrder: 18
 		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
 		Prerequisites: proc, ~structures.mut
 	WithIdleOverlay@ROOF:
@@ -855,7 +858,7 @@ MURADR:
 	Buildable:
 		Queue: Building
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
-		BuildPaletteOrder: 6
+		BuildPaletteOrder: 28
 		Prerequisites: proc, ~structures.mut
 	SpawnActorPower:
 		OrderName: MutantRadarScan
@@ -872,7 +875,7 @@ MUAIR:
 	Valued:
 		Cost: 500
 	Buildable:
-		BuildPaletteOrder: 7
+		BuildPaletteOrder: 38
 		Queue: Building
 		Description: Produces and rearms aircraft.\n\nSpecial:\n- Maximun production speed is reached with 7 helipads.\n- Max production speed reduces production time by 50%.
 		Prerequisites: muradr, ~structures.mut
@@ -893,7 +896,7 @@ MUHALL:
 		Name: Forgotten Hall
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 8
+		BuildPaletteOrder: 43
 		Description: Provides access to contact with Forgotten Leaders.
 		Prerequisites: muradr, ~structures.mut
 	Building:
@@ -912,7 +915,7 @@ MUTSW2:
 		Name: Mother Veinhole
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 9
+		BuildPaletteOrder: 48
 		Prerequisites: muhall, ~structures.mut, ~techlevel.unrestricted
 		Description: With this structure Mutant commanders are able to summon veinhole monster.\n\nSpecial:\n- Provides access to Veinhole Monsters.\n- Requires power to operate.
 		BuildLimit: 1
@@ -952,6 +955,8 @@ drached:
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
 	Inherits@6: ^ScrinBuildingFire
+	Buildable:
+		BuildPaletteOrder: 1000
 	Tooltip:
 		Name: Deployed Host Station
 	Transforms:
@@ -991,7 +996,7 @@ SCRPOWR:
 		Name: Scrin Generator
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 1
+		BuildPaletteOrder: 5
 		Description: Provides power for other structures.
 		Prerequisites: ~structures.scr
 	Valued:
@@ -1020,7 +1025,7 @@ SCRRAX:
 		Name: Landing Zone
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 2
+		BuildPaletteOrder: 10
 		Description: Calls down Infantry.\n\nSpecial:\n- Heals infantry in an area around it.\n- Maximun production speed is reached with 7 barracks.\n- Max production speed reduces production time by 50%.
 		Prerequisites: ~structures.scr, anypower
 	Building:
@@ -1087,7 +1092,7 @@ SCRPROC:
 		Name: Scrin Refinery
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 3
+		BuildPaletteOrder: 15
 		Prerequisites: ~structures.scr, anypower, ~AIantiRush
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 4000$.
 		IconPalette: UnittemIconScrin
@@ -1199,7 +1204,7 @@ SCRWEAP:
 	Buildable:
 		Queue: Building
 		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
-		BuildPaletteOrder: 4
+		BuildPaletteOrder: 20
 		Prerequisites: proc, ~structures.scr
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
@@ -1222,7 +1227,7 @@ SCRRADR:
 		Name: Scrin Radar
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 6
+		BuildPaletteOrder: 30
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		Prerequisites: proc, ~structures.scr
 	Building:
@@ -1255,7 +1260,7 @@ SCRAIR:
 	Tooltip:
 		Name: Stargate
 	Buildable:
-		BuildPaletteOrder: 7
+		BuildPaletteOrder: 40
 		Description: Warps in warships from a nomad galaxy.\n\nSpecial:\n- Scrin Aircraft do not need to rearm.\n- Maximun production speed is reached with 7 helipads.\n- Max production speed reduces production time by 50%.
 		Queue: Building
 		Prerequisites: scrradr, ~structures.scr
@@ -1310,7 +1315,7 @@ SCRTECH:
 		Name: Scrin Laboratory
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 8
+		BuildPaletteOrder: 45
 		Description: Provides samples to enable the Scrins most complex technologies.
 		Prerequisites: scrradr, ~structures.scr
 	Valued:
@@ -1341,7 +1346,7 @@ SCRADVPOWR:
 		Name: Wormhole Generator
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 9
+		BuildPaletteOrder: 50
 		Prerequisites: scrtech, ~structures.scr, ~techlevel.unrestricted
 		Description: Teleports infantry and vehicles to a selected area.\n\nSpecial:\n- Provides access to the Instant Wormhole support power.\n- Requires power to operate.
 		BuildLimit: 1
@@ -1423,6 +1428,7 @@ CABYARD:
 	Inherits: GACNST
 	Inherits@1: ^CabRender
 	Buildable:
+		BuildPaletteOrder: 999
 		IconPalette: UnittemIconCab
 	Transforms:
 		IntoActor: cabmcv
@@ -1454,7 +1460,7 @@ CABPOWR:
 		Name: Firestorm Power Plant
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 1
+		BuildPaletteOrder: 4
 		Description: Provides power for other structures.
 		Prerequisites: ~structures.cab
 	Valued:
@@ -1477,7 +1483,7 @@ CABCLAW:
 		Name: C.A.B.A.L. Claw
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 2
+		BuildPaletteOrder: 9
 		Description: Processes Infantry.\n\nSpecial:\n- Heals infantry in an area around it.\n- Maximun production speed is reached with 7 barracks.\n- Max production speed reduces production time by 50%.
 		Prerequisites: anypower, ~structures.cab
 	WithProductionOverlay:
@@ -1540,7 +1546,7 @@ CABPROC:
 		Name: C.A.B.A.L. Refinery
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 3
+		BuildPaletteOrder: 14
 		Prerequisites: anypower, ~structures.cab, ~AIantiRush
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 		IconPalette: UnittemIconCab
@@ -1600,7 +1606,7 @@ CABWEAP:
 		Name: C.A.B.A.L. War Factory
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 4
+		BuildPaletteOrder: 19
 		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
 		Prerequisites: proc, ~structures.cab
 	WithIdleOverlay@ROOF:
@@ -1629,7 +1635,7 @@ CABRADR:
 		Name: C.A.B.A.L. Radar
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 6
+		BuildPaletteOrder: 29
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		Prerequisites: proc, ~structures.cab
 	Building:
@@ -1651,7 +1657,7 @@ CABAIR:
 	Tooltip:
 		Name: Air Factory
 	Buildable:
-		BuildPaletteOrder: 7
+		BuildPaletteOrder: 39
 		Queue: Building
 		Description: Produces aircraft.\n\nSpecial:\n- C.A.B.A.L. Aircraft do not need to rearm.\n- Maximun production speed is reached with 7 helipads.\n- Max production speed reduces production time by 50%.
 		Prerequisites: cabradr, ~structures.cab
@@ -1689,7 +1695,7 @@ CABTECH:
 		Name: Supercomputer
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 8
+		BuildPaletteOrder: 44
 		Description: Provides access to advanced C.A.B.A.L. technologies.
 		Prerequisites: cabradr, ~structures.cab
 	Building:
@@ -1709,7 +1715,7 @@ CABOBELISK:
 		Queue: Building
 		Prerequisites: cabtech, ~structures.cab, ~techlevel.unrestricted
 		Description: C.A.B.A.L.'s Support Superweapon.\n\nSpecial:\n- Provides access to Nanomachine Swarms\n- Requires power to operate
-		BuildPaletteOrder: 9
+		BuildPaletteOrder: 49
 		BuildLimit: 1
 	Valued:
 		Cost: 1500

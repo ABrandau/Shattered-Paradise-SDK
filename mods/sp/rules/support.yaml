@@ -8,7 +8,7 @@ GAVULC:
 	Buildable:
 		Description: Basic base defense.\n\nGood vs: Infantry.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
 		Queue: Defense
-		BuildPaletteOrder: 10
+		BuildPaletteOrder: 16
 		Prerequisites: gapile, ~structures.gdi
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower
@@ -49,7 +49,7 @@ GAROCK:
 	Buildable:
 		Description: Anti-Armor base defense.\n\nGood vs: Vehicles, Structures.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
 		Queue: Defense
-		BuildPaletteOrder: 11
+		BuildPaletteOrder: 17
 		Prerequisites: gaweap, ~structures.gdi
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower
@@ -76,7 +76,7 @@ GACSAM:
 	Buildable:
 		Queue: Defense
 		Description: Anti-Air base defense.\n\nGood vs: Aircraft\n\nSpecial\n- Can attack Air.\n- Requires power to operate.
-		BuildPaletteOrder: 12
+		BuildPaletteOrder: 18
 		Prerequisites: garadr, ~structures.gdi
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower
@@ -109,7 +109,7 @@ NALASR:
 		Description: High tech laser defense.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
 		Queue: Defense
 		Prerequisites: nahand, ~structures.nod
-		BuildPaletteOrder: 13
+		BuildPaletteOrder: 19
 	Building:
 	Health:
 		HP: 60000
@@ -140,7 +140,7 @@ NAOBEL:
 	Buildable:
 		Description: Advanced high tech laser defense.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
 		Queue: Defense
-		BuildPaletteOrder: 14
+		BuildPaletteOrder: 20
 		Prerequisites: natech, ~structures.nod
 	Building:
 		Footprint: xx xx
@@ -183,7 +183,7 @@ NASAM:
 		Description: Anti-Air base defense.\n\nGood vs: Aircraft.\n\nSpecial\n- Can attack Air.\n- Requires power to operate.
 		Queue: Defense
 		Prerequisites: naradr, ~structures.nod
-		BuildPaletteOrder: 15
+		BuildPaletteOrder: 21
 	Turreted:
 		TurnSpeed: 40
 		InitialFacing: 368
@@ -206,7 +206,7 @@ MUBUNKR:
 	Buildable:
 		Description: Fortified position where infantry can fire from within.\n\nGood vs: Depends what has been garrisoned\n\nSpecial:\n- Provides stealth detection when garrisoned.\n- Infantry units can be garrisoned inside, gaining extra range.\n- Comes with a free marauder.\n- Does not require power to operate.
 		Queue: Defense
-		BuildPaletteOrder: 16
+		BuildPaletteOrder: 22
 		Prerequisites: murax, ~structures.mut, ~!AIOnly
 	Building:
 		Footprint: xx xx
@@ -278,7 +278,7 @@ MUCANNON:
 		Queue: Defense
 		Description: Anti-Armor base defense.\n\nGood vs: Vehicles\n\nSpecial:\n- Does not require power to operate\n- Provides stealth detection.
 		Prerequisites: muweap, ~structures.mut
-		BuildPaletteOrder: 17
+		BuildPaletteOrder: 23
 	Health:
 		HP: 55000
 	Turreted:
@@ -316,7 +316,7 @@ MUFLAK:
 		Queue: Defense
 		Description: Anti-Air base defense.\n\nGood vs: Aircraft.\n\nSpecial\n- Can attack Air.\n- Does not require power to operate.
 		Prerequisites: muradr, ~structures.mut
-		BuildPaletteOrder: 18
+		BuildPaletteOrder: 24
 	Health:
 		HP: 40000
 	Turreted:
@@ -354,7 +354,7 @@ CABPIT:
 	Buildable:
 		Description: Drone Hangar, launches bomber drones.\n\nGood vs: Infantry\n\nSpecial:\n- Provides stealth detection\n- Drones can be shoot down with anti air weapons.
 		Queue: Defense
-		BuildPaletteOrder: 19
+		BuildPaletteOrder: 25
 		Prerequisites: cabclaw, ~structures.cab
 		IconPalette: UnittemIconCab
 	-Capturable:
@@ -398,7 +398,7 @@ CABBLAST:
 		Queue: Defense
 		Description: Artillery defense turret.\n\nGood vs: Ground Targets\n\nSpecial:\n- Provides stealth detection\n- Has minimum range of fire\n- Requires power to operate
 		Prerequisites: cabradr, ~structures.cab
-		BuildPaletteOrder: 21
+		BuildPaletteOrder: 26
 	Building:
 	Health:
 		HP: 40000
@@ -426,7 +426,7 @@ CABRAIL:
 		Queue: Defense
 		Description: Anti-Air base defense with low rate of fire but high damage output.\n\nGood vs: Aircraft\n\nSpecial\n- Can attack Air\n- Requires power to operate
 		Prerequisites: cabradr, ~structures.cab
-		BuildPaletteOrder: 22
+		BuildPaletteOrder: 27
 	Turreted:
 		InitialFacing: 368
 	Armament:
@@ -452,7 +452,7 @@ SCRNEEDLER:
 		Queue: Defense
 		Description: Basic defense.\n\nGood vs Infantry.\n\nSpecial:\n- Requires power to operate.\n- Can mutate killed enemies.\n- Attacks emit radiation that harms infantry in the area.
 		Prerequisites: scrrax, ~structures.scr
-		BuildPaletteOrder: 23
+		BuildPaletteOrder: 28
 	Health:
 		HP: 60000
 	Turreted:
@@ -491,7 +491,7 @@ SCRDRONE:
 		Name: Pulsar Tower
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 49
+		BuildPaletteOrder: 45
 		Description: Advanced base defense.\n\nGood vs Ground targets.\n\nSpecial:\n- Warps a portion of a pulsar.\n- Dealing damage and slowing units enemy nearby.\n- Requires power to operate.
 		Prerequisites: scrtech, ~structures.scr
 	Building:
@@ -553,7 +553,7 @@ SCRTRACTOR:
 		Description: Scrin Anti-Air base defense\n\nGood vs Aircraft\n\nSpecial:\n- Can attack air.\n- Freezes the targetted aircraft momentarily.\n- Requires power to operate.
 		Queue: Defense
 		Prerequisites: scrradr, ~structures.scr
-		BuildPaletteOrder: 25
+		BuildPaletteOrder: 30
 	Turreted:
 		InitialFacing: 368
 	Armament@2:
@@ -594,7 +594,7 @@ GAPOWRUP:
 	Buildable:
 		Description: Provides extra power generation, place them on the smokestack of the structure.
 		Queue: Defense
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 36
 		Prerequisites: gapowr, garadr, ~structures.gdi
 	Plug:
 		Type: powrup
@@ -608,7 +608,7 @@ GAFIRE:
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 41
 		Description: Generator that can generates a barrier around it to protect units.\n\nSpecial:\n- Increases damage resistance of nearby units by 30% when activated.\n- Consumes 300 power when activated.\n- Hostile units that try to cross the firestorm will be damaged.\n- Power loss does not stop this effect.\n- Does not block incoming projectiles.\n- Remains active for 12 seconds.\n- Takes 90 seconds to charge.
 		Prerequisites: gatech, ~structures.gdi
 	Valued:
@@ -685,7 +685,7 @@ GAPLUG:
 	Tooltip:
 		Name: Ion Cannon Control Center
 	Buildable:
-		BuildPaletteOrder: 41
+		BuildPaletteOrder: 46
 		Prerequisites: gatech, ~structures.gdi, ~techlevel.unrestricted
 		Description: Communications facility for the Ion Cannon Array.\n\nSpecial:\n- Provides access to the Ion Cannon Array\n- Requires power to operate
 		Queue: Defense
@@ -742,7 +742,7 @@ NASTLH:
 	Tooltip:
 		Name: Stealth Generator
 	Buildable:
-		BuildPaletteOrder: 43
+		BuildPaletteOrder: 42
 		Prerequisites: natech, ~structures.nod
 		Description: Support structure that cloaks friendly units and buildings.\n\nSpecial:\n- Cloaks friendly assets around it.\n- Generator itself is not cloaked.\n- Requires power to operate.
 		Queue: Defense
@@ -790,7 +790,7 @@ NATMPL:
 	Inherits@4: ^HasMisslePower
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 44
+		BuildPaletteOrder: 47
 		Prerequisites: natech, ~structures.nod, ~techlevel.unrestricted
 		Description: The religious center of Nod.\n\nSpecial:\n- Provides access to the Atomic Bomb\n- Requires power to operate
 		BuildLimit: 1
@@ -830,7 +830,7 @@ MUVENTI:
 	Inherits@2: ^2x2Shape
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 46
+		BuildPaletteOrder: 43
 		Description: Allows players to quickly transport units across the battlefield.\n\nSpecial:\n- The building has a shared cargo storage.\n- Infantry can enter any tunnel built and exit on any other.\n- Cannot be repaired by engineers.
 		Prerequisites: ~structures.mut, muradr
 	Valued:
@@ -885,7 +885,7 @@ MUTSW1:
 	Inherits@4: ^HasSuperSupportPower
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 47
+		BuildPaletteOrder: 48
 		Prerequisites: muhall, ~structures.mut, ~techlevel.unrestricted
 		Description: Allows to generate powerful Ion Storms.\n\nSpecial:\n- Provides access to Ion Storm.\n- Requires power to operate.
 		BuildLimit: 1
@@ -939,7 +939,7 @@ SCREXTRACTOR:
 		Name: Shield Generator
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 24
+		BuildPaletteOrder: 29
 		Description: Support structure.\n\nSpecial:\n- Generates shields around nearby friendly units.\n- Shields protect from all damage until the unit is hit 4 times.\n- Does not protect against super weapons.\n- Requires power to operate.
 		Prerequisites: scrradr, ~structures.scr
 	Building:
@@ -1036,7 +1036,7 @@ CABEYE:
 	Inherits@3: ^2x2Shape
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 52
+		BuildPaletteOrder: 44
 		Description: High tech detection system.\n\nSpecial:\n- Provides huge vision range.\n- Shrouds the enemy vision range in a certain area.\n- Requires power to operate.
 		Prerequisites: ~structures.cab, cabradr
 	Valued:
@@ -1085,7 +1085,7 @@ CABSW1:
 		Queue: Defense
 		Prerequisites: cabtech, ~structures.cab, ~techlevel.unrestricted
 		Description: Energy cannon based off Scrin technology.\n\nSpecial:\n- Provides access to the Iron Savior cannon\n- Requires power to operate
-		BuildPaletteOrder: 53
+		BuildPaletteOrder: 49
 		BuildLimit: 1
 	Building:
 		Footprint: xxx xxx xxx
