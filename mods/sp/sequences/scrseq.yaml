@@ -416,29 +416,47 @@ colossi:
 		Offset: 0,0,0
 		ZOffset: -5c512
 		ZRamp: 1
-
 mastermind:
-	Inherits:  ^SrcinInfantryDeathAnims
+	Inherits@1:  ^SrcinInfantryDeathAnims
 	Defaults:
-		Tick: 80
+		Tick: 90
 	stand:
-		Start: 128
+		Length: 1
 		Facings: 8
 	run:
-		Start: 1
-		Length: 9
+		Start: 8
+		Length: 20
 		Facings: 8
+		Tick: 35
+	idle1:
+		Start: 256
+		Length: 20
+	idle2:
+		Start: 276
+		Length: 21
+	die1:
+		Start: 312
+		Length: 16
+	die2:
+		Start: 297
+		Length: 15
+	die-crushed:
+		Start: 306
+		Length: 6
+		Tick: 80
+		ZOffset: -511
 	shoot:
-		Start: 72
-		Length: 7
+		Start: 168
+		Length: 11
 		Facings: 8
-	icon: colossiicon
+	icon: scrsw1icon# slashericon
 	webguy: webguySPbig
 		Length: 6
 		ShadowStart: 6
 	shield: shieldmedium
 		Length: 1
 		Offset: 0,-12
+
 
 drache:
 	Inherits: ^EmpOverlay
@@ -1411,3 +1429,4 @@ scrinessencesmall:
 	icon: scrsw1icon
 		Offset: 0, 0
 		UseTilesetCode: false
+
