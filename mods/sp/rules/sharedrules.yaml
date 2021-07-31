@@ -54,7 +54,7 @@ MCV:
 	Inherits@3: ^5CellVision
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 110
+		BuildPaletteOrder: 996
 		Prerequisites: ~gaweap, gadept
 		BuildAtProductionType: Tank
 		Description: Deploys into a Construction Yard.\n\nSpecial:\n- Provides a build radius for structures.\n- Can crush infantry.\n- Maximun production speed is reached with 7 Conyards.\n- Max production speed reduces production time by 50%.\n- Cannot be mindcontrolled.\n- Has increased HP when deployed.
@@ -188,6 +188,7 @@ harv.gdi:
 harv.nod:
 	Inherits: HARV
 	Buildable:
+		BuildPaletteOrder: 2
 		Prerequisites: ~disabled
 	Voiced:
 		VoiceSet: HumanHarvesterVO
@@ -199,6 +200,7 @@ harv.nod:
 harv.mut:
 	Inherits: HARV
 	Buildable:
+		BuildPaletteOrder: 3
 		Prerequisites: ~disabled
 	Voiced:
 		VoiceSet: HumanHarvesterVO
@@ -211,6 +213,7 @@ CABHARV:
 	Inherits: HARV
 	Inherits@1: ^CabalVehicleVoice
 	Buildable:
+		BuildPaletteOrder: 4
 		Prerequisites: proc, ~cabweap
 	RenderSprites:
 		Image: cabharv
@@ -223,8 +226,7 @@ SCRHARV:
 	Inherits@1: ^HoverVehicle
 	Inherits@2: ^ScrinVehicle
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
+		BuildPaletteOrder: 5
 		Prerequisites: proc, ~scrweap
 	Valued:
 		Cost: 1400
