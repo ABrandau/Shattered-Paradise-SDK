@@ -97,17 +97,17 @@ HARV:
 	Valued:
 		Cost: 1400
 	Tooltip:
-		Name: Harvester
+		Name: GDI Harvester
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 1
-		Prerequisites: ~humanharvester, factory
+		Prerequisites: proc, ~gaweap
 		BuildAtProductionType: Tank
 		Description: Collects Tiberium for processing.\n\nSpecial:\n- Harvests Tiberium\n- Immune to Veins\n- Can crush infantry\n- Cannot be mindcontrolled\n- Selfheal
 	Selectable:
 		Bounds: 1086, 1536
-		Class: HumanHarv
 		DecorationBounds: 1086, 1536
+		Class: harv
 		Priority: 4
 	-RenderVoxels:
 	-WithVoxelBody:
@@ -151,10 +151,6 @@ HARV:
 	SelectionDecorations:
 	RenderSprites:
 		Image: gdiharv
-		FactionImages:
-			gdi: gdiharv
-			nod: nodharv
-			mut: mutharv
 	Voiced:
 		VoiceSet: HumanHarvesterVO
 		Volume: 4
@@ -174,50 +170,36 @@ HARV:
 			Tiberium: pip-green
 			BlueTiberium: pip-blue
 
-harv.gdi:
-	Inherits: HARV
-	Buildable:
-		Prerequisites: ~disabled
-	Voiced:
-		VoiceSet: HumanHarvesterVO
-		Volume: 4
-	RenderSprites:
-		Image: gdiharv
-		-FactionImages:
-
 harv.nod:
 	Inherits: HARV
+	Tooltip:
+		Name: Nod Harvester
 	Buildable:
 		BuildPaletteOrder: 2
-		Prerequisites: ~disabled
-	Voiced:
-		VoiceSet: HumanHarvesterVO
-		Volume: 4
+		Prerequisites: proc, ~naweap
 	RenderSprites:
 		Image: nodharv
-		-FactionImages:
 
 harv.mut:
 	Inherits: HARV
+	Tooltip:
+		Name: Mutant Harvester
 	Buildable:
 		BuildPaletteOrder: 3
-		Prerequisites: ~disabled
-	Voiced:
-		VoiceSet: HumanHarvesterVO
-		Volume: 4
+		Prerequisites: proc, ~muweap
 	RenderSprites:
 		Image: mutharv
-		-FactionImages:
 
 CABHARV:
 	Inherits: HARV
 	Inherits@1: ^CabalVehicleVoice
+	Tooltip:
+		Name: C.A.B.A.L. Harvester
 	Buildable:
 		BuildPaletteOrder: 4
 		Prerequisites: proc, ~cabweap
 	RenderSprites:
 		Image: cabharv
-		-FactionImages:
 	BodyOrientation:
 		QuantizedFacings: 32
 
@@ -225,21 +207,13 @@ SCRHARV:
 	Inherits: HARV
 	Inherits@1: ^HoverVehicle
 	Inherits@2: ^ScrinVehicle
+	Tooltip:
+		Name: Scrin Harvester
 	Buildable:
 		BuildPaletteOrder: 5
 		Prerequisites: proc, ~scrweap
-	Valued:
-		Cost: 1400
-	Health:
-		HP: 60000
-	Mobile:
-		Locomotor: InfantryCrusherVehicle
-	Targetable:
-		TargetTypes: Ground, Vehicle, MindControlImmune
-	SelectionDecorations:
 	RenderSprites:
 		Image: scrharv
-		-FactionImages:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Voiced:

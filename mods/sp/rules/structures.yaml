@@ -113,7 +113,7 @@ GDIREF:
 		Prerequisites: ~structures.gdi, anypower, ~AIantiRush
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 	FreeActor:
-		Actor: harv.gdi
+		Actor: harv
 	-WithIdleOverlay@REDLIGHTS:
 	PlaceBuildingVariants:
 		Actors: gdiref3, gdiref2, gdiref4
@@ -123,7 +123,7 @@ GDIREF2:
 	Tooltip:
 		Name: GDI Refinery
 	FreeActor:
-		Actor: harv.gdi
+		Actor: harv
 	-WithIdleOverlay@REDLIGHTS:
 
 GDIREF3:
@@ -131,7 +131,7 @@ GDIREF3:
 	Tooltip:
 		Name: GDI Refinery
 	FreeActor:
-		Actor: harv.gdi
+		Actor: harv
 	-WithIdleOverlay@REDLIGHTS:
 
 GDIREF4:
@@ -139,7 +139,7 @@ GDIREF4:
 	Tooltip:
 		Name: GDI Refinery
 	FreeActor:
-		Actor: harv.gdi
+		Actor: harv
 	-WithIdleOverlay@REDLIGHTS:
 
 GAWEAP:
@@ -703,9 +703,9 @@ MUTYARD:
 		ActorTypes: e2
 
 MUPOWR:
-	Inherits@2: ^2x2Shape
-	Inherits@3: ^Powerplant
+	Inherits: ^Powerplant
 	Inherits@1: ^MutRender
+	Inherits@2: ^2x2Shape
 	Tooltip:
 		Name: Mutant Power Plant
 	Buildable:
@@ -783,7 +783,7 @@ MURAX:
 
 MUPROC:
 	Inherits: PROC
-	Inherits@2: ^MutRender
+	Inherits@1: ^MutRender
 	Tooltip:
 		Name: Mutant Refinery
 	Buildable:
@@ -806,7 +806,7 @@ MUPROC:
 
 MUPROC2:
 	Inherits: FLIPPEDPROC
-	Inherits@2: ^MutRender
+	Inherits@1: ^MutRender
 	Tooltip:
 		Name: Mutant Refinery
 	FreeActor:
@@ -815,7 +815,7 @@ MUPROC2:
 
 MUPROC3:
 	Inherits: FLIPPEDXPROC
-	Inherits@2: ^MutRender
+	Inherits@1: ^MutRender
 	Tooltip:
 		Name: Mutant Refinery
 	FreeActor:
@@ -824,7 +824,7 @@ MUPROC3:
 
 MUPROC4:
 	Inherits: FLIPPEDYPROC
-	Inherits@2: ^MutRender
+	Inherits@1: ^MutRender
 	Tooltip:
 		Name: Mutant Refinery
 	FreeActor:
@@ -868,8 +868,8 @@ MURADR:
 		DecorationHeight: 48
 
 MUAIR:
+	Inherits: ^Helipad
 	Inherits@1: ^MutRender
-	Inherits@2: ^Helipad
 	Tooltip:
 		Name: Mutant Helipad
 	Valued:
