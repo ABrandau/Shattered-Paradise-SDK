@@ -708,8 +708,6 @@ WETP:
 	DamageMultiplier@supersonic:
 		RequiresCondition: ammo && attacking
 		Modifier: 0
-	ExternalCondition@tractorstop:
-		RequiresCondition: !ammo || !attacking
 	SpeedMultiplier@tractorstop:
 		RequiresCondition: (!ammo || !attacking) && tractorstop
 	RejectsOrders@AI:
@@ -768,7 +766,7 @@ MUTQUEEN:
 		FacingTolerance: 40
 	Armament@1:
 		Weapon: QueenTooth
-		Offset: 200, 0, -600
+		LocalOffset: 200, 0, -600
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-ExplodeWeapon@spawnsparks:
 	-SmokeParticleEmitter:
