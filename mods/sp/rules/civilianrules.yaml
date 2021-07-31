@@ -1,5 +1,6 @@
 E2:
 	Inherits@1: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -18,6 +19,7 @@ E2:
 
 WEEDGUY:
 	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Tooltip:
 		Name: Chem Spray Infantry
 	Voiced:
@@ -37,6 +39,7 @@ WEEDGUY:
 
 UMAGON:
 	Inherits: ^Mutant
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Tooltip:
 		Name: Umagon
 	Voiced:
@@ -78,15 +81,12 @@ CHAMSPY:
 	#	RequiresCondition: disguise
 	Infiltrates:
 		Types: SpyInfiltrate
-	-AutoTarget:
-	-AutoTargetPriority@DEFAULT:
-	-AutoTargetPriority@ATTACKANYTHING:
-	-AttackMove:
 	WithInfantryBody:
 		AttackSequences: shoot
 
 MUTANT:
 	Inherits: ^Mutant
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Tooltip:
 		Name: Mutant
 	Voiced:
@@ -107,6 +107,7 @@ MUTANT:
 
 MWMN:
 	Inherits: ^Mutant
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Tooltip:
 		Name: Mutant Soldier
 	Voiced:
@@ -127,6 +128,7 @@ MWMN:
 
 MUTANT3:
 	Inherits: ^Mutant
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Tooltip:
 		Name: Mutant Sergeant
 	Voiced:
@@ -157,10 +159,6 @@ TRATOS:
 		Speed: 80
 	RevealsShroud:
 		Range: 4c0
-	-AutoTarget:
-	-AutoTargetPriority@DEFAULT:
-	-AutoTargetPriority@ATTACKANYTHING:
-	-AttackMove:
 	WithInfantryBody:
 		AttackSequences: shoot
 
@@ -176,10 +174,6 @@ OXANNA:
 		Speed: 65
 	RevealsShroud:
 		Range: 4c0
-	-AutoTarget:
-	-AutoTargetPriority@DEFAULT:
-	-AutoTargetPriority@ATTACKANYTHING:
-	-AttackMove:
 	WithInfantryBody:
 		AttackSequences: shoot
 
@@ -195,10 +189,6 @@ SLAV:
 		Speed: 65
 	RevealsShroud:
 		Range: 4c0
-	-AutoTarget:
-	-AutoTargetPriority@DEFAULT:
-	-AutoTargetPriority@ATTACKANYTHING:
-	-AttackMove:
 	WithInfantryBody:
 		AttackSequences: shoot
 
@@ -217,6 +207,7 @@ CIV3:
 
 4TNK:
 	Inherits: ^VoxelTank
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Valued:
 		Cost: 100
 	Tooltip:

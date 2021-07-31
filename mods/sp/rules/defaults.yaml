@@ -500,7 +500,7 @@
 		Priority: 6
 		PriorityModifiers: Ctrl, Alt
 
-^Cloakable: ##Mainly used for NOD cloak field effect
+^Cloakable: ##Mainly used for Nod cloak field effect
 	Cloak@CLOAKGENERATOR:
 		RequiresCondition: cloakgenerator || crate-cloak
 		InitialDelay: 75
@@ -512,7 +512,7 @@
 	ExternalCondition@crate-cloak:
 		Condition: crate-cloak
 
-##Mainly used for NOD cloak field effect, pre-require ^Cloakable
+##Mainly used for Nod cloak field effect, pre-require ^Cloakable
 ^WithTriggerCloakEffect: 
 	Cloak@CLOAKGENERATOR:
 		CloakSound: cloak5.aud
@@ -567,7 +567,6 @@
 	Voiced:
 		VoiceSet: SWVoice
 		Volume: 15
-
 
 ^IncompleteSelfHeal:
 	ChangesHealth@Incomplete:
@@ -1092,9 +1091,9 @@
 	Inherits@1: ^tractorstop
 	Inherits@2: ^SpawnSmoke
 	Inherits@3: ^SpawnSpark
-	#Inherits@5: ^MindControllable
-	Inherits@6: ^FullHealthRepairCondition
-	Inherits@7: ^WithTriggerCloakEffect-Vehicle
+	#Inherits@4: ^MindControllable
+	Inherits@5: ^FullHealthRepairCondition
+	Inherits@6: ^WithTriggerCloakEffect-Vehicle
 	GrantCondition@DisableHeavyDamagedEffect:
 		Condition: DisableHeavyDamagedEffect
 		RequiresCondition: cloaking-self
@@ -1316,7 +1315,6 @@
 ^Soldier:
 	Inherits@1: ^Infantry
 	Inherits@2: ^Cloakable
-	Inherits@4: ^AutoTargetGroundAssaultMove
 	Inherits@5: ^5CellVision
 	MustBeDestroyed:
 	TakeCover:
@@ -1440,7 +1438,6 @@
 
 ^Cyborg:
 	Inherits@1: ^Infantry
-	Inherits@2: ^AutoTargetGroundAssaultMove
 	Inherits@3: ^7CellVision
 	Crushable:
 		CrushClasses: HeavyInfantry
@@ -1478,7 +1475,6 @@
 
 ^CabalDroneInfantry:
 	Inherits@1: ^Infantry
-	Inherits@3: ^AutoTargetGroundAssaultMove
 	-WithDeathAnimation@normal:
 	-WithDeathAnimation@tib:
 	-WithDeathAnimation@explosion:
@@ -1573,9 +1569,9 @@
 	-WithDeathAnimation@blood1:
 
 ^Engineer:
-	Inherits@1: ^InfantryShape
-	Inherits@2: ^LowPrioritySelectionMode
+	Inherits@S: ^InfantryShape
 	Inherits@HANDICAPS: ^PlayerHandicaps
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1612,10 +1608,10 @@
 	CaptureManager:
 
 ^BasicVehicle:
-	Inherits@3: ^VehicleShape
+	Inherits@1: ^VehicleShape
+	Inherits@2: ^5CellVision
 	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
-	Inherits@4: ^5CellVision
 	ActorLostNotification:
 	#Huntable:
 	Armor:
@@ -1726,7 +1722,6 @@
 
 ^Tank:
 	Inherits: ^Vehicle
-	Inherits@2: ^AutoTargetGroundAssaultMove
 	Explodes:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode
@@ -1790,7 +1785,6 @@
 
 ^HoverTank:
 	Inherits: ^HoverVehicle
-	Inherits@1: ^AutoTargetGroundAssaultMove
 	WithSpriteTurret:
 		RequiresCondition: !inside-tunnel
 	Turreted:
@@ -1802,7 +1796,6 @@
 
 ^Walker:
 	Inherits: ^Vehicle
-	Inherits@2: ^AutoTargetGroundAssaultMove
 	Explodes:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode
@@ -2019,8 +2012,6 @@
 
 ^Plane:
 	Inherits: ^Aircraft
-	Inherits@3: ^AutoTargetAir
-	Aircraft:
 	Rearmable:
 		RearmActors: nahpad, gahpad, muair, cabair, civheli, tdhelipad
 
@@ -2030,9 +2021,9 @@
 ^Visceroid:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
-	Inherits@3: ^AutoTargetGroundAssaultMove
-	Inherits@4: ^1x1Shape
-	Inherits@5: ^6CellVision
+	Inherits@3: ^1x1Shape
+	Inherits@4: ^6CellVision
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	DrawLineToTarget:
@@ -2223,15 +2214,13 @@
 
 ^Defence:
 	Inherits: ^Building
-	Inherits@1: ^AutoTargetAll
-	Inherits@2: ^DisableOnLowPowerOrPowerDown
-	Inherits@3: ^8CellVision
-	Inherits@4: ^WithTriggerCloakEffect-Defence
+	Inherits@1: ^DisableOnLowPowerOrPowerDown
+	Inherits@2: ^8CellVision
+	Inherits@3: ^WithTriggerCloakEffect-Defence
 	RevealsShroud:
 		Type: Footprint
 		MaxHeightDelta: 3
 	-GivesBuildableArea:
-	AutoTarget:
 	-MustBeDestroyed:
 	RenderRangeCircle:
 		Color: FFFF00CC
@@ -2270,6 +2259,7 @@
 
 ^AntiAir:
 	Inherits@0: ^6CellVision
+	Inherits@AUTOTARGET: ^AutoTargetAir
 	RenderRangeCircle:
 		RangeCircleType: AA
 	RevealsShroud:
@@ -2492,7 +2482,6 @@
 	AttackTurreted:
 		Voice: Attack
 		TargetFrozenActors: true
-	AutoTarget:
 	RenderRangeCircle:
 		BorderWidth: 0
 		Width: 2

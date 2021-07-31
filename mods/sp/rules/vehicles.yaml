@@ -2,7 +2,8 @@ SMECH:
 	Inherits: ^Walker
 	Inherits@1: ^8CellVision
 	Inherits@2: ^BasicStealthDetection
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -45,7 +46,8 @@ SMECH:
 MMCH:
 	Inherits: ^Walker
 	Inherits@1: ^6CellVision
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -100,8 +102,9 @@ MMCH:
 APC:
 	Inherits: ^Tank
 	Inherits@1: ^6CellVision
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@PIPS: ^CargoPips
-	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -172,8 +175,9 @@ APC:
 
 HVR:
 	Inherits@1: ^HoverTank
-	Inherits@4: ^8CellVision
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@2: ^8CellVision
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -215,7 +219,8 @@ HVR:
 JUG:
 	Inherits: ^Walker
 	Inherits@1: ^5CellVision
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -262,7 +267,8 @@ JUG:
 SONIC:
 	Inherits: ^TurretedTank
 	Inherits@1: ^6CellVision
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -304,7 +310,8 @@ G4TNK:
 	Inherits: ^TurretedTank
 	Inherits@1: ^7CellVision
 	Inherits@2: ^IncompleteSelfHeal
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 1750
 	Tooltip:
@@ -361,8 +368,9 @@ HMEC:
 	Inherits@1: ^8CellVision
 	Inherits@2: ^PermanentSelfHeal
 	Inherits@3: ^CommandoIcon
-	Inherits@4:^WithTriggerCloakEffect-Defence
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@4: ^WithTriggerCloakEffect-Defence
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 3000
@@ -512,8 +520,9 @@ BGGY:
 	Inherits: ^Tank
 	Inherits@2: ^8CellVision
 	Inherits@3: ^BasicStealthDetection
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@PIPS: ^CargoPips
-	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 300
 	UpdatesPlayerStatistics:
@@ -819,8 +828,9 @@ BGGY:
 
 ATTACKBIKE:
 	Inherits: ^Tank
-	Inherits@2: ^7CellVision
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@1: ^7CellVision
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -858,7 +868,8 @@ TTNK:
 	Inherits: ^Tank
 	Inherits@2: ^SpriteActor
 	Inherits@3: ^7CellVision
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 800
@@ -966,7 +977,8 @@ TICKHOLOGRAM:
 	Inherits: ^Tank
 	Inherits@2: ^SpriteActor
 	Inherits@3: ^3CellVision
-	Inherits@2: ^HologramKillTimer
+	Inherits@4: ^HologramKillTimer
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	GivesExperience:
 		Experience: 50
 	Health:
@@ -1022,7 +1034,7 @@ TICKHOLOGRAM:
 
 BIKE:
 	Inherits: ^Vehicle
-	Inherits@1: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -1123,8 +1135,8 @@ SAPC:
 SUBTANK:
 	Inherits: ^SubterraneanVoxelVehicle
 	Inherits@1: ^6CellVision
-	Inherits@2: ^AutoTargetGroundAssaultMove
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -1158,7 +1170,8 @@ SUBTANK:
 HOWTLIZER:
 	Inherits: ^Tank
 	Inherits@1: ^5CellVision
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -1209,7 +1222,8 @@ HOWTLIZER:
 STNK:
 	Inherits: ^TurretedTank
 	Inherits@1: ^9CellVision
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 1100
 	Tooltip:
@@ -1275,7 +1289,8 @@ SCORPION:
 	Inherits@2: ^PermanentSelfHeal
 	Inherits@3: ^CommandoIcon
 	Inherits@4: ^WithTriggerCloakEffect-Defence
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 3000
 	Tooltip:
@@ -1396,7 +1411,8 @@ MUTQUAD:
 	Inherits@2: ^BasicStealthDetection
 	Inherits@3: ^MutRender
 	Inherits@4: ^7CellVision
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -1458,7 +1474,8 @@ LYNX:
 	Inherits@2: ^SpriteActor
 	Inherits@3: ^MutRender
 	Inherits@4: ^6CellVision
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
@@ -1508,8 +1525,9 @@ STRUCK:
 	Inherits: ^Tank
 	Inherits@2: ^6CellVision
 	Inherits@3: ^MutRender
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@PIPS: ^CargoPips
-	Inherits@GainsExperience: ^GainsExperience
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1557,7 +1575,8 @@ STRUCK:
 WOLF:
 	Inherits: ^Beast
 	Inherits@1: ^6CellVision
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
@@ -1590,7 +1609,8 @@ MRLS:
 	Inherits: ^Tank
 	Inherits@1: ^5CellVision
 	Inherits@2: ^MutRender
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -1639,7 +1659,8 @@ DEATHCLAW:
 	Inherits: ^Beast
 	Inherits@1: ^MutRender
 	Inherits@2: ^8CellVision
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
@@ -1678,9 +1699,9 @@ DEATHCLAW:
 		FacingTolerance: 2
 
 HVRTRUK3:
-	Inherits@1: ^AutoTargetGroundAssaultMove
-	Inherits@2: ^HoverVehicle
-	Inherits@3: ^MutRender
+	Inherits@: ^HoverVehicle
+	Inherits@1: ^MutRender
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
 		Cost: 2500
 	Tooltip:
@@ -1751,7 +1772,8 @@ SCRSCORPION:
 	Inherits@1: ^ScrinVehicle
 	Inherits@2: ^6CellVision
 	Inherits@3: ^BasicStealthDetection
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -1793,7 +1815,8 @@ SCRMBT:
 	Inherits: ^HoverTank
 	Inherits@1: ^ScrinVehicle
 	Inherits@2: ^6CellVision
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
@@ -1845,14 +1868,14 @@ SCRGLYDER2:
 	Inherits@1: ^ScrinVehicle
 	Inherits@2: ^BasicStealthDetection
 	Inherits@3: ^8CellVision
-	Inherits@4: ^AutoTargetGroundAssaultMove
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAir
+	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 26
 		BuildAtProductionType: Tank
-		Description: Anti air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Can transform into an aerial version that can only engage ground units.\n- Aerial Version weapon performs Good Vs Infantry.\n- Absorbs essence from killed units to heal.\n- Hovers (it ignores terrain like Veins and Water)
+		Description: Anti-air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Can transform into an aerial version that can only engage ground units.\n- Aerial Version weapon performs Good Vs Infantry.\n- Absorbs essence from killed units to heal.\n- Hovers (it ignores terrain like Veins and Water)
 		Prerequisites: ~scrweap, scrradr
 	Valued:
 		Cost: 700
@@ -1904,9 +1927,9 @@ SCRGLYDER2:
 		Weapons: SmallDebrisScrin
 
 SCRRECHARGER:
+	Inherits: ^ScrinVehicle
 	Inherits@1: ^Walker
 	Inherits@2: ^5CellVision
-	Inherits: ^ScrinVehicle
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 1000
@@ -1970,10 +1993,11 @@ SCRRECHARGER:
 		Weapons: SmallDebrisScrin
 
 SCRMOBMINE:
-	Inherits@0: ^HoverVehicle
+	Inherits@: ^HoverVehicle
 	Inherits@1: ^ScrinVehicle
-	Inherits@2: ^AutoTargetGround
 	Inherits@3: ^7CellVision
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 28
@@ -2042,7 +2066,8 @@ TRIPOD:
 	Inherits@1: ^Walker
 	Inherits@2: ^ScrinVehicle
 	Inherits@3: ^8CellVision
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -2150,7 +2175,8 @@ CENTURION:
 	Inherits@1: ^BasicStealthDetection
 	Inherits@2: ^6CellVision
 	Inherits@3: ^CabalVehicleVoice
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -2231,7 +2257,8 @@ CENTURION:
 REAPERCAB:
 	Inherits: ^Walker
 	Inherits@1: ^8CellVision
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 1100
 	Tooltip:
@@ -2434,7 +2461,8 @@ SPIDERARTY:
 	Inherits@2: ^CabRender
 	Inherits@3: ^PermanentSelfHeal
 	Inherits@4: ^CabalVehicleVoice
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 1750
 	Tooltip:
@@ -2485,7 +2513,8 @@ PALADIN:
 	Inherits@2: ^CabRender
 	Inherits@3: ^PermanentSelfHeal
 	Inherits@4: ^CabalVehicleVoice
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -2546,8 +2575,9 @@ BCOREDEF:
 	Inherits@2: ^CabRender
 	Inherits@3: ^PermanentSelfHeal
 	Inherits@4: ^CabalVehicleVoice
-	Inherits@GainsExperience: ^GainsExperience
 	Inherits@5: ^CommandoIcon
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 3000
 	Tooltip:
@@ -2645,4 +2675,3 @@ BCOREDEF:
 	VoiceAnnouncement:
 		RequiresCondition: produced
 		Voice: Build
-

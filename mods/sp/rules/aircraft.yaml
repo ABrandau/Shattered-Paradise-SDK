@@ -1,11 +1,11 @@
 ORCA:
 	Inherits: ^CombatHelicopter
-	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^BasicStealthDetectionAir
-	Inherits@3: ^9CellVision
-	Inherits@4: ^UsesAmmunition
-	Inherits@Shadow: ^AircraftShadow
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@1: ^BasicStealthDetectionAir
+	Inherits@2: ^9CellVision
+	Inherits@3: ^UsesAmmunition
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SHADOW: ^AircraftShadow
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -72,11 +72,11 @@ ORCA:
 
 ORCAB:
 	Inherits: ^CombatPlane
-	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@2: ^9CellVision
 	Inherits@3: ^UsesAmmunition
-	Inherits@Shadow: ^AircraftShadow
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SHADOW: ^AircraftShadow
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -199,8 +199,8 @@ DSHP:
 ORCATRAN:
 	Inherits: ^Helicopter
 	Inherits@1: ^6CellVision
+	Inherits@2: ^WithTriggerCloakEffect-Building
 	Inherits@PIPS: ^CargoPips
-	Inherits@2:^WithTriggerCloakEffect-Building
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -242,12 +242,12 @@ ORCATRAN:
 
 APACHE:
 	Inherits: ^CombatHelicopter
-	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^BasicStealthDetectionAir
-	Inherits@3: ^9CellVision
-	Inherits@4: ^UsesAmmunition
-	Inherits@Shadow: ^AircraftShadow
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@1: ^BasicStealthDetectionAir
+	Inherits@2: ^9CellVision
+	Inherits@3: ^UsesAmmunition
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SHADOW: ^AircraftShadow
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -324,11 +324,11 @@ APACHE:
 
 SCRIN:
 	Inherits: ^CombatPlane
-	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^UsesAmmunition
-	Inherits@3: ^11CellVision
-	Inherits@Shadow: ^AircraftShadow
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@1: ^UsesAmmunition
+	Inherits@2: ^11CellVision
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SHADOW: ^AircraftShadow
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -336,8 +336,8 @@ SCRIN:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: Advanced fighter-bomber craft armed with twin plasma cannons.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air
 		Queue: Air
+		Description: Advanced fighter-bomber craft armed with twin plasma cannons.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air
 		BuildPaletteOrder: 4
 		Prerequisites: ~nahpad, natech
 	Selectable:
@@ -412,10 +412,10 @@ SCRIN:
 
 CERBERUS:
 	Inherits: ^CombatHelicopter
-	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^9CellVision
-	Inherits@Shadow: ^AircraftShadow
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@1: ^9CellVision
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SHADOW: ^AircraftShadow
 	Valued:
 		Cost: 2200
 	Tooltip:
@@ -423,8 +423,8 @@ CERBERUS:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: High tech frigate armed with a mobile stealth generator.\n\nGood vs: Ground Targets\n\nSpecial:\n- Cloaks friendly units next to it \n- Stealth generator can't be used with weapon at the same time
 		Queue: Air
+		Description: High tech frigate armed with a mobile stealth generator.\n\nGood vs: Ground Targets\n\nSpecial:\n- Cloaks friendly units next to it \n- Stealth generator can't be used with weapon at the same time
 		BuildPaletteOrder: 5
 		Prerequisites: ~nahpad, natech
 	Selectable:
@@ -537,13 +537,13 @@ CERBERUS:
 
 MUTHELI:
 	Inherits: ^CombatHelicopter
-	Inherits@2: ^AutoTargetAllAssaultMove
-	Inherits@3: ^BasicStealthDetectionAir
-	Inherits@4: ^MutRender
-	Inherits@5: ^9CellVision
-	Inherits@6: ^UsesAmmunition
-	Inherits@Shadow: ^AircraftShadow
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@1: ^MutRender
+	Inherits@2: ^BasicStealthDetectionAir
+	Inherits@3: ^9CellVision
+	Inherits@4: ^UsesAmmunition
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SHADOW: ^AircraftShadow
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -614,11 +614,11 @@ MUTHELI:
 
 WETP:
 	Inherits: ^CombatPlane
-	Inherits@2: ^AutoTargetAllAssaultMove
-	Inherits@3: ^UsesAmmunition
-	Inherits@4: ^9CellVision
-	Inherits@Shadow: ^AircraftShadow
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@1: ^UsesAmmunition
+	Inherits@2: ^9CellVision
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SHADOW: ^AircraftShadow
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 2000
@@ -723,8 +723,9 @@ MUTQUEEN:
 	Inherits@3: ^AutoTargetAllAssaultMove
 	Inherits@4: ^PermanentSelfHeal
 	Inherits@5: ^9CellVision
-	Inherits@Shadow: ^AircraftShadow
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SHADOW: ^AircraftShadow
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 900
@@ -788,7 +789,6 @@ MUTBIRD:
 		Name: Seeder Bird
 	-Buildable:
 
-
 ^ScrinAircraftGeneric:
 	Inherits@4: ^ScrinAircratVoice
 	Inherits@2: ^ScrinRender
@@ -802,11 +802,11 @@ MUTBIRD:
 
 STORMRIDER:
 	Inherits: ^CombatPlane
-	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^ScrinAircraftGeneric
-	Inherits@3: ^9CellVision
-	Inherits@Shadow: ^AircraftShadow
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@1: ^ScrinAircraftGeneric
+	Inherits@2: ^9CellVision
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SHADOW: ^AircraftShadow
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -916,12 +916,12 @@ DRACHE:
 
 SCRGLYDER1:
 	Inherits: ^CombatHelicopter
-	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^ScrinAircraftGeneric
-	Inherits@3: ^BasicStealthDetectionAir
-	Inherits@5: ^9CellVision
-	Inherits@GainsExperience: ^GainsExperience
-	Inherits@AImicroManagable: ^AImicroManagable
+	Inherits@1: ^ScrinAircraftGeneric
+	Inherits@2: ^BasicStealthDetectionAir
+	Inherits@3: ^9CellVision
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SHADOW: ^AircraftShadow
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -968,11 +968,11 @@ SCRGLYDER1:
 
 SCRDESTROYER:
 	Inherits: ^CombatHelicopter
-	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^ScrinAircraftGeneric
-	Inherits@3: ^7CellVision
-	Inherits@4:^WithTriggerCloakEffect-Building
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@1: ^ScrinAircraftGeneric
+	Inherits@2: ^7CellVision
+	Inherits@3: ^WithTriggerCloakEffect-Building
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -1038,7 +1038,7 @@ SCRTRANS:
 	Inherits@1: ^9CellVision
 	Inherits@2: ^ScrinAircraftGeneric
 	Inherits@4: ^LowPrioritySelectionMode
-	Inherits@3:^WithTriggerCloakEffect-Building
+	Inherits@3: ^WithTriggerCloakEffect-Building
 	Inherits@PIPS: ^CargoPips
 	Valued:
 		Cost: 800
@@ -1093,11 +1093,11 @@ SCRTRANS:
 
 SCRCARRIER:
 	Inherits: ^CombatHelicopter
-	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^ScrinAircraftGeneric
-	Inherits@3: ^BasicStealthDetectionAir
-	Inherits@4:^WithTriggerCloakEffect-Building
-	Inherits@5: ^9CellVision
+	Inherits@1: ^ScrinAircraftGeneric
+	Inherits@2: ^BasicStealthDetectionAir
+	Inherits@3: ^9CellVision
+	Inherits@4: ^WithTriggerCloakEffect-Building
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Valued:
 		Cost: 2500
 	Tooltip:
@@ -1163,11 +1163,11 @@ SCRCARRIER:
 
 STORMRIDERSPAWN:
 	Inherits: ^CombatPlane
-	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^ScrinAircraftGeneric
-	Inherits@3: ^3CellVision
-	Inherits@4:^WithTriggerCloakEffect-Infantry
-	Inherits@Shadow: ^AircraftShadow
+	Inherits@1: ^ScrinAircraftGeneric
+	Inherits@2: ^3CellVision
+	Inherits@3: ^WithTriggerCloakEffect-Infantry
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@SHADOW: ^AircraftShadow
 	EditorOnlyTooltip:
 		Name: Assault Carrier Drone (Do not place in editor)
 	Tooltip:
@@ -1268,13 +1268,14 @@ CABDRONEJET:
 
 SCRBATTLESHIP:
 	Inherits: ^CombatHelicopter
-	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^ScrinAircraftGeneric
-	Inherits@3: ^PermanentSelfHeal
-	Inherits@4: ^CommandoIcon
-	Inherits@6: ^11CellVision
-	Inherits@7:^WithTriggerCloakEffect-Building
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@1: ^ScrinAircraftGeneric
+	Inherits@2: ^PermanentSelfHeal
+	Inherits@3: ^CommandoIcon
+	Inherits@4: ^11CellVision
+	Inherits@5: ^WithTriggerCloakEffect-Building
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SHADOW: ^AircraftShadow
 	Valued:
 		Cost: 4000
 	Tooltip:
@@ -1346,12 +1347,12 @@ SCRBATTLESHIP:
 
 WASP:
 	Inherits: ^CombatHelicopter
-	Inherits@1: ^AutoTargetAllAssaultMove
+	Inherits@1: ^CabRender
 	Inherits@2: ^BasicStealthDetectionAir
-	Inherits@4: ^9CellVision
-	Inherits@5: ^CabRender
-	Inherits@Shadow: ^AircraftShadow
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@3: ^9CellVision
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SHADOW: ^AircraftShadow
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -1397,8 +1398,8 @@ WASP:
 
 FIREFLY:
 	Inherits: ^CombatHelicopter
-	Inherits@5: ^CabRender
-	Inherits@Shadow: ^AircraftShadow
+	Inherits@1: ^CabRender
+	Inherits@SHADOW: ^AircraftShadow
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -1433,12 +1434,12 @@ FIREFLY:
 
 BASILISK:
 	Inherits: ^CombatHelicopter
-	Inherits@1: ^AutoTargetAllAssaultMove
+	Inherits@1: ^CabRender
 	Inherits@2: ^9CellVision
-	Inherits@4: ^CabRender
-	Inherits@Shadow: ^AircraftShadow
-	Inherits@5:^WithTriggerCloakEffect-Building
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@3: ^WithTriggerCloakEffect-Building
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SHADOW: ^AircraftShadow
 	Valued:
 		Cost: 1750
 	Tooltip:
@@ -1494,13 +1495,13 @@ BASILISK:
 
 DEVOURER:
 	Inherits: ^CombatHelicopter
-	Inherits@1: ^AutoTargetAllAssaultMove
+	Inherits@1: ^CabRender
 	Inherits@2: ^PermanentSelfHeal
-	Inherits@3: ^CabRender
-	Inherits@4: ^9CellVision
-	Inherits@5: ^WithTriggerCloakEffect-Building
-	Inherits@Shadow: ^AircraftShadow
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@3: ^9CellVision
+	Inherits@4: ^WithTriggerCloakEffect-Building
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SHADOW: ^AircraftShadow
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 2000

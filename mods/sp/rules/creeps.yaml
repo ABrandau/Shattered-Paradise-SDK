@@ -1,6 +1,7 @@
 DOGGIE:
 	Inherits: ^Beast
 	Inherits@2: ^WebDisable
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Tooltip:
 		Name: Tiberian Fiend
 	Health:
@@ -102,6 +103,7 @@ VISC_LRG:
 
 ZOMBIE:
 	Inherits: ^Mutant
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Tooltip:
 		Name: Haunt
 	Valued:
@@ -156,6 +158,7 @@ ZOMBIE:
 BERSERKER:
 	Inherits: ^Mutant
 	Inherits@1: ^MutRender
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Tooltip:
 		Name: Berserker
 	Valued:
@@ -243,6 +246,7 @@ CRAB:
 	Inherits@1: ^Beast
 	Inherits@2: ^WebDisable
 	Inherits@3: ^MutRender
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	EditorOnlyTooltip:
 		Name: Tiberian Cravicus
 	Tooltip:
@@ -332,7 +336,7 @@ PERMACRAB:
 
 jfish:
 	Inherits: ^Visceroid
-	Inherits@1: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Tooltip:
 		Name: Floater
 	Health:
@@ -495,9 +499,9 @@ VEINHOLE2:
 GEYE:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
-	Inherits@4: ^4CellVision
-	Inherits@5: ^1x1Shape
-	Inherits@3: ^AutoTargetGround
+	Inherits@3: ^4CellVision
+	Inherits@4: ^1x1Shape
+	Inherits@AUTOTARGET: ^AutoTargetGround
 	DetectCloaked:
 		Range: 4c0
 	Tooltip:
@@ -542,9 +546,9 @@ GEYE:
 
 WEYE:
 	Inherits: GEYE
-	Inherits@2: ^Unkillable
-	Inherits@3: ^6CellVision
-	Inherits@4: ^2x2Shape
+	Inherits@1: ^Unkillable
+	Inherits@2: ^6CellVision
+	Inherits@3: ^2x2Shape
 	-Tooltip:
 	EditorOnlyTooltip:
 		Name: ...(Normal terrain water only)

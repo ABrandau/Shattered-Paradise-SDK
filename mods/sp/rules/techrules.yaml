@@ -303,9 +303,9 @@ SCRINREINFPAD:
 
 NEUTRALSONICTUR:
 	Inherits: ^TechBuilding
-	Inherits@0: ^1x1Shape
-	Inherits@1: ^11CellVision
-	Inherits@2: ^AutoTargetAll
+	Inherits@1: ^1x1Shape
+	Inherits@2: ^11CellVision
+	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@EMPDISABLE: ^EmpDisable
 	Tooltip:
 		Name: Tech Shockwave Turret
@@ -335,6 +335,7 @@ NEUTRALSONICTUR:
 CABCANNON:
 	Inherits: ^TechBuilding
 	Inherits@1: ^CabRender
+	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@EMPDISABLE: ^EmpDisable
 	Valued:
 		Cost: 500
@@ -617,7 +618,7 @@ SGEN:
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Mobile stealth generator
+		Name: Mobile Stealth Generator
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Mobile:
@@ -702,7 +703,7 @@ MWAR:
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Mobile warfactory
+		Name: Mobile War Factory
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Mobile:
@@ -728,7 +729,7 @@ MTAR:
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Mobile warfactory
+		Name: Mobile War Factory
 	Health:
 		HP: 25000
 	Transforms:

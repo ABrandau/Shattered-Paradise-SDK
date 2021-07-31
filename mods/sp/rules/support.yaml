@@ -1,6 +1,7 @@
 GAVULC:
 	Inherits: ^TurretedDefence
 	Inherits@1: ^TowerStealthDetection
+	Inherits@AUTOTARGET: ^AutoTargetGround
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -41,7 +42,8 @@ GAROCK:
 	Inherits: ^Tier2
 	Inherits@1: ^TurretedDefence
 	Inherits@2: ^TowerStealthDetection
-	Inherits@3: ^AntiVehiclePriority
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@AUTOTARGETPRIORITY: ^AntiVehiclePriority
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -101,6 +103,7 @@ GACSAM:
 NALASR:
 	Inherits: ^TurretedDefence
 	Inherits@1: ^TowerStealthDetection
+	Inherits@AUTOTARGET: ^AutoTargetGround
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -133,6 +136,7 @@ NAOBEL:
 	Inherits@1: ^TowerStealthDetection
 	Inherits@2: ^2x2Shape
 	Inherits@3: ^Tier2
+	Inherits@AUTOTARGET: ^AutoTargetGround
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -197,6 +201,7 @@ MUBUNKR:
 	Inherits@2: ^TowerStealthDetection
 	Inherits@3: ^2x2Shape
 	Inherits@PIPS: ^CargoPips
+	Inherits@AUTOTARGET: ^AutoTargetAll
 	Valued:
 		Cost: 500
 	CustomSellValue:
@@ -269,7 +274,8 @@ MUCANNON:
 	Inherits@1: ^Tier2
 	Inherits@2: ^MutRender
 	Inherits@3: ^TowerStealthDetection
-	Inherits@4: ^AntiVehiclePriority
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@AUTOTARGETPRIORITY: ^AntiVehiclePriority
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -308,8 +314,8 @@ MUCANNON:
 
 MUFLAK:
 	Inherits: ^TurretedDefence
-	Inherits: ^AntiAir
 	Inherits@1: ^MutRender
+	Inherits@2: ^AntiAir
 	Tooltip:
 		Name: Flak Station
 	Buildable:
@@ -347,6 +353,7 @@ CABPIT:
 	Inherits@1: ^CabRender
 	Inherits@2: ^TowerStealthDetection
 	Inherits@3: ^2x2Shape
+	Inherits@AUTOTARGET: ^AutoTargetGround
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -390,6 +397,7 @@ CABBLAST:
 	Inherits@1: ^Tier2
 	Inherits@2: ^CabRender
 	Inherits@3: ^TowerStealthDetection
+	Inherits@AUTOTARGET: ^AutoTargetGround
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -418,8 +426,8 @@ CABBLAST:
 
 CABRAIL:
 	Inherits: ^TurretedDefence
-	Inherits@1: ^AntiAir
-	Inherits@2: ^CabRender
+	Inherits@1: ^CabRender
+	Inherits@2: ^AntiAir
 	Tooltip:
 		Name: Railgun Turret
 	Buildable:
@@ -440,10 +448,11 @@ CABRAIL:
 
 SCRNEEDLER:
 	Inherits: ^TurretedDefence
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^TowerStealthDetection
-	Inherits@4: ^ScrinDeathExplo
-	Inherits@5: ^ScrinDefenceFire
+	Inherits@1: ^ScrinRender
+	Inherits@2: ^TowerStealthDetection
+	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^ScrinDefenceFire
+	Inherits@AUTOTARGET: ^AutoTargetGround
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -479,12 +488,13 @@ SCRNEEDLER:
 
 SCRDRONE:
 	Inherits: ^Defence
-	Inherits@1: ^Tier2
-	Inherits@2: ^ScrinRender
+	Inherits@1: ^ScrinRender
+	Inherits@2: ^Tier2
 	Inherits@3: ^TowerStealthDetection
 	Inherits@4: ^ScrinDeathExplo
-	Inherits@5: ^2x2Shape
-	Inherits@6: ^ScrinDefenceFire
+	Inherits@5: ^ScrinDefenceFire
+	Inherits@6: ^2x2Shape
+	Inherits@AUTOTARGET: ^AutoTargetGround
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -541,10 +551,10 @@ SCRDRONE:
 
 SCRTRACTOR:
 	Inherits: ^TurretedDefence
-	Inherits: ^AntiAir
-	Inherits@2: ^ScrinRender
-	Inherits@4: ^ScrinDeathExplo
-	Inherits@5: ^ScrinDefenceFire
+	Inherits@1: ^ScrinRender
+	Inherits@2: ^ScrinDeathExplo
+	Inherits@3: ^ScrinDefenceFire
+	Inherits@4: ^AntiAir
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -603,8 +613,8 @@ GAPOWRUP:
 
 GAFIRE:
 	Inherits: ^Building
+	Inherits@1: ^3x2Shape
 	Inherits@AIaimingWeapon: ^AutoTargetAll
-	Inherits@2: ^3x2Shape
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Buildable:
 		Queue: Defense
@@ -928,11 +938,11 @@ MUTSW1:
 
 SCREXTRACTOR:
 	Inherits: ^Building
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
+	Inherits@1: ^ScrinRender
+	Inherits@2: ^ScrinDeathExplo
+	Inherits@3: ^ScrinDefenceFire
 	Inherits@4: ^DisableOnLowPowerOrPowerDown
-	Inherits@5: ^ScrinDefenceFire
-	Inherits@6: ^WithTriggerCloakEffect-Defence
+	Inherits@5: ^WithTriggerCloakEffect-Defence
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -976,12 +986,12 @@ SCREXTRACTOR:
 
 SCRSW1:
 	Inherits: ^Building
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^3x2Shape
-	Inherits@5: ^SuperWeapon
-	Inherits@6: ^ScrinBuildingFire
-	Inherits@7: ^HasSuperSupportPower
+	Inherits@1: ^ScrinRender
+	Inherits@2: ^ScrinDeathExplo
+	Inherits@3: ^3x2Shape
+	Inherits@4: ^SuperWeapon
+	Inherits@5: ^ScrinBuildingFire
+	Inherits@6: ^HasSuperSupportPower
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 50
@@ -1110,9 +1120,6 @@ CABSW1:
 		Weapon: IronSaviorMuzzle
 		LocalOffset: 1300,0,2300
 		Name: superweapon
-	-AutoTarget:
-	-AutoTargetPriority@DEFAULT:
-	-AutoTargetPriority@ATTACKANYTHING:
 	ProvidesPrerequisite@ironsavior:
 		Prerequisite: ironsavior
 		Factions: gdi, mut, nod, cab, scr
