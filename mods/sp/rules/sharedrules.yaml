@@ -689,7 +689,8 @@ FLIPPEDYPROC:
 
 ^Radar:
 	Inherits: ^Building
-	Inherits@1: ^DisableOnLowPowerOrPowerDown
+	Inherits@1: ^12CellVision
+	Inherits@2: ^DisableOnLowPowerOrPowerDown
 	Valued:
 		Cost: 1500
 	ProvidesPrerequisite:
@@ -713,8 +714,6 @@ FLIPPEDYPROC:
 	DetectCloaked:
 		Range: 10c0
 	RenderDetectionCircle:
-	RevealsShroud:
-		Range: 12c0
 	Targetable:
 		TargetTypes: Building, Ground, C4, SpyInfiltrate
 	Power:
