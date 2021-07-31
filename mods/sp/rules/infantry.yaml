@@ -723,14 +723,11 @@ MUTFIEND:
 		Delay: 20
 
 CUTMAN:
-	Inherits@1: ENGINEER
-	Inherits: ^Mutant
-	Valued:
-		Cost: 500
+	Inherits: ENGINEER
+	Inherits@1: ^Mutant
 	Tooltip:
 		Name: Mutant Engineer
 	Buildable:
-		Queue: Infantry
 		BuildPaletteOrder: 13
 		Prerequisites: ~murax
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Heals on tiberium fields.
@@ -739,7 +736,6 @@ CUTMAN:
 		VoiceSet: Engineer
 	Mobile:
 		Voice: Move
-		Speed: 50
 	WithInfantryBody:
 	Mobile:
 		Locomotor: TibInmuneInfantry
@@ -1083,13 +1079,9 @@ LEGIO:
 
 SHAPESHIFTER:
 	Inherits: ENGINEER
-	Inherits@1: ^5CellVision
-	Valued:
-		Cost: 500
 	Tooltip:
 		Name: Shapeshifter
 	Buildable:
-		Queue: Infantry
 		BuildPaletteOrder: 15
 		Prerequisites: ~scrrax
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Does not receive damage from tiberium fields
@@ -1470,11 +1462,10 @@ CBORG:
 
 SWARMLING:
 	Inherits: ENGINEER
-	Inherits@2: ^CabRender
+	Inherits@1: ^CabRender
 	Tooltip:
 		Name: Swarmling
 	Buildable:
-		Queue: Infantry
 		BuildPaletteOrder: 14
 		Prerequisites: ~cabclaw
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Does not receive damage from tiberium fields.

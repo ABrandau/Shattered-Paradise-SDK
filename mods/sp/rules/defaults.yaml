@@ -1569,20 +1569,9 @@
 	-WithDeathAnimation@blood1:
 
 ^Engineer:
-	Inherits@S: ^InfantryShape
-	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
-	Valued:
-		Cost: 500
 	Tooltip:
 		Name: Engineer
-	Buildable:
-		BuildPaletteOrder: 100
-		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings to max health instantly\n- Crush class: crushable
-	Mobile:
-		Speed: 50
-	Health:
-		HP: 9500
 	Passenger:
 		CustomPipType: yellow
 	SharedPassenger:
@@ -1604,7 +1593,6 @@
 		ConsumedByCapture: false
 		EnterCursor: powerdown
 		EnterBlockedCursor: powerdown-blocked
-	#Huntable:
 	CaptureManager:
 
 ^BasicVehicle:
@@ -1618,10 +1606,6 @@
 		Type: VehicleArmor
 	AttackMove:
 		Voice: Move
-	#CaptureManager: ## Will restore later if we have Hijacker
-	#Capturable@Hijackable:
-	#	Types: Vehicle
-	#	CancelActivity: true
 	Crushable:
 		CrushClasses: Vehicle
 		WarnProbability: 0
