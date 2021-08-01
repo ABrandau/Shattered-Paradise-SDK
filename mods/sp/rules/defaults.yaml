@@ -698,14 +698,14 @@
 		Condition: ToxinTrooperDebuff
 		Color: 88AA12
 
-^RavagerSlowdown:
-	SpeedMultiplier@RavagerSlowdown:
-		RequiresCondition: RavagerSlowdown
+^Slowdown50pp:
+	SpeedMultiplier@Slowdown50pp:
+		RequiresCondition: Slowdown50pp
 		Modifier: 50
-	ExternalCondition@RavagerSlowdown:
-		Condition: RavagerSlowdown
-	TimedConditionBar@RavagerSlowdown:
-		Condition: RavagerSlowdown
+	ExternalCondition@Slowdown50pp:
+		Condition: Slowdown50pp
+	TimedConditionBar@Slowdown50pp:
+		Condition: Slowdown50pp
 		Color: 88AA12
 
 ^EmpDisable:
@@ -1079,7 +1079,7 @@
 	Inherits@10: ^WolfDebuff
 	Inherits@12: ^BarracksHeal
 	Inherits@13: ^FullHealthRepairCondition
-	Inherits@14: ^RavagerSlowdown
+	Inherits@14: ^Slowdown50pp
 	Inherits@15: ^WithTriggerCloakEffect-Infantry
 	Inherits@16: ^MindControllableMastermind
 	GrantConditionOnTunnelLayer:
@@ -1112,7 +1112,7 @@
 	Inherits@14: ^Chronoshiftable
 	Inherits@15: ^FullHealthRepairCondition
 	Inherits@16: ^ToxinTrooperDebuff
-	Inherits@17: ^RavagerSlowdown
+	Inherits@17: ^Slowdown50pp
 	Inherits@18: ^WithTriggerCloakEffect-Vehicle
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
