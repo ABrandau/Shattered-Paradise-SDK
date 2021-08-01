@@ -747,6 +747,12 @@ MUTQUEEN:
 		MoveIntoShroud: true
 		IdealSeparation: 1c0
 	-Rearmable:
+	Targetable@GROUND:
+		TargetTypes: Vehicle, OrganicVehicle, NoRepair, Ground, MindControlImmune
+		RequiresCondition: !airborne
+	Targetable@AIRBORNE:
+		TargetTypes: Air, OrganicVehicle, NoRepair, MindControlImmune
+		RequiresCondition: airborne
 	Health:
 		HP: 10000
 	WithFacingSpriteBody:
