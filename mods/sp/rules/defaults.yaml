@@ -982,13 +982,11 @@
 
 ^FullHealthRepairCondition:
 	Targetable@FullHealth:
-		RequiresCondition: !DisableFullHealthRepairCondition && FullHealth
+		RequiresCondition: FullHealth
 		TargetTypes: FullHealth
 	GrantConditionOnDamageState@FullHealth:
 		Condition: FullHealth
 		ValidDamageStates: Undamaged
-	ExternalCondition@DisableFullHealthRepairCondition:
-		Condition: DisableFullHealthRepairCondition
 
 ^UsesAmmunition:
 	AmmoPool:
@@ -1084,9 +1082,9 @@
 	Inherits@16: ^MindControllableMastermind
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
-	GrantCondition@DisableRepairInTunnel:
-		Condition: DisableFullHealthRepairCondition
-		RequiresCondition: inside-tunnel
+	Targetable@FullHealth:
+		RequiresCondition: FullHealth || inside-tunnel
+		TargetTypes: FullHealth
 	WithIdleOverlay@nanomachinerecovery:
 		Image: nanoparticle
 		Sequence: idle-small
@@ -1119,9 +1117,9 @@
 	GrantCondition@DisableHeavyDamagedEffect:
 		Condition: DisableHeavyDamagedEffect
 		RequiresCondition: inside-tunnel || cloaking-self
-	GrantCondition@DisableRepairInTunnel:
-		Condition: DisableFullHealthRepairCondition
-		RequiresCondition: inside-tunnel
+	Targetable@FullHealth:
+		RequiresCondition: FullHealth || inside-tunnel
+		TargetTypes: FullHealth
 	DeliversCash:
 		Payload: 350
 
