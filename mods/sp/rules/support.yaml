@@ -479,7 +479,7 @@ SCRNEEDLER:
 		MuzzlePalette: gradientgreen60
 		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
-	SmokeParticleEmitter:
+	SmokeParticleEmitter@spawnsmoke:
 		Palette: gradientgreen40
 	ThrowsShrapnel@SMALL:
 		Weapons: SmallDebrisScrin
@@ -787,7 +787,12 @@ NASTLH:
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 	-ExternalCondition@crate-cloak:
-	-GrantCondition@DisableHeavyDamagedEffect:
+	SmokeParticleEmitter@spawnsmoke:
+		RequiresCondition: HeavyDamaged
+	ExplodeWeapon@spawnsparks:
+		RequiresCondition: HeavyDamaged
+	WithIdleOverlay@SpawnFire:
+		RequiresCondition: HeavyDamaged
 	Power:
 		Amount: -100
 	RequiresBuildableArea:

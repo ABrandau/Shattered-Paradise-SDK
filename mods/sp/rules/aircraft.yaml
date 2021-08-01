@@ -470,7 +470,10 @@ CERBERUS:
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 	-ExternalCondition@crate-cloak:
-	-GrantCondition@DisableHeavyDamagedEffect:
+	SmokeParticleEmitter@spawnsmoke:
+		RequiresCondition: HeavyDamaged
+	ExplodeWeapon@spawnsparks:
+		RequiresCondition: HeavyDamaged
 	RenderSprites:
 		PlayerPalette: playertemperate
 	SpawnActorOnDeath:
@@ -775,9 +778,7 @@ MUTQUEEN:
 		LocalOffset: 200, 0, -600
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-ExplodeWeapon@spawnsparks:
-	-SmokeParticleEmitter:
-	-ExternalCondition@DisableHeavyDamagedEffect:
-	-GrantCondition@DisableHeavyDamagedEffect:
+	-SmokeParticleEmitter@spawnsmoke:
 	-Explodes@Shrapnel:
 	Explodes:
 		Weapon: QueenExplode
@@ -797,7 +798,7 @@ MUTBIRD:
 	Inherits@4: ^ScrinAircratVoice
 	Inherits@2: ^ScrinRender
 	Inherits@Shadow: ^AircraftShadow
-	SmokeParticleEmitter:
+	SmokeParticleEmitter@spawnsmoke:
 		Image: scrsmoke
 		Palette: gradientblue20
 	Explodes@Shrapnel:
@@ -851,7 +852,7 @@ STORMRIDER:
 	SpawnActorOnDeath:
 		Actor: STORMRIDER.Husk
 		RequiresCondition: airborne
-	SmokeParticleEmitter:
+	SmokeParticleEmitter@spawnsmoke:
 		Image: scrsmoke
 		Palette: gradientblue20
 	Explodes@Shrapnel:
@@ -914,7 +915,7 @@ DRACHE:
 	SpawnActorOnDeath:
 		Actor: DRACHE.Husk
 		RequiresCondition: airborne
-	SmokeParticleEmitter:
+	SmokeParticleEmitter@spawnsmoke:
 		Offset: 0,0,1000,0,0,1000
 	CaptureManager: ## Hack: Normally, capture while undeploying conyard will crash the game if do not have this
 
@@ -964,7 +965,7 @@ SCRGLYDER1:
 	TransformOnCondition@AITransform:
 		RequiresCondition: AIattackGround
 		IntoActor: scrglyder2
-	SmokeParticleEmitter:
+	SmokeParticleEmitter@spawnsmoke:
 		Offset: 0,0,500,0,0,500
 	Explodes@Shrapnel:
 		Weapon: SmalLScrinAircraftShrapnel
@@ -1224,9 +1225,7 @@ STORMRIDERSPAWN:
 	-Explodes@Shrapnel:
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-ExplodeWeapon@spawnsparks:
-	-SmokeParticleEmitter:
-	-ExternalCondition@DisableHeavyDamagedEffect:
-	-GrantCondition@DisableHeavyDamagedEffect:
+	-SmokeParticleEmitter@spawnsmoke:
 	-SpawnActorOnDeath@ScrinEssence:
 
 CABDRONEJET:

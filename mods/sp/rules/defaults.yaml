@@ -844,13 +844,11 @@
 	GrantConditionOnDamageState@HeavyDamaged:
 		Condition: HeavyDamaged
 		ValidDamageStates: Critical, Heavy
-	ExternalCondition@DisableHeavyDamagedEffect:
-		Condition: DisableHeavyDamagedEffect
 
 ^SpawnSmoke:
 	Inherits: ^HeavyDamagedEffect
-	SmokeParticleEmitter:
-		RequiresCondition: HeavyDamaged && !DisableHeavyDamagedEffect
+	SmokeParticleEmitter@spawnsmoke:
+		RequiresCondition: HeavyDamaged
 		Sequences: idle
 		SpawnFrequency: 6, 12
 		Speed: 6
@@ -864,13 +862,13 @@
 ^SpawnSpark:
 	Inherits: ^HeavyDamagedEffect
 	ExplodeWeapon@spawnsparks:
-		RequiresCondition: HeavyDamaged && !DisableHeavyDamagedEffect
+		RequiresCondition: HeavyDamaged
 		Weapon: SparkSpawner
 
 ^SpawnFire:
 	Inherits: ^HeavyDamagedEffect
 	WithIdleOverlay@SpawnFire:
-		RequiresCondition: HeavyDamaged && !DisableHeavyDamagedEffect
+		RequiresCondition: HeavyDamaged
 		Image: Explosion
 		Sequence: fire1
 		Palette: effect
@@ -1070,9 +1068,12 @@
 	Inherits@3: ^SpawnSpark
 	Inherits@4: ^WithTriggerCloakEffect-Building
 	Inherits@5: ^MindControllableMastermind
-	GrantCondition@DisableHeavyDamagedEffect:
-		Condition: DisableHeavyDamagedEffect
-		RequiresCondition: cloaking-self
+	SmokeParticleEmitter@spawnsmoke:
+		RequiresCondition: HeavyDamaged && !cloaking-self
+	ExplodeWeapon@spawnsparks:
+		RequiresCondition: HeavyDamaged && !cloaking-self
+	WithIdleOverlay@SpawnFire:
+		RequiresCondition: HeavyDamaged && !cloaking-self
 
 ^InfantryEffects:
 	Inherits: ^GenericEffects
@@ -1125,12 +1126,13 @@
 	Inherits@18: ^WithTriggerCloakEffect-Vehicle
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
-	GrantCondition@DisableHeavyDamagedEffect:
-		Condition: DisableHeavyDamagedEffect
-		RequiresCondition: inside-tunnel || cloaking-self
 	Targetable@FullHealth:
 		RequiresCondition: FullHealth || inside-tunnel
 		TargetTypes: FullHealth
+	SmokeParticleEmitter@spawnsmoke:
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
+	ExplodeWeapon@spawnsparks:
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
 	DeliversCash:
 		Payload: 350
 
@@ -1142,9 +1144,10 @@
 	#Inherits@4: ^MindControllable
 	Inherits@5: ^FullHealthRepairCondition
 	Inherits@6: ^WithTriggerCloakEffect-Vehicle
-	GrantCondition@DisableHeavyDamagedEffect:
-		Condition: DisableHeavyDamagedEffect
-		RequiresCondition: cloaking-self
+	SmokeParticleEmitter@spawnsmoke:
+		RequiresCondition: HeavyDamaged && !cloaking-self
+	ExplodeWeapon@spawnsparks:
+		RequiresCondition: HeavyDamaged && !cloaking-self
 
 ^ProducesStuff:
 	WithTextDecoration@primary:
@@ -1825,7 +1828,7 @@
 	Explodes:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode
-	SmokeParticleEmitter:
+	SmokeParticleEmitter@spawnsmoke:
 		Duration: 100
 		Offset: 0,0,400
 	HitShape:
@@ -1846,7 +1849,7 @@
 	Voiced:
 		VoiceSet: Seeker
 		Volume: 2
-	SmokeParticleEmitter:
+	SmokeParticleEmitter@spawnsmoke:
 		Duration: 100
 		Image: scrsmoke
 		Palette: gradientblue20
@@ -1897,7 +1900,7 @@
 		RequiresCondition: !inside-tunnel && !submerged
 	Targetable:
 		RequiresCondition: !inside-tunnel && !submerged
-	-SmokeParticleEmitter:
+	-SmokeParticleEmitter@spawnsmoke:
 	AnnounceOnSeen@subterranean:
 		Notification: SubterraneanUnitDetected
 		PingRadar: true
@@ -2319,8 +2322,6 @@
 	MapEditorData:
 		Categories: Civilian Structure
 	-WithIdleOverlay@SpawnFire:
-	-GrantConditionOnDamageState@HeavyDamaged:
-	-ExternalCondition@DisableHeavyDamagedEffect:
 	RadarColorFromTerrain:
 		Terrain: CivilianBuilding
 	Interactable:
@@ -2742,7 +2743,7 @@
 	Explodes@BuildingFireBigSpawn:
 		Weapon: ScrinBuildingFireBigShrapnel
 		EmptyWeapon: ScrinBuildingFireBigShrapnel
-	SmokeParticleEmitter:
+	SmokeParticleEmitter@spawnsmoke:
 		Image: scrsmoke
 		Palette: gradientblue20
 	Building:
