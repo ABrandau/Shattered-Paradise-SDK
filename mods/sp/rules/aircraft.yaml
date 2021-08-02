@@ -13,8 +13,8 @@ ORCA:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: Fast assault gunship with dual missile launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Detects cloaked units
 		Queue: Air
+		Description: Fast assault gunship with dual missile launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Detects cloaked units
 		BuildPaletteOrder: 1
 		Prerequisites: ~gahpad
 	Selectable:
@@ -1170,8 +1170,6 @@ STORMRIDERSPAWN:
 	Inherits@3: ^WithTriggerCloakEffect-Infantry
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@SHADOW: ^AircraftShadow
-	EditorOnlyTooltip:
-		Name: Assault Carrier Drone (Do not place in editor)
 	Tooltip:
 		Name: Wyverm
 	Interactable:
@@ -1225,6 +1223,7 @@ STORMRIDERSPAWN:
 	-ExplodeWeapon@spawnsparks:
 	-SmokeParticleEmitter@spawnsmoke:
 	-SpawnActorOnDeath@ScrinEssence:
+	-MapEditorData:
 
 CABDRONEJET:
 	Inherits: STORMRIDERSPAWN
@@ -1237,8 +1236,6 @@ CABDRONEJET:
 		Ammo: 3
 		AmmoCondition: ammo
 		ReloadDelay: 5
-	EditorOnlyTooltip:
-		Name: Imp (Do not place in editor)
 	Tooltip:
 		Name: Imp
 	Valued:
