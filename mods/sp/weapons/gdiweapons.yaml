@@ -390,6 +390,22 @@ MechRailgun: ##For hit effect
 	Projectile: InstantHit
 	-Warhead@2Eff:
 
+MechRailgunAI: ##For hit effect and rage missfire
+	Inherits: MechRailgun
+	Inherits:  ^WeaponGenericUpgrades
+	Warhead@1Dam: SpreadDamage
+		Spread: 50
+		Damage: 30000
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 100
+			VehicleArmor: 100
+			DefenseArmor: 100
+			ConcreteArmor: 25
+			Shield: 0
+		ValidRelationships: Ally
+		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+
 MechRailgun2:
 	Inherits:  ^WeaponGenericUpgrades
 	FirstBurstTargetOffset: 0,-150,0

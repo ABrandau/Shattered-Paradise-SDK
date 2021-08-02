@@ -465,17 +465,38 @@
 	Targetable@MC:
 		TargetTypes: MindControllable
 		RequiresCondition: !mindcontrolled
-	WithIdleOverlay@mindcontrolled:
+	WithDecoration@mindcontrolled:
 		Image: mindcontrolled
 		Sequence: mindcontrolled
+		Position: Top
 		IsPlayerPalette: true
 		Palette: player
 		RequiresCondition: mindcontrolled
+		ValidRelationships: Enemy, Neutral, Ally
 
 ^MindControllableMastermind:
 	Inherits: ^MindControllable
 	Targetable@MC:
 		TargetTypes: MindControllableMastermind
+
+^Berserkable:
+	Berserkable@CHAOS:
+		ActorsToIgnore: caos, pdplane.chaos
+		RequiresCondition: chaos
+	RejectsOrders@CHAOS:
+		RequiresCondition: chaos
+	WithDecoration@CHAOS:
+		Image: afflicted
+		Sequence: afflicted
+		Position: Top
+		Palette: apred
+		ValidRelationships: Enemy, Neutral, Ally
+		RequiresCondition: chaos
+	TimedConditionBar@CHAOS:
+		Color: 770000
+		Condition: chaos
+	ExternalCondition@CHAOS:
+		Condition: chaos
 
 ^ScrinEssence:
 	SpawnActorOnDeath@ScrinEssence:
@@ -1092,6 +1113,7 @@
 	Inherits@14: ^Slowdown50pp
 	Inherits@15: ^WithTriggerCloakEffect-Infantry
 	Inherits@16: ^MindControllableMastermind
+	Inherits@19: ^Berserkable
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
 	Targetable@FullHealth:
@@ -1124,6 +1146,7 @@
 	Inherits@16: ^ToxinTrooperDebuff
 	Inherits@17: ^Slowdown50pp
 	Inherits@18: ^WithTriggerCloakEffect-Vehicle
+	Inherits@19: ^Berserkable
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
 	Targetable@FullHealth:
@@ -1144,6 +1167,7 @@
 	#Inherits@4: ^MindControllable
 	Inherits@5: ^FullHealthRepairCondition
 	Inherits@6: ^WithTriggerCloakEffect-Vehicle
+	Inherits@7: ^Berserkable
 	SmokeParticleEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self
 	ExplodeWeapon@spawnsparks:

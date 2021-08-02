@@ -282,9 +282,10 @@ DevilsFlame:
 			InfantryArmor: 200
 
 FlameHoloShrapnel:
-	Inherits: ^NoDamage
+	ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
 	ReloadDelay: 300
 	Range: 2c0
+	Projectile: InstantHit
 	Warhead@op: FireRadius
 		Weapon: FlameHologram
 		ImpactActors: false
@@ -298,15 +299,11 @@ FlameHoloShrapnel:
 		Actors: tickhologram
 
 FlameHologram:
-	Inherits: ^NoDamage
+	ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
 	ReloadDelay: 300
 	Range: 2c0
-	Projectile: BulletAS
-		Speed: 100c0
+	Projectile: InstantHit
 	ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
-	Warhead@1Dam: SpreadDamage
-		Spread: 400
-		Damage: 0
 	Warhead@5Actor: SpawnActor
 		Actors: flamehologram
 		FallRate: 5000
@@ -661,3 +658,20 @@ ScorpionLaserShrapnel:
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
+
+AfflictionBomb:
+	ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+	ReloadDelay: 7700
+	Range: 0c100
+	Projectile: InstantExplode
+	Warhead@2Eff: CreateEffect
+		Explosions: rageflash4
+		ExplosionPalette: jascredalpha
+		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+		ImpactActors: false
+	Warhead@debuff1: GrantExternalCondition
+		Range: 15c0
+		Duration: 200
+		Condition: chaos
+		ValidTargets: Infantry, Vehicle, Ground, Water, Defence, Air
+		ValidRelationships: Neutral, Enemy

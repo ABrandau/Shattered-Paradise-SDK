@@ -259,11 +259,7 @@ MindController:
 		Damage: 0
 		ValidTargets: MindControllable
 		InvalidTargets: MindControlImmune
-	Warhead@2Eff: CreateEffect
-		Explosions: cldrngl1
-		ExplosionPalette: appurp
-		ValidTargets: MindControllable
-		InvalidTargets: MindControlImmune
+
 
 MindControllerMastermind:
 	ReloadDelay: 100
@@ -277,40 +273,17 @@ MindControllerMastermind:
 		Damage: 0
 		ValidTargets: MindControllable, MindControllableMastermind
 		InvalidTargets: MindControlMastermindImmune
-	Warhead@2Eff: CreateEffect
-		Explosions: cldrngl1
-		ExplosionPalette: appurp
-		ValidTargets: MindControllable, MindControllableMastermind
-		InvalidTargets: MindControlMastermindImmune
-
 MindEnergyCasing:
 	ReloadDelay: 200000
 	Projectile: AthenaProjectile
 		Altitude: 800
 	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-	Warhead@0Dam: TargetDamage
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-	Warhead@op: FireRadius
-		Weapon: MindSpark
-		ImpactActors: false
-		Amount: 3
-		ValidTargets: Ground, Water, Air
-		InvalidTargets: Infantry, Vehicle, Building, Wall
 	Warhead@2Eff: CreateEffect
-		Explosions: cldrngl1
-		ExplosionPalette: appurp
+		Explosions: mceffect
+		ExplosionPalette: player
+		UsePlayerPalette: true
 		ValidTargets: Ground, Water, Air
 		InvalidTargets: Infantry, Vehicle, Building, Wall
-
-MindSpark:
-	ReloadDelay: 80
-	Range: 0c256
-	Projectile: TeslaZap
-		Image: scrlitning
-		Palette: appurp
-		DimZaps: 0
-		Duration: 4
-	Warhead@1Dam: TargetDamage
 
 VanguardFollow:
 	ReloadDelay: 200

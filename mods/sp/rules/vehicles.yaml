@@ -428,13 +428,16 @@ HMEC:
 	Armament@3:
 		Weapon: MechRailgun
 		LocalOffset: 1200,-250,2650, 1200,250,2650
-		PauseOnCondition: empdisable
-		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable || AImicroManage
 	Armament@4:
 		Weapon: MechRailgun2
 		LocalOffset: 1200,-250,2650, 1200,250,2650
 		PauseOnCondition: empdisable || AImicroManage
 		MuzzleSequence: muzzle
+	Armament@3AI: ##Fake that AI use it better
+		Weapon: MechRailgunAI
+		LocalOffset: 1200,-250,2650, 1200,250,2650
+		PauseOnCondition: empdisable || !AImicroManage
 	Armament@4AI: ##Fake that AI use it better
 		Weapon: MechRailgun2AI
 		LocalOffset: 1200,-250,2650, 1200,250,2650
@@ -1337,9 +1340,17 @@ SCORPION:
 		MuzzleSequence: muzzle
 		MuzzlePalette: obelpal
 		PauseOnCondition: empdisable
+	GrantTimedConditionOnDeploy:
+		DeployedCondition: afflictive
+		CooldownTicks: 4000
+		DeployedTicks: 10
+		StartsFullyCharged: true
+	ExplodeWeapon@Deployed:
+		Weapon: AfflictionBomb
+		RequiresCondition: afflictive
 	WithInfantryBody:
 		DefaultAttackSequence: shoot1
-	WithDeathAnimation:
+	#WithDeathAnimation: only one facing for a huge object
 	Targetable:
 		TargetTypes: Ground, Vehicle, MindControlImmune
 	Carryable:
@@ -1999,7 +2010,7 @@ SCRMOBMINE:
 		Queue: Vehicle
 		BuildPaletteOrder: 50
 		BuildAtProductionType: Tank
-		Description: Mind Control unit\n\nSpecial:\n- Can overtake vehicles \n- Can overtake/release mind controlled vehicles\n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol Harvesters and Heroics\n- Can shoot over walls.\n- Can mind control units while moving.
+		Description: Mind Control unit\n\nSpecial:\n- Can overtake vehicles \n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol Harvesters and Heroics\n- Can shoot over walls.\n- Can mind control units while moving.
 		Prerequisites: ~scrweap, scrtech
 	Valued:
 		Cost: 1400
@@ -2015,7 +2026,7 @@ SCRMOBMINE:
 		TargetTypes: Ground, Vehicle, MindControlImmune
 	ExplodeWeapon@Casing:
 		Weapon: MindEnergyCasing
-		LocalOffset: 0,0,2600
+		LocalOffset: 0,0,2000
 		RequiresCondition: attack
 	GrantConditionOnAttack@Casing:
 		Condition: attack
@@ -2121,8 +2132,6 @@ TRIPOD:
 		Offset: 0,0,3000
 	ExplodeWeapon@spawnsparks:
 		LocalOffset: 0,0,3000
-	WithIdleOverlay@mindcontrolled:
-		Sequence: mindcontrolled-tripod
 	DeathSounds:
 		DeathTypes: BulletDeath, ExplosionDeath, CabalDeath, TiberiumDeath
 	ThrowsShrapnel:
