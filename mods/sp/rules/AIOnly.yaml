@@ -292,8 +292,7 @@ COREDEFENDER:
 		PauseOnCondition: empdisable
 		FacingTolerance: 3
 		Armaments: ArmArmament, HeadArmament, ShoulderArmament
-	Targetable:
-		TargetTypes: Ground, Vehicle, MindControlImmune
+	-Targetable@MC:
 	AutoTarget:
 		ScanRadius: 9
 		InitialStanceAI: AttackAnything
@@ -437,7 +436,7 @@ DEFD:
 	Buildable:
 		Queue: Building
 		Prerequisites: cabtech, ~structures.cab, ~AIOnly, ~!DefenderExists
-		Description: Cabal's final creation armed with crazy weapon.\n\nGood vs: Everything\n\nSpecial:\n- Needs preparing before rising.\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle
+		Description: Cabal's final creation armed with crazy weapon.\n\nGood vs: Everything\n\nSpecial:\n- Needs preparing before rising.\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle\n- Immunes to mindcontrol
 		BuildPaletteOrder: 54
 	Building:
 		Footprint: xxx xxx xxx

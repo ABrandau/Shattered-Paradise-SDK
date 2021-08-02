@@ -443,8 +443,7 @@ HMEC:
 		LocalOffset: 1200,-250,2650, 1200,250,2650
 		PauseOnCondition: empdisable || !AImicroManage
 		MuzzleSequence: muzzle
-	Targetable:
-		TargetTypes: Ground, Vehicle, MindControlImmune
+	-Targetable@MC:
 	Turreted:
 		Offset: -500,0,0
 		TurnSpeed: 16
@@ -1350,9 +1349,7 @@ SCORPION:
 		RequiresCondition: afflictive
 	WithInfantryBody:
 		DefaultAttackSequence: shoot1
-	#WithDeathAnimation: only one facing for a huge object
-	Targetable:
-		TargetTypes: Ground, Vehicle, MindControlImmune
+	-Targetable@MC:
 	Carryable:
 		LocalOffset: 0, 0, 20
 	WithMuzzleOverlay:
@@ -1583,13 +1580,14 @@ STRUCK:
 WOLF:
 	Inherits: ^Beast
 	Inherits@1: ^6CellVision
+	Inherits@3: ^MindControllableMastermind
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 33
-		Description: Tiberium beast that uses tiberium acid to harm nearby units.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Attacks reduce target attack speed and movement speed by 35%\n- Can mutate killed units\n- E.M.P. Inmune\n- Has Selfheal\n- Cannot be mindcontrolled.\n- Can enter tunnels.
+		Description: Tiberium beast that uses tiberium acid to harm nearby units.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Attacks reduce target attack speed and movement speed by 35%\n- Can mutate killed units\n- E.M.P. Inmune\n- Has Selfheal\n- Wild mind: only controlled by MasterMind\n- Can enter tunnels.
 		Prerequisites: ~muweap, muradr
 	Valued:
 		Cost: 500
@@ -1598,7 +1596,7 @@ WOLF:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Targetable:
-		TargetTypes: Ground, Vehicle, OrganicVehicle, NoRepair, MindControlImmune
+		TargetTypes: Ground, Vehicle, OrganicVehicle, NoRepair
 	Armament@PRIMARY:
 		Weapon: BullAcid
 		LocalOffset: 128,0,400
@@ -1667,13 +1665,14 @@ DEATHCLAW:
 	Inherits: ^Beast
 	Inherits@1: ^MutRender
 	Inherits@2: ^8CellVision
+	Inherits@3: ^MindControllableMastermind
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 48
-		Description: Melee beast from the outer redzones that brings death with its claws.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Has Selfheal\n- E.M.P. Inmune\n- Cannot be mindcontrolled.\n- Can enter tunnels.
+		Description: Melee beast from the outer redzones that brings death with its claws.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Has Selfheal\n- E.M.P. Inmune\n- Wild mind: only controlled by MasterMind\n- Can enter tunnels.
 		Prerequisites: ~muweap, muhall
 	Valued:
 		Cost: 1100
@@ -1682,7 +1681,7 @@ DEATHCLAW:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Targetable:
-		TargetTypes: Ground, Vehicle, OrganicVehicle, NoRepair, MindControlImmune
+		TargetTypes: Ground, Vehicle, OrganicVehicle, NoRepair
 	AutoTarget:
 		ScanRadius: 6
 		InitialStance: AttackAnything
@@ -2003,14 +2002,15 @@ SCRRECHARGER:
 SCRMOBMINE:
 	Inherits@: ^HoverVehicle
 	Inherits@1: ^ScrinVehicle
-	Inherits@3: ^7CellVision
+	Inherits@2: ^7CellVision
+	Inherits@3: ^MindControllableMastermind
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 50
 		BuildAtProductionType: Tank
-		Description: Mind Control unit\n\nSpecial:\n- Can overtake vehicles \n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol Harvesters and Heroics\n- Can shoot over walls.\n- Can mind control units while moving.
+		Description: Mind Control unit\n\nSpecial:\n- Can overtake regular vehicle and infantry \n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol Heroics, Flying Units, Beasts, Buildings\n- Can shoot over walls.\n- Can mind control units while moving.
 		Prerequisites: ~scrweap, scrtech
 	Valued:
 		Cost: 1400
@@ -2022,8 +2022,6 @@ SCRMOBMINE:
 		Capacity: 3
 		Sounds: sonpulse.aud
 		#ControllingCondition: slaving
-	Targetable:
-		TargetTypes: Ground, Vehicle, MindControlImmune
 	ExplodeWeapon@Casing:
 		Weapon: MindEnergyCasing
 		LocalOffset: 0,0,2000
@@ -2590,7 +2588,7 @@ BCOREDEF:
 		Queue: Vehicle
 		BuildPaletteOrder: 59
 		BuildAtProductionType: Tank
-		Description: Epic walker armed with a twin laser cannons and blast proton weapon on the shoulder.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle
+		Description: Epic walker armed with a twin laser cannons and blast proton weapon on the shoulder.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle\n- Immune to mind control
 		Prerequisites: ~cabweap, cabobelisk
 		BuildLimit: 1
 	Mobile:
@@ -2622,8 +2620,7 @@ BCOREDEF:
 		PauseOnCondition: empdisable
 		FacingTolerance: 3
 		Armaments: ArmArmament, HeadArmament, ShoulderArmament
-	Targetable:
-		TargetTypes: Ground, Vehicle, MindControlImmune
+	-Targetable@MC:
 	WithInfantryBody:
 		-DefaultAttackSequence: 
 		RequiresCondition: !inside-tunnel

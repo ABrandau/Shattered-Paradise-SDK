@@ -247,32 +247,33 @@ ScorpAcid:
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
 
+### See ^MindControllable in default.yaml 
 MindController:
 	ReloadDelay: 100
 	Range: 6c0
 	ValidTargets: MindControllable
-	InvalidTargets: MindControlImmune
+	InvalidTargets: MindControllableMastermind
 	Report: iyurat1a.wav
 	Projectile: InstantHit
 		Blockable: false
 	Warhead@1Dam: TargetDamage
 		Damage: 0
 		ValidTargets: MindControllable
-		InvalidTargets: MindControlImmune
+		InvalidTargets: MindControllableMastermind
 
 
 MindControllerMastermind:
 	ReloadDelay: 100
 	Range: 6c0
 	ValidTargets: MindControllable, MindControllableMastermind
-	InvalidTargets: MindControlMastermindImmune
+	InvalidTargets: MindControlImmune
 	Report: iyurat1a.wav
 	Projectile: InstantHit
 		Blockable: false
 	Warhead@1Dam: TargetDamage
 		Damage: 0
 		ValidTargets: MindControllable, MindControllableMastermind
-		InvalidTargets: MindControlMastermindImmune
+
 MindEnergyCasing:
 	ReloadDelay: 200000
 	Projectile: AthenaProjectile

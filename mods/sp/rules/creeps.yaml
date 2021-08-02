@@ -1,6 +1,7 @@
 DOGGIE:
 	Inherits: ^Beast
 	Inherits@2: ^WebDisable
+	Inherits@3: ^MindControllableMastermind
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Tooltip:
 		Name: Tiberian Fiend
@@ -41,7 +42,7 @@ VISC_SML:
 		MinMoveDelay: 30
 		MaxMoveDelay: 60
 	Targetable:
-		TargetTypes: Ground, Vehicle, NoRepair, MindControlImmune
+		TargetTypes: Ground, Vehicle, NoRepair
 	RenderSprites:
 		Image: vissml
 	Mobile:
@@ -69,7 +70,7 @@ VISC_LRG:
 	RevealsShroud:
 		Range: 4c0
 	Targetable:
-		TargetTypes: Ground, Vehicle, NoRepair, MindControlImmune
+		TargetTypes: Ground, Vehicle, NoRepair
 	Armament:
 		Weapon: SlimeAttack
 		FireDelay: 10
@@ -122,6 +123,7 @@ ZOMBIE:
 		Speed: 55
 	-SpawnActorOnDeath@conversion:
 	-TakeCover:
+	-Targetable@MC:
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
@@ -149,9 +151,9 @@ ZOMBIE:
 		Condition: Transform
 		CooldownDuration: 1000
 	AutoTargetPriority@DEFAULT:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air, NoAutoTarget
+		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air
 	AutoTargetPriority@ATTACKANYTHING:
-		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget
+		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air
 	MapEditorData:
 		Categories: Creep
 
@@ -180,6 +182,7 @@ BERSERKER:
 	Voiced:
 		VoiceSet: Fiend
 	-TakeCover:
+	-Targetable@MC:
 	Targetable:
 		TargetTypes: Infantry, Ground
 	Armament:
@@ -222,7 +225,7 @@ EGGS:
 	GivesExperience:
 		Experience: 10
 	Targetable:
-		TargetTypes: Defence, Ground, MindControlImmune
+		TargetTypes: Defence, Ground
 	GrantConditionAfterDelay@crab1:
 		Delay: 450
 		Condition: SpawnCrabs
@@ -246,6 +249,7 @@ CRAB:
 	Inherits@1: ^Beast
 	Inherits@2: ^WebDisable
 	Inherits@3: ^MutRender
+	Inherits@4: ^MindControllableMastermind
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	EditorOnlyTooltip:
 		Name: Tiberian Cravicus
@@ -266,7 +270,7 @@ CRAB:
 		Speed: 75
 	-Voiced:
 	Targetable:
-		TargetTypes: Infantry, Ground, MindControlImmune
+		TargetTypes: Infantry, Ground
 	Armament:
 		Weapon: CrabAcid
 		RequiresCondition: !WebDisable
@@ -358,7 +362,7 @@ jfish:
 		Locomotor: Hover
 		Speed: 100
 	Targetable:
-		TargetTypes: Ground, Vehicle, NoRepair, MindControlImmune
+		TargetTypes: Ground, Vehicle, NoRepair
 	Armament:
 		Weapon: JellyAttackPrepare
 	GrantConditionOnAttack@JellyAttackPrepare:

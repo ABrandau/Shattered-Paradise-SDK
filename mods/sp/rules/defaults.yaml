@@ -453,6 +453,10 @@
 		ValidRelationships: Ally, Enemy
 		RequiresCondition: FirestormWallCondition
 
+## The basic idea is:
+## "MindControllable" is can be controlled by all MC units
+## "MindControllableMastermind" is only can be controlled by Mastermind
+## "-Targetable@MC:" is absolute MindControlImmune
 ^MindControllable:
 	WithMindControlArc:
 		ZOffset: 8000
@@ -1164,7 +1168,7 @@
 	Inherits@1: ^tractorstop
 	Inherits@2: ^SpawnSmoke
 	Inherits@3: ^SpawnSpark
-	#Inherits@4: ^MindControllable
+	Inherits@4: ^MindControllableMastermind
 	Inherits@5: ^FullHealthRepairCondition
 	Inherits@6: ^WithTriggerCloakEffect-Vehicle
 	Inherits@7: ^Berserkable
@@ -1988,10 +1992,10 @@
 	AppearsOnRadar:
 		UseLocation: true
 	Targetable@GROUND:
-		TargetTypes: Vehicle, Ground, MindControlImmune
+		TargetTypes: Vehicle, Ground
 		RequiresCondition: !airborne
 	Targetable@AIRBORNE:
-		TargetTypes: Air, MindControlImmune
+		TargetTypes: Air
 		RequiresCondition: airborne
 	Selectable:
 	SelectionDecorations:
@@ -2094,7 +2098,7 @@
 	Selectable:
 		Bounds: 784,1568,0,-90
 	Targetable:
-		TargetTypes: Ground, Vehicle, NoRepair, MindControlImmune
+		TargetTypes: Ground, Vehicle, NoRepair
 	AttackMove:
 	HiddenUnderFog:
 	DamagedByTerrain:
@@ -2545,7 +2549,7 @@
 	SelectionDecorations:
 	Selectable:
 	Targetable:
-		TargetTypes: Ground, Repair, MindControlImmune
+		TargetTypes: Ground, Repair
 	Guardable:
 	HiddenUnderFog:
 	ActorLostNotification:

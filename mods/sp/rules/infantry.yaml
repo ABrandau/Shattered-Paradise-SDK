@@ -474,7 +474,7 @@ BHS:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 37
-		Description: Kanes Elite Commando armed with a toxin sniper rifle and extrodinary camouflage skill.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes strcutures with C4\n- Shots fired release toxins that slow nearby units.\n- Cloaks when idling\n- Cannot be mindcontrolled\n- Crush class: crushable
+		Description: Kanes Elite Commando armed with a toxin sniper rifle and extrodinary camouflage skill.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes strcutures with C4\n- Shots fired release toxins that slow nearby units.\n- Cloaks when idling\n- Immunes to mindcontrol\n- Crush class: crushable
 		Prerequisites: ~nahand, natech
 		BuildLimit: 1
 	Valued:
@@ -483,8 +483,7 @@ BHS:
 		Name: Toxin Commando
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	Targetable:
-		TargetTypes: Ground, Infantry, MindControlImmune
+	-Targetable@MC:
 	-TakeCover:
 	Health:
 		HP: 25000
@@ -654,6 +653,7 @@ MARAUDER:
 MUTFIEND:
 	Inherits: ^Mutant
 	Inherits@1: ^6CellVision
+	Inherits@2: ^MindControllableMastermind
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Tooltip:
@@ -663,7 +663,7 @@ MUTFIEND:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 8
-		Description: Tiberium beasts trained to take out enemys with tiberium shards.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Heals on Tiberium\n- Can attack Air\n- Crush class: crushable
+		Description: Tiberium beasts trained to take out enemys with tiberium shards.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Heals on Tiberium\n- Can attack Air\n- Crush class: crushable\n- Wild mind: only controlled by MasterMind
 		Prerequisites: ~murax
 	Valued:
 		Cost: 250
@@ -862,7 +862,7 @@ MHIJACK:
 		Queue: Infantry
 		BuildPaletteOrder: 33
 		Prerequisites: ~murax, muhall
-		Description: Hijacks enemy vehicles.\n  Unarmed\n\nMaximum 1 can be trained.
+		Description: Hijacks enemy vehicles.\n  Unarmed\n\nMaximum 1 can be trained.\n- Immunes to mindcontrol
 		BuildLimit: 1
 	Valued:
 		Cost: 1850
@@ -872,6 +872,7 @@ MHIJACK:
 		AddToArmyValue: true
 	Voiced:
 		VoiceSet: Hijacker
+	-Targetable@MC:
 	Health:
 		HP: 30000
 	Mobile:
@@ -898,7 +899,7 @@ GHOST:
 		Queue: Infantry
 		BuildPaletteOrder: 38
 		Prerequisites: ~murax, muhall
-		Description: Elite commando infantry, armed with\na railgun and C4.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4\nMaximum 1 can be trained.
+		Description: Elite commando infantry, armed with\na railgun and C4.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4\nMaximum 1 can be trained.\n- Immunes to mindcontrol
 		BuildLimit: 1
 	Armor:
 		Type: InfantryArmor
@@ -912,6 +913,7 @@ GHOST:
 	Armament@pit:
 		Weapon: LtRailSmudge
 		LocalOffset: 200,0,743
+	-Targetable@MC:
 	TakeCover:
 		ProneOffset: 256,32,-584
 	Crushable:
@@ -935,7 +937,7 @@ PSYKER:
 		Queue: Infantry
 		BuildPaletteOrder: 43
 		Prerequisites: ~murax, muhall
-		Description: Forgotten Commando. Pure strain forgotten that can call down lightning.\n\nGood vs: Groups of units\n\nSpecial:\n- Maximum Supply of 1\n- Heals on Tiberium\n- Strong AoE\n- Can shoot over walls\n- Cannot be mindcontrolled.\n- Crush class: crushable
+		Description: Forgotten Commando. Pure strain forgotten that can call down lightning.\n\nGood vs: Groups of units\n\nSpecial:\n- Maximum Supply of 1\n- Heals on Tiberium\n- Strong AoE\n- Can shoot over walls\n- Immunes to mindcontrol\n- Crush class: crushable
 		BuildLimit: 1
 	Valued:
 		Cost: 1500
@@ -951,8 +953,7 @@ PSYKER:
 		Notification: CommandoDetected
 	Mobile:
 		Speed: 60
-	Targetable:
-		TargetTypes: Ground, Infantry, MindControlImmune
+	-Targetable@MC:
 	Armament@1:
 		Weapon: PsykerRay
 		Name: OnFoot
@@ -1144,8 +1145,6 @@ BUG:
 		Name: Plague Trooper
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	Targetable:
-		TargetTypes: Ground, Infantry, MindControlImmune
 	Selectable:
 		Bounds: 784,1809,0,-603
 	Health:
@@ -1263,7 +1262,7 @@ MASTERMIND:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 40
-		Description: Mind Control unit\n\nSpecial:\n- Can overtake vehicles \n- Can overtake/release mind controlled vehicles\n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol Harvesters and Heroics\n- Can shoot over walls.\n- Can mind control units while moving.
+		Description: Mind Control unit\n\nSpecial:\n- Can overtake vehicles \n- Can overtake/release mind controlled vehicles\n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol Heroics\n- Can shoot over walls.\n- Can mind control units while moving.\n- Immunes to mindcontrol
 		Prerequisites: ~scrrax, scrtech
 		BuildLimit: 1
 	Valued:
@@ -1286,6 +1285,7 @@ MASTERMIND:
 	Armament@PRIMARY:
 		Weapon: MindControllerMastermind
 	-TakeCover:
+	-Targetable@MC:
 	Health:
 		HP: 20000
 	Mobile:
@@ -1771,7 +1771,7 @@ CYC2:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: Elite cyborg armed with a plasma cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Looses its legs when at critical health\n- Will reattach new legs after gaining enough health\n- Crush class: uncrushable\n- Cannot be mindcontrolled.
+		Description: Elite cyborg armed with a plasma cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Looses its legs when at critical health\n- Will reattach new legs after gaining enough health\n- Crush class: uncrushable\n- Immunes to mindcontrol
 		Queue: Infantry
 		BuildPaletteOrder: 39
 		Prerequisites: ~cabclaw, cabtech
@@ -1784,8 +1784,7 @@ CYC2:
 		Speed: 50
 	Health:
 		HP: 100000
-	Targetable:
-		TargetTypes: Ground, Infantry, MindControlImmune
+	-Targetable@MC:
 	Armament@1:
 		Weapon: CyCannon
 		LocalOffset: 170,85,683

@@ -91,7 +91,7 @@ MCV:
 		Image: gdimcv
 
 HARV:
-	Inherits: ^VoxelVehicle
+	Inherits: ^Vehicle
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -107,8 +107,6 @@ HARV:
 		DecorationBounds: 1086, 1536
 		Class: harv
 		Priority: 4
-	-RenderVoxels:
-	-WithVoxelBody:
 	WithFacingSpriteBody:
 		RequiresCondition: !inside-tunnel
 	WithMoveAnimation:
@@ -137,8 +135,6 @@ HARV:
 		Delay: 100
 		DamageCooldown: 100
 		StartIfBelow: 100
-	Targetable:
-		TargetTypes: Ground, Vehicle, MindControlImmune
 	Armor:
 		Type: VehicleArmor
 	Explodes:
@@ -247,7 +243,7 @@ GACNST:
 	BaseProvider:
 		Range: 14c0
 	Targetable:
-		TargetTypes: Building, Ground, C4, SpyInfiltrate, MindControlImmune, ConsideredValuableForAI
+		TargetTypes: Building, Ground, C4, SpyInfiltrate, ConsideredValuableForAI
 	BaseBuilding:
 	Transforms:
 		IntoActor: mcv
