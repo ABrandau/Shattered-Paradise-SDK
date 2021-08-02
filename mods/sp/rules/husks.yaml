@@ -99,36 +99,14 @@ TRNSPORT.Husk:
 		Speed: 149
 	RenderSprites:
 		Image: trnsport
-		FactionImages:
-			gdi: trnsport
-			nod: nodcarryall
-			cab: cabcarryall
-			mut: forgcarryall
-			scr: scrpod
-
-TRNSPORT.gdi.Husk:
-	Inherits: TRNSPORT.Husk
-	RenderSprites:
-		Image: trnsport
-		-FactionImages:
 
 TRNSPORT.nod.Husk:
-	Inherits: TRNSPORT.gdi.Husk
+	Inherits: TRNSPORT.Husk
 	RenderSprites:
 		Image: nodcarryall
 
-TRNSPORT.cab.Husk:
-	Inherits: TRNSPORT.gdi.Husk
-	RenderSprites:
-		Image: cabcarryall
-
-TRNSPORT.scr.Husk:
-	Inherits: TRNSPORT.gdi.Husk
-	RenderSprites:
-		Image: scrpod
-
 TRNSPORT.mut.Husk:
-	Inherits: TRNSPORT.gdi.Husk
+	Inherits: TRNSPORT.Husk
 	WithIdleOverlay@1Air:
 		Offset: 500,0,650
 		Sequence: rotor
@@ -137,6 +115,16 @@ TRNSPORT.mut.Husk:
 		Sequence: rotor
 	RenderSprites:
 		Image: forgcarryall
+
+TRNSPORT.cab.Husk:
+	Inherits: TRNSPORT.Husk
+	RenderSprites:
+		Image: cabcarryall
+
+TRNSPORT.scr.Husk:
+	Inherits: TRNSPORT.Husk
+	RenderSprites:
+		Image: scrpod
 
 GUARDIAN.Husk:
 	Inherits: ^AircraftHusk

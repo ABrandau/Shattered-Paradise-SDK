@@ -345,7 +345,7 @@ end
 CABALVehicleAttack = function()
 	Trigger.AfterDelay(DateTime.Seconds(5), function()
 		Trigger.AfterDelay(DateTime.Seconds(25), function()
-			carryall = Actor.Create("trnsport", true, { Owner = mut, Location = MutantCarryallEntry.Location })
+			carryall = Actor.Create("trnsport.mut", true, { Owner = mut, Location = MutantCarryallEntry.Location })
 			carryall.Move(MutantCarryallRally.Location)
 		end)
 		mut.Build(MutantDemoTruck, function(actors)

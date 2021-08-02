@@ -1107,12 +1107,12 @@ TRNSPORT:
 	Valued:
 		Cost: 600
 	Tooltip:
-		Name: Carryall
+		Name: Orca Carryall
 	Buildable:
 		Queue: Air
 		Description: VTOL aircraft for transporting vehicles.\n\nSpecial:\n- Can transport one vehicle.
 		BuildPaletteOrder: 11
-		Prerequisites: ~humanstuff, gadept
+		Prerequisites: ~gaairc, gadept
 	Aircraft:
 		RepulsionSpeed: 40
 		AltitudeVelocity: 350
@@ -1130,175 +1130,66 @@ TRNSPORT:
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
-	RenderSprites:
-		Image: trnsport
-		FactionImages:
-			gdi: trnsport
-			nod: nodcarryall
-			cab: cabcarryall
-			mut: forgcarryall
-			scr: scrpod
 	Selectable:
+		Class: trnsport
 		Bounds: 1387,1447,0,-663
 	Carryall:
 		LocalOffset: 0,0,-1024
 		Voice: Move
-	GrantConditionOnFaction@Helicopter:
-		Factions: mut
-		Condition: MutRotor
-	GrantConditionOnFaction@GDIStyle:
-		Factions: gdi
-		Condition: GDIFan
-	GrantConditionOnFaction@NodStyle:
-		Factions: nod
-		Condition: nodcontrail
-	GrantConditionOnFaction@CabStyle:
-		Factions: cab
-		Condition: cabcontrail
+	RenderSprites:
+		Image: trnsport
 	SpawnActorOnDeath:
 		RequiresCondition: airborne
 		Actor: TRNSPORT.Husk
-	### Mut helicopter ####
-	WithIdleOverlay@1Air:
-		Offset: 500,0,650
-		Sequence: rotor
-		RequiresCondition: airborne && MutRotor
-	WithIdleOverlay@2Ground:
-		Offset: 500,0,650
-		Sequence: slow-rotor
-		RequiresCondition: !airborne && MutRotor
-	WithIdleOverlay@3Air:
-		Offset: -700,0,900
-		Sequence: rotor
-		RequiresCondition: airborne && MutRotor
-	WithIdleOverlay@4Ground:
-		Offset: -700,0,900
-		Sequence: slow-rotor
-		RequiresCondition: !airborne && MutRotor
-	#### GDI Orca ######
 	WithIdleOverlay@Wind1:
 		Image: orcawind
 		Sequence: idle
 		Offset: 500, 350, -500
-		RequiresCondition: airborne && GDIFan
+		RequiresCondition: airborne
 		Palette: effect
 	WithIdleOverlay@Wind2:
 		Image: orcawind
 		Sequence: idle
 		Offset: 500, -350, -500
-		RequiresCondition: airborne && GDIFan
+		RequiresCondition: airborne
 		Palette: effect
 	WithIdleOverlay@Wind3:
 		Image: orcawind
 		Sequence: idle
 		Offset: -550, 400, -500
-		RequiresCondition: airborne && GDIFan
+		RequiresCondition: airborne
 		Palette: effect
 	WithIdleOverlay@Wind4:
 		Image: orcawind
 		Sequence: idle
 		Offset: -550, -400, -500
-		RequiresCondition: airborne && GDIFan
+		RequiresCondition: airborne
 		Palette: effect
-	##### Nod ship ####
-	Contrail@Nod1:
-		RequiresCondition: nodcontrail
-		Offset: -850,-190,340
-		Color: FFEA0080
-		UsePlayerColor: false
-		TrailLength: 8
-		ZOffset: 4100
-	Contrail@Nod2:
-		RequiresCondition: nodcontrail
-		Offset: -850,190,340
-		Color: FFEA0080
-		UsePlayerColor: false
-		TrailLength: 8
-		ZOffset: 4100
-	##### Cabal ship ####
-	Contrail@Cab1:
-		RequiresCondition: cabcontrail
-		Offset: -1200,-175, 40
-		Color: FFEA0080
-		UsePlayerColor: false
-		TrailLength: 8
-		ZOffset: 4100
-	Contrail@Cab2:
-		RequiresCondition: cabcontrail
-		Offset: -1200,175, 40
-		Color: FFEA0080
-		UsePlayerColor: false
-		TrailLength: 8
-		ZOffset: 4100
 
 trnsport.scr
 	Inherits: TRNSPORT
+	Tooltip:
+		Name: Scrin Carryall
 	Buildable:
 		BuildPaletteOrder: 15
-	Selectable:
-		Class: trnsport
 	Buildable:
 		Prerequisites: ~disabled
 	RenderSprites:
 		Image: scrpod
-		-FactionImages:
 	SpawnActorOnDeath:
 		Actor: TRNSPORT.scr.Husk
-	-GrantConditionOnFaction@Helicopter:
-	-GrantConditionOnFaction@GDIStyle:
-	-GrantConditionOnFaction@NodStyle:
-	-GrantConditionOnFaction@CabStyle:
-	-WithIdleOverlay@1Air:
-	-WithIdleOverlay@2Ground:
-	-WithIdleOverlay@3Air:
-	-WithIdleOverlay@4Ground:
 	-WithIdleOverlay@Wind1:
 	-WithIdleOverlay@Wind2:
 	-WithIdleOverlay@Wind3:
 	-WithIdleOverlay@Wind4:
-	-Contrail@Nod1:
-	-Contrail@Nod2:
-	-Contrail@Cab1:
-	-Contrail@Cab2:
-
-trnsport.gdi:
-	Inherits: trnsport.scr
-	Buildable:
-		BuildPaletteOrder: 11
-	RenderSprites:
-		Image: trnsport
-	SpawnActorOnDeath:
-		Actor: TRNSPORT.gdi.Husk
-	#### GDI Orca ######
-	WithIdleOverlay@Wind1:
-		Image: orcawind
-		Sequence: idle
-		Offset: 500, 350, -500
-		RequiresCondition: airborne
-		Palette: effect
-	WithIdleOverlay@Wind2:
-		Image: orcawind
-		Sequence: idle
-		Offset: 500, -350, -500
-		RequiresCondition: airborne
-		Palette: effect
-	WithIdleOverlay@Wind3:
-		Image: orcawind
-		Sequence: idle
-		Offset: -550, 400, -500
-		RequiresCondition: airborne
-		Palette: effect
-	WithIdleOverlay@Wind4:
-		Image: orcawind
-		Sequence: idle
-		Offset: -550, -400, -500
-		RequiresCondition: airborne
-		Palette: effect
 
 trnsport.nod:
 	Inherits: trnsport.scr
+	Tooltip:
+		Name: Nod Carryall
 	Buildable:
 		BuildPaletteOrder: 12
+		Prerequisites: ~naairc, gadept
 	RenderSprites:
 		Image: nodcarryall
 	SpawnActorOnDeath:
@@ -1318,8 +1209,11 @@ trnsport.nod:
 
 trnsport.mut:
 	Inherits: trnsport.scr
+	Tooltip:
+		Name: Chinook Carryall
 	Buildable:
 		BuildPaletteOrder: 13
+		Prerequisites: ~muair, gadept
 	RenderSprites:
 		Image: forgcarryall
 	SpawnActorOnDeath:
@@ -1344,8 +1238,11 @@ trnsport.mut:
 
 trnsport.cab:
 	Inherits: trnsport.scr
+	Tooltip:
+		Name: C.A.B.A.L. Carryall
 	Buildable:
 		BuildPaletteOrder: 14
+		Prerequisites: ~cabair, gadept
 	RenderSprites:
 		Image: cabcarryall
 	SpawnActorOnDeath:

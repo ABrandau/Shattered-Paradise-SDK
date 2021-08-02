@@ -142,24 +142,12 @@ STRUCKFULL_T3:
 	ProvidesPrerequisite@AIbuildinglimit:
 		Prerequisite: psyker
 
-
-NUKECARRYALL_BOT:
-	Inherits: TRNSPORT
+^BotCarryall:
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@AImicroManagable: ^AImicroManagable
-	Buildable:
-		Description: AI Nuke Transport
-		Queue: Air
-		BuildPaletteOrder: 6
-		Prerequisites: ~muair, muhall, ~AIOnly, ~!LoadedExists
-	Selectable:
-		Class: trnsport
-	ProductionCostMultiplier:
-		Multiplier: 400
 	Health:
 		HP: 18000
 	Carryall:
-		InitialActor: hvrtruk3
 		CarryCondition: loaded
 	Armament@AIunloadingDummyWeapon:
 		Weapon: AITransportAimingDummyWeapon
@@ -185,31 +173,38 @@ NUKECARRYALL_BOT:
 		RequiresCondition: AImicroManage && !loaded
 		RemoveInstead: true
 
+NUKECARRYALL_BOT:
+	Inherits: trnsport.mut
+	Inherits@1: ^BotCarryall
+	Buildable:
+		Description: AI Nuke Transport
+		Prerequisites: ~muair, muhall, ~AIOnly, ~!LoadedExists
+	ProductionCostMultiplier:
+		Multiplier: 400
+	Carryall:
+		InitialActor: hvrtruk3
+
 SONICARRYALL_BOT:
-	Inherits: NUKECARRYALL_BOT
+	Inherits: TRNSPORT
+	Inherits@1: ^BotCarryall
 	Buildable:
 		Description: AI Sonic Transport
-		Queue: Air
-		BuildPaletteOrder: 6
 		Prerequisites: ~gahpad, gatech, ~AIOnly, ~!LoadedExists
 	ProductionCostMultiplier:
 		Multiplier: 200
 	Carryall:
 		InitialActor: sonic
-		CarryCondition: loaded
 
 APCARRYALL_BOT:
-	Inherits: NUKECARRYALL_BOT
+	Inherits: TRNSPORT
+	Inherits@1: ^BotCarryall
 	Buildable:
 		Description: AI APC Transport
-		Queue: Air
-		BuildPaletteOrder: 6
 		Prerequisites: ~gahpad, gapile, ~AIOnly, ~!LoadedExists
 	ProductionCostMultiplier:
 		Multiplier: 180
 	Carryall:
 		InitialActor: apc_bot
-		CarryCondition: loaded
 
 DRACHE_BOT:
 	Inherits: DRACHE
