@@ -1,8 +1,8 @@
 GDIE1:
 	Inherits: ^Soldier
-	Inherits@2: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 1
@@ -33,9 +33,9 @@ GDIE1:
 
 GRENADIER:
 	Inherits: ^Soldier
-	Inherits@1: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 6
@@ -75,9 +75,9 @@ GRENADIER:
 		FacingTolerance: 2
 
 MEDIC:
-	Inherits@1: ^Soldier
-	Inherits@2: ^5CellVision
+	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetHeal
+	Inherits@VISION: ^5CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 150
@@ -114,9 +114,9 @@ MEDIC:
 
 JUMPJET:
 	Inherits: ^Soldier
-	Inherits@2: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 450
@@ -160,10 +160,10 @@ JUMPJET:
 
 JUMPJETAIR:
 	Inherits: ^Aircraft
-	Inherits@1: ^8CellVision
-	Inherits@2: ^FullHealthRepairCondition
+	Inherits@1: ^FullHealthRepairCondition
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^8CellVision
 	Valued:
 		Cost: 450
 	Tooltip:
@@ -247,9 +247,9 @@ JUMPJETAIR:
 
 EAGLEGUARD:
 	Inherits: ^Soldier
-	Inherits@1: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -286,9 +286,9 @@ EAGLEGUARD:
 
 ALTNODE1:
 	Inherits: ^Soldier
-	Inherits@1: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 2
@@ -320,9 +320,9 @@ ALTNODE1:
 
 CRUSADER:
 	Inherits: ^Soldier
-	Inherits@1: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 7
@@ -365,9 +365,9 @@ CRUSADER:
 
 TEMPLAR:
 	Inherits: ^Soldier
-	Inherits@1: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 22
@@ -404,9 +404,9 @@ TEMPLAR:
 
 NCONF:
 	Inherits: ^Soldier
-	Inherits@1: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry
@@ -467,10 +467,10 @@ NCONF:
 
 BHS:
 	Inherits: ^Soldier
-	Inherits@1: ^10CellVision
-	Inherits@2: ^CommandoIcon
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^10CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 37
@@ -529,7 +529,7 @@ BHS:
 	-DamagedByTerrain:
 
 FlameHologram:
-	Inherits@2: ^HologramSoldier
+	Inherits: ^HologramSoldier
 	Armament:
 		Weapon: HologramMilitantRifle
 	RenderSprites:
@@ -544,10 +544,10 @@ FlameHologram:
 
 MARAUDER:
 	Inherits: ^Mutant
-	Inherits@1: ^MutRender
-	Inherits@2: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^MutRender
+	Inherits@VISION: ^6CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry
@@ -652,10 +652,10 @@ MARAUDER:
 
 MUTFIEND:
 	Inherits: ^Mutant
-	Inherits@1: ^6CellVision
-	Inherits@2: ^MindControllableMastermind
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableMastermind
+	Inherits@VISION: ^6CellVision
 	Tooltip:
 		Name: Tiberian Fiend
 	UpdatesPlayerStatistics:
@@ -752,9 +752,9 @@ CUTMAN:
 
 E3:
 	Inherits: ^Mutant
-	Inherits@1: ^5CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^5CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 23
@@ -792,9 +792,9 @@ E3:
 
 SEER:
 	Inherits: ^Mutant
-	Inherits@1: ^7CellVision
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^7CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry
@@ -856,8 +856,8 @@ SEER:
 
 MHIJACK:
 	Inherits: ^Mutant
-	Inherits@1: ^6CellVision
-	Inherits@2: ^CommandoIcon
+	Inherits@COMMANDO: ^CommandoIcon
+	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 33
@@ -885,10 +885,10 @@ MHIJACK:
 
 GHOST:
 	Inherits: ^Mutant
-	Inherits@1: ^7CellVision
-	Inherits@2: ^CommandoIcon
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^7CellVision
 	Valued:
 		Cost: 1750
 	Tooltip:
@@ -928,11 +928,11 @@ GHOST:
 
 PSYKER:
 	Inherits: ^Mutant
-	Inherits@1: ^MutRender
-	Inherits@2: ^10CellVision
-	Inherits@3: ^CommandoIcon
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^MutRender
+	Inherits@VISION: ^10CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 43
@@ -973,9 +973,9 @@ PSYKER:
 
 SHARK:
 	Inherits: ^ScrinSoldier
-	Inherits@1: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 5
@@ -1024,9 +1024,9 @@ SHARK:
 
 LEGIO:
 	Inherits: ^ScrinSoldier
-	Inherits@1: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 10
@@ -1092,9 +1092,9 @@ SHAPESHIFTER:
 
 FLOAT:
 	Inherits: ^ScrinSoldier
-	Inherits@1: ^7CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^7CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 25
@@ -1131,9 +1131,9 @@ FLOAT:
 
 BUG:
 	Inherits: ^ScrinSoldier
-	Inherits@1: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 30
@@ -1173,9 +1173,9 @@ BUG:
 
 COLOSSI:
 	Inherits: ^ScrinSoldier
-	Inherits@1: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 35
@@ -1256,9 +1256,9 @@ COLOSSI:
 
 MASTERMIND:
 	Inherits: ^ScrinSoldier
-	Inherits@1: ^7CellVision
-	Inherits@2: ^CommandoIcon
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@COMMANDO: ^CommandoIcon
+	Inherits@VISION: ^7CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 40
@@ -1317,9 +1317,9 @@ MASTERMIND:
 
 CABSENTRY:
 	Inherits: ^CabalDroneInfantry
-	Inherits@1: ^CabRender
-	Inherits@2: ^3CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@RENDER: ^CabRender
+	Inherits@VISION: ^3CellVision
 	-Valued:
 	GivesExperience:
 		Experience: 50
@@ -1337,6 +1337,7 @@ CABSENTRY:
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@ScrinEssence:
 	-Passenger:
+	-Targetable@MC:
 	Targetable:
 		TargetTypes: Ground, Infantry, Summoned
 	Mobile:
@@ -1370,9 +1371,9 @@ CABSENTRY:
 
 CYBORG:
 	Inherits: ^Cyborg
-	Inherits@1: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -1408,10 +1409,10 @@ CYBORG:
 
 CBORG:
 	Inherits: ^Cyborg
-	Inherits@1: ^6CellVision
-	Inherits@2: ^CabRender
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^CabRender
+	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -1456,7 +1457,7 @@ CBORG:
 
 SWARMLING:
 	Inherits: ENGINEER
-	Inherits@1: ^CabRender
+	Inherits@RENDER: ^CabRender
 	Tooltip:
 		Name: Swarmling
 	Buildable:
@@ -1491,9 +1492,9 @@ SWARMLING:
 
 PDRONE:
 	Inherits: ^CabalDroneInfantry
-	Inherits@1: ^8CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^8CellVision
 	Valued:
 		Cost: 100
 	Tooltip:
@@ -1558,10 +1559,10 @@ PDRONE:
 
 GLAD:
 	Inherits: ^Cyborg
-	Inherits@1: ^6CellVision
-	Inherits@2: ^PermanentSelfHeal
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 750
 	Tooltip:
@@ -1635,11 +1636,11 @@ GLAD:
 
 MOTH:
 	Inherits: ^CabalDroneInfantry
-	Inherits@1: ^CabRender
-	Inherits@2: ^8CellVision
-	Inherits@3: ^PermanentSelfHeal
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^CabRender
+	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@VISION: ^8CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 900
@@ -1759,11 +1760,11 @@ MOTH:
 
 CYC2:
 	Inherits: ^Cyborg
-	Inherits@1: ^8CellVision
-	Inherits@2: ^PermanentSelfHeal
-	Inherits@3: ^CommandoIcon
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@VISION: ^8CellVision
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -1807,9 +1808,9 @@ CYC2:
 
 WORKER:
 	Inherits: ^Soldier
-	Inherits@1: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 100
 	Tooltip:
@@ -1841,9 +1842,9 @@ WORKER:
 
 CYBDOG:
 	Inherits: ^Soldier
-	Inherits@1: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 100
 	Tooltip:
@@ -1880,9 +1881,9 @@ CYBDOG:
 
 WORKERMECH:
 	Inherits: ^CabalDroneInfantry
-	Inherits@2: ^CabRender
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^CabRender
 	Valued:
 		Cost: 100
 	Tooltip:

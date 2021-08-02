@@ -1,6 +1,5 @@
 GAPOWR:
 	Inherits: ^Powerplant
-	Inherits@2: ^2x2Shape
 	Tooltip:
 		Name: GDI Power Plant
 	Buildable:
@@ -39,7 +38,7 @@ GAPOWR:
 
 GAPILE:
 	Inherits: ^Barracks
-	Inherits@2: ^2x2Shape
+	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
 		Name: GDI Barracks
 	Buildable:
@@ -175,7 +174,7 @@ GAWEAP:
 
 GARADR:
 	Inherits: ^Radar
-	Inherits@2: ^2x2Shape
+	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
 		Name: GDI Radar
 	Buildable:
@@ -195,8 +194,7 @@ GARADR:
 		DecorationHeight: 72
 
 GAHPAD:
-	Inherits@1: ^Helipad
-	Inherits@2: ^2x2Shape
+	Inherits: ^Helipad
 	Tooltip:
 		Name: GDI Helipad
 	Buildable:
@@ -226,7 +224,7 @@ GAHPAD:
 
 GATECH:
 	Inherits: ^TechCenter
-	Inherits@4: ^3x2Shape
+	Inherits@SHAPE: ^3x2Shape
 	Tooltip:
 		Name: GDI Tech Center
 	Buildable:
@@ -249,9 +247,9 @@ GATECH:
 
 GTDROP:
 	Inherits: ^Building
-	Inherits@2: ^3x3Shape
-	Inherits@3: ^SuperWeapon
-	Inherits@4: ^HasSuperSupportPower
+	Inherits@1: ^SuperWeapon
+	Inherits@2: ^HasSuperSupportPower
+	Inherits@SHAPE: ^3x3Shape
 	Tooltip:
 		Name: Dropship Bay
 	Buildable:
@@ -337,7 +335,6 @@ NODYARD:
 
 NAPOWR:
 	Inherits: ^Powerplant
-	Inherits@2: ^2x2Shape
 	Tooltip:
 		Name: Nod Power Plant
 	Buildable:
@@ -356,7 +353,7 @@ NAPOWR:
 
 NAHAND:
 	Inherits: ^Barracks
-	Inherits@2: ^3x2Shape
+	Inherits@SHAPE: ^3x2Shape
 	Tooltip:
 		Name: Hand of Nod
 	Buildable:
@@ -486,7 +483,7 @@ NAWEAP:
 
 NARADR:
 	Inherits: ^Radar
-	Inherits@2: ^2x2Shape
+	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
 		Name: Nod Radar
 	Buildable:
@@ -507,7 +504,7 @@ NARADR:
 
 NAAPWR:
 	Inherits: ^Powerplant
-	Inherits@2: ^2x3Shape
+	Inherits@SHAPE: ^2x3Shape
 	Tooltip:
 		Name: Advanced Power Plant
 	Buildable:
@@ -533,8 +530,7 @@ NAAPWR:
 		Prerequisite: napowr
 
 NAHPAD:
-	Inherits@1: ^Helipad
-	Inherits@2: ^2x2Shape
+	Inherits: ^Helipad
 	Tooltip:
 		Name: Nod Helipad
 	Buildable:
@@ -565,7 +561,7 @@ NAHPAD:
 
 NATECH:
 	Inherits: ^TechCenter
-	Inherits@2: ^2x2Shape
+	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
 		Name: Nod Tech Center
 	Buildable:
@@ -586,9 +582,9 @@ NATECH:
 
 NAMISL:
 	Inherits: ^Building
-	Inherits@2: ^2x2Shape
-	Inherits@3: ^SuperWeapon
-	Inherits@4: ^HasMisslePower
+	Inherits@1: ^SuperWeapon
+	Inherits@2: ^HasMisslePower
+	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
 		Name: Chemical Missile Silo
 	Buildable:
@@ -677,7 +673,7 @@ NAMISL:
 
 MUTYARD:
 	Inherits: GACNST
-	Inherits@1: ^MutRender
+	Inherits@RENDER: ^MutRender
 	Buildable:
 		BuildPaletteOrder: 998
 	Transforms:
@@ -704,8 +700,7 @@ MUTYARD:
 
 MUPOWR:
 	Inherits: ^Powerplant
-	Inherits@1: ^MutRender
-	Inherits@2: ^2x2Shape
+	Inherits@RENDER: ^MutRender
 	Tooltip:
 		Name: Mutant Power Plant
 	Buildable:
@@ -724,8 +719,8 @@ MUPOWR:
 
 MURAX:
 	Inherits: ^Barracks
-	Inherits@1: ^MutRender
-	Inherits@2: ^2x2Shape
+	Inherits@RENDER: ^MutRender
+	Inherits@SHAPE: ^2x2Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 7
@@ -783,7 +778,7 @@ MURAX:
 
 MUPROC:
 	Inherits: PROC
-	Inherits@1: ^MutRender
+	Inherits@RENDER: ^MutRender
 	Tooltip:
 		Name: Mutant Refinery
 	Buildable:
@@ -806,7 +801,7 @@ MUPROC:
 
 MUPROC2:
 	Inherits: FLIPPEDPROC
-	Inherits@1: ^MutRender
+	Inherits@RENDER: ^MutRender
 	Tooltip:
 		Name: Mutant Refinery
 	FreeActor:
@@ -815,7 +810,7 @@ MUPROC2:
 
 MUPROC3:
 	Inherits: FLIPPEDXPROC
-	Inherits@1: ^MutRender
+	Inherits@RENDER: ^MutRender
 	Tooltip:
 		Name: Mutant Refinery
 	FreeActor:
@@ -824,7 +819,7 @@ MUPROC3:
 
 MUPROC4:
 	Inherits: FLIPPEDYPROC
-	Inherits@1: ^MutRender
+	Inherits@RENDER: ^MutRender
 	Tooltip:
 		Name: Mutant Refinery
 	FreeActor:
@@ -851,8 +846,8 @@ MUWEAP:
 
 MURADR:
 	Inherits: ^Radar
-	Inherits@1: ^MutRender
-	Inherits@2: ^2x2Shape
+	Inherits@RENDER: ^MutRender
+	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
 		Name: Mutant Radar
 	Buildable:
@@ -869,7 +864,7 @@ MURADR:
 
 MUAIR:
 	Inherits: ^Helipad
-	Inherits@1: ^MutRender
+	Inherits@RENDER: ^MutRender
 	Tooltip:
 		Name: Mutant Helipad
 	Valued:
@@ -890,8 +885,8 @@ MUAIR:
 
 MUHALL:
 	Inherits: ^TechCenter
-	Inherits@1: ^MutRender
-	Inherits@2: ^3x4Shape
+	Inherits@RENDER: ^MutRender
+	Inherits@SHAPE: ^3x4Shape
 	Tooltip:
 		Name: Forgotten Hall
 	Buildable:
@@ -907,10 +902,10 @@ MUHALL:
 
 MUTSW2:
 	Inherits: ^Building
-	Inherits@1: ^MutRender
-	Inherits@2: ^3x3Shape
-	Inherits@3: ^SuperWeapon
-	Inherits@4: ^HasSuperSupportPower
+	Inherits@1: ^SuperWeapon
+	Inherits@2: ^HasSuperSupportPower
+	Inherits@RENDER: ^MutRender
+	Inherits@SHAPE: ^3x3Shape
 	Tooltip:
 		Name: Mother Veinhole
 	Buildable:
@@ -952,9 +947,9 @@ MUTSW2:
 
 drached:
 	Inherits: GACNST
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@6: ^ScrinBuildingFire
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinBuildingFire
+	Inherits@RENDER: ^ScrinRender
 	Buildable:
 		BuildPaletteOrder: 1000
 	Tooltip:
@@ -988,10 +983,10 @@ drached:
 
 SCRPOWR:
 	Inherits: ^Powerplant
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^3x2Shape
-	Inherits@6: ^ScrinBuildingFire
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinBuildingFire
+	Inherits@RENDER: ^ScrinRender
+	Inherits@SHAPE: ^3x2Shape
 	Tooltip:
 		Name: Scrin Generator
 	Buildable:
@@ -1017,10 +1012,10 @@ SCRPOWR:
 
 SCRRAX:
 	Inherits: ^Barracks
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^2x2Shape
-	Inherits@6: ^ScrinBuildingFire
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinBuildingFire
+	Inherits@RENDER: ^ScrinRender
+	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
 		Name: Landing Zone
 	Buildable:
@@ -1085,9 +1080,9 @@ SCRRAX:
 
 SCRPROC:
 	Inherits: PROC
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@6: ^ScrinBuildingFire
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinBuildingFire
+	Inherits@RENDER: ^ScrinRender
 	Tooltip:
 		Name: Scrin Refinery
 	Buildable:
@@ -1119,9 +1114,9 @@ SCRPROC:
 
 SCRPROC2:
 	Inherits: FLIPPEDPROC
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@6: ^ScrinBuildingFire
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinBuildingFire
+	Inherits@RENDER: ^ScrinRender
 	Tooltip:
 		Name: Scrin Refinery
 	-WithIdleOverlay@REDLIGHTS:
@@ -1144,9 +1139,9 @@ SCRPROC2:
 
 SCRPROC3:
 	Inherits: FLIPPEDXPROC
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@6: ^ScrinBuildingFire
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinBuildingFire
+	Inherits@RENDER: ^ScrinRender
 	Tooltip:
 		Name: Scrin Refinery
 	-WithIdleOverlay@REDLIGHTS:
@@ -1169,9 +1164,9 @@ SCRPROC3:
 
 SCRPROC4:
 	Inherits: FLIPPEDYPROC
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@6: ^ScrinBuildingFire
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinBuildingFire
+	Inherits@RENDER: ^ScrinRender
 	Tooltip:
 		Name: Scrin Refinery
 	-WithIdleOverlay@REDLIGHTS:
@@ -1194,9 +1189,9 @@ SCRPROC4:
 
 SCRWEAP:
 	Inherits: ^Factory
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@6: ^ScrinBuildingFire
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinBuildingFire
+	Inherits@RENDER: ^ScrinRender
 	Tooltip:
 		Name: Scrin Forge
 	ProvidesPrerequisite:
@@ -1219,10 +1214,10 @@ SCRWEAP:
 
 SCRRADR:
 	Inherits: ^Radar
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^3x3Shape
-	Inherits@6: ^ScrinBuildingFire
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinBuildingFire
+	Inherits@RENDER: ^ScrinRender
+	Inherits@SHAPE: ^3x3Shape
 	Tooltip:
 		Name: Scrin Radar
 	Buildable:
@@ -1252,10 +1247,10 @@ SCRRADR:
 
 SCRAIR:
 	Inherits: ^Helipad
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^3x3Shape
-	Inherits@6: ^ScrinBuildingFire
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinBuildingFire
+	Inherits@RENDER: ^ScrinRender
+	Inherits@SHAPE: ^3x3Shape
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Tooltip:
 		Name: Stargate
@@ -1307,10 +1302,10 @@ SCRAIR:
 
 SCRTECH:
 	Inherits: ^TechCenter
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^2x3Shape
-	Inherits@6: ^ScrinBuildingFire
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinBuildingFire
+	Inherits@RENDER: ^ScrinRender
+	Inherits@SHAPE: ^2x3Shape
 	Tooltip:
 		Name: Scrin Laboratory
 	Buildable:
@@ -1336,10 +1331,10 @@ SCRTECH:
 SCRADVPOWR:
 	Inherits: ^Building
 	Inherits@1: ^SuperWeapon
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^3x3Shape
-	Inherits@6: ^ScrinBuildingFire
+	Inherits@2: ^ScrinDeathExplo
+	Inherits@3: ^ScrinBuildingFire
+	Inherits@RENDER: ^ScrinRender
+	Inherits@SHAPE: ^3x3Shape
 	Inherits@AISupportPower: ^HasSuperSupportPower
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Tooltip:
@@ -1426,7 +1421,7 @@ SCRADVPOWR:
 
 CABYARD:
 	Inherits: GACNST
-	Inherits@1: ^CabRender
+	Inherits@RENDER: ^CabRender
 	Buildable:
 		BuildPaletteOrder: 999
 		IconPalette: UnittemIconCab
@@ -1454,8 +1449,7 @@ CABYARD:
 
 CABPOWR:
 	Inherits: ^Powerplant
-	Inherits@1: ^CabRender
-	Inherits@4: ^2x2Shape
+	Inherits@RENDER: ^CabRender
 	Tooltip:
 		Name: Firestorm Power Plant
 	Buildable:
@@ -1477,8 +1471,8 @@ CABPOWR:
 
 CABCLAW:
 	Inherits: ^Barracks
-	Inherits@1: ^CabRender
-	Inherits@2: ^2x3Shape
+	Inherits@RENDER: ^CabRender
+	Inherits@SHAPE: ^2x3Shape
 	Tooltip:
 		Name: C.A.B.A.L. Claw
 	Buildable:
@@ -1541,7 +1535,7 @@ CABCLAW:
 
 CABPROC:
 	Inherits: PROC
-	Inherits@1: ^CabRender
+	Inherits@RENDER: ^CabRender
 	Tooltip:
 		Name: C.A.B.A.L. Refinery
 	Buildable:
@@ -1562,7 +1556,7 @@ CABPROC:
 
 CABPROC2:
 	Inherits: FLIPPEDPROC
-	Inherits@1: ^CabRender
+	Inherits@RENDER: ^CabRender
 	Tooltip:
 		Name: C.A.B.A.L. Refinery
 	FreeActor:
@@ -1575,7 +1569,7 @@ CABPROC2:
 
 CABPROC3:
 	Inherits: FLIPPEDXPROC
-	Inherits@1: ^CabRender
+	Inherits@RENDER: ^CabRender
 	Tooltip:
 		Name: C.A.B.A.L. Refinery
 	FreeActor:
@@ -1588,7 +1582,7 @@ CABPROC3:
 
 CABPROC4:
 	Inherits: FLIPPEDYPROC
-	Inherits@1: ^CabRender
+	Inherits@RENDER: ^CabRender
 	Tooltip:
 		Name: C.A.B.A.L. Refinery
 	FreeActor:
@@ -1601,7 +1595,7 @@ CABPROC4:
 
 CABWEAP:
 	Inherits: ^Factory
-	Inherits@1: ^CabRender
+	Inherits@RENDER: ^CabRender
 	Tooltip:
 		Name: C.A.B.A.L. War Factory
 	Buildable:
@@ -1629,8 +1623,8 @@ CABWEAP:
 
 CABRADR:
 	Inherits: ^Radar
-	Inherits@1: ^CabRender
-	Inherits@4: ^3x3Shape
+	Inherits@RENDER: ^CabRender
+	Inherits@SHAPE: ^3x3Shape
 	Tooltip:
 		Name: C.A.B.A.L. Radar
 	Buildable:
@@ -1652,8 +1646,8 @@ CABRADR:
 
 CABAIR:
 	Inherits: ^Helipad
-	Inherits@1: ^CabRender
-	Inherits@4: ^3x3Shape
+	Inherits@RENDER: ^CabRender
+	Inherits@SHAPE: ^3x3Shape
 	Tooltip:
 		Name: Air Factory
 	Buildable:
@@ -1689,8 +1683,8 @@ CABAIR:
 
 CABTECH:
 	Inherits: ^TechCenter
-	Inherits@1: ^CabRender
-	Inherits@2: ^3x2Shape
+	Inherits@RENDER: ^CabRender
+	Inherits@SHAPE: ^3x2Shape
 	Tooltip:
 		Name: Supercomputer
 	Buildable:
@@ -1706,9 +1700,9 @@ CABTECH:
 
 CABOBELISK:
 	Inherits: ^Building
-	Inherits@1: ^CabRender
-	Inherits@2: ^2x2Shape
-	Inherits@3: ^SuperWeapon
+	Inherits@1: ^SuperWeapon
+	Inherits@RENDER: ^CabRender
+	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
 		Name: Nanomachine Core
 	Buildable:

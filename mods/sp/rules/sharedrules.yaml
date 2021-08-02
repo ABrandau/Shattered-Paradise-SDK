@@ -1,6 +1,6 @@
 E1:
 	Inherits: ^Soldier
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperience
 	Valued:
 		Cost: 120
 	Tooltip:
@@ -50,8 +50,8 @@ ENGINEER:
 
 MCV:
 	Inherits: ^Vehicle
-	Inherits@2: ^LowPrioritySelectionMode
-	Inherits@3: ^5CellVision
+	Inherits@SELECTIOMODE: ^LowPrioritySelectionMode
+	Inherits@VISION: ^5CellVision
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 996
@@ -186,7 +186,7 @@ harv.mut:
 
 CABHARV:
 	Inherits: HARV
-	Inherits@1: ^CabalVehicleVoice
+	Inherits@VOICE: ^CabalVehicleVoice
 	Tooltip:
 		Name: C.A.B.A.L. Harvester
 	Buildable:
@@ -220,8 +220,8 @@ SCRHARV:
 
 GACNST:
 	Inherits: ^Building
-	Inherits@1: ^3x3Shape
-	Inherits@2: ^AICashCheat
+	Inherits@1: ^AICashCheat
+	Inherits@SHAPE: ^3x3Shape
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Building:
 		Footprint: xxx xxx xxx
@@ -350,6 +350,7 @@ GACNST:
 
 ^Powerplant:
 	Inherits: ^Building
+	Inherits@SHAPE: ^2x2Shape
 	ProvidesPrerequisite@anypower:
 		Prerequisite: anypower
 	ProvidesPrerequisite@buildingname:
@@ -368,7 +369,7 @@ GACNST:
 
 ^Barracks:
 	Inherits: ^Building
-	Inherits@1: ^ProducesStuff
+	Inherits@PRODUCTION: ^ProducesStuff
 	Valued:
 		Cost: 500
 	ProvidesPrerequisite:
@@ -427,9 +428,9 @@ GACNST:
 
 PROC:
 	Inherits: ^Building
-	Inherits@1: ^NormalRefineryHitShape
-	Inherits@2: ^RefineryHP
-	Inherits@3: ^AICashCheat
+	Inherits@1: ^RefineryHP
+	Inherits@2: ^AICashCheat
+	Inherits@SHAPE: ^NormalRefineryHitShape
 	Building:
 		Footprint: xx== xx== xx==
 		Dimensions: 4,3
@@ -473,9 +474,9 @@ PROC:
 
 FLIPPEDPROC:
 	Inherits: ^Building
-	Inherits@1: ^FlippedRefineryHitshape
-	Inherits@2: ^RefineryHP
-	Inherits@3: ^AICashCheat
+	Inherits@1: ^RefineryHP
+	Inherits@2: ^AICashCheat
+	Inherits@SHAPE: ^FlippedRefineryHitshape
 	Building:
 		Footprint: ==xx ==xx ==xx
 		Dimensions: 4,3
@@ -504,9 +505,9 @@ FLIPPEDPROC:
 
 FLIPPEDXPROC:
 	Inherits: ^Building
-	Inherits@1: ^FlippedRefineryXHitshape
-	Inherits@2: ^RefineryHP
-	Inherits@3: ^AICashCheat
+	Inherits@1: ^RefineryHP
+	Inherits@2: ^AICashCheat
+	Inherits@SHAPE: ^FlippedRefineryXHitshape
 	Building:
 		Footprint: xxx xxx === ===
 		Dimensions: 3,4
@@ -535,9 +536,9 @@ FLIPPEDXPROC:
 
 FLIPPEDYPROC:
 	Inherits: ^Building
-	Inherits@1: ^FlippedRefineryYHitshape
-	Inherits@2: ^RefineryHP
-	Inherits@3: ^AICashCheat
+	Inherits@1: ^RefineryHP
+	Inherits@2: ^AICashCheat
+	Inherits@SHAPE: ^FlippedRefineryYHitshape
 	Building:
 		Footprint: === === xxx xxx
 		Dimensions: 3,4
@@ -566,8 +567,8 @@ FLIPPEDYPROC:
 
 ^Factory:
 	Inherits: ^Building
-	Inherits@1: ^ProducesStuff
-	Inherits@4: ^4x3FactoryWithBibShape
+	Inherits@PRODUCTION: ^ProducesStuff
+	Inherits@SHAPE: ^4x3FactoryWithBibShape
 	Valued:
 		Cost: 2000
 	ProvidesPrerequisite:
@@ -625,8 +626,8 @@ FLIPPEDYPROC:
 
 ^Helipad:
 	Inherits: ^Building
-	Inherits@1: ^ProducesStuff
-	Inherits@2: ^2x2Shape
+	Inherits@PRODUCTION: ^ProducesStuff
+	Inherits@SHAPE: ^2x2Shape
 	Exit@1:
 		SpawnOffset: 0,-256,0
 	GrantExternalConditionToProduced:
@@ -659,8 +660,8 @@ FLIPPEDYPROC:
 
 ^Radar:
 	Inherits: ^Building
-	Inherits@1: ^12CellVision
-	Inherits@2: ^DisableOnLowPowerOrPowerDown
+	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
+	Inherits@VISION: ^12CellVision
 	Valued:
 		Cost: 1500
 	ProvidesPrerequisite:
@@ -729,7 +730,7 @@ FLIPPEDYPROC:
 
 GADEPT:
 	Inherits: ^Building
-	Inherits@1: ^3x3Shape
+	Inherits@SHAPE: ^3x3Shape
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -787,9 +788,9 @@ GADEPT:
 
 SCRDEPOT:
 	Inherits: GADEPT
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^ScrinBuildingFire
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinBuildingFire
+	Inherits@RENDER: ^ScrinRender
 	Buildable:
 		BuildPaletteOrder: 25
 		Prerequisites: Vehicle or Aircraft production, ~structures.scr
@@ -927,7 +928,7 @@ NAPOST:
 
 NAFNCE:
 	Inherits: ^Wall
-	Inherits@1: ^Cloakable
+	Inherits@CLOAK: ^Cloakable
 	-Replaceable:
 	Valued:
 		Cost: 50
@@ -992,7 +993,7 @@ NAFNCE:
 
 MUTWALL:
 	Inherits: ^Wall
-	Inherits@2: ^MutRender
+	Inherits@RENDER: ^MutRender
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 3
@@ -1015,7 +1016,7 @@ MUTWALL:
 
 SCRWALL:
 	Inherits: ^Wall
-	Inherits@2: ^ScrinRender
+	Inherits@RENDER: ^ScrinRender
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 5
@@ -1036,7 +1037,7 @@ SCRWALL:
 
 GASILO:
 	Inherits: ^Building
-	Inherits: ^2x2Shape
+	Inherits@SHAPE: ^2x2Shape
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 31
@@ -1095,11 +1096,11 @@ GASILO:
 
 ################## Carryall ##############
 TRNSPORT:
-	Inherits@1: ^Helicopter
-	Inherits@2: ^9CellVision
-	Inherits@3: ^SpriteActor
-	Inherits@4: ^LowPrioritySelectionMode
-	Inherits@5: ^AircraftShadow
+	Inherits: ^Helicopter
+	Inherits@1: ^SpriteActor
+	Inherits@SELECTIOMODE: ^LowPrioritySelectionMode
+	Inherits@SHADOW: ^AircraftShadow
+	Inherits@VISION: ^9CellVision
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -1260,7 +1261,7 @@ trnsport.cab:
 
 NAPULS:
 	Inherits: ^Defence
-	Inherits@4: ^2x2Shape
+	Inherits@SHAPE: ^2x2Shape
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -1332,9 +1333,9 @@ NAPULS:
 
 SCRSHIELD:
 	Inherits: NAPULS
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^ScrinBuildingFire
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinBuildingFire
+	Inherits@RENDER: ^ScrinRender
 	Tooltip:
 		Name: Stasis Field Generator
 	Buildable:
@@ -1388,7 +1389,7 @@ GATE_B:
 
 MUTGATE_A:
 	Inherits: ^Gate_A
-	Inherits@2: ^MutRender
+	Inherits@RENDER: ^MutRender
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 7
@@ -1404,7 +1405,7 @@ MUTGATE_A:
 
 MUTGATE_B:
 	Inherits: ^Gate_B
-	Inherits@2: ^MutRender
+	Inherits@RENDER: ^MutRender
 	Tooltip:
 		Name: Forgotten Gate
 	Building:
@@ -1413,9 +1414,9 @@ MUTGATE_B:
 
 SCRGATE_A:
 	Inherits: ^Gate_A
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^ScrinDefenceFire
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinDefenceFire
+	Inherits@RENDER: ^ScrinRender
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 10
@@ -1434,9 +1435,9 @@ SCRGATE_A:
 
 SCRGATE_B:
 	Inherits: ^Gate_B
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^ScrinDefenceFire
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinDefenceFire
+	Inherits@RENDER: ^ScrinRender
 	Tooltip:
 		Name: Energy Gate
 	Gate:

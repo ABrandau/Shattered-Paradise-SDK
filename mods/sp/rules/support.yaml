@@ -1,7 +1,7 @@
 GAVULC:
 	Inherits: ^TurretedDefence
-	Inherits@1: ^TowerStealthDetection
 	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@DETECTION: ^TowerStealthDetection
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -39,11 +39,11 @@ GAVULC:
 	ProvidesPrerequisite@buildingname:
 
 GAROCK:
-	Inherits: ^Tier2
-	Inherits@1: ^TurretedDefence
-	Inherits@2: ^TowerStealthDetection
+	Inherits: ^TurretedDefence
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@AUTOTARGETPRIORITY: ^AntiVehiclePriority
+	Inherits@DETECTION: ^TowerStealthDetection
+	Inherits@TIER: ^Tier2
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -72,7 +72,7 @@ GAROCK:
 
 GACSAM:
 	Inherits: ^TurretedDefence
-	Inherits@1: ^AntiAir
+	Inherits@AA: ^AntiAir
 	Tooltip:
 		Name: SAM Tower
 	Buildable:
@@ -102,8 +102,8 @@ GACSAM:
 
 NALASR:
 	Inherits: ^TurretedDefence
-	Inherits@1: ^TowerStealthDetection
 	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@DETECTION: ^TowerStealthDetection
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -133,10 +133,10 @@ NALASR:
 
 NAOBEL:
 	Inherits: ^Defence
-	Inherits@1: ^TowerStealthDetection
-	Inherits@2: ^2x2Shape
-	Inherits@3: ^Tier2
 	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@DETECTION: ^TowerStealthDetection
+	Inherits@SHAPE: ^2x2Shape
+	Inherits@TIER: ^Tier2
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -180,7 +180,7 @@ NAOBEL:
 
 NASAM:
 	Inherits: ^TurretedDefence
-	Inherits@1: ^AntiAir
+	Inherits@AA: ^AntiAir
 	Tooltip:
 		Name: S.A.M. Site
 	Buildable:
@@ -197,11 +197,11 @@ NASAM:
 
 MUBUNKR:
 	Inherits: ^Defence
-	Inherits@1: ^MutRender
-	Inherits@2: ^TowerStealthDetection
-	Inherits@3: ^2x2Shape
-	Inherits@PIPS: ^CargoPips
 	Inherits@AUTOTARGET: ^AutoTargetAll
+	Inherits@DETECTION: ^TowerStealthDetection
+	Inherits@PIPS: ^CargoPips
+	Inherits@RENDER: ^MutRender
+	Inherits@SHAPE: ^2x2Shape
 	Valued:
 		Cost: 500
 	CustomSellValue:
@@ -271,11 +271,11 @@ MUBUNKR:
 
 MUCANNON:
 	Inherits: ^TurretedDefence
-	Inherits@1: ^Tier2
-	Inherits@2: ^MutRender
-	Inherits@3: ^TowerStealthDetection
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@AUTOTARGETPRIORITY: ^AntiVehiclePriority
+	Inherits@DETECTION: ^TowerStealthDetection
+	Inherits@RENDER: ^MutRender
+	Inherits@TIER: ^Tier2
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -314,8 +314,8 @@ MUCANNON:
 
 MUFLAK:
 	Inherits: ^TurretedDefence
-	Inherits@1: ^MutRender
-	Inherits@2: ^AntiAir
+	Inherits@AA: ^AntiAir
+	Inherits@RENDER: ^MutRender
 	Tooltip:
 		Name: Flak Station
 	Buildable:
@@ -350,10 +350,10 @@ MUFLAK:
 
 CABPIT:
 	Inherits: ^Defence
-	Inherits@1: ^CabRender
-	Inherits@2: ^TowerStealthDetection
-	Inherits@3: ^2x2Shape
 	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@DETECTION: ^TowerStealthDetection
+	Inherits@RENDER: ^CabRender
+	Inherits@SHAPE: ^2x2Shape
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -394,10 +394,10 @@ CABPIT:
 
 CABBLAST:
 	Inherits: ^TurretedDefence
-	Inherits@1: ^Tier2
-	Inherits@2: ^CabRender
-	Inherits@3: ^TowerStealthDetection
 	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@DETECTION: ^TowerStealthDetection
+	Inherits@RENDER: ^CabRender
+	Inherits@TIER: ^Tier2
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -426,8 +426,8 @@ CABBLAST:
 
 CABRAIL:
 	Inherits: ^TurretedDefence
-	Inherits@1: ^CabRender
-	Inherits@2: ^AntiAir
+	Inherits@AA: ^AntiAir
+	Inherits@RENDER: ^CabRender
 	Tooltip:
 		Name: Railgun Turret
 	Buildable:
@@ -448,11 +448,11 @@ CABRAIL:
 
 SCRNEEDLER:
 	Inherits: ^TurretedDefence
-	Inherits@1: ^ScrinRender
-	Inherits@2: ^TowerStealthDetection
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^ScrinDefenceFire
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinDefenceFire
 	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@DETECTION: ^TowerStealthDetection
+	Inherits@RENDER: ^ScrinRender
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -488,13 +488,13 @@ SCRNEEDLER:
 
 SCRDRONE:
 	Inherits: ^Defence
-	Inherits@1: ^ScrinRender
-	Inherits@2: ^Tier2
-	Inherits@3: ^TowerStealthDetection
-	Inherits@4: ^ScrinDeathExplo
-	Inherits@5: ^ScrinDefenceFire
-	Inherits@6: ^2x2Shape
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinDefenceFire
 	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@DETECTION: ^TowerStealthDetection
+	Inherits@RENDER: ^ScrinRender
+	Inherits@TIER: ^Tier2
+	Inherits@SHAPE: ^2x2Shape
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -551,10 +551,10 @@ SCRDRONE:
 
 SCRTRACTOR:
 	Inherits: ^TurretedDefence
-	Inherits@1: ^ScrinRender
-	Inherits@2: ^ScrinDeathExplo
-	Inherits@3: ^ScrinDefenceFire
-	Inherits@4: ^AntiAir
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinDefenceFire
+	Inherits@AA: ^AntiAir
+	Inherits@RENDER: ^ScrinRender
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -613,7 +613,7 @@ GAPOWRUP:
 
 GAFIRE:
 	Inherits: ^Building
-	Inherits@1: ^3x2Shape
+	Inherits@SHAPE: ^3x2Shape
 	Inherits@AIaimingWeapon: ^AutoTargetAll
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Buildable:
@@ -687,9 +687,9 @@ GAFIRE:
 
 GAPLUG:
 	Inherits: ^Building
-	Inherits@2: ^2x3Shape
-	Inherits@3: ^SuperWeapon
-	Inherits@4: ^HasSuperSupportPower
+	Inherits@1: ^SuperWeapon
+	Inherits@2: ^HasSuperSupportPower
+	Inherits@SHAPE: ^2x3Shape
 	Valued:
 		Cost: 2500
 	Tooltip:
@@ -745,8 +745,8 @@ GAPLUG:
 
 NASTLH:
 	Inherits: ^Building
-	Inherits@1: ^DisableOnLowPowerOrPowerDown
-	Inherits@2: ^3x2Shape
+	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
+	Inherits@SHAPE: ^3x2Shape
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -800,9 +800,9 @@ NASTLH:
 
 NATMPL:
 	Inherits: ^Building
-	Inherits@2: ^3x3Shape
-	Inherits@3: ^SuperWeapon
-	Inherits@4: ^HasMisslePower
+	Inherits@1: ^SuperWeapon
+	Inherits@2: ^HasMisslePower
+	Inherits@SHAPE: ^3x3Shape
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 47
@@ -841,8 +841,8 @@ NATMPL:
 
 MUVENTI:
 	Inherits: ^Building
-	Inherits@1: ^MutRender
-	Inherits@2: ^2x2Shape
+	Inherits@RENDER: ^MutRender
+	Inherits@SHAPE: ^2x2Shape
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 43
@@ -894,10 +894,10 @@ MUVENTI:
 
 MUTSW1:
 	Inherits: ^Building
-	Inherits@1: ^MutRender
-	Inherits@2: ^3x2Shape
-	Inherits@3: ^SuperWeapon
-	Inherits@4: ^HasSuperSupportPower
+	Inherits@1: ^SuperWeapon
+	Inherits@2: ^HasSuperSupportPower
+	Inherits@RENDER: ^MutRender
+	Inherits@SHAPE: ^3x2Shape
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 48
@@ -943,11 +943,11 @@ MUTSW1:
 
 SCREXTRACTOR:
 	Inherits: ^Building
-	Inherits@1: ^ScrinRender
-	Inherits@2: ^ScrinDeathExplo
-	Inherits@3: ^ScrinDefenceFire
-	Inherits@4: ^DisableOnLowPowerOrPowerDown
-	Inherits@5: ^WithTriggerCloakEffect-Defence
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinDefenceFire
+	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
+	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
+	Inherits@RENDER: ^ScrinRender
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -991,12 +991,12 @@ SCREXTRACTOR:
 
 SCRSW1:
 	Inherits: ^Building
-	Inherits@1: ^ScrinRender
-	Inherits@2: ^ScrinDeathExplo
-	Inherits@3: ^3x2Shape
-	Inherits@4: ^SuperWeapon
-	Inherits@5: ^ScrinBuildingFire
-	Inherits@6: ^HasSuperSupportPower
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinBuildingFire
+	Inherits@3: ^SuperWeapon
+	Inherits@4: ^HasSuperSupportPower
+	Inherits@RENDER: ^ScrinRender
+	Inherits@SHAPE: ^3x2Shape
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 50
@@ -1046,9 +1046,9 @@ SCRSW1:
 
 CABEYE:
 	Inherits: ^Building
-	Inherits@1: ^CabRender
-	Inherits@2: ^DisableOnLowPowerOrPowerDown
-	Inherits@3: ^2x2Shape
+	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
+	Inherits@RENDER: ^CabRender
+	Inherits@SHAPE: ^2x2Shape
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 44
@@ -1089,9 +1089,9 @@ CABEYE:
 
 CABSW1:
 	Inherits: ^Defence
-	Inherits@1: ^CabRender
-	Inherits@2: ^3x3Shape
-	Inherits@3: ^SuperWeapon
+	Inherits@1: ^SuperWeapon
+	Inherits@RENDER: ^CabRender
+	Inherits@SHAPE: ^3x3Shape
 	Valued:
 		Cost: 2500
 	Tooltip:

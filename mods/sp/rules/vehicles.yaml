@@ -1,9 +1,9 @@
 SMECH:
 	Inherits: ^Walker
-	Inherits@1: ^8CellVision
-	Inherits@2: ^BasicStealthDetection
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@DETECTION: ^BasicStealthDetection
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^8CellVision
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -45,9 +45,9 @@ SMECH:
 
 MMCH:
 	Inherits: ^Walker
-	Inherits@1: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -101,10 +101,10 @@ MMCH:
 
 APC:
 	Inherits: ^Tank
-	Inherits@1: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@PIPS: ^CargoPips
+	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -174,10 +174,10 @@ APC:
 		RequiresSelection: true
 
 HVR:
-	Inherits@1: ^HoverTank
-	Inherits@2: ^8CellVision
+	Inherits: ^HoverTank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^8CellVision
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -218,9 +218,9 @@ HVR:
 
 JUG:
 	Inherits: ^Walker
-	Inherits@1: ^5CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^5CellVision
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -266,9 +266,9 @@ JUG:
 
 SONIC:
 	Inherits: ^TurretedTank
-	Inherits@1: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -308,10 +308,10 @@ SONIC:
 
 G4TNK:
 	Inherits: ^TurretedTank
-	Inherits@1: ^7CellVision
-	Inherits@2: ^IncompleteSelfHeal
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SELFHEAL: ^IncompleteSelfHeal
+	Inherits@VISION: ^7CellVision
 	Valued:
 		Cost: 1750
 	Tooltip:
@@ -365,12 +365,12 @@ G4TNK:
 
 HMEC:
 	Inherits: ^Tank
-	Inherits@1: ^8CellVision
-	Inherits@2: ^PermanentSelfHeal
-	Inherits@3: ^CommandoIcon
-	Inherits@4: ^WithTriggerCloakEffect-Defence
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
+	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@VISION: ^8CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 3000
@@ -492,7 +492,7 @@ HMEC:
 
 NODMCV:
 	Inherits: MCV
-	Inherits@2: ^WithTriggerCloakEffect-Defence
+	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 997
@@ -520,11 +520,11 @@ NODMCV:
 
 BGGY:
 	Inherits: ^Tank
-	Inherits@2: ^8CellVision
-	Inherits@3: ^BasicStealthDetection
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@DETECTION: ^BasicStealthDetection
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@PIPS: ^CargoPips
+	Inherits@VISION: ^8CellVision
 	Valued:
 		Cost: 300
 	UpdatesPlayerStatistics:
@@ -830,9 +830,9 @@ BGGY:
 
 ATTACKBIKE:
 	Inherits: ^Tank
-	Inherits@1: ^7CellVision
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^7CellVision
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -868,10 +868,10 @@ ATTACKBIKE:
 
 TTNK:
 	Inherits: ^Tank
-	Inherits@2: ^SpriteActor
-	Inherits@3: ^7CellVision
+	Inherits@1: ^SpriteActor
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^7CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 800
@@ -977,9 +977,9 @@ TTNK:
 
 TICKHOLOGRAM:
 	Inherits: ^Tank
-	Inherits@2: ^SpriteActor
-	Inherits@3: ^3CellVision
-	Inherits@4: ^HologramKillTimer
+	Inherits@1: ^SpriteActor
+	Inherits@HOLOGRAM: ^HologramKillTimer
+	Inherits@VISION: ^3CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	GivesExperience:
 		Experience: 50
@@ -1098,8 +1098,8 @@ BIKE:
 
 SAPC:
 	Inherits: ^SubterraneanVoxelVehicle
-	Inherits@1: ^6CellVision
 	Inherits@PIPS: ^CargoPips
+	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1136,9 +1136,9 @@ SAPC:
 
 SUBTANK:
 	Inherits: ^SubterraneanVoxelVehicle
-	Inherits@1: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -1171,9 +1171,9 @@ SUBTANK:
 
 HOWTLIZER:
 	Inherits: ^Tank
-	Inherits@1: ^5CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^5CellVision
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -1223,9 +1223,9 @@ HOWTLIZER:
 
 STNK:
 	Inherits: ^TurretedTank
-	Inherits@1: ^9CellVision
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^9CellVision
 	Valued:
 		Cost: 1100
 	Tooltip:
@@ -1287,12 +1287,12 @@ STNK:
 
 SCORPION:
 	Inherits: ^Tank
-	Inherits@1: ^8CellVision
-	Inherits@2: ^PermanentSelfHeal
-	Inherits@3: ^CommandoIcon
-	Inherits@4: ^WithTriggerCloakEffect-Defence
+	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
+	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@VISION: ^8CellVision
 	Valued:
 		Cost: 3000
 	Tooltip:
@@ -1380,9 +1380,9 @@ SCORPION:
 
 MUTMCV:
 	Inherits: MCV
-	Inherits@1: ^MutRender
-	Inherits@2: ^5CellVision
-	Inherits@3: ^WithTriggerCloakEffect-Defence
+	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
+	Inherits@RENDER: ^MutRender
+	Inherits@VISION: ^5CellVision
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
@@ -1413,11 +1413,11 @@ MUTMCV:
 
 MUTQUAD:
 	Inherits: ^TurretedTank
-	Inherits@2: ^BasicStealthDetection
-	Inherits@3: ^MutRender
-	Inherits@4: ^7CellVision
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@DETECTION: ^BasicStealthDetection
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^MutRender
+	Inherits@VISION: ^7CellVision
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -1476,11 +1476,11 @@ MUTQUAD:
 
 LYNX:
 	Inherits: ^Tank
-	Inherits@2: ^SpriteActor
-	Inherits@3: ^MutRender
-	Inherits@4: ^6CellVision
+	Inherits@1: ^SpriteActor
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^MutRender
+	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
@@ -1528,11 +1528,11 @@ LYNX:
 
 STRUCK:
 	Inherits: ^Tank
-	Inherits@2: ^6CellVision
-	Inherits@3: ^MutRender
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@PIPS: ^CargoPips
+	Inherits@RENDER: ^MutRender
+	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1579,10 +1579,10 @@ STRUCK:
 
 WOLF:
 	Inherits: ^Beast
-	Inherits@1: ^6CellVision
-	Inherits@3: ^MindControllableMastermind
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableMastermind
+	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
@@ -1613,10 +1613,10 @@ WOLF:
 
 MRLS:
 	Inherits: ^Tank
-	Inherits@1: ^5CellVision
-	Inherits@2: ^MutRender
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^MutRender
+	Inherits@VISION: ^5CellVision
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -1663,11 +1663,11 @@ MRLS:
 
 DEATHCLAW:
 	Inherits: ^Beast
-	Inherits@1: ^MutRender
-	Inherits@2: ^8CellVision
-	Inherits@3: ^MindControllableMastermind
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableMastermind
+	Inherits@RENDER: ^MutRender
+	Inherits@VISION: ^8CellVision
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
@@ -1707,8 +1707,8 @@ DEATHCLAW:
 
 HVRTRUK3:
 	Inherits@: ^HoverVehicle
-	Inherits@1: ^MutRender
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@RENDER: ^MutRender
 	Valued:
 		Cost: 2500
 	Tooltip:
@@ -1777,10 +1777,10 @@ HVRTRUK3:
 SCRSCORPION:
 	Inherits: ^Walker
 	Inherits@1: ^ScrinVehicle
-	Inherits@2: ^6CellVision
-	Inherits@3: ^BasicStealthDetection
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@DETECTION: ^BasicStealthDetection
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -1821,9 +1821,9 @@ SCRSCORPION:
 SCRMBT:
 	Inherits: ^HoverTank
 	Inherits@1: ^ScrinVehicle
-	Inherits@2: ^6CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
@@ -1873,10 +1873,10 @@ SCRMBT:
 SCRGLYDER2:
 	Inherits: ^HoverVehicle
 	Inherits@1: ^ScrinVehicle
-	Inherits@2: ^BasicStealthDetection
-	Inherits@3: ^8CellVision
 	Inherits@AUTOTARGET: ^AutoTargetAir
+	Inherits@DETECTION: ^BasicStealthDetection
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^8CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Vehicle
@@ -1934,9 +1934,9 @@ SCRGLYDER2:
 		Weapons: SmallDebrisScrin
 
 SCRRECHARGER:
-	Inherits: ^ScrinVehicle
-	Inherits@1: ^Walker
-	Inherits@2: ^5CellVision
+	Inherits: ^Walker
+	Inherits@1: ^ScrinVehicle
+	Inherits@VISION: ^5CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 1000
@@ -2002,10 +2002,10 @@ SCRRECHARGER:
 SCRMOBMINE:
 	Inherits@: ^HoverVehicle
 	Inherits@1: ^ScrinVehicle
-	Inherits@2: ^7CellVision
-	Inherits@3: ^MindControllableMastermind
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableMastermind
+	Inherits@VISION: ^7CellVision
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 50
@@ -2069,11 +2069,11 @@ SCRMOBMINE:
 		Weapons: SmallDebrisScrin
 
 TRIPOD:
-	Inherits@1: ^Walker
-	Inherits@2: ^ScrinVehicle
-	Inherits@3: ^8CellVision
+	Inherits: ^Walker
+	Inherits@1: ^ScrinVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^8CellVision
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -2141,10 +2141,10 @@ TRIPOD:
 
 CABMCV:
 	Inherits: MCV
-	Inherits@1: ^CabRender
-	Inherits@2: ^CabalVehicleVoice
-	Inherits@3: ^5CellVision
-	Inherits@4: ^WithTriggerCloakEffect-Defence
+	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
+	Inherits@RENDER: ^CabRender
+	Inherits@VISION: ^5CellVision
+	Inherits@VOICE: ^CabalVehicleVoice
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 999
@@ -2176,11 +2176,11 @@ CABMCV:
 
 CENTURION:
 	Inherits: ^Walker
-	Inherits@1: ^BasicStealthDetection
-	Inherits@2: ^6CellVision
-	Inherits@3: ^CabalVehicleVoice
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@DETECTION: ^BasicStealthDetection
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
+	Inherits@VOICE: ^CabalVehicleVoice
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -2260,9 +2260,9 @@ CENTURION:
 
 REAPERCAB:
 	Inherits: ^Walker
-	Inherits@1: ^8CellVision
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^8CellVision
 	Valued:
 		Cost: 1100
 	Tooltip:
@@ -2315,10 +2315,10 @@ REAPERCAB:
 	DeathSounds:
 
 REPAIRVEHICLE:
-	Inherits@1: ^Tank
-	Inherits@2: ^LowPrioritySelectionMode
-	Inherits@3: ^5CellVision
+	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetHeal
+	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
+	Inherits@VISION: ^5CellVision
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -2353,9 +2353,9 @@ REPAIRVEHICLE:
 
 ECM:
 	Inherits: ^Vehicle
-	Inherits@2: ^CabRender
-	Inherits@3: ^LowPrioritySelectionMode
-	Inherits@4: ^5CellVision
+	Inherits@RENDER: ^CabRender
+	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
+	Inherits@VISION: ^5CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 800
@@ -2414,10 +2414,10 @@ ECM:
 		Delay: 2000
 
 CABAPC:
-	Inherits@2: ^HoverVehicle
-	Inherits@3: ^CabRender
-	Inherits@4: ^6CellVision
+	Inherits: ^HoverVehicle
 	Inherits@PIPS: ^CargoPips
+	Inherits@RENDER: ^CabRender
+	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -2458,12 +2458,12 @@ CABAPC:
 
 SPIDERARTY:
 	Inherits: ^Walker
-	Inherits@1: ^5CellVision
-	Inherits@2: ^CabRender
-	Inherits@3: ^PermanentSelfHeal
-	Inherits@4: ^CabalVehicleVoice
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@RENDER: ^CabRender
+	Inherits@VISION: ^5CellVision
+	Inherits@VOICE: ^CabalVehicleVoice
 	Valued:
 		Cost: 1750
 	Tooltip:
@@ -2510,12 +2510,12 @@ SPIDERARTY:
 
 PALADIN:
 	Inherits: ^Walker
-	Inherits@1: ^8CellVision
-	Inherits@2: ^CabRender
-	Inherits@3: ^PermanentSelfHeal
-	Inherits@4: ^CabalVehicleVoice
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^CabRender
+	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@VISION: ^8CellVision
+	Inherits@VOICE: ^CabalVehicleVoice
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -2571,13 +2571,13 @@ PALADIN:
 
 BCOREDEF:
 	Inherits: ^Walker
-	Inherits@1: ^8CellVision
-	Inherits@2: ^CabRender
-	Inherits@3: ^PermanentSelfHeal
-	Inherits@4: ^CabalVehicleVoice
-	Inherits@5: ^CommandoIcon
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^CabRender
+	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@VISION: ^8CellVision
+	Inherits@VOICE: ^CabalVehicleVoice
 	Valued:
 		Cost: 3000
 	Tooltip:
@@ -2649,7 +2649,6 @@ BCOREDEF:
 		MuzzleSequence: muzzle1
 		Name: ShoulderArmament
 	WithMuzzleOverlay:
-	AutoTarget:
 	Selectable:
 		Bounds: 1809, 5428, 0, -2412
 	Carryable:
