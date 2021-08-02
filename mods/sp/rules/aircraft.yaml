@@ -86,7 +86,7 @@ ORCAB:
 	Buildable:
 		Description: Heavy carpet bomber.\n\nGood vs: Ground Targets\n\nSpecial:\n- Deals AoE damage.
 		Queue: Air
-		BuildPaletteOrder: 3
+		BuildPaletteOrder: 21
 		Prerequisites: ~gahpad, gatech
 	Selectable:
 		Bounds: 903,1447
@@ -207,7 +207,7 @@ ORCATRAN:
 		Name: Orca Transport
 	Buildable:
 		Queue: Air
-		BuildPaletteOrder: 10
+		BuildPaletteOrder: 6
 		Prerequisites: ~disabled
 	RenderSprites:
 	WithVoxelBody:
@@ -257,7 +257,7 @@ APACHE:
 	Buildable:
 		Description: Scout Helicopter armed with chain guns.\n\nGood vs: Infantry, Aircraft\n\nSpecial:\n- Can attack air\n- Detects cloaked units
 		Queue: Air
-		BuildPaletteOrder: 1
+		BuildPaletteOrder: 2
 		Prerequisites: ~nahpad
 	Selectable:
 		Bounds: 903,1447
@@ -338,7 +338,7 @@ SCRIN:
 	Buildable:
 		Queue: Air
 		Description: Advanced fighter-bomber craft armed with twin plasma cannons.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air
-		BuildPaletteOrder: 4
+		BuildPaletteOrder: 22
 		Prerequisites: ~nahpad, natech
 	Selectable:
 		Bounds: 903,1447
@@ -425,7 +425,7 @@ CERBERUS:
 	Buildable:
 		Queue: Air
 		Description: High tech frigate armed with a mobile stealth generator.\n\nGood vs: Ground Targets\n\nSpecial:\n- Cloaks friendly units next to it \n- Stealth generator can't be used with weapon at the same time
-		BuildPaletteOrder: 5
+		BuildPaletteOrder: 27
 		Prerequisites: ~nahpad, natech
 	Selectable:
 		Bounds: 2709,2714
@@ -556,7 +556,7 @@ MUTHELI:
 	Buildable:
 		Description: Heavy assault gunship with an auto-cannon.\n\nGood vs: Everything\n\nSpecial:\n- Can attack air\n- Detects cloaked units
 		Queue: Air
-		BuildPaletteOrder: 1
+		BuildPaletteOrder: 3
 		Prerequisites: ~muair
 	Selectable:
 		Bounds: 903,1447
@@ -630,9 +630,9 @@ WETP:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: Fast jet that throws a small tiberium bomb.\n\nGood vs: Ground Targets\nSpecial:\n- Can mutate killed enemy units\n- Moves at super-sonic speed when attacking\n- ignore all attack when at super-sonic speed
 		Queue: Air
-		BuildPaletteOrder: 7
+		Description: Fast jet that throws a small tiberium bomb.\n\nGood vs: Ground Targets\nSpecial:\n- Can mutate killed enemy units\n- Moves at super-sonic speed when attacking\n- ignore all attack when at super-sonic speed
+		BuildPaletteOrder: 23
 		Prerequisites: ~muair, muhall
 	Selectable:
 		Bounds: 903,1447
@@ -737,7 +737,7 @@ MUTQUEEN:
 	Buildable:
 		Description: Harasser with eggs.\n\nGood vs: Vehicles, Buildings\n\nSpecial:\n- Can mutate killed enemy units\n- Lays eggs via deploy which later hatch as crabs that are hostile to anyone
 		Queue: Air
-		BuildPaletteOrder: 6
+		BuildPaletteOrder: 18
 		Prerequisites: ~muair
 	Selectable:
 		Bounds: 903,1447
@@ -879,7 +879,7 @@ DRACHE:
 	Inherits@4: ^WithTriggerCloakEffect-Building
 	Buildable:
 		Queue: Air
-		BuildPaletteOrder: 110
+		BuildPaletteOrder: 1000
 		Description: Deploys into a Host Station.\n\nSpecial:\n- Provides a build radius for structures\n- Maximum production speed is reached with 7 Conyards\n- Max production speed reduces production time by 50%\n- Has increased HP when deployed
 		Prerequisites: ~scrair, ~!fixUndeployDracheBug
 	Valued:
@@ -985,9 +985,9 @@ SCRDESTROYER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: Scrin light frigate, designed for long range harassment.\n\nGood vs Ground targets\n\nSpecial:\n- Can absorb essence from killed units to heal
 		Queue: Air
-		BuildPaletteOrder: 9
+		Description: Scrin light frigate, designed for long range harassment.\n\nGood vs Ground targets\n\nSpecial:\n- Can absorb essence from killed units to heal
+		BuildPaletteOrder: 20
 		Prerequisites: ~scrair, scrradr
 	-Rearmable:
 	Selectable:
@@ -1053,7 +1053,7 @@ SCRTRANS:
 		Description: Scrin transport.\n\nSpecial\n- Can carry up to 3 vehicles or ten soldiers.\n- Lands whenever its able to
 		Queue: Air
 		Prerequisites: ~scrair, scrdepot
-		BuildPaletteOrder: 8
+		BuildPaletteOrder: 10
 	Cargo:
 		Types: Infantry, Vehicle
 		MaxWeight: 10
@@ -1110,9 +1110,9 @@ SCRCARRIER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: Scrin frigate.\n\nStrong vs Vehicles, Aircraft\n\nSpecial:\n- Sends fighters at enemies\n- Can attack Air\n- Detects cloaked units\n- Can absorb essence from killed enemies to heal\n- Can attack enemies while moving.
 		Queue: Air
-		BuildPaletteOrder: 11
+		Description: Scrin frigate.\n\nStrong vs Vehicles, Aircraft\n\nSpecial:\n- Sends fighters at enemies\n- Can attack Air\n- Detects cloaked units\n- Can absorb essence from killed enemies to heal\n- Can attack enemies while moving.
+		BuildPaletteOrder: 25
 		Prerequisites: ~scrair, scrtech
 	Targetable@Essence:
 		TargetTypes: ScrinUnit
@@ -1288,7 +1288,7 @@ SCRBATTLESHIP:
 	Buildable:
 		Description: Scrin flagship\n\nStrong vs Ground units\n\nSpecial:\n- Maximum Supply of 1\n- Auto repairs\n- Can absorb essence from killed enemies to heal\n- Can attack enemies while moving
 		Queue: Air
-		BuildPaletteOrder: 12
+		BuildPaletteOrder: 30
 		Prerequisites: ~scrair, scradvpowr
 		BuildLimit: 1
 	Selectable:
@@ -1365,7 +1365,7 @@ WASP:
 	Buildable:
 		Description: Aerial drone armed with dual railgun cannons.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Detects cloaked units
 		Queue: Air
-		BuildPaletteOrder: 1
+		BuildPaletteOrder: 4
 		Prerequisites: ~cabair
 	Selectable:
 		Bounds: 1206,1809
@@ -1408,9 +1408,9 @@ FIREFLY:
 	Tooltip:
 		Name: Firefly
 	Buildable:
-		Description: Support drone that deploys turrets.\n\nSpecial:\n- unarmed\n- Deployes turrets\n- rearms at Service Depot\n- detects stealth
 		Queue: Air
-		BuildPaletteOrder: 13
+		Description: Support drone that deploys turrets.\n\nSpecial:\n- unarmed\n- Deployes turrets\n- rearms at Service Depot\n- detects stealth
+		BuildPaletteOrder: 19
 		Prerequisites: ~disabled #~cabair, cabradr, gadept
 	Selectable:
 		Bounds: 1206,1809
@@ -1452,7 +1452,7 @@ BASILISK:
 	Buildable:
 		Description: Light frigate armed with firestorm rockets.\n\nGood vs: Infantry\n\nSpecial:\n- Deals AoE damage
 		Queue: Air
-		BuildPaletteOrder: 14
+		BuildPaletteOrder: 24
 		Prerequisites: ~cabair, cabtech
 	Selectable:
 		Bounds: 1810,2895
@@ -1515,7 +1515,7 @@ DEVOURER:
 	Buildable:
 		Queue: Air
 		Description: Heavy and slow siege frigate.\n\nGood vs: Buildings\n\nSpecial:\n- Selfrepairs\n- Can attack units while moving\n- Close to ground and affected by superweapon ground AOE
-		BuildPaletteOrder: 15
+		BuildPaletteOrder: 29
 		Prerequisites: ~cabair, cabtech
 	Selectable:
 		Bounds: 2413,2619,0,-1447

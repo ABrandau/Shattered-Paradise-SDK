@@ -1109,9 +1109,9 @@ TRNSPORT:
 	Tooltip:
 		Name: Carryall
 	Buildable:
-		Description: VTOL aircraft for transporting vehicles.\n\nSpecial:\n- Can transport one vehicle.
 		Queue: Air
-		BuildPaletteOrder: 2
+		Description: VTOL aircraft for transporting vehicles.\n\nSpecial:\n- Can transport one vehicle.
+		BuildPaletteOrder: 11
 		Prerequisites: ~humanstuff, gadept
 	Aircraft:
 		RepulsionSpeed: 40
@@ -1233,6 +1233,8 @@ TRNSPORT:
 
 trnsport.scr
 	Inherits: TRNSPORT
+	Buildable:
+		BuildPaletteOrder: 15
 	Selectable:
 		Class: trnsport
 	Buildable:
@@ -1261,6 +1263,8 @@ trnsport.scr
 
 trnsport.gdi:
 	Inherits: trnsport.scr
+	Buildable:
+		BuildPaletteOrder: 11
 	RenderSprites:
 		Image: trnsport
 	SpawnActorOnDeath:
@@ -1293,6 +1297,8 @@ trnsport.gdi:
 
 trnsport.nod:
 	Inherits: trnsport.scr
+	Buildable:
+		BuildPaletteOrder: 12
 	RenderSprites:
 		Image: nodcarryall
 	SpawnActorOnDeath:
@@ -1312,6 +1318,8 @@ trnsport.nod:
 
 trnsport.mut:
 	Inherits: trnsport.scr
+	Buildable:
+		BuildPaletteOrder: 13
 	RenderSprites:
 		Image: forgcarryall
 	SpawnActorOnDeath:
@@ -1336,6 +1344,8 @@ trnsport.mut:
 
 trnsport.cab:
 	Inherits: trnsport.scr
+	Buildable:
+		BuildPaletteOrder: 14
 	RenderSprites:
 		Image: cabcarryall
 	SpawnActorOnDeath:
