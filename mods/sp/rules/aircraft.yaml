@@ -257,7 +257,7 @@ APACHE:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: Scout Helicopter armed with chain guns.\n\nGood vs: Infantry, Aircraft\n\nSpecial:\n- Can attack air\n- Detects cloaked units
+		Description: Scout Helicopter armed with chain guns.\n\nGood vs: Infantry, Aircraft\n\nSpecial:\n- Can attack air\n- Detects cloaked units\n- Can attack enemies from all directions
 		Queue: Air
 		BuildPaletteOrder: 2
 		Prerequisites: ~nahpad
@@ -556,7 +556,7 @@ MUTHELI:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: Heavy assault gunship with an auto-cannon.\n\nGood vs: Everything\n\nSpecial:\n- Can attack air\n- Detects cloaked units
+		Description: Heavy assault gunship with an auto-cannon.\n\nGood vs: Everything\n\nSpecial:\n- Can attack air\n- Detects cloaked units\n- Can attack enemies from all directions
 		Queue: Air
 		BuildPaletteOrder: 3
 		Prerequisites: ~muair
@@ -579,12 +579,12 @@ MUTHELI:
 	Armament@primary:
 		Weapon: GargoylACannon
 		MuzzleSequence: muzzle
-		LocalOffset: 950,0,0
+		LocalOffset: 600,0,-300
 		PauseOnCondition: !ammo
 	Armament@AA:
 		Weapon: GargoylACannonAA
 		MuzzleSequence: muzzle
-		LocalOffset: 950,0,0
+		LocalOffset: 600,0,-300
 		PauseOnCondition: !ammo
 	GrantConditionOnAttack@Casing:
 		Condition: attack
@@ -819,7 +819,7 @@ STORMRIDER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: Scrin scout aircraft. \n\nStrong vs Aircraft.\n\nSpecial:\n- Can absorb essence from killed units to heal.\n- Can attack enemies from all directions while moving
+		Description: Scrin scout aircraft. \n\nStrong vs Aircraft.\n\nSpecial:\n- Can absorb essence from killed units to heal.\n- Can attack enemies from all directions
 		Queue: Air
 		BuildPaletteOrder: 1
 		Prerequisites: ~scrair
