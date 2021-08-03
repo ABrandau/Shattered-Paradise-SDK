@@ -244,27 +244,28 @@ jumpjet:
 
 jumpjetair:
 	Inherits@1: ^InfantryDeathAnims
-	stand: jumpjet
+	Defaults: jumpjet
+	stand:
 		Start: 340
 		Length: 6
 		Facings: 8
-	run: jumpjet
+	run:
 		Start: 292
 		Length: 6
 		Facings: 8
-	shoot: jumpjet
+	shoot:
 		Start: 388
 		Length: 6
 		Facings: 8
-	die-make: jumpjet
+	die-make:
 		Start: 436
 		Length: 7
 		ShadowStart: 887
-	die-fall: jumpjet
+	die-fall:
 		Start: 442
 		Length: 1
 		ShadowStart: 889
-	die-onground: jumpjet
+	die-onground:
 		Start: 443
 		Length: 8
 		ShadowStart: 894
@@ -393,6 +394,89 @@ eagleguard:
 		Length: 6
 		ShadowStart: 6
 	icon: eagleguardicon
+
+jjcomm:
+	Inherits@1: ^InfantryDeathAnims
+	Defaults: rock
+		Tick: 80
+	stand:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		Tick: 120
+	idle1:
+		Start: 56
+		Length: 15
+	idle2:
+		Start: 71
+		Length: 15
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		Tick: 100
+	prone-stand:
+		Frames: 86, 92, 98, 104, 110, 116, 122, 128
+		Length: 1
+		Facings: 8
+	die1:
+		Start: 134
+		Length: 14
+	die2:
+		Start: 149
+		Length: 14
+	die-crushed: jumpjet
+		Start: 450
+		Tick: 800
+		ZOffset: -511
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		Tick: 80
+	prone-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		Tick: 80
+	standup-0:
+		Start: 260
+		Length: 2
+		Facings: 8
+	webguy: webguySPmid
+		Length: 6
+		ShadowStart: 6
+	icon: jjeticon
+
+jjcommair:
+	Inherits@1: ^InfantryDeathAnims
+	Defaults: rock
+	stand:
+		Start: 292
+		Length: 6
+		Facings: 8
+	run:
+		Start: 292
+		Length: 6
+		Facings: 8
+	shoot:
+		Start: 370
+		Length: 6
+		Facings: 8
+	die-make: jumpjet
+		Start: 436
+		Length: 7
+	die-fall:
+		Start: 340
+		Length: 16
+		Facings: 2
+		Tick: 80
+	die-onground: jumpjet
+		Start: 443
+		Length: 8
+	icon: jjeticon
 
 smech:
 	Inherits: ^EmpOverlay

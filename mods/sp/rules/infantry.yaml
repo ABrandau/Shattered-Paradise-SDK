@@ -284,6 +284,146 @@ EAGLEGUARD:
 		Armaments: OnFoot
 		FacingTolerance: 2
 
+JJCOMM:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^8CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Jumpjet Commando
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	-TakeCover:
+	Voiced:
+		VoiceSet: Jumpjet2
+		Volume: 8
+	Mobile:
+		Speed: 70
+	Health:
+		HP: 25000
+	Transforms:
+		IntoActor: jjcommair
+		RequiresCondition: !inside-tunnel
+		PauseOnCondition: WebDisable
+	Armament@1:
+		Weapon: JJGroundSMG
+		LocalOffset: 300,0,900
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@Garrison:
+		Weapon: GJJSMG
+		LocalOffset: 300,0,900
+		PauseOnCondition: WebDisable
+	Passenger:
+		CustomPipType: red
+	Demolition:
+		DetonationDelay: 45
+		Voice: Attack
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+		FacingTolerance: 2
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage
+		DeployTrigger: Damage
+		DeployTicks: 5
+		UndeployTicks: 500
+		DeployChance: 100
+	ProvidesPrerequisite@jjcomm:
+
+JJCOMMAIR:
+	Inherits: ^Aircraft
+	Inherits@1: ^FullHealthRepairCondition
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^10CellVision
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Jumpjet Commando
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 36
+		Prerequisites: ~gapile, gatech, ~!jjcomm
+		Description: Soldier with jetpacks armed with small machine guns and C4 charges.\n\nGood vs: Infantry, Structures.\n\nSpecial:\n- Can fly\n- Will land when ordered to deploy
+		BuildLimit: 1
+	Voiced:
+		VoiceSet: Jumpjet
+		Volume: 8
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Selectable:
+		Bounds: 664,1809,0,-603
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -250, -250
+			BottomRight: 250, 250
+	Health:
+		HP: 25000
+	Armament@1:
+		Weapon: JJSMG
+		LocalOffset: 300,0,1000
+	Transforms:
+		IntoActor: jjcomm
+	Armor:
+		Type: AircraftArmor
+	WithFacingSpriteBody:
+		RequiresCondition: !JJBuff
+		Sequence: run
+	WithFacingSpriteBody@attack:
+		Name: Body1
+		Sequence: shoot
+		RequiresCondition: JJBuff
+	-Repairable:
+	WithShadow:
+	Hovers@CRUISING:
+		RequiresCondition: cruising
+	Aircraft:
+		TurnSpeed: 40
+		Speed: 145
+		AirborneCondition: airborne
+		CruisingCondition: cruising
+		CruiseAltitude: 3c1021
+		IdealSeparation: 1c0
+		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+		CanHover: true
+		Repulsable: true
+		MoveIntoShroud: true
+		TakeOffOnResupply: true
+		VTOL: true
+		CanSlide: true
+	Targetable@GROUND:
+		TargetTypes: Infantry, Ground
+		RequiresCondition: !airborne
+	Targetable@AIRBORNE:
+		TargetTypes: Air, OrganicVehicle
+		RequiresCondition: airborne
+	AttackAircraft:
+		FacingTolerance: 20
+		Voice: Attack
+		AttackType: Hover
+	GrantConditionOnAttack:
+		Condition: JJBuff
+		RevokeDelay: 8
+	-GrantConditionOnDamageState@HeavyDamaged:
+	-ExplodeWeapon@spawnsparks:
+	-SmokeParticleEmitter@spawnsmoke:
+	-Explodes@Shrapnel:
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	SpawnActorOnDeath:
+		Actor: JUMPJET.Husk
+		RequiresCondition: airborne
+	ProvidesPrerequisite@jjcomm:
+		Prerequisites: jjcomm
+
 ALTNODE1:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
