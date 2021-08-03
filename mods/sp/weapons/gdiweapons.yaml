@@ -161,17 +161,17 @@ APCGrenade:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Bang
 	ReloadDelay: 50
-	Range: 5c0
+	Range: 6c0
 	Report: grenadelauncherfire.wav
 	ValidTargets: Ground, Water
 	Projectile: Bullet
-		Speed: 360
+		Speed: 400
 		Blockable: false
 		Shadow: true
 		LaunchAngle: 45
 		Image: DRAGON
 	Warhead@1Dam: SpreadDamage
-		Spread: 300
+		Spread: 0c384
 		Damage: 5000
 		Versus:
 			BuildingArmor: 50
@@ -281,7 +281,7 @@ JuggCannonShellCasing:
 
 SonicZap:
 	ReloadDelay: 60
-	Range: 5c384
+	Range: 5c512
 	Report: sonic4.aud
 	TargetActorCenter: false
 	Projectile: AreaBeam
@@ -428,8 +428,10 @@ MechRailgun2:
 		HitAnimSequence: railgunexp
 		HitAnimPalette: effect
 	Warhead@1Dam: SpreadDamage
-		Spread: 50
+		Range: 0, 32
+		Falloff: 100, 100
 		Damage: 30000
+		AffectsParent: false
 		Versus:
 			InfantryArmor: 100
 			BuildingArmor: 100
@@ -462,7 +464,7 @@ MKIITuskAA:
 FighterHellfire:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn
-	ReloadDelay: 50
+	ReloadDelay: 35
 	Range: 6c0
 	MinRange: 0c100
 	Report: orcamis1.aud

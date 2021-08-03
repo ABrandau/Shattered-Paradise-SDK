@@ -224,7 +224,7 @@ PsykerRay:
 	Inherits@3: ^LightningDefault
 	ReloadDelay: 75
 	Range: 14c0
-	Burst: 4
+	Burst: 8
 	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 	Projectile: InstantHit
 		Inaccuracy: 2c512
@@ -247,31 +247,34 @@ LtRail:
 		BeamColor: 9940EE
 		HelixColor: 44FFFF
 		HelixThickness: 35
+		DamageActorsInLine: true
 	Warhead@1Dam: SpreadDamage
 		Range: 0, 32
 		Falloff: 100, 100
-		Damage: 15000
+		Damage: 20000
 		AffectsParent: false
 		ValidRelationships: Neutral, Enemy
 		Versus:
 			InfantryArmor: 100
-			BuildingArmor: 130
-			VehicleArmor: 150
-			DefenseArmor: 150
-			ConcreteArmor: 5
+			BuildingArmor: 100
+			VehicleArmor: 100
+			DefenseArmor: 100
+			ConcreteArmor: 25
+			Shield: 0
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 	Warhead@2Dam: SpreadDamage
 		Range: 0, 32
 		Falloff: 50, 50
-		Damage: 15000
+		Damage: 20000
 		AffectsParent: false
 		ValidRelationships: Ally
 		Versus:
 			InfantryArmor: 100
-			BuildingArmor: 130
-			VehicleArmor: 150
-			DefenseArmor: 150
-			ConcreteArmor: 5
+			BuildingArmor: 100
+			VehicleArmor: 100
+			DefenseArmor: 100
+			ConcreteArmor: 25
+			Shield: 0
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 
 LtRailSmudge:
@@ -283,7 +286,6 @@ LtRailSmudge:
 	Warhead@1Dam: TargetDamage
 		Damage: 0
 	-Warhead@2Eff:
-
 
 BullAcid:
 	Inherits: ^AcidWarhead

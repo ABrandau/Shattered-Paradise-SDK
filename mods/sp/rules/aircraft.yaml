@@ -17,11 +17,14 @@ ORCA:
 		Description: Fast assault gunship with dual missile launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Detects cloaked units
 		BuildPaletteOrder: 1
 		Prerequisites: ~gahpad
+	Voiced:
+		VoiceSet: Orca
+		Volume: 2
 	Selectable:
 		Bounds: 903,1447
 	Aircraft:
-		TurnSpeed: 20
-		Speed: 150
+		TurnSpeed: 40
+		Speed: 160
 		MoveIntoShroud: true
 		TakeoffSounds: orcaup1.aud
 		LandingSounds: orcadwn1.aud
@@ -41,7 +44,6 @@ ORCA:
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 40
-		Voice: Attack
 	AmmoPool:
 		Ammo: 10
 		ReloadCount: 2
@@ -94,10 +96,9 @@ ORCAB:
 		MaximumPitch: 120
 		AltitudeVelocity: 200
 		TurnSpeed: 20
-		IdealSeparation: 256
 		Speed: 130
-		IdleTurnSpeed: 20
-		IdleSpeed: 85
+		IdleTurnSpeed: 10
+		IdleSpeed: 65
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 		VTOL: true
@@ -263,7 +264,7 @@ APACHE:
 	Selectable:
 		Bounds: 903,1447
 	Aircraft:
-		TurnSpeed: 20
+		TurnSpeed: 28
 		Speed: 150
 		MoveIntoShroud: true
 	Health:
@@ -349,7 +350,7 @@ SCRIN:
 		MaximumPitch: 90
 		TurnSpeed: 40
 		Speed: 170
-		IdleTurnSpeed: 20
+		IdleTurnSpeed: 10
 		IdleSpeed: 85
 		AirborneCondition: airborne
 		MoveIntoShroud: true
@@ -640,9 +641,9 @@ WETP:
 	Aircraft:
 		MaximumPitch: 120
 		TurnSpeed: 30
-		IdleTurnSpeed: 20
+		IdleTurnSpeed: 10
 		Speed: 150
-		IdleSpeed: 85
+		IdleSpeed: 75
 		VTOL: true
 		AirborneCondition: airborne
 		MoveIntoShroud: true
@@ -744,7 +745,7 @@ MUTQUEEN:
 	Voiced:
 		VoiceSet: Queen
 	Aircraft:
-		TurnSpeed: 24
+		TurnSpeed: 40
 		Speed: 140
 		Repulsable: true
 		MoveIntoShroud: true
@@ -827,9 +828,9 @@ STORMRIDER:
 	Hovers:
 	Aircraft:
 		MaximumPitch: 90
-		TurnSpeed: 32
+		TurnSpeed: 40
 		Speed: 170
-		IdleTurnSpeed: 20
+		IdleTurnSpeed: 10
 		IdleSpeed: 85
 		AirborneCondition: airborne
 		MoveIntoShroud: true
@@ -937,7 +938,7 @@ SCRGLYDER1:
 	Transforms:
 		IntoActor: scrglyder2
 	Aircraft:
-		TurnSpeed: 20
+		TurnSpeed: 32
 		Speed: 120
 		Repulsable: true
 		MoveIntoShroud: true
@@ -1065,7 +1066,7 @@ SCRTRANS:
 		Bounds: 2709,3015
 		Priority: 4
 	Aircraft:
-		TurnSpeed: 20
+		TurnSpeed: 40
 		Speed: 150
 		Repulsable: true
 		MoveIntoShroud: true
@@ -1130,7 +1131,7 @@ SCRCARRIER:
 		Weapon: FighterSpawn
 	CarrierMaster:
 		Actors: STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN
-		RespawnTicks: 200
+		RespawnTicks: 150
 		RearmTicks: 10
 		InstantRepair: true
 	AttackAircraft:
@@ -1364,7 +1365,7 @@ WASP:
 	Selectable:
 		Bounds: 1206,1809
 	Aircraft:
-		TurnSpeed: 24
+		TurnSpeed: 28
 		Speed: 130
 		Repulsable: true
 		MoveIntoShroud: true

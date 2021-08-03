@@ -60,6 +60,9 @@ MMCH:
 		BuildAtProductionType: Tank
 		Description: Well balanced main battle walker armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can shoot over walls\n- Can crush infantry
 		Prerequisites: ~gaweap
+	Voiced:
+		VoiceSet: Titan
+		Volume: 2
 	Mobile:
 		TurnSpeed: 24
 		Speed: 80
@@ -74,7 +77,6 @@ MMCH:
 	Turreted:
 		TurnSpeed: 24
 	AttackTurreted:
-		Voice: Attack
 		PauseOnCondition: empdisable
 	WithSpriteTurret:
 		Recoils: false
@@ -535,6 +537,9 @@ BGGY:
 		Description: Fast vehicle armed with a machine gun, has room for one passenger that modifies the weapon of the vehicle.\n\nGood vs: Changes depending on the passenger.\n\nSpecial:\n- The weapon of the vehicle changes with the passenger.\n- Stealth detection.\n- Units inside deal 20% extra damage.
 		BuildPaletteOrder: 7
 		Prerequisites: ~naweap, ~!AIOnly
+	Voiced:
+		VoiceSet: Buggy
+		Volume: 2
 	Mobile:
 		TurnSpeed: 40
 		Speed: 125
@@ -845,6 +850,9 @@ ATTACKBIKE:
 		BuildAtProductionType: Tank
 		Prerequisites: ~naweap
 		Description: Fast scout vehicle, armed with\nrockets.\n  Strong vs Vehicles, Aircraft
+	Voiced:
+		VoiceSet: Buggy
+		Volume: 2
 	Mobile:
 		TurnSpeed: 40
 		Speed: 140
@@ -862,7 +870,6 @@ ATTACKBIKE:
 		PauseOnCondition: empdisable
 		LocalYaw: 100, -100
 	AttackFrontal:
-		Voice: Attack
 		PauseOnCondition: empdisable
 		FacingTolerance: 20
 
@@ -1151,6 +1158,9 @@ SUBTANK:
 		Description: Subterranean flame tank able to move underground.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Can move underground.\n- Can crush infantry.\n- Cannot receive orders but halt when underground.
 		BuildPaletteOrder: 42
 		Prerequisites: ~naweap, natech
+	Voiced:
+		VoiceSet: Devil
+		Volume: 2
 	Mobile:
 		TurnSpeed: 32
 		Speed: 100
@@ -1162,7 +1172,6 @@ SUBTANK:
 		PauseOnCondition: empdisable
 		RequiresCondition: !submerged
 	AttackFrontal:
-		Voice: Attack
 		PauseOnCondition: empdisable
 	WithVoxelBody:
 		RequiresCondition: !submerged && !inside-tunnel
@@ -1186,6 +1195,9 @@ HOWTLIZER:
 		Description: High tech artillery armed with a self-propelled howitzer and a personal Stealth Generator.\n\nGood vs: Ground Targets\n- Can shoot over walls\n- Can crush infantry\n- Cloaks when not firing\n- Cloaking malfunctions when at red hp
 		BuildPaletteOrder: 47
 		Prerequisites: ~naweap, natech
+	Voiced:
+		VoiceSet: Specter
+		Volume: 1
 	Health:
 		HP: 12000
 	Mobile:
@@ -1213,7 +1225,6 @@ HOWTLIZER:
 	AutoTarget:
 		ScanRadius: 19
 	AttackFrontal:
-		Voice: Attack
 		PauseOnCondition: empdisable
 		TargetFrozenActors: true
 	-MustBeDestroyed:
@@ -1292,7 +1303,7 @@ SCORPION:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SELFHEAL: ^PermanentSelfHeal
-	Inherits@VISION: ^8CellVision
+	Inherits@VISION: ^10CellVision
 	Valued:
 		Cost: 3000
 	Tooltip:
@@ -1340,13 +1351,13 @@ SCORPION:
 		MuzzlePalette: obelpal
 		PauseOnCondition: empdisable
 	GrantTimedConditionOnDeploy:
-		DeployedCondition: afflictive
-		CooldownTicks: 4000
+		DeployedCondition: rage
+		CooldownTicks: 1500
 		DeployedTicks: 10
 		StartsFullyCharged: true
 	ExplodeWeapon@Deployed:
-		Weapon: AfflictionBomb
-		RequiresCondition: afflictive
+		Weapon: RageEmitter
+		RequiresCondition: rage
 	WithInfantryBody:
 		DefaultAttackSequence: shoot1
 	-Targetable@MC:
@@ -1731,6 +1742,7 @@ HVRTRUK3:
 		CanMoveBackward: true
 		Speed: 60
 		Locomotor: Hover
+	-SharedPassenger:
 	Health:
 		HP: 12500
 	GrantConditionOnDeploy@DemoTruck:
@@ -2013,7 +2025,7 @@ SCRMOBMINE:
 		Description: Mind Control unit\n\nSpecial:\n- Can overtake regular vehicle and infantry \n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol Heroics, Flying Units, Beasts, Buildings\n- Can shoot over walls.\n- Can mind control units while moving.
 		Prerequisites: ~scrweap, scrtech
 	Valued:
-		Cost: 1400
+		Cost: 1750
 	Tooltip:
 		Name: Subjugator
 	UpdatesPlayerStatistics:

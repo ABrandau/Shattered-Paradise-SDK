@@ -119,7 +119,7 @@ JUMPJET:
 	Inherits@VISION: ^6CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
-		Cost: 450
+		Cost: 300
 	Tooltip:
 		Name: Jumpjet Infantry
 	UpdatesPlayerStatistics:
@@ -165,7 +165,7 @@ JUMPJETAIR:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^8CellVision
 	Valued:
-		Cost: 450
+		Cost: 300
 	Tooltip:
 		Name: Jumpjet Infantry
 	UpdatesPlayerStatistics:
@@ -474,7 +474,7 @@ BHS:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 37
-		Description: Kanes Elite Commando armed with a toxin sniper rifle and extrodinary camouflage skill.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes strcutures with C4\n- Shots fired release toxins that slow nearby units.\n- Cloaks when idling\n- Immune to mind control\n- Crush class: crushable
+		Description: Kanes Elite Commando armed with a toxin sniper rifle and extrodinary camouflage skill.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes structures with C4\n- Shots fired release toxins that slow nearby units\n- Cloaks when idling\n- Immune to mind control\n- Crush class: crushable
 		Prerequisites: ~nahand, natech
 		BuildLimit: 1
 	Valued:
@@ -799,7 +799,7 @@ SEER:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 28
-		Description: Psychic mutant that leads armies through fear.\n\nGood vs: Vehicles, Aircraft.\n\nSpecial:\n- Can persuade friendly units to fight harder when deployed\n- Buffed units will get 20% extra attack speed, move speed and receive 20% more damage\n- Effect lasts 15 seconds\n- Heals on Tiberium\n- Can attack air\n- Can shoot over walls\n- Crush class: crushable
+		Description: Psychic mutant that leads armies through fear.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can persuade friendly units to fight harder when deployed\n- Buffed units will get 20% extra attack speed, move speed and receive 20% more damage\n- Effect lasts 15 seconds\n- Heals on Tiberium\n- Can attack air\n- Can shoot over walls\n- Crush class: crushable
 		Prerequisites: ~murax, muhall
 	Valued:
 		Cost: 450
@@ -857,17 +857,17 @@ SEER:
 MHIJACK:
 	Inherits: ^Mutant
 	Inherits@COMMANDO: ^CommandoIcon
-	Inherits@VISION: ^6CellVision
+	Inherits@VISION: ^8CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 33
 		Prerequisites: ~murax, muhall
-		Description: Hijacks enemy vehicles.\n  Unarmed\n\nMaximum 1 can be trained.\n- Immune to mind control
+		Description: Cooper is an expert in Hijacking any vehicle no matter if it has wheels, tracks or legs.\n\nSpecial:\n- Unarmed\n- Maximum Supply of 1\n- Cloaks when idling\n- Heals on Tiberium\n- Immune to mindcontrol\n- Crush class: uncrushable
 		BuildLimit: 1
 	Valued:
-		Cost: 1850
+		Cost: 1500
 	Tooltip:
-		Name: Mutant Hijacker
+		Name: Cooper The Hijacker
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Voiced:
@@ -882,31 +882,43 @@ MHIJACK:
 	Captures:
 		CaptureTypes: Vehicle
 		PlayerExperience: 50
+	Cloak@CLOAKGENERATOR:
+		CloakedCondition: bettercloak
+	Cloak@personalskill:
+		RequiresCondition: !bettercloak
+		InitialDelay: 40
+		CloakDelay: 40
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage, move
+		EffectImage: explosion
+		EffectPalette: apolgreenalpha75
+		EnterEffectSequence: smokebomb
+		EffectOffset: 0, 0, 800
 
 GHOST:
 	Inherits: ^Mutant
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@VISION: ^7CellVision
+	Inherits@VISION: ^8CellVision
 	Valued:
-		Cost: 1750
+		Cost: 1500
 	Tooltip:
-		Name: Ghost Stalker
+		Name: Lambo The Ghost Stalker
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 38
 		Prerequisites: ~murax, muhall
-		Description: Elite commando infantry, armed with\na railgun and C4.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4\nMaximum 1 can be trained.\n- Immune to mindcontrol
+		Description: Lambo is the elite commando unit of Mutants armed with\na railgun and C4.\n\nGood vs Ground\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes structures with C4\n- Heals on Tiberium\n- Immune to mindcontrol\n- Crush class: crushable
 		BuildLimit: 1
 	Armor:
 		Type: InfantryArmor
 	Mobile:
 		Speed: 75
 	Health:
-		HP: 20000
+		HP: 40000
 	Armament:
 		Weapon: LtRail
 		LocalOffset: 200,0,743
@@ -936,8 +948,8 @@ PSYKER:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 43
-		Prerequisites: ~murax, muhall
-		Description: Forgotten Commando. Pure strain forgotten that can call down lightning.\n\nGood vs: Groups of units\n\nSpecial:\n- Maximum Supply of 1\n- Heals on Tiberium\n- Strong AoE\n- Can shoot over walls\n- Immune to mind control\n- Crush class: crushable
+		Prerequisites: ~murax, mutsw1
+		Description: Forgotten Commando. Pure strain forgotten that can call down lightning strikes.\n\nGood vs: Ground\n\nSpecial:\n- Maximum Supply of 1\n- Heals on Tiberium\n- Strong AoE\n- Can shoot over walls\n- Immune to mind control\n- Crush class: crushable
 		BuildLimit: 1
 	Valued:
 		Cost: 1500
@@ -952,7 +964,7 @@ PSYKER:
 	AnnounceOnSeen:
 		Notification: CommandoDetected
 	Mobile:
-		Speed: 60
+		Speed: 75
 	-Targetable@MC:
 	Armament@1:
 		Weapon: PsykerRay
@@ -1258,11 +1270,11 @@ MASTERMIND:
 	Inherits: ^ScrinSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@COMMANDO: ^CommandoIcon
-	Inherits@VISION: ^7CellVision
+	Inherits@VISION: ^8CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 40
-		Description: Mind Control unit\n\nSpecial:\n- Can overtake vehicles \n- Can overtake/release mind controlled vehicles\n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol Heroics\n- Can shoot over walls.\n- Can mind control units while moving.\n- Immune to mind control
+		Description: The Commando Unit of Scrin born with the ability to Mind Control everyone and everything.\n\nSpecial:\n- Can mind control everything but Commandos and Epics\n- Absorbs essence from killed units to heal\n- Can teleport over a short distance\n- Can mind control over walls\n- Immune to mind control\n- Crush class: uncrushable\n- Does not receive damage from tiberium fields
 		Prerequisites: ~scrrax, scrtech
 		BuildLimit: 1
 	Valued:
@@ -1287,10 +1299,12 @@ MASTERMIND:
 	-TakeCover:
 	-Targetable@MC:
 	Health:
-		HP: 20000
+		HP: 25000
 	Mobile:
 		TurnSpeed: 1023
 		Speed: 90
+	Crushable:
+		CrushClasses: HeavyInfantry
 	AttackFrontal:
 	RenderRangeCircle:
 		RangeCircleType: Subjugator
@@ -1305,7 +1319,7 @@ MASTERMIND:
 	PortableChrono:
 		ChronoshiftSound: instantrift.wav
 		Voice: Move
-		ChargeDelay: 120
+		ChargeDelay: 500
 		TargetCursor: emp
 	Contrail@Teleport: ##HACK: add a trace for teleport. 
 		Offset: 0, 0, 700
