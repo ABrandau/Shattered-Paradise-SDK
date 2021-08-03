@@ -262,9 +262,17 @@ LtRail:
 			ConcreteArmor: 25
 			Shield: 0
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+
+LtRailSmudge:
+	Inherits:  ^WeaponGenericUpgrades
+	Inherits@2: ^Mediuml_Clsn
+	ReloadDelay: 60
+	Range: 7c0
+	TargetActorCenter: true
+	Projectile: InstantHit
 	Warhead@2Dam: SpreadDamage
 		Range: 0, 32
-		Falloff: 50, 50
+		Falloff: 100, 100
 		Damage: 20000
 		AffectsParent: false
 		ValidRelationships: Ally
@@ -276,15 +284,6 @@ LtRail:
 			ConcreteArmor: 25
 			Shield: 0
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
-
-LtRailSmudge:
-	Inherits@2: ^Mediuml_Clsn
-	ReloadDelay: 60
-	Range: 7c0
-	TargetActorCenter: true
-	Projectile: InstantHit
-	Warhead@1Dam: TargetDamage
-		Damage: 0
 	-Warhead@2Eff:
 
 BullAcid:

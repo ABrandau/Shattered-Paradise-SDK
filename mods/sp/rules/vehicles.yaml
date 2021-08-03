@@ -373,7 +373,6 @@ HMEC:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^8CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 3000
 	Tooltip:
@@ -430,20 +429,11 @@ HMEC:
 	Armament@3:
 		Weapon: MechRailgun
 		LocalOffset: 1200,-250,2650, 1200,250,2650
-		PauseOnCondition: empdisable || AImicroManage
+		PauseOnCondition: empdisable
 	Armament@4:
 		Weapon: MechRailgun2
 		LocalOffset: 1200,-250,2650, 1200,250,2650
-		PauseOnCondition: empdisable || AImicroManage
-		MuzzleSequence: muzzle
-	Armament@3AI: ##Fake that AI use it better
-		Weapon: MechRailgunAI
-		LocalOffset: 1200,-250,2650, 1200,250,2650
-		PauseOnCondition: empdisable || !AImicroManage
-	Armament@4AI: ##Fake that AI use it better
-		Weapon: MechRailgun2AI
-		LocalOffset: 1200,-250,2650, 1200,250,2650
-		PauseOnCondition: empdisable || !AImicroManage
+		PauseOnCondition: empdisable
 		MuzzleSequence: muzzle
 	-Targetable@MC:
 	Turreted:

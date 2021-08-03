@@ -389,9 +389,6 @@ MechRailgun: ##For hit effect
 	Report: railuse5.aud
 	Projectile: InstantHit
 	-Warhead@2Eff:
-
-MechRailgunAI: ##For hit effect and rage missfire
-	Inherits: MechRailgun
 	Inherits:  ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
 		Spread: 50
@@ -440,10 +437,6 @@ MechRailgun2:
 			ConcreteArmor: 25
 			Shield: 0
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
-
-MechRailgun2AI: ## Becuase AI use it mostly on friendly fire, we make AI cheat here
-	Inherits:  MechRailgun2
-	Warhead@1Dam: SpreadDamage
 		ValidRelationships: Neutral, Enemy
 
 MKIITusk:
