@@ -714,6 +714,20 @@ JumjetFall:
 		ValidTargets: Ground, Air, Water
 		ExplosionPalette: gradientred
 
+CJumjetFall:
+	Inherits: ^DelayedSmokeEffect
+	Warhead@1: CreateEffect
+		Image: jjcommair
+		Explosions: die-onground
+		ValidTargets: Ground, Air, Water
+		ExplosionPalette: player
+		UsePlayerPalette: true
+	Warhead@2: CreateEffect
+		Image: jjcommair
+		Explosions: dieblood1, dieblood2, dieblood3, dieblood4, dieblood5, dieblood6
+		ValidTargets: Ground, Air, Water
+		ExplosionPalette: gradientred
+
 BloodTiny:
 	Warhead@2: CreateEffect
 		Image: jumpjetair

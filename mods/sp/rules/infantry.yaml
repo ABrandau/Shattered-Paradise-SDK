@@ -309,12 +309,12 @@ JJCOMM:
 		RequiresCondition: !inside-tunnel
 		PauseOnCondition: WebDisable
 	Armament@1:
-		Weapon: JJGroundSMG
+		Weapon: JJGroundGrenade
 		LocalOffset: 300,0,900
 		PauseOnCondition: WebDisable
 		Name: OnFoot
 	Armament@Garrison:
-		Weapon: GJJSMG
+		Weapon: GJJGrenade
 		LocalOffset: 300,0,900
 		PauseOnCondition: WebDisable
 	Passenger:
@@ -368,7 +368,7 @@ JJCOMMAIR:
 	Health:
 		HP: 25000
 	Armament@1:
-		Weapon: JJSMG
+		Weapon: JJGrenade
 		LocalOffset: 300,0,1000
 	Transforms:
 		IntoActor: jjcomm
@@ -411,7 +411,7 @@ JJCOMMAIR:
 		AttackType: Hover
 	GrantConditionOnAttack:
 		Condition: JJBuff
-		RevokeDelay: 8
+		RevokeDelay: 5
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-ExplodeWeapon@spawnsparks:
 	-SmokeParticleEmitter@spawnsmoke:
@@ -419,7 +419,7 @@ JJCOMMAIR:
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	SpawnActorOnDeath:
-		Actor: JUMPJET.Husk
+		Actor: CJUMPJET.Husk
 		RequiresCondition: airborne
 	ProvidesPrerequisite@jjcomm:
 		Prerequisites: jjcomm

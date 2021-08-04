@@ -522,3 +522,32 @@ JUMPJET.Husk:
 		Palette: effectalpha40
 		Duration: 75
 		RandomFacing: True
+
+
+CJUMPJET.Husk:
+	Inherits: ^AircraftHusk
+	RenderSprites:
+		Image: jjcommair
+	-WithFacingSpriteBody:
+	WithSpriteBody:
+		StartSequence: die-make
+		Sequence: die-fall
+	FallsToEarth:
+		Moves: true
+		Velocity: 180
+		Explosion: CJumjetFall
+	WithIdleOverlay:
+		Image: explosion
+		Sequence: fire1
+		Offset: 0,0,700
+		Palette: effectalpha50
+	SmokeParticleEmitter@spawnsmoke:
+		Sequences: idle
+		SpawnFrequency: 4
+		Speed: 6
+		Gravity: 70
+		Offset: 0,0,0
+		Image: sgrysmk1
+		Palette: effectalpha40
+		Duration: 75
+		RandomFacing: True
