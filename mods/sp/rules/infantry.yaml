@@ -290,6 +290,8 @@ JJCOMM:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^8CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
+	Inherits@COMMANDO: ^CommandoIcon
+	-Targetable@MC:
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -309,19 +311,25 @@ JJCOMM:
 		RequiresCondition: !inside-tunnel
 		PauseOnCondition: WebDisable
 	Armament@1:
-		Weapon: JJGroundGrenade
-		LocalOffset: 300,0,900
+		Weapon: JJSMG
+		LocalOffset: 0,300,300
 		PauseOnCondition: WebDisable
 		Name: OnFoot
-	Armament@Garrison:
-		Weapon: GJJGrenade
-		LocalOffset: 300,0,900
-		PauseOnCondition: WebDisable
+	GrantConditionAfterDelay: ## Prevent player switch between modes to refresh reload
+		Condition: beaconready
+		Delay: 125
+		ShowSelectionBar: false
+	Armament@2:
+		Weapon: JJBeaconGround
+		LocalOffset: 0,300,300
+		PauseOnCondition: WebDisable || !beaconready
+		Name: OnFoot
+	#Armament@Garrison: TODO: add all commando garrion weapon and all commando weapon in ifv
+	#	Weapon: GJJGrenade
+	#	LocalOffset: 300,0,900
+	#	PauseOnCondition: WebDisable
 	Passenger:
 		CustomPipType: red
-	Demolition:
-		DetonationDelay: 45
-		Voice: Attack
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -337,6 +345,7 @@ JJCOMM:
 JJCOMMAIR:
 	Inherits: ^Aircraft
 	Inherits@1: ^FullHealthRepairCondition
+	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^10CellVision
@@ -344,13 +353,14 @@ JJCOMMAIR:
 		Cost: 1500
 	Tooltip:
 		Name: Jumpjet Commando
+	-Targetable@MC:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 36
-		Prerequisites: ~gapile, gatech, ~!jjcomm
-		Description: Soldier with jetpacks armed with small machine guns and C4 charges.\n\nGood vs: Infantry, Structures.\n\nSpecial:\n- Can fly\n- Will land when ordered to deploy
+		Prerequisites: ~gapile, gatech, !jjcomm
+		Description: Soldier with jetpacks armed with sonic gun and orbital bombardment beacon.\n\nGood vs: All.\n\nSpecial:\n- Can fly\n- Will land when ordered to deploy\n- Immune to mind control\n- Beacon needs reloading when just after transforming
 		BuildLimit: 1
 	Voiced:
 		VoiceSet: Jumpjet
@@ -368,8 +378,16 @@ JJCOMMAIR:
 	Health:
 		HP: 25000
 	Armament@1:
-		Weapon: JJGrenade
-		LocalOffset: 300,0,1000
+		Weapon: JJSMGAA
+		LocalOffset: 0,300,300
+	GrantConditionAfterDelay: ## Prevent player switch between modes to refresh reload
+		Condition: beaconready
+		Delay: 125
+		ShowSelectionBar: false
+	Armament@2:
+		Weapon: JJBeacon
+		LocalOffset: 0,300,300
+		PauseOnCondition: !beaconready
 	Transforms:
 		IntoActor: jjcomm
 	Armor:

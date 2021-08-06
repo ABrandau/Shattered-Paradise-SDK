@@ -63,24 +63,106 @@ JJGroundGrenade:
 		LaunchAngle: 96
 
 JJSMG:
-	Inherits: ^RifleWarhead
-	Inherits@2: ^Piffs
-	ReloadDelay: 10
-	Burst: 2
-	Range: 7c0
-	ValidTargets: Infantry
-	Report: jumpjet1.aud
-	Projectile: InstantHit
-		Blockable: false
+	Inherits:  ^WeaponGenericUpgrades
+	Range: 6c0
+	ReloadDelay: 30
+	ValidTargets: Ground, Water, Infantry
+	InvalidTargets: Vehicle, Building, Defence, Wall, Air
+	Projectile: LaserZap
+		Color: 50F5FF45
+		TrackTarget: false
+		Width: 128
+		Duration: 20
 	Warhead@1Dam: SpreadDamage
-		Damage: 12500
-		ValidTargets: Infantry
-		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+		Spread: 300
+		Damage: 20000
+		Versus:
+			BuildingArmor: 10
+			VehicleArmor: 10
+			DefenseArmor: 10
+			ConcreteArmor: 5
+		ValidTargets: Ground, Water
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 
-JJGroundSMG:
-	Inherits: JJSMG
-	Projectile: InstantHit
-		Blockable: true
+JJSMGAA:
+	Inherits:  JJSMG
+	Range: 6c0
+	ReloadDelay: 30
+	ValidTargets: Air
+	-InvalidTargets: 
+	Warhead@1Dam: SpreadDamage
+		VehicleArmor: 100
+		ValidTargets: Air
+		Damage: 5000
+	-Warhead@ShieldUpgrade:
+
+JJBeacon:
+	Range: 6c0
+	ReloadDelay: 150
+	ValidTargets: Vehicle, Building, Infantry, Ground, Water
+	TargetActorCenter: true
+	Projectile: BulletAS
+		Speed: 320
+		Blockable: false
+		Shadow: true
+		LaunchAngle: 45
+		Image: DRAGON
+		Palette: apcybl
+	Warhead@1Dam: TargetDamage
+		Damage: 0
+	Warhead@2Eff: CreateEffect
+		Image: explosion
+		Explosions: beaconflash
+		ExplosionPalette: gensmkexplocyan70
+		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+	Warhead@later: FireFragment
+		Delay: 60
+		ImpactActors: false
+		Weapon: OribitBombElevator
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+
+OribitBombElevator:
+	Report: meteor1.aud, meteor2.aud
+	ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+	Range: 2c0
+	MinRange: 1c0
+	Projectile: AthenaProjectile
+		Altitude: 14000
+	Warhead@later: FireFragment
+		ImpactActors: false
+		Weapon: OribitBomb
+		UseZOffsetAsAbsoluteHeight: true
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+
+OribitBomb:
+	Inherits: ^FullDamage
+	Inherits@2: ^Large_Explosion
+	Projectile: BulletAS
+		Speed: 960
+		Blockable: false
+		Shadow: false
+		Image: orbitenergyball
+		Sequences: idle
+		Palette: gensmkexplocyan
+	Warhead@2Eff: CreateEffect
+		Explosions: jtwlt050
+		ExplosionPalette: gensmkexplocyan
+	Warhead@1Dam: SpreadDamage
+		Spread: 300
+		Damage: 30000
+		Versus:
+			BuildingArmor: 200
+			DefenseArmor: 200
+		ValidTargets: Ground, Water
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 768
+
+JJBeaconGround:
+	Inherits:  JJBeacon
+	ValidTargets: Vehicle, Building, Defence, Wall
+
 
 Heal:
 	ReloadDelay: 80
@@ -300,6 +382,7 @@ JuggCannonShellCasing:
 	MinRange: 5c0
 
 SonicZap:
+	Inherits:  ^WeaponGenericUpgrades
 	ReloadDelay: 60
 	Range: 5c512
 	Report: sonic4.aud
@@ -399,6 +482,7 @@ MammothTuskAA:
 
 MechRailgun: ##For hit effect
 	Inherits: ^Large_Clsn
+	Inherits@2:  ^WeaponGenericUpgrades
 	FirstBurstTargetOffset: 0,-150,0
 	FollowingBurstTargetOffset: 0,300,0
 	ReloadDelay: 100
@@ -409,7 +493,6 @@ MechRailgun: ##For hit effect
 	Report: railuse5.aud
 	Projectile: InstantHit
 	-Warhead@2Eff:
-	Inherits:  ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
 		Spread: 50
 		Damage: 30000
