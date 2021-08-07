@@ -1776,6 +1776,14 @@
 	Inherits@0: ^BasicVehicle
 	Inherits@2: ^VehicleEffects
 	Inherits@3: ^ExistsInWorld
+	Carryable:
+		CarriedCondition: carried
+	Passenger:
+		CargoCondition: ascargo
+	SmokeParticleEmitter@spawnsmoke:
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo
+	ExplodeWeapon@spawnsparks:
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo
 
 ^Tank:
 	Inherits: ^Vehicle
@@ -1798,10 +1806,6 @@
 	Hovers:
 	Mobile:
 		Locomotor: Hover
-	Carryable:
-		CarriedCondition: carried
-	Passenger:
-		CargoCondition: ascargo
 	LeavesTrails@water:
 		RequiresCondition: hoverunitonwater && !carried && !ascargo
 		Image: hoverwind
@@ -1978,6 +1982,9 @@
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
+	-Carryable:
+	-Passenger:
+	-SharedPassenger:
 
 ^Aircraft:
 	Inherits: ^SpriteActor
