@@ -30,6 +30,27 @@ GrenadierBazookaAA:
 		ValidTargets: Air
 	-Warhead@ShieldUpgrade:
 
+Grenade:
+	Inherits: ^ArtilleryWarhead
+	ReloadDelay: 60
+	Range: 5c0
+	Projectile: Bullet
+		Speed: 226
+		Blockable: true
+		Shadow: true
+		LaunchAngle: 60
+		Inaccuracy: 0
+		Image: DISCUS
+		Palette: effect
+		BounceCount: 2
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 5000
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: small_grey_explosion
+		ImpactSounds: expnew13.aud
+
 JJGrenade:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Bang
@@ -64,7 +85,7 @@ JJGroundGrenade:
 
 JJSMG:
 	Inherits:  ^WeaponGenericUpgrades
-	Range: 6c0
+	Range: 7c0
 	ReloadDelay: 30
 	ValidTargets: Ground, Water, Infantry
 	InvalidTargets: Vehicle, Building, Defence, Wall, Air
@@ -86,7 +107,7 @@ JJSMG:
 
 JJSMGAA:
 	Inherits:  JJSMG
-	Range: 6c0
+	Range: 7c0
 	ReloadDelay: 30
 	ValidTargets: Air
 	-InvalidTargets: 
@@ -149,7 +170,7 @@ OribitBomb:
 		Explosions: jtwlt050
 		ExplosionPalette: gensmkexplocyan
 	Warhead@1Dam: SpreadDamage
-		Spread: 300
+		Spread: 0c768
 		Damage: 30000
 		Versus:
 			BuildingArmor: 200
@@ -162,7 +183,6 @@ OribitBomb:
 JJBeaconGround:
 	Inherits:  JJBeacon
 	ValidTargets: Vehicle, Building, Defence, Wall
-
 
 Heal:
 	ReloadDelay: 80
@@ -534,6 +554,7 @@ MechRailgun2:
 
 MKIITusk:
 	Inherits: MammothTusk
+	Range: 7c0
 	BurstDelays: 10
 	Burst: 4
 	Range: 7c0
@@ -542,6 +563,7 @@ MKIITusk:
 MKIITuskAA:
 	Inherits: MammothTuskAA
 	Inherits@1: ^AARocketWarhead
+	Range: 8c0
 	BurstDelays: 10
 	Burst: 4
 	Range: 8c0

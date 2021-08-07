@@ -597,7 +597,7 @@ ObeliskLaserFire:
 ScorpionLaser:
 	Inherits: ^FullDamage
 	ReloadDelay: 70
-	Range: 9c0
+	Range: 7c0
 	Report: obelray1.aud
 	Projectile: LaserZap
 		TrackTarget: false
@@ -675,3 +675,24 @@ RageEmitter:
 		Condition: chaos
 		ValidTargets: Infantry, Vehicle, Ground, Water, Defence, Air
 		ValidRelationships: Neutral, Enemy
+
+LightbringerFlame:
+	Inherits: ^FlameWarhead
+	Inherits@2: ^FlameScorch
+	ReloadDelay: 50
+	Range: 7c0
+	StartBurstReport: flamtnk1.aud
+	Projectile: BulletAS
+		Speed: 200
+		Image: FLAMEALL
+		Inaccuracy: 1c0
+		Palette: FlameEffectPal
+		Blockable: true
+	Burst: 28
+	BurstDelays: 0
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c256
+		Damage: 400
+		DamageTypes: Prone100Percent, TriggerProne, FireDeath
+		Versus:
+			InfantryArmor: 200

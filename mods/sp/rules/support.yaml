@@ -1210,3 +1210,84 @@ MUMINE:
 		BlockFriendly: false
 	Explodes:
 		Weapon: MineExplode
+
+BLACKDEFD:
+	Inherits: ^Defence
+	Inherits@RENDER: ^CabRender
+	Inherits@1: ^StructureEffects
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@DETECTION: ^TowerStealthDetection
+	Inherits@4: ^3x3Shape
+	Valued:
+		Cost: 4000
+	Health:
+		HP: 200000
+	Buildable:
+		Queue: Defense
+		Prerequisites: cabobelisk, ~structures.cab, ~techlevel.unrestricted, ~!DefenderExists
+		Description: Cabal's ultimate weapon. Defense structure with\ninsane armament. Can transform into\nthe mobile Epic walker version.\n\nGood vs: Ground\n\nSpecial when deployed:\n- Small Nanoswarm around it healing friendly units and turning killed enemy infantry into Worker Units\n- Maximum Supply of 1\n\nSpecial when mobil:\n- Selfhealing up to 100%\n- Can shoot over walls\n- Can crush everything except other Epics\n- Immune to mind control
+		BuildPaletteOrder: 50
+		BuildLimit: 1
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Armor:
+		Type: BuildingArmor
+	RevealsShroud:
+		Type: Footprint
+		MaxHeightDelta: 3
+	MustBeDestroyed:
+		RequiredForShortGame: true
+	WithMakeAnimation:
+		Condition: Building-Buildup
+	WithSpriteBody:
+		PauseOnCondition: empdisable || disabled
+	GrantConditionAfterDelay:
+		Condition: Rising
+		PauseOnCondition: mpdisable || disabled
+	Transforms:
+		RequiresCondition: Rising
+		IntoActor: bcoredef
+		Offset: 1, 1
+		Facing: 384
+		TransformSounds: place2.aud
+		NoTransformSounds:
+	Tooltip:
+		Name: C.A.B.A.L Defender
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack
+	RequiresBuildableArea:
+		AreaTypes: building
+	SpawnActorsOnSell@gdi:
+		ValuePercent: 30
+		ActorTypes: gdie1
+		Factions: gdi
+	SpawnActorsOnSell@nod:
+		ValuePercent: 30
+		ActorTypes: altnode1
+		Factions: nod
+	SpawnActorsOnSell@cab:
+		ValuePercent: 30
+		ActorTypes: worker
+		Factions: cab
+	SpawnActorsOnSell@mut:
+		ValuePercent: 30
+		ActorTypes: marauder
+		Factions: mut
+	SpawnActorsOnSell@scr:
+		ValuePercent: 30
+		ActorTypes: shark
+		Factions: scr
+	IsometricSelectable:
+		DecorationHeight: 36
+	Armament:
+		Weapon: ObeliskLaserFire
+		LocalOffset: 1980,297,1131
+		RequiresCondition: !Building-Buildup
+	AttackCharges:
+		PauseOnCondition: empdisable || disabled
+		ChargeLevel: 40
+		ChargingCondition: charging
+	AmbientSound:
+		RequiresCondition: charging && !disabled
+		SoundFiles: obelpowr.aud

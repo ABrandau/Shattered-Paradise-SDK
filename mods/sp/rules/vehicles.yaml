@@ -387,7 +387,7 @@ HMEC:
 		BuildPaletteOrder: 56
 		Prerequisites: ~showmammmk2, gtdrop
 		BuildAtProductionType: Mammoth
-		Description: GDI's super-heavy walker and the pride of their army.\n\nGood vs: Everything\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Can attack air\n- Can crush infantry\n- Immune to mind control\n- Can shoot over walls\n- Can crush vehicles and cyborgs\n- It is deployed via dropship at the Dropship Bay
+		Description: GDI's super-heavy walker and the pride of their army.\n\nGood vs: Everything\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Can attack air\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything except other Epics\n- It is deployed via dropship at the Dropship Bay
 		BuildLimit: 1
 	Voiced:
 		VoiceSet: MammothMkII
@@ -1296,7 +1296,7 @@ SCORPION:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SELFHEAL: ^PermanentSelfHeal
-	Inherits@VISION: ^10CellVision
+	Inherits@VISION: ^8CellVision
 	Valued:
 		Cost: 3000
 	Tooltip:
@@ -1308,7 +1308,7 @@ SCORPION:
 		BuildPaletteOrder: 57
 		Prerequisites: ~naweap, natmpl
 		BuildAtProductionType: Tank
-		Description: Nod's super-heavy walker. One vision one purpose.\n\nGood vs: Ground\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Can crush infantry\n- Immune to mind control\n- Can shoot over walls\n- Can crush vehicles and cyborgs\n- Deployability: Enemy units get out of control for 10 seconds
+		Description: Nod's super-heavy walker. One vision one purpose.\n\nGood vs: Ground\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything except other Epics\n- Deployability: Enemy units get out of control for 10 seconds
 		BuildLimit: 1
 	Voiced:
 		VoiceSet: Scorpion
@@ -1319,7 +1319,7 @@ SCORPION:
 		Locomotor: VehicleCrusher
 	-Crushable:
 	Health:
-		HP: 150000
+		HP: 200000
 	AnnounceOnSeen:
 		Notification: CommandoDetected
 	AttackFrontal:
@@ -1342,6 +1342,10 @@ SCORPION:
 		LocalOffset: 450,0,2300
 		MuzzleSequence: muzzle
 		MuzzlePalette: obelpal
+		PauseOnCondition: empdisable
+	Armament@FLAMES:
+		Weapon: LightbringerFlame
+		LocalOffset: 0,400,0, 0,-400,0
 		PauseOnCondition: empdisable
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: rage
@@ -1676,7 +1680,7 @@ DEATHCLAW:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 48
-		Description: Melee beast from the outer redzones that brings death with its claws.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Has Selfheal\n- E.M.P. Inmune\n- Wild mind: only controlled by MasterMind\n- Can enter tunnels.
+		Description: Melee beast from the outer redzones that brings death with its claws.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Has Selfheal\n- E.M.P. Inmune\n- Wild mind: only controlled by MasterMind
 		Prerequisites: ~muweap, muhall
 	Valued:
 		Cost: 1100
@@ -1721,7 +1725,7 @@ HVRTRUK3:
 		AddToArmyValue: true
 	Buildable:
 		BuildAtProductionType: Tank
-		Description: A hovering demolition truck with a oneway ticket.\n\nGood vs: Everything\n\nSpecial:\n- Can explode via deploy and unleash huge damage and AoE.\n- Hovers (it ignores terrain like Veins and Water)
+		Description: A hovering demolition truck with a oneway ticket.\n\nGood vs: Everything\n\nSpecial:\n- Can explode via deploy\n- Hovers (it ignores terrain like Veins and Water)\n- Cannot enter Tunnels
 		Queue: Vehicle
 		BuildPaletteOrder: 53
 		Prerequisites: ~muweap, muhall
@@ -1774,6 +1778,87 @@ HVRTRUK3:
 		ScanRadius: 8
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
+
+weasau:
+	Inherits: ^Beast
+	Inherits@RENDER: ^MutRender
+	Inherits@COMMANDO: ^CommandoIcon
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@VISION: ^8CellVision
+	Valued:
+		Cost: 3000
+	Tooltip:
+		Name: Vinifera Weasaurus
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 58
+		Prerequisites: ~naweap, mutsw2
+		BuildAtProductionType: Tank
+		Description: A long forgotten creature that has emerged again\nto defend it's territory.\n\nGood vs: Ground\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything execept other Epics\n- Heals on Tiberium\n- E.M.P. Inmune\n- Deployability: Summons a massive brood of Tiberium Creatures
+		BuildLimit: 1
+	Voiced:
+		VoiceSet: LargeBeast
+		Volume: 1.5
+	Targetable:
+		TargetTypes: Ground, Vehicle, OrganicVehicle, NoRepair
+	Mobile:
+		TurnSpeed: 24
+		Speed: 70
+		Locomotor: VehicleCrusher
+	-Crushable:
+	Health:
+		HP: 200000
+	AnnounceOnSeen:
+		Notification: CommandoDetected
+	AutoTarget:
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
+	AmbientSound@WalkAnim:
+		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
+		Delay: 16
+		Interval: 16
+		RequiresCondition: walking
+	GrantConditionOnMovement:
+		Condition: walking
+	AttackFrontal:
+		FacingTolerance: 6
+	Armament:
+		Weapon: BroodmotherSpit
+		LocalOffset: 450,0,2300
+	GrantTimedConditionOnDeploy:
+		DeployedCondition: deployed
+		CooldownTicks: 3000
+		DeployedTicks: 10
+		StartsFullyCharged: true
+	ExplodeWeapon:
+		Weapon: EggElevator
+		RequiresCondition: deployed
+	Carryable:
+		LocalOffset: 0, 0, 20
+	Passenger:
+		CustomPipType: red
+	RenderSprites:
+		Palette: orgatemblue
+		Image: weasaublue2
+	WithInfantryBody:
+		IdleSequences: idle1, idle2
+	Selectable:
+		Bounds: 2413, 4041, 0, -1508
+	SharedPassenger:
+		CustomPipType: red
+	Explodes:
+		Weapon: QueenExplode
+		EmptyWeapon: QueenExplode
+#	ExternalCondition@PRODUCED:
+#		Condition: produced
+#	VoiceAnnouncement:
+#		RequiresCondition: produced
+#		Voice: Build
 
 ###########################################################
 # SCRIN
@@ -2080,7 +2165,7 @@ TRIPOD:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^8CellVision
 	Valued:
-		Cost: 1400
+		Cost: 1600
 	Tooltip:
 		Name: Annihilator Tripod
 	UpdatesPlayerStatistics:
@@ -2358,7 +2443,7 @@ REPAIRVEHICLE:
 
 ECM:
 	Inherits: ^Vehicle
-	Inherits@RENDER: ^CabRender
+	Inherits@RENDER: ^MutRender
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Inherits@VISION: ^5CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
@@ -2371,9 +2456,9 @@ ECM:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Utility vehicle.\n\nSpecial:\n- Can place up to 5 mines in the battlefield\n- Reloads in service depot.\n- Mines are cloaked and harm all unit types.\n- Can crush Infantry.
-		BuildPaletteOrder: 29
-		Prerequisites: ~cabweap, gadept, ~!AIsNotAllowed
+		Description: Mines...mines everywhere!\n\nSpecial:\n- Can place up to 5 mines in the battlefield\n- Reloads in service depot\n- Mines are cloaked and harm all unit types\n- Can crush Infantry
+		BuildPaletteOrder: 32
+		Prerequisites: ~muweap, gadept, ~!AIsNotAllowed
 	Mobile:
 		TurnSpeed: 12
 		Speed: 70
@@ -2584,7 +2669,7 @@ BCOREDEF:
 	Inherits@VISION: ^8CellVision
 	Inherits@VOICE: ^CabalVehicleVoice
 	Valued:
-		Cost: 3000
+		Cost: 4000
 	Tooltip:
 		Name: C.A.B.A.L Defender
 	UpdatesPlayerStatistics:
@@ -2593,7 +2678,7 @@ BCOREDEF:
 		Queue: Vehicle
 		BuildPaletteOrder: 59
 		BuildAtProductionType: Tank
-		Description: Epic walker armed with a twin laser cannons and blast proton weapon on the shoulder.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle\n- Immune to mind control
+		Description: C.A.B.A.L.'s Epic walker armed with twin laser cannons and a Blaster Turret mounted on it's shoulder.\n\nGood vs: Ground Targets\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Can shoot over walls\n- Can crush everything except other Epics\n- Immune to mind control
 		Prerequisites: ~cabweap, cabobelisk
 		BuildLimit: 1
 	Mobile:

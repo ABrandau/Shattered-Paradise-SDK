@@ -224,7 +224,7 @@ PsykerRay:
 	Inherits@3: ^LightningDefault
 	ReloadDelay: 75
 	Range: 14c0
-	Burst: 8
+	Burst: 4
 	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 	Projectile: InstantHit
 		Inaccuracy: 2c512
@@ -764,3 +764,37 @@ VeinholeEggElevator:
 	Inherits: EggElevator
 	MinRange: 1c0
 	ReloadDelay: 800
+
+BroodmotherSpit:
+	Inherits: ^AcidWarhead
+	ReloadDelay: 60
+	Range: 7c0
+	Burst: 7
+	StartBurstReport: fiend2.aud
+	Projectile: BulletAS
+		Speed: 500
+		Image: acidall32mini
+		Palette: jascgreen
+		Inaccuracy: 1c0
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 75, 75
+		Spread: 526
+		Damage: 5000
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 100
+			VehicleArmor: 100
+			DefenseArmor: 100
+			ConcreteArmor: 15
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
+		ValidTargets: Vehicle, Infantry, Building, Ground, Water
+	Warhead@2Eff: CreateEffect
+		Explosions: tib_expsmall
+		ExplosionPalette: apolgreenalpha
+		InvalidTargets: Water
+	Warhead@Acid: GrantExternalCondition
+		Range: 1c0
+		Duration: 125
+		Condition: WolfDebuff
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 460
