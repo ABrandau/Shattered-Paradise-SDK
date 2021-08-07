@@ -302,11 +302,12 @@ SONIC:
 		TargetTypes: Ground, Vehicle, AllySonicImmune
 	Turreted:
 		TurnSpeed: 24
-		Offset: -300,0,0 #Cannot use -500 for AreaBeam bug
 	AutoTarget:
 		ScanRadius: 7
 	BodyOrientation:
 		CameraPitch: 240
+	Selectable:
+		Bounds: 1400, 2700, 0, -300 #1206,1809
 
 G4TNK:
 	Inherits: ^TurretedTank
@@ -364,6 +365,8 @@ G4TNK:
 		QuantizedFacings: 32
 		CameraPitch: 250
 	WithMuzzleOverlay:
+	Selectable:
+		Bounds: 1800, 2700
 
 HMEC:
 	Inherits: ^Tank
