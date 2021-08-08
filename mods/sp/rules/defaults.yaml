@@ -455,7 +455,8 @@
 
 ## The basic idea is:
 ## "MindControllable" is can be controlled by all MC units
-## "MindControllableMastermind" is only can be controlled by Mastermind
+## "MindControllableMastermind" is only can be instantly controlled by Mastermind,
+## "MindControllableBuilding" is only can be controlled by Mastermind, but it has a delay
 ## "-Targetable@MC:" is absolute MindControlImmune
 ^MindControllable:
 	WithMindControlArc:
@@ -482,6 +483,11 @@
 	Inherits: ^MindControllable
 	Targetable@MC:
 		TargetTypes: MindControllableMastermind
+
+^MindControllableBuilding:
+	Inherits: ^MindControllable
+	Targetable@MC:
+		TargetTypes: MindControllableBuilding
 
 ^Berserkable:
 	Berserkable@CHAOS:
@@ -1092,7 +1098,7 @@
 	Inherits@2: ^SpawnSmoke
 	Inherits@3: ^SpawnSpark
 	Inherits@4: ^WithTriggerCloakEffect-Building
-	Inherits@5: ^MindControllableMastermind
+	Inherits@5: ^MindControllableBuilding
 	SmokeParticleEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self
 	ExplodeWeapon@spawnsparks:
@@ -2384,6 +2390,7 @@
 	Inherits@0: ^Cloakable
 	Inherits@1: ^3CellVision
 	Inherits@2: ^SelectableBuilding
+	Inherits@3: ^MindControllableBuilding
 	RevealsShroud:
 		Type: Footprint
 		MaxHeightDelta: 3

@@ -1470,7 +1470,7 @@ MASTERMIND:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 40
-		Description: The Commando Unit of Scrin born with the ability to Mind Control everyone and everything.\n\nSpecial:\n- Can mind control everything but Commandos and Epics\n- Absorbs essence from killed units to heal\n- Can teleport over a short distance\n- Can mind control over walls\n- Immune to mind control\n- Crush class: uncrushable\n- Does not receive damage from tiberium fields
+		Description: The Commando Unit of Scrin born with the ability to Mind Control everyone and everything.\n\nSpecial:\n- Can mind control everything but Commandos and Epics\n- Takes some time to mind control Structures\n- Absorbs essence from killed units to heal\n- Can teleport over a short distance\n- Can mind control over walls\n- Immune to mind control\n- Crush class: uncrushable\n- Does not receive damage from tiberium fields
 		Prerequisites: ~scrrax, scrtech
 		BuildLimit: 1
 	Valued:
@@ -1481,6 +1481,7 @@ MASTERMIND:
 		AddToArmyValue: true
 	MindController:
 		Capacity: 1
+		ArmamentNames: control
 		Sounds: sonpulse.aud
 		ControllingCondition: slaving
 	ExplodeWeapon@Casing:
@@ -1489,9 +1490,25 @@ MASTERMIND:
 		RequiresCondition: attack
 	GrantConditionOnAttack@Casing:
 		Condition: attack
-		ArmamentNames: primary
+		ArmamentNames: control
 	Armament@PRIMARY:
+		Name: control
 		Weapon: MindControllerMastermind
+	Armament@BUILDING:
+		Weapon: MindControllerMastermindBuilding
+		RequiresCondition: !control
+	Armament@BUILDINGCONTROL:
+		Name: control
+		Weapon: MindControllerMastermindBuilding
+		RequiresCondition: control
+	GrantConditionOnAttack@CONTROL:
+		Condition: control
+		ArmamentNames: primary
+		RequiredShotsPerInstance: 5
+		MaximumInstances: 1
+		RevokeDelay: 11
+		RevokeAll: true
+		RevokeOnNewTarget: true
 	-TakeCover:
 	-Targetable@MC:
 	Health:
@@ -1502,6 +1519,7 @@ MASTERMIND:
 	Crushable:
 		CrushClasses: HeavyInfantry
 	AttackFrontal:
+		Armaments: primary, control
 	RenderRangeCircle:
 		RangeCircleType: Subjugator
 		Color: 800080CC
