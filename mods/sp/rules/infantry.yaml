@@ -1463,6 +1463,10 @@ MASTERMIND:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@VISION: ^8CellVision
+	AutoTargetPriority@DEFAULT:
+		RequiresCondition: !stance-attackanything && !assault-move && !slaving
+	AutoTargetPriority@ATTACKANYTHING:
+		RequiresCondition: (stance-attackanything || assault-move) && !slaving
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 40
@@ -1478,7 +1482,7 @@ MASTERMIND:
 	MindController:
 		Capacity: 1
 		Sounds: sonpulse.aud
-		#ControllingCondition: slaving
+		ControllingCondition: slaving
 	ExplodeWeapon@Casing:
 		Weapon: MindEnergyCasing
 		LocalOffset: 0,0,2000
