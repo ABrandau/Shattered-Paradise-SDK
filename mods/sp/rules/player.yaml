@@ -95,6 +95,33 @@ Player:
 		Name: Unrestricted
 		Prerequisites: techlevel.infonly, techlevel.low, techlevel.medium, techlevel.high, techlevel.unrestricted
 		Id: unrestricted
+	ProvidesPrerequisite@playergdi:
+		Factions: gdi
+		Prerequisite: player.gdi
+	ProvidesPrerequisite@playernod:
+		Factions: nod
+		Prerequisite: player.nod
+	ProvidesPrerequisite@playermut:
+		Factions: mut
+		Prerequisite: player.mut
+	ProvidesPrerequisite@playercab:
+		Factions: cab
+		Prerequisite: player.cab
+	ProvidesPrerequisite@playerscr:
+		Factions: scr
+		Prerequisite: player.scr
+	ProvidesPrerequisite@playerhuman:
+		Factions: gdi, nod, mut, cab
+		Prerequisite: player.human
+	ProvidesPrerequisite@playersharedwall:
+		Factions: gdi, cab
+		Prerequisite: player.sharedwall
+	ProvidesPrerequisite@playersharedgate:
+		Factions: gdi, nod, cab
+		Prerequisite: player.sharedgate
+	ProvidesPrerequisite@playerhumanengi:
+		Factions: gdi, nod
+		Prerequisite: player.humanengi
 	Shroud:
 		FogCheckboxDisplayOrder: 3
 		ExploredMapCheckboxEnabled: true

@@ -97,8 +97,6 @@ GAPILE:
 		Sequence: idle-flag
 		RequiresCondition: !Building-Buildup
 	ProvidesPrerequisite@buildingname:
-	ProvidesPrerequisite@SharedEngie:
-		Prerequisite: SharedEngie
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -219,6 +217,8 @@ GAHPAD:
 		DeathSequence: dead-platform
 		UseDeathTypeSuffix: false
 	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@airhuman:
+		Prerequisite: air.human
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -328,6 +328,7 @@ NODYARD:
 	-WithIdleOverlay@FRONT-BRIGHT:
 	-WithMakeOverlay@MAKE-BRIGHT:
 	-WithBuildingPlacedOverlay:
+	-ProvidesPrerequisite@structureswall:
 	ProvidesPrerequisite@faction:
 		Prerequisite: structures.nod
 	ProvidesPrerequisite@grantself:
@@ -414,8 +415,6 @@ NAHAND:
 	WithProductionOverlay@LIGHT:
 		Sequence: production-light
 		RequiresCondition: !Building-Buildup
-	ProvidesPrerequisite@SharedEngie:
-		Prerequisite: SharedEngie
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -556,6 +555,8 @@ NAHPAD:
 		DeathSequence: dead-platform
 		UseDeathTypeSuffix: false
 	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@airhuman:
+		Prerequisite: air.human
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -880,6 +881,8 @@ MUAIR:
 	Exit@1:
 		Facing: 0
 	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@airhuman:
+		Prerequisite: air.human
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -970,6 +973,7 @@ drached:
 	-WithIdleOverlay@FRONT-BRIGHT:
 	-WithMakeOverlay@MAKE-BRIGHT:
 	-WithBuildingPlacedOverlay:
+	-ProvidesPrerequisite@structureshuman:
 	ProvidesPrerequisite@faction:
 		Prerequisite: structures.scr
 	ProvidesPrerequisite@grantself:
@@ -1673,6 +1677,8 @@ CABAIR:
 	PrimaryBuilding:
 		PrimaryCondition: primary
 	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@airhuman:
+		Prerequisite: air.human
 	WithTextDecoration@primary:
 		Text: PRIMARY
 		Position: Top
