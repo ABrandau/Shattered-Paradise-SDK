@@ -1326,7 +1326,7 @@ SCORPION:
 		Voice: Attack
 		PauseOnCondition: empdisable
 		FacingTolerance: 6
-	AutoTarget:
+		Armaments: laserArmament, fireArmament
 	BodyOrientation:
 		QuantizedFacings: 8
 		CameraPitch: 250
@@ -1337,16 +1337,23 @@ SCORPION:
 		RequiresCondition: walking
 	GrantConditionOnMovement:
 		Condition: walking
-	Armament:
+	WithInfantryBody:
+		-DefaultAttackSequence: 
+		RequiresCondition: !inside-tunnel
+		AttackSequences:
+			laserArmament: shoot1
+	Armament@laser:
 		Weapon: ScorpionLaser
 		LocalOffset: 450,0,2300
 		MuzzleSequence: muzzle
 		MuzzlePalette: obelpal
 		PauseOnCondition: empdisable
+		Name: laserArmament
 	Armament@FLAMES:
 		Weapon: LightbringerFlame
-		LocalOffset: 0,400,0, 0,-400,0
+		LocalOffset: 1300,500,700, 1300,-500,700
 		PauseOnCondition: empdisable
+		Name: fireArmament
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: rage
 		CooldownTicks: 1500
@@ -1355,8 +1362,6 @@ SCORPION:
 	ExplodeWeapon@Deployed:
 		Weapon: RageEmitter
 		RequiresCondition: rage
-	WithInfantryBody:
-		DefaultAttackSequence: shoot1
 	-Targetable@MC:
 	Carryable:
 		LocalOffset: 0, 0, 20
