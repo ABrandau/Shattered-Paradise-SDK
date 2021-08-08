@@ -2679,13 +2679,6 @@ BCOREDEF:
 		Name: C.A.B.A.L Defender
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 45
-		Description: C.A.B.A.L.'s Epic walker armed with twin laser cannons and a Blaster Turret mounted on it's shoulder.\n\nGood vs: Ground Targets\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Can shoot over walls\n- Can crush everything except other Epics\n- Immune to mind control
-		Prerequisites: ~cabweap, cabobelisk
-		BuildLimit: 1
 	Mobile:
 		TurnSpeed: 36
 		Speed: 60
@@ -2695,6 +2688,17 @@ BCOREDEF:
 		Delay: 16
 		Interval: 16
 		RequiresCondition: walking
+	GrantConditionAfterDelay:
+		Condition: CanDeploy
+		PauseOnCondition: empdisable
+		Delay: 400
+	Transforms:
+		RequiresCondition: CanDeploy
+		IntoActor: blackdefd
+		Offset: -1, -1
+		Facing: 384
+		TransformSounds: place2.aud
+		NoTransformSounds:
 	GrantConditionOnMovement:
 		Condition: walking
 	ChangesHealth@Permanent:
@@ -2768,3 +2772,5 @@ BCOREDEF:
 	VoiceAnnouncement:
 		RequiresCondition: produced
 		Voice: Build
+	ProvidesPrerequisite@buildinglimit:
+		Prerequisite: DarkDefenderExists

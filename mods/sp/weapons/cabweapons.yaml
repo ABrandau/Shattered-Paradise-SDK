@@ -651,7 +651,7 @@ BlasterProton:
 			BuildingArmor: 50
 			DefenseArmor: 50
 			VehicleArmor: 100
-		ValidTargets: Ground, Water, Vehicle, Infantry, water
+		ValidTargets: Ground, Water, Vehicle, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
 
 CABRAILAA:
@@ -919,6 +919,55 @@ BlackCDefCannon:
 			BuildingArmor: 50
 			DefenseArmor: 50
 			VehicleArmor: 100
-		ValidTargets: Ground, Water, Vehicle, Infantry, water
+		ValidTargets: Ground, Water, Vehicle, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
 
+
+BlackCDefArtillery:
+	Inherits: ^FullDamage
+	Inherits@2: ^GreenPlasmaExplosion
+	ReloadDelay: 100
+	Burst: 1
+	MinRange: 5c0
+	Range: 18c0
+	Report: scrin5b.aud
+	ValidTargets: Ground, Water, Vehicle, Infantry
+	Projectile: BulletAS
+		Speed: 300
+		Blockable: false
+		Shadow: false
+		Inaccuracy: 1c0
+		LaunchAngle: 196
+		Palette: apgreen
+		Image: hugegreenplasma
+		TrailImage: explosion
+		TrailSequences: lazerflare
+		TrailPalette: apgreen
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c768
+		Damage: 15000
+		Versus:
+			BuildingArmor: 50
+			DefenseArmor: 50
+			VehicleArmor: 100
+		ValidTargets: Ground, Water, Vehicle, Infantry
+		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: boltexplo
+		ExplosionPalette: gensmkexplogreen
+	Warhead@op: FireRadius
+		Weapon: BlackCDefArtilleryShrepnel
+		ImpactActors: false
+		Amount: 12
+		ValidTargets: Ground, Water, Infantry, Vehicle, Air
+
+
+
+BlackCDefArtilleryShrepnel:
+	Inherits: BlackCDefCannon
+	Range: 1c0
+	Projectile: BulletAS
+		Speed: 100
+		Inaccuracy: 2c512
+		LaunchAngle: 196
+		-ContrailLength:
