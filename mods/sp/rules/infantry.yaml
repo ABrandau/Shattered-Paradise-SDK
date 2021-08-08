@@ -38,7 +38,7 @@ GRENADIER:
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 6
+		BuildPaletteOrder: 2
 		Prerequisites: ~gapile
 		Description: Basic anti armor infantry.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack Air\n- Can shoot over walls\n- Crush class: crushable
 	Valued:
@@ -87,7 +87,7 @@ MEDIC:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 16
+		BuildPaletteOrder: 4
 		Description: Heals nearby infantry.\n\n  Unarmed
 		Prerequisites: ~gapile
 	Voiced:
@@ -119,7 +119,7 @@ E2:
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 17
 		Prerequisites: ~gapile, garadr
 		Description: Infantry armed with special explosive discs.\n\nGood vs: Infantry, Structures.\n\nSpecial:\n- Can throw over walls\n- Crush class: crushable
 	Valued:
@@ -206,7 +206,7 @@ JUMPJETAIR:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 21
+		BuildPaletteOrder: 18
 		Prerequisites: ~gapile, garadr
 		Description: Soldiers with jetpacks armed with a grenade launcher.\n\nGood vs: Infantry, Structures.\n\nSpecial:\n- Can fly\n- Will land when ordered to deploy\n- Can shoot over walls
 	Voiced:
@@ -293,7 +293,7 @@ EAGLEGUARD:
 	Buildable:
 		Description: Elite Soldiers armed with an EMP ray.\n\nGood vs: Vehicles.\n\nSpecial:\n- Does not receive damage from tiberium fields.\n- Disables vehicles and buildings for a short time\n- Crush class: uncrushable
 		Queue: Infantry
-		BuildPaletteOrder: 31
+		BuildPaletteOrder: 24
 		Prerequisites: ~gapile, gatech
 	Voiced:
 		VoiceSet: Ghost
@@ -392,7 +392,7 @@ JJCOMMAIR:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 36
+		BuildPaletteOrder: 25
 		Prerequisites: ~gapile, gatech, !jjcomm
 		Description: Soldier with jetpacks armed with sonic gun and orbital bombardment beacon.\n\nGood vs: All.\n\nSpecial:\n- Can fly\n- Will land when ordered to deploy\n- Immune to mind control\n- Beacon needs reloading when just after transforming
 		BuildLimit: 1
@@ -483,7 +483,7 @@ ALTNODE1:
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 2
+		BuildPaletteOrder: 5
 		Description: Light infantry variant.\n\nGood vs: Infantry\n\nSpecial:\n- Does not go prone after taking fire.\n- Crush class: crushable
 		Prerequisites: ~nahand
 	Valued:
@@ -517,7 +517,7 @@ CRUSADER:
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 7
+		BuildPaletteOrder: 6
 		Description: Anti armor infantry.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack Air\n- Can shoot while moving\n- Does not go prone after taking fire\n- Can shoot over walls\n- Crush class: crushable
 		Prerequisites: ~nahand
 	Valued:
@@ -562,7 +562,7 @@ TEMPLAR:
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 22
+		BuildPaletteOrder: 19
 		Description: Flame warrior, resurrected regenesis prototype.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Can damage structures through walls\n- Does not receive damage from tiberium fields\n- Crush class: crushable
 		Prerequisites: ~nahand, naradr
 	Valued:
@@ -602,7 +602,7 @@ NCONF:
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 27
+		BuildPaletteOrder: 26
 		Description: Nod Special forces with a high tech Stealth Generator suit.\n\nGood vs: Ground Targets\n\nSpecial:\n- Spawns holograms when ordered to deploy\n- Cloaked when not firing\n- Crush class: crushable
 		Prerequisites: ~nahand, natech
 		IconPalette: UnittemIcon
@@ -665,7 +665,7 @@ BHS:
 	Inherits@VISION: ^10CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 37
+		BuildPaletteOrder: 27
 		Description: Kanes Elite Commando armed with a toxin sniper rifle and extrodinary camouflage skill.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes structures with C4\n- Shots fired release toxins that slow nearby units\n- Cloaks when idling\n- Immune to mind control\n- Crush class: crushable
 		Prerequisites: ~nahand, natech
 		BuildLimit: 1
@@ -743,7 +743,7 @@ MARAUDER:
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 3
+		BuildPaletteOrder: 7
 		Description: Wasteland soldiers armed with shotguns.\n\nGood vs: Infantry\n\nSpecial:\n- Heals on Tiberium\n- Can deploy to increase health and attackrange.\n- Crush class: crushable
 		Prerequisites: ~murax
 	Valued:
@@ -915,7 +915,7 @@ CUTMAN:
 	Tooltip:
 		Name: Mutant Engineer
 	Buildable:
-		BuildPaletteOrder: 13
+		BuildPaletteOrder: 9
 		Prerequisites: ~murax
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Heals on tiberium fields.
 		IconPalette: unittemgreen
@@ -949,7 +949,7 @@ E3:
 	Inherits@VISION: ^5CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 23
+		BuildPaletteOrder: 20
 		Description: Siege militia armed with mortars.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Heals on Tiberium\n- High attack range\n- Has a minimum attack distance\n- Applies a radiation damage on impact\n- Inmune to radiation damage\n- Can shoot over walls\n- Crush class: crushable
 		Prerequisites: ~murax, muradr
 	Valued:
@@ -1054,12 +1054,12 @@ MHIJACK:
 		Cost: 1500
 	Tooltip:
 		Name: Chameleon The Hijacker
-	#Buildable:
-	#	Queue: Infantry
-	#	BuildPaletteOrder: 33
-	#	Prerequisites: ~murax, muhall
-	#	Description: Chameleon is an expert in Hijacking any vehicle\nno matter if it has wheels, tracks or legs.\n\nSpecial:\n- Unarmed\n- Maximum Supply of 1\n- Cloaks when idling\n- Heals on Tiberium\n- Immune to mindcontrol\n- Crush class: uncrushable
-	#	BuildLimit: 1
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 29
+		Prerequisites: ~disabled # ~murax, muhall
+		Description: Chameleon is an expert in Hijacking any vehicle\nno matter if it has wheels, tracks or legs.\n\nSpecial:\n- Unarmed\n- Maximum Supply of 1\n- Cloaks when idling\n- Heals on Tiberium\n- Immune to mindcontrol\n- Crush class: uncrushable
+		BuildLimit: 1
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Voiced:
@@ -1099,12 +1099,12 @@ GHOST:
 		Name: Gil The Ghost Stalker
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	#Buildable:
-	#	Queue: Infantry
-	#	BuildPaletteOrder: 38
-	#	Prerequisites: ~murax, muhall
-	#	Description: Gil is the elite commando unit of Mutants.\nHe is armed with a railgun and C4.\n\nGood vs Ground\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes structures with C4\n- Heals on Tiberium\n- Immune to mindcontrol\n- Crush class: crushable
-	#	BuildLimit: 1
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 30
+		Prerequisites: ~disabled # ~murax, muhall
+		Description: Gil is the elite commando unit of Mutants.\nHe is armed with a railgun and C4.\n\nGood vs Ground\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes structures with C4\n- Heals on Tiberium\n- Immune to mindcontrol\n- Crush class: crushable
+		BuildLimit: 1
 	Armor:
 		Type: InfantryArmor
 	Mobile:
@@ -1139,7 +1139,7 @@ PSYKER:
 	Inherits@VISION: ^10CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 43
+		BuildPaletteOrder: 31
 		Prerequisites: ~murax, muhall
 		Description: Forgotten Commando. Pure strain forgotten that can call down lightning strikes.\n\nGood vs: Ground\n\nSpecial:\n- Maximum Supply of 1\n- Heals on Tiberium\n- Strong AoE\n- Can shoot over walls\n- Immune to mind control\n- Crush class: crushable
 		BuildLimit: 1
@@ -1182,7 +1182,7 @@ SHARK:
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 5
+		BuildPaletteOrder: 14
 		Description: Melee creature that tears down enemies.\n\nGood vs Infantry.\n\nSpecial:\n- Absorbs essence from killed units to heal.\n- Crush class: crushable.\n- Immune to Tiberium radiation.\n- Does not receive damage from tiberium fields.
 		Prerequisites: ~scrrax
 	Valued:
@@ -1233,7 +1233,7 @@ LEGIO:
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 10
+		BuildPaletteOrder: 15
 		Description: Frontile trooper.\n\nGood vs Vehicles, Buildings, Aircraft.\n\nSpecial:\n- Absorbs essence from killed units to heal\n- Can shoot over walls\n- Crush class: crushable\n- Does not receive damage from tiberium fields
 		Prerequisites: ~scrrax
 	Valued:
@@ -1280,7 +1280,7 @@ SHAPESHIFTER:
 	Tooltip:
 		Name: Shapeshifter
 	Buildable:
-		BuildPaletteOrder: 15
+		BuildPaletteOrder: 16
 		Prerequisites: ~scrrax
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Does not receive damage from tiberium fields
 	Voiced:
@@ -1301,7 +1301,7 @@ FLOAT:
 	Inherits@VISION: ^7CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 25
+		BuildPaletteOrder: 22
 		Description: Support unit that steals essence from enemy units.\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water)\n- Attack deals little to no damage but steals essence to heal friendly units.\n- Crush class: crushable.\n- Does not receive damage from tiberium fields.
 		Prerequisites: ~scrrax, scrradr
 	Valued:
@@ -1340,7 +1340,7 @@ BUG:
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 23
 		Description: Alien breed that poisons enemies.\n\nGood vs Ground targets.\n\nSpecial\n- Units hit will become poisoned.\n- Poisoned units take damage over time.\n- Plague Carriers attacks bounce a second time.\n- Absorbs essence from killed enemies to heal.\n- Crush class: uncrushable.\n- Does not receive damage from tiberium fields.
 		Prerequisites: ~scrrax, scrradr
 	Valued:
@@ -1382,7 +1382,7 @@ COLOSSI:
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 35
+		BuildPaletteOrder: 34
 		Description: Heavy duty alien.\n\nGood vs Infantry.\n\nSpecial:\n- Can irradiate its surroundings when deployed\n- Becomes immobile on this stance\n- Radiation harms all units regardless of owner\n- Can absorb essence from killed units to heal\n- Can shoot over walls\n- Crush class: uncrushable\n- Does not receive damage from tiberium fields\n- Immune to its own radiation
 		Prerequisites: ~scrrax, scrtech
 	Valued:
@@ -1469,7 +1469,7 @@ MASTERMIND:
 		RequiresCondition: (stance-attackanything || assault-move) && !slaving
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 35
 		Description: The Commando Unit of Scrin born with the ability to Mind Control everyone and everything.\n\nSpecial:\n- Can mind control everything but Commandos and Epics\n- Takes some time to mind control Structures\n- Absorbs essence from killed units to heal\n- Can teleport over a short distance\n- Can mind control over walls\n- Immune to mind control\n- Crush class: uncrushable\n- Does not receive damage from tiberium fields
 		Prerequisites: ~scrrax, scrtech
 		BuildLimit: 1
@@ -1610,7 +1610,7 @@ CYBORG:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 4
+		BuildPaletteOrder: 10
 		Description: Durable cyborg construct.\n\nGood vs: Infantry.\n\nSpecial:\n- Does not receive damage from tiberium fields.\n- Looses its legs on critical health.\n- Crush class: uncrushable.
 		Prerequisites: ~cabclaw
 	Mobile:
@@ -1649,7 +1649,7 @@ CBORG:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 9
+		BuildPaletteOrder: 11
 		Description: Anti armor cyborg.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack Air\n- Does not receive damage from tiberium fields\n- Looses its legs on critical health\n- Can shoot over walls\n- Crush class: uncrushable
 		Prerequisites: ~cabclaw
 		IconPalette: UnittemIcon
@@ -1689,7 +1689,7 @@ SWARMLING:
 	Tooltip:
 		Name: Swarmling
 	Buildable:
-		BuildPaletteOrder: 14
+		BuildPaletteOrder: 12
 		Prerequisites: ~cabclaw
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Does not receive damage from tiberium fields.
 	Explodes:
@@ -1731,9 +1731,9 @@ PDRONE:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry
-		Description: Melee drone programmed to kill enemy infantry.\n\nSpecial:\n- Can only attack infantry\n- Turns killed infantry into worker cyborgs\n- Does not receive damage from tiberium fields\n- Crush class: crushable\n- Can cross water.
-		BuildPaletteOrder: 19
+		BuildPaletteOrder: 13
 		Prerequisites: ~cabclaw
+		Description: Melee drone programmed to kill enemy infantry.\n\nSpecial:\n- Can only attack infantry\n- Turns killed infantry into worker cyborgs\n- Does not receive damage from tiberium fields\n- Crush class: crushable\n- Can cross water.
 	Selectable:
 		Bounds: 664,1568,0,0
 	Crushable:
@@ -1798,10 +1798,10 @@ GLAD:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: Advanced cyborg construct, extremely resilient.\n\nGood vs: Vehicles\n\nSpecial:\n- Selfrepair\n- Does not receive damage from tiberium fields.\n- Looses its legs on critical health.\n- Crush class: uncrushable
 		Queue: Infantry
-		BuildPaletteOrder: 24
+		BuildPaletteOrder: 21
 		Prerequisites: ~cabclaw, cabradr
+		Description: Advanced cyborg construct, extremely resilient.\n\nGood vs: Vehicles\n\nSpecial:\n- Selfrepair\n- Does not receive damage from tiberium fields.\n- Looses its legs on critical health.\n- Crush class: uncrushable
 	Selectable:
 		Bounds: 1056,1809,0,-603
 	Passenger:
@@ -1878,7 +1878,7 @@ MOTH:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 29
+		BuildPaletteOrder: 32
 		Description: High tech ambusher drone can dig hole to hide itself.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Needs to deploy to attack\n- Cloaked when deployed\n- Turns infantry victims into worker units\n- Does not receive damage from tiberium fields\n- Auto repairs when not attacked\n- Can shoot below walls\n- Crush class: uncrushable\n- Can cross water
 		Prerequisites: cabtech, ~cabclaw
 	Explodes:
@@ -2002,7 +2002,7 @@ CYC2:
 	Buildable:
 		Description: Elite cyborg armed with a plasma cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Looses its legs when at critical health\n- Will reattach new legs after gaining enough health\n- Crush class: uncrushable\n- Immune to mind control
 		Queue: Infantry
-		BuildPaletteOrder: 39
+		BuildPaletteOrder: 33
 		Prerequisites: ~cabclaw, cabtech
 		BuildLimit: 1
 	Voiced:
