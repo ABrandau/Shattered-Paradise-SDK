@@ -586,9 +586,9 @@ FLIPPEDYPROC:
 		ExitDelay: 5
 		ProductionTypes: Tank, Vehicle
 	Tooltip:
-		Name: Vehicle or Aircraft production
+		Name: War Factory
 	ProvidesPrerequisite@factoryhelipad:
-		Prerequisite: Vehicle or Aircraft production
+		Prerequisite: factoryorair
 	Production:
 		Produces: Vehicle, Tank
 	PrimaryBuilding:
@@ -633,9 +633,9 @@ FLIPPEDYPROC:
 	PrimaryBuilding:
 		PrimaryCondition: primary
 	Tooltip:
-		Name: Vehicle or Aircraft production
-	ProvidesPrerequisite@pieceofshit:
-		Prerequisite: Vehicle or Aircraft production
+		Name: Helipad
+	ProvidesPrerequisite@factoryorair:
+		Prerequisite: factoryorair
 	Reservable:
 	#RepairsUnits:
 	#	Interval: 1
@@ -729,7 +729,7 @@ GADEPT:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 21
-		Prerequisites: ~player.human, Vehicle or Aircraft production
+		Prerequisites: ~player.human, factoryorair
 		Description: Repairs vehicles.\n\nSpecial:\n- Can be ordererd to repair a single vehicle faster for a cost.\nApply a repair command to a vehicle to send it to a nearby service depot.
 	Building:
 		Footprint: =+= x++ x+=
@@ -786,7 +786,7 @@ SCRDEPOT:
 	Inherits@RENDER: ^ScrinRender
 	Buildable:
 		BuildPaletteOrder: 25
-		Prerequisites: ~player.scr, Vehicle or Aircraft production
+		Prerequisites: ~player.scr, factoryorair
 	Tooltip:
 		Name: Scrin Maintenance Depot
 	ProvidesPrerequisite@buildingname:
@@ -846,6 +846,12 @@ RADAR:
 	Interactable:
 	Tooltip:
 		Name: Radar
+
+FACTORYORAIR:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: Vehicle or Aircraft Production
 
 TECH:
 	AlwaysVisible:
