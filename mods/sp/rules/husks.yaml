@@ -93,7 +93,7 @@ ORCATRAN.Husk:
 TRNSPORT.Husk:
 	Inherits: ^AircraftHusk
 	Tooltip:
-		Name: Carryall
+		Name: Orca Carryall
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 149
@@ -102,11 +102,15 @@ TRNSPORT.Husk:
 
 TRNSPORT.nod.Husk:
 	Inherits: TRNSPORT.Husk
+	Tooltip:
+		Name: Nod Carryall
 	RenderSprites:
 		Image: nodcarryall
 
 TRNSPORT.mut.Husk:
 	Inherits: TRNSPORT.Husk
+	Tooltip:
+		Name: Chinook Carryall
 	WithIdleOverlay@1Air:
 		Offset: 500,0,650
 		Sequence: rotor
@@ -118,13 +122,23 @@ TRNSPORT.mut.Husk:
 
 TRNSPORT.cab.Husk:
 	Inherits: TRNSPORT.Husk
+	Tooltip:
+		Name: C.A.B.A.L. Carryall
 	RenderSprites:
 		Image: cabcarryall
 
 TRNSPORT.scr.Husk:
 	Inherits: TRNSPORT.Husk
+	Tooltip:
+		Name: Scrin Carryall
 	RenderSprites:
 		Image: scrpod
+	FallsToEarth:
+		Explosion: ScrinSmallPlaneExplode
+	SmokeParticleEmitter@spawnsmoke:
+		Duration: 100
+		Image: scrsmoke
+		Palette: gradientblue20
 
 GUARDIAN.Husk:
 	Inherits: ^AircraftHusk
@@ -142,19 +156,6 @@ GUARDIAN.Husk:
 	RenderSprites:
 		Image: guardian
 
-SCRIN.Husk:
-	Inherits: ^AircraftHusk
-	Tooltip:
-		Name: Banshee Fighter
-	Aircraft:
-		TurnSpeed: 20
-		Speed: 168
-	RenderSprites:
-		Image: scrin
-	FallsToEarth:
-		Moves: true
-		MaximumSpinSpeed: 0
-
 APACHE.Husk:
 	Inherits: ^AircraftHusk
 	Tooltip:
@@ -168,10 +169,23 @@ APACHE.Husk:
 	RenderSprites:
 		Image: apache
 
+SCRIN.Husk:
+	Inherits: ^AircraftHusk
+	Tooltip:
+		Name: Banshee Fighter
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 168
+	RenderSprites:
+		Image: scrin
+	FallsToEarth:
+		Moves: true
+		MaximumSpinSpeed: 0
+
 CERBERUS.Husk:
 	Inherits: ^BigAircraftHusk
 	Tooltip:
-		Name: Paladin Husk
+		Name: Paladin Cruiser
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 149
@@ -182,11 +196,10 @@ CERBERUS.Husk:
 	RenderSprites:
 		Image: cerberus
 
-
 MUTHELI.Husk:
 	Inherits: ^AircraftHusk
 	Tooltip:
-		Name: Gargoyl
+		Name: Gargoyle
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 168
@@ -223,7 +236,7 @@ WETP.Husk:
 
 WASP.Husk:
 	Inherits: ^AircraftHusk
-	Inherits@5: ^CabRender
+	Inherits@RENDER: ^CabRender
 	Tooltip:
 		Name: Wasp
 	Aircraft:
@@ -238,9 +251,9 @@ WASP.Husk:
 
 CABDRONEJET.Husk:
 	Inherits: ^AircraftHusk
-	Inherits@5: ^CabRender
+	Inherits@RENDER: ^CabRender
 	Tooltip:
-		Name: Wasp
+		Name: Imp
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 149
@@ -253,7 +266,7 @@ CABDRONEJET.Husk:
 
 DEVOURER.Husk:
 	Inherits: ^BigAircraftHusk
-	Inherits@5: ^CabRender
+	Inherits@RENDER: ^CabRender
 	Tooltip:
 		Name: Devourer
 	Aircraft:
@@ -268,7 +281,7 @@ DEVOURER.Husk:
 
 FIREFLY.Husk:
 	Inherits: ^AircraftHusk
-	Inherits@5: ^CabRender
+	Inherits@RENDER: ^CabRender
 	Tooltip:
 		Name: Firefly
 	WithShadow:
@@ -283,7 +296,7 @@ FIREFLY.Husk:
 
 BASILISK.Husk:
 	Inherits: ^BigAircraftHusk
-	Inherits@2: ^CabRender
+	Inherits@RENDER: ^CabRender
 	Tooltip:
 		Name: Basilisk
 	Aircraft:
@@ -312,9 +325,9 @@ STORMRIDER.Husk:
 		
 WYVERM2.Husk:
 	Inherits: ^AircraftHusk
-	Inherits@2: ^ScrinRender
+	Inherits@RENDER: ^ScrinRender
 	Tooltip:
-		Name: Wyverm
+		Name: Wyvern
 	WithShadow:
 	WithFacingSpriteBody:
 	BodyOrientation:
@@ -329,7 +342,7 @@ WYVERM2.Husk:
 
 GLYDER1.Husk:
 	Inherits: ^AircraftHusk
-	Inherits@2: ^ScrinRender
+	Inherits@RENDER: ^ScrinRender
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 	-ExternalCondition@crate-cloak:
@@ -353,9 +366,9 @@ GLYDER1.Husk:
 
 DRACHE.Husk:
 	Inherits: ^BigAircraftHusk
-	Inherits@2: ^ScrinRender
+	Inherits@RENDER: ^ScrinRender
 	Tooltip:
-		Name: Host Station
+		Name: Scrin Host Station
 	FallsToEarth:
 		Explosion: DracheExplode
 	WithShadow:
@@ -377,7 +390,7 @@ DRACHE.Husk:
 
 SCRDESTROYER.Husk:
 	Inherits: ^BigAircraftHusk
-	Inherits@2: ^ScrinRender
+	Inherits@RENDER: ^ScrinRender
 	Tooltip:
 		Name: Destroyer
 	WithShadow:
@@ -401,7 +414,7 @@ SCRDESTROYER.Husk:
 
 SCRBATTLESHIP.Husk:
 	Inherits: ^BigAircraftHusk
-	Inherits@2: ^ScrinRender
+	Inherits@RENDER: ^ScrinRender
 	Tooltip:
 		Name: Battlecruiser
 	WithShadow:
@@ -425,9 +438,9 @@ SCRBATTLESHIP.Husk:
 
 SCRCARRIER.Husk:
 	Inherits: ^BigAircraftHusk
-	Inherits@2: ^ScrinRender
+	Inherits@RENDER: ^ScrinRender
 	Tooltip:
-		Name: Carrier
+		Name: Assault Carrier
 	WithShadow:
 	WithFacingSpriteBody:
 	BodyOrientation:
@@ -449,7 +462,7 @@ SCRCARRIER.Husk:
 
 SCRTRANS.Husk:
 	Inherits: ^AircraftHusk
-	Inherits@2: ^ScrinRender
+	Inherits@RENDER: ^ScrinRender
 	Tooltip:
 		Name: Scrin Transport
 	FallsToEarth:
@@ -473,7 +486,7 @@ SCRTRANS.Husk:
 
 SCRCOUNCIL.Husk:
 	Inherits: ^AircraftHusk
-	Inherits@2: ^ScrinRender
+	Inherits@RENDER: ^ScrinRender
 	Tooltip:
 		Name: Scrin Council
 	WithShadow:
@@ -497,6 +510,8 @@ SCRCOUNCIL.Husk:
 
 JUMPJET.Husk:
 	Inherits: ^AircraftHusk
+	Tooltip:
+		Name: Jumpjet Infantry
 	RenderSprites:
 		Image: jumpjetair
 	-WithFacingSpriteBody:
@@ -525,6 +540,8 @@ JUMPJET.Husk:
 
 JJCOMM.Husk:
 	Inherits: ^AircraftHusk
+	Tooltip:
+		Name: Jumpjet Commando
 	RenderSprites:
 		Image: jjcommair
 	-WithFacingSpriteBody:
