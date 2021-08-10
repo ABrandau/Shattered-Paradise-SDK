@@ -117,7 +117,7 @@ APC:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		Description: Armored infantry transport.\n\nGood vs: Infantry.\n\nSpecial:\n- Can transport 5 infantry units\n- Can travel over water\n- Can shoot over walls\n- Can crush infantry
-		BuildPaletteOrder: 17
+		BuildPaletteOrder: 18
 		Prerequisites: ~gaweap, gapile
 	Mobile:
 		TurnSpeed: 20
@@ -1557,7 +1557,7 @@ STRUCK:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		Description: Combat transport.\n\nGood vs: Depends what has been garrisoned\n\nSpecial:\n- Cargo for 5 soldiers.\n- Passengers can fire from inside the vehicle.
-		BuildPaletteOrder: 18
+		BuildPaletteOrder: 19
 		Prerequisites: ~muweap, murax, ~!AIOnly
 	Mobile:
 		TurnSpeed: 24
@@ -1886,7 +1886,7 @@ SCRSCORPION:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		BuildPaletteOrder: 15
+		BuildPaletteOrder: 16
 		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n- Can mutate enemies killed\n- Deals considerable damage to vehicles\n- Absorbs essence from killed enemies to heal\n- Attacks emit radiation that harms infantry in the area\n- Inmune to tiberium radiation.\n- Can crush infantry
 		Prerequisites: ~scrweap
 	Mobile:
@@ -1923,7 +1923,7 @@ SCRMBT:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		BuildPaletteOrder: 16
+		BuildPaletteOrder: 17
 		Description: Light Tank, good for harassment.\n\nGood vs Ground targets\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water)\n- Absorbs essence from killed units to heal\n- Cannot crush infantry
 		Prerequisites: ~scrweap
 	Valued:
@@ -2367,8 +2367,8 @@ REAPERCAB:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 14
 		BuildAtProductionType: Tank
+		BuildPaletteOrder: 14
 		Description: Fast raiding walker armed with cluster missiles and web launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Can ensnare infantry with webs\n- Can shoot over walls
 		Prerequisites: ~cabweap
 	Selectable:
@@ -2410,6 +2410,99 @@ REAPERCAB:
 		QuantizedFacings: 8
 	DeathSounds:
 
+LIMPED:
+	Inherits: ^HoverVehicle
+	Inherits@DETECTION: ^BasicStealthDetection
+	Inherits@VISION: ^7CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Limped Drone
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 15
+		Description: Small drone armed with explosives. Needs to be deployed to be armed. Invisible when deployed.
+		Prerequisites: ~cabweap
+	Health:
+		HP: 10000
+	Mobile:
+		Speed: 85
+		TurnSpeed: 1023
+		Locomotor: Hover
+		RequireForceMoveCondition: !AImicroManage && !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
+	Carryable:
+		RequiresCondition: undeployed
+	Crushable@deployed:
+		CrushClasses: crate
+		RequiresCondition: deployed
+	Explodes@mine:
+		Weapon: MineExplode
+		RequiresCondition: deployed
+	-WithFacingSpriteBody:
+	Voiced:
+		VoiceSet: Limpet
+	Selectable:
+		Bounds: 483, 2111, 0, -448
+	Hovers:
+		RequiresCondition: undeployed
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		Facing: 640
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Tiberium, BlueTiberium
+		DeploySounds: clicky1.aud
+		UndeploySounds: clicky1.aud
+		SmartDeploy: true
+		UndeployOnMove: true
+		CanDeployOnRamps: true
+		RequiresCondition: !inside-tunnel && !empdisable
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: deployed
+	Cloak@bury-self:
+		RequiresCondition: deployed && !empdisable
+		InitialDelay: 0
+		CloakDelay: 40
+		Palette: cloakcab
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish
+		EffectOffset: 0, 0, -600
+		EffectImage: dig
+		EffectPalette: effect
+		EnterEffectSequence: smallidleoffset
+	WithSpriteBody@UndeloyedBody:
+		Sequence: idle
+		RequiresCondition: undeployed && !inside-tunnel
+	WithMakeAnimation:
+		BodyNames: deployed
+	WithSpriteBody@DeloyedBody:
+		Name: deployed
+		Sequence: deployed
+		RequiresCondition: !undeployed
+	### AI Control
+	Wanders@AI:
+		RequiresCondition: AImicroManage
+		WanderMoveRadius: 15
+		MinMoveDelay: 300
+		MaxMoveDelay: 300
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && !deployed
+		DeployTrigger: Periodically
+		DeployTicks: 150
+		UndeployTicks: 150
+	-LeavesTrails@land:
+	LeavesTrails@water:
+		Image: wake
+		Palette: effect
+		TerrainTypes: Water
+		Sequences: idle2
+		Offsets: 0,500,0
+		TrailWhileStationary: false
+
 REPAIRVEHICLE:
 	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetHeal
@@ -2423,7 +2516,7 @@ REPAIRVEHICLE:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 21
 		BuildAtProductionType: Tank
 		Prerequisites: ~cabweap, gadept
 		Description: Repairs nearby vehicles.\n\nSpecial:\n- unarmed\n- repairs vehicles\n- can crush infantry
@@ -2463,7 +2556,7 @@ ECM:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		Description: Mines...mines everywhere!\n\nSpecial:\n- Can place up to 5 mines in the battlefield\n- Reloads in service depot\n- Mines are cloaked and harm all unit types\n- Can crush Infantry
-		BuildPaletteOrder: 19
+		BuildPaletteOrder: 20
 		Prerequisites: ~muweap, gadept, ~!AIsNotAllowed
 	Mobile:
 		TurnSpeed: 12
