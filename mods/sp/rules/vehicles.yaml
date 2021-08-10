@@ -1037,6 +1037,7 @@ TICKHOLOGRAM:
 BIKE:
 	Inherits: ^Vehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -1430,7 +1431,7 @@ MUTQUAD:
 	Inherits@DETECTION: ^BasicStealthDetection
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RENDER: ^MutRender
-	Inherits@VISION: ^7CellVision
+	Inherits@VISION: ^8CellVision
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -1603,7 +1604,7 @@ WOLF:
 		Description: Tiberium beast that uses tiberium acid to harm nearby units.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Attacks reduce target attack speed and movement speed by 35%\n- Can mutate killed units\n- E.M.P. Inmune\n- Has Selfheal\n- Wild mind: only controlled by MasterMind\n- Can enter tunnels.
 		Prerequisites: ~muweap, muradr
 	Valued:
-		Cost: 500
+		Cost: 600
 	Tooltip:
 		Name: Carnotaurus
 	UpdatesPlayerStatistics:
@@ -1631,7 +1632,7 @@ MRLS:
 	Inherits@RENDER: ^MutRender
 	Inherits@VISION: ^5CellVision
 	Valued:
-		Cost: 900
+		Cost: 1000
 	Tooltip:
 		Name: Irradiator MLRS
 	UpdatesPlayerStatistics:
@@ -1701,7 +1702,7 @@ DEATHCLAW:
 	Health:
 		HP: 70000
 	Mobile:
-		Speed: 130
+		Speed: 100
 		Locomotor: TibVeCritter
 	Armament:
 		Weapon: RavagerStrike
@@ -2673,7 +2674,7 @@ BCOREDEF:
 	Inherits@VISION: ^8CellVision
 	Inherits@VOICE: ^CabalVehicleVoice
 	Valued:
-		Cost: 4000
+		Cost: 3000
 	Tooltip:
 		Name: C.A.B.A.L Defender
 	UpdatesPlayerStatistics:
@@ -2690,7 +2691,7 @@ BCOREDEF:
 	GrantConditionAfterDelay:
 		Condition: CanDeploy
 		PauseOnCondition: empdisable
-		Delay: 400
+		Delay: 1000
 	Transforms:
 		RequiresCondition: CanDeploy
 		IntoActor: blackdefd

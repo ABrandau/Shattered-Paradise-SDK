@@ -622,7 +622,7 @@ GAFIRE:
 		Description: Generator that can generates a barrier around it to protect units.\n\nSpecial:\n- Increases damage resistance of nearby units by 30% when activated.\n- Consumes 300 power when activated.\n- Hostile units that try to cross the firestorm will be damaged.\n- Power loss does not stop this effect.\n- Does not block incoming projectiles.\n- Remains active for 12 seconds.\n- Takes 90 seconds to charge.
 		Prerequisites: gatech, ~structures.gdi
 	Valued:
-		Cost: 1500
+		Cost: 1000
 	Tooltip:
 		Name: Firestorm Generator
 	Building:
@@ -653,7 +653,7 @@ GAFIRE:
 		ResetReloadWhenEnabled: false
 		RequiresCondition: FirestormGen && !empdisable
 	Health:
-		HP: 150000
+		HP: 100000
 	WithIdleOverlay@1:
 		Sequence: idle1
 		RequiresCondition: !Building-Buildup
@@ -1218,14 +1218,15 @@ BLACKDEFD:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RENDER: ^CabRender
 	Inherits@SHAPE: ^3x3Shape
+	Inherits@VISION: ^8CellVision
 	Valued:
-		Cost: 4000
+		Cost: 3000
 	Health:
 		HP: 200000
 	Buildable:
 		Queue: Defense
 		Prerequisites: cabobelisk, ~structures.cab, ~techlevel.unrestricted, !DarkDefenderExists
-		Description: C.A.B.A.L.'s ultimate weapon. Defense structure with\n long range plasma artillery. Can transform into\nthe mobile Epic walker version.\n\nGood vs: Ground\n\nSpecial when deployed:\n- Small Nanoswarm around it healing friendly units and turning killed enemy infantry into Worker Units\n- Maximum Supply of 1\n\nSpecial when mobil:\n- Selfhealing up to 100%\n- Can shoot over walls\n- Can crush everything except other Epics\n- Immune to mind control
+		Description: C.A.B.A.L.'s ultimate weapon. Defense structure with\n long range plasma artillery. Can transform into\nthe mobile Epic walker version.\n\nGood vs: Ground\n\nSpecial when deployed:\n- Armed with a plasma artillery launcher\n- Maximum Supply of 1\n\nSpecial when mobil:\n- Selfhealing up to 100%\n- Can shoot over walls\n- Can crush everything except other Epics\n- Immune to mind control\n- Maximum Supply of 1
 		BuildPaletteOrder: 50
 		BuildLimit: 1
 	Building:
@@ -1243,7 +1244,7 @@ BLACKDEFD:
 	GrantConditionAfterDelay:
 		Condition: CanDeploy
 		PauseOnCondition: empdisable
-		Delay: 400
+		Delay: 1000
 	Transforms:
 		RequiresCondition: CanDeploy
 		IntoActor: bcoredef
