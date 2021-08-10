@@ -99,6 +99,20 @@ SmallPlaneExplosion:
 	Range: 0c512
 	Projectile: InstantHit
 
+ScrinSmallPlaneExplode:
+	Inherits: SmallPlaneExplode
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@1: FireRadius
+		Weapon: ScrinSmallPlaneExplosion
+
+ScrinSmallPlaneExplosion:
+	Inherits: SmallPlaneExplosion
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
+
 BigAircraftExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_Explosion

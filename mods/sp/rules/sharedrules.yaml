@@ -1096,7 +1096,7 @@ GASILO:
 		Palette: pips
 
 ################## Carryall ##############
-TRNSPORT:
+^Carryall:
 	Inherits: ^Helicopter
 	Inherits@1: ^SpriteActor
 	Inherits@SHADOW: ^AircraftShadow
@@ -1104,12 +1104,10 @@ TRNSPORT:
 	Valued:
 		Cost: 600
 	Tooltip:
-		Name: Orca Carryall
+		Name: Carryall
 	Buildable:
 		Queue: Air
 		Description: VTOL aircraft for transporting vehicles.\n\nSpecial:\n- Can transport one vehicle.
-		BuildPaletteOrder: 11
-		Prerequisites: ~player.gdi, ~air.human, gadept
 	Aircraft:
 		AltitudeVelocity: 350
 		IdealSeparation: 3c0
@@ -1132,10 +1130,19 @@ TRNSPORT:
 	Carryall:
 		LocalOffset: 0,0,-1024
 		Voice: Move
+	SpawnActorOnDeath:
+		RequiresCondition: airborne
+
+TRNSPORT:
+	Inherits: ^Carryall
+	Tooltip:
+		Name: Orca Carryall
+	Buildable:
+		BuildPaletteOrder: 11
+		Prerequisites: ~player.gdi, ~air.human, gadept
 	RenderSprites:
 		Image: trnsport
 	SpawnActorOnDeath:
-		RequiresCondition: airborne
 		Actor: TRNSPORT.Husk
 	WithIdleOverlay@Wind1:
 		Image: orcawind
@@ -1162,25 +1169,8 @@ TRNSPORT:
 		RequiresCondition: airborne
 		Palette: effect
 
-trnsport.scr:
-	Inherits: TRNSPORT
-	Tooltip:
-		Name: Scrin Carryall
-	Buildable:
-		BuildPaletteOrder: 15
-	Buildable:
-		Prerequisites: ~player.scr, ~air.human, gadept
-	RenderSprites:
-		Image: scrpod
-	SpawnActorOnDeath:
-		Actor: TRNSPORT.scr.Husk
-	-WithIdleOverlay@Wind1:
-	-WithIdleOverlay@Wind2:
-	-WithIdleOverlay@Wind3:
-	-WithIdleOverlay@Wind4:
-
 trnsport.nod:
-	Inherits: trnsport.scr
+	Inherits: ^Carryall
 	Tooltip:
 		Name: Nod Carryall
 	Buildable:
@@ -1204,7 +1194,7 @@ trnsport.nod:
 		ZOffset: 4100
 
 trnsport.mut:
-	Inherits: trnsport.scr
+	Inherits: ^Carryall
 	Tooltip:
 		Name: Chinook Carryall
 	Buildable:
@@ -1214,7 +1204,6 @@ trnsport.mut:
 		Image: forgcarryall
 	SpawnActorOnDeath:
 		Actor: TRNSPORT.mut.Husk
-	### Mut helicopter ####
 	WithIdleOverlay@1Air:
 		Offset: 500,0,650
 		Sequence: rotor
@@ -1233,7 +1222,7 @@ trnsport.mut:
 		RequiresCondition: !airborne
 
 trnsport.cab:
-	Inherits: trnsport.scr
+	Inherits: ^Carryall
 	Tooltip:
 		Name: C.A.B.A.L. Carryall
 	Buildable:
@@ -1241,6 +1230,9 @@ trnsport.cab:
 		Prerequisites: ~player.cab, ~air.human, gadept
 	RenderSprites:
 		Image: cabcarryall
+	Voiced:
+		VoiceSet: CabalAirDrone
+		Volume: 1.25
 	SpawnActorOnDeath:
 		Actor: TRNSPORT.cab.Husk
 	Contrail@1:
@@ -1255,6 +1247,25 @@ trnsport.cab:
 		UsePlayerColor: false
 		TrailLength: 8
 		ZOffset: 4100
+
+trnsport.scr:
+	Inherits: ^Carryall
+	Inherits@VOICE: ^ScrinAircratVoice
+	Tooltip:
+		Name: Scrin Carryall
+	Buildable:
+		BuildPaletteOrder: 15
+		Prerequisites: ~player.scr, ~air.human, gadept
+	RenderSprites:
+		Image: scrpod
+	SpawnActorOnDeath:
+		Actor: TRNSPORT.scr.Husk
+	SmokeParticleEmitter@spawnsmoke:
+		Image: scrsmoke
+		Palette: gradientblue20
+	Explodes@Shrapnel:
+		Weapon: BigScrinAircraftShrapnel
+		EmptyWeapon: BigScrinAircraftShrapnel
 
 ################## Carryall ##############
 
