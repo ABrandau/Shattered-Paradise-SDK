@@ -1848,9 +1848,10 @@ WEASAU:
 		RequiresCondition: deployed
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: deployed
-		CooldownTicks: 400
-		DeployedTicks: 400
+		CooldownTicks: 500
+		DeployedTicks: 500
 		StartsFullyCharged: true
+		DischargingColor: FF0000
 	ExplodeWeapon:
 		Weapon: WeasaurusCall
 		LocalOffset: 0,0,2000
@@ -1903,6 +1904,9 @@ WEASAUSMALL:
 		Name: Small Weasaurus
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
 	Targetable:
 		TargetTypes: Ground, Vehicle, OrganicVehicle, NoRepair
 	AutoTarget:
