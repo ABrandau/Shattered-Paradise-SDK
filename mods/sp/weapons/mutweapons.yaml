@@ -797,9 +797,14 @@ WeasaurusSpit:
 			DefenseArmor: 100
 			ConcreteArmor: 15
 		DamageTypes: Prone100Percent, TriggerProne, FireDeath
-		ValidTargets: Vehicle, Infantry, Building, Ground, Water
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Range: 460
+	Warhead@3Eff: CreateEffect
+		Explosions: MilkFire1,MilkFire2, MilkFire3
+		ExplosionPalette: gensmkexplocyan
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
 
 WeasaurusStrike:
 	Inherits: ^FullDamage
