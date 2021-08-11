@@ -765,36 +765,90 @@ VeinholeEggElevator:
 	MinRange: 1c0
 	ReloadDelay: 800
 
-BroodmotherSpit:
-	Inherits: ^AcidWarhead
-	ReloadDelay: 60
+WeasaurusSpit:
+	Inherits: ^FullDamage
+	ReloadDelay: 40
 	Range: 7c0
-	Burst: 7
-	StartBurstReport: fiend2.aud
-	Projectile: BulletAS
-		Speed: 500
-		Image: acidall32mini
-		Palette: jascgreen
-		Inaccuracy: 1c0
+	Burst: 1
+	Report:  oneshot04.wav
+	SoundVolume: 4
+	Projectile: SpriteRailgun
+		DamageActorsInLine: false
+		BeamColor: 00f4f4
+		Duration: 13
+		BeamWidth: 64
+		QuantizationCount: 1
+		HelixRadius: 0
+		HelixPitch: 512
+		HelixAnim: explosion
+		HelixAnimSequence: dimlaserflare
+		HelixAnimPalette: gensmkexplocyan
+		HitAnim: explosion
+		HitAnimSequence: tib_expsmall
+		HitAnimPalette: gensmkexplocyan
 	Warhead@1Dam: SpreadDamage
 		Falloff: 100, 75, 75
 		Spread: 526
-		Damage: 5000
+		Damage: 20000
 		Versus:
 			InfantryArmor: 100
 			BuildingArmor: 100
 			VehicleArmor: 100
 			DefenseArmor: 100
 			ConcreteArmor: 15
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
+		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 		ValidTargets: Vehicle, Infantry, Building, Ground, Water
-	Warhead@2Eff: CreateEffect
-		Explosions: tib_expsmall
-		ExplosionPalette: apolgreenalpha
-		InvalidTargets: Water
-	Warhead@Acid: GrantExternalCondition
-		Range: 1c0
-		Duration: 125
-		Condition: WolfDebuff
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Range: 460
+
+WeasaurusStrike:
+	Inherits: ^FullDamage
+	ReloadDelay: 20
+	Range: 2c0
+	Report: SSUSBLargeMonster0000.aud, SSUSBLargeMonster0001.aud, SSUSBLargeMonster0002.aud, SSUSBLargeMonster0003.aud, SSUSBLargeMonster0004.aud
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c090
+		Damage: 15000
+		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
+	Warhead@emp: GrantExternalCondition
+		Range: 1c0
+		Duration: 45
+		Condition: Slowdown50pp
+		ValidRelationships: Enemy, Neutral
+		ValidTargets: Infantry, Vehicle
+		InvalidTargets: Building, Defence
+	Warhead@2Eff: CreateEffect
+		Explosions: chomp
+		ExplosionPalette: apcybl
+
+WeasaurusStrikeSmall:
+	Inherits: WeasaurusStrike
+	Range: 1c650
+	ReloadDelay: 40
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+	Warhead@2Eff: CreateEffect
+		Explosions: chompsmall
+		ExplosionPalette: effect
+	-Warhead@emp:
+
+WeasaurusCall:
+	ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+	ReloadDelay: 9999999
+	Range: 2c0
+	Report: SSUSBLargeMonster0000.aud, SSUSBLargeMonster0001.aud, SSUSBLargeMonster0002.aud, SSUSBLargeMonster0003.aud, SSUSBLargeMonster0004.aud
+	SoundVolume: 2
+	Projectile: InstantHit
+	Warhead@5Actor: SpawnActor
+		FallRate: 5000
+		Range: 5
+		Delay: 10
+		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+		ForceGround: true
+		Actors: WEASAUSMALL, WEASAUSMALL, WEASAUSMALL, WEASAUSMALL
+	Warhead@2Eff: CreateEffect
+		Explosions: call
+		ExplosionPalette: effectalpha40
+		ImpactActors: false
+		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall

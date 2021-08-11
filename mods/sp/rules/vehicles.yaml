@@ -1812,8 +1812,8 @@ WEASAU:
 	Targetable:
 		TargetTypes: Ground, Vehicle, OrganicVehicle, NoRepair
 	Mobile:
-		TurnSpeed: 24
-		Speed: 70
+		TurnSpeed: 64
+		Speed: 75
 		Locomotor: VehicleCrusher
 	-Crushable:
 	Health:
@@ -1821,6 +1821,8 @@ WEASAU:
 	AnnounceOnSeen:
 		Notification: CommandoDetected
 	AutoTarget:
+		ScanRadius: 7
+		InitialStance: AttackAnything
 	BodyOrientation:
 		QuantizedFacings: 8
 		CameraPitch: 250
@@ -1833,17 +1835,36 @@ WEASAU:
 		Condition: walking
 	AttackFrontal:
 		FacingTolerance: 6
-	Armament:
-		Weapon: BroodmotherSpit
-		LocalOffset: 450,0,2300
+		Armaments: breath, melee
+	Armament@breath:
+		Weapon: WeasaurusSpit
+		LocalOffset: 1100,0,1350
+		Name: breath
+		RequiresCondition: !deployed
+	Armament@melee:
+		Weapon: WeasaurusStrike
+		LocalOffset: 1100,0,1350
+		Name: melee
+		RequiresCondition: deployed
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: deployed
-		CooldownTicks: 3000
-		DeployedTicks: 10
+		CooldownTicks: 400
+		DeployedTicks: 400
 		StartsFullyCharged: true
 	ExplodeWeapon:
-		Weapon: EggElevator
+		Weapon: WeasaurusCall
+		LocalOffset: 0,0,2000
 		RequiresCondition: deployed
+	SpeedMultiplier@melee:
+		Modifier: 200
+		RequiresCondition: deployed
+	WithDecoration@angry:
+		Image: weasaublue2
+		Sequence: angry
+		Palette: apred
+		Position: center
+		RequiresCondition: deployed
+		ValidRelationships: Ally, Enemy, Neutral
 	Carryable:
 		LocalOffset: 0, 0, 20
 	Passenger:
@@ -1853,6 +1874,11 @@ WEASAU:
 		Image: weasaublue2
 	WithInfantryBody:
 		IdleSequences: idle1, idle2
+		RequiresCondition: !inside-tunnel
+		AttackSequences:
+			breath: shoot
+			melee: melee
+		-DefaultAttackSequence: 
 	Selectable:
 		Bounds: 2413, 4041, 0, -1508
 	SharedPassenger:
@@ -1860,11 +1886,62 @@ WEASAU:
 	Explodes:
 		Weapon: QueenExplode
 		EmptyWeapon: QueenExplode
+	-Targetable@MC:
 #	ExternalCondition@PRODUCED:
 #		Condition: produced
 #	VoiceAnnouncement:
 #		RequiresCondition: produced
 #		Voice: Build
+
+WEASAUSMALL:
+	Inherits: ^Beast
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@MC: ^MindControllableMastermind
+	Inherits@RENDER: ^MutRender
+	Inherits@VISION: ^8CellVision
+	-Valued:
+	GivesExperience:
+		Experience: 100
+	Tooltip:
+		Name: Small Weasaurus
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Targetable:
+		TargetTypes: Ground, Vehicle, OrganicVehicle, NoRepair
+	AutoTarget:
+		ScanRadius: 7
+		InitialStance: AttackAnything
+	WithInfantryBody:
+		DefaultAttackSequence: melee
+		IdleSequences: idle1, idle2
+	Health:
+		HP: 40000
+	Mobile:
+		Speed: 130
+		Locomotor: TibVeCritter
+	Armament:
+		Weapon: WeasaurusStrikeSmall
+	ChangesHealth@Bullshit:
+		PercentageStep: 5
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 100
+	Selectable:
+		DecorationBounds: 903,3015,0,-1207
+	Voiced:
+		VoiceSet: LargeBeast
+		Volume: 1.2
+	AttackFrontal:
+		FacingTolerance: 2
+	KillsSelf@TimedLife:
+		Delay: 500
+	RenderSprites:
+		Palette: orgatemblue
+		Image: weasau
+	-ActorLostNotification:
+	-UpdatesPlayerStatistics:
+	-Passenger:
+	-SharedPassenger:
 
 ###########################################################
 # SCRIN
@@ -2823,14 +2900,14 @@ BCOREDEF:
 		Weapon: BlackCDefLazer2
 		LocalOffset: 1580,500,3400
 		PauseOnCondition: empdisable
-		MuzzlePalette: apgreen
+		MuzzlePalette: apblue
 		MuzzleSequence: muzzle1
 		Name: ArmArmament
 	Armament@LeftArm2:
 		Weapon: BlackCDefLazer1
 		LocalOffset: 1480,-800,3350
 		PauseOnCondition: empdisable
-		MuzzlePalette: apgreen
+		MuzzlePalette: apblue
 		MuzzleSequence: muzzle1
 		Name: ArmArmament
 	Armament@Shoulder:
