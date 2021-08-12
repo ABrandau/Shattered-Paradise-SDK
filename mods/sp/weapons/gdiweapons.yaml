@@ -558,7 +558,7 @@ MKIITusk:
 	Inherits: MammothTusk
 	Range: 7c0
 	BurstDelays: 10
-	Burst: 4
+	Burst: 2
 	Range: 7c0
 	ReloadDelay: 120
 
@@ -567,9 +567,45 @@ MKIITuskAA:
 	Inherits@1: ^AARocketWarhead
 	Range: 8c0
 	BurstDelays: 10
-	Burst: 4
+	Burst: 2
 	Range: 8c0
 	ReloadDelay: 120
+
+MKIIVulcan:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	StartBurstReport: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
+	ReloadDelay: 20
+	Burst: 8
+	BurstDelays: 1
+	Range: 7c0
+	Projectile: InstantHit
+		Inaccuracy: 0c512
+	Warhead@1Dam: SpreadDamage
+		Damage: 1500
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Delay: 5
+	Warhead@3EffWater: CreateEffect
+		Delay: 5
+
+MKIIVulcanCasing:
+	Inherits: ^BulletCasing
+	ReloadDelay: 20
+	Burst: 8
+	BurstDelays: 1
+	Range: 7c0
+	ValidTargets: Ground, Water
+
+MKIIVulcanLine:
+	Inherits: ^LineProjectile
+	ReloadDelay: 20
+	Burst: 8
+	BurstDelays: 1
+	Range: 7c0
+	ValidTargets: Ground, Water
+	Projectile: BulletAS
+		Speed: 0c928
 
 FighterHellfire:
 	Inherits: ^RocketWarhead

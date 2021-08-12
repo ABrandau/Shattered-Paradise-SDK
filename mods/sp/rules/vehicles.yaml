@@ -404,8 +404,7 @@ HMEC:
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
-		Turrets: primary, secondary, third
-		Armaments: primary, secondary, third
+		Turrets: primary, secondary, third, forth
 	BodyOrientation:
 		QuantizedFacings: 8
 		CameraPitch: 250
@@ -416,40 +415,69 @@ HMEC:
 		RequiresCondition: walking
 	GrantConditionOnMovement:
 		Condition: walking
-	Armament:
+	Armament@M1:
 		Weapon: MKIITusk
 		LocalOffset: 0,0,2800
 		Turret: secondary
-		Name: secondary
 		PauseOnCondition: empdisable
-	Armament@1:
+	Armament@M1AA:
+		Weapon: MKIITuskAA
+		LocalOffset: 0,0,2800
+		Turret: secondary
+		PauseOnCondition: empdisable
+	Armament@M2:
+		Weapon: MKIITusk
+		LocalOffset: 0,0,2800
+		Turret: third
+		FireDelay: 5
+		PauseOnCondition: empdisable
+	Armament@M2AA:
 		Weapon: MKIITuskAA
 		LocalOffset: 0,0,2800
 		Turret: third
-		Name: third
 		FireDelay: 5
 		PauseOnCondition: empdisable
-	Armament@3:
+	Armament@R:  ##Hit effect and firedly fire
 		Weapon: MechRailgun
 		LocalOffset: 1200,-250,2650, 1200,250,2650
 		PauseOnCondition: empdisable
-	Armament@4:
+	Armament@R2:
 		Weapon: MechRailgun2
 		LocalOffset: 1200,-250,2650, 1200,250,2650
 		PauseOnCondition: empdisable
+		MuzzleSequence: muzzle2
+	Armament@gun:
+		Weapon: MKIIVulcan
+		Turret: forth
+		LocalOffset: 0,0,1400
+		PauseOnCondition: empdisable
+	Armament@gunCasing:
+		Weapon: MKIIVulcanCasing
 		MuzzleSequence: muzzle
+		LocalOffset: 0,0,1400
+		Turret: forth
+		PauseOnCondition: empdisable
+	Armament@gunLine:
+		Weapon: MKIIVulcanLine
+		LocalOffset: 0,0,1400
+		Turret: forth
+		PauseOnCondition: empdisable
 	-Targetable@MC:
-	Turreted:
+	Turreted@1:
 		Offset: -500,0,0
 		TurnSpeed: 16
 	Turreted@2:
 		Offset: 600,300,-400
-		TurnSpeed: 16
+		TurnSpeed: 32
 		Turret: secondary
 	Turreted@3:
 		Offset: 600,-300,-400
-		TurnSpeed: 16
+		TurnSpeed: 32
 		Turret: third
+	Turreted@4:
+		Offset: 1024,0,-500
+		TurnSpeed: 128
+		Turret: forth
 	Carryable:
 		LocalOffset: 0, 0, 1536
 	WithMuzzleOverlay:
@@ -2390,39 +2418,18 @@ CENTURION:
 		Weapon: CenturionVulcan
 		Recoil: 50
 		RecoilRecovery: 26
-		LocalOffset: 900,550,1200
-		MuzzleSequence: muzzle
-		PauseOnCondition: empdisable
-	Armament@1:
-		Weapon: CenturionVulcan
-		FireDelay: 5
-		RecoilRecovery: 26
-		LocalOffset: 900,-550,1200
-		MuzzleSequence: muzzle
+		LocalOffset: 900,550,1200, 900,-550,1200
 		PauseOnCondition: empdisable
 	Armament@2:
 		Weapon: CenturionVulcanCasing
 		RecoilRecovery: 26
-		LocalOffset: 900,550,1200
-		MuzzleSequence: muzzle
-		PauseOnCondition: empdisable
-	Armament@3:
-		Weapon: CenturionVulcanCasing
-		FireDelay: 5
-		RecoilRecovery: 26
-		LocalOffset: 900,-550,1200
+		LocalOffset: 900,550,1200, 900,-550,1200
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
 	Armament@4:
 		Weapon: CenturionVulcanLine
 		RecoilRecovery: 26
-		LocalOffset: 1250,550,1200
-		PauseOnCondition: empdisable
-	Armament@5:
-		Weapon: CenturionVulcanLine
-		FireDelay: 5
-		RecoilRecovery: 26
-		LocalOffset: 1250,-550,1200
+		LocalOffset: 1250,550,1200, 900,-550,1200
 		PauseOnCondition: empdisable
 	AutoTarget:
 	Selectable:
