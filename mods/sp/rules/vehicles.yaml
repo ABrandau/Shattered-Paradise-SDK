@@ -2009,7 +2009,7 @@ SCRSCORPION:
 		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n- Can mutate enemies killed\n- Deals considerable damage to vehicles\n- Absorbs essence from killed enemies to heal\n- Attacks emit radiation that harms infantry in the area\n- Inmune to tiberium radiation.\n- Can crush infantry
 		Prerequisites: ~scrweap
 	Mobile:
-		TurnSpeed: 15
+		TurnSpeed: 24
 		Speed: 80
 		Locomotor: InfantryCrusherVehicle
 	Health:
@@ -2056,7 +2056,7 @@ SCRMBT:
 	Mobile:
 		TurnSpeed: 20
 		CanMoveBackward: true
-		Speed: 90
+		Speed: 115
 		Locomotor: Hover
 	Turreted:
 		TurnSpeed: 24
@@ -2145,6 +2145,50 @@ SCRGLYDER2:
 		SpawnAtLastPosition: false
 		TrailWhileStationary: true
 		StartDelay: -1
+	ThrowsShrapnel:
+		Weapons: SmallDebrisScrin
+
+CORRUPTOR:
+	Inherits: ^Walker
+	Inherits@1: ^ScrinVehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@DETECTION: ^BasicStealthDetection
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Ichor Walker
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 18
+		Description: ???.\n\n Good vs ???\n\nSpecial:\n- ?\n- ?\n- Absorbs essence from killed enemies to heal\n- Can crush infantry
+		Prerequisites: ~scrweap, scrradr
+	Mobile:
+		TurnSpeed: 24
+		Speed: 80
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 30000
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	AutoTarget:
+	Armament@PRIMARY:
+		Weapon: CorruptorGas
+		LocalOffset: 1448,0,362
+		PauseOnCondition: empdisable
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithInfantryBody:
+	Selectable:
+		Bounds: 1508, 1568, 0, -482
+	SmokeParticleEmitter@spawnsmoke:
+		Palette: gradientgreen40
+	-DamagedByTintedCells@Default:
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
 
@@ -2511,22 +2555,22 @@ REAPERCAB:
 LIMPED:
 	Inherits: ^HoverVehicle
 	Inherits@DETECTION: ^BasicStealthDetection
-	Inherits@VISION: ^7CellVision
+	Inherits@VISION: ^6CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
-		Cost: 200
+		Cost: 800
 	Tooltip:
-		Name: Limped Drone
+		Name: Limpet Drone
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 15
-		Description: Small drone armed with explosives. Needs to be deployed to be armed. Invisible when deployed.
+		Description: Small drone armed with explosives.\n\nGood vs: Infantry, Vehicles\n\nSpecial:\n- Needs to be deployed to be armed\n- Invisible when deployed webs\n- Launches explosives towards a target after small delay
 		Prerequisites: ~cabweap
 	Health:
 		HP: 10000
 	Mobile:
-		Speed: 85
+		Speed: 90
 		TurnSpeed: 1023
 		Locomotor: Hover
 		RequireForceMoveCondition: !AImicroManage && !undeployed
