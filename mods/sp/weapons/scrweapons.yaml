@@ -198,7 +198,7 @@ FloatGlaive2:
 	-Report:
 	-Warhead@op:
 
-ScorpAcid:
+CorruptorAcid:
 	Inherits: ^AcidWarhead
 	Inherits@1: ^SpawnsIrradiation
 	ReloadDelay: 70
@@ -207,10 +207,13 @@ ScorpAcid:
 	BurstDelays: 2
 	StartBurstReport: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
 	Projectile: BulletAS
-		Speed: 400
-		Inaccuracy: 1c0
-		Palette: apolgreenalpha
-		Image: flameallremap
+		Speed: 500
+		ContrailColor: 009800BB
+		ContrailWidth: 146
+		Inaccuracy: 1c512
+		ContrailLength: 6
+		LaunchAngle: 96
+		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Spread: 250
 		Damage: 975
@@ -328,7 +331,7 @@ ScrMbtLasor:
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
 
-CorruptorGas:
+ScorpGas:
 	Inherits: ^AcidWarhead
 	Inherits@1: ^SpawnsIrradiation
 	ReloadDelay: 70
