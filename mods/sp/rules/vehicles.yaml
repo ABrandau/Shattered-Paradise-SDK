@@ -1824,7 +1824,7 @@ WEASAU:
 	Valued:
 		Cost: 3000
 	Tooltip:
-		Name: Vinifera Weasaurus
+		Name: Weasaurus Lord
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -1901,6 +1901,9 @@ WEASAU:
 	RenderSprites:
 		PlayerPalette: orgatemblueplayer
 		Image: weasaublue2
+	WithDeathAnimation@normal:
+		DeathSequencePalette: orgatemblueplayer
+		CrushedSequencePalette: orgatemblueplayer
 	WithInfantryBody:
 		IdleSequences: idle1, idle2
 		RequiresCondition: !inside-tunnel
@@ -1965,8 +1968,11 @@ WEASAUSMALL:
 	KillsSelf@TimedLife:
 		Delay: 500
 	RenderSprites:
-		Palette: orgatemblue
+		PlayerPalette: orgatemblueplayer
 		Image: weasau
+	WithDeathAnimation@normal:
+		DeathSequencePalette: orgatemblueplayer
+		CrushedSequencePalette: orgatemblueplayer
 	-ActorLostNotification:
 	-UpdatesPlayerStatistics:
 	-Passenger:
