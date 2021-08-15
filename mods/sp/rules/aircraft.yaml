@@ -1315,12 +1315,16 @@ SCRBATTLESHIP:
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 512
-	AutoTarget:
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		RequiresCondition: airborne
 		Actor: SCRBATTLESHIP.Husk
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
 	Contrail@1:
 		RequiresCondition: airborne
 		Offset: -2200, -20, 350
