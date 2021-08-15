@@ -2029,11 +2029,10 @@ SCRSCORPION:
 	Inherits: ^Walker
 	Inherits@1: ^ScrinVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@DETECTION: ^BasicStealthDetection
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
 	Valued:
-		Cost: 600
+		Cost: 1200
 	Tooltip:
 		Name: Ichor Walker
 	UpdatesPlayerStatistics:
@@ -2041,13 +2040,13 @@ SCRSCORPION:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		BuildPaletteOrder: 16
-		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n- Can mutate enemies killed\n- Deals considerable damage to vehicles\n- Absorbs essence from killed enemies to heal\n- Attacks emit radiation that harms infantry in the area\n- Inmune to tiberium radiation.\n- Can crush infantry
+		BuildPaletteOrder: 25
+		Description: Long range assault walker.\n\n Good vs Infantry, Vehicle\n\nSpecial:\n- Absorbs essence from killed enemies to heal\n- Fog inflicts blind and long time posion in the area\n- Inmune to tiberium radiation.
 		Prerequisites: ~scrweap
 	Mobile:
-		TurnSpeed: 24
-		Speed: 80
-		Locomotor: InfantryCrusherVehicle
+		TurnSpeed: 32
+		Speed: 90
+		Locomotor: Vehicle
 	Health:
 		HP: 30000
 	AttackFrontal:
@@ -2063,8 +2062,6 @@ SCRSCORPION:
 	WithInfantryBody:
 	Selectable:
 		Bounds: 1508, 1568, 0, -482
-	SmokeParticleEmitter@spawnsmoke:
-		Palette: gradientgreen40
 	-DamagedByTintedCells@Default:
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin

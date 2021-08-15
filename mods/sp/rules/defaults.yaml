@@ -698,7 +698,7 @@
 		Step: -500
 		Delay: 10
 		StartIfBelow: 128
-		RequiresCondition: veinholedrain
+		RequiresCondition: veinholedrain && !stoppoison ## Prevent bug that score of killed actor belong to victim
 	ExternalCondition@veinholedrain:
 		Condition: veinholedrain
 	WithIdleOverlay@veinholedrain:
@@ -709,6 +709,9 @@
 	GrantConditionOnTerrain@VEINS:
 		TerrainTypes: Veins
 		Condition: veinholedrain
+	GrantConditionOnDamageState@stoppoison:
+		Condition: stoppoison
+		ValidDamageStates: Critical
 
 ^BugPoison:
 	WithIdleOverlay@BugPoison:
@@ -720,7 +723,7 @@
 		PercentageStep: -1
 		Step: 0
 		Delay: 20
-		StartIfBelow: 100
+		StartIfBelow: 200
 		RequiresCondition: BugPoison && !stoppoison
 	ExternalCondition@BugPoison:
 		Condition: BugPoison
@@ -1018,6 +1021,13 @@
 		Duration: 50
 		Radius: 7c0
 
+^Blind:
+	RevealsShroudMultiplier@Blind:
+		RequiresCondition: Blind
+		Modifier: 30
+	ExternalCondition@blind:
+		Condition: Blind
+
 ^FullHealthRepairCondition:
 	Targetable@FullHealth:
 		RequiresCondition: FullHealth
@@ -1246,6 +1256,7 @@
 	Inherits@3: ^SpriteActor
 	Inherits@4: ^InfantryShape
 	Inherits@5: ^5CellVision
+	Inherits@6: ^Blind
 	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	ActorLostNotification:
@@ -1395,7 +1406,6 @@
 ^Soldier:
 	Inherits@1: ^Infantry
 	Inherits@2: ^Cloakable
-	Inherits@5: ^5CellVision
 	MustBeDestroyed:
 	TakeCover:
 		RequiresCondition: !WebDisable
@@ -1517,7 +1527,6 @@
 
 ^Cyborg:
 	Inherits@1: ^Infantry
-	Inherits@3: ^7CellVision
 	Crushable:
 		CrushClasses: HeavyInfantry
 	-DamagedByTerrain:
@@ -1621,7 +1630,6 @@
 
 ^HologramSoldier:
 	Inherits: ^Soldier
-	Inherits@1: ^3CellVision
 	Inherits@2: ^HologramKillTimer
 	Health:
 		HP: 4500
@@ -1646,6 +1654,9 @@
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@ScrinEssence:
 	-WithDeathAnimation@blood1:
+	-RevealsShroud:
+	-RevealOnDeath:
+	-ExternalCondition@blind:
 
 ^Engineer:
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
@@ -1677,6 +1688,7 @@
 ^BasicVehicle:
 	Inherits@1: ^VehicleShape
 	Inherits@2: ^5CellVision
+	Inherits@3: ^Blind
 	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	ActorLostNotification:

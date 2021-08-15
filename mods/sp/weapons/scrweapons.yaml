@@ -332,43 +332,54 @@ ScrMbtLasor:
 		InvalidTargets: Vehicle, Building, Wall
 
 ScorpGas:
-	Inherits: ^AcidWarhead
-	Inherits@1: ^SpawnsIrradiation
-	ReloadDelay: 70
-	Range: 5c0
-	Burst: 8
-	BurstDelays: 2
-	StartBurstReport: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
+	ReloadDelay: 120
+	Range: 11c0
+	MinRange: 3c0
+	TargetActorCenter: true
+	Report: 
+	ValidTargets: Infantry, Vehicle, Building, Ground, Water
 	Projectile: BulletAS
-		Speed: 400
-		Inaccuracy: 1c0
-		Palette: apolgreenalpha
-		Image: flameallremap
-	Warhead@1Dam: SpreadDamage
-		Spread: 250
-		Damage: 975
-		Versus:
-			InfantryArmor: 200
-			BuildingArmor: 75
-			VehicleArmor: 25
-			DefenseArmor: 25
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
-		InvalidTargets: Shark
-	Warhead@2Shark: SpreadDamage
-		Spread: 250
-		Damage: 975
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
-		Versus:
-			InfantryArmor: 200
-			BuildingArmor: 75
-			VehicleArmor: 25
-			DefenseArmor: 25
-		ValidTargets: Shark
-		InvalidTargets: Building, Vehicle
-		ValidRelationships: Enemy, Neutral
+		Speed: 500
+		Image: greenplasma
+		Shadow: true
+		LaunchAngle: 62
+		Palette: gradientblue60
+		Blockable: false
+		ContrailLength: 7
+		ContrailColor: 33008844
+		ContrailWidth: 0c70
+		ContrailDelay: 0
+		LaunchAngle: 96
+		Blockable: false
+	Warhead@1Dam: TargetDamage
+		Damage: 0
+		ValidTargets: Infantry, Vehicle, Building, Ground, Water
+	Warhead@3: SpawnSmokeParticle
+		Image: ichorsmoke
+		ImpactActors: false
+		Sequences: idle
+		Duration: 68
+		Palette: jascbluealpha
+		Delay: 18
+		Weapon: foggydebuff
+		ValidTargets: Infantry, Vehicle, Building, Ground, Water
 	Warhead@2Eff: CreateEffect
-		Explosions: tibexp2
-		ExplosionPalette: apolgreenalpha
+		Image: ichorsmoke
+		Explosions: start
+		ExplosionPalette: jascbluealpha
+		ImpactActors: false
+
+foggydebuff: 
+	Warhead@Acid: GrantExternalCondition
+		Range: 3c0
+		Duration: 1000
+		Condition: BugPoison
+		ValidTargets: Infantry, Vehicle, Ground, Water
+	Warhead@Acid2: GrantExternalCondition
+		Range: 3c0
+		Duration: 20
+		Condition: Blind
+		ValidTargets: Infantry, Vehicle, Ground, Water
 
 TripodBlast:
 	Inherits: ^RifleWarhead
@@ -842,7 +853,6 @@ SrcinOrb:
 	Warhead@1Dam: TargetDamage
 		Damage: 0
 		ValidTargets: Infantry, Vehicle, Building, Ground, Water
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3: SpawnSmokeParticle
 		Image: pulsar
 		ImpactActors: false
