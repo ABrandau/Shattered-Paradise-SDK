@@ -1594,6 +1594,7 @@ CABSENTRY:
 	-WithInfantryBody:
 	WithFacingSpriteBody:
 		Sequence: stand
+		RequiresCondition: !inside-tunnel && !WebDisable
 	WithMakeAnimation:
 		Condition: initializing
 	Selectable:
@@ -1710,12 +1711,6 @@ SWARMLING:
 	-WithDeathAnimation@explosion:
 	-WithDeathAnimation@energy:
 	-WithDeathAnimation@body:
-	-WithIdleOverlay@web:
-	WithColoredOverlay@web:
-		RequiresCondition: WebDisable
-		Color: FFFFFF33
-	WithInfantryBody:
-		-RequiresCondition:
 	-SpawnActorOnDeath@FLAMEGUY:
 	-SpawnActorOnDeath@conversion:
 	-WithDeathAnimation@blood1:
@@ -1742,9 +1737,9 @@ PDRONE:
 		WarnProbability: 0
 		CrushSound: squish6.aud
 	Hovers:
+		RequiresCondition: !WebDisable
 	Mobile:
 		Speed: 80
-		-PauseOnCondition: !WebDisable
 		Locomotor: HoverInfantry
 	Health:
 		HP: 11000
@@ -1889,7 +1884,7 @@ MOTH:
 	Voiced:
 		VoiceSet: Limpet
 	Hovers:
-		RequiresCondition: !deployed
+		RequiresCondition: !deployed && !WebDisable
 	Mobile:
 		Speed: 100
 		Locomotor: HoverInfantry
