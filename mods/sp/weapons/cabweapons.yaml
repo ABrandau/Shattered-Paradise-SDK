@@ -31,6 +31,23 @@ CyborgRocketAA:
 		ValidTargets: Air
 	-Warhead@ShieldUpgrade:
 
+LimpetMissile:
+	Inherits: ^RocketWarhead
+	Inherits@2: ^Large_Clsn
+	ReloadDelay: 375
+	Range: 4c0
+	Report: rketinf1.aud
+	ValidTargets: Ground, Water
+	InvalidTargets: Building, Wall
+	Projectile: MissileTA
+		MinimumLaunchAngle: 384
+		MaximumLaunchAngle: 384
+	Warhead@1Dam: SpreadDamage
+		Damage: 25000
+		ValidTargets: Ground, Water
+		InvalidTargets: Building, Wall
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
 SentryGun:
 	Inherits: ^FullDamage
 	Inherits: ^Small_Clsn
@@ -266,7 +283,6 @@ DogBomb:
 		Explosions: sparks
 		ImpactSounds: rketinf1.aud
 		ExplosionPalette: gensmkexploj
-
 
 NanoNeedle:
 	Inherits: ^WorkerWarhead

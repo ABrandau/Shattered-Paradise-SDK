@@ -2541,6 +2541,7 @@ REAPERCAB:
 
 LIMPED:
 	Inherits: ^HoverVehicle
+	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@DETECTION: ^BasicStealthDetection
 	Inherits@VISION: ^6CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
@@ -2565,12 +2566,6 @@ LIMPED:
 		RequireForceMoveCondition: !undeployed
 	Carryable:
 		RequiresCondition: undeployed
-	Crushable@deployed:
-		CrushClasses: crate
-		RequiresCondition: deployed
-	Explodes@mine:
-		Weapon: MineExplode
-		RequiresCondition: deployed
 	-WithFacingSpriteBody:
 	Voiced:
 		VoiceSet: Limpet
@@ -2588,10 +2583,29 @@ LIMPED:
 		SmartDeploy: true
 		UndeployOnMove: true
 		CanDeployOnRamps: true
+		PauseOnCondition: RefineryLock
 		RequiresCondition: !inside-tunnel && !empdisable
+	ExternalCondition@RefineryLock:
+		Condition: RefineryLock
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: deployed
+	Armament@1:
+		Weapon: LimpetMissile
+		PauseOnCondition: empdisable
+		RequiresCondition: deployed
+	AttackTurreted:
+		RequiresCondition: AImicroManage || deployed
+		PauseOnCondition: WebDisable
+	Turreted:
+		TurnSpeed: 1023
+		InitialFacing: 640
+		RealignDelay: -1
+	RenderRangeCircle:
+		Color: FFFF00CC
+		BorderColor: 000000CC
+		BorderWidth: 0
+		Width: 2
 	Cloak@bury-self:
 		RequiresCondition: deployed && !empdisable
 		InitialDelay: 0
