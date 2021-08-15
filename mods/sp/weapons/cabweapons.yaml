@@ -34,7 +34,7 @@ CyborgRocketAA:
 LimpetMissile:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Large_Clsn
-	ReloadDelay: 375
+	ReloadDelay: 750
 	Range: 4c0
 	Report: rketinf1.aud
 	ValidTargets: Ground, Water
@@ -43,7 +43,11 @@ LimpetMissile:
 		MinimumLaunchAngle: 384
 		MaximumLaunchAngle: 384
 	Warhead@1Dam: SpreadDamage
+		Spread: 0c384
 		Damage: 25000
+		Versus:
+			InfantryArmor: 100
+			VehicleArmor: 100
 		ValidTargets: Ground, Water
 		InvalidTargets: Building, Wall
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath

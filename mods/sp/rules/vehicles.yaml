@@ -2025,47 +2025,6 @@ CORRUPTOR:
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
 
-SCRSCORPION:
-	Inherits: ^Walker
-	Inherits@1: ^ScrinVehicle
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@VISION: ^6CellVision
-	Valued:
-		Cost: 1200
-	Tooltip:
-		Name: Ichor Walker
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 25
-		Description: Long range assault walker.\n\n Good vs Infantry, Vehicle\n\nSpecial:\n- Absorbs essence from killed enemies to heal\n- Fog inflicts blind and long time posion in the area\n- Inmune to tiberium radiation.
-		Prerequisites: ~scrweap
-	Mobile:
-		TurnSpeed: 32
-		Speed: 90
-		Locomotor: Vehicle
-	Health:
-		HP: 30000
-	AttackFrontal:
-		Voice: Attack
-		PauseOnCondition: empdisable
-	AutoTarget:
-	Armament@PRIMARY:
-		Weapon: ScorpGas
-		LocalOffset: -100,0,600
-		PauseOnCondition: empdisable
-	QuantizeFacingsFromSequence:
-		Sequence: stand
-	WithInfantryBody:
-	Selectable:
-		Bounds: 1508, 1568, 0, -482
-	-DamagedByTintedCells@Default:
-	ThrowsShrapnel:
-		Weapons: SmallDebrisScrin
-
 SCRMBT:
 	Inherits: ^HoverTank
 	Inherits@1: ^ScrinVehicle
@@ -2115,6 +2074,46 @@ SCRMBT:
 		SpawnAtLastPosition: false
 		TrailWhileStationary: true
 		StartDelay: -1
+	ThrowsShrapnel:
+		Weapons: SmallDebrisScrin
+
+SCRSCORPION:
+	Inherits: ^Walker
+	Inherits@1: ^ScrinVehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Ichor Walker
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 25
+		Description: Long range assault walker.\n\n Good vs Infantry, Vehicle\n\nSpecial:\n- Absorbs essence from killed enemies to heal\n- Fog inflicts blinding and poison effect in the area
+		Prerequisites: ~scrweap, scrradr
+	Mobile:
+		TurnSpeed: 32
+		Speed: 90
+		Locomotor: Vehicle
+	Health:
+		HP: 30000
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	AutoTarget:
+	Armament@PRIMARY:
+		Weapon: ScorpGas
+		LocalOffset: -100,0,600
+		PauseOnCondition: empdisable
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithInfantryBody:
+	Selectable:
+		Bounds: 1508, 1568, 0, -482
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
 
@@ -2543,19 +2542,19 @@ LIMPED:
 	Inherits@VISION: ^6CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
-		Cost: 800
+		Cost: 500
 	Tooltip:
 		Name: Limpet Drone
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 15
-		Description: Small drone armed with explosives.\n\nGood vs: Infantry, Vehicles\n\nSpecial:\n- Needs to be deployed to be armed\n- Invisible when deployed webs\n- Launches explosives towards a target after small delay
+		Description: Small drone armed with explosives.\n\nGood vs: Infantry, Vehicles\n\nSpecial:\n- Needs to be deployed to be armed\n- Invisible when deployed\n- Launches explosives towards a target after small delay
 		Prerequisites: ~cabweap
 	Health:
 		HP: 10000
 	Mobile:
-		Speed: 90
+		Speed: 115
 		TurnSpeed: 1023
 		Locomotor: Hover
 		RequireForceMoveCondition: !AImicroManage && !undeployed
@@ -2589,11 +2588,11 @@ LIMPED:
 		RequiresCondition: deployed
 	Armament@1:
 		Weapon: LimpetMissile
-		PauseOnCondition: empdisable
-		RequiresCondition: deployed
+		PauseOnCondition: empdisable || !deployed
 	AttackTurreted:
 		RequiresCondition: AImicroManage || deployed
 		PauseOnCondition: WebDisable
+	ReloadArmamentsBar:
 	Turreted:
 		TurnSpeed: 1023
 		InitialFacing: 640
@@ -2924,7 +2923,7 @@ BCOREDEF:
 	GrantConditionAfterDelay:
 		Condition: CanDeploy
 		PauseOnCondition: empdisable
-		Delay: 1000
+		Delay: 750
 	Transforms:
 		RequiresCondition: CanDeploy
 		IntoActor: blackdefd

@@ -354,6 +354,11 @@ ScorpGas:
 	Warhead@1Dam: TargetDamage
 		Damage: 0
 		ValidTargets: Infantry, Vehicle, Building, Ground, Water
+	Warhead@2Eff: CreateEffect
+		Image: ichorsmoke
+		Explosions: start
+		ExplosionPalette: jascbluealpha
+		ImpactActors: false
 	Warhead@3: SpawnSmokeParticle
 		Image: ichorsmoke
 		ImpactActors: false
@@ -363,16 +368,11 @@ ScorpGas:
 		Delay: 18
 		Weapon: foggydebuff
 		ValidTargets: Infantry, Vehicle, Building, Ground, Water
-	Warhead@2Eff: CreateEffect
-		Image: ichorsmoke
-		Explosions: start
-		ExplosionPalette: jascbluealpha
-		ImpactActors: false
 
 foggydebuff: 
 	Warhead@Acid: GrantExternalCondition
 		Range: 3c0
-		Duration: 1000
+		Duration: 250
 		Condition: BugPoison
 		ValidTargets: Infantry, Vehicle, Ground, Water
 	Warhead@Acid2: GrantExternalCondition
