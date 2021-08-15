@@ -1,4 +1,4 @@
-GDIAttackForce = { "gdie1", "gdie1", "gdie1", "gdie1", "gdie1", "grenadier", "grenadier", "grenadier", "smech", "mmch", "mmch", "apc" }
+GDIAttackForce = { "gdie1", "gdie1", "gdie1", "gdie1", "grenadier", "grenadier", "grenadier", "e2", "smech", "mmch", "mmch", "apc" }
 GDIAirForce = { "orca", "orca", "orca" }
 NodTemplarRush = { "templar", "templar", "templar", "templar", "templar" }
 NodStealthTeam = { "stnk", "stnk" }
@@ -6,7 +6,7 @@ NodAirForce = { "scrin", "scrin" }
 MutantBusGuys = { "marauder", "marauder", "marauder", "marauder", "mutfiend" }
 MutantDemoTruck = { "hvrtruk3" }
 MutantFalcon = { "wetp" }
-ScrinAttackForce = { "shark", "shark", "shark", "shark", "legio", "legio", "float", "scrscorpion", "scrscorpion", "scrscorpion" }
+ScrinAttackForce = { "shark", "shark", "shark", "shark", "legio", "legio", "float", "corruptor", "corruptor", "corruptor" }
 ScrinAirForce = { "stormrider", "stormrider", "stormrider", "stormrider" }
 CABALInfantry = { "cyborg", "cyborg", "cyborg", "cyborg", "cyborg" }
 CABALToBeEMPed = { "centurion", "centurion", "reapercab", "paladin" }
