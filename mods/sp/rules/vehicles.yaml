@@ -1692,6 +1692,71 @@ MRLS:
 		Image: scrsmoke
 		Palette: gradientgreen40
 
+ECM:
+	Inherits: ^Vehicle
+	Inherits@RENDER: ^MutRender
+	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
+	Inherits@VISION: ^5CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Trike
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		Description: Mines...mines everywhere!\n\nSpecial:\n- Can place up to 5 mines in the battlefield\n- Reloads in service depot\n- Mines are cloaked and harm all unit types\n- Can crush Infantry
+		BuildPaletteOrder: 20
+		Prerequisites: ~muweap, gadept, ~!AIsNotAllowed
+	Mobile:
+		TurnSpeed: 12
+		Speed: 70
+		Locomotor: InfantryCrusherVehicle
+	Voiced:
+		VoiceSet: Limpet
+	AmmoPool:
+		Ammo: 5
+		ReloadDelay: 25
+	Rearmable:
+		RearmActors: gadept, scrdepot
+	Minelayer:
+		Mine: mumine
+		TileUnknownName: build-invalid
+	Health:
+		HP: 40000
+	RenderSprites:
+		Image: minelayer
+	SelectionDecorations:
+	WithFacingSpriteBody:
+	Selectable:
+		DecorationBounds: 1508, 3015, 0, 0
+	-ChangesHealth@veinholedrain:
+	-ExternalCondition@veinholedrain:
+	-WithIdleOverlay@veinholedrain:
+	-GrantConditionOnTerrain@VEINS:
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		Palette: pips
+		Margin: 5, 2
+	Wanders@AI:
+		RequiresCondition: AImicroManage
+		WanderMoveRadius: 10
+		MinMoveDelay: 12
+		MaxMoveDelay: 18
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage
+		DeployTrigger: Periodically
+		DeployTicks: 500
+	ReloadAmmoPool@AIAmmoCheat:
+		AmmoPool: primary
+		RequiresCondition: AImicroManage
+		Count: 10
+		Delay: 2000
+
+
 DEATHCLAW:
 	Inherits: ^Beast
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -2676,67 +2741,6 @@ REPAIRVEHICLE:
 		VoiceSet: Limpet
 	WithFacingSpriteBody:
 
-ECM:
-	Inherits: ^Vehicle
-	Inherits@RENDER: ^CabRender
-	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
-	Inherits@VISION: ^5CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
-	Valued:
-		Cost: 800
-	Tooltip:
-		Name: Artisan
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		Description: Mines...mines everywhere!\n\nSpecial:\n- Can place up to 5 mines in the battlefield\n- Reloads in service depot\n- Mines are cloaked and harm all unit types\n- Can crush Infantry
-		BuildPaletteOrder: 20
-		Prerequisites: ~muweap, gadept, ~!AIsNotAllowed
-	Mobile:
-		TurnSpeed: 12
-		Speed: 70
-		Locomotor: InfantryCrusherVehicle
-	Voiced:
-		VoiceSet: Limpet
-	AmmoPool:
-		Ammo: 5
-		ReloadDelay: 25
-	Rearmable:
-		RearmActors: gadept, scrdepot
-	Minelayer:
-		Mine: mumine
-		TileUnknownName: build-invalid
-	Health:
-		HP: 40000
-	SelectionDecorations:
-	WithFacingSpriteBody:
-	Selectable:
-		DecorationBounds: 1508, 3015, 0, 0
-	-ChangesHealth@veinholedrain:
-	-ExternalCondition@veinholedrain:
-	-WithIdleOverlay@veinholedrain:
-	-GrantConditionOnTerrain@VEINS:
-	WithAmmoPipsDecoration:
-		Position: BottomLeft
-		RequiresSelection: true
-		Palette: pips
-		Margin: 5, 2
-	Wanders@AI:
-		RequiresCondition: AImicroManage
-		WanderMoveRadius: 10
-		MinMoveDelay: 12
-		MaxMoveDelay: 18
-	AutoDeployer@AI:
-		RequiresCondition: AImicroManage
-		DeployTrigger: Periodically
-		DeployTicks: 500
-	ReloadAmmoPool@AIAmmoCheat:
-		AmmoPool: primary
-		RequiresCondition: AImicroManage
-		Count: 10
-		Delay: 2000
 
 CABAPC:
 	Inherits: ^HoverVehicle
