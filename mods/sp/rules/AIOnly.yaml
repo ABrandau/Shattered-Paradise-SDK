@@ -236,6 +236,74 @@ MUBUNKRFULL:
 	Cargo:
 		InitialUnits: marauder, marauder, mutfiend, marauder, marauder
 
+
+GHOST:
+	Inherits: ^Mutant
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@COMMANDO: ^CommandoIcon
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^8CellVision
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Gil The Ghost Stalker
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 30
+		Prerequisites: ~murax, muhall, ~AIOnly
+		Description: Gil is the elite commando unit of Mutants.\nHe is armed with a railgun and C4.\n\nGood vs Ground\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes structures with C4\n- Heals on Tiberium\n- Immune to mindcontrol\n- Crush class: crushable
+		BuildLimit: 1
+	Armor:
+		Type: InfantryArmor
+	Mobile:
+		Speed: 75
+	Health:
+		HP: 40000
+	Armament:
+		Weapon: LtRail
+		LocalOffset: 200,0,743
+		Armaments: OnFoot
+		PauseOnCondition: WebDisable
+	Armament@pit:
+		Weapon: LtRailSmudge
+		LocalOffset: 200,0,743
+		Armaments: OnFoot
+		PauseOnCondition: WebDisable
+	Armament@garrison:
+		Weapon: GLtRail
+		LocalOffset: 200,0,743
+	Armament@garrisonpit:
+		Weapon: GLtRailSmudge
+		LocalOffset: 200,0,743
+	-Targetable@MC:
+	TakeCover:
+		ProneOffset: 256,32,-584
+	Crushable:
+		CrushSound: squishy2.aud
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+		FacingTolerance: 2
+	Demolition:
+		DetonationDelay: 45
+		Voice: Attack
+	Voiced:
+		VoiceSet: Ghost
+	Cloak@CLOAKGENERATOR:
+		CloakedCondition: bettercloak
+	Cloak@personalskill:
+		RequiresCondition: !bettercloak
+		InitialDelay: 40
+		CloakDelay: 40
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage, move
+		EffectImage: explosion
+		EffectPalette: apolgreenalpha75
+		EnterEffectSequence: smokebomb
+		EffectOffset: 0, 0, 800
+
 COREDEFENDER:
 	Inherits: ^Walker
 	Inherits@1: ^10CellVision

@@ -1349,6 +1349,7 @@ SCORPION:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^8CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 4000
 	Tooltip:
@@ -1411,6 +1412,12 @@ SCORPION:
 		CooldownTicks: 3000
 		DeployedTicks: 10
 		StartsFullyCharged: true
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage
+		DeployTrigger: Attack
+		DeployChance: 100
+		DeployTicks: 3005
+		UndeployTicks: 1
 	ExplodeWeapon@Deployed:
 		Weapon: RageEmitter
 		RequiresCondition: rage
@@ -1685,11 +1692,6 @@ ECM:
 		RequiresSelection: true
 		Palette: pips
 		Margin: 5, 2
-	Wanders@AI:
-		RequiresCondition: AImicroManage
-		WanderMoveRadius: 10
-		MinMoveDelay: 12
-		MaxMoveDelay: 18
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage
 		DeployTrigger: Periodically
@@ -1902,6 +1904,7 @@ WEASAU:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^8CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 4000
 	Tooltip:
@@ -2009,6 +2012,12 @@ WEASAU:
 	VoiceAnnouncement:
 		RequiresCondition: produced
 		Voice: Build
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage
+		DeployTrigger: Attack
+		DeployChance: 100
+		DeployTicks: 1005
+		UndeployTicks: 1
 
 WEASAUSMALL:
 	Inherits: ^Beast
