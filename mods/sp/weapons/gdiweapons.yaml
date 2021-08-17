@@ -91,8 +91,8 @@ JJSMG:
 	Inherits:  ^WeaponGenericUpgrades
 	Range: 7c0
 	ReloadDelay: 30
-	ValidTargets: Ground, Water, Infantry
-	InvalidTargets: Vehicle, Building, Defence, Wall, Air
+	ValidTargets: Ground, Water
+	InvalidTargets: Building, Defence, Wall, Air
 	Report: sonic4.aud
 	Projectile: LaserZap
 		Color: 50F5FF45
@@ -103,11 +103,12 @@ JJSMG:
 		Spread: 300
 		Damage: 20000
 		Versus:
+			VehicleArmor: 80
 			BuildingArmor: 10
-			VehicleArmor: 10
 			DefenseArmor: 10
 			ConcreteArmor: 5
 		ValidTargets: Ground, Water
+		InvalidTargets: Building, Defence, Wall, Air
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 
 JJSMGAA:
@@ -117,7 +118,6 @@ JJSMGAA:
 	ValidTargets: Air
 	-InvalidTargets: 
 	Warhead@1Dam: SpreadDamage
-		VehicleArmor: 100
 		ValidTargets: Air
 		Damage: 5000
 	-Warhead@ShieldUpgrade:
@@ -188,7 +188,7 @@ OribitBomb:
 
 JJBeaconGround:
 	Inherits:  JJBeacon
-	ValidTargets: Vehicle, Building, Defence, Wall
+	ValidTargets: Building, Defence, Wall
 
 Heal:
 	ReloadDelay: 80
