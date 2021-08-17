@@ -16,6 +16,9 @@ set EnableSyncReports=False
 set EnableGeoIP=True
 set ShareAnonymizedIPs=True
 
+set RecordReplays=True
+set QueryMapRepository=True
+
 @echo off
 setlocal EnableDelayedExpansion
 
