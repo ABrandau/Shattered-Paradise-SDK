@@ -1280,6 +1280,7 @@ BLACKDEFD:
 	#	ActorTypes: shark
 	#	Factions: scr
 	IsometricSelectable:
+		Class: blackdefd
 		DecorationHeight: 36
 	AttackOmni:
 		PauseOnCondition: empdisable
@@ -1310,6 +1311,13 @@ BLACKDEFD:
 		Position: Bottom
 	ProvidesPrerequisite@buildinglimit:
 		Prerequisite: DarkDefenderExists
+	Voiced:
+		VoiceSet: CoreDefender
+		Volume: 0.75
+	VoiceAnnouncement:
+		Voice: Build
+	RenderSprites:
+		Image: blackdefd
 	-Targetable@MC:
 	-WithColoredOverlay@IDISABLE:
 	-GrantConditionOnPowerState@LOWPOWER:
@@ -1317,3 +1325,11 @@ BLACKDEFD:
 	-ToggleConditionOnOrder:
 	-WithDecoration@POWERDOWN:
 	-PowerMultiplier@POWERDOWN:
+	-MapEditorData:
+
+BLACKDEFD2:
+	Inherits: BLACKDEFD
+	-Buildable:
+	-VoiceAnnouncement:
+	MapEditorData:
+		Categories: Defence
