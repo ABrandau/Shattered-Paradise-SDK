@@ -589,17 +589,20 @@ BGGY:
 			cborg: ifv.crusader
 			legio: ifv.crusader
 			engineer: ifv.engineer
-			e2: ifv.engineer
+			cutman: ifv.engineer
 			shapeshifter: ifv.engineer
 			swarmling: ifv.engineer
 			templar: ifv.templar
 			nconf: ifv.nconf
 			bhs: ifv.bhs
+			medic: ifv.medic
+			e2: ifv.disc
 			jumpjet: ifv.jumpjet
 			eagleguard: ifv.eagleguard
-			medic: ifv.medic
+			jjcomm: ifv.jjcomm
 			e3: ifv.skirmisher
 			seer: ifv.seer
+			ghost: ifv.ghost
 			psyker: ifv.psyker
 			glad: ifv.glad
 			cyc2: ifv.cyc2
@@ -643,6 +646,11 @@ BGGY:
 		LocalOffset: 250,0,125
 		MuzzleSequence: muzzle
 		RequiresCondition: ifv.bhs
+	Armament@discthrower:
+		Weapon: Grenade
+		LocalOffset: 250,0,125
+		MuzzleSequence: muzzle
+		RequiresCondition: ifv.disc
 	Armament@jumpjet:
 		Weapon: JJGrenade
 		LocalOffset: 250,0,125
@@ -668,6 +676,10 @@ BGGY:
 		Weapon: TrooperRail
 		LocalOffset: 250,0,125
 		RequiresCondition: ifv.eagleguard
+	Armament@jumpjetcommando:
+		Weapon: JJSMG
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.jjcomm
 	Armament@skirmisher:
 		Weapon: SkirmisherMortar
 		LocalOffset: 250,0,125
@@ -684,6 +696,14 @@ BGGY:
 		Weapon: PsykerRay
 		LocalOffset: 250,0,125
 		RequiresCondition: ifv.psyker
+	Armament@ghost:
+		Weapon: LtRail
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.ghost
+	Armament@ghostpit:
+		Weapon: LtRailSmudge
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.ghost
 	Armament@shark:
 		Weapon: SharkJumpNod
 		LocalOffset: 250,0,125
@@ -741,16 +761,16 @@ BGGY:
 		RequiresCondition: !inside-tunnel && ifv.templar
 	WithSpriteTurret@laser:
 		Sequence: turret-laser
-		RequiresCondition: !inside-tunnel && ifv.nconf || ifv.bhs
+		RequiresCondition: !inside-tunnel && (ifv.nconf || ifv.bhs)
 	WithSpriteTurret@chainsaw:
 		Sequence: turret-chainsaw
-		RequiresCondition: !inside-tunnel && ifv.pdrone || ifv.shark
+		RequiresCondition: !inside-tunnel && (ifv.pdrone || ifv.shark)
 	WithSpriteTurret@medic:
 		Sequence: turret-medic
 		RequiresCondition: !inside-tunnel && ifv.medic
 	WithSpriteTurret@eagleguard:
 		Sequence: turret-eagleguard
-		RequiresCondition: !inside-tunnel && ifv.eagleguard
+		RequiresCondition: !inside-tunnel && (ifv.eagleguard || ifv.jjcomm || ifv.ghost)
 	WithSpriteTurret@abductor:
 		Sequence: turret-abductor
 		RequiresCondition: !inside-tunnel && ifv.moth
@@ -765,10 +785,10 @@ BGGY:
 		RequiresCondition: !inside-tunnel && ifv.cyc2
 	WithSpriteTurret@mortar:
 		Sequence: turret-mortar
-		RequiresCondition: !inside-tunnel && ifv.jumpjet || ifv.skirmisher
+		RequiresCondition: !inside-tunnel && (ifv.disc || ifv.jumpjet || ifv.skirmisher)
 	WithSpriteTurret@tesla:
 		Sequence: turret-tesla
-		RequiresCondition: !inside-tunnel && ifv.seer || ifv.psyker
+		RequiresCondition: !inside-tunnel && (ifv.seer || ifv.psyker)
 	WithSpriteTurret@bug:
 		Sequence: turret-bug
 		RequiresCondition: !inside-tunnel && ifv.bug
@@ -799,12 +819,18 @@ BGGY:
 	Tooltip@bhs:
 		Name: Toxin Commando Buggy
 		RequiresCondition: ifv.bhs
+	Tooltip@discthrower:
+		Name: Disc Launcher Buggy
+		RequiresCondition: ifv.disc
 	Tooltip@jumpjet:
 		Name: Grenade Launcher Buggy
 		RequiresCondition: ifv.jumpjet
 	Tooltip@eagleguard:
 		Name: Eagle Guard Buggy
 		RequiresCondition: ifv.eagleguard
+	Tooltip@jjcomm:
+		Name: Sonic Buggy
+		RequiresCondition: ifv.jjcomm
 	Tooltip@medic:
 		Name: Medical Buggy
 		RequiresCondition: ifv.medic
@@ -820,6 +846,9 @@ BGGY:
 	Tooltip@psyker:
 		Name: Lyra Buggy
 		RequiresCondition: ifv.psyker
+	Tooltip@ghost:
+		Name: Gil Buggy
+		RequiresCondition: ifv.ghost
 	Tooltip@glad:
 		Name: Gladiator Buggy
 		RequiresCondition: ifv.glad
