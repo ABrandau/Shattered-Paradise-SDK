@@ -356,6 +356,9 @@ JJCOMM:
 		LocalOffset: 0,300,300
 		PauseOnCondition: WebDisable
 		Name: OnFoot
+	Armament@Garrison:
+		Weapon: GJJSMG
+		LocalOffset: 300,0,900
 	GrantConditionAfterDelay: ## Prevent player switch between modes to refresh reload
 		Condition: beaconready
 		Delay: 125
@@ -365,10 +368,9 @@ JJCOMM:
 		LocalOffset: 0,300,300
 		PauseOnCondition: WebDisable || !beaconready
 		Name: OnFoot
-	#Armament@Garrison: TODO: add all commando garrion weapon and all commando weapon in ifv
-	#	Weapon: GJJGrenade
-	#	LocalOffset: 300,0,900
-	#	PauseOnCondition: WebDisable
+	Armament@Garrison2:
+		Weapon: GJJBeaconGround
+		LocalOffset: 300,0,900
 	Passenger:
 		CustomPipType: red
 	AttackFrontal:
@@ -1123,8 +1125,18 @@ GHOST:
 	Armament:
 		Weapon: LtRail
 		LocalOffset: 200,0,743
+		Armaments: OnFoot
+		PauseOnCondition: WebDisable
 	Armament@pit:
 		Weapon: LtRailSmudge
+		LocalOffset: 200,0,743
+		Armaments: OnFoot
+		PauseOnCondition: WebDisable
+	Armament@garrison:
+		Weapon: GLtRail
+		LocalOffset: 200,0,743
+	Armament@garrisonpit:
+		Weapon: GLtRailSmudge
 		LocalOffset: 200,0,743
 	-Targetable@MC:
 	TakeCover:
@@ -1133,6 +1145,8 @@ GHOST:
 		CrushSound: squishy2.aud
 	AttackFrontal:
 		Voice: Attack
+		Armaments: OnFoot
+		FacingTolerance: 2
 	Demolition:
 		DetonationDelay: 45
 		Voice: Attack
