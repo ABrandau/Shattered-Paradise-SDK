@@ -5,7 +5,7 @@ SMECH:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^8CellVision
 	Valued:
-		Cost: 300
+		Cost: 400
 	Tooltip:
 		Name: Wolverine
 	UpdatesPlayerStatistics:
@@ -21,7 +21,7 @@ SMECH:
 		Speed: 100
 		Locomotor: Vehicle
 	Health:
-		HP: 15000
+		HP: 17500
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -124,7 +124,7 @@ APC:
 		Speed: 90
 		Locomotor: AmphAPCLocomotor
 	Health:
-		HP: 40000
+		HP: 35000
 	Turreted:
 		TurnSpeed: 20
 		Offset: -200,0,0
@@ -557,7 +557,7 @@ BGGY:
 		Volume: 2
 	Mobile:
 		TurnSpeed: 40
-		Speed: 125
+		Speed: 130
 		Locomotor: Vehicle
 	Turreted:
 		Offset: -250,0,400
@@ -870,10 +870,10 @@ ATTACKBIKE:
 		Volume: 2
 	Mobile:
 		TurnSpeed: 40
-		Speed: 140
+		Speed: 130
 		Locomotor: Vehicle
 	Health:
-		HP: 12000
+		HP: 15000
 	Armament@PRIMARY:
 		Weapon: BikeMissile
 		LocalOffset: -120,-204,400, -120,204,400
@@ -1379,7 +1379,7 @@ SCORPION:
 		Name: fireArmament
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: rage
-		CooldownTicks: 1500
+		CooldownTicks: 3000
 		DeployedTicks: 10
 		StartsFullyCharged: true
 	ExplodeWeapon@Deployed:
@@ -1463,7 +1463,7 @@ MUTQUAD:
 		Prerequisites: ~muweap
 	Mobile:
 		TurnSpeed: 28
-		Speed: 85
+		Speed: 90
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 25000
@@ -1573,7 +1573,7 @@ STRUCK:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Combat transport.\n\nGood vs: Depends what has been garrisoned\n\nSpecial:\n- Cargo for 5 soldiers.\n- Passengers can fire from inside the vehicle.
+		Description: Combat transport.\n\nGood vs: Depends what has been garrisoned\n\nSpecial:\n- Cargo for 5 soldiers\n- Passengers can fire from inside of the bus
 		BuildPaletteOrder: 19
 		Prerequisites: ~muweap, murax, ~!AIOnly
 	Mobile:
@@ -1607,6 +1607,69 @@ STRUCK:
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
+
+ECM:
+	Inherits: ^Vehicle
+	Inherits@RENDER: ^CabRender
+	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
+	Inherits@VISION: ^5CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Minelayer
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		Description: Mines...mines everywhere!\n\nSpecial:\n- Can place up to 5 mines on the battlefield\n- Reloads on service depot\n- Mines are cloaked\n- Can crush Infantry
+		BuildPaletteOrder: 20
+		Prerequisites: ~muweap, gadept, ~!AIsNotAllowed
+	Mobile:
+		TurnSpeed: 24
+		Speed: 90
+		Locomotor: InfantryCrusherVehicle
+	Voiced:
+		VoiceSet: Trike
+		Volume: 3
+	AmmoPool:
+		Ammo: 5
+		ReloadDelay: 25
+	Rearmable:
+		RearmActors: gadept, scrdepot
+	Minelayer:
+		Mine: mumine
+		TileUnknownName: build-invalid
+	Health:
+		HP: 40000
+	SelectionDecorations:
+	WithFacingSpriteBody:
+	Selectable:
+		DecorationBounds: 1508, 3015, 0, 0
+	-ChangesHealth@veinholedrain:
+	-ExternalCondition@veinholedrain:
+	-WithIdleOverlay@veinholedrain:
+	-GrantConditionOnTerrain@VEINS:
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		Palette: pips
+		Margin: 5, 2
+	Wanders@AI:
+		RequiresCondition: AImicroManage
+		WanderMoveRadius: 10
+		MinMoveDelay: 12
+		MaxMoveDelay: 18
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage
+		DeployTrigger: Periodically
+		DeployTicks: 500
+	ReloadAmmoPool@AIAmmoCheat:
+		AmmoPool: primary
+		RequiresCondition: AImicroManage
+		Count: 10
+		Delay: 2000
 
 WOLF:
 	Inherits: ^Beast
@@ -1691,71 +1754,6 @@ MRLS:
 	SmokeParticleEmitter@spawnsmoke:
 		Image: scrsmoke
 		Palette: gradientgreen40
-
-ECM:
-	Inherits: ^Vehicle
-	Inherits@RENDER: ^MutRender
-	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
-	Inherits@VISION: ^5CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
-	Valued:
-		Cost: 800
-	Tooltip:
-		Name: Trike
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		Description: Mines...mines everywhere!\n\nSpecial:\n- Can place up to 5 mines in the battlefield\n- Reloads in service depot\n- Mines are cloaked and harm all unit types\n- Can crush Infantry
-		BuildPaletteOrder: 20
-		Prerequisites: ~muweap, gadept, ~!AIsNotAllowed
-	Mobile:
-		TurnSpeed: 12
-		Speed: 70
-		Locomotor: InfantryCrusherVehicle
-	Voiced:
-		VoiceSet: Limpet
-	AmmoPool:
-		Ammo: 5
-		ReloadDelay: 25
-	Rearmable:
-		RearmActors: gadept, scrdepot
-	Minelayer:
-		Mine: mumine
-		TileUnknownName: build-invalid
-	Health:
-		HP: 40000
-	RenderSprites:
-		Image: minelayer
-	SelectionDecorations:
-	WithFacingSpriteBody:
-	Selectable:
-		DecorationBounds: 1508, 3015, 0, 0
-	-ChangesHealth@veinholedrain:
-	-ExternalCondition@veinholedrain:
-	-WithIdleOverlay@veinholedrain:
-	-GrantConditionOnTerrain@VEINS:
-	WithAmmoPipsDecoration:
-		Position: BottomLeft
-		RequiresSelection: true
-		Palette: pips
-		Margin: 5, 2
-	Wanders@AI:
-		RequiresCondition: AImicroManage
-		WanderMoveRadius: 10
-		MinMoveDelay: 12
-		MaxMoveDelay: 18
-	AutoDeployer@AI:
-		RequiresCondition: AImicroManage
-		DeployTrigger: Periodically
-		DeployTicks: 500
-	ReloadAmmoPool@AIAmmoCheat:
-		AmmoPool: primary
-		RequiresCondition: AImicroManage
-		Count: 10
-		Delay: 2000
-
 
 DEATHCLAW:
 	Inherits: ^Beast
@@ -1886,7 +1884,7 @@ WEASAU:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 45
 		Prerequisites: ~muweap, mutsw2
-		Description: A long forgotten creature that has emerged again\nto defend it's territory.\n\nGood vs: Ground\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything execept other Epics\n- Heals on Tiberium\n- E.M.P. Inmune\n- Deployability: Summons a massive brood of Tiberium Creatures
+		Description: A long forgotten creature that has emerged again\nto defend it's territory.\n\nGood vs: Ground\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything execept other Epics\n- Heals on Tiberium\n- E.M.P. Immune\n- Deployability: Summons a massive brood of Tiberium Creatures
 		BuildLimit: 1
 	Voiced:
 		VoiceSet: LargeBeast
@@ -2038,414 +2036,6 @@ WEASAUSMALL:
 	-UpdatesPlayerStatistics:
 	-Passenger:
 	-SharedPassenger:
-
-###########################################################
-# SCRIN
-###########################################################
-
-CORRUPTOR:
-	Inherits: ^Walker
-	Inherits@1: ^ScrinVehicle
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@DETECTION: ^BasicStealthDetection
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@VISION: ^6CellVision
-	Valued:
-		Cost: 600
-	Tooltip:
-		Name: Corruptor
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 16
-		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n- Can mutate enemies killed\n- Deals considerable damage to vehicles\n- Absorbs essence from killed enemies to heal\n- Attacks emit radiation that harms infantry in the area\n- Inmune to tiberium radiation.\n- Can crush infantry
-		Prerequisites: ~scrweap
-	Mobile:
-		TurnSpeed: 24
-		Speed: 80
-		Locomotor: InfantryCrusherVehicle
-	Health:
-		HP: 30000
-	AttackFrontal:
-		Voice: Attack
-		PauseOnCondition: empdisable
-	AutoTarget:
-	Armament@PRIMARY:
-		Weapon: CorruptorAcid
-		LocalOffset: 800,0,200
-		PauseOnCondition: empdisable
-	BodyOrientation:
-		QuantizedFacings: 8
-		CameraPitch: 250
-	QuantizeFacingsFromSequence:
-		Sequence: stand
-	WithInfantryBody:
-	Selectable:
-		Bounds: 1508, 1568, 0, -482
-	SmokeParticleEmitter@spawnsmoke:
-		Palette: gradientgreen40
-	-DamagedByTintedCells@Default:
-	ThrowsShrapnel:
-		Weapons: SmallDebrisScrin
-
-SCRMBT:
-	Inherits: ^HoverTank
-	Inherits@1: ^ScrinVehicle
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@VISION: ^6CellVision
-	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 17
-		Description: Light Tank, good for harassment.\n\nGood vs Ground targets\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water)\n- Absorbs essence from killed units to heal\n- Cannot crush infantry
-		Prerequisites: ~scrweap
-	Valued:
-		Cost: 800
-	Tooltip:
-		Name: Hover Tank
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Health:
-		HP: 25000
-	Mobile:
-		TurnSpeed: 20
-		CanMoveBackward: true
-		Speed: 115
-		Locomotor: Hover
-	Turreted:
-		TurnSpeed: 24
-	Armament:
-		Weapon: scrmbtlasor
-		LocalOffset: 250,0,900
-		MuzzleSequence: muzzle
-		MuzzlePalette: appurp
-		PauseOnCondition: empdisable
-	WithMuzzleOverlay:
-	AttackTurreted:
-		PauseOnCondition: empdisable
-	-LeavesTrails@land:
-	-LeavesTrails@water:
-	LeavesTrails@gravity:
-		RequiresCondition: !carried && !ascargo
-		Image: wake
-		Sequences: idlescr
-		Palette: scrinenergystuffsalpha
-		Type: CenterPosition
-		StationaryInterval: 20
-		MovingInterval: 12
-		SpawnAtLastPosition: false
-		TrailWhileStationary: true
-		StartDelay: -1
-	ThrowsShrapnel:
-		Weapons: SmallDebrisScrin
-
-SCRSCORPION:
-	Inherits: ^Walker
-	Inherits@1: ^ScrinVehicle
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@VISION: ^6CellVision
-	Valued:
-		Cost: 1200
-	Tooltip:
-		Name: Ichor Walker
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 27
-		Description: Long range assault walker.\n\n Good vs Infantry, Vehicle\n\nSpecial:\n- Absorbs essence from killed enemies to heal\n- Fog inflicts blinding and poison effect in the area
-		Prerequisites: ~scrweap, scrradr
-	Mobile:
-		TurnSpeed: 32
-		Speed: 90
-		Locomotor: Vehicle
-	Health:
-		HP: 30000
-	AttackFrontal:
-		Voice: Attack
-		PauseOnCondition: empdisable
-	AutoTarget:
-	Armament@PRIMARY:
-		Weapon: ScorpGas
-		LocalOffset: -100,0,600
-		PauseOnCondition: empdisable
-	QuantizeFacingsFromSequence:
-		Sequence: stand
-	WithInfantryBody:
-	Selectable:
-		Bounds: 1508, 1568, 0, -482
-	ThrowsShrapnel:
-		Weapons: SmallDebrisScrin
-
-SCRGLYDER2:
-	Inherits: ^HoverVehicle
-	Inherits@1: ^ScrinVehicle
-	Inherits@AUTOTARGET: ^AutoTargetAir
-	Inherits@DETECTION: ^BasicStealthDetection
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@VISION: ^8CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 28
-		BuildAtProductionType: Tank
-		Description: Anti-air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Can transform into an aerial version that can only engage ground units.\n- Aerial Version weapon performs Good Vs Infantry.\n- Absorbs essence from killed units to heal.\n- Hovers (it ignores terrain like Veins and Water)
-		Prerequisites: ~scrweap, scrradr
-	Valued:
-		Cost: 700
-	Tooltip:
-		Name: Glider
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Health:
-		HP: 20000
-	Mobile:
-		TurnSpeed: 40
-		CanMoveBackward: true
-		Speed: 90
-		Locomotor: Hover
-	Transforms:
-		PauseOnCondition: inside-tunnel || mindcontrolled
-		IntoActor: scrglyder1
-	Armament:
-		Weapon: Glyder2Cannon
-		Recoil: 85
-		RecoilRecovery: 25
-		LocalOffset: -250,0,1300
-		PauseOnCondition: empdisable
-	AttackFrontal:
-		PauseOnCondition: empdisable
-		FacingTolerance: 5
-	Armament@AITransformDummyWeapon:
-		RequiresCondition: AImicroManage && !mindcontrolled
-		Weapon: AIGlyder2AimingDummyWeapon
-		PauseOnCondition: empdisable
-		ReloadingCondition: AIattackAir
-	TransformOnCondition@AITransform:
-		RequiresCondition: AIattackAir && !inside-tunnel && !mindcontrolled
-		IntoActor: scrglyder1
-	-LeavesTrails@land:
-	-LeavesTrails@water:
-	LeavesTrails@gravity:
-		RequiresCondition: !carried && !ascargo
-		Image: wake
-		Sequences: idlescr
-		Palette: scrinenergystuffsalpha
-		Type: CenterPosition
-		StationaryInterval: 20
-		MovingInterval: 12
-		SpawnAtLastPosition: false
-		TrailWhileStationary: true
-		StartDelay: -1
-	ThrowsShrapnel:
-		Weapons: SmallDebrisScrin
-
-SCRRECHARGER:
-	Inherits: ^Walker
-	Inherits@1: ^ScrinVehicle
-	Inherits@VISION: ^5CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
-	Valued:
-		Cost: 1000
-	Tooltip:
-		Name: Guardian
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 40
-		Description: Mobile shield generator.\n\nSpecial:\n- Generates shields around nearby friendly units.\n- Shields protect from all damage until the unit is hit 4 times.\n- Does not protect against super weapons.\n- Absorbs essence from killed enemies to heal.\n- Can Crush infantry.\n- Cannot apply shields to aircraft.
-		Prerequisites: ~scrweap, scrtech
-	Mobile:
-		TurnSpeed: 28
-		Speed: 80
-		Locomotor: Vehicle
-	Health:
-		HP: 20000
-	-WithIdleOverlay@shield:
-	-Armor@Shield:
-	-ExternalCondition@VanguardShield:
-	-ExternalCondition@BreakShield:
-	DamagedByTintedCells@Default:
-		-RequiresCondition:
-	Armament:
-		Weapon: VanguardFollow
-		TargetRelationships: Ally
-		ForceTargetRelationships: None
-		RequiresCondition:!AImicroManage
-	ProximityExternalCondition@VanguardShield:
-		RequiresCondition: !empdisable
-		Condition: VanguardShield
-		Range: 7c0
-		AffectsParent: false
-	WithRangeCircle:
-		Range: 7c0
-		Type: VanguardShield
-		Color: 8A2BE2CC
-		BorderWidth: 0
-		Width: 2
-	Targetable:
-		TargetTypes: Ground, Vehicle, ShieldGenerator
-	WithMuzzleOverlay:
-	AttackFrontal:
-		PauseOnCondition: empdisable
-	AutoTarget:
-	QuantizeFacingsFromSequence:
-		Sequence: stand
-	WithFacingSpriteBody:
-		Sequence: stand
-	WithMoveAnimation:
-		MoveSequence: run
-	WithIdleOverlay@shieldpower:
-		RequiresCondition: !empdisable
-		Sequence: idle
-		Image: shieldpower
-		Palette: scrinenergystuffsalpha
-		Offset: 0, 0, 1800
-	ThrowsShrapnel:
-		Weapons: SmallDebrisScrin
-
-SCRMOBMINE:
-	Inherits@: ^HoverVehicle
-	Inherits@1: ^ScrinVehicle
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@MC: ^MindControllableMastermind
-	Inherits@VISION: ^7CellVision
-	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 41
-		Description: Mind Control unit\n\nSpecial:\n- Can overtake regular vehicle and infantry \n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol Heroics, Flying Units, Beasts, Buildings\n- Can shoot over walls.\n- Can mind control units while moving.
-		Prerequisites: ~scrweap, scrtech
-	Valued:
-		Cost: 1750
-	Tooltip:
-		Name: Subjugator
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	MindController:
-		Capacity: 3
-		Sounds: sonpulse.aud
-		#ControllingCondition: slaving
-	ExplodeWeapon@Casing:
-		Weapon: MindEnergyCasing
-		LocalOffset: 0,0,2000
-		RequiresCondition: attack
-	GrantConditionOnAttack@Casing:
-		Condition: attack
-		ArmamentNames: primary
-	Armament@PRIMARY:
-		Weapon: MindController
-		PauseOnCondition: empdisable
-	Health:
-		HP: 20000
-	Mobile:
-		TurnSpeed: 40
-		CanMoveBackward: true
-		Speed: 90
-		Locomotor: Hover
-	AttackTurreted:
-		PauseOnCondition: empdisable
-	Turreted:
-	RenderRangeCircle:
-		RangeCircleType: Subjugator
-		Color: 800080CC
-		BorderWidth: 0
-		Width: 2
-	WithMindControllerPipsDecoration:
-		Margin: 4, 3
-		Palette: pips
-		Position: BottomLeft
-		RequiresSelection: true
-	-LeavesTrails@land:
-	-LeavesTrails@water:
-	LeavesTrails@gravity:
-		RequiresCondition: !carried && !ascargo
-		Image: wake
-		Sequences: idlescr
-		Palette: scrinenergystuffsalpha
-		Type: CenterPosition
-		StationaryInterval: 20
-		MovingInterval: 12
-		SpawnAtLastPosition: false
-		TrailWhileStationary: true
-		StartDelay: -1
-	ThrowsShrapnel:
-		Weapons: SmallDebrisScrin
-
-TRIPOD:
-	Inherits: ^Walker
-	Inherits@1: ^ScrinVehicle
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@VISION: ^8CellVision
-	Valued:
-		Cost: 1600
-	Tooltip:
-		Name: Annihilator Tripod
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Selectable:
-		Bounds: 1508,6031, 0, -1809
-	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 42
-		Prerequisites: ~scrweap, scrtech
-		Description: Advanced walker.\n\n  Good vs Infantry, Buildings.\n\nSpecial:\n- Absorbs essence from killed units to heal\n- Can shoot over walls\n- Can crush infantry
-		IconPalette: chromescrin
-	Mobile:
-		TurnSpeed: 24
-		Speed: 80
-		Locomotor: InfantryCrusherVehicle
-	Health:
-		HP: 50000
-	Carryable:
-		LocalOffset: 0,0,2500
-	Voiced:
-		VoiceSet: Tripod
-	AttackFrontal:
-		Voice: Attack
-		PauseOnCondition: empdisable
-	AutoTarget:
-	WithDeathAnimation@die:
-		DeathSequencePalette: player
-		DeathPaletteIsPlayerPalette: true
-		DeathTypes:
-			BulletDeath: 1, 2
-			CabalDeath: 1, 2
-			ExplosionDeath: 1, 2
-			TiberiumDeath: 1, 2
-			EnergyDeath: 1, 2
-			FireDeath: 1, 2
-	Armament:
-		Weapon: TripodBlast
-		LocalOffset: 200,225,3500
-		PauseOnCondition: empdisable
-	Armament@2:
-		Weapon: TripodBlast2
-		LocalOffset: 200,-225,3500
-		PauseOnCondition: empdisable
-		FireDelay: 5
-	WithInfantryBody:
-		DefaultAttackSequence: shoot
-	QuantizeFacingsFromSequence:
-		Sequence: stand
-	SmokeParticleEmitter@spawnsmoke:
-		Offset: 0,0,3000
-	ExplodeWeapon@spawnsparks:
-		LocalOffset: 0,0,3000
-	DeathSounds:
-		DeathTypes: BulletDeath, ExplosionDeath, CabalDeath, TiberiumDeath
-	ThrowsShrapnel:
-		Weapons: SmallDebrisScrin
 
 ###########################################################
 # CABAL
@@ -2741,7 +2331,6 @@ REPAIRVEHICLE:
 		VoiceSet: Limpet
 	WithFacingSpriteBody:
 
-
 CABAPC:
 	Inherits: ^HoverVehicle
 	Inherits@PIPS: ^CargoPips
@@ -2762,7 +2351,7 @@ CABAPC:
 	Mobile:
 		TurnSpeed: 40
 		CanMoveBackward: true
-		Speed: 110
+		Speed: 115
 		Locomotor: Hover
 	Voiced:
 		VoiceSet: Limpet
@@ -3007,3 +2596,411 @@ BCOREDEF:
 		Voice: Build
 	ProvidesPrerequisite@buildinglimit:
 		Prerequisite: DarkDefenderExists
+
+###########################################################
+# SCRIN
+###########################################################
+
+CORRUPTOR:
+	Inherits: ^Walker
+	Inherits@1: ^ScrinVehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@DETECTION: ^BasicStealthDetection
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Corruptor
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 16
+		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n- Can mutate enemies killed\n- Deals considerable damage to vehicles\n- Absorbs essence from killed enemies to heal\n- Attacks emit radiation that harms infantry in the area\n- Inmune to tiberium radiation.\n- Can crush infantry
+		Prerequisites: ~scrweap
+	Mobile:
+		TurnSpeed: 24
+		Speed: 80
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 30000
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	AutoTarget:
+	Armament@PRIMARY:
+		Weapon: CorruptorAcid
+		LocalOffset: 800,0,200
+		PauseOnCondition: empdisable
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithInfantryBody:
+	Selectable:
+		Bounds: 1508, 1568, 0, -482
+	SmokeParticleEmitter@spawnsmoke:
+		Palette: gradientgreen40
+	-DamagedByTintedCells@Default:
+	ThrowsShrapnel:
+		Weapons: SmallDebrisScrin
+
+SCRMBT:
+	Inherits: ^HoverTank
+	Inherits@1: ^ScrinVehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 17
+		Description: Light Tank, good for harassment.\n\nGood vs Ground targets\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water)\n- Absorbs essence from killed units to heal\n- Cannot crush infantry
+		Prerequisites: ~scrweap
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Hover Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 25000
+	Mobile:
+		TurnSpeed: 20
+		CanMoveBackward: true
+		Speed: 115
+		Locomotor: Hover
+	Turreted:
+		TurnSpeed: 24
+	Armament:
+		Weapon: scrmbtlasor
+		LocalOffset: 250,0,900
+		MuzzleSequence: muzzle
+		MuzzlePalette: appurp
+		PauseOnCondition: empdisable
+	WithMuzzleOverlay:
+	AttackTurreted:
+		PauseOnCondition: empdisable
+	-LeavesTrails@land:
+	-LeavesTrails@water:
+	LeavesTrails@gravity:
+		RequiresCondition: !carried && !ascargo
+		Image: wake
+		Sequences: idlescr
+		Palette: scrinenergystuffsalpha
+		Type: CenterPosition
+		StationaryInterval: 20
+		MovingInterval: 12
+		SpawnAtLastPosition: false
+		TrailWhileStationary: true
+		StartDelay: -1
+	ThrowsShrapnel:
+		Weapons: SmallDebrisScrin
+
+SCRSCORPION:
+	Inherits: ^Walker
+	Inherits@1: ^ScrinVehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Plague Walker
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 27
+		Description: Long range assault walker.\n\n Good vs Infantry, Vehicle\n\nSpecial:\n- Absorbs essence from killed enemies to heal\n- Fog inflicts blinding and poison effect in the area
+		Prerequisites: ~scrweap, scrradr
+	Mobile:
+		TurnSpeed: 32
+		Speed: 90
+		Locomotor: Vehicle
+	Health:
+		HP: 30000
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	AutoTarget:
+	Armament@PRIMARY:
+		Weapon: ScorpGas
+		LocalOffset: -100,0,600
+		PauseOnCondition: empdisable
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithInfantryBody:
+	Selectable:
+		Bounds: 1508, 1568, 0, -482
+	ThrowsShrapnel:
+		Weapons: SmallDebrisScrin
+
+SCRGLYDER2:
+	Inherits: ^HoverVehicle
+	Inherits@1: ^ScrinVehicle
+	Inherits@AUTOTARGET: ^AutoTargetAir
+	Inherits@DETECTION: ^BasicStealthDetection
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^8CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 28
+		BuildAtProductionType: Tank
+		Description: Anti-air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Can transform into an aerial version that can only engage ground units.\n- Aerial Version weapon performs Good Vs Infantry.\n- Absorbs essence from killed units to heal.\n- Hovers (it ignores terrain like Veins and Water)
+		Prerequisites: ~scrweap, scrradr
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Glider
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 20000
+	Mobile:
+		TurnSpeed: 40
+		CanMoveBackward: true
+		Speed: 90
+		Locomotor: Hover
+	Transforms:
+		PauseOnCondition: inside-tunnel || mindcontrolled
+		IntoActor: scrglyder1
+	Armament:
+		Weapon: Glyder2Cannon
+		Recoil: 85
+		RecoilRecovery: 25
+		LocalOffset: -250,0,1300
+		PauseOnCondition: empdisable
+	AttackFrontal:
+		PauseOnCondition: empdisable
+		FacingTolerance: 5
+	Armament@AITransformDummyWeapon:
+		RequiresCondition: AImicroManage && !mindcontrolled
+		Weapon: AIGlyder2AimingDummyWeapon
+		PauseOnCondition: empdisable
+		ReloadingCondition: AIattackAir
+	TransformOnCondition@AITransform:
+		RequiresCondition: AIattackAir && !inside-tunnel && !mindcontrolled
+		IntoActor: scrglyder1
+	-LeavesTrails@land:
+	-LeavesTrails@water:
+	LeavesTrails@gravity:
+		RequiresCondition: !carried && !ascargo
+		Image: wake
+		Sequences: idlescr
+		Palette: scrinenergystuffsalpha
+		Type: CenterPosition
+		StationaryInterval: 20
+		MovingInterval: 12
+		SpawnAtLastPosition: false
+		TrailWhileStationary: true
+		StartDelay: -1
+	ThrowsShrapnel:
+		Weapons: SmallDebrisScrin
+
+SCRRECHARGER:
+	Inherits: ^Walker
+	Inherits@1: ^ScrinVehicle
+	Inherits@VISION: ^5CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Guardian
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 40
+		Description: Mobile shield generator.\n\nSpecial:\n- Generates shields around nearby friendly units.\n- Shields protect from all damage until the unit is hit 4 times.\n- Does not protect against super weapons.\n- Absorbs essence from killed enemies to heal.\n- Can Crush infantry.\n- Cannot apply shields to aircraft.
+		Prerequisites: ~scrweap, scrtech
+	Mobile:
+		TurnSpeed: 28
+		Speed: 80
+		Locomotor: Vehicle
+	Health:
+		HP: 20000
+	-WithIdleOverlay@shield:
+	-Armor@Shield:
+	-ExternalCondition@VanguardShield:
+	-ExternalCondition@BreakShield:
+	DamagedByTintedCells@Default:
+		-RequiresCondition:
+	Armament:
+		Weapon: VanguardFollow
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+		RequiresCondition:!AImicroManage
+	ProximityExternalCondition@VanguardShield:
+		RequiresCondition: !empdisable
+		Condition: VanguardShield
+		Range: 7c0
+		AffectsParent: false
+	WithRangeCircle:
+		Range: 7c0
+		Type: VanguardShield
+		Color: 8A2BE2CC
+		BorderWidth: 0
+		Width: 2
+	Targetable:
+		TargetTypes: Ground, Vehicle, ShieldGenerator
+	WithMuzzleOverlay:
+	AttackFrontal:
+		PauseOnCondition: empdisable
+	AutoTarget:
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithFacingSpriteBody:
+		Sequence: stand
+	WithMoveAnimation:
+		MoveSequence: run
+	WithIdleOverlay@shieldpower:
+		RequiresCondition: !empdisable
+		Sequence: idle
+		Image: shieldpower
+		Palette: scrinenergystuffsalpha
+		Offset: 0, 0, 1800
+	ThrowsShrapnel:
+		Weapons: SmallDebrisScrin
+
+SCRMOBMINE:
+	Inherits@: ^HoverVehicle
+	Inherits@1: ^ScrinVehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableMastermind
+	Inherits@VISION: ^7CellVision
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 41
+		Description: Mind Control unit\n\nSpecial:\n- Can overtake regular vehicle and infantry \n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol Heroics, Flying Units, Beasts, Buildings\n- Can shoot over walls.\n- Can mind control units while moving.
+		Prerequisites: ~scrweap, scrtech
+	Valued:
+		Cost: 1750
+	Tooltip:
+		Name: Subjugator
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	MindController:
+		Capacity: 3
+		Sounds: sonpulse.aud
+		#ControllingCondition: slaving
+	ExplodeWeapon@Casing:
+		Weapon: MindEnergyCasing
+		LocalOffset: 0,0,2000
+		RequiresCondition: attack
+	GrantConditionOnAttack@Casing:
+		Condition: attack
+		ArmamentNames: primary
+	Armament@PRIMARY:
+		Weapon: MindController
+		PauseOnCondition: empdisable
+	Health:
+		HP: 20000
+	Mobile:
+		TurnSpeed: 40
+		CanMoveBackward: true
+		Speed: 90
+		Locomotor: Hover
+	AttackTurreted:
+		PauseOnCondition: empdisable
+	Turreted:
+	RenderRangeCircle:
+		RangeCircleType: Subjugator
+		Color: 800080CC
+		BorderWidth: 0
+		Width: 2
+	WithMindControllerPipsDecoration:
+		Margin: 4, 3
+		Palette: pips
+		Position: BottomLeft
+		RequiresSelection: true
+	-LeavesTrails@land:
+	-LeavesTrails@water:
+	LeavesTrails@gravity:
+		RequiresCondition: !carried && !ascargo
+		Image: wake
+		Sequences: idlescr
+		Palette: scrinenergystuffsalpha
+		Type: CenterPosition
+		StationaryInterval: 20
+		MovingInterval: 12
+		SpawnAtLastPosition: false
+		TrailWhileStationary: true
+		StartDelay: -1
+	ThrowsShrapnel:
+		Weapons: SmallDebrisScrin
+
+TRIPOD:
+	Inherits: ^Walker
+	Inherits@1: ^ScrinVehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^8CellVision
+	Valued:
+		Cost: 1600
+	Tooltip:
+		Name: Annihilator Tripod
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Selectable:
+		Bounds: 1508,6031, 0, -1809
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 42
+		Prerequisites: ~scrweap, scrtech
+		Description: Advanced walker.\n\n  Good vs Infantry, Buildings.\n\nSpecial:\n- Absorbs essence from killed units to heal\n- Can shoot over walls\n- Can crush infantry
+		IconPalette: chromescrin
+	Mobile:
+		TurnSpeed: 24
+		Speed: 80
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 50000
+	Carryable:
+		LocalOffset: 0,0,2500
+	Voiced:
+		VoiceSet: Tripod
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	AutoTarget:
+	WithDeathAnimation@die:
+		DeathSequencePalette: player
+		DeathPaletteIsPlayerPalette: true
+		DeathTypes:
+			BulletDeath: 1, 2
+			CabalDeath: 1, 2
+			ExplosionDeath: 1, 2
+			TiberiumDeath: 1, 2
+			EnergyDeath: 1, 2
+			FireDeath: 1, 2
+	Armament:
+		Weapon: TripodBlast
+		LocalOffset: 200,225,3500
+		PauseOnCondition: empdisable
+	Armament@2:
+		Weapon: TripodBlast2
+		LocalOffset: 200,-225,3500
+		PauseOnCondition: empdisable
+		FireDelay: 5
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	SmokeParticleEmitter@spawnsmoke:
+		Offset: 0,0,3000
+	ExplodeWeapon@spawnsparks:
+		LocalOffset: 0,0,3000
+	DeathSounds:
+		DeathTypes: BulletDeath, ExplosionDeath, CabalDeath, TiberiumDeath
+	ThrowsShrapnel:
+		Weapons: SmallDebrisScrin
