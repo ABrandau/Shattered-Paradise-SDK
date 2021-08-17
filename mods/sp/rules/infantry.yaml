@@ -1057,47 +1057,6 @@ SEER:
 		UndeployTicks: 1
 		DeployTrigger: Attack
 
-MHIJACK:
-	Inherits: ^Mutant
-	Inherits@COMMANDO: ^CommandoIcon
-	Inherits@VISION: ^8CellVision
-	Valued:
-		Cost: 1500
-	Tooltip:
-		Name: Chameleon The Hijacker
-	Buildable:
-		Queue: Infantry
-		BuildPaletteOrder: 29
-		Prerequisites: ~disabled # ~murax, muhall
-		Description: Chameleon is an expert in Hijacking any vehicle\nno matter if it has wheels, tracks or legs.\n\nSpecial:\n- Unarmed\n- Maximum Supply of 1\n- Cloaks when idling\n- Heals on Tiberium\n- Immune to mindcontrol\n- Crush class: uncrushable
-		BuildLimit: 1
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Voiced:
-		VoiceSet: Hijacker
-	-Targetable@MC:
-	Health:
-		HP: 30000
-	Mobile:
-		Speed: 99
-	-Crushable:
-	CaptureManager:
-	Captures:
-		CaptureTypes: Vehicle
-		PlayerExperience: 50
-	Cloak@CLOAKGENERATOR:
-		CloakedCondition: bettercloak
-	Cloak@personalskill:
-		RequiresCondition: !bettercloak
-		InitialDelay: 40
-		CloakDelay: 40
-		IsPlayerPalette: true
-		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage, move
-		EffectImage: explosion
-		EffectPalette: apolgreenalpha75
-		EnterEffectSequence: smokebomb
-		EffectOffset: 0, 0, 800
-
 GHOST:
 	Inherits: ^Mutant
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
