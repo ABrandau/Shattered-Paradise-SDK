@@ -1219,6 +1219,7 @@ BLACKDEFD:
 	Inherits@RENDER: ^CabRender
 	Inherits@SHAPE: ^3x3Shape
 	Inherits@VISION: ^8CellVision
+	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Valued:
 		Cost: 4000
 	Health:
@@ -1259,26 +1260,6 @@ BLACKDEFD:
 	RequiresBuildableArea:
 		AreaTypes: building
 	-Sellable:
-	#SpawnActorsOnSell@gdi:
-	#	ValuePercent: 30
-	#	ActorTypes: gdie1
-	#	Factions: gdi
-	#SpawnActorsOnSell@nod:
-	#	ValuePercent: 30
-	#	ActorTypes: altnode1
-	#	Factions: nod
-	#SpawnActorsOnSell@cab:
-	#	ValuePercent: 30
-	#	ActorTypes: worker
-	#	Factions: cab
-	#SpawnActorsOnSell@mut:
-	#	ValuePercent: 30
-	#	ActorTypes: marauder
-	#	Factions: mut
-	#SpawnActorsOnSell@scr:
-	#	ValuePercent: 30
-	#	ActorTypes: shark
-	#	Factions: scr
 	IsometricSelectable:
 		Class: blackdefd
 		DecorationHeight: 36
@@ -1318,6 +1299,12 @@ BLACKDEFD:
 		Voice: Build
 	RenderSprites:
 		Image: blackdefd
+	### AI Control
+	AutoDeployer@AI:
+		RequiresCondition: AIbuildingMicroControl
+		DeployTrigger: Periodically
+		DeployTicks: 1005
+		UndeployTicks: 30
 	-Targetable@MC:
 	-WithColoredOverlay@IDISABLE:
 	-GrantConditionOnPowerState@LOWPOWER:

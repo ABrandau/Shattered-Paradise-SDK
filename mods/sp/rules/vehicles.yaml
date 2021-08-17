@@ -2538,6 +2538,7 @@ BCOREDEF:
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^8CellVision
 	Inherits@VOICE: ^CabalVehicleVoice
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 4000
 	Tooltip:
@@ -2639,6 +2640,11 @@ BCOREDEF:
 		Voice: Build
 	ProvidesPrerequisite@buildinglimit:
 		Prerequisite: DarkDefenderExists
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage
+		DeployTrigger: Periodically
+		DeployTicks: 1005
+		UndeployTicks: 30
 
 ###########################################################
 # SCRIN
