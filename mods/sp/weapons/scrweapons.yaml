@@ -112,6 +112,40 @@ ColossiBlastEnergy:
 		Explosions: sparks
 		ExplosionPalette: gradientblue
 
+MindWave:
+	Inherits: ^ArtilleryWarhead
+	Inherits@1: ^Large_Explosion
+	ReloadDelay: 150
+	Range: 7c0
+	MinRange: 2c0
+	Report: devourerlasor0000.wav, devourerlasor0001.wav, devourerlasor0002.wav
+	Burst: 1
+	Projectile: BulletAS
+		Speed: 300
+		Image: destroshell
+		TrailImage: blueballminitrail
+		Palette: pips
+		Blockable: false
+		Shadow: true
+		LaunchAngle: 62
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 15000
+		Versus:
+			BuildingArmor: 100
+			DefenseArmor: 75
+			ConcreteArmor: 25
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
+	Warhead@2Eff: CreateEffect
+		Explosions: scrinpulse2
+		ExplosionPalette: effectalpha50
+		ImpactSounds: expnew14.aud
+		ValidTargets: Ground, Air, Water
+	-Warhead@3EffWater:
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: MediumCrater
+		InvalidTargets: Vehicle, Building, Wall
+
 FloatTesla:
 	ReloadDelay: 75
 	Range: 7c0

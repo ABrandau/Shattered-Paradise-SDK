@@ -612,6 +612,7 @@ BGGY:
 			bug: ifv.bug
 			colossi: ifv.colossi
 			float: ifv.float
+			mastermind: ifv.mastermind
 	############################################
 	# Armaments
 	############################################
@@ -716,6 +717,10 @@ BGGY:
 		Weapon: ColossiShard
 		LocalOffset: 250,0,125
 		RequiresCondition: ifv.colossi
+	Armament@mastermind:
+		Weapon: MindWave
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.mastermind
 	Armament@float:
 		Weapon: FloatTesla
 		LocalOffset: 250,0,125
@@ -797,7 +802,7 @@ BGGY:
 		RequiresCondition: !inside-tunnel && ifv.float
 	WithSpriteTurret@colossi:
 		Sequence: turret-colossi
-		RequiresCondition: !inside-tunnel && ifv.colossi
+		RequiresCondition: !inside-tunnel && (ifv.colossi || ifv.mastermind)
 	############################################
 	# Names
 	############################################
@@ -805,10 +810,10 @@ BGGY:
 		Name: Raider Buggy
 		RequiresCondition: !loaded
 	Tooltip@militant:
-		Name: Anti Infantry Buggy
+		Name: Anti-Infantry Buggy
 		RequiresCondition: ifv.militant
 	Tooltip@crusader:
-		Name: Anti Vehicle Buggy
+		Name: Anti-Vehicle Buggy
 		RequiresCondition: ifv.crusader
 	Tooltip@templar:
 		Name: Flame Buggy
@@ -873,6 +878,9 @@ BGGY:
 	Tooltip@float:
 		Name: Essential Buggy
 		RequiresCondition: ifv.float
+	Tooltip@mastermind:
+		Name: Mastermind Buggy
+		RequiresCondition: ifv.mastermind
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
