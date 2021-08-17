@@ -1383,9 +1383,9 @@ SCORPION:
 		QuantizedFacings: 8
 		CameraPitch: 250
 	AmbientSound@WalkAnim:
-		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
-		Delay: 16
-		Interval: 16
+		SoundFiles: Twitch.wav
+		Delay: 1
+		Interval: 10
 		RequiresCondition: walking
 	GrantConditionOnMovement:
 		Condition: walking
@@ -1936,7 +1936,7 @@ WEASAU:
 		QuantizedFacings: 8
 		CameraPitch: 250
 	AmbientSound@WalkAnim:
-		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
+		SoundFiles: Godzilla_Walking.wav
 		Delay: 16
 		Interval: 16
 		RequiresCondition: walking
@@ -2263,7 +2263,7 @@ LIMPED:
 		SmartDeploy: true
 		UndeployOnMove: true
 		CanDeployOnRamps: true
-		PauseOnCondition: RefineryLock
+		PauseOnCondition: RefineryLock && !deployed
 		RequiresCondition: !inside-tunnel && !empdisable
 	ExternalCondition@RefineryLock:
 		Condition: RefineryLock
@@ -2303,17 +2303,22 @@ LIMPED:
 		Name: deployed
 		Sequence: deployed
 		RequiresCondition: !undeployed
-	### AI Control
+	### AI Control: make limped drone wander randomly and deploy when find enemy
+	Armament@AIAimOnly:
+		RequiresCondition: AImicroManage && !deployed
+		Weapon: LurkerAimDummyWeapon
+		PauseOnCondition: empdisable
 	Wanders@AI:
-		RequiresCondition: AImicroManage
+		RequiresCondition: AImicroManage && !deployed
 		WanderMoveRadius: 15
 		MinMoveDelay: 300
 		MaxMoveDelay: 300
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && !deployed
-		DeployTrigger: Periodically
-		DeployTicks: 150
-		UndeployTicks: 150
+		DeployTrigger: Attack, Damage
+		DeployChance: 100
+		DeployTicks: 5
+		UndeployTicks: 50
 	-LeavesTrails@land:
 	LeavesTrails@water:
 		Image: wake
