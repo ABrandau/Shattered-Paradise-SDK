@@ -1,7 +1,7 @@
 This repository contains the OpenRA ModSDK for [Shattered Paradise](https://github.com/ABrandau/Shattered-Paradise).
 
 ## Download
-Binary releases are available on [the release page](https://github.com/ABrandau/OpenRAModSDK/releases). Alternatively, you can also build it from source by cloning this repository.
+Binary releases are available on [the release page](https://github.com/ABrandau/Shattered-Paradise-SDK/releases). Alternatively, you can also build it from source by cloning this repository.
 
 ## Building from source
 Build the engine with `make` (Linux / macOS) or `make.cmd` (Windows). Then you can use `./launch-game.sh` (Linux / macOS) or `launch-game.cmd` (Windows) to start it.
