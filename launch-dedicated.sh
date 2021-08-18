@@ -63,6 +63,9 @@ ENABLE_SYNC_REPORTS="${EnableSyncReports:-"False"}"
 ENABLE_GEOIP="${EnableGeoIP:-"True"}"
 SHARE_ANONYMISED_IPS="${ShareAnonymizedIPs:-"True"}"
 
+RECORD_REPLAYS="${RecordReplays:-"True"}"
+QUERY_MAP_REPOSITORY="${QueryMapRepository:-"True"}"
+
 SUPPORT_DIR="${SupportDir:-""}"
 
 cd "${TEMPLATE_ROOT}"
@@ -86,5 +89,7 @@ while true; do
      Server.EnableSyncReports="${ENABLE_SYNC_REPORTS}" \
      Server.EnableGeoIP="${ENABLE_GEOIP}" \
      Server.ShareAnonymizedIPs="${SHARE_ANONYMISED_IPS}" \
+     Server.RecordReplays="${RECORD_REPLAYS}" \
+     Server.QueryMapRepository="${QUERY_MAP_REPOSITORY}" \
      Engine.SupportDir="${SUPPORT_DIR}"
 done
