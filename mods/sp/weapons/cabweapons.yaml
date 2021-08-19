@@ -34,14 +34,21 @@ CyborgRocketAA:
 LimpetMissile:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Large_Clsn
-	ReloadDelay: 750
+	ReloadDelay: 100 #750
 	Range: 4c0
 	Report: rketinf1.aud
 	ValidTargets: Ground, Water
 	InvalidTargets: Building, Wall
 	Projectile: MissileTA
-		MinimumLaunchAngle: 384
-		MaximumLaunchAngle: 384
+		MinimumLaunchAngle: 255
+		MaximumLaunchAngle: 255
+		Image: dronebomb
+		Speed: 300
+		Shadow: true
+		HomingActivationDelay: 6
+		RangeLimit: 30c0
+		-TrailImage:
+		-JetImage:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c384
 		Damage: 25000
