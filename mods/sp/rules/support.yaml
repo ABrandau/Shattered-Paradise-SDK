@@ -1183,8 +1183,6 @@ CABSW1:
 
 MUMINE:
 	Inherits: ^NonBuildingStaticActor
-	Valued:
-		Cost: 50
 	Tooltip:
 		Name: Mine
 	Health:
@@ -1198,11 +1196,14 @@ MUMINE:
 	BodyOrientation:
 		QuantizedFacings: 1
 	Cloak@cloakgenerator-self:
-		InitialDelay: 50
+		InitialDelay: 1
 		CloakDelay: 50
 		Palette: cloakmut
 		IsPlayerPalette: true
 		UncloakOn: None
+		EffectImage: dig
+		EffectPalette: effect
+		EnterEffectSequence: smallidle
 	Mine:
 		CrushClasses: crate
 		DetonateClasses: crate

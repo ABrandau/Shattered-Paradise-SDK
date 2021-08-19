@@ -1653,7 +1653,7 @@ STRUCK:
 		Position: BottomLeft
 		RequiresSelection: true
 
-ECM:
+MINELAYER:
 	Inherits: ^Vehicle
 	Inherits@RENDER: ^CabRender
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
@@ -1670,7 +1670,7 @@ ECM:
 		BuildAtProductionType: Tank
 		Description: Mines...mines everywhere!\n\nSpecial:\n- Can place up to 5 mines on the battlefield\n- Reloads on service depot\n- Mines are cloaked\n- Can crush Infantry
 		BuildPaletteOrder: 20
-		Prerequisites: ~muweap, gadept, ~!AIsNotAllowed
+		Prerequisites: ~muweap, gadept
 	Mobile:
 		TurnSpeed: 24
 		Speed: 90
@@ -1690,8 +1690,6 @@ ECM:
 		HP: 40000
 	SelectionDecorations:
 	WithFacingSpriteBody:
-	Selectable:
-		DecorationBounds: 1508, 3015, 0, 0
 	-ChangesHealth@veinholedrain:
 	-ExternalCondition@veinholedrain:
 	-WithIdleOverlay@veinholedrain:
