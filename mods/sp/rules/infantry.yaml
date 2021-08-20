@@ -811,10 +811,10 @@ MARAUDER:
 		RealignDelay: -1
 		Turret: Marauderturr
 	WithSpriteTurret@idle:
-		RequiresCondition: deployed && !AnimateTurret
+		RequiresCondition: !WebDisable &&deployed && !AnimateTurret
 		Turret: Marauderturr
 	WithSpriteTurret@animated:
-		RequiresCondition: deployed && AnimateTurret
+		RequiresCondition: !WebDisable &&deployed && AnimateTurret
 		Sequence: turret-shoot
 		Turret: Marauderturr
 	TakeCover:
