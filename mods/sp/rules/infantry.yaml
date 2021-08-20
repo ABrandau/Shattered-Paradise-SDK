@@ -1513,7 +1513,7 @@ CABSENTRY:
 	Armament@1:
 		Weapon: SentryGun
 		LocalOffset: 250,0,100
-		PauseOnCondition: WebDisable || initializing
+		PauseOnCondition: WebDisable # || initializing
 	AutoTarget:
 		ScanRadius: 8
 		InitialStance: AttackAnything
@@ -1528,8 +1528,8 @@ CABSENTRY:
 	WithFacingSpriteBody:
 		Sequence: stand
 		RequiresCondition: !inside-tunnel && !WebDisable
-	WithMakeAnimation:
-		Condition: initializing
+	#WithMakeAnimation:
+	#	Condition: initializing
 	Selectable:
 		Bounds: 664,1568,-30,-543
 
