@@ -698,7 +698,7 @@
 		Step: -500
 		Delay: 10
 		StartIfBelow: 128
-		RequiresCondition: veinholedrain && !stoppoison ## Prevent bug that score of killed actor belong to victim
+		RequiresCondition: veinholedrain && !CriticalDamaged ## Prevent bug that score of killed actor belong to victim
 	ExternalCondition@veinholedrain:
 		Condition: veinholedrain
 	WithIdleOverlay@veinholedrain:
@@ -709,8 +709,8 @@
 	GrantConditionOnTerrain@VEINS:
 		TerrainTypes: Veins
 		Condition: veinholedrain
-	GrantConditionOnDamageState@stoppoison:
-		Condition: stoppoison
+	GrantConditionOnDamageState@Critical:
+		Condition: CriticalDamaged
 		ValidDamageStates: Critical
 
 ^BugPoison:
@@ -724,11 +724,11 @@
 		Step: 0
 		Delay: 20
 		StartIfBelow: 200
-		RequiresCondition: BugPoison && !stoppoison
+		RequiresCondition: BugPoison && !CriticalDamaged
 	ExternalCondition@BugPoison:
 		Condition: BugPoison
-	GrantConditionOnDamageState@stoppoison:
-		Condition: stoppoison
+	GrantConditionOnDamageState@Critical:
+		Condition: CriticalDamaged
 		ValidDamageStates: Critical
 
 ^ToxinTrooperDebuff:
@@ -1544,19 +1544,16 @@
 	DeathSounds:
 	MustBeDestroyed:
 	WithInfantryBody:
-		RequiresCondition: !criticalspeed && !WebDisable
+		RequiresCondition: !CriticalDamaged && !WebDisable
 		DefaultAttackSequence: shoot
 		IdleSequences: idle1, idle2
 	WithInfantryBody@Damaged:
-		RequiresCondition: criticalspeed  && !WebDisable
+		RequiresCondition: CriticalDamaged && !WebDisable
 		MoveSequence: crippled-run
 		AttackSequences: crippled-shoot
 		StandSequences: crippled-stand
-	GrantConditionOnDamageState@CRITICAL:
-		Condition: criticalspeed
-		ValidDamageStates: Critical
 	SpeedMultiplier@CRITICAL:
-		RequiresCondition: criticalspeed
+		RequiresCondition: CriticalDamaged
 		Modifier: 50
 	SpawnActorOnDeath@conversion:
 		Actor: workermech
