@@ -2068,6 +2068,7 @@ WEASAUSMALL:
 	AttackFrontal:
 		FacingTolerance: 2
 	KillsSelf@TimedLife:
+		DamageTypes: TimeOutDeath
 		Delay: 500
 	RenderSprites:
 		PlayerPalette: orgatemblueplayer
@@ -2075,6 +2076,10 @@ WEASAUSMALL:
 	WithDeathAnimation@normal:
 		DeathSequencePalette: orgatemblueplayer
 		CrushedSequencePalette: orgatemblueplayer
+		DeathTypes:
+			TimeOutDeath: 1, 2
+	DeathSounds@NORMAL:
+		DeathTypes: BulletDeath, ExplosionDeath, CabalDeath, TiberiumDeath, TimeOutDeath
 	Cloak@CLOAKGENERATOR:
 		Palette: cloakorgatemblueplayer
 	-ActorLostNotification:
