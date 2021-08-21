@@ -1132,15 +1132,13 @@ BIKE:
 		DeployedCondition: DetonateDemoTruck
 		CanDeployOnRamps: true
 		RequiresCondition: !empdisable
-	ExternalCondition@DetonateDemoTruck:
-		Condition: DetonateDemoTruck
-	GrantConditionOnAttack@DemoTruck:
-		Condition: DetonateDemoTruck
 	KillsSelf@DemoTruck:
 		RemoveInstead: false
 		RequiresCondition: DetonateDemoTruck
 	Armament@DemoTruck:
 		Weapon: DemoTruckDummyWeapon
+		ReloadingCondition: DetonateDemoTruck
+		RequiresCondition: !empdisable
 	AttackFrontal:
 		PauseOnCondition: empdisable
 		TargetFrozenActors: true ## For better AI control
@@ -1870,15 +1868,13 @@ HVRTRUK3:
 		DeployedCondition: DetonateDemoTruck
 		CanDeployOnRamps: true
 		RequiresCondition: !empdisable
-	ExternalCondition@DetonateDemoTruck:
-		Condition: DetonateDemoTruck
-	GrantConditionOnAttack@DemoTruck:
-		Condition: DetonateDemoTruck
 	KillsSelf@DemoTruck:
 		RemoveInstead: false
 		RequiresCondition: DetonateDemoTruck
 	Armament@DemoTruck:
 		Weapon: DemoTruckDummyWeapon
+		ReloadingCondition: DetonateDemoTruck
+		RequiresCondition: !empdisable
 	Explodes:
 		Weapon: MiniNuke
 		EmptyWeapon: MiniNuke
