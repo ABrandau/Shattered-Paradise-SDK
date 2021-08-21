@@ -450,13 +450,15 @@ MINIVEIN:
 VEINHOLE:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
-	Inherits@4: ^2x2Shape
 	Inherits@3: ^Unkillable
+	Inherits@SHAPE: ^3x3Shape
 	RadarColorFromTerrain:
 		Terrain: Veins
+	AppearsOnMapPreview:
+		Terrain: Veins
 	Building:
-		Footprint: xx xx
-		Dimensions: 2, 2
+		Footprint: xxx xxx xxx
+		Dimensions: 3, 3
 	BodyOrientation:
 		QuantizedFacings: 1
 	Tooltip:
@@ -493,12 +495,6 @@ VEINHOLE:
 	WithIdleAnimation:
 		Sequences: active1, active2
 		Interval: 150
-
-VEINHOLE2:
-	Inherits: VEINHOLE
-	EditorOnlyTooltip:
-		Name: Low ground veinhole
-
 
 GEYE:
 	Inherits@1: ^ExistsInWorld
