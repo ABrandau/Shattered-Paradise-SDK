@@ -1,6 +1,6 @@
 CAHOSP:
 	Inherits: ^TechBuilding
-	Inherits@shape: ^3x4Shape
+	Inherits@SHAPE: ^3x4Shape
 	Tooltip:
 		Name: Civilian Hospital
 	TooltipDescription:
@@ -20,9 +20,9 @@ CAHOSP:
 WELL:
 	Inherits: ^TechBuilding
 	Inherits@1: ^SpawnSmoke
-	Inherits@2: ^3x3Shape
-	Inherits@3: ^MutRender
-	Inherits@4: ^6CellVision
+	Inherits@RENDER: ^MutRender
+	Inherits@SHAPE: ^3x3Shape
+	Inherits@VISION: ^6CellVision
 	Tooltip:
 		Name: Tiberium Extractor
 	TooltipDescription:
@@ -61,7 +61,7 @@ WELL:
 
 MACHINESHOP:
 	Inherits: ^TechBuilding
-	Inherits@2: ^2x2Shape
+	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
 		Name: Machine Shop
 	TooltipDescription:
@@ -78,8 +78,10 @@ MACHINESHOP:
 
 BLOODDERRICK:
 	Inherits: ^CivBuilding
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^3x3Shape
+	Inherits@RENDER: ^ScrinRender
+	Inherits@SELECTION: ^SelectableBuilding
+	Inherits@SHAPE: ^3x3Shape
+	-Interactable:
 	Tooltip:
 		Name: Tiberian Crab Nest
 	TooltipDescription:
@@ -157,7 +159,7 @@ BLOODDERRICK:
 
 NEUTRALRADAR:
 	Inherits: ^TechBuilding
-	Inherits@3: ^2x2Shape
+	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
 		Name: Spy Satellite
 	TooltipDescription:
@@ -176,7 +178,7 @@ NEUTRALRADAR:
 
 NEUTRALPOWERPLANT:
 	Inherits: ^TechBuilding
-	Inherits@3: ^3x3Shape
+	Inherits@SHAPE: ^3x3Shape
 	Tooltip:
 		Name: Nuclear Power Plant
 	TooltipDescription:
@@ -206,9 +208,9 @@ NEUTRALPOWERPLANT:
 
 SCRINREINFPAD:
 	Inherits: ^TechBuilding
-	Inherits@2: ^ScrinDeathExplo
-	Inherits@3: ^3x3Shape
-	Inherits@4: ^ScrinBuildingFire
+	Inherits@1: ^ScrinDeathExplo
+	Inherits@2: ^ScrinBuildingFire
+	Inherits@SHAPE: ^3x3Shape
 	Tooltip:
 		Name: Scrin Replicator
 	TooltipDescription:
@@ -303,10 +305,10 @@ SCRINREINFPAD:
 
 NEUTRALSONICTUR:
 	Inherits: ^TechBuilding
-	Inherits@1: ^1x1Shape
-	Inherits@2: ^11CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@SHAPE: ^1x1Shape
+	Inherits@VISION: ^11CellVision
 	Tooltip:
 		Name: Tech Shockwave Turret
 	TooltipDescription:
@@ -334,9 +336,9 @@ NEUTRALSONICTUR:
 
 CABCANNON:
 	Inherits: ^TechBuilding
-	Inherits@1: ^CabRender
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@RENDER: ^CabRender
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -363,9 +365,9 @@ CABCANNON:
 
 REPAIRTUR:
 	Inherits: ^TechBuilding
-	Inherits@2: ^2x2Shape
 	Inherits@AUTOTARGET: ^AutoTargetHeal
 	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@SHAPE: ^2x2Shape
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -406,7 +408,7 @@ REPAIRTUR:
 
 BLUETIBBARREL:
 	Inherits: ^CivBuilding
-	Inherits@2: ^1x1Shape
+	Inherits@SHAPE: ^1x1Shape
 	Building:
 		Footprint: x
 		Dimensions: 1,1
@@ -441,7 +443,7 @@ BLUETIBBARREL6:
 
 CIVHELI:
 	Inherits: ^TechBuilding
-	Inherits@3: ^Helipad
+	Inherits@SHAPE: ^Helipad
 	Tooltip:
 		Name: Civilian Helipad
 	Building:
