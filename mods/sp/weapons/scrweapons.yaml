@@ -846,7 +846,7 @@ TractorBeam:
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		ValidTargets: Air
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		DamageTypes: ExplosionDeath
 	Warhead@TractorStop: GrantExternalCondition
 		Range: 0c512
 		Duration: 10
@@ -861,7 +861,8 @@ TractorBeam2:
 		-HitAnimPalette:
 		-HitAnimSequence:
 	-Report:
-	-Warhead@1Dam:
+	Warhead@1Dam: TargetDamage
+		Damage: 0
 	-Warhead@TractorStop:
 
 SrcinOrb:
