@@ -14,11 +14,20 @@ GAPOWR:
 		Prerequisite: gapowr.pluggable
 		RequiresCondition: !powrup.a
 	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !Building-Buildup
 		Sequence: idle-lights
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@LIGHTS-BRIGHT:
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights-bright
+		Palette: bright
 	WithIdleOverlay@PLUG:
-		Sequence: idle-plug
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-plug
+	WithMakeOverlay@MAKE-BRIGHT:
+		Sequence: make-bright
+		Palette: bright
 	Pluggable@pluga:
 		Conditions:
 			powrup: powrup.a
@@ -88,14 +97,21 @@ GAPILE:
 		SpawnOffset: -724,0,0
 		ExitCell: -1,2
 	WithProductionOverlay@LIGHTS:
+		RequiresCondition: !Building-Buildup
 		Sequence: production-lights
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithProductionOverlay@LIGHTS-BRIGHT:
 		RequiresCondition: !Building-Buildup
-	WithIdleOverlay@LIGHT:
-		Sequence: idle-light
+		Sequence: production-lights-bright
+		Palette: bright
+	WithIdleOverlay@LIGHT-BRIGHT:
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-light-bright
+		Palette: bright
 	WithIdleOverlay@FLAG:
-		Sequence: idle-flag
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-flag
 	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -156,17 +172,32 @@ GAWEAP:
 	WithProductionDoorOverlay@DOOR:
 		RequiresCondition: !Building-Buildup
 	WithProductionOverlay@WHITELIGHTS:
+		RequiresCondition: !Building-Buildup
 		Sequence: production-lights-white
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithProductionOverlay@WHITELIGHTS-BRIGHT:
 		RequiresCondition: !Building-Buildup
+		Sequence: production-lights-white-bright
+		Palette: bright
 	WithProductionOverlay@REDLIGHTS:
-		Sequence: production-lights-red
 		RequiresCondition: !Building-Buildup
+		Sequence: production-lights-red
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithProductionOverlay@REDLIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup
+		Sequence: production-lights-red-bright
+		Palette: bright
 	WithIdleOverlay@TURBINES:
 		Sequence: idle-turbines
 		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@BIB:
 		Sequence: bib
 		RequiresCondition: !Building-Buildup
+	WithMakeOverlay@MAKE-BRIGHT:
+		Sequence: make-bright
+		Palette: bright
 	IsometricSelectable:
 		DecorationHeight: 36
 
@@ -208,11 +239,17 @@ GAHPAD:
 	Exit@1:
 		Facing: 896
 	WithIdleOverlay@PLATFORM:
+		RequiresCondition: !Building-Buildup
 		Sequence: idle-platform
-		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights-bright
+		Palette: bright
 	WithDeathAnimation@BIB:
 		DeathSequence: dead-platform
 		UseDeathTypeSuffix: false

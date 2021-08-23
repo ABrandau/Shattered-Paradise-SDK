@@ -653,10 +653,19 @@ gapowr:
 	idle-lights: gtpowr_a
 		Length: 12
 		Tick: 200
+	idle-lights-bright: gtpowr_a
+		Length: 12
+		Tick: 200
+		IgnoreWorldTint: True
 	damaged-idle-lights: gtpowr_a
 		Start: 12
 		Length: 12
 		Tick: 200
+	damaged-idle-lights-bright: gtpowr_a
+		Start: 12
+		Length: 12
+		Tick: 200
+		IgnoreWorldTint: True
 	idle-plug: gtpowr_b
 		Length: 12
 		Tick: 200
@@ -682,12 +691,17 @@ gapowr:
 	make: gtpowrmk
 		Length: 20
 		ShadowStart: 20
+	make-bright: gtpowrmk
+		Length: 20
+		ShadowStart: 20
+		IgnoreWorldTint: True
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 		-DepthSprite:
 	icon: powricon
 		Offset: 0, 0
@@ -719,18 +733,15 @@ gapile:
 		Length: 7
 		Tick: 200
 		ZOffset: 1023
-	damaged-production-lights: gtpile_a
-		Start: 7
-		Length: 7
+	production-lights-bright: gtpile_a
+		Length: 8
 		Tick: 200
 		ZOffset: 1023
-	idle-light: gtpile_b
-		Length: 7
+		IgnoreWorldTint: True
+	idle-light-bright: gtpile_b
+		Length: 8
 		Tick: 200
-	damaged-idle-light: gtpile_b
-		Start: 7
-		Length: 7
-		Tick: 200
+		IgnoreWorldTint: True
 	idle-flag: gtpile_c
 		Length: 7
 	damaged-idle-flag: gtpile_c
@@ -745,6 +756,7 @@ gapile:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 	icon: brrkicon
 		Offset: 0, 0
 		UseTilesetCode: false
@@ -778,23 +790,23 @@ gaweap:
 		ShadowStart: 5
 		Tick: 400
 	production-lights-white: gtweap_a
-		Length: 8
+		Length: 16
 		Tick: 100
 		ZOffset: 2048
-	damaged-production-lights-white: gtweap_a
-		Start: 8
-		Length: 8
+	production-lights-white-bright: gtweap_a
+		Length: 16
 		Tick: 100
 		ZOffset: 2048
+		IgnoreWorldTint: True
 	production-lights-red: gtweap_b
-		Length: 4
+		Length: 8
 		Tick: 120
 		ZOffset: 2048
-	damaged-production-lights-red: gtweap_b
-		Start: 4
-		Length: 4
+	production-lights-red-bright: gtweap_b
+		Length: 8
 		Tick: 120
 		ZOffset: 2048
+		IgnoreWorldTint: True
 	idle-turbines: gtweap_c
 		Length: 4
 		Tick: 80
@@ -815,6 +827,12 @@ gaweap:
 		ShadowStart: 20
 		Offset: -12, -42, 43
 		DepthSpriteOffset: -12, 0
+	make-bright: gtweapmk
+		Length: 20
+		Tick: 80
+		Offset: -12, -42, 43
+		DepthSpriteOffset: -12, 0
+		IgnoreWorldTint: True
 	bib: gtweapbb
 		Length: 1
 		ZOffset: -1024
@@ -841,6 +859,7 @@ gaweap:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 		-DepthSprite:
 	icon: weapicon
 		Offset: 0, 0
@@ -887,17 +906,32 @@ gahpad:
 		ZRamp: 1
 	idle-lights: gthpad_a
 		Length: 8
-		Tick: 200
+		Tick: 100
 		Offset: 0, -36
 		ZOffset: -1c511
 		ZRamp: 1
+	idle-lights-bright: gthpad_a
+		Length: 8
+		Tick: 100
+		Offset: 0, -36
+		ZOffset: -1c511
+		ZRamp: 1
+		IgnoreWorldTint: True
 	damaged-idle-lights: gthpad_a
 		Start: 8
 		Length: 8
-		Tick: 200
+		Tick: 100
 		Offset: 0, -36
 		ZOffset: -1c511
 		ZRamp: 1
+	damaged-idle-lights-bright: gthpad_a
+		Start: 8
+		Length: 8
+		Tick: 100
+		Offset: 0, -36
+		ZOffset: -1c511
+		ZRamp: 1
+		IgnoreWorldTint: True
 	make: gthpadmk
 		Length: 18
 		ShadowStart: 18
@@ -911,6 +945,7 @@ gahpad:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 	icon: heliicon
 		Offset: 0, 0
 		UseTilesetCode: false
@@ -1192,12 +1227,17 @@ gavulc:
 	idle-lights: gtctwr_a
 		Length: 6
 		Tick: 200
-	damaged-idle-lights: gtctwr_a
+	idle-lights-bright: gtctwr_a
 		Length: 6
 		Tick: 200
+		IgnoreWorldTint: True
 	make: gtctwrmk
 		Length: 11
 		ShadowStart: 11
+	make-bright: gtctwrmk
+		Length: 11
+		ZOffset: 1
+		IgnoreWorldTint: True
 	turret: gtctwr_b
 		Facings: 32
 	muzzle: mgun-n
@@ -1242,12 +1282,17 @@ garock:
 	idle-lights: gtctwr_a
 		Length: 6
 		Tick: 200
-	damaged-idle-lights: gtctwr_a
+	idle-lights-bright: gtctwr_a
 		Length: 6
 		Tick: 200
+		IgnoreWorldTint: True
 	make: gtctwrmk
 		Length: 11
 		ShadowStart: 11
+	make-bright: gtctwrmk
+		Length: 11
+		ZOffset: 1
+		IgnoreWorldTint: True
 	turret: gtctwr_c
 		Facings: 32
 		UseTilesetCode: false
@@ -1272,12 +1317,17 @@ gacsam:
 	idle-lights: gtctwr_a
 		Length: 6
 		Tick: 200
-	damaged-idle-lights: gtctwr_a
+	idle-lights-bright: gtctwr_a
 		Length: 6
 		Tick: 200
+		IgnoreWorldTint: True
 	make: gtctwrmk
 		Length: 11
 		ShadowStart: 11
+	make-bright: gtctwrmk
+		Length: 11
+		ZOffset: 1
+		IgnoreWorldTint: True
 	turret: gtctwr_d
 		Facings: 32
 	icon: twr3icon

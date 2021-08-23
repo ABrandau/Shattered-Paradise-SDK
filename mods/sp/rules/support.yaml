@@ -31,9 +31,17 @@ GAVULC:
 		RequiresCondition: !Building-Buildup
 	WithMuzzleOverlay:
 	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !Building-Buildup && !disabled
 		Sequence: idle-lights
-		PauseOnCondition: disabled
-		RequiresCondition: !Building-Buildup
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup && !disabled
+		Sequence: idle-lights-bright
+		Palette: bright
+	WithMakeOverlay@MAKE-BRIGHT:
+		Sequence: make-bright
+		Palette: bright
 	LineBuildNode:
 		Types: turret
 	ProvidesPrerequisite@buildingname:
@@ -63,9 +71,17 @@ GAROCK:
 		LocalOffset: 325,-128,1800
 		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !Building-Buildup && !disabled
 		Sequence: idle-lights
-		PauseOnCondition: disabled
-		RequiresCondition: !Building-Buildup
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup && !disabled
+		Sequence: idle-lights-bright
+		Palette: bright
+	WithMakeOverlay@MAKE-BRIGHT:
+		Sequence: make-bright
+		Palette: bright
 	LineBuildNode:
 		Types: turret
 	ProvidesPrerequisite@buildingname:
@@ -90,9 +106,17 @@ GACSAM:
 		LocalOffset: 400,0,1800
 		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !Building-Buildup && !disabled
 		Sequence: idle-lights
-		PauseOnCondition: disabled
-		RequiresCondition: !Building-Buildup
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup && !disabled
+		Sequence: idle-lights-bright
+		Palette: bright
+	WithMakeOverlay@MAKE-BRIGHT:
+		Sequence: make-bright
+		Palette: bright
 	LineBuildNode:
 		Types: turret
 	ProvidesPrerequisite@buildingname:
