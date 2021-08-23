@@ -93,12 +93,21 @@ JJSMG:
 	ReloadDelay: 60
 	ValidTargets: Ground, Water
 	InvalidTargets: Building, Defence, Wall, Air
-	Report: sonic4.aud
+	Report: battleshipgun1.wav
 	Projectile: LaserZap
+		Blockable: true
 		Color: 50F5FF45
+		Width: 180
+		Duration: 12
+		ZOffset: 3047
+		SecondaryBeam: true
+		SecondaryBeamWidth: 30
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: 50F5FF
+		HitAnim: explosion
+		HitAnimSequence: waveblast
+		HitAnimPalette: gensmkexplocyan
 		TrackTarget: false
-		Width: 128
-		Duration: 20
 	Warhead@1Dam: SpreadDamage
 		Spread: 300
 		Damage: 20000
@@ -109,7 +118,7 @@ JJSMG:
 			ConcreteArmor: 5
 		ValidTargets: Ground, Water
 		InvalidTargets: Building, Defence, Wall, Air
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+		DamageTypes: Prone70Percent, TriggerProne, FireDeath
 
 JJSMGAA:
 	Inherits:  JJSMG
