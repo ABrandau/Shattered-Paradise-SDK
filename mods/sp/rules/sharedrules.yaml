@@ -926,12 +926,19 @@ NAPOST:
 		Adjacent: 6
 	Power:
 		Amount: -10
-	WithIdleOverlay@LIGHTS:
-		RequiresCondition: !disabled && !Building-Buildup
-		Sequence: lights
+	WithIdleOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup && !disabled
+		Sequence: lights-bright
+		Palette: bright
 	WithIdleOverlay@CHAINOFLIGHTS:
-		RequiresCondition: !disabled && !Building-Buildup
+		RequiresCondition: !Building-Buildup && !disabled
 		Sequence: chainoflights
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@CHAINOFLIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup && !disabled
+		Sequence: chainoflights-bright
+		Palette: bright
 	LineBuildSegmentExternalCondition:
 		RequiresCondition: !disabled && !empdisable
 		Condition: active-posts
@@ -976,20 +983,36 @@ NAFNCE:
 		RequiresCondition: laserfence-direction-x && active-posts == 2
 		Type: laserfence
 		Sequence: enabled-x
-		Name: Body1
+		Name: x-enabled
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithWallSpriteBody@XENABLED-BRIGHT:
+		RequiresCondition: laserfence-direction-x && active-posts == 2
+		Type: laserfence
+		Sequence: enabled-x-bright
+		Name: x-enabled-bright
+		Palette: bright
 	WithWallSpriteBody@YENABLED:
 		RequiresCondition: laserfence-direction-y && active-posts == 2
 		Type: laserfence
 		Sequence: enabled-y
-		Name: Body2
+		Name: y-enabled
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithWallSpriteBody@YENABLED-BRIGHT:
+		RequiresCondition: laserfence-direction-y && active-posts == 2
+		Type: laserfence
+		Sequence: enabled-y-bright
+		Name: y-enabled-bright
+		Palette: bright
 	WithSpriteBody@XDISABLED:
 		RequiresCondition: laserfence-direction-x && active-posts < 2
 		Sequence: disabled-x
-		Name: Body3
+		Name: x-disabled
 	WithSpriteBody@YDISABLED:
 		RequiresCondition: laserfence-direction-y && active-posts < 2
 		Sequence: disabled-y
-		Name: Body4
+		Name: y-disabled
 	BlocksProjectiles:
 		RequiresCondition: active-posts == 2
 	DamageMultiplier: # Prevent all normal damage, but still allows direct kills from the post

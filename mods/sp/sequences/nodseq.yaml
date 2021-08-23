@@ -809,11 +809,21 @@ natech:
 		ShadowStart: 5
 		Tick: 400
 	idle-lights: nttech_a
-		Length: 9
+		Length: 10
 		Tick: 120
+	idle-lights-bright: nttech_a
+		Length: 10
+		Tick: 120
+		IgnoreWorldTint: True
 	damaged-idle-lights: nttech_a
-		Length: 9
+		Start: 10
+		Length: 10
 		Tick: 120
+	damaged-idle-lights-bright: nttech_a
+		Start: 10
+		Length: 10
+		Tick: 120
+		IgnoreWorldTint: True
 	make: nttechmk
 		Length: 18
 		ShadowStart: 18
@@ -823,6 +833,7 @@ natech:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 	icon: ntchicon
 		Offset: 0, 0
 		UseTilesetCode: false
@@ -1000,26 +1011,40 @@ napost:
 	damaged-idle:
 		Start: 1
 		ShadowStart: 4
-	lights: napost_b
+	lights-bright: napost_b
 		Start: 0
 		Length: 7
 		ShadowStart: 14
 		Tick: 80
-	damaged-lights: napost_b
+		IgnoreWorldTint: True
+	damaged-lights-bright: napost_b
 		Start: 7
 		Length: 7
 		ShadowStart: 21
 		Tick: 80
+		IgnoreWorldTint: True
 	chainoflights: napost_a
 		Start: 0
 		Length: 12
 		ShadowStart: 24
 		Tick: 80
+	chainoflights-bright: napost_a
+		Start: 0
+		Length: 12
+		ShadowStart: 24
+		Tick: 80
+		IgnoreWorldTint: True
 	damaged-chainoflights: napost_a
 		Start: 12
 		Length: 12
 		ShadowStart: 36
 		Tick: 80
+	damaged-chainoflights-bright: napost_a
+		Start: 12
+		Length: 12
+		ShadowStart: 36
+		Tick: 80
+		IgnoreWorldTint: True
 	dead:
 		Start: 2
 		Tick: 400
@@ -1034,6 +1059,7 @@ napost:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 		-DepthSprite:
 	icon: lasricon
 		Offset: 0, 0
@@ -1062,15 +1088,24 @@ nafnce:
 	enabled-x:
 		Frames: 3,3,1,1,3,3,1,1,2,2,0,0,2,2,0,0
 		Length: 16
+	enabled-x-bright:
+		Frames: 3,3,1,1,3,3,1,1,2,2,0,0,2,2,0,0
+		Length: 16
+		IgnoreWorldTint: True
 	enabled-y:
 		Frames: 7,5,7,5,6,4,6,4,7,5,7,5,6,4,6,4
 		Length: 16
+	enabled-y-bright:
+		Frames: 7,5,7,5,6,4,6,4,7,5,7,5,6,4,6,4
+		Length: 16
+		IgnoreWorldTint: True
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 		-DepthSprite:
 
 wall.nod:
@@ -1308,6 +1343,7 @@ nalasr:
 		ZOffset: 4001
 		UseTilesetCode: false
 		Offset: 0, 0, 12
+
 nasam:
 	Defaults:
 		Offset: 0, -12, 12

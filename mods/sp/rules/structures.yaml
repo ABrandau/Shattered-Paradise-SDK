@@ -580,8 +580,14 @@ NATECH:
 		Footprint: xx xx
 		Dimensions: 2,2
 	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !Building-Buildup && !disabled
 		Sequence: idle-lights
-		RequiresCondition: !Building-Buildup
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup && !disabled
+		Sequence: idle-lights-bright
+		Palette: bright
 	RequiresBuildableArea:
 		AreaTypes: building
 
