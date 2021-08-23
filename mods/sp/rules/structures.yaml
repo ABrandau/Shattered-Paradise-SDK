@@ -304,8 +304,14 @@ GTDROP:
 		Sequence: idle-dish
 		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights
+		Palette: player-nobright
+		IsPlayerPalette: true
+	WithIdleOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights-bright
+		Palette: bright
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@ShowMammMkII:
 		Prerequisite: showmammmk2

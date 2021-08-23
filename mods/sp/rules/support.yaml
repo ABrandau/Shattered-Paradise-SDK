@@ -678,12 +678,18 @@ GAFIRE:
 		RequiresCondition: FirestormGen && !empdisable
 	Health:
 		HP: 100000
-	WithIdleOverlay@1:
-		Sequence: idle1
+	WithIdleOverlay@lights:
 		RequiresCondition: !Building-Buildup
-	WithIdleOverlay@2:
-		Sequence: idle2
+		Sequence: idle-lights
+		Palette: player-nobright
+		IsPlayerPalette: true
+	WithIdleOverlay@lights-bright:
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights-bright
+		Palette: bright
+	WithIdleOverlay@active:
+		RequiresCondition: !Building-Buildup
+		Sequence: idle-active
 	WithIdleOverlay@firestormactived:
 		Image: explosion
 		Sequence: firestormactived
@@ -731,8 +737,9 @@ GAPLUG:
 		Sequence: idle-dish
 		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights-bright
+		Palette: bright
 	WithIdleOverlay@STRIP:
 		Sequence: idle-strip
 		RequiresCondition: !Building-Buildup
@@ -754,11 +761,17 @@ GAPLUG:
 		Cursor: ioncannon
 	SupportPowerChargeBar:
 	WithIdleOverlay@ioncannona:
+		RequiresCondition: !Building-Buildup
 		Sequence: idle-ioncannona
-		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@hunterseekerb:
-		Sequence: idle-hunterseekerb
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-hunterseekerb
+		Palette: player-nobright
+		IsPlayerPalette: true
+	WithIdleOverlay@hunterseekerb-bright:
+		RequiresCondition: !Building-Buildup
+		Sequence: idle-hunterseekerb-bright
+		Palette: bright
 	ProvidesPrerequisite@buildingname:
 	Health:
 		HP: 200000

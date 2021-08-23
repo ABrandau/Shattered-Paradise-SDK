@@ -1040,20 +1040,31 @@ gaplug:
 		Start: 20
 		Length: 20
 		Tick: 120
-	idle-lights: gaplug_b
+	idle-lights-bright: gaplug_b
 		Length: 20
 		Tick: 120
-	damaged-idle-lights: gaplug_b
+		IgnoreWorldTint: True
+	damaged-idle-lights-bright: gaplug_b
 		Start: 20
 		Length: 20
 		Tick: 120
+		IgnoreWorldTint: True
 	idle-strip: gaplug_c
 		Length: 8
 		Tick: 120
+	idle-strip-bright: gaplug_c
+		Length: 8
+		Tick: 120
+		IgnoreWorldTint: True
 	damaged-idle-strip: gaplug_c
 		Start: 8
 		Length: 8
 		Tick: 120
+	damaged-idle-strip-bright: gaplug_c
+		Start: 8
+		Length: 8
+		Tick: 120
+		IgnoreWorldTint: True
 	idle-ioncannona: gaplug_f
 		Length: 15
 		Tick: 120
@@ -1066,12 +1077,19 @@ gaplug:
 	idle-hunterseekera: gaplug_e
 		Length: 15
 		Tick: 120
-		Reverses: true
 		Offset: -12, -42, 30
+	idle-hunterseekera-bright: gaplug_e
+		Length: 15
+		Tick: 120
+		Offset: -12, -42, 30
+		IgnoreWorldTint: True
 	idle-hunterseekerb: gaplug_e
 		Length: 15
-		Reverses: true
 		Tick: 120
+	idle-hunterseekerb-bright: gaplug_e
+		Length: 15
+		Tick: 120
+		IgnoreWorldTint: True
 	make: gtplugmk
 		Length: 17
 		ShadowStart: 17
@@ -1081,6 +1099,7 @@ gaplug:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 		-DepthSprite:
 	icon: plugicon
 		Offset: 0, 0
@@ -1128,10 +1147,19 @@ gtdrop:
 	idle-lights: gtdrop_b
 		Length: 20
 		Tick: 120
+		IgnoreWorldTint: True
+	idle-lights-bright: gtdrop_b
+		Length: 20
+		Tick: 120
 	damaged-idle-lights: gtdrop_b
 		Start: 20
 		Length: 20
 		Tick: 120
+	damaged-idle-lights-bright: gtdrop_b
+		Start: 20
+		Length: 20
+		Tick: 120
+		IgnoreWorldTint: True
 	idle-strip: gtplug_c
 		Length: 8
 		Tick: 120
@@ -1481,16 +1509,17 @@ gafire:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	idle1: gtfire_b
+	idle-active: gtfire_b
 		Length: 16
-	damaged-idle1: gtfire_b
+	damaged-idle-active: gtfire_b
 		Length: 16
-	idle2: gtfire_c
+	idle-lights: gtfire_c
 		Length: 6
 		Tick: 200
-	damaged-idle2: gtfire_c
+	idle-lights-bright: gtfire_c
 		Length: 6
 		Tick: 240
+		IgnoreWorldTint: True
 	make: gtfiremk
 		Length: 15
 		ShadowStart: 17
@@ -1500,6 +1529,7 @@ gafire:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 	icon: fsdicon
 		Offset: 0, 0
 		UseTilesetCode: false
