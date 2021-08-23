@@ -468,13 +468,15 @@ proc:
 		ShadowStart: 5
 		ZOffset: -512
 		Tick: 400
-	idle-lights: gtsilo_b
+	idle-lights-bright: gtsilo_b
 		Length: 16
 		Tick: 120
-	damaged-idle-lights: gtsilo_b
+		IgnoreWorldTint: True
+	damaged-idle-lights-bright: gtsilo_b
 		Start: 16
 		Length: 16
 		Tick: 120
+		IgnoreWorldTint: True
 	make: gtsilomk
 		Length: 18
 		ShadowStart: 20
@@ -484,6 +486,7 @@ proc:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 
 gasilo.gdi:
 	Inherits: ^Gasilo
@@ -536,23 +539,60 @@ gasilo.cab:
 		ZOffset: -1c611
 		Tick: 400
 	idle-light: gtdept_b
+		Offset: 0, -36, 13
 		Length: 7
 		Tick: 120
-	damaged-idle-light: gtdept_b
-		Start: 7
+		ZRamp: 1
+	idle-light-bright: gtdept_b
+		Offset: 0, -36, 13
 		Length: 7
 		Tick: 120
+		ZRamp: 1
+		IgnoreWorldTint: True
 	circuits: gtdept_a
 		Length: 5
 		ZOffset: -1c511
 		Tick: 120
+		ZRamp: 1
+	circuits-bright: gtdept_a
+		Length: 5
+		ZOffset: -1c511
+		Tick: 120
+		ZRamp: 1
+		IgnoreWorldTint: True
 	damaged-circuits: gtdept_a
 		Start: 5
 		Length: 5
 		ZOffset: -1c511
 		Tick: 120
-	crane: gtdept_c
-		Length: 16
+		ZRamp: 1
+	damaged-circuits-bright: gtdept_a
+		Start: 5
+		Length: 5
+		ZOffset: -1c511
+		Tick: 120
+		ZRamp: 1
+		IgnoreWorldTint: True
+	crane-start: gtdept_c
+		Length: 6
+		Offset: 0, -36, 12
+		Tick: 60
+	crane-loop: gtdept_c
+		Start: 6
+		Length: 5
+		Offset: 0, -36, 12
+		Tick: 60
+	crane-loop-bright: gtdept_c
+		Start: 6
+		Length: 5
+		Offset: 0, -36, 12
+		Tick: 60
+		IgnoreWorldTint: True
+	crane-end: gtdept_c
+		Start: 10
+		Length: 6
+		Offset: 0, -36, 12
+		Tick: 60
 	platform: gtdept_d
 		Length: 7
 		ZOffset: -1c511

@@ -351,8 +351,14 @@ NAPOWR:
 		Footprint: xx xx
 		Dimensions: 2,2
 	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights-bright
+		Palette: bright
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -414,11 +420,13 @@ NAHAND:
 		SpawnOffset: -1086,-362,0
 		ExitCell: 0,2
 	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights-bright
+		Palette: bright
 	WithProductionOverlay@LIGHT:
-		Sequence: production-light
 		RequiresCondition: !Building-Buildup
+		Sequence: production-light-bright
+		Palette: bright
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -480,6 +488,12 @@ NAWEAP:
 	WithProductionOverlay@LIGHTS:
 		RequiresCondition: !Building-Buildup
 		Sequence: production-lights
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithProductionOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup
+		Sequence: production-lights-bright
+		Palette: bright
 	WithIdleOverlay@BIB:
 		Sequence: bib
 		RequiresCondition: !Building-Buildup
@@ -523,8 +537,14 @@ NAAPWR:
 	Health:
 		HP: 100000
 	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights-bright
+		Palette: bright
 	Power:
 		Amount: 300
 	RequiresBuildableArea:
@@ -553,8 +573,14 @@ NAHPAD:
 		Sequence: idle-platform
 		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights-bright
+		Palette: bright
 	WithDeathAnimation@BIB:
 		DeathSequence: dead-platform
 		UseDeathTypeSuffix: false

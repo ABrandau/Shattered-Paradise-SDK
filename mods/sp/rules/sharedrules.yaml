@@ -756,17 +756,39 @@ GADEPT:
 		Palette: mouse
 		IsPlayerPalette: false
 	WithIdleOverlay@LIGHT:
+		RequiresCondition: !Building-Buildup
 		Sequence: idle-light
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@LIGHT-BRIGHT:
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-light-bright
+		Palette: bright
 	WithIdleOverlay@GROUND:
+		RequiresCondition: !Building-Buildup
 		Sequence: ground
-		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@CIRCUITS:
+		RequiresCondition: !Building-Buildup
 		Sequence: circuits
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@CIRCUITS-BRIGHT:
 		RequiresCondition: !Building-Buildup
+		Sequence: circuits-bright
+		Palette: bright
 	WithRepairOverlay@CRANE:
-		Sequence: crane
 		RequiresCondition: !Building-Buildup
+		StartSequence: crane-start
+		Sequence: crane-loop
+		EndSequence: crane-end
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithRepairOverlay@CRANE-BRIGHT:
+		RequiresCondition: !Building-Buildup
+		StartSequence: crane-start
+		Sequence: crane-loop-bright
+		EndSequence: crane-end
+		Palette: bright
 	WithRepairOverlay@PLATFORM:
 		Sequence: platform
 		RequiresCondition: !Building-Buildup
@@ -810,9 +832,12 @@ SCRDEPOT:
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
 	-WithIdleOverlay@LIGHT:
+	-WithIdleOverlay@LIGHT-BRIGHT:
 	-WithIdleOverlay@GROUND:
 	-WithIdleOverlay@CIRCUITS:
+	-WithIdleOverlay@CIRCUITS-BRIGHT:
 	-WithRepairOverlay@CRANE:
+	-WithRepairOverlay@CRANE-BRIGHT:
 	-WithDeathAnimation@BIB:
 
 ^TechCenter:
@@ -1098,11 +1123,12 @@ GASILO:
 			cab: gasilo.cab
 	WithSpriteBody:
 	WithIdleOverlay@UNDERLAY:
+		RequiresCondition: !Building-Buildup
 		Sequence: idle-underlay
-		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights-bright
+		Palette: bright
 	StoresResources:
 		Capacity: 3000
 	Power:
