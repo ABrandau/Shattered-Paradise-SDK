@@ -50,7 +50,7 @@ APC_BOT:
 	RenderSprites:
 		Image: apc
 	Buildable:
-		Prerequisites: ~gaweap, gapile, ~AIOnly
+		Prerequisites: ~gaweap, gapile, ~techlevel.2, ~AIOnly
 		Description: APC (full)
 	Cargo:
 		InitialUnits: gdie1, gdie1, medic, gdie1, grenadier
@@ -71,7 +71,7 @@ RIFLEBGGY:
 	RenderSprites:
 		Image: bggy
 	Buildable:
-		Prerequisites: ~naweap, ~AIOnly
+		Prerequisites: ~naweap, ~techlevel.2, ~AIOnly
 		Description: Anti Infantry Buggy
 	Cargo:
 		InitialUnits: altnode1
@@ -83,7 +83,7 @@ ROCKETBGGY:
 	EditorOnlyTooltip:
 		Name: Rocket Buggy
 	Buildable:
-		Prerequisites: ~naweap, ~AIOnly
+		Prerequisites: ~naweap, ~techlevel.2, ~AIOnly
 		Description: Rocket Buggy
 	Cargo:
 		InitialUnits: crusader
@@ -93,7 +93,7 @@ FLAMEBGGY:
 	ProductionCostMultiplier:
 		Multiplier: 200
 	Buildable:
-		Prerequisites: ~naweap, naradr, ~AIOnly
+		Prerequisites: ~naweap, naradr, ~techlevel.4, ~AIOnly
 		Description: Flame Buggy
 	Cargo:
 		InitialUnits: templar
@@ -105,7 +105,7 @@ LAZORBGGY:
 	ProductionCostMultiplier:
 		Multiplier: 300
 	Buildable:
-		Prerequisites: ~naweap, natech, ~AIOnly
+		Prerequisites: ~naweap, natech, ~techlevel.5, ~AIOnly
 		Description: Laser Buggy
 	Cargo:
 		InitialUnits: nconf
@@ -117,7 +117,7 @@ STRUCKFULL:
 	Selectable:
 		Class: struck
 	Buildable:
-		Prerequisites: ~muweap, murax, ~AIOnly
+		Prerequisites: ~muweap, murax, ~techlevel.2, ~AIOnly
 		Description: Bus(full)
 	ProductionCostMultiplier:
 		Multiplier: 190
@@ -131,7 +131,7 @@ STRUCKFULL:
 STRUCKFULL_T3:
 	Inherits: STRUCKFULL
 	Buildable:
-		Prerequisites: ~muweap, murax, muhall, !psyker, ~AIOnly ##Hack: Use the buildlimit = prerequisite bug in techtree to save lines
+		Prerequisites: ~muweap, murax, muhall, ~techlevel.5, !psyker, ~AIOnly ##Hack: Use the buildlimit = prerequisite bug in techtree to save lines
 		Description: Bus(full with T3)
 		BuildDurationModifier: 30
 		BuildLimit: 1
@@ -178,7 +178,7 @@ NUKECARRYALL_BOT:
 	Inherits@1: ^BotCarryall
 	Buildable:
 		Description: AI Nuke Transport
-		Prerequisites: ~muair, muhall, ~AIOnly, ~!LoadedExists
+		Prerequisites: ~muair, muhall, ~techlevel.5, ~AIOnly, ~!LoadedExists
 	ProductionCostMultiplier:
 		Multiplier: 400
 	Carryall:
@@ -189,7 +189,7 @@ SONICARRYALL_BOT:
 	Inherits@1: ^BotCarryall
 	Buildable:
 		Description: AI Sonic Transport
-		Prerequisites: ~gahpad, gatech, ~AIOnly, ~!LoadedExists
+		Prerequisites: ~gahpad, gatech, ~techlevel.5, ~AIOnly, ~!LoadedExists
 	ProductionCostMultiplier:
 		Multiplier: 200
 	Carryall:
@@ -200,7 +200,7 @@ APCARRYALL_BOT:
 	Inherits@1: ^BotCarryall
 	Buildable:
 		Description: AI APC Transport
-		Prerequisites: ~gahpad, gapile, ~AIOnly, ~!LoadedExists
+		Prerequisites: ~gahpad, gapile, ~techlevel.2, ~AIOnly, ~!LoadedExists
 	ProductionCostMultiplier:
 		Multiplier: 180
 	Carryall:
@@ -214,7 +214,7 @@ DRACHE_BOT:
 		Queue: Air
 		BuildPaletteOrder: 110
 		Description: AI Scrin Host Station
-		Prerequisites: ~scrair, ~fixUndeployDracheBug
+		Prerequisites: ~scrair, ~techlevel.3, ~fixUndeployDracheBug
 	Aircraft:
 		IdleBehavior: Land
 	RenderSprites:
@@ -223,7 +223,7 @@ DRACHE_BOT:
 MUBUNKRFULL:
 	Inherits: MUBUNKR
 	Buildable:
-		Prerequisites: murax, ~structures.mut, ~AIOnly
+		Prerequisites: murax, ~structures.mut, ~techlevel.1, ~AIOnly
 		Description: Bunker(full)
 	IsometricSelectable:
 		Class: mubunkr
@@ -251,7 +251,7 @@ GHOST:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 30
-		Prerequisites: ~murax, muhall, ~AIOnly
+		Prerequisites: ~murax, muhall, ~techlevel.5, ~AIOnly
 		Description: Gil is the elite commando of Mutants, if not GDI.\nHe is armed with a railgun and C4.\n\nGood vs Ground\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes structures with C4\n- Heals on Tiberium\n- Immune to mindcontrol\n- Crush class: crushable
 		BuildLimit: 1
 	Armor:
@@ -503,8 +503,8 @@ DEFD:
 		HP: 1100000
 	Buildable:
 		Queue: Building
-		Prerequisites: cabtech, ~structures.cab, ~AIOnly, ~!DefenderExists
-		Description: Cabal's final creation armed with crazy weapon.\n\nGood vs: Everything\n\nSpecial:\n- Needs preparing before rising.\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle\n- Immunes to mindcontrol
+		Prerequisites: cabtech, ~structures.cab, ~techlevel.5, ~AIOnly, ~!DefenderExists
+		Description: C.A.B.A.L.'s final creation armed with crazy weapon.\n\nGood vs: Everything\n\nSpecial:\n- Needs preparing before rising.\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle\n- Immunes to mindcontrol
 		BuildPaletteOrder: 54
 	Building:
 		Footprint: xxx xxx xxx

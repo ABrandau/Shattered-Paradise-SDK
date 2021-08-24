@@ -29,7 +29,7 @@ ENGINEER:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 11
-		Prerequisites: ~player.humanengi
+		Prerequisites: ~player.humanengi, ~techlevel.1
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable.
 	Valued:
 		Cost: 500
@@ -55,7 +55,7 @@ MCV:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 996
-		Prerequisites: ~gaweap, gadept
+		Prerequisites: ~gaweap, gadept, ~techlevel.3
 		BuildAtProductionType: Tank
 		Description: Deploys into a Construction Yard.\n\nSpecial:\n- Provides a build radius for structures.\n- Can crush infantry.\n- Maximum production speed is reached with 7 ConYards.\n- Max production speed reduces production time by 50%.\n- Has increased HP when deployed.
 	Valued:
@@ -99,7 +99,7 @@ HARV:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 1
-		Prerequisites: ~player.gdi, proc
+		Prerequisites: proc, ~player.gdi, ~techlevel.1
 		BuildAtProductionType: Tank
 		Description: Collects Tiberium for processing.\n\nSpecial:\n- Harvests Tiberium\n- Immune to Veins\n- Can crush infantry\n- Cannot be mindcontrolled\n- Selfheal
 	Selectable:
@@ -170,7 +170,7 @@ harv.nod:
 		Name: Nod Harvester
 	Buildable:
 		BuildPaletteOrder: 2
-		Prerequisites: ~player.nod, proc
+		Prerequisites: proc, ~player.nod, ~techlevel.1 
 	RenderSprites:
 		Image: nodharv
 
@@ -180,7 +180,7 @@ harv.mut:
 		Name: Mutant Harvester
 	Buildable:
 		BuildPaletteOrder: 3
-		Prerequisites: ~player.mut, proc
+		Prerequisites: proc, ~player.mut, ~techlevel.1
 	RenderSprites:
 		Image: mutharv
 
@@ -191,7 +191,7 @@ CABHARV:
 		Name: C.A.B.A.L. Harvester
 	Buildable:
 		BuildPaletteOrder: 4
-		Prerequisites: ~player.cab, proc
+		Prerequisites: proc, ~player.cab, ~techlevel.1
 	RenderSprites:
 		Image: cabharv
 	BodyOrientation:
@@ -207,7 +207,7 @@ SCRHARV:
 		Name: Scrin Harvester
 	Buildable:
 		BuildPaletteOrder: 5
-		Prerequisites: ~player.scr, proc
+		Prerequisites: proc, ~player.scr, ~techlevel.1
 	Mobile:
 		Locomotor: InfantryCrusherVehicle
 	RenderSprites:
@@ -739,7 +739,7 @@ GADEPT:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 21
-		Prerequisites: ~player.human, factoryorair
+		Prerequisites: ~player.human, factoryorair, ~techlevel.3
 		Description: Repairs vehicles.\n\nSpecial:\n- Can be ordererd to repair a single vehicle faster for a cost.\nApply a repair command to a vehicle to send it to a nearby service depot.
 	Building:
 		Footprint: =+= x++ x+=
@@ -818,7 +818,7 @@ SCRDEPOT:
 	Inherits@RENDER: ^ScrinRender
 	Buildable:
 		BuildPaletteOrder: 25
-		Prerequisites: ~player.scr, factoryorair
+		Prerequisites: ~player.scr, factoryorair, ~techlevel.3
 	Tooltip:
 		Name: Scrin Maintenance Depot
 	ProvidesPrerequisite@buildingname:
@@ -899,7 +899,7 @@ SHAWALL:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 1
-		Prerequisites: ~player.sharedwall, ~structures.wall
+		Prerequisites: ~player.sharedwall, ~structures.wall, ~techlevel.1
 		Description: Stops infantry, Vehicles and blocks enemy fire.
 	SoundOnDamageTransition:
 		DamagedSounds:
@@ -924,7 +924,7 @@ NAPOST:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 2
-		Prerequisites: napowr, ~structures.nod
+		Prerequisites: napowr, ~structures.nod, ~techlevel.1
 		Description: Stops infantry and blocks enemy fire\n- Can NOT be crushed\n- Requires power to operate
 	Valued:
 		Cost: 100
@@ -1057,7 +1057,7 @@ MUTWALL:
 		Queue: Defense
 		BuildPaletteOrder: 3
 		Description: Stops infantry, Vehicles and blocks enemy fire.
-		Prerequisites: ~player.mut, ~structures.wall
+		Prerequisites: ~player.mut, ~structures.wall, ~techlevel.1
 	SoundOnDamageTransition:
 		DamagedSounds:
 		DestroyedSounds:
@@ -1080,7 +1080,7 @@ SCRWALL:
 		Queue: Defense
 		BuildPaletteOrder: 5
 		Description: Stops infantry, Vehicles and blocks enemy fire.
-		Prerequisites: ~player.scr, ~structures.wall
+		Prerequisites: ~player.scr, ~structures.wall, ~techlevel.1
 	SoundOnDamageTransition:
 		DamagedSounds:
 		DestroyedSounds:
@@ -1100,7 +1100,7 @@ GASILO:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 31
-		Prerequisites: ~structures.human, proc
+		Prerequisites: proc, ~structures.human, ~techlevel.1
 		Description: Stores excess Tiberium.\n\nSpecial:\n- Stores 3000$.\n- Power loss does not affect storage capacity.
 	Valued:
 		Cost: 200
@@ -1198,7 +1198,7 @@ TRNSPORT:
 		Name: Orca Carryall
 	Buildable:
 		BuildPaletteOrder: 11
-		Prerequisites: ~player.gdi, ~air.human, gadept
+		Prerequisites: ~player.gdi, ~air.human, gadept, ~techlevel.4
 	RenderSprites:
 		Image: trnsport
 	SpawnActorOnDeath:
@@ -1234,7 +1234,7 @@ trnsport.nod:
 		Name: Nod Carryall
 	Buildable:
 		BuildPaletteOrder: 12
-		Prerequisites: ~player.nod, ~air.human, gadept
+		Prerequisites: ~player.nod, ~air.human, gadept, ~techlevel.4
 	RenderSprites:
 		Image: nodcarryall
 	SpawnActorOnDeath:
@@ -1258,7 +1258,7 @@ trnsport.mut:
 		Name: Chinook Carryall
 	Buildable:
 		BuildPaletteOrder: 13
-		Prerequisites: ~player.mut, ~air.human, gadept
+		Prerequisites: ~player.mut, ~air.human, gadept, ~techlevel.4
 	RenderSprites:
 		Image: forgcarryall
 	SpawnActorOnDeath:
@@ -1286,7 +1286,7 @@ trnsport.cab:
 		Name: C.A.B.A.L. Carryall
 	Buildable:
 		BuildPaletteOrder: 14
-		Prerequisites: ~player.cab, ~air.human, gadept
+		Prerequisites: ~player.cab, ~air.human, gadept, ~techlevel.4
 	RenderSprites:
 		Image: cabcarryall
 	Voiced:
@@ -1314,7 +1314,7 @@ trnsport.scr:
 		Name: Scrin Carryall
 	Buildable:
 		BuildPaletteOrder: 15
-		Prerequisites: ~player.scr, ~air.human, gadept
+		Prerequisites: ~player.scr, ~air.human, gadept, ~techlevel.4
 	RenderSprites:
 		Image: scrpod
 	SpawnActorOnDeath:
@@ -1338,7 +1338,7 @@ NAPULS:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 11
-		Prerequisites: ~player.human, radar
+		Prerequisites: ~player.human, radar, ~techlevel.4
 		Description: Cannon that uses EMP projectiles to disable vehicles.\n\nSpecial:\n- Fires a pulse blast which disables all vehicles and buildings in the area\n- Hover units disabled staying over water will be destroyed instantly.\n- Requires power to operate.\n- Cannot be disabled.
 	Building:
 		Footprint: xx xx
@@ -1410,7 +1410,7 @@ SCRSHIELD:
 		Name: Stasis Field Generator
 	Buildable:
 		BuildPaletteOrder: 15
-		Prerequisites: ~player.scr, scrradr
+		Prerequisites: ~player.scr, scrradr, ~techlevel.4
 	-WithSpriteTurret:
 	RenderSprites:
 		Image: scrshield
@@ -1427,7 +1427,7 @@ GATE_A:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 6
-		Prerequisites: ~player.sharedgate
+		Prerequisites: ~player.sharedgate, ~techlevel.1
 		Description: Automated barrier that opens for allied units.\nCan be rotated.
 	-AppearsOnRadar:
 	-UpdatesPlayerStatistics:
@@ -1463,7 +1463,7 @@ MUTGATE_A:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 7
-		Prerequisites: ~player.mut
+		Prerequisites: ~player.mut, ~techlevel.1
 		Description: Automated barrier that opens for allied units.\nCan be rotated.
 	Tooltip:
 		Name: Mutant Gate
@@ -1484,7 +1484,7 @@ SCRGATE_A:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 10
-		Prerequisites: ~player.scr
+		Prerequisites: ~player.scr, ~techlevel.1
 		Description: Automated barrier that opens for allied units.\nCan be rotated.
 	Tooltip:
 		Name: Energy Gate
