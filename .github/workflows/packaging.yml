@@ -28,6 +28,15 @@ jobs:
           mkdir -p build/linux
           ./packaging/linux/buildpackage.sh "${GIT_TAG}" "${PWD}/build/linux"
 
+      - name: Create BinDiffs
+        run: |
+          echo "Fetching bsdiff"
+          sudo apt install bsdiff
+          echo "Fetching PyGithub for python"
+          pip install PyGithub
+          echo "Creating bindiffs for launcher"
+          python3 ./packaging/launcherBindiffs.py -s "linux" -t "${GIT_TAG}" -o "${PWD}/build/linux" -r "ABrandau/Shattered-Paradise-SDK"
+
       - name: Upload Packages
         uses: svenstaro/upload-release-action@v2
         with:
@@ -98,6 +107,15 @@ jobs:
           make engine
           mkdir -p build/windows
           ./packaging/windows/buildpackage.sh "${GIT_TAG}" "${PWD}/build/windows"
+
+      - name: Create BinDiffs
+        run: |
+          echo "Fetching bsdiff"
+          sudo apt install bsdiff
+          echo "Fetching PyGithub for python"
+          pip install PyGithub
+          echo "Creating bindiffs for launcher"
+          python3 ./packaging/launcherBindiffs.py -s "windows" -t "${GIT_TAG}" -o "${PWD}/build/windows" -r "ABrandau/Shattered-Paradise-SDK"
 
       - name: Upload Packages
         uses: svenstaro/upload-release-action@v2
