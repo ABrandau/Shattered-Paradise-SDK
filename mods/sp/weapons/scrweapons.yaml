@@ -417,7 +417,7 @@ TripodBlast:
 	Inherits: ^RifleWarhead
 	ReloadDelay: 80
 	Range: 7c0
-	Report: scrin5b.aud
+	Report: triplasor0000.wav, triplasor0001.wav, triplasor0002.wav
 	Projectile: ArcLaserZap
 		TrackTarget: false
 		Width: 112
@@ -455,6 +455,10 @@ TripodBlast:
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Delay: 20
+		Range: 512
+		Duration: 750
 
 StormRiderBlast:
 	Inherits: ^FullDamage
