@@ -369,13 +369,13 @@ ScorpGas:
 	Range: 11c0
 	MinRange: 3c0
 	TargetActorCenter: true
-	Report: 
+	Report: laserpistol.wav
 	ValidTargets: Infantry, Vehicle, Building, Ground, Water
 	Projectile: BulletAS
 		Speed: 400
-		Image: essencetrail
+		Image: greenplasma
 		Shadow: false
-		Palette: jascbluealpha
+		Palette: gradientblue
 		Blockable: false
 		LaunchAngle: 128
 		Blockable: false
@@ -415,23 +415,23 @@ foggydebuff:
 
 TripodBlast:
 	Inherits: ^RifleWarhead
-	Inherits@2: ^Small_Bang
 	ReloadDelay: 80
 	Range: 7c0
 	Report: scrin5b.aud
-	Projectile: BulletAS
-		Speed: 500
-		Image: greenplasma
-		Shadow: false
-		LaunchAngle: 62
-		Palette: gradientblue60
+	Projectile: ArcLaserZap
+		TrackTarget: false
+		Width: 112
+		Duration: 6
+		Angle: 90
+		ZOffset: 2047
+		Color: 000080bb
+		HitAnim: explosion
+		HitAnimSequence: blackhole
+		HitAnimPalette: jascbluealpha
 		Blockable: false
-		ContrailLength: 7
-		ContrailColor: 9A8AFF44
-		ContrailWidth: 0c70
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
-		Damage: 12500
+		Damage: 25000
 		Versus:
 			InfantryArmor: 100
 			BuildingArmor: 80
@@ -439,20 +439,19 @@ TripodBlast:
 			DefenseArmor: 50
 			ConcreteArmor: 30
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
-	Warhead@2Eff: CreateEffect
-		Explosions: tripodfire
-		ExplosionPalette: gradientblue70
-
-TripodBlast2:
-	Inherits: TripodBlast
-	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
+		Delay: 20
 	Warhead@2Eff: CreateEffect
 		Explosions: tripodshockwave
 		ExplosionPalette: jascbluealpha
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 		ImpactActors: false
-	Warhead@1Dam: SpreadDamage
-		DamageTypes: Prone60Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill 
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+		Delay: 24
+	Warhead@3Eff: CreateEffect
+		Explosions: tripodfire
+		ExplosionPalette: jascbluealpha
+		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+		Delay: 20
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
@@ -463,7 +462,7 @@ StormRiderBlast:
 	ReloadDelay: 30
 	Range: 6c0
 	MinRange: 0c300
-	Report: laserpistol.wav
+	Report: photon1.wav
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	InvalidTargets: Air
 	Projectile: MissileTA
@@ -638,7 +637,7 @@ BattleshipPlasma:
 	Range: 5c768
 	Burst: 3
 	BurstDelays: 5
-	Report: laserpistol.wav
+	Report: photon1.wav
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	InvalidTargets: Air
 	Projectile: MissileTA
@@ -716,7 +715,7 @@ WyvermBlast:
 	ReloadDelay: 65
 	Range: 5c0
 	MinRange: 0c100
-	Report: laserpistol.wav
+	Report: photon1.wav
 	ValidTargets: Ground, Water
 	Projectile: MissileTA
 		TerrainHeightAware: true

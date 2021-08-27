@@ -3046,13 +3046,11 @@ TRIPOD:
 			FireDeath: 1, 2
 	Armament:
 		Weapon: TripodBlast
-		LocalOffset: 200,225,3500
+		LocalOffset: 400,0,3200
+		MuzzleSequence: muzzle
+		MuzzlePalette: jascbluealpha
 		PauseOnCondition: empdisable
-	Armament@2:
-		Weapon: TripodBlast2
-		LocalOffset: 200,-225,3500
-		PauseOnCondition: empdisable
-		FireDelay: 5
+	WithMuzzleOverlay:
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 	QuantizeFacingsFromSequence:
@@ -3065,3 +3063,5 @@ TRIPOD:
 		DeathTypes: BulletDeath, ExplosionDeath, CabalDeath, TiberiumDeath
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
+	WithInfantryBody:
+		-DefaultAttackSequence:
