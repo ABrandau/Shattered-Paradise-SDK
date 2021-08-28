@@ -388,14 +388,14 @@ ScorpGas:
 	Warhead@2Eff: CreateEffect
 		Image: ichorsmoke
 		Explosions: start
-		ExplosionPalette: jascbluealpha
+		ExplosionPalette: jascbluealphaalpha60
 		ImpactActors: false
 	Warhead@3: SpawnSmokeParticle
 		Image: ichorsmoke
 		ImpactActors: false
 		Sequences: idle
 		Duration: 68
-		Palette: jascbluealpha
+		Palette: jascbluealphaalpha60
 		Delay: 18
 		Weapon: foggydebuff
 		ValidTargets: Infantry, Vehicle, Building, Ground, Water
@@ -418,17 +418,13 @@ TripodBlast:
 	ReloadDelay: 80
 	Range: 7c0
 	Report: triplasor0000.wav, triplasor0001.wav, triplasor0002.wav
-	Projectile: ArcLaserZap
+	Projectile: ElectricBolt
 		TrackTarget: false
-		Width: 112
+		Width: 96
 		Duration: 6
-		Angle: 90
+		Angle: 96
 		ZOffset: 2047
-		Color: 000080bb
-		HitAnim: explosion
-		HitAnimSequence: blackhole
-		HitAnimPalette: jascbluealpha
-		Blockable: false
+		Colors: 00006088, 00008044, 00006022
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
 		Damage: 25000
@@ -439,7 +435,7 @@ TripodBlast:
 			DefenseArmor: 50
 			ConcreteArmor: 30
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
-		Delay: 20
+		Delay: 24
 	Warhead@2Eff: CreateEffect
 		Explosions: tripodshockwave
 		ExplosionPalette: jascbluealpha
@@ -448,16 +444,22 @@ TripodBlast:
 		Delay: 24
 	Warhead@3Eff: CreateEffect
 		Explosions: tripodfire
-		ExplosionPalette: jascbluealpha
+		ExplosionPalette: jascblue
 		ImpactActors: false
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 		ImpactSounds: expnew14.aud, expnew19.aud, expnew18.aud
-		Delay: 20
+		Delay: 24
+	Warhead@4Eff: CreateEffect
+		Explosions: blackhole
+		ExplosionPalette: jascbluealpha
+		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
+		Delay: 24
 	Warhead@ShieldUpgrade: GrantExternalCondition
-		Delay: 20
+		Delay: 24
 		Range: 512
 		Duration: 750
 
