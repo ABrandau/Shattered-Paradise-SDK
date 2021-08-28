@@ -424,10 +424,10 @@ TripodBlast:
 		Duration: 7
 		Angle: 96
 		ZOffset: 7000
-		Colors: 00008060, 0000AA88, 00006040
+		SegmentLength: 768
+		Colors: 0000AA99, 0000CCAA, 00008888
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c512
-		Damage: 25000
+		Damage: 12500
 		Versus:
 			InfantryArmor: 100
 			BuildingArmor: 80
@@ -435,33 +435,48 @@ TripodBlast:
 			DefenseArmor: 50
 			ConcreteArmor: 30
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
-		Delay: 24
+	Warhead@4Eff: CreateEffect
+		Explosions: blackhole
+		ExplosionPalette: jascbluealpha
+		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+	Warhead@later: FireFragment
+		Delay: 25
+		ImpactActors: false
+		Weapon: TripodBlastFinal
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall
+
+
+TripodBlastFinal:
+	Inherits: ^RifleWarhead
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 12500
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 80
+			VehicleArmor: 50
+			DefenseArmor: 50
+			ConcreteArmor: 30
+		DamageTypes: Prone60Percent, TriggerProne, FireDeath, ScrinEssenceKill
 	Warhead@2Eff: CreateEffect
 		Explosions: tripodshockwave
 		ExplosionPalette: jascbluealpha
 		ImpactActors: false
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-		Delay: 24
 	Warhead@3Eff: CreateEffect
 		Explosions: tripodfire
 		ExplosionPalette: jascblue
 		ImpactActors: false
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 		ImpactSounds: expnew14.aud, expnew19.aud, expnew18.aud
-		Delay: 24
-	Warhead@4Eff: CreateEffect
-		Explosions: blackhole
-		ExplosionPalette: jascbluealpha
-		ImpactActors: false
-		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: SmallScorch
-		InvalidTargets: Vehicle, Building, Wall
-		Delay: 24
 	Warhead@ShieldUpgrade: GrantExternalCondition
-		Delay: 24
 		Range: 512
 		Duration: 750
+
 
 StormRiderBlast:
 	Inherits: ^FullDamage
