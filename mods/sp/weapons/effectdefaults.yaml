@@ -404,26 +404,30 @@
 		ContrailWidth: 22
 
 ^LightningDefault:
-	Inherits: ^GreyExplo
 	Projectile: InstantHit
 		Blockable: false
 	Warhead@2Eff: CreateEffect
 		Explosions: fastboltexplo, fastboltexplof
 		ExplosionPalette: lightningwhite
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 	Warhead@3Eff: CreateEffect
 		Explosions: bolt1, bolt2, bolt3, bolt4, bolt5, bolt6, bolt7, bolt8, bolt9, bolt10
 		ImpactSounds: expnew09.aud, expnew08.aud
 		ExplosionPalette: lightningwhite
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 	Warhead@4: LeaveSmudge
 		SmudgeType: SmallCrater
+		ValidTargets: Infantry, Ground, Water, Air
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@5op: FireRadius
 		Weapon: LightningSparkDebris
 		ImpactActors: false
 		Amount: 2
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 	Warhead@6Eff: CreateEffect
 		Explosions: fire1, fire2, fire3
 		ExplosionPalette: effect
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 
 ^GreenPlasmaExplosion:
 	Warhead@2Eff: CreateEffect
