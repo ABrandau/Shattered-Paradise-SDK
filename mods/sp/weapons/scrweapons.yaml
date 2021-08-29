@@ -272,6 +272,8 @@ CorruptorAcid:
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
+		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 
 ### See ^MindControllable in default.yaml 
 MindController:
@@ -360,6 +362,7 @@ ScrMbtLasor:
 		Explosions: lightpulse
 		ExplosionPalette: appurp
 		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
@@ -818,9 +821,13 @@ WasteTurretWeapon:
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
+		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 	Warhead@3Radio: CreateTintedCells
 		Spread: 512
 		Level: 24
+		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 	Warhead@smalldrop: FireRadius
 		Weapon: WasteSmall
 		ImpactActors: false
@@ -846,6 +853,8 @@ WasteSmall:
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
+		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 
 WasteSmall2:
 	Inherits: WasteSmall
@@ -909,28 +918,32 @@ SrcinOrb:
 	Warhead@3: SpawnSmokeParticle
 		Image: pulsar
 		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 		Sequences: sorbpulse
 		Duration: 210
 		Palette: gradientpurple
 	Warhead@4: SpawnSmokeParticle
 		Image: pulsar
 		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 		Sequences: sorbray-down
 		Duration: 205
 		Palette: appurp
 	Warhead@5: SpawnSmokeParticle
 		Image: pulsar
 		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 		Sequences: sorbray-up
 		Duration: 205
 		Palette: appurp
 	Warhead@main: SpawnSmokeParticle
 		Weapon: OrbZapsShrapnel
 		Image: pulsar
-		ImpactActors: false
 		Sequences: sorb
 		Duration: 200
 		Palette: scrinenergystuffs
+		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 
 OrbZapsShrapnel:
 	Warhead@Slowdown: GrantExternalCondition
@@ -970,6 +983,7 @@ OrbZaps:
 		Explosions: lightpulsetiny
 		ExplosionPalette: appurp
 		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 
 EssenceSmall:
 	ReloadDelay: 45
