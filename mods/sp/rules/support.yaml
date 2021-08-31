@@ -2,6 +2,14 @@ GAVULC:
 	Inherits: ^TurretedDefence
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@DETECTION: ^TowerStealthDetection
+	WithMakeAnimation:
+		BodyNames: make
+	WithSpriteBody:
+		Name: make
+		Sequence: invisible
+	WithWallSpriteBody:
+		RequiresCondition: !Building-Buildup
+		Type: wall
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -52,6 +60,14 @@ GAROCK:
 	Inherits@AUTOTARGETPRIORITY: ^AntiVehiclePriority
 	Inherits@DETECTION: ^TowerStealthDetection
 	Inherits@TIER: ^Tier2
+	WithMakeAnimation:
+		BodyNames: make
+	WithSpriteBody:
+		Name: make
+		Sequence: invisible
+	WithWallSpriteBody:
+		RequiresCondition: !Building-Buildup
+		Type: wall
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -89,6 +105,14 @@ GAROCK:
 GACSAM:
 	Inherits: ^TurretedDefence
 	Inherits@AA: ^AntiAir
+	WithMakeAnimation:
+		BodyNames: make
+	WithSpriteBody:
+		Name: make
+		Sequence: invisible
+	WithWallSpriteBody:
+		RequiresCondition: !Building-Buildup
+		Type: wall
 	Tooltip:
 		Name: SAM Tower
 	Buildable:
