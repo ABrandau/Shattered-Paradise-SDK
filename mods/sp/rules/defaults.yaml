@@ -602,10 +602,8 @@
 
 ^SuperWeapon:
 	Inherits@3: ^DisableOnLowPowerOrPowerDown
-	Cloak@CLOAKGENERATOR:
-		CloakedCondition: nodcloak
 	RevealsShroud@revealhimself:
-		RequiresCondition: !nodcloak
+		RequiresCondition: !cloaking-self
 		ValidRelationships: Neutral, Enemy
 		MaxHeightDelta: 3
 		Range: 2c0
