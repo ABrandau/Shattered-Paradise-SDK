@@ -963,7 +963,7 @@ TTNK:
 		Weapon: Tick90mm
 		LocalOffset: 350,-0,500
 		MuzzleSequence: muzzle
-		PauseOnCondition: empdisable
+		PauseOnCondition: empdisable || !ammo
 	Armament@DEPLOYED:
 		Name: deployed
 		Turret: deployed
@@ -971,17 +971,26 @@ TTNK:
 		Weapon: Tick90mm
 		LocalOffset: 256,-0,700
 		MuzzleSequence: muzzle
-		PauseOnCondition: empdisable
+		PauseOnCondition: empdisable || !ammo
 	Armament@CASINGPRIMARY:
 		Weapon: Tick90mmShellCasing
-		PauseOnCondition: empdisable
+		PauseOnCondition: empdisable || !ammo
 	Armament@CASINGDEPLOYED:
 		Name: deployed
 		Turret: deployed
 		Recoil: 0c128
 		Weapon: Tick90mmShellCasing
 		MuzzleSequence: muzzle
-		PauseOnCondition: empdisable
+		PauseOnCondition: empdisable || !ammo
+	AmmoPool:
+		Ammo: 2 # One for the casing, one for the normal weapon.
+		ReloadCount: 2
+		ReloadDelay: 70
+		AmmoCondition: ammo
+		Armaments: primary, deployed
+	ReloadAmmoPool:
+		Count: 2
+		Delay: 70
 	WithMuzzleOverlay:
 	WithMakeAnimation:
 		BodyNames: deployed

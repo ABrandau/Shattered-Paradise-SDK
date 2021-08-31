@@ -799,17 +799,26 @@ MARAUDER:
 	Armament@1:
 		Weapon: MarauderShotgun
 		Name: OnFoot
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || !ammo
 		RequiresCondition: !deployed
 	Armament@Garrison:
 		Weapon: GMarauderShotgun
 		MuzzlePalette: playermut
+		PauseOnCondition: !ammo
 		RequiresCondition: !deployed
 	Armament@Deployed:
 		Weapon: DeployedMarauderShotgun
 		Name: OnFoot
 		Turret: Marauderturr
+		PauseOnCondition: !ammo
 		RequiresCondition: deployed
+	AmmoPool:
+		Ammo: 1
+		ReloadDelay: 40
+		AmmoCondition: ammo
+		Armaments: primary, OnFoot
+	ReloadAmmoPool:
+		Delay: 40
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
@@ -1445,12 +1454,15 @@ MASTERMIND:
 	Armament@PRIMARY:
 		Name: control
 		Weapon: MindControllerMastermind
+		PauseOnCondition: !ammo
 	Armament@BUILDING:
 		Weapon: MindControllerMastermindBuilding
+		PauseOnCondition: !ammo
 		RequiresCondition: !control
 	Armament@BUILDINGCONTROL:
 		Name: control
 		Weapon: MindControllerMastermindBuilding
+		PauseOnCondition: !ammo
 		RequiresCondition: control
 	GrantConditionOnAttack@CONTROL:
 		Condition: control
@@ -1460,6 +1472,13 @@ MASTERMIND:
 		RevokeDelay: 11
 		RevokeAll: true
 		RevokeOnNewTarget: true
+	AmmoPool:
+		Ammo: 1
+		ReloadDelay: 100
+		AmmoCondition: ammo
+		Armaments: control
+	ReloadAmmoPool:
+		Delay: 100
 	-TakeCover:
 	-Targetable@MC:
 	Health:
