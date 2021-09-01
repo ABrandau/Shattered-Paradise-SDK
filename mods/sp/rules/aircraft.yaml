@@ -500,10 +500,12 @@ CERBERUS:
 		AffectsParent: false
 		RequiresCondition: !Attacking && !reloading
 	-WithShadow:
+	-WithShadow@2:
 	WithFacingSpriteBody@Shadow: ## Note: use this to reduce performance cost. Don't use this method on those can cloak
 		ForceToGround: true
 		Palette: shadow
 		Name: shadow
+		RequiresCondition: airborne
 	WithIdleOverlay@cloakgeneratoreff:
 		Sequence: cloakgeneratorwave
 		Offset: -25, 0, 0
