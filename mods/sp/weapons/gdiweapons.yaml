@@ -83,12 +83,12 @@ JJGrenade:
 
 JJGroundGrenade:
 	Inherits: JJGrenade
-	Range: 6c0
+	Range: 5c0
 	Projectile: BulletAS
 		LaunchAngle: 96
 
 JJSMG:
-	Inherits:  ^WeaponGenericUpgrades
+	Inherits: ^WeaponGenericUpgrades
 	Range: 7c0
 	ReloadDelay: 60
 	ValidTargets: Ground, Water
@@ -121,7 +121,7 @@ JJSMG:
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath
 
 JJSMGAA:
-	Inherits:  JJSMG
+	Inherits: JJSMG
 	ValidTargets: Air
 	-InvalidTargets: 
 	Projectile: LaserZap
@@ -136,7 +136,7 @@ JJSMGAA:
 JJBeacon:
 	Range: 5c0
 	ReloadDelay: 150
-	ValidTargets: Vehicle, Building, Infantry, Ground, Water
+	ValidTargets: Building, Defence, Wall
 	TargetActorCenter: true
 	Report: grenadelauncherfire.wav
 	Projectile: BulletAS
@@ -153,12 +153,12 @@ JJBeacon:
 		Explosions: beaconflash
 		ExplosionPalette: gensmkexplocyan70
 		ImpactActors: false
-		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+		ValidTargets: Building, Defence, Wall
 	Warhead@later: FireFragment
 		Delay: 60
 		ImpactActors: false
 		Weapon: OribitBombElevator
-		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+		ValidTargets: Building, Defence, Wall
 
 OribitBombElevator:
 	Report: meteor1.aud, meteor2.aud
@@ -639,7 +639,7 @@ FighterHellfireAA:
 	ValidTargets: Air
 	Burst: 1
 	BurstDelays: 3
-	ReloadDelay: 25
+	ReloadDelay: 30
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
 		ValidTargets: Air
