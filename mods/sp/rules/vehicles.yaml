@@ -2224,10 +2224,6 @@ REAPERCAB:
 	Voiced:
 		VoiceSet: CyborgReap
 	Armament@primary:
-		Weapon: ReaperWeb
-		LocalOffset: 0,0,200
-		ForceTargetRelationships: Enemy, Neutral
-	Armament@secondary:
 		Weapon: ReaperScythe
 		LocalOffset: 300,-400,950, 300,400,950
 		PauseOnCondition: empdisable
@@ -2235,6 +2231,13 @@ REAPERCAB:
 		Weapon: ReaperScytheAA
 		LocalOffset: 300,-400,950, 300,400,950
 		PauseOnCondition: empdisable
+	Armament@secondary:
+		Name: secondary
+		Weapon: ReaperWeb
+		LocalOffset: 0,0,200
+		ForceTargetRelationships: Enemy, Neutral
+	ReloadArmamentsBar:
+		Armaments: secondary
 	WithDeathAnimation@die:
 		DeathSequence: die1
 		DeathSequencePalette: player
