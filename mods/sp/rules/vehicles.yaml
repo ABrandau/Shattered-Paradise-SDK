@@ -637,7 +637,11 @@ BGGY:
 	Armament@templar:
 		Weapon: TemplarFlame
 		LocalOffset: 250,0,125
-		RequiresCondition: ifv.templar
+		RequiresCondition: ifv.templar && !rank-heroic
+	Armament@templar-elite:
+		Weapon: TemplarFlameE
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.templar && rank-heroic
 	Armament@nconf:
 		Weapon: BlackHandLasor
 		LocalOffset: 250,0,125
@@ -1230,7 +1234,12 @@ SUBTANK:
 		Weapon: DevilsFlame
 		LocalOffset: 0,400,0, 0,-400,0
 		PauseOnCondition: empdisable
-		RequiresCondition: !submerged
+		RequiresCondition: !submerged && !rank-heroic
+	Armament@Elite:
+		Weapon: DevilsFlameE
+		LocalOffset: 0,400,0, 0,-400,0
+		PauseOnCondition: empdisable
+		RequiresCondition: !submerged && rank-heroic
 	AttackFrontal:
 		PauseOnCondition: empdisable
 	WithVoxelBody:

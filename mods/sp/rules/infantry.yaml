@@ -611,11 +611,24 @@ TEMPLAR:
 		Weapon: TemplarFlame
 		LocalOffset: 200,50,320
 		PauseOnCondition: WebDisable
+		RequiresCondition: !rank-heroic
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GTemplarFlame
 		LocalOffset: 200,50,320
 		PauseOnCondition: WebDisable
+		RequiresCondition: !rank-heroic
+	Armament@1Elite:
+		Weapon: TemplarFlameE
+		LocalOffset: 200,50,320
+		PauseOnCondition: WebDisable
+		RequiresCondition: rank-heroic
+		Name: OnFoot
+	Armament@GarrisonElite:
+		Weapon: GTemplarFlameE
+		LocalOffset: 200,50,320
+		PauseOnCondition: WebDisable
+		RequiresCondition: rank-heroic
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
