@@ -1771,6 +1771,15 @@
 	SharedPassenger:
 		CargoType: Vehicle
 		CustomPipType: blue
+	Sellable:
+		SellSounds: cashturn.aud
+		Cursor: sell2
+		RequiresCondition: unit.sellable
+	ProximityExternalCondition:
+		Condition: unit.docked
+		Range: 1c0
+	ExternalCondition@Sellable:
+		Condition: unit.sellable
 	HiddenUnderFog:
 	Guard:
 		Voice: Move
@@ -2053,6 +2062,16 @@
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium, Building
 	Passenger:
 		CargoType: Aircraft
+	Sellable:
+		SellSounds: cashturn.aud
+		Cursor: sell2
+		RequiresCondition: unit.sellable && !airborne
+	ProximityExternalCondition:
+		Condition: unit.docked
+		Range: 1c0
+		RequiresCondition: !airborne
+	ExternalCondition@Sellable:
+		Condition: unit.sellable
 	Repairable:
 		RepairActors: gadept, scrdepot, tdrepd
 		Voice: Move

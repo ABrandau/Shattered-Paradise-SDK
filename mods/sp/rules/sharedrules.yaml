@@ -740,7 +740,7 @@ GADEPT:
 		Queue: Building
 		BuildPaletteOrder: 21
 		Prerequisites: ~player.human, factoryorair, ~techlevel.3
-		Description: Repairs vehicles.\n\nSpecial:\n- Can be ordererd to repair a single vehicle faster for a cost.\nApply a repair command to a vehicle to send it to a nearby service depot.
+		Description: Repairs vehicles.\n\nSpecial:\n- Can be ordererd to repair a single vehicle faster for a cost.\nApply a repair command to a vehicle to send it to a nearby service depot.\n- Vehicles being repaired can be sold with the sell button.
 	Building:
 		Footprint: =+= x++ x+=
 		Dimensions: 3,3
@@ -751,6 +751,13 @@ GADEPT:
 		HpPerStep: 2000
 		FinishRepairingNotification: UnitRepaired
 		PlayerExperience: 15
+	ProximityExternalCondition:
+		Condition: unit.sellable
+		Range: 1c0
+	Sellable:
+		RequiresCondition: !unit.docked && !Building-Buildup
+	ExternalCondition@Docked:
+		Condition: unit.docked
 	WithSpriteBody:
 	RallyPoint:
 		Palette: mouse
