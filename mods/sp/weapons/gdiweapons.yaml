@@ -120,18 +120,17 @@ JJSMG:
 		InvalidTargets: Building, Defence, Wall, Air
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath
 
-JJSMGAA:
+JJSMGAir:
 	Inherits: JJSMG
-	ValidTargets: Air
-	-InvalidTargets: 
+	ValidTargets: Ground, Water, Air
+	InvalidTargets: Building, Defence, Wall
 	Projectile: LaserZap
 		Blockable: false
 		ZOffset: 7096
 	Warhead@1Dam: SpreadDamage
-		ValidTargets: Air
 		Damage: 5000
-		-InvalidTargets: 
-	-Warhead@ShieldUpgrade:
+		ValidTargets: Ground, Water, Air
+		InvalidTargets: Building, Defence, Wall
 
 JJBeacon:
 	Range: 5c0
@@ -150,28 +149,28 @@ JJBeacon:
 		Damage: 0
 	Warhead@2Eff: CreateEffect
 		Image: explosion
+		ImpactActors: false
 		Explosions: beaconflash
 		ExplosionPalette: gensmkexplocyan70
-		ImpactActors: false
-		ValidTargets: Building, Defence, Wall
+		ValidTargets: Ground, Water, Air
 	Warhead@later: FireFragment
 		Delay: 60
 		ImpactActors: false
 		Weapon: OribitBombElevator
-		ValidTargets: Building, Defence, Wall
+		ValidTargets: Ground, Water, Air
 
 OribitBombElevator:
 	Report: meteor1.aud, meteor2.aud
-	ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+	ValidTargets: Ground, Water, Air
 	Range: 2c0
 	MinRange: 1c0
 	Projectile: AthenaProjectile
 		Altitude: 14000
 	Warhead@later: FireFragment
-		ImpactActors: false
 		Weapon: OribitBomb
+		ImpactActors: false
 		UseZOffsetAsAbsoluteHeight: true
-		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+		ValidTargets: Ground, Water, Air
 
 OribitBomb:
 	Inherits: ^FullDamage
@@ -196,10 +195,6 @@ OribitBomb:
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Range: 768
-
-JJBeaconGround:
-	Inherits:  JJBeacon
-	ValidTargets: Building, Defence, Wall
 
 Heal:
 	ReloadDelay: 80
