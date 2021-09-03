@@ -343,6 +343,12 @@ JJCOMM:
 	Inherits@VISION: ^8CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	-Targetable@MC:
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 25
+		Prerequisites: ~gapile, gatech, ~techlevel.5, !jjcomm
+		Description: GDI's commando unit equipped with a jetpack.\nArmed with a Personal Ion Cannon and orbital bombardment beacon.\n\nGood vs: All.\n\nSpecial:\n- Can fly\n- Will land when ordered to deploy\n- Immune to mind control
+		BuildLimit: 1
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -409,12 +415,6 @@ JJCOMMAIR:
 	-Targetable@MC:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	Buildable:
-		Queue: Infantry
-		BuildPaletteOrder: 25
-		Prerequisites: ~gapile, gatech, ~techlevel.5, !jjcomm
-		Description: GDI's commando unit equipped with a jetpack.\nArmed with a Personal Ion Cannon and orbital bombardment beacon.\n\nGood vs: All.\n\nSpecial:\n- Can fly\n- Will land when ordered to deploy\n- Immune to mind control
-		BuildLimit: 1
 	Voiced:
 		VoiceSet: Jumpjet
 		Volume: 8
@@ -501,7 +501,7 @@ JJCOMMAIR:
 		Actor: JJCOMM.Husk
 		RequiresCondition: airborne
 	ProvidesPrerequisite@jjcomm:
-		Prerequisites: jjcomm
+		Prerequisite: jjcomm
 
 ALTNODE1:
 	Inherits: ^Soldier
