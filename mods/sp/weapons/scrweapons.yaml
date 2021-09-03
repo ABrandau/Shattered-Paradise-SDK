@@ -373,7 +373,8 @@ ScorpGas:
 	MinRange: 3c0
 	TargetActorCenter: true
 	Report: laserpistol.wav
-	ValidTargets: Infantry, Vehicle, Building, Ground, Water
+	ValidTargets: Infantry, Vehicle, Ground, Water
+	InvalidTargets: Building, Wall
 	Projectile: BulletAS
 		Speed: 400
 		Image: greenplasma
@@ -387,7 +388,8 @@ ScorpGas:
 		TrailPalette: jascbluealpha
 	Warhead@1Dam: TargetDamage
 		Damage: 0
-		ValidTargets: Infantry, Vehicle, Building, Ground, Water
+		ValidTargets: Infantry, Vehicle, Ground, Water
+		InvalidTargets: Building, Wall
 	Warhead@2Eff: CreateEffect
 		Image: ichorsmoke
 		Explosions: start
@@ -401,7 +403,8 @@ ScorpGas:
 		Palette: jascbluealphaalpha60
 		Delay: 18
 		Weapon: foggydebuff
-		ValidTargets: Infantry, Vehicle, Building, Ground, Water
+		ValidTargets: Infantry, Vehicle, Ground, Water
+		InvalidTargets: Building, Wall
 
 foggydebuff: 
 	Warhead@Acid: GrantExternalCondition
