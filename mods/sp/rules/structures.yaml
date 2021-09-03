@@ -1770,31 +1770,30 @@ CABTECH:
 	RequiresBuildableArea:
 		AreaTypes: building
 
-CABOBELISK:
+CABGRINDER:
 	Inherits: ^Building
 	Inherits@1: ^SuperWeapon
 	Inherits@RENDER: ^CabRender
-	Inherits@SHAPE: ^2x2Shape
+	Inherits@2: ^2x3Shape
 	Tooltip:
-		Name: Nanomachine Core
+		Name: Nanomachine Chamber
 	Buildable:
 		Queue: Building
 		Prerequisites: cabtech, ~structures.cab, ~techlevel.6
-		Description: C.A.B.A.L.'s Support Superweapon.\n\nSpecial:\n- Provides access to Nanomachine Swarms\n- Requires power to operate
+		Description: C.A.B.A.L.'s Support Superweapon.\n\nSpecial:\n- Provides access to Nanomachine Swarms\n- Requires power to operate \n- Allows to process infantry into credits.
 		BuildPaletteOrder: 49
 		BuildLimit: 1
 	Valued:
 		Cost: 2500
+	AcceptsDeliveredCash:
 	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	BodyOrientation:
-		QuantizedFacings: 32
+		Footprint: xx xx xx
+		Dimensions: 2,3
 	ProvidesPrerequisite@buildingname:
 	SpawnActorPower@nanomachinesson:
 		Cursor: ioncannon
 		Prerequisites:
-			1: cabobelisk
+			1: cabgrinder
 		Icons:
 			1: nanomachineswarm
 		Descriptions:
