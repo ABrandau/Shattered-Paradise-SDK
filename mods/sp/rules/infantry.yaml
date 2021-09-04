@@ -73,6 +73,8 @@ GRENADIER:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	Passenger:
+		CustomPipType: blue
 
 MEDIC:
 	Inherits: ^Soldier
@@ -334,6 +336,8 @@ EAGLEGUARD:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	Passenger:
+		CustomPipType: blue
 
 JJCOMM:
 	Inherits: ^Soldier
@@ -698,6 +702,8 @@ NCONF:
 		UndeployTicks: 1
 	TakeCover:
 		ProneOffset: 778, 0, -778
+	Passenger:
+		CustomPipType: blue
 
 BHS:
 	Inherits: ^Soldier
@@ -962,10 +968,12 @@ MUTFIEND:
 		DeathSequencePalette: gradientred
 		CrushedSequencePalette: gradientred
 		Delay: 20
+	Passenger:
+		CustomPipType: blue
 
 CUTMAN:
-	Inherits: ENGINEER
-	Inherits@1: ^Mutant
+	Inherits: ^Mutant
+	Inherits@1: ENGINEER
 	Tooltip:
 		Name: Mutant Engineer
 	Buildable:
@@ -1029,8 +1037,6 @@ E3:
 	Armament@Garrison:
 		Weapon: GSkirmisherMortar
 		LocalOffset: 128,0,640
-	Passenger:
-		CustomPipType: blue
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -1101,6 +1107,8 @@ SEER:
 		DeployTicks: 2005
 		UndeployTicks: 1
 		DeployTrigger: Attack
+	Passenger:
+		CustomPipType: blue
 
 PSYKER:
 	Inherits: ^Mutant
@@ -1346,6 +1354,8 @@ BUG:
 		Armaments: OnFoot
 		FacingTolerance: 2
 	-TakeCover:
+	Passenger:
+		CustomPipType: blue
 
 COLOSSI:
 	Inherits: ^ScrinSoldier
@@ -1531,6 +1541,10 @@ MASTERMIND:
 		UsePlayerColor: false
 		TrailWidth: 280
 		TrailLength: 4
+	Passenger:
+		CustomPipType: red
+	SharedPassenger:
+		CustomPipType: red
 
 CABSENTRY:
 	Inherits: ^CabalDroneInfantry
@@ -1672,6 +1686,8 @@ CBORG:
 		Armaments: OnFoot
 		FacingTolerance: 2
 	RenderSprites:
+	Passenger:
+		CustomPipType: blue
 
 SWARMLING:
 	Inherits: ENGINEER
