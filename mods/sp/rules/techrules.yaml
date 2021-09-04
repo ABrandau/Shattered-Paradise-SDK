@@ -1,6 +1,7 @@
 CAHOSP:
 	Inherits: ^TechBuilding
 	Inherits@SHAPE: ^3x4Shape
+	Inherits@VISION: ^6CellVision
 	Tooltip:
 		Name: Civilian Hospital
 	TooltipDescription:
@@ -9,7 +10,7 @@ CAHOSP:
 		Footprint: XxX xxx xxx xxx
 		Dimensions: 3, 4
 	Health:
-		HP: 80000
+		HP: 100000
 	ProvidesPrerequisite@BuildingName:
 	WithIdleOverlay:
 		Sequence: flag
@@ -32,10 +33,10 @@ WELL:
 		Dimensions: 3, 3
 	CashTrickler:
 		Interval: 400
-		Amount: 100
+		Amount: 50
 		RequiresCondition: enabled
 	Health:
-		HP: 135000
+		HP: 100000
 	WithIdleOverlay:
 		Sequence: anim
 		Palette: effect
@@ -53,7 +54,7 @@ WELL:
 		Condition: cashgiven
 		RequiresCondition: enabled
 	GivesCashOnCapture:
-		Amount: 250
+		Amount: 500
 		RequiresCondition: !cashgiven
 	UpdatesDerrickCount:
 	IsometricSelectable:
@@ -62,6 +63,7 @@ WELL:
 MACHINESHOP:
 	Inherits: ^TechBuilding
 	Inherits@SHAPE: ^2x2Shape
+	Inherits@VISION: ^6CellVision
 	Tooltip:
 		Name: Machine Shop
 	TooltipDescription:
@@ -168,10 +170,10 @@ NEUTRALRADAR:
 		Footprint: xx xx
 		Dimensions: 2, 2
 	Health:
-		HP: 250000
+		HP: 100000
 	RenderSprites:
 	RevealsShroud:
-		Range: 14c0
+		Range: 18c0
 	ProvidesRadar:
 	IsometricSelectable:
 		DecorationHeight: 48
@@ -179,6 +181,7 @@ NEUTRALRADAR:
 NEUTRALPOWERPLANT:
 	Inherits: ^TechBuilding
 	Inherits@SHAPE: ^3x3Shape
+	Inherits@VISION: ^6CellVision
 	Tooltip:
 		Name: Nuclear Power Plant
 	TooltipDescription:
@@ -191,12 +194,10 @@ NEUTRALPOWERPLANT:
 	Power:
 		Amount: 200
 	RenderSprites:
-	RevealsShroud:
-		Range: 5c0
 	GivesBuildableArea:
 		AreaTypes: building
 	BaseProvider:
-		Range: 8c0
+		Range: 10c0
 	RequiresBuildableArea:
 		AreaTypes: building
 	Explodes:
@@ -211,6 +212,7 @@ SCRINREINFPAD:
 	Inherits@1: ^ScrinDeathExplo
 	Inherits@2: ^ScrinBuildingFire
 	Inherits@SHAPE: ^3x3Shape
+	Inherits@VISION: ^6CellVision
 	Tooltip:
 		Name: Scrin Replicator
 	TooltipDescription:
@@ -219,11 +221,9 @@ SCRINREINFPAD:
 		Footprint: xxx xxx xxx
 		Dimensions: 3, 3
 	Health:
-		HP: 120000
+		HP: 150000
 	RenderSprites:
 		PlayerPalette: playerscrin
-	RevealsShroud:
-		Range: 5c0
 	RallyPoint:
 		Path: 1,4
 		Palette: mouse
@@ -319,7 +319,7 @@ NEUTRALSONICTUR:
 	Armor:
 		Type: DefenseArmor
 	Health:
-		HP: 200000
+		HP: 100000
 	RenderRangeCircle:
 		BorderWidth: 0
 		Width: 2
