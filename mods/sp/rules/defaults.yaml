@@ -722,7 +722,7 @@
 		Step: -500
 		Delay: 10
 		StartIfBelow: 128
-		RequiresCondition: veinholedrain && !CriticalDamaged ## Prevent bug that score of killed actor belong to victim
+		RequiresCondition: veinholedrain
 	ExternalCondition@veinholedrain:
 		Condition: veinholedrain
 	WithIdleOverlay@veinholedrain:
@@ -733,9 +733,6 @@
 	GrantConditionOnTerrain@VEINS:
 		TerrainTypes: Veins
 		Condition: veinholedrain
-	GrantConditionOnDamageState@Critical:
-		Condition: CriticalDamaged
-		ValidDamageStates: Critical
 
 ^BugPoison:
 	WithIdleOverlay@BugPoison:
