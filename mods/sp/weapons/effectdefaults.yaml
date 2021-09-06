@@ -48,6 +48,7 @@
 	Inherits: ^MarnFlash7
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
+		ValidTargets: Ground, Air
 		InvalidTargets: Water
 		Delay: 5
 		ImpactActors: false
@@ -440,6 +441,7 @@
 		Explosions: plasmaballexplosion
 		ImpactSounds: expnew12.aud
 		ValidTargets: Ground, Air, Water
+		ImpactActors: false
 		ExplosionPalette: gensmkexplogreen
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: SmallScorch
@@ -448,6 +450,8 @@
 ^MeleeClaw:
 	Warhead@2Eff: CreateEffect
 		Explosions: claw1, claw2
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
 		ExplosionPalette: jascgreen
 
 ^DamagedSpark:
