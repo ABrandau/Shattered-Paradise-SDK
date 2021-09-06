@@ -951,9 +951,14 @@ SCRGLYDER1:
 	-Rearmable:
 	Health:
 		HP: 20000
+	GrantConditionAfterDelay: ## Prevent player switch between modes to refresh reload
+		Condition: cannonready
+		Delay: 50
+		ShowSelectionBar: false
 	Armament:
 		Weapon: Glyder1Cannon
 		LocalOffset: 0,0,0
+		PauseOnCondition: !cannonready
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 40

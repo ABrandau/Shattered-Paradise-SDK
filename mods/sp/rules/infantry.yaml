@@ -181,10 +181,14 @@ JUMPJET:
 		IntoActor: jumpjetair
 		RequiresCondition: !inside-tunnel
 		PauseOnCondition: WebDisable
+	GrantConditionAfterDelay@1: ## Prevent player switch between modes to refresh reload
+		Condition: grenadeready
+		Delay: 70
+		ShowSelectionBar: false
 	Armament@1:
 		Weapon: JJGroundGrenade
 		LocalOffset: 300,0,900
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || !grenadeready
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GJJGrenade
@@ -235,9 +239,14 @@ JUMPJETAIR:
 			BottomRight: 250, 250
 	Health:
 		HP: 15000
+	GrantConditionAfterDelay@1: ## Prevent player switch between modes to refresh reload
+		Condition: grenadeready
+		Delay: 70
+		ShowSelectionBar: false
 	Armament@1:
 		Weapon: JJGrenade
 		LocalOffset: 300,0,1000
+		PauseOnCondition: !grenadeready
 	Transforms:
 		IntoActor: jumpjet
 	Armor:
@@ -373,23 +382,27 @@ JJCOMM:
 		IntoActor: jjcommair
 		RequiresCondition: !inside-tunnel
 		PauseOnCondition: WebDisable
+	GrantConditionAfterDelay@1: ## Prevent player switch between modes to refresh reload
+		Condition: laserready
+		Delay: 60
+		ShowSelectionBar: false
+	GrantConditionAfterDelay@2: ## Prevent player switch between modes to refresh reload
+		Condition: beaconready
+		Delay: 150
+		ShowSelectionBar: false
 	Armament@1:
 		Weapon: JJSMG
 		LocalOffset: 0,300,300
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || !laserready
 		Name: OnFoot
-	Armament@Garrison:
-		Weapon: GJJSMG
-		LocalOffset: 300,0,900
-	GrantConditionAfterDelay: ## Prevent player switch between modes to refresh reload
-		Condition: beaconready
-		Delay: 125
-		ShowSelectionBar: false
 	Armament@2:
 		Weapon: JJBeacon
 		LocalOffset: 0,300,300
 		PauseOnCondition: WebDisable || !beaconready
 		Name: OnFoot
+	Armament@Garrison:
+		Weapon: GJJSMG
+		LocalOffset: 300,0,900
 	Armament@Garrison2:
 		Weapon: GJJBeacon
 		LocalOffset: 300,0,900
@@ -436,13 +449,18 @@ JJCOMMAIR:
 			BottomRight: 250, 250
 	Health:
 		HP: 25000
-	GrantConditionAfterDelay: ## Prevent player switch between modes to refresh reload
+	GrantConditionAfterDelay@1: ## Prevent player switch between modes to refresh reload
+		Condition: laserready
+		Delay: 60
+		ShowSelectionBar: false
+	GrantConditionAfterDelay@2: ## Prevent player switch between modes to refresh reload
 		Condition: beaconready
-		Delay: 125
+		Delay: 150
 		ShowSelectionBar: false
 	Armament@1:
 		Weapon: JJSMGAir
 		LocalOffset: 0,300,300
+		PauseOnCondition: !laserready
 	Armament@2:
 		Weapon: JJBeacon
 		LocalOffset: 0,300,300

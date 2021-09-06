@@ -2873,12 +2873,16 @@ SCRGLYDER2:
 	Transforms:
 		PauseOnCondition: inside-tunnel || mindcontrolled
 		IntoActor: scrglyder1
+	GrantConditionAfterDelay: ## Prevent player switch between modes to refresh reload
+		Condition: cannonready
+		Delay: 50
+		ShowSelectionBar: false
 	Armament:
 		Weapon: Glyder2Cannon
 		Recoil: 85
 		RecoilRecovery: 25
 		LocalOffset: -250,0,1300
-		PauseOnCondition: empdisable
+		PauseOnCondition: empdisable || !cannonready
 	AttackFrontal:
 		PauseOnCondition: empdisable
 		FacingTolerance: 5
