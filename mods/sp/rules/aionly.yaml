@@ -374,6 +374,9 @@ COREDEFENDER:
 	-Carryable:
 	SmokeParticleEmitter@spawnsmoke:
 		Offset: 0,0,2500
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
+	ExplodeWeapon@spawnsparks:
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
 	WithInfantryBody:
 		-DefaultAttackSequence: 
 		RequiresCondition: !inside-tunnel

@@ -399,6 +399,10 @@ HMEC:
 	-Crushable:
 	-Passenger:
 	-SharedPassenger:
+	SmokeParticleEmitter@spawnsmoke:
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
+	ExplodeWeapon@spawnsparks:
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	Health:
 		HP: 300000
 	AnnounceOnSeen:
@@ -1399,6 +1403,10 @@ SCORPION:
 	-Crushable:
 	-Passenger:
 	-SharedPassenger:
+	SmokeParticleEmitter@spawnsmoke:
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
+	ExplodeWeapon@spawnsparks:
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	Health:
 		HP: 300000
 	AnnounceOnSeen:
@@ -2326,7 +2334,7 @@ LIMPED:
 	AttackFrontal:
 		FacingTolerance: 512
 		RequiresCondition: AImicroManage || deployed
-		PauseOnCondition: WebDisable
+		PauseOnCondition: empdisable
 	ReloadArmamentsBar:
 	RenderRangeCircle:
 		Color: FFFF00CC
@@ -2662,8 +2670,10 @@ BCOREDEF:
 		LocalOffset: 0,0,2600
 	SmokeParticleEmitter@spawnsmoke:
 		Offset: 0,0,2500
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	ExplodeWeapon@spawnsparks:
 		LocalOffset: 0,0,3000
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	Explodes:
 		Weapon: BuildingExplode
 		EmptyWeapon: BuildingExplode
