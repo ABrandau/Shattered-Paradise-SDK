@@ -44,7 +44,7 @@ Grenade:
 		Palette: effect
 		BounceCount: 2
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c512
+		Spread: 0c384
 		Damage: 5000
 		Versus:
 			BuildingArmor: 100
@@ -224,7 +224,7 @@ Heal:
 TrooperRail:
 	Inherits: ^APWarhead
 	ReloadDelay: 90
-	Range: 5c0
+	Range: 6c0
 	Report: railgunfire.wav
 	TargetActorCenter: true
 	Projectile: BulletAS
@@ -242,14 +242,14 @@ TrooperRail:
 		TrailInterval: 0
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
-		Damage: 4000
+		Damage: 6000
 		DamageTypes: Prone60Percent, TriggerProne, BulletDeath
 		Versus:
 			InfantryArmor: 50
-			ConcreteArmor: 5
+			ConcreteArmor: 15
 	Warhead@2: GrantExternalCondition
 		Range: 0c768
-		Duration: 30
+		Duration: 40
 		Condition: empdisable
 	Warhead@2Eff: CreateEffect
 		Image: explosion
