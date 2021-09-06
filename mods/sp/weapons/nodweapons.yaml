@@ -391,9 +391,9 @@ HarpyClaw:
 	Range: 6c0
 	SoundVolume: 0.5
 	MinRange: 0c100
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	InvalidTargets: Air
 	Report: VenomGun0000.wav, VenomGun0001.wav, VenomGun0002.wav
-	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
@@ -407,12 +407,13 @@ HarpyClawAA:
 	Inherits: ^FullDamage
 	Inherits@2: ^Piffs
 	ReloadDelay: 30
-	ValidTargets: Air
 	Range: 6c0
 	MinRange: 0c100
 	Projectile: InstantHit
-	StartBurstReport: VenomGun0000.wav, VenomGun0001.wav, VenomGun0002.wav
+	ValidTargets: Air
+	ValidRelationships: Enemy, Neutral
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+	StartBurstReport: VenomGun0000.wav, VenomGun0001.wav, VenomGun0002.wav
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
 		ValidTargets: Air
@@ -483,6 +484,7 @@ Proton:
 ProtonAA:
 	Inherits: Proton
 	ValidTargets: Air
+	ValidRelationships: Enemy, Neutral
 	Projectile: MissileTA
 		TerrainHeightAware: true
 		CruiseAltitude: 5000
@@ -692,7 +694,6 @@ RageEmitter:
 		Duration: 125
 		Condition: chaos
 		ValidTargets: Infantry, Vehicle, Ground, Water, Defence, Air
-		ValidRelationships: Neutral, Enemy
 
 LightbringerFlame:
 	Inherits: ^FlameWarhead

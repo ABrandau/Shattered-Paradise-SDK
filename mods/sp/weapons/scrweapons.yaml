@@ -538,6 +538,7 @@ StormRiderBlastAA:
 	Inherits@2: StormRiderBlast
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+	ValidRelationships: Enemy, Neutral
 	Projectile: MissileTA
 		TerrainHeightAware: true
 		CruiseAltitude: 5000
@@ -730,9 +731,17 @@ FighterSpawn:
 	Range: 8c0
 	MinRange: 0c100
 	Projectile: InstantExplode
-	ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+	ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
 	Warhead@1Dam: TargetDamage
-		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
+
+FighterSpawnAA:
+	Inherits: FighterSpawn
+	ValidTargets: Air
+	ValidRelationships: Enemy, Neutral
+	Warhead@1Dam: TargetDamage
+		ValidTargets: Air
+		ValidRelationships: Enemy, Neutral
 
 WyvermBlast:
 	Inherits: ^ArtilleryWarhead
@@ -774,6 +783,7 @@ WyvermBlast:
 WyvermBlastAA:
 	Inherits: WyvermBlast
 	ValidTargets: Air
+	ValidRelationships: Enemy, Neutral
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		ValidRelationships: Enemy, Neutral
