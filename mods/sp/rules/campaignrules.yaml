@@ -33,8 +33,6 @@ NEUTRALFABRICATOR:
 		TurnSpeed: 20
 		Speed: 45
 		Locomotor: InfantryCrusherVehicle
-	Passenger:
-		RequireForceMoveCondition: !undeployed
 	Health:
 		HP: 15000
 	Transforms:
@@ -124,7 +122,7 @@ CONTAINMENTUNIT:
 CONTAINMENTUNITVEINHOLE:
 	Inherits: CONTAINMENTUNIT
 	SpawnActorOnDeath:
-		Actor: VEINHOLE2
+		Actor: VEINHOLE
 	RenderSprites:
 		Image: containmentunit
 
@@ -151,7 +149,6 @@ WEASAU:
 		Weapon: WeasauBabyStrike
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	WithInfantryBody:
 		IdleSequences: idle1
 		AttackSequences: melee
