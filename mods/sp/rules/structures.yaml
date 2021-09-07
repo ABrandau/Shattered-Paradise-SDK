@@ -242,9 +242,6 @@ GAWEAP:
 	WithIdleOverlay@TURBINES:
 		Sequence: idle-turbines
 		RequiresCondition: !Building-Buildup
-	WithIdleOverlay@BIB:
-		Sequence: bib
-		RequiresCondition: !Building-Buildup
 	WithMakeOverlay@MAKE-BRIGHT:
 		Sequence: make-bright
 		Palette: bright
@@ -343,6 +340,12 @@ GATECH:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup
+		Sequence: idle-lights-bright
+		Palette: bright
 	ProvidesPrerequisite@upgrade.gdi:
 		Prerequisite: upgrade.gdi
 	RequiresBuildableArea:
@@ -688,9 +691,6 @@ NAWEAP:
 		RequiresCondition: !Building-Buildup
 		Sequence: production-lights-bright
 		Palette: bright
-	WithIdleOverlay@BIB:
-		Sequence: bib
-		RequiresCondition: !Building-Buildup
 
 NARADR:
 	Inherits: ^Radar

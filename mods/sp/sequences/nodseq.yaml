@@ -544,6 +544,7 @@ napowr:
 	Defaults:
 		Offset: 0, -24, 24
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -574,19 +575,23 @@ napowr:
 		ShadowStart: 19
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
 		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: npwricon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 naapwr:
 	Defaults:
 		Offset: 12, -30, 30
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+		DepthSpriteOffset: 12, 0
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -617,19 +622,23 @@ naapwr:
 		ShadowStart: 19
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 31
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
 		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: apwricon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 nahand:
 	Defaults:
-		Offset: -6, -30, 30
+		Offset: -12, -30, 30
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+		DepthSpriteOffset: -12, 0
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -640,12 +649,6 @@ nahand:
 		ShadowStart: 5
 		Tick: 400
 	production-light-bright: nthand_a
-		Length: 5
-		Tick: 100
-		ZOffset: 1023
-		IgnoreWorldTint: True
-	damaged-production-light-bright: nthand_a
-		Start: 5
 		Length: 5
 		Tick: 100
 		ZOffset: 1023
@@ -664,18 +667,20 @@ nahand:
 		ShadowStart: 15
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 31
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
 		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: handicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 naweap:
 	Defaults:
-		Offset: -12, -42, 30
+		Offset: -12, -42, 25
 		DepthSpriteOffset: 24, 0
 		UseTilesetCode: true
 		DepthSprite: isodepth.shp
@@ -738,23 +743,6 @@ naweap:
 		ShadowStart: 22
 		Offset: -12, -42, 43
 		DepthSpriteOffset: -12, 0
-	bib: ntweapbb
-		ZOffset: -1024
-		Offset: -12, -42, 1
-		ZRamp: 1
-		-DepthSprite:
-	damaged-bib: ntweapbb
-		Start: 1
-		ZOffset: -1024
-		Offset: -12, -42, 1
-		ZRamp: 1
-		-DepthSprite:
-	dead-bib: ntweapbb
-		Start: 2
-		ZOffset: -1024
-		Offset: -12, -42, 1
-		ZRamp: 1
-		-DepthSprite:
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0, 31
@@ -768,9 +756,46 @@ naweap:
 		UseTilesetCode: false
 		-DepthSprite:
 
+naradr:
+	Defaults:
+		Offset: 0, -24, 30
+		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+	idle:
+		ShadowStart: 3
+	damaged-idle:
+		Start: 1
+		ShadowStart: 4
+	dead:
+		Start: 2
+		ShadowStart: 5
+		Tick: 400
+	idle-dish: ntradr_a
+		Length: 24
+		Tick: 120
+	damaged-idle-dish: ntradr_a
+		Start: 24
+		Length: 24
+		Tick: 120
+	make: ntradrmk
+		Length: 20
+		ShadowStart: 20
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 25
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
+	icon: nradicon
+		Offset: 0, 0
+		UseTilesetCode: false
+		-DepthSprite:
+
 nahpad:
 	Defaults:
-		Offset: 0, -24, 0
+		Offset: 0, -24, 1
 		DepthSpriteOffset: -24, 0
 		UseTilesetCode: true
 	idle:
@@ -847,43 +872,11 @@ nahpad:
 		Offset: 0, 0
 		UseTilesetCode: false
 
-naradr:
-	Defaults:
-		Offset: 0, -24, 24
-		UseTilesetCode: true
-	idle:
-		ShadowStart: 3
-	damaged-idle:
-		Start: 1
-		ShadowStart: 4
-	dead:
-		Start: 2
-		ShadowStart: 5
-		Tick: 400
-	idle-dish: ntradr_a
-		Length: 24
-		Tick: 120
-	damaged-idle-dish: ntradr_a
-		Start: 24
-		Length: 24
-		Tick: 120
-	make: ntradrmk
-		Length: 20
-		ShadowStart: 20
-	emp-overlay: emp_fx01
-		Length: *
-		Offset: 0, 0
-		UseTilesetCode: false
-		ZOffset: 512
-		BlendMode: Additive
-	icon: nradicon
-		Offset: 0, 0
-		UseTilesetCode: false
-
 natech:
 	Defaults:
 		Offset: 0, -24, 24
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -914,14 +907,16 @@ natech:
 		ShadowStart: 18
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
 		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: ntchicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 natmpl:
 	Defaults:
@@ -931,9 +926,6 @@ natmpl:
 		DepthSpriteOffset: -12, 0
 	idle:
 		ShadowStart: 3
-	active:
-		Start: 1
-		Length: 1
 	damaged-idle:
 		Start: 1
 		ShadowStart: 4
@@ -951,6 +943,9 @@ natmpl:
 	make: nttmplmk
 		Length: 17
 		ShadowStart: 17
+	active:
+		Start: 1
+		Length: 1
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0, 43
@@ -1052,8 +1047,10 @@ nahfac:
 
 nawast:
 	Defaults: ntwast
-		Offset: -12, -42, 20
+		Offset: 0, -36, 24
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+		DepthSpriteOffset: 16, 0
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -1066,55 +1063,66 @@ nawast:
 	make: ntwastmk
 		Length: 19
 		ShadowStart: 19
+		Offset: 0, -36, 36
+		DepthSpriteOffset: 0, 0
 	idle-glow: ntwast_a
 		Length: 20
 		ShadowStart: 40
 		Tick: 120
-	idle-redlights: ntwast_a
-		Length: 20
-		ShadowStart: 40
-		Tick: 120
-	damaged-redlights: ntwast_a
-		Start: 20
-		Length: 20
-		ShadowStart: 60
-		Tick: 120
-	flame: ntrefn_b
-		Length: *
-	unload-overlay: narefn_a
-		Length: *
-		ZOffset: 1024
 	damaged-idle-glow: ntwast_a
 		Start: 20
 		Length: 20
 		ShadowStart: 60
 		Tick: 120
-	idle-lights: ntwast_b
-		Length: 16
+	idle-lights-bright: ntwast_b
+		Length: 8
 		Tick: 120
-	damaged-idle-lights: ntwast_b
-		Start: 16
-		Length: 16
+		IgnoreWorldTint: True
+	damaged-idle-lights-bright: ntwast_b
+		Start: 8
+		Length: 8
 		Tick: 120
+		IgnoreWorldTint: True
 	bib: ntwastbb
 		ZOffset: -1024
+		ZRamp: 1
+		-DepthSprite:
+		Offset: 0, -36, 1
 	damaged-bib: ntwastbb
 		Start: 1
 		ZOffset: -1024
+		ZRamp: 1
+		-DepthSprite:
+		Offset: 0, -36, 1
+	dead-bib: ntwastbb
+		Start: 2
+		ZOffset: -1024
+		ZRamp: 1
+		-DepthSprite:
+		Offset: 0, -36, 1
+	flame: ntrefn_b
+		Length: *
+	unload-overlay: narefn_a
+		Length: *
+		ZOffset: 1024
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: wasticon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 namisl:
 	Defaults:
 		Offset: 0, -24, 24
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
 	idle:
 	damaged-idle:
 		Start: 1
@@ -1164,18 +1172,20 @@ namisl:
 		IgnoreWorldTint: True
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		-DepthSprite:
 	icon: msslicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 napost:
 	Defaults:
 		Offset: 0, -12, 13
-		UseTilesetCode: false
+		UseTilesetCode: true
 		DepthSprite: isodepth.shp
 	idle:
 		Start: 0
@@ -1240,8 +1250,8 @@ napost:
 
 nafnce:
 	Defaults:
-		Offset: 0, -12, 13
-		UseTilesetCode: false
+		Offset: 0, -12, 19
+		UseTilesetCode: true
 		DepthSprite: isodepth.shp
 	idle:
 		Length: 1
@@ -1260,20 +1270,24 @@ nafnce:
 	enabled-x:
 		Frames: 3,3,1,1,3,3,1,1,2,2,0,0,2,2,0,0
 		Length: 16
+		DepthSpriteOffset: -12, 0
 	enabled-x-bright:
 		Frames: 3,3,1,1,3,3,1,1,2,2,0,0,2,2,0,0
 		Length: 16
+		DepthSpriteOffset: -12, 0
 		IgnoreWorldTint: True
 	enabled-y:
 		Frames: 7,5,7,5,6,4,6,4,7,5,7,5,6,4,6,4
 		Length: 16
+		DepthSpriteOffset: 12, 0
 	enabled-y-bright:
 		Frames: 7,5,7,5,6,4,6,4,7,5,7,5,6,4,6,4
 		Length: 16
+		DepthSpriteOffset: 12, 0
 		IgnoreWorldTint: True
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0, 25
+		Offset: 0, 0, 20
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
@@ -1284,31 +1298,34 @@ wall.nod:
 	Defaults: nawall
 		Offset: 0, -12, 12
 		UseTilesetCode: true
-	idle: nawall
+		DepthSprite: isodepth.shp
+	idle:
 		Length: 16
 		ShadowStart: 48
-	damaged-idle: nawall
+	damaged-idle:
 		Start: 16
 		Length: 16
 		ShadowStart: 64
-	critical-idle: nawall
+	critical-idle:
 		Start: 32
 		Length: 16
 		ShadowStart: 80
 	icon: nwalicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 gate_a.nod:
 	Defaults: nagate_a
-		Offset: -24, -24
+		Offset: -24, -24, 25
+		DepthSpriteOffset: -24, 0
 		UseTilesetCode: true
 		Tick: 80
-		ZOffset: -3000
-	idle: nagate_a
+		DepthSprite: isodepth.shp
+	idle:
 		Length: 7
 		ShadowStart: 15
-	damaged-idle: nagate_a
+	damaged-idle:
 		Start: 7
 		Length: 7
 		ShadowStart: 22
@@ -1317,67 +1334,80 @@ gate_a.nod:
 		ShadowStart: 21
 		Offset: -24, -24, 1
 		ZRamp: 1
+		ZOffset: -1024
+		-DepthSprite:
+	damaged-idle:
+		Start: 7
+		Length: 7
+		ShadowStart: 22
 	damaged-open:
-		Start: 14
-		ShadowStart: 21
+		Start: 13
+		ShadowStart: 28
 		Offset: -24, -24, 1
 		ZRamp: 1
-	dead: nagate_a
+		ZOffset: -1024
+		-DepthSprite:
+	dead:
 		Start: 14
 		Tick: 400
 		ShadowStart: 29
-	make: nagate_a
-		Frames: 6, 5, 4, 3, 2, 1
-		Length: 6
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: ngaticon
 		Offset: 0, 0
 		UseTilesetCode: false
+		# -DepthSprite: There is a yaml merging issue here, don't forget to fix.
 
 gate_b.nod:
 	Defaults: nagate_b
-		Offset: 24, -24, 24
+		Offset: 24, -24, 25
+		DepthSpriteOffset: 24, 0
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
 		Tick: 80
-		ZOffset: -3000
-	idle: nagate_b
+	idle:
 		Length: 7
 		ShadowStart: 15
-	damaged-idle: nagate_b
-		Start: 7
-		Length: 7
-		ShadowStart: 22
 	open:
 		Start: 6
 		ShadowStart: 21
 		Offset: 24, -24, 1
 		ZRamp: 1
+		ZOffset: -1024
+		-DepthSprite:
+	damaged-idle:
+		Start: 7
+		Length: 7
+		ShadowStart: 22
 	damaged-open:
-		Start: 14
-		ShadowStart: 21
+		Start: 13
+		ShadowStart: 28
 		Offset: 24, -24, 1
 		ZRamp: 1
-	dead: nagate_b
+		ZOffset: -1024
+		-DepthSprite:
+	dead:
 		Start: 14
 		Tick: 400
 		ShadowStart: 29
-	make: nagate_b
-		Frames: 6, 5, 4, 3, 2, 1
-		Length: 6
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: nga2icon
 		Offset: 0, 0
 		UseTilesetCode: false
+		# -DepthSprite: There is a yaml merging issue here, don't forget to fix.
 
 gatick:
 	Defaults:
@@ -1448,6 +1478,7 @@ naobel:
 	Defaults:
 		Offset: 0, -24, 24
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -1468,24 +1499,28 @@ naobel:
 		Length: 19
 		ShadowStart: 19
 	muzzle: lightmuzzle
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		Length: *
 		UseTilesetCode: false
 		BlendMode: Additive
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: obliicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 nalasr:
 	Defaults:
 		Offset: 0, -12, 12
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -1501,54 +1536,65 @@ nalasr:
 	make: ntlasrmk
 		Length: 21
 		ShadowStart: 21
-	emp-overlay: emp_fx01
-		Length: *
-		Offset: 0, 0
-		UseTilesetCode: false
-		ZOffset: 512
-		BlendMode: Additive
-	icon: plticon
-		Offset: 0, 0
-		UseTilesetCode: false
 	muzzle: jgcmuzzlemini
 		Length: *
 		ZOffset: 4001
 		UseTilesetCode: false
-		Offset: 0, 0, 12
+		Offset: 0, 0, 13
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 13
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		-DepthSprite:
+	icon: plticon
+		Offset: 0, 0
+		UseTilesetCode: false
+		-DepthSprite:
 
 nasam:
 	Defaults:
-		Offset: 0, -12, 12
+		Offset: 0, -12, 1
 		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
+		ZRamp: 1
 	damaged-idle:
 		Start: 1
 		ShadowStart: 4
+		ZRamp: 1
 	dead:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
+		DepthSprite: isodepth.shp
 	turret: gtctwr_d
 		Facings: 32
-		Offset: -4, 0
+		DepthSprite: isodepth.shp
+		Offset: 0, 0, 12
 	make: ntsammk
 		Length: 8
 		ShadowStart: 8
+		DepthSprite: isodepth.shp
+		Offset: 0, -12, 12
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 2
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 	icon: samicon
 		Offset: 0, 0
 		UseTilesetCode: false
 
 nastlh:
 	Defaults:
-		Offset: -16, -28, 28
+		Offset: -12, -30, 30
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+		DepthSpriteOffset: -12, 0
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -1570,13 +1616,16 @@ nastlh:
 		ShadowStart: 20
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 31
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: clckicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 apache:
 	Inherits@1: ^SpriteVehicle

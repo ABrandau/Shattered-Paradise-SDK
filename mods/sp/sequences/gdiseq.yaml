@@ -745,6 +745,7 @@ gapile:
 	Defaults:
 		Offset: 0, -24, 24
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -777,14 +778,16 @@ gapile:
 		ShadowStart: 20
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
 		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: brrkicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 gaweap:
 	Defaults:
@@ -795,14 +798,14 @@ gaweap:
 	idle: gtweap_1
 		ShadowStart: 2
 		ZOffset: -1024
-		Offset: -12, -42, 0
+		Offset: -12, -42, 1
 		ZRamp: 1
 		-DepthSprite:
 	damaged-idle: gtweap_1
 		Start: 1
 		ShadowStart: 3
 		ZOffset: -1024
-		Offset: -12, -42, 0
+		Offset: -12, -42, 1
 		ZRamp: 1
 		-DepthSprite:
 	idle-roof: gtweap_2
@@ -858,26 +861,6 @@ gaweap:
 		Offset: -12, -42, 43
 		DepthSpriteOffset: -12, 0
 		IgnoreWorldTint: True
-	bib: gtweapbb
-		Length: 1
-		ZOffset: -1024
-		Offset: -12, -42, 0
-		ZRamp: 1
-		-DepthSprite:
-	damaged-bib: gtweapbb
-		Start: 1
-		Length: 1
-		ZOffset: -1024
-		Offset: -12, -42, 0
-		ZRamp: 1
-		-DepthSprite:
-	dead-bib: gtweapbb
-		Start: 2
-		Length: 1
-		ZOffset: -1024
-		Offset: -12, -42, 0
-		ZRamp: 1
-		-DepthSprite:
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0, 23
@@ -887,6 +870,45 @@ gaweap:
 		IgnoreWorldTint: True
 		-DepthSprite:
 	icon: weapicon
+		Offset: 0, 0
+		UseTilesetCode: false
+		-DepthSprite:
+
+garadr:
+	Defaults:
+		Offset: 0, -24, 28
+		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+	idle:
+		ShadowStart: 3
+	damaged-idle:
+		Start: 1
+		ShadowStart: 4
+	dead:
+		Start: 2
+		ShadowStart: 5
+		Tick: 400
+	idle-dish: gtradr_a
+		Length: 15
+		Reverses: true
+		Tick: 200
+	damaged-idle-dish: gtradr_a
+		Start: 15
+		Length: 15
+		Reverses: true
+		Tick: 240
+	make: gtradrmk
+		Length: 20
+		ShadowStart: 20
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 29
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
+	icon: radricon
 		Offset: 0, 0
 		UseTilesetCode: false
 		-DepthSprite:
@@ -975,45 +997,12 @@ gahpad:
 		Offset: 0, 0
 		UseTilesetCode: false
 
-garadr:
-	Defaults:
-		Offset: 0, -24, 24
-		UseTilesetCode: true
-	idle:
-		ShadowStart: 3
-	damaged-idle:
-		Start: 1
-		ShadowStart: 4
-	dead:
-		Start: 2
-		ShadowStart: 5
-		Tick: 400
-	idle-dish: gtradr_a
-		Length: 15
-		Reverses: true
-		Tick: 200
-	damaged-idle-dish: gtradr_a
-		Start: 15
-		Length: 15
-		Reverses: true
-		Tick: 240
-	make: gtradrmk
-		Length: 20
-		ShadowStart: 20
-	emp-overlay: emp_fx01
-		Length: *
-		Offset: 0, 0
-		UseTilesetCode: false
-		ZOffset: 512
-		BlendMode: Additive
-	icon: radricon
-		Offset: 0, 0
-		UseTilesetCode: false
-
 gatech:
 	Defaults:
 		Offset: -12, -30, 30
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+		DepthSpriteOffset: -12, 0
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -1026,22 +1015,34 @@ gatech:
 	idle-lights: gttech_a
 		Length: 8
 		Tick: 200
+	idle-lights-bright: gttech_a
+		Length: 8
+		Tick: 200
+		IgnoreWorldTint: True
 	damaged-idle-lights: gttech_a
 		Start: 8
 		Length: 8
 		Tick: 240
+	damaged-idle-lights-bright: gttech_a
+		Start: 8
+		Length: 8
+		Tick: 240
+		IgnoreWorldTint: True
 	make: gttechmk
 		Length: 20
 		ShadowStart: 20
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 31
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: techicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 gaplug:
 	Defaults:
@@ -1210,6 +1211,7 @@ gactwr:
 	Defaults:
 		Offset: 0, -12, 12
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -1224,12 +1226,17 @@ gactwr:
 	idle-lights: gtctwr_a
 		Length: 6
 		Tick: 200
-	damaged-idle-lights: gtctwr_a
+	idle-lights-bright: gtctwr_a
 		Length: 6
 		Tick: 200
+		IgnoreWorldTint: True
 	make: gtctwrmk
 		Length: 11
 		ShadowStart: 11
+	make-bright: gtctwrmk
+		Length: 11
+		ZOffset: 1
+		IgnoreWorldTint: True
 	turret-vulcan: gtctwr_b
 		Facings: 32
 	turret-rocket: gtctwr_c
@@ -1237,39 +1244,38 @@ gactwr:
 		UseTilesetCode: false
 	turret-sam: gtctwr_d
 		Facings: 32
-	muzzle0: mgun-n
-		Length: *
+	muzzle: mgun-n
+		Combine:
+			mgun-n:
+				Length: 6
+			mgun-nw:
+				Length: 6
+			mgun-w:
+				Length: 6
+			mgun-sw:
+				Length: 6
+			mgun-s:
+				Length: 6
+			mgun-se:
+				Length: 6
+			mgun-e:
+				Length: 6
+			mgun-ne:
+				Length: 6
+		Facings: 8
+		Length: 6
+		Offset: 0, 0, 12
 		UseTilesetCode: false
-	muzzle1: mgun-nw
-		Length: *
-		UseTilesetCode: false
-	muzzle2: mgun-w
-		Length: *
-		UseTilesetCode: false
-	muzzle3: mgun-sw
-		Length: *
-		UseTilesetCode: false
-	muzzle4: mgun-s
-		Length: *
-		UseTilesetCode: false
-	muzzle5: mgun-se
-		Length: *
-		UseTilesetCode: false
-	muzzle6: mgun-e
-		Length: *
-		UseTilesetCode: false
-	muzzle7: mgun-ne
-		Length: *
-		UseTilesetCode: false
-	icon: towricon
-		Offset: 0, 0
-		UseTilesetCode: false
+		IgnoreWorldTint: True
+	emp-overlay: emp_fx01
+		Offset: 0, 0, 13
 
 gavulc:
 	Inherits: ^EmpOverlay
 	Defaults: gactwr
 		Offset: 0, -12, 12
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
 	idle: gactwr
 		ShadowStart: 3
 	damaged-idle: gactwr
@@ -1318,15 +1324,20 @@ gavulc:
 		Facings: 8
 		Length: 6
 		Offset: 0, 0, 12
+		IgnoreWorldTint: True
+	emp-overlay: emp_fx01
+		Offset: 0, 0, 13
 	icon: twr1icon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 garock:
 	Inherits: ^EmpOverlay
 	Defaults: gactwr
 		Offset: 0, -12, 12
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
 	idle: gactwr
 		ShadowStart: 3
 	damaged-idle: gactwr
@@ -1355,15 +1366,19 @@ garock:
 	turret: gtctwr_c
 		Facings: 32
 		UseTilesetCode: false
+	emp-overlay: emp_fx01
+		Offset: 0, 0, 13
 	icon: twr2icon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 gacsam:
 	Inherits: ^EmpOverlay
 	Defaults: gactwr
 		Offset: 0, -12, 12
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
 	idle: gactwr
 		ShadowStart: 3
 	damaged-idle: gactwr
@@ -1391,9 +1406,12 @@ gacsam:
 		IgnoreWorldTint: True
 	turret: gtctwr_d
 		Facings: 32
+	emp-overlay: emp_fx01
+		Offset: 0, 0, 13
 	icon: twr3icon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 gasonc:
 	Inherits: ^EmpOverlay
@@ -1435,100 +1453,112 @@ gasonc:
 
 wall.gdi:
 	Defaults: gawall
-		Offset: 0, -12
+		Offset: 0, -12, 12
 		UseTilesetCode: true
-	idle: gawall
+		DepthSprite: isodepth.shp
+	idle:
 		Length: 16
 		ShadowStart: 48
-	damaged-idle: gawall
+	damaged-idle:
 		Start: 16
 		Length: 16
 		ShadowStart: 64
-	critical-idle: gawall
+	critical-idle:
 		Start: 32
 		Length: 16
 		ShadowStart: 80
 	icon: wallicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 gate_a.gdi:
 	Defaults: gagate_a
-		Offset: -24, -24, 24
+		Offset: -24, -24, 25
+		DepthSpriteOffset: -24, 0
 		UseTilesetCode: true
-		ZOffset: -3000
-	idle: gagate_a
+		DepthSprite: isodepth.shp
+	idle:
 		Length: 10
 		ShadowStart: 21
-	damaged-idle: gagate_a
+	open:
+		Start: 9
+		ShadowStart: 30
+		Offset: -24, -24, 1
+		ZRamp: 1
+		ZOffset: -1024
+		-DepthSprite:
+	damaged-idle:
 		Start: 10
 		Length: 10
 		ShadowStart: 31
-	open:
-		Start: 6
-		ShadowStart: 21
-		Offset: -24, -24, 1
-		ZRamp: 1
 	damaged-open:
-		Start: 14
-		ShadowStart: 21
+		Start: 19
+		ShadowStart: 40
 		Offset: -24, -24, 1
 		ZRamp: 1
-	dead: gagate_a
+		ZOffset: -1024
+		-DepthSprite:
+	dead:
 		Start: 20
 		Tick: 400
 		ShadowStart: 41
-	make: gagate_a
-		Frames: 9, 8, 7, 6, 5, 4, 3, 2, 1
-		Length: 9
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: gateicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 gate_b.gdi:
 	Defaults: gagate_b
-		Offset: 24, -24, 24
+		Offset: 24, -24, 25
+		DepthSpriteOffset: 24, 0
 		UseTilesetCode: true
-		ZOffset: -3000
-	idle: gagate_b
+		DepthSprite: isodepth.shp
+	idle:
 		Length: 10
 		ShadowStart: 21
-	damaged-idle: gagate_b
+	open:
+		Start: 9
+		ShadowStart: 30
+		Offset: 24, -24, 1
+		ZOffset: -1024
+		ZRamp: 1
+		-DepthSprite:
+	damaged-idle:
 		Start: 10
 		Length: 10
 		ShadowStart: 31
-	open:
-		Start: 6
-		ShadowStart: 21
-		Offset: 24, -24, 1
-		ZRamp: 1
 	damaged-open:
-		Start: 14
-		ShadowStart: 21
+		Start: 19
+		ShadowStart: 40
 		Offset: 24, -24, 1
 		ZRamp: 1
-	dead: gagate_b
+		ZOffset: -1024
+		-DepthSprite:
+	dead:
 		Start: 20
 		Tick: 400
 		ShadowStart: 41
-	make: gagate_b
-		Frames: 9, 8, 7, 6, 5, 4, 3, 2, 1
-		Length: 9
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: gat2icon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 repairtur:
 	Defaults:
@@ -1571,6 +1601,8 @@ gafire:
 	Defaults:
 		Offset: -12, -30, 30
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+		DepthSpriteOffset: -12, 0
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -1601,9 +1633,11 @@ gafire:
 		ZOffset: 512
 		BlendMode: Additive
 		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: fsdicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 ionbeammini:
 	Inherits: ^EmpOverlay

@@ -317,6 +317,7 @@ gacnst:
 	Defaults:
 		Offset: 0, -36, 36
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -372,13 +373,16 @@ gacnst:
 		IgnoreWorldTint: True
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 37
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: facticon
 		Offset: 0,0
 		UseTilesetCode: false
+		-DepthSprite:
 
 ^Proc:
 	Defaults: ntrefn
@@ -448,6 +452,7 @@ proc:
 	Defaults: gtsilo
 		Offset: 0, -24, 24
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
 	idle: gtsilo_a
 	damaged-idle: gtsilo_a
 		Start: 4
@@ -482,62 +487,76 @@ proc:
 		ShadowStart: 20
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
 		IgnoreWorldTint: True
+		-DepthSprite:
 
 gasilo.gdi:
 	Inherits: ^Gasilo
 	icon: sidebar-gdi|siloicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 gasilo.nod:
 	Inherits: ^Gasilo
 	icon: sidebar-nod|siloicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 gasilo.mut:
 	Inherits: ^Gasilo
 	icon: mutsilo
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 gasilo.cab:
 	Inherits: ^Gasilo
 	icon: cabsilo
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 ^Gadept:
 	Defaults: gtdept
-		Offset: 0, -36, 36
+		Offset: 0, -36, 1
+		DepthSpriteOffset: 36, 0
 		UseTilesetCode: true
-		DepthSprite: isodepth.shp
 	idle:
 		ShadowStart: 3
+		Offset: 0, -36, 12
+		DepthSprite: isodepth.shp
 	damaged-idle:
 		Start: 1
 		ShadowStart: 4
+		Offset: 0, -36, 12
+		DepthSprite: isodepth.shp
 	dead:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
+		Offset: 0, -36, 12
+		DepthSprite: isodepth.shp
 	ground: gtdeptbb
 		ShadowStart: 3
 		ZOffset: -1c611
+		ZRamp: 1
 	damaged-ground: gtdeptbb
 		Start: 1
 		ShadowStart: 4
 		ZOffset: -1c611
+		ZRamp: 1
 	dead-ground: gtdeptbb
 		Start: 2
 		ShadowStart: 5
 		ZOffset: -1c611
 		Tick: 400
+		ZRamp: 1
 	idle-light: gtdept_b
 		Offset: 0, -36, 13
 		Length: 7
@@ -577,68 +596,72 @@ gasilo.cab:
 		Length: 6
 		Offset: 0, -36, 12
 		Tick: 60
+		DepthSprite: isodepth.shp
 	crane-loop: gtdept_c
 		Start: 6
 		Length: 5
 		Offset: 0, -36, 12
 		Tick: 60
+		DepthSprite: isodepth.shp
 	crane-loop-bright: gtdept_c
 		Start: 6
 		Length: 5
 		Offset: 0, -36, 12
 		Tick: 60
+		DepthSprite: isodepth.shp
 		IgnoreWorldTint: True
 	crane-end: gtdept_c
 		Start: 10
 		Length: 6
 		Offset: 0, -36, 12
 		Tick: 60
+		DepthSprite: isodepth.shp
 	platform: gtdept_d
 		Length: 7
 		ZOffset: -1c511
+		ZRamp: 1
 	damaged-platform: gtdept_d
 		Start: 7
 		Length: 7
 		ZOffset: -1c511
+		ZRamp: 1
 	make: gtdeptmk
 		Length: 10
 		Tick: 60
 		ShadowStart: 10
+		Offset: 0, -36, 36
+		ZRamp: 1
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0, 37
+		Offset: 0, 0, 13
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
-		-DepthSprite:
+		IgnoreWorldTint: True
 
 gadept.gdi:
 	Inherits: ^Gadept
 	icon: sidebar-gdi|fixicon
 		Offset: 0, 0
 		UseTilesetCode: false
-		-DepthSprite:
 
 gadept.nod:
 	Inherits: ^Gadept
 	icon: fixnod
 		Offset: 0, 0
 		UseTilesetCode: false
-		-DepthSprite:
 
 gadept.mut:
 	Inherits: ^Gadept
 	icon: fixforg
 		Offset: 0, 0
 		UseTilesetCode: false
-		-DepthSprite:
 
 gadept.cab:
 	Inherits: ^Gadept
 	icon: fixcab
 		Offset: 0, 0
 		UseTilesetCode: false
-		-DepthSprite:
 
 trnsport:
 	Inherits@1: ^SpriteVehicle
@@ -701,6 +724,7 @@ scrpod:
 	Defaults: ntpuls
 		Offset: 0, -24, 24
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -717,34 +741,39 @@ scrpod:
 		ShadowStart: 20
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		-DepthSprite:
 
 napuls.gdi:
 	Inherits: ^Napuls
 	icon: sidebar-gdi|empicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 napuls.nod:
 	Inherits: ^Napuls
 	icon: sidebar-nod|empicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 napuls.mut:
 	Inherits: ^Napuls
 	icon: mutpulsicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 napuls.cab:
 	Inherits: ^Napuls
 	icon: cabpulsicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 quaddrone-mini:
 	Inherits: ^EmpOverlay
