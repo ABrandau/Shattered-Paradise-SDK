@@ -1152,8 +1152,9 @@ gaplug3:
 
 gtdrop:
 	Defaults:
-		Offset: 0,-30
+		Offset: 0, -36, 36
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -1198,13 +1199,16 @@ gtdrop:
 		ShadowStart: 17
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0, 25
+		Offset: 0, 0, 37
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: gbayicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 gactwr:
 	Inherits: ^EmpOverlay

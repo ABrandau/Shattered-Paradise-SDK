@@ -822,8 +822,9 @@ cabmcv:
 cabyard:
 	Inherits: ^EmpOverlay
 	Defaults: cabmcv
+		Offset: 0, -36, 36
 		UseTilesetCode: false
-		Offset: 0, -18, 24
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 307
 		Length: 17
@@ -839,8 +840,11 @@ cabyard:
 	make: cabmcvmake
 		Length: 50
 		ShadowStart: 51
+	emp-overlay: emp_fx01
+		Offset: 0, 0, 37
 	icon: cabyardicon
 		Offset: 0, 0
+		-DepthSprite:
 
 cabpowr:
 	Defaults:

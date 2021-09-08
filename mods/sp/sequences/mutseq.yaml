@@ -932,8 +932,9 @@ mutmcv:
 mutyard:
 	Inherits: ^EmpOverlay
 	Defaults: mutmcv
+		Offset: 0, -36, 36
 		UseTilesetCode: false
-		Offset: 0, -36, 24
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 65
 		Length: 45
@@ -955,13 +956,17 @@ mutyard:
 	make: mutmcvmake
 		Length: 33
 		ShadowStart: 33
+	emp-overlay: emp_fx01
+		Offset: 0, 0, 37
 	icon: mutyardicon
 		Offset: 0, 0
+		-DepthSprite:
 
 mupowr:
 	Defaults:
 		Offset: 0, -24, 24
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 35
 	damaged-idle:
@@ -983,18 +988,22 @@ mupowr:
 		UseTilesetCode: false
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: mupwricon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 murax:
 	Defaults:
 		Offset: 0, -24, 24
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 25
 	damaged-idle:
@@ -1007,13 +1016,16 @@ murax:
 		ShadowStart: 0
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: muraxicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 muproc:
 	Defaults: muproc
@@ -1217,13 +1229,21 @@ muproc4:
 
 muweap:
 	Defaults:
-		Offset: -12, -42
+		Offset: -12, -42, 25
+		DepthSpriteOffset: 24, 0
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle: muweap_1
 		ZOffset: -1024
+		Offset: -12, -42, 1
+		ZRamp: 1
+		-DepthSprite:
 	damaged-idle: muweap_1
 		Start: 1
 		ZOffset: -1024
+		Offset: -12, -42, 1
+		ZRamp: 1
+		-DepthSprite:
 	idle-roof: muweap_2
 		ZOffset: 512
 	damaged-idle-roof: muweap_2
@@ -1232,15 +1252,6 @@ muweap:
 	dead: muweap_2
 		Start: 2
 		Tick: 400
-	production-lights: ntweap_a
-		Length: 16
-		Tick: 100
-		ZOffset: 2048
-	damaged-production-lights: ntweap_a
-		Start: 16
-		Length: 16
-		Tick: 100
-		ZOffset: 2048
 	build-door: muweap_b
 		Length: 11
 		ZOffset: 512
@@ -1250,23 +1261,21 @@ muweap:
 	make: muweapmk
 		Length: 60
 		Tick: 40
-	bib: muweap_bb
-		ZOffset: -1024
-	damaged-bib: muweap_bb
-		Start: 1
-		ZOffset: -1024
-	dead-bib: muweap_bb
-		Start: 2
-		ZOffset: -1024
+		Offset: -12, -42, 43
+		DepthSpriteOffset: -12, 0
+		IgnoreWorldTint: True
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: muweapicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 muair:
 	Defaults:
@@ -1316,6 +1325,7 @@ mustable:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 	make:
 		Length: 30
 	icon: stableicon
@@ -1326,6 +1336,7 @@ muradr:
 	Defaults:
 		Offset: 0, -24, 24
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 25
 	damaged-idle:
@@ -1338,13 +1349,16 @@ muradr:
 		ShadowStart: 0
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: mudricon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 muhall:
 	Defaults:
@@ -1373,6 +1387,7 @@ wall.mut:
 	Defaults: mutwall
 		Offset: 0, -12, 12
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle: mutwall
 		Length: 16
 	damaged-idle: mutwall
@@ -1381,77 +1396,92 @@ wall.mut:
 	icon: mutwallicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 mutgate_a:
 	Defaults: mutgate
-		Offset: -24, -24, 24
+		Offset: -24, -24, 25
+		DepthSpriteOffset: -24, 0
 		UseTilesetCode: false
-		ZOffset: -3000
-	idle: mutgate
+		DepthSprite: isodepth.shp
+	idle:
 		Length: 12
-	damaged-idle: mutgate
+	damaged-idle:
 		Start: 24
-		Length 12:
+		Length 12
 	open:
 		Start: 11
+		Offset: -24, -24, 1
 		ZRamp: 1
+		ZOffset: -1024
+		-DepthSprite:
 	damaged-open:
 		Start: 47
+		Offset: -24, -24, 1
 		ZRamp: 1
-	dead: mutgate
+		ZOffset: -1024
+		-DepthSprite:
+	dead:
 		Start: 24
-		Length 12:
-	make: mutgate
-		Frames: 9, 8, 7, 6, 5, 4, 3, 2, 1
-		Length: 9
+		Length 12
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: mutwallaicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 mutgate_b:
 	Defaults: mutgate
-		Offset: 24, -24, 24
+		Offset: 24, -24, 25
+		DepthSpriteOffset: 24, 0
 		UseTilesetCode: false
-		ZOffset: -512
+		DepthSprite: isodepth.shp
 	idle: mutgate
 		Start: 12
 		Length: 12
 	damaged-idle: mutgate
 		Start: 36
-		Length 12:
+		Length 12
 	open:
 		Start: 23
+		Offset: 24, -24, 1
 		ZRamp: 1
+		ZOffset: -1024
+		-DepthSprite:
 	damaged-open:
 		Start: 47
+		Offset: 24, -24, 1
 		ZRamp: 1
+		ZOffset: -1024
+		-DepthSprite:
 	dead: mutgate
 		Start: 36
-		Length 12:
-	make: mutgate
-		Frames: 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13
-		Length: 9
+		Length 12
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: mutwallbicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 muward:
 	Defaults:
 		Offset: 0, -12, 12
 		UseTilesetCode: false
-		Length: 1
+		DepthSprite: isodepth.shp
 	idle:
 		Length: 10
 	damaged-idle:
@@ -1460,13 +1490,16 @@ muward:
 		Tick: 400
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 13
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: muflakicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 mumine:
 	Defaults:
@@ -1484,14 +1517,16 @@ mumine:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 	icon: muflakicon
 		Offset: 0, 0
 		UseTilesetCode: false
 
 muflak:
 	Defaults:
-		Offset: 0, -12, 24
+		Offset: 0, -12, 12
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle: dot
 	damaged-idle: dot
 	dead: dot
@@ -1499,49 +1534,46 @@ muflak:
 	turret:
 		Start: 11
 		Facings: 32
-		Offset: 0,-12
 	damaged-turret:
 		Facings: 32
 		Start: 43
-		Offset: 0,-12
 	make:
 		Length: 11
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 13
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		# -DepthSprite: There is a yaml merging issue here, don't forget to fix.
 	muzzle: flakmuzzle
-		Offset: 0, 0, 0
+		Offset: 0, 0, 13
 		Length: *
 		UseTilesetCode: false
 		Ticks: 5
 	icon: muflakicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		# -DepthSprite: There is a yaml merging issue here, don't forget to fix.
 
 mucannon:
 	Inherits: muflak
-	Inherits@2: ^EmpOverlay
 	turret:
 		Start: 25
 		Facings: 32
-		Offset: 0,-12
 	damaged-turret:
 		Start: 57
 		Facings: 32
-		Offset: 0,-12
 	make:
 		Length: 24
-		Offset: 0,-12
 	icon: mucannonicon
-		Offset: 0, 0
 
 mubunkr:
 	Defaults:
 		Offset: 0, -24, 24
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 10
 	damaged-idle:
@@ -1557,13 +1589,16 @@ mubunkr:
 		Length: 10
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: mubnkrmkicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 muventi:
 	Defaults:

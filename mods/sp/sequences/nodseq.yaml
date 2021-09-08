@@ -369,27 +369,6 @@ nodmcv:
 		Length: *
 		Offset: 0,-20
 
-nodyard:
-	Inherits: ^EmpOverlay
-	Defaults: nodmcv
-		UseTilesetCode: false
-		Offset: 0, -36, 24
-	idle:
-		Start: 66
-		Length: 30
-		Tick: 80
-	damaged-idle:
-		Start: 96
-		Length: 30
-		Tick: 80
-	dead:
-		Start: 96
-		Tick: 400
-	make: nodmcvmake
-		Length: 35
-	icon: nodyardicon
-		Offset: 0, 0
-
 bike:
 	Inherits@1: ^SpriteVehicleWithShadow
 	icon: bikeicon
@@ -539,6 +518,31 @@ howtlizer:
 
 icbm:
 	Inherits: ^EmpOverlay
+
+nodyard:
+	Inherits: ^EmpOverlay
+	Defaults: nodmcv
+		Offset: 0, -36, 36
+		UseTilesetCode: false
+		DepthSprite: isodepth.shp
+	idle:
+		Start: 66
+		Length: 30
+		Tick: 80
+	damaged-idle:
+		Start: 96
+		Length: 30
+		Tick: 80
+	dead:
+		Start: 96
+		Tick: 400
+	make: nodmcvmake
+		Length: 35
+	emp-overlay: emp_fx01
+		Offset: 0, 0, 37
+	icon: nodyardicon
+		Offset: 0, 0
+		-DepthSprite:
 
 napowr:
 	Defaults:
@@ -1547,6 +1551,7 @@ nalasr:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 		-DepthSprite:
 	icon: plticon
 		Offset: 0, 0
@@ -1572,7 +1577,7 @@ nasam:
 	turret: gtctwr_d
 		Facings: 32
 		DepthSprite: isodepth.shp
-		Offset: 0, 0, 12
+		Offset: -4, 0, 12
 	make: ntsammk
 		Length: 8
 		ShadowStart: 8

@@ -768,6 +768,7 @@ drached:
 	Defaults:
 		Tick: 80
 		Offset: 0, 0, 48
+		DepthSprite: isodepth.shp
 	stand:
 		Facings: 1
 	run:
@@ -788,54 +789,53 @@ drached:
 		# ShadowStart: 15
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 49
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: drachedicon
 		Offset: 0, 0
+		-DepthSprite:
 
 scrpowr:
 	Defaults:
-		Offset: -12, -30, 52
-		DepthSpriteOffset: 32, 0
+		Offset: -12, -30, 30
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
+		DepthSpriteOffset: -12, 0
 	idle:
 		Start: 31
 		Length: 8
-		ZOffset: -1024
-		ZRamp: 1
 		Tick: 100
-		-DepthSprite:
 	damaged-idle:
 		Start: 41
 		Length: 8
-		ZOffset: -1024
-		ZRamp: 1
 		Tick: 100
-		-DepthSprite:
 	dead:
 		Start: 40
 		Tick: 400
 	make:
 		Length: 30
-		DepthSpriteOffset: -12, 0
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0, 23
+		Offset: 0, 0, 31
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 		-DepthSprite:
 	icon: scrpowricon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 scradvpowr:
 	Defaults:
 		Offset: 0, -36, 36
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 29
 	active:
@@ -857,13 +857,16 @@ scradvpowr:
 		Length: 30
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 37
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: scradvpowricon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 scrrax:
 	Defaults:
@@ -1247,61 +1250,71 @@ scrwall:
 	Defaults: scrwall
 		Offset: 0, -12, 12
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle: scrwall
 		Length: 16
 	icon: scrwallicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 scrgate_a:
 	Defaults: scrgate
-		Offset: -24, -24, 24
+		Offset: -24, -24, 25
+		DepthSpriteOffset: -24, 0
 		UseTilesetCode: false
-		ZOffset: -3000
+		DepthSprite: isodepth.shp
 	idle: scrgate
 		Length: 19
 	dead: scrgate
 	open:
 		Start: 20
+		Offset: -24, -24, 1
 		ZRamp: 1
-	make: scrgate
-		Frames: 9, 8, 7, 6, 5, 4, 3, 2, 1
-		Length: 9
+		ZOffset: -1024
+		-DepthSprite:
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: scrgateaicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 scrgate_b:
 	Defaults: scrgate
-		Offset: 24, -24, 24
+		Offset: 24, -24, 25
+		DepthSpriteOffset: -24, 0
 		UseTilesetCode: false
-		ZOffset: -3000
+		DepthSprite: isodepth.shp
 	idle: scrgate
 		Start: 21
 		Length: 19
 	open:
 		Start: 41
+		Offset: 24, -24, 1
 		ZRamp: 1
+		ZOffset: -1024
+		-DepthSprite:
 	dead: scrgate
 		Start: 21
-	make: scrgate
-		Frames: 41, 40, 39, 38, 37, 36, 35, 34, 33
-		Length: 9
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
-	icon: scrgatebicon
+		IgnoreWorldTint: True
+		-DepthSprite:
+	icon: scrgateaicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 scrneedler:
 	Defaults:
