@@ -917,7 +917,7 @@ mutheli:
 mutmcv:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: 0,-3,0
+		Offset: 0, -3, 24
 		UseTilesetCode: false
 	idle:
 		Facings: 32
@@ -1245,19 +1245,15 @@ muweap:
 		ZRamp: 1
 		-DepthSprite:
 	idle-roof: muweap_2
-		ZOffset: 512
 	damaged-idle-roof: muweap_2
 		Start: 1
-		ZOffset: 512
 	dead: muweap_2
 		Start: 2
 		Tick: 400
 	build-door: muweap_b
 		Length: 11
-		ZOffset: 512
 	damaged-build-door: muweap_b
 		Length: 11
-		ZOffset: 512
 	make: muweapmk
 		Length: 60
 		Tick: 40
@@ -1266,7 +1262,7 @@ muweap:
 		IgnoreWorldTint: True
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 26
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
@@ -1364,6 +1360,7 @@ muhall:
 	Defaults:
 		Offset: 12, -36, 36
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 26
 	damaged-idle:
@@ -1375,13 +1372,16 @@ muhall:
 		Length: 25
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 37
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: muhallicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 wall.mut:
 	Defaults: mutwall
@@ -1604,6 +1604,7 @@ muventi:
 	Defaults:
 		Offset: 0, -24, 24
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle: dot
 	damaged-idle: dot
 	dead: dot
@@ -1620,18 +1621,23 @@ muventi:
 		ShadowStart: 91
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: mutventiicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 mutsw1:
 	Defaults:
 		Offset: -6, -26, 30
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
+		DepthSpriteOffset: -12, 0
 	idle:
 		Start: 30
 	active:
@@ -1646,18 +1652,22 @@ mutsw1:
 		ShadowStart: 32
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 31
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: mutsw1icon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 mutsw2:
 	Defaults:
 		Offset: 0, -36, 36
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 31
 		Length: 19
@@ -1672,13 +1682,16 @@ mutsw2:
 		Length: 29
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 37
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: mutsw2icon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 minivein:
 	Inherits: ^InfantryDeathAnims

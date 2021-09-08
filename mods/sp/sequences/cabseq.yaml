@@ -799,7 +799,7 @@ basilisk:
 cabmcv:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: 0,-18,0
+		Offset: 0, -18, 24
 	idle:
 		Facings: -16
 		ShadowStart: 341
@@ -822,7 +822,7 @@ cabmcv:
 cabyard:
 	Inherits: ^EmpOverlay
 	Defaults: cabmcv
-		Offset: 0, -36, 36
+		Offset: 0, -18, 36
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
 	idle:
@@ -1110,6 +1110,7 @@ cabobelisk:
 	Defaults:
 		Offset: 0, -24, 24
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 30
 		Length: 5
@@ -1122,23 +1123,27 @@ cabobelisk:
 		Start: 42
 		Length: 6
 		Tick: 400
-	emp-overlay: emp_fx01
-		Length: *
-		Offset: 0, 0
-		UseTilesetCode: false
-		ZOffset: 512
-		BlendMode: Additive
 	active:
 	make:
 		Length: 24
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 25
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: cabobeliskicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 cabradr:
 	Defaults:
 		Offset: 0, -36, 36
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 31
 		Length: 14
@@ -1150,28 +1155,39 @@ cabradr:
 	dead:
 		Start: 45
 		Tick: 400
+	make:
+		Length: 29
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 37
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
-	make:
-		Length: 29
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: cabradricon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 cabweap:
 	Defaults:
-		Offset: -12, -42
+		Offset: -12, -42, 25
+		DepthSpriteOffset: 32, 0
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 87
-		ZOffset: -1026
+		ZOffset: -1024
+		Offset: -12, -42, 1
+		ZRamp: 1
+		-DepthSprite:
 	damaged-idle:
 		Start: 88
-		ZOffset: -1026
+		ZOffset: -1024
+		Offset: -12, -42, 1
+		ZRamp: 1
+		-DepthSprite:
 	idle-roof:
 		Start: 89
 		ZOffset: 1024
@@ -1189,28 +1205,43 @@ cabweap:
 		Start: 36
 		Length: 9
 		ZOffset: -2048
+	bib:
+		Start: 2
+		ZOffset: -2048
+		Offset: -12, -42, 1
+		ZRamp: 1
+		-DepthSprite:
+	damaged-bib:
+		Start: 3
+		ZOffset: -2048
+		Offset: -12, -42, 1
+		ZRamp: 1
+		-DepthSprite:
+	dead-bib: cabweap_bb
+		Start: 2
+		ZOffset: -2048
+		Offset: -12, -42, 1
+		ZRamp: 1
+		-DepthSprite:
 	make:
 		Start: 4
 		Length: 30
 		Tick: 40
-	bib:
-		Start: 2
-		ZOffset: -2048
-	damaged-bib:
-		Start: 3
-		ZOffset: -2048
+		Offset: -12, -42, 43
+		DepthSpriteOffset: -12, 0
+		IgnoreWorldTint: True
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 23
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
-	dead-bib: cabweap_bb
-		Start: 2
-		ZOffset: -2048
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: cabweapicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 cabair:
 	Defaults:
@@ -1253,6 +1284,8 @@ cabtech:
 	Defaults:
 		Offset: -12, -30, 30
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
+		DepthSpriteOffset: -12, 0
 	idle:
 		Start: 31
 		Length: 18
@@ -1266,15 +1299,18 @@ cabtech:
 		Tick: 400
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 31
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	make:
 		Length: 30
 	icon: cabtechicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 cabsentryturret:
 	Defaults:
@@ -1443,6 +1479,7 @@ cabeye:
 	Defaults:
 		Offset: 0, -24, 24
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 30
 		Length: 17
@@ -1456,13 +1493,16 @@ cabeye:
 		Length: 29
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: cabeyeicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 cabsw1:
 	Defaults:
@@ -1509,7 +1549,7 @@ nanomachineswarmdummy:
 nanos:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
-		Offset: 0,0
+		Offset: 0,0,1
 		ZRamp: 1
 		UseTilesetCode: false
 	idle:

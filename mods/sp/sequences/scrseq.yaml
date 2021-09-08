@@ -458,7 +458,6 @@ mastermind:
 		Length: 1
 		Offset: 0,-12
 
-
 drache:
 	Inherits: ^EmpOverlay
 	Defaults:
@@ -466,8 +465,6 @@ drache:
 		Offset: 0, 0, 60
 	stand:
 		Facings: 1
-	icon: dracheicon
-		Offset: 0, 0
 	idle:
 		Start: 35
 	damaged-idle:
@@ -478,12 +475,14 @@ drache:
 	make:
 		Start: 22
 		Length: 13
+	icon: dracheicon
+		Offset: 0, 0
 
 drache.falling:
 	Inherits: ^EmpOverlay
 	Defaults: drache
 		Tick: 150
-		Offset: 0, 0
+		Offset: 0, 0, 0
 	idle: drache
 		Start: 1
 
@@ -1064,6 +1063,43 @@ scrproc4:
 		Offset: 0, 0
 		UseTilesetCode: false
 
+scrradr:
+	Defaults:
+		Offset: 0, -36, 36
+		UseTilesetCode: false
+		DepthSprite: isodepth.shp
+	idle:
+		Start: 30
+	damaged-idle:
+		Start: 47
+	dead:
+		Start: 47
+		Tick: 400
+	idle-dish:
+		Start: 31
+		Length: 16
+		Reverses: false
+		Tick: 70
+	damaged-idle-dish:
+		Start: 31
+		Length: 16
+		Reverses: false
+		Tick: 70
+	make:
+		Length: 29
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 37
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
+	icon: scrradricon
+		Offset: 0, 0
+		UseTilesetCode: false
+		-DepthSprite:
+
 scrair:
 	Defaults:
 		Offset: 0, -36, 36
@@ -1113,50 +1149,24 @@ scrair:
 		Offset: 0, 0
 		UseTilesetCode: false
 
-scrradr:
-	Defaults:
-		Offset: 0, -36, 36
-		UseTilesetCode: false
-	idle:
-		Start: 30
-	damaged-idle:
-		Start: 47
-	dead:
-		Start: 47
-		Tick: 400
-	idle-dish:
-		Start: 31
-		Length: 16
-		Reverses: false
-		Tick: 70
-	damaged-idle-dish:
-		Start: 31
-		Length: 16
-		Reverses: false
-		Tick: 70
-	make:
-		Length: 29
-	emp-overlay: emp_fx01
-		Length: *
-		Offset: 0, 0
-		UseTilesetCode: false
-		ZOffset: 512
-		BlendMode: Additive
-	icon: scrradricon
-		Offset: 0, 0
-		UseTilesetCode: false
-
 scrweap:
 	Defaults:
-		Offset: -12, -42
-		ZOffset: -2048
+		Offset: -12, -42, 22
+		DepthSpriteOffset: 32, 0
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 49
 		ZOffset: -1024
+		Offset: -12, -42, 1
+		ZRamp: 1
+		-DepthSprite:
 	damaged-idle:
 		Start: 60
 		ZOffset: -1024
+		Offset: -12, -42, 1
+		ZRamp: 1
+		-DepthSprite:
 	idle-roof: scrweap_1
 		ZOffset: 2048
 	damaged-idle-roof: scrweap_1
@@ -1165,29 +1175,34 @@ scrweap:
 	dead:
 		Start: 51
 		ShadowStart: 113
-		ZOffset: -1024
 	production-lights-white:
 		Start: 41
 		Length: 8
 		Tick: 100
-		ZOffset: -1000
+		ZOffset: -2048
 	damaged-production-lights-white:
 		Start: 53
 		Length: 8
 		Tick: 100
-		ZOffset: -1000
+		ZOffset: -2048
 	make:
 		Length: 39
 		Tick: 40
+		Offset: -12, -42, 43
+		DepthSpriteOffset: -12, 0
+		IgnoreWorldTint: True
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 23
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: scrweapicon
 		Offset: 0,0
 		UseTilesetCode: false
+		-DepthSprite:
 
 scrdepot:
 	Defaults:
@@ -1218,14 +1233,17 @@ scrdepot:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 	icon: scrdepoticon
 		Offset: 0, 0
 		UseTilesetCode: false
 
 scrtech:
 	Defaults:
-		Offset: 12, -30, 30
+		Offset: 12,-30, 30
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
+		DepthSpriteOffset: 12, 0
 	idle:
 		Start: 30
 	damaged-idle:
@@ -1238,13 +1256,16 @@ scrtech:
 		ShadowStart: 32
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 31
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon: scrtechicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		-DepthSprite:
 
 scrwall:
 	Defaults: scrwall
