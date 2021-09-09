@@ -2647,7 +2647,7 @@ MUSTABLE:
 
 TDADVGTWR:
 	Inherits: ^TurretedDefence
-	Inherits@1: ^AntiAir
+	Inherits@AA: ^AntiAir
 	Tooltip:
 		Name: Advanced Guard Tower
 	BodyOrientation:
@@ -2679,14 +2679,14 @@ TDADVGTWR:
 
 ADVHQ:
 	Inherits: ^Radar
-	Inherits@2: ^3x3Shape
+	Inherits@SHAPE: ^3x3Shape
 	ProvidesPrerequisite:
 		Prerequisite: radar
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
 	Tooltip:
-		Name: Old Advanced Communications Center
+		Name: Advanced Communications Center
 	WithIdleOverlay@anim:
 		Sequence: anima
 		PauseOnCondition: stop || empdisable
@@ -2714,9 +2714,9 @@ ADVHQ:
 
 TDADVPP:
 	Inherits: ^Powerplant
-	Inherits@2: ^2x2Shape
+	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
-		Name: Old advanced power plant
+		Name: Advanced Power Plant
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -2737,7 +2737,7 @@ TDADVPP:
 
 TDAIRSTRIP:
 	Inherits: ^Factory
-	Inherits@1: ^5x3Shape
+	Inherits@SHAPE: ^3x5Shape
 	Tooltip:
 		Name: Airstrip
 	WithIdleOverlay@anima:
@@ -2768,7 +2768,7 @@ TDAIRSTRIP:
 
 TDBARR:
 	Inherits: ^Barracks
-	Inherits@2: ^3x3Shape
+	Inherits@SHAPE: ^3x3Shape
 	Tooltip:
 		Name: Barracks
 	Building:
@@ -2863,7 +2863,7 @@ TDGTWR:
 
 TDNHAND:
 	Inherits: ^Barracks
-	Inherits@2: ^3x2Shape
+	Inherits@SHAPE: ^3x2Shape
 	Tooltip:
 		Name: Hand of Nod
 	Building:
@@ -2932,16 +2932,16 @@ TDNHAND:
 
 TDNTPL:
 	Inherits: ^Building
-	Inherits@2: ^6x4Shape
+	Inherits@SHAPE: ^6x6Shape
 	Tooltip:
-		Name: Old temple of Nod
+		Name: Temple of Nod
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
 	EditorOnlyTooltip:
 		Name: TD Building
 	Building:
-		Footprint: xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx
+		Footprint: xxxxX= xxxxxx xxxxx= xxxxx= xxxxxx xxxxX=
 		Dimensions: 6,6
 	IsometricSelectable:
 		DecorationHeight: 90
@@ -2956,8 +2956,8 @@ TDNTPL:
 	-SpawnActorsOnSell@scr:
 
 TDHELIPAD:
-	Inherits@1: ^Helipad
-	Inherits@2: ^2x2Shape
+	Inherits: ^Helipad
+	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
 		Name: Helipad
 	Valued:
@@ -2965,7 +2965,6 @@ TDHELIPAD:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	PrimaryBuilding:
 	WithIdleOverlay@anima:
 		Sequence: anima
 		RequiresCondition: !Building-Buildup
@@ -2984,7 +2983,7 @@ TDHELIPAD:
 TDNTUR:
 	Inherits: ^TurretedDefence
 	Tooltip:
-		Name: Old gun turret
+		Name: Gun Turret
 	BodyOrientation:
 		QuantizedFacings: 32
 	Armament:
@@ -3006,8 +3005,8 @@ TDNTUR:
 
 TDOBELISK:
 	Inherits: ^Defence
-	Inherits@1: ^TowerStealthDetection
-	Inherits@2: ^1x1Shape
+	Inherits@DETECTION: ^TowerStealthDetection
+	Inherits@SHAPE: ^1x1Shape
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -3072,12 +3071,14 @@ TDREFINERY:
 	Refinery:
 		DockOffset: 1,3
 	Tooltip:
-		Name: Old Refinery
+		Name: Refinery
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
 	EditorOnlyTooltip:
 		Name: TD Building
+	IsometricSelectable:
+		DecorationHeight: 60
 	-Sellable:
 	-SpawnActorsOnSell@gdi:
 	-SpawnActorsOnSell@nod:
@@ -3088,7 +3089,7 @@ TDREFINERY:
 TDREPD:
 	Inherits: GADEPT
 	Tooltip:
-		Name: Old Service Depot
+		Name: Service Depot
 	WithRepairOverlay@PLATFORM:
 		Sequence: anima
 		RequiresCondition: !Building-Buildup
@@ -3119,10 +3120,10 @@ TDREPD:
 
 TDSAMSITE:
 	Inherits: ^TurretedDefence
-	Inherits@1: ^2x2Shape
-	Inherits@1: ^AntiAir
+	Inherits@AA: ^AntiAir
+	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
-		Name: Sam Site
+		Name: SAM Site
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -3154,7 +3155,7 @@ TDSAMSITE:
 
 TDPP:
 	Inherits: ^Powerplant
-	Inherits@2: ^2x3Shape
+	Inherits@SHAPE: ^2x3Shape
 	Tooltip:
 		Name: Power Plant
 	Valued:
@@ -3169,6 +3170,8 @@ TDPP:
 		RequiresCondition: !Building-Buildup
 	Power:
 		Amount: 300
+	IsometricSelectable:
+		DecorationHeight: 32
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
@@ -3183,11 +3186,11 @@ TDPP:
 
 TDSILO:
 	Inherits: ^Building
-	Inherits: ^2x2Shape
+	Inherits@SHAPE: ^2x2Shape
 	Valued:
 		Cost: 200
 	Tooltip:
-		Name: Old Silo
+		Name: Silo
 	Building:
 		Footprint: xx xx
 		Dimensions: 2, 2
@@ -3232,9 +3235,9 @@ TDSILO:
 
 TDWF:
 	Inherits: ^Factory
-	Inherits@1: ^4x4Shape
+	Inherits@SHAPE: ^4x4Shape
 	Tooltip:
-		Name: War Factory
+		Name: Weapons Factory
 	ProvidesPrerequisite@ShowMammMkII:
 		Prerequisite: showmammmk2
 	WithIdleOverlay@ROOF:
