@@ -148,6 +148,20 @@ Player:
 		Enabled: true
 		DisplayOrder: 8
 		Prerequisites: global-freeminimap
+	LobbyPrerequisiteCheckbox@MEGAWEALTH:
+		ID: megawealth
+		Label: Megawealth
+		Description: Removes all the Tiberium on the map and makes the economy dependent on Tiberium Extractors
+		Enabled: False
+		DisplayOrder: 10
+		Prerequisites: global-megawealth
+	LobbyPrerequisiteCheckbox@SUDDENDEATH:
+		ID: suddendeath
+		Label: Sudden Death
+		Description: Players can't build another MCV and get defeated when they lose it
+		Enabled: False
+		DisplayOrder: 11
+		Prerequisites: global-suddendeath
 	ProvidesRadar:
 		RequiresCondition: freeminimap
 	GrantConditionOnPrerequisite@FREEMINIMAP:

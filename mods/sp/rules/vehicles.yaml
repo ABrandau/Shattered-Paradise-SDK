@@ -526,7 +526,7 @@ NODMCV:
 		Queue: Vehicle
 		BuildPaletteOrder: 997
 		BuildAtProductionType: Tank
-		Prerequisites: ~naweap, gadept, ~techlevel.3
+		Prerequisites: ~naweap, gadept, ~techlevel.3, ~!global-suddendeath
 	Tooltip:
 		Name: Nod MCV
 	RenderSprites:
@@ -1302,6 +1302,7 @@ HOWTLIZER:
 	AttackFrontal:
 		PauseOnCondition: empdisable
 		TargetFrozenActors: true
+	-GrantConditionOnPrerequisite@SUDDENDEATH:
 	-MustBeDestroyed:
 	GrantConditionOnDamageState@CloakBreaks:
 		Condition: CloakBreaks
@@ -1366,6 +1367,7 @@ STNK:
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: ReturnFire
+	-GrantConditionOnPrerequisite@SUDDENDEATH:
 	-MustBeDestroyed:
 	Voiced:
 		VoiceSet: StealthTankVO
@@ -1503,7 +1505,7 @@ MUTMCV:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 998
-		Prerequisites: ~muweap, gadept, ~techlevel.3
+		Prerequisites: ~muweap, gadept, ~techlevel.3, ~!global-suddendeath
 	Tooltip:
 		Name: Mutant MCV
 	RenderSprites:
@@ -2136,7 +2138,7 @@ CABMCV:
 		Queue: Vehicle
 		BuildPaletteOrder: 999
 		BuildAtProductionType: Tank
-		Prerequisites: ~cabweap, gadept, ~techlevel.3
+		Prerequisites: ~cabweap, gadept, ~techlevel.3, ~!global-suddendeath
 		IconPalette: UnittemIconCab
 	Tooltip:
 		Name: C.A.B.A.L. MCV

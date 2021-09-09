@@ -56,9 +56,62 @@ WELL:
 	GivesCashOnCapture:
 		Amount: 500
 		RequiresCondition: !cashgiven
+	GrantConditionOnPrerequisite@megawealth:
+		Condition: megawealth
+		Prerequisites: global-megawealth
+	Targetable:
+		RequiresCondition: !megawealth
+	DamageMultiplier@megawealth:
+		RequiresCondition: megawealth
+		Modifier: 0
 	UpdatesDerrickCount:
 	IsometricSelectable:
 		DecorationHeight: 144
+
+WELL.mwspawner:
+	Inherits@shape: ^3x3Shape
+	Interactable:
+	EditorOnlyTooltip:
+		Name: Megawealth Only Tiberium Extractor
+	FrozenUnderFog:
+	RenderSpritesEditorOnly:
+		Image: well
+		PlayerPalette: playeralpha50
+	WithSpriteBody:
+	WithIdleOverlay:
+		Sequence: anim
+		Palette: effect
+	BodyOrientation:
+		QuantizedFacings: 1
+	GrantConditionOnPrerequisite@megawealth:
+		Condition: megawealth
+		Prerequisites: global-megawealth
+	KillsSelf@spawn:
+		RequiresCondition: megawealth
+	KillsSelf@remove:
+		RemoveInstead: true
+		RequiresCondition: !megawealth
+	SpawnActorOnDeath:
+		Actor: well
+	Health:
+		HP: 10000000
+	Building:
+		Footprint: ___ ___ ___
+		Dimensions: 3, 3
+	MapEditorData:
+		Categories: Tech Structure
+
+WELL.nonmwspawner:
+	Inherits: WELL.mwspawner
+	EditorOnlyTooltip:
+		Name: Non-Megawealth Only Tiberium Extractor
+	RenderSpritesEditorOnly:
+		Image: well
+		PlayerPalette: playeralpha50
+	KillsSelf@spawn:
+		RequiresCondition: !megawealth
+	KillsSelf@remove:
+		RequiresCondition: megawealth
 
 MACHINESHOP:
 	Inherits: ^TechBuilding

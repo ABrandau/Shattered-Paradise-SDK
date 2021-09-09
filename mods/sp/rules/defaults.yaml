@@ -1424,7 +1424,11 @@
 
 ^Soldier:
 	Inherits@1: ^Infantry
+	GrantConditionOnPrerequisite@SUDDENDEATH:
+		Condition: suddendeath
+		Prerequisites: global-suddendeath
 	MustBeDestroyed:
+		RequiresCondition: !suddendeath
 	TakeCover:
 		RequiresCondition: !WebDisable
 		DamageModifiers:
@@ -1560,7 +1564,11 @@
 	Voiced:
 		VoiceSet: Cyborg
 	DeathSounds:
+	GrantConditionOnPrerequisite@SUDDENDEATH:
+		Condition: suddendeath
+		Prerequisites: global-suddendeath
 	MustBeDestroyed:
+		RequiresCondition: !suddendeath
 	WithInfantryBody:
 		RequiresCondition: !CriticalDamaged && !WebDisable
 		DefaultAttackSequence: shoot
@@ -1785,7 +1793,11 @@
 	Explodes:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
+	GrantConditionOnPrerequisite@SUDDENDEATH:
+		Condition: suddendeath
+		Prerequisites: global-suddendeath
 	MustBeDestroyed:
+		RequiresCondition: !suddendeath
 	RenderSprites:
 	ThrowsShrapnel:
 		Weapons: SmallDebris
@@ -1992,6 +2004,7 @@
 	Inherits: ^VoxelVehicle
 	Valued:
 		Cost: 100
+	-GrantConditionOnPrerequisite@SUDDENDEATH:
 	-MustBeDestroyed:
 	MapEditorData:
 		Categories: Civilian Vehicle
@@ -2000,6 +2013,7 @@
 	Inherits: ^Vehicle
 	Valued:
 		Cost: 100
+	-GrantConditionOnPrerequisite@SUDDENDEATH:
 	-MustBeDestroyed:
 	MapEditorData:
 		Categories: Civilian Vehicle
@@ -2087,7 +2101,11 @@
 	Guard:
 		Voice: Move
 	Guardable:
+	GrantConditionOnPrerequisite@SUDDENDEATH:
+		Condition: suddendeath
+		Prerequisites: global-suddendeath
 	MustBeDestroyed:
+		RequiresCondition: !suddendeath
 	MapEditorData:
 		Categories: Aircraft
 	Hovers@CRUISING:
@@ -2305,8 +2323,12 @@
 		ValuePercent: 30
 		ActorTypes: shark
 		Factions: scr
+	GrantConditionOnPrerequisite@SUDDENDEATH:
+		Condition: suddendeath
+		Prerequisites: global-suddendeath
 	MustBeDestroyed:
 		RequiredForShortGame: true
+		RequiresCondition: !suddendeath
 	Sellable:
 		SellSounds: cashturn.aud
 		Notification: StructureSold
@@ -2333,6 +2355,7 @@
 		Type: Footprint
 		MaxHeightDelta: 3
 	-GivesBuildableArea:
+	-GrantConditionOnPrerequisite@SUDDENDEATH:
 	-MustBeDestroyed:
 	RenderRangeCircle:
 		Color: FFFF00CC
@@ -2501,6 +2524,12 @@
 		Range: 7c0
 	MapEditorData:
 		Categories: Tib Spawners
+	GrantConditionOnPrerequisite@megawealth:
+		Condition: megawealth
+		Prerequisites: global-megawealth
+	KillsSelf:
+		RemoveInstead: true
+		RequiresCondition: megawealth
 
 ^Tree:
 	Inherits: ^Decoration
@@ -2771,6 +2800,7 @@
 	-WithDeathAnimation:
 	-Building:
 	-GivesBuildableArea:
+	-GrantConditionOnPrerequisite@SUDDENDEATH:
 	-MustBeDestroyed:
 	-WithSpriteBody:
 	-WithMakeAnimation:

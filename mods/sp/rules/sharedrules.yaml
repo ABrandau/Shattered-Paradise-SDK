@@ -55,7 +55,7 @@ MCV:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 996
-		Prerequisites: ~gaweap, gadept, ~techlevel.3
+		Prerequisites: ~gaweap, gadept, ~techlevel.3, ~!global-suddendeath
 		BuildAtProductionType: Tank
 		Description: Deploys into a Construction Yard.\n\nSpecial:\n- Provides a build radius for structures.\n- Can crush infantry.\n- Maximum production speed is reached with 7 ConYards.\n- Max production speed reduces production time by 50%.\n- Has increased HP when deployed.
 	Valued:
@@ -72,8 +72,10 @@ MCV:
 		Speed: 60
 		TurnSpeed: 20
 		Locomotor: InfantryCrusherVehicle
+	-GrantConditionOnPrerequisite@SUDDENDEATH:
 	MustBeDestroyed:
 		RequiredForShortGame: true
+		-RequiresCondition:
 	CaptureManager: ## Hack: Normally, capture while undeploying conyard will crash the game if do not have this
 	#-Capturable:
 	-Crushable:
@@ -99,7 +101,7 @@ HARV:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 1
-		Prerequisites: proc, ~player.gdi, ~techlevel.1
+		Prerequisites: proc, ~player.gdi, ~techlevel.1, ~!global-megawealth
 		BuildAtProductionType: Tank
 		Description: Collects Tiberium for processing.\n\nSpecial:\n- Harvests Tiberium\n- Immune to Veins\n- Can crush infantry\n- Cannot be mindcontrolled\n- Selfheal
 	Selectable:
@@ -170,7 +172,7 @@ harv.nod:
 		Name: Nod Harvester
 	Buildable:
 		BuildPaletteOrder: 2
-		Prerequisites: proc, ~player.nod, ~techlevel.1 
+		Prerequisites: proc, ~player.nod, ~techlevel.1, ~!global-megawealth
 	RenderSprites:
 		Image: nodharv
 
@@ -180,7 +182,7 @@ harv.mut:
 		Name: Mutant Harvester
 	Buildable:
 		BuildPaletteOrder: 3
-		Prerequisites: proc, ~player.mut, ~techlevel.1
+		Prerequisites: proc, ~player.mut, ~techlevel.1, ~!global-megawealth
 	RenderSprites:
 		Image: mutharv
 
@@ -191,7 +193,7 @@ CABHARV:
 		Name: C.A.B.A.L. Harvester
 	Buildable:
 		BuildPaletteOrder: 4
-		Prerequisites: proc, ~player.cab, ~techlevel.1
+		Prerequisites: proc, ~player.cab, ~techlevel.1, ~!global-megawealth
 	RenderSprites:
 		Image: cabharv
 	BodyOrientation:
@@ -207,7 +209,7 @@ SCRHARV:
 		Name: Scrin Harvester
 	Buildable:
 		BuildPaletteOrder: 5
-		Prerequisites: proc, ~player.scr, ~techlevel.1
+		Prerequisites: proc, ~player.scr, ~techlevel.1, ~!global-megawealth
 	Mobile:
 		Locomotor: InfantryCrusherVehicle
 	RenderSprites:
@@ -342,6 +344,9 @@ GACNST:
 		ValuePercent: 15
 		ActorTypes: shark
 		Factions: scr
+	-GrantConditionOnPrerequisite@SUDDENDEATH:
+	MustBeDestroyed:
+		-RequiresCondition:
 	RequiresBuildableArea:
 		AreaTypes: building
 	ProvidesPrerequisite@AIantiRush:
@@ -400,6 +405,12 @@ GACNST:
 	PrimaryBuilding:
 	Power:
 		Amount: -20
+	GrantConditionOnPrerequisite@megawealth:
+		Condition: megawealth
+		Prerequisites: global-megawealth
+	ProvidesPrerequisite@mwgenref:
+		Prerequisite: proc
+		RequiresCondition: megawealth
 	ProvidesPrerequisite@buildingname:
 	GrantExternalConditionToProduced:
 		Condition: produced
@@ -877,6 +888,12 @@ BARRACKS:
 	Tooltip:
 		Name: Infantry Production
 
+PROC:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: Tiberium Refinery
+
 FACTORY:
 	AlwaysVisible:
 	Interactable:
@@ -1107,7 +1124,7 @@ GASILO:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 31
-		Prerequisites: proc, ~structures.human, ~techlevel.1
+		Prerequisites: proc, ~structures.human, ~techlevel.1, ~!global-megawealth
 		Description: Stores excess Tiberium.\n\nSpecial:\n- Stores 3000$.\n- Power loss does not affect storage capacity.
 	Valued:
 		Cost: 200

@@ -15,11 +15,23 @@ mpspawn:
 	Inherits: ^EditorNotifier
 	EditorOnlyTooltip:
 		Name: (multiplayer player starting point)
+	GrantConditionOnPrerequisite@megawealth:
+		Condition: megawealth
+		Prerequisites: global-megawealth
+	FreeActor:
+		Actor: oreclearer
+		RequiresCondition: megawealth
 
 waypoint:
 	Inherits: ^EditorNotifier
 	EditorOnlyTooltip:
 		Name: (waypoint for scripted behavior)
+
+oreclearer:
+	Immobile:
+		OccupiesSpace: false
+	AlwaysVisible:
+	ClearsResources:
 
 flarenotifier:
 	Inherits: ^EditorNotifier
