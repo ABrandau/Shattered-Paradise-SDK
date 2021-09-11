@@ -2897,6 +2897,13 @@
 	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
 
+^ScrinRenderBuilding:
+	Inherits: ^ScrinRender
+	WithDeathAnimation:
+		DeathSequencePalette: playerscrin
+		CrushedSequencePalette: playerscrin
+		CrushedPaletteIsPlayerPalette: true
+
 ^MutRender:
 	Inherits: ^Cloakable
 	RenderSprites:
@@ -2907,6 +2914,13 @@
 	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
 
+^MutRenderBuilding:
+	Inherits: ^MutRender
+	WithDeathAnimation:
+		DeathSequencePalette: playermut
+		CrushedSequencePalette: playermut
+		CrushedPaletteIsPlayerPalette: true
+
 ^CabRender:
 	Inherits: ^Cloakable
 	RenderSprites:
@@ -2916,6 +2930,13 @@
 		IsPlayerPalette: true
 	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
+
+^CabRenderBuilding:
+	Inherits: ^CabRender
+	WithDeathAnimation:
+		DeathSequencePalette: playercab
+		CrushedSequencePalette: playercab
+		CrushedPaletteIsPlayerPalette: true
 
 ^BuildingCloak:
 	Cloak@CLOAKGENERATOR:
