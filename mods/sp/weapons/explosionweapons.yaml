@@ -128,6 +128,12 @@ BigAircraftExplode:
 		ImpactActors: false
 		ValidTargets: Ground, Air, Water
 
+DevourerExplode:
+	Inherits: BigAircraftExplode
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 8000
+
 BigAircraftExplosion:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_Explosion
