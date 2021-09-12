@@ -2,8 +2,6 @@
     "mod": "sp",
     "modversion": "{DEV_VERSION}",
     "map": "fb9906ba41a245a44790b9cded6a77f70b2962e7",
-    "timestep": 40,
-    "orderlatency": 3,
     "allowspectators": true,
     "modtitle": "Shattered Paradise",
     "modwebsite": "http://www.moddb.com/mods/shattered-paradise",
@@ -11,6 +9,7 @@
     "dedicated": true,
     "allowversionmismatch": false,
     "enablesingleplayer": true,
+    "enablesyncreports": false,
     "options": {
         "startingcash": {
             "value": 10000,
@@ -63,7 +62,7 @@
             "locked": false
         },
         "gamespeed": {
-            "value": "default",
+            "value": "default-asi",
             "preferredvalue": "default",
             "locked": false
         },
@@ -91,6 +90,60 @@
             "value": 0,
             "preferredvalue": 0,
             "locked": false
+        },
+        "megawealth": {
+            "value": false,
+            "preferredvalue": false,
+            "locked": false
+        },
+        "suddendeath": {
+            "value": false,
+            "preferredvalue": false,
+            "locked": false
+        }
+    },
+    "gamespeed": {
+        "slower-asi": {
+            "timestep": 50,
+            "minOrderDelay": 0,
+            "maxOrderDelay": 15,
+            "legacyOrderDelay": 5,
+            "legacyTimestep": 50
+        },
+        "default-asi": {
+            "timestep": 40,
+            "minOrderDelay": 0,
+            "maxOrderDelay": 15,
+            "legacyOrderDelay": 5,
+            "legacyTimestep": 40
+        },
+        "faster-asi": {
+            "timestep": 30,
+            "minOrderDelay": 0,
+            "maxOrderDelay": 15,
+            "legacyOrderDelay": 5,
+            "legacyTimestep": 30
+        },
+        "fastest-asi": {
+            "timestep": 20,
+            "minOrderDelay": 0,
+            "maxOrderDelay": 18,
+            "legacyOrderDelay": 6,
+            "legacyTimestep": 20
+        },
+        "simulationspeed-asi": {
+            "timestep": 1,
+            "minOrderDelay": 0,
+            "maxOrderDelay": 30,
+            "legacyOrderDelay": 5,
+            "legacyTimestep": 1
+        },
+        "default-asi-competitive": {
+            "timestep": 40,
+            "minOrderDelay": 12,
+            "maxOrderDelay": 15,
+            "legacyOrderDelay": 5,
+            "legacyTimestep": 40
         }
     }
 }
