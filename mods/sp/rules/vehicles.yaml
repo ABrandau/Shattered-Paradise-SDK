@@ -3066,7 +3066,7 @@ TRIPOD:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 42
 		Prerequisites: ~scrweap, scrtech, ~techlevel.5
-		Description: Advanced walker.\n\n  Good vs Infantry, Buildings.\n\nSpecial:\n- Absorbs essence from killed units to heal\n- Can shoot over walls\n- Can crush infantry
+		Description: Advanced walker.\n\n  Good vs Ground.\n\nSpecial: \n- Can absorb Tiberium on the field to charge\n- Absorbs essence from killed units to heal\n- Can shoot over walls\n- Can crush infantry
 		IconPalette: chromescrin
 	Mobile:
 		TurnSpeed: 24
@@ -3082,34 +3082,59 @@ TRIPOD:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	AutoTarget:
-	WithDeathAnimation@die:
-		DeathSequencePalette: player
-		DeathPaletteIsPlayerPalette: true
-		DeathTypes:
-			BulletDeath: 1, 2
-			CabalDeath: 1, 2
-			ExplosionDeath: 1, 2
-			TiberiumDeath: 1, 2
-			EnergyDeath: 1, 2
-			FireDeath: 1, 2
-	Armament:
-		Weapon: TripodBlast
-		LocalOffset: 400,0,3200
+	Armament@primary1:
+		Weapon: AnhTripodLaser
+		LocalOffset: 700,0,4500, 1300,580,3700, 1050,-490,4100
+		MuzzlePalette: scrinenergystuffs
 		MuzzleSequence: muzzle
-		MuzzlePalette: jascbluealpha
+		PauseOnCondition: empdisable || charged || reload2
+		ReloadingCondition: reload1
+	GrantTimedConditionOnDeploy:
+		DeployedCondition: absorbTib
+		CooldownTicks: 2000
+		DeployedTicks: 100
+		StartsFullyCharged: true
 		PauseOnCondition: empdisable
+	ExplodeWeapon@absorb:
+		Weapon: AnhTripodAbsorb
+		RequiresCondition: !empdisable && absorbTib
+	ExternalCondition@absorb:
+		Condition: charge
+	AmmoPool:
+		Armaments: secondary
+		InitialAmmo: 0
+		Ammo: 12
+		AmmoCondition: charged
+	ReloadAmmoPool@charged:
+		Delay: 2
+		PauseOnCondition: !charge
+	WithAmmoPipsDecoration:
+		Margin: 4, 3
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
+		Palette: gradientgreen
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 4
+	Armament@charged:
+		Weapon: AnhTripodLaserCharged
+		LocalOffset: 700,0,4500, 1300,580,3700, 1050,-490,4100
+		Name: secondary
+		PauseOnCondition: empdisable || !charged || reload1
+		ReloadingCondition: reload2
+		MuzzlePalette: gradientgreen
+		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
-	WithInfantryBody:
-		DefaultAttackSequence: shoot
-	QuantizeFacingsFromSequence:
-		Sequence: stand
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
 	SmokeParticleEmitter@spawnsmoke:
 		Offset: 0,0,3000
+	RenderSprites:
+		Image: anhltrpd
 	ExplodeWeapon@spawnsparks:
 		LocalOffset: 0,0,3000
-	DeathSounds:
-		DeathTypes: BulletDeath, ExplosionDeath, CabalDeath, TiberiumDeath
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
 	WithInfantryBody:
-		-DefaultAttackSequence:
+		-DefaultAttackSequence: 

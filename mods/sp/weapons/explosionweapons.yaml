@@ -316,6 +316,8 @@ ScrinUnitExplode:
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinvehicleexplo1, scrinvehicleexplo2
 		ExplosionPalette: apolbluealpha
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
 		ImpactSounds: expnew09.aud
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
@@ -335,6 +337,8 @@ ScrinUnitExplode2:
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
 		ImpactSounds: expnew09.aud
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
@@ -355,6 +359,8 @@ ScrinUnitExplode3:
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
 		ImpactSounds: expnew09.aud
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
 	-Warhead@op:
 
 ScrinUnitExplode4:
@@ -366,6 +372,8 @@ ScrinUnitExplode4:
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
 		ImpactSounds: expnew09.aud
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
 	-Warhead@op:
 
 TiberiumExplosion:
@@ -377,6 +385,8 @@ TiberiumExplosion:
 		Size: 1,1
 	Warhead@3Eff: CreateEffect
 		Explosions: tibexp
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
 		ImpactSounds: expnew09.aud
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: MediumCrater
@@ -396,6 +406,8 @@ ZombieExplosion:
 		Palette: effectalpha50
 	Warhead@3Eff: CreateEffect
 		Explosions: tibexp
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
 		ImpactSounds: expnew09.aud
 	Warhead@3Radio2: CreateTintedCells
 		Spread: 512
@@ -411,7 +423,6 @@ BlueTibBarrelExplo:
 		Spread: 1c0
 		Damage: 10000
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
-		InvalidTargets: Air
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
@@ -460,7 +471,7 @@ CasingDebris:
 	Warhead@: CreateEffect
 		Explosions: casingscorch, casingscorch2, casingscorch3, casingscorch4, casingscorch5, casingscorch6, casingscorch7
 		ExplosionPalette: effect
-	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Air
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Air
 		InvalidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piffs

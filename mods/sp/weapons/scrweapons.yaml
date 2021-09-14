@@ -90,27 +90,12 @@ ColossiShard:
 ColossiBlast:
 	ReloadDelay: 5
 	Range: 8c0
-	Warhead@op: FireRadius
-		Weapon: ColossiBlastEnergy
-		ImpactActors: false
-		Amount: 3
 	Warhead@8Radio: CreateTintedCells
 		Spread: 1c128
 		Level: 30
 		Falloff: 100, 85, 60, 45, 30, 15
 		LayerName: ColossusRadiation
 
-ColossiBlastEnergy:
-	ReloadDelay: 80
-	Range: 2c128
-	Projectile: InstantHit
-		Inaccuracy: 4c0
-	Warhead@smoke: CreateEffect
-		Explosions: wrecksmoke, wrecksmoke2, wrecksmoke3
-		ExplosionPalette: gradientblue30
-	Warhead@2Eff: CreateEffect
-		Explosions: sparks
-		ExplosionPalette: gradientblue
 
 MindWave: ## Used for IFV
 	Inherits: ^ArtilleryWarhead
@@ -419,7 +404,8 @@ foggydebuff:
 		Condition: Blind
 		ValidTargets: Infantry, Vehicle, Ground, Water
 
-TripodBlast:
+## unused for now
+blackBlast:
 	Inherits: ^RifleWarhead
 	ReloadDelay: 80
 	Range: 7c0
@@ -448,13 +434,13 @@ TripodBlast:
 	Warhead@later: FireFragment
 		Delay: 25
 		ImpactActors: false
-		Weapon: TripodBlastFinal
+		Weapon: blackBlastFinal
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
 
-TripodBlastFinal:
+blackBlastFinal:
 	Inherits: ^RifleWarhead
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
@@ -480,6 +466,124 @@ TripodBlastFinal:
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Range: 512
 		Duration: 750
+
+AnhTripodLaser:
+	Inherits: ^RifleWarhead
+	ReloadDelay: 33
+	Burst: 3
+	BurstDelays: 13
+	Range: 7c0
+	Report: triplasor0000.wav, triplasor0001.wav, triplasor0002.wav
+	Projectile: LaserZap
+		TrackTarget: false
+		Duration: 11
+		Width: 15
+		ZOffset: 3048
+		Color: FF00FF
+		SecondaryBeam: true
+		SecondaryBeamWidth: 96
+		SecondaryBeamZOffset: 3047
+		SecondaryBeamColor: 5588FF88
+		HitAnim: explosion
+		HitAnimSequence: tripodlaserflare
+		HitAnimPalette: scrinenergystuffs
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c181
+		Damage: 5800
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 75
+			VehicleArmor: 75
+			DefenseArmor: 75
+			ConcreteArmor: 70
+		DamageTypes: Prone70Percent, TriggerProne, FireDeath, ScrinEssenceKill
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall
+
+AnhTripodLaserCharged:
+	Inherits: AnhTripodLaser
+	Projectile: LaserZap
+		TrackTarget: false
+		Duration: 11
+		Width: 96
+		ZOffset: 3047
+		Color: 00FF0084
+		SecondaryBeam: true
+		SecondaryBeamWidth: 18
+		SecondaryBeamZOffset: 3048
+		SecondaryBeamColor: 88AAFF
+		HitAnim: explosion
+		HitAnimSequence: tripodlaserflare
+		HitAnimPalette: gradientgreen
+	Warhead@1Dam: SpreadDamage
+		Damage: 8000
+		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill 
+
+AnhTripodAbsorb:
+	Range: 8c0
+	ValidTargets: Ground, Air, Water
+	ReloadDelay: 3
+	Warhead@op: FireRadius
+		Weapon: AbsorbShrapnel
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
+		Amount: 3
+
+AbsorbShrapnel:
+	Range: 1c756
+	ValidTargets: Ground, Air, Water
+	Projectile: InstantHit
+		Inaccuracy: 3c512
+	Warhead@greenback: BackFireShrapnel
+		ValidTargets:  Tiberium
+		Weapon: ShardGreenBack
+		ImpactActors: false
+	Warhead@blueback: BackFireShrapnel
+		ValidTargets:  BlueTiberium
+		Weapon: ShardBlueBack
+		ImpactActors: false
+	Warhead@2DR: DestroyResource
+		Size: 0
+		ResourceAmount: 1
+		ResourceTypes: BlueTiberium, Tiberium
+		ValidTargets: BlueTiberium, Tiberium
+
+
+ShardGreenBack:
+	TargetActorCenter: true
+	ValidTargets: Ground, Air, Water
+	Projectile: MissileTA
+		CruiseAltitude: 6000
+		Acceleration: 0
+		MinimumLaunchAngle: 255
+		MaximumLaunchAngle: 255
+		Image: CRYSTAL4
+		Palette: apgreen
+		HorizontalRateOfTurn: 32
+		Arm: 0
+		Speed: 200
+		Inaccuracy: 0c0
+		Blockable: false
+		TerrainHeightAware: true
+		AllowSnapping: true
+		ExplodeUnderThisAltitude: -3c0
+		RangeLimit: 40c0
+		Gravity: 0
+	Warhead@charge: GrantExternalCondition
+		Range: 0c256
+		Duration: 1
+		Condition: charge
+		ValidRelationships: Ally
+		AffectsParent: true
+		ValidTargets: Ground, Air, Water
+
+ShardBlueBack:
+	Inherits: ShardGreenBack
+	Projectile: MissileTA
+		Palette: apblue
+	Warhead@charge: GrantExternalCondition
+		Duration: 2
 
 StormRiderBlast:
 	Inherits: ^FullDamage
