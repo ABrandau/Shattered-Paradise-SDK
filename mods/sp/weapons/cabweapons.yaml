@@ -57,7 +57,7 @@ LimpetMissile:
 			VehicleArmor: 100
 		ValidTargets: Ground, Water
 		InvalidTargets: Building, Wall
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 
 SentryGun:
 	Inherits: ^FullDamage
@@ -71,7 +71,7 @@ SentryGun:
 		Palette: effect
 	Warhead@1Dam: SpreadDamage
 		Damage: 1200
-		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
+		DamageTypes: Prone70Percent, TriggerProne, CabalDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: small_grey_explosion
 		ExplosionPalette: effect
@@ -84,7 +84,7 @@ SentinelGun:
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
-		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
+		DamageTypes: Prone70Percent, TriggerProne, CabalDeath
 
 ReaperWeb:
 	ReloadDelay: 250
@@ -202,7 +202,7 @@ LurkerHit:
 			AircraftArmor: 100
 			ConcreteArmor: 5
 		ValidRelationships: Enemy, Neutral
-		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
+		DamageTypes: Prone100Percent, TriggerProne, CabalDeath
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: playercab
 		Explosions: lurkertentacle
@@ -394,7 +394,7 @@ DroneHostMissile:
 		Spread: 1
 		Damage: 1
 		ValidTargets: Ground, Water
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@1: FireFragment
 		Weapon: DroneHostShell
 		ImpactActors: false
@@ -423,7 +423,7 @@ DroneHostShell:
 		Spread: 350
 		Damage: 1000
 		ValidTargets: Ground, Water, Vehicle, Infantry, water
-		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
+		DamageTypes: Prone70Percent, TriggerProne, CabalDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: small_grey_explosion
 		ExplosionPalette: effect
@@ -473,7 +473,7 @@ PalaLazor:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 6000
-		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
 PalaLazorMute:
 	Inherits: PalaLazor
@@ -502,7 +502,7 @@ WaspBullet:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 3000
-		DamageTypes: Prone60Percent, TriggerProne, BulletDeath
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		InvalidTargets: Air
 	Warhead@3EffWater: CreateEffect
@@ -570,7 +570,7 @@ BasiliskBomb:
 			VehicleArmor: 25
 			DefenseArmor: 25
 			ConcreteArmor: 15
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		DamageTypes: Prone70Percent, TriggerProne, FireDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: firestormballexp
 		ExplosionPalette: gensmkexplojFblue
@@ -641,7 +641,7 @@ CabJetMiniBomb:
 			DefenseArmor: 10
 			ConcreteArmor: 1
 		ValidTargets: Ground, Water, Building, Infantry, Vehicle
-		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: small_clsn
 		ExplosionPalette: effectalpha75
@@ -675,7 +675,7 @@ BlasterProton:
 			DefenseArmor: 50
 			VehicleArmor: 100
 		ValidTargets: Ground, Water, Vehicle, Infantry
-		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
 CABRAILAA:
 	ReloadDelay: 50
@@ -733,7 +733,7 @@ CoreDefLazer1R:
 		Damage: 1200
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building
 		InvalidTargets: Air
-		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 	Warhead@1Eff_impact: CreateEffect
 		Explosions: laserscorch
 		ExplosionPalette: gradientgray
@@ -798,7 +798,7 @@ CoreDefenderCannon:
 		Spread: 526
 		Damage: 15000
 		ValidTargets: Ground, Water
-		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
 	Warhead@3Eff: CreateEffect
@@ -867,7 +867,7 @@ CoreDefSuper:
 		Damage: 10000
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building
 		InvalidTargets: Air
-		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
@@ -896,7 +896,7 @@ BlackCDefLazer1:
 		Falloff: 100, 100, 50
 		Damage: 17500
 		Spread: 384
-		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Range: 1c0
 
@@ -938,8 +938,7 @@ BlackCDefCannon:
 			DefenseArmor: 50
 			VehicleArmor: 100
 		ValidTargets: Ground, Water, Vehicle, Infantry
-		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
-
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
 BlackCDefArtillery:
 	Inherits: ^FullDamage
@@ -969,7 +968,7 @@ BlackCDefArtillery:
 			DefenseArmor: 50
 			VehicleArmor: 100
 		ValidTargets: Ground, Water, Vehicle, Infantry
-		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: boltexplo
 		ExplosionPalette: gensmkexplogreen

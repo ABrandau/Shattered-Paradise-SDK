@@ -244,7 +244,7 @@ TrooperRail:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 6000
-		DamageTypes: Prone60Percent, TriggerProne, BulletDeath
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		Versus:
 			InfantryArmor: 50
 			ConcreteArmor: 15
@@ -400,7 +400,7 @@ JuggCannon:
 		Damage: 5500
 		Versus:
 			InfantryArmor: 150
-		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 
 
 JuggCannonShellCasing:
@@ -439,7 +439,7 @@ SonicZap:
 			DefenseArmor: 80
 			ConcreteArmor: 15
 			Disruptor: 30
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Dam: SpreadDamage
 		Range: 0, 48
 		Falloff: 50, 50
@@ -452,7 +452,7 @@ SonicZap:
 			DefenseArmor: 80
 			ConcreteArmor: 15
 			Disruptor: 30
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 
 4TNKGUN:
 	Inherits: ^APWarhead
@@ -493,6 +493,7 @@ MammothTusk:
 	Warhead@1Dam: SpreadDamage
 		Damage: 3500
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
 MammothTuskAA:
 	Inherits: MammothTusk
@@ -505,7 +506,7 @@ MammothTuskAA:
 
 MechRailgun: ##For hit effect
 	Inherits: ^Large_Clsn
-	Inherits@2:  ^WeaponGenericUpgrades
+	Inherits@2: ^WeaponGenericUpgrades
 	FirstBurstTargetOffset: 0,-150,0
 	FollowingBurstTargetOffset: 0,300,0
 	ReloadDelay: 100
@@ -527,10 +528,10 @@ MechRailgun: ##For hit effect
 			ConcreteArmor: 25
 			Shield: 0
 		ValidRelationships: Ally
-		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 
 MechRailgun2:
-	Inherits:  ^WeaponGenericUpgrades
+	Inherits: ^WeaponGenericUpgrades
 	FirstBurstTargetOffset: 0,-150,0
 	FollowingBurstTargetOffset: 0,300,0
 	ReloadDelay: 100
@@ -562,7 +563,7 @@ MechRailgun2:
 			DefenseArmor: 100
 			ConcreteArmor: 25
 			Shield: 0
-		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 		ValidRelationships: Neutral, Enemy
 
 MKIITusk:
@@ -666,25 +667,25 @@ OBBombFrontal:
 		Versus:
 			VehicleArmor: 100
 		ValidTargets: Ground, Water, Building, Infantry, Vehicle
-		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Range: 256
 
 VulcanTower:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
-	ReloadDelay: 26
+	ReloadDelay: 25
 	Burst: 2
 	Range: 6c768
 	StartBurstReport: chaingn1.aud
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 VulcanTowerCasing:
 	Inherits: ^BulletCasing
-	ReloadDelay: 27
+	ReloadDelay: 26
 	BurstDelays: 2
 	Burst: 3
 	Range: 6c768
@@ -692,7 +693,7 @@ VulcanTowerCasing:
 
 VulcanTowerLine:
 	Inherits: ^LineProjectile
-	ReloadDelay: 27
+	ReloadDelay: 26
 	BurstDelays: 2
 	Burst: 3
 	Range: 6c768
@@ -726,7 +727,7 @@ RPGTower:
 		-TrailPalette:
 	Warhead@1Dam: SpreadDamage
 		Damage: 8000
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
 RepairGun:
 	ReloadDelay: 60
