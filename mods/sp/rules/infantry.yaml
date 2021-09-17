@@ -48,7 +48,7 @@ GRENADIER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 12000
+		HP: 15000
 	Armament@1:
 		Weapon: GrenadierBazooka
 		LocalOffset: 0,0,600
@@ -133,7 +133,7 @@ E2:
 	Health:
 		HP: 20000
 	Mobile:
-		Speed: 70
+		Speed: 75
 	Voiced:
 		VoiceSet: Marine
 	Armament:
@@ -264,7 +264,7 @@ JUMPJETAIR:
 		RequiresCondition: cruising
 	Aircraft:
 		TurnSpeed: 40
-		Speed: 130
+		Speed: 135
 		AirborneCondition: airborne
 		CruisingCondition: cruising
 		CruiseAltitude: 3c1021
@@ -321,14 +321,14 @@ EAGLEGUARD:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: Elite Soldier armed with an EMP rifle.\n\nGood vs: Vehicles.\n\nSpecial:\n- Does not receive damage from tiberium fields.\n- Disables vehicles and buildings for a short time\n- Crush class: uncrushable
+		Description: Elite Soldier armed with an EMP rifle.\n\nGood vs: Vehicles\n\nSpecial:\n- Does not receive damage from tiberium fields\n- Disables vehicles and buildings for a short time\n- Crush class: uncrushable
 		Queue: Infantry
 		BuildPaletteOrder: 24
 		Prerequisites: ~gapile, gatech, ~techlevel.5
 	Voiced:
 		VoiceSet: Ghost
 	Mobile:
-		Speed: 50
+		Speed: 60
 	Health:
 		HP: 40000
 	-DamagedByTerrain:
@@ -482,7 +482,7 @@ JJCOMMAIR:
 		RequiresCondition: cruising
 	Aircraft:
 		TurnSpeed: 40
-		Speed: 130
+		Speed: 135
 		AirborneCondition: airborne
 		CruisingCondition: cruising
 		CruiseAltitude: 3c1021
@@ -549,7 +549,7 @@ ALTNODE1:
 	Health:
 		HP: 10000
 	Mobile:
-		Speed: 70
+		Speed: 75
 	-TakeCover:
 	Armament:
 		Weapon: MilitantRifle
@@ -582,7 +582,7 @@ CRUSADER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 8000
+		HP: 10000
 	Armament@1:
 		Weapon: CrusaderBazooka
 		LocalOffset: 0,0,600
@@ -632,7 +632,7 @@ TEMPLAR:
 		VoiceSet: Templar
 		Volume: 5
 	Mobile:
-		Speed: 70
+		Speed: 75
 	Armament@1:
 		Weapon: TemplarFlame
 		LocalOffset: 200,50,320
@@ -684,7 +684,7 @@ NCONF:
 	Health:
 		HP: 20000
 	Mobile:
-		Speed: 70
+		Speed: 75
 	Armament@1:
 		Weapon: BlackHandLasor
 		LocalOffset: 800,100,778
@@ -829,7 +829,7 @@ MARAUDER:
 		AddToArmyValue: true
 	Voiced:
 		VoiceSet: Marauder
-		Volume: 7
+		Volume: 5
 	Health:
 		HP: 10000
 	AutoTarget:
@@ -944,9 +944,9 @@ MUTFIEND:
 	Valued:
 		Cost: 250
 	Health:
-		HP: 11000
+		HP: 10000
 	Mobile:
-		Speed: 80
+		Speed: 90
 		Locomotor: TibFiends
 	Voiced:
 		VoiceSet: Fiend
@@ -1247,7 +1247,7 @@ LEGIO:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 10000
+		HP: 12000
 	Passenger:
 		CustomPipType: blue
 	TakeCover:
@@ -1359,7 +1359,7 @@ BUG:
 		HP: 30000
 	-Crushable:
 	Mobile:
-		Speed: 70
+		Speed: 75
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
 		Probability: 100
@@ -1596,7 +1596,7 @@ CABSENTRY:
 	Targetable:
 		TargetTypes: Ground, Infantry, Summoned
 	Mobile:
-		Speed: 50
+		Speed: 60
 		Locomotor: HeavyInfantry
 	KillsSelf@TimedLife:
 		Delay: 250
@@ -1631,7 +1631,7 @@ CYBORG:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
 	Valued:
-		Cost: 300
+		Cost: 250
 	Tooltip:
 		Name: Cyborg Infantry
 	UpdatesPlayerStatistics:
@@ -1642,7 +1642,7 @@ CYBORG:
 		Description: Durable cyborg construct.\n\nGood vs: Infantry.\n\nSpecial:\n- Does not receive damage from tiberium fields.\n- Loses its legs on critical health.\n- Crush class: uncrushable.
 		Prerequisites: ~cabclaw, ~techlevel.1
 	Mobile:
-		Speed: 50
+		Speed: 45
 	Selectable:
 		Bounds: 664,1568,-30,-543
 		DecorationBounds: 784,2110,0,-603
@@ -1670,7 +1670,7 @@ CBORG:
 	Inherits@RENDER: ^CabRender
 	Inherits@VISION: ^6CellVision
 	Valued:
-		Cost: 400
+		Cost: 350
 	Tooltip:
 		Name: Missile Cyborg
 	UpdatesPlayerStatistics:
@@ -1682,11 +1682,11 @@ CBORG:
 		Prerequisites: ~cabclaw, ~techlevel.1
 		IconPalette: UnittemIcon
 	Health:
-		HP: 24000
+		HP: 25000
 	Voiced:
 		VoiceSet: Cyborg
 	Mobile:
-		Speed: 50
+		Speed: 45
 	Armament@1:
 		Weapon: CyborgRocket
 		LocalOffset: 424,198,1086
@@ -1766,7 +1766,7 @@ PDRONE:
 	Hovers:
 		RequiresCondition: !WebDisable
 	Mobile:
-		Speed: 80
+		Speed: 90
 		Locomotor: HoverInfantry
 	Health:
 		HP: 11000
@@ -1816,7 +1816,7 @@ GLAD:
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^6CellVision
 	Valued:
-		Cost: 750
+		Cost: 700
 	Tooltip:
 		Name: Gladiator
 	UpdatesPlayerStatistics:
@@ -1832,7 +1832,7 @@ GLAD:
 		CustomPipType: blue
 	WithMuzzleOverlay:
 	Mobile:
-		Speed: 50
+		Speed: 45
 		Locomotor: HeavyInfantry
 	Health:
 		HP: 50000
@@ -1913,7 +1913,7 @@ MOTH:
 	Hovers:
 		RequiresCondition: !deployed && !WebDisable
 	Mobile:
-		Speed: 100
+		Speed: 105
 		Locomotor: HoverInfantry
 		PauseOnCondition: WebDisable
 		RequireForceMoveCondition: !AImicroManage && !undeployed
@@ -2031,7 +2031,7 @@ CYC2:
 	AnnounceOnSeen:
 		Notification: CommandoDetected
 	Mobile:
-		Speed: 50
+		Speed: 45
 	Health:
 		HP: 100000
 	-Targetable@MC:

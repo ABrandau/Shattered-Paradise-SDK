@@ -24,7 +24,7 @@ ORCA:
 		Bounds: 903,1447
 	Aircraft:
 		TurnSpeed: 56
-		Speed: 170
+		Speed: 180
 		MoveIntoShroud: true
 		TakeoffSounds: orcaup1.aud
 		LandingSounds: orcadwn1.aud
@@ -96,7 +96,7 @@ ORCAB:
 		MaximumPitch: 120
 		AltitudeVelocity: 200
 		TurnSpeed: 20
-		Speed: 130
+		Speed: 150
 		IdleTurnSpeed: 10
 		IdleSpeed: 65
 		AirborneCondition: airborne
@@ -267,7 +267,7 @@ APACHE:
 		Bounds: 903,1447
 	Aircraft:
 		TurnSpeed: 28
-		Speed: 150
+		Speed: 165
 		MoveIntoShroud: true
 	Health:
 		HP: 15000
@@ -351,7 +351,7 @@ SCRIN:
 	Aircraft:
 		MaximumPitch: 90
 		TurnSpeed: 40
-		Speed: 170
+		Speed: 180
 		IdleTurnSpeed: 10
 		IdleSpeed: 85
 		AirborneCondition: airborne
@@ -569,7 +569,7 @@ MUTHELI:
 		Bounds: 903,1447
 	Aircraft:
 		TurnSpeed: 28
-		Speed: 150
+		Speed: 165
 		MoveIntoShroud: true
 	Health:
 		HP: 15000
@@ -622,6 +622,82 @@ MUTHELI:
 		EmptySequence: pip-ammoempty
 		Palette: pips
 
+MUTQUEEN:
+	Inherits: ^CombatHelicopter
+	Inherits@1: ^SpriteActor
+	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^MutRender
+	Inherits@VISION: ^9CellVision
+	Inherits@SHADOW: ^AircraftShadow
+	Inherits@AImicroManagable: ^AImicroManagable
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Queen
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Air
+		Description: Harasser with eggs.\n\nGood vs: Vehicles, Buildings\n\nSpecial:\n- Can mutate killed enemy units\n- Lays eggs via deploy which later hatch as crabs that are hostile to anyone
+		BuildPaletteOrder: 18
+		Prerequisites: ~muair, ~techlevel.4
+	Selectable:
+		Bounds: 903,1447
+	Voiced:
+		VoiceSet: Queen
+	Aircraft:
+		TurnSpeed: 40
+		Speed: 150
+		Repulsable: true
+		MoveIntoShroud: true
+		IdealSeparation: 1c0
+	-Rearmable:
+	Targetable@GROUND:
+		TargetTypes: Vehicle, OrganicVehicle, NoRepair, Ground
+		RequiresCondition: !airborne
+	Targetable@AIRBORNE:
+		TargetTypes: Air, OrganicVehicle, NoRepair
+		RequiresCondition: airborne
+	Health:
+		HP: 10000
+	WithFacingSpriteBody:
+		Sequence: run
+	BodyOrientation:
+		QuantizedFacings: 8
+	GrantTimedConditionOnDeploy:
+		DeployedCondition: deployed
+		CooldownTicks: 4500
+		DeployedTicks: 15
+		StartsFullyCharged: true
+	ExplodeWeapon:
+		Weapon: EggElevator
+		RequiresCondition: deployed
+	AttackAircraft:
+		AttackType: Hover
+		FacingTolerance: 40
+	Armament@1:
+		Weapon: QueenTooth
+		LocalOffset: 200, 0, -600
+	-GrantConditionOnDamageState@HeavyDamaged:
+	-ExplodeWeapon@spawnsparks:
+	-SmokeParticleEmitter@spawnsmoke:
+	-Explodes@Shrapnel:
+	Explodes:
+		Weapon: QueenExplode
+		EmptyWeapon: QueenExplode
+	Explodes@AImicroManage:
+		RequiresCondition: AImicroManage
+		Weapon: SpawnEggShrapnelE
+		EmptyWeapon: SpawnEggShrapnelE
+
+MUTBIRD:
+	Inherits@3: MUTQUEEN
+	Tooltip:
+		Name: Seeder Bird
+	-Buildable:
+
 WETP:
 	Inherits: ^CombatPlane
 	Inherits@AMMO: ^UsesAmmunition
@@ -647,7 +723,7 @@ WETP:
 		MaximumPitch: 120
 		TurnSpeed: 30
 		IdleTurnSpeed: 10
-		Speed: 150
+		Speed: 165
 		IdleSpeed: 75
 		VTOL: true
 		AirborneCondition: airborne
@@ -724,82 +800,6 @@ WETP:
 		Reject: Move, Attack, ReturnToBase
 		RequiresCondition: AImicroManage && ammo && attacking
 
-MUTQUEEN:
-	Inherits: ^CombatHelicopter
-	Inherits@1: ^SpriteActor
-	Inherits@SELFHEAL: ^PermanentSelfHeal
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@RENDER: ^MutRender
-	Inherits@VISION: ^9CellVision
-	Inherits@SHADOW: ^AircraftShadow
-	Inherits@AImicroManagable: ^AImicroManagable
-	Valued:
-		Cost: 900
-	Tooltip:
-		Name: Queen
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Buildable:
-		Queue: Air
-		Description: Harasser with eggs.\n\nGood vs: Vehicles, Buildings\n\nSpecial:\n- Can mutate killed enemy units\n- Lays eggs via deploy which later hatch as crabs that are hostile to anyone
-		BuildPaletteOrder: 18
-		Prerequisites: ~muair, ~techlevel.4
-	Selectable:
-		Bounds: 903,1447
-	Voiced:
-		VoiceSet: Queen
-	Aircraft:
-		TurnSpeed: 40
-		Speed: 140
-		Repulsable: true
-		MoveIntoShroud: true
-		IdealSeparation: 1c0
-	-Rearmable:
-	Targetable@GROUND:
-		TargetTypes: Vehicle, OrganicVehicle, NoRepair, Ground
-		RequiresCondition: !airborne
-	Targetable@AIRBORNE:
-		TargetTypes: Air, OrganicVehicle, NoRepair
-		RequiresCondition: airborne
-	Health:
-		HP: 10000
-	WithFacingSpriteBody:
-		Sequence: run
-	BodyOrientation:
-		QuantizedFacings: 8
-	GrantTimedConditionOnDeploy:
-		DeployedCondition: deployed
-		CooldownTicks: 4500
-		DeployedTicks: 15
-		StartsFullyCharged: true
-	ExplodeWeapon:
-		Weapon: EggElevator
-		RequiresCondition: deployed
-	AttackAircraft:
-		AttackType: Hover
-		FacingTolerance: 40
-	Armament@1:
-		Weapon: QueenTooth
-		LocalOffset: 200, 0, -600
-	-GrantConditionOnDamageState@HeavyDamaged:
-	-ExplodeWeapon@spawnsparks:
-	-SmokeParticleEmitter@spawnsmoke:
-	-Explodes@Shrapnel:
-	Explodes:
-		Weapon: QueenExplode
-		EmptyWeapon: QueenExplode
-	Explodes@AImicroManage:
-		RequiresCondition: AImicroManage
-		Weapon: SpawnEggShrapnelE
-		EmptyWeapon: SpawnEggShrapnelE
-
-MUTBIRD:
-	Inherits@3: MUTQUEEN
-	Tooltip:
-		Name: Seeder Bird
-	-Buildable:
-
 ^ScrinAircraftGeneric:
 	Inherits@RENDER: ^ScrinRender
 	Inherits@SHADOW: ^AircraftShadow
@@ -834,7 +834,7 @@ STORMRIDER:
 	Aircraft:
 		MaximumPitch: 90
 		TurnSpeed: 40
-		Speed: 170
+		Speed: 180
 		IdleTurnSpeed: 10
 		IdleSpeed: 85
 		AirborneCondition: airborne
@@ -897,7 +897,7 @@ DRACHE:
 		HP: 60000
 	Aircraft:
 		TurnSpeed: 12
-		Speed: 50
+		Speed: 60
 		AltitudeVelocity: 150
 		MoveIntoShroud: true
 		TakeOffOnCreation: false
@@ -948,7 +948,7 @@ SCRGLYDER1:
 		IntoActor: scrglyder2
 	Aircraft:
 		TurnSpeed: 32
-		Speed: 140
+		Speed: 150
 		Repulsable: true
 		MoveIntoShroud: true
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium, Water
@@ -1080,7 +1080,7 @@ SCRTRANS:
 		Bounds: 2709,3015
 	Aircraft:
 		TurnSpeed: 40
-		Speed: 150
+		Speed: 165
 		Repulsable: true
 		IdealSeparation: 1706
 		MoveIntoShroud: true
@@ -1388,7 +1388,7 @@ WASP:
 		Bounds: 1206,1809
 	Aircraft:
 		TurnSpeed: 28
-		Speed: 130
+		Speed: 150
 		Repulsable: true
 		MoveIntoShroud: true
 	-Rearmable:
@@ -1540,7 +1540,7 @@ DEVOURER:
 	Aircraft:
 		AltitudeVelocity: 150
 		TurnSpeed: 24
-		Speed: 35
+		Speed: 45
 		CruiseAltitude: 1c0
 		Repulsable: true
 		IdealSeparation: 1706

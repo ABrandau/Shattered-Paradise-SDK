@@ -18,7 +18,7 @@ SMECH:
 		Prerequisites: ~gaweap, ~techlevel.2
 	Mobile:
 		TurnSpeed: 60
-		Speed: 100
+		Speed: 105
 		Locomotor: Vehicle
 	Health:
 		HP: 12000
@@ -64,8 +64,8 @@ MMCH:
 		VoiceSet: Titan
 		Volume: 2
 	Mobile:
-		TurnSpeed: 24
-		Speed: 80
+		TurnSpeed: 32
+		Speed: 75
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 45000
@@ -75,7 +75,7 @@ MMCH:
 	WithInfantryBody:
 		RequiresCondition: !inside-tunnel
 	Turreted:
-		TurnSpeed: 24
+		TurnSpeed: 32
 	AttackTurreted:
 		PauseOnCondition: empdisable
 	WithSpriteTurret:
@@ -181,7 +181,7 @@ HVR:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^8CellVision
 	Valued:
-		Cost: 900
+		Cost: 1000
 	Tooltip:
 		Name: Hover MLRS
 	UpdatesPlayerStatistics:
@@ -193,7 +193,7 @@ HVR:
 		BuildPaletteOrder: 22
 		Prerequisites: ~gaweap, garadr, ~techlevel.4
 	Mobile:
-		Speed: 115
+		Speed: 120
 		TurnSpeed: 40
 		Locomotor: Hover
 		CanMoveBackward: true
@@ -236,8 +236,8 @@ JUG:
 		BuildPaletteOrder: 29
 		Prerequisites: ~gaweap, gatech, ~techlevel.5
 	Mobile:
-		TurnSpeed: 24
-		Speed: 80
+		TurnSpeed: 32
+		Speed: 75
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 25000
@@ -285,7 +285,7 @@ SONIC:
 		Prerequisites: ~gaweap, gatech, ~techlevel.5
 	Mobile:
 		TurnSpeed: 24
-		Speed: 65
+		Speed: 60
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 55000
@@ -328,7 +328,7 @@ G4TNK:
 		BuildPaletteOrder: 31
 		Prerequisites: ~gaweap, gatech, ~techlevel.5
 	Mobile:
-		Speed: 65
+		Speed: 60
 		TurnSpeed: 20
 		Locomotor: InfantryCrusherVehicle
 	Health:
@@ -563,7 +563,7 @@ BGGY:
 		Volume: 2
 	Mobile:
 		TurnSpeed: 40
-		Speed: 130
+		Speed: 135
 		Locomotor: Vehicle
 	Turreted:
 		Offset: -250,0,400
@@ -917,7 +917,7 @@ ATTACKBIKE:
 		Volume: 2
 	Mobile:
 		TurnSpeed: 40
-		Speed: 130
+		Speed: 135
 		Locomotor: Vehicle
 	Health:
 		HP: 15000
@@ -1131,7 +1131,7 @@ BIKE:
 	-ActorLostNotification:
 	Mobile:
 		TurnSpeed: 40
-		Speed: 110
+		Speed: 120
 		Locomotor: Vehicle
 	Armor@Bike:
 		Type: Bike
@@ -1191,7 +1191,7 @@ SAPC:
 		Description: Troop transport that can move underground.\n\nSpecial:\n- Can move underground.\n- Can transport up to 5 infantry.\n- Can crush infantry.\n- Once burrowed and en route to its destination, the only order it can receive is to surface
 	Mobile:
 		TurnSpeed: 20
-		Speed: 100
+		Speed: 90
 		PauseOnCondition: empdisable || loading
 	Health:
 		HP: 20000
@@ -1233,7 +1233,7 @@ SUBTANK:
 		Volume: 2
 	Mobile:
 		TurnSpeed: 32
-		Speed: 100
+		Speed: 90
 	Health:
 		HP: 30000
 	Armament:
@@ -1276,7 +1276,7 @@ HOWTLIZER:
 	Health:
 		HP: 12000
 	Mobile:
-		Speed: 70
+		Speed: 75
 		TurnSpeed: 20
 		Locomotor: InfantryCrusherVehicle
 	-ExternalCondition@crate-cloak:
@@ -1327,7 +1327,7 @@ STNK:
 		Description: Hit-and-run tank armed with twin dragon TOW missiles and a cloaking device.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Stealthed\n- Can attack air\n- Can shoot over walls\n- Can crush infantry\n- Cloaking malfunctions when at red hp
 	Mobile:
 		TurnSpeed: 48
-		Speed: 100
+		Speed: 105
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 20000
@@ -1660,7 +1660,7 @@ STRUCK:
 		Prerequisites: ~muweap, murax, ~techlevel.2, ~!AIOnly
 	Mobile:
 		TurnSpeed: 24
-		Speed: 95
+		Speed: 90
 		Locomotor: Vehicle
 	Health:
 		HP: 25000
@@ -1773,7 +1773,7 @@ WOLF:
 	Health:
 		HP: 20000
 	Mobile:
-		Speed: 110
+		Speed: 105
 		Locomotor: TibVeCritter
 
 MRLS:
@@ -1853,7 +1853,7 @@ DEATHCLAW:
 	Health:
 		HP: 70000
 	Mobile:
-		Speed: 100
+		Speed: 105
 		Locomotor: TibVeCritter
 	Armament:
 		Weapon: RavagerStrike
@@ -2088,7 +2088,7 @@ WEASAUSMALL:
 	Health:
 		HP: 40000
 	Mobile:
-		Speed: 130
+		Speed: 120
 		Locomotor: TibVeCritter
 	Armament:
 		Weapon: WeasaurusStrikeSmall
@@ -2179,7 +2179,7 @@ CENTURION:
 		Prerequisites: ~cabweap, ~techlevel.2
 	Mobile:
 		TurnSpeed: 20
-		Speed: 70
+		Speed: 75
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 50000
@@ -2242,7 +2242,7 @@ REAPERCAB:
 		Bounds: 1206,2412,0,-603
 	Mobile:
 		TurnSpeed: 56
-		Speed: 100
+		Speed: 105
 		Locomotor: Vehicle
 	Explodes:
 		Weapon: UnitExplodeSmall
@@ -2298,7 +2298,7 @@ LIMPED:
 	Health:
 		HP: 10000
 	Mobile:
-		Speed: 115
+		Speed: 120
 		TurnSpeed: 1023
 		Locomotor: Hover
 		RequireForceMoveCondition: !AImicroManage && !undeployed
@@ -2409,7 +2409,7 @@ REPAIRVEHICLE:
 	Health:
 		HP: 20000
 	Mobile:
-		Speed: 70
+		Speed: 75
 		TurnSpeed: 28
 		Locomotor: InfantryCrusherVehicle
 	Armament@1:
@@ -2446,7 +2446,7 @@ CABAPC:
 	Mobile:
 		TurnSpeed: 40
 		CanMoveBackward: true
-		Speed: 115
+		Speed: 120
 		Locomotor: Hover
 	Voiced:
 		VoiceSet: Limpet
@@ -2542,8 +2542,8 @@ PALADIN:
 		Description: Advanced Walker armed with a twin laser cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Can shoot over walls\n- Can crush infantry
 		Prerequisites: ~cabweap, cabtech, ~techlevel.5
 	Mobile:
-		TurnSpeed: 36
-		Speed: 80
+		TurnSpeed: 48
+		Speed: 75
 		Locomotor: InfantryCrusherVehicle
 	ChangesHealth@Permanent:
 		DamageCooldown: 0
@@ -2727,7 +2727,7 @@ CORRUPTOR:
 		Prerequisites: ~scrweap, ~techlevel.2
 	Mobile:
 		TurnSpeed: 24
-		Speed: 70
+		Speed: 75
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 30000
@@ -2776,7 +2776,7 @@ SCRMBT:
 	Mobile:
 		TurnSpeed: 20
 		CanMoveBackward: true
-		Speed: 100
+		Speed: 105
 		Locomotor: Hover
 	Turreted:
 		TurnSpeed: 24
@@ -2870,7 +2870,7 @@ SCRGLYDER2:
 	Mobile:
 		TurnSpeed: 40
 		CanMoveBackward: true
-		Speed: 115
+		Speed: 120
 		Locomotor: Hover
 	Transforms:
 		PauseOnCondition: inside-tunnel || mindcontrolled
@@ -2930,8 +2930,8 @@ SCRRECHARGER:
 		Description: Mobile shield generator.\n\nSpecial:\n- Generates shields around nearby friendly units.\n- Shields protect from all damage until the unit is hit 4 times.\n- Does not protect against super weapons.\n- Absorbs essence from killed enemies to heal.\n- Can Crush infantry.\n- Cannot apply shields to aircraft.
 		Prerequisites: ~scrweap, scrtech, ~techlevel.5
 	Mobile:
-		TurnSpeed: 28
-		Speed: 80
+		TurnSpeed: 24
+		Speed: 75
 		Locomotor: Vehicle
 	Health:
 		HP: 20000
@@ -3070,7 +3070,7 @@ TRIPOD:
 		IconPalette: chromescrin
 	Mobile:
 		TurnSpeed: 24
-		Speed: 80
+		Speed: 75
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 50000
