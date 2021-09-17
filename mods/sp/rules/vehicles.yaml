@@ -3084,7 +3084,9 @@ TRIPOD:
 	AutoTarget:
 	Armament@primary1:
 		Weapon: AnhTripodLaser
-		LocalOffset: 700,0,4500, 1300,580,3700, 1050,-490,4100
+		#LocalOffset: 700,0,4500, 1300,580,3700, 1050,-490,4100  #scale=100
+		#LocalOffset: 595,0,3825, 1105,493,3145, 893,-417,3485 #scale=85
+		LocalOffset: 637,0,4095, 1183,528,3367, 956,-446,3731 #scale=91
 		MuzzlePalette: scrinenergystuffs
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable || charged || reload2
@@ -3118,7 +3120,7 @@ TRIPOD:
 		PipCount: 4
 	Armament@charged:
 		Weapon: AnhTripodLaserCharged
-		LocalOffset: 700,0,4500, 1300,580,3700, 1050,-490,4100
+		LocalOffset: 637,0,4095, 1183,528,3367, 956,-446,3731 #scale=91
 		Name: secondary
 		PauseOnCondition: empdisable || !charged || reload1
 		ReloadingCondition: reload2
@@ -3129,11 +3131,11 @@ TRIPOD:
 		QuantizedFacings: 8
 		CameraPitch: 250
 	SmokeParticleEmitter@spawnsmoke:
-		Offset: 0,0,3000
+		Offset: 0,0,2700
 	RenderSprites:
 		Image: anhltrpd
 	ExplodeWeapon@spawnsparks:
-		LocalOffset: 0,0,3000
+		LocalOffset: 0,0,2700
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
 	WithInfantryBody:
