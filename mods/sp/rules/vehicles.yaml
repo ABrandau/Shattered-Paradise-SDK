@@ -13,7 +13,7 @@ SMECH:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Small but fast anti-infantry walker.\n\nGood vs: Infantry\n\nSpecial:\n- Stealth detection.
+		Description: Small but fast anti-infantry walker.\n\nGood vs: Infantry\n\nSpecial:\n- Armor Type: Light\n- Stealth detection
 		BuildPaletteOrder: 6
 		Prerequisites: ~gaweap, ~techlevel.2
 	Mobile:
@@ -21,7 +21,9 @@ SMECH:
 		Speed: 105
 		Locomotor: Vehicle
 	Health:
-		HP: 12000
+		HP: 15000
+	Armor:
+		Type: LightVehicleArmor
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -181,7 +183,7 @@ HVR:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^8CellVision
 	Valued:
-		Cost: 1000
+		Cost: 900
 	Tooltip:
 		Name: Hover MLRS
 	UpdatesPlayerStatistics:
@@ -189,7 +191,7 @@ HVR:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Hovering vehicle, armed with long range missiles.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack Air\n- Can shoot over walls\n- Hovers (it ignores terrain like Veins and Water)
+		Description: Hovering vehicle, armed with long range missiles.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Armor Type: Light\n- Can attack Air\n- Can shoot over walls\n- Hovers (it ignores terrain like Veins and Water)
 		BuildPaletteOrder: 22
 		Prerequisites: ~gaweap, garadr, ~techlevel.4
 	Mobile:
@@ -199,6 +201,8 @@ HVR:
 		CanMoveBackward: true
 	Health:
 		HP: 25000
+	Armor:
+		Type: LightVehicleArmor
 	Armament:
 		Weapon: HoverMissile
 		LocalOffset: 100,150,384, 100,-150,384
@@ -404,7 +408,7 @@ HMEC:
 	ExplodeWeapon@spawnsparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	Health:
-		HP: 250000
+		HP: 300000
 	AnnounceOnSeen:
 		Notification: MammothDetected
 	AttackTurreted:
@@ -555,7 +559,7 @@ BGGY:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Fast vehicle armed with a machine gun, has room for one passenger that modifies the weapon of the vehicle.\n\nGood vs: Changes depending on the passenger.\n\nSpecial:\n- The weapon of the vehicle changes with the passenger.\n- Stealth detection.\n- Units inside deal 20% extra damage.
+		Description: Fast vehicle armed with a machine gun, has room for one passenger that modifies the weapon of the vehicle.\n\nGood vs: Changes depending on the passenger\n\nSpecial:\n- Armor Type: Light\n- The weapon of the vehicle changes with the passenger\n- Stealth detection
 		BuildPaletteOrder: 8
 		Prerequisites: ~naweap, ~techlevel.2, ~!AIOnly
 	Voiced:
@@ -570,6 +574,8 @@ BGGY:
 		TurnSpeed: 32
 	Health:
 		HP: 17500
+	Armor:
+		Type: LightVehicleArmor
 	WithMuzzleOverlay:
 	############################################
 	# Conditions
@@ -911,7 +917,7 @@ ATTACKBIKE:
 		BuildPaletteOrder: 9
 		BuildAtProductionType: Tank
 		Prerequisites: ~naweap, ~techlevel.2
-		Description: Fast scout vehicle, armed with\nrockets.\n  Strong vs Vehicles, Aircraft
+		Description: Fast scout vehicle, armed with\nrockets.\n  Strong vs Vehicles, Aircraft\n\nSpecial:\n- Armor Type: Light\n- Can target air
 	Voiced:
 		VoiceSet: Buggy
 		Volume: 2
@@ -921,6 +927,8 @@ ATTACKBIKE:
 		Locomotor: Vehicle
 	Health:
 		HP: 15000
+	Armor:
+		Type: LightVehicleArmor
 	Armament@PRIMARY:
 		Weapon: BikeMissile
 		LocalOffset: -120,-204,400, -120,204,400
@@ -1126,7 +1134,7 @@ BIKE:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 23
-		Description: Fast moving suicide vehicle.\n\nGood vs: Ground Targets\n\nSpecial:\n- Can deploy to explode
+		Description: Fast moving suicide vehicle.\n\nGood vs: Ground Targets\n\nSpecial:\n- Armor Type: Light\n- Can deploy to explode
 		Prerequisites: ~naweap, naradr, ~techlevel.4
 	-ActorLostNotification:
 	Mobile:
@@ -1136,7 +1144,9 @@ BIKE:
 	Armor@Bike:
 		Type: Bike
 	Health:
-		HP: 6000
+		HP: 10000
+	Armor:
+		Type: LightVehicleArmor
 	WithRangeCircle:
 		Range: 3c0
 		Type: ExplosionRange
@@ -1267,14 +1277,16 @@ HOWTLIZER:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: High-tech artillery armed with a self-propelled howitzer and a cloaking device.\n\nGood vs: Ground Targets\n- Can shoot over walls\n- Can crush infantry\n- Cloaks when not firing\n- Cloaking malfunctions when at red hp
+		Description: High-tech artillery armed with a self-propelled howitzer and a cloaking device.\n\nGood vs: Ground Targets\n\nSpecial:\n- Armor Type: Light\n- Can shoot over walls\n- Can crush infantry\n- Cloaks when not firing\n- Cloaking malfunctions when at red hp
 		BuildPaletteOrder: 33
 		Prerequisites: ~naweap, natech, ~techlevel.5
 	Voiced:
 		VoiceSet: Specter
 		Volume: 1
 	Health:
-		HP: 12000
+		HP: 15000
+	Armor:
+		Type: LightVehicleArmor
 	Mobile:
 		Speed: 75
 		TurnSpeed: 20
@@ -1324,13 +1336,15 @@ STNK:
 		BuildAtProductionType: Tank
 		Prerequisites: ~naweap, natech, ~techlevel.5
 		BuildPaletteOrder: 34
-		Description: Hit-and-run tank armed with twin dragon TOW missiles and a cloaking device.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Stealthed\n- Can attack air\n- Can shoot over walls\n- Can crush infantry\n- Cloaking malfunctions when at red hp
+		Description: Hit-and-run tank armed with twin dragon TOW missiles and a cloaking device.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Armor Type: Light\n- Stealthed\n- Can attack air\n- Can shoot over walls\n- Can crush infantry\n- Cloaking malfunctions when at red hp
 	Mobile:
 		TurnSpeed: 48
 		Speed: 105
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 20000
+	Armor:
+		Type: LightVehicleArmor
 	WithIdleOverlay@shield:
 		Sequence: shield
 		IsPlayerPalette: true
@@ -1410,7 +1424,7 @@ SCORPION:
 	ExplodeWeapon@spawnsparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	Health:
-		HP: 250000
+		HP: 300000
 	AnnounceOnSeen:
 		Notification: CommandoDetected
 	AttackFrontal:
@@ -1541,7 +1555,7 @@ MUTQUAD:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 11
-		Description: Armored truck armed with a quad cannon.\n\nGood vs: Infantry, Aircraft\n\nSpecial:\n- Stealth detection\n- Can crush infantry
+		Description: Armored truck armed with a quad cannon.\n\nGood vs: Infantry, Aircraft\n\nSpecial:\n- Armor Type: Light\n- Stealth detection\n- Can crush infantry
 		Prerequisites: ~muweap, ~techlevel.2
 	Mobile:
 		TurnSpeed: 28
@@ -1549,6 +1563,8 @@ MUTQUAD:
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 25000
+	Armor:
+		Type: LightVehicleArmor
 	Voiced:
 		VoiceSet: Trike
 		Volume: 3
@@ -1655,7 +1671,7 @@ STRUCK:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Combat transport.\n\Good vs: Variable, depending on occupants\n\nSpecial:\n- Cargo for 5 soldiers\n- Transported infantry can fire out of its windows
+		Description: Combat transport.\n\nGood vs: Depending on occupants\n\nSpecial:\n- Cargo for 5 soldiers\n- Transported infantry can fire out of its windows\n - Infantry inside has increased weapon range
 		BuildPaletteOrder: 19
 		Prerequisites: ~muweap, murax, ~techlevel.2, ~!AIOnly
 	Mobile:
@@ -1752,10 +1768,10 @@ WOLF:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 25
-		Description: Tiberium beast that uses tiberium acid to harm nearby units.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Attacks reduce target's attack and movement speed by 35%\n- Can mutate killed units\n- E.M.P. Immune\n- Has Selfheal\n- Wild mind: only controlled by MasterMind
+		Description: Tiberium beast that uses tiberium acid to harm nearby units.\n\nGood vs: Ground Targets\n\nSpecial:\n- Armor Type: Light\n- Heals on Tiberium\n- Attacks reduce target's attack and movement speed by 35%\n- Can mutate killed units\n- E.M.P. Immune\n- Has Selfheal\n- Wild mind: only controlled by MasterMind
 		Prerequisites: ~muweap, muradr, ~techlevel.4
 	Valued:
-		Cost: 600
+		Cost: 500
 	Tooltip:
 		Name: Carnotaurus
 	UpdatesPlayerStatistics:
@@ -1772,6 +1788,8 @@ WOLF:
 		DamageCooldown: 100
 	Health:
 		HP: 20000
+	Armor:
+		Type: LightVehicleArmor
 	Mobile:
 		Speed: 105
 		Locomotor: TibVeCritter
@@ -1792,7 +1810,7 @@ MRLS:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 35
-		Description: Light artillery armed with unguided tiberium rockets.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can mutate killed units\n- Emits tiberium radiaton that damages nearby units\n- Can shoot over walls\n- Can crush infantry\n- Immune to tiberium radiation
+		Description: Light artillery armed with unguided tiberium rockets.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Armor Type: Light\n- Deals AoE damage\n- Minimum attack distance\n- Can mutate killed units\n- Emits tiberium radiaton that damages nearby units\n- Can shoot over walls\n- Can crush infantry\n- Immune to tiberium radiation
 		Prerequisites: ~muweap, muhall, ~techlevel.5
 	Mobile:
 		TurnSpeed: 20
@@ -1803,6 +1821,8 @@ MRLS:
 		CameraPitch: 250
 	Health:
 		HP: 15000
+	Armor:
+		Type: LightVehicleArmor
 	Voiced:
 		VoiceSet: Trike
 		Volume: 3
@@ -1882,7 +1902,7 @@ HVRTRUK3:
 		AddToArmyValue: true
 	Buildable:
 		BuildAtProductionType: Tank
-		Description: A hovering demolition truck with a oneway ticket.\n\nGood vs: Everything\n\nSpecial:\n- Demolishes almost everything nearby upon detonation\n- Hovers (it ignores terrain like Veins and Water)\n- Cannot enter Tunnel Networks
+		Description: A hovering demolition truck with a oneway ticket.\n\nGood vs: Everything\n\nSpecial:\n- Armor Type: Light\n- Demolishes almost everything nearby upon detonation\n- Hovers (it ignores terrain like Veins and Water)\n- Cannot enter Tunnel Networks
 		Queue: Vehicle
 		BuildPaletteOrder: 37
 		Prerequisites: ~muweap, muhall, ~techlevel.5
@@ -1898,7 +1918,9 @@ HVRTRUK3:
 		Locomotor: Hover
 	-SharedPassenger:
 	Health:
-		HP: 12500
+		HP: 12000
+	Armor:
+		Type: LightVehicleArmor
 	GrantConditionOnDeploy@DemoTruck:
 		DeployedCondition: DetonateDemoTruck
 		CanDeployOnRamps: true
@@ -1969,7 +1991,7 @@ WEASAU:
 	-Passenger:
 	-SharedPassenger:
 	Health:
-		HP: 250000
+		HP: 300000
 	AnnounceOnSeen:
 		Notification: CommandoDetected
 	AutoTarget:
@@ -2236,7 +2258,7 @@ REAPERCAB:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 14
-		Description: Fast raiding walker armed with cluster missiles and web launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Can ensnare infantry with webs\n- Can shoot over walls
+		Description: Fast raiding walker armed with cluster missiles and web launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Armor Type: Light\n- Can target air\n- Can ensnare infantry with webs\n- Can shoot over walls
 		Prerequisites: ~cabweap, ~techlevel.2
 	Selectable:
 		Bounds: 1206,2412,0,-603
@@ -2249,6 +2271,8 @@ REAPERCAB:
 		EmptyWeapon: UnitExplodeSmall
 	Health:
 		HP: 25000
+	Armor:
+		Type: LightVehicleArmor
 	Voiced:
 		VoiceSet: CyborgReap
 	Armament@primary:
@@ -2293,10 +2317,12 @@ LIMPED:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 15
-		Description: Small drone armed with explosives.\n\nGood vs: Infantry, Vehicles\n\nSpecial:\n- Needs to be deployed to be armed\n- Invisible when deployed\n- Launches explosives towards a target after small delay
+		Description: Small drone armed with explosives.\n\nGood vs: Infantry, Vehicles\n\nSpecial:\n- Armor Type: Light\n- Needs to be deployed to be armed\n- Invisible when deployed\n- Launches explosives towards a target after small delay
 		Prerequisites: ~cabweap, ~techlevel.2
 	Health:
 		HP: 10000
+	Armor:
+		Type: LightVehicleArmor
 	Mobile:
 		Speed: 120
 		TurnSpeed: 1023
@@ -2405,11 +2431,13 @@ REPAIRVEHICLE:
 		BuildPaletteOrder: 21
 		BuildAtProductionType: Tank
 		Prerequisites: ~cabweap, gadept, ~techlevel.3
-		Description: Repairs nearby vehicles.\n\nSpecial:\n- unarmed\n- repairs vehicles\n- can crush infantry
+		Description: Repairs nearby vehicles.\n\nSpecial:\n- Armor Type: Light\n- unarmed\n- repairs vehicles\n- can crush infantry
 	Health:
 		HP: 20000
+	Armor:
+		Type: LightVehicleArmor
 	Mobile:
-		Speed: 75
+		Speed: 90
 		TurnSpeed: 28
 		Locomotor: InfantryCrusherVehicle
 	Armament@1:
@@ -2440,7 +2468,7 @@ CABAPC:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Armored transport.\n\nSpecial:\n- Can transport 8 infantry units\n- Can transport vehicles\n- Hovers (it ignores terrain like Veins and Water)
+		Description: Armored transport.\n\nSpecial:\n- Armor Type: Light\n- Can transport 8 infantry units\n- Can transport vehicles\n- Hovers (it ignores terrain like Veins and Water)
 		BuildPaletteOrder: 26
 		Prerequisites: ~cabweap, cabradr, ~techlevel.4
 	Mobile:
@@ -2452,6 +2480,8 @@ CABAPC:
 		VoiceSet: Limpet
 	Health:
 		HP: 30000
+	Armor:
+		Type: LightVehicleArmor
 	Cargo:
 		Types: Infantry, Vehicle
 		MaxWeight: 12
@@ -2626,7 +2656,7 @@ BCOREDEF:
 		VoiceSet: CoreDefender
 		Volume: 0.75
 	Health:
-		HP: 250000
+		HP: 300000
 	BodyOrientation:
 		QuantizedFacings: 8
 		CameraPitch: 250
@@ -2723,14 +2753,16 @@ CORRUPTOR:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 16
-		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n- Can mutate enemies killed\n- Deals considerable damage to vehicles\n- Absorbs essence from killed enemies to heal\n- Attacks emit radiation that harms infantry in the area\n- Immune to tiberium radiation.\n- Can crush infantry
+		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n- Armor Type: Light\n- Can mutate enemies killed\n- Deals considerable damage to vehicles\n- Absorbs essence from killed enemies to heal\n- Attacks emit radiation that harms infantry in the area\n- Immune to tiberium radiation.\n- Can crush infantry
 		Prerequisites: ~scrweap, ~techlevel.2
 	Mobile:
 		TurnSpeed: 24
-		Speed: 75
+		Speed: 90
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 30000
+	Armor:
+		Type: LightVehicleArmor
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -2857,16 +2889,18 @@ SCRGLYDER2:
 		Queue: Vehicle
 		BuildPaletteOrder: 28
 		BuildAtProductionType: Tank
-		Description: Anti-air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Can transform into an aerial version that can only engage ground units.\n- Aerial Version weapon performs Good Vs Infantry.\n- Absorbs essence from killed units to heal.\n- Hovers (it ignores terrain like Veins and Water)
+		Description: Anti-air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Armor Type: Light\n- Can transform into an aerial version that can only engage ground units.\n- Aerial Version weapon performs Good Vs Infantry.\n- Absorbs essence from killed units to heal.\n- Hovers (it ignores terrain like Veins and Water)
 		Prerequisites: ~scrweap, scrradr, ~techlevel.4
 	Valued:
-		Cost: 900
+		Cost: 700
 	Tooltip:
 		Name: Glider
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
 		HP: 20000
+	Armor:
+		Type: LightVehicleArmor
 	Mobile:
 		TurnSpeed: 40
 		CanMoveBackward: true
@@ -2918,7 +2952,7 @@ SCRRECHARGER:
 	Inherits@VISION: ^5CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
-		Cost: 1000
+		Cost: 1200
 	Tooltip:
 		Name: Guardian
 	UpdatesPlayerStatistics:
@@ -2927,7 +2961,7 @@ SCRRECHARGER:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 40
-		Description: Mobile shield generator.\n\nSpecial:\n- Generates shields around nearby friendly units.\n- Shields protect from all damage until the unit is hit 4 times.\n- Does not protect against super weapons.\n- Absorbs essence from killed enemies to heal.\n- Can Crush infantry.\n- Cannot apply shields to aircraft.
+		Description: Mobile shield generator.\n\nSpecial:\n- Armor Type: Light\n- Generates shields around nearby friendly units.\n- Shields protect from all damage until the unit is hit 4 times.\n- Does not protect against super weapons.\n- Absorbs essence from killed enemies to heal.\n- Can Crush infantry.\n- Cannot apply shields to aircraft.
 		Prerequisites: ~scrweap, scrtech, ~techlevel.5
 	Mobile:
 		TurnSpeed: 24
@@ -2935,6 +2969,8 @@ SCRRECHARGER:
 		Locomotor: Vehicle
 	Health:
 		HP: 20000
+	Armor:
+		Type: LightVehicleArmor
 	-WithIdleOverlay@shield:
 	-Armor@Shield:
 	-ExternalCondition@VanguardShield:
@@ -2989,7 +3025,7 @@ SCRMOBMINE:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 41
-		Description: Mind Control unit\n\nSpecial:\n- Can overtake regular vehicle and infantry \n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol Heroics, Flying Units, Beasts, Buildings\n- Can shoot over walls.\n- Can mind control units while moving.
+		Description: Mind Control unit\n\nSpecial:\n- Armor Type: Light\n- Can overtake regular vehicle and infantry \n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol Heroics, Flying Units, Beasts, Buildings\n- Can shoot over walls.\n- Can mind control units while moving.
 		Prerequisites: ~scrweap, scrtech, ~techlevel.5
 	Valued:
 		Cost: 1750
@@ -3013,6 +3049,8 @@ SCRMOBMINE:
 		PauseOnCondition: empdisable
 	Health:
 		HP: 25000
+	Armor:
+		Type: LightVehicleArmor
 	Mobile:
 		TurnSpeed: 40
 		CanMoveBackward: true

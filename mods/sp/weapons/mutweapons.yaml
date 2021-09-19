@@ -352,15 +352,16 @@ LynxCannon:
 
 LynxCannonShellCasing:
 	Inherits: ^ShellCasing
-	ReloadDelay: 60
+	ReloadDelay: 70
 	Range: 6c0
 
 QuadFire:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
-	ReloadDelay: 50
+	ReloadDelay: 30
 	SoundVolume: 0.5
 	Burst: 4
+	BurstDelays: 3
 	Range: 6c0
 	StartBurstReport: VenomGun0000.wav, VenomGun0001.wav, VenomGun0002.wav
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
@@ -394,8 +395,9 @@ QuadFireCasing:
 
 QuadFireLine:
 	Inherits: ^LineProjectile
-	ReloadDelay: 50
+	ReloadDelay: 30
 	Burst: 4
+	BurstDelays: 3
 	Range: 6c0
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	InvalidTargets: Air
@@ -787,7 +789,7 @@ WeasaurusSpit:
 	Warhead@1Dam: SpreadDamage
 		Falloff: 100, 75, 75
 		Spread: 526
-		Damage: 20000
+		Damage: 10000
 		Versus:
 			InfantryArmor: 100
 			BuildingArmor: 100
@@ -812,7 +814,7 @@ WeasaurusStrike:
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c090
-		Damage: 15000
+		Damage: 7500
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 	Warhead@emp: GrantExternalCondition
 		Range: 1c0
