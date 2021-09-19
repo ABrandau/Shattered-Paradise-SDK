@@ -253,6 +253,22 @@ UnitExplodeSmall:
 		Palette: effect
 		Weapon: DummyWeapon
 
+GrenadeExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Small_Brnl
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 85, 65, 45, 35, 15, 0
+		Spread: 0c256
+		Damage: 2500
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	Warhead@2: SpawnSmokeParticle
+		ImpactActors: false
+		Duration: 100, 200
+		Image: explosion
+		Sequences: fire3
+		Palette: effect
+		Weapon: DummyWeapon
+
 QueenExplode:
 	Warhead@2Eff: CreateEffect
 		Explosions: QueenExplo

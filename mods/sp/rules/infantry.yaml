@@ -82,7 +82,7 @@ MEDIC:
 	Inherits@VISION: ^5CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
-		Cost: 150
+		Cost: 200
 	Tooltip:
 		Name: Medic
 	UpdatesPlayerStatistics:
@@ -125,7 +125,7 @@ E2:
 		Prerequisites: ~gapile, garadr, ~techlevel.4
 		Description: Infantry armed with special explosive discs.\n\nGood vs: Infantry, Structures.\n\nSpecial:\n- Can throw over walls\n- Crush class: crushable
 	Valued:
-		Cost: 250
+		Cost: 200
 	Tooltip:
 		Name: Disc Thrower
 	UpdatesPlayerStatistics:
@@ -156,6 +156,9 @@ E2:
 		AttackSequences: throw
 	RenderSprites:
 		Image: e2
+	Explodes:
+		Weapon: GrenadeExplode
+		EmptyWeapon: GrenadeExplode
 
 JUMPJET:
 	Inherits: ^Soldier
