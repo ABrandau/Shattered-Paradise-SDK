@@ -3091,6 +3091,7 @@ TRIPOD:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^8CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 1600
 	Tooltip:
@@ -3122,8 +3123,9 @@ TRIPOD:
 	AutoTarget:
 	Armament@primary1:
 		Weapon: AnhTripodLaser
-		#LocalOffset: 700,0,4500, 1300,580,3700, 1050,-490,4100  #noattackanimation
-		LocalOffset:  300,0,3880, 850,450,3350, 1200,-360,3050  #attackanimation
+		#LocalOffset: 700,0,4500, 1300,580,3700, 1050,-490,4100  #noattackanimation 100
+		#LocalOffset:  300,0,3880, 850,450,3350, 1200,-360,3050  #attackanimation 100
+		LocalOffset:  273,0,3531, 774,410,3049, 1092,-328,2898  #attackanimation 91
 		MuzzlePalette: scrinenergystuffs
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable || charged || reload2
@@ -3157,7 +3159,7 @@ TRIPOD:
 		PipCount: 4
 	Armament@charged:
 		Weapon: AnhTripodLaserCharged
-		LocalOffset:  300,0,3880, 850,450,3350, 1200,-360,3050  #attackanimation
+		LocalOffset:  273,0,3531, 774,410,3049, 1092,-328,2898  #attackanimation 91
 		Name: secondary
 		PauseOnCondition: empdisable || !charged || reload1
 		ReloadingCondition: reload2
@@ -3177,3 +3179,12 @@ TRIPOD:
 		Weapons: SmallDebrisScrin
 	WithInfantryBody:
 		DefaultAttackSequence: shoot2
+	GrantConditionOnTerrain@AI:
+		RequiresCondition: AImicroManage
+		Condition: OnTiber
+		TerrainTypes: Tiberium, BlueTiberium
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && OnTiber
+		DeployTrigger: Periodically
+		DeployTicks: 20
+		UndeployTicks: 200
