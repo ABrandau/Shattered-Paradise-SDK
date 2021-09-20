@@ -652,18 +652,18 @@ OBBombFrontal:
 	Inherits: ^BombWarhead
 	Inherits@2: ^Large_Explosion
 	ReloadDelay: 30
+	Range: 3c0
 	MinRange: 0c100
 	Report: a10whistle1.wav
 	Burst: 10
-	BurstDelays: 1
+	BurstDelays: 6
 	ValidTargets: Ground, Water, Building, Infantry, Vehicle
-	Range: 2c0
-	Projectile: BulletAS
-		Speed: 300
+	Projectile: GravityBomb
+		Velocity: 180, 0, -225
+		Acceleration: 0, 0, -20
 		Image: 120mm
 		Shadow: true
 		Palette: ra
-		Inaccuracy: 756
 	Warhead@1Dam: SpreadDamage
 		Falloff: 100, 80, 70, 60, 50
 		Spread: 300
