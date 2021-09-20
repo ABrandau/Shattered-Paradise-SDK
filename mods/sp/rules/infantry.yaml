@@ -1608,7 +1608,7 @@ CABSENTRY:
 	Armament@1:
 		Weapon: SentryGun
 		LocalOffset: 250,0,100
-		PauseOnCondition: WebDisable # || initializing
+		PauseOnCondition: WebDisable || empdisable # || initializing
 	AutoTarget:
 		ScanRadius: 8
 		InitialStance: AttackAnything
@@ -1655,11 +1655,11 @@ CYBORG:
 		HP: 40000
 	Armament@1:
 		Weapon: CyborgVulcan
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GCyborgVulcan
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -1693,21 +1693,21 @@ CBORG:
 	Armament@1:
 		Weapon: CyborgRocket
 		LocalOffset: 424,198,1086
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 		Name: OnFoot
 	Armament@2:
 		Weapon: CyborgRocketAA
 		LocalOffset: 424,198,1086
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 		Name: OnFoot
 	Armament@Garrison1:
 		Weapon: GCyborgRocket
 		LocalOffset: 424,198,1086
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 	Armament@Garrison2:
 		Weapon: GCyborgRocketAA
 		LocalOffset: 424,198,1086
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -1718,6 +1718,7 @@ CBORG:
 
 SWARMLING:
 	Inherits: ENGINEER
+	Inherits@EMP: ^EmpDisableMobile
 	Inherits@RENDER: ^CabRender
 	Tooltip:
 		Name: Swarmling
@@ -1767,7 +1768,7 @@ PDRONE:
 		WarnProbability: 0
 		CrushSound: squish6.aud
 	Hovers:
-		RequiresCondition: !WebDisable
+		RequiresCondition: !WebDisable && !empdisable
 	Mobile:
 		Speed: 90
 		Locomotor: HoverInfantry
@@ -1782,7 +1783,7 @@ PDRONE:
 		InitialStance: AttackAnything
 	Armament:
 		Weapon: ReclaimerHit
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 2
@@ -1795,7 +1796,7 @@ PDRONE:
 			ExplosionDeath: 1,2
 			EnergyDeath: 1,2	
 	KillsSelf@hoverunitonwater:
-		RequiresCondition: hoverunitonwater && WebDisable
+		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
 	GrantConditionOnTerrain:
 		Condition: hoverunitonwater
 		TerrainTypes: Water
@@ -1844,28 +1845,28 @@ GLAD:
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 200,250,550
-		PauseOnCondition: WebDisable || !ammo
+		PauseOnCondition: WebDisable || empdisable || !ammo
 		Name: OnFoot
 	Armament@2:
 		RequiresCondition: !CriticalDamaged
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 200,-250,550
-		PauseOnCondition: WebDisable || !ammo
+		PauseOnCondition: WebDisable || empdisable || !ammo
 		Name: OnFoot
 	Armament@1Cripple:
 		RequiresCondition: CriticalDamaged
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 300,250,-150
-		PauseOnCondition: WebDisable || !ammo
+		PauseOnCondition: WebDisable || empdisable || !ammo
 		Name: OnFoot
 	Armament@2Cripple:
 		RequiresCondition: CriticalDamaged
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 300,-250,-150
-		PauseOnCondition: WebDisable || !ammo
+		PauseOnCondition: WebDisable || empdisable || !ammo
 		Name: OnFoot
 	Armament@Garrison1:
 		Weapon: GGLAD120mm
@@ -1914,7 +1915,7 @@ MOTH:
 	Voiced:
 		VoiceSet: Limpet
 	Hovers:
-		RequiresCondition: !deployed && !WebDisable
+		RequiresCondition: !deployed && !WebDisable && !empdisable
 	Mobile:
 		Speed: 105
 		Locomotor: HoverInfantry
@@ -1931,7 +1932,7 @@ MOTH:
 		MovingInterval: 12
 		Sequences: idle2
 	KillsSelf@hoverunitonwater:
-		RequiresCondition: hoverunitonwater && WebDisable
+		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
 	GrantConditionOnTerrain:
 		Condition: hoverunitonwater
 		TerrainTypes: Water
@@ -1953,7 +1954,7 @@ MOTH:
 		UndeployOnMove: true
 		CanDeployOnRamps: true
 		PauseOnCondition: RefineryLock && !deployed
-		RequiresCondition: !inside-tunnel  && !WebDisable
+		RequiresCondition: !inside-tunnel && !WebDisable && !empdisable
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
@@ -1980,19 +1981,19 @@ MOTH:
 	Armament@1:
 		Weapon: LurkerProj
 		RequiresCondition: deployed
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GLurkerProj
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 	Armament@AIAimOnly:
 		RequiresCondition: AImicroManage && !deployed
 		Weapon: LurkerAimDummyWeapon
 		Name: OnFoot
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 	AttackFrontal:
 		RequiresCondition: AImicroManage || deployed
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 		Armaments: OnFoot
 		FacingTolerance: 512
 	RenderRangeCircle:
@@ -2041,12 +2042,12 @@ CYC2:
 	Armament@1:
 		Weapon: CyCannon
 		LocalOffset: 170,85,683
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GCyCannon
 		LocalOffset: 170,85,683
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -2059,7 +2060,7 @@ CYC2:
 		DecorationBounds: 664,1568,-30,-723
 
 WORKER:
-	Inherits: ^Soldier
+	Inherits: ^CabalDroneInfantry
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
@@ -2075,11 +2076,11 @@ WORKER:
 		VoiceSet: Cyborg
 	Armament@1:
 		Weapon: WorkerMinigun
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GWorkerMinigun
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -2093,7 +2094,7 @@ WORKER:
 		Payload: 75
 
 CYBDOG:
-	Inherits: ^Soldier
+	Inherits: ^CabalDroneInfantry
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
@@ -2113,12 +2114,12 @@ CYBDOG:
 	Armament@1:
 		Weapon: DogBomb
 		LocalOffset: 0,-100,700, 0, 100,700
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GDogBomb
 		LocalOffset: 0,-100,700, 0, 100,700
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -2127,7 +2128,6 @@ CYBDOG:
 	-SpawnActorOnDeath@nanomachinereanimate:
 	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
-	-DamagedByTerrain:
 	DeliversCash:
 		Payload: 75
 
@@ -2160,11 +2160,11 @@ WORKERMECH:
 		Recoils: true
 	Armament@1:
 		Weapon: WorkerMinigun
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GWorkerMinigun
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 	Selectable:
 		Bounds: 754, 1327, 0, -302
 	-SpawnActorOnDeath@nanomachinereanimate:
@@ -2202,12 +2202,12 @@ NANOS:
 	Armament@1:
 		Weapon: NanoNeedle
 		LocalOffset: 0, 0, 350
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: NanoNeedle
 		LocalOffset: 0, 0, 350
-		PauseOnCondition: WebDisable
+		PauseOnCondition: WebDisable || empdisable
 	Selectable:
 		Bounds: 754, 1327, 0, 0
 	-WithInfantryBody:

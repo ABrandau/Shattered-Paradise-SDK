@@ -57,7 +57,7 @@ EMPulseCannon:
 	Range: 25c0
 	MinRange: 4c0
 	Report: plsecan2.aud
-	ValidTargets: Vehicle, Building, Ground, Water
+	ValidTargets: Vehicle, Building, Infantry, Ground, Water
 	Projectile: BulletAS
 		Speed: 300
 		Blockable: false
@@ -72,11 +72,22 @@ EMPulseCannon:
 		Duration: 250
 		Condition: empdisable
 		ValidTargets: Vehicle, Building
-	Warhead@4: GrantExternalCondition
+	Warhead@2: GrantExternalCondition
+		Range: 1c512
+		Duration: 125
+		Condition: empdisable
+		ValidTargets: Infantry
+	Warhead@3: GrantExternalCondition
 		Range: 4c0
 		Duration: 250
 		Condition: empdisable
 		ValidTargets: Vehicle, Building
+		Delay: 10
+	Warhead@4: GrantExternalCondition
+		Range: 4c0
+		Duration: 125
+		Condition: empdisable
+		ValidTargets: Infantry
 		Delay: 10
 	Warhead@5: FireRadius
 		Weapon: EMPulseCannonShrapnel
