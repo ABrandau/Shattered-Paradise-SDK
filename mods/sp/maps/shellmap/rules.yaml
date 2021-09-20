@@ -115,13 +115,13 @@ NAPULS:
 		Name: primary
 		TargetRelationships: Enemy, Neutral
 		PauseOnCondition: disabled || empdisable
-		
 
 EMPDUMMY:
 	Inherits: ^GROUNDDUMMY
 	Inherits@1: ^EmpDisable
 	-WithIdleOverlay@EMPDISABLE:
 	Targetable:
+		TargetTypes: Ground, Vehicle
 		RequiresCondition: !empdisable
 	RenderSprites:
 		Image: car
@@ -133,3 +133,9 @@ MARAUDER:
 MUTFIEND:
 	AutoTarget:
 		InitialStanceAI: Defend
+
+REAPERCAB:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Defence
+	AutoTargetPriority@ATTACKANYTHING:
+		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence
