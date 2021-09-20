@@ -500,6 +500,8 @@ MammothTusk:
 		Damage: 3500
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
 
 MammothTuskAA:
 	Inherits: MammothTusk
@@ -651,12 +653,12 @@ FighterHellfireAA:
 OBBombFrontal:
 	Inherits: ^BombWarhead
 	Inherits@2: ^Large_Explosion
-	ReloadDelay: 30
+	ReloadDelay: 60
 	Range: 3c0
 	MinRange: 0c100
 	Report: a10whistle1.wav
-	Burst: 10
-	BurstDelays: 6
+	Burst: 5
+	BurstDelays: 4
 	ValidTargets: Ground, Water, Building, Infantry, Vehicle
 	Projectile: GravityBomb
 		Velocity: 180, 0, -225
@@ -665,13 +667,16 @@ OBBombFrontal:
 		Shadow: true
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Falloff: 100, 80, 70, 60, 50
-		Spread: 300
-		Damage: 5000
+		Falloff: 100, 65, 45, 25, 5
+		Spread: 0c512
+		Damage: 10000
 		Versus:
-			VehicleArmor: 100
+			LightVehicleArmor: 80
+			VehicleArmor: 60
 		ValidTargets: Ground, Water, Building, Infantry, Vehicle
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		ImpactSounds: expnew09.aud
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Range: 256
 
