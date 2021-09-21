@@ -233,8 +233,11 @@ BikeExplo:
 			BuildingArmor: 75
 			VehicleArmor: 35
 			ConcreteArmor: 15
-	Warhead@2Eff: CreateEffect
+	Warhead@5Eff: CreateEffect
 		Explosions: bikeexplode
+		ExplosionPalette: gensmkexploj
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
 	Warhead@5Sharpnel: FireRadius
 		Weapon: NukeFlame3
 		ImpactActors: false
@@ -358,6 +361,7 @@ SpectreCannon:
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
+
 
 StealthRocket:
 	Inherits: ^RocketWarhead
