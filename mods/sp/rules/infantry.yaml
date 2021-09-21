@@ -1729,6 +1729,11 @@ SWARMLING:
 	Explodes:
 		Weapon: DroneExplode
 		EmptyWeapon: DroneExplode
+	Mobile:
+		Locomotor: TibInmuneInfantry
+		PauseOnCondition: empdisable || WebDisable
+	SpeedMultiplier@InstantStop:
+		RequiresCondition: empdisable || WebDisable
 	-DamagedByTerrain:
 	WithInfantryBody:
 		-IdleSequences:
