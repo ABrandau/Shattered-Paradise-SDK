@@ -1977,11 +1977,11 @@ MOTH:
 		BodyNames: deployed
 	WithFacingSpriteBody@UndeloyedBody:
 		Sequence: idle
-		RequiresCondition: undeployed && !inside-tunnel
+		RequiresCondition: undeployed && !inside-tunnel && !WebDisable
 	WithSpriteBody@DeloyedBody:
 		Name: deployed
 		Sequence: deployed
-		RequiresCondition: !undeployed
+		RequiresCondition: !undeployed && !WebDisable
 	-WithInfantryBody:
 	Armament@1:
 		Weapon: LurkerProj
