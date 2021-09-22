@@ -35,7 +35,7 @@ jobs:
           echo "Fetching PyGithub for python"
           pip install PyGithub
           echo "Creating bindiffs for launcher"
-          python3 ./packaging/launcherBindiffs.py -s "linux" -t "${GIT_TAG}" -o "${PWD}/build/linux" -r "ABrandau/Shattered-Paradise-SDK"
+          python3 ./packaging/launcherBindiffs.py -s "linux" -o "${PWD}/build/linux" -r "ABrandau/Shattered-Paradise-SDK"
 
       - name: Upload Packages
         uses: svenstaro/upload-release-action@v2
@@ -115,7 +115,7 @@ jobs:
           echo "Fetching PyGithub for python"
           pip install PyGithub
           echo "Creating bindiffs for launcher"
-          python3 ./packaging/launcherBindiffs.py -s "windows" -t "${GIT_TAG}" -o "${PWD}/build/windows" -r "ABrandau/Shattered-Paradise-SDK"
+          python3 ./packaging/launcherBindiffs.py -s "windows" -o "${PWD}/build/windows" -r "ABrandau/Shattered-Paradise-SDK"
 
       - name: Upload Packages
         uses: svenstaro/upload-release-action@v2

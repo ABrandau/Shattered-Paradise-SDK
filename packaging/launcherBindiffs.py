@@ -37,17 +37,15 @@ def do_bsdiff(url, newfile):
 
 try:
     opts, args = getopt.getopt(sys.argv[1:], "s:t:o:r:", [
-                               "system=", "tag=", "outputdir=", "repository="])
+                               "system=", "outputdir=", "repository="])
 except getopt.GetoptError:
-    print("launcherBindiffs.py -s <system> -t <tag> -o <outputdir> -r <repository>")
+    print("launcherBindiffs.py -s <system> -o <outputdir> -r <repository>")
     sys.exit(2)
 
 for opt, arg in opts:
     print(opt, " - ", arg)
     if opt in ("-s", "--system"):
         system = arg
-    elif opt in ("-t", "--tag"):
-        tag = arg
     elif opt in ("-o", "--outputdir"):
         outputdir = arg
     elif opt in ("-r", "--repository"):
@@ -59,7 +57,11 @@ with open('mod.config') as file:
 print("Getting latest release")
 g = Github()
 repo = g.get_repo(repository)
-assets = repo.get_latest_release().get_assets()
+releases = repo.get_releases()
+tag = releases[0].tag_name
+assets = releases[1].get_assets()
+
+print("Working on release \'" + tag + "\' with old version \'" + releases[1].tag_name + "\'")
 
 linuxnewfile = outputdir + "/" + packaging_installer_name + "-" + tag + "-x86_64.AppImage"
 macoscompatnewfile = outputdir + "/" + packaging_installer_name + "-" + tag + "-compat.dmg"
@@ -70,7 +72,7 @@ winx86newfile = outputdir + "/" + packaging_installer_name + "-" + tag + "-" + "
 print("Scanning assets:")
 for asset in assets:
     print(asset.browser_download_url)
-    if "update" in asset.browser_download_url or "downgrade" in asset.browser_download_url:
+    if ".update" in asset.browser_download_url or ".downgrade" in asset.browser_download_url:
         print("Skipping")
         continue
 
