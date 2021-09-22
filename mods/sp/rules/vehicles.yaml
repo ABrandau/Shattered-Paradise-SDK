@@ -21,7 +21,7 @@ SMECH:
 		Speed: 105
 		Locomotor: Vehicle
 	Health:
-		HP: 15000
+		HP: 17500
 	Armor:
 		Type: LightVehicleArmor
 	AttackFrontal:
@@ -927,7 +927,7 @@ ATTACKBIKE:
 		Speed: 135
 		Locomotor: Vehicle
 	Health:
-		HP: 15000
+		HP: 17500
 	Armor:
 		Type: LightVehicleArmor
 	Armament@PRIMARY:
@@ -1004,12 +1004,12 @@ TTNK:
 	AmmoPool:
 		Ammo: 2 # One for the casing, one for the normal weapon.
 		ReloadCount: 2
-		ReloadDelay: 70
+		ReloadDelay: 35
 		AmmoCondition: ammo
 		Armaments: primary, deployed
 	ReloadAmmoPool:
 		Count: 2
-		Delay: 70
+		Delay: 35
 	WithMuzzleOverlay:
 	WithMakeAnimation:
 		BodyNames: deployed
@@ -1548,7 +1548,7 @@ MUTQUAD:
 	Inherits@RENDER: ^MutRender
 	Inherits@VISION: ^8CellVision
 	Valued:
-		Cost: 600
+		Cost: 700
 	Tooltip:
 		Name: Quad Cannon
 	UpdatesPlayerStatistics:
@@ -2270,7 +2270,7 @@ REAPERCAB:
 		Speed: 105
 		Locomotor: Vehicle
 	Health:
-		HP: 25000
+		HP: 30000
 	Armor:
 		Type: LightVehicleArmor
 	Voiced:
@@ -2744,7 +2744,7 @@ CORRUPTOR:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
 	Valued:
-		Cost: 600
+		Cost: 700
 	Tooltip:
 		Name: Corruptor
 	UpdatesPlayerStatistics:
@@ -2911,7 +2911,7 @@ SCRGLYDER2:
 		IntoActor: scrglyder1
 	GrantConditionAfterDelay: ## Prevent player switch between modes to refresh reload
 		Condition: cannonready
-		Delay: 50
+		Delay: 25
 		ShowSelectionBar: false
 	Armament:
 		Weapon: Glyder2Cannon
