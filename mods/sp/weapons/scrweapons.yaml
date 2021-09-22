@@ -221,7 +221,7 @@ CorruptorAcid:
 	Inherits: ^AcidWarhead
 	Inherits@1: ^SpawnsIrradiation
 	ReloadDelay: 70
-	Range: 5c0
+	Range: 6c0
 	Burst: 10
 	BurstDelays: 2
 	StartBurstReport: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
@@ -468,7 +468,7 @@ blackBlastFinal:
 		Duration: 750
 
 AnhTripodLaser:
-	Inherits: ^RifleWarhead
+	Inherits: ^FullDamage
 	ReloadDelay: 33
 	Burst: 3
 	BurstDelays: 13
@@ -489,13 +489,7 @@ AnhTripodLaser:
 		HitAnimPalette: scrinenergystuffs
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c181
-		Damage: 5800
-		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 75
-			VehicleArmor: 75
-			DefenseArmor: 75
-			ConcreteArmor: 70
+		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath, ScrinEssenceKill
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
