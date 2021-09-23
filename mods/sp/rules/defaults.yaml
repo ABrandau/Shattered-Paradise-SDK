@@ -1594,6 +1594,43 @@
 	SpawnActorOnDeath@conversion:
 		Actor: workermech
 
+^CabalSoldier:
+	Inherits: ^Infantry
+	Inherits@1: ^EmpDisableMobile
+	-DamagedByTerrain:
+	GrantConditionOnPrerequisite@SUDDENDEATH:
+		Condition: suddendeath
+		Prerequisites: global-suddendeath
+	MustBeDestroyed:
+		RequiresCondition: !suddendeath
+	Voiced:
+		VoiceSet: Cyborg
+	Mobile:
+		Locomotor: TibInmuneInfantry
+		PauseOnCondition: empdisable || WebDisable
+	SpeedMultiplier@InstantStop:
+		RequiresCondition: empdisable || WebDisable
+	TakeCover:
+		RequiresCondition: !WebDisable
+		DamageModifiers:
+			Prone50Percent: 50
+			Prone60Percent: 60
+			Prone70Percent: 70
+			Prone100Percent: 100
+			Prone350Percent: 350
+		DamageTriggers: TriggerProne
+		Duration: 50
+		SpeedModifier: 55
+	WithInfantryBody:
+		IdleSequences: idle1,idle2
+		DefaultAttackSequence: shoot
+	WithDeathAnimation@normal:
+		CrushedSequence: die-crushed
+		CrushedSequencePalette: player
+		CrushedPaletteIsPlayerPalette: true
+	SpawnActorOnDeath@conversion:
+		Actor: workermech
+
 ^CabalDroneInfantry:
 	Inherits: ^Infantry
 	Inherits@1: ^EmpDisableMobile
