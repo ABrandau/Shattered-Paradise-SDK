@@ -3105,7 +3105,7 @@ TRIPOD:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 42
 		Prerequisites: ~scrweap, scrtech, ~techlevel.5
-		Description: Advanced walker.\n\n  Good vs Ground\n\nSpecial: \n- Can absorb Tiberium on the field to empower it's weapon\n- Absorbs essence from killed units to heal\n- Can shoot over walls\n- Can crush infantry
+		Description: Advanced walker.\n\n  Good vs Ground\n\nSpecial: \n- Absorbs essence from killed units to heal\n- Can shoot over walls\n- Can crush infantry
 		IconPalette: chromescrin
 	Mobile:
 		TurnSpeed: 32
@@ -3122,49 +3122,23 @@ TRIPOD:
 		PauseOnCondition: empdisable
 	AutoTarget:
 	Armament@primary1:
-		Weapon: AnhTripodLaser
-		#LocalOffset: 700,0,4500, 1300,580,3700, 1050,-490,4100  #noattackanimation 100
-		#LocalOffset:  300,0,3880, 850,450,3350, 1200,-360,3050  #attackanimation 100
-		LocalOffset:  273,0,3531, 774,410,3049, 1092,-328,2898  #attackanimation 91
-		MuzzlePalette: scrinenergystuffs
+		Weapon: blackBlast
+		LocalOffset:  273,0,3531
+		MuzzlePalette: jascbluealpha
 		MuzzleSequence: muzzle
-		PauseOnCondition: empdisable || charged || reload2
-		ReloadingCondition: reload1
-	GrantTimedConditionOnDeploy:
-		DeployedCondition: absorbTib
-		CooldownTicks: 2000
-		DeployedTicks: 100
-		StartsFullyCharged: true
 		PauseOnCondition: empdisable
-	ExplodeWeapon@absorb:
-		Weapon: AnhTripodAbsorb
-		RequiresCondition: !empdisable && absorbTib
-	ExternalCondition@absorb:
-		Condition: charge
-	AmmoPool:
-		Armaments: secondary
-		InitialAmmo: 0
-		Ammo: 12
-		AmmoCondition: charged
-	ReloadAmmoPool@charged:
-		Delay: 2
-		PauseOnCondition: !charge
-	WithAmmoPipsDecoration:
-		Margin: 4, 3
-		FullSequence: pip-ammo
-		EmptySequence: pip-ammoempty
-		Palette: gradientgreen
-		Position: BottomLeft
-		RequiresSelection: true
-		PipCount: 4
-	Armament@charged:
-		Weapon: AnhTripodLaserCharged
-		LocalOffset:  273,0,3531, 774,410,3049, 1092,-328,2898  #attackanimation 91
-		Name: secondary
-		PauseOnCondition: empdisable || !charged || reload1
-		ReloadingCondition: reload2
-		MuzzlePalette: gradientgreen
+	Armament@primary2:
+		Weapon: blackBlastdec
+		LocalOffset:  774,410,3049
+		MuzzlePalette: jascbluealpha
 		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
+	Armament@primary3:
+		Weapon: blackBlastdec
+		LocalOffset:  1092,-328,2898
+		MuzzlePalette: jascbluealpha
+		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
 	WithMuzzleOverlay:
 	BodyOrientation:
 		QuantizedFacings: 8
@@ -3179,15 +3153,6 @@ TRIPOD:
 		Weapons: SmallDebrisScrin
 	WithInfantryBody:
 		DefaultAttackSequence: shoot2
-	GrantConditionOnTerrain@AI:
-		RequiresCondition: AImicroManage
-		Condition: OnTiber
-		TerrainTypes: Tiberium, BlueTiberium
-	AutoDeployer@AI:
-		RequiresCondition: AImicroManage && OnTiber
-		DeployTrigger: Periodically
-		DeployTicks: 20
-		UndeployTicks: 200
 	Explodes:
 		Weapon: TripodExplode
 		EmptyWeapon: TripodExplode
