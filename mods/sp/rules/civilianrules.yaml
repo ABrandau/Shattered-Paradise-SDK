@@ -1428,9 +1428,25 @@ FLAGGDI:
 FLAGNEUTRAL:
 	Inherits: ^TechBuilding
 	RenderSprites:
+		Image: flagneutral
 		PlayerPalette: unittemremapplayer
 	Tooltip:
 		Name: Flag
+	-IsometricSelectable:
+	-IsometricSelectionDecorations:
+	Interactable:
+
+FLAGDOM:
+	Inherits: FLAGNEUTRAL
+	GrantConditionOnPrerequisite@domination:
+		Condition: domination
+		Prerequisites: global-domination
+	-Targetable:
+	DamageMultiplier@domination:
+		Modifier: 0
+	KillsSelf:
+		RemoveInstead: true
+		RequiresCondition: !domination
 
 CAPYR01:
 	Inherits: ^CivBuilding
@@ -2571,6 +2587,41 @@ NTPYRA:
 		Pieces: 3, 5
 	DamageMultiplier@cantkillme:
 		Modifier: 0
+	IsometricSelectable:
+		DecorationHeight: 72
+
+NTPYRA.koth:
+	Inherits: ^TechBuilding
+	Inherits@shape: ^4x4Shape
+	Tooltip:
+		Name: Nod Pyramid
+	TooltipDescription:
+		Description: Capture and hold for 6 minutes to win.
+	Building:
+		Footprint: xxxx xxxx xxxx xxxx
+		Dimensions: 4, 4
+	GrantConditionOnPrerequisite@koth:
+		Condition: koth
+		Prerequisites: global-koth
+	-Targetable:
+	DamageMultiplier@koth:
+		Modifier: 0
+	KillsSelf:
+		RemoveInstead: true
+		RequiresCondition: !koth
+	Armor:
+		Type: BuildingArmor
+	Health:
+		HP: 150000
+	RenderSprites:
+		Image: ntpyra
+		PlayerPalette: player
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	ThrowsShrapnel@SMALL:
+		Pieces: 7, 9
+	ThrowsShrapnel@LARGE:
+		Pieces: 3, 5
 	IsometricSelectable:
 		DecorationHeight: 72
 

@@ -1741,10 +1741,12 @@
 		CaptureTypes: Building
 		PlayerExperience: 25
 		CaptureDelay: 75
+		RequiresCondition: !instantcapture
 	Captures@TechBuilding:
 		CaptureTypes: TechBuilding
 		PlayerExperience: 25
 		CaptureDelay: 250
+		RequiresCondition: !instantcapture
 	Captures@HackTechDrone:
 		CaptureTypes: Drone
 		PlayerExperience: 10
@@ -1752,6 +1754,21 @@
 		ConsumedByCapture: false
 		EnterCursor: powerdown
 		EnterBlockedCursor: powerdown-blocked
+		RequiresCondition: !instantcapture
+	Captures@InstantBuilding:
+		CaptureTypes: Building, TechBuilding
+		PlayerExperience: 25
+		RequiresCondition: instantcapture
+	Captures@InstantDrone:
+		CaptureTypes: Drone
+		PlayerExperience: 10
+		ConsumedByCapture: false
+		EnterCursor: powerdown
+		EnterBlockedCursor: powerdown-blocked
+		RequiresCondition: instantcapture
+	GrantConditionOnPrerequisite@INSTANTCAPTURE:
+		Condition: instantcapture
+		Prerequisites: global-instantcapture
 	CaptureManager:
 
 ^BasicVehicle:
@@ -2342,7 +2359,14 @@
 		Types: Building
 		RequiresCondition: !Building-Buildup
 	CapturableProgressBar:
+		RequiresCondition: !instantcapture
 	CapturableProgressBlink:
+		Interval: 25
+		Sound: ucapture.aud
+		RequiresCondition: !instantcapture
+	GrantConditionOnPrerequisite@INSTANTCAPTURE:
+		Condition: instantcapture
+		Prerequisites: global-instantcapture
 	GivesExperience:
 		PlayerExperienceModifier: 100
 	RevealsShroud:

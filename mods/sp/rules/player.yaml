@@ -87,7 +87,7 @@ Player:
 		CashTickDownNotification: CashTickDown
 	DeveloperMode:
 		CheckboxEnabled: false
-		CheckboxDisplayOrder: 9
+		CheckboxDisplayOrder: 12
 	ProvidesTechPrerequisite@1:
 		Name: 1
 		Prerequisites: techlevel.1
@@ -142,26 +142,47 @@ Player:
 	Shroud:
 		FogCheckboxDisplayOrder: 3
 		ExploredMapCheckboxEnabled: true
+	LobbyPrerequisiteCheckbox@INSTANTCAPTURE:
+		ID: instantcapture
+		Label: Instant Capture
+		Description: Engineers can enter a building without waiting to capture
+		Enabled: False
+		DisplayOrder: 8
+		Prerequisites: global-instantcapture
 	LobbyPrerequisiteCheckbox@FREEMINIMAP:
 		ID: freeradar
 		Label: Free Minimap
 		Description: Minimap is active without a radar building
 		Enabled: true
-		DisplayOrder: 8
+		DisplayOrder: 9
 		Prerequisites: global-freeminimap
+	LobbyPrerequisiteCheckbox@DOMINATION:
+		ID: domination
+		Label: Domination
+		Description: Control the flags on the map to win
+		Enabled: False
+		DisplayOrder: 10
+		Prerequisites: global-domination
 	LobbyPrerequisiteCheckbox@MEGAWEALTH:
 		ID: megawealth
 		Label: Megawealth
 		Description: Removes all the Tiberium on the map and makes the economy dependent on Tiberium Extractors
 		Enabled: False
-		DisplayOrder: 10
+		DisplayOrder: 11
 		Prerequisites: global-megawealth
+	LobbyPrerequisiteCheckbox@KOTH:
+		ID: koth
+		Label: King of the Hill
+		Description: Capture and hold the Psychic Beacon on the map to win
+		Enabled: False
+		DisplayOrder: 13
+		Prerequisites: global-koth
 	LobbyPrerequisiteCheckbox@SUDDENDEATH:
 		ID: suddendeath
 		Label: Sudden Death
 		Description: Players can't build another MCV and get defeated when they lose it
 		Enabled: False
-		DisplayOrder: 11
+		DisplayOrder: 14
 		Prerequisites: global-suddendeath
 	ProvidesRadar:
 		RequiresCondition: freeminimap
