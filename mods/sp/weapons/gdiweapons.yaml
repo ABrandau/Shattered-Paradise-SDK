@@ -396,11 +396,13 @@ JuggCannon:
 	Projectile: BulletAS
 		Speed: 250
 		Image: 120mm
+		Palette: ra
 		LaunchAngle: 165
 		Shadow: true
 		Blockable: false
 		ContrailLength: 10
-		ContrailUsePlayerColor: true
+		ContrailUsePlayerColor: false
+		ContrailColor: 88888888
 		ContrailWidth: 56
 		ContrailDelay: 0
 	Warhead@1Dam: SpreadDamage
@@ -418,6 +420,61 @@ JuggCannonShellCasing:
 	ReloadDelay: 75
 	Range: 15c0
 	MinRange: 5c0
+
+GMRLSRocket:
+	Inherits: ^APWarhead
+	Inherits@2: ^Small_Clsn
+	ReloadDelay: 90
+	Range: 12c0
+	Burst: 4
+	Report: hovrmis1.aud
+	ValidTargets: Ground, Water
+	MinRange: 3c0
+	FirstBurstTargetOffset: 0, 450,0
+	FollowingBurstTargetOffset: 0, -300,0
+	Projectile: BulletAS
+		Speed: 350
+		Blockable: false
+		Shadow: false
+		LaunchAngle: 64
+		Image: DRAGON
+		Sequences: idle2
+		Palette: player
+		IsPlayerPalette: true
+		ContrailLength: 4
+		ContrailColor: FFEE0033
+		ContrailWidth: 0c100
+		ContrailDelay: 0
+		-TrailImage:
+	Warhead@1Dam: SpreadDamage
+		Spread: 350
+		Damage: 3000
+		ValidTargets: Ground, Water
+		Versus:
+			LightVehicleArmor: 75
+			VehicleArmor: 100
+		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 460
+
+GMRLSRocketAA:
+	Inherits: HoverMissileAA
+	ReloadDelay: 50
+	Burst: 1
+	Range: 12c0
+	Projectile: MissileTA
+		Speed: 350
+		Blockable: false
+		LaunchAngle: 64
+		ContrailLength: 4
+		ContrailColor: FFEE0033
+		ContrailWidth: 0c100
+		ContrailDelay: 0
+		-TrailImage:
+		-JetImage:
+	Warhead@1Dam: SpreadDamage
+		Damage: 3500
+
 
 SonicZap:
 	Inherits:  ^WeaponGenericUpgrades
