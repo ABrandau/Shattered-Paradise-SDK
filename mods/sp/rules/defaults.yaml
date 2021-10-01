@@ -283,7 +283,14 @@
 		Types: TechBuilding
 		ValidRelationships: Neutral
 	CapturableProgressBar:
+		RequiresCondition: !instantcapture
 	CapturableProgressBlink:
+		Interval: 25
+		Sound: ucapture.aud
+		RequiresCondition: !instantcapture
+	GrantConditionOnPrerequisite@INSTANTCAPTURE:
+		Condition: instantcapture
+		Prerequisites: global-instantcapture
 
 ^EngineerHackableDrone:
 	CaptureManager:
@@ -291,7 +298,14 @@
 		Types: Drone
 		ValidRelationships: Neutral
 	CapturableProgressBar:
+		RequiresCondition: !instantcapture
 	CapturableProgressBlink:
+		Interval: 25
+		Sound: ucapture.aud
+		RequiresCondition: !instantcapture
+	GrantConditionOnPrerequisite@INSTANTCAPTURE:
+		Condition: instantcapture
+		Prerequisites: global-instantcapture
 
 ^CrateBuffs:
 	SpeedMultiplier@speedcrate:
@@ -2537,10 +2551,17 @@
 		Type: Footprint
 		MaxHeightDelta: 3
 	CapturableProgressBar:
+		RequiresCondition: !instantcapture
 	CapturableProgressBlink:
+		Interval: 25
+		Sound: ucapture.aud
+		RequiresCondition: !instantcapture
 	CaptureNotification:
 		Notification: BuildingCaptured
 		LoseNotification: BuildingLostToCapture
+	GrantConditionOnPrerequisite@INSTANTCAPTURE:
+		Condition: instantcapture
+		Prerequisites: global-instantcapture
 	RepairableBuilding:
 		RepairStep: 700
 	OwnerLostAction:
