@@ -1298,7 +1298,7 @@ HOWTLIZER:
 		CloakDelay: 170
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
-		RequiresCondition: cloakgenerator || ( !CloakBreaks && !empdisable )
+		RequiresCondition: cloakgenerator || ( !CriticalDamaged && !empdisable )
 	WithIdleOverlay@shield:
 		Sequence: shield
 		IsPlayerPalette: true
@@ -1317,9 +1317,8 @@ HOWTLIZER:
 		TargetFrozenActors: true
 	-GrantConditionOnPrerequisite@SUDDENDEATH:
 	-MustBeDestroyed:
-	GrantConditionOnDamageState@CloakBreaks:
-		Condition: CloakBreaks
-		ValidDamageStates: Critical
+	Selectable:
+		Bounds: 1400, 2100
 
 STNK:
 	Inherits: ^TurretedTank
@@ -1350,16 +1349,13 @@ STNK:
 		Sequence: shield
 		IsPlayerPalette: true
 		Palette: cloakscrinshield
-	GrantConditionOnDamageState@CloakBreaks:
-		Condition: CloakBreaks
-		ValidDamageStates: Critical
 	-ExternalCondition@crate-cloak:
 	Cloak@CLOAKGENERATOR:
 		InitialDelay: 80
 		CloakDelay: 80
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
-		RequiresCondition: cloakgenerator || ( !CloakBreaks && !empdisable )
+		RequiresCondition: cloakgenerator || ( !CriticalDamaged && !empdisable )
 	Armament:
 		Weapon: StealthRocket
 		LocalOffset: 400,125,300, 400,-125,300
