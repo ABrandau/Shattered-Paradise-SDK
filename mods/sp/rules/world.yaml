@@ -48,7 +48,7 @@
 	SubterraneanActorLayer:
 	Locomotor@Infantry:
 		Name: Infantry
-		Crushes: crate
+		Crushes: crate, mine, minetrigger
 		SharesCell: true
 		TerrainSpeeds:
 			Clear: 100
@@ -65,7 +65,7 @@
 			Veins: 100
 	Locomotor@HeavyInfantry:
 		Name: HeavyInfantry
-		Crushes: crate
+		Crushes: crate, mine, minetrigger
 		SharesCell: false
 		TerrainSpeeds:
 			Clear: 100
@@ -82,7 +82,7 @@
 			Veins: 100
 	Locomotor@TibInmuneInfantry:
 		Name: TibInmuneInfantry
-		Crushes: crate
+		Crushes: crate, mine, minetrigger
 		SharesCell: true
 		TerrainSpeeds:
 			Clear: 100
@@ -99,7 +99,7 @@
 			Veins: 100
 	Locomotor@TibFiends:
 		Name: TibFiends
-		Crushes: crate
+		Crushes: crate, mine, minetrigger
 		SharesCell: true
 		TerrainSpeeds:
 			Clear: 100
@@ -116,7 +116,7 @@
 			Veins: 100
 	Locomotor@TibVeCritter:
 		Name: TibVeCritter
-		Crushes: crate
+		Crushes: crate, mine, minetrigger
 		TerrainSpeeds:
 			Clear: 100
 			Ice: 100
@@ -131,7 +131,7 @@
 				PathingCost: 300
 	Locomotor@Vehicle:
 		Name: Vehicle
-		Crushes: crate
+		Crushes: crate, mine, minetrigger
 		TerrainSpeeds:
 			Clear: 100
 			Ice: 100
@@ -146,7 +146,22 @@
 				PathingCost: 300
 	Locomotor@InfantryCrusherVehicle:
 		Name: InfantryCrusherVehicle
-		Crushes: crate, infantry
+		Crushes: crate, mine, minetrigger, infantry
+		TerrainSpeeds:
+			Clear: 100
+			Ice: 100
+			Road: 100
+			Rail: 100
+			DirtRoad: 100
+			Rough: 100
+			Bridge: 100
+			Tiberium: 70
+			BlueTiberium: 70
+			Veins: 70
+				PathingCost: 300
+	Locomotor@InfantryCrusherMineImmuneVehicle:
+		Name: InfantryCrusherMineImmuneVehicle
+		Crushes: crate, mine, infantry
 		TerrainSpeeds:
 			Clear: 100
 			Ice: 100
@@ -161,7 +176,7 @@
 				PathingCost: 300
 	Locomotor@AmphAPCLocomotor:
 		Name: AmphAPCLocomotor
-		Crushes: crate, infantry
+		Crushes: crate, mine, minetrigger, infantry
 		TerrainSpeeds:
 			Clear: 100
 			Ice: 100
@@ -177,7 +192,7 @@
 			Water: 70
 	Locomotor@VehicleCrusher:
 		Name: VehicleCrusher
-		Crushes: wall, heavywall, crate, infantry, Vehicle, HeavyInfantry
+		Crushes: wall, heavywall, crate, mine, minetrigger, infantry, Vehicle, HeavyInfantry
 		TerrainSpeeds:
 			Clear: 100
 			Ice: 100
@@ -192,7 +207,7 @@
 				PathingCost: 300
 	SubterraneanLocomotor@SUBTERRANEAN:
 		Name: subterranean
-		Crushes: wall, crate, infantry
+		Crushes: wall, crate, mine, minetrigger, infantry
 		TerrainSpeeds:
 			Clear: 100
 			Road: 100
@@ -208,7 +223,7 @@
 		SubterraneanTransitionCost: 120
 	Locomotor@HOVER:
 		Name: Hover
-		Crushes: crate
+		Crushes: crate, mine, minetrigger
 		TerrainSpeeds:
 			Clear: 100
 			Ice: 100
@@ -222,7 +237,7 @@
 			Water: 100
 	Locomotor@HOVERINFANTRY:
 		Name: HoverInfantry
-		Crushes: crate
+		Crushes: crate, mine, minetrigger
 		SharesCell: true
 		TerrainSpeeds:
 			Clear: 100
@@ -237,7 +252,7 @@
 			Water: 100
 	Locomotor@Naval:
 		Name: Naval
-		Crushes: crate, Infantry
+		Crushes: crate, mine, minetrigger, infantry
 		TerrainSpeeds:
 			Clear: 0
 			Ice: 100
