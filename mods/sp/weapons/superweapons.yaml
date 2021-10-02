@@ -297,6 +297,13 @@ DroppodSpawner:
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		ImpactActors: false
+	Warhead@op6: FireShrapnel
+		Weapon: DroppodElevator6
+		Amount: 2
+		Delay: 1
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		ImpactActors: false
 
 DroppodElevator:
 	ReloadDelay: 6
@@ -332,6 +339,12 @@ DroppodElevator5:
 	Inherits: DroppodElevator
 	Warhead@op: FireShrapnel
 		Weapon: droppod5
+		ImpactActors: false
+
+DroppodElevator6:
+	Inherits: DroppodElevator
+	Warhead@op: FireShrapnel
+		Weapon: droppod6
 		ImpactActors: false
 
 droppod1:
@@ -399,6 +412,13 @@ droppod5:
 	Inherits: ^BombWarhead
 	Warhead@5Actor: SpawnActor
 		Actors: eagleguard
+		Range: 3
+
+droppod6:
+	Inherits: droppod1
+	Inherits: ^BombWarhead
+	Warhead@5Actor: SpawnActor
+		Actors: e2
 		Range: 3
 
 NuclearMissile:
