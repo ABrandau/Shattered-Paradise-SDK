@@ -457,21 +457,16 @@ MiniNuke:
 	ValidTargets: Ground, Water, Water, Air
 	Warhead@ImpactDamage0: SpreadDamage
 		Spread: 1c0
-		Damage: 4500
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
-		Versus:
-			BuildingArmor: 140
+		Damage: 12800
+		Falloff: 1000, 700, 700, 700, 400, 300, 0
 	Warhead@ClusterDamage3: SpreadDamage
 		Spread: 1c512
-		Damage: 7500
-		Versus:
-			BuildingArmor: 140
+		Damage: 18800
+		Falloff: 1000, 700, 700, 700, 400, 300, 0
 	Warhead@7Dam_areanukeb: SpreadDamage
 		Spread: 2c0
-		Damage: 1500
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
-		Versus:
-			BuildingArmor: 140
+		Damage: 800
+		Falloff: 1000, 700, 700, 700, 400, 300, 0
 	Warhead@8Radio: CreateTintedCells
 		Spread: 0c756
 		Level: 1000
@@ -482,10 +477,8 @@ MiniNuke:
 		Range: 2
 		InvalidTargets: Water, Cliff
 		ValidTargets: Ground, Water, Air
-	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
-		Spread: 4c512
-	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
-		Spread: 4c256
+	-Warhead@GetsOneShotedbySuperweapons:
+	-Warhead@GetsOneShotedbySuperweaponsAA:
 	Warhead@SoundEffect0: CreateEffect
 		Explosions: nuke1mini, nuke2mini, nuke3mini
 	Warhead@op: FireRadius
