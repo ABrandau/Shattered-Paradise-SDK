@@ -950,21 +950,21 @@
 	DamagedByTintedCells@Default:
 		Damage: 30
 		DamageTypes: TiberiumDeath
-		DamageInterval: 25
 		DamageLevel: 5
+		DamageInterval: 25
 		RequiresCondition: !(VanguardShield && BreakShield <= 4)
 	DamagedByTintedCells@OrangeRadiation:
 		Damage: 10
 		DamageTypes: FireDeath
-		LayerName: OrangeRadiation
 		DamageLevel: 5
 		DamageInterval: 25
+		LayerName: OrangeRadiation
 	DamagedByTintedCells@Colossus:
 		Damage: 60
 		DamageTypes: EnergyDeath
 		DamageLevel: 5
-		LayerName: ColossusRadiation
 		DamageInterval: 25
+		LayerName: ColossusRadiation
 
 ^3CellVision:
 	RevealsShroud:
@@ -1972,6 +1972,9 @@
 	-ExternalCondition@veinholedrain:
 	-WithIdleOverlay@veinholedrain:
 	-GrantConditionOnTerrain@VEINS:
+	-DamagedByTintedCells@Default:
+	-DamagedByTintedCells@OrangeRadiation:
+	-DamagedByTintedCells@Colossus:
 
 ^HoverTank:
 	Inherits: ^HoverVehicle
