@@ -73,7 +73,8 @@ MCV:
 		Speed: 60
 		TurnSpeed: 20
 		Locomotor: InfantryCrusherVehicle
-	-GrantConditionOnPrerequisite@SUDDENDEATH:
+	Targetable@MC:
+		RequiresCondition: !mindcontrolled && !suddendeath
 	MustBeDestroyed:
 		RequiredForShortGame: true
 		-RequiresCondition:
@@ -350,7 +351,10 @@ GACNST:
 		ValuePercent: 15
 		ActorTypes: shark
 		Factions: scr
-	-GrantConditionOnPrerequisite@SUDDENDEATH:
+	Capturable:
+		RequiresCondition: !Building-Buildup && !suddendeath
+	Targetable@MC:
+		RequiresCondition: !mindcontrolled && !suddendeath
 	MustBeDestroyed:
 		-RequiresCondition:
 	RequiresBuildableArea:

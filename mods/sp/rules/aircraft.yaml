@@ -904,7 +904,8 @@ DRACHE:
 		IdealSeparation: 1706
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	-Rearmable:
-	-GrantConditionOnPrerequisite@SUDDENDEATH:
+	Targetable@MC:
+		RequiresCondition: !mindcontrolled && !suddendeath
 	MustBeDestroyed:
 		RequiredForShortGame: true
 		-RequiresCondition:
