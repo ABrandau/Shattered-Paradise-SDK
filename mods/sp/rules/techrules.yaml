@@ -466,9 +466,9 @@ BLUETIBBARREL:
 		Footprint: x
 		Dimensions: 1,1
 	Tooltip:
-		Name: Blue Tib-fuel Barrel
+		Name: Blue Tiberium Barrel
 	TooltipDescription:
-		Description: Explodes when destroyed.
+		Description: Spawns blue tiberium when destroyed.
 	Health:
 		HP: 200
 	Armor:
@@ -478,6 +478,13 @@ BLUETIBBARREL:
 	Explodes:
 		Weapon: BlueTibBarrelExplo
 		EmptyWeapon: BlueTibBarrelExplo
+	-ThrowsShrapnel@LARGE:
+	ThrowsShrapnel@SMALL:
+		Pieces: 1,3
+		Weapons: SmallDebris
+	-ShakeOnDeath:
+	-Explodes@BuildingFireSmallParticleSpawner:
+	-Explodes@BuildingFireBigSpawn:
 
 BLUETIBBARREL2:
 	Inherits: BLUETIBBARREL
@@ -493,6 +500,27 @@ BLUETIBBARREL5:
 
 BLUETIBBARREL6:
 	Inherits: BLUETIBBARREL
+
+FUELTOWER:
+	Inherits: ^CivBuilding
+	Inherits@SHAPE: ^1x1Shape
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Tooltip:
+		Name: Fuel Tower
+	TooltipDescription:
+		Description: Causes huge explosion when destroyed.
+	Health:
+		HP: 500
+	Armor:
+		Type: BuildingArmor
+	RenderSprites:
+		Palette: player
+	Explodes:
+		Weapon: FuelBarrelExplo
+		EmptyWeapon: FuelBarrelExplo
+	-ThrowsShrapnel@LARGE:
 
 CIVHELI:
 	Inherits: ^TechBuilding

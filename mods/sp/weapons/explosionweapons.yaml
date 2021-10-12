@@ -443,6 +443,18 @@ ZombieExplosion:
 
 BlueTibBarrelExplo:
 	Inherits: ^ExploDefaults
+	Inherits@3: ^DelayedSmokeEffect
+	Warhead@2Eff: CreateEffect
+		Explosions: tib_expsmall
+		ExplosionPalette: gradientblue60
+	Warhead@smoke: CreateEffect
+		ExplosionPalette: gradientblue60
+	Warhead@2Res: CreateResource
+		AddsResourceType: BlueTiberium
+		Size: 1,1
+
+FuelBarrelExplo:
+	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_Explosion
 	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
@@ -450,8 +462,11 @@ BlueTibBarrelExplo:
 		Damage: 10000
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-	Warhead@2Eff: CreateEffect
-		ExplosionPalette: gensmkexplojFblue
+	Warhead@5Eff: CreateEffect
+		Explosions: bikeexplode
+		ExplosionPalette: gensmkexploj
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
 
 SparkSpawner:
 	Inherits: ^SparkSpawner
