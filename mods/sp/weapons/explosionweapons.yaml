@@ -461,12 +461,17 @@ FuelBarrelExplo:
 		Spread: 1c0
 		Damage: 10000
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 	Warhead@5Eff: CreateEffect
-		Explosions: bikeexplode
+		Explosions: fuelflame1, fuelflame2
 		ExplosionPalette: gensmkexploj
 		ValidTargets: Ground, Air, Water
 		ImpactActors: false
+	Warhead@5Sharpnel: FireRadius
+		Weapon: NukeFlame3
+		ImpactActors: false
+		Amount: 15
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 
 SparkSpawner:
 	Inherits: ^SparkSpawner
