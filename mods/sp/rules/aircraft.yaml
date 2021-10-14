@@ -36,11 +36,13 @@ ORCA:
 	Armament:
 		Weapon: FighterHellfire
 		LocalOffset: 500,150,70, 500,-150,70
-		PauseOnCondition: !ammo
+		ReloadingCondition: reload-ground
+		PauseOnCondition: !ammo || reload-air
 	Armament@AA:
 		Weapon: FighterHellfireAA
 		LocalOffset: 500,150,70, 500,-150,70
-		PauseOnCondition: !ammo
+		ReloadingCondition: reload-air
+		PauseOnCondition: !ammo || reload-ground
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 40
@@ -273,12 +275,14 @@ APACHE:
 		HP: 15000
 	Armament@Fakebullet:
 		Weapon: HarpyClawBullet
-		PauseOnCondition: !ammo
+		ReloadingCondition: reload-ground
+		PauseOnCondition: !ammo || reload-air
 		Name: decoration
 		LocalOffset: 900,0,0
 	Armament@FakebulletAA:
 		Weapon: HarpyClawBulletAA
-		PauseOnCondition: !ammo
+		ReloadingCondition: reload-air
+		PauseOnCondition: !ammo || reload-ground
 		Name: decoration
 		LocalOffset: 900,0,0
 	GrantConditionOnAttack@Casing:
@@ -290,10 +294,12 @@ APACHE:
 		LocalOffset: 800,0,0
 	Armament:
 		Weapon: HarpyClaw
-		PauseOnCondition: !ammo
+		ReloadingCondition: reload-ground
+		PauseOnCondition: !ammo || reload-air
 	Armament@AA:
 		Weapon: HarpyClawAA
-		PauseOnCondition: !ammo
+		ReloadingCondition: reload-air
+		PauseOnCondition: !ammo || reload-ground
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 512
@@ -369,13 +375,15 @@ SCRIN:
 		MuzzleSequence: muzzle
 		LocalOffset: 450,0,0
 		MuzzlePalette: apgreen
-		PauseOnCondition: !ammo
+		ReloadingCondition: reload-ground
+		PauseOnCondition: !ammo || reload-air
 	Armament@2:
 		Weapon: ProtonAA
 		MuzzleSequence: muzzle
 		LocalOffset: 450,0,0
 		MuzzlePalette: apgreen
-		PauseOnCondition: !ammo
+		ReloadingCondition: reload-air
+		PauseOnCondition: !ammo || reload-ground
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 40
@@ -585,12 +593,14 @@ MUTHELI:
 		Weapon: GargoylACannon
 		MuzzleSequence: muzzle
 		LocalOffset: 600,0,-300
-		PauseOnCondition: !ammo
+		ReloadingCondition: reload-ground
+		PauseOnCondition: !ammo || reload-air
 	Armament@AA:
 		Weapon: GargoylACannonAA
 		MuzzleSequence: muzzle
 		LocalOffset: 600,0,-300
-		PauseOnCondition: !ammo
+		ReloadingCondition: reload-air
+		PauseOnCondition: !ammo || reload-ground
 	GrantConditionOnAttack@Casing:
 		Condition: attack
 		ArmamentNames: primary
@@ -846,10 +856,14 @@ STORMRIDER:
 		Weapon: StormRiderBlast
 		MuzzleSequence: muzzle
 		MuzzlePalette: appurp
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
 	Armament@AA:
 		Weapon: StormRiderBlastAA
 		MuzzleSequence: muzzle
 		MuzzlePalette: appurp
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
 	WithMuzzleOverlay:	
 	AttackAircraft:
 		Voice: Attack
@@ -1146,8 +1160,12 @@ SCRCARRIER:
 		HP: 60000
 	Armament:
 		Weapon: FighterSpawn
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
 	Armament@2:
 		Weapon: FighterSpawnAA
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
 	CarrierMaster:
 		Actors: STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN
 		RespawnTicks: 150
@@ -1211,8 +1229,12 @@ STORMRIDERSPAWN:
 		MoveIntoShroud: true
 	Armament:
 		Weapon: WyvermBlast
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
 	Armament@AA:
 		Weapon: WyvermBlastAA
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
 	AttackAircraft:
 		FacingTolerance: 512
 	RejectsOrders:
@@ -1402,9 +1424,13 @@ WASP:
 	Armament@PRIMARY:
 		Weapon: WaspBullet
 		LocalOffset: 250,350,-100, 250,-350,-100
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
 	Armament@SECONDARY:
 		Weapon: WaspBulletAA
 		LocalOffset: 250,-350,-100, 250,350,-100
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 40

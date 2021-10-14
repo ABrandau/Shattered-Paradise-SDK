@@ -207,11 +207,13 @@ HVR:
 	Armament:
 		Weapon: HoverMissile
 		LocalOffset: 100,150,384, 100,-150,384
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: empdisable || reload-air
 	Armament@AA:
 		Weapon: HoverMissileAA
 		LocalOffset: 100,150,384, 100,-150,384
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: empdisable || reload-ground
 	Turreted:
 		TurnSpeed: 36
 		Offset: -300,0,100
@@ -358,11 +360,13 @@ G4TNK:
 	Armament@SECONDARY:
 		Weapon: MammothTusk
 		LocalOffset: 100,400,650, 100,-400,650
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: empdisable || reload-air
 	Armament@SECONDARYSECONDARY:
 		Weapon: MammothTuskAA
 		LocalOffset: 100,400,650, 100,-400,650
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: empdisable || reload-ground
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -416,7 +420,7 @@ HMEC:
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
-		Turrets: primary, secondary, third, forth
+		Turrets: primary, secondary, tertiary, quaternary
 	BodyOrientation:
 		QuantizedFacings: 8
 		CameraPitch: 250
@@ -431,24 +435,28 @@ HMEC:
 		Weapon: MKIITusk
 		LocalOffset: 0,0,2800
 		Turret: secondary
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: empdisable || reload-air
 	Armament@M1AA:
 		Weapon: MKIITuskAA
 		LocalOffset: 0,0,2800
 		Turret: secondary
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: empdisable || reload-ground
 	Armament@M2:
 		Weapon: MKIITusk
 		LocalOffset: 0,0,2800
-		Turret: third
+		Turret: tertiary
 		FireDelay: 5
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: empdisable || reload-air
 	Armament@M2AA:
 		Weapon: MKIITuskAA
 		LocalOffset: 0,0,2800
-		Turret: third
+		Turret: tertiary
 		FireDelay: 5
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: empdisable || reload-ground
 	Armament@R:  ##Hit effect and firedly fire
 		Weapon: MechRailgun
 		LocalOffset: 1200,-250,2650, 1200,250,2650
@@ -460,19 +468,19 @@ HMEC:
 		MuzzleSequence: muzzle2
 	Armament@gun:
 		Weapon: MKIIVulcan
-		Turret: forth
+		Turret: quaternary
 		LocalOffset: 0,0,1400
 		PauseOnCondition: empdisable
 	Armament@gunCasing:
 		Weapon: MKIIVulcanCasing
 		MuzzleSequence: muzzle
 		LocalOffset: 0,0,1400
-		Turret: forth
+		Turret: quaternary
 		PauseOnCondition: empdisable
 	Armament@gunLine:
 		Weapon: MKIIVulcanLine
 		LocalOffset: 0,0,1400
-		Turret: forth
+		Turret: quaternary
 		PauseOnCondition: empdisable
 	-Targetable@MC:
 	Turreted@1:
@@ -485,11 +493,11 @@ HMEC:
 	Turreted@3:
 		Offset: 600,-300,-400
 		TurnSpeed: 32
-		Turret: third
+		Turret: tertiary
 	Turreted@4:
 		Offset: 1024,0,-500
 		TurnSpeed: 128
-		Turret: forth
+		Turret: quaternary
 	Carryable:
 		LocalOffset: 0, 0, 1536
 	WithMuzzleOverlay:
@@ -501,7 +509,7 @@ HMEC:
 		RequiresCondition: !inside-tunnel
 	WithSpriteTurret@3:
 		Sequence: turret2
-		Turret: third
+		Turret: tertiary
 		RequiresCondition: !inside-tunnel
 	Passenger:
 		CustomPipType: red
@@ -643,10 +651,14 @@ BGGY:
 	Armament@crusa:
 		Weapon: CrusaderBazooka
 		LocalOffset: 250,0,125
+		ReloadingCondition: reload-ground-crusader
+		PauseOnCondition: reload-air-crusader
 		RequiresCondition: ifv.crusader
 	Armament@crusaaa:
 		Weapon: CrusaderBazookaAA
 		LocalOffset: 250,0,125
+		ReloadingCondition: reload-air-crusader
+		PauseOnCondition: reload-ground-crusader
 		RequiresCondition: ifv.crusader
 	Armament@templar:
 		Weapon: TemplarFlame
@@ -706,10 +718,14 @@ BGGY:
 	Armament@seer:
 		Weapon: SeerTesla
 		LocalOffset: 250,0,125
+		ReloadingCondition: reload-ground-seer
+		PauseOnCondition: reload-air-seer
 		RequiresCondition: ifv.seer
 	Armament@seerAA:
 		Weapon: SeerTeslaAA
 		LocalOffset: 250,0,125
+		ReloadingCondition: reload-air-seer
+		PauseOnCondition: reload-ground-seer
 		RequiresCondition: ifv.seer
 	Armament@psyker:
 		Weapon: PsykerRay
@@ -935,12 +951,14 @@ ATTACKBIKE:
 	Armament@PRIMARY:
 		Weapon: BikeMissile
 		LocalOffset: -120,-204,400, -120,204,400
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: empdisable || reload-air
 		LocalYaw: 100, -100
 	Armament@AA:
 		Weapon: BikeMissileAA
 		LocalOffset: -120,-204,400, -120,204,400
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: empdisable || reload-ground
 		LocalYaw: 100, -100
 	AttackFrontal:
 		PauseOnCondition: empdisable
@@ -984,7 +1002,8 @@ TTNK:
 		Weapon: Tick90mm
 		LocalOffset: 350,-0,500
 		MuzzleSequence: muzzle
-		PauseOnCondition: empdisable || !ammo
+		ReloadingCondition: reload-undeployed
+		PauseOnCondition: empdisable || reload-deployed
 	Armament@DEPLOYED:
 		Name: deployed
 		Turret: deployed
@@ -992,26 +1011,20 @@ TTNK:
 		Weapon: Tick90mm
 		LocalOffset: 256,-0,700
 		MuzzleSequence: muzzle
-		PauseOnCondition: empdisable || !ammo
+		ReloadingCondition: reload-deployed
+		PauseOnCondition: empdisable || reload-undeployed
 	Armament@CASINGPRIMARY:
 		Weapon: Tick90mmShellCasing
-		PauseOnCondition: empdisable || !ammo
+		ReloadingCondition: reload-undeployed
+		PauseOnCondition: empdisable || reload-deployed
 	Armament@CASINGDEPLOYED:
 		Name: deployed
 		Turret: deployed
 		Recoil: 0c128
 		Weapon: Tick90mmShellCasing
 		MuzzleSequence: muzzle
-		PauseOnCondition: empdisable || !ammo
-	AmmoPool:
-		Ammo: 2 # One for the casing, one for the normal weapon.
-		ReloadCount: 2
-		ReloadDelay: 35
-		AmmoCondition: ammo
-		Armaments: primary, deployed
-	ReloadAmmoPool:
-		Count: 2
-		Delay: 35
+		ReloadingCondition: reload-deployed
+		PauseOnCondition: empdisable || reload-undeployed
 	WithMuzzleOverlay:
 	WithMakeAnimation:
 		BodyNames: deployed
@@ -1361,11 +1374,13 @@ STNK:
 	Armament:
 		Weapon: StealthRocket
 		LocalOffset: 400,125,300, 400,-125,300
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: empdisable || reload-air
 	Armament@Secondary:
 		Weapon: StealthRocketAA
 		LocalOffset: 400,125,300, 400,-125,300
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: empdisable || reload-ground
 	Turreted:
 		Offset: 0,0,600
 		TurnSpeed: 24
@@ -1580,23 +1595,27 @@ MUTQUAD:
 	Armament@Fakebullet:
 		Weapon: QuadFireLine
 		LocalOffset: 1200,0,1000
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: empdisable || reload-air
 	Armament@FakebulletAA:
 		Weapon: QuadFireLineAA
 		LocalOffset: 1200,0,1000
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: empdisable || reload-ground
 	Armament@1:
 		Weapon: QuadFire
 		MuzzleSequence: muzzle
 		LocalOffset: 800,0,700
 		MuzzlePalette: apgrey
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: empdisable || reload-air
 	Armament@AA1:
 		Weapon: QuadFireAA
 		MuzzleSequence: muzzle
 		MuzzlePalette: apgrey
 		LocalOffset: 800,0,700
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: empdisable || reload-ground
 	Turreted:
 		TurnSpeed: 24
 		Offset: -300,0,0
@@ -2281,11 +2300,13 @@ REAPERCAB:
 	Armament@primary:
 		Weapon: ReaperScythe
 		LocalOffset: 300,-400,950, 300,400,950
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: empdisable || reload-air
 	Armament@AA:
 		Weapon: ReaperScytheAA
 		LocalOffset: 300,-400,950, 300,400,950
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: empdisable || reload-ground
 	Armament@secondary:
 		Name: secondary
 		Weapon: ReaperWeb

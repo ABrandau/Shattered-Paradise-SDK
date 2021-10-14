@@ -52,21 +52,25 @@ GRENADIER:
 	Armament@1:
 		Weapon: GrenadierBazooka
 		LocalOffset: 0,0,600
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: WebDisable || reload-air
 		Name: OnFoot
 	Armament@2:
 		Weapon: GrenadierBazookaAA
 		LocalOffset: 0,0,600
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: WebDisable || reload-ground
 		Name: OnFoot
 	Armament@Garrison1:
 		Weapon: GGrenadierBazooka
 		LocalOffset: 0,0,600
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: WebDisable || reload-air
 	Armament@Garrison2:
 		Weapon: GGrenadierBazookaAA
 		LocalOffset: 0,0,600
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: WebDisable || reload-ground
 	Voiced:
 		VoiceSet: Marine
 	AttackFrontal:
@@ -595,21 +599,25 @@ CRUSADER:
 	Armament@1:
 		Weapon: CrusaderBazooka
 		LocalOffset: 0,0,600
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: WebDisable || reload-air
 		Name: OnFoot
 	Armament@2:
 		Weapon: CrusaderBazookaAA
 		LocalOffset: 0,0,600
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: WebDisable || reload-ground
 		Name: OnFoot
 	Armament@Garrison1:
 		Weapon: GCrusaderBazooka
 		LocalOffset: 0,0,600
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: WebDisable || reload-air
 	Armament@Garrison2:
 		Weapon: GCrusaderBazookaAA
 		LocalOffset: 0,0,600
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: WebDisable || reload-ground
 	-TakeCover:
 	AttackTurreted:
 		Voice: Attack
@@ -852,26 +860,22 @@ MARAUDER:
 	Armament@1:
 		Weapon: MarauderShotgun
 		Name: OnFoot
-		PauseOnCondition: WebDisable || !ammo
+		ReloadingCondition: reload-undeployed
+		PauseOnCondition: WebDisable || reload-deployed
 		RequiresCondition: !deployed
 	Armament@Garrison:
 		Weapon: GMarauderShotgun
 		MuzzlePalette: playermut
-		PauseOnCondition: !ammo
+		ReloadingCondition: reload-undeployed
+		PauseOnCondition: reload-deployed
 		RequiresCondition: !deployed
 	Armament@Deployed:
 		Weapon: DeployedMarauderShotgun
 		Name: OnFoot
 		Turret: Marauderturr
-		PauseOnCondition: !ammo
+		ReloadingCondition: reload-deployed
+		PauseOnCondition: reload-undeployed
 		RequiresCondition: deployed
-	AmmoPool:
-		Ammo: 1
-		ReloadDelay: 40
-		AmmoCondition: ammo
-		Armaments: primary, OnFoot
-	ReloadAmmoPool:
-		Delay: 40
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
@@ -967,19 +971,23 @@ MUTFIEND:
 	Armament@1:
 		Weapon: FiendShard2
 		Name: OnFoot
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: WebDisable || reload-air
 		LocalOffset: 500, 0, 700
 	Armament@2:
 		Weapon: FiendShardAA
 		Name: OnFoot
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: WebDisable || reload-ground
 		LocalOffset: 500, 0, 700
 	Armament@Garrison1:
 		Weapon: GFiendShard2
+		ReloadingCondition: reload-ground
+		PauseOnCondition: WebDisable || reload-air
 	Armament@Garrison2:
 		Weapon: GFiendShardAA
-		PauseOnCondition: WebDisable
-		FireDelay: 7
+		ReloadingCondition: reload-air
+		PauseOnCondition: WebDisable || reload-ground
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -1106,19 +1114,25 @@ SEER:
 		Name: OnFoot
 		FireDelay: 5
 		LocalOffset: 100,0,400
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: WebDisable || reload-air
 	Armament@2:
 		Weapon: SeerTeslaAA
 		Name: OnFoot
 		FireDelay: 5
 		LocalOffset: 100,0,400
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: WebDisable || reload-ground
 	Armament@Garrison1:
 		Weapon: SeerTesla
 		LocalOffset: 100,0,400
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
 	Armament@Garrison2:
 		Weapon: SeerTeslaAA
 		LocalOffset: 100,0,400
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -1267,24 +1281,28 @@ LEGIO:
 		Weapon: LegioNeedler
 		LocalOffset: 350,200,800
 		FireDelay: 5
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: WebDisable || reload-air
 		Name: OnFoot
 	Armament@2:
 		Weapon: LegioNeedlerAA
 		LocalOffset: 350,200,800
 		FireDelay: 5
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: WebDisable || reload-ground
 		Name: OnFoot
 	Armament@Garrison1:
 		Weapon: GLegioNeedler
 		LocalOffset: 350,200,800
 		FireDelay: 5
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: WebDisable || reload-air
 	Armament@Garrison2:
 		Weapon: GLegioNeedlerAA
 		LocalOffset: 350,200,800
 		FireDelay: 5
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: WebDisable || reload-ground
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -1707,21 +1725,25 @@ CBORG:
 	Armament@1:
 		Weapon: CyborgRocket
 		LocalOffset: 424,198,1086
-		PauseOnCondition: WebDisable || empdisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: WebDisable || empdisable || reload-air
 		Name: OnFoot
 	Armament@2:
 		Weapon: CyborgRocketAA
 		LocalOffset: 424,198,1086
-		PauseOnCondition: WebDisable || empdisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: WebDisable || empdisable || reload-ground
 		Name: OnFoot
 	Armament@Garrison1:
 		Weapon: GCyborgRocket
 		LocalOffset: 424,198,1086
-		PauseOnCondition: WebDisable || empdisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: WebDisable || empdisable || reload-air
 	Armament@Garrison2:
 		Weapon: GCyborgRocketAA
 		LocalOffset: 424,198,1086
-		PauseOnCondition: WebDisable || empdisable
+		ReloadingCondition: reload-air
+		PauseOnCondition: WebDisable || empdisable || reload-ground
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -1864,28 +1886,32 @@ GLAD:
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 200,250,550
-		PauseOnCondition: WebDisable || empdisable || !ammo
+		ReloadingCondition: reload-undamaged
+		PauseOnCondition: WebDisable || empdisable || reload-damaged
 		Name: OnFoot
 	Armament@2:
 		RequiresCondition: !CriticalDamaged
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 200,-250,550
-		PauseOnCondition: WebDisable || empdisable || !ammo
+		ReloadingCondition: reload-undamaged
+		PauseOnCondition: WebDisable || empdisable || reload-damaged
 		Name: OnFoot
 	Armament@1Cripple:
 		RequiresCondition: CriticalDamaged
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 300,250,-150
-		PauseOnCondition: WebDisable || empdisable || !ammo
+		ReloadingCondition: reload-damaged
+		PauseOnCondition: WebDisable || empdisable || reload-undamaged
 		Name: OnFoot
 	Armament@2Cripple:
 		RequiresCondition: CriticalDamaged
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 300,-250,-150
-		PauseOnCondition: WebDisable || empdisable || !ammo
+		ReloadingCondition: reload-damaged
+		PauseOnCondition: WebDisable || empdisable || reload-undamaged
 		Name: OnFoot
 	Armament@Garrison1:
 		Weapon: GGLAD120mm
@@ -1897,13 +1923,6 @@ GLAD:
 		MuzzleSequence: muzzle
 		LocalOffset: 170,-250,500
 		PauseOnCondition: WebDisable
-	AmmoPool:
-		Ammo: 4
-		AmmoCondition: ammo
-		Armaments: OnFoot
-	ReloadAmmoPool:
-		Count: 4
-		Delay: 150
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
