@@ -473,6 +473,33 @@ FuelBarrelExplo:
 		Amount: 15
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 
+AmmoCrateExplo:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Large_Explosion
+	Inherits@3: ^DelayedSmokeEffect
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 1500
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
+	Warhead@2Eff: CreateEffect
+		Explosions: ammoexplode
+		ExplosionPalette: gensmkexploj
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
+	Warhead@op1: FireRadius
+		ValidTargets: Ground, Air, Water
+		Delay: 4
+		Weapon: MarauderShotgunInnacurate
+		ImpactActors: false
+		Amount: 4
+	Warhead@op2: FireRadius
+		ValidTargets: Ground, Air, Water
+		Delay: 15
+		Weapon: MarauderShotgunInnacurate
+		ImpactActors: false
+		Amount: 5
+
 SparkSpawner:
 	Inherits: ^SparkSpawner
 	ReloadDelay: 100
