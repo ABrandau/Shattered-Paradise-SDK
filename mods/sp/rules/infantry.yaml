@@ -1230,7 +1230,7 @@ SHARK:
 		Speed: 85
 		Voice: Move
 	SpawnActorOnDeath@conversion:
-		Actor: cybdog
+		Actor: chusk
 		Probability: 100
 		OwnerType: Killer
 		DeathType: CabalDeath
@@ -1390,7 +1390,7 @@ BUG:
 	Mobile:
 		Speed: 75
 	SpawnActorOnDeath@conversion:
-		Actor: cybdog
+		Actor: chusk
 		Probability: 100
 		OwnerType: Killer
 		DeathType: CabalDeath
@@ -1438,7 +1438,7 @@ COLOSSI:
 		RequireForceMoveCondition: !undeployed
 	-DamagedByTintedCells@Colossus:
 	SpawnActorOnDeath@conversion:
-		Actor: cybdog
+		Actor: chusk
 		Probability: 100
 		OwnerType: Killer
 		DeathType: CabalDeath
@@ -1599,7 +1599,7 @@ MASTERMIND:
 	SharedPassenger:
 		CustomPipType: red
 	SpawnActorOnDeath@conversion:
-		Actor: cybdog
+		Actor: chusk
 		Probability: 100
 		OwnerType: Killer
 		DeathType: CabalDeath
@@ -2167,6 +2167,50 @@ CYBDOG:
 	DeliversCash:
 		Payload: 75
 
+CHUSK:
+	Inherits: ^ScrinSoldier
+	Inherits@Render: ^CabRender
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Husk
+	Selectable:
+		Bounds: 664,1568,-30,-723
+		DecorationBounds: 664,1568,-30,-723
+	Voiced:
+		VoiceSet: Limpet
+	Mobile:
+		Speed: 60
+	Health:
+		HP: 7000
+	Armament@1:
+		Weapon: DogBomb
+		LocalOffset: 0,-100,700, 0, 100,700
+		PauseOnCondition: WebDisable || empdisable
+		Name: OnFoot
+	Armament@Garrison:
+		Weapon: GDogBomb
+		LocalOffset: 0,-100,700, 0, 100,700
+		PauseOnCondition: WebDisable || empdisable
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+		FacingTolerance: 2
+	SelectionDecorations:
+	-SpawnActorOnDeath@nanomachinereanimate:
+	-ExternalCondition@nanomachinereanimate:
+	-SpawnActorOnDeath@conversion:
+	WithDeathAnimation@normal:
+		DeathSequencePalette: playercab
+		CrushedSequencePalette: playercab
+	WithDeathAnimation@explosion:
+		DeathSequencePalette: gensmkexploj
+	DeliversCash:
+		Payload: 75
+
 WORKERMECH:
 	Inherits: ^CabalDroneInfantry
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -2213,7 +2257,7 @@ WORKERMECH:
 NANOS:
 	Inherits: ^CabalDroneInfantry
 	Valued:
-		Cost: 10
+		Cost: 100
 	Tooltip:
 		Name: Small Nano Swarm
 	Health:
