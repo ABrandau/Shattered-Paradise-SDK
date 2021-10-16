@@ -259,6 +259,8 @@ WorkerMinigun:
 	Report: infgun3.aud, gostgun1.aud, slvkgun1.aud
 	Warhead@1Dam: SpreadDamage
 		Damage: 1600
+		Versus:
+			LightVehicleArmor: 30
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 ^WorkerWarhead:
@@ -272,11 +274,12 @@ WorkerMinigun:
 		Spread: 300
 		Versus:
 			InfantryArmor: 100
-			BuildingArmor: 30
-			VehicleArmor: 10
-			DefenseArmor: 15
+			BuildingArmor: 20
+			LightVehicleArmor: 30
+			VehicleArmor: 15
+			DefenseArmor: 5
 			AircraftArmor: 100
-			ConcreteArmor: 5
+			ConcreteArmor: 3
 			Shield: 0
 		ValidTargets: Ground, Water
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
@@ -293,6 +296,8 @@ DogBomb:
 		IsPlayerPalette: true
 	Warhead@1Dam: SpreadDamage
 		Damage: 800
+		Versus:
+			LightVehicleArmor: 30
 	Warhead@2Eff: CreateEffect
 		Explosions: sparks
 		ImpactSounds: rketinf1.aud
