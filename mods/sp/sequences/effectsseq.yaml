@@ -988,13 +988,16 @@ scrinenergyeff:
 scrintele:
 	Defaults:
 		Length: *
+		ZRamp: 1
 	begin: blackhole
 		Scale: 1.5
+		Tick: 20
 	loop: blackhole
 		Scale: 2.25
-	end: lightningbolts
-		ZOffset: 1023
-
+		Tick: 35
+	end: rageflash4
+		ZOffset: -1023
+		Scale: 0.4
 
 metstral:
 	idle:
@@ -1357,12 +1360,13 @@ hugegreenplasma:
 	idle: hugegreenplasma
 		Length: *
 
-ichorsmoke
+ichorsmoke:
 	Defaults:
 		Length: *
 		ZOffset: 8000
 		Offset: 0,0,120
 		Tick: 40
+		Scale: 1.5
 	idle: ichorsmoke
 		Start: 0
 		Length: *
