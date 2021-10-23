@@ -291,9 +291,13 @@ MindControllerMastermind:
 MindControllerMastermindBuilding:
 	Inherits: MindControllerMastermind
 	ReloadDelay: 10
+	TargetActorCenter: true
 	ValidTargets: MindControllable, MindControllableMastermind, MindControllableBuilding
 	Warhead@1Dam: TargetDamage
 		ValidTargets: MindControllable, MindControllableMastermind, MindControllableBuilding
+	Warhead@2Fla: FlashTarget
+		ValidTargets: MindControllable, MindControllableMastermind, MindControllableBuilding
+		InvalidTargets: MindControlImmune
 
 MindEnergyCasing:
 	ReloadDelay: 200000
