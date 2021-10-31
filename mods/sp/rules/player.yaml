@@ -198,6 +198,20 @@ Player:
 		AllyNotification: BaseAttackWarning
 	HarvesterAttackNotifier:
 	PlayerStatistics:
+	ExternalCondition@HMECBuildTimeHack:
+		Condition: factory
+	ProvidesPrerequisite@factory-1:
+		Prerequisite: prerequisite.one_factory
+		RequiresCondition: factory == 1
+	ProvidesPrerequisite@factory-2:
+		Prerequisite: prerequisite.two_factory
+		RequiresCondition: factory == 2
+	ProvidesPrerequisite@factory-3:
+		Prerequisite: prerequisite.three_factory
+		RequiresCondition: factory == 3
+	ProvidesPrerequisite@factory-4:
+		Prerequisite: prerequisite.four_factory
+		RequiresCondition: factory > 3
 	PlaceBeacon:
 		Palette: cloakbeacon
 		IsPlayerPalette: true
