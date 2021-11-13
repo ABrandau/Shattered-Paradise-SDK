@@ -1675,7 +1675,7 @@ CYBORG:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 7
-		Description: Durable cyborg construct.\n\nGood vs: Infantry.\n\nSpecial:\n- Does not receive damage from tiberium fields.\n- Loses its legs on critical health.\n- Crush class: uncrushable.
+		Description: Durable cyborg construct.\n\nGood vs: Infantry.\n\nSpecial:\n- Can be deactivated with E.M.P.\n- Does not receive damage from tiberium fields\n- Loses its legs on critical health\n- Crush class: uncrushable
 		Prerequisites: ~cabclaw, ~techlevel.1
 	Mobile:
 		Speed: 45
@@ -1714,7 +1714,7 @@ CBORG:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 8
-		Description: Anti armor cyborg.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack Air\n- Does not receive damage from tiberium fields\n- Loses its legs on critical health\n- Can shoot over walls\n- Crush class: uncrushable
+		Description: Anti armor cyborg.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can be deactivated with E.M.P.\n- Can attack Air\n- Does not receive damage from tiberium fields\n- Loses its legs on critical health\n- Can shoot over walls\n- Crush class: uncrushable
 		Prerequisites: ~cabclaw, ~techlevel.1
 		IconPalette: UnittemIcon
 	Health:
@@ -1871,7 +1871,7 @@ GLAD:
 		Queue: Infantry
 		BuildPaletteOrder: 21
 		Prerequisites: ~cabclaw, cabradr, ~techlevel.4
-		Description: Advanced cyborg construct, extremely resilient.\n\nGood vs: Vehicles\n\nSpecial:\n- Selfrepair\n- Does not receive damage from tiberium fields.\n- Loses its legs on critical health.\n- Crush class: uncrushable
+		Description: Advanced cyborg construct, extremely resilient.\n\nGood vs: Vehicles\n\nSpecial:\n- Can be deactivated with E.M.P.\n- Selfrepair\n- Does not receive damage from tiberium fields.\n- Loses its legs on critical health.\n- Crush class: uncrushable
 	Selectable:
 		Bounds: 1056,1809,0,-603
 	Passenger:
@@ -2064,7 +2064,7 @@ CYC2:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Description: Elite cyborg armed with a plasma cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Loses its legs when at critical health\n- Will reattach new legs after gaining enough health\n- Crush class: uncrushable\n- Immune to mind control
+		Description: Elite cyborg armed with a plasma cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Can be deactivated with E.M.P.\n- Selfrepair\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Loses its legs when at critical health\n- Will reattach new legs after gaining enough health\n- Crush class: uncrushable\n- Immune to mind control
 		Queue: Infantry
 		BuildPaletteOrder: 33
 		Prerequisites: ~cabclaw, cabtech, ~techlevel.5
@@ -2136,7 +2136,7 @@ CYBDOG:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
 	Valued:
-		Cost: 100
+		Cost: 150
 	Tooltip:
 		Name: Cyberdog
 	Selectable:
@@ -2145,9 +2145,9 @@ CYBDOG:
 	Voiced:
 		VoiceSet: Limpet
 	Mobile:
-		Speed: 60
+		Speed: 90
 	Health:
-		HP: 7000
+		HP: 5000
 	Armament@1:
 		Weapon: DogBomb
 		LocalOffset: 0,-100,700, 0, 100,700
@@ -2175,25 +2175,25 @@ CHUSK:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
 	Valued:
-		Cost: 100
+		Cost: 50
 	Tooltip:
-		Name: Husk
+		Name: Shark Husk
 	Selectable:
 		Bounds: 664,1568,-30,-723
 		DecorationBounds: 664,1568,-30,-723
 	Voiced:
 		VoiceSet: Limpet
 	Mobile:
-		Speed: 60
+		Speed: 90
 	Health:
-		HP: 7000
+		HP: 3500
 	Armament@1:
-		Weapon: DogBomb
+		Weapon: NanoNeedle
 		LocalOffset: 0,-100,700, 0, 100,700
 		PauseOnCondition: WebDisable || empdisable
 		Name: OnFoot
 	Armament@Garrison:
-		Weapon: GDogBomb
+		Weapon: GNanoNeedle
 		LocalOffset: 0,-100,700, 0, 100,700
 		PauseOnCondition: WebDisable || empdisable
 	AttackFrontal:
@@ -2218,13 +2218,13 @@ WORKERMECH:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RENDER: ^CabRender
 	Valued:
-		Cost: 100
+		Cost: 150
 	Tooltip:
-		Name: Worker Unit
+		Name: Worker Drone
 	Health:
-		HP: 7000
+		HP: 15000
 	Mobile:
-		Speed: 60
+		Speed: 45
 	Voiced:
 		VoiceSet: Limpet
 	DeliversCash:
@@ -2240,11 +2240,11 @@ WORKERMECH:
 	WithSpriteTurret:
 		Recoils: true
 	Armament@1:
-		Weapon: WorkerMinigun
+		Weapon: WorkerDroneMinigun
 		PauseOnCondition: WebDisable || empdisable
 		Name: OnFoot
 	Armament@Garrison:
-		Weapon: GWorkerMinigun
+		Weapon: GWorkerDroneMinigun
 		PauseOnCondition: WebDisable || empdisable
 	Selectable:
 		Bounds: 754, 1327, 0, -302

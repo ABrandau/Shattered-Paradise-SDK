@@ -385,7 +385,7 @@ ScorpGas:
 		Image: ichorsmoke
 		ImpactActors: false
 		Sequences: idle
-		Duration: 250
+		Duration: 50
 		Palette: jascbluealphaalpha50
 		Delay: 0
 		Weapon: foggydebuff
@@ -395,9 +395,9 @@ ScorpGas:
 		Image: ichorsmoke
 		ImpactActors: false
 		Sequences: idle
-		Duration: 250
+		Duration: 50
 		Palette: jascbluealphaalpha50
-		Delay: 50
+		Delay: 250
 		ValidTargets: Infantry, Vehicle, Ground, Water
 		InvalidTargets: Building, Wall
 
@@ -710,9 +710,10 @@ Glyder1Cannon:
 		Versus:
 			InfantryArmor: 140
 			BuildingArmor: 35
+			LightVehicleArmor: 40
 			VehicleArmor: 15
 			DefenseArmor: 15
-			ConcreteArmor: 25
+			ConcreteArmor: 5
 		ValidTargets: Ground, Water
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 	Warhead@2Eff: CreateEffect
@@ -850,7 +851,7 @@ DestroyerCannon:
 		InvalidTargets: Vehicle, Building, Wall
 
 FighterSpawn:
-	ReloadDelay: 15
+	ReloadDelay: 5
 	Range: 8c0
 	MinRange: 0c100
 	Projectile: InstantExplode
@@ -869,7 +870,7 @@ FighterSpawnAA:
 WyvermBlast:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Scrin_Pulse
-	ReloadDelay: 65
+	ReloadDelay: 30
 	Range: 5c0
 	MinRange: 0c100
 	Report: photon1.wav
@@ -893,13 +894,14 @@ WyvermBlast:
 		Palette: apblue
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c180
-		Damage: 3000
+		Damage: 2000
 		Versus:
-			AircraftArmor: 75
-			InfantryArmor: 10
+			AircraftArmor: 100
+			InfantryArmor: 100
+			LightVehicleArmor: 100
 			VehicleArmor: 100
-			DefenseArmor: 100
-			BuildingArmor: 50
+			DefenseArmor: 50
+			BuildingArmor: 25
 		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 
@@ -910,7 +912,7 @@ WyvermBlastAA:
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		ValidRelationships: Enemy, Neutral
-		Damage: 2500
+		Damage: 1500
 	-Warhead@ShieldUpgrade:
 
 WasteTurretWeapon:

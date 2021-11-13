@@ -1430,7 +1430,7 @@ SCORPION:
 		BuildPaletteOrder: 44
 		Prerequisites: ~naweap, natmpl, ~techlevel.6
 		BuildAtProductionType: Tank
-		Description: Nod's super-heavy walker. One vision one purpose.\n\nGood vs: Ground\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything except other Epics\n- Deployability: Enemy units get out of control for 10 seconds
+		Description: Nod's super-heavy walker. One vision one purpose.\n\nGood vs: Ground\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything except other Epics\n- Deployability: Enemy units get out of control for 5 seconds
 		BuildLimit: 1
 	Voiced:
 		VoiceSet: Scorpion
@@ -1493,15 +1493,15 @@ SCORPION:
 		RequiresCondition: rank-heroic
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: rage
-		CooldownTicks: 3000
-		DeployedTicks: 10
+		CooldownTicks: 2250
+		DeployedTicks: 25
 		StartsFullyCharged: true
 		PauseOnCondition: empdisable
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage
 		DeployTrigger: Attack
 		DeployChance: 100
-		DeployTicks: 3005
+		DeployTicks: 2255
 		UndeployTicks: 1
 	ExplodeWeapon@Deployed:
 		Weapon: RageEmitter
@@ -1646,7 +1646,7 @@ LYNX:
 		BuildPaletteOrder: 12
 		Prerequisites: ~muweap, ~techlevel.2
 	Valued:
-		Cost: 600
+		Cost: 700
 	Tooltip:
 		Name: Lynx Tank
 	UpdatesPlayerStatistics:
@@ -1692,7 +1692,7 @@ STRUCK:
 	Inherits@RENDER: ^MutRender
 	Inherits@VISION: ^6CellVision
 	Valued:
-		Cost: 500
+		Cost: 700
 	Tooltip:
 		Name: Battle Bus
 	UpdatesPlayerStatistics:
@@ -2789,7 +2789,7 @@ CORRUPTOR:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 16
-		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n- Can mutate enemies killed\n- Absorbs essence from killed enemies to heal\n- Attacks emit radiation that harms ground units in the area\n- Immune to Tiberium radiation\n- Can crush infantry
+		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n- Stealth detection\n- Can mutate enemies killed\n- Absorbs essence from killed enemies to heal\n- Attacks emit radiation that harms ground units in the area\n- Immune to Tiberium radiation\n- Can crush infantry
 		Prerequisites: ~scrweap, ~techlevel.2
 	Mobile:
 		TurnSpeed: 24
@@ -2947,7 +2947,7 @@ SCRGLYDER2:
 		IntoActor: scrglyder1
 	GrantConditionAfterDelay: ## Prevent player switch between modes to refresh reload
 		Condition: cannonready
-		Delay: 25
+		Delay: 10
 		ShowSelectionBar: false
 	Armament:
 		Weapon: Glyder2Cannon

@@ -254,11 +254,24 @@ CyCannon:
 WorkerMinigun:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
-	ReloadDelay: 50
+	ReloadDelay: 25
 	Range: 4c512
 	Report: infgun3.aud, gostgun1.aud, slvkgun1.aud
 	Warhead@1Dam: SpreadDamage
-		Damage: 1600
+		Damage: 800
+		Versus:
+			LightVehicleArmor: 30
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+
+WorkerDroneMinigun:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	ReloadDelay: 55
+	Burst: 3
+	Range: 4c512
+	Report: cygun1.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 1100
 		Versus:
 			LightVehicleArmor: 30
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
@@ -286,8 +299,12 @@ WorkerMinigun:
 	-Warhead@5Smu:
 
 DogBomb:
-	Inherits: ^WorkerWarhead
+	Inherits: ^APWarhead
+	Inherits@2: ^Small_Bang
+	ReloadDelay: 60
 	Burst: 2
+	Range: 5c0
+	StartBurstReport: fiend2.aud
 	Projectile: BulletAS
 		Speed: 300
 		Image: DRAGON
@@ -295,9 +312,8 @@ DogBomb:
 		Palette: playercab
 		IsPlayerPalette: true
 	Warhead@1Dam: SpreadDamage
-		Damage: 800
-		Versus:
-			LightVehicleArmor: 30
+		Damage: 750
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: sparks
 		ImpactSounds: rketinf1.aud
@@ -305,6 +321,7 @@ DogBomb:
 
 NanoNeedle:
 	Inherits: ^WorkerWarhead
+	Report: photon1.wav
 	Projectile: BulletAS
 		Speed: 200
 		Image: naswarm
