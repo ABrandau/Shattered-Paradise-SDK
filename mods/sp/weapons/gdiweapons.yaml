@@ -376,6 +376,8 @@ HoverMissileAA:
 	Range: 8c0
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+	Projectile: MissileTA
+		RangeLimit: 15c0
 	Warhead@1Dam: SpreadDamage
 		Damage: 3500
 		ValidTargets: Air
@@ -709,12 +711,12 @@ FighterHellfireAA:
 	Inherits@1: ^AARocketWarhead
 	ValidTargets: Air
 	ValidRelationships: Enemy, Neutral
-	Burst: 1
-	ReloadDelay: 30
+	Burst: 2
+	ReloadDelay: 35
 	Projectile: MissileTA
 		RangeLimit: 15c0
 	Warhead@1Dam: SpreadDamage
-		Damage: 3000
+		Damage: 4000
 		ValidTargets: Air
 		ValidRelationships: Enemy, Neutral
 	-Warhead@ShieldUpgrade:
