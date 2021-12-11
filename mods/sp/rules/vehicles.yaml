@@ -1052,6 +1052,8 @@ TTNK:
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
+	RejectsMoveToAttack:
+		RequiresCondition: !AImicroManage && deployed
 	Carryable:
 		RequiresCondition: undeployed
 	WithFacingSpriteBody:
@@ -2390,6 +2392,8 @@ LIMPED:
 		Condition: RefineryLock
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
+		RequiresCondition: deployed
+	RejectsMoveToAttack:
 		RequiresCondition: deployed
 	Armament@1:
 		Weapon: LimpetMissile

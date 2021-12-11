@@ -939,6 +939,8 @@ MARAUDER:
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
+	RejectsMoveToAttack:
+		RequiresCondition: !AImicroManage && deployed
 
 MUTFIEND:
 	Inherits: ^Mutant
@@ -1996,6 +1998,8 @@ MOTH:
 		RequiresCondition: !inside-tunnel && !WebDisable && !empdisable
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
+		RequiresCondition: !AImicroManage && deployed
+	RejectsMoveToAttack:
 		RequiresCondition: !AImicroManage && deployed
 	Cloak@bury-self:
 		RequiresCondition: deployed
