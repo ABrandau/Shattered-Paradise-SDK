@@ -1227,8 +1227,13 @@ GASILO:
 	Carryall:
 		LocalOffset: 0,0,-1024
 		Voice: Move
+		CarryableConditions:
+			bcoredef: darkdefender
 	SpawnActorOnDeath:
 		RequiresCondition: airborne
+	ProvidesPrerequisite@darkdefender:
+		Prerequisite: DarkDefenderExists
+		RequiresCondition: darkdefender
 
 TRNSPORT:
 	Inherits: ^Carryall
