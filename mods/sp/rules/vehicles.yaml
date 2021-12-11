@@ -2943,7 +2943,7 @@ SCRGLYDER2:
 		Speed: 120
 		Locomotor: Hover
 	Transforms:
-		PauseOnCondition: inside-tunnel || mindcontrolled
+		PauseOnCondition: inside-tunnel
 		IntoActor: scrglyder1
 	GrantConditionAfterDelay: ## Prevent player switch between modes to refresh reload
 		Condition: cannonready
@@ -2959,12 +2959,12 @@ SCRGLYDER2:
 		PauseOnCondition: empdisable
 		FacingTolerance: 5
 	Armament@AITransformDummyWeapon:
-		RequiresCondition: AImicroManage && !mindcontrolled
+		RequiresCondition: AImicroManage
 		Weapon: AIGlyder2AimingDummyWeapon
 		PauseOnCondition: empdisable
 		ReloadingCondition: AIattackAir
 	TransformOnCondition@AITransform:
-		RequiresCondition: AIattackAir && !inside-tunnel && !mindcontrolled
+		RequiresCondition: AIattackAir && !inside-tunnel
 		IntoActor: scrglyder1
 	-LeavesTrails@land:
 	-LeavesTrails@water:
