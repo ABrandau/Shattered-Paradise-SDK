@@ -162,7 +162,7 @@ FloatGlaive:
 	Inherits@2: ^Scrin_Pulse
 	ReloadDelay: 85
 	Range: 5c0
-	Report: ScrinPlague0000.wav,  ScrinPlague0001.wav,  ScrinPlague0002.wav,  ScrinPlague0003.wav
+	Report: ScrinPlague0000.wav, ScrinPlague0001.wav, ScrinPlague0002.wav, ScrinPlague0003.wav
 	ValidTargets: Ground, Water
 	TargetActorCenter: true
 	Projectile: BulletAS
@@ -381,16 +381,33 @@ ScorpGas:
 		ValidTargets: Infantry, Vehicle, Ground, Water
 		InvalidTargets: Building, Wall
 		ImpactActors: false
-	Warhead@3: SpawnSmokeParticle
-		Image: ichorsmoke
-		ImpactActors: false
-		Sequences: full
-		Duration: 50
-		Palette: jascbluealphaalpha50
-		Delay: 0
-		Weapon: foggydebuff
+	Warhead@2Con: GrantExternalCondition
+		Range: 4c0
+		Duration: 300
+		Condition: BugPoison
 		ValidTargets: Infantry, Vehicle, Ground, Water
-		InvalidTargets: Building, Wall
+		ValidRelationships: Enemy, Neutral
+	Warhead@3Con: GrantExternalCondition
+		Range: 4c0
+		Duration: 100
+		Condition: Blind
+		ValidTargets: Infantry, Vehicle, Ground, Water
+	Warhead@4Eff: CreateEffect
+		Image: ichorsmoke
+		Explosions: full
+		ExplosionPalette: jascbluealphaalpha50
+		ImpactActors: false
+		ValidTargets: Infantry, Vehicle, Ground, Water
+	# Warhead@3: SpawnSmokeParticle
+	#	Image: ichorsmoke
+	#	ImpactActors: false
+	#	Sequences: full
+	#	Duration: 50
+	#	Palette: jascbluealphaalpha50
+	#	Delay: 0
+	#	Weapon: foggydebuff
+	#	ValidTargets: Infantry, Vehicle, Ground, Water
+	#	InvalidTargets: Building, Wall
 
 foggydebuff: 
 	Warhead@Acid: GrantExternalCondition
