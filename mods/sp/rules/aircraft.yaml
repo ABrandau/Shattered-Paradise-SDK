@@ -1266,11 +1266,30 @@ STORMRIDERSPAWN:
 	-SpawnActorOnDeath@ScrinEssence:
 	-MapEditorData:
 
+REPAIRWYVERN:
+	Inherits: STORMRIDERSPAWN
+	Tooltip:
+		Name: Repair Wyvern
+	Armament:
+		Weapon: DroneRepair
+		-ReloadingCondition:
+		-PauseOnCondition:
+	-Armament@AA:
+	-Targetable@GROUND:
+	-Targetable@AIRBORNE:
+	Aircraft:
+		TurnSpeed: 150
+		Speed: 160
+		VTOL: true
+	Rearmable:
+		RearmActors: scrdepot
+
 CABDRONEJET:
 	Inherits: STORMRIDERSPAWN
 	Inherits@1: ^CabRender
 	Armament:
 		Weapon: CabJetMiniBomb
+		-ReloadingCondition:
 		PauseOnCondition: !ammo
 	-Armament@AA:
 	AmmoPool:
@@ -1304,6 +1323,24 @@ CABDRONEJET:
 		UsePlayerColor: false
 		TrailLength: 6
 		TrailWidth: 40
+
+REPAIRDRONE:
+	Inherits: CABDRONEJET
+	Tooltip:
+		Name: Repair Drone
+	Armament:
+		Weapon: DroneRepair
+		-PauseOnCondition:
+	Health:
+		HP: 5000
+	-AmmoPool:
+	-Targetable@GROUND:
+	-Targetable@AIRBORNE:
+	Aircraft:
+		TurnSpeed: 150
+		Speed: 160
+	Rearmable:
+		RearmActors: gadept
 
 SCRBATTLESHIP:
 	Inherits: ^CombatHelicopter

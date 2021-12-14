@@ -81,7 +81,7 @@
 		MinimumScanTimeInterval: 16
 		MaximumScanTimeInterval: 20
 	AutoTargetPriority@DEFAULT:
-		ValidTargets: Infantry, Vehicle, Water, Defence, Building,  Air
+		ValidTargets: Infantry, Vehicle, Water, Defence, Building, Air
 		InvalidTargets: FullHealth
 		ValidRelationships: Ally
 		Priority: 2
@@ -1846,12 +1846,12 @@
 	WithTextControlGroupDecoration:
 	Targetable:
 		TargetTypes: Ground, Vehicle
-	Repairable:
-		RepairActors: gadept, scrdepot, tdrepd
-		Voice: Move
-	#CaptureManager:
+	# Repairable:
+	#	RepairActors: gadept, scrdepot, tdrepd
+	#	Voice: Move
+	# CaptureManager:
 	#	BeingCapturedCondition: being-captured
-	#Capturable:
+	# Capturable:
 	#	Types: Vehicle
 	#	CancelActivity: True
 	Carryable:
@@ -2175,9 +2175,9 @@
 		RequiresCondition: !airborne
 	ExternalCondition@Sellable:
 		Condition: unit.sellable
-	Repairable:
-		RepairActors: gadept, scrdepot, tdrepd
-		Voice: Move
+	# Repairable:
+	#	RepairActors: gadept, scrdepot, tdrepd
+	#	Voice: Move
 	Voiced:
 		VoiceSet: Heli
 	HiddenUnderFog:

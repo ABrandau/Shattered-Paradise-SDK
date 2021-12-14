@@ -418,6 +418,25 @@ RepairNeutralTurret:
 	Inherits: Repair
 	Range: 5c0
 
+DroneRepair:
+	Inherits: RepairVehicleLasor
+	ReloadDelay: 25
+	Range: 1c512
+	Warhead@1Dam: SpreadDamage
+		Damage: -1000
+
+ServiceDepotDroneSpawn:
+	ReloadDelay: 25
+	Range: 5c0
+	Projectile: InstantExplode
+	InvalidTargets: FullHealth, NoRepair
+	ValidTargets: Vehicle
+	ValidRelationships: Ally
+	Warhead@1Dam: TargetDamage
+		ValidTargets: Repair
+		InvalidTargets: FullHealth, NoRepair
+		ValidTargets: Vehicle
+
 Demolish:
 	Warhead@1Dam: SpreadDamage
 		DamageTypes: ExplosionDeath
