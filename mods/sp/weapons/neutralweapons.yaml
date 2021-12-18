@@ -423,20 +423,22 @@ DroneRepair:
 	ReloadDelay: 50
 	Range: 2c0
 	Report: vifvrepa.wav
+	ValidTargets: Vehicle, Air
 	Warhead@1Dam: SpreadDamage
 		Damage: -2000
+		ValidTargets: Vehicle, Air
 
 ServiceDepotDroneSpawn:
 	ReloadDelay: 25
 	Range: 5c0
 	Projectile: InstantExplode
 	InvalidTargets: FullHealth, NoRepair
-	ValidTargets: Vehicle
+	ValidTargets: Vehicle, Air
 	ValidRelationships: Ally
 	Warhead@1Dam: TargetDamage
 		ValidTargets: Repair
 		InvalidTargets: FullHealth, NoRepair
-		ValidTargets: Vehicle
+		ValidTargets: Vehicle, Air
 
 Demolish:
 	Warhead@1Dam: SpreadDamage

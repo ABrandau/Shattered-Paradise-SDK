@@ -287,7 +287,7 @@ JUMPJETAIR:
 		TargetTypes: Infantry, Ground
 		RequiresCondition: !airborne
 	Targetable@AIRBORNE:
-		TargetTypes: Air, OrganicVehicle
+		TargetTypes: Air, OrganicVehicle, NoRepair
 		RequiresCondition: airborne
 	AttackAircraft:
 		FacingTolerance: 20
@@ -369,7 +369,7 @@ JJCOMM:
 		Queue: Infantry
 		BuildPaletteOrder: 25
 		Prerequisites: ~gapile, gatech, ~techlevel.5, !jjcomm
-		Description: GDI's commando unit equipped with a jetpack.\nArmed with a Personal Ion Cannon and orbital bombardment beacon.\n\nGood vs: All.\n\nSpecial:\n- Can fly\n- Will land when ordered to deploy\n- Immune to mind control
+		Description: GDI's commando unit equipped with a jetpack.\nArmed with a Personal Ion Cannon and orbital bombardment beacon.\n\nGood vs: Land Units.\nWeak vs: Aircraft\n\nSpecial:\n- Can fly\n- Will land when ordered to deploy\n- Immune to mind control
 		BuildLimit: 1
 	Valued:
 		Cost: 2000
@@ -508,7 +508,7 @@ JJCOMMAIR:
 		TargetTypes: Infantry, Ground
 		RequiresCondition: !airborne
 	Targetable@AIRBORNE:
-		TargetTypes: Air, OrganicVehicle
+		TargetTypes: Air, OrganicVehicle, NoRepair
 		RequiresCondition: airborne
 	AnnounceOnSeen:
 		PingRadar: true
