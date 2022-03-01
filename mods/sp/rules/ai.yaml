@@ -2,7 +2,6 @@ Player:
 	#################################
 	## Bots Defination
 	#################################
-
 	ModularBot@EasyAI:
 		Name: Easy AI
 		Type: EasyAI
@@ -15,11 +14,9 @@ Player:
 	ModularBot@ShatteredAI:
 		Name: Shattered AI
 		Type: ShatteredAI
-
 	#################################
 	## Condition Defination
 	#################################
-
 	GrantConditionOnBotOwner@AIEasy:
 		Condition: AIEasy
 		Bots: EasyAI
@@ -35,17 +32,15 @@ Player:
 	GrantConditionOnBotOwner@AIShattered:
 		Condition: AIShattered
 		Bots: ShatteredAI
-
 	#################################
 	## BotModule and BotLogic
 	#################################
-
 	## Drop "HarvesterBotModule" due to it is senseless when we now use Building as cash cheat,
 	##  and sub base is impossible for OpenRA at present. Also this module is heavily performance questionable
 	#HarvesterBotModule: 
 	#	RequiresCondition: AIBase
 	#	HarvesterTypes: harv, scrharv
-	#	RefineryTypes: gdiref, nodref, scrproc, cabproc, muproc
+	#	RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4
 	AutoDeployManager@AIall:
 		RequiresCondition: AIBase || AIEasy
 	PlugSpawnerBotModule@AIBase: ##GDI only
@@ -70,7 +65,7 @@ Player:
 		ExcessPowerIncreaseThreshold: 4
 		NewProductionCashThreshold: 0
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
-		RefineryTypes: gdiref, nodref, scrproc, cabproc, muproc
+		RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4
 		PowerTypes: gapowr, napowor, naapwr, cabpowr, mutpowr, scrpowr
 		BarracksTypes: gapile, nahand, mutrax, cabrax, scrrax
 		VehiclesFactoryTypes: gaweap, naweap, muweap, cabweap, scrweap
@@ -250,7 +245,7 @@ Player:
 		ExcessPowerIncreaseThreshold: 4
 		NewProductionCashThreshold: 0
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
-		RefineryTypes: gdiref, nodref, scrproc, cabproc, muproc
+		RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4
 		PowerTypes: gapowr, napowor, naapwr, cabpowr, mutpowr, scrpowr
 		BarracksTypes: gapile, nahand, mutrax, cabrax, scrrax
 		VehiclesFactoryTypes: gaweap, naweap, muweap, cabweap, scrweap
@@ -774,6 +769,8 @@ Player:
 		SuggestedLeaderLocomotor: Infantry, HeavyInfantry, TibInmuneInfantry, TibFiends, TibVeCritter, Vehicle, InfantryCrusherVehicle, VehicleCrusher
 		GuerrillaTypes: cerberus, mutqueen, stormrider, scrglyder1, scrdestroyer, scrcarrier, scrbattleship, wasp, basilisk, struckfull, struckfull_t3, nukecarryall_bot, jumpjetair, nconf, bhs, mutfiend, pdrone, moth, cyc2, shark, smech, hvr, jug, attackbike, riflebggy, rocketbggy, flamebggy, lazorbggy, howtlizer, subtank, stnk, mutquad, lynx, wolf, mrls, scrscorpion, deathclaw, scrmbt, scrglyder2, scrmobmine, reapercab, altnode1, crusader, minelayer, jjcommair
 		#MaxGuerrillaSize: 15
+		AirUnitsTypes: jumpjetair, jjcommair, orca, orcab, apache, scrin, cerberus, mutheli, mutqueen, mutbird, wetp, stormrider, scrglyder1, scrdestroyer, scrcarrier, stormriderspawn, repairwyvern, cabdronejet, repairdrone, scrbattleship, wasp, basilisk, devourer, ionbeammini, nukecarryall_bot, sonicarryall_bot, apcarryall_bot
+		ProtectionTypes: nodmcv, mutmcv, cabmcv, drache, mcv, harv, harv.nod, harv.mut, cabharv, scrharv, gacnst, gadept, scrdepot, gasilo, napuls, scrshield, gate_a, mutgate_a, scrgate_a, scrgate_b, gapowr, gapile, gdiref, gaweap, garadr, gahpad, gatech, gtdrop, nodyard, napowr, nahand, nodref, naweap, naradr, naapwr, nahpad, natech, namisl, mutyard, mupowr, murax, muproc, muweap, muradr, muair, muhall, mutsw2, drached, scrpowr, scrrax, scrproc, scrproc2, scrproc3, scrproc4, scrweap, scrradr, scrair, scrtech, scradvpowr, cabyard, cabpowr, cabclaw, cabproc, cabweap, cabradr, cabair, cabtech, cabobelisk, gavulc, garock, gacsam, nalasr, naobel, nasam, mubunkr, mucannon, muflak, cabpit, cabblast, cabrail, scrneedler, scrdrone, scrtractor, gafire, gaplug, nastlh, natmpl, muventi, mutsw1, scrextractor, scrsw1, cabeye, cabsw1, blackdefd, weed, bloodderrick, colorpicker, drache_bot, mubunkrfull, defd
 	UnitBuilderBotModule@AIAll:
 		RequiresCondition: AIEasy || AIBase
 		UnitQueues: Infantry, Vehicle, Air

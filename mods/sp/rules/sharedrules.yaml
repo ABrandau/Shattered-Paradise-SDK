@@ -734,16 +734,16 @@ GACNST:
 		Icons:
 			1: radarscan
 		ChargeInterval: 3000
-		Descriptions:
+		Names:
 			1: Spy Satellite
-		LongDescs:
+		Descriptions:
 			1: Reveals shroud on an area, does not detect cloaked units.
 		SelectTargetSpeechNotification: SelectTarget
 		EndChargeSound: SpySatelliteReady.aud
 		DeploySound: sspysate.aud
 		OrderName: RadarScan
 		PauseOnCondition: disabled
-		TargetCircleRanges: 
+		TargetCircleRanges:
 			1: 8c0
 		Actors:
 			1: radarscandummy
@@ -1440,7 +1440,7 @@ NAPULS:
 		LocalOffset: 200,0,1900
 		LocalYaw: 0,100
 		Name: Superweapon
-	Armament@muzzle:	##HACK: FireArmamentPower muzzle
+	Armament@muzzle: ##HACK: FireArmamentPower muzzle
 		Weapon: EMPulseCannonMuzzle
 		LocalOffset: 200,0,1900
 		LocalYaw: 0,100
@@ -1454,9 +1454,9 @@ NAPULS:
 			1: emp
 		ChargeInterval: 4500
 		TargetCircleRange: 4c0
-		Descriptions:
+		Names:
 			1: E.M. Pulse
-		LongDescs:
+		Descriptions:
 			1: Fires a pulse blast which disables\nall mechanical units in the area.
 		SelectTargetSpeechNotification: SelectTarget
 		EndChargeSpeechNotification: SuperWeaponReady
@@ -1591,16 +1591,18 @@ SCRGATE_B:
 		Icons:
 			1: clustermissile
 		ChargeInterval: 9000
-		Descriptions:
+		Names:
 			1: Atomic Bomb
-		LongDescs:
+		Descriptions:
 			1: Launches a conventional warhead at a target location.\n\nSpecial:\n- Instant kills ground units and aircraft
 		BeginChargeSound:
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
 		SelectTargetSound:
 		InsufficientPowerSound:
-		MissileWeapon: NuclearMissile
+		MissileWeapons:
+			1: NuclearMissile
+		MissileImage: NuclearMissile
 		LaunchSpeechNotification: SuperweaponFired
 		IncomingSpeechNotification: SuperweaponFired
 		IncomingSound: SuperweaponFired

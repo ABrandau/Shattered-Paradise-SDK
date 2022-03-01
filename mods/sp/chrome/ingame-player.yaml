@@ -9,8 +9,15 @@ Container@PLAYER_WIDGETS:
 				DecreaseDepthPreviewContrastKey: DecreaseDepthPreviewContrast
 				IncreaseDepthPreviewOffsetKey: IncreaseDepthPreviewOffset
 				DecreaseDepthPreviewOffsetKey: DecreaseDepthPreviewOffset
-		LogicKeyListener@CONTROLGROUP_KEYHANDLER:
-			Logic: ControlGroupLogic
+		LogicKeyListener@PLAYER_KEYHANDLER:
+			Logic: RemoveFromControlGroupHotkeyLogic
+				RemoveFromControlGroupKey: RemoveFromControlGroup
+		ControlGroups@CONTROLGROUPS:
+			SelectGroupKeyPrefix: ControlGroupSelect
+			CreateGroupKeyPrefix: ControlGroupCreate
+			AddToGroupKeyPrefix: ControlGroupAddTo
+			CombineWithGroupKeyPrefix: ControlGroupCombineWith
+			JumpToGroupKeyPrefix: ControlGroupJumpTo
 		LogicTicker@SIDEBAR_TICKER:
 		Container@SUPPORT_POWERS:
 			Logic: SupportPowerBinLogic

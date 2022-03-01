@@ -3,6 +3,7 @@ Metadata:
 	Version: {DEV_VERSION}
 	Website: http://www.moddb.com/mods/shattered-paradise
 	WebIcon32: https://raw.githubusercontent.com/ABrandau/Shattered-Paradise-SDK/master/packaging/linux/mod_32x32.png
+	WindowTitle: OpenRA - Shattered Paradise
 
 PackageFormats: Mix
 
@@ -200,6 +201,7 @@ Assemblies:
 ChromeLayout:
 	sp|chrome/ingame.yaml
 	common|chrome/ingame-chat.yaml
+	common|chrome/ingame-transients.yaml
 	common|chrome/ingame-fmvplayer.yaml
 	common|chrome/ingame-menu.yaml
 	common|chrome/ingame-info.yaml
@@ -207,8 +209,9 @@ ChromeLayout:
 	common|chrome/ingame-infobriefing.yaml
 	common|chrome/ingame-infoobjectives.yaml
 	common|chrome/ingame-infostats.yaml
+	common|chrome/ingame-info-lobby-options.yaml
 	sp|chrome/ingame-observer.yaml
-	sp|chrome/ingame-player.yaml #The only file of chromes that is on SP
+	sp|chrome/ingame-player.yaml
 	common|chrome/ingame-perf.yaml
 	ts|chrome/ingame-debug.yaml
 	common|chrome/ingame-debuginfo.yaml
@@ -248,6 +251,7 @@ ChromeLayout:
 	common|chrome/missionbrowser.yaml
 	common|chrome/confirmation-dialogs.yaml
 	sp|chrome/editor.yaml
+	common|chrome/text-notifications.yaml
 
 Voices:
 	sp|audio/voices.yaml
@@ -270,6 +274,7 @@ Hotkeys:
 	common|hotkeys/supportpowers.yaml
 	common|hotkeys/viewport.yaml
 	common|hotkeys/chat.yaml
+	common|hotkeys/control-groups.yaml
 	sp|hotkeys.yaml
 
 LoadScreen: LogoStripeLoadScreen
@@ -339,6 +344,12 @@ SpriteSequenceFormat: TilesetSpecificSpriteSequence
 		SNOW: a
 
 ModelSequenceFormat: VoxelModelSequence
+
+AssetBrowser:
+	SpriteExtensions: .shp, .tmp, .tem, .des, .sno, .int, .png
+	ModelExtensions: .vxl
+	AudioExtensions: .aud, .wav
+	VideoExtensions: .vqa
 
 GameSpeeds:
 	DefaultSpeed: default

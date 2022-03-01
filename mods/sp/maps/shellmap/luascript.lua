@@ -354,7 +354,7 @@ CABALVehicleAttack = function()
 				demo = actor
 
 				Trigger.AfterDelay(DateTime.Seconds(5), function()
-					carryall.PickupUnit(actor)
+					carryall.PickupCarryable(actor)
 				end)
 			end)
 		end)
@@ -368,8 +368,7 @@ CABALVehicleAttack = function()
 
 			Trigger.AfterDelay(DateTime.Seconds(6), function()
 				carryall.Move(MutantCarryallDropWaypoint.Location)
-				carryall.Move(NodEMPTarget.Location)
-				carryall.DeliverUnit()
+				carryall.DeliverCarryable(NodEMPTarget.Location)
 				carryall.Move(MutantCarryallDropWaypoint.Location)
 				carryall.Move(MutantCarryallExit.Location)
 				carryall.Destroy()

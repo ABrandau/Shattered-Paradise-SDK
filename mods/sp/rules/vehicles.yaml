@@ -466,7 +466,7 @@ HMEC:
 		FireDelay: 5
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
-	Armament@R:  ##Hit effect and firedly fire
+	Armament@R: ##Hit effect and firedly fire
 		Weapon: MechRailgun
 		LocalOffset: 1200,-250,2650, 1200,250,2650
 		PauseOnCondition: empdisable
@@ -1470,7 +1470,7 @@ SCORPION:
 	GrantConditionOnMovement:
 		Condition: walking
 	WithInfantryBody:
-		-DefaultAttackSequence: 
+		-DefaultAttackSequence:
 		RequiresCondition: !inside-tunnel
 		AttackSequences:
 			laserArmament: shoot1
@@ -1526,7 +1526,7 @@ SCORPION:
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
 		Weapons: LargeDebris
-	-WithFacingSpriteBody
+	-WithFacingSpriteBody:
 	ExternalCondition@PRODUCED:
 		Condition: produced
 	VoiceAnnouncement:
@@ -2099,7 +2099,7 @@ WEASAU:
 		AttackSequences:
 			breath: shoot
 			melee: melee
-		-DefaultAttackSequence: 
+		-DefaultAttackSequence:
 	Cloak@CLOAKGENERATOR:
 		Palette: cloakorgatemblueplayer
 	Selectable:
@@ -3021,7 +3021,7 @@ SCRRECHARGER:
 		Weapon: VanguardFollow
 		TargetRelationships: Ally
 		ForceTargetRelationships: None
-		RequiresCondition:!AImicroManage
+		RequiresCondition: !AImicroManage
 	ProximityExternalCondition@VanguardShield:
 		RequiresCondition: !empdisable
 		Condition: VanguardShield
@@ -3164,19 +3164,19 @@ TRIPOD:
 	AutoTarget:
 	Armament@primary1:
 		Weapon: blackBlast
-		LocalOffset:  273,0,3531
+		LocalOffset: 273,0,3531
 		MuzzlePalette: jascbluealpha
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
 	Armament@primary2:
 		Weapon: blackBlastdec
-		LocalOffset:  774,410,3049
+		LocalOffset: 774,410,3049
 		MuzzlePalette: jascbluealpha
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
 	Armament@primary3:
 		Weapon: blackBlastdec
-		LocalOffset:  1092,-328,2898
+		LocalOffset: 1092,-328,2898
 		MuzzlePalette: jascbluealpha
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable

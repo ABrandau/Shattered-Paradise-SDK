@@ -189,7 +189,7 @@ DSHP:
 	Cloak@Dropship:
 		RequiresCondition: !DropshipCloak
 		IsPlayerPalette: true
-		CloakTypes: JohnCena
+		DetectionTypes: JohnCena
 	ExternalCondition@DropshipCloak:
 		Condition: DropshipCloak
 	Interactable:
@@ -518,7 +518,7 @@ CERBERUS:
 	WithIdleOverlay@cloakgeneratoreff:
 		Sequence: cloakgeneratorwave
 		Offset: -25, 0, 0
-		RequiresCondition:  !Attacking && !reloading
+		RequiresCondition: !Attacking && !reloading
 		Image: explosion
 		Palette: effectalpha10
 	Explodes@Shrapnel:
@@ -864,7 +864,7 @@ STORMRIDER:
 		MuzzlePalette: appurp
 		ReloadingCondition: reload-air
 		PauseOnCondition: reload-ground
-	WithMuzzleOverlay:	
+	WithMuzzleOverlay:
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 512

@@ -778,15 +778,17 @@ GAPLUG:
 			1: gaplug
 		Icons:
 			1: ioncannon
-		Descriptions:
+		Names:
 			1: Ion Cannon Array
 		CircleRanges:
 			1: 6c0
-		LongDescs:
+		Descriptions:
 			1: Fires an array of ion cannons on the targetted area.
 		SelectTargetSpeechNotification: SelectTarget
 		ChargeInterval: 6000
-		MissileWeapon: IonCannonSpawner
+		MissileWeapons:
+			1: IonCannonSpawner
+		MissileImage: DummyNuke
 		OrderName: IonCannon2
 		Cursor: ioncannon
 	SupportPowerChargeBar:
@@ -989,16 +991,18 @@ MUTSW1:
 	NukePower:
 		Prerequisites:
 			1: mutsw1
-		MissileWeapon: IonStormSpawnerWeapon
+		MissileWeapons:
+			1: IonStormSpawnerWeapon
+		MissileImage: DummyNuke
 		Icons:
 			1: ionstorm
 		ChargeInterval: 7500
 		CircleRanges:
 			1: 9c0
 		OrderName: IonStorm
-		Descriptions:
+		Names:
 			1: Ion Storm
-		LongDescs:
+		Descriptions:
 			1: Allows the player to generate Ion Storms.\n\nSpecial:\n- Instant kills ground units and aircraft.
 		SelectTargetSpeechNotification: SelectTarget
 		CameraRange: 10c0
@@ -1089,14 +1093,16 @@ SCRSW1:
 		Icons:
 			1: meteor
 		ChargeInterval: 6000
-		Descriptions:
+		Names:
 			1: Wrath of the Creator
-		LongDescs:
+		Descriptions:
 			1: Drags meteors from orbit dealing moderate damage over a wide area.\n\nSpecial:\n- Instant kills ground units and aircraft.
 		SelectTargetSpeechNotification: SelectTarget
 		Prerequisites:
 			1: MeteorSpawner
-		MissileWeapon: MeteorSpawner
+		MissileWeapons:
+			1: MeteorSpawner
+		MissileImage: DummyNuke
 		CircleRanges:
 			1: 6c0
 		OrderName: MeteorSpawner
@@ -1195,7 +1201,7 @@ CABSW1:
 		Weapon: IronSavior
 		LocalOffset: 1300,0,2300
 		Name: superweapon
-	Armament@muzzle:	##HACK: FireArmamentPower muzzle
+	Armament@muzzle: ##HACK: FireArmamentPower muzzle
 		Weapon: IronSaviorMuzzle
 		LocalOffset: 1300,0,2300
 		Name: superweapon
@@ -1209,9 +1215,9 @@ CABSW1:
 			1: cabcannon
 		TargetCircleRange: 6c0
 		ChargeInterval: 7500
-		Descriptions:
+		Names:
 			1: Iron Savior
-		LongDescs:
+		Descriptions:
 			1: Fires a volley of energy volleys at the target location.\n\nSpecial:\n- Instant kills ground units and aircraft
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady

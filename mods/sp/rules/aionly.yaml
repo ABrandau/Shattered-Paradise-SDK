@@ -382,7 +382,7 @@ COREDEFENDER:
 	ExplodeWeapon@spawnsparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
 	WithInfantryBody:
-		-DefaultAttackSequence: 
+		-DefaultAttackSequence:
 		RequiresCondition: !inside-tunnel
 		AttackSequences:
 			ArmArmament: shoot2
@@ -455,9 +455,9 @@ COREDEFENDER:
 			1: cabcannon
 		ChargeInterval: 2500
 		ArmamentName: HeadSuperWeapon
-		Descriptions:
+		Names:
 			1: Core Defender Rage
-		LongDescs:
+		Descriptions:
 			1: Fires Firestorm laser sweep through target location.\n\nSpecial:\n- Instant kills ground units and aircraft
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
@@ -608,7 +608,7 @@ RTRIPOD:
 		Weapon: AnhTripodLaser
 		#LocalOffset: 700,0,4500, 1300,580,3700, 1050,-490,4100  #noattackanimation 100
 		#LocalOffset:  300,0,3880, 850,450,3350, 1200,-360,3050  #attackanimation 100
-		LocalOffset:  273,0,3531, 774,410,3049, 1092,-328,2898  #attackanimation 91
+		LocalOffset: 273,0,3531, 774,410,3049, 1092,-328,2898 #attackanimation 91
 		MuzzlePalette: scrinenergystuffs
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable || charged || reload2
@@ -642,7 +642,7 @@ RTRIPOD:
 		PipCount: 4
 	Armament@charged:
 		Weapon: AnhTripodLaserCharged
-		LocalOffset:  273,0,3531, 774,410,3049, 1092,-328,2898  #attackanimation 91
+		LocalOffset: 273,0,3531, 774,410,3049, 1092,-328,2898 #attackanimation 91
 		Name: secondary
 		PauseOnCondition: empdisable || !charged || reload1
 		ReloadingCondition: reload2

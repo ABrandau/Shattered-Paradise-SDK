@@ -14,10 +14,10 @@ jobs:
       - name: Clone Repository
         uses: actions/checkout@v2
 
-      - name: Install .NET 5
+      - name: Install .NET 6.0
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '5.0.x'
+          dotnet-version: '6.0.x'
 
       - name: Prepare Environment
         run: echo "GIT_TAG=${GITHUB_REF#refs/tags/}" >> ${GITHUB_ENV}
@@ -27,15 +27,6 @@ jobs:
           make engine
           mkdir -p build/linux
           ./packaging/linux/buildpackage.sh "${GIT_TAG}" "${PWD}/build/linux"
-
-      - name: Create BinDiffs
-        run: |
-          echo "Fetching bsdiff"
-          sudo apt install bsdiff
-          echo "Fetching PyGithub for python"
-          pip install PyGithub
-          echo "Creating bindiffs for launcher"
-          python3 ./packaging/launcherBindiffs.py -s "linux" -o "${PWD}/build/linux" -r "ABrandau/Shattered-Paradise-SDK"
 
       - name: Upload Packages
         uses: svenstaro/upload-release-action@v2
@@ -54,10 +45,10 @@ jobs:
       - name: Clone Repository
         uses: actions/checkout@v2
 
-      - name: Install .NET 5
+      - name: Install .NET 6.0
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '5.0.x'
+          dotnet-version: '6.0.x'
 
       - name: Prepare Environment
         run: echo "GIT_TAG=${GITHUB_REF#refs/tags/}" >> ${GITHUB_ENV}
@@ -91,10 +82,10 @@ jobs:
       - name: Clone Repository
         uses: actions/checkout@v2
 
-      - name: Install .NET 5
+      - name: Install .NET 6.0
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '5.0.x'
+          dotnet-version: '6.0.x'
 
       - name: Prepare Environment
         run: |
@@ -107,15 +98,6 @@ jobs:
           make engine
           mkdir -p build/windows
           ./packaging/windows/buildpackage.sh "${GIT_TAG}" "${PWD}/build/windows"
-
-      - name: Create BinDiffs
-        run: |
-          echo "Fetching bsdiff"
-          sudo apt install bsdiff
-          echo "Fetching PyGithub for python"
-          pip install PyGithub
-          echo "Creating bindiffs for launcher"
-          python3 ./packaging/launcherBindiffs.py -s "windows" -o "${PWD}/build/windows" -r "ABrandau/Shattered-Paradise-SDK"
 
       - name: Upload Packages
         uses: svenstaro/upload-release-action@v2

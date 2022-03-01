@@ -130,6 +130,7 @@ GDIREF:
 	-WithIdleOverlay@REDLIGHTS:
 	PlaceBuildingVariants:
 		Actors: gdiref3, gdiref2, gdiref4
+		Facings: 640, 384, 128, 896
 
 GDIREF2:
 	Inherits: ^FlippedRefinery
@@ -320,13 +321,15 @@ GTDROP:
 			1: gtdrop
 		Icons:
 			1: droppods
-		Descriptions:
+		Names:
 			1: Helldiver Drop
-		LongDescs:
+		Descriptions:
 			1: Deploys shock troopers at the targetted location.
 		SelectTargetSpeechNotification: SelectTarget
 		OrderName: Droppod
-		MissileWeapon: DroppodSpawner
+		MissileWeapons:
+			1: DroppodSpawner
+		MissileImage: DummyNuke
 		ChargeInterval: 6000
 		CircleRanges:
 			1: 6c0
@@ -487,6 +490,7 @@ NODREF:
 	-WithIdleOverlay@REDLIGHTS:
 	PlaceBuildingVariants:
 		Actors: nodref3, nodref2, nodref4
+		Facings: 640, 384, 128, 896
 
 NODREF2:
 	Inherits: ^FlippedRefinery
@@ -701,12 +705,14 @@ NAMISL:
 		Icons:
 			1: toxinmissile
 		ChargeInterval: 4500
-		Descriptions:
+		Names:
 			1: Chemical Missile
-		LongDescs:
+		Descriptions:
 			1: Launches a warhead filled with tiberium,\nit spawns gas clouds and radiates the area.
 		SelectTargetSpeechNotification: SelectTarget
-		MissileWeapon: ToxinMissile
+		MissileWeapons:
+			1: ToxinMissile
+		MissileImage: ToxinMissile
 		MissileDelay: 18
 		FlightDelay: 100
 		DisplayTimerRelationships: Ally, Neutral, Enemy
@@ -876,6 +882,7 @@ MUPROC:
 		CrushedPaletteIsPlayerPalette: true
 	PlaceBuildingVariants:
 		Actors: muproc3, muproc2, muproc4
+		Facings: 640, 384, 128, 896
 
 MUPROC2:
 	Inherits: ^FlippedRefinery
@@ -1003,19 +1010,21 @@ MUTSW2:
 	NukePower:
 		Prerequisites:
 			1: mutsw2
-		MissileWeapon: VeinholeSummonerWeapon
+		MissileWeapons:
+			1: VeinholeSummonerWeapon
+		MissileImage: DummyNuke
 		Icons:
 			1: veinholesw
 		ChargeInterval: 4500
 		OrderName: Veinhole
 		CircleRanges:
 			1: 8c0
-		Descriptions:
+		Names:
 			1: Veinhole Spawn
-		LongDescs:
+		Descriptions:
 			1: Spawns a cluster of veinholes\non the targetted location.\nVeinholes spawn gas clouds, radiation, and tiberian crabs.\nThey also provide vision.
 		SelectTargetSpeechNotification: SelectTarget
-		CameraRange: 7c0 
+		CameraRange: 7c0
 		CameraSpawnAdvance: 25 #Not working due to this
 		CameraRemoveDelay: 350
 	Health:
@@ -1179,6 +1188,7 @@ SCRPROC:
 	-WithDockedOverlay@flame:
 	PlaceBuildingVariants:
 		Actors: scrproc3, scrproc2, scrproc4
+		Facings: 640, 384, 128, 896
 	IsometricSelectable:
 		DecorationHeight: 24
 	ThrowsShrapnel@SMALL:
@@ -1425,9 +1435,9 @@ SCRADVPOWR:
 		ChargeInterval: 6000
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
-		Descriptions:
+		Names:
 			1: Instant Wormhole
-		LongDescs:
+		Descriptions:
 			1: Teleports infantry and vehicles.
 		SelectTargetSpeechNotification: SelectTarget
 		Durations:
@@ -1458,7 +1468,9 @@ SCRADVPOWR:
 		RequiresCondition: AIbuildingMicroControl
 		Prerequisites:
 			1: scradvpowr
-		MissileWeapon: ColossiSummonerWeapon
+		MissileWeapons:
+			1: ColossiSummonerWeapon
+		MissileImage: DummyNuke
 		Icons:
 			1: wormholeicon
 		IconPalette: playerscrin
@@ -1466,9 +1478,9 @@ SCRADVPOWR:
 		OrderName: ChronoshiftSummon
 		CircleRanges:
 			1: 5c0
-		Descriptions:
+		Names:
 			1: Instant Wormhole
-		LongDescs:
+		Descriptions:
 			1: Instant Wormhole for AI
 	Health:
 		HP: 150000
@@ -1615,6 +1627,7 @@ CABPROC:
 		CrushedPaletteIsPlayerPalette: true
 	PlaceBuildingVariants:
 		Actors: cabproc3, cabproc2, cabproc4
+		Facings: 640, 384, 128, 896
 
 CABPROC2:
 	Inherits: ^FlippedRefinery
@@ -1782,9 +1795,9 @@ CABOBELISK:
 			1: cabobelisk
 		Icons:
 			1: nanomachineswarm
-		Descriptions:
+		Names:
 			1: Nanomachine Swarm
-		LongDescs:
+		Descriptions:
 			1: Fills an area with nanomachines.\n- Heals friendly units up to 40% (Even buildings)\n- Turns fallen units (Friendly and Hostile) remaining into nano swarm.
 		SelectTargetSpeechNotification: SelectTarget
 		OrderName: NanomachineSwarm
