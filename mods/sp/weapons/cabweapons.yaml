@@ -8,7 +8,7 @@ CyborgVulcan:
 	Warhead@1Dam: SpreadDamage
 		Damage: 2200
 		Versus:
-			LightVehicleArmor: 30
+			Light: 30
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 CyborgRocket:
@@ -55,8 +55,8 @@ LimpetMissile:
 		Spread: 0c512
 		Damage: 15000
 		Versus:
-			InfantryArmor: 100
-			VehicleArmor: 100
+			Infantry: 100
+			Heavy: 100
 		ValidTargets: Ground, Water
 		InvalidTargets: Building, Wall
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
@@ -170,7 +170,7 @@ GLAD120mm:
 		Damage: 5000
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 		Versus:
-			BuildingArmor: 75
+			Building: 75
 
 LurkerProj:
 	ReloadDelay: 100
@@ -199,12 +199,12 @@ LurkerHit:
 	Warhead@1Dam: SpreadDamage
 		Damage: 11000
 		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 25
-			VehicleArmor: 10
-			DefenseArmor: 10
-			AircraftArmor: 100
-			ConcreteArmor: 5
+			Infantry: 100
+			Building: 25
+			Defense: 10
+			Heavy: 10
+			Aircraft: 100
+			Concrete: 5
 		ValidRelationships: Enemy, Neutral
 		DamageTypes: Prone100Percent, TriggerProne, CabalDeath
 	Warhead@2Eff: CreateEffect
@@ -240,11 +240,11 @@ CyCannon:
 		Damage: 30000
 		ValidTargets: Ground, Water
 		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 100
-			VehicleArmor: 100
-			DefenseArmor: 100
-			ConcreteArmor: 35
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Concrete: 35
 		DamageTypes: Prone350Percent, TriggerProne, EnergyDeath
 	Warhead@3Eff: CreateEffect
 		ExplosionPalette: gensmkexplogreen
@@ -286,13 +286,13 @@ WorkerDroneMinigun:
 		Damage: 1600
 		Spread: 300
 		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 20
-			LightVehicleArmor: 30
-			VehicleArmor: 15
-			DefenseArmor: 5
-			AircraftArmor: 100
-			ConcreteArmor: 3
+			Infantry: 100
+			Building: 20
+			Defense: 5
+			Light: 30
+			Heavy: 15
+			Aircraft: 100
+			Concrete: 3
 			Shield: 0
 		ValidTargets: Ground, Water
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
@@ -529,7 +529,7 @@ WaspBullet:
 		Spread: 0c045
 		Damage: 3000
 		Versus:
-			DefenseArmor: 75
+			Defense: 75
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		InvalidTargets: Air
@@ -593,11 +593,11 @@ BasiliskBomb:
 		Spread: 250
 		Damage: 5000
 		Versus:
-			InfantryArmor: 500
-			BuildingArmor: 25
-			VehicleArmor: 25
-			DefenseArmor: 25
-			ConcreteArmor: 15
+			Infantry: 500
+			Building: 25
+			Defense: 25
+			Heavy: 25
+			Concrete: 15
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: firestormballexp
@@ -622,7 +622,7 @@ SentryTurretGun:
 		Spread: 128
 		Damage: 500
 		Versus:
-			ConcreteArmor: 60
+			Concrete: 60
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
 CTurretCannon:
@@ -663,11 +663,11 @@ CabJetMiniBomb:
 		Spread: 200
 		Damage: 6000
 		Versus:
-			InfantryArmor: 125
-			BuildingArmor: 40
-			VehicleArmor: 10
-			DefenseArmor: 10
-			ConcreteArmor: 1
+			Infantry: 125
+			Building: 40
+			Defense: 10
+			Heavy: 10
+			Concrete: 1
 		ValidTargets: Ground, Water, Building, Infantry, Vehicle
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
@@ -699,9 +699,9 @@ BlasterProton:
 		Spread: 500
 		Damage: 6000
 		Versus:
-			BuildingArmor: 50
-			DefenseArmor: 50
-			VehicleArmor: 100
+			Building: 50
+			Defense: 50
+			Heavy: 100
 		ValidTargets: Ground, Water, Vehicle, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
@@ -965,9 +965,9 @@ BlackCDefCannon:
 		Spread: 500
 		Damage: 6000
 		Versus:
-			BuildingArmor: 50
-			DefenseArmor: 50
-			VehicleArmor: 100
+			Building: 50
+			Defense: 50
+			Heavy: 100
 		ValidTargets: Ground, Water, Vehicle, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
@@ -995,9 +995,9 @@ BlackCDefArtillery:
 		Spread: 0c768
 		Damage: 15000
 		Versus:
-			BuildingArmor: 50
-			DefenseArmor: 50
-			VehicleArmor: 100
+			Building: 50
+			Defense: 50
+			Heavy: 100
 		ValidTargets: Ground, Water, Vehicle, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 	Warhead@2Eff: CreateEffect

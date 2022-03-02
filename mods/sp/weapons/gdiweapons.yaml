@@ -7,7 +7,7 @@ MarineRifle:
 	Warhead@1Dam: SpreadDamage
 		Damage: 2500
 		Versus:
-			LightVehicleArmor: 30
+			Light: 30
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 GrenadierBazooka:
@@ -49,10 +49,10 @@ Grenade:
 		Spread: 0c256
 		Damage: 5000
 		Versus:
-			BuildingArmor: 100
-			DefenseArmor: 50
-			VehicleArmor: 35
-			ConcreteArmor: 15
+			Building: 100
+			Defense: 50
+			Heavy: 35
+			Concrete: 15
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: small_twlt
@@ -75,10 +75,10 @@ JJGrenade:
 		Spread: 300
 		Damage: 5000
 		Versus:
-			BuildingArmor: 80
-			VehicleArmor: 25
-			DefenseArmor: 25
-			ConcreteArmor: 5
+			Building: 80
+			Defense: 25
+			Heavy: 25
+			Concrete: 5
 		ValidTargets: Ground, Water
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
@@ -115,11 +115,11 @@ JJSMG:
 		Spread: 300
 		Damage: 20000
 		Versus:
-			AircraftArmor: 50
-			VehicleArmor: 80
-			BuildingArmor: 10
-			DefenseArmor: 10
-			ConcreteArmor: 5
+			Building: 10
+			Defense: 10
+			Heavy: 80
+			Aircraft: 50
+			Concrete: 5
 		ValidTargets: Ground, Water
 		InvalidTargets: Building, Defence, Wall, Air
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath
@@ -187,8 +187,8 @@ OribitBomb:
 		Spread: 0c768
 		Damage: 30000
 		Versus:
-			BuildingArmor: 200
-			DefenseArmor: 200
+			Building: 200
+			Defense: 200
 		ValidTargets: Ground, Water
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 	Warhead@ShieldUpgrade: GrantExternalCondition
@@ -213,8 +213,8 @@ Heal:
 		Spread: 350
 		Damage: -7500
 		Versus:
-			VehicleArmor: 60
-			DefenseArmor: 60
+			Defense: 60
+			Heavy: 60
 		ValidTargets: Infantry, OrganicVehicle
 		InvalidTargets: FullHealth
 		AffectsParent: false
@@ -244,8 +244,8 @@ TrooperRail:
 		Damage: 6000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		Versus:
-			InfantryArmor: 50
-			ConcreteArmor: 15
+			Infantry: 50
+			Concrete: 15
 	Warhead@2: GrantExternalCondition
 		Range: 0c768
 		Duration: 40
@@ -310,10 +310,10 @@ APCGrenade:
 		Spread: 0c384
 		Damage: 5000
 		Versus:
-			BuildingArmor: 50
-			VehicleArmor: 25
-			DefenseArmor: 25
-			ConcreteArmor: 5
+			Building: 50
+			Defense: 25
+			Heavy: 25
+			Concrete: 5
 		ValidTargets: Ground, Water
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
@@ -412,7 +412,7 @@ JuggCannon:
 		Spread: 400
 		Damage: 6000
 		Versus:
-			InfantryArmor: 150
+			Infantry: 150
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 
 JuggCannonShellCasing:
@@ -453,8 +453,8 @@ GMRLSRocket:
 		Damage: 3000
 		ValidTargets: Ground, Water
 		Versus:
-			LightVehicleArmor: 75
-			VehicleArmor: 100
+			Light: 75
+			Heavy: 100
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Range: 460
@@ -478,7 +478,6 @@ GMRLSRocketAA:
 		-JetImage:
 	Warhead@1Dam: SpreadDamage
 		Damage: 5000
-
 
 SonicZap:
 	Inherits: ^WeaponGenericUpgrades
@@ -504,10 +503,10 @@ SonicZap:
 		AffectsParent: false
 		ValidRelationships: Neutral, Enemy
 		Versus:
-			VehicleArmor: 80
-			DefenseArmor: 80
-			ConcreteArmor: 15
+			Defense: 80
+			Heavy: 80
 			Disruptor: 30
+			Concrete: 15
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Dam: SpreadDamage
 		Range: 0, 48
@@ -517,10 +516,10 @@ SonicZap:
 		InvalidTargets: AllySonicImmune
 		ValidRelationships: Ally
 		Versus:
-			VehicleArmor: 80
-			DefenseArmor: 80
-			ConcreteArmor: 15
+			Defense: 80
+			Heavy: 80
 			Disruptor: 30
+			Concrete: 15
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 
 4TNKGUN:
@@ -593,11 +592,11 @@ MechRailgun: ##For hit effect
 		Spread: 50
 		Damage: 15000
 		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 100
-			VehicleArmor: 100
-			DefenseArmor: 100
-			ConcreteArmor: 25
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Concrete: 25
 			Shield: 0
 		ValidRelationships: Ally
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
@@ -629,11 +628,11 @@ MechRailgun2:
 		Damage: 15000
 		AffectsParent: false
 		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 100
-			VehicleArmor: 100
-			DefenseArmor: 100
-			ConcreteArmor: 25
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Concrete: 25
 			Shield: 0
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 		ValidRelationships: Neutral, Enemy
@@ -698,7 +697,7 @@ FighterHellfire:
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		Versus:
-			DefenseArmor: 75
+			Defense: 75
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
@@ -739,8 +738,8 @@ OBBombFrontal:
 		Spread: 0c512
 		Damage: 10000
 		Versus:
-			LightVehicleArmor: 80
-			VehicleArmor: 60
+			Light: 80
+			Heavy: 60
 		ValidTargets: Ground, Water, Building, Infantry, Vehicle
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
@@ -836,9 +835,9 @@ FirestormExplo:
 	Projectile: InstantHit
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		Versus:
-			BuildingArmor: 10
-			DefenseArmor: 10
-			ConcreteArmor: 10
+			Building: 10
+			Defense: 10
+			Concrete: 10
 		ValidRelationships: Neutral, Enemy
 		DamageTypes: ExplosionDeath
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage

@@ -7,8 +7,8 @@ SharkJump:
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
 		Versus:
-			BuildingArmor: 10
-			LightVehicleArmor: 30
+			Building: 10
+			Light: 30
 		Spread: 0c030
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath, ScrinEssenceKill
 
@@ -118,9 +118,9 @@ MindWave: ## Used for IFV
 		Spread: 0c512
 		Damage: 15000
 		Versus:
-			BuildingArmor: 100
-			DefenseArmor: 75
-			ConcreteArmor: 25
+			Building: 100
+			Defense: 75
+			Concrete: 25
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinpulse2
@@ -238,10 +238,10 @@ CorruptorAcid:
 		Spread: 0c384
 		Damage: 975
 		Versus:
-			InfantryArmor: 200
-			BuildingArmor: 75
-			VehicleArmor: 25
-			DefenseArmor: 25
+			Infantry: 200
+			Building: 75
+			Defense: 25
+			Heavy: 25
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		InvalidTargets: Shark
 	Warhead@2Shark: SpreadDamage
@@ -249,10 +249,10 @@ CorruptorAcid:
 		Damage: 975
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		Versus:
-			InfantryArmor: 200
-			BuildingArmor: 75
-			VehicleArmor: 25
-			DefenseArmor: 25
+			Infantry: 200
+			Building: 75
+			Defense: 25
+			Heavy: 25
 		ValidTargets: Shark
 		ValidRelationships: Enemy, Neutral
 	Warhead@2Eff: CreateEffect
@@ -336,7 +336,7 @@ ScrMbtLasor:
 		Spread: 0c045
 		Damage: 9000
 		Versus:
-			InfantryArmor: 45
+			Infantry: 45
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 		InvalidTargets: Shark
 	Warhead@2shark: SpreadDamage
@@ -344,7 +344,7 @@ ScrMbtLasor:
 		Damage: 9000
 		ValidTargets: Shark
 		Versus:
-			InfantryArmor: 45
+			Infantry: 45
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 		InvalidTargets: Building, Vehicle
 		ValidRelationships: Enemy, Neutral
@@ -450,11 +450,11 @@ blackBlast:
 	Warhead@1Dam: SpreadDamage
 		Damage: 12500
 		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 80
-			VehicleArmor: 50
-			DefenseArmor: 50
-			ConcreteArmor: 30
+			Infantry: 100
+			Building: 80
+			Defense: 50
+			Heavy: 50
+			Concrete: 30
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 	Warhead@4Eff: CreateEffect
 		Explosions: blackhole
@@ -476,11 +476,11 @@ blackBlastFinal:
 		Spread: 0c512
 		Damage: 12500
 		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 80
-			VehicleArmor: 50
-			DefenseArmor: 50
-			ConcreteArmor: 30
+			Infantry: 100
+			Building: 80
+			Defense: 50
+			Heavy: 50
+			Concrete: 30
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath, ScrinEssenceKill
 	Warhead@2Eff: CreateEffect
 		Explosions: tripodshockwave
@@ -650,8 +650,8 @@ StormRiderBlast:
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 		InvalidTargets: Shark, Air
 		Versus:
-			InfantryArmor: 35
-			DefenseArmor: 35
+			Infantry: 35
+			Defense: 35
 	Warhead@2Shark: SpreadDamage
 		Damage: 2000
 		ValidTargets: Shark
@@ -659,8 +659,8 @@ StormRiderBlast:
 		ValidRelationships: Enemy, Neutral
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 		Versus:
-			InfantryArmor: 35
-			DefenseArmor: 35
+			Infantry: 35
+			Defense: 35
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Range: 96
 	Warhead@2Eff: CreateEffect
@@ -717,12 +717,12 @@ Glyder1Cannon:
 		Spread: 0c400
 		Damage: 3000
 		Versus:
-			InfantryArmor: 140
-			BuildingArmor: 35
-			LightVehicleArmor: 40
-			VehicleArmor: 15
-			DefenseArmor: 15
-			ConcreteArmor: 5
+			Infantry: 140
+			Building: 35
+			Defense: 15
+			Light: 40
+			Heavy: 15
+			Concrete: 5
 		ValidTargets: Ground, Water
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 	Warhead@2Eff: CreateEffect
@@ -905,12 +905,12 @@ WyvermBlast:
 		Spread: 0c180
 		Damage: 2000
 		Versus:
-			AircraftArmor: 100
-			InfantryArmor: 100
-			LightVehicleArmor: 100
-			VehicleArmor: 100
-			DefenseArmor: 50
-			BuildingArmor: 25
+			Infantry: 100
+			Building: 25
+			Defense: 50
+			Light: 100
+			Heavy: 100
+			Aircraft: 100
 		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 
@@ -947,9 +947,9 @@ WasteTurretWeapon:
 		Spread: 0c400
 		Damage: 400
 		Versus:
-			InfantryArmor: 200
-			BuildingArmor: 75
-			VehicleArmor: 75
+			Infantry: 200
+			Building: 75
+			Heavy: 75
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		ValidTargets: Building, Structure, Infantry, Vehicle, Ground
 		InvalidTargets: Shark
@@ -957,9 +957,9 @@ WasteTurretWeapon:
 		Spread: 0c400
 		Damage: 400
 		Versus:
-			InfantryArmor: 200
-			BuildingArmor: 75
-			VehicleArmor: 75
+			Infantry: 200
+			Building: 75
+			Heavy: 75
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		ValidTargets: Shark
 		ValidRelationships: Enemy, Neutral

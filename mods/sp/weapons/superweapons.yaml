@@ -1,29 +1,28 @@
-
 ^SWBaseEffects:
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		Falloff: 100, 100
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium
 		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 0
-			VehicleArmor: 100
-			DefenseArmor: 0
-			AircraftArmor: 100
-			ConcreteArmor: 0
-			BossArmor: 0
+			Infantry: 100
+			Building: 0
+			Defense: 0
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 0
+			Boss: 0
 		Spread: 0c690
 		Damage: 9000000
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
 		Falloff: 100, 100
 		ValidTargets: Air
 		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 0
-			VehicleArmor: 100
-			DefenseArmor: 0
-			AircraftArmor: 100
-			ConcreteArmor: 0
-			BossArmor: 0
+			Infantry: 100
+			Building: 0
+			Defense: 0
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 0
+			Boss: 0
 		Spread: 3c640 ### It can just hit the CruiseAltitude: 4c0 aircraft.
 		Damage: 9000000
 		
@@ -36,10 +35,10 @@ SuicideBomb:
 		Damage: 11000
 		Falloff: 10000, 3680, 1350, 500, 180, 70, 0
 		Versus:
-			InfantryArmor: 90
-			VehicleArmor: 60
-			DefenseArmor: 60
-			ConcreteArmor: 50
+			Infantry: 90
+			Heavy: 60
+			Defense: 60
+			Concrete: 50
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 
 EMPulseCannonMuzzle:
@@ -136,7 +135,7 @@ IonCannon: ### THIS IS THE MAIN ION CANON WEAPON
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
 		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
 		Versus:
-			BossArmor: 200
+			Boss: 200
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		Spread: 4c512
 		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
@@ -237,13 +236,13 @@ IonScorch: ### THESE ARE THE WEAPONS OF THE MINI BEAMS ON THE SIDES
 		Falloff: 100, 100
 		ValidTargets: Air
 		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 0
-			VehicleArmor: 100
-			DefenseArmor: 0
-			AircraftArmor: 100
-			ConcreteArmor: 0
-			BossArmor: 0
+			Infantry: 100
+			Building: 0
+			Heavy: 100
+			Defense: 0
+			Aircraft: 100
+			Concrete: 0
+			Boss: 0
 		Spread: 3c928
 		Damage: 750
 	Warhead@ShieldUpgrade: GrantExternalCondition
@@ -430,7 +429,7 @@ NuclearMissile:
 		Falloff: 1000, 700, 500, 300, 150, 50, 0
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 		Versus:
-			ConcreteArmor: 25
+			Concrete: 25
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@ClusterDamage3: SpreadDamage
 		Damage: 47000
@@ -439,12 +438,12 @@ NuclearMissile:
 		Delay: 25
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 		Versus:
-			InfantryArmor: 500
-			BuildingArmor: 100
-			VehicleArmor: 50
-			DefenseArmor: 50
-			ConcreteArmor: 5
-			BossArmor: 50
+			Infantry: 500
+			Building: 100
+			Defense: 50
+			Heavy: 50
+			Concrete: 5
+			Boss: 50
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@7Dam_areanukeb: SpreadDamage
 		Spread: 2c512
@@ -454,12 +453,12 @@ NuclearMissile:
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Trees
 		AffectsParent: true
 		Versus:
-			InfantryArmor: 500
-			BuildingArmor: 100
-			VehicleArmor: 50
-			DefenseArmor: 50
-			ConcreteArmor: 5
-			BossArmor: 50
+			Infantry: 500
+			Building: 100
+			Defense: 50
+			Heavy: 50
+			Concrete: 5
+			Boss: 50
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
 		Spread: 6c768
@@ -570,8 +569,8 @@ ToxinMissile:
 		Falloff: 500, 368, 135, 50, 18, 7, 0
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 		Versus:
-			InfantryArmor: 200
-			ConcreteArmor: 25
+			Infantry: 200
+			Concrete: 25
 		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
 	Warhead@ClusterSmudges0: LeaveSmudge
 		SmudgeType: LargeCrater
@@ -750,7 +749,7 @@ MeteorRainNormal:
 		Spread: 300
 		Damage: 10000
 		Versus:
-			BossArmor: 500
+			Boss: 500
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
@@ -827,8 +826,8 @@ IronSaviorExplode:
 		Spread: 700
 		Damage: 18000
 		Versus:
-			BuildingArmor: 600
-			BossArmor: 1000
+			Building: 600
+			Boss: 1000
 		ValidTargets: Vehicle, Infantry, Building, Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
@@ -880,8 +879,8 @@ IronSaviorShrapnel:
 		Spread: 700
 		Damage: 8000
 		Versus:
-			BuildingArmor: 600
-			BossArmor: 800
+			Building: 600
+			Boss: 800
 		ValidTargets: Vehicle, Infantry, Building, Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
@@ -947,7 +946,7 @@ IonRay:
 		Damage: 7500
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 		Versus:
-			BossArmor: 250
+			Boss: 250
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage

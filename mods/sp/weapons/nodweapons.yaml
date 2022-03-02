@@ -7,7 +7,7 @@ MilitantRifle:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1600
 		Versus:
-			LightVehicleArmor: 30
+			Light: 30
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 HologramMilitantRifle:
@@ -64,7 +64,7 @@ TemplarFlame:
 		Damage: 400
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath
 		Versus:
-			InfantryArmor: 200
+			Infantry: 200
 
 TemplarFlameE:
 	Inherits: TemplarFlame
@@ -119,12 +119,12 @@ ToxinCommandoRifle:
 		Damage: 7500
 		ValidTargets: Infantry, Vehicle, Ground, Water
 		Versus:
-			InfantryArmor: 670
-			BuildingArmor: 5
-			DefenseArmor: 5
-			VehicleArmor: 5
-			AircraftArmor: 50
-			ConcreteArmor: 5
+			Infantry: 670
+			Building: 5
+			Defense: 5
+			Heavy: 5
+			Aircraft: 50
+			Concrete: 5
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 	Warhead@emp1: GrantExternalCondition
 		Range: 2c0
@@ -174,8 +174,8 @@ SharkJumpNod:
 	Warhead@1Dam: SpreadDamage
 		Damage: 6000
 		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 75
+			Infantry: 100
+			Building: 75
 		Spread: 0c030
 		DamageTypes: Prone100Percent, BulletDeath, ScrinEssenceKill, TriggerProne
 		InvalidTargets: Shark
@@ -183,8 +183,8 @@ SharkJumpNod:
 		Damage: 6000
 		ValidTargets: Shark
 		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 75
+			Infantry: 100
+			Building: 75
 		Spread: 0c030
 		DamageTypes: Prone100Percent, BulletDeath, ScrinEssenceKill, TriggerProne
 		InvalidTargets: Building, Vehicle
@@ -233,9 +233,9 @@ BikeExplo:
 		InvalidTargets: Air
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		Versus:
-			BuildingArmor: 75
-			VehicleArmor: 35
-			ConcreteArmor: 15
+			Building: 75
+			Heavy: 35
+			Concrete: 15
 	Warhead@5Eff: CreateEffect
 		Explosions: large_twlt
 		ExplosionPalette: effect
@@ -298,7 +298,7 @@ DevilsFlame:
 		Damage: 400
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath
 		Versus:
-			InfantryArmor: 200
+			Infantry: 200
 
 DevilsFlameE:
 	Inherits: DevilsFlame
@@ -367,7 +367,7 @@ SpectreCannon:
 		Spread: 550
 		Damage: 28000
 		Versus:
-			InfantryArmor: 150
+			Infantry: 150
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
@@ -417,9 +417,9 @@ HarpyClaw:
 		InvalidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		Versus:
-			InfantryArmor: 250
-			BuildingArmor: 100
-			LightVehicleArmor: 30
+			Infantry: 250
+			Building: 100
+			Light: 30
 
 HarpyClawAA:
 	Inherits: ^FullDamage
@@ -495,7 +495,7 @@ Proton:
 		Spread: 250
 		Damage: 5000
 		Versus:
-			InfantryArmor: 100
+			Infantry: 100
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
@@ -553,7 +553,7 @@ CerberusSublazor1:
 		Spread: 310
 		Damage: 900
 		Versus:
-			DefenseArmor: 75
+			Defense: 75
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building
 		InvalidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
@@ -733,7 +733,7 @@ LightbringerFlame:
 		Damage: 400
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath
 		Versus:
-			InfantryArmor: 200
+			Infantry: 200
 
 LightbringerFlameE:
 	Inherits: LightbringerFlame

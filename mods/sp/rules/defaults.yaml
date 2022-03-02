@@ -1309,7 +1309,11 @@
 	AttackMove:
 		Voice: Move
 	Armor:
-		Type: InfantryArmor
+		Type: Infantry
+	-Armor@Shield: # This is needed so it'll show the correct armor on the tooltip.
+	Armor@Shield:
+		RequiresCondition: VanguardShield && BreakShield <= 4
+		Type: Shield
 	Crushable:
 		WarnProbability: 0
 		CrushSound: squish6.aud
@@ -1510,7 +1514,7 @@
 	-WithDeathAnimation@tib:
 	-SpawnActorOnDeath@FLAMEGUY:
 	Armor:
-		Type: VehicleArmor
+		Type: Heavy
 	Targetable:
 		TargetTypes: Ground, Vehicle, OrganicVehicle, NoRepair
 	Crushable:
@@ -1799,7 +1803,7 @@
 	ActorLostNotification:
 	#Huntable:
 	Armor:
-		Type: VehicleArmor
+		Type: Heavy
 	AttackMove:
 		Voice: Move
 	Crushable:
@@ -2150,7 +2154,7 @@
 	Selectable:
 	SelectionDecorations:
 	Armor:
-		Type: AircraftArmor
+		Type: Aircraft
 	GivesExperience:
 		PlayerExperienceModifier: 100
 	Aircraft:
@@ -2254,7 +2258,7 @@
 	Valued:
 		Cost: 50
 	Armor:
-		Type: VehicleArmor
+		Type: Heavy
 	Mobile:
 		Speed: 120
 		TurnSpeed: 64
@@ -2290,7 +2294,7 @@
 	Valued:
 		Cost: 1
 	Armor:
-		Type: BuildingArmor
+		Type: Building
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack
 	Building:
@@ -2462,7 +2466,7 @@
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack, Defence
 	Armor:
-		Type: DefenseArmor
+		Type: Defense
 	MapEditorData:
 		Categories: Defence
 	WithIdleOverlay@SpawnFire:
@@ -2730,7 +2734,7 @@
 		Width: 2
 	DrawLineToTarget:
 	Armor:
-		Type: VehicleArmor
+		Type: Heavy
 	Building:
 		Dimensions: 1,1
 		Footprint: x
@@ -2774,7 +2778,7 @@
 	Health:
 		HP: 10000
 	Armor:
-		Type: VehicleArmor
+		Type: Heavy
 	Selectable:
 		Bounds: 1206,1447
 	SelectionDecorations:
@@ -2862,7 +2866,7 @@
 		HP: 25000
 	BlocksProjectiles:
 	Armor:
-		Type: ConcreteArmor
+		Type: Concrete
 	Crushable:
 		CrushClasses: heavywall
 	LineBuild:
@@ -2898,7 +2902,7 @@
 		HP: 25000
 	BlocksProjectiles:
 	Armor:
-		Type: ConcreteArmor
+		Type: Concrete
 	LineBuildNode:
 		Types: wall, gate
 	-WithDeathAnimation:

@@ -7,7 +7,7 @@ MarauderShotgun:
 	Warhead@1Dam: SpreadDamage
 		Damage: 2300
 		Versus:
-			LightVehicleArmor: 30
+			Light: 30
 		Falloff: 100, 100, 50
 		Spread: 526
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
@@ -141,12 +141,12 @@ SeerTesla:
 		Damage: 7000
 		ValidTargets: Ground, Water
 		Versus:
-			InfantryArmor: 10
-			BuildingArmor: 100
-			VehicleArmor: 100
-			DefenseArmor: 100
-			AircraftArmor: 100
-			ConcreteArmor: 30
+			Infantry: 10
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 30
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
 SeerTeslaAA:
@@ -257,11 +257,11 @@ LtRail:
 		AffectsParent: false
 		ValidRelationships: Neutral, Enemy
 		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 100
-			VehicleArmor: 100
-			DefenseArmor: 100
-			ConcreteArmor: 25
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Concrete: 25
 			Shield: 0
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 
@@ -279,11 +279,11 @@ LtRailSmudge:
 		AffectsParent: false
 		ValidRelationships: Ally
 		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 100
-			VehicleArmor: 100
-			DefenseArmor: 100
-			ConcreteArmor: 25
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Concrete: 25
 			Shield: 0
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	-Warhead@2Eff:
@@ -303,8 +303,8 @@ BullAcid:
 		Spread: 526
 		Damage: 1250
 		Versus:
-			VehicleArmor: 20
-			DefenseArmor: 20
+			Defense: 20
+			Heavy: 20
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
 		ValidTargets: Vehicle, Infantry, Building, Ground, Water
 	Warhead@2Eff: CreateEffect
@@ -330,7 +330,7 @@ RavagerStrike:
 		Damage: 5000
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 		Versus:
-			InfantryArmor: 150
+			Infantry: 150
 	Warhead@emp: GrantExternalCondition
 		Range: 1c0
 		Duration: 45
@@ -632,11 +632,11 @@ GargoylACannon:
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		Versus:
-			InfantryArmor: 30
-			BuildingArmor: 80
-			VehicleArmor: 100
-			DefenseArmor: 75
-			ConcreteArmor: 30
+			Infantry: 30
+			Building: 80
+			Defense: 75
+			Heavy: 100
+			Concrete: 30
 		ValidTargets: Ground, Water
 		InvalidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
@@ -703,7 +703,7 @@ FalconPunch:
 		ValidTargets: Ground, Water
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
 		Versus:
-			VehicleArmor: 100
+			Vehicle: 100
 	Warhead@2Eff: CreateEffect
 		Explosions: gasexplo
 		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
@@ -793,11 +793,11 @@ WeasaurusSpit:
 		Spread: 526
 		Damage: 10000
 		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 100
-			VehicleArmor: 100
-			DefenseArmor: 100
-			ConcreteArmor: 15
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Concrete: 15
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
 	Warhead@ShieldUpgrade: GrantExternalCondition
