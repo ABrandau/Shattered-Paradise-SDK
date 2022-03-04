@@ -271,11 +271,11 @@ GACNST:
 		Locomotor: InfantryCrusherVehicle
 		Voice: Move
 		RequiresForceMove: true
-	# TransformsIntoRepairable:
-	#	RequiresCondition: !Building-Buildup
-	#	RepairActors: gadept, scrdepot, tdrepd
-	#	Voice: Move
-	#	RequiresForceMove: true
+	TransformsIntoRepairable:
+		RequiresCondition: !Building-Buildup
+		RepairActors: gadept, scrdepot, tdrepd
+		Voice: Move
+		RequiresForceMove: true
 	TransformsIntoPassenger:
 		RequiresCondition: !Building-Buildup
 		CargoType: Vehicle
@@ -769,11 +769,11 @@ GADEPT:
 		Dimensions: 3,3
 	Health:
 		HP: 75000
-	#Reservable:
-	#RepairsUnits:
-	#	HpPerStep: 2000
-	#	FinishRepairingNotification: UnitRepaired
-	#	PlayerExperience: 15
+	Reservable:
+	RepairsUnits:
+		HpPerStep: 1000
+		Interval: 48
+		FinishRepairingNotification: UnitRepaired
 	AttackOmni:
 		PauseOnCondition: empdisable
 	Armament:
@@ -801,9 +801,9 @@ GADEPT:
 	ExternalCondition@Docked:
 		Condition: unit.docked
 	WithSpriteBody:
-	# RallyPoint:
-	#	Palette: mouse
-	#	IsPlayerPalette: false
+	RallyPoint:
+		Palette: mouse
+		IsPlayerPalette: false
 	WithIdleOverlay@LIGHT:
 		RequiresCondition: !Building-Buildup
 		Sequence: idle-light
