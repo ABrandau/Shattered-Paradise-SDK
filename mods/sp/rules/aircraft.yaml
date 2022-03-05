@@ -1269,7 +1269,7 @@ STORMRIDERSPAWN:
 REPAIRWYVERN:
 	Inherits: STORMRIDERSPAWN
 	Tooltip:
-		Name: Repair Wyvern
+		Name: Repair Drone
 	Armament:
 		Weapon: DroneRepairScr
 		-ReloadingCondition:
@@ -1280,9 +1280,13 @@ REPAIRWYVERN:
 	Aircraft:
 		TurnSpeed: 36
 		Speed: 105
+		AltitudeVelocity: 200
 		VTOL: true
 	Rearmable:
 		RearmActors: scrdepot
+	RenderSprites:
+		Image: scrinrepairdrone
+	-Contrail@1:
 
 CABDRONEJET:
 	Inherits: STORMRIDERSPAWN
@@ -1339,8 +1343,12 @@ REPAIRDRONE:
 	Aircraft:
 		TurnSpeed: 36
 		Speed: 105
+		AltitudeVelocity: 200
 	Rearmable:
 		RearmActors: gadept
+	RenderSprites:
+		Image: quaddrone-mini
+	-Contrail@1:
 
 SCRBATTLESHIP:
 	Inherits: ^CombatHelicopter
