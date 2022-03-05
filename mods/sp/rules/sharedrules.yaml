@@ -772,6 +772,7 @@ GADEPT:
 	Reservable:
 	RepairsUnits:
 		HpPerStep: 1000
+		ValuePercentage: 0
 		Interval: 48
 		FinishRepairingNotification: UnitRepaired
 	AttackOmni:
@@ -825,22 +826,22 @@ GADEPT:
 		RequiresCondition: !Building-Buildup
 		Sequence: circuits-bright
 		Palette: bright
-	# WithRepairOverlay@CRANE:
-	#	RequiresCondition: !Building-Buildup
-	#	StartSequence: crane-start
-	#	Sequence: crane-loop
-	#	EndSequence: crane-end
-	#	Palette: player-nobright
-	#	IsPlayerPalette: True
-	# WithRepairOverlay@CRANE-BRIGHT:
-	#	RequiresCondition: !Building-Buildup
-	#	StartSequence: crane-start
-	#	Sequence: crane-loop-bright
-	#	EndSequence: crane-end
-	#	Palette: bright
-	# WithRepairOverlay@PLATFORM:
-	#	Sequence: platform
-	#	RequiresCondition: !Building-Buildup
+	WithRepairOverlay@CRANE:
+		RequiresCondition: !Building-Buildup
+		StartSequence: crane-start
+		Sequence: crane-loop
+		EndSequence: crane-end
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithRepairOverlay@CRANE-BRIGHT:
+		RequiresCondition: !Building-Buildup
+		StartSequence: crane-start
+		Sequence: crane-loop-bright
+		EndSequence: crane-end
+		Palette: bright
+	WithRepairOverlay@PLATFORM:
+		Sequence: platform
+		RequiresCondition: !Building-Buildup
 	WithDeathAnimation@BIB:
 		DeathSequence: dead-ground
 		UseDeathTypeSuffix: false
@@ -890,8 +891,8 @@ SCRDEPOT:
 	-WithIdleOverlay@GROUND:
 	-WithIdleOverlay@CIRCUITS:
 	-WithIdleOverlay@CIRCUITS-BRIGHT:
-	# -WithRepairOverlay@CRANE:
-	# -WithRepairOverlay@CRANE-BRIGHT:
+	-WithRepairOverlay@CRANE:
+	-WithRepairOverlay@CRANE-BRIGHT:
 	-WithDeathAnimation@BIB:
 
 ^TechCenter:

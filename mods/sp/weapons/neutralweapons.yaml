@@ -424,9 +424,25 @@ DroneRepair:
 	Range: 2c0
 	Report: vifvrepa.wav
 	ValidTargets: Vehicle, Air
+	Projectile: LaserZap
+		ZOffset: 4000
+		Color: FFFF70
+		Width: 16
+		Duration: 5
+		HitAnim: explosion
+		HitAnimSequence: repairsparks
+		HitAnimPalette: player
 	Warhead@1Dam: SpreadDamage
 		Damage: -2000
 		ValidTargets: Vehicle, Air
+
+DroneRepairScr:
+	Inherits: DroneRepair
+	Projectile: LaserZap
+		Color: 8080FF
+		HitAnim: explosion
+		HitAnimSequence: repairsparks
+		HitAnimPalette: apblue
 
 ServiceDepotDroneSpawn:
 	ReloadDelay: 25
