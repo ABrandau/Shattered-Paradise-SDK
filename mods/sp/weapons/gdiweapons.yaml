@@ -239,6 +239,10 @@ TrooperRail:
 		TrailSequences: bright
 		TrailPalette: apblue
 		TrailInterval: 0
+		ContrailEndColor: 3333FF
+		ContrailFadeWithColor: false
+		ContrailFadeWithWidth: true 
+		ContrailFadeWithWidthRate: 0.8
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 6000
@@ -398,11 +402,13 @@ JuggCannon:
 		LaunchAngle: 165
 		Shadow: true
 		Blockable: false
-		ContrailLength: 10
-		ContrailUsePlayerColor: false
-		ContrailColor: 88888888
-		ContrailWidth: 56
-		ContrailDelay: 0
+		ContrailLength: 15
+		ContrailZOffset: 650
+		ContrailColor: FFFF0088
+		ContrailWidth: 0c66
+		ContrailEndColor: AA0000
+		ContrailFadeWithColor: true
+		ContrailFadeWithWidth: true
 		TrailImage: cannonsmokecircle
 		TrailPalette: effectalpha75
 		TrailSequences: idle2
@@ -444,9 +450,13 @@ GMRLSRocket:
 		Palette: player
 		IsPlayerPalette: true
 		ContrailLength: 4
-		ContrailColor: FFEE0033
-		ContrailWidth: 0c96
+		ContrailColor: 7777FF88
+		ContrailWidth: 0c4
 		ContrailDelay: 0
+		ContrailEndColor: FF5500
+		ContrailFadeWithColor: true
+		ContrailFadeWithWidth: true
+		ContrailFadeWithWidthRate: -70
 		-TrailImage:
 	Warhead@1Dam: SpreadDamage
 		Spread: 350
@@ -470,10 +480,13 @@ GMRLSRocketAA:
 		Blockable: false
 		LaunchAngle: 64
 		ContrailLength: 4
-		ContrailColor: FFEE0033
-		ContrailWidth: 0c100
+		ContrailColor: 7777FF88
+		ContrailWidth: 0c4
 		ContrailDelay: 0
-		RangeLimit: 25c0
+		ContrailEndColor: FF5500
+		ContrailFadeWithColor: true
+		ContrailFadeWithWidth: true
+		ContrailFadeWithWidthRate: -70
 		-TrailImage:
 		-JetImage:
 	Warhead@1Dam: SpreadDamage

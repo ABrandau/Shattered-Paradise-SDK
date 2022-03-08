@@ -28,8 +28,11 @@ LegioNeedler:
 		IsPlayerPalette: false
 		ContrailLength: 5
 		ContrailColor: 000ba833
-		ContrailWidth: 0c100
+		ContrailWidth: 0c128
 		ContrailDelay: 0
+		ContrailEndColor: 000ba833
+		ContrailFadeWithColor: false
+		ContrailFadeWithWidth: true
 		-TrailImage:
 		-TrailPalette:
 		-JetImage:
@@ -228,10 +231,13 @@ CorruptorAcid:
 	StartBurstReport: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
 	Projectile: BulletAS
 		Speed: 500
+		ContrailLength: 12
 		ContrailColor: 009800BB
-		ContrailWidth: 146
+		ContrailWidth: 0c138
+		ContrailEndColor: 00440055
+		ContrailFadeWithColor: false
+		ContrailFadeWithWidth: true
 		Inaccuracy: 1c512
-		ContrailLength: 6
 		LaunchAngle: 96
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
@@ -642,7 +648,10 @@ StormRiderBlast:
 		Image: greenplasma2
 		ContrailLength: 5
 		ContrailColor: ad00ff44
-		ContrailWidth: 0c100
+		ContrailWidth: 0c128
+		ContrailEndColor: ad00ff30
+		ContrailFadeWithColor: false
+		ContrailFadeWithWidth: true
 		ContrailDelay: 0
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
@@ -710,9 +719,12 @@ Glyder1Cannon:
 		-TrailImage:
 		-TrailPalette:
 		Palette: apblue
-		ContrailLength: 7
+		ContrailLength: 4
 		ContrailColor: 000ba855
-		ContrailWidth: 0c70
+		ContrailWidth: 0c108
+		ContrailEndColor: 000ba830
+		ContrailFadeWithColor: false
+		ContrailFadeWithWidth: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c400
 		Damage: 3000
@@ -751,9 +763,12 @@ Glyder2Cannon:
 		IsPlayerPalette: false
 		RangeLimit: 15c0
 		Palette: apblue
-		ContrailLength: 7
+		ContrailLength: 4
 		ContrailColor: 000ba855
-		ContrailWidth: 0c70
+		ContrailWidth: 0c108
+		ContrailEndColor: 000ba830
+		ContrailFadeWithColor: false
+		ContrailFadeWithWidth: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 90
 		Damage: 3000
@@ -928,8 +943,8 @@ WasteTurretWeapon:
 	Inherits: ^AcidWarhead
 	Inherits@1: ^SpawnsIrradiation
 	ReloadDelay: 30
-	Burst: 5
-	BurstDelays: 2
+	Burst: 10
+	BurstDelays: 1
 	FirstBurstTargetOffset: -400,0,0
 	FollowingBurstTargetOffset: 200,0,0
 	Range: 7c0
@@ -937,12 +952,15 @@ WasteTurretWeapon:
 	StartBurstReport: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
 	Projectile: BulletAS
 		Speed: 500
-		ContrailColor: 007000BB
-		ContrailWidth: 146
 		Inaccuracy: 1c512
-		ContrailLength: 6
 		LaunchAngle: 96
 		Blockable: false
+		ContrailLength: 12
+		ContrailColor: 009800BB
+		ContrailWidth: 0c156
+		ContrailEndColor: 00440055
+		ContrailFadeWithColor: false
+		ContrailFadeWithWidth: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c400
 		Damage: 400
@@ -972,38 +990,6 @@ WasteTurretWeapon:
 		Spread: 512
 		Level: 24
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-	Warhead@smalldrop: FireRadius
-		Weapon: WasteSmall
-		ImpactActors: false
-
-WasteTurretWeapon2:
-	Inherits: WasteTurretWeapon
-	-StartBurstReport:
-	Projectile: BulletAS
-		ContrailColor: 009800BB
-	Warhead@smalldrop: FireFragment
-		Weapon: WasteSmall2
-
-WasteSmall:
-	Range: 0c640
-	Projectile: Bullet
-		Speed: 95
-		Inaccuracy: 4c0
-		InaccuracyType: PerCellIncrement
-		LaunchAngle: 150, 240
-		ContrailColor: 007000BB
-		ContrailLength: 4
-		ContrailWidth: 60
-	Warhead@2Eff: CreateEffect
-		Explosions: tibexp2
-		ExplosionPalette: apolgreenalpha
-		ImpactActors: false
-		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-
-WasteSmall2:
-	Inherits: WasteSmall
-	Projectile: Bullet
-		ContrailColor: 009800BB
 
 TractorBeam:
 	Inherits: ^AntiAirTurretWeapon

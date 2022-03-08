@@ -46,9 +46,13 @@ SkirmisherMortar:
 		Shadow: true
 		Inaccuracy: 0c064
 		Blockable: false
-		ContrailLength: 6
-		ContrailColor: 009900AA
-		ContrailWidth: 52
+		ContrailLength: 8
+		ContrailZOffset: 650
+		ContrailColor: 00AA0088
+		ContrailWidth: 0c66
+		ContrailEndColor: FF0000
+		ContrailFadeWithColor: true
+		ContrailFadeWithWidth: true
 		Image: 120mm
 		Palette: gradientgreen
 	Warhead@1Dam: SpreadDamage
@@ -347,7 +351,7 @@ LynxCannon:
 	Report: 120mmf.aud
 	Projectile: BulletAS
 		Speed: 682
-		ContrailWidth: 0c48
+		ContrailWidth: 0c58
 	Warhead@1Dam: SpreadDamage
 		Damage: 5000
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
@@ -682,18 +686,24 @@ FalconPunch:
 		Speed: 0c400
 		Acceleration: 0
 		Blockable: false
-		Shadow: true
+		Shadow: false
 		Inaccuracy: 0c181
 		Image: DRAGON
+		Sequences: idle2
 		HorizontalRateOfTurn: 160
 		VerticalRateOfTurn: 160
 		RangeLimit: 28c291
-		Palette: effect
+		Palette: playermut
+		IsPlayerPalette: true
 		AllowSnapping: true
 		CloseEnough: 200
 		ContrailLength: 10
-		ContrailColor: 00FF00
-		ContrailWidth: 0c30
+		ContrailColor: 00CC00AA
+		ContrailWidth: 0c8
+		ContrailEndColor: 221100
+		ContrailFadeWithColor: true
+		ContrailFadeWithWidth: true
+		ContrailFadeWithWidthRate: -40
 		TrailPalette: jascgreen
 		TrailImage: small_smoke_trail
 	Warhead@1Dam: SpreadDamage
