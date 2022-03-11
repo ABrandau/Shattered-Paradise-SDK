@@ -500,7 +500,6 @@ GEYE:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
 	Inherits@3: ^4CellVision
-	Inherits@4: ^1x1Shape
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	DetectCloaked:
 		Range: 4c0
@@ -519,32 +518,20 @@ GEYE:
 		CloseDelay: 10
 		DefaultFacing: 512
 	WithEmbeddedTurretSpriteBody:
-	WithSpriteBody: ##HACK: for map editor
-		Name: base
-		Sequence: idle-open
+	#WithSpriteBody: ##HACK: for map editor
+	#	Name: base
+	#	Sequence: idle-open
 	EditorOnlyTooltip:
 		Name: Curiosity
 	RenderSprites:
 		Palette: player
 		Image: geye
-	Targetable:
-		TargetTypes: Ground, Infantry, Eye
-	Armor:
-		Type: Infantry
-	Health:
-		HP: 20
-	Explodes:
-		Weapon: BloodTiny
-		EmptyWeapon: BloodTiny
 	FrozenUnderFog:
 	MapEditorData:
 		Categories: Tree
-	Crushable:
-		CrushClasses: Vehicle
 
 WEYE:
 	Inherits: GEYE
-	Inherits@1: ^Unkillable
 	Inherits@2: ^6CellVision
 	Inherits@3: ^2x2Shape
 	-Tooltip:
@@ -565,8 +552,6 @@ WEYE:
 		Image: weye
 	Armament:
 		Weapon: EyeLookingDummyWeapon
-	-Targetable:
-	-Crushable:
 
 SNOWEYE:
 	Inherits: WEYE
