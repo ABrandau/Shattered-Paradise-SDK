@@ -474,6 +474,11 @@ SC_BOXES:
 		RandomFacing: false
 		SpawnFrequency: 64, 128
 		Offset: 0, 0, 600
+	ExplodeWeapon@spores:
+		Weapon: BlossomTreeSporeGreen
+		LocalOffset: 0,-5,1880
+	WithIdleAnimation:
+		Interval: 300
 
 TIBTRE01:
 	Inherits: ^BlossomTree
@@ -486,8 +491,9 @@ TIBTRE02:
 TIBTRE03:
 	Inherits: ^BlossomTree
 	Inherits@1: ^TibutterflySpawner
+	ExplodeWeapon@spores:
+		LocalOffset: 0,-128,2164
 
-### TODO
 ^TibMonolithEffect:
 	SmokeParticleEmitter@acarus:
 		Image: tibacarus
