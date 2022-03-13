@@ -518,9 +518,8 @@ GEYE:
 		CloseDelay: 10
 		DefaultFacing: 512
 	WithEmbeddedTurretSpriteBody:
-	#WithSpriteBody: ##HACK: for map editor
-	#	Name: base
-	#	Sequence: idle-open
+	RadarColorFromTerrain:
+		Terrain: Rock
 	EditorOnlyTooltip:
 		Name: Curiosity
 	RenderSprites:
@@ -550,6 +549,8 @@ WEYE:
 	RenderSprites:
 		Palette: apolbluealpha30
 		Image: weye
+	RadarColorFromTerrain:
+		Terrain: Water
 	Armament:
 		Weapon: EyeLookingDummyWeapon
 
@@ -594,6 +595,8 @@ TIBFAIRY:
 	WithIdleOverlay:
 		Sequence: shadow
 		Palette: shadow
+	RadarColorFromTerrain:
+		Terrain: Tree
 	WithDeathAnimation@fly-shadow:
 		UseDeathTypeSuffix: false
 		DeathSequencePalette: shadow
