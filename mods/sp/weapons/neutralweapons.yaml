@@ -539,3 +539,66 @@ BlossomTreeSporeGreen:
 		AirThreshold: 4c0
 		Delay: 7
 		ImpactActors: false
+
+FairyFlyAndBack:
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
+	Range: 0c064
+	ReloadDelay: 299
+	Projectile: InstantExplode
+	Warhead@Flying: SpawnSmokeParticle
+		Gravity: 55
+		RandomRate: 0
+		Image: tibfairy
+		Sequences: fly
+		Palette: apgreen
+		Duration: 250
+		AirThreshold: 4c0
+	Warhead@FlyingShadow: CreateEffect
+		Image: tibfairy
+		Explosions: fly-shadow
+		ExplosionPalette: shadow
+		AirThreshold: 4c0
+		ValidTargets: Ground, Water, Air
+		ImpactActors: false
+	Warhead@LandingShadow: CreateEffect
+		Image: tibfairy
+		Explosions: land-shadow
+		ExplosionPalette: shadow
+		AirThreshold: 4c0
+		ValidTargets: Ground, Water, Air
+		ImpactActors: false
+		Delay: 400  ## Landing effect: After 400 ticks
+	Warhead@laterlanding: FireFragment
+		ImpactActors: false
+		Weapon: FairyElevator
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 4c0
+		Delay: 400  ## Landing effect: After 400 ticks
+	Warhead@RespawnActor: SpawnActor
+		InvalidTargets: Infantry, Vehicle, Building, Defence, Wall
+		Actors:  tibfairy
+		ForceGround: true
+		FallRate: 5000
+		Range: 1
+		AirThreshold: 4c0
+		ImpactActors: true
+		Delay: 650  ## Landed effect: After 400+250 ticks
+	Warhead@FlyWhenCannotRespawn: FireFragment
+		ValidTargets: Infantry, Vehicle, Building, Defence, Wall
+		ImpactActors: true
+		Weapon: FairyFlyAndBack
+		AirThreshold: 4c0
+		Delay: 650 ## Landed effect: After 400+250 ticks
+
+FairyElevator:
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
+	Projectile: AthenaProjectile
+		Altitude: 13750
+	Warhead@Landing: SpawnSmokeParticle
+		Gravity: -55
+		RandomRate: 0
+		Image: tibfairy
+		Sequences: land
+		Palette: apgreen
+		Duration: 251 ## 1 more frame to make it looks frequently when cannot respawn
+		AirThreshold: 20c0
