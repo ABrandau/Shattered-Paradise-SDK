@@ -992,3 +992,40 @@ MHIJACK:
 		CloakEffectSequence: smokebomb
 		EffectTracksActor: false
 		EffectOffset: 0, 0, 800
+
+4TNK:
+	Inherits: ^VoxelTank
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Mammoth Tank
+	Mobile:
+		Speed: 65
+		TurnSpeed: 20
+	Health:
+		HP: 60000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6c0
+	Turreted:
+		TurnSpeed: 12
+	Armament@PRIMARY:
+		Weapon: 4tnkgun
+		LocalOffset: 500,60,360, 500,-85,360
+		MuzzleSequence: muzzle
+	Armament@SECONDARY:
+		Weapon: 4tnkgun
+		LocalOffset: 0,200,410, 0,-200,410
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	ChangesHealth:
+		PercentageStep: 1
+		Step: 0
+		StartIfBelow: 50
+		DamageCooldown: 200
+	WithVoxelTurret:
+	WithVoxelBarrel:
+	WithMuzzleOverlay:

@@ -187,41 +187,47 @@ CIV3:
 		AttackSequences: shoot
 
 4TNK:
-	Inherits: ^VoxelTank
+	Inherits: ^TurretedTank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SELFHEAL: ^IncompleteSelfHeal
+	Inherits@VISION: ^7CellVision
 	Valued:
-		Cost: 100
+		Cost: 800
 	Tooltip:
-		Name: Mammoth Tank
+		Name: Civilian Middle Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
 	Mobile:
-		Speed: 65
-		TurnSpeed: 20
+		Speed: 75
+		TurnSpeed: 32
+		Locomotor: InfantryCrusherVehicle
 	Health:
-		HP: 60000
-	Armor:
-		Type: Heavy
-	RevealsShroud:
-		Range: 6c0
+		HP: 41000
 	Turreted:
-		TurnSpeed: 12
+		TurnSpeed: 32
 	Armament@PRIMARY:
-		Weapon: 4tnkgun
-		LocalOffset: 500,60,360, 500,-85,360
+		Weapon: Medium90mm
+		LocalOffset: 1150,0,600
 		MuzzleSequence: muzzle
-	Armament@SECONDARY:
-		Weapon: 4tnkgun
-		LocalOffset: 0,200,410, 0,-200,410
+		Recoil: 127
+		RecoilRecovery: 26
+		PauseOnCondition: empdisable
+	Armament@CASINGPRIMARY:
+		Weapon: Medium90mmShellCasing
+		LocalOffset: 0,0,600
+		PauseOnCondition: empdisable
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
-	ChangesHealth:
-		PercentageStep: 1
-		Step: 0
-		StartIfBelow: 50
-		DamageCooldown: 200
-	WithVoxelTurret:
-	WithVoxelBarrel:
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
 	WithMuzzleOverlay:
+	Selectable:
+		Bounds: 1800, 2700
+	RenderSprites:
+		Image: milkgtank
 
 ^TRUCK:
 	Inherits: ^CivilianVoxelVehicle
