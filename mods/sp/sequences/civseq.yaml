@@ -2510,20 +2510,32 @@ tdwf:
 		ZOffset: -1024
 		ZRamp: 1
 
-milkgtank:
+ciliviantnk:
 	Inherits: ^EmpOverlay
 	idle:
 		Facings: -32
+		Stride: 2
 		UseTilesetCode: false
-		ShadowStart: 32
+		ShadowStart: 64
 	stand:
 		Facings: -32
+		Stride: 2
 		UseTilesetCode: false
-		ShadowStart: 32
-	turret: milkgtank-tur
+		ShadowStart: 64
+	shoot:
+		Facings: -32
+		Stride: 2
+		UseTilesetCode: false
+		ShadowStart: 64
+	run:
+		Facings: -32
+		Length: 2
+		UseTilesetCode: false
+		ShadowStart: 64
+	turret: ciliviantnk-turret
 		Start: 0
 		Facings: -32
 		ShadowStart: 32
 		UseTilesetCode: false
-		ZOffset: 50
+		Offset: 0, -10, 20
 

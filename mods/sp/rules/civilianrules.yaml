@@ -190,12 +190,11 @@ CIV3:
 	Inherits: ^TurretedTank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@SELFHEAL: ^IncompleteSelfHeal
-	Inherits@VISION: ^7CellVision
+	Inherits@VISION: ^6CellVision
 	Valued:
-		Cost: 800
+		Cost: 700
 	Tooltip:
-		Name: Civilian Middle Tank
+		Name: Civilian Light Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Mobile:
@@ -203,18 +202,18 @@ CIV3:
 		TurnSpeed: 32
 		Locomotor: InfantryCrusherVehicle
 	Health:
-		HP: 41000
+		HP: 37500
 	Turreted:
 		TurnSpeed: 32
 	Armament@PRIMARY:
-		Weapon: Medium90mm
-		LocalOffset: 1150,0,600
+		Weapon: CivilianLightCannon
+		LocalOffset: 512,0,600
 		MuzzleSequence: muzzle
 		Recoil: 127
 		RecoilRecovery: 26
 		PauseOnCondition: empdisable
 	Armament@CASINGPRIMARY:
-		Weapon: Medium90mmShellCasing
+		Weapon: CivilianLightCannonShellCasing
 		LocalOffset: 0,0,600
 		PauseOnCondition: empdisable
 	AttackTurreted:
@@ -224,10 +223,10 @@ CIV3:
 		QuantizedFacings: 32
 		CameraPitch: 250
 	WithMuzzleOverlay:
-	Selectable:
-		Bounds: 1300, 2300, 0, -400
 	RenderSprites:
-		Image: milkgtank
+		Image: ciliviantnk
+	WithInfantryBody:
+		RequiresCondition: !inside-tunnel
 
 ^TRUCK:
 	Inherits: ^CivilianVoxelVehicle
