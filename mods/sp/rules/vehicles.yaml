@@ -24,10 +24,11 @@ SMECH:
 		HP: 17500
 	Armor:
 		Type: Light
-	AttackFrontal:
+	AttackFollowFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
-		FacingTolerance: 2
+		FacingTolerance: 64
+		MustFaceTarget: true
 	AutoTarget:
 	Voiced:
 		VoiceSet: Mech
@@ -260,10 +261,16 @@ JUG:
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 25000
-	AttackFrontal:
+	#AttackFrontal:
+	#	Voice: Attack
+	#	Armaments: primary, secondary
+	#	PauseOnCondition: empdisable
+	#	TargetFrozenActors: true
+	AttackFollowFrontal:
 		Voice: Attack
-		Armaments: primary, secondary
 		PauseOnCondition: empdisable
+		FacingTolerance: 64
+		MustFaceTarget: true
 		TargetFrozenActors: true
 	AutoTarget:
 		ScanRadius: 16
@@ -983,9 +990,14 @@ ATTACKBIKE:
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 		LocalYaw: 100, -100
-	AttackFrontal:
+	#AttackFrontal:
+	#	PauseOnCondition: empdisable
+	#	FacingTolerance: 20
+	AttackFollowFrontal:
+		Voice: Attack
 		PauseOnCondition: empdisable
-		FacingTolerance: 20
+		FacingTolerance: 64
+		MustFaceTarget: true
 
 TTNK:
 	Inherits: ^Tank
@@ -1076,10 +1088,16 @@ TTNK:
 		Sequence: deployed
 		Name: deployed
 		RequiresCondition: !undeployed
-	AttackFrontal:
+	#AttackFrontal:
+	#	Voice: Attack
+	#	RequiresCondition: undeployed
+	#	PauseOnCondition: empdisable
+	AttackFollowFrontal:
 		Voice: Attack
-		RequiresCondition: undeployed
 		PauseOnCondition: empdisable
+		RequiresCondition: undeployed
+		FacingTolerance: 64
+		MustFaceTarget: true
 	Turreted:
 		TurnSpeed: 40
 		Turret: deployed
@@ -1097,7 +1115,7 @@ TTNK:
 	ExternalCondition@RefineryLock:
 		Condition: RefineryLock
 	AutoDeployer@AI:
-		RequiresCondition: AImicroManage && !deployed
+		RequiresCondition: AImicroManage
 		DeployChance: 100
 		DeployTrigger: Attack
 		DeployTicks: 5
@@ -1131,6 +1149,8 @@ TICKHOLOGRAM:
 		TargetTypes: Ground, Vehicle, Summoned
 	Armament@PRIMARY:
 		Weapon: HologramTick90mm
+		LocalOffset: 350,-0,500
+		MuzzleSequence: muzzle
 	WithFacingSpriteBody:
 		Sequence: idle
 		RequiresCondition: !inside-tunnel
@@ -1148,6 +1168,8 @@ TICKHOLOGRAM:
 			EnergyDeath: evaporate
 			ExplosionDeath: evaporate
 	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
 	AutoTarget:
 		ScanRadius: 7
 		InitialStance: AttackAnything
@@ -1841,6 +1863,11 @@ WOLF:
 	Mobile:
 		Speed: 105
 		Locomotor: TibVeCritter
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 64
+		MustFaceTarget: true
+	-AttackFrontal:
 
 MRLS:
 	Inherits: ^Tank
@@ -1957,8 +1984,6 @@ HVRTRUK3:
 	Voiced:
 		VoiceSet: DemoTruck
 		Volume: 3
-	# Repairable:
-	#	Voice: Repair
 	Mobile:
 		TurnSpeed: 40
 		CanMoveBackward: true
@@ -2344,10 +2369,15 @@ REAPERCAB:
 		DeathSequencePalette: player
 		DeathPaletteIsPlayerPalette: true
 		UseDeathTypeSuffix: false
-	AttackFrontal:
+	#AttackFrontal:
+	#	Voice: Attack
+	#	PauseOnCondition: empdisable
+	#	FacingTolerance: 2
+	AttackFollowFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
-		FacingTolerance: 2
+		FacingTolerance: 64
+		MustFaceTarget: true
 	WithInfantryBody:
 		-DefaultAttackSequence:
 	BodyOrientation:
@@ -2504,8 +2534,13 @@ REPAIRVEHICLE:
 		LocalOffset: 200,0,950
 		MuzzleSequence: muzzle
 		MuzzlePalette: player
-	AttackFrontal:
+	#AttackFrontal:
+	#	Voice: Attack
+	AttackFollowFrontal:
 		Voice: Attack
+		PauseOnCondition: empdisable
+		FacingTolerance: 64
+		MustFaceTarget: true
 	Voiced:
 		VoiceSet: Limpet
 	WithFacingSpriteBody:
@@ -2818,9 +2853,14 @@ CORRUPTOR:
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 30000
-	AttackFrontal:
+	#AttackFrontal:
+	#	Voice: Attack
+	#	PauseOnCondition: empdisable
+	AttackFollowFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
+		FacingTolerance: 64
+		MustFaceTarget: true
 	AutoTarget:
 	Armament@PRIMARY:
 		Weapon: CorruptorAcid
@@ -2976,9 +3016,14 @@ SCRGLYDER2:
 		RecoilRecovery: 25
 		LocalOffset: -250,0,1300
 		PauseOnCondition: empdisable || !cannonready
-	AttackFrontal:
+	#AttackFrontal:
+	#	PauseOnCondition: empdisable
+	#	FacingTolerance: 5
+	AttackFollowFrontal:
+		Voice: Attack
 		PauseOnCondition: empdisable
-		FacingTolerance: 5
+		FacingTolerance: 64
+		MustFaceTarget: true
 	Armament@AITransformDummyWeapon:
 		RequiresCondition: AImicroManage
 		Weapon: AIGlyder2AimingDummyWeapon

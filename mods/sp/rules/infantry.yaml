@@ -989,10 +989,15 @@ MUTFIEND:
 		Weapon: GFiendShardAA
 		ReloadingCondition: reload-air
 		PauseOnCondition: WebDisable || reload-ground
-	AttackFrontal:
+	#AttackFrontal:
+	#	Voice: Attack
+	#	Armaments: OnFoot
+	#	FacingTolerance: 2
+	AttackFollowFrontal:
 		Voice: Attack
 		Armaments: OnFoot
-		FacingTolerance: 2
+		FacingTolerance: 64
+		MustFaceTarget: true
 	-TakeCover:
 	-WithDeathAnimation@tib:
 	-SpawnActorOnDeath@FLAMEGUY:
