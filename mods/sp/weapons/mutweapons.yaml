@@ -118,6 +118,7 @@ FiendShardAA:
 		ImpactActors: false
 		Amount: 2
 		ValidTargets: Ground, Air, Water
+		AirThreshold: 8c0
 	-Warhead@2Eff:
 	-Warhead@3EffWater:
 	-Warhead@ShieldUpgrade:
@@ -131,6 +132,7 @@ FiendShardAAEffect:
 		ExplosionPalette: jascgreenalpha
 		ValidTargets: Ground, Air, Water
 		ImpactActors: false
+		AirThreshold: 8c0
 
 SeerTesla:
 	Inherits: ^FullDamage
@@ -540,6 +542,7 @@ QueenTooth:
 		Weapon: QueenToothBack
 		ImpactActors: false
 		ValidTargets: Ground, Water, Air
+		AirThreshold: 4c0
 
 QueenToothBack:
 	Projectile: MissileTA
@@ -574,6 +577,7 @@ SpawnEggShrapnel:
 		AllowDirectHit: true
 		ValidRelationships: Enemy
 		ValidTargets: Infantry, Building, Vehicle, Defence, Air
+		AirThreshold: 8c0
 
 
 SpawnEggShrapnelE:
@@ -586,6 +590,7 @@ SpawnEggShrapnelE:
 		AllowDirectHit: true
 		ValidRelationships: Enemy
 		ValidTargets: Infantry, Building, Vehicle, Defence, Air
+		AirThreshold: 8c0
 
 EggElevator:
 	ReloadDelay: 5
@@ -598,6 +603,7 @@ EggElevator:
 		Amount: 1
 		ValidTargets: Ground, Water, Air
 		InvalidTargets: Infantry, Vehicle, Building, Wall
+		AirThreshold: 8c0
 
 SpawnEgg:
 	ReloadDelay: 5
@@ -618,6 +624,7 @@ SpawnEgg:
 		ForceGround: true
 		InvalidTargets: Water, Cliff
 		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
 
 GargoylACannon:
 	Inherits: ^FullDamage
@@ -726,6 +733,7 @@ FalconPunch:
 		Image: tibcloud
 		Sequences: cloud2
 		Palette: effectalpha50
+		AirThreshold: 8c0
 
 ForgottenCannonWeapon:
 	Inherits: ^APWarhead
@@ -741,7 +749,7 @@ ForgottenCannonWeapon:
 
 ForgottenCannonCasing:
 	Inherits: ^ShellCasing
-	ReloadDelay: 75
+	ReloadDelay: 70
 	Range: 7c0
 
 FlakFire:
@@ -817,6 +825,7 @@ WeasaurusSpit:
 		ExplosionPalette: gensmkexplocyan
 		ImpactActors: false
 		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
 
 WeasaurusStrike:
 	Inherits: ^FullDamage
@@ -838,6 +847,7 @@ WeasaurusStrike:
 	Warhead@2Eff: CreateEffect
 		Explosions: chomp
 		ExplosionPalette: apcybl
+		AirThreshold: 8c0
 
 WeasaurusStrikeSmall:
 	Inherits: WeasaurusStrike
@@ -864,8 +874,10 @@ WeasaurusCall:
 		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
 		ForceGround: true
 		Actors: WEASAUSMALL, WEASAUSMALL, WEASAUSMALL, WEASAUSMALL
+		AirThreshold: 8c0
 	Warhead@2Eff: CreateEffect
 		Explosions: call
 		ExplosionPalette: effectalpha40
 		ImpactActors: false
 		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+		AirThreshold: 8c0
