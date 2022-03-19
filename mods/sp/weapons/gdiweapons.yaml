@@ -283,17 +283,13 @@ WolverineVulcan:
 
 WolverineVulcanCasing:
 	Inherits: ^BulletCasing
-	ReloadDelay: 38
-	Burst: 3
-	BurstDelays: 1
+	ReloadDelay: 40  ## Must be the same as WolverineVulcan
 	Range: 6c0
 	ValidTargets: Ground, Water
 
 WolverineVulcanLine:
-	Inherits: ^BulletProjectile
-	ReloadDelay: 38
-	Burst: 3
-	BurstDelays: 1
+	Inherits: ^BulletProjectile ## Must be the same as WolverineVulcan
+	ReloadDelay: 40
 	Range: 6c0
 	ValidTargets: Ground, Water
 
@@ -774,17 +770,15 @@ VulcanTower:
 
 VulcanTowerCasing:
 	Inherits: ^BulletCasing
-	ReloadDelay: 26
-	BurstDelays: 2
-	Burst: 3
+	ReloadDelay: 25 ## Must be the same as VulcanTower
+	Burst: 2
 	Range: 7c0
 	ValidTargets: Ground, Water
 
 VulcanTowerLine:
 	Inherits: ^LineProjectile
-	ReloadDelay: 26
-	BurstDelays: 2
-	Burst: 3
+	ReloadDelay: 25  ## Must be the same as VulcanTower
+	Burst: 2
 	Range: 7c0
 	ValidTargets: Ground, Water
 

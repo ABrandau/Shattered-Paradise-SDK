@@ -275,16 +275,24 @@ APACHE:
 		HP: 15000
 	Armament@Fakebullet:
 		Weapon: HarpyClawBullet
-		ReloadingCondition: reload-ground
 		PauseOnCondition: !ammo || reload-air
 		Name: decoration
-		LocalOffset: 900,0,0
+		LocalOffset: 900,-100,0, 900,100,0
+	Armament@Fakebullet2:
+		Weapon: HarpyClawBullet
+		PauseOnCondition: !ammo || reload-air
+		Name: decoration
+		LocalOffset: 900,100,0, 900,-100,0
 	Armament@FakebulletAA:
 		Weapon: HarpyClawBulletAA
-		ReloadingCondition: reload-air
 		PauseOnCondition: !ammo || reload-ground
 		Name: decoration
-		LocalOffset: 900,0,0
+		LocalOffset: 900,100,0, 900,-100,0
+	Armament@FakebulletAA2:
+		Weapon: HarpyClawBulletAA
+		PauseOnCondition: !ammo || reload-ground
+		Name: decoration
+		LocalOffset: 900,100,0, 900,-100,0
 	GrantConditionOnAttack@Casing:
 		Condition: attack
 		ArmamentNames: decoration

@@ -39,11 +39,23 @@ SMECH:
 	Armament@1Casing:
 		Weapon: WolverineVulcanCasing
 		PauseOnCondition: empdisable
-		LocalOffset: 0,-275,600, 0,275,600
+		LocalOffset: 0,275,600
+	Armament@2Casing:
+		Weapon: WolverineVulcanCasing
+		PauseOnCondition: empdisable
+		LocalOffset: 0,-275,600
 	Armament@2Bullet:
 		Weapon: WolverineVulcanLine
 		PauseOnCondition: empdisable
-		LocalOffset: 0,-275,600, 0,275,600
+		LocalOffset: 0,280,600
+	Armament@3Bullet:
+		Weapon: WolverineVulcanLine
+		PauseOnCondition: empdisable
+		LocalOffset: 0,-280,600
+	Armament@4Bullet:
+		Weapon: WolverineVulcanLine
+		PauseOnCondition: empdisable
+		LocalOffset: 0,-270,600, 0,270,600
 
 MMCH:
 	Inherits: ^Walker
@@ -1609,12 +1621,10 @@ MUTQUAD:
 	Armament@Fakebullet:
 		Weapon: QuadFireLine
 		LocalOffset: 1200,0,1000
-		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 	Armament@FakebulletAA:
 		Weapon: QuadFireLineAA
 		LocalOffset: 1200,0,1000
-		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 	Armament@1:
 		Weapon: QuadFire
