@@ -3074,10 +3074,13 @@ SCRRECHARGER:
 SCRMOBMINE:
 	Inherits@: ^HoverVehicle
 	Inherits@1: ^ScrinVehicle
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@MC: ^MindControllableMastermind
 	Inherits@VISION: ^7CellVision
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: MindControllable
+		RequiresCondition: controlling < 3
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
@@ -3093,7 +3096,7 @@ SCRMOBMINE:
 	MindController:
 		Capacity: 3
 		Sounds: sonpulse.aud
-		#ControllingCondition: slaving
+		ControllingCondition: controlling
 	ExplodeWeapon@Casing:
 		Weapon: MindEnergyCasing
 		LocalOffset: 0,0,2000

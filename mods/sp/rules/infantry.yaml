@@ -1501,9 +1501,9 @@ MASTERMIND:
 	Inherits@VISION: ^8CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	AutoTargetPriority@DEFAULT:
-		RequiresCondition: !stance-attackanything && !assault-move && !slaving
+		RequiresCondition: !stance-attackanything && !assault-move && !controlling
 	AutoTargetPriority@ATTACKANYTHING:
-		RequiresCondition: (stance-attackanything || assault-move) && !slaving
+		RequiresCondition: (stance-attackanything || assault-move) && !controlling
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 35
@@ -1520,7 +1520,7 @@ MASTERMIND:
 		Capacity: 1
 		ArmamentNames: control
 		Sounds: sonpulse.aud
-		ControllingCondition: slaving
+		ControllingCondition: controlling
 	ExplodeWeapon@Casing:
 		Weapon: MindEnergyCasing
 		LocalOffset: 0,0,2000
