@@ -322,12 +322,24 @@ APCGrenade:
 ApcVulcan:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
-	ReloadDelay: 50
+	ReloadDelay: 40
 	Range: 4c0
-	Report: tsgun4.aud
+	Report: chaingn1.aud
 	Warhead@1Dam: SpreadDamage
-		Damage: 4500
+		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+
+ApcVulcanCasing:
+	Inherits: ^BulletCasing
+	ReloadDelay: 40 ## Must be the same as ApcVulcan
+	Range: 4c0
+	ValidTargets: Ground, Water
+
+ApcVulcanLine:
+	Inherits: ^LineProjectile
+	ReloadDelay: 40  ## Must be the same as ApcVulcan
+	Range: 4c0
+	ValidTargets: Ground, Water
 
 Titan120mm:
 	Inherits: ^APWarhead
@@ -765,7 +777,7 @@ VulcanTower:
 	StartBurstReport: chaingn1.aud
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
-		Damage: 3000
+		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 VulcanTowerCasing:
@@ -809,7 +821,7 @@ RPGTower:
 		-TrailImage:
 		-TrailPalette:
 	Warhead@1Dam: SpreadDamage
-		Damage: 8000
+		Damage: 10000
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
 RepairGun:
