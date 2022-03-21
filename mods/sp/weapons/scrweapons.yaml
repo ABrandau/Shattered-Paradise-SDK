@@ -170,10 +170,18 @@ FloatGlaive:
 	TargetActorCenter: true
 	Projectile: BulletAS
 		Speed: 500
-		Blockable: true
+		Image: lightpan
+		Sequences: idle
+		IsPlayerPalette: false
 		Shadow: false
-		Palette: apollightbluealpha
-		Image: glaive
+		Palette: apblue
+		ContrailLength: 4
+		ContrailColor: 2020ff3E
+		ContrailWidth: 0c124
+		ContrailEndColor: 2020ffcc
+		ContrailFadeWithColor: false
+		ContrailFadeWithWidth: true
+		ContrailZOffset: 3000
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
 		ValidTargets: Ground, Water
@@ -185,13 +193,19 @@ FloatGlaive:
 		AimChance: 100
 		AllowDirectHit: true
 		AimTargetStances: Enemy
-		ValidTargets: Infantry, Vehicle, Building, Ground, Wall
+		AirThreshold: 4c0
+		ValidTargets: Infantry, Vehicle, Building, Ground, Wall, Water
 	Warhead@Acid: GrantExternalCondition
 		Range: 96
 		Duration: 300
 		Condition: BugPoison
 	Warhead@2Eff: CreateEffect
 		-ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
+
+FloatGlaive2:
+	Inherits: FloatGlaive
+	-Report:
+	-Warhead@op:
 
 PoisonGlaive:
 	ReloadDelay: 75
@@ -215,11 +229,6 @@ FloatGlaive10:
 	Warhead@1Dam: SpreadDamage
 		Spread: 64
 		Damage: 2000
-
-FloatGlaive2:
-	Inherits: FloatGlaive
-	-Report:
-	-Warhead@op:
 
 CorruptorAcid:
 	Inherits: ^AcidWarhead
@@ -709,19 +718,13 @@ Glyder1Cannon:
 	ValidTargets: Ground, Water
 	Projectile: BulletAS
 		Speed: 500
-		Image: lightpan
-		Sequences: idle
+		Image: explosion
+		Sequences: lazerflare
 		IsPlayerPalette: false
-		Shadow: true
+		Shadow: false
 		-TrailImage:
 		-TrailPalette:
 		Palette: apblue
-		ContrailLength: 4
-		ContrailColor: 000ba855
-		ContrailWidth: 0c108
-		ContrailEndColor: 000ba830
-		ContrailFadeWithColor: false
-		ContrailFadeWithWidth: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c400
 		Damage: 3000
@@ -755,17 +758,11 @@ Glyder2Cannon:
 		-JetImage:
 		-JetSequences:
 		-JetPalette:
-		Image: lightpan
-		Sequences: idle
+		Image: explosion
+		Sequences: lazerflare
 		IsPlayerPalette: false
 		RangeLimit: 15c0
 		Palette: apblue
-		ContrailLength: 4
-		ContrailColor: 000ba855
-		ContrailWidth: 0c108
-		ContrailEndColor: 000ba830
-		ContrailFadeWithColor: false
-		ContrailFadeWithWidth: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 90
 		Damage: 3000
@@ -1107,7 +1104,7 @@ OrbZaps:
 		Distortion: 384
 		Width: 50
 		Angle: 240
-		Colors: ff44ff
+		Colors: ff44ff99
 		SegmentLength: 326
 		Duration: 4
 	Warhead@1Dam: TargetDamage

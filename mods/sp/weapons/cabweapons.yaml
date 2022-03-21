@@ -859,36 +859,39 @@ CoreDefenderCannon:
 
 CoreDefenderCannonAA:
 	Inherits: ^RocketWarhead
-	Inherits@2: ^Scrin_Pulse
-	Inherits@3: ^MarnFlash7
+	Inherits@2: ^GreenPlasmaExplosion
+	Inherits@3: ^MarnFlash6
 	ReloadDelay: 10
 	Range: 8c0
-	Report: photon1.wav
+	Report: scrin5b.aud
 	ValidTargets: Air
 	Projectile: MissileTA
-		-TrailImage: small_smoke_trail
-		-TrailPalette: effectalpha75
 		MaximumLaunchAngle: 0
 		MinimumLaunchAngle: 0
-		Image: lightpan
+		Blockable: false
+		Shadow: false
+		Palette: jascbluealpha
+		Image: greenplasma2
 		Sequences: idle
 		IsPlayerPalette: false
-		RangeLimit: 15c0
-		Palette: apblue
 		ContrailLength: 5
-		ContrailColor: 000ba855
-		ContrailWidth: 0c108
-		ContrailEndColor: 000ba830
+		ContrailColor: 2255AB55
+		ContrailWidth: 0c133
+		ContrailEndColor: 2255AB30
 		ContrailFadeWithColor: false
 		ContrailFadeWithWidth: true
+		-TrailImage:
+		-JetImage:
 	Warhead@1Dam: SpreadDamage
 		Spread: 90
 		Damage: 5300
 		ValidTargets: Air
 	Warhead@2Eff: CreateEffect
-		Explosions: marnflash7
-		ExplosionPalette: MarnAlphaAlpha
-		ImpactSounds: photon1.wav
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@3Eff: CreateEffect
+		ExplosionPalette: jascbluealpha
+		Explosions: sparks2
+		ImpactActors: false
 	-Warhead@ShieldUpgrade:
 
 CoreDefSuper:
