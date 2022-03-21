@@ -570,6 +570,7 @@ FairyFlyAndBack:
 		Palette: apgreen
 		Duration: 250
 		AirThreshold: 4c0
+		ImpactActors: false
 	Warhead@FlyingShadow: CreateEffect
 		Image: tibfairy
 		Explosions: fly-shadow
@@ -592,7 +593,7 @@ FairyFlyAndBack:
 		AirThreshold: 4c0
 		Delay: 400  ## Landing effect: After 400 ticks
 	Warhead@RespawnActor: SpawnActor
-		InvalidTargets: Infantry, Vehicle, Building, Defence, Wall
+		InvalidTargets: Infantry, Vehicle, Building, Defence, Wall, remaining, IonSpawner
 		Actors:  tibfairy
 		ForceGround: true
 		FallRate: 5000
@@ -601,7 +602,7 @@ FairyFlyAndBack:
 		ImpactActors: true
 		Delay: 650  ## Landed effect: After 400+250 ticks
 	Warhead@FlyWhenCannotRespawn: FireFragment
-		ValidTargets: Infantry, Vehicle, Building, Defence, Wall
+		ValidTargets: Infantry, Vehicle, Building, Defence, Wall, remaining, IonSpawner
 		ImpactActors: true
 		Weapon: FairyFlyAndBack
 		AirThreshold: 4c0
@@ -619,3 +620,4 @@ FairyElevator:
 		Palette: apgreen
 		Duration: 250
 		AirThreshold: 20c0
+		ImpactActors: false
