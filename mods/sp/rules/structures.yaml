@@ -278,8 +278,6 @@ GATECH:
 		BuildPaletteOrder: 41
 		Description: Provides access to advanced GDI technologies.
 		Prerequisites: garadr, ~structures.gdi, ~techlevel.5
-	ProvidesPrerequisite:
-		Prerequisite: tech
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -536,8 +534,8 @@ NAWEAP:
 	Inherits: ^Factory
 	Tooltip:
 		Name: Nod War Factory
-	ProvidesPrerequisite:
-		Prerequisite: factory
+	ProvidesPrerequisite@ShowLightbringer:
+		Prerequisite: showlightbringer
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 17
@@ -663,8 +661,6 @@ NATECH:
 		BuildPaletteOrder: 42
 		Description: Provides access to advanced Nod technologies.
 		Prerequisites: naradr, ~structures.nod, ~techlevel.5
-	ProvidesPrerequisite:
-		Prerequisite: tech
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -695,8 +691,6 @@ NAMISL:
 		BuildLimit: 1
 	Valued:
 		Cost: 2500
-	ProvidesPrerequisite:
-		Prerequisite: tech
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -772,6 +766,54 @@ NAMISL:
 		Palette: bright
 	Power:
 		Amount: -200
+
+NAHFAC:
+	Inherits: ^Factory
+	Inherits@SHAPE: ^5x3FactoryWithBibShape
+	Tooltip:
+		Name: Nod Heavy Factory
+	Valued:
+		Cost: 2500
+	ProvidesPrerequisite@ShowLightbringer:
+		Prerequisite: showlightbringer
+	ProvidesPrerequisite@naweap:
+		Prerequisite: naweap
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 52
+		Description: Produces vehicles, including the Lightbringer.\n\nSpecial:\n- Maximum production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
+		Prerequisites: ~disabled # natech, ~structures.nod, ~techlevel.6
+		BuildLimit: 1
+	Building:
+		Footprint: xxxx+ xxxx+ xxxx+
+		Dimensions: 5,3
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+		RequiresCondition: !Building-Buildup
+	WithProductionDoorOverlay@DOOR:
+		RequiresCondition: !Building-Buildup
+	WithProductionOverlay@LIGHTS:
+		RequiresCondition: !Building-Buildup
+		Sequence: production-lights
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithProductionOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup
+		Sequence: production-lights-bright
+		Palette: bright
+	WithIdleOverlay@BIB:
+		Sequence: bib
+		RequiresCondition: !Building-Buildup
+	RallyPoint:
+		Path: 5,1
+	Exit@1:
+		ExitCell: 4,1
+		SpawnOffset: 512,512,0
+		ProductionTypes: Vehicle, Tank, Lightbringer
+	Production:
+		Produces: Vehicle, Tank, Lightbringer
+	RenderSprites:
+		Image: naweap
 
 MUTYARD:
 	Inherits: GACNST
@@ -1415,8 +1457,6 @@ SCRTECH:
 		Prerequisites: scrradr, ~structures.scr, ~techlevel.5
 	Valued:
 		Cost: 2000
-	ProvidesPrerequisite:
-		Prerequisite: tech
 	Building:
 		Footprint: xx xx xx
 		Dimensions: 2,3
