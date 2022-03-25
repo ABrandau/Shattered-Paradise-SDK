@@ -633,10 +633,18 @@ ObeliskLaserFire:
 		InvalidTargets: Water
 		ValidTargets: Ground
 		ImpactActors: false
-		
+
+ScorpionLaserCharge:
+	ReloadDelay: 30
+	Range: 7c0
+	ValidTargets: Ground, Water
+	Projectile: InstantExplode
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Ground, Water
+
 ScorpionLaser:
 	Inherits: ^FullDamage
-	ReloadDelay: 70
+	ReloadDelay: 60
 	Range: 7c0
 	Report: obelray1.aud
 	Projectile: LaserZap

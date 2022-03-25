@@ -1507,7 +1507,7 @@ SCORPION:
 		Voice: Attack
 		PauseOnCondition: empdisable
 		FacingTolerance: 6
-		Armaments: laserArmament, fireArmament
+		Armaments: laserCharger, laserFire, fireArmament
 	BodyOrientation:
 		QuantizedFacings: 8
 		CameraPitch: 250
@@ -1523,26 +1523,37 @@ SCORPION:
 		-DefaultAttackSequence:
 		RequiresCondition: !inside-tunnel
 		AttackSequences:
-			laserArmament: shoot1
+			laserCharger: shoot
+	Armament@laserCharger:
+		Name: laserCharger
+		Weapon: ScorpionLaserCharge
+		ReloadingCondition: chargingLaser
+		PauseOnCondition: empdisable || laserready || firingLaser
 	Armament@laser:
+		Name: laserFire
 		Weapon: ScorpionLaser
-		LocalOffset: 450,0,2300
+		LocalOffset: 450,0,2400
 		MuzzleSequence: muzzle
 		MuzzlePalette: obelpal
-		PauseOnCondition: empdisable
-		Name: laserArmament
+		ReloadingCondition: firingLaser
+		PauseOnCondition: empdisable || !laserready
 	Armament@FLAMES:
+		Name: fireArmament
 		Weapon: LightbringerFlame
 		LocalOffset: 1300,500,700, 1300,-500,700
 		PauseOnCondition: empdisable
-		Name: fireArmament
 		RequiresCondition: !rank-heroic
 	Armament@EFLAMES:
+		Name: fireArmament
 		Weapon: LightbringerFlameE
 		LocalOffset: 1300,500,700, 1300,-500,700
 		PauseOnCondition: empdisable
-		Name: fireArmament
 		RequiresCondition: rank-heroic
+	GrantConditionAfterDelay@laserready:
+		Condition: laserready
+		Delay: 10
+		ShowSelectionBar: true
+		RequiresCondition: chargingLaser
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: rage
 		CooldownTicks: 2250
