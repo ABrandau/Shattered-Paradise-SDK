@@ -31,6 +31,7 @@ namespace OpenRA.Mods.SP.Activities
 
 		public AttackFrontalFollowActivity(Actor self, in Target target, bool allowMove, bool forceAttack, Color? targetLineColor = null)
 		{
+			ActivityType = ActivityType.Attack;
 			attack = self.Trait<AttackFollowFrontal>();
 			move = allowMove ? self.TraitOrDefault<IMove>() : null;
 			revealsShroud = self.TraitsImplementing<RevealsShroud>().ToArray();
