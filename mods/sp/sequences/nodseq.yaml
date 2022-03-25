@@ -934,6 +934,92 @@ natmpl:
 		UseTilesetCode: false
 		-DepthSprite:
 
+nahfac:
+	Defaults:
+		Offset: -12, -42, 30
+		DepthSpriteOffset: 24, 0
+		DepthSprite: isodepth.shp
+	idle: nahfac_1
+		ShadowStart: 2
+		ZOffset: -1024
+		Offset: -12, -42, 1
+		ZRamp: 1
+		-DepthSprite:
+	damaged-idle: nahfac_1
+		Start: 1
+		ShadowStart: 3
+		ZOffset: -1024
+		Offset: -12, -42, 1
+		ZRamp: 1
+		-DepthSprite:
+	idle-roof: nahfac_2
+		ShadowStart: 2
+		ZOffset: 512
+	damaged-idle-roof: nahfac_2
+		Start: 1
+		ShadowStart: 3
+		ZOffset: 512
+	dead: nahfac
+		Start: 2
+		ShadowStart: 5
+		Tick: 400
+	production-lights: nahfac_p
+		Length: 25
+		Tick: 100
+		ZOffset: 2048
+	production-lights2: nahfac_b
+		Length: 20
+		ZOffset: 1024
+	damaged-production-lights2: nahfac_b
+		Length: 20
+		ZOffset: 1024
+	idle-fan: nahfac_a
+		Length: 9
+		ZOffset: 1024
+	damaged-idle-fan: nahfac_a
+		Length: 9
+		ZOffset: 1024
+	build-door: nahfac_d
+		Length: 17
+		ShadowStart: 34
+		Tick: 20
+		ZOffset: 512
+	damaged-build-door: nahfac_d
+		Start: 17
+		Length: 17
+		ShadowStart: 51
+		Tick: 20
+		ZOffset: 512
+	make: nahfacmk
+		Length: 22
+		ShadowStart: 22
+	bib: nahfac_bb
+		ZOffset: -1024
+		Offset: -12, -42, 1
+		ZRamp: 1
+		-DepthSprite:
+	damaged-bib: kaweap_bb
+		Start: 1
+		ZOffset: -1024
+		Offset: -12, -42, 1
+		ZRamp: 1
+		-DepthSprite:
+	dead-bib: kaweap_bb
+		Start: 2
+		ZOffset: -1024
+		Offset: -12, -42, 1
+		ZRamp: 1
+		-DepthSprite:
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 25
+		ZOffset: 512
+		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
+	icon: nahfacicon
+		Offset: 0, 0
+
 nawast:
 	Defaults: ntwast
 		Offset: -12, -42, 20

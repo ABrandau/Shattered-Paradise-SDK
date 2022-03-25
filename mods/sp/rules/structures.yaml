@@ -676,6 +676,53 @@ NATECH:
 	RequiresBuildableArea:
 		AreaTypes: building
 
+NAHFAC:
+	Inherits: ^Factory
+	Tooltip:
+		Name: Lightbringer's Altar
+	Valued:
+		Cost: 2000
+	ProvidesPrerequisite@ShowLightbringer:
+		Prerequisite: showlightbringer
+	ProvidesPrerequisite@naweap:
+		Prerequisite: naweap
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 47
+		Description: Produces vehicles, including the Lightbringer.\n\nSpecial:\n- Maximum production speed is reached with 4 factories\n- Max production speed reduces production time by 50%\n- Buildlimit: 1\n- Spawns Templar when sold
+		Prerequisites: natech, ~structures.nod, ~techlevel.6
+		BuildLimit: 1
+	Health:
+		HP: 200000
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@FAN:
+		Sequence: idle-fan
+		RequiresCondition: !Building-Buildup
+	WithProductionDoorOverlay@DOOR:
+		RequiresCondition: !Building-Buildup
+	WithProductionOverlay@LIGHTS:
+		RequiresCondition: !Building-Buildup
+		Sequence: production-lights
+	WithProductionOverlay@LIGHTS2:
+		RequiresCondition: !Building-Buildup
+		Sequence: production-lights2
+	WithIdleOverlay@BIB:
+		Sequence: bib
+		RequiresCondition: !Building-Buildup
+	Exit@1:
+		ProductionTypes: Vehicle, Tank, Lightbringer
+	Production:
+		Produces: Vehicle, Tank, Lightbringer
+	Power:
+		Amount: -100
+	SpawnActorsOnSell@nod:
+		ValuePercent: 30
+		ActorTypes: templar
+	IsometricSelectable:
+		DecorationHeight: 96
+
 NAMISL:
 	Inherits: ^Building
 	Inherits@1: ^SuperWeapon
@@ -766,61 +813,6 @@ NAMISL:
 		Palette: bright
 	Power:
 		Amount: -200
-
-NAHFAC:
-	Inherits: ^Factory
-	Inherits@SHAPE: ^5x3FactoryWithBibShape
-	Tooltip:
-		Name: Lightbringer's Altar
-	Valued:
-		Cost: 2000
-	ProvidesPrerequisite@ShowLightbringer:
-		Prerequisite: showlightbringer
-	ProvidesPrerequisite@naweap:
-		Prerequisite: naweap
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 43
-		Description: Produces vehicles, including the Lightbringer.\n\nSpecial:\n- Maximum production speed is reached with 4 factories\n- Max production speed reduces production time by 50%\n- Buildlimit: 1\n- Spawns Templar when sold
-		Prerequisites: ~disabled # natech, ~structures.nod, ~techlevel.6
-		BuildLimit: 1
-	Building:
-		Footprint: xxxx+ xxxx+ xxxx+
-		Dimensions: 5,3
-	Health:
-		HP: 200000
-	WithIdleOverlay@ROOF:
-		Sequence: idle-roof
-		RequiresCondition: !Building-Buildup
-	WithProductionDoorOverlay@DOOR:
-		RequiresCondition: !Building-Buildup
-	WithProductionOverlay@LIGHTS:
-		RequiresCondition: !Building-Buildup
-		Sequence: production-lights
-		Palette: player-nobright
-		IsPlayerPalette: True
-	WithProductionOverlay@LIGHTS-BRIGHT:
-		RequiresCondition: !Building-Buildup
-		Sequence: production-lights-bright
-		Palette: bright
-	WithIdleOverlay@BIB:
-		Sequence: bib
-		RequiresCondition: !Building-Buildup
-	RallyPoint:
-		Path: 5,1
-	Exit@1:
-		ExitCell: 4,1
-		SpawnOffset: 512,512,0
-		ProductionTypes: Vehicle, Tank, Lightbringer
-	Production:
-		Produces: Vehicle, Tank, Lightbringer
-	RenderSprites:
-		Image: naweap
-	Power:
-		Amount: -100
-	SpawnActorsOnSell@nod:
-		ValuePercent: 30
-		ActorTypes: templar
 
 MUTYARD:
 	Inherits: GACNST
