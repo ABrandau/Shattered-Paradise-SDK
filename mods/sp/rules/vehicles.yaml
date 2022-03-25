@@ -1289,6 +1289,8 @@ SAPC:
 		OwnerChangedAffectsPassengers: false
 	Passenger:
 		CargoType: Apc
+	Targetable@MC:
+		RequiresCondition: !mindcontrolled && !submerged
 	WithVoxelBody:
 		RequiresCondition: !submerged && !inside-tunnel
 	WithDecoration@UNDERGROUND:
@@ -1331,6 +1333,8 @@ SUBTANK:
 		RequiresCondition: !submerged && rank-heroic
 	AttackFrontal:
 		PauseOnCondition: empdisable
+	Targetable@MC:
+		RequiresCondition: !mindcontrolled && !submerged
 	WithVoxelBody:
 		RequiresCondition: !submerged && !inside-tunnel
 	WithDecoration@UNDERGROUND:
