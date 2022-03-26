@@ -1124,14 +1124,11 @@ TTNK:
 	ExternalCondition@RefineryLock:
 		Condition: RefineryLock
 	AutoDeployer@AI:
-		RequiresCondition: AImicroManage
+		RequiresCondition: AImicroManage && undeployed
 		DeployChance: 100
 		DeployTrigger: Attack
 		DeployTicks: 5
 		UndeployTicks: 50
-	RejectsOrders@AI:
-		Reject: GrantConditionOnDeploy
-		RequiresCondition: AImicroManage && deployed
 
 TICKHOLOGRAM:
 	Inherits: ^Tank
