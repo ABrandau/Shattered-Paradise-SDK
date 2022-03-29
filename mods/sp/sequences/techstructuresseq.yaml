@@ -27,7 +27,8 @@ well:
 	dead: tibdrill_a
 		Offset: 0,0, 60
 		UseTilesetCode: True
-	icon: sidebar-gdi|e1icon
+	icon: tibdrillicon
+		Offset: 0, 0
 
 bloodderrick:
 	Inherits: ^EmpOverlay
@@ -40,6 +41,8 @@ bloodderrick:
 	dead: derrickidle
 		Length: *
 		UseTilesetCode: false
+	icon: derrickicon
+		Offset: 0, 0
 
 neutralradar:
 	Inherits: ^EmpOverlay
@@ -54,6 +57,8 @@ neutralradar:
 		Tick: 100
 	dead:
 		Start: 26
+	icon: neutralradaricon
+		Offset: 0, 0
 
 neutralpowerplant:
 	Inherits: ^EmpOverlay
@@ -67,6 +72,8 @@ neutralpowerplant:
 	dead:
 		Start: 1
 		ShadowStart: 3
+	icon: neutralpowerplanticon
+		Offset: 0, 0
 
 scrinreinfpad:
 	Inherits: ^EmpOverlay
@@ -95,6 +102,8 @@ scrinreinfpad:
 		Length: 8
 		Tick: 100
 		ZOffset: 2048
+	icon: scrinreinfpadicon
+		Offset: 0, 0
 
 bluetibbarrel:
 	Defaults:
@@ -102,37 +111,48 @@ bluetibbarrel:
 		DepthSpriteOffset: 0, 0
 	idle:
 		ShadowStart: 6
+	icon: bluetibbarrelicon
+		Offset: 0,0
 
 bluetibbarrel2:
 	Inherits: bluetibbarrel
 	idle: bluetibbarrel
 		Start: 1
 		ShadowStart: 7
+	icon: bluetibbarrelicon
+		Start: 1
 
 bluetibbarrel3:
 	Inherits: bluetibbarrel
 	idle: bluetibbarrel
 		Start: 2
 		ShadowStart: 8
+	icon: bluetibbarrelicon
+		Start: 2
 
 bluetibbarrel4:
 	Inherits: bluetibbarrel
 	idle: bluetibbarrel
 		Start: 3
 		ShadowStart: 9
+	icon: bluetibbarrelicon
+		Start: 3
 
 bluetibbarrel5:
 	Inherits: bluetibbarrel
 	idle: bluetibbarrel
 		Start: 4
 		ShadowStart: 10
+	icon: bluetibbarrelicon
+		Start: 4
 
 bluetibbarrel6:
 	Inherits: bluetibbarrel
 	idle: bluetibbarrel
 		Start: 5
 		ShadowStart: 11
-
+	icon: bluetibbarrelicon
+		Start: 5
 
 fueltower:
 	Defaults:
@@ -161,6 +181,8 @@ neutralsonictur:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+	icon: neutralsonicturicon
+		Offset: 0, 0
 
 cahosp:
 	Defaults:
@@ -184,6 +206,9 @@ cahosp:
 		Length: 80
 		ShadowStart: 80
 		Offset: -48,-9
+		UseTilesetCode: false
+	icon: cahospicon
+		Offset: 0,0
 		UseTilesetCode: false
 
 civheli:
