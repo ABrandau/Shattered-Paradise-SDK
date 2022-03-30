@@ -12,6 +12,7 @@
 			Boss: 0
 		Spread: 0c690
 		Damage: 9000000
+		AirThreshold: 8c0
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
 		Falloff: 100, 100
 		ValidTargets: Air
@@ -25,6 +26,7 @@
 			Boss: 0
 		Spread: 3c640 ### It can just hit the CruiseAltitude: 4c0 aircraft.
 		Damage: 9000000
+		AirThreshold: 8c0
 		
 SuicideBomb:
 	ReloadDelay: 1
@@ -66,33 +68,39 @@ EMPulseCannon:
 	Warhead@1Eff: CreateEffect
 		Explosions: pulse_explosion
 		ImpactActors: false
+		AirThreshold: 8c0
 	Warhead@1: GrantExternalCondition
 		Range: 1c512
 		Duration: 250
 		Condition: empdisable
 		ValidTargets: Vehicle, Building
+		AirThreshold: 8c0
 	Warhead@2: GrantExternalCondition
 		Range: 1c512
 		Duration: 125
 		Condition: empdisable
 		ValidTargets: Infantry
+		AirThreshold: 8c0
 	Warhead@3: GrantExternalCondition
 		Range: 4c0
 		Duration: 250
 		Condition: empdisable
 		ValidTargets: Vehicle, Building
 		Delay: 10
+		AirThreshold: 8c0
 	Warhead@4: GrantExternalCondition
 		Range: 4c0
 		Duration: 125
 		Condition: empdisable
 		ValidTargets: Infantry
 		Delay: 10
+		AirThreshold: 8c0
 	Warhead@5: FireRadius
 		Weapon: EMPulseCannonShrapnel
 		ImpactActors: false
 		Amount: 12
 		Delay: 20
+		AirThreshold: 8c0
 
 EMPulseCannonShrapnel:
 	Range: 1c0
@@ -105,6 +113,7 @@ EMPulseCannonShrapnel:
 		Palette: effect
 		Duration: 120, 245
 		ValidTargets: Ground, Air, Water
+		AirThreshold: 8c0
 
 VeterancyWeapon:
 	ReloadDelay: 25
@@ -119,74 +128,18 @@ RadarScanWeapon:
 	Warhead@Spawn: SpawnActor
 		Actors: radarscandummy
 		Range: 3
+		AirThreshold: 8c0
 	Warhead@1Eff: CreateEffect
 		ImpactSounds: sspysate.aud
 		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
 
-IonCannon: ### THIS IS THE MAIN ION CANON WEAPON
-	Inherits: ^SWBaseEffects
-	ReloadDelay: 1000
-	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
-	Warhead@1Dam_area: SpreadDamage
-		Spread: 1c768
-		Damage: 200000
-		Falloff: 100, 60, 30
-		AffectsParent: true
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
-		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
-		Versus:
-			Boss: 200
-	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
-		Spread: 4c512
-		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
-	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
-		Spread: 4c256
-	Warhead@3Smu_area: LeaveSmudge
-		SmudgeType: SmallScorch
-		Size: 2,1
-		InvalidTargets: Vehicle, Building, Wall
-	Warhead@3Effect: CreateEffect
-		Explosions: ionring
-		ImpactSounds: ion1.aud
-		AffectsParent: true
-		ImpactActors: false
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
-	Warhead@4Effect: CreateEffect
-		Explosions: ionbeam
-		ExplosionPalette: effect-ignore-lighting-alpha75
-		AffectsParent: true
-		ImpactActors: false
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
-	Warhead@5Effect: CreateEffect
-		Explosions: ionbeam2
-		ExplosionPalette: effect-ignore-lighting-alpha75
-		AffectsParent: true
-		ImpactActors: false
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
-	Warhead@6Effect: CreateEffect
-		Explosions: ionbeam3
-		ExplosionPalette: effect-ignore-lighting-alpha75
-		AffectsParent: true
-		ImpactActors: false
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
-	Warhead@7Effect: CreateEffect
-		Explosions: ionbeam4
-		ExplosionPalette: effect-ignore-lighting-alpha75
-		AffectsParent: true
-		ImpactActors: false
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
-	Warhead@8Effect: CreateEffect
-		Explosions: ionbeam5
-		ExplosionPalette: effect-ignore-lighting-alpha75
-		AffectsParent: true
-		ImpactActors: false
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
 
 IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
+	Inherits: ^SWBaseEffects
 	ReloadDelay: 6
 	Range: 12c0
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
-	## use mutipile Warhead with delay to increase performance
 	Warhead@op: FireRadius
 		Weapon: IonBeamCreator
 		ImpactActors: false
@@ -195,14 +148,81 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 		Actors: ionbeamtarget
 		Range: 3
 		ForceGround: true
-	Warhead@Ion: SpawnSmokeParticle
-		Weapon: IonCannon
+	### THIS IS THE MAIN ION CANON WEAPON, after Delay=110
+	Warhead@1Dam_area: SpreadDamage
+		Delay: 110
+		Spread: 1c768
+		Damage: 200000
+		Falloff: 100, 60, 30
+		AffectsParent: true
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
+		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
+		Versus:
+			Boss: 200
+		AirThreshold: 8c0
+	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
+		Delay: 110
+		Spread: 4c512
+		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
+		AirThreshold: 8c0
+	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
+		Delay: 110
+		Spread: 4c256
+		AirThreshold: 8c0
+	Warhead@3Smu_area: LeaveSmudge
+		Delay: 110
+		SmudgeType: SmallScorch
+		Size: 2,1
+		InvalidTargets: Vehicle, Building, Wall
+		AirThreshold: 8c0
+	Warhead@3Effect: CreateEffect
+		Delay: 110
+		Explosions: ionring
+		ImpactSounds: ion1.aud
+		AffectsParent: true
 		ImpactActors: false
-		Delay: 109
-		Duration: 5
-		Sequences: idle
-		Image: dot
-		Palette: effect
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
+		AirThreshold: 8c0
+	Warhead@4Effect: CreateEffect
+		Delay: 110
+		Explosions: ionbeam
+		ExplosionPalette: effect-ignore-lighting-alpha75
+		AffectsParent: true
+		ImpactActors: false
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
+		AirThreshold: 8c0
+	Warhead@5Effect: CreateEffect
+		Delay: 110
+		Explosions: ionbeam2
+		ExplosionPalette: effect-ignore-lighting-alpha75
+		AffectsParent: true
+		ImpactActors: false
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
+		AirThreshold: 8c0
+	Warhead@6Effect: CreateEffect
+		Delay: 110
+		Explosions: ionbeam3
+		ExplosionPalette: effect-ignore-lighting-alpha75
+		AffectsParent: true
+		ImpactActors: false
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
+		AirThreshold: 8c0
+	Warhead@7Effect: CreateEffect
+		Delay: 110
+		Explosions: ionbeam4
+		ExplosionPalette: effect-ignore-lighting-alpha75
+		AffectsParent: true
+		ImpactActors: false
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
+		AirThreshold: 8c0
+	Warhead@8Effect: CreateEffect
+		Delay: 110
+		Explosions: ionbeam5
+		ExplosionPalette: effect-ignore-lighting-alpha75
+		AffectsParent: true
+		ImpactActors: false
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
+		AirThreshold: 8c0
 
 IonBeamCreator: ### THIS ONE GENERATES THE MINI BEAMS
 	ReloadDelay: 6
@@ -213,6 +233,7 @@ IonBeamCreator: ### THIS ONE GENERATES THE MINI BEAMS
 	Warhead@Spawn: SpawnActor
 		Actors: ionbeammini
 		Range: 15
+		AirThreshold: 8c0
 
 IonScorch: ### THESE ARE THE WEAPONS OF THE MINI BEAMS ON THE SIDES
 	ReloadDelay: 2
@@ -232,6 +253,7 @@ IonScorch: ### THESE ARE THE WEAPONS OF THE MINI BEAMS ON THE SIDES
 			Heavy: 50
 			Defense: 50
 			Concrete: 5
+		AirThreshold: 8c0
 	Warhead@3Dam_areaAA: SpreadDamage
 		Falloff: 100, 100
 		ValidTargets: Air
@@ -245,16 +267,18 @@ IonScorch: ### THESE ARE THE WEAPONS OF THE MINI BEAMS ON THE SIDES
 			Boss: 0
 		Spread: 3c928
 		Damage: 750
+		AirThreshold: 8c0
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Condition: BreakShield
 		Range: 32
 		Duration: 400
+		AirThreshold: 8c0
 
 IonDrag:
 	ReloadDelay: 900
 	Range: 1
 	ValidTargets: IonSpawner
-	Projectile: InstantHit
+	Projectile: InstantExplode
 	Warhead@1Dam: TargetDamage
 		ValidTargets: IonSpawner
 
@@ -268,6 +292,7 @@ DroppodSpawner:
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		ImpactActors: false
+		AirThreshold: 8c0
 	Warhead@op2: FireShrapnel
 		Weapon: DroppodElevator2
 		Amount: 4
@@ -275,6 +300,7 @@ DroppodSpawner:
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		ImpactActors: false
+		AirThreshold: 8c0
 	Warhead@op3: FireShrapnel
 		Weapon: DroppodElevator3
 		Amount: 3
@@ -282,6 +308,7 @@ DroppodSpawner:
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		ImpactActors: false
+		AirThreshold: 8c0
 	Warhead@op4: FireShrapnel
 		Weapon: DroppodElevator4
 		Amount: 2
@@ -289,6 +316,7 @@ DroppodSpawner:
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		ImpactActors: false
+		AirThreshold: 8c0
 	Warhead@op5: FireShrapnel
 		Weapon: DroppodElevator5
 		Amount: 1
@@ -296,6 +324,7 @@ DroppodSpawner:
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		ImpactActors: false
+		AirThreshold: 8c0
 	Warhead@op6: FireShrapnel
 		Weapon: DroppodElevator6
 		Amount: 2
@@ -303,6 +332,7 @@ DroppodSpawner:
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		ImpactActors: false
+		AirThreshold: 8c0
 
 DroppodElevator:
 	ReloadDelay: 6
@@ -315,6 +345,7 @@ DroppodElevator:
 		ImpactActors: false
 		AimChance: 25
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
 
 DroppodElevator2:
 	Inherits: DroppodElevator
@@ -375,15 +406,19 @@ droppod1:
 		Explosions: podring
 		ImpactSounds: expnew12.aud
 		InvalidTargets: Vehicle, Building, Wall
+		AirThreshold: 8c0
 	Warhead@5Eff: CreateEffect
 		Explosions: droppod, droppod2
 		InvalidTargets: Vehicle, Building, Wall
+		AirThreshold: 8c0
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
+		AirThreshold: 8c0
 	Warhead@5Actor: SpawnActor
 		Actors: gdie1
 		Range: 3
+		AirThreshold: 8c0
 
 droppod2:
 	Inherits: droppod1
@@ -431,6 +466,7 @@ NuclearMissile:
 		Versus:
 			Concrete: 25
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		AirThreshold: 8c0
 	Warhead@ClusterDamage3: SpreadDamage
 		Damage: 47000
 		Spread: 2c0
@@ -445,6 +481,7 @@ NuclearMissile:
 			Concrete: 5
 			Boss: 50
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		AirThreshold: 8c0
 	Warhead@7Dam_areanukeb: SpreadDamage
 		Spread: 2c512
 		Damage: 2000
@@ -460,6 +497,7 @@ NuclearMissile:
 			Concrete: 5
 			Boss: 50
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		AirThreshold: 8c0
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
 		Spread: 6c768
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
@@ -469,50 +507,60 @@ NuclearMissile:
 		Explosions: nuke1, nuke2, nuke3
 		ExplosionPalette: effect
 		ImpactSounds: nukeexplo.wav
+		AirThreshold: 8c0
 	Warhead@ClusterSmudges0: LeaveSmudge
 		SmudgeType: LargeCrater
 		Size: 1
 		InvalidTargets: Vehicle, Building, Wall
+		AirThreshold: 8c0
 	Warhead@ClusterSmudges1: LeaveSmudge
 		SmudgeType: LargeScorch
 		Size: 2
 		Delay: 5
 		InvalidTargets: Vehicle, Building, Wall
+		AirThreshold: 8c0
 	Warhead@ClusterSmudges3: LeaveSmudge
 		SmudgeType: MediumScorch
 		Size: 3
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 25
+		AirThreshold: 8c0
 	Warhead@ClusterSmudges4: LeaveSmudge
 		SmudgeType: SmallScorch
 		Size: 4
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 25
+		AirThreshold: 8c0
 	Warhead@op: FireRadius
 		Weapon: LargeDebris
 		ImpactActors: false
 		Amount: 10
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
 	Warhead@4Sharpnel: FireRadius
 		Weapon: NukeFlame
 		ImpactActors: false
 		Amount: 128
 		Delay: 10
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
 	Warhead@5Sharpnel: FireRadius
 		Weapon: NukeFlame2
 		ImpactActors: false
 		Amount: 120
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
 	Warhead@Shake: ShakeScreen
 		Intensity: 10
 		Duration: 15
+		AirThreshold: 8c0
 	Warhead@8Radio: CreateTintedCells
 		Spread: 1c0
 		Level: 1500
 		Falloff: 100, 100, 80, 70, 60, 50, 40, 30, 20, 10
 		MaxLevel: 2000
 		LayerName: OrangeRadiation
+		AirThreshold: 8c0
 
 HealerNuke:
 	Inherits: NuclearMissile
@@ -548,6 +596,7 @@ NukeFlame:
 		Spread: 341
 		Damage: 300
 		DamageTypes: Prone100Percent, TriggerProne, FireDeath
+		AirThreshold: 8c0
 
 NukeFlame2:
 	Inherits: NukeFlame
@@ -572,10 +621,12 @@ ToxinMissile:
 			Infantry: 200
 			Concrete: 25
 		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
+		AirThreshold: 8c0
 	Warhead@ClusterSmudges0: LeaveSmudge
 		SmudgeType: LargeCrater
 		Size: 1
 		InvalidTargets: Vehicle, Building, Wall
+		AirThreshold: 8c0
 	Warhead@5cloud: SpawnSmokeParticle
 		Count: 14
 		Duration: 179
@@ -584,21 +635,25 @@ ToxinMissile:
 		Image: tibcloud
 		Sequences: cloud1
 		Palette: effectalpha50
+		AirThreshold: 8c0
 	Warhead@3Radio: CreateTintedCells
 		Level: 500
 		Spread: 1c512
 		Falloff: 100, 60, 30, 15
+		AirThreshold: 8c0
 	Warhead@4Sharpnel: FireRadius
 		Weapon: ChemicalFlame
 		ImpactActors: false
 		Amount: 60
 		Delay: 10
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
 	Warhead@5Sharpnel: FireRadius
 		Weapon: ChemicalFlame2
 		ImpactActors: false
 		Amount: 45
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplogreen
 
@@ -637,6 +692,7 @@ MeteorSpawner:
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		ImpactActors: false
+		AirThreshold: 8c0
 	Warhead@op2: FireShrapnel
 		Weapon: MeteorElevator2
 		Amount: 2
@@ -644,6 +700,7 @@ MeteorSpawner:
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		ImpactActors: false
+		AirThreshold: 8c0
 	Warhead@op3: FireShrapnel
 		Weapon: MeteorElevator3
 		Amount: 2
@@ -651,6 +708,7 @@ MeteorSpawner:
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		ImpactActors: false
+		AirThreshold: 8c0
 	Warhead@6: FireShrapnel
 		Weapon: MeteorSpawner2
 		Amount: 1
@@ -658,6 +716,7 @@ MeteorSpawner:
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		ImpactActors: false
+		AirThreshold: 8c0
 
 MeteorSpawner2:
 	Inherits: MeteorSpawner
@@ -706,10 +765,12 @@ MeteorElevator:
 		ImpactActors: false
 		AimChance: 25
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
 	Warhead@AirHit: FireShrapnel
 		Weapon: MeteorAirHit
 		ImpactActors: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
 
 MeteorElevator2:
 	Inherits: MeteorElevator
@@ -752,6 +813,7 @@ MeteorRainNormal:
 			Boss: 500
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		AirThreshold: 8c0
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 	-Warhead@GetsOneShotedbySuperweaponsAA: ## This for Ground only, we cannot expect meteor fall on the ground to hit Air
@@ -779,6 +841,7 @@ MeteorRainNormal:
 	Warhead@Shake: ShakeScreen
 		Intensity: 10
 		Duration: 7
+		AirThreshold: 8c0
 
 MeteorRainSlow:
 	Inherits: MeteorRainNormal
@@ -799,6 +862,7 @@ IronSaviorMuzzle: ##HACK: FireArmamentPower
 		Explosions: ironsaviormuzzle
 		ExplosionPalette: apolcyanalpha
 		ValidTargets: Ground, Air, Water
+		AirThreshold: 8c0
 
 IronSavior:
 	ReloadDelay: 200
@@ -818,6 +882,7 @@ IronSavior:
 	Warhead@6Spawn: SpawnActor ##In doing so, AI protection squad won't rush iron savior when get hit by this superweapon
 		Actors: ironsaviordummy
 		ForceGround: true
+		AirThreshold: 8c0
 
 IronSaviorExplode:
 	Inherits: ^FullDamage
@@ -830,11 +895,13 @@ IronSaviorExplode:
 			Boss: 1000
 		ValidTargets: Vehicle, Infantry, Building, Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		AirThreshold: 8c0
 	Warhead@2Eff: CreateEffect
 		Explosions: cabexplo
 		ExplosionPalette: apolcyanalpha
 		ValidTargets: Ground, Air
 		ImpactSounds: expnew09.aud, expnew02.aud, expnew03.aud, expnew04.aud
+		AirThreshold: 8c0
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: LargeCrater
 		InvalidTargets: Water
@@ -856,6 +923,7 @@ IronSaviorExplode:
 		Amount: 20
 		AllowDirectHit: false
 		ValidTargets: Ground, Water, Infantry, Vehicle, BlueTiberium, Tiberium, Air
+		AirThreshold: 8c0
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
 		Spread: 4c192
 
@@ -883,11 +951,13 @@ IronSaviorShrapnel:
 			Boss: 800
 		ValidTargets: Vehicle, Infantry, Building, Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		AirThreshold: 8c0
 	Warhead@2Eff: CreateEffect
 		Explosions: cabexplo
 		ExplosionPalette: apolcyanalpha
 		ValidTargets: Ground, Air
 		ImpactSounds: expnew09.aud, expnew02.aud, expnew03.aud, expnew04.aud
+		AirThreshold: 8c0
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: LargeCrater
 		InvalidTargets: Water
@@ -917,6 +987,7 @@ IonStormSpawnerWeapon: ### THIS ONE GENERATES THE ION STORM PARTICLE
 		Sequences: idle
 		Image: dot
 		Palette: effectalpha25
+		AirThreshold: 8c0
 
 RandomBoltSpawner:
 	ReloadDelay: 5
@@ -926,6 +997,7 @@ RandomBoltSpawner:
 		ImpactActors: false
 		Amount: 2
 		AllowDirectHit: false
+		AirThreshold: 8c0
 	Warhead@2: FireShrapnel
 		Weapon: IonRay
 		ImpactActors: false
@@ -934,6 +1006,7 @@ RandomBoltSpawner:
 		AimChance: 75
 		ThrowWithoutTarget: false
 		AimTargetStances: Ally, Neutral, Enemy
+		AirThreshold: 8c0
 
 IonRay:
 	Inherits: ^ArtilleryWarhead
@@ -947,6 +1020,7 @@ IonRay:
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 		Versus:
 			Boss: 250
+		AirThreshold: 8c0
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
@@ -1019,10 +1093,11 @@ nanomachineswarmdeath:
 		Image: nanomachineswarmdummy
 		Explosions: dead
 		ExplosionPalette: apolgreyalpha
-		AirThreshold: 4c0
+		AirThreshold: 8c0
 		ImpactActors: false
 	Warhead@1Dam: SpreadDamage
 		Spread: 2c0
 		Falloff: 100, 100, 100, 100
 		Damage: 1
 		ValidTargets: remaining
+		AirThreshold: 8c0
