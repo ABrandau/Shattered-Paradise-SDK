@@ -1476,6 +1476,8 @@ NAPULS:
 		Width: 2
 	RequiresBuildableArea:
 		AreaTypes: building
+	ActorStatValues:
+		Range: 25c0
 
 SCRSHIELD:
 	Inherits: NAPULS
@@ -1532,6 +1534,10 @@ GATE_B:
 			nod: gate_b.nod
 			cab: gate_b.cab
 	-SmokeParticleEmitter@spawnsmoke:
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: gate_a
 
 MUTGATE_A:
 	Inherits: ^Gate_A
@@ -1551,6 +1557,10 @@ MUTGATE_B:
 	Inherits@RENDER: ^MutRenderBuilding
 	Tooltip:
 		Name: Mutant Gate
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: mutgate_a
 
 SCRGATE_A:
 	Inherits: ^Gate_A
@@ -1584,6 +1594,10 @@ SCRGATE_B:
 		OpeningSound: scrinplacebuilding.wav
 		ClosingSound: scrinplacebuilding.wav
 		BlocksProjectilesHeight: 640
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chromescrin
+		TooltipActor: scrgate_a
 
 ^SuperSupportPowerBased:
 	NukePower:

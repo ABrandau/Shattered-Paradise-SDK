@@ -116,6 +116,8 @@ MMCH:
 		Bounds: 903, 2533, 0, -1024
 	Carryable:
 		LocalOffset: 0,0,763
+	ActorStatValues:
+		Damage: 70
 
 APC:
 	Inherits: ^Tank
@@ -1254,6 +1256,10 @@ BIKE:
 		ScanRadius: 8
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
+	ActorStatValues:
+		Damage: 900
+		Spread: 3c0
+		ExplosionWeapon: true
 
 SAPC:
 	Inherits: ^SubterraneanVoxelVehicle
@@ -2051,6 +2057,10 @@ HVRTRUK3:
 		ScanRadius: 8
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
+	ActorStatValues:
+		Damage: 3240
+		Spread: 6c0
+		ExplosionWeapon: true
 
 WEASAU:
 	Inherits: ^Beast
@@ -2243,6 +2253,9 @@ WEASAUSMALL:
 	-UpdatesPlayerStatistics:
 	-Passenger:
 	-SharedPassenger:
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 
 ###########################################################
 # CABAL
@@ -2847,6 +2860,10 @@ BCOREDEF:
 		DeployTrigger: Periodically
 		DeployTicks: 1005
 		UndeployTicks: 30
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: blackdefd
 
 ###########################################################
 # SCRIN

@@ -6,6 +6,8 @@ CAHOSP:
 		Name: Civilian Hospital
 	TooltipDescription:
 		Description: Provides global healing for infantry.
+	Buildable:
+		Description: Provides global healing for infantry.
 	Building:
 		Footprint: XxX xxx xxx xxx
 		Dimensions: 3, 4
@@ -17,6 +19,9 @@ CAHOSP:
 	ProvidesPrerequisite@buildingname:
 	IsometricSelectable:
 		DecorationHeight: 48
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 
 WELL:
 	Inherits: ^TechBuilding
@@ -27,6 +32,8 @@ WELL:
 	Tooltip:
 		Name: Tiberium Extractor
 	TooltipDescription:
+		Description: Provides additional funds.
+	Buildable:
 		Description: Provides additional funds.
 	Building:
 		Footprint: xxx xxx xxx
@@ -67,6 +74,9 @@ WELL:
 	UpdatesDerrickCount:
 	IsometricSelectable:
 		DecorationHeight: 144
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 
 WELL.mwspawner:
 	Inherits@shape: ^3x3Shape
@@ -121,6 +131,8 @@ MACHINESHOP:
 		Name: Machine Shop
 	TooltipDescription:
 		Description: Provides global repairs for vehicles.
+	Buildable:
+		Description: Provides global repairs for vehicles.
 	Building:
 		Footprint: xx xx
 		Dimensions: 2, 2
@@ -130,6 +142,9 @@ MACHINESHOP:
 	ProvidesPrerequisite@buildingname:
 	IsometricSelectable:
 		DecorationHeight: 36
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 
 BLOODDERRICK:
 	Inherits: ^CivBuilding
@@ -140,6 +155,8 @@ BLOODDERRICK:
 	Tooltip:
 		Name: Tiberian Crab Nest
 	TooltipDescription:
+		Description: Spawns hostile crabs when destroyed.
+	Buildable:
 		Description: Spawns hostile crabs when destroyed.
 	Building:
 		Footprint: xxx xxx xxx
@@ -211,6 +228,11 @@ BLOODDERRICK:
 		OwnerType: InternalName
 		InternalOwner: Creeps
 		Offset: 1,1
+	IsometricSelectable:
+		DecorationHeight: 12
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 
 NEUTRALRADAR:
 	Inherits: ^TechBuilding
@@ -218,6 +240,8 @@ NEUTRALRADAR:
 	Tooltip:
 		Name: Spy Satellite
 	TooltipDescription:
+		Description: Provides vision.
+	Buildable:
 		Description: Provides vision.
 	Building:
 		Footprint: xx xx
@@ -230,6 +254,9 @@ NEUTRALRADAR:
 	ProvidesRadar:
 	IsometricSelectable:
 		DecorationHeight: 48
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 
 NEUTRALPOWERPLANT:
 	Inherits: ^TechBuilding
@@ -239,6 +266,8 @@ NEUTRALPOWERPLANT:
 		Name: Nuclear Power Plant
 	TooltipDescription:
 		Description: Provides build radius & explodes violently when destroyed.
+	Buildable:
+		Description: Provides build radius and explodes violently when destroyed.
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3, 3
@@ -259,6 +288,9 @@ NEUTRALPOWERPLANT:
 		-Type:
 	IsometricSelectable:
 		DecorationHeight: 72
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 
 SCRINREINFPAD:
 	Inherits: ^TechBuilding
@@ -269,6 +301,8 @@ SCRINREINFPAD:
 	Tooltip:
 		Name: Scrin Replicator
 	TooltipDescription:
+		Description: Builds a main battle tank periodically.
+	Buildable:
 		Description: Builds a main battle tank periodically.
 	Building:
 		Footprint: xxx xxx xxx
@@ -355,6 +389,9 @@ SCRINREINFPAD:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 
 NEUTRALSONICTUR:
 	Inherits: ^TechBuilding
@@ -365,6 +402,8 @@ NEUTRALSONICTUR:
 	Tooltip:
 		Name: Tech Shockwave Turret
 	TooltipDescription:
+		Description: Damages units in a straight line.
+	Buildable:
 		Description: Damages units in a straight line.
 	Building:
 		Footprint: x
@@ -386,6 +425,9 @@ NEUTRALSONICTUR:
 		Weapon: SonicEmitterProj
 		PauseOnCondition: empdisable
 		LocalOffset: 1500,0, 0
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 
 CABCANNON:
 	Inherits: ^TechBuilding
@@ -485,6 +527,11 @@ BLUETIBBARREL:
 	-ShakeOnDeath:
 	-Explodes@BuildingFireSmallParticleSpawner:
 	-Explodes@BuildingFireBigSpawn:
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+	IsometricSelectable:
+		DecorationHeight: 12
 
 BLUETIBBARREL2:
 	Inherits: BLUETIBBARREL
@@ -521,6 +568,8 @@ FUELTOWER:
 		Weapon: FuelBarrelExplo
 		EmptyWeapon: FuelBarrelExplo
 	-ThrowsShrapnel@LARGE:
+	IsometricSelectable:
+		DecorationHeight: 36
 
 CIVHELI:
 	Inherits: ^TechBuilding

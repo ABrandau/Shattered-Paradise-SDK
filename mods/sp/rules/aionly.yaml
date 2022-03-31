@@ -2,7 +2,6 @@
 ### 1. will use a diffirent set of logic compared to orignal units used by AI/Player
 ### 2. are pre-loaded transprot units with unload logic.
 
-
 COLOSSI_CHRONO:
 	Inherits: COLOSSI
 	Inherits@AImicroManagable: ^AImicroManagable
@@ -38,7 +37,10 @@ COLOSSI_CHRONO:
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
-
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: colossi
 
 APC_BOT:
 	Inherits: APC
@@ -59,6 +61,8 @@ APC_BOT:
 		DeployChance: 100
 	AutoTarget:
 		ScanRadius: 7
+	ActorStatValues:
+		TooltipActor: apc
 
 RIFLEBGGY:
 	Inherits: BGGY
@@ -75,6 +79,8 @@ RIFLEBGGY:
 		Description: Anti Infantry Buggy
 	Cargo:
 		InitialUnits: altnode1
+	ActorStatValues:
+		TooltipActor: bggy
 
 ROCKETBGGY:
 	Inherits: RIFLEBGGY
@@ -87,6 +93,8 @@ ROCKETBGGY:
 		Description: Rocket Buggy
 	Cargo:
 		InitialUnits: crusader
+	ActorStatValues:
+		TooltipActor: bggy
 
 FLAMEBGGY:
 	Inherits: RIFLEBGGY
@@ -99,6 +107,8 @@ FLAMEBGGY:
 		InitialUnits: templar
 	EditorOnlyTooltip:
 		Name: Flame Buggy
+	ActorStatValues:
+		TooltipActor: bggy
 
 LAZORBGGY:
 	Inherits: RIFLEBGGY
@@ -111,6 +121,8 @@ LAZORBGGY:
 		InitialUnits: nconf
 	EditorOnlyTooltip:
 		Name: Laser Buggy
+	ActorStatValues:
+		TooltipActor: bggy
 
 STRUCKFULL:
 	Inherits: STRUCK
@@ -127,6 +139,8 @@ STRUCKFULL:
 		Image: struck
 	EditorOnlyTooltip:
 		Name: Filled Battle bus
+	ActorStatValues:
+		TooltipActor: struck
 
 STRUCKFULL_T3:
 	Inherits: STRUCKFULL
@@ -141,6 +155,8 @@ STRUCKFULL_T3:
 		InitialUnits: psyker, seer, seer, e3, e3
 	ProvidesPrerequisite@AIbuildinglimit:
 		Prerequisite: psyker
+	ActorStatValues:
+		TooltipActor: struck
 
 ^BotCarryall:
 	Inherits@1: ^AutoTargetAllAssaultMove
@@ -235,6 +251,8 @@ MUBUNKRFULL:
 		Name: Filled Bunker
 	Cargo:
 		InitialUnits: marauder, marauder, mutfiend, marauder, marauder
+	ActorStatValues:
+		TooltipActor: mubunkr
 
 GHOST:
 	Inherits: ^Mutant
@@ -497,6 +515,10 @@ COREDEFENDER:
 		Weapons: LargeDebris
 	ProvidesPrerequisite@AIbuildinglimit:
 		Prerequisite: DefenderExists
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: defd
 
 DEFD:
 	Inherits: ^BasicBuilding

@@ -431,6 +431,21 @@
 		Position: BottomRight
 		RequiresCondition: rank-heroic
 		ValidRelationships: Ally, Enemy, Neutral
+	WithStatIconOverlay@rank-veteran:
+		Image: rank
+		Sequence: rank-veteran
+		Palette: pips
+		RequiresCondition: rank-veteran
+	WithStatIconOverlay@rank-elite:
+		Image: rank
+		Sequence: rank-elite
+		Palette: pips
+		RequiresCondition: rank-elite
+	WithStatIconOverlay@rank-heroic:
+		Image: rank
+		Sequence: rank-heroic
+		Palette: pips
+		RequiresCondition: rank-heroic
 	GainsExperienceMultiplier@armory:
 		Modifier: 150
 		RequiresCondition: ArmoryBuff
@@ -1270,6 +1285,8 @@
 		Categories: Billboards
 	RequiresBuildableArea:
 		AreaTypes: building
+	IsometricSelectable:
+		DecorationHeight: 36
 
 ^Crate:
 	HiddenUnderFog:
@@ -1457,6 +1474,8 @@
 		Sequence: infantry
 		Palette: player
 		IsPlayerPalette: true
+	ActorStatValues:
+		ArmorsToIgnore: Shield, Boss
 
 ^Soldier:
 	Inherits@1: ^Infantry
@@ -1916,6 +1935,8 @@
 		Sequence: vehicle
 		Palette: player
 		IsPlayerPalette: true
+	ActorStatValues:
+		ArmorsToIgnore: Shield, Boss
 
 ^Vehicle:
 	Inherits@0: ^BasicVehicle
@@ -2214,6 +2235,8 @@
 	Explodes@Shrapnel:
 		Weapon: SmalLAircraftShrapnel
 		EmptyWeapon: SmalLAircraftShrapnel
+	ActorStatValues:
+		ArmorsToIgnore: Shield, Boss
 
 ^AircraftShadow:
 	WithShadow:
@@ -2376,6 +2399,8 @@
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
 		Weapons: LargeDebris
+	ActorStatValues:
+		ArmorsToIgnore: Shield, Boss
 
 ^Building:
 	Inherits@0: ^BasicBuilding
