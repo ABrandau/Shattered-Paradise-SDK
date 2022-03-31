@@ -900,6 +900,8 @@ AMMOCRAT:
 		Weapon: AmmoCrateExplo
 		EmptyWeapon: AmmoCrateExplo
 	-ThrowsShrapnel@LARGE:
+	IsometricSelectable:
+		DecorationHeight: 12
 
 BBOARD01:
 	Inherits: ^CivBillboard
@@ -1213,8 +1215,6 @@ CA0012:
 		Type: Light
 	Health:
 		HP: 10000
-	IsometricSelectable:
-		DecorationHeight: 36
 
 CA0013:
 	Inherits: ^CivBuilding
@@ -1243,7 +1243,7 @@ CA0014:
 	Health:
 		HP: 30000
 	IsometricSelectable:
-		DecorationHeight: 48
+		DecorationHeight: 36
 
 CA0015:
 	Inherits: ^CivBuilding
@@ -1384,7 +1384,7 @@ CAARAY:
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
 	IsometricSelectable:
-		DecorationHeight: 72
+		DecorationHeight: 48
 
 CAARMR:
 	Inherits: ^TechBuilding
@@ -1578,7 +1578,7 @@ CITY03:
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
 	IsometricSelectable:
-		DecorationHeight: 48
+		DecorationHeight: 72
 
 CITY04:
 	Inherits: ^CivBuilding
@@ -1599,7 +1599,7 @@ CITY04:
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
 	IsometricSelectable:
-		DecorationHeight: 72
+		DecorationHeight: 84
 
 CITY05:
 	Inherits: ^CivBuilding
@@ -1662,7 +1662,7 @@ CITY07:
 	ThrowsShrapnel@LARGE:
 		Pieces: 3, 4
 	IsometricSelectable:
-		DecorationHeight: 600
+		DecorationHeight: 60
 
 CITY08:
 	Inherits: ^CivBuilding
@@ -1728,7 +1728,7 @@ CITY11:
 	MapEditorData:
 		RequireTilesets: TEMPERATE
 	IsometricSelectable:
-		DecorationHeight: 96
+		DecorationHeight: 72
 
 CITY12:
 	Inherits: ^CivBuilding
@@ -1745,7 +1745,7 @@ CITY12:
 	MapEditorData:
 		RequireTilesets: TEMPERATE
 	IsometricSelectable:
-		DecorationHeight: 96
+		DecorationHeight: 72
 
 CITY13:
 	Inherits: ^CivBuilding
@@ -1762,7 +1762,7 @@ CITY13:
 	MapEditorData:
 		RequireTilesets: TEMPERATE
 	IsometricSelectable:
-		DecorationHeight: 96
+		DecorationHeight: 72
 
 CITY14:
 	Inherits: ^CivBuilding
@@ -1778,7 +1778,7 @@ CITY14:
 	MapEditorData:
 		RequireTilesets: TEMPERATE
 	IsometricSelectable:
-		DecorationHeight: 96
+		DecorationHeight: 72
 
 CITY15:
 	Inherits: ^CivBuilding
@@ -1876,6 +1876,8 @@ CITY19:
 		HP: 50000
 	MapEditorData:
 		RequireTilesets: TEMPERATE
+	IsometricSelectable:
+		DecorationHeight: 12
 
 CITY20:
 	Inherits: ^CivBuilding
@@ -1890,6 +1892,8 @@ CITY20:
 		HP: 25000
 	MapEditorData:
 		RequireTilesets: TEMPERATE
+	IsometricSelectable:
+		DecorationHeight: 12
 
 CITY21:
 	Inherits: ^CivBuilding
@@ -1920,13 +1924,13 @@ CITY22:
 	MapEditorData:
 		RequireTilesets: TEMPERATE
 	IsometricSelectable:
-		DecorationHeight: 72
+		DecorationHeight: 48
 
 CPWRP:
 	Inherits: ^CivBuilding
 	Inherits@2: ^4x3Shape
 	Tooltip:
-		Name: Power station
+		Name: Power Station
 	Building:
 		Footprint: xxxx xxxx xxxx
 		Dimensions: 4, 3
@@ -1939,7 +1943,7 @@ CITY35:
 	Inherits: ^CivBuilding
 	Inherits@2: ^3x4Shape
 	Tooltip:
-		Name: Apartment complex
+		Name: Apartment Complex
 	Building:
 		Footprint: xxx xxx xxx xxx
 		Dimensions: 3, 4
@@ -2130,7 +2134,7 @@ GASPOT:
 	AttackOmni:
 	RenderSprites:
 	IsometricSelectable:
-		DecorationHeight: 72
+		DecorationHeight: 60
 
 RADIOTOWER:
 	Inherits: ^CivBuilding
@@ -2154,10 +2158,10 @@ SIGNALTOWER:
 
 CONTAINER:
 	Inherits: ^CivBuilding
-	Inherits@2: ^1x2Shape
+	Inherits@2: ^2x1Shape
 	Building:
-		Footprint: xx
-		Dimensions: 1,2
+		Footprint: x x
+		Dimensions: 2,1
 	Tooltip:
 		Name: Container
 	Health:
@@ -2169,10 +2173,10 @@ CONTAINER:
 
 CONTAINER2:
 	Inherits: CONTAINER
-	Inherits@2: ^2x1Shape
+	Inherits@2: ^1x2Shape
 	Building:
-		Footprint: x x
-		Dimensions: 2,1
+		Footprint: xx
+		Dimensions: 1,2
 
 CONTAINER3:
 	Inherits: CONTAINER
@@ -2180,6 +2184,8 @@ CONTAINER3:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
+	IsometricSelectable:
+		DecorationHeight: 48
 
 CONTAINER4:
 	Inherits: CONTAINER
@@ -2209,6 +2215,8 @@ CONTAINER2X2:
 		Type: Building
 	RenderSprites:
 		Palette: unittem
+	IsometricSelectable:
+		DecorationHeight: 36
 
 CONTAINER1X2:
 	Inherits: ^CivBuilding
@@ -2227,6 +2235,8 @@ CONTAINER1X2:
 
 CONTAINER1X2STACKED:
 	Inherits: CONTAINER1X2
+	IsometricSelectable:
+		DecorationHeight: 36
 
 CONTAINER2X1:
 	Inherits: ^CivBuilding
@@ -2245,6 +2255,8 @@ CONTAINER2X1:
 
 CONTAINER2X1STACKED:
 	Inherits: CONTAINER2X1
+	IsometricSelectable:
+		DecorationHeight: 36
 	
 CONTAINERDIAGONAL:
 	Inherits: ^CivBuilding
@@ -2263,6 +2275,8 @@ CONTAINERDIAGONAL:
 
 CONTAINERDIAGONALSTACKED:
 	Inherits: CONTAINERDIAGONAL
+	IsometricSelectable:
+		DecorationHeight: 36
 
 TENT1:
 	Inherits: ^CivBuilding
@@ -2730,7 +2744,7 @@ TDADVGTWR:
 	MapEditorData:
 		Categories: TD Building
 	IsometricSelectable:
-		DecorationHeight: 60
+		DecorationHeight: 72
 	-Sellable:
 	-SpawnActorsOnSell@gdi:
 	-SpawnActorsOnSell@nod:
@@ -2766,6 +2780,8 @@ ADVHQ:
 	-CapturableProgressBlink:
 	MapEditorData:
 		Categories: TD Building
+	IsometricSelectable:
+		DecorationHeight: 36
 	-Sellable:
 	-SpawnActorsOnSell@gdi:
 	-SpawnActorsOnSell@nod:
@@ -2795,12 +2811,17 @@ TDADVPP:
 	-SpawnActorsOnSell@cab:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
+	RenderSprites:
+		FactionImages:
+			nod: tdadvpp.nod
 
 TDAIRSTRIP:
 	Inherits: ^Factory
 	Inherits@SHAPE: ^3x6Shape
 	Tooltip:
 		Name: Airstrip
+	ProvidesPrerequisite@ShowLightbringer:
+		Prerequisite: showlightbringer
 	WithIdleOverlay@anima:
 		Sequence: anima
 		Palette: player
@@ -2822,7 +2843,7 @@ TDAIRSTRIP:
 		ExitCell: 6,1
 		SpawnOffset: -1536,-1536,0
 	IsometricSelectable:
-		DecorationHeight: 40
+		DecorationHeight: 36
 	-Sellable:
 	-SpawnActorsOnSell@gdi:
 	-SpawnActorsOnSell@nod:
@@ -2888,6 +2909,8 @@ TDBARR:
 	-CapturableProgressBlink:
 	MapEditorData:
 		Categories: TD Building
+	IsometricSelectable:
+		DecorationHeight: 36
 	-Sellable:
 	-SpawnActorsOnSell@gdi:
 	-SpawnActorsOnSell@nod:
@@ -2986,7 +3009,7 @@ TDNHAND:
 	MapEditorData:
 		Categories: TD Building
 	IsometricSelectable:
-		DecorationHeight: 90
+		DecorationHeight: 84
 	-Sellable:
 	-SpawnActorsOnSell@gdi:
 	-SpawnActorsOnSell@nod:
@@ -3043,6 +3066,9 @@ TDHELIPAD:
 	-SpawnActorsOnSell@cab:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
+	RenderSprites:
+		FactionImages:
+			nod: tdhelipad.nod
 
 TDNTUR:
 	Inherits: ^TurretedDefence
@@ -3066,6 +3092,9 @@ TDNTUR:
 	-SpawnActorsOnSell@cab:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 
 TDOBELISK:
 	Inherits: ^Defence
@@ -3112,6 +3141,9 @@ TDOBELISK:
 	-SpawnActorsOnSell@cab:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 
 TDREFINERY:
 	Inherits: ^FlippedXRefinery
@@ -3149,6 +3181,9 @@ TDREFINERY:
 	-SpawnActorsOnSell@cab:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
+	RenderSprites:
+		FactionImages:
+			nod: tdrefinery.nod
 
 TDREPD:
 	Inherits: GADEPT
@@ -3163,9 +3198,6 @@ TDREPD:
 	-CapturableProgressBlink:
 	MapEditorData:
 		Categories: TD Building
-	RenderSprites:
-		Image: tdrepd
-		-FactionImages:
 	ProvidesPrerequisite@buildingname:
 	-WithIdleOverlay@LIGHT:
 	-WithIdleOverlay@GROUND:
@@ -3181,6 +3213,13 @@ TDREPD:
 	-SpawnActorsOnSell@cab:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
+	RenderSprites:
+		Image: tdrepd
+		FactionImages:
+			gdi: tdrepd
+			nod: tdrepd.nod
+			mut: tdrepd
+			cab: tdrepd
 
 TDSAMSITE:
 	Inherits: ^TurretedDefence
@@ -3247,6 +3286,9 @@ TDPP:
 	-SpawnActorsOnSell@cab:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
+	RenderSprites:
+		FactionImages:
+			nod: tdpp.nod
 
 TDSILO:
 	Inherits: ^Building
@@ -3263,7 +3305,6 @@ TDSILO:
 		HP: 10000
 	Armor:
 		Type: Building
-	RenderSprites:
 	WithSpriteBody:
 	StoresResources:
 		Capacity: 3000
@@ -3296,7 +3337,10 @@ TDSILO:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
 	IsometricSelectable:
-		DecorationHeight: 20
+		DecorationHeight: 12
+	RenderSprites:
+		FactionImages:
+			nod: tdsilo.nod
 
 TDWF:
 	Inherits: ^Factory
@@ -3323,7 +3367,7 @@ TDWF:
 		ExitCell: 3,2
 		SpawnOffset: -1024, 0, 0
 	IsometricSelectable:
-		DecorationHeight: 36
+		DecorationHeight: 48
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:

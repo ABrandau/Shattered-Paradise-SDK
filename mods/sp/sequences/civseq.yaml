@@ -1484,14 +1484,14 @@ signaltower:
 
 container:
 	Defaults:
-		Offset: 12, -18, 18
+		Offset: -12, -18, 18
 	idle:
 		ShadowStart: 5
 
 container2:
 	Inherits: container
 	Defaults:
-		Offset: -12, -18, 6
+		Offset: 12, -18, 6
 	idle: container
 		Start: 1
 		ShadowStart: 6
@@ -2050,6 +2050,9 @@ tdadvgtwr:
 	make: tdadvgtwr_mkup
 		Length: 31
 		ShadowStart: 31
+	icon: tdadvgtwricon
+		Offset: 0, 0
+		-DepthSprite:
 
 tdadvhq:
 	Defaults:
@@ -2078,10 +2081,13 @@ tdadvhq:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+	icon: tdadvhqicon
+		Offset: 0, 0
+		-DepthSprite:
 
 tdadvpp:
 	Inherits: ^EmpOverlay
-	Defaults:
+	Defaults: tdadvpp
 		Offset: 0, -42, 20
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
@@ -2101,6 +2107,16 @@ tdadvpp:
 	make: tdadvpp_mkup
 		Length: 50
 		ShadowStart: 50
+	icon: tdadvppgdiicon
+		Offset: 0, 0
+		-DepthSprite:
+
+tdadvpp.nod:
+	Inherits: tdadvpp
+	-icon:
+	icon: tdadvppnodicon
+		Offset: 0, 0
+		-DepthSprite:
 
 tdairstrip:
 	Inherits: ^EmpOverlay
@@ -2130,6 +2146,9 @@ tdairstrip:
 		Start: 2
 		Length: 32
 		ShadowStart: 50
+	icon: tdairstripicon
+		Offset: 0, 0
+		-DepthSprite:
 
 tdbarr:
 	Inherits: ^EmpOverlay
@@ -2152,6 +2171,9 @@ tdbarr:
 	make: tdbarr_mkup
 		Length: 45
 		ShadowStart: 45
+	icon: tdbarricon
+		Offset: 0, 0
+		-DepthSprite:
 
 tdgtwr:
 	Inherits: ^EmpOverlay
@@ -2171,10 +2193,13 @@ tdgtwr:
 	make: tdgtwr_mkup
 		Length: 20
 		ShadowStart: 20
+	icon: tdgtwricon
+		Offset: 0, 0
+		-DepthSprite:
 
 tdhelipad:
 	Inherits: ^EmpOverlay
-	Defaults:
+	Defaults: tdhelipad
 		Offset: 0, -24, 20
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
@@ -2195,6 +2220,16 @@ tdhelipad:
 		Length: 19
 	damaged-anima: tdhelipad_de_a1
 		Length: 19
+	icon: tdhelipadgdiicon
+		Offset: 0, 0
+		-DepthSprite:
+
+tdhelipad.nod:
+	Inherits: tdhelipad
+	-icon:
+	icon: tdhelipadnodicon
+		Offset: 0, 0
+		-DepthSprite:
 
 tdnhand:
 	Inherits: ^EmpOverlay
@@ -2218,6 +2253,9 @@ tdnhand:
 	anima:
 		Start: 50
 		Length: 6
+	icon: tdnhandicon
+		Offset: 0, 0
+		-DepthSprite:
 
 tdntpl:
 	Inherits: ^EmpOverlay
@@ -2241,6 +2279,9 @@ tdntpl:
 	launch:
 		Start: 39
 		Length: 4
+	icon: tdntplicon
+		Offset: 0, 0
+		-DepthSprite:
 
 tdntur:
 	Inherits: ^EmpOverlay
@@ -2264,6 +2305,9 @@ tdntur:
 	make: tdntur_mkup
 		Length: 15
 		ShadowStart: 15
+	icon: tdnturicon
+		Offset: 0, 0
+		-DepthSprite:
 
 tdobelisk:
 	Inherits: ^EmpOverlay
@@ -2290,10 +2334,13 @@ tdobelisk:
 		Start: 34
 		Length: 20
 		ShadowStart: 15
+	icon: tdobeliskicon
+		Offset: 0, 0
+		-DepthSprite:
 
 tdrepd:
 	Inherits: ^EmpOverlay
-	Defaults:
+	Defaults: tdrepd
 		Offset: 0, -36, 20
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
@@ -2315,9 +2362,19 @@ tdrepd:
 		Length: 18
 	damaged-anima: tdrepd_de_a1
 		Length: 18
+	icon: tdrepdgdiicon
+		Offset: 0, 0
+		-DepthSprite:
+
+tdrepd.nod:
+	Inherits: tdrepd
+	-icon:
+	icon: tdrepdnodicon
+		Offset: 0, 0
+		-DepthSprite:
 
 tdrefinery:
-	Defaults:
+	Defaults: tdrefinery
 		Offset: 12, -42, 20
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
@@ -2373,6 +2430,16 @@ tdrefinery:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+	icon: tdrefinerygdiicon
+		Offset: 0, 0
+		-DepthSprite:
+
+tdrefinery.nod:
+	Inherits: tdrefinery
+	-icon:
+	icon: tdrefinerynodicon
+		Offset: 0, 0
+		-DepthSprite:
 
 tdsamsite:
 	Inherits: ^EmpOverlay
@@ -2416,10 +2483,12 @@ tdsamsite:
 		ShadowStart: 108
 	place:
 		Start: 0
+	icon: tdsamsiteicon
+		Offset: 0, 0
 
 tdpp:
 	Inherits: ^EmpOverlay
-	Defaults:
+	Defaults: tdpp
 		Offset: 12, -24, 20
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
@@ -2439,10 +2508,20 @@ tdpp:
 	make: tdpp_mkup
 		Length: 50
 		ShadowStart: 50
+	icon: tdppgdiicon
+		Offset: 0, 0
+		-DepthSprite:
+
+tdpp.nod:
+	Inherits: tdpp
+	-icon:
+	icon: tdppnodicon
+		Offset: 0, 0
+		-DepthSprite:
 
 tdsilo:
 	Inherits: ^EmpOverlay
-	Defaults:
+	Defaults: tdsilo
 		Offset: -6, -18, 20
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
@@ -2461,6 +2540,16 @@ tdsilo:
 	make: tdsilo_mkup
 		Length: 23
 		ShadowStart: 23
+	icon: tdsilogdiicon
+		Offset: 0, 0
+		-DepthSprite:
+
+tdsilo.nod:
+	Inherits: tdsilo
+	-icon:
+	icon: tdsilonodicon
+		Offset: 0, 0
+		-DepthSprite:
 
 tdwf:
 	Inherits: ^EmpOverlay
@@ -2511,6 +2600,9 @@ tdwf:
 		Start: 1
 		ZOffset: -1024
 		ZRamp: 1
+	icon: tdwficon
+		Offset: 0, 0
+		-DepthSprite:
 
 ciliviantnk:
 	Inherits: ^EmpOverlay
