@@ -139,15 +139,19 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 	Inherits: ^SWBaseEffects
 	ReloadDelay: 6
 	Range: 12c0
-	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
+	ValidTargets: Ground, Vehicle, Infantry, Building, Water, Air, IonSpawner
 	Warhead@op: FireRadius
+		ValidTargets: Vehicle, Infantry, Building, Ground, Water, Air
 		Weapon: IonBeamCreator
 		ImpactActors: false
 		Amount: 12
+		AirThreshold: 8c0
 	Warhead@Spawn: SpawnActor
+		ValidTargets: Vehicle, Infantry, Building, Ground, Water, Air
 		Actors: ionbeamtarget
-		Range: 3
 		ForceGround: true
+		AirThreshold: 8c0
+		ImpactActors: false
 	### THIS IS THE MAIN ION CANON WEAPON, after Delay=110
 	Warhead@1Dam_area: SpreadDamage
 		Delay: 110
@@ -869,7 +873,7 @@ IronSavior:
 	Range: 300c0
 	MinRange: 6c0
 	Report: devourerlasor0000.wav, devourerlasor0001.wav, devourerlasor0002.wav
-	ValidTargets: Vehicle, Infantry, Building, Ground, Water
+	ValidTargets: Vehicle, Infantry, Building, Ground, Water, Air
 	Projectile: BulletAS
 		Speed: 300
 		Image: cabswproj
@@ -880,9 +884,11 @@ IronSavior:
 		TrailPalette: apolcyanalpha
 		Blockable: false
 	Warhead@6Spawn: SpawnActor ##In doing so, AI protection squad won't rush iron savior when get hit by this superweapon
+		ValidTargets: Vehicle, Infantry, Building, Ground, Water, Air
 		Actors: ironsaviordummy
 		ForceGround: true
 		AirThreshold: 8c0
+		ImpactActors: false
 
 IronSaviorExplode:
 	Inherits: ^FullDamage
