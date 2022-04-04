@@ -1288,6 +1288,8 @@ REPAIRWYVERN:
 		Name: Repair Drone
 	Armament:
 		Weapon: DroneRepairScr
+		TargetRelationships: Ally
+		ForceTargetRelationships: Ally
 		-ReloadingCondition:
 		-PauseOnCondition:
 	-Armament@AA:
@@ -1305,6 +1307,7 @@ REPAIRWYVERN:
 	RenderSprites:
 		Image: scrinrepairdrone
 	-Contrail@1:
+	-RevealsShroud:
 
 CABDRONEJET:
 	Inherits: STORMRIDERSPAWN
@@ -1352,6 +1355,8 @@ REPAIRDRONE:
 		Name: Repair Drone
 	Armament:
 		Weapon: DroneRepair
+		TargetRelationships: Ally
+		ForceTargetRelationships: Ally
 		-PauseOnCondition:
 	Health:
 		HP: 5000
@@ -1369,6 +1374,7 @@ REPAIRDRONE:
 	RenderSprites:
 		Image: quaddrone-mini
 	-Contrail@1:
+	-RevealsShroud:
 
 SCRBATTLESHIP:
 	Inherits: ^CombatHelicopter
