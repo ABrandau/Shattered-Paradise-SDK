@@ -1306,13 +1306,23 @@ BLACKDEFD:
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RENDER: ^CabRenderBuilding
-	Inherits@SHAPE: ^3x3Shape
+	Inherits@SHAPE: ^2x3Shape
 	Inherits@VISION: ^8CellVision
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Valued:
 		Cost: 4000
 	Health:
 		HP: 300000
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1536, -1536
+			BottomRight: 512, 1536
+	HitShape@2:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: 512, 512
+			BottomRight: 1536, 1536
 	Buildable:
 		Queue: Defense
 		Prerequisites: cabobelisk, ~structures.cab, ~techlevel.6, !DarkDefenderExists
@@ -1320,7 +1330,7 @@ BLACKDEFD:
 		BuildPaletteOrder: 50
 		BuildLimit: 1
 	Building:
-		Footprint: xxx xxx xxx
+		Footprint: xx_ xx_ xxx
 		Dimensions: 3,3
 	Armor:
 		Type: Building

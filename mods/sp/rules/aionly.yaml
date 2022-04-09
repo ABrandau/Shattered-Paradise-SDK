@@ -525,19 +525,29 @@ DEFD:
 	Inherits@1: ^StructureEffects
 	Inherits@2: ^6CellVision
 	Inherits@3: ^SelectableBuilding
-	Inherits@4: ^3x3Shape
+	Inherits@SHAPE: ^2x3Shape
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Valued:
 		Cost: 10000
 	Health:
 		HP: 1100000
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1536, -1536
+			BottomRight: 512, 1536
+	HitShape@2:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: 512, 512
+			BottomRight: 1536, 1536
 	Buildable:
 		Queue: Building
 		Prerequisites: cabtech, ~structures.cab, ~techlevel.5, ~AIOnly, ~!DefenderExists
 		Description: C.A.B.A.L.'s final creation armed with crazy weapon.\n\nGood vs: Everything\n\nSpecial:\n- Needs preparing before rising.\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle\n- Immune to mindcontrol
 		BuildPaletteOrder: 54
 	Building:
-		Footprint: xxx xxx xxx
+		Footprint: xx_ xx_ xxx
 		Dimensions: 3,3
 	CaptureNotification:
 		Notification: BuildingCaptured
