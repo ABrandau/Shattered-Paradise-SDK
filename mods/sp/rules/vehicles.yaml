@@ -223,7 +223,7 @@ HVR:
 		BuildPaletteOrder: 22
 		Prerequisites: ~gaweap, garadr, ~techlevel.4
 	Mobile:
-		Speed: 105
+		Speed: 135
 		TurnSpeed: 40
 		Locomotor: Hover
 		CanMoveBackward: true
@@ -258,7 +258,7 @@ JUG:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^5CellVision
 	Valued:
-		Cost: 1200
+		Cost: 1400
 	Tooltip:
 		Name: Juggernaut
 	UpdatesPlayerStatistics:
@@ -276,7 +276,7 @@ JUG:
 		Speed: 75
 		Locomotor: InfantryCrusherVehicle
 	Health:
-		HP: 25000
+		HP: 30000
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -614,13 +614,13 @@ BGGY:
 		Volume: 2
 	Mobile:
 		TurnSpeed: 40
-		Speed: 135
+		Speed: 165
 		Locomotor: Vehicle
 	Turreted:
 		Offset: -250,0,400
 		TurnSpeed: 32
 	Health:
-		HP: 17500
+		HP: 15000
 	Armor:
 		Type: Light
 	WithMuzzleOverlay:
@@ -1008,10 +1008,10 @@ ATTACKBIKE:
 		Volume: 2
 	Mobile:
 		TurnSpeed: 40
-		Speed: 135
+		Speed: 165
 		Locomotor: Vehicle
 	Health:
-		HP: 17500
+		HP: 15000
 	Armor:
 		Type: Light
 	Armament@PRIMARY:
@@ -1240,7 +1240,7 @@ BIKE:
 	-ActorLostNotification:
 	Mobile:
 		TurnSpeed: 40
-		Speed: 120
+		Speed: 165
 		Locomotor: Vehicle
 	Armor@Bike:
 		Type: Bike
@@ -1306,7 +1306,7 @@ SAPC:
 		Description: Troop transport that can move underground.\n\nSpecial:\n- Can move underground.\n- Can transport up to 5 infantry.\n- Can crush infantry.\n- Once burrowed and en route to its destination, the only order it can receive is to surface
 	Mobile:
 		TurnSpeed: 20
-		Speed: 90
+		Speed: 105
 		PauseOnCondition: empdisable || loading
 	Health:
 		HP: 20000
@@ -1350,7 +1350,7 @@ SUBTANK:
 		Volume: 2
 	Mobile:
 		TurnSpeed: 32
-		Speed: 90
+		Speed: 105
 	Health:
 		HP: 30000
 	Armament:
@@ -1397,7 +1397,7 @@ HOWTLIZER:
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 75
+		Speed: 90
 		TurnSpeed: 20
 		Locomotor: InfantryCrusherVehicle
 	-ExternalCondition@crate-cloak:
@@ -1447,10 +1447,10 @@ STNK:
 		Description: Hit-and-run tank armed with twin dragon TOW missiles and a cloaking device.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Stealthed\n- Can attack air\n- Can shoot over walls\n- Can crush infantry\n- Cloaking malfunctions when at red hp\n- Can attack while moving.
 	Mobile:
 		TurnSpeed: 48
-		Speed: 105
+		Speed: 120
 		Locomotor: InfantryCrusherVehicle
 	Health:
-		HP: 25000
+		HP: 20000
 	Armor:
 		Type: Light
 	WithIdleOverlay@shield:
@@ -1745,7 +1745,7 @@ LYNX:
 		AddToArmyValue: true
 	Mobile:
 		TurnSpeed: 40
-		Speed: 90
+		Speed: 105
 		Locomotor: InfantryCrusherVehicle
 	WithFacingSpriteBody:
 	Health:
@@ -1847,7 +1847,7 @@ MINELAYER:
 		Prerequisites: ~muweap, gadept, ~techlevel.3
 	Mobile:
 		TurnSpeed: 24
-		Speed: 90
+		Speed: 105
 		Locomotor: InfantryCrusherMineImmuneVehicle
 	Voiced:
 		VoiceSet: Trike
@@ -1916,7 +1916,7 @@ WOLF:
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 105
+		Speed: 120
 		Locomotor: TibVeCritter
 	AttackFollowFrontal:
 		Voice: Attack
@@ -1944,7 +1944,7 @@ MRLS:
 		Prerequisites: ~muweap, muhall, ~techlevel.5
 	Mobile:
 		TurnSpeed: 20
-		Speed: 90
+		Speed: 105
 		Locomotor: InfantryCrusherVehicle
 	BodyOrientation:
 		QuantizedFacings: 32
@@ -2004,7 +2004,7 @@ DEATHCLAW:
 	Health:
 		HP: 70000
 	Mobile:
-		Speed: 105
+		Speed: 120
 		Locomotor: TibVeCritter
 	Armament:
 		Weapon: RavagerStrike
@@ -2043,7 +2043,7 @@ HVRTRUK3:
 	Mobile:
 		TurnSpeed: 40
 		CanMoveBackward: true
-		Speed: 60
+		Speed: 90
 		Locomotor: Hover
 	-SharedPassenger:
 	Health:
@@ -2468,7 +2468,7 @@ LIMPED:
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 120
+		Speed: 165
 		TurnSpeed: 1023
 		Locomotor: Hover
 		RequireForceMoveCondition: !AImicroManage && !undeployed
@@ -2629,7 +2629,7 @@ CABAPC:
 	Mobile:
 		TurnSpeed: 40
 		CanMoveBackward: true
-		Speed: 120
+		Speed: 135
 		Locomotor: Hover
 	Voiced:
 		VoiceSet: Limpet
@@ -2679,7 +2679,7 @@ SPIDERARTY:
 		Speed: 60
 		Locomotor: InfantryCrusherVehicle
 	Health:
-		HP: 30000
+		HP: 35000
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
@@ -2975,7 +2975,7 @@ SCRMBT:
 	Mobile:
 		TurnSpeed: 20
 		CanMoveBackward: true
-		Speed: 105
+		Speed: 120
 		Locomotor: Hover
 	Turreted:
 		TurnSpeed: 24
@@ -3011,7 +3011,7 @@ SCRSCORPION:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
 	Valued:
-		Cost: 1000
+		Cost: 900
 	Tooltip:
 		Name: Plague Walker
 	UpdatesPlayerStatistics:
@@ -3024,10 +3024,12 @@ SCRSCORPION:
 		Prerequisites: ~scrweap, scrradr, ~techlevel.4
 	Mobile:
 		TurnSpeed: 32
-		Speed: 90
+		Speed: 105
 		Locomotor: Vehicle
 	Health:
-		HP: 30000
+		HP: 20000
+	Armor:
+		Type: Light
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -3223,13 +3225,13 @@ SCRMOBMINE:
 		Weapon: MindController
 		PauseOnCondition: empdisable
 	Health:
-		HP: 25000
+		HP: 20000
 	Armor:
 		Type: Light
 	Mobile:
 		TurnSpeed: 40
 		CanMoveBackward: true
-		Speed: 90
+		Speed: 120
 		Locomotor: Hover
 	AttackTurreted:
 		PauseOnCondition: empdisable
