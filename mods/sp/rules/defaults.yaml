@@ -1163,7 +1163,7 @@
 	Inherits@4: ^FirestormGenBuff
 	Inherits@5: ^CrateBuffs
 	RevealOnFire:
-		ArmamentNames: primary, secondary, OnFoot
+		ArmamentNames: primary, secondary, tertiary, quaternary, OnFoot
 		Duration: 50
 	OwnerLostAction:
 		Action: Kill
@@ -1744,12 +1744,14 @@
 		UseDeathTypeSuffix: false
 		DeathSequence: dieevaporate
 		Delay: 0
+	DamageMultiplier@hologram:
+		Modifier: 200
+	RevealsShroudMultiplier@hologram:
+		Modifier: 50
 
 ^HologramSoldier:
 	Inherits: ^Soldier
 	Inherits@2: ^HologramKillTimer
-	Health:
-		HP: 4500
 	GivesExperience:
 		Experience: 50
 	-UpdatesPlayerStatistics:

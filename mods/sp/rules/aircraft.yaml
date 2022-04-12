@@ -73,6 +73,8 @@ ORCA:
 		FullSequence: pip-ammo
 		EmptySequence: pip-ammoempty
 		Palette: pips
+	ActorStatValues:
+		Damage: 40
 
 ORCAB:
 	Inherits: ^CombatPlane
@@ -145,6 +147,8 @@ ORCAB:
 		FullSequence: pip-ammo
 		EmptySequence: pip-ammoempty
 		Palette: pips
+	ActorStatValues:
+		Damage: 100
 
 DSHP:
 	Inherits: ^CombatHelicopter
@@ -339,6 +343,8 @@ APACHE:
 		FullSequence: pip-ammo
 		EmptySequence: pip-ammoempty
 		Palette: pips
+	ActorStatValues:
+		Damage: 40
 
 SCRIN:
 	Inherits: ^CombatPlane
@@ -429,6 +435,8 @@ SCRIN:
 		UsePlayerColor: false
 		TrailWidth: 48
 		TrailLength: 9
+	ActorStatValues:
+		Damage: 50
 
 CERBERUS:
 	Inherits: ^CombatHelicopter
@@ -563,6 +571,8 @@ CERBERUS:
 		UsePlayerColor: false
 		TrailLength: 8
 		TrailWidth: 96
+	ActorStatValues:
+		Damage: 324
 
 MUTHELI:
 	Inherits: ^CombatHelicopter
@@ -642,6 +652,8 @@ MUTHELI:
 		FullSequence: pip-ammo
 		EmptySequence: pip-ammoempty
 		Palette: pips
+	ActorStatValues:
+		Damage: 40
 
 MUTQUEEN:
 	Inherits: ^CombatHelicopter
@@ -713,6 +725,8 @@ MUTQUEEN:
 		RequiresCondition: AImicroManage
 		Weapon: SpawnEggShrapnelE
 		EmptyWeapon: SpawnEggShrapnelE
+	ActorStatValues:
+		Damage: 90
 
 MUTBIRD:
 	Inherits@3: MUTQUEEN
@@ -821,6 +835,8 @@ WETP:
 	RejectsOrders@AI:
 		Reject: Move, Attack, ReturnToBase
 		RequiresCondition: AImicroManage && ammo && attacking
+	ActorStatValues:
+		Damage: 400
 
 ^ScrinAircraftGeneric:
 	Inherits@RENDER: ^ScrinRender
@@ -901,6 +917,8 @@ STORMRIDER:
 		Color: 6600FF60
 		UsePlayerColor: false
 		TrailLength: 9
+	ActorStatValues:
+		Damage: 20
 
 DRACHE:
 	Inherits: ^CombatHelicopter
@@ -1016,6 +1034,7 @@ SCRGLYDER1:
 		Icon: icon
 		IconPalette: chromescrin
 		TooltipActor: scrglyder2
+		Damage: 90
 
 SCRDESTROYER:
 	Inherits: ^CombatHelicopter
@@ -1084,6 +1103,8 @@ SCRDESTROYER:
 		UsePlayerColor: false
 		TrailLength: 8
 		TrailWidth: 40
+	ActorStatValues:
+		Damage: 170
 
 SCRTRANS:
 	Inherits: ^Helicopter
@@ -1215,6 +1236,8 @@ SCRCARRIER:
 		UsePlayerColor: false
 		TrailLength: 8
 		TrailWidth: 40
+	ActorStatValues:
+		Damage: 20
 
 STORMRIDERSPAWN:
 	Inherits: ^CombatPlane
@@ -1460,6 +1483,8 @@ SCRBATTLESHIP:
 		UsePlayerColor: false
 		TrailLength: 8
 		TrailWidth: 128
+	ActorStatValues:
+		Damage: 360
 
 WASP:
 	Inherits: ^CombatHelicopter
@@ -1515,6 +1540,8 @@ WASP:
 	SpawnActorOnDeath:
 		RequiresCondition: airborne
 		Actor: WASP.Husk
+	ActorStatValues:
+		Damage: 60
 
 FIREFLY:
 	Inherits: ^CombatHelicopter
@@ -1613,6 +1640,8 @@ BASILISK:
 		Color: FFEA0080
 		UsePlayerColor: false
 		TrailLength: 10
+	ActorStatValues:
+		Damage: 400
 
 DEVOURER:
 	Inherits: ^CombatHelicopter
@@ -1687,3 +1716,5 @@ DEVOURER:
 	RejectsOrders@AI:
 		Reject: Move, Attack, ReturnToBase
 		RequiresCondition: AImicroManage && AIattack
+	ActorStatValues:
+		Damage: 200

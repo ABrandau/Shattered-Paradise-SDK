@@ -28,19 +28,19 @@ GAVULC:
 		Weapon: VulcanTower
 		LocalOffset: 588,120,1358, 588,-120,1358
 		MuzzleSequence: muzzle
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup
 	Armament@2:
 		Weapon: VulcanTowerCasing
 		LocalOffset: 588,120,1358, 588,-120,1358
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup
 	Armament@3:
 		Weapon: VulcanTowerLine
 		LocalOffset: 988,0,1358
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup
 	Armament@4:
 		Weapon: VulcanTowerLine
 		LocalOffset: 988,-120,1358, 988,120,1358
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup
 	WithMuzzleOverlay:
 	WithIdleOverlay@LIGHTS:
 		RequiresCondition: !Building-Buildup && !disabled
@@ -93,7 +93,7 @@ GAROCK:
 	Armament@ROCKET:
 		Weapon: RPGTower
 		LocalOffset: 325,-128,1800
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup
 	WithIdleOverlay@LIGHTS:
 		RequiresCondition: !Building-Buildup && !disabled
 		Sequence: idle-lights
@@ -111,6 +111,8 @@ GAROCK:
 	ProvidesPrerequisite@buildingname:
 	Replacement:
 		ReplaceableTypes: Tower
+	ActorStatValues:
+		Damage: 100
 
 GACSAM:
 	Inherits: ^TurretedDefence
@@ -138,7 +140,7 @@ GACSAM:
 	Armament:
 		Weapon: GdiRedEye
 		LocalOffset: 400,0,1800
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup
 	WithIdleOverlay@LIGHTS:
 		RequiresCondition: !Building-Buildup && !disabled
 		Sequence: idle-lights
@@ -159,6 +161,8 @@ GACSAM:
 		AreaTypes: building
 	Replacement:
 		ReplaceableTypes: Tower
+	ActorStatValues:
+		Damage: 50
 
 NALASR:
 	Inherits: ^TurretedDefence
@@ -182,14 +186,16 @@ NALASR:
 	Armament:
 		Weapon: TurretLaserFire
 		LocalOffset: 625, 0, 575
-		RequiresCondition: !Building-Buildup
 		MuzzlePalette: jascredalpha
 		MuzzleSequence: muzzle
+		PauseOnCondition: Building-Buildup
 	WithMuzzleOverlay:
 	Power:
 		Amount: -40
 	RequiresBuildableArea:
 		AreaTypes: building
+	ActorStatValues:
+		Damage: 50
 
 NAOBEL:
 	Inherits: ^Defence
@@ -218,7 +224,7 @@ NAOBEL:
 		LocalOffset: 1980,297,1131
 		MuzzleSequence: muzzle
 		MuzzlePalette: obelpal
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup
 	AttackCharges:
 		PauseOnCondition: empdisable || disabled
 		ChargeLevel: 40
@@ -238,6 +244,8 @@ NAOBEL:
 		Amount: -110
 	IsometricSelectable:
 		DecorationHeight: 48
+	ActorStatValues:
+		Damage: 300
 
 NASAM:
 	Inherits: ^TurretedDefence
@@ -255,6 +263,8 @@ NASAM:
 	Armament:
 		Weapon: RedEye2
 		LocalOffset: 400,0,1024
+	ActorStatValues:
+		Damage: 50
 
 MUBUNKR:
 	Inherits: ^Defence
@@ -361,11 +371,11 @@ MUCANNON:
 		Weapon: ForgottenCannonWeapon
 		MuzzleSequence: muzzle
 		LocalOffset: 1400,0,700
-		RequiresCondition: !Building-Buildup && !empdisable
+		PauseOnCondition: Building-Buildup || empdisable
 	Armament@Casing:
 		Weapon: ForgottenCannonCasing
 		LocalOffset: 0,0,700
-		RequiresCondition: !Building-Buildup && !empdisable
+		PauseOnCondition: Building-Buildup || empdisable
 	-WithColoredOverlay@IDISABLE:
 	-GrantConditionOnPowerState@LOWPOWER:
 	-GrantCondition@IDISABLE:
@@ -373,6 +383,8 @@ MUCANNON:
 	-WithDecoration@POWERDOWN:
 	-PowerMultiplier@POWERDOWN:
 	-Power:
+	ActorStatValues:
+		Damage: 70
 
 MUFLAK:
 	Inherits: ^TurretedDefence
@@ -399,11 +411,11 @@ MUFLAK:
 		MuzzleSequence: muzzle
 		MuzzlePalette: apgrey
 		LocalOffset: 450,-200, 900, 450,200,900
-		RequiresCondition: !Building-Buildup && !empdisable
+		PauseOnCondition: Building-Buildup || empdisable
 	Armament@Casing:
 		Weapon: FlakFireCasing
 		LocalOffset: 200,-200, 700, 200,200,700
-		RequiresCondition: !Building-Buildup && !empdisable
+		PauseOnCondition: Building-Buildup || empdisable
 	-WithColoredOverlay@IDISABLE:
 	-GrantConditionOnPowerState@LOWPOWER:
 	-GrantCondition@IDISABLE:
@@ -411,6 +423,8 @@ MUFLAK:
 	-WithDecoration@POWERDOWN:
 	-PowerMultiplier@POWERDOWN:
 	-Power:
+	ActorStatValues:
+		Damage: 40
 
 CABPIT:
 	Inherits: ^Defence
@@ -443,7 +457,7 @@ CABPIT:
 		PauseOnCondition: empdisable
 	Armament:
 		Weapon: CabPitFighterSpawn
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup
 	CarrierMaster:
 		Actors: CABDRONEJET, CABDRONEJET, CABDRONEJET, CABDRONEJET, CABDRONEJET
 		RespawnTicks: 150
@@ -455,6 +469,8 @@ CABPIT:
 	-ToggleConditionOnOrder:
 	-WithDecoration@POWERDOWN:
 	-PowerMultiplier@POWERDOWN:
+	ActorStatValues:
+		Damage: 60
 
 CABBLAST:
 	Inherits: ^TurretedDefence
@@ -484,9 +500,11 @@ CABBLAST:
 		LocalOffset: 400,256,356, 400,-256,356, 300,256,920, 300,-256,920
 		MuzzlePalette: apgreen
 		MuzzleSequence: muzzle
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup
 	Power:
 		Amount: -75
+	ActorStatValues:
+		Damage: 300
 
 CABRAIL:
 	Inherits: ^TurretedDefence
@@ -504,7 +522,9 @@ CABRAIL:
 	Armament:
 		Weapon: CABRAILAA
 		LocalOffset: 600,400,2000, 600,-400,2000
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup
+	ActorStatValues:
+		Damage: 50
 
 SCRNEEDLER:
 	Inherits: ^TurretedDefence
@@ -529,9 +549,9 @@ SCRNEEDLER:
 	Armament@1:
 		Weapon: WasteTurretWeapon
 		LocalOffset: 1000,-100,500, 1000,100,500
-		RequiresCondition: !Building-Buildup
 		MuzzlePalette: gradientgreen60
 		MuzzleSequence: muzzle
+		PauseOnCondition: Building-Buildup
 	WithMuzzleOverlay:
 	SmokeParticleEmitter@spawnsmoke:
 		Palette: gradientgreen40
@@ -539,6 +559,8 @@ SCRNEEDLER:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	ActorStatValues:
+		Damage: 40
 
 SCRDRONE:
 	Inherits: ^Defence
@@ -568,8 +590,8 @@ SCRDRONE:
 	Armament:
 		Weapon: SrcinOrb
 		LocalOffset: 0, 0, 3000
-		RequiresCondition: !Building-Buildup
 		ReloadingCondition: charging
+		PauseOnCondition: Building-Buildup
 	Power:
 		Amount: -50
 	WithIdleOverlay@Charged1:
@@ -602,6 +624,8 @@ SCRDRONE:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	ActorStatValues:
+		Damage: 130
 
 SCRTRACTOR:
 	Inherits: ^TurretedDefence
@@ -623,31 +647,33 @@ SCRTRACTOR:
 	Armament@2:
 		Weapon: TractorBeam
 		LocalOffset: 512,600,1948
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup
 	Armament@3:
 		Weapon: TractorBeam2
 		LocalOffset: 512,-590,1948
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup
 	Armament@4:
 		Weapon: TractorBeam2
 		LocalOffset: 300,200,2400
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup
 	Armament@5:
 		Weapon: TractorBeam2
 		LocalOffset: 300,-190,2400
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup
 	Armament@6:
 		Weapon: TractorBeam2
 		LocalOffset: 512,200,1500
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup
 	Armament@7:
 		Weapon: TractorBeam2
 		LocalOffset: 512,-190,1500
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup
 	ThrowsShrapnel@SMALL:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	ActorStatValues:
+		Damage: 40
 
 GAPOWRUP:
 	Inherits: ^BuildingPlug
@@ -1367,8 +1393,8 @@ BLACKDEFD:
 	Armament@final:
 		Weapon: BlackCDefArtillery
 		LocalOffset: 0, -256, 2048
-		RequiresCondition: !Building-Buildup
 		ReloadingCondition: charging
+		PauseOnCondition: Building-Buildup
 	WithIdleOverlay@Charged:
 		Image: hugegreenplasma
 		Sequence: idle
@@ -1412,6 +1438,8 @@ BLACKDEFD:
 	-WithDecoration@POWERDOWN:
 	-PowerMultiplier@POWERDOWN:
 	-MapEditorData:
+	ActorStatValues:
+		Damage: 450
 
 BLACKDEFD2:
 	Inherits: BLACKDEFD

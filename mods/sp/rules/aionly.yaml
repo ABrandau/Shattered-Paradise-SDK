@@ -324,6 +324,8 @@ GHOST:
 		CloakEffectSequence: smokebomb
 		EffectTracksActor: false
 		EffectOffset: 0, 0, 800
+	ActorStatValues:
+		Damage: 200
 
 COREDEFENDER:
 	Inherits: ^Walker
@@ -519,6 +521,7 @@ COREDEFENDER:
 		Icon: icon
 		IconPalette: chrome
 		TooltipActor: defd
+		Damage: 1668
 
 DEFD:
 	Inherits: ^BasicBuilding
@@ -638,14 +641,16 @@ RTRIPOD:
 		PauseOnCondition: empdisable
 	AutoTarget:
 	Armament@primary1:
+		Damage: 120
 		Weapon: AnhTripodLaser
 		#LocalOffset: 700,0,4500, 1300,580,3700, 1050,-490,4100  #noattackanimation 100
 		#LocalOffset:  300,0,3880, 850,450,3350, 1200,-360,3050  #attackanimation 100
 		LocalOffset: 273,0,3531, 774,410,3049, 1092,-328,2898 #attackanimation 91
 		MuzzlePalette: scrinenergystuffs
 		MuzzleSequence: muzzle
-		PauseOnCondition: empdisable || charged || reload2
 		ReloadingCondition: reload1
+		PauseOnCondition: empdisable || reload2
+		RequiresCondition: !charged
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: absorbTib
 		CooldownTicks: 2000
@@ -674,13 +679,15 @@ RTRIPOD:
 		RequiresSelection: true
 		PipCount: 4
 	Armament@charged:
+		Damage: 240
 		Weapon: AnhTripodLaserCharged
 		LocalOffset: 273,0,3531, 774,410,3049, 1092,-328,2898 #attackanimation 91
 		Name: secondary
-		PauseOnCondition: empdisable || !charged || reload1
-		ReloadingCondition: reload2
 		MuzzlePalette: gradientgreen
 		MuzzleSequence: muzzle
+		ReloadingCondition: reload2
+		PauseOnCondition: empdisable || reload1
+		RequiresCondition: charged
 	WithMuzzleOverlay:
 	BodyOrientation:
 		QuantizedFacings: 8
@@ -724,7 +731,7 @@ GMRLS:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 29
-		Description: Artillery armed with long range anti-armor and anti-air rockets.\n\nGood vs: Vehicle, Air.\n\nSpecial:\n- Armor Type: Light\n- Deals AoE damage\n- Minimum attack distance\n- Can shoot over walls\n- Can crush infantry
+		Description: Artillery armed with long range anti-armor and anti-air rockets.\n\nGood vs: Vehicle, Air\n\nSpecial:\n- Armor Type: Light\n- Deals AoE damage\n- Minimum attack distance\n- Can shoot over walls\n- Can crush infantry
 		Prerequisites: ~gaweap, gatech,   ~AIOnly,  ~techlevel.5
 	Mobile:
 		TurnSpeed: 20
@@ -756,3 +763,5 @@ GMRLS:
 	WithFacingSpriteBody:
 	Selectable:
 		Bounds: 1400, 2100
+	ActorStatValues:
+		Damage: 120

@@ -30,6 +30,8 @@ GDIE1:
 		Armaments: OnFoot
 		FacingTolerance: 2
 	RenderSprites:
+	ActorStatValues:
+		Damage: 25
 
 GRENADIER:
 	Inherits: ^Soldier
@@ -79,6 +81,8 @@ GRENADIER:
 		FacingTolerance: 2
 	Passenger:
 		CustomPipType: blue
+	ActorStatValues:
+		Damage: 30
 
 MEDIC:
 	Inherits: ^Soldier
@@ -117,6 +121,8 @@ MEDIC:
 		CustomPipType: red
 	DamagedByTerrain:
 		RequiresCondition: !AImicroManage
+	ActorStatValues:
+		Damage: -75
 
 E2:
 	Inherits: ^Soldier
@@ -160,6 +166,8 @@ E2:
 		AttackSequences: throw
 	RenderSprites:
 		Image: e2
+	ActorStatValues:
+		Damage: 50
 
 JUMPJET:
 	Inherits: ^Soldier
@@ -214,6 +222,7 @@ JUMPJET:
 		Icon: icon
 		IconPalette: chrome
 		TooltipActor: jumpjetair
+		Damage: 50
 
 JUMPJETAIR:
 	Inherits: ^Aircraft
@@ -316,6 +325,8 @@ JUMPJETAIR:
 	SpawnActorOnDeath:
 		Actor: JUMPJET.Husk
 		RequiresCondition: airborne
+	ActorStatValues:
+		Damage: 50
 
 EAGLEGUARD:
 	Inherits: ^Soldier
@@ -357,6 +368,8 @@ EAGLEGUARD:
 		FacingTolerance: 2
 	Passenger:
 		CustomPipType: blue
+	ActorStatValues:
+		Damage: 60
 
 JJCOMM:
 	Inherits: ^Soldier
@@ -430,6 +443,8 @@ JJCOMM:
 		UndeployTicks: 500
 		DeployChance: 100
 	ProvidesPrerequisite@jjcomm:
+	ActorStatValues:
+		Damage: 200
 
 JJCOMMAIR:
 	Inherits: ^Aircraft
@@ -546,6 +561,7 @@ JJCOMMAIR:
 		Icon: icon
 		IconPalette: chrome
 		TooltipActor: jjcomm
+		Damage: 200
 
 ALTNODE1:
 	Inherits: ^Soldier
@@ -634,6 +650,8 @@ CRUSADER:
 	Passenger:
 		CustomPipType: blue
 	RenderSprites:
+	ActorStatValues:
+		Damage: 30
 
 TEMPLAR:
 	Inherits: ^Soldier
@@ -687,6 +705,8 @@ TEMPLAR:
 	RenderSprites:
 	-DamagedByTerrain:
 	-TakeCover:
+	ActorStatValues:
+		Damage: 40
 
 NCONF:
 	Inherits: ^Soldier
@@ -753,6 +773,8 @@ NCONF:
 	Passenger:
 		CustomPipType: blue
 	-TakeCover:
+	ActorStatValues:
+		Damage: 72
 
 BHS:
 	Inherits: ^Soldier
@@ -818,9 +840,14 @@ BHS:
 		CustomPipType: red
 	RenderSprites:
 	-DamagedByTerrain:
+	ActorStatValues:
+		Damage: 75
 
 FlameHologram:
 	Inherits: ^HologramSoldier
+	Inherits@VISION: ^6CellVision
+	Health:
+		HP: 10000
 	Armament:
 		Weapon: HologramMilitantRifle
 	RenderSprites:
@@ -835,6 +862,12 @@ FlameHologram:
 	-DeathSounds@NORMAL:
 	-DeathSounds@BURNED:
 	-DeathSounds@ZAPPED:
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: altnode1
+		Damage: 16
+		Sight: 12c0
 
 MARAUDER:
 	Inherits: ^Mutant
@@ -950,6 +983,8 @@ MARAUDER:
 		RequiresCondition: !AImicroManage && deployed
 	RejectsMoveToAttack:
 		RequiresCondition: !AImicroManage && deployed
+	ActorStatValues:
+		Damage: 23
 
 MUTFIEND:
 	Inherits: ^Mutant
@@ -1023,6 +1058,8 @@ MUTFIEND:
 		Delay: 20
 	Passenger:
 		CustomPipType: blue
+	ActorStatValues:
+		Damage: 30
 
 CUTMAN:
 	Inherits: ^Mutant
@@ -1096,6 +1133,8 @@ E3:
 		TargetFrozenActors: true
 		FacingTolerance: 2
 	-DamagedByTintedCells@Default:
+	ActorStatValues:
+		Damage: 40
 
 SEER:
 	Inherits: ^Mutant
@@ -1168,6 +1207,8 @@ SEER:
 		DeployTrigger: Attack
 	Passenger:
 		CustomPipType: blue
+	ActorStatValues:
+		Damage: 70
 
 PSYKER:
 	Inherits: ^Mutant
@@ -1214,6 +1255,8 @@ PSYKER:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	ActorStatValues:
+		Damage: 400
 
 SHARK:
 	Inherits: ^ScrinSoldier
@@ -1265,6 +1308,8 @@ SHARK:
 		IdleSequences: idle1, idle2, idle3, idle4
 	-TakeCover:
 	-DamagedByTintedCells@Default:
+	ActorStatValues:
+		Damage: 20
 
 LEGIO:
 	Inherits: ^ScrinSoldier
@@ -1318,6 +1363,8 @@ LEGIO:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	ActorStatValues:
+		Damage: 30
 
 SHAPESHIFTER:
 	Inherits: ENGINEER
@@ -1376,6 +1423,8 @@ FLOAT:
 		Armaments: OnFoot
 		FacingTolerance: 2
 	-TakeCover:
+	ActorStatValues:
+		Damage: -40
 
 BUG:
 	Inherits: ^ScrinSoldier
@@ -1423,6 +1472,8 @@ BUG:
 	-TakeCover:
 	Passenger:
 		CustomPipType: blue
+	ActorStatValues:
+		Damage: 20
 
 COLOSSI:
 	Inherits: ^ScrinSoldier
@@ -1506,6 +1557,8 @@ COLOSSI:
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: deployed
+	ActorStatValues:
+		Damage: 200
 
 MASTERMIND:
 	Inherits: ^ScrinSoldier
@@ -1674,6 +1727,10 @@ CABSENTRY:
 	#	Condition: initializing
 	Selectable:
 		Bounds: 664,1568,-30,-543
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		Damage: 12
 
 CYBORG:
 	Inherits: ^Cyborg
@@ -1712,6 +1769,8 @@ CYBORG:
 		Armaments: OnFoot
 		FacingTolerance: 2
 	SelectionDecorations:
+	ActorStatValues:
+		Damage: 66
 
 CBORG:
 	Inherits: ^Cyborg
@@ -1766,6 +1825,8 @@ CBORG:
 	RenderSprites:
 	Passenger:
 		CustomPipType: blue
+	ActorStatValues:
+		Damage: 30
 
 SWARMLING:
 	Inherits: ENGINEER
@@ -1868,6 +1929,8 @@ PDRONE:
 		Weapon: SimpleDroneExplode
 		EmptyWeapon: SimpleDroneExplode
 	-SpawnActorOnDeath@conversion:
+	ActorStatValues:
+		Damage: 63
 
 GLAD:
 	Inherits: ^Cyborg
@@ -1942,6 +2005,8 @@ GLAD:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	ActorStatValues:
+		Damage: 200
 
 MOTH:
 	Inherits: ^CabalDroneInfantry
@@ -2036,8 +2101,7 @@ MOTH:
 	-WithInfantryBody:
 	Armament@1:
 		Weapon: LurkerProj
-		RequiresCondition: deployed
-		PauseOnCondition: WebDisable || empdisable
+		PauseOnCondition: WebDisable || empdisable || !deployed
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GLurkerProj
@@ -2066,6 +2130,8 @@ MOTH:
 		DeployChance: 100
 		DeployTicks: 5
 		UndeployTicks: 50
+	ActorStatValues:
+		Damage: 110
 
 CYC2:
 	Inherits: ^Cyborg
@@ -2115,6 +2181,8 @@ CYC2:
 	SelectionDecorations:
 	Selectable:
 		DecorationBounds: 664,1568,-30,-723
+	ActorStatValues:
+		Damage: 300
 
 WORKER:
 	Inherits: ^CabalSoldier
@@ -2149,6 +2217,7 @@ WORKER:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
+		Damage: 8
 
 CYBDOG:
 	Inherits: ^CabalSoldier
@@ -2190,6 +2259,7 @@ CYBDOG:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
+		Damage: 8
 
 CHUSK:
 	Inherits: ^ScrinSoldier
@@ -2235,6 +2305,8 @@ CHUSK:
 		DeathSequencePalette: gensmkexploj
 	DeliversCash:
 		Payload: 75
+	ActorStatValues:
+		Damage: 16
 
 WORKERMECH:
 	Inherits: ^CabalDroneInfantry
@@ -2281,6 +2353,7 @@ WORKERMECH:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
+		Damage: 11
 
 NANOS:
 	Inherits: ^CabalDroneInfantry
@@ -2328,3 +2401,5 @@ NANOS:
 	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
 	-Crushable:
+	ActorStatValues:
+		Damage: 16

@@ -57,6 +57,8 @@ SMECH:
 		Weapon: WolverineVulcanLine
 		PauseOnCondition: empdisable
 		LocalOffset: 0,-270,600, 0,270,600
+	ActorStatValues:
+		Damage: 40
 
 MMCH:
 	Inherits: ^Walker
@@ -204,6 +206,8 @@ APC:
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
+	ActorStatValues:
+		Damage: 40
 
 HVR:
 	Inherits: ^HoverTank
@@ -251,6 +255,8 @@ HVR:
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
+	ActorStatValues:
+		Damage: 70
 
 JUG:
 	Inherits: ^Walker
@@ -300,6 +306,8 @@ JUG:
 		CameraPitch: 250
 	Carryable:
 		LocalOffset: 0,0,763
+	ActorStatValues:
+		Damage: 120
 
 SONIC:
 	Inherits: ^TurretedTank
@@ -343,6 +351,8 @@ SONIC:
 		CameraPitch: 240
 	Selectable:
 		Bounds: 1400, 2700, 0, -300 #1206,1809
+	ActorStatValues:
+		Damage: 200
 
 G4TNK:
 	Inherits: ^TurretedTank
@@ -404,6 +414,8 @@ G4TNK:
 	WithMuzzleOverlay:
 	Selectable:
 		Bounds: 1800, 2700
+	ActorStatValues:
+		Damage: 220
 
 HMEC:
 	Inherits: ^Tank
@@ -456,8 +468,9 @@ HMEC:
 		Notification: MammothDetected
 	AttackTurreted:
 		Voice: Attack
-		PauseOnCondition: empdisable
 		Turrets: primary, secondary, tertiary, quaternary
+		Armaments: primary, secondary, tertiary, quaternary
+		PauseOnCondition: empdisable
 	BodyOrientation:
 		QuantizedFacings: 8
 		CameraPitch: 250
@@ -471,18 +484,21 @@ HMEC:
 	Armament@M1:
 		Weapon: MKIITusk
 		LocalOffset: 0,0,2800
+		Name: secondary
 		Turret: secondary
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 	Armament@M1AA:
 		Weapon: MKIITuskAA
 		LocalOffset: 0,0,2800
+		Name: secondary
 		Turret: secondary
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 	Armament@M2:
 		Weapon: MKIITusk
 		LocalOffset: 0,0,2800
+		Name: tertiary
 		Turret: tertiary
 		FireDelay: 5
 		ReloadingCondition: reload-ground
@@ -490,6 +506,7 @@ HMEC:
 	Armament@M2AA:
 		Weapon: MKIITuskAA
 		LocalOffset: 0,0,2800
+		Name: tertiary
 		Turret: tertiary
 		FireDelay: 5
 		ReloadingCondition: reload-air
@@ -505,6 +522,7 @@ HMEC:
 		MuzzleSequence: muzzle2
 	Armament@gun:
 		Weapon: MKIIVulcan
+		Name: quaternary
 		Turret: quaternary
 		LocalOffset: 0,0,1400
 		PauseOnCondition: empdisable
@@ -512,6 +530,7 @@ HMEC:
 		Weapon: MKIIVulcanCasing
 		MuzzleSequence: muzzle
 		LocalOffset: 0,0,1400
+		Name: quaternary
 		Turret: quaternary
 		PauseOnCondition: empdisable
 	Armament@gunLine:
@@ -569,6 +588,9 @@ HMEC:
 	VoiceAnnouncement:
 		RequiresCondition: produced
 		Voice: Build
+	ActorStatValues:
+		Damage: 720
+		Armaments: primary
 
 NODMCV:
 	Inherits: MCV
@@ -1033,6 +1055,8 @@ ATTACKBIKE:
 		PauseOnCondition: empdisable
 		FacingTolerance: 64
 		MustFaceTarget: true
+	ActorStatValues:
+		Damage: 50
 
 TTNK:
 	Inherits: ^Tank
@@ -1157,12 +1181,14 @@ TTNK:
 		DeployTrigger: Attack
 		DeployTicks: 5
 		UndeployTicks: 50
+	ActorStatValues:
+		Damage: 50
 
 TICKHOLOGRAM:
 	Inherits: ^Tank
 	Inherits@1: ^SpriteActor
 	Inherits@HOLOGRAM: ^HologramKillTimer
-	Inherits@VISION: ^3CellVision
+	Inherits@VISION: ^7CellVision
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	GivesExperience:
 		Experience: 50
@@ -1220,6 +1246,12 @@ TICKHOLOGRAM:
 	-SpawnActorOnDeath@nanomachinereanimate:
 	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@ScrinEssence:
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: ttnk
+		Damage: 50
+		Sight: 14c0
 
 BIKE:
 	Inherits: ^Vehicle
@@ -1371,6 +1403,8 @@ SUBTANK:
 		RequiresCondition: !submerged && !inside-tunnel
 	WithDecoration@UNDERGROUND:
 		RequiresCondition: inside-tunnel || submerged
+	ActorStatValues:
+		Damage: 112
 
 HOWTLIZER:
 	Inherits: ^Tank
@@ -1427,6 +1461,8 @@ HOWTLIZER:
 	-MustBeDestroyed:
 	Selectable:
 		Bounds: 1400, 2100
+	ActorStatValues:
+		Damage: 280
 
 STNK:
 	Inherits: ^TurretedTank
@@ -1493,6 +1529,8 @@ STNK:
 	Voiced:
 		VoiceSet: StealthTankVO
 		Volume: 7
+	ActorStatValues:
+		Damage: 180
 
 SCORPION:
 	Inherits: ^Tank
@@ -1625,6 +1663,9 @@ SCORPION:
 	VoiceAnnouncement:
 		RequiresCondition: produced
 		Voice: Build
+	ActorStatValues:
+		Damage: 312
+		Armaments: laserFire, fireArmament
 
 #####################################################################
 # FORGOTTEN
@@ -1723,6 +1764,8 @@ MUTQUAD:
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
+	ActorStatValues:
+		Damage: 80
 
 LYNX:
 	Inherits: ^Tank
@@ -1775,6 +1818,8 @@ LYNX:
 		Weapon: LynxCannonShellCasing
 		LocalOffset: 0,0,600
 		PauseOnCondition: empdisable
+	ActorStatValues:
+		Damage: 50
 
 STRUCK:
 	Inherits: ^Tank
@@ -1923,6 +1968,8 @@ WOLF:
 		FacingTolerance: 64
 		MustFaceTarget: true
 	-AttackFrontal:
+	ActorStatValues:
+		Damage: 37
 
 MRLS:
 	Inherits: ^Tank
@@ -1975,6 +2022,8 @@ MRLS:
 	SmokeParticleEmitter@spawnsmoke:
 		Image: scrsmoke
 		Palette: gradientgreen40
+	ActorStatValues:
+		Damage: 240
 
 DEATHCLAW:
 	Inherits: ^Beast
@@ -2020,6 +2069,8 @@ DEATHCLAW:
 		Volume: 1.5
 	AttackFrontal:
 		FacingTolerance: 2
+	ActorStatValues:
+		Damage: 50
 
 HVRTRUK3:
 	Inherits@: ^HoverVehicle
@@ -2146,14 +2197,16 @@ WEASAU:
 		FacingTolerance: 6
 		Armaments: breath, melee
 	Armament@breath:
+		Name: breath
+		Damage: 100
 		Weapon: WeasaurusSpit
 		LocalOffset: 1100,0,1350
-		Name: breath
 		RequiresCondition: !deployed
 	Armament@melee:
+		Name: melee
+		Damage: 75
 		Weapon: WeasaurusStrike
 		LocalOffset: 1100,0,1350
-		Name: melee
 		RequiresCondition: deployed
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: deployed
@@ -2283,6 +2336,7 @@ WEASAUSMALL:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
+		Damage: 40
 
 ###########################################################
 # CABAL
@@ -2381,6 +2435,8 @@ CENTURION:
 		Offset: 0,0,1000
 	Carryable:
 		LocalOffset: 0,0,512
+	ActorStatValues:
+		Damage: 15
 
 REAPERCAB:
 	Inherits: ^Walker
@@ -2447,6 +2503,9 @@ REAPERCAB:
 	BodyOrientation:
 		QuantizedFacings: 8
 	DeathSounds:
+	ActorStatValues:
+		Damage: 160
+		Armaments: primary
 
 LIMPED:
 	Inherits: ^HoverVehicle
@@ -2561,6 +2620,8 @@ LIMPED:
 		Sequences: idle2
 		Offsets: 0,500,0
 		TrailWhileStationary: false
+	ActorStatValues:
+		Damage: 150
 
 REPAIRVEHICLE:
 	Inherits: ^Tank
@@ -2608,6 +2669,8 @@ REPAIRVEHICLE:
 	Voiced:
 		VoiceSet: Limpet
 	WithFacingSpriteBody:
+	ActorStatValues:
+		Damage: -40
 
 CABAPC:
 	Inherits: ^HoverVehicle
@@ -2705,6 +2768,8 @@ SPIDERARTY:
 		EmptyWeapon: BigUnitExplode
 	Carryable:
 		LocalOffset: 0,0,763
+	ActorStatValues:
+		Damage: 36
 
 PALADIN:
 	Inherits: ^Walker
@@ -2765,6 +2830,8 @@ PALADIN:
 	Explodes:
 		Weapon: BigUnitExplode
 		EmptyWeapon: BigUnitExplode
+	ActorStatValues:
+		Damage: 200
 
 BCOREDEF:
 	Inherits: ^Walker
@@ -2891,6 +2958,7 @@ BCOREDEF:
 		Icon: icon
 		IconPalette: chrome
 		TooltipActor: blackdefd
+		Damage: 238
 
 ###########################################################
 # SCRIN
@@ -2949,6 +3017,8 @@ CORRUPTOR:
 	-DamagedByTintedCells@Default:
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
+	ActorStatValues:
+		Damage: 98
 
 SCRMBT:
 	Inherits: ^HoverTank
@@ -3003,6 +3073,8 @@ SCRMBT:
 		StartDelay: -1
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
+	ActorStatValues:
+		Damage: 90
 
 SCRSCORPION:
 	Inherits: ^Walker
@@ -3119,6 +3191,8 @@ SCRGLYDER2:
 		StartDelay: -1
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
+	ActorStatValues:
+		Damage: 90
 
 SCRRECHARGER:
 	Inherits: ^Walker
@@ -3187,6 +3261,8 @@ SCRRECHARGER:
 		Offset: 0, 0, 1800
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
+	ActorStatValues:
+		Armaments: None
 
 SCRMOBMINE:
 	Inherits@: ^HoverVehicle
@@ -3334,3 +3410,5 @@ TRIPOD:
 	Explodes:
 		Weapon: TripodExplode
 		EmptyWeapon: TripodExplode
+	ActorStatValues:
+		Damage: 250

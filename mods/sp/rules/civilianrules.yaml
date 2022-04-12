@@ -17,6 +17,8 @@ WEEDGUY:
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
+	ActorStatValues:
+		Damage: 125
 
 UMAGON:
 	Inherits: ^Mutant
@@ -39,6 +41,10 @@ UMAGON:
 		PauseOnCondition: WebDisable
 	WithInfantryBody:
 		AttackSequences: shoot
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		Damage: 150
 
 CHAMSPY:
 	Inherits: ^Soldier
@@ -64,6 +70,9 @@ CHAMSPY:
 		Types: SpyInfiltrate
 	WithInfantryBody:
 		AttackSequences: shoot
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 
 MUTANT:
 	Inherits: ^Mutant
@@ -85,6 +94,8 @@ MUTANT:
 		PauseOnCondition: WebDisable
 	WithInfantryBody:
 		AttackSequences: shoot
+	ActorStatValues:
+		Damage: 15
 
 MWMN:
 	Inherits: ^Mutant
@@ -106,6 +117,8 @@ MWMN:
 		PauseOnCondition: WebDisable
 	WithInfantryBody:
 		AttackSequences: shoot
+	ActorStatValues:
+		Damage: 15
 
 MUTANT3:
 	Inherits: ^Mutant
@@ -127,6 +140,8 @@ MUTANT3:
 		PauseOnCondition: WebDisable
 	WithInfantryBody:
 		AttackSequences: shoot
+	ActorStatValues:
+		Damage: 15
 
 TRATOS:
 	Inherits: ^Mutant
@@ -227,6 +242,8 @@ CIV3:
 		Image: ciliviantnk
 	WithInfantryBody: ## support tracks motion animation
 		RequiresCondition: !inside-tunnel
+	ActorStatValues:
+		Damage: 50
 
 ^TRUCK:
 	Inherits: ^CivilianVoxelVehicle
@@ -304,6 +321,9 @@ WEED:
 		RequiresSelection: true
 		PipCount: 7
 		ValidRelationships: Ally, Neutral, Enemy
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 
 BUS:
 	Inherits: ^CivilianSpriteVehicle
@@ -2304,7 +2324,7 @@ TENT1:
 	Inherits: ^CivBuilding
 	Inherits@2: ^1x2Shape
 	Tooltip:
-		Name: Military tent
+		Name: Military Tent
 	Building:
 		Footprint: x x
 		Dimensions: 1, 2
@@ -2447,7 +2467,7 @@ CARGOSHIP01:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Tooltip:
-		Name: Cargo ship
+		Name: Cargo Ship
 	Valued:
 		Cost: 700
 	Health:
@@ -2464,7 +2484,7 @@ FISHINGSHIP01:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Tooltip:
-		Name: Fishing ship
+		Name: Fishing Ship
 	Valued:
 		Cost: 700
 	Health:
@@ -2491,6 +2511,8 @@ GDIHYPERION:
 		LocalOffset: 1200,0,600
 		PauseOnCondition: empdisable
 		MuzzleSequence: muzzle
+	ActorStatValues:
+		Damage: 200
 
 ###################################################
 # SITUATIONAL
