@@ -1683,9 +1683,6 @@ CABSENTRY:
 		Experience: 50
 	Tooltip:
 		Name: Sentry Drone
-	Explodes:
-		Weapon: SimpleDroneExplode
-		EmptyWeapon: SimpleDroneExplode
 	Voiced:
 		VoiceSet: Limpet
 	-ActorLostNotification:
@@ -1718,6 +1715,7 @@ CABSENTRY:
 	RenderSprites:
 	AttackFrontal:
 		Voice: Attack
+		FacingTolerance: 2
 	SelectionDecorations:
 	-WithInfantryBody:
 	WithFacingSpriteBody:
@@ -1731,6 +1729,14 @@ CABSENTRY:
 		Icon: icon
 		IconPalette: chrome
 		Damage: 12
+	WithDeathAnimation:
+		FallbackSequence: die
+		DeathSequence: die
+		DeathSequencePalette: effect
+		DeathPaletteIsPlayerPalette: false
+		UseDeathTypeSuffix: false
+		CrushedSequence: die
+		CrushedSequencePalette: effect
 
 CYBORG:
 	Inherits: ^Cyborg
