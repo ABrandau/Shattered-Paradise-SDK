@@ -465,35 +465,8 @@ blackBlast:
 		SegmentLength: 1024
 		Colors: 0000AB99
 	Warhead@1Dam: SpreadDamage
-		Damage: 12500
-		Versus:
-			Infantry: 100
-			Building: 80
-			Defense: 50
-			Heavy: 50
-			Concrete: 30
-		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
-	Warhead@4Eff: CreateEffect
-		Explosions: blackhole
-		ExplosionPalette: jascbluealpha
-		ImpactActors: false
-		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-		AirThreshold: 8c0
-	Warhead@later: FireFragment
-		Delay: 0
-		ImpactActors: false
-		Weapon: blackBlastFinal
-		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-		AirThreshold: 8c0
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: SmallScorch
-		InvalidTargets: Vehicle, Building, Wall
-
-blackBlastFinal:
-	Inherits: ^RifleWarhead
-	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
-		Damage: 12500
+		Damage: 25000
 		Versus:
 			Infantry: 100
 			Building: 80
@@ -501,6 +474,9 @@ blackBlastFinal:
 			Heavy: 50
 			Concrete: 30
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath, ScrinEssenceKill
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall
 	Warhead@2Eff: CreateEffect
 		Explosions: tripodshockwave
 		ExplosionPalette: jascbluealpha
@@ -512,6 +488,12 @@ blackBlastFinal:
 		ImpactActors: false
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 		ImpactSounds: expnew14.aud, expnew19.aud, expnew18.aud
+	Warhead@4Eff: CreateEffect
+		Explosions: blackhole
+		ExplosionPalette: jascbluealpha
+		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+		AirThreshold: 8c0
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Range: 512
 		Duration: 750
