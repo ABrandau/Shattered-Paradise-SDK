@@ -416,16 +416,6 @@ ScorpGas:
 		ExplosionPalette: jascbluealphaalpha50
 		ImpactActors: false
 		ValidTargets: Infantry, Vehicle, Ground, Water
-	# Warhead@3: SpawnSmokeParticle
-	#	Image: ichorsmoke
-	#	ImpactActors: false
-	#	Sequences: full
-	#	Duration: 50
-	#	Palette: jascbluealphaalpha50
-	#	Delay: 0
-	#	Weapon: foggydebuff
-	#	ValidTargets: Infantry, Vehicle, Ground, Water
-	#	InvalidTargets: Building, Wall
 
 foggydebuff:
 	Warhead@Acid: GrantExternalCondition
@@ -450,7 +440,7 @@ blackBlastdec:
 		ZOffset: 7000
 		SegmentLength: 1024
 		Colors: 0000A988
-		Distortion: 256
+		Distortion: 288
 	Warhead@1Dam: TargetDamage
 		Damage: 0
 
@@ -474,7 +464,7 @@ blackBlast:
 			Defense: 50
 			Heavy: 50
 			Concrete: 30
-		DamageTypes: Prone70Percent, TriggerProne, FireDeath, ScrinEssenceKill
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
@@ -485,7 +475,7 @@ blackBlast:
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 	Warhead@3Eff: CreateEffect
 		Explosions: tripodfire
-		ExplosionPalette: jascblue
+		ExplosionPalette: jascbluealpha
 		ImpactActors: false
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 		ImpactSounds: expnew14.aud, expnew19.aud, expnew18.aud
