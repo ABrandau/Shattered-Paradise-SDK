@@ -60,12 +60,14 @@ ORCA:
 		Offset: -25, 100, -650
 		RequiresCondition: airborne
 		Palette: effect
+		IsDecoration: true ## so this doesn't have shadow
 	WithIdleOverlay@Wind2:
 		Image: orcawind
 		Sequence: idle
 		Offset: -25, -100, -650
 		RequiresCondition: airborne
 		Palette: effect
+		IsDecoration: true ## so this doesn't have shadow
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -134,12 +136,14 @@ ORCAB:
 		Offset: 150, 350, -550
 		RequiresCondition: airborne
 		Palette: effect
+		IsDecoration: true ## so this doesn't have shadow
 	WithIdleOverlay@Wind2:
 		Image: orcawind
 		Sequence: idle
 		Offset: 150, -350, -550
 		RequiresCondition: airborne
 		Palette: effect
+		IsDecoration: true ## so this doesn't have shadow
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -527,19 +531,13 @@ CERBERUS:
 		DisableSound: cloak5.aud
 		AffectsParent: false
 		RequiresCondition: !Attacking && !reloading
-	-WithShadow:
-	-WithShadow@2:
-	WithFacingSpriteBody@Shadow: ## Note: use this to reduce performance cost. Don't use this method on those can cloak
-		ForceToGround: true
-		Palette: shadow
-		Name: shadow
-		RequiresCondition: airborne
 	WithIdleOverlay@cloakgeneratoreff:
 		Sequence: cloakgeneratorwave
 		Offset: -25, 0, 0
 		RequiresCondition: !Attacking && !reloading
 		Image: explosion
 		Palette: effectalpha10
+		IsDecoration: true ## so this doesn't have shadow
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel
@@ -1558,6 +1556,13 @@ WASP:
 		Actor: WASP.Husk
 	ActorStatValues:
 		Damage: 60
+	WithIdleOverlay@Wind:
+		Image: flywave
+		Sequence: idle
+		Offset: 128, 0, -300
+		RequiresCondition: airborne
+		Palette: apcyan
+		IsDecoration: true ## so this doesn't have shadow
 
 FIREFLY:
 	Inherits: ^CombatHelicopter
