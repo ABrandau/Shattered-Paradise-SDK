@@ -488,6 +488,7 @@
 		Sequence: bullparticle
 		Palette: gradientgreen60
 		RequiresCondition: WolfDebuff
+		IsDecoration: true ## so this doesn't affect by cloak palette
 	ReloadDelayMultiplier@WolfDebuff:
 		RequiresCondition: WolfDebuff
 		Modifier: 130
@@ -776,6 +777,7 @@
 		IsPlayerPalette: true
 		Palette: player
 		RequiresCondition: veinholedrain
+		IsDecoration: true ## so this doesn't affect by cloak palette
 	GrantConditionOnTerrain@VEINS:
 		TerrainTypes: Veins
 		Condition: veinholedrain
@@ -786,6 +788,7 @@
 		IsPlayerPalette: true
 		Palette: cloakscrin
 		RequiresCondition: BugPoison
+		IsDecoration: true ## so this doesn't affect by cloak palette
 	ChangesHealth@BugPoison:
 		PercentageStep: -1
 		Step: 0
@@ -830,6 +833,7 @@
 		Palette: effect
 		RequiresCondition: empdisable
 		Offset: 0,0,512
+		IsDecoration: true ## so this doesn't affect by cloak palette
 	ExternalCondition@empdisable:
 		Condition: empdisable
 
@@ -903,6 +907,7 @@
 		Sequence: idle-big
 		Palette: gradientgray60
 		RequiresCondition: nanomachinerecovery
+		IsDecoration: true ## so this doesn't affect by cloak palette
 	SpawnActorOnDeath@nanomachinereanimate:
 		RequiresCondition: nanomachinereanimate
 		Actor: KILLEDACTOR
@@ -927,6 +932,7 @@
 		IsPlayerPalette: true
 		Palette: cloakscrinshield
 		RequiresCondition: VanguardShield && BreakShield < 4
+		IsDecoration: true ## so this doesn't affect by cloak palette
 	ExternalCondition@VanguardShield:
 		Condition: VanguardShield
 	ExternalCondition@BreakShield:
@@ -971,6 +977,7 @@
 		Image: Explosion
 		Sequence: fire1
 		Palette: effect
+		IsDecoration: true ## so this doesn't affect by cloak palette
 
 ^DamagedByTintedCells: #Damage = DamageCoeff * RadioactivityLevel / MaxLevel
 	DamagedByTintedCells@Default:
@@ -3010,6 +3017,7 @@
 	SmokeParticleEmitter@spawnsmoke:
 		Image: scrsmoke
 		Palette: gradientblue20
+		RequiresCondition: HeavyDamaged && !cloaking-self
 	Building:
 		BuildSounds: scrinplacebuilding.wav
 
@@ -3017,11 +3025,13 @@
 	Inherits: ^SpawnFire
 	WithIdleOverlay@SpawnFire:
 		Sequence: scrinfire1
+		RequiresCondition: HeavyDamaged && !cloaking-self
 
 ^ScrinDefenceFire:
 	Inherits: ^ScrinBuildingFire
 	WithIdleOverlay@SpawnFire:
 		Sequence: scrinfire2
+		RequiresCondition: HeavyDamaged && !cloaking-self
 
 ^ScrinAircratVoice:
 	Voiced:

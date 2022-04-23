@@ -600,24 +600,28 @@ SCRDRONE:
 		Offset: 0, 0, 3000
 		RequiresCondition: !Building-Buildup && !charging  && !empdisable && !disabled
 		Palette: scrinenergystuffsalpha
+		IsDecoration: true ## so this doesn't affect by cloak palette
 	WithIdleOverlay@Charged2:
 		Image: pulsar
 		Sequence: sorb
 		Offset: 0, 0, 3000
 		RequiresCondition: !Building-Buildup && !charging && !empdisable && !disabled
 		Palette: scrinenergystuffs
+		IsDecoration: true ## so this doesn't affect by cloak palette
 	WithIdleOverlay@Charging1:
 		Image: pulsar
 		Sequence: sorbpulsetiny
 		Offset: 0, 0, 3000
 		RequiresCondition: !Building-Buildup && charging && !empdisable && !disabled
 		Palette: scrinenergystuffs
+		IsDecoration: true ## so this doesn't affect by cloak palette
 	WithIdleOverlay@Charging2:
 		Image: pulsar
 		Sequence: sorbtiny
 		Offset: 0, 0, 3000
 		RequiresCondition: !Building-Buildup && charging && !empdisable && !disabled
 		Palette: scrinenergystuffs
+		IsDecoration: true ## so this doesn't affect by cloak palette
 	IsometricSelectable:
 		DecorationHeight: 52
 	ThrowsShrapnel@SMALL:
@@ -752,6 +756,7 @@ GAFIRE:
 		RequiresCondition: FirestormGen && !Building-Buildup && !empdisable
 		Palette: apolbluealpha
 		Offset: 80, 370, 0
+		IsDecoration: true ## so this doesn't affect by cloak palette
 	Power:
 		Amount: -100
 	ProvidesPrerequisite@buildingname:
@@ -878,6 +883,7 @@ NASTLH:
 		RequiresCondition: !disabled && !Building-Buildup && !empdisable
 		Image: explosion
 		Palette: effectalpha10
+		IsDecoration: true ## so this doesn't affect by cloak palette
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 	-ExternalCondition@crate-cloak:
@@ -1086,6 +1092,7 @@ SCREXTRACTOR:
 		Image: shieldpower
 		Palette: scrinenergystuffsalpha
 		Offset: 0, 0, 1800
+		IsDecoration: true ## so this doesn't affect by cloak palette
 	ThrowsShrapnel@SMALL:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
@@ -1193,6 +1200,7 @@ CABEYE:
 CABSW1:
 	Inherits: ^Defence
 	Inherits@1: ^SuperWeapon
+	Inherits@4: ^WithTriggerCloakEffect-Building
 	Inherits@RENDER: ^CabRenderBuilding
 	Inherits@SHAPE: ^3x3Shape
 	Valued:
@@ -1325,6 +1333,7 @@ MUMINE:
 
 BLACKDEFD:
 	Inherits: ^Defence
+	Inherits@4: ^WithTriggerCloakEffect-Building
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -1398,12 +1407,14 @@ BLACKDEFD:
 		Offset: 0, -256, 2048
 		RequiresCondition: !Building-Buildup && !charging && !empdisable
 		Palette: apgreen
+		IsDecoration: true ## so this doesn't affect by cloak palette
 	WithIdleOverlay@Charging:
 		Image: greenplasma2
 		Sequence: idle
 		Offset: 0, -256, 2048
 		RequiresCondition: !Building-Buildup && charging && !empdisable
 		Palette: jascgreen
+		IsDecoration: true ## so this doesn't affect by cloak palette
 	WithDecoration@CommandoIcon:
 		Position: Top
 	WithDecoration@rank-veteran:
