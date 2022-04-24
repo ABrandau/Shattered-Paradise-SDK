@@ -57,16 +57,16 @@ ORCA:
 	WithIdleOverlay@Wind1:
 		Image: orcawind
 		Sequence: idle
-		Offset: -25, 100, -650
+		Offset: -5, 105, -700
 		RequiresCondition: airborne
-		Palette: effect
+		Palette: apgrey
 		IsDecoration: true ## so this doesn't have shadow
 	WithIdleOverlay@Wind2:
 		Image: orcawind
 		Sequence: idle
-		Offset: -25, -100, -650
+		Offset: -5, -95, -700
 		RequiresCondition: airborne
-		Palette: effect
+		Palette: apgrey
 		IsDecoration: true ## so this doesn't have shadow
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
@@ -133,16 +133,16 @@ ORCAB:
 	WithIdleOverlay@Wind1:
 		Image: orcawind
 		Sequence: idle
-		Offset: 150, 350, -550
+		Offset: 150, 350, -600
 		RequiresCondition: airborne
-		Palette: effect
+		Palette: apgrey
 		IsDecoration: true ## so this doesn't have shadow
 	WithIdleOverlay@Wind2:
 		Image: orcawind
 		Sequence: idle
-		Offset: 150, -350, -550
+		Offset: 150, -350, -600
 		RequiresCondition: airborne
-		Palette: effect
+		Palette: apgrey
 		IsDecoration: true ## so this doesn't have shadow
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
@@ -1727,6 +1727,27 @@ DEVOURER:
 		Name: Nomnomnom
 	BodyOrientation:
 		QuantizedFacings: 8
+	WithIdleOverlay@Wind1:
+		Image: cybl_jetflame
+		Sequence: idle
+		Offset: 950, 19, -1900
+		RequiresCondition: airborne
+		Palette: apcybl
+		IsDecoration: true ## so this doesn't have shadow
+	WithIdleOverlay@Wind2:
+		Image: cybl_jetflame
+		Sequence: idle
+		Offset: -475, 839, -1900
+		RequiresCondition: airborne
+		Palette: apcybl
+		IsDecoration: true ## so this doesn't have shadow
+	WithIdleOverlay@Wind3:
+		Image: cybl_jetflame
+		Sequence: idle
+		Offset: -475, -807, -1900
+		RequiresCondition: airborne
+		Palette: apcybl
+		IsDecoration: true ## so this doesn't have shadow
 	SpawnActorOnDeath:
 		RequiresCondition: airborne
 		Actor: DEVOURER.Husk
