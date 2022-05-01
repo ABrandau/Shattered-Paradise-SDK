@@ -314,6 +314,10 @@ KILLEDACTOR:
 VEINHOLESPAWNERDUMMY:
 	Inherits: ^GROUNDDUMMY
 	Inherits@2: ^WithDeathEffects
+	Mobile: ## Hack: to make SpawnActorWarhead spawn it on bare ground
+		Speed: 1
+		Locomotor: Infantry
+	-Immobile:
 	KillsSelf@TimedLife:
 		Delay: 0
 	SpawnActorOnDeath@cabalcrate:

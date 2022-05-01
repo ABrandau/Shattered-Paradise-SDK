@@ -1059,24 +1059,22 @@ VeinholeSummonerWeapon:
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
 	Warhead@5Actor: SpawnActor
 		Actors: veinholespawnerdummy
-		FallRate: 5000
-		Range: 3
-	Warhead@4Sharpnel: FireShrapnel
+		Range: 15
+	Warhead@4Sharpnel: FireRadius
 		Weapon: VeinholeShrapnel
 		ImpactActors: false
 		Amount: 4
-		AllowDirectHit: false
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
-		InvalidTargets: Infantry, Vehicle, Building, Wall
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
 
 VeinholeShrapnel:
-	Range: 5c0
-	MinRange: 4c0
+	Range: 4c512
 	Projectile: InstantHit
 	Warhead@5Actor: SpawnActor
 		Actors: veinholespawnerdummy
-		FallRate: 5000
-		Range: 3
+		ForceGround: true
+		Range: 15
+		AirThreshold: 8c0
 
 ColossiSummonerWeapon:
 	ReloadDelay: 8
