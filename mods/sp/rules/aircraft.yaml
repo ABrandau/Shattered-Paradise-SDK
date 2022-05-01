@@ -162,6 +162,7 @@ DSHP:
 	Tooltip:
 		Name: Dropship
 	Aircraft:
+		CruiseAltitude: 15c0
 		TurnSpeed: 40
 		Speed: 400
 		InitialFacing: 0
@@ -194,10 +195,17 @@ DSHP:
 	RenderVoxels:
 		Scale: 20
 	-WithFacingSpriteBody:
+	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@CLOAKGENERATOR:
+	-ExternalCondition@crate-cloak:
 	Cloak@Dropship:
 		RequiresCondition: !DropshipCloak
-		IsPlayerPalette: true
-		DetectionTypes: JohnCena
+		Palette: nothing
+		DetectionTypes: HighAbove
+		CloakDelay: 0
+		InitialDelay: 0
+		CloakSound: dropup1.aud
+		UncloakSound: dropdwn1.aud
 	ExternalCondition@DropshipCloak:
 		Condition: DropshipCloak
 	Interactable:
