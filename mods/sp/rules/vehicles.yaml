@@ -1135,7 +1135,7 @@ TTNK:
 		CanDeployOnRamps: true
 		UndeployOnMove: true
 		UndeploySounds: clicky1.aud
-		PauseOnCondition: RefineryLock && !deployed
+		PauseOnCondition: !deployed
 		RequiresCondition: !inside-tunnel && !empdisable
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
@@ -1174,8 +1174,6 @@ TTNK:
 		Armaments: DeployedArm
 		RequiresCondition: deployed
 		PauseOnCondition: empdisable
-	ExternalCondition@RefineryLock:
-		Condition: RefineryLock
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && undeployed
 		DeployChance: 100
@@ -2556,10 +2554,8 @@ LIMPED:
 		SmartDeploy: true
 		UndeployOnMove: true
 		CanDeployOnRamps: true
-		PauseOnCondition: RefineryLock && !deployed
+		PauseOnCondition: !deployed
 		RequiresCondition: !inside-tunnel && !empdisable
-	ExternalCondition@RefineryLock:
-		Condition: RefineryLock
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: deployed

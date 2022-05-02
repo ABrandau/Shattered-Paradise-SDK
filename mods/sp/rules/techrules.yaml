@@ -606,7 +606,7 @@ LPST:
 		CanDeployOnRamps: true
 		UndeployOnMove: true
 		UndeploySounds: clicky1.aud
-		PauseOnCondition: RefineryLock && !deployed
+		PauseOnCondition: !deployed
 		RequiresCondition: !inside-tunnel && !empdisable
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
@@ -632,8 +632,6 @@ LPST:
 		RequiresCondition: !undeployed
 		Range: 15c0
 		MaxHeightDelta: 3
-	ExternalCondition@RefineryLock:
-		Condition: RefineryLock
 	### AI Control
 	Wanders@AI:
 		RequiresCondition: AImicroManage
@@ -680,7 +678,7 @@ SGEN:
 		CanDeployOnRamps: true
 		UndeployOnMove: true
 		UndeploySounds: clicky1.aud
-		PauseOnCondition: RefineryLock && !deployed
+		PauseOnCondition: !deployed
 		RequiresCondition: !inside-tunnel && !empdisable
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
@@ -717,8 +715,6 @@ SGEN:
 		Image: explosion
 		Palette: effectalpha10
 		Duration: 18
-	ExternalCondition@RefineryLock:
-		Condition: RefineryLock
 	### AI Control
 	Wanders@AI:
 		RequiresCondition: AImicroManage

@@ -2077,7 +2077,7 @@ MOTH:
 		SmartDeploy: true
 		UndeployOnMove: true
 		CanDeployOnRamps: true
-		PauseOnCondition: RefineryLock && !deployed
+		PauseOnCondition: !deployed
 		RequiresCondition: !inside-tunnel && !WebDisable && !empdisable
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
@@ -2128,8 +2128,6 @@ MOTH:
 		BorderWidth: 0
 		Width: 2
 	-Crushable:
-	ExternalCondition@RefineryLock:
-		Condition: RefineryLock
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && !deployed
 		DeployTrigger: Attack
