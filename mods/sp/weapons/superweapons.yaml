@@ -1059,7 +1059,10 @@ VeinholeSummonerWeapon:
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
 	Warhead@5Actor: SpawnActor
 		Actors: veinholespawnerdummy
+		ForceGround: true
 		Range: 15
+		AirThreshold: 8c0
+		ValidTargets: Ground, Water, Air
 	Warhead@4Sharpnel: FireRadius
 		Weapon: VeinholeShrapnel
 		ImpactActors: false
@@ -1075,6 +1078,7 @@ VeinholeShrapnel:
 		ForceGround: true
 		Range: 15
 		AirThreshold: 8c0
+		ValidTargets: Ground, Water, Air
 
 ColossiSummonerWeapon:
 	ReloadDelay: 8
