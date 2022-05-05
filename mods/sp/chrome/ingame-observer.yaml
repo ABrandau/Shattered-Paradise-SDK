@@ -199,8 +199,10 @@ Container@OBSERVER_WIDGETS:
 					Visible: false
 				Background@OPENED_BACKGROUND:
 					Logic: IngameActorStatsLogic
-						IconCount: 3
-						IconSpacing: 14, 2
+						LargeIconCount: 3
+						LargeIconSpacing: 14, 2
+						SmallIconCount: 9
+						SmallIconSpacing: 5, 5
 					Width: 240
 					Height: 112
 					Children:
@@ -219,6 +221,15 @@ Container@OBSERVER_WIDGETS:
 							IconSize: 64, 48
 							DefaultIconSequence: emptyicon
 							TooltipContainer: TOOLTIP_CONTAINER
+						ActorIcon@STAT_ICON_SMALL:
+							X: 10
+							Y: 25
+							Width: 32
+							Height: 24
+							IconSize: 32, 24
+							IconScale: 0.5
+							DefaultIconSequence: emptyicon
+							TooltipContainer: TOOLTIP_CONTAINER
 						HealthBar@STAT_HEALTH_BAR:
 							X: 10
 							Y: 73
@@ -234,6 +245,17 @@ Container@OBSERVER_WIDGETS:
 									Align: Center
 									VAlign: Top
 									Contrast: true
+						HealthBar@STAT_HEALTH_BAR_SMALL:
+							X: 10
+							Y: 49
+							Width: 32
+							Height: 5
+							BarMargin: 1,1
+						Label@STAT_MORE:
+							X: 228
+							Y: 89
+							Contrast: true
+							Align: Right
 						Label@STAT_LABEL_1:
 							X: 91
 							Y: 31
