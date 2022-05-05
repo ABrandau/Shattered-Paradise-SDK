@@ -935,15 +935,22 @@
 		Sequence: shield
 		IsPlayerPalette: true
 		Palette: cloakscrinshield
-		RequiresCondition: VanguardShield && BreakShield < 4
+		RequiresCondition: shields-up
 		IsDecoration: true ## so this doesn't affect by cloak palette
 	ExternalCondition@VanguardShield:
 		Condition: VanguardShield
-	ExternalCondition@BreakShield:
-		Condition: BreakShield
-	Armor@Shield:
-		RequiresCondition: VanguardShield && BreakShield <= 4
-		Type: Shield
+	Shielded@Shield:
+		MaxStrength: 10000
+		InitialStrength: 0
+		DamageRegenDelay: 250
+		RegenAmount: 500
+		RegenInterval: 5
+		BlockExcessDamage: true
+		SelectionBarColor: cc22cc
+		ShieldsUpCondition: shields-up
+		RequiresCondition: VanguardShield
+	Armor:
+		RequiresCondition: !shields-up
 
 ^Unkillable:
 	DamageMultiplier@Unkillable:
@@ -1348,10 +1355,6 @@
 		Voice: Move
 	Armor:
 		Type: Infantry
-	-Armor@Shield: # This is needed so it'll show the correct armor on the tooltip.
-	Armor@Shield:
-		RequiresCondition: VanguardShield && BreakShield <= 4
-		Type: Shield
 	Crushable:
 		WarnProbability: 0
 		CrushSound: squish6.aud
@@ -1490,7 +1493,7 @@
 		Palette: player
 		IsPlayerPalette: true
 	ActorStatValues:
-		ArmorsToIgnore: Shield, Boss
+		ArmorsToIgnore: Boss
 
 ^Soldier:
 	Inherits@1: ^Infantry
@@ -2143,7 +2146,7 @@
 		SubterraneanTransitionSequence: idle
 		SubterraneanTransitionSound: subdril1.aud
 	WithIdleOverlay@shield:
-		RequiresCondition: VanguardShield && BreakShield <= 4 && !submerged
+		RequiresCondition: shields-up && !submerged
 	#-GrantRandomCondition@tiberium:
 	#-SpawnActorOnDeath@tiberium1:
 	#-SpawnActorOnDeath@tiberium2:
@@ -2267,7 +2270,7 @@
 		Weapon: SmalLAircraftShrapnel
 		EmptyWeapon: SmalLAircraftShrapnel
 	ActorStatValues:
-		ArmorsToIgnore: Shield, Boss
+		ArmorsToIgnore: Boss
 
 ^AircraftShadow:
 	WithShadow:
@@ -2432,7 +2435,7 @@
 		Pieces: 2, 4
 		Weapons: LargeDebris
 	ActorStatValues:
-		ArmorsToIgnore: Shield, Boss
+		ArmorsToIgnore: Boss
 
 ^Building:
 	Inherits@0: ^BasicBuilding

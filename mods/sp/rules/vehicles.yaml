@@ -1092,10 +1092,10 @@ TTNK:
 	Health:
 		HP: 35000
 	Armor:
-		RequiresCondition: !deployed
+		RequiresCondition: !shields-up && !deployed
 	Armor@deployed:
 		Type: Concrete
-		RequiresCondition: deployed
+		RequiresCondition: !shields-up && deployed
 	Armament@PRIMARY:
 		Weapon: Tick90mm
 		LocalOffset: 350,-0,500
@@ -1625,7 +1625,7 @@ SCORPION:
 	GrantConditionAfterDelay@laserready:
 		Condition: laserready
 		Delay: 10
-		ShowSelectionBar: true
+		ShowSelectionBar: false
 		RequiresCondition: chargingLaser
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: rage
@@ -3213,7 +3213,7 @@ SCRRECHARGER:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 40
-		Description: Mobile shield generator.\n\nSpecial:\n- Generates shields around nearby friendly units.\n- Shields protect from all damage until the unit is hit 4 times.\n- Does not protect against super weapons.\n- Absorbs essence from killed enemies to heal.\n- Can Crush infantry.\n- Cannot apply shields to aircraft.
+		Description: Mobile shield generator.\n\nSpecial:\n- Generates shields around nearby friendly units.\n- Shields provide additional 100 health to the units.\n- Does not protect against super weapons.\n- Absorbs essence from killed enemies to heal.\n- Can Crush infantry.\n- Cannot apply shields to aircraft.
 		Prerequisites: ~scrweap, scrtech, ~techlevel.5
 	Mobile:
 		TurnSpeed: 24
@@ -3223,10 +3223,6 @@ SCRRECHARGER:
 		HP: 20000
 	Armor:
 		Type: Light
-	-WithIdleOverlay@shield:
-	-Armor@Shield:
-	-ExternalCondition@VanguardShield:
-	-ExternalCondition@BreakShield:
 	DamagedByTintedCells@Default:
 		-RequiresCondition:
 	Armament:
