@@ -54,6 +54,7 @@ ENGINEER:
 	AnnounceOnSeen:
 		PingRadar: true
 		Notification: EnemyEngineerDetected
+		TextNotification: Enemy engineer detected.
 
 MCV:
 	Inherits: ^Vehicle
@@ -97,6 +98,7 @@ MCV:
 		Voice: Move
 		PauseOnCondition: empdisable
 		NoTransformNotification: BuildingCannotPlaceAudio
+		NoTransformTextNotification: Cannot deploy here.
 	SelectionDecorations:
 	RenderSprites:
 		Image: gdimcv
@@ -737,6 +739,7 @@ GACNST:
 		Descriptions:
 			1: Reveals shroud on an area, does not detect cloaked units.
 		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: Select target.
 		EndChargeSound: SpySatelliteReady.aud
 		DeploySound: sspysate.aud
 		OrderName: RadarScan
@@ -772,7 +775,10 @@ GADEPT:
 		HpPerStep: 2000
 		ValuePercentage: 0
 		Interval: 48
+		StartRepairingNotification: Repairing
+		StartRepairingTextNotification: Repairing.
 		FinishRepairingNotification: UnitRepaired
+		FinishRepairingTextNotification: Unit repaired.
 	AttackOmni:
 		PauseOnCondition: empdisable
 	Armament:
@@ -1469,8 +1475,10 @@ NAPULS:
 			1: E.M. Pulse
 		Descriptions:
 			1: Fires a pulse blast which disables\nall mechanical units in the area.
+		EndChargeSpeechNotification: EmPulseCannonReady
 		SelectTargetSpeechNotification: SelectTarget
-		EndChargeSpeechNotification: SuperWeaponReady
+		EndChargeTextNotification: EMP cannon ready.
+		SelectTargetTextNotification: Select target.
 		Prerequisites:
 			1: emp.gdi
 		OrderName: Nodemp
@@ -1623,6 +1631,7 @@ SCRGATE_B:
 		BeginChargeSound:
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
+		EndChargeTextNotification: Commander, our superweapon is online.
 		SelectTargetSound:
 		InsufficientPowerSound:
 		MissileWeapons:
@@ -1631,6 +1640,8 @@ SCRGATE_B:
 		LaunchSpeechNotification: SuperweaponFired
 		IncomingSpeechNotification: SuperweaponFired
 		IncomingSound: SuperweaponFired
+		LaunchTextNotification: Warning: A superweapon has been launched.
+		IncomingTextNotification: Warning: A superweapon has been launched.
 		LaunchSound: n_swlaunch.aud
 		SpawnOffset: 0,427,0
 		DisplayTimerRelationships: Ally, Neutral, Enemy

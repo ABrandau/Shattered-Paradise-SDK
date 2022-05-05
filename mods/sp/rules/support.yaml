@@ -816,6 +816,7 @@ GAPLUG:
 		Descriptions:
 			1: Fires an array of ion cannons on the targetted area.
 		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: Select target.
 		ChargeInterval: 6000
 		MissileWeapons:
 			1: IonCannonSpawner
@@ -942,6 +943,7 @@ NATMPL:
 		DecorationHeight: 60
 	NukePower:
 		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: Select target.
 		CircleRanges:
 			1: 10c0
 
@@ -1035,6 +1037,7 @@ MUTSW1:
 		Descriptions:
 			1: Allows the player to generate Ion Storms.\n\nSpecial:\n- Instant kills ground units and aircraft.
 		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: Select target.
 		CameraRange: 10c0
 		CameraSpawnAdvance: 25
 		CameraRemoveDelay: 300
@@ -1129,6 +1132,7 @@ SCRSW1:
 		Descriptions:
 			1: Drags meteors from orbit dealing moderate damage over a wide area.\n\nSpecial:\n- Instant kills ground units and aircraft.
 		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: Select target.
 		Prerequisites:
 			1: MeteorSpawner
 		MissileWeapons:
@@ -1252,13 +1256,17 @@ CABSW1:
 			1: Fires a volley of energy volleys at the target location.\n\nSpecial:\n- Instant kills ground units and aircraft
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
+		EndChargeTextNotification: Commander, our superweapon is online.
 		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: Select target.
 		Prerequisites:
 			1: ironsavior
 		OrderName: IronSavior
 		LaunchSpeechNotification: SuperweaponFired
 		IncomingSpeechNotification: SuperweaponFired
 		IncomingSound: SuperweaponFired
+		LaunchTextNotification: Warning: A superweapon has been launched.
+		IncomingTextNotification: Warning: A superweapon has been launched.
 		LaunchSound: n_swlaunch.aud
 		DisplayTimerRelationships: Ally, Neutral, Enemy
 		PauseOnCondition: empdisable || disabled

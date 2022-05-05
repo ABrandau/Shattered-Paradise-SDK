@@ -24,6 +24,9 @@ Player:
 		OnHoldAudio: OnHold
 		BuildDurationModifier: 100
 		ReadyAudio: ConstructionComplete
+		ReadyTextNotification: Construction complete.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
 		SpeedUp: true
 		CancelledAudio: Cancelled
 		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
@@ -35,6 +38,9 @@ Player:
 		OnHoldAudio: OnHold
 		BuildDurationModifier: 100
 		ReadyAudio: ConstructionComplete
+		ReadyTextNotification: Construction complete.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
 		SpeedUp: true
 		CancelledAudio: Cancelled
 		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
@@ -46,6 +52,9 @@ Player:
 		OnHoldAudio: OnHold
 		BuildDurationModifier: 100
 		ReadyAudio: UnitReady
+		ReadyTextNotification: Unit ready.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
 		SpeedUp: true
 		CancelledAudio: Cancelled
 		BuildTimeSpeedReduction: 100, 80, 65, 50
@@ -56,6 +65,9 @@ Player:
 		QueuedAudio: Building
 		OnHoldAudio: OnHold
 		ReadyAudio: UnitReady
+		ReadyTextNotification: Unit ready.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
 		SpeedUp: true
 		CancelledAudio: Cancelled
 		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
@@ -67,6 +79,9 @@ Player:
 		QueuedAudio: Building
 		OnHoldAudio: OnHold
 		ReadyAudio: UnitReady
+		ReadyTextNotification: Unit ready.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
 		SpeedUp: true
 		CancelledAudio: Cancelled
 		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
@@ -74,6 +89,8 @@ Player:
 		ToggleVariantKey: ToggleVariant
 		NewOptionsNotification: NewOptions
 		CannotPlaceNotification: BuildingCannotPlaceAudio
+		NewOptionsTextNotification: New construction options.
+		CannotPlaceTextNotification: Cannot deploy here.
 	SupportPowerManager:
 	ScriptTriggers:
 	MissionObjectives:
@@ -83,11 +100,13 @@ Player:
 	ConquestVictoryConditions:
 	PowerManager:
 		SpeechNotification: LowPower
+		TextNotification: Low power.
 	AllyRepair:
 	PlayerResources:
 		DefaultCash: 10000
 		SelectableCash: 2500, 5000, 7500, 10000, 20000, 50000, 100000
 		InsufficientFundsNotification: InsufficientFunds
+		InsufficientFundsTextNotification: Insufficient funds.
 		CashTickUpNotification: CashTickUp
 		CashTickDownNotification: CashTickDown
 	DeveloperMode:
@@ -196,6 +215,8 @@ Player:
 		Prerequisites: global-freeminimap
 	FrozenActorLayer:
 	BaseAttackNotifier:
+		TextNotification: Base under attack.
+		AllyTextNotification: Our ally is under attack.
 		AllyNotification: OurAllyIsUnderAttack
 	BaseAttackNotifier@Warning:
 		NotifyInterval: 10000
@@ -206,6 +227,7 @@ Player:
 		RevertUnitTypes: true
 		Notification:
 	HarvesterAttackNotifier:
+		TextNotification: Harvester under attack.
 	PlayerStatistics:
 	ExternalCondition@HMECBuildTimeHack:
 		Condition: factory
@@ -228,6 +250,7 @@ Player:
 		ArrowSequence:
 		CircleSequence:
 	ResourceStorageWarning:
+		TextNotification: Silos needed.
 	PlayerExperience:
 	SharedCargoManager:
 		MaxWeight: 15
