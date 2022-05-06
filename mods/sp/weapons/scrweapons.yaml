@@ -60,7 +60,6 @@ LegioNeedlerAA:
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Infantry, Vehicle, Building
-	-Warhead@ShieldUpgrade:
 
 ColossiShard:
 	Inherits: ^RifleWarhead
@@ -487,9 +486,6 @@ blackBlast:
 		ImpactActors: false
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 		AirThreshold: 8c0
-	Warhead@ShieldUpgrade: GrantExternalCondition
-		Range: 512
-		Duration: 750
 
 AnhTripodLaser:
 	Inherits: ^FullDamage
@@ -660,8 +656,6 @@ StormRiderBlast:
 		Versus:
 			Infantry: 35
 			Defense: 35
-	Warhead@ShieldUpgrade: GrantExternalCondition
-		Range: 96
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplopurple
 
@@ -688,7 +682,6 @@ StormRiderBlastAA:
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		ValidRelationships: Enemy, Neutral
-	-Warhead@ShieldUpgrade:
 
 Glyder1Cannon:
 	Inherits: ^RocketWarhead
@@ -756,7 +749,6 @@ Glyder2Cannon:
 		Explosions: marnflash7
 		ExplosionPalette: MarnAlphaAlpha
 		ImpactSounds: photon1.wav
-	-Warhead@ShieldUpgrade:
 
 BattleshipCannon:
 	Inherits: ^FullDamage
@@ -823,8 +815,6 @@ BattleshipPlasma:
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 		InvalidTargets: Air
-	Warhead@ShieldUpgrade: GrantExternalCondition
-		Range: 96
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplopurple
 
@@ -923,7 +913,6 @@ WyvermBlastAA:
 		ValidTargets: Air
 		ValidRelationships: Enemy, Neutral
 		Damage: 1500
-	-Warhead@ShieldUpgrade:
 
 WasteTurretWeapon:
 	Inherits: ^AcidWarhead
@@ -999,7 +988,6 @@ TractorBeam:
 		Duration: 10
 		Condition: tractorstop
 		ValidTargets: Air
-	-Warhead@ShieldUpgrade:
 
 TractorBeam2:
 	Inherits: TractorBeam

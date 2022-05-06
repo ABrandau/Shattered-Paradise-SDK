@@ -15,8 +15,6 @@ MarauderShotgun:
 		Weapon: MarauderShotgunInnacurate
 		ImpactActors: false
 		Amount: 3
-	Warhead@ShieldUpgrade: GrantExternalCondition
-		Range: 1c0
 
 DeployedMarauderShotgun:
 	Inherits: MarauderShotgun
@@ -27,7 +25,6 @@ MarauderShotgunInnacurate:
 	Range: 0c512
 	TargetActorCenter: false
 	-Report:
-	-Warhead@ShieldUpgrade:
 	-Warhead@1Dam:
 	-Warhead@op:
 	-Warhead@MarnFlash:
@@ -121,7 +118,6 @@ FiendShardAA:
 		AirThreshold: 8c0
 	-Warhead@2Eff:
 	-Warhead@3EffWater:
-	-Warhead@ShieldUpgrade:
 
 FiendShardAAEffect:
 	ValidTargets: Ground, Air, Water
@@ -162,7 +158,6 @@ SeerTeslaAA:
 	Warhead@1Dam: SpreadDamage
 		Damage: 7000
 		ValidTargets: Air
-	-Warhead@ShieldUpgrade:
 
 SeerTyranyBuff:
 	ReloadDelay: 50
@@ -321,8 +316,6 @@ BullAcid:
 		Range: 1c0
 		Duration: 125
 		Condition: WolfDebuff
-	Warhead@ShieldUpgrade: GrantExternalCondition
-		Range: 460
 
 RavagerStrike:
 	Inherits: ^FullDamage
@@ -391,7 +384,6 @@ QuadFireAA:
 		Damage: 1750
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
-	-Warhead@ShieldUpgrade:
 
 # Used in explode weapon
 QuadFireCasing:
@@ -454,8 +446,6 @@ TiberianRocket:
 		InvalidTargets: Water
 	Warhead@smoke: CreateEffect
 		ExplosionPalette: gradientgreen60
-	Warhead@ShieldUpgrade: GrantExternalCondition
-		Range: 460
 	Warhead@3Radio: CreateTintedCells
 		Level: 10
 
@@ -665,7 +655,6 @@ GargoylACannonAA:
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		ValidRelationships: Enemy, Neutral
 		Damage: 4000
-	-Warhead@ShieldUpgrade:
 
 GargoylACannonCasing:
 	Inherits: ^AircraftCasing
@@ -770,7 +759,6 @@ FlakFire:
 		Explosions: dustexplodetiny, dustexplode2tiny
 		ValidTargets: Ground, Water, Air
 	-Warhead@2Smu:
-	-Warhead@ShieldUpgrade:
 
 FlakFireCasing:
 	Inherits: ^ShellCasing
@@ -818,8 +806,6 @@ WeasaurusSpit:
 			Concrete: 15
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
-	Warhead@ShieldUpgrade: GrantExternalCondition
-		Range: 460
 	Warhead@3Eff: CreateEffect
 		Explosions: MilkFire1,MilkFire2, MilkFire3
 		ExplosionPalette: gensmkexplocyan

@@ -15,7 +15,6 @@ HologramMilitantRifle:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
-	-Warhead@ShieldUpgrade:
 
 CrusaderBazooka:
 	Inherits: ^RocketWarhead
@@ -42,7 +41,6 @@ CrusaderBazookaAA:
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
-	-Warhead@ShieldUpgrade:
 
 TemplarFlame:
 	Inherits: ^FlameWarhead
@@ -206,7 +204,6 @@ BikeMissileAA:
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
-	-Warhead@ShieldUpgrade:
 
 BikeExplo:
 	Inherits@1: ^BombWarhead
@@ -260,7 +257,6 @@ HologramTick90mm:
 	Inherits: Tick90mm
 	Warhead@1Dam: SpreadDamage
 		Damage: 1
-	-Warhead@ShieldUpgrade:
 
 Tick90mmShellCasing:
 	Inherits: ^ShellCasing
@@ -378,8 +374,6 @@ StealthRocket:
 		Damage: 4000
 		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-	Warhead@ShieldUpgrade: GrantExternalCondition
-		Range: 320
 
 StealthRocketAA:
 	Inherits: StealthRocket
@@ -390,7 +384,6 @@ StealthRocketAA:
 		RangeLimit: 15c0
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
-	-Warhead@ShieldUpgrade:
 
 HarpyClaw:
 	Inherits: ^RifleWarhead
@@ -429,7 +422,6 @@ HarpyClawAA:
 		ValidRelationships: Enemy, Neutral
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
-	-Warhead@ShieldUpgrade:
 
 HarpyClawCasing:
 	Inherits: ^AircraftCasing
@@ -512,7 +504,6 @@ ProtonAA:
 		Damage: 5000
 		ValidTargets: Air
 		ValidRelationships: Enemy, Neutral
-	-Warhead@ShieldUpgrade:
 
 CerberusSublazor1:
 	Inherits: ^FullDamage
@@ -587,8 +578,6 @@ RedEye2:
 	Inherits@2: ^Small_Clsn
 	Inherits@3: ^AntiAirTurretWeapon
 	Report: samshot1.aud
-	Projectile: MissileTA
-	-Warhead@ShieldUpgrade:
 
 ObeliskLaserFire:
 	Inherits: ^FullDamage
