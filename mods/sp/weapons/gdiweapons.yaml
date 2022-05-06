@@ -30,7 +30,6 @@ GrenadierBazookaAA:
 	ValidTargets: Air
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
-	-Warhead@ShieldUpgrade:
 
 Grenade:
 	Inherits: ^ArtilleryWarhead
@@ -191,8 +190,6 @@ OribitBomb:
 			Defense: 200
 		ValidTargets: Ground, Water
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
-	Warhead@ShieldUpgrade: GrantExternalCondition
-		Range: 768
 
 Heal:
 	ReloadDelay: 90
@@ -397,7 +394,6 @@ HoverMissileAA:
 		Damage: 3500
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
-	-Warhead@ShieldUpgrade:
 
 JuggCannon:
 	Inherits: ^ArtilleryWarhead
@@ -481,8 +477,6 @@ GMRLSRocket:
 			Light: 75
 			Heavy: 100
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
-	Warhead@ShieldUpgrade: GrantExternalCondition
-		Range: 460
 
 GMRLSRocketAA:
 	Inherits: HoverMissileAA
@@ -601,7 +595,6 @@ MammothTuskAA:
 	Range: 8c0
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
-	-Warhead@ShieldUpgrade:
 
 MechRailgun: ##For hit effect
 	Inherits: ^Large_Clsn
@@ -742,7 +735,6 @@ FighterHellfireAA:
 		Damage: 4000
 		ValidTargets: Air
 		ValidRelationships: Enemy, Neutral
-	-Warhead@ShieldUpgrade:
 
 OBBombFrontal:
 	Inherits: ^BombWarhead
@@ -772,8 +764,6 @@ OBBombFrontal:
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		ImpactSounds: expnew09.aud
-	Warhead@ShieldUpgrade: GrantExternalCondition
-		Range: 256
 
 VulcanTower:
 	Inherits: ^RifleWarhead

@@ -1,13 +1,4 @@
 ## Dummy weapon: not have any effect, used for trait triggring
-
-
-DummyWeapon: ## used for effect-only-SpawnSmokeParticle warhead
-	Projectile: InstantExplode
-	ReloadDelay: 500
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
-
 DemoTruckDummyWeapon:
 	ReloadDelay: 100
 	Range: 1c512
@@ -15,6 +6,19 @@ DemoTruckDummyWeapon:
 	Warhead@1Dam: TargetDamage
 		Damage: 0
 
+EyeLookingDummyWeapon:
+	Range: 6c0
+	ValidTargets: Ground, Water
+	InvalidTargets: Building, Defence, Wall, Eye
+	Projectile: InstantExplode
+	Warhead@NoDam: TargetDamage
+		Damage: 0
+		ValidTargets: Air, Ground, Water
+
+Eye2LookingDummyWeapon:
+	Inherits: EyeLookingDummyWeapon
+	Range: 4c0
+	ValidTargets: Ground, Water, Air
 
 #############################
 ## AI related trait triggering
@@ -73,16 +77,4 @@ FirestormAIAimingDummyWeapon:
 		Damage: 0
 		ValidTargets: Air, Ground, Water
 
-EyeLookingDummyWeapon:
-	Range: 6c0
-	ValidTargets: Ground, Water
-	InvalidTargets: Building, Defence, Wall, Eye
-	Projectile: InstantExplode
-	Warhead@NoDam: TargetDamage
-		Damage: 0
-		ValidTargets: Air, Ground, Water
 
-Eye2LookingDummyWeapon:
-	Inherits: EyeLookingDummyWeapon
-	Range: 4c0
-	ValidTargets: Ground, Water, Air

@@ -199,7 +199,7 @@ DSHP:
 	-ExternalCondition@CLOAKGENERATOR:
 	-ExternalCondition@crate-cloak:
 	Cloak@Dropship:
-		RequiresCondition: !DropshipCloak
+		RequiresCondition: DropshipCloak
 		Palette: nothing
 		DetectionTypes: HighAbove
 		CloakDelay: 0
@@ -211,8 +211,9 @@ DSHP:
 		UncloakEffectSequence: windhighabove
 		CloakEffectSequence: windhighabove
 		EffectTracksActor: false
-	ExternalCondition@DropshipCloak:
+	GrantConditionAboveAltitude@Dropship:
 		Condition: DropshipCloak
+		MinAltitude: 5000
 	Interactable:
 	-Selectable:
 	-SelectionDecorations:
