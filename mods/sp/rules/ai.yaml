@@ -59,6 +59,8 @@ Player:
 		Prerequisites: global-megawealth
 	BaseBuilderBotModule@AIBase:
 		RequiresCondition: (AIEasy || AINormal || AICheater) && !megawealth
+		BuildingQueues: Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
+		DefenseQueues: Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL, Defense.Scrin
 		MinimumExcessPower: 90
 		MaximumExcessPower: 250
 		ExcessPowerIncrement: 50
@@ -241,6 +243,8 @@ Player:
 			defd: 120000
 	BaseBuilderBotModule@AIShattered:
 		RequiresCondition: AIShattered && !megawealth
+		BuildingQueues: Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
+		DefenseQueues: Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL, Defense.Scrin
 		MinimumExcessPower: 90
 		MaximumExcessPower: 250
 		ExcessPowerIncrement: 50
@@ -422,6 +426,8 @@ Player:
 			defd: 100000
 	BaseBuilderBotModule@AIBaseMegawealth:
 		RequiresCondition: (AIEasy || AINormal || AICheater) && megawealth
+		BuildingQueues: Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
+		DefenseQueues: Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL, Defense.Scrin
 		MinimumExcessPower: 90
 		MaximumExcessPower: 250
 		ExcessPowerIncrement: 50
@@ -591,6 +597,8 @@ Player:
 			defd: 120000
 	BaseBuilderBotModule@AIShatteredMegawealth:
 		RequiresCondition: AIShattered && megawealth
+		BuildingQueues: Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
+		DefenseQueues: Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL, Defense.Scrin
 		MinimumExcessPower: 90
 		MaximumExcessPower: 250
 		ExcessPowerIncrement: 50
@@ -781,7 +789,7 @@ Player:
 		ProtectionTypes: nodmcv, mutmcv, cabmcv, drache, mcv, harv, harv.nod, harv.mut, cabharv, scrharv, gacnst, gadept, scrdepot, gasilo, napuls, scrshield, gate_a, mutgate_a, scrgate_a, scrgate_b, gapowr, gapile, gdiref, gaweap, garadr, gahpad, gatech, gtdrop, nodyard, napowr, nahand, nodref, naweap, naradr, naapwr, nahpad, natech, namisl, mutyard, mupowr, murax, muproc, muweap, muradr, muair, muhall, mutsw2, drached, scrpowr, scrrax, scrproc, scrproc2, scrproc3, scrproc4, scrweap, scrradr, scrair, scrtech, scradvpowr, cabyard, cabpowr, cabclaw, cabproc, cabweap, cabradr, cabair, cabtech, cabobelisk, gavulc, garock, gacsam, nalasr, naobel, nasam, mubunkr, mucannon, muflak, cabpit, cabblast, cabrail, scrneedler, scrdrone, scrtractor, gafire, gaplug, nastlh, natmpl, muventi, mutsw1, scrextractor, scrsw1, cabeye, cabsw1, blackdefd, weed, bloodderrick, colorpicker, drache_bot, mubunkrfull, defd
 	UnitBuilderBotModule@AIAll:
 		RequiresCondition: AIEasy || AIBase
-		UnitQueues: Infantry, Vehicle, Air
+		UnitQueues: Infantry.GDI, Infantry.Nod, Infantry.Mutant, Infantry.CABAL, Infantry.Scrin, Vehicle.GDI, Vehicle.MammothMkII, Vehicle.Nod, Vehicle.Lightbringer, Vehicle.Mutant, Vehicle.CABAL, Vehicle.Scrin, Air.GDI, Air.Nod, Air.Mutant, Air.CABAL, Air.Scrin
 		IdleBaseUnitsMaximum: 35
 		UnitsToBuild:
 			harv: 90

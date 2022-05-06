@@ -13,10 +13,10 @@ ORCA:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Air
+		Queue: Air.GDI
 		Description: Fast assault gunship with dual missile launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Detects cloaked units\n- Can attack enemy ahead while moving
 		BuildPaletteOrder: 1
-		Prerequisites: ~gahpad, ~techlevel.4
+		Prerequisites: ~techlevel.4
 	Voiced:
 		VoiceSet: Orca
 		Volume: 2
@@ -92,10 +92,10 @@ ORCAB:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
+		Queue: Air.GDI
 		Description: Heavy carpet bomber.\n\nGood vs: Ground Targets\n\nSpecial:\n- Deals AoE damage.\n- Can attack enemy ahead while moving
-		Queue: Air
 		BuildPaletteOrder: 21
-		Prerequisites: ~gahpad, gatech, ~techlevel.5
+		Prerequisites: gatech, ~techlevel.5
 	Selectable:
 		Bounds: 903,1447
 	Aircraft:
@@ -232,7 +232,7 @@ ORCATRAN:
 	Tooltip:
 		Name: Orca Transport
 	Buildable:
-		Queue: Air
+		Queue: Air.GDI
 		BuildPaletteOrder: 6
 		Prerequisites: ~disabled
 	RenderSprites:
@@ -283,10 +283,10 @@ APACHE:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
+		Queue: Air.Nod
 		Description: Scout Helicopter armed with chain guns.\n\nGood vs: Infantry, Aircraft\n\nSpecial:\n- Can attack air\n- Detects cloaked units\n- Can attack enemies from all directions
-		Queue: Air
 		BuildPaletteOrder: 2
-		Prerequisites: ~nahpad, ~techlevel.4
+		Prerequisites: ~techlevel.4
 	Selectable:
 		Bounds: 903,1447
 	Aircraft:
@@ -378,10 +378,10 @@ SCRIN:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Air
+		Queue: Air.Nod
 		Description: Advanced fighter-bomber craft armed with twin plasma cannons.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Can attack enemy ahead while moving
 		BuildPaletteOrder: 22
-		Prerequisites: ~nahpad, natech, ~techlevel.5
+		Prerequisites: natech, ~techlevel.5
 	Selectable:
 		Bounds: 903,1447
 	Voiced:
@@ -469,10 +469,10 @@ CERBERUS:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Air
+		Queue: Air.Nod
 		Description: High tech frigate armed with a mobile stealth generator.\n\nGood vs: Ground Targets\n\nSpecial:\n- Cloaks friendly units next to it \n- Stealth generator can't be used with weapon at the same time\n- Can attack enemy ahead while moving
 		BuildPaletteOrder: 23
-		Prerequisites: ~nahpad, natech, ~techlevel.5
+		Prerequisites: natech, ~techlevel.5
 	Voiced:
 		VoiceSet: PaladinCruiser
 	DeathSounds:
@@ -604,10 +604,10 @@ MUTHELI:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
+		Queue: Air.Mutant
 		Description: Heavy assault gunship with an auto-cannon.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Detects cloaked units\n- Can attack enemies from all directions
-		Queue: Air
 		BuildPaletteOrder: 3
-		Prerequisites: ~muair, ~techlevel.4
+		Prerequisites: ~techlevel.4
 	Selectable:
 		Bounds: 903,1447
 	Aircraft:
@@ -686,10 +686,10 @@ MUTQUEEN:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Air
+		Queue: Air.Mutant
 		Description: Harasser with eggs.\n\nGood vs: Vehicles, Buildings\n\nSpecial:\n- Can mutate killed enemy units\n- Lays eggs via deploy which later hatch as crabs that are hostile to anyone\n- Can attack enemy ahead while moving
 		BuildPaletteOrder: 18
-		Prerequisites: ~muair, ~techlevel.4
+		Prerequisites: ~techlevel.4
 	Selectable:
 		Bounds: 903,1447
 	Voiced:
@@ -763,10 +763,10 @@ WETP:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Air
+		Queue: Air.Mutant
 		Description: Fast jet that throws a small tiberium bomb.\n\nGood vs: Ground Targets\nSpecial:\n- Can mutate killed enemy units\n- Moves at super-sonic speed when attacking\n- ignore all attack (except Mind Control) when at super-sonic speed
 		BuildPaletteOrder: 24
-		Prerequisites: ~muair, muhall, ~techlevel.5
+		Prerequisites: muhall, ~techlevel.5
 	Selectable:
 		Bounds: 903,1447
 	Aircraft:
@@ -876,10 +876,10 @@ STORMRIDER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Air
+		Queue: Air.Scrin
 		BuildPaletteOrder: 5
 		Description: Scrin scout aircraft. \n\nStrong vs Aircraft.\n\nSpecial:\n- Can absorb essence from killed units to heal.\n- Can attack enemies from all directions.\n- Can attack enemies while moving.
-		Prerequisites: ~scrair, ~techlevel.4
+		Prerequisites: ~techlevel.4
 	Selectable:
 		Bounds: 903,1447
 	Hovers:
@@ -941,10 +941,10 @@ DRACHE:
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Inherits@VISION: ^8CellVision
 	Buildable:
-		Queue: Air
-		BuildPaletteOrder: 1000
+		Queue: Air.Scrin
+		BuildPaletteOrder: 25
 		Description: Deploys into a Host Station.\n\nSpecial:\n- Provides a build radius for structures\n- Maximum production speed is reached with 7 Conyards\n- Max production speed reduces production time by 50%\n- Has increased HP when deployed
-		Prerequisites: ~scrair, ~techlevel.3, ~!fixUndeployDracheBug, ~!global-suddendeath
+		Prerequisites: ~techlevel.3, ~!fixUndeployDracheBug, ~!global-suddendeath
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -1065,10 +1065,10 @@ SCRDESTROYER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Air
+		Queue: Air.Scrin
 		Description: Scrin light frigate, designed for long range harassment.\n\nGood vs Ground targets\n\nSpecial:\n- Can absorb essence from killed units to heal\n- Can attack enemy ahead while moving
 		BuildPaletteOrder: 20
-		Prerequisites: ~scrair, scrradr, ~techlevel.4
+		Prerequisites: scrradr, ~techlevel.4
 	-Rearmable:
 	Selectable:
 		Bounds: 2564,3015,0,-723
@@ -1133,9 +1133,9 @@ SCRTRANS:
 	Tooltip:
 		Name: Scrin Transport
 	Buildable:
-		Queue: Air
+		Queue: Air.Scrin
 		Description: Scrin transport.\n\nSpecial\n- Can carry up to 3 vehicles or ten soldiers.\n- Lands whenever its able to
-		Prerequisites: ~scrair, scrdepot, ~techlevel.4
+		Prerequisites: scrdepot, ~techlevel.4
 		BuildPaletteOrder: 10
 	Cargo:
 		Types: Infantry, Vehicle
@@ -1193,10 +1193,10 @@ SCRCARRIER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Air
+		Queue: Air.Scrin
 		Description: Scrin frigate.\n\nStrong vs Vehicles, Aircraft\n\nSpecial:\n- Sends fighters at enemies\n- Can attack Air\n- Detects cloaked units\n- Can absorb essence from killed enemies to heal\n- Can attack enemies while moving.\n- Can attack enemies from all directions.
-		BuildPaletteOrder: 27
-		Prerequisites: ~scrair, scrtech, ~techlevel.5
+		BuildPaletteOrder: 28
+		Prerequisites: scrtech, ~techlevel.5
 	Targetable@Essence:
 		TargetTypes: ScrinUnit
 	Selectable:
@@ -1448,10 +1448,10 @@ SCRBATTLESHIP:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Air
+		Queue: Air.Scrin
 		Description: Scrin flagship\n\nStrong vs Ground units\n\nSpecial:\n- Buildlimit: 1\n- Auto repairs\n- Can absorb essence from killed enemies to heal\n- Can attack enemies from all directions.\n- Can attack enemies while moving\n- Immune to mind control
-		BuildPaletteOrder: 28
-		Prerequisites: ~scrair, scradvpowr, ~techlevel.6
+		BuildPaletteOrder: 29
+		Prerequisites: scradvpowr, ~techlevel.6
 		BuildLimit: 1
 	Selectable:
 		Bounds: 2709,3135
@@ -1534,10 +1534,10 @@ WASP:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
+		Queue: Air.CABAL
 		Description: Aerial drone armed with dual railgun cannons.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Detects cloaked units\n- Can attack enemy ahead while moving
-		Queue: Air
 		BuildPaletteOrder: 4
-		Prerequisites: ~cabair, ~techlevel.4
+		Prerequisites: ~techlevel.4
 	Selectable:
 		Bounds: 1206,1809
 	Aircraft:
@@ -1592,10 +1592,10 @@ FIREFLY:
 	Tooltip:
 		Name: Firefly
 	Buildable:
-		Queue: Air
+		Queue: Air.CABAL
 		Description: Support drone that deploys turrets.\n\nSpecial:\n- unarmed\n- Deployes turrets\n- rearms at Service Depot\n- detects stealth
 		BuildPaletteOrder: 19
-		Prerequisites: ~disabled #~cabair, cabradr, gadept
+		Prerequisites: ~disabled # cabradr, gadept
 	Selectable:
 		Bounds: 1206,1809
 		Priority: 4
@@ -1634,9 +1634,9 @@ BASILISK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Air
+		Queue: Air.CABAL
 		Description: Light frigate armed with firestorm rockets.\n\nGood vs: Infantry\n\nSpecial:\n- Deals AoE damage\n- Can attack enemy ahead while moving
-		BuildPaletteOrder: 25
+		BuildPaletteOrder: 26
 		Prerequisites: ~cabair, cabtech, ~techlevel.5
 	Selectable:
 		Bounds: 1810,2895
@@ -1700,10 +1700,10 @@ DEVOURER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Air
+		Queue: Air.CABAL
 		Description: Heavy and slow siege frigate.\n\nGood vs: Buildings\n\nSpecial:\n- Selfrepairs\n- Can attack enemy while moving
-		BuildPaletteOrder: 26
-		Prerequisites: ~cabair, cabtech, ~techlevel.5
+		BuildPaletteOrder: 27
+		Prerequisites: cabtech, ~techlevel.5
 	Selectable:
 		Bounds: 2413,2619
 	Aircraft:

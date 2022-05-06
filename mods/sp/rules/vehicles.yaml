@@ -11,11 +11,10 @@ SMECH:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
+		Queue: Vehicle.GDI
 		Description: Small but fast anti-infantry walker.\n\nGood vs: Infantry\n\nSpecial:\n- Stealth detection\n- Can attack enemy ahead while moving
 		BuildPaletteOrder: 6
-		Prerequisites: ~gaweap, ~techlevel.2
+		Prerequisites: ~techlevel.2
 	Mobile:
 		TurnSpeed: 60
 		Speed: 105
@@ -72,11 +71,10 @@ MMCH:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
+		Queue: Vehicle.GDI
 		BuildPaletteOrder: 7
-		BuildAtProductionType: Tank
 		Description: Well balanced main battle walker armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can shoot over walls\n- Can crush infantry\n- Can attack while moving
-		Prerequisites: ~gaweap, ~techlevel.2
+		Prerequisites: ~techlevel.2
 	Voiced:
 		VoiceSet: Titan
 		Volume: 2
@@ -134,11 +132,10 @@ APC:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
+		Queue: Vehicle.GDI
 		Description: Armored infantry transport.\n\nGood vs: Infantry.\n\nSpecial:\n- Can transport 5 infantry units\n- Can travel over water\n- Can crush infantry\n- Can attack while moving
-		BuildPaletteOrder: 18
-		Prerequisites: ~gaweap, gapile, ~techlevel.2
+		BuildPaletteOrder: 22
+		Prerequisites: gapile, ~techlevel.2
 	Mobile:
 		TurnSpeed: 20
 		Speed: 90
@@ -221,11 +218,10 @@ HVR:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
+		Queue: Vehicle.GDI
 		Description: Hovering vehicle, armed with long range missiles.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack Air\n- Can shoot over walls\n- Hovers (it ignores terrain like Veins and Water)\n- Can attack while moving.
-		BuildPaletteOrder: 22
-		Prerequisites: ~gaweap, garadr, ~techlevel.4
+		BuildPaletteOrder: 25
+		Prerequisites: garadr, ~techlevel.4
 	Mobile:
 		Speed: 135
 		TurnSpeed: 40
@@ -270,11 +266,10 @@ JUG:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
+		Queue: Vehicle.GDI
 		Description: Heavy mechanized artillery walker.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can shoot over walls\n- Can crush infantry
-		BuildPaletteOrder: 29
-		Prerequisites: ~gaweap, gatech, ~techlevel.5
+		BuildPaletteOrder: 32
+		Prerequisites: gatech, ~techlevel.5
 	Voiced:
 		VoiceSet: Juggernaut
 	Mobile:
@@ -322,11 +317,10 @@ SONIC:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
+		Queue: Vehicle.GDI
 		Description: Armored high-tech vehicle with a powerful harmonic resonance cannon.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Deals heavy damage over time to any unit in the line of fire\n- Can crush infantry\n- Can attack while moving.
-		BuildPaletteOrder: 30
-		Prerequisites: ~gaweap, gatech, ~techlevel.5
+		BuildPaletteOrder: 33
+		Prerequisites: gatech, ~techlevel.5
 	Mobile:
 		TurnSpeed: 24
 		Speed: 60
@@ -368,11 +362,10 @@ G4TNK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
+		Queue: Vehicle.GDI
 		Description: Heavy assault tank.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Selfheal to 50%\n- Can attack air\n- Only the Missiles can pass over walls\n- Can crush infantry\n- Can attack while moving.
-		BuildPaletteOrder: 31
-		Prerequisites: ~gaweap, gatech, ~techlevel.5
+		BuildPaletteOrder: 34
+		Prerequisites: gatech, ~techlevel.5
 	Mobile:
 		Speed: 60
 		TurnSpeed: 20
@@ -433,10 +426,9 @@ HMEC:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Mammoth
+		Queue: Vehicle.MammothMkII
 		BuildPaletteOrder: 43
-		Prerequisites: ~showmammmk2, gtdrop, ~techlevel.6
+		Prerequisites: ~techlevel.6
 		Description: GDI's super-heavy walker and the pride of their army.\n\nGood vs: Everything\n\nSpecial:\n- Buildlimit: 1\n- Selfhealing up to 100%\n- Can attack air\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything except other Epics\n- It is deployed via dropship at the Dropship Bay\n- Can attack while moving.
 		BuildLimit: 1
 	ProductionTimeMultiplier@2_FACTORY:
@@ -598,10 +590,9 @@ NODMCV:
 	Inherits: MCV
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
 	Buildable:
-		Queue: Vehicle
+		Queue: Vehicle.Nod, Vehicle.Lightbringer
 		BuildPaletteOrder: 11
-		BuildAtProductionType: Tank
-		Prerequisites: ~naweap, ~techlevel.3, ~!global-suddendeath
+		Prerequisites: ~techlevel.3, ~!global-suddendeath
 	Tooltip:
 		Name: Nod MCV
 	RenderSprites:
@@ -628,11 +619,10 @@ BGGY:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
+		Queue: Vehicle.Nod, Vehicle.Lightbringer
 		Description: Fast vehicle armed with a machine gun, has room for one passenger that modifies the weapon of the vehicle.\n\nGood vs: Changes depending on the passenger\n\nSpecial:\n- The weapon of the vehicle changes with the passenger\n- Stealth detection\n- Can attack while moving.
-		BuildPaletteOrder: 8
-		Prerequisites: ~naweap, ~techlevel.2, ~!AIOnly
+		BuildPaletteOrder: 9
+		Prerequisites: ~techlevel.2, ~!AIOnly
 	Voiced:
 		VoiceSet: Buggy
 		Volume: 2
@@ -1022,10 +1012,9 @@ ATTACKBIKE:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 9
-		BuildAtProductionType: Tank
-		Prerequisites: ~naweap, ~techlevel.2
+		Queue: Vehicle.Nod, Vehicle.Lightbringer
+		BuildPaletteOrder: 10
+		Prerequisites: ~techlevel.2
 		Description: Fast scout vehicle, armed with\nrockets.\n  Strong vs Vehicles, Aircraft\n\nSpecial:\n- Can target air\n- Can attack enemy ahead while moving
 	Voiced:
 		VoiceSet: Buggy
@@ -1074,11 +1063,10 @@ TTNK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 10
+		Queue: Vehicle.Nod, Vehicle.Lightbringer
+		BuildPaletteOrder: 12
 		Description: Nod´s main battle tank armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can deploy to gain extra protection\n- Can crush infantry\n- Can attack enemy ahead while moving
-		Prerequisites: ~naweap, ~techlevel.2
+		Prerequisites: ~techlevel.2
 	Voiced:
 		VoiceSet: TickTank
 	Mobile:
@@ -1264,11 +1252,10 @@ BIKE:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 23
+		Queue: Vehicle.Nod, Vehicle.Lightbringer
+		BuildPaletteOrder: 26
 		Description: Fast moving suicide vehicle.\n\nGood vs: Ground Targets\n\nSpecial:\n- Can deploy to explode
-		Prerequisites: ~naweap, naradr, ~techlevel.4
+		Prerequisites: naradr, ~techlevel.4
 	-ActorLostNotification:
 	Mobile:
 		TurnSpeed: 40
@@ -1331,10 +1318,9 @@ SAPC:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 24
-		BuildAtProductionType: Tank
-		Prerequisites: ~naweap, naradr, ~techlevel.4
+		Queue: Vehicle.Nod, Vehicle.Lightbringer
+		BuildPaletteOrder: 27
+		Prerequisites: naradr, ~techlevel.4
 		Description: Troop transport that can move underground.\n\nSpecial:\n- Can move underground.\n- Can transport up to 5 infantry.\n- Can crush infantry.\n- Once burrowed and en route to its destination, the only order it can receive is to surface
 	Mobile:
 		TurnSpeed: 20
@@ -1372,11 +1358,10 @@ SUBTANK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
+		Queue: Vehicle.Nod, Vehicle.Lightbringer
 		Description: Subterranean flame tank able to move underground.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Can move underground.\n- Can crush infantry.\n- Once burrowed and en route to its destination, the only order it can receive is to surface
-		BuildPaletteOrder: 32
-		Prerequisites: ~naweap, natech, ~techlevel.5
+		BuildPaletteOrder: 35
+		Prerequisites: natech, ~techlevel.5
 	Voiced:
 		VoiceSet: Devil
 		Volume: 2
@@ -1419,11 +1404,10 @@ HOWTLIZER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
+		Queue: Vehicle.Nod, Vehicle.Lightbringer
 		Description: High-tech artillery armed with a self-propelled howitzer and a cloaking device.\n\nGood vs: Ground Targets\n\nSpecial:\n- Can shoot over walls\n- Can crush infantry\n- Cloaks when not firing\n- Cloaking malfunctions when at red hp
-		BuildPaletteOrder: 33
-		Prerequisites: ~naweap, natech, ~techlevel.5
+		BuildPaletteOrder: 36
+		Prerequisites: natech, ~techlevel.5
 	Voiced:
 		VoiceSet: Specter
 		Volume: 1
@@ -1478,10 +1462,9 @@ STNK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		Prerequisites: ~naweap, natech, ~techlevel.5
-		BuildPaletteOrder: 34
+		Queue: Vehicle.Nod, Vehicle.Lightbringer
+		Prerequisites: natech, ~techlevel.5
+		BuildPaletteOrder: 37
 		Description: Hit-and-run tank armed with twin dragon TOW missiles and a cloaking device.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Stealthed\n- Can attack air\n- Can shoot over walls\n- Can crush infantry\n- Cloaking malfunctions when at red hp\n- Can attack while moving.
 	Mobile:
 		TurnSpeed: 48
@@ -1550,10 +1533,9 @@ SCORPION:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
+		Queue: Vehicle.Lightbringer
 		BuildPaletteOrder: 44
-		Prerequisites: ~showlightbringer, nahfac, ~techlevel.6
-		BuildAtProductionType: Lightbringer
+		Prerequisites: ~techlevel.6
 		Description: Nod's super-heavy walker. One vision one purpose.\n\nGood vs: Ground\n\nSpecial:\n- Buildlimit: 1\n- Selfhealing up to 100%\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything except other Epics\n- Deployability: Enemy units get out of control for 5 seconds
 		BuildLimit: 1
 	Voiced:
@@ -1680,10 +1662,9 @@ MUTMCV:
 	Inherits@RENDER: ^MutRender
 	Inherits@VISION: ^5CellVision
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 20
-		Prerequisites: ~muweap, ~techlevel.3, ~!global-suddendeath
+		Queue: Vehicle.Mutant
+		BuildPaletteOrder: 15
+		Prerequisites: ~techlevel.3, ~!global-suddendeath
 	Tooltip:
 		Name: Mutant MCV
 	RenderSprites:
@@ -1716,11 +1697,10 @@ MUTQUAD:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 11
+		Queue: Vehicle.Mutant
+		BuildPaletteOrder: 13
 		Description: Armored truck armed with a quad cannon.\n\nGood vs: Infantry, Aircraft\n\nSpecial:\n- Stealth detection\n- Can crush infantry\n- Can attack while moving.
-		Prerequisites: ~muweap, ~techlevel.2
+		Prerequisites: ~techlevel.2
 	Mobile:
 		TurnSpeed: 28
 		Speed: 90
@@ -1778,11 +1758,10 @@ LYNX:
 	Inherits@RENDER: ^MutRender
 	Inherits@VISION: ^6CellVision
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
+		Queue: Vehicle.Mutant
 		Description: Light tank armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can crush infantry\n- Can attack while moving.
-		BuildPaletteOrder: 12
-		Prerequisites: ~muweap, ~techlevel.2
+		BuildPaletteOrder: 14
+		Prerequisites: ~techlevel.2
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -1838,11 +1817,10 @@ STRUCK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
+		Queue: Vehicle.Mutant
 		Description: Combat transport.\n\nGood vs: Depending on occupants\n\nSpecial:\n- Cargo for 5 soldiers\n- Transported infantry can fire out of its windows\n - Infantry inside has increased weapon range\n- Can attack while moving.
-		BuildPaletteOrder: 19
-		Prerequisites: ~muweap, murax, ~techlevel.2, ~!AIOnly
+		BuildPaletteOrder: 22
+		Prerequisites: murax, ~techlevel.2, ~!AIOnly
 	Mobile:
 		TurnSpeed: 24
 		Speed: 90
@@ -1888,11 +1866,10 @@ MINELAYER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
+		Queue: Vehicle.Mutant
 		Description: Mines...mines everywhere!\n\nSpecial:\n- Can place up to 5 mines on the battlefield\n- Reloads on service depot\n- Mines are cloaked\n- Can crush Infantry
-		BuildPaletteOrder: 20
-		Prerequisites: ~muweap, gadept, ~techlevel.3
+		BuildPaletteOrder: 23
+		Prerequisites: gadept, ~techlevel.3
 	Mobile:
 		TurnSpeed: 24
 		Speed: 105
@@ -1938,11 +1915,10 @@ WOLF:
 	Inherits@MC: ^MindControllableMastermind
 	Inherits@VISION: ^6CellVision
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 25
+		Queue: Vehicle.Mutant
+		BuildPaletteOrder: 28
 		Description: Tiberium beast that uses tiberium acid to harm nearby units.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Attacks reduce target's attack and movement speed by 35%\n- Can attack enemy ahead while moving\n- Can mutate killed units\n- E.M.P. Immune\n- Has Selfheal\n- Wild mind: only controlled by MasterMind
-		Prerequisites: ~muweap, muradr, ~techlevel.4
+		Prerequisites: muradr, ~techlevel.4
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1987,11 +1963,10 @@ MRLS:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 35
+		Queue: Vehicle.Mutant
+		BuildPaletteOrder: 38
 		Description: Light artillery armed with unguided tiberium rockets.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can mutate killed units\n- Emits tiberium radiaton that damages nearby units\n- Can shoot over walls\n- Can crush infantry\n- Immune to tiberium radiation\n- Can attack while moving.
-		Prerequisites: ~muweap, muhall, ~techlevel.5
+		Prerequisites: muhall, ~techlevel.5
 	Mobile:
 		TurnSpeed: 20
 		Speed: 105
@@ -2037,11 +2012,10 @@ DEATHCLAW:
 	Inherits@RENDER: ^MutRender
 	Inherits@VISION: ^8CellVision
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 36
+		Queue: Vehicle.Mutant
+		BuildPaletteOrder: 39
 		Description: Melee beast from the outer redzones that brings death with its claws.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Has Selfheal\n- E.M.P. Immune\n- Wild mind: only controlled by MasterMind
-		Prerequisites: ~muweap, muhall, ~techlevel.5
+		Prerequisites: muhall, ~techlevel.5
 	Valued:
 		Cost: 1100
 	Tooltip:
@@ -2086,11 +2060,10 @@ HVRTRUK3:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		BuildAtProductionType: Tank
+		Queue: Vehicle.Mutant
 		Description: A hovering demolition truck with a oneway ticket.\n\nGood vs: Everything\n\nSpecial:\n- Demolishes almost everything nearby upon detonation\n- Hovers (it ignores terrain like Veins and Water)\n- Cannot enter Tunnel Networks
-		Queue: Vehicle
-		BuildPaletteOrder: 37
-		Prerequisites: ~muweap, muhall, ~techlevel.5
+		BuildPaletteOrder: 40
+		Prerequisites: muhall, ~techlevel.5
 	Voiced:
 		VoiceSet: DemoTruck
 		Volume: 3
@@ -2160,10 +2133,9 @@ WEASAU:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
+		Queue: Vehicle.Mutant
 		BuildPaletteOrder: 45
-		Prerequisites: ~muweap, mutsw2, ~techlevel.6
+		Prerequisites: mutsw2, ~techlevel.6
 		Description: A long forgotten creature that has emerged again\nto defend it's territory.\n\nGood vs: Ground\n\nSpecial:\n- Buildlimit: 1\n- Selfhealing up to 100%\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything execept other Epics\n- Heals on Tiberium\n- E.M.P. Immune\n- Deployability: Summons a massive brood of Tiberium Creatures
 		BuildLimit: 1
 	Voiced:
@@ -2353,10 +2325,9 @@ CABMCV:
 	Inherits@VISION: ^5CellVision
 	Inherits@VOICE: ^CabalVehicleVoice
 	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 16
-		BuildAtProductionType: Tank
-		Prerequisites: ~cabweap, ~techlevel.3, ~!global-suddendeath
+		Queue: Vehicle.CABAL
+		BuildPaletteOrder: 18
+		Prerequisites: ~techlevel.3, ~!global-suddendeath
 		IconPalette: UnittemIconCab
 	Tooltip:
 		Name: C.A.B.A.L. MCV
@@ -2390,11 +2361,10 @@ CENTURION:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 13
-		BuildAtProductionType: Tank
+		Queue: Vehicle.CABAL
+		BuildPaletteOrder: 16
 		Description: Heavy walker equipped with chain guns.\n\nGood vs: Infantry\n\nSpecial:\n- Stealth detection\n- Can shoot over walls\n- Can crush infantry\n- Can attack while moving.
-		Prerequisites: ~cabweap, ~techlevel.2
+		Prerequisites: ~techlevel.2
 	Mobile:
 		TurnSpeed: 20
 		Speed: 75
@@ -2454,11 +2424,10 @@ REAPERCAB:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 14
+		Queue: Vehicle.CABAL
+		BuildPaletteOrder: 17
 		Description: Fast raiding walker armed with cluster missiles and web launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack enemy ahead while moving\n- Can target air\n- Can ensnare infantry with webs\n- Can shoot over walls
-		Prerequisites: ~cabweap, ~techlevel.2
+		Prerequisites: ~techlevel.2
 	Selectable:
 		Bounds: 1206,2412,0,-603
 	Mobile:
@@ -2521,11 +2490,10 @@ LIMPED:
 	Tooltip:
 		Name: Limpet Drone
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 15
+		Queue: Vehicle.CABAL
+		BuildPaletteOrder: 19
 		Description: Small drone armed with explosives.\n\nGood vs: Infantry, Vehicles\n\nSpecial:\n- Needs to be deployed to be armed\n- Invisible when deployed\n- Launches explosives towards a target after small delay
-		Prerequisites: ~cabweap, ~techlevel.2
+		Prerequisites: ~techlevel.2
 	Health:
 		HP: 10000
 	Armor:
@@ -2636,10 +2604,9 @@ REPAIRVEHICLE:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 21
-		BuildAtProductionType: Tank
-		Prerequisites: ~cabweap, gadept, ~techlevel.3
+		Queue: Vehicle.CABAL
+		BuildPaletteOrder: 24
+		Prerequisites: gadept, ~techlevel.3
 		Description: Repairs nearby vehicles.\n\nSpecial:\n- unarmed\n- Can repairs vehicles ahead while moving\n- repairs vehicles\n- can crush infantry
 	Health:
 		HP: 20000
@@ -2685,11 +2652,10 @@ CABAPC:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
+		Queue: Vehicle.CABAL
 		Description: Armored transport.\n\nSpecial:\n- Can transport 8 infantry units\n- Can transport vehicles\n- Hovers (it ignores terrain like Veins and Water)
-		BuildPaletteOrder: 26
-		Prerequisites: ~cabweap, cabradr, ~techlevel.4
+		BuildPaletteOrder: 29
+		Prerequisites: cabradr, ~techlevel.4
 	Mobile:
 		TurnSpeed: 40
 		CanMoveBackward: true
@@ -2733,11 +2699,10 @@ SPIDERARTY:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 38
-		BuildAtProductionType: Tank
+		Queue: Vehicle.CABAL
+		BuildPaletteOrder: 41
 		Description: Heavy Artillery that deploys drones at the targetted area.\n\nGood vs: Ground Targets\n\nSpecial:\n- Deals AOE damage\n- Minimum attack distance\n- Upon attack drones get spawned that attack the enemy\n- Converts killed units into workers\n- Can shoot over walls\n- Can crush infantry\n- Selfrepair
-		Prerequisites: ~cabweap, cabtech, ~techlevel.5
+		Prerequisites: cabtech, ~techlevel.5
 	Mobile:
 		TurnSpeed: 16
 		Speed: 60
@@ -2788,11 +2753,10 @@ PALADIN:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 39
-		BuildAtProductionType: Tank
+		Queue: Vehicle.CABAL
+		BuildPaletteOrder: 42
 		Description: Advanced Walker armed with a twin laser cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Can shoot over walls\n- Can crush infantry
-		Prerequisites: ~cabweap, cabtech, ~techlevel.5
+		Prerequisites: cabtech, ~techlevel.5
 	Mobile:
 		TurnSpeed: 48
 		Speed: 60
@@ -2981,11 +2945,10 @@ CORRUPTOR:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 16
+		Queue: Vehicle.Scrin
+		BuildPaletteOrder: 20
 		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n- Can attack enemy ahead while moving\n- Stealth detection\n- Can mutate enemies killed\n- Absorbs essence from killed enemies to heal\n- Attacks emit radiation that harms ground units in the area\n- Immune to Tiberium radiation\n- Can crush infantry
-		Prerequisites: ~scrweap, ~techlevel.2
+		Prerequisites: ~techlevel.2
 	Voiced:
 		VoiceSet: Corruptor
 	Mobile:
@@ -3030,11 +2993,10 @@ SCRMBT:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 17
+		Queue: Vehicle.Scrin
+		BuildPaletteOrder: 21
 		Description: Advanced Light Tank armed with a laser cannon.\n\nGood vs Ground targets\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water)\n- Absorbs essence from killed units to heal\n- Cannot crush infantry\n- Can attack while moving.
-		Prerequisites: ~scrweap, ~techlevel.2
+		Prerequisites: ~techlevel.2
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -3092,11 +3054,10 @@ SCRSCORPION:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 27
+		Queue: Vehicle.Scrin
+		BuildPaletteOrder: 30
 		Description: Long range assault walker.\n\n Good vs Infantry, Vehicle\n\nSpecial:\n- Absorbs essence from killed enemies to heal\n- Fog inflicts blinding and poison effect in the area
-		Prerequisites: ~scrweap, scrradr, ~techlevel.4
+		Prerequisites: scrradr, ~techlevel.4
 	Mobile:
 		TurnSpeed: 32
 		Speed: 105
@@ -3131,11 +3092,10 @@ SCRGLYDER2:
 	Inherits@VISION: ^8CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 28
-		BuildAtProductionType: Tank
+		Queue: Vehicle.Scrin
+		BuildPaletteOrder: 31
 		Description: Anti-air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Can attack enemy ahead while moving\n- Can transform into an aerial version that can only engage ground units.\n- Aerial Version weapon performs Good Vs Infantry.\n- Absorbs essence from killed units to heal.\n- Hovers (it ignores terrain like Veins and Water)
-		Prerequisites: ~scrweap, scrradr, ~techlevel.4
+		Prerequisites: scrradr, ~techlevel.4
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -3210,11 +3170,10 @@ SCRRECHARGER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 40
+		Queue: Vehicle.Scrin
+		BuildPaletteOrder: 43
 		Description: Mobile shield generator.\n\nSpecial:\n- Generates shields around nearby friendly units.\n- Shields provide additional 100 health to the units.\n- Does not protect against super weapons.\n- Absorbs essence from killed enemies to heal.\n- Can Crush infantry.\n- Cannot apply shields to aircraft.
-		Prerequisites: ~scrweap, scrtech, ~techlevel.5
+		Prerequisites: scrtech, ~techlevel.5
 	Mobile:
 		TurnSpeed: 24
 		Speed: 75
@@ -3274,11 +3233,10 @@ SCRMOBMINE:
 		ValidTargets: MindControllable
 		RequiresCondition: controlling < 3
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 41
+		Queue: Vehicle.Scrin
+		BuildPaletteOrder: 44
 		Description: Mind Control unit\n\nSpecial:\n- Can overtake regular vehicle and infantry \n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mindcontrol Heroics, Flying Units, Beasts, Buildings\n- Can shoot over walls.\n- Can mind control units while moving.
-		Prerequisites: ~scrweap, scrtech, ~techlevel.5
+		Prerequisites: scrtech, ~techlevel.5
 	Valued:
 		Cost: 1750
 	Tooltip:
@@ -3354,10 +3312,9 @@ TRIPOD:
 	Selectable:
 		Bounds: 1508,6031, 0, -1809
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 42
-		Prerequisites: ~scrweap, scrtech, ~techlevel.5
+		Queue: Vehicle.Scrin
+		BuildPaletteOrder: 45
+		Prerequisites: scrtech, ~techlevel.5
 		Description: Advanced walker.\n\n  Good vs Ground\n\nSpecial: \n- Absorbs essence from killed units to heal\n- Can shoot over walls\n- Can crush infantry
 		IconPalette: chromescrin
 	Mobile:

@@ -227,10 +227,9 @@ DRACHE_BOT:
 	Selectable:
 		Class: drache
 	Buildable:
-		Queue: Air
-		BuildPaletteOrder: 110
+		Queue: Air.Scrin
 		Description: AI Scrin Host Station
-		Prerequisites: ~scrair, ~techlevel.3, ~fixUndeployDracheBug, ~!global-suddendeath
+		Prerequisites: ~techlevel.3, ~fixUndeployDracheBug, ~!global-suddendeath
 	Aircraft:
 		IdleBehavior: Land
 	RenderSprites:
@@ -267,9 +266,9 @@ GHOST:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Infantry
+		Queue: Infantry.Mutant
 		BuildPaletteOrder: 30
-		Prerequisites: ~murax, muhall, ~techlevel.5, ~AIOnly
+		Prerequisites: muhall, ~techlevel.5, ~AIOnly
 		Description: Gil is the elite commando of Mutants, if not GDI.\nHe is armed with a railgun and C4.\n\nGood vs Ground\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes structures with C4\n- Heals on Tiberium\n- Immune to mindcontrol\n- Crush class: crushable
 		BuildLimit: 1
 	Armor:
@@ -542,8 +541,8 @@ DEFD:
 			TopLeft: 512, 512
 			BottomRight: 1536, 1536
 	Buildable:
-		Queue: Building
-		Prerequisites: cabtech, ~structures.cab, ~techlevel.5, ~AIOnly, ~!DefenderExists
+		Queue: Building.CABAL
+		Prerequisites: cabtech, ~techlevel.5, ~AIOnly, ~!DefenderExists
 		Description: C.A.B.A.L.'s final creation armed with crazy weapon.\n\nGood vs: Everything\n\nSpecial:\n- Needs preparing before rising.\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle\n- Immune to mindcontrol
 		BuildPaletteOrder: 54
 	Building:
@@ -617,10 +616,9 @@ RTRIPOD:
 	Selectable:
 		Bounds: 1508,6031, 0, -1809
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
+		Queue: Vehicle.Scrin
 		BuildPaletteOrder: 42
-		Prerequisites: ~scrweap, scrtech,  ~AIOnly,  ~techlevel.5
+		Prerequisites: scrtech, ~AIOnly, ~techlevel.5
 		Description: Advanced walker.\n\n  Good vs Ground\n\nSpecial: \n- Can absorb Tiberium on the field to empower it's weapon\n- Absorbs essence from killed units to heal\n- Can shoot over walls\n- Can crush infantry
 		IconPalette: chromescrin
 	Mobile:
@@ -726,11 +724,10 @@ GMRLS:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
+		Queue: Vehicle.GDI
 		BuildPaletteOrder: 29
 		Description: Artillery armed with long range anti-armor and anti-air rockets.\n\nGood vs: Vehicle, Air\n\nSpecial:\n- Armor Type: Light\n- Deals AoE damage\n- Minimum attack distance\n- Can shoot over walls\n- Can crush infantry
-		Prerequisites: ~gaweap, gatech,   ~AIOnly,  ~techlevel.5
+		Prerequisites: gatech, ~AIOnly,  ~techlevel.5
 	Mobile:
 		TurnSpeed: 20
 		Speed: 50

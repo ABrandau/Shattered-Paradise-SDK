@@ -1,4 +1,5 @@
-GDIAttackForce = { "gdie1", "gdie1", "gdie1", "gdie1", "grenadier", "grenadier", "grenadier", "e2", "smech", "mmch", "mmch", "apc" }
+GDIAttackForceInfantry = { "gdie1", "gdie1", "gdie1", "gdie1", "grenadier", "grenadier", "grenadier", "e2" }
+GDIAttackForceVehicle = { "smech", "mmch", "mmch", "apc" }
 GDIAirForce = { "orca", "orca", "orca" }
 NodTemplarRush = { "templar", "templar", "templar", "templar", "templar" }
 NodStealthTeam = { "stnk", "stnk" }
@@ -6,7 +7,8 @@ NodAirForce = { "scrin", "scrin" }
 MutantBusGuys = { "marauder", "marauder", "marauder", "marauder", "mutfiend" }
 MutantDemoTruck = { "hvrtruk3" }
 MutantFalcon = { "wetp" }
-ScrinAttackForce = { "shark", "shark", "shark", "shark", "legio", "legio", "float", "corruptor", "corruptor", "corruptor" }
+ScrinAttackForceInfantry = { "shark", "shark", "shark", "shark", "legio", "legio", "float" }
+ScrinAttackForceVehicle = { "corruptor", "corruptor", "corruptor" }
 ScrinAirForce = { "stormrider", "stormrider", "stormrider", "stormrider" }
 CABALInfantry = { "cyborg", "cyborg", "cyborg", "cyborg", "cyborg" }
 CABALToBeEMPed = { "centurion", "centurion", "reapercab", "paladin" }
@@ -176,7 +178,7 @@ end
 
 MutantBusService = function()
 	Trigger.AfterDelay(DateTime.Seconds(10), function()
-		mut.Build(MutantBusGuys, function(actors)
+		MutantRax.Build(MutantBusGuys, function(actors)
 			local bus = Actor.Create("struck", true, { Owner = mut, Location = MutantBusEntry.Location })
 			bus.Move(MutantBusStop.Location)
 
@@ -198,7 +200,7 @@ end
 
 GDIAttack = function()
 	Trigger.AfterDelay(DateTime.Seconds(7), function()
-		gdi.Build(GDIAttackForce, function(actors)
+		GDIRax.Build(GDIAttackForceInfantry, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Attack(ScrinTripod)
 			end)
@@ -214,7 +216,7 @@ end
 
 GDIAirAttack = function()
 	Trigger.AfterDelay(DateTime.Seconds(2), function()
-		gdi.Build(GDIAirForce, function(actors)
+		GDIHPad.Build(GDIAirForce, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Attack(CABALRefinery)
 			end)
@@ -230,7 +232,7 @@ end
 
 NodTemplarAttack = function()
 	Trigger.AfterDelay(DateTime.Seconds(20), function()
-		nod.Build(NodTemplarRush, function(actors)
+		NodRax.Build(NodTemplarRush, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Attack(MutantConYard)
 			end)
@@ -246,7 +248,7 @@ end
 
 NodStealthAttack = function()
 	Trigger.AfterDelay(DateTime.Seconds(5), function()
-		nod.Build(NodStealthTeam, function(actors)
+		NodWFac.Build(NodStealthTeam, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Attack(GDIConYard)
 			end)
@@ -262,7 +264,7 @@ end
 
 NodAirAttack = function()
 	Trigger.AfterDelay(DateTime.Seconds(2), function()
-		nod.Build(NodAirForce, function(actors)
+		NodHPad.Build(NodAirForce, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Attack(MutantTech)
 			end)
@@ -278,7 +280,7 @@ end
 
 MutantAirAttack = function()
 	Trigger.AfterDelay(DateTime.Seconds(15), function()
-		mut.Build(MutantFalcon, function(actors)
+		MutantHPad.Build(MutantFalcon, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Attack(FalconTarget)
 			end)
@@ -294,7 +296,7 @@ end
 
 ScrinAttack = function()
 	Trigger.AfterDelay(DateTime.Seconds(5), function()
-		scr.Build(ScrinAttackForce, function(actors)
+		ScrinRax.Build(ScrinAttackForceInfantry, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Move(ScrinAttackPoint.Location)
 				actor.Attack(GDIRax)
@@ -312,7 +314,7 @@ end
 
 ScrinAirAttack = function()
 	Trigger.AfterDelay(DateTime.Seconds(6), function()
-		scr.Build(ScrinAirForce, function(actors)
+		ScrinHPad.Build(ScrinAirForce, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Attack(NodStealthGen)
 			end)
@@ -328,7 +330,7 @@ end
 
 CABALInfantryAttack = function()
 	Trigger.AfterDelay(DateTime.Seconds(8), function()
-		cab.Build(CABALInfantry, function(actors)
+		CABALRax.Build(CABALInfantry, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Attack(MutantBunker1)
 			end)
@@ -348,7 +350,7 @@ CABALVehicleAttack = function()
 			carryall = Actor.Create("trnsport.mut", true, { Owner = mut, Location = MutantCarryallEntry.Location })
 			carryall.Move(MutantCarryallRally.Location)
 		end)
-		mut.Build(MutantDemoTruck, function(actors)
+		MutantWFac.Build(MutantDemoTruck, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Move(MutantCarryallRally.Location)
 				demo = actor
@@ -359,7 +361,7 @@ CABALVehicleAttack = function()
 			end)
 		end)
 
-		cab.Build(CABALToBeEMPed, function(actors)
+		CABALWFac.Build(CABALToBeEMPed, function(actors)
 			Utils.Do(actors, function(actor)
 				Trigger.AfterDelay(DateTime.Seconds(6), function()
 					actor.Attack(NodEMP)
@@ -397,7 +399,7 @@ end
 
 CABALAirAttack = function()
 	Trigger.AfterDelay(DateTime.Seconds(4), function()
-		cab.Build(CABALAirForce, function(actors)
+		CABALHPad.Build(CABALAirForce, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Attack(GDIDestructablePower)
 				actor.Attack(phlanx2)
@@ -428,11 +430,6 @@ SetWaypoints = function()
 	CABALRax.RallyPoint = CABALRaxRally.Location
 	CABALWFac.RallyPoint = CABALWFacRally.Location
 	CABALHPad.RallyPoint = CABALHPadRally.Location
-
-	GDIHPad.IsPrimaryBuilding = true
-	NodHPad.IsPrimaryBuilding = true
-	MutantHPad.IsPrimaryBuilding = true
-	ScrinHPad.IsPrimaryBuilding = true
 end
 
 SetCash = function()
