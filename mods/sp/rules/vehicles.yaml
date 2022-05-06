@@ -3234,7 +3234,7 @@ SCRRECHARGER:
 		RequiresCondition: !empdisable
 		Condition: VanguardShield
 		Range: 7c0
-		AffectsParent: false
+		AffectsParent: true # false doesn't seem to work properly. But shield do not reapper after EMP when this is false. True makes it more consistent.
 	WithRangeCircle:
 		Range: 7c0
 		Type: VanguardShield

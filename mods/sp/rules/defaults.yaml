@@ -944,13 +944,17 @@
 		InitialStrength: 0
 		DamageRegenDelay: 250
 		RegenAmount: 500
-		RegenInterval: 5
+		RegenInterval: 10
 		BlockExcessDamage: true
 		SelectionBarColor: cc22cc
 		ShieldsUpCondition: shields-up
+		PauseOnCondition: empdisable
 		RequiresCondition: VanguardShield
 	Armor:
 		RequiresCondition: !shields-up
+	Targetable@Shield:
+		TargetTypes: Shielded
+		RequiresCondition: shields-up
 
 ^Unkillable:
 	DamageMultiplier@Unkillable:

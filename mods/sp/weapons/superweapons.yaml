@@ -74,18 +74,21 @@ EMPulseCannon:
 		Duration: 250
 		Condition: empdisable
 		ValidTargets: Vehicle, Building
+		InvalidTargets: Shielded
 		AirThreshold: 8c0
 	Warhead@2: GrantExternalCondition
 		Range: 1c512
 		Duration: 125
 		Condition: empdisable
 		ValidTargets: Infantry
+		InvalidTargets: Shielded
 		AirThreshold: 8c0
 	Warhead@3: GrantExternalCondition
 		Range: 4c0
 		Duration: 250
 		Condition: empdisable
 		ValidTargets: Vehicle, Building
+		InvalidTargets: Shielded
 		Delay: 10
 		AirThreshold: 8c0
 	Warhead@4: GrantExternalCondition
@@ -93,9 +96,18 @@ EMPulseCannon:
 		Duration: 125
 		Condition: empdisable
 		ValidTargets: Infantry
+		InvalidTargets: Shielded
 		Delay: 10
 		AirThreshold: 8c0
-	Warhead@5: FireRadius
+	Warhead@5: SpreadDamage
+		Spread: 4c0
+		Damage: 10000
+		Falloff: 100, 100
+		ValidTargets: Shielded
+		DamageTypes: EnergyDeath
+		Delay: 10
+		AirThreshold: 8c0
+	Warhead@7: FireRadius
 		Weapon: EMPulseCannonShrapnel
 		ImpactActors: false
 		Amount: 12
