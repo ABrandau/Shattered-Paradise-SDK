@@ -162,7 +162,7 @@ DSHP:
 	Tooltip:
 		Name: Dropship
 	Aircraft:
-		CruiseAltitude: 15c0
+		CruiseAltitude: 8c0
 		TurnSpeed: 40
 		Speed: 400
 		InitialFacing: 0
@@ -198,22 +198,6 @@ DSHP:
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 	-ExternalCondition@crate-cloak:
-	Cloak@Dropship:
-		RequiresCondition: DropshipCloak
-		Palette: nothing
-		DetectionTypes: HighAbove
-		CloakDelay: 0
-		InitialDelay: 0
-		CloakSound: dropup1.aud
-		UncloakSound: dropdwn1.aud
-		EffectImage: explosion
-		EffectPalette: MarnAlphaAlpha #MarnAlpha30
-		UncloakEffectSequence: windhighabove
-		CloakEffectSequence: windhighabove
-		EffectTracksActor: false
-	GrantConditionAboveAltitude@Dropship:
-		Condition: DropshipCloak
-		MinAltitude: 5000
 	Interactable:
 	-Selectable:
 	-SelectionDecorations:
