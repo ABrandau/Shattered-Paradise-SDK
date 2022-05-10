@@ -61,6 +61,7 @@ Player:
 		RequiresCondition: (AIEasy || AINormal || AICheater) && !megawealth
 		BuildingQueues: Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
 		DefenseQueues: Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL, Defense.Scrin
+		MaxBaseRadius: 50
 		MinimumExcessPower: 90
 		MaximumExcessPower: 250
 		ExcessPowerIncrement: 50
@@ -73,6 +74,7 @@ Player:
 		VehiclesFactoryTypes: gaweap, naweap, muweap, cabweap, scrweap
 		ProductionTypes: gapile, nahand, mutrax, cabclaw, scrrax, gaweap, naweap, muweap, cabweap, scrweap, gahpad, nahpad, muair, cabair, scrair
 		SiloTypes: gasilo
+		PlaceDefenseTowardsEnemyChance: 50
 		BuildingLimits:
 			gadept: 1
 			scrdepot: 1
@@ -245,6 +247,7 @@ Player:
 		RequiresCondition: AIShattered && !megawealth
 		BuildingQueues: Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
 		DefenseQueues: Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL, Defense.Scrin
+		MaxBaseRadius: 50
 		MinimumExcessPower: 90
 		MaximumExcessPower: 250
 		ExcessPowerIncrement: 50
@@ -257,6 +260,7 @@ Player:
 		VehiclesFactoryTypes: gaweap, naweap, muweap, cabweap, scrweap
 		ProductionTypes: gapile, nahand, mutrax, cabclaw, scrrax, gaweap, naweap, muweap, cabweap, scrweap, gahpad, nahpad, muair, cabair, scrair
 		SiloTypes: gasilo
+		PlaceDefenseTowardsEnemyChance: 50
 		BuildingLimits:
 			gadept: 1
 			scrdepot: 1
@@ -428,6 +432,7 @@ Player:
 		RequiresCondition: (AIEasy || AINormal || AICheater) && megawealth
 		BuildingQueues: Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
 		DefenseQueues: Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL, Defense.Scrin
+		MaxBaseRadius: 50
 		MinimumExcessPower: 90
 		MaximumExcessPower: 250
 		ExcessPowerIncrement: 50
@@ -438,6 +443,7 @@ Player:
 		BarracksTypes: gapile, nahand, mutrax, cabrax, scrrax
 		VehiclesFactoryTypes: gaweap, naweap, muweap, cabweap, scrweap
 		ProductionTypes: gapile, nahand, mutrax, cabclaw, scrrax, gaweap, naweap, muweap, cabweap, scrweap, gahpad, nahpad, muair, cabair, scrair
+		PlaceDefenseTowardsEnemyChance: 50
 		BuildingLimits:
 			gadept: 1
 			scrdepot: 1
@@ -599,6 +605,7 @@ Player:
 		RequiresCondition: AIShattered && megawealth
 		BuildingQueues: Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
 		DefenseQueues: Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL, Defense.Scrin
+		MaxBaseRadius: 50
 		MinimumExcessPower: 90
 		MaximumExcessPower: 250
 		ExcessPowerIncrement: 50
@@ -609,6 +616,7 @@ Player:
 		BarracksTypes: gapile, nahand, mutrax, cabrax, scrrax
 		VehiclesFactoryTypes: gaweap, naweap, muweap, cabweap, scrweap
 		ProductionTypes: gapile, nahand, mutrax, cabclaw, scrrax, gaweap, naweap, muweap, cabweap, scrweap, gahpad, nahpad, muair, cabair, scrair
+		PlaceDefenseTowardsEnemyChance: 50
 		BuildingLimits:
 			gadept: 1
 			scrdepot: 1
@@ -771,7 +779,7 @@ Player:
 		RequiresCondition: AIBase
 		SquadSize: 25
 		SquadSizeRandomBonus: 3
-		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, cutman, swarmling, shapeshifter,mcv, drache, drache_bot, cabmcv, nodmcv, mutmcv, repairvehicle, mwar, lpst, limped, sgen, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern
+		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, cutman, swarmling, shapeshifter,mcv, drache, drache_bot, cabmcv, nodmcv, mutmcv, mwar, lpst, limped, sgen, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
 		DangerScanRadius: 18
 		AttackForceInterval: 59
@@ -918,7 +926,7 @@ Player:
 			mutqueen: 10
 			minelayer: 1
 			struckfull_t3: 1
-			limped: 5
+			limped: 1
 			scrscorpion: 2
 			## nukecarryall_bot: 1 but not restrict here
 			## sonicarryall_bot: 1 but not restrict here
@@ -939,18 +947,27 @@ Player:
 		ConstructionYardTypes: gacnst, mutyard, cabyard, nodyard, drached
 		McvFactoryTypes: gaweap, naweap, muweap, cabweap, scrair
 		MinimumConstructionYardCount: 1
+		MinBaseRadius: 5
+		MaxBaseRadius: 50
+		ScanForNewMcvInterval: 31
 	McvManagerBotModule@AICheater:
 		RequiresCondition: AICheater
 		McvTypes: mcv, cabmcv, nodmcv, mutmcv, drache_bot, drache, mwar
 		ConstructionYardTypes: gacnst, mutyard, cabyard, nodyard, drached
 		McvFactoryTypes: gaweap, naweap, muweap, cabweap, scrair
 		MinimumConstructionYardCount: 2
+		MinBaseRadius: 5
+		MaxBaseRadius: 50
+		ScanForNewMcvInterval: 31
 	McvManagerBotModule@ShatteredAI:
 		RequiresCondition: AIShattered
 		McvTypes: mcv, cabmcv, nodmcv, mutmcv, drache_bot, drache, mwar
 		ConstructionYardTypes: gacnst, mutyard, cabyard, nodyard, drached
 		McvFactoryTypes: gaweap, naweap, muweap, cabweap, scrair
 		MinimumConstructionYardCount: 5
+		MinBaseRadius: 5
+		MaxBaseRadius: 50
+		ScanForNewMcvInterval: 31
 	SupportPowerBotASModule:
 		RequiresCondition: AIBase
 		Decisions:
