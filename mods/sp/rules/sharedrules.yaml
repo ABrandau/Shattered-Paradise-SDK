@@ -36,6 +36,8 @@ ENGINEER:
 		BuildPaletteOrder: 11
 		Prerequisites: ~player.humanengi, ~techlevel.1
 		Description: Support infantry.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings and bridges\n- Crush class: crushable
+		BuildDuration: 375
+		BuildDurationModifier: 100
 	Valued:
 		Cost: 500
 	Mobile:
@@ -66,8 +68,10 @@ MCV:
 		Prerequisites: ~techlevel.3, ~!global-suddendeath
 		BuildAtProductionType: Tank
 		Description: Deploys into a Construction Yard.\n\nSpecial:\n- Provides a build radius for structures.\n- Can crush infantry.\n- Maximum production speed is reached with 7 ConYards.\n- Max production speed reduces production time by 50%.\n- Has increased HP when deployed.
+		BuildDuration: 1000
+		BuildDurationModifier: 100
 	Valued:
-		Cost: 2000
+		Cost: 3500
 	Tooltip:
 		Name: GDI MCV
 	Selectable:
@@ -116,6 +120,8 @@ HARV:
 		Prerequisites: proc, ~techlevel.1, ~!global-megawealth
 		BuildAtProductionType: Tank
 		Description: Collects Tiberium for processing.\n\nSpecial:\n- Harvests Tiberium\n- Immune to Veins\n- Can crush infantry\n- Cannot be mindcontrolled\n- Selfheal
+		BuildDuration: 750
+		BuildDurationModifier: 100
 	Selectable:
 		Bounds: 1086, 1536
 		DecorationBounds: 1086, 1536
@@ -259,10 +265,12 @@ GACNST:
 		BuildPaletteOrder: 996
 		Prerequisites: ~disabled
 		Description: Builds base structures.
+		BuildDuration: 1000
+		BuildDurationModifier: 100
 	Health:
 		HP: 180000
 	Valued:
-		Cost: 2000
+		Cost: 3500
 	Tooltip:
 		Name: GDI Construction Yard
 	BaseProvider:
@@ -687,7 +695,7 @@ GACNST:
 	ProductionBar@Vehicle:
 		ProductionType: Vehicle
 	Power:
-		Amount: -30
+		Amount: -50
 	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -743,7 +751,7 @@ GACNST:
 	Health:
 		HP: 50000
 	Power:
-		Amount: -20
+		Amount: -50
 	WithSpriteBody:
 	ProvidesPrerequisite@AIantiRush:
 		Prerequisite: AIantiRush
@@ -778,7 +786,7 @@ GACNST:
 	Targetable:
 		TargetTypes: Building, Ground, C4, SpyInfiltrate
 	Power:
-		Amount: -50
+		Amount: -75
 	ProvidesPrerequisite@buildingname:
 	WithSpriteBody:
 		PauseOnCondition: disabled
@@ -832,6 +840,8 @@ GADEPT:
 		BuildPaletteOrder: 21
 		Prerequisites: factoryorair, ~techlevel.3
 		Description: Provides 3 Repair Drones to repair nearby damaged vehicles.\n\nSpecial:\n- Vehicles standing at the center of the building can be sold.
+		BuildDuration: 375
+		BuildDurationModifier: 100
 	Building:
 		Footprint: x== x=+ x==
 		Dimensions: 3,3
@@ -945,6 +955,8 @@ SCRDEPOT:
 		BuildPaletteOrder: 25
 		Prerequisites: factoryorair, ~techlevel.3
 		Description: Provides 3 Repair drone to repair nearby damaged vehicles.\n\nSpecial:\n- Vehicles standing at the center of the building can be sold.
+		BuildDuration: 375
+		BuildDurationModifier: 100
 	Tooltip:
 		Name: Scrin Maintenance Depot
 	Building:
@@ -1037,6 +1049,8 @@ SHAWALL:
 		BuildPaletteOrder: 1
 		Prerequisites: ~techlevel.1
 		Description: Stops infantry, Vehicles and blocks enemy fire.
+		BuildDuration: 50
+		BuildDurationModifier: 100
 	SoundOnDamageTransition:
 		DamagedSounds:
 		DestroyedSounds:
@@ -1062,6 +1076,8 @@ NAPOST:
 		BuildPaletteOrder: 2
 		Prerequisites: napowr, ~techlevel.1
 		Description: Stops infantry and blocks enemy fire\n- Can NOT be crushed\n- Requires power to operate
+		BuildDuration: 50
+		BuildDurationModifier: 100
 	Valued:
 		Cost: 100
 	Tooltip:
@@ -1199,6 +1215,8 @@ MUTWALL:
 		BuildPaletteOrder: 3
 		Description: Stops infantry, Vehicles and blocks enemy fire.
 		Prerequisites:  ~techlevel.1
+		BuildDuration: 50
+		BuildDurationModifier: 100
 	SoundOnDamageTransition:
 		DamagedSounds:
 		DestroyedSounds:
@@ -1222,6 +1240,8 @@ SCRWALL:
 		BuildPaletteOrder: 5
 		Description: Stops infantry, Vehicles and blocks enemy fire.
 		Prerequisites: ~techlevel.1
+		BuildDuration: 50
+		BuildDurationModifier: 100
 	SoundOnDamageTransition:
 		DamagedSounds:
 		DestroyedSounds:
@@ -1243,6 +1263,8 @@ GASILO:
 		BuildPaletteOrder: 31
 		Prerequisites: proc, ~techlevel.1, ~!global-megawealth
 		Description: Stores excess Tiberium.\n\nSpecial:\n- Stores 3000$.\n- Power loss does not affect storage capacity.
+		BuildDuration: 75
+		BuildDurationModifier: 100
 	Valued:
 		Cost: 200
 	Tooltip:
@@ -1309,6 +1331,8 @@ GASILO:
 	Buildable:
 		Queue: Air
 		Description: VTOL aircraft for transporting vehicles.\n\nSpecial:\n- Can transport one vehicle.
+		BuildDuration: 250
+		BuildDurationModifier: 100
 	Aircraft:
 		AltitudeVelocity: 350
 		IdealSeparation: 3c0
@@ -1496,6 +1520,8 @@ NAPULS:
 		BuildPaletteOrder: 11
 		Prerequisites: radar, ~techlevel.4
 		Description: Cannon that uses EMP projectiles to disable vehicles.\n\nSpecial:\n- Fires a pulse blast which disables all vehicles and buildings in the area\n- Hover units disabled staying over water will be destroyed instantly.\n- Requires power to operate.
+		BuildDuration: 625
+		BuildDurationModifier: 100
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1580,6 +1606,8 @@ SCRSHIELD:
 		Queue: Defense.Scrin
 		BuildPaletteOrder: 15
 		Prerequisites: scrradr, ~techlevel.4
+		BuildDuration: 625
+		BuildDurationModifier: 100
 	-WithSpriteTurret:
 	RenderSprites:
 		Image: scrshield
@@ -1598,6 +1626,8 @@ GATE_A:
 		BuildPaletteOrder: 6
 		Prerequisites: ~techlevel.1
 		Description: Automated barrier that opens for allied units.\nCan be rotated.
+		BuildDuration: 125
+		BuildDurationModifier: 100
 	-AppearsOnRadar:
 	-UpdatesPlayerStatistics:
 	Tooltip:
@@ -1638,6 +1668,8 @@ MUTGATE_A:
 		BuildPaletteOrder: 7
 		Prerequisites: ~techlevel.1
 		Description: Automated barrier that opens for allied units.\nCan be rotated.
+		BuildDuration: 125
+		BuildDurationModifier: 100
 	Tooltip:
 		Name: Mutant Gate
 	PlaceBuildingVariants:
@@ -1663,6 +1695,8 @@ SCRGATE_A:
 		BuildPaletteOrder: 10
 		Prerequisites: ~techlevel.1
 		Description: Automated barrier that opens for allied units.\nCan be rotated.
+		BuildDuration: 125
+		BuildDurationModifier: 100
 	Tooltip:
 		Name: Energy Gate
 	Gate:

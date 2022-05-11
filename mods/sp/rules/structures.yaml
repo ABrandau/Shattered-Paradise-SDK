@@ -7,6 +7,8 @@ GAPOWR:
 		BuildPaletteOrder: 1
 		Prerequisites: ~techlevel.1
 		Description: Provides power for other structures.
+		BuildDuration: 125
+		BuildDurationModifier: 100
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -55,6 +57,8 @@ GAPILE:
 		BuildPaletteOrder: 6
 		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an area around it.
 		Prerequisites: anypower, ~techlevel.1
+		BuildDuration: 250
+		BuildDurationModifier: 100
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -132,6 +136,8 @@ GDIREF:
 		BuildPaletteOrder: 11
 		Prerequisites: anypower, ~techlevel.1, ~AIantiRush, ~!global-megawealth
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
+		BuildDuration: 1000
+		BuildDurationModifier: 100
 	FreeActor:
 		Actor: harv
 	-WithIdleOverlay@REDLIGHTS:
@@ -192,6 +198,8 @@ GAWEAP:
 		BuildPaletteOrder: 16
 		Description: Produces vehicles.
 		Prerequisites: proc, ~techlevel.2
+		BuildDuration: 750
+		BuildDurationModifier: 100
 	Production:
 		Produces: Vehicle.GDI
 	ProductionQueue@Vehicle:
@@ -244,6 +252,8 @@ GARADR:
 		BuildPaletteOrder: 26
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		Prerequisites: proc, ~techlevel.4
+		BuildDuration: 875
+		BuildDurationModifier: 100
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
@@ -264,8 +274,10 @@ GAHPAD:
 		BuildPaletteOrder: 36
 		Description: Produces and rearms aircraft.
 		Prerequisites: garadr, ~techlevel.4
+		BuildDuration: 375
+		BuildDurationModifier: 100
 	Valued:
-		Cost: 500
+		Cost: 1000
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -309,6 +321,8 @@ GATECH:
 		BuildPaletteOrder: 41
 		Description: Provides access to advanced GDI technologies.
 		Prerequisites: garadr, ~techlevel.5
+		BuildDuration: 1250
+		BuildDurationModifier: 100
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -333,6 +347,8 @@ GTDROP:
 		Prerequisites: gatech, ~techlevel.6
 		BuildLimit: 1
 		Description: Staging area for drop pod assault.\n\nSpecial:\n- Provides access to Helldiver Drop support\n- Produces the Mammoth Mk. II\n- Requires power to operate
+		BuildDuration: 1000
+		BuildDurationModifier: 100
 	Valued:
 		Cost: 2500
 	Building:
@@ -450,6 +466,8 @@ NAPOWR:
 		BuildPaletteOrder: 2
 		Description: Provides power for other structures.
 		Prerequisites: ~techlevel.1
+		BuildDuration: 125
+		BuildDurationModifier: 100
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -475,6 +493,8 @@ NAHAND:
 		BuildPaletteOrder: 6
 		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an area around it.
 		Prerequisites: anypower, ~techlevel.1
+		BuildDuration: 250
+		BuildDurationModifier: 100
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -549,6 +569,8 @@ NODREF:
 		BuildPaletteOrder: 12
 		Prerequisites: anypower, ~techlevel.1, ~AIantiRush, ~!global-megawealth
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
+		BuildDuration: 1000
+		BuildDurationModifier: 100
 	FreeActor:
 		Actor: harv.nod
 	-WithIdleOverlay@REDLIGHTS:
@@ -609,6 +631,8 @@ NAWEAP:
 		BuildPaletteOrder: 17
 		Description: Produces vehicles.
 		Prerequisites: proc, ~techlevel.2
+		BuildDuration: 750
+		BuildDurationModifier: 100
 	Production:
 		Produces: Vehicle.Nod
 	ProductionQueue@Vehicle:
@@ -644,6 +668,8 @@ NARADR:
 		BuildPaletteOrder: 27
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		Prerequisites: proc, ~techlevel.4
+		BuildDuration: 875
+		BuildDurationModifier: 100
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
@@ -665,6 +691,8 @@ NAAPWR:
 		BuildPaletteOrder: 32
 		Description: Provides more power than the standard powerplant\nusing less space.
 		Prerequisites: naradr, ~techlevel.4
+		BuildDuration: 375
+		BuildDurationModifier: 100
 	Valued:
 		Cost: 700
 	Building:
@@ -697,8 +725,10 @@ NAHPAD:
 		BuildPaletteOrder: 37
 		Description: Produces and rearms aircraft.
 		Prerequisites: naradr, ~techlevel.4
+		BuildDuration: 375
+		BuildDurationModifier: 100
 	Valued:
-		Cost: 500
+		Cost: 1000
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -742,6 +772,8 @@ NATECH:
 		BuildPaletteOrder: 42
 		Description: Provides access to advanced Nod technologies.
 		Prerequisites: naradr, ~techlevel.5
+		BuildDuration: 1250
+		BuildDurationModifier: 100
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -769,6 +801,8 @@ NAHFAC:
 		Description: Produces vehicles, including the Lightbringer.\n\nSpecial:\n- Buildlimit: 1\n- Spawns Templar when sold
 		Prerequisites: natech, ~techlevel.6
 		BuildLimit: 1
+		BuildDuration: 875
+		BuildDurationModifier: 100
 	Health:
 		HP: 200000
 	Production:
@@ -816,6 +850,8 @@ NAMISL:
 		Prerequisites: natech, ~techlevel.6
 		Description: Provides access to Nod´s Chemical Missiles.\n\nSpecial:\n- Provides access to the Chemical Missile\n- Requires power to operate
 		BuildLimit: 1
+		BuildDuration: 1000
+		BuildDurationModifier: 100
 	Valued:
 		Cost: 2500
 	Building:
@@ -942,6 +978,8 @@ MUPOWR:
 		BuildPaletteOrder: 3
 		Description: Provides power for other structures.
 		Prerequisites: ~techlevel.1
+		BuildDuration: 125
+		BuildDurationModifier: 100
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -960,6 +998,8 @@ MURAX:
 		BuildPaletteOrder: 7
 		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an area around it.
 		Prerequisites: anypower, ~techlevel.1
+		BuildDuration: 250
+		BuildDurationModifier: 100
 	Tooltip:
 		Name: Mutant Armory
 	Building:
@@ -1028,6 +1068,8 @@ MUPROC:
 		Prerequisites: anypower, ~techlevel.1, ~AIantiRush, ~!global-megawealth
 		IconPalette: UnittemIconMut
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
+		BuildDuration: 1000
+		BuildDurationModifier: 100
 	FreeActor:
 		Actor: harv.mut
 	-WithIdleOverlay@REDLIGHTS:
@@ -1097,6 +1139,8 @@ MUWEAP:
 		BuildPaletteOrder: 18
 		Description: Produces vehicles.
 		Prerequisites: proc, ~techlevel.2
+		BuildDuration: 750
+		BuildDurationModifier: 100
 	Production:
 		Produces: Vehicle.Mutant
 	ProductionQueue@Vehicle:
@@ -1124,6 +1168,8 @@ MURADR:
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		BuildPaletteOrder: 28
 		Prerequisites: proc, ~techlevel.4
+		BuildDuration: 875
+		BuildDurationModifier: 100
 	SpawnActorPower:
 		OrderName: MutantRadarScan
 		Icons:
@@ -1137,12 +1183,14 @@ MUAIR:
 	Tooltip:
 		Name: Mutant Helipad
 	Valued:
-		Cost: 500
+		Cost: 1000
 	Buildable:
 		Queue: Building.Mutant
 		BuildPaletteOrder: 38
 		Description: Produces and rearms aircraft.
 		Prerequisites: muradr, ~techlevel.4
+		BuildDuration: 375
+		BuildDurationModifier: 100
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1172,6 +1220,8 @@ MUHALL:
 		BuildPaletteOrder: 43
 		Description: Provides access to contact with Forgotten Leaders.
 		Prerequisites: muradr, ~techlevel.5
+		BuildDuration: 1250
+		BuildDurationModifier: 100
 	Building:
 		Footprint: xxx xxx xxx xxx
 		Dimensions: 3,4
@@ -1192,6 +1242,8 @@ MUTSW2:
 		Prerequisites: muhall, ~techlevel.6
 		Description: With this structure Mutant commanders are able to summon veinhole monster.\n\nSpecial:\n- Provides access to Veinhole Monsters.\n- Requires power to operate.
 		BuildLimit: 1
+		BuildDuration: 1000
+		BuildDurationModifier: 100
 	Valued:
 		Cost: 2500
 	Building:
@@ -1285,6 +1337,8 @@ SCRPOWR:
 		BuildPaletteOrder: 5
 		Description: Provides power for other structures.
 		Prerequisites: ~techlevel.1
+		BuildDuration: 175
+		BuildDurationModifier: 100
 	Valued:
 		Cost: 400
 	Building:
@@ -1314,6 +1368,8 @@ SCRRAX:
 		BuildPaletteOrder: 10
 		Description: Calls down Infantry.\n\nSpecial:\n- Heals infantry in an area around it.
 		Prerequisites: anypower, ~techlevel.1
+		BuildDuration: 250
+		BuildDurationModifier: 100
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1389,6 +1445,8 @@ SCRPROC:
 		Prerequisites: anypower, ~techlevel.1, ~AIantiRush, ~!global-megawealth
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 4000$.
 		IconPalette: UnittemIconScrin
+		BuildDuration: 1000
+		BuildDurationModifier: 100
 	StoresResources:
 		Capacity: 4000
 	FreeActor:
@@ -1499,6 +1557,8 @@ SCRWEAP:
 		Description: Produces vehicles.
 		BuildPaletteOrder: 20
 		Prerequisites: proc, ~techlevel.2
+		BuildDuration: 750
+		BuildDurationModifier: 100
 	Production:
 		Produces: Vehicle.Scrin
 	ProductionQueue@Vehicle:
@@ -1530,6 +1590,8 @@ SCRRADR:
 		BuildPaletteOrder: 30
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		Prerequisites: proc, ~techlevel.4
+		BuildDuration: 875
+		BuildDurationModifier: 100
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
@@ -1564,6 +1626,10 @@ SCRAIR:
 		BuildPaletteOrder: 40
 		Description: Warps in warships from a nomad galaxy.\n\nSpecial:\n- Scrin Aircraft do not need to rearm.
 		Prerequisites: scrradr, ~techlevel.4
+		BuildDuration: 375
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 1000
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
@@ -1614,6 +1680,8 @@ SCRTECH:
 		BuildPaletteOrder: 45
 		Description: Provides samples to enable the Scrins most complex technologies.
 		Prerequisites: scrradr, ~techlevel.5
+		BuildDuration: 1250
+		BuildDurationModifier: 100
 	Valued:
 		Cost: 2000
 	Building:
@@ -1644,6 +1712,8 @@ SCRADVPOWR:
 		Prerequisites: scrtech, ~techlevel.6
 		Description: Teleports infantry and vehicles to a selected area.\n\nSpecial:\n- Provides access to the Instant Wormhole support power.\n- Requires power to operate.
 		BuildLimit: 1
+		BuildDuration: 1000
+		BuildDurationModifier: 100
 	Valued:
 		Cost: 2500
 	ProvidesPrerequisite:
@@ -1777,6 +1847,8 @@ CABPOWR:
 		BuildPaletteOrder: 4
 		Description: Provides power for other structures.
 		Prerequisites: ~techlevel.1
+		BuildDuration: 225
+		BuildDurationModifier: 100
 	Valued:
 		Cost: 500
 	Building:
@@ -1800,6 +1872,8 @@ CABCLAW:
 		BuildPaletteOrder: 9
 		Description: Processes Infantry.\n\nSpecial:\n- Heals infantry in an area around it.
 		Prerequisites: anypower, ~techlevel.1
+		BuildDuration: 250
+		BuildDurationModifier: 100
 	WithProductionOverlay:
 	Building:
 		Footprint: xx xx xx
@@ -1871,6 +1945,8 @@ CABPROC:
 		Prerequisites: anypower, ~techlevel.1, ~AIantiRush, ~!global-megawealth
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 		IconPalette: UnittemIconCab
+		BuildDuration: 1000
+		BuildDurationModifier: 100
 	FreeActor:
 		Actor: cabharv
 	-WithIdleOverlay@REDLIGHTS:
@@ -1951,6 +2027,8 @@ CABWEAP:
 		BuildPaletteOrder: 19
 		Description: Produces vehicles.
 		Prerequisites: proc, ~techlevel.2
+		BuildDuration: 750
+		BuildDurationModifier: 100
 	Production:
 		Produces: Vehicle.CABAL
 	ProductionQueue@Vehicle:
@@ -1980,6 +2058,8 @@ CABRADR:
 		BuildPaletteOrder: 29
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		Prerequisites: proc, ~techlevel.4
+		BuildDuration: 875
+		BuildDurationModifier: 100
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
@@ -2003,6 +2083,10 @@ CABAIR:
 		BuildPaletteOrder: 39
 		Description: Produces aircraft.\n\nSpecial:\n- C.A.B.A.L. Aircraft do not need to rearm.
 		Prerequisites: cabradr, ~techlevel.4
+		BuildDuration: 375
+		BuildDurationModifier: 100
+	Value:
+		Cost: 1000
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
@@ -2040,6 +2124,8 @@ CABTECH:
 		BuildPaletteOrder: 44
 		Description: Provides access to advanced C.A.B.A.L. technologies.
 		Prerequisites: cabradr, ~techlevel.5
+		BuildDuration: 1250
+		BuildDurationModifier: 100
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -2059,6 +2145,8 @@ CABOBELISK:
 		Description: C.A.B.A.L.'s Support Superweapon.\n\nSpecial:\n- Provides access to Nanomachine Swarms\n- Requires power to operate
 		BuildPaletteOrder: 49
 		BuildLimit: 1
+		BuildDuration: 1000
+		BuildDurationModifier: 100
 	Valued:
 		Cost: 2500
 	Building:
