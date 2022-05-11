@@ -260,17 +260,19 @@ GHOST:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^8CellVision
 	Valued:
-		Cost: 1500
+		Cost: 2000
 	Tooltip:
 		Name: Gil the Ghost Stalker
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry.Mutant
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 32
 		Prerequisites: muhall, ~techlevel.5, ~AIOnly
 		Description: Gil is the elite commando of Mutants, if not GDI.\nHe is armed with a railgun and C4.\n\nGood vs Ground\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes structures with C4\n- Heals on Tiberium\n- Immune to mindcontrol\n- Crush class: crushable
 		BuildLimit: 1
+		BuildDuration: 1250
+		BuildDurationModifier: 100
 	Armor:
 		Type: Infantry
 	Mobile:
@@ -617,10 +619,12 @@ RTRIPOD:
 		Bounds: 1508,6031, 0, -1809
 	Buildable:
 		Queue: Vehicle.Scrin
-		BuildPaletteOrder: 42
+		BuildPaletteOrder: 50
 		Prerequisites: scrtech, ~AIOnly, ~techlevel.5
 		Description: Advanced walker.\n\n  Good vs Ground\n\nSpecial: \n- Can absorb Tiberium on the field to empower it's weapon\n- Absorbs essence from killed units to heal\n- Can shoot over walls\n- Can crush infantry
 		IconPalette: chromescrin
+		BuildDuration: 1000
+		BuildDurationModifier: 100
 	Mobile:
 		TurnSpeed: 32
 		Speed: 75
@@ -725,9 +729,11 @@ GMRLS:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.GDI
-		BuildPaletteOrder: 29
+		BuildPaletteOrder: 35
 		Description: Artillery armed with long range anti-armor and anti-air rockets.\n\nGood vs: Vehicle, Air\n\nSpecial:\n- Armor Type: Light\n- Deals AoE damage\n- Minimum attack distance\n- Can shoot over walls\n- Can crush infantry
 		Prerequisites: gatech, ~AIOnly,  ~techlevel.5
+		BuildDuration: 875
+		BuildDurationModifier: 100
 	Mobile:
 		TurnSpeed: 20
 		Speed: 50
