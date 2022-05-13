@@ -4,6 +4,12 @@
 ^Dialog:
 	Image: dialog.png
 
+^Dialog2:
+	Image: dialog2.png
+
+^Dialog3:
+	Image: dialog3.png
+
 ^Buttons:
 	Image: buttons.png
 
@@ -57,6 +63,7 @@ sidebar-gdi:
 	Inherits: ^Chrome
 	Regions:
 		background-top: 0, 0, 235, 260
+		background-tabs: 0, 366, 235, 20
 		background-iconrow: 0, 260, 235, 52
 		background-bottom: 0, 312, 235, 26
 		background-commandbar: 87, 461, 425, 51
@@ -378,6 +385,7 @@ sidebar-nod:
 	Inherits: ^Chrome
 	Regions:
 		background-top: 512, 0, 235, 260
+		background-tabs: 512, 366, 235, 20
 		background-iconrow: 512, 260, 235, 52
 		background-bottom: 512, 312, 235, 26
 		background-commandbar: 599, 461, 425, 51
@@ -701,6 +709,7 @@ sidebar-mut:
 	Image: chrome2.png
 	Regions:
 		background-top: 512, 0, 235, 260
+		background-tabs: 512, 366, 235, 20
 		background-iconrow: 512, 260, 235, 52
 		background-bottom: 512, 312, 235, 26
 		background-commandbar: 599, 461, 425, 51
@@ -1024,6 +1033,7 @@ sidebar-cab:
 	Image: chrome2.png
 	Regions:
 		background-top: 0, 0, 235, 260
+		background-tabs: 0, 366, 235, 20
 		background-iconrow: 0, 260, 235, 52
 		background-bottom: 0, 312, 235, 26
 		background-commandbar: 87, 461, 425, 51
@@ -1344,6 +1354,7 @@ sidebar-scr:
 	Image: chrome3.png
 	Regions:
 		background-top: 0, 0, 235, 260
+		background-tabs: 0, 366, 235, 20
 		background-iconrow: 0, 260, 235, 52
 		background-bottom: 0, 312, 235, 26
 		background-commandbar: 87, 461, 425, 51
@@ -1831,6 +1842,147 @@ button-highlighted-pressed:
 
 button-highlighted-disabled:
 	Inherits: button-highlighted
+
+button-gdi:
+	Inherits: ^Dialog2
+	PanelRegion: 513, 1, 2, 2, 122, 122, 2, 2
+
+button-gdi-hover:
+	Inherits: ^Dialog2
+	PanelRegion: 513, 129, 2, 2, 122, 122, 2, 2
+
+button-gdi-pressed:
+	Inherits: ^Dialog2
+	PanelRegion: 641, 1, 2, 2, 122, 122, 2, 2
+
+button-gdi-disabled:
+	Inherits: ^Dialog2
+	PanelRegion: 513, 257, 2, 2, 122, 122, 2, 2
+
+button-gdi-highlighted:
+	Inherits: ^Dialog2
+	PanelRegion: 769, 129, 2, 2, 122, 122, 2, 2
+
+button-gdi-highlighted-hover:
+	Inherits: button-gdi-highlighted
+
+button-gdi-highlighted-pressed:
+	Inherits: ^Dialog2
+	PanelRegion: 897, 129, 2, 2, 122, 122, 2, 2
+
+button-gdi-highlighted-disabled:
+	Inherits: button-gdi-highlighted
+
+button-nod:
+	Inherits: ^Dialog3
+	PanelRegion: 513, 1, 2, 2, 122, 122, 2, 2
+
+button-nod-hover:
+	Inherits: ^Dialog3
+	PanelRegion: 513, 129, 2, 2, 122, 122, 2, 2
+
+button-nod-pressed:
+	Inherits: ^Dialog3
+	PanelRegion: 641, 1, 2, 2, 122, 122, 2, 2
+
+button-nod-disabled:
+	Inherits: ^Dialog3
+	PanelRegion: 513, 257, 2, 2, 122, 122, 2, 2
+
+button-nod-highlighted:
+	Inherits: ^Dialog3
+	PanelRegion: 769, 129, 2, 2, 122, 122, 2, 2
+
+button-nod-highlighted-hover:
+	Inherits: button-nod-highlighted
+
+button-nod-highlighted-pressed:
+	Inherits: ^Dialog3
+	PanelRegion: 897, 129, 2, 2, 122, 122, 2, 2
+
+button-mut:
+	Inherits: ^Dialog
+	PanelRegion: 513, 1, 2, 2, 122, 122, 2, 2
+
+button-mut-hover:
+	Inherits: ^Dialog
+	PanelRegion: 513, 129, 2, 2, 122, 122, 2, 2
+
+button-mut-pressed:
+	Inherits: ^Dialog
+	PanelRegion: 641, 1, 2, 2, 122, 122, 2, 2
+
+button-mut-disabled:
+	Inherits: ^Dialog
+	PanelRegion: 513, 257, 2, 2, 122, 122, 2, 2
+
+button-mut-highlighted:
+	Inherits: ^Dialog
+	PanelRegion: 769, 129, 2, 2, 122, 122, 2, 2
+
+button-mut-highlighted-hover:
+	Inherits: button-mut-highlighted
+
+button-mut-highlighted-pressed:
+	Inherits: ^Dialog
+	PanelRegion: 897, 129, 2, 2, 122, 122, 2, 2
+
+button-mut-highlighted-disabled:
+	Inherits: button-mut-highlighted
+
+button-cab:
+	Inherits: button-gdi
+
+button-cab-hover:
+	Inherits: button-gdi-hover
+
+button-cab-pressed:
+	Inherits: button-gdi-pressed
+
+button-cab-disabled:
+	Inherits: button-gdi-disabled
+
+button-cab-highlighted:
+	Inherits: button-gdi-highlighted
+
+button-cab-highlighted-hover:
+	Inherits: button-gdi-highlighted
+
+button-cab-highlighted-pressed:
+	Inherits: button-gdi-highlighted-pressed
+
+button-cab-highlighted-disabled:
+	Inherits: button-gdi-highlighted
+
+button-scr:
+	Inherits: ^Dialog3
+	PanelRegion: 1, 1, 2, 2, 122, 122, 2, 2
+
+button-scr-hover:
+	Inherits: ^Dialog3
+	PanelRegion: 1, 129, 2, 2, 122, 122, 2, 2
+
+button-scr-pressed:
+	Inherits: ^Dialog3
+	PanelRegion: 129, 1, 2, 2, 122, 122, 2, 2
+
+button-scr-disabled:
+	Inherits: ^Dialog3
+	PanelRegion: 1, 257, 2, 2, 122, 122, 2, 2
+
+button-scr-highlighted:
+	Inherits: ^Dialog3
+	PanelRegion: 257, 129, 2, 2, 122, 122, 2, 2
+
+button-scr-highlighted-hover:
+	Inherits: button-scr-highlighted
+
+button-scr-highlighted-pressed:
+	Inherits: ^Dialog3
+	PanelRegion: 385, 129, 2, 2, 122, 122, 2, 2
+
+button-scr-highlighted-disabled:
+	Inherits: button-scr-highlighted
 
 newsbutton:
 	Inherits: button

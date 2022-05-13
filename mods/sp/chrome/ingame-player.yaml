@@ -677,10 +677,18 @@ Container@PLAYER_WIDGETS:
 		Container@SIDEBAR_PRODUCTION:
 			Logic: ClassicProductionLogic
 			X: WINDOW_RIGHT - 235
-			Y: 260
+			Y: 280
 			Width: 235
 			Height: 250
 			Children:
+				Image@TABS_BACKGROUND:
+					Logic: AddFactionSuffixLogic
+					Y: 0 - 20
+					Width: 235
+					Height: 20
+					ClickThrough: false
+					ImageCollection: sidebar
+					ImageName: background-tabs
 				Container@PALETTE_BACKGROUND:
 					Children:
 						Image@ROW_TEMPLATE:
@@ -716,7 +724,7 @@ Container@PLAYER_WIDGETS:
 					HotkeyCount: 24
 				Container@PRODUCTION_TYPES:
 					X: 0
-					Y: 0 - 32
+					Y: 0 - 52
 					Width: 235
 					Height: 311
 					Children:
@@ -843,11 +851,11 @@ Container@PLAYER_WIDGETS:
 							TooltipText: Scroll down
 							TooltipContainer: TOOLTIP_CONTAINER
 		ProductionTabs@PRODUCTION_TABS:
-			Logic: ProductionTabsLogic
+			Logic: ProductionTabsLogic, AddFactionSuffixLogic
 			PaletteWidget: PRODUCTION_PALETTE
 			TypesContainer: PRODUCTION_TYPES
 			BackgroundContainer: PRODUCTION_BACKGROUND
-			X: WINDOW_RIGHT - 235
-			Y: WINDOW_BOTTOM - 20
-			Width: 235
+			X: WINDOW_RIGHT - 213
+			Y: 260
+			Width: 202
 			Height: 20
