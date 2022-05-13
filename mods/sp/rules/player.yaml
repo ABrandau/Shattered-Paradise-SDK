@@ -14,6 +14,93 @@ Player:
 	Inherits: ^BasePlayer
 	AlwaysVisible:
 	TechTree:
+	ClassicProductionQueue@UpgGDI:
+		Type: Upgrade.GDI
+		Group: Upgrade
+		DisplayOrder: 25
+		BuildDurationModifier: 100
+		LowPowerModifier: 200
+		AlwaysShowForFactions: gdi
+		QueuedAudio: Upgrading
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		ReadyAudio: UpgradeComplete
+		ReadyTextNotification: Upgrade complete.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
+	ClassicProductionQueue@UpgNod:
+		Type: Upgrade.Nod
+		Group: Upgrade
+		DisplayOrder: 26
+		BuildDurationModifier: 100
+		LowPowerModifier: 200
+		AlwaysShowForFactions: nod
+		QueuedAudio: Upgrading
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		ReadyAudio: UpgradeComplete
+		ReadyTextNotification: Upgrade complete.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
+	ClassicProductionQueue@UpgMutant:
+		Type: Upgrade.Mutant
+		Group: Upgrade
+		DisplayOrder: 27
+		BuildDurationModifier: 100
+		LowPowerModifier: 200
+		AlwaysShowForFactions: mut
+		QueuedAudio: Upgrading
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		ReadyAudio: UpgradeComplete
+		ReadyTextNotification: Upgrade complete.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
+	ClassicProductionQueue@UpgCABAL:
+		Type: Upgrade.CABAL
+		Group: Upgrade
+		DisplayOrder: 28
+		BuildDurationModifier: 100
+		LowPowerModifier: 200
+		AlwaysShowForFactions: cab
+		QueuedAudio: Upgrading
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		ReadyAudio: UpgradeComplete
+		ReadyTextNotification: Upgrade complete.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
+	ClassicProductionQueue@UpgScrin:
+		Type: Upgrade.Scrin
+		Group: Upgrade
+		DisplayOrder: 29
+		BuildDurationModifier: 100
+		LowPowerModifier: 200
+		AlwaysShowForFactions: scr
+		QueuedAudio: Upgrading
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		ReadyAudio: UpgradeComplete
+		ReadyTextNotification: Upgrade complete.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
+	Production@Upgrade:
+		Produces: Upgrade.GDI, Upgrade.Nod, Upgrade.Mutant, Upgrade.CABAL, Upgrade.Scrin
+	ProvidesPrerequisite@upgrade.gdi:
+		Prerequisite: upgrade.gdi
+		Factions: gdi
+	ProvidesPrerequisite@upgrade.nod:
+		Prerequisite: upgrade.nod
+		Factions: nod
+	ProvidesPrerequisite@upgrade.mut:
+		Prerequisite: upgrade.mut
+		Factions: mut
+	ProvidesPrerequisite@upgrade.cab:
+		Prerequisite: upgrade.cab
+		Factions: cab
+	ProvidesPrerequisite@upgrade.scr:
+		Prerequisite: upgrade.scr
+		Factions: scr
 	GrantConditionOnPrerequisiteManager:
 	EnemyWatcher:
 	PlaceBuilding:

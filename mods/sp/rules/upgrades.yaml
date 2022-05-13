@@ -1,0 +1,34 @@
+^default.upgrade:
+	AlwaysVisible:
+	Interactable:
+	ScriptTriggers:
+	Buildable:
+		Queue: Upgrade
+		BuildLimit: 1
+		BuildDurationModifier: 100
+	RenderSprites:
+	ProvidesPrerequisite@upgradename:
+	Valued:
+		Cost: 0
+	#UpdatesPlayerStatistics:
+	#	AddToUpgradesTab: true
+	#WithProductionIconOverlay:
+	#	Prerequisites: default.upgrade
+	#	Types: stripe-upgraded
+
+upgrade.power_turbines:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Power Turbines
+	Buildable:
+		Queue: Upgrade.GDI
+		BuildPaletteOrder: 30
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.gdi, garadr, ~techlevel.2
+		Description: Double power output of all GDI Power Plants.
+	Valued:
+		Cost: 1500
+	#WithProductionIconOverlay:
+	#	Prerequisites: upgrade.power_turbines
+	RenderSprites:
+		Image: gapowrup

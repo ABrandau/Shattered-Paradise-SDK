@@ -38,12 +38,18 @@ GAPOWR:
 	Power@pluga:
 		RequiresCondition: powrup.a
 		Amount: 100
+	Power@PowerTurbines:
+		RequiresCondition: power_turbines
+		Amount: 100
 	WithIdleOverlay@pluga:
-		RequiresCondition: powrup.a
+		RequiresCondition: powrup.a || power_turbines
 		Sequence: idle-powrupa
 	WithIdleOverlay@plugb:
-		RequiresCondition: powrup.a
+		RequiresCondition: powrup.a || power_turbines
 		Sequence: idle-powrupb
+	GrantConditionOnPrerequisite@PowerTurbines:
+		Prerequisites: upgrade.power_turbines
+		Condition: power_turbines
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -258,6 +264,8 @@ GARADR:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
 		RequiresCondition: !Building-Buildup
+	ProvidesPrerequisite@upgrade.gdi:
+		Prerequisite: upgrade.gdi
 	SpawnActorPower:
 		OrderName: GDIRadarScan
 		Icons:
@@ -329,6 +337,8 @@ GATECH:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
+	ProvidesPrerequisite@upgrade.gdi:
+		Prerequisite: upgrade.gdi
 	RequiresBuildableArea:
 		AreaTypes: building
 	IsometricSelectable:
@@ -674,6 +684,8 @@ NARADR:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
 		RequiresCondition: !Building-Buildup
+	ProvidesPrerequisite@upgrade.nod:
+		Prerequisite: upgrade.nod
 	SpawnActorPower:
 		OrderName: NodRadarScan
 		Icons:
@@ -786,6 +798,8 @@ NATECH:
 		RequiresCondition: !Building-Buildup
 		Sequence: idle-lights-bright
 		Palette: bright
+	ProvidesPrerequisite@upgrade.nod:
+		Prerequisite: upgrade.nod
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -1170,6 +1184,8 @@ MURADR:
 		Prerequisites: proc, ~techlevel.4
 		BuildDuration: 875
 		BuildDurationModifier: 100
+	ProvidesPrerequisite@upgrade.mut:
+		Prerequisite: upgrade.mut
 	SpawnActorPower:
 		OrderName: MutantRadarScan
 		Icons:
@@ -1225,6 +1241,8 @@ MUHALL:
 	Building:
 		Footprint: xxx xxx xxx xxx
 		Dimensions: 3,4
+	ProvidesPrerequisite@upgrade.mut:
+		Prerequisite: upgrade.mut
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -1601,6 +1619,8 @@ SCRRADR:
 		RequiresCondition: !Building-Buildup
 	RequiresBuildableArea:
 		AreaTypes: building
+	ProvidesPrerequisite@upgrade.scr:
+		Prerequisite: upgrade.scr
 	SpawnActorPower:
 		OrderName: ScrinRadarScan
 		Icons:
@@ -1688,6 +1708,8 @@ SCRTECH:
 		Footprint: xx xx xx
 		Dimensions: 2,3
 	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@upgrade.scr:
+		Prerequisite: upgrade.scr
 	RequiresBuildableArea:
 		AreaTypes: building
 	ThrowsShrapnel@SMALL:
@@ -2065,6 +2087,8 @@ CABRADR:
 		Dimensions: 3,3
 	RequiresBuildableArea:
 		AreaTypes: building
+	ProvidesPrerequisite@upgrade.cab:
+		Prerequisite: upgrade.cab
 	SpawnActorPower:
 		OrderName: CabalRadarScan
 		Icons:
@@ -2129,6 +2153,8 @@ CABTECH:
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
+	ProvidesPrerequisite@upgrade.cab:
+		Prerequisite: upgrade.cab
 	RequiresBuildableArea:
 		AreaTypes: building
 

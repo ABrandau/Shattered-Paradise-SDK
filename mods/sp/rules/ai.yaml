@@ -43,14 +43,14 @@ Player:
 	#	RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4
 	AutoDeployManager@AIall:
 		RequiresCondition: AIBase || AIEasy
-	PlugSpawnerBotModule@AIBase: ##GDI only
-		Plug: gapowrup
-		Pluggables: gapowr
-		Interval: 750
-		RequiresCondition: AIBase && powerplug
-	GrantConditionOnPrerequisite@powerplug:
-		Condition: powerplug
-		Prerequisites: gapowr.pluggable, garadr, ~structures.gdi
+	# PlugSpawnerBotModule@AIBase: ##GDI only
+	#	Plug: gapowrup
+	#	Pluggables: gapowr
+	#	Interval: 750
+	#	RequiresCondition: AIBase && powerplug
+	# GrantConditionOnPrerequisite@powerplug:
+	#	Condition: powerplug
+	#	Prerequisites: gapowr.pluggable, garadr
 	ProvidesPrerequisite@AISpecialProduce:
 		RequiresCondition: AICheater || AIShattered
 		Prerequisite: AIOnly
@@ -797,7 +797,7 @@ Player:
 		ProtectionTypes: nodmcv, mutmcv, cabmcv, drache, mcv, harv, harv.nod, harv.mut, cabharv, scrharv, gacnst, gadept, scrdepot, gasilo, napuls, scrshield, gate_a, mutgate_a, scrgate_a, scrgate_b, gapowr, gapile, gdiref, gaweap, garadr, gahpad, gatech, gtdrop, nodyard, napowr, nahand, nodref, naweap, naradr, naapwr, nahpad, natech, namisl, mutyard, mupowr, murax, muproc, muweap, muradr, muair, muhall, mutsw2, drached, scrpowr, scrrax, scrproc, scrproc2, scrproc3, scrproc4, scrweap, scrradr, scrair, scrtech, scradvpowr, cabyard, cabpowr, cabclaw, cabproc, cabweap, cabradr, cabair, cabtech, cabobelisk, gavulc, garock, gacsam, nalasr, naobel, nasam, mubunkr, mucannon, muflak, cabpit, cabblast, cabrail, scrneedler, scrdrone, scrtractor, gafire, gaplug, nastlh, natmpl, muventi, mutsw1, scrextractor, scrsw1, cabeye, cabsw1, blackdefd, weed, bloodderrick, colorpicker, drache_bot, mubunkrfull, defd
 	UnitBuilderBotModule@AIAll:
 		RequiresCondition: AIEasy || AIBase
-		UnitQueues: Infantry.GDI, Infantry.Nod, Infantry.Mutant, Infantry.CABAL, Infantry.Scrin, Vehicle.GDI, Vehicle.MammothMkII, Vehicle.Nod, Vehicle.Lightbringer, Vehicle.Mutant, Vehicle.CABAL, Vehicle.Scrin, Air.GDI, Air.Nod, Air.Mutant, Air.CABAL, Air.Scrin
+		UnitQueues: Infantry.GDI, Infantry.Nod, Infantry.Mutant, Infantry.CABAL, Infantry.Scrin, Vehicle.GDI, Vehicle.MammothMkII, Vehicle.Nod, Vehicle.Lightbringer, Vehicle.Mutant, Vehicle.CABAL, Vehicle.Scrin, Air.GDI, Air.Nod, Air.Mutant, Air.CABAL, Air.Scrin, Upgrade.GDI, Upgrade.Nod, Upgrade.Mutant, Upgrade.CABAL, Upgrade.Scrin
 		IdleBaseUnitsMaximum: 35
 		UnitsToBuild:
 			harv: 90
@@ -901,6 +901,7 @@ Player:
 			ghost: 1
 			mastermind: 1
 			limped: 1
+			upgrade.power_turbines: 10
 		UnitLimits:
 			harv: 4
 			scrharv: 4
