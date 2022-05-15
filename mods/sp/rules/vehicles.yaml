@@ -3076,6 +3076,12 @@ CORRUPTOR:
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	WithInfantryBody:
+		RequiresCondition: !vinifera_catalysts
+	WithInfantryBody@Blue:
+		MoveSequence: run-blue
+		StandSequences: stand-blue
+		DefaultAttackSequence: shoot-blue
+		RequiresCondition: vinifera_catalysts
 	Selectable:
 		Bounds: 1508, 1568, 0, -482
 	SmokeParticleEmitter@spawnsmoke:
@@ -3084,6 +3090,11 @@ CORRUPTOR:
 	-DamagedByTintedCells@BlueRadiation:
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
+	WithStatIconOverlay@VINIFERA:
+		Image: corruptor
+		Sequence: icon-blue
+		Palette: chromescrin
+		RequiresCondition: vinifera_catalysts
 	ActorStatValues:
 		Damage: 98
 
