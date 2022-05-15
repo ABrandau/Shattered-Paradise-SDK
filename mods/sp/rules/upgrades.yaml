@@ -12,9 +12,9 @@
 		Cost: 0
 	#UpdatesPlayerStatistics:
 	#	AddToUpgradesTab: true
-	#WithProductionIconOverlay:
-	#	Prerequisites: default.upgrade
-	#	Types: stripe-upgraded
+	WithProductionIconOverlay:
+		Prerequisites: default.upgrade
+		Types: star-upgraded
 
 upgrade.ap_ammunition:
 	Inherits: ^default.upgrade
@@ -28,8 +28,8 @@ upgrade.ap_ammunition:
 		Description: Increases the damage of following units by 25%:\n - Vulcan Tower\n - Marine\n - Wolverine\n - Amphibious APC
 	Valued:
 		Cost: 2500
-	#WithProductionIconOverlay:
-	#	Prerequisites: upgrade.ap_ammunition
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.ap_ammunition
 
 upgrade.nanofiber_wests:
 	Inherits: ^default.upgrade
@@ -43,8 +43,8 @@ upgrade.nanofiber_wests:
 		Description: Increases the durability of following units by 25%:\n - Marine\n - Phalanx\n - Disc Thrower
 	Valued:
 		Cost: 2000
-	#WithProductionIconOverlay:
-	#	Prerequisites: upgrade.nanofiber_wests
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.nanofiber_wests
 
 upgrade.power_turbines:
 	Inherits: ^default.upgrade
@@ -58,8 +58,8 @@ upgrade.power_turbines:
 		Description: Doubles the power output of all GDI Power Plants.
 	Valued:
 		Cost: 1500
-	#WithProductionIconOverlay:
-	#	Prerequisites: upgrade.power_turbines
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.power_turbines
 	RenderSprites:
 		Image: gapowrup
 
@@ -75,8 +75,8 @@ upgrade.ceramic_plating:
 		Description: Increases the durability of GDI Aircraft by 25%.
 	Valued:
 		Cost: 2000
-	#WithProductionIconOverlay:
-	#	Prerequisites: upgrade.ceramic_plating
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.ceramic_plating
 
 upgrade.explosive_mixtures:
 	Inherits: ^default.upgrade
@@ -90,8 +90,8 @@ upgrade.explosive_mixtures:
 		Description: Increases the damage of Demo Bikes by 50%.
 	Valued:
 		Cost: 1500
-	#WithProductionIconOverlay:
-	#	Prerequisites: upgrade.explosive_mixtures
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.explosive_mixtures
 
 upgrade.improved_stealth_generator:
 	Inherits: ^default.upgrade
@@ -105,8 +105,8 @@ upgrade.improved_stealth_generator:
 		Description: Enables Stealth Generators to cloak themselves.
 	Valued:
 		Cost: 1000
-	#WithProductionIconOverlay:
-	#	Prerequisites: upgrade.explosive_mixtures
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.improved_stealth_generator
 
 upgrade.tib_core_missiles:
 	Inherits: ^default.upgrade
@@ -121,8 +121,8 @@ upgrade.tib_core_missiles:
 		IconPalette: chem
 	Valued:
 		Cost: 2000
-	#WithProductionIconOverlay:
-	#	Prerequisites: upgrade.tib_core_missiles
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.tib_core_missiles
 
 upgrade.brick_walls:
 	Inherits: ^default.upgrade
@@ -136,8 +136,8 @@ upgrade.brick_walls:
 		Description: Depoloyed Marauders become uncrushable by vehicles.
 	Valued:
 		Cost: 2000
-	#WithProductionIconOverlay:
-	#	Prerequisites: upgrade.brick_walls
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.brick_walls
 
 upgrade.tunnel_repairs:
 	Inherits: ^default.upgrade
@@ -151,8 +151,8 @@ upgrade.tunnel_repairs:
 		Description: Enables Tunnel Networks to heal infantry and repair vehicles in them.
 	Valued:
 		Cost: 1500
-	#WithProductionIconOverlay:
-	#	Prerequisites: upgrade.tunnel_repairs
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.tunnel_repairs
 
 upgrade.tiberium_infusion:
 	Inherits: ^default.upgrade
@@ -166,8 +166,8 @@ upgrade.tiberium_infusion:
 		Description: Increases the durability and speed of following units by 25% and 15 respectively and gives them self-healing:\n - Marauder\n - Tiberium Fiend\n - Carnotaurus
 	Valued:
 		Cost: 2000
-	#WithProductionIconOverlay:
-	#	Prerequisites: upgrade.tiberium_infusion
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.tiberium_infusion
 
 upgrade.cybernetic_leg_enhancements:
 	Inherits: ^default.upgrade
@@ -181,8 +181,23 @@ upgrade.cybernetic_leg_enhancements:
 		Description: Increases the speed of following units by 30:\n - Cyborg\n - Missile Cyborg\n - Gladiator\nSpeed increase does not apply when the units are on critical health.
 	Valued:
 		Cost: 2500
-	#WithProductionIconOverlay:
-	#	Prerequisites: upgrade.cybernetic_leg_enhancements
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.cybernetic_leg_enhancements
+
+upgrade.improved_reaper_nets:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Improved Reaper Nets
+	Buildable:
+		Queue: Upgrade.CABAL
+		BuildPaletteOrder: 20
+		BuildDuration: 2250
+		Prerequisites: ~upgrade.cab, cabradr, ~techlevel.4
+		Description: Cyborg Reaper nets last 50% longer.
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.improved_reaper_nets
 
 upgrade.limpet_aa_targeting:
 	Inherits: ^default.upgrade
@@ -196,8 +211,8 @@ upgrade.limpet_aa_targeting:
 		Description: Enables Limpet Drones to target air units.
 	Valued:
 		Cost: 1000
-	#WithProductionIconOverlay:
-	#	Prerequisites: upgrade.limpet_aa_targeting
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.limpet_aa_targeting
 
 upgrade.gatling_cannons:
 	Inherits: ^default.upgrade
@@ -211,8 +226,8 @@ upgrade.gatling_cannons:
 		Description: Centurions fire faster as they continue firing.
 	Valued:
 		Cost: 2000
-	#WithProductionIconOverlay:
-	#	Prerequisites: upgrade.gatling_cannons
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.gatling_cannons
 
 upgrade.vinifera_catalysts:
 	Inherits: ^default.upgrade
@@ -223,11 +238,12 @@ upgrade.vinifera_catalysts:
 		BuildPaletteOrder: 20
 		BuildDuration: 3750
 		Prerequisites: ~upgrade.scr, scrradr, ~techlevel.4
-		Description: Increates range of Ichor Waste Turrets and Corruptors by 1 cell.\nDoubles the damage from tiberium left by those units by 
+		Description: Increates range of Ichor Waste Turrets and Corruptors by 1 cell.\nDoubles the damage from tiberium left by those units.
+		IconPalette: chromescrin
 	Valued:
 		Cost: 2000
-	#WithProductionIconOverlay:
-	#	Prerequisites: upgrade.vinifera_catalysts
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.vinifera_catalysts
 
 upgrade.aerial_gliders:
 	Inherits: ^default.upgrade
@@ -239,10 +255,11 @@ upgrade.aerial_gliders:
 		BuildDuration: 1500
 		Prerequisites: ~upgrade.scr, scrradr, ~techlevel.4
 		Description: Enables Gliders to be deployed to take flight.\nWhile in air, they can attack ground targets.
+		IconPalette: chromescrin
 	Valued:
 		Cost: 1500
-	#WithProductionIconOverlay:
-	#	Prerequisites: upgrade.aerial_gliders
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.aerial_gliders
 
 upgrade.hyper_flight_rotors:
 	Inherits: ^default.upgrade
@@ -254,7 +271,8 @@ upgrade.hyper_flight_rotors:
 		BuildDuration: 3750
 		Prerequisites: ~upgrade.scr, scrtech, ~techlevel.5
 		Description: Increases the speed of following units by 30:\n - Destroyer\n - Scrin Transport\n - Assault Carrier
+		IconPalette: chromescrin
 	Valued:
 		Cost: 2500
-	#WithProductionIconOverlay:
-	#	Prerequisites: upgrade.hyper_flight_rotors
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.hyper_flight_rotors
