@@ -1019,6 +1019,7 @@ ATTACKBIKE:
 	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@TIBCORE: ^AffectedByTibCoreMissiles
 	Inherits@VISION: ^7CellVision
 	Valued:
 		Cost: 500
@@ -1047,15 +1048,31 @@ ATTACKBIKE:
 	Armament@PRIMARY:
 		Weapon: BikeMissile
 		LocalOffset: -120,-204,400, -120,204,400
+		LocalYaw: 100, -100
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
-		LocalYaw: 100, -100
+		RequiresCondition: !tibcore
 	Armament@AA:
 		Weapon: BikeMissileAA
 		LocalOffset: -120,-204,400, -120,204,400
+		LocalYaw: 100, -100
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
+		RequiresCondition: !tibcore
+	Armament@PRIMARYTib:
+		Weapon: BikeMissileTib
+		LocalOffset: -120,-204,400, -120,204,400
 		LocalYaw: 100, -100
+		ReloadingCondition: reload-ground
+		PauseOnCondition: empdisable || reload-air
+		RequiresCondition: tibcore
+	Armament@AATib:
+		Weapon: BikeMissileTibAA
+		LocalOffset: -120,-204,400, -120,204,400
+		LocalYaw: 100, -100
+		ReloadingCondition: reload-air
+		PauseOnCondition: empdisable || reload-ground
+		RequiresCondition: tibcore
 	#AttackFrontal:
 	#	PauseOnCondition: empdisable
 	#	FacingTolerance: 20
@@ -1482,6 +1499,7 @@ STNK:
 	Inherits: ^TurretedTank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@TIBCORE: ^AffectedByTibCoreMissiles
 	Inherits@VISION: ^9CellVision
 	Valued:
 		Cost: 1100
@@ -1520,11 +1538,25 @@ STNK:
 		LocalOffset: 400,125,300, 400,-125,300
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
-	Armament@Secondary:
+		RequiresCondition: !tibcore
+	Armament@AA:
 		Weapon: StealthRocketAA
 		LocalOffset: 400,125,300, 400,-125,300
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
+		RequiresCondition: !tibcore
+	Armament@Tib:
+		Weapon: StealthRocketTib
+		LocalOffset: 400,125,300, 400,-125,300
+		ReloadingCondition: reload-ground
+		PauseOnCondition: empdisable || reload-air
+		RequiresCondition: tibcore
+	Armament@TibAA:
+		Weapon: StealthRocketTibAA
+		LocalOffset: 400,125,300, 400,-125,300
+		ReloadingCondition: reload-air
+		PauseOnCondition: empdisable || reload-ground
+		RequiresCondition: tibcore
 	Turreted:
 		Offset: 0,0,600
 		TurnSpeed: 24
@@ -2418,6 +2450,7 @@ CENTURION:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DETECTION: ^BasicStealthDetection
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@GATLING: ^AffectedByGatlingCannons
 	Inherits@VISION: ^6CellVision
 	Inherits@VOICE: ^CabalVehicleVoice
 	Valued:

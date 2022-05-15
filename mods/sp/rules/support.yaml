@@ -261,8 +261,9 @@ NAOBEL:
 NASAM:
 	Inherits: ^TurretedDefence
 	Inherits@AA: ^AntiAir
+	Inherits@TIBCORE: ^AffectedByTibCoreMissiles
 	Tooltip:
-		Name: S.A.M. Site
+		Name: SAM Site
 	Buildable:
 		Queue: Defense.Nod
 		Description: Anti-Air base defense.\n\nGood vs: Aircraft.\n\nSpecial\n- Can attack Air.\n- Requires power to operate.
@@ -276,6 +277,11 @@ NASAM:
 	Armament:
 		Weapon: RedEye2
 		LocalOffset: 400,0,1024
+		RequiresCondition: !tibcore
+	Armament@TIB:
+		Weapon: RedEye2Tib
+		LocalOffset: 400,0,1024
+		RequiresCondition: tibcore
 	ActorStatValues:
 		Damage: 50
 

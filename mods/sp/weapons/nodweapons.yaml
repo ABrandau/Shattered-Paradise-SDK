@@ -205,6 +205,26 @@ BikeMissileAA:
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 
+BikeMissileTib:
+	Inherits: BikeMissile
+	Projectile: MissileTA
+		Speed: 600
+		TrailImage: explosion
+		TrailSequences: jsmokey2
+		TrailPalette: jascgreenalpha40
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplogreen
+
+BikeMissileTibAA:
+	Inherits: BikeMissileAA
+	Projectile: MissileTA
+		Speed: 600
+		TrailImage: explosion
+		TrailSequences: jsmokey2
+		TrailPalette: jascgreenalpha40
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplogreen
+
 BikeExplo:
 	Inherits@1: ^BombWarhead
 	Inherits@2: ^Large_Explosion
@@ -384,6 +404,26 @@ StealthRocketAA:
 		RangeLimit: 15c0
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
+
+StealthRocketTib:
+	Inherits: StealthRocket
+	Projectile: MissileTA
+		Speed: 600
+		TrailImage: explosion
+		TrailSequences: jsmokey2
+		TrailPalette: jascgreenalpha40
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplogreen
+
+StealthRocketTibAA:
+	Inherits: StealthRocketAA
+	Projectile: MissileTA
+		Speed: 600
+		TrailImage: explosion
+		TrailSequences: jsmokey2
+		TrailPalette: jascgreenalpha40
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplogreen
 
 HarpyClaw:
 	Inherits: ^RifleWarhead
@@ -578,6 +618,16 @@ RedEye2:
 	Inherits@2: ^Small_Clsn
 	Inherits@3: ^AntiAirTurretWeapon
 	Report: samshot1.aud
+
+RedEye2Tib:
+	Inherits: RedEye2
+	Projectile: MissileTA
+		Speed: 600
+		TrailImage: explosion
+		TrailSequences: jsmokey2
+		TrailPalette: jascgreenalpha40
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplogreen
 
 ObeliskLaserFire:
 	Inherits: ^FullDamage

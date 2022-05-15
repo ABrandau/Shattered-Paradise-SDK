@@ -108,6 +108,37 @@ upgrade.improved_stealth_generator:
 	#WithProductionIconOverlay:
 	#	Prerequisites: upgrade.explosive_mixtures
 
+upgrade.tib_core_missiles:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Tib-Core Missiles
+	Buildable:
+		Queue: Upgrade.Nod
+		BuildPaletteOrder: 50
+		BuildDuration: 3000
+		Prerequisites: ~upgrade.nod, natech, ~techlevel.5
+		Description: Increases damage and projectile speed of following units by 25% and 50% respectively:\n - SAM Site\n - Attack Bike\n - Stealth Tank
+		IconPalette: chem
+	Valued:
+		Cost: 2000
+	#WithProductionIconOverlay:
+	#	Prerequisites: upgrade.tib_core_missiles
+
+upgrade.brick_walls:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Brick Walls
+	Buildable:
+		Queue: Upgrade.Mutant
+		BuildPaletteOrder: 10
+		BuildDuration: 3000
+		Prerequisites: ~upgrade.mut, muradr, ~techlevel.4
+		Description: Depoloyed Marauders become uncrushable by vehicles.
+	Valued:
+		Cost: 2000
+	#WithProductionIconOverlay:
+	#	Prerequisites: upgrade.brick_walls
+
 upgrade.tunnel_repairs:
 	Inherits: ^default.upgrade
 	Tooltip:
@@ -167,6 +198,21 @@ upgrade.limpet_aa_targeting:
 		Cost: 1000
 	#WithProductionIconOverlay:
 	#	Prerequisites: upgrade.limpet_aa_targeting
+
+upgrade.gatling_cannons:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Gatling Cannons
+	Buildable:
+		Queue: Upgrade.CABAL
+		BuildPaletteOrder: 50
+		BuildDuration: 3000
+		Prerequisites: ~upgrade.cab, cabtech, ~techlevel.5
+		Description: Centurions fire faster as they continue firing.
+	Valued:
+		Cost: 2000
+	#WithProductionIconOverlay:
+	#	Prerequisites: upgrade.gatling_cannons
 
 upgrade.vinifera_catalysts:
 	Inherits: ^default.upgrade

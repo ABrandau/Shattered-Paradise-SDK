@@ -1056,6 +1056,19 @@
 		Condition: improvedsgen
 		Prerequisites: upgrade.improved_stealth_generator
 
+^AffectedByTibCoreMissiles:
+	FirepowerMultiplier@EXPLOSIVEMIXTURES:
+		Modifier: 125
+		RequiresCondition: tibcore
+	GrantConditionOnPrerequisite@TIBCORE:
+		Condition: tibcore
+		Prerequisites: upgrade.tib_core_missiles
+
+^AffectedByBrickWalls:
+	GrantConditionOnPrerequisite@BRICKWALLS:
+		Condition: brick_walls
+		Prerequisites: upgrade.brick_walls
+
 ^AffectedByTunnelRepairs:
 	SharedPassenger:
 		CargoCondition: in_tunnel
@@ -1100,6 +1113,16 @@
 	GrantConditionOnPrerequisite@LIMPETAA:
 		Condition: limpetaa
 		Prerequisites: upgrade.limpet_aa_targeting
+
+^AffectedByGatlingCannons:
+	GatlingReloadDelayMultiplier:
+		MinModifier: 40
+		CoolDownDelay: 12
+		CoolDownChange: 3
+		RequiresCondition: gatling
+	GrantConditionOnPrerequisite@GATLING:
+		Condition: gatling
+		Prerequisites: upgrade.gatling_cannons
 
 ^AffectedByViniferaCatalysts:
 	GrantConditionOnPrerequisite@VINIFERACATALYSTS:

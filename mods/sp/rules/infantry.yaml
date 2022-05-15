@@ -907,6 +907,7 @@ MARAUDER:
 	Inherits@RENDER: ^MutRender
 	Inherits@TIBINFUSION: ^AffectedByTiberiumInfusion
 	Inherits@VISION: ^6CellVision
+	Inherits@WALLS: ^AffectedByBrickWalls
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry.Mutant
@@ -933,6 +934,11 @@ MARAUDER:
 		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
+	Crushable:
+		RequiresCondition: undeployed || !brick_walls
+	Crushable@deployed:
+		CrushClasses: Vehicle
+		RequiresCondition: !undeployed && brick_walls
 	Armament@1:
 		Weapon: MarauderShotgun
 		Name: OnFoot
