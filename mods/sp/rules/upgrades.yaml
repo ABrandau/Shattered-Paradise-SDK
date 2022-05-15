@@ -16,6 +16,36 @@
 	#	Prerequisites: default.upgrade
 	#	Types: stripe-upgraded
 
+upgrade.ap_ammunition:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: AP Ammunition
+	Buildable:
+		Queue: Upgrade.GDI
+		BuildPaletteOrder: 10
+		BuildDuration: 3750
+		Prerequisites: ~upgrade.gdi, garadr, ~techlevel.4
+		Description: Increases the damage of following units by 25%:\n - Vulcan Tower\n - Marine\n - Wolverine\n - Amphibious APC
+	Valued:
+		Cost: 2500
+	#WithProductionIconOverlay:
+	#	Prerequisites: upgrade.ap_ammunition
+
+upgrade.nanofiber_wests:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Nanofiber Wests
+	Buildable:
+		Queue: Upgrade.GDI
+		BuildPaletteOrder: 20
+		BuildDuration: 2250
+		Prerequisites: ~upgrade.gdi, garadr, ~techlevel.4
+		Description: Increases the durability of following units by 25%:\n - Marine\n - Phalanx\n - Disc Thrower
+	Valued:
+		Cost: 2000
+	#WithProductionIconOverlay:
+	#	Prerequisites: upgrade.nanofiber_wests
+
 upgrade.power_turbines:
 	Inherits: ^default.upgrade
 	Tooltip:
@@ -24,11 +54,116 @@ upgrade.power_turbines:
 		Queue: Upgrade.GDI
 		BuildPaletteOrder: 30
 		BuildDuration: 1500
-		Prerequisites: ~upgrade.gdi, garadr, ~techlevel.2
-		Description: Double power output of all GDI Power Plants.
+		Prerequisites: ~upgrade.gdi, garadr, ~techlevel.4
+		Description: Doubles the power output of all GDI Power Plants.
 	Valued:
 		Cost: 1500
 	#WithProductionIconOverlay:
 	#	Prerequisites: upgrade.power_turbines
 	RenderSprites:
 		Image: gapowrup
+
+upgrade.ceramic_plating:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Ceramic Plating
+	Buildable:
+		Queue: Upgrade.GDI
+		BuildPaletteOrder: 40
+		BuildDuration: 2250
+		Prerequisites: ~upgrade.gdi, gatech, ~techlevel.5
+		Description: Increases the durability of GDI Aircraft by 25%.
+	Valued:
+		Cost: 2000
+	#WithProductionIconOverlay:
+	#	Prerequisites: upgrade.ceramic_plating
+
+upgrade.explosive_mixtures:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Explosive Mixtures
+	Buildable:
+		Queue: Upgrade.Nod
+		BuildPaletteOrder: 30
+		BuildDuration: 3750
+		Prerequisites: ~upgrade.nod, naradr, ~techlevel.4
+		Description: Increases the damage of Demo Bikes by 50%.
+	Valued:
+		Cost: 1500
+	#WithProductionIconOverlay:
+	#	Prerequisites: upgrade.explosive_mixtures
+
+upgrade.improved_stealth_generator:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Improved Stealth Generator
+	Buildable:
+		Queue: Upgrade.Nod
+		BuildPaletteOrder: 40
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.nod, natech, ~techlevel.5
+		Description: Enables Stealth Generators to cloak themselves.
+	Valued:
+		Cost: 1000
+	#WithProductionIconOverlay:
+	#	Prerequisites: upgrade.explosive_mixtures
+
+upgrade.tiberium_infusion:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Tiberium Infusion
+	Buildable:
+		Queue: Upgrade.Mutant
+		BuildPaletteOrder: 50
+		BuildDuration: 3000
+		Prerequisites: ~upgrade.mut, muhall, ~techlevel.5
+		Description: Increases the durability and speed of following units by 25% and 15 respectively and gives them self-healing:\n - Marauder\n - Tiberium Fiend\n - Carnotaurus
+	Valued:
+		Cost: 2000
+	#WithProductionIconOverlay:
+	#	Prerequisites: upgrade.tiberium_infusion
+
+upgrade.cybernetic_leg_enhancements:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Cybernetic Leg Enhancements
+	Buildable:
+		Queue: Upgrade.CABAL
+		BuildPaletteOrder: 10
+		BuildDuration: 3000
+		Prerequisites: ~upgrade.cab, cabradr, ~techlevel.4
+		Description: Increases the speed of following units by 30:\n - Cyborg\n - Missile Cyborg\n - Gladiator\nSpeed increase does not apply when the units are on critical health.
+	Valued:
+		Cost: 2500
+	#WithProductionIconOverlay:
+	#	Prerequisites: upgrade.cybernetic_leg_enhancements
+
+upgrade.aerial_gliders:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Aerial Gliders
+	Buildable:
+		Queue: Upgrade.Scrin
+		BuildPaletteOrder: 30
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.scr, scrradr, ~techlevel.4
+		Description: Enables Gliders to be deployed to take flight.\nWhen in air, they can attack ground targets.
+	Valued:
+		Cost: 1500
+	#WithProductionIconOverlay:
+	#	Prerequisites: upgrade.aerial_gliders
+
+upgrade.hyper_flight_rotors:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Hyper-Flight Rotors
+	Buildable:
+		Queue: Upgrade.Scrin
+		BuildPaletteOrder: 60
+		BuildDuration: 3750
+		Prerequisites: ~upgrade.scr, scrtech, ~techlevel.5
+		Description: Increases the speed of following units by 30:\n - Destroyer\n - Scrin Transport\n - Assault Carrier
+	Valued:
+		Cost: 2500
+	#WithProductionIconOverlay:
+	#	Prerequisites: upgrade.hyper_flight_rotors

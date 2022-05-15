@@ -1,7 +1,9 @@
 GDIE1:
 	Inherits: ^Soldier
+	Inherits@APAMMO: ^AffectedByAPAmmunition
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@NANOFIBERS: ^AffectedByNanofiberWests
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry.GDI
@@ -39,6 +41,7 @@ GRENADIER:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@NANOFIBERS: ^AffectedByNanofiberWests
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry.GDI
@@ -134,6 +137,7 @@ E2:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@NANOFIBERS: ^AffectedByNanofiberWests
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry.GDI
@@ -901,6 +905,7 @@ MARAUDER:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RENDER: ^MutRender
+	Inherits@TIBINFUSION: ^AffectedByTiberiumInfusion
 	Inherits@VISION: ^6CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
@@ -1020,6 +1025,7 @@ MUTFIEND:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@MC: ^MindControllableMastermind
+	Inherits@TIBINFUSION: ^AffectedByTiberiumInfusion
 	Inherits@VISION: ^6CellVision
 	Tooltip:
 		Name: Tiberian Fiend
@@ -1039,6 +1045,8 @@ MUTFIEND:
 	Mobile:
 		Speed: 90
 		Locomotor: TibFiends
+	SpeedMultiplier@TIBERIUMINFUSION:
+		Modifier: 117
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
@@ -1797,6 +1805,7 @@ CABSENTRY:
 CYBORG:
 	Inherits: ^Cyborg
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CYBORGLEGS: ^AffectedByCyberneticLegEnhancements
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
 	Valued:
@@ -1839,6 +1848,7 @@ CYBORG:
 CBORG:
 	Inherits: ^Cyborg
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@CYBORGLEGS: ^AffectedByCyberneticLegEnhancements
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RENDER: ^CabRender
 	Inherits@VISION: ^6CellVision
@@ -2004,6 +2014,7 @@ PDRONE:
 GLAD:
 	Inherits: ^Cyborg
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CYBORGLEGS: ^AffectedByCyberneticLegEnhancements
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^6CellVision

@@ -1,5 +1,6 @@
 GAVULC:
 	Inherits: ^TurretedDefence
+	Inherits@APAMMO: ^AffectedByAPAmmunition
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@DETECTION: ^TowerStealthDetection
 	WithMakeAnimation:
@@ -879,6 +880,7 @@ GAPLUG:
 
 NASTLH:
 	Inherits: ^Building
+	Inherits@IMPSGEN: ^AffectedByImprovedStealthGenerator
 	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
 	Inherits@SHAPE: ^3x2Shape
 	Valued:
@@ -921,7 +923,8 @@ NASTLH:
 		Image: explosion
 		Palette: effectalpha10
 		IsDecoration: true ## so this doesn't affect by cloak palette
-	-Cloak@CLOAKGENERATOR:
+	Cloak@CLOAKGENERATOR:
+		RequiresCondition: improvedsgen && !disabled && !Building-Buildup && !empdisable
 	-ExternalCondition@CLOAKGENERATOR:
 	-ExternalCondition@crate-cloak:
 	SmokeParticleEmitter@spawnsmoke:

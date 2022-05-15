@@ -1013,6 +1013,82 @@
 		DamageInterval: 25
 		LayerName: ColossusRadiation
 
+^AffectedByAPAmmunition:
+	FirepowerMultiplier@APAMMUNITION:
+		Modifier: 125
+		RequiresCondition: apammo
+	GrantConditionOnPrerequisite@APAMMUNITION:
+		Condition: apammo
+		Prerequisites: upgrade.ap_ammunition
+
+^AffectedByNanofiberWests:
+	DamageMultiplier@NANOFIBERWESTS:
+		Modifier: 80
+		RequiresCondition: nanofibers
+	GrantConditionOnPrerequisite@NANOFIBERWESTS:
+		Condition: nanofibers
+		Prerequisites: upgrade.nanofiber_wests
+
+^AffectedByCeramicPlating:
+	DamageMultiplier@CERAMICPLATING:
+		Modifier: 80
+		RequiresCondition: ceramic_plating
+	GrantConditionOnPrerequisite@CERAMICPLATING:
+		Condition: ceramic_plating
+		Prerequisites: upgrade.ceramic_plating
+
+^AffectedByExplosiveMixtures:
+	FirepowerMultiplier@EXPLOSIVEMIXTURES:
+		Modifier: 150
+		RequiresCondition: explosive_mixtures
+	GrantConditionOnPrerequisite@EXPLOSIVEMIXTURES:
+		Condition: explosive_mixtures
+		Prerequisites: upgrade.explosive_mixtures
+
+^AffectedByImprovedStealthGenerator:
+	GrantConditionOnPrerequisite@IMPROVEDSGEN:
+		Condition: improvedsgen
+		Prerequisites: upgrade.improved_stealth_generator
+
+^AffectedByTiberiumInfusion:
+	DamageMultiplier@TIBERIUMINFUSION:
+		Modifier: 80
+		RequiresCondition: tibinfusion
+	SpeedMultiplier@TIBERIUMINFUSION:
+		Modifier: 125
+		RequiresCondition: tibinfusion
+	ChangesHealth@TIBERIUMINFUSION:
+		PercentageStep: 1
+		Step: 0
+		Delay: 75
+		DamageCooldown: 100
+		StartIfBelow: 100
+		RequiresCondition: tibinfusion
+	GrantConditionOnPrerequisite@TIBERIUMINFUSION:
+		Condition: tibinfusion
+		Prerequisites: upgrade.tiberium_infusion
+
+^AffectedByCyberneticLegEnhancements:
+	SpeedMultiplier@CYBERNETICLEGENHANCEMENTS:
+		Modifier: 167
+		RequiresCondition: cyborglegs && !CriticalDamaged
+	GrantConditionOnPrerequisite@CYBERNETICLEGENHANCEMENTS:
+		Condition: cyborglegs
+		Prerequisites: upgrade.cybernetic_leg_enhancements
+
+^AffectedByAerialGliders:
+	GrantConditionOnPrerequisite@AERIALGLIDERS:
+		Condition: aerial_gliders
+		Prerequisites: upgrade.aerial_gliders
+
+^AffectedByHyperFlightRotors:
+	SpeedMultiplier@HYPERFLIGHTROTORS:
+		Modifier: 140
+		RequiresCondition: hyperflight
+	GrantConditionOnPrerequisite@HYPERFLIGHTROTORS:
+		Condition: hyperflight
+		Prerequisites: upgrade.hyper_flight_rotors
+
 ^3CellVision:
 	RevealsShroud:
 		Range: 3c0

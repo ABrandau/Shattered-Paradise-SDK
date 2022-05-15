@@ -1,5 +1,6 @@
 SMECH:
 	Inherits: ^Walker
+	Inherits@APAMMO: ^AffectedByAPAmmunition
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DETECTION: ^BasicStealthDetection
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -125,6 +126,7 @@ MMCH:
 
 APC:
 	Inherits: ^Tank
+	Inherits@APAMMO: ^AffectedByAPAmmunition
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@PIPS: ^CargoPips
@@ -1259,6 +1261,7 @@ TICKHOLOGRAM:
 BIKE:
 	Inherits: ^Vehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPLOSIVEMIX: ^AffectedByExplosiveMixtures
 	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 800
@@ -1950,6 +1953,7 @@ WOLF:
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Vehicle
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@MC: ^MindControllableMastermind
+	Inherits@TIBINFUSION: ^AffectedByTiberiumInfusion
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Vehicle.Mutant
@@ -1981,6 +1985,8 @@ WOLF:
 	Mobile:
 		Speed: 120
 		Locomotor: TibVeCritter
+	SpeedMultiplier@TIBERIUMINFUSION:
+		Modifier: 113
 	AttackFollowFrontal:
 		Voice: Attack
 		FacingTolerance: 64
@@ -3108,6 +3114,85 @@ SCRMBT:
 	ActorStatValues:
 		Damage: 90
 
+SCRGLYDER2:
+	Inherits: ^HoverVehicle
+	Inherits@1: ^ScrinVehicle
+	Inherits@AERIALGLIDERS: ^AffectedByAerialGliders
+	Inherits@AUTOTARGET: ^AutoTargetAir
+	Inherits@DETECTION: ^BasicStealthDetection
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^8CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
+	Buildable:
+		Queue: Vehicle.Scrin
+		BuildPaletteOrder: 30
+		Description: Anti-air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Can attack enemy ahead while moving\n- Can be upgraded to transform into an aerial version that can only engage ground units.\n- Aerial Version weapon performs Good Vs Infantry.\n- Absorbs essence from killed units to heal.\n- Hovers (it ignores terrain like Veins and Water)
+		Prerequisites: ~techlevel.3
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Glider
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 20000
+	Armor:
+		Type: Light
+	Mobile:
+		TurnSpeed: 40
+		CanMoveBackward: true
+		Speed: 120
+		Locomotor: Hover
+	Transforms:
+		RequiresCondition: aerial_gliders
+		PauseOnCondition: inside-tunnel
+		IntoActor: scrglyder1
+	GrantConditionAfterDelay: ## Prevent player switch between modes to refresh reload
+		Condition: cannonready
+		Delay: 10
+		ShowSelectionBar: false
+	Armament:
+		Weapon: Glyder2Cannon
+		Recoil: 85
+		RecoilRecovery: 25
+		LocalOffset: -250,0,1300
+		PauseOnCondition: empdisable || !cannonready
+	#AttackFrontal:
+	#	PauseOnCondition: empdisable
+	#	FacingTolerance: 5
+	AttackFollowFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+		FacingTolerance: 64
+		MustFaceTarget: true
+	Armament@AITransformDummyWeapon:
+		Weapon: AIGlyder2AimingDummyWeapon
+		ReloadingCondition: AIattackAir
+		PauseOnCondition: empdisable
+		RequiresCondition: AImicroManage && aerial_gliders
+	TransformOnCondition@AITransform:
+		RequiresCondition: AIattackAir && !inside-tunnel
+		IntoActor: scrglyder1
+	-LeavesTrails@land:
+	-LeavesTrails@water:
+	LeavesTrails@gravity:
+		RequiresCondition: !carried && !ascargo
+		Image: wake
+		Sequences: idlescr
+		Palette: scrinenergystuffsalpha
+		Type: CenterPosition
+		StationaryInterval: 20
+		MovingInterval: 12
+		SpawnAtLastPosition: false
+		TrailWhileStationary: true
+		StartDelay: -1
+	ThrowsShrapnel:
+		Weapons: SmallDebrisScrin
+	ActorStatValues:
+		Damage: 90
+
 SCRSCORPION:
 	Inherits: ^Walker
 	Inherits@1: ^ScrinVehicle
@@ -3122,7 +3207,7 @@ SCRSCORPION:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Scrin
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 31
 		Description: Long range assault walker.\n\n Good vs Infantry, Vehicle\n\nSpecial:\n- Absorbs essence from killed enemies to heal\n- Fog inflicts blinding and poison effect in the area
 		Prerequisites: scrradr, ~techlevel.4
 		BuildDuration: 500
@@ -3151,83 +3236,6 @@ SCRSCORPION:
 		Bounds: 1508, 1568, 0, -482
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
-
-SCRGLYDER2:
-	Inherits: ^HoverVehicle
-	Inherits@1: ^ScrinVehicle
-	Inherits@AUTOTARGET: ^AutoTargetAir
-	Inherits@DETECTION: ^BasicStealthDetection
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@VISION: ^8CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
-	Buildable:
-		Queue: Vehicle.Scrin
-		BuildPaletteOrder: 31
-		Description: Anti-air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Can attack enemy ahead while moving\n- Can transform into an aerial version that can only engage ground units.\n- Aerial Version weapon performs Good Vs Infantry.\n- Absorbs essence from killed units to heal.\n- Hovers (it ignores terrain like Veins and Water)
-		Prerequisites: scrradr, ~techlevel.4
-		BuildDuration: 500
-		BuildDurationModifier: 100
-	Valued:
-		Cost: 800
-	Tooltip:
-		Name: Glider
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Health:
-		HP: 20000
-	Armor:
-		Type: Light
-	Mobile:
-		TurnSpeed: 40
-		CanMoveBackward: true
-		Speed: 120
-		Locomotor: Hover
-	Transforms:
-		PauseOnCondition: inside-tunnel
-		IntoActor: scrglyder1
-	GrantConditionAfterDelay: ## Prevent player switch between modes to refresh reload
-		Condition: cannonready
-		Delay: 10
-		ShowSelectionBar: false
-	Armament:
-		Weapon: Glyder2Cannon
-		Recoil: 85
-		RecoilRecovery: 25
-		LocalOffset: -250,0,1300
-		PauseOnCondition: empdisable || !cannonready
-	#AttackFrontal:
-	#	PauseOnCondition: empdisable
-	#	FacingTolerance: 5
-	AttackFollowFrontal:
-		Voice: Attack
-		PauseOnCondition: empdisable
-		FacingTolerance: 64
-		MustFaceTarget: true
-	Armament@AITransformDummyWeapon:
-		RequiresCondition: AImicroManage
-		Weapon: AIGlyder2AimingDummyWeapon
-		PauseOnCondition: empdisable
-		ReloadingCondition: AIattackAir
-	TransformOnCondition@AITransform:
-		RequiresCondition: AIattackAir && !inside-tunnel
-		IntoActor: scrglyder1
-	-LeavesTrails@land:
-	-LeavesTrails@water:
-	LeavesTrails@gravity:
-		RequiresCondition: !carried && !ascargo
-		Image: wake
-		Sequences: idlescr
-		Palette: scrinenergystuffsalpha
-		Type: CenterPosition
-		StationaryInterval: 20
-		MovingInterval: 12
-		SpawnAtLastPosition: false
-		TrailWhileStationary: true
-		StartDelay: -1
-	ThrowsShrapnel:
-		Weapons: SmallDebrisScrin
-	ActorStatValues:
-		Damage: 90
 
 SCRRECHARGER:
 	Inherits: ^Walker

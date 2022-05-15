@@ -2,6 +2,7 @@ ORCA:
 	Inherits: ^CombatHelicopter
 	Inherits@AMMO: ^UsesAmmunition
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@CERAMICS: ^AffectedByCeramicPlating
 	Inherits@DETECTION: ^BasicStealthDetectionAir
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SHADOW: ^AircraftShadow
@@ -84,6 +85,7 @@ ORCAB:
 	Inherits: ^CombatPlane
 	Inherits@AMMO: ^UsesAmmunition
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CERAMICS: ^AffectedByCeramicPlating
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SHADOW: ^AircraftShadow
 	Inherits@VISION: ^9CellVision
@@ -212,6 +214,7 @@ DSHP:
 
 ORCATRAN:
 	Inherits: ^Helicopter
+	Inherits@CERAMICS: ^AffectedByCeramicPlating
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
 	Inherits@PIPS: ^CargoPips
 	Inherits@VISION: ^6CellVision
@@ -1061,6 +1064,7 @@ SCRDESTROYER:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@HYPERFLIGHT: ^AffectedByHyperFlightRotors
 	Inherits@VISION: ^7CellVision
 	Valued:
 		Cost: 1600
@@ -1087,6 +1091,8 @@ SCRDESTROYER:
 		Repulsable: true
 		IdealSeparation: 1706
 		MoveIntoShroud: true
+	SpeedMultiplier@HYPERFLIGHTROTORS:
+		Modifier: 134
 	Targetable@Essence:
 		TargetTypes: ScrinUnit
 	Health:
@@ -1132,6 +1138,7 @@ SCRTRANS:
 	Inherits: ^Helicopter
 	Inherits@1: ^ScrinAircraftGeneric
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
+	Inherits@HYPERFLIGHT: ^AffectedByHyperFlightRotors
 	Inherits@PIPS: ^CargoPips
 	Inherits@VISION: ^9CellVision
 	Valued:
@@ -1162,6 +1169,8 @@ SCRTRANS:
 		IdealSeparation: 1706
 		MoveIntoShroud: true
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+	SpeedMultiplier@HYPERFLIGHTROTORS:
+		Modifier: 115
 	Health:
 		HP: 20000
 	BodyOrientation:
@@ -1193,6 +1202,7 @@ SCRCARRIER:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
 	Inherits@DETECTION: ^BasicStealthDetectionAir
+	Inherits@HYPERFLIGHT: ^AffectedByHyperFlightRotors
 	Inherits@VISION: ^10CellVision
 	Valued:
 		Cost: 3000
