@@ -1142,6 +1142,50 @@
 		Condition: vinifera_catalysts
 		Prerequisites: upgrade.vinifera_catalysts
 
+^AffectedByTiberiumConversion:
+	GrantTimedConditionOnDeploy@TIBCONVERSION:
+		DeployedCondition: absorbTib
+		CooldownTicks: 2000
+		DeployedTicks: 50
+		StartsFullyCharged: true
+		PauseOnCondition: empdisable
+		RequiresCondition: tibconversion
+	ExplodeWeapon@TIBCONVERSION:
+		Weapon: AnhTripodAbsorb
+		RequiresCondition: !empdisable && absorbTib
+	ExternalCondition@TIBCONVERSION:
+		Condition: charge
+	AmmoPool@TIBCONVERSION:
+		InitialAmmo: 0
+		Ammo: 6
+		AmmoCondition: charged
+	ReloadAmmoPool@TIBCONVERSION:
+		Delay: 2
+		PauseOnCondition: !charge
+	WithAmmoPipsDecoration@TIBCONVERSION:
+		Margin: 4, 3
+		FullSequence: pip-ammo
+		EmptySequence: pip-ammoempty
+		Palette: gradientgreen
+		Position: BottomLeft
+		RequiresSelection: true
+		RequiresCondition: tibconversion
+	FirepowerMultiplier@TIBCONVERSION:
+		Modifier: 150
+		RequiresCondition: charged
+	GrantConditionOnPrerequisite@TIBCONVERSION:
+		Condition: tibconversion
+		Prerequisites: upgrade.tiberium_conversion
+	GrantConditionOnTerrain@TIBCONVERSIONAI:
+		Condition: OnTiber
+		TerrainTypes: Tiberium, BlueTiberium
+		RequiresCondition: AImicroManage && tibconversion
+	AutoDeployer@TIBCONVERSIONAI:
+		DeployTrigger: Periodically
+		DeployTicks: 20
+		UndeployTicks: 200
+		RequiresCondition: AImicroManage && OnTiber
+
 ^AffectedByAerialGliders:
 	GrantConditionOnPrerequisite@AERIALGLIDERS:
 		Condition: aerial_gliders

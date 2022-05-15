@@ -250,7 +250,7 @@ upgrade.vinifera_catalysts:
 		Name: Vinifera Catalysts
 	Buildable:
 		Queue: Upgrade.Scrin
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 10
 		BuildDuration: 3750
 		Prerequisites: ~upgrade.scr, scrradr, ~techlevel.4
 		Description: Increates range of Ichor Waste Turrets and Corruptors by 1 cell.\nDoubles the damage from tiberium left by those units.
@@ -259,6 +259,22 @@ upgrade.vinifera_catalysts:
 		Cost: 2000
 	WithProductionIconOverlay:
 		Prerequisites: upgrade.vinifera_catalysts
+
+upgrade.tiberium_conversion:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Tiberium Conversion
+	Buildable:
+		Queue: Upgrade.Scrin
+		BuildPaletteOrder: 20
+		BuildDuration: 3000
+		Prerequisites: ~upgrade.scr, scrradr, ~techlevel.4
+		Description: Enables Hover Tanks to absorb Tiberium to increase damage for the next 6 attacks by 50%.
+		IconPalette: chromescrin
+	Valued:
+		Cost: 2000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.tiberium_conversion
 
 upgrade.aerial_gliders:
 	Inherits: ^default.upgrade
