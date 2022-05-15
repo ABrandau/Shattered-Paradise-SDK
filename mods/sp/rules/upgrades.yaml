@@ -108,6 +108,21 @@ upgrade.improved_stealth_generator:
 	#WithProductionIconOverlay:
 	#	Prerequisites: upgrade.explosive_mixtures
 
+upgrade.tunnel_repairs:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Tunnel Repairs
+	Buildable:
+		Queue: Upgrade.Mutant
+		BuildPaletteOrder: 40
+		BuildDuration: 3000
+		Prerequisites: ~upgrade.mut, muhall, ~techlevel.5
+		Description: Enables Tunnel Networks to heal infantry and repair vehicles in them.
+	Valued:
+		Cost: 1500
+	#WithProductionIconOverlay:
+	#	Prerequisites: upgrade.tunnel_repairs
+
 upgrade.tiberium_infusion:
 	Inherits: ^default.upgrade
 	Tooltip:
@@ -138,6 +153,36 @@ upgrade.cybernetic_leg_enhancements:
 	#WithProductionIconOverlay:
 	#	Prerequisites: upgrade.cybernetic_leg_enhancements
 
+upgrade.limpet_aa_targeting:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Limpet AA Targeting
+	Buildable:
+		Queue: Upgrade.CABAL
+		BuildPaletteOrder: 30
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.cab, cabradr, ~techlevel.4
+		Description: Enables Limpet Drones to target air units.
+	Valued:
+		Cost: 1000
+	#WithProductionIconOverlay:
+	#	Prerequisites: upgrade.limpet_aa_targeting
+
+upgrade.vinifera_catalysts:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Vinifera Catalysts
+	Buildable:
+		Queue: Upgrade.Scrin
+		BuildPaletteOrder: 20
+		BuildDuration: 3750
+		Prerequisites: ~upgrade.scr, scrradr, ~techlevel.4
+		Description: Increates range of Ichor Waste Turrets and Corruptors by 1 cell.\nDoubles the damage from tiberium left by those units by 
+	Valued:
+		Cost: 2000
+	#WithProductionIconOverlay:
+	#	Prerequisites: upgrade.vinifera_catalysts
+
 upgrade.aerial_gliders:
 	Inherits: ^default.upgrade
 	Tooltip:
@@ -147,7 +192,7 @@ upgrade.aerial_gliders:
 		BuildPaletteOrder: 30
 		BuildDuration: 1500
 		Prerequisites: ~upgrade.scr, scrradr, ~techlevel.4
-		Description: Enables Gliders to be deployed to take flight.\nWhen in air, they can attack ground targets.
+		Description: Enables Gliders to be deployed to take flight.\nWhile in air, they can attack ground targets.
 	Valued:
 		Cost: 1500
 	#WithProductionIconOverlay:

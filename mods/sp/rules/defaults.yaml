@@ -1000,6 +1000,12 @@
 		DamageTypes: TiberiumDeath
 		DamageLevel: 5
 		DamageInterval: 25
+	DamagedByTintedCells@BlueRadiation:
+		Damage: 60
+		DamageTypes: TiberiumDeath
+		DamageLevel: 5
+		DamageInterval: 25
+		LayerName: BlueRadiation
 	DamagedByTintedCells@OrangeRadiation:
 		Damage: 10
 		DamageTypes: FireDeath
@@ -1050,6 +1056,20 @@
 		Condition: improvedsgen
 		Prerequisites: upgrade.improved_stealth_generator
 
+^AffectedByTunnelRepairs:
+	SharedPassenger:
+		CargoCondition: in_tunnel
+	ChangesHealth@TUNNELREPAIRS:
+		PercentageStep: 1
+		Step: 0
+		Delay: 5
+		DamageCooldown: 0
+		StartIfBelow: 100
+		RequiresCondition: in_tunnel && tunnel_repairs
+	GrantConditionOnPrerequisite@TUNNELREPAIRS:
+		Condition: tunnel_repairs
+		Prerequisites: upgrade.tunnel_repairs
+
 ^AffectedByTiberiumInfusion:
 	DamageMultiplier@TIBERIUMINFUSION:
 		Modifier: 80
@@ -1075,6 +1095,16 @@
 	GrantConditionOnPrerequisite@CYBERNETICLEGENHANCEMENTS:
 		Condition: cyborglegs
 		Prerequisites: upgrade.cybernetic_leg_enhancements
+
+^AffectedByLimpetAATargeting:
+	GrantConditionOnPrerequisite@LIMPETAA:
+		Condition: limpetaa
+		Prerequisites: upgrade.limpet_aa_targeting
+
+^AffectedByViniferaCatalysts:
+	GrantConditionOnPrerequisite@VINIFERACATALYSTS:
+		Condition: vinifera_catalysts
+		Prerequisites: upgrade.vinifera_catalysts
 
 ^AffectedByAerialGliders:
 	GrantConditionOnPrerequisite@AERIALGLIDERS:
@@ -1414,6 +1444,7 @@
 	Inherits@4: ^InfantryShape
 	Inherits@5: ^5CellVision
 	Inherits@6: ^Blind
+	Inherits@7: ^AffectedByTunnelRepairs
 	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	ActorLostNotification:
@@ -1921,6 +1952,7 @@
 	Inherits@1: ^VehicleShape
 	Inherits@2: ^5CellVision
 	Inherits@3: ^Blind
+	Inherits@4: ^AffectedByTunnelRepairs
 	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	ActorLostNotification:
@@ -2110,6 +2142,7 @@
 	-WithIdleOverlay@veinholedrain:
 	-GrantConditionOnTerrain@VEINS:
 	-DamagedByTintedCells@Default:
+	-DamagedByTintedCells@BlueRadiation:
 	-DamagedByTintedCells@OrangeRadiation:
 	-DamagedByTintedCells@Colossus:
 
@@ -2260,6 +2293,8 @@
 	-Carryable:
 	-Passenger:
 	-SharedPassenger:
+	-ChangesHealth@TUNNELREPAIRS:
+	-GrantConditionOnPrerequisite@TUNNELREPAIRS:
 
 ^Aircraft:
 	Inherits: ^SpriteActor

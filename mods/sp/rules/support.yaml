@@ -558,6 +558,7 @@ SCRNEEDLER:
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@DETECTION: ^TowerStealthDetection
 	Inherits@RENDER: ^ScrinRenderBuilding
+	Inherits@VINIFERA: ^AffectedByViniferaCatalysts
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -579,6 +580,14 @@ SCRNEEDLER:
 		MuzzlePalette: gradientgreen60
 		MuzzleSequence: muzzle
 		PauseOnCondition: Building-Buildup
+		RequiresCondition: !vinifera_catalysts
+	Armament@2:
+		Weapon: WasteTurretWeaponBlue
+		LocalOffset: 1000,-100,500, 1000,100,500
+		MuzzlePalette: gradientgreen60
+		MuzzleSequence: muzzle
+		PauseOnCondition: Building-Buildup
+		RequiresCondition: vinifera_catalysts
 	WithMuzzleOverlay:
 	SmokeParticleEmitter@spawnsmoke:
 		Palette: gradientgreen40

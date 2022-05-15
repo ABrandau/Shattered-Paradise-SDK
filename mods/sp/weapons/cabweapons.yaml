@@ -60,6 +60,14 @@ LimpetMissile:
 		InvalidTargets: Building, Wall
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 
+LimpetMissileAA:
+	Inherits: LimpetMissile
+	Inherits@1: ^AARocketWarhead
+	ValidTargets: Air
+	Range: 6c0
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+
 SentryGun:
 	Inherits: ^FullDamage
 	Inherits: ^Small_Clsn

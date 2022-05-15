@@ -100,7 +100,6 @@ ColossiBlast:
 		Falloff: 100, 85, 60, 45, 30, 15
 		LayerName: ColossusRadiation
 
-
 MindWave: ## Used for IFV
 	Inherits: ^ArtilleryWarhead
 	Inherits@1: ^Large_Explosion
@@ -282,6 +281,17 @@ CorruptorAcid:
 		ExplosionPalette: apolgreenalpha
 		ImpactActors: false
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+
+CorruptorAcidBlue:
+	Inherits: CorruptorAcid
+	Range: 6c0
+	Projectile: BulletAS
+		ContrailColor: 000098BB
+		ContrailEndColor: 00004455
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: apolbluealpha
+	Warhead@3Radio: CreateTintedCells
+		LayerName: BlueRadiation
 
 ### See ^MindControllable in default.yaml 
 MindController:
@@ -966,6 +976,17 @@ WasteTurretWeapon:
 		Spread: 512
 		Level: 24
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+
+WasteTurretWeaponBlue:
+	Inherits: WasteTurretWeapon
+	Range: 8c0
+	Projectile: BulletAS
+		ContrailColor: 000098BB
+		ContrailEndColor: 00004455
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: apolbluealpha
+	Warhead@3Radio: CreateTintedCells
+		LayerName: BlueRadiation
 
 TractorBeam:
 	Inherits: ^AntiAirTurretWeapon
