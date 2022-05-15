@@ -130,6 +130,21 @@ FiendShardAAEffect:
 		ImpactActors: false
 		AirThreshold: 8c0
 
+FiendShard2Blue:
+	Inherits: FiendShard2
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: jascbluealpha
+
+FiendShardBlueAA:
+	Inherits: FiendShardAA
+	Warhead@op: FireRadius
+		Weapon: FiendShardBlueAAEffect
+
+FiendShardBlueAAEffect:
+	Inherits: FiendShardAAEffect
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: jascbluealpha
+
 SeerTesla:
 	Inherits: ^FullDamage
 	ReloadDelay: 100

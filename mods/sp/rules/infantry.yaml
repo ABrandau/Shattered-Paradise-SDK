@@ -1029,6 +1029,7 @@ MARAUDER:
 MUTFIEND:
 	Inherits: ^Mutant
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@BLUESHARDS: ^AffectedByBlueShards
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@MC: ^MindControllableMastermind
 	Inherits@TIBINFUSION: ^AffectedByTiberiumInfusion
@@ -1053,6 +1054,8 @@ MUTFIEND:
 		Locomotor: TibFiends
 	SpeedMultiplier@TIBERIUMINFUSION:
 		Modifier: 117
+	Passenger:
+		CustomPipType: blue
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
@@ -1062,23 +1065,51 @@ MUTFIEND:
 	Armament@1:
 		Weapon: FiendShard2
 		Name: OnFoot
+		LocalOffset: 500, 0, 700
 		ReloadingCondition: reload-ground
 		PauseOnCondition: WebDisable || reload-air
-		LocalOffset: 500, 0, 700
+		RequiresCondition: !blue_shards
 	Armament@2:
 		Weapon: FiendShardAA
 		Name: OnFoot
+		LocalOffset: 500, 0, 700
 		ReloadingCondition: reload-air
 		PauseOnCondition: WebDisable || reload-ground
-		LocalOffset: 500, 0, 700
+		RequiresCondition: !blue_shards
 	Armament@Garrison1:
 		Weapon: GFiendShard2
 		ReloadingCondition: reload-ground
 		PauseOnCondition: WebDisable || reload-air
+		RequiresCondition: !blue_shards
 	Armament@Garrison2:
 		Weapon: GFiendShardAA
 		ReloadingCondition: reload-air
 		PauseOnCondition: WebDisable || reload-ground
+		RequiresCondition: !blue_shards
+	Armament@1Blue:
+		Weapon: FiendShard2Blue
+		Name: OnFoot
+		LocalOffset: 500, 0, 700
+		ReloadingCondition: reload-ground
+		PauseOnCondition: WebDisable || reload-air
+		RequiresCondition: blue_shards
+	Armament@2Blue:
+		Weapon: FiendShardBlueAA
+		Name: OnFoot
+		LocalOffset: 500, 0, 700
+		ReloadingCondition: reload-air
+		PauseOnCondition: WebDisable || reload-ground
+		RequiresCondition: blue_shards
+	Armament@Garrison1Blue:
+		Weapon: GFiendShard2Blue
+		ReloadingCondition: reload-ground
+		PauseOnCondition: WebDisable || reload-air
+		RequiresCondition: blue_shards
+	Armament@Garrison2Blue:
+		Weapon: GFiendShardBlueAA
+		ReloadingCondition: reload-air
+		PauseOnCondition: WebDisable || reload-ground
+		RequiresCondition: blue_shards
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -1090,19 +1121,39 @@ MUTFIEND:
 		Actor: cybdog
 	WithInfantryBody:
 		IdleSequences: idle1
+		RequiresCondition: !blue_shards
+	WithInfantryBody@blue:
+		IdleSequences: idle1-blue
+		MoveSequence: run-blue
+		StandSequences: stand-blue
+		DefaultAttackSequence: shoot-blue
+		RequiresCondition: blue_shards
 	WithDeathAnimation@normal:
 		DeathTypes:
 			TiberiumDeath: 1, 2
 			EnergyDeath: 1, 2
 			FireDeath: fire
+		RequiresCondition: !blue_shards
+	WithDeathAnimation@blue:
+		DeathSequence: die-blue
+		DeathTypes:
+			TiberiumDeath: 1, 2
+			EnergyDeath: 1, 2
+			FireDeath: fire
+		RequiresCondition: blue_shards
 	WithDeathAnimation@explosion:
 		DeathSequencePalette: apolredalpha
 	WithDeathAnimation@body:
 		DeathSequencePalette: gradientred
 		CrushedSequencePalette: gradientred
 		Delay: 20
-	Passenger:
-		CustomPipType: blue
+	WithStatIconOverlay@VINIFERA:
+		Image: doggie
+		Sequence: icon-blue
+		RequiresCondition: blue_shards
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.blue_shards
+		Types: doggie-blue
 	ActorStatValues:
 		Damage: 30
 

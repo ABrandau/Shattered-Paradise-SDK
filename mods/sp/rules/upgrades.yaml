@@ -139,6 +139,21 @@ upgrade.brick_walls:
 	WithProductionIconOverlay:
 		Prerequisites: upgrade.brick_walls
 
+upgrade.blue_shards:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Blue Shards
+	Buildable:
+		Queue: Upgrade.Mutant
+		BuildPaletteOrder: 20
+		BuildDuration: 3750
+		Prerequisites: ~upgrade.mut, muradr, ~techlevel.4
+		Description: Increases damage of Mutant Fiends by 25%.
+	Valued:
+		Cost: 2000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.blue_shards
+
 upgrade.tunnel_repairs:
 	Inherits: ^default.upgrade
 	Tooltip:
