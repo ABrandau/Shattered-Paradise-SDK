@@ -626,8 +626,10 @@ BGGY:
 	Inherits@BLUEFLAME: ^AffectedByPurifyingFlame
 	Inherits@DETECTION: ^BasicStealthDetection
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@IMPPLAGUEGAS: ^AffectedByImprovedPlagueGas
 	Inherits@PIPS: ^CargoPips
 	Inherits@RAIDERE1: ^AffectedByRaiderPassenger
+	Inherits@TIBGASWH: ^AffectedByTiberiumGasWarheads
 	Inherits@VISION: ^8CellVision
 	-FirepowerMultiplier@BLUEFLAME:
 	Valued:
@@ -799,7 +801,12 @@ BGGY:
 		Weapon: SkirmisherMortar
 		Damage: 40
 		LocalOffset: 250,0,125
-		RequiresCondition: ifv.skirmisher
+		RequiresCondition: ifv.skirmisher && !tibgaswh
+	Armament@skirmisherGas:
+		Weapon: SkirmisherMortarGas
+		Damage: 40
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.skirmisher && tibgaswh
 	Armament@seer:
 		Weapon: SeerTesla
 		Damage: 70
@@ -836,7 +843,12 @@ BGGY:
 		Weapon: FloatGlaive
 		Damage: 20
 		LocalOffset: 250,0,125
-		RequiresCondition: ifv.bug
+		RequiresCondition: ifv.bug && !impplaguegas
+	Armament@bugUpg:
+		Weapon: FloatGlaiveUpg
+		Damage: 20
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.bug && impplaguegas
 	Armament@colossi:
 		Weapon: ColossiShard
 		Damage: 200
@@ -2045,6 +2057,7 @@ MRLS:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RENDER: ^MutRender
+	Inherits@TIBGASWH: ^AffectedByTiberiumGasWarheads
 	Inherits@VISION: ^5CellVision
 	Valued:
 		Cost: 1100
@@ -2076,9 +2089,15 @@ MRLS:
 	AutoTarget:
 		ScanRadius: 13
 	Armament:
-		Weapon: tiberianrocket
+		Weapon: TiberianRocket
 		LocalOffset: 400,100,900, 400,-100,900
 		PauseOnCondition: empdisable
+		RequiresCondition: !tibgaswh
+	Armament@gas:
+		Weapon: TiberianRocketGas
+		LocalOffset: 400,100,900, 400,-100,900
+		PauseOnCondition: empdisable
+		RequiresCondition: tibgaswh
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -3294,6 +3313,7 @@ SCRSCORPION:
 	Inherits@1: ^ScrinVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@IMPPLAGUEGAS: ^AffectedByImprovedPlagueGas
 	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 900
@@ -3325,6 +3345,12 @@ SCRSCORPION:
 		Weapon: ScorpGas
 		LocalOffset: -100,0,700
 		PauseOnCondition: empdisable
+		RequiresCondition: !impplaguegas
+	Armament@PRIMARYUpg:
+		Weapon: ScorpGasUpg
+		LocalOffset: -100,0,700
+		PauseOnCondition: empdisable
+		RequiresCondition: impplaguegas
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	WithInfantryBody:

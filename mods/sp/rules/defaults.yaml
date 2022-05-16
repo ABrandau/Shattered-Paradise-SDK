@@ -797,8 +797,13 @@
 		Delay: 20
 		StartIfBelow: 200
 		RequiresCondition: BugPoison && !CriticalDamaged
+	SpeedMultiplier@BugSlowdown:
+		Modifier: 50
+		RequiresCondition: BugSlowdown
 	ExternalCondition@BugPoison:
 		Condition: BugPoison
+	ExternalCondition@BugSlowdown:
+		Condition: BugSlowdown
 	GrantConditionOnDamageState@Critical:
 		Condition: CriticalDamaged
 		ValidDamageStates: Critical
@@ -1125,6 +1130,11 @@
 		Condition: tibinfusion
 		Prerequisites: upgrade.tiberium_infusion
 
+^AffectedByTiberiumGasWarheads:
+	GrantConditionOnPrerequisite@TIBGASWH:
+		Condition: tibgaswh
+		Prerequisites: upgrade.tiberium_gas_warheads
+
 ^AffectedByCyberneticLegEnhancements:
 	SpeedMultiplier@CYBERNETICLEGENHANCEMENTS:
 		Modifier: 167
@@ -1160,6 +1170,11 @@
 	GrantConditionOnPrerequisite@GATLING:
 		Condition: gatling
 		Prerequisites: upgrade.gatling_cannons
+
+^AffectedByImprovedPlagueGas:
+	GrantConditionOnPrerequisite@IMPPLAGUEGAS:
+		Condition: impplaguegas
+		Prerequisites: upgrade.improved_plague_gas
 
 ^AffectedByViniferaCatalysts:
 	GrantConditionOnPrerequisite@VINIFERACATALYSTS:

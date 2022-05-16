@@ -60,6 +60,19 @@ SkirmisherMortar:
 		ExplosionPalette: jascgreenalpha
 		Explosions: dustexplode, dustexplode2
 
+SkirmisherMortarGas:
+	Inherits: SkirmisherMortar
+	Warhead@5Smo: SpawnSmokeParticle
+		Weapon: CloudDamage
+		Count: 2
+		Duration: 95
+		Speed: 30
+		TurnRate: 24
+		Image: tibcloud
+		Sequences: cloud2
+		Palette: effectalpha50
+		AirThreshold: 8c0
+
 FiendShard2:
 	Inherits: ^APWarhead
 	ReloadDelay: 60
@@ -463,6 +476,19 @@ TiberianRocket:
 		ExplosionPalette: gradientgreen60
 	Warhead@3Radio: CreateTintedCells
 		Level: 10
+
+TiberianRocketGas:
+	Inherits: TiberianRocket
+	Warhead@5Smo: SpawnSmokeParticle
+		Weapon: CloudDamage
+		Count: 1
+		Duration: 95
+		Speed: 30
+		TurnRate: 24
+		Image: tibcloud
+		Sequences: cloud2
+		Palette: effectalpha50
+		AirThreshold: 8c0
 
 MiniNuke:
 	Inherits: NuclearMissile

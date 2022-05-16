@@ -229,6 +229,21 @@ upgrade.tiberium_infusion:
 	WithProductionIconOverlay:
 		Prerequisites: upgrade.tiberium_infusion
 
+upgrade.tiberium_gas_warheads:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Tiberium Gas Warheads
+	Buildable:
+		Queue: Upgrade.Mutant
+		BuildPaletteOrder: 60
+		BuildDuration: 3000
+		Prerequisites: ~upgrade.mut, muhall, ~techlevel.5
+		Description: Enables the weapons of Skirmishers and Irradiator MLRSes to leave Tiberium Gas on impact.
+	Valued:
+		Cost: 2000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.tiberium_gas_warheads
+
 upgrade.cybernetic_leg_enhancements:
 	Inherits: ^default.upgrade
 	Tooltip:
@@ -351,6 +366,22 @@ upgrade.aerial_gliders:
 		Cost: 1500
 	WithProductionIconOverlay:
 		Prerequisites: upgrade.aerial_gliders
+
+upgrade.improved_plague_gas:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Improved Plague Gas
+	Buildable:
+		Queue: Upgrade.Scrin
+		BuildPaletteOrder: 50
+		BuildDuration: 3000
+		Prerequisites: ~upgrade.scr, scrtech, ~techlevel.5
+		Description: Enables Plague Troopers and Plague Walkers to slow down affected enemy units by 50%.
+		IconPalette: chromescrin
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.improved_plague_gas
 
 upgrade.hyper_flight_rotors:
 	Inherits: ^default.upgrade

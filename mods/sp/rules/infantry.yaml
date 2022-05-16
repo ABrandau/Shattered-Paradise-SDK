@@ -1202,6 +1202,7 @@ E3:
 	Inherits: ^Mutant
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@TIBGASWH: ^AffectedByTiberiumGasWarheads
 	Inherits@VISION: ^5CellVision
 	Buildable:
 		Queue: Infantry.Mutant
@@ -1228,9 +1229,21 @@ E3:
 		LocalOffset: 128,0,640
 		Name: OnFoot
 		PauseOnCondition: WebDisable
+		RequiresCondition: !tibgaswh
+	Armament@1Upg:
+		Weapon: SkirmisherMortarGas
+		LocalOffset: 128,0,640
+		Name: OnFoot
+		PauseOnCondition: WebDisable
+		RequiresCondition: tibgaswh
 	Armament@Garrison:
 		Weapon: GSkirmisherMortar
 		LocalOffset: 128,0,640
+		RequiresCondition: !tibgaswh
+	Armament@GarrisonUpg:
+		Weapon: GSkirmisherMortarGas
+		LocalOffset: 128,0,640
+		RequiresCondition: tibgaswh
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -1548,6 +1561,7 @@ BUG:
 	Inherits: ^ScrinSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@IMPPLAGUEGAS: ^AffectedByImprovedPlagueGas
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry.Scrin
@@ -1577,12 +1591,24 @@ BUG:
 		Actor: chusk
 	Armament@1:
 		Weapon: FloatGlaive
-		PauseOnCondition: WebDisable
 		LocalOffset: 300,0,500
 		Name: OnFoot
+		PauseOnCondition: WebDisable
+		RequiresCondition: !impplaguegas
 	Armament@Garrison:
 		Weapon: GFloatGlaive
 		PauseOnCondition: WebDisable
+		RequiresCondition: !impplaguegas
+	Armament@1Upg:
+		Weapon: FloatGlaiveUpg
+		LocalOffset: 300,0,500
+		Name: OnFoot
+		PauseOnCondition: WebDisable
+		RequiresCondition: impplaguegas
+	Armament@GarrisonUpg:
+		Weapon: GFloatGlaiveUpg
+		PauseOnCondition: WebDisable
+		RequiresCondition: impplaguegas
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot

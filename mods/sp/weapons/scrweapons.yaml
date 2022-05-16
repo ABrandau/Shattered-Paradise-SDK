@@ -213,6 +213,20 @@ FloatGlaive2:
 	-Report:
 	-Warhead@op:
 
+FloatGlaiveUpg:
+	Inherits: FloatGlaive
+	Warhead@op: FireShrapnel
+		Weapon: FloatGlaiveUpg2
+	Warhead@2Acid: GrantExternalCondition
+		Range: 128
+		Duration: 300
+		Condition: BugSlowdown
+
+FloatGlaiveUpg2:
+	Inherits: FloatGlaiveUpg
+	-Report:
+	-Warhead@op:
+
 PoisonGlaive:
 	ReloadDelay: 75
 	Range: 2c0
@@ -427,6 +441,15 @@ ScorpGas:
 		ExplosionPalette: jascbluealphaalpha50
 		ImpactActors: false
 		ValidTargets: Infantry, Vehicle, Ground, Water
+
+ScorpGasUpg:
+	Inherits: ScorpGas
+	Warhead@5Con: GrantExternalCondition
+		Range: 4c0
+		Duration: 300
+		Condition: BugSlowdown
+		ValidTargets: Infantry, Vehicle, Ground, Water
+		ValidRelationships: Enemy, Neutral
 
 foggydebuff:
 	Warhead@Acid: GrantExternalCondition
