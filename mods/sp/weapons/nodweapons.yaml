@@ -70,6 +70,11 @@ TemplarFlameE:
 	Projectile: BulletAS
 		Image: FLAMEALLBLUE
 
+BuggyTemplarFlameE:
+	Inherits: TemplarFlameE
+	Warhead@1Dam: SpreadDamage
+		Damage: 600
+
 BlackHandLasor:
 	Inherits: ^FullDamage
 	Burst: 3
@@ -757,6 +762,8 @@ LightbringerFlame:
 	Inherits@2: ^FlameScorch
 	ReloadDelay: 50
 	Range: 7c0
+	Burst: 28
+	BurstDelays: 0
 	StartBurstReport: flamtnk1.aud
 	Projectile: BulletAS
 		Speed: 200
@@ -764,8 +771,6 @@ LightbringerFlame:
 		Inaccuracy: 1c0
 		Palette: FlameEffectPal
 		Blockable: true
-	Burst: 28
-	BurstDelays: 0
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
 		Damage: 400
@@ -778,3 +783,5 @@ LightbringerFlameE:
 	Inherits@2: ^FlameScorchBlue
 	Projectile: BulletAS
 		Image: FLAMEALLBLUE
+	Warhead@1Dam: SpreadDamage
+		Damage: 600

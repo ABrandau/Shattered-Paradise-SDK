@@ -78,6 +78,21 @@ upgrade.ceramic_plating:
 	WithProductionIconOverlay:
 		Prerequisites: upgrade.ceramic_plating
 
+upgrade.purifying_flame:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Purifying Flame
+	Buildable:
+		Queue: Upgrade.Nod
+		BuildPaletteOrder: 10
+		BuildDuration: 3750
+		Prerequisites: ~upgrade.nod, naradr, ~techlevel.4
+		Description: Increases the damage of flame weapons by 50%.
+	Valued:
+		Cost: 2500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.purifying_flame
+
 upgrade.explosive_mixtures:
 	Inherits: ^default.upgrade
 	Tooltip:

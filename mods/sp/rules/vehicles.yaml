@@ -623,10 +623,12 @@ NODMCV:
 BGGY:
 	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@BLUEFLAME: ^AffectedByPurifyingFlame
 	Inherits@DETECTION: ^BasicStealthDetection
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@PIPS: ^CargoPips
 	Inherits@VISION: ^8CellVision
+	-FirepowerMultiplier@BLUEFLAME:
 	Valued:
 		Cost: 300
 	UpdatesPlayerStatistics:
@@ -733,12 +735,12 @@ BGGY:
 		Weapon: TemplarFlame
 		Damage: 40
 		LocalOffset: 250,0,125
-		RequiresCondition: ifv.templar && !rank-heroic
+		RequiresCondition: ifv.templar && !blueflame
 	Armament@templar-elite:
-		Weapon: TemplarFlameE
-		Damage: 24
+		Weapon: BuggyTemplarFlameE
+		Damage: 60
 		LocalOffset: 250,0,125
-		RequiresCondition: ifv.templar && rank-heroic
+		RequiresCondition: ifv.templar && blueflame
 	Armament@nconf:
 		Weapon: BlackHandLasorBuggy
 		Damage: 96
@@ -1390,6 +1392,7 @@ SAPC:
 SUBTANK:
 	Inherits: ^SubterraneanVoxelVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@BLUEFLAME: ^AffectedByPurifyingFlame
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
 	Valued:
@@ -1416,13 +1419,13 @@ SUBTANK:
 	Armament:
 		Weapon: DevilsFlame
 		LocalOffset: 0,400,0, 0,-400,0
-		PauseOnCondition: empdisable
-		RequiresCondition: !submerged && !rank-heroic
+		PauseOnCondition: empdisable || submerged
+		RequiresCondition: !blueflame
 	Armament@Elite:
 		Weapon: DevilsFlameE
 		LocalOffset: 0,400,0, 0,-400,0
-		PauseOnCondition: empdisable
-		RequiresCondition: !submerged && rank-heroic
+		PauseOnCondition: empdisable || submerged
+		RequiresCondition: blueflame
 	AttackFrontal:
 		PauseOnCondition: empdisable
 		FacingTolerance: 2
@@ -1581,9 +1584,10 @@ STNK:
 
 SCORPION:
 	Inherits: ^Tank
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@BLUEFLAME: ^AffectedByPurifyingFlame
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
 	Inherits@COMMANDO: ^CommandoIcon
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^8CellVision
@@ -1614,6 +1618,7 @@ SCORPION:
 	-SharedPassenger:
 	-ChangesHealth@TUNNELREPAIRS:
 	-GrantConditionOnPrerequisite@TUNNELREPAIRS:
+	-FirepowerMultiplier@BLUEFLAME:
 	SmokeParticleEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	ExplodeWeapon@spawnsparks:
@@ -1653,6 +1658,7 @@ SCORPION:
 	Armament@laser:
 		Name: laserFire
 		Weapon: ScorpionLaser
+		Damage: 200
 		LocalOffset: 450,0,2400
 		MuzzleSequence: muzzle
 		MuzzlePalette: obelpal
@@ -1661,15 +1667,17 @@ SCORPION:
 	Armament@FLAMES:
 		Name: fireArmament
 		Weapon: LightbringerFlame
+		Damage: 112
 		LocalOffset: 1300,500,700, 1300,-500,700
 		PauseOnCondition: empdisable
-		RequiresCondition: !rank-heroic
+		RequiresCondition: !blueflame
 	Armament@EFLAMES:
 		Name: fireArmament
 		Weapon: LightbringerFlameE
+		Damage: 168
 		LocalOffset: 1300,500,700, 1300,-500,700
 		PauseOnCondition: empdisable
-		RequiresCondition: rank-heroic
+		RequiresCondition: blueflame
 	GrantConditionAfterDelay@laserready:
 		Condition: laserready
 		Delay: 10
@@ -1715,7 +1723,6 @@ SCORPION:
 		RequiresCondition: produced
 		Voice: Build
 	ActorStatValues:
-		Damage: 312
 		Armaments: laserFire, fireArmament
 
 #####################################################################

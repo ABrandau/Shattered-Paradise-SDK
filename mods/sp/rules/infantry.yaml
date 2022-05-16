@@ -680,6 +680,7 @@ CRUSADER:
 TEMPLAR:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@BLUEFLAME: ^AffectedByPurifyingFlame
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
 	Buildable:
@@ -706,24 +707,24 @@ TEMPLAR:
 		Weapon: TemplarFlame
 		LocalOffset: 200,50,320
 		PauseOnCondition: WebDisable
-		RequiresCondition: !rank-heroic
+		RequiresCondition: !blueflame
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GTemplarFlame
 		LocalOffset: 200,50,320
 		PauseOnCondition: WebDisable
-		RequiresCondition: !rank-heroic
+		RequiresCondition: !blueflame
 	Armament@1Elite:
 		Weapon: TemplarFlameE
 		LocalOffset: 200,50,320
 		PauseOnCondition: WebDisable
-		RequiresCondition: rank-heroic
+		RequiresCondition: blueflame
 		Name: OnFoot
 	Armament@GarrisonElite:
 		Weapon: GTemplarFlameE
 		LocalOffset: 200,50,320
 		PauseOnCondition: WebDisable
-		RequiresCondition: rank-heroic
+		RequiresCondition: blueflame
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
