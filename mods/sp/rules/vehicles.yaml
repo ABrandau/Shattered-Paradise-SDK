@@ -1906,6 +1906,7 @@ LYNX:
 	Inherits@1: ^SpriteActor
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@LYNXROCKETS: ^AffectedByLynxRockets
 	Inherits@RENDER: ^MutRender
 	Inherits@VISION: ^6CellVision
 	Buildable:
@@ -1934,27 +1935,42 @@ LYNX:
 	Turreted:
 		TurnSpeed: 24
 		Offset: 150,0,0
+	Turreted@missile:
+		TurnSpeed: 24
+		Turret: rocket
+		Offset: 150,0,800
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
 	AutoTarget:
 	WithSpriteTurret:
+	WithSpriteTurret@ROCKET:
+		Sequence: rocket
+		Turret: rocket
+		RequiresCondition: lynx_rockets && !rocketout
 	WithMuzzleOverlay:
 	AttackTurreted:
 		Voice: Attack
+		Turrets: primary, rocket
 		PauseOnCondition: empdisable
 	Armament:
 		Weapon: LynxCannon
+		Damage: 50
 		LocalOffset: 400,0,600
 		MuzzleSequence: muzzle
 		Recoil: 0c128
 		PauseOnCondition: empdisable
+	Armament@2:
+		Weapon: LynxRocket
+		Damage: 20
+		Turret: rocket
+		ReloadingCondition: rocketout
+		PauseOnCondition: empdisable
+		RequiresCondition: lynx_rockets
 	Armament@casing:
 		Weapon: LynxCannonShellCasing
 		LocalOffset: 0,0,600
 		PauseOnCondition: empdisable
-	ActorStatValues:
-		Damage: 50
 
 STRUCK:
 	Inherits: ^Tank
