@@ -293,6 +293,34 @@ Tick90mmShellCasing:
 	ReloadDelay: 70
 	Range: 7c0
 
+TickLaser:
+	Inherits: ^FullDamage
+	Inherits@2: ^Mediuml_Clsn
+	ReloadDelay: 70
+	Range: 7c0
+	Report: lastur1.aud
+	Projectile: LaserZap
+		TrackTarget: false
+		Duration: 15
+		Width: 80
+		ZOffset: 3047
+		Color: 98000075
+		SecondaryBeam: true
+		SecondaryBeamWidth: 25
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: FFEEEE75
+		HitAnim: explosion
+		HitAnimSequence: smalldimlaserflare
+		HitAnimPalette: jascredalpha
+	Warhead@1Dam: SpreadDamage
+		Damage: 5000
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+
+HologramTickLaser:
+	Inherits: TickLaser
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+
 DevilsFlame:
 	Inherits: ^FlameWarhead
 	Inherits@2: ^FlameScorch

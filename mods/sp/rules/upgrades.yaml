@@ -169,6 +169,21 @@ upgrade.tib_core_missiles:
 	WithProductionIconOverlay:
 		Prerequisites: upgrade.tib_core_missiles
 
+upgrade.laser_capacitors:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Laser Capacitors
+	Buildable:
+		Queue: Upgrade.Nod
+		BuildPaletteOrder: 60
+		BuildDuration: 3000
+		Prerequisites: ~upgrade.nod, natech, ~techlevel.5
+		Description: Gives Tick Tanks a Laser Cannon that deals full damage against Infantry and hits targets instantly.
+	Valued:
+		Cost: 2000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.laser_capacitors
+
 upgrade.brick_walls:
 	Inherits: ^default.upgrade
 	Tooltip:

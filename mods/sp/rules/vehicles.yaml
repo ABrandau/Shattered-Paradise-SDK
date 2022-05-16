@@ -1102,6 +1102,7 @@ TTNK:
 	Inherits: ^Tank
 	Inherits@1: ^SpriteActor
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@CAPACITORS: ^AffectedByLaserCapacitors
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^7CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
@@ -1141,6 +1142,7 @@ TTNK:
 		MuzzleSequence: muzzle
 		ReloadingCondition: reload-undeployed
 		PauseOnCondition: empdisable || reload-deployed
+		RequiresCondition: !capacitors
 	Armament@DEPLOYED:
 		Name: DeployedArm
 		Turret: deployed
@@ -1150,10 +1152,30 @@ TTNK:
 		MuzzleSequence: muzzle
 		ReloadingCondition: reload-deployed
 		PauseOnCondition: empdisable || reload-undeployed
+		RequiresCondition: !capacitors
+	Armament@PRIMARYLaser:
+		Weapon: TickLaser
+		LocalOffset: 500,-0,500
+		MuzzleSequence: muzzle2
+		MuzzlePalette: jascredalpha
+		ReloadingCondition: reload-undeployed
+		PauseOnCondition: empdisable || reload-deployed
+		RequiresCondition: capacitors
+	Armament@DEPLOYEDLaser:
+		Name: DeployedArm
+		Turret: deployed
+		Weapon: TickLaser
+		LocalOffset: 786,-0,700
+		MuzzleSequence: muzzle2
+		MuzzlePalette: jascredalpha
+		ReloadingCondition: reload-deployed
+		PauseOnCondition: empdisable || reload-undeployed
+		RequiresCondition: capacitors
 	Armament@CASINGPRIMARY:
 		Weapon: Tick90mmShellCasing
 		ReloadingCondition: reload-undeployed
 		PauseOnCondition: empdisable || reload-deployed
+		RequiresCondition: !capacitors
 	Armament@CASINGDEPLOYED:
 		Name: DeployedArm
 		Turret: deployed
@@ -1162,6 +1184,7 @@ TTNK:
 		MuzzleSequence: muzzle
 		ReloadingCondition: reload-deployed
 		PauseOnCondition: empdisable || reload-undeployed
+		RequiresCondition: !capacitors
 	WithMuzzleOverlay:
 	WithMakeAnimation:
 		BodyNames: deployed
@@ -1225,15 +1248,16 @@ TTNK:
 TICKHOLOGRAM:
 	Inherits: ^Tank
 	Inherits@1: ^SpriteActor
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CAPACITORS: ^AffectedByLaserCapacitors
 	Inherits@HOLOGRAM: ^HologramKillTimer
 	Inherits@VISION: ^7CellVision
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	GivesExperience:
 		Experience: 50
 	Health:
 		HP: 35000
 	EditorOnlyTooltip:
-		Name: Tick Tank Hollogram
+		Name: Tick Tank Hologram
 	-UpdatesPlayerStatistics:
 	WithDecoration@holoicon:
 		Image: holoicon
@@ -1252,6 +1276,18 @@ TICKHOLOGRAM:
 		Weapon: HologramTick90mm
 		LocalOffset: 350,-0,500
 		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
+		RequiresCondition: !capacitors
+	Armament@PRIMARYLaser:
+		Weapon: HologramTickLaser
+		LocalOffset: 350,-0,500
+		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
+		RequiresCondition: capacitors
+	Armament@CASINGPRIMARY:
+		Weapon: Tick90mmShellCasing
+		PauseOnCondition: empdisable
+		RequiresCondition: !capacitors
 	WithFacingSpriteBody:
 		Sequence: idle
 		RequiresCondition: !inside-tunnel
