@@ -1143,6 +1143,14 @@
 		Condition: improvednets
 		Prerequisites: upgrade.improved_reaper_nets
 
+^AffectedByReclaimAndRecycle:
+	DamageMultiplier@RECYCLE:
+		Modifier: 67
+		RequiresCondition: recycle
+	GrantConditionOnPrerequisite@RECYCLE:
+		Condition: recycle
+		Prerequisites: upgrade.reclaim_and_recycle
+
 ^AffectedByGatlingCannons:
 	GatlingReloadDelayMultiplier:
 		MinModifier: 40
@@ -1563,7 +1571,7 @@
 		Damage: 20
 	DrawLineToTarget:
 	DeathSounds@NORMAL:
-		DeathTypes: BulletDeath, ExplosionDeath, CabalDeath, TiberiumDeath
+		DeathTypes: BulletDeath, ExplosionDeath, CabalDeath, CabalDeathUpg, TiberiumDeath
 	DeathSounds@BURNED:
 		Voice: Burned
 		DeathTypes: FireDeath
@@ -1632,6 +1640,12 @@
 		OwnerType: Killer
 		DeathType: CabalDeath
 		RequiresLobbyCreeps: false
+	SpawnActorOnDeath@conversionUpg:
+		Actor: cyborg15
+		Probability: 100
+		OwnerType: Killer
+		DeathType: CabalDeathUpg
+		RequiresLobbyCreeps: false
 	WithInfantryBody:
 		MinIdleDelay: 75
 		MaxIdleDelay: 250
@@ -1643,6 +1657,7 @@
 		DeathTypes:
 			BulletDeath: 1, 2
 			CabalDeath: 1, 2
+			CabalDeathUpg: 1, 2
 	WithDeathAnimation@tib:
 		DeathSequencePalette: apolra2galpha
 		DeathPaletteIsPlayerPalette: false
@@ -1666,6 +1681,7 @@
 		DeathTypes:
 			BulletDeath: body1, body2, body3, body4, body5
 			CabalDeath: body1, body2, body3, body4, body5
+			CabalDeathUpg: body1, body2, body3, body4, body5
 			EnergyDeath: body1, body2, body3, body4, body5
 		Delay: 10
 	WithDeathAnimation@blood1:
@@ -1674,8 +1690,9 @@
 		CrushedSequence: dieblood1
 		CrushedSequencePalette: gradientred
 		DeathTypes:
-			CabalDeath: blood1, blood2, blood3, blood4, blood5, blood6
 			BulletDeath: blood1, blood2, blood3, blood4, blood5, blood6
+			CabalDeath: blood1, blood2, blood3, blood4, blood5, blood6
+			CabalDeathUpg: blood1, blood2, blood3, blood4, blood5, blood6
 			ExplosionDeath: blood1, blood2, blood3, blood4, blood5, blood6
 		Delay: 12
 	WithTextControlGroupDecoration:
@@ -1729,11 +1746,14 @@
 	Inherits@1: ^HealsOnTiberium
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
+	SpawnActorOnDeath@conversionUpg:
+		Actor: cybdog
 	-DamagedByTerrain:
 	WithDeathAnimation@normal:
 		DeathTypes:
 			BulletDeath: 1, 2
 			CabalDeath: 1, 2
+			CabalDeathUpg: 1, 2
 			FireDeath: 1, 2
 			EnergyDeath: 1, 2
 			TiberiumDeath: 1, 2
@@ -1816,6 +1836,7 @@
 		DeathTypes:
 			BulletDeath: body1, body2
 			CabalDeath: body1, body2
+			CabalDeathUpg: body1, body2
 		Delay: 10
 
 ^Cyborg:
@@ -1991,6 +2012,7 @@
 	-SpawnActorOnDeath@nanomachinereanimate:
 	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@conversionUpg:
 	-SpawnActorOnDeath@ScrinEssence:
 	-WithDeathAnimation@blood1:
 	-RevealsShroud:

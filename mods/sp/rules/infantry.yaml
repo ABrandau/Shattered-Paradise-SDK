@@ -327,7 +327,7 @@ JUMPJETAIR:
 	Cloak@CLOAKGENERATOR:
 		-CloakedCondition:
 	DeathSounds@NORMAL:
-		DeathTypes: BulletDeath, ExplosionDeath, CabalDeath, TiberiumDeath
+		DeathTypes: BulletDeath, ExplosionDeath, CabalDeath, CabalDeathUpg, TiberiumDeath
 	DeathSounds@BURNED:
 		Voice: Burned
 		DeathTypes: FireDeath
@@ -563,7 +563,7 @@ JJCOMMAIR:
 	Cloak@CLOAKGENERATOR:
 		-CloakedCondition:
 	DeathSounds@NORMAL:
-		DeathTypes: BulletDeath, ExplosionDeath, CabalDeath, TiberiumDeath
+		DeathTypes: BulletDeath, ExplosionDeath, CabalDeath, CabalDeathUpg, TiberiumDeath
 	DeathSounds@BURNED:
 		Voice: Burned
 		DeathTypes: FireDeath
@@ -1120,6 +1120,8 @@ MUTFIEND:
 	-SpawnActorOnDeath@FLAMEGUY:
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
+	SpawnActorOnDeath@conversionUpg:
+		Actor: cybdog
 	WithInfantryBody:
 		IdleSequences: idle1
 		RequiresCondition: !blue_shards
@@ -1395,10 +1397,8 @@ SHARK:
 		Voice: Move
 	SpawnActorOnDeath@conversion:
 		Actor: chusk
-		Probability: 100
-		OwnerType: Killer
-		DeathType: CabalDeath
-		RequiresLobbyCreeps: true
+	SpawnActorOnDeath@conversionUpg:
+		Actor: chusk
 	Armament@1:
 		Weapon: SharkJump
 		PauseOnCondition: WebDisable
@@ -1573,10 +1573,8 @@ BUG:
 		Speed: 75
 	SpawnActorOnDeath@conversion:
 		Actor: chusk
-		Probability: 100
-		OwnerType: Killer
-		DeathType: CabalDeath
-		RequiresLobbyCreeps: true
+	SpawnActorOnDeath@conversionUpg:
+		Actor: chusk
 	Armament@1:
 		Weapon: FloatGlaive
 		PauseOnCondition: WebDisable
@@ -1626,10 +1624,8 @@ COLOSSI:
 	-DamagedByTintedCells@Colossus:
 	SpawnActorOnDeath@conversion:
 		Actor: chusk
-		Probability: 100
-		OwnerType: Killer
-		DeathType: CabalDeath
-		RequiresLobbyCreeps: true
+	SpawnActorOnDeath@conversionUpg:
+		Actor: chusk
 	Armament@1:
 		Weapon: ColossiShard
 		LocalOffset: 400,0,1300
@@ -1792,10 +1788,8 @@ MASTERMIND:
 		CustomPipType: red
 	SpawnActorOnDeath@conversion:
 		Actor: chusk
-		Probability: 100
-		OwnerType: Killer
-		DeathType: CabalDeath
-		RequiresLobbyCreeps: true
+	SpawnActorOnDeath@conversionUpg:
+		Actor: chusk
 
 CABSENTRY:
 	Inherits: ^CabalDroneInfantry
@@ -1814,6 +1808,7 @@ CABSENTRY:
 	-SpawnActorOnDeath@nanomachinereanimate:
 	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@conversionUpg:
 	-SpawnActorOnDeath@ScrinEssence:
 	-Passenger:
 	-Targetable@MC:
@@ -1902,8 +1897,32 @@ CYBORG:
 		Armaments: OnFoot
 		FacingTolerance: 2
 	SelectionDecorations:
+	SpawnActorOnDeath@conversionUpg:
+		Actor: workermech
 	ActorStatValues:
 		Damage: 66
+
+CYBORG15:
+	Inherits: CYBORG
+	-Buildable:
+	ChangesHealth:
+		PercentageStep: -85
+		Step: 0
+		Delay: 1
+		StartIfBelow: 101
+		RequiresCondition: !damaged
+	GrantConditionAfterDelay@1:
+		Delay: 1
+		Condition: damaged
+		ShowSelectionBar: false
+	Selectable:
+		Class: cyborg
+	RenderSprites:
+		Image: cyborg
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: cyborg
 
 CBORG:
 	Inherits: ^Cyborg
@@ -1998,12 +2017,14 @@ SWARMLING:
 	-WithDeathAnimation@body:
 	-SpawnActorOnDeath@FLAMEGUY:
 	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@conversionUpg:
 	-WithDeathAnimation@blood1:
 
 PDRONE:
 	Inherits: ^CabalDroneInfantry
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RECYCLE: ^AffectedByReclaimAndRecycle
 	Inherits@VISION: ^8CellVision
 	Valued:
 		Cost: 100
@@ -2040,6 +2061,11 @@ PDRONE:
 	Armament:
 		Weapon: ReclaimerHit
 		PauseOnCondition: WebDisable || empdisable
+		RequiresCondition: !recycle
+	Armament@2:
+		Weapon: ReclaimerHitUpg
+		PauseOnCondition: WebDisable || empdisable
+		RequiresCondition: recycle
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 2
@@ -2068,6 +2094,7 @@ PDRONE:
 		Weapon: SimpleDroneExplode
 		EmptyWeapon: SimpleDroneExplode
 	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@conversionUpg:
 	ActorStatValues:
 		Damage: 63
 
@@ -2357,6 +2384,7 @@ WORKER:
 	-SpawnActorOnDeath@nanomachinereanimate:
 	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@conversionUpg:
 	DeliversCash:
 		Payload: 75
 	ActorStatValues:
@@ -2399,6 +2427,7 @@ CYBDOG:
 	-SpawnActorOnDeath@nanomachinereanimate:
 	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@conversionUpg:
 	DeliversCash:
 		Payload: 75
 	ActorStatValues:
@@ -2443,6 +2472,7 @@ CHUSK:
 	-SpawnActorOnDeath@nanomachinereanimate:
 	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@conversionUpg:
 	WithDeathAnimation@normal:
 		DeathSequencePalette: playercab
 		CrushedSequencePalette: playercab
@@ -2492,6 +2522,7 @@ WORKERMECH:
 	-SpawnActorOnDeath@nanomachinereanimate:
 	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@conversionUpg:
 	Explodes:
 		Weapon: SimpleDroneExplode
 		EmptyWeapon: SimpleDroneExplode
@@ -2545,6 +2576,7 @@ NANOS:
 	-SpawnActorOnDeath@nanomachinereanimate:
 	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@conversionUpg:
 	-Crushable:
 	ActorStatValues:
 		Damage: 16

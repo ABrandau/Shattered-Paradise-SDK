@@ -274,6 +274,21 @@ upgrade.limpet_aa_targeting:
 	WithProductionIconOverlay:
 		Prerequisites: upgrade.limpet_aa_targeting
 
+upgrade.reclaim_and_recycle:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Reclaim and Recycle
+	Buildable:
+		Queue: Upgrade.CABAL
+		BuildPaletteOrder: 40
+		BuildDuration: 3000
+		Prerequisites: ~upgrade.cab, cabtech, ~techlevel.5
+		Description: Infantry killed by Reclaimers turn into Cyborgs with 15% health.\nIncreases durability of Reclaimers by 50%.
+	Valued:
+		Cost: 2000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.reclaim_and_recycle
+
 upgrade.gatling_cannons:
 	Inherits: ^default.upgrade
 	Tooltip:
