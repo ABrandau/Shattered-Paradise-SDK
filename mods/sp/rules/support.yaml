@@ -171,6 +171,65 @@ GACSAM:
 	ActorStatValues:
 		Damage: 50
 
+GASONC:
+	Inherits: ^TurretedDefence
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@DETECTION: ^TowerStealthDetection
+	WithMakeAnimation:
+		BodyNames: make
+	WithSpriteBody:
+		Name: make
+		Sequence: invisible
+	WithWallSpriteBody:
+		RequiresCondition: !Building-Buildup
+		Type: wall
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Sonic Emitter
+	Armor@disruptor:
+		Type: Disruptor
+	Buildable:
+		Queue: Defense.GDI
+		BuildPaletteOrder: 42
+		Prerequisites: gatech, upgrade.sonic_emitter_protocol, ~techlevel.5
+		Description: High-tech base defense with a powerful harmonic resonance cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Deals heavy damage over time to any unit in the line of fire\n- Requires power to operate
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	GrantConditionOnPowerState@LOWPOWER:
+		Condition: lowpower
+		ValidPowerStates: Low, Critical
+	BodyOrientation:
+		QuantizedFacings: 32
+	Armament:
+		Weapon: SonicZapTower
+		LocalOffset: 0,0,1440
+		PauseOnCondition: Building-Buildup
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !Building-Buildup && !disabled
+		Sequence: idle-lights
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup && !disabled
+		Sequence: idle-lights-bright
+		Palette: bright
+	WithMakeOverlay@MAKE-BRIGHT:
+		Sequence: make-bright
+		Palette: bright
+	LineBuildNode:
+		Types: turret
+	ProvidesPrerequisite@buildingname:
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, Defence, AllySonicImmune
+	RenderSprites:
+	RequiresBuildableArea:
+		AreaTypes: building
+	Replacement:
+		ReplaceableTypes: Tower
+	ActorStatValues:
+		Damage: 200
+
 NALASR:
 	Inherits: ^TurretedDefence
 	Inherits@AUTOTARGET: ^AutoTargetGround

@@ -1378,6 +1378,44 @@ gacsam:
 		Offset: 0, 0
 		UseTilesetCode: false
 
+gasonc:
+	Inherits: ^EmpOverlay
+	Defaults: gactwr
+		Offset: 0, -12, 12
+		UseTilesetCode: true
+	idle: gactwr
+		ShadowStart: 3
+	damaged-idle: gactwr
+		Start: 1
+		ShadowStart: 4
+	dead: gactwr
+		Start: 2
+		ShadowStart: 5
+		Tick: 400
+	invisible: null
+		UseTilesetCode: false
+	idle-lights: gtctwr_a
+		Length: 6
+		Tick: 200
+	idle-lights-bright: gtctwr_a
+		Length: 6
+		Tick: 200
+		IgnoreWorldTint: True
+	make: gtctwrmk
+		Length: 11
+		ShadowStart: 11
+	make-bright: gtctwrmk
+		Length: 11
+		ZOffset: 1
+		IgnoreWorldTint: True
+	turret: sonicturret
+		Start: 32
+		Facings: -32
+		UseTilesetCode: false
+	icon: twr4icon
+		Offset: 0, 0
+		UseTilesetCode: false
+
 wall.gdi:
 	Defaults: gawall
 		Offset: 0, -12
