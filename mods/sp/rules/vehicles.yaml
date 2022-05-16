@@ -1332,6 +1332,11 @@ BIKE:
 	Explodes:
 		Weapon: BikeExplo
 		EmptyWeapon: BikeExplo
+		RequiresCondition: !explosive_mixtures
+	Explodes@EXPLOSIVEMIX:
+		Weapon: BikeExploEX
+		EmptyWeapon: BikeExploEX
+		RequiresCondition: explosive_mixtures
 	GrantConditionOnDeploy@DemoTruck:
 		DeployedCondition: DetonateDemoTruck
 		CanDeployOnRamps: true
@@ -3203,11 +3208,22 @@ SCRMBT:
 	Turreted:
 		TurnSpeed: 24
 	Armament:
-		Weapon: scrmbtlasor
+		Weapon: ScrMbtLasor
 		LocalOffset: 250,0,900
 		MuzzleSequence: muzzle
 		MuzzlePalette: appurp
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload1
+		PauseOnCondition: empdisable || reload2
+		RequiresCondition: !charged
+	Armament@charged:
+		Damage: 240
+		Weapon: ScrMbtLasorCharged
+		LocalOffset: 250,0,900
+		MuzzlePalette: apgreen
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload2
+		PauseOnCondition: empdisable || reload1
+		RequiresCondition: charged
 	WithMuzzleOverlay:
 	AttackTurreted:
 		PauseOnCondition: empdisable

@@ -399,6 +399,38 @@ ScrMbtLasor:
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
 
+ScrMbtLasorCharged:
+	Inherits: ScrMbtLasor
+	Projectile: KKNDLaser
+		Duration: 4
+		Color: 00FF00
+		Radius: 2
+		Distortion: 250
+		DistortionAnimation: 170
+		InnerLightness: 0xEE
+		SegmentLength: 512
+		ZOffset: 7000
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c045
+		Damage: 13500
+		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
+		InvalidTargets: Shark
+	Warhead@2shark: SpreadDamage
+		Spread: 0c045
+		Damage: 13500
+		ValidTargets: Shark
+		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
+		InvalidTargets: Building, Vehicle
+		ValidRelationships: Enemy, Neutral
+	Warhead@2Eff: CreateEffect
+		Explosions: lightpulse
+		ExplosionPalette: apgreen
+	Warhead@3Eff: CreateEffect
+		Explosions: cystalized1, cystalized2, cystalized3, cystalized4, cystalized5
+		ExplosionPalette: apgreen 
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
+
 ScorpGas:
 	ReloadDelay: 150
 	Range: 11c0

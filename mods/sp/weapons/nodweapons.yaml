@@ -255,8 +255,16 @@ BikeExplo:
 	Warhead@5Sharpnel: FireRadius
 		Weapon: NukeFlame3
 		ImpactActors: false
-		Amount: 60
+		Amount: 10
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+
+BikeExploEX:
+	Inherits@1: BikeExplo
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c512
+		Damage: 135000
+	Warhead@5Sharpnel: FireRadius
+		Amount: 60
 
 NukeFlame3:
 	Inherits: NukeFlame
