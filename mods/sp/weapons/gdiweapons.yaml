@@ -358,6 +358,26 @@ Titan120mm:
 		Damage: 7000
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
+TitanRailgun:
+	Inherits: Titan120mm
+	Report: railuse5.aud
+	-Projectile:
+	Projectile: Railgun
+		DamageActorsInLine: false
+		BeamColor: 00BBBB
+		Duration: 20
+		BeamWidth: 75
+		HelixThickness: 36
+		HelixRadiusDeltaPerTick: 12
+		HelixColor: 44FFFF
+		HitAnim: explosion
+		HitAnimSequence: railgunexp
+		HitAnimPalette: effect
+	Warhead@1Dam: SpreadDamage
+		Damage: 8750
+	-Warhead@2Eff:
+	-Warhead@3EffWater:
+
 Titan120mmShellCasing:
 	Inherits: ^ShellCasing
 	ReloadDelay: 80
@@ -564,6 +584,26 @@ SonicZapTower:
 		Spread: 128
 		Damage: 7000
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+4TNKRAILGUN:
+	Inherits: 4TNKGUN
+	Report: railuse5.aud
+	-Projectile:
+	Projectile: Railgun
+		DamageActorsInLine: false
+		BeamColor: 00BBBB
+		Duration: 20
+		BeamWidth: 75
+		HelixThickness: 36
+		HelixRadiusDeltaPerTick: 12
+		HelixColor: 44FFFF
+		HitAnim: explosion
+		HitAnimSequence: railgunexp
+		HitAnimPalette: effect
+	Warhead@1Dam: SpreadDamage
+		Damage: 8750
+	-Warhead@2Eff:
+	-Warhead@3EffWater:
 
 4TNKGUNShellCasing:
 	Inherits: ^ShellCasing

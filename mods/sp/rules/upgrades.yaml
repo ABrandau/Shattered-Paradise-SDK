@@ -78,6 +78,21 @@ upgrade.sonic_emitter_protocol:
 	WithProductionIconOverlay:
 		Prerequisites: upgrade.sonic_emitter_protocol
 
+upgrade.railguns:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Railguns
+	Buildable:
+		Queue: Upgrade.GDI
+		BuildPaletteOrder: 50
+		BuildDuration: 3750
+		Prerequisites: ~upgrade.gdi, gatech, ~techlevel.5
+		Description: Gives Titans and Mammoth Tanks railgun weapons which deal 25% damage and hit instantly.
+	Valued:
+		Cost: 3000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.railguns
+
 upgrade.ceramic_plating:
 	Inherits: ^default.upgrade
 	Tooltip:

@@ -66,6 +66,7 @@ MMCH:
 	Inherits: ^Walker
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RAILGUNS: ^AffectedByRailguns
 	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 900
@@ -104,15 +105,25 @@ MMCH:
 		RequiresCondition: !inside-tunnel
 	Armament:
 		Weapon: Titan120mm
+		Damage: 70
 		Recoil: 127
 		RecoilRecovery: 26
 		MuzzleSequence: muzzle
 		LocalOffset: 800, 300, 900
 		PauseOnCondition: empdisable
+		RequiresCondition: !railguns
+	Armament@Railgun:
+		Weapon: TitanRailgun
+		Damage: 87
+		MuzzleSequence: muzzle2
+		LocalOffset: 800, 300, 900
+		PauseOnCondition: empdisable
+		RequiresCondition: railguns
 	Armament@1:
 		Weapon: Titan120mmShellCasing
 		LocalOffset: 250, 300, 900
 		PauseOnCondition: empdisable
+		RequiresCondition: !railguns
 	WithSpriteBarrel:
 		LocalOffset: 300, 250, 500
 		RequiresCondition: !inside-tunnel
@@ -121,8 +132,6 @@ MMCH:
 		Bounds: 903, 2533, 0, -1024
 	Carryable:
 		LocalOffset: 0,0,763
-	ActorStatValues:
-		Damage: 70
 
 APC:
 	Inherits: ^Tank
@@ -367,6 +376,7 @@ G4TNK:
 	Inherits: ^TurretedTank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RAILGUNS: ^AffectedByRailguns
 	Inherits@SELFHEAL: ^IncompleteSelfHeal
 	Inherits@VISION: ^7CellVision
 	Valued:
@@ -395,18 +405,29 @@ G4TNK:
 		TurnSpeed: 20
 		Offset: -200,0,0
 	Armament@PRIMARY:
-		Weapon: 4tnkgun
+		Weapon: 4TNKGUN
+		Damage: 140
 		LocalOffset: 1150,120,550, 1150,-120,550
 		MuzzleSequence: muzzle
 		Recoil: 127
 		RecoilRecovery: 26
 		PauseOnCondition: empdisable
+		RequiresCondition: !railguns
+	Armament@Railgun:
+		Weapon: 4TNKRAILGUN
+		Damage: 175
+		LocalOffset: 1150,120,550, 1150,-120,550
+		MuzzleSequence: muzzle2
+		PauseOnCondition: empdisable
+		RequiresCondition: railguns
 	Armament@CASINGPRIMARY:
 		Weapon: 4TNKGUNShellCasing
 		LocalOffset: 0,120,550, 0,-120,550
 		PauseOnCondition: empdisable
+		RequiresCondition: !railguns
 	Armament@SECONDARY:
 		Weapon: MammothTusk
+		Damage: 60
 		LocalOffset: 100,400,650, 100,-400,650
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
@@ -424,8 +445,6 @@ G4TNK:
 	WithMuzzleOverlay:
 	Selectable:
 		Bounds: 1800, 2700
-	ActorStatValues:
-		Damage: 220
 
 HMEC:
 	Inherits: ^Tank
