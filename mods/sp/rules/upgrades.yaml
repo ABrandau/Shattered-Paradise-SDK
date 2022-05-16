@@ -93,6 +93,21 @@ upgrade.purifying_flame:
 	WithProductionIconOverlay:
 		Prerequisites: upgrade.purifying_flame
 
+upgrade.raider_passenger:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Raider Passenger
+	Buildable:
+		Queue: Upgrade.Nod
+		BuildPaletteOrder: 20
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.nod, naradr, ~techlevel.4
+		Description: Raider Buggies start with a Militant in them.\nExisting empty Raider Buggies gain a Militant.
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.raider_passenger
+
 upgrade.explosive_mixtures:
 	Inherits: ^default.upgrade
 	Tooltip:
