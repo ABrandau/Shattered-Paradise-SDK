@@ -1214,6 +1214,20 @@
 		Condition: recycle
 		Prerequisites: upgrade.reclaim_and_recycle
 
+^AffectedByRegenerativeMaterials:
+	ActorStatValues:
+		Upgrades: upgrade.regenerative_materials
+	ChangesHealth@REGEN_MATERIALS:
+		PercentageStep: 1
+		Step: 0
+		Delay: 25
+		StartIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: regen_materials
+	GrantConditionOnPrerequisite@REGEN_MATERIALS:
+		Condition: regen_materials
+		Prerequisites: upgrade.regenerative_materials
+
 ^AffectedByGatlingCannons:
 	ActorStatValues:
 		Upgrades: upgrade.gatling_cannons

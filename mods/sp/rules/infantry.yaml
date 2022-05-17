@@ -1891,6 +1891,7 @@ CYBORG:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CYBORGLEGS: ^AffectedByCyberneticLegEnhancements
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
 	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 250
@@ -1926,10 +1927,9 @@ CYBORG:
 		Armaments: OnFoot
 		FacingTolerance: 2
 	SelectionDecorations:
-	SpawnActorOnDeath@conversionUpg:
-		Actor: workermech
 	ActorStatValues:
 		Damage: 66
+		Upgrades: upgrade.cybernetic_leg_enhancements, upgrade.regenerative_materials
 
 CYBORG15:
 	Inherits: CYBORG
@@ -1944,6 +1944,8 @@ CYBORG15:
 		Delay: 1
 		Condition: damaged
 		ShowSelectionBar: false
+	SpawnActorOnDeath@conversionUpg:
+		Actor: workermech
 	Selectable:
 		Class: cyborg
 	RenderSprites:
@@ -1958,6 +1960,7 @@ CBORG:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@CYBORGLEGS: ^AffectedByCyberneticLegEnhancements
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
 	Inherits@RENDER: ^CabRender
 	Inherits@VISION: ^6CellVision
 	Valued:
@@ -2011,10 +2014,12 @@ CBORG:
 		CustomPipType: blue
 	ActorStatValues:
 		Damage: 30
+		Upgrades: upgrade.cybernetic_leg_enhancements, upgrade.regenerative_materials
 
 SWARMLING:
 	Inherits: ENGINEER
 	Inherits@EMP: ^EmpDisableMobile
+	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
 	Inherits@RENDER: ^CabRender
 	Tooltip:
 		Name: Swarmling
@@ -2054,6 +2059,7 @@ PDRONE:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RECYCLE: ^AffectedByReclaimAndRecycle
+	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
 	Inherits@VISION: ^8CellVision
 	Valued:
 		Cost: 100
@@ -2126,12 +2132,14 @@ PDRONE:
 	-SpawnActorOnDeath@conversionUpg:
 	ActorStatValues:
 		Damage: 63
+		Upgrades: upgrade.reclaim_and_recycle, upgrade.regenerative_materials
 
 GLAD:
 	Inherits: ^Cyborg
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CYBORGLEGS: ^AffectedByCyberneticLegEnhancements
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^6CellVision
 	Valued:
@@ -2205,11 +2213,13 @@ GLAD:
 		FacingTolerance: 2
 	ActorStatValues:
 		Damage: 200
+		Upgrades: upgrade.cybernetic_leg_enhancements, upgrade.regenerative_materials
 
 MOTH:
 	Inherits: ^CabalDroneInfantry
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
 	Inherits@RENDER: ^CabRender
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^8CellVision
@@ -2335,6 +2345,7 @@ CYC2:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^8CellVision
 	Valued:
@@ -2389,6 +2400,7 @@ WORKER:
 	Inherits: ^CabalSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
 	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 100
@@ -2425,6 +2437,7 @@ CYBDOG:
 	Inherits: ^CabalSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
 	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 150
@@ -2469,6 +2482,7 @@ CHUSK:
 	Inherits@Render: ^CabRender
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
 	Inherits@VISION: ^6CellVision
 	-Buildable:
 	Valued:
@@ -2516,6 +2530,7 @@ WORKERMECH:
 	Inherits: ^CabalDroneInfantry
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
 	Inherits@RENDER: ^CabRender
 	Valued:
 		Cost: 150
