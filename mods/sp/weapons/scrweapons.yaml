@@ -873,7 +873,6 @@ DestroyerCannon:
 	MinRange: 4c0
 	Report: devourerlasor0000.wav, devourerlasor0001.wav, devourerlasor0002.wav
 	Burst: 1
-	BurstDelays: 5
 	Projectile: BulletAS
 		Speed: 300
 		Image: destroshell
@@ -895,6 +894,16 @@ DestroyerCannon:
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
+
+DestroyerCannonBurst:
+	Inherits: DestroyerCannon
+	Burst: 4
+	BurstDelays: 5
+	Warhead@1Dam: SpreadDamage
+		Damage: 8500
+	Projectile: BulletAS
+		Sequences: small
+		Inaccuracy: 0768
 
 FighterSpawn:
 	ReloadDelay: 5

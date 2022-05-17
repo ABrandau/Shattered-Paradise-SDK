@@ -418,7 +418,7 @@ upgrade.improved_plague_gas:
 		Name: Improved Plague Gas
 	Buildable:
 		Queue: Upgrade.Scrin
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 40
 		BuildDuration: 1500
 		Prerequisites: ~upgrade.scr, scrtech, ~techlevel.5
 		Description: Enables Plague Troopers and Plague Walkers to slow down affected enemy units by 50%.
@@ -427,6 +427,22 @@ upgrade.improved_plague_gas:
 		Cost: 1500
 	WithProductionIconOverlay:
 		Prerequisites: upgrade.improved_plague_gas
+
+upgrade.disc_barrage:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: Disc Barrage
+	Buildable:
+		Queue: Upgrade.Scrin
+		BuildPaletteOrder: 50
+		BuildDuration: 3750
+		Prerequisites: ~upgrade.scr, scrtech, ~techlevel.5
+		Description: Changes Destroyer weapon to fire 4 bursts of smaller projectiles, effectively doubling its damage output.
+		IconPalette: chromescrin
+	Valued:
+		Cost: 2000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.disc_barrage
 
 upgrade.hyper_flight_rotors:
 	Inherits: ^default.upgrade

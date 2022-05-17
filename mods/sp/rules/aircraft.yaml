@@ -1063,6 +1063,7 @@ SCRDESTROYER:
 	Inherits@1: ^ScrinAircraftGeneric
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
+	Inherits@DISCBARRAGE: ^AffectedByDiscBarrage
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@HYPERFLIGHT: ^AffectedByHyperFlightRotors
 	Inherits@VISION: ^7CellVision
@@ -1099,8 +1100,16 @@ SCRDESTROYER:
 		HP: 25000
 	Armament:
 		Weapon: DestroyerCannon
+		Damage: 170
 		LocalOffset: 820, 0, 600
 		ReloadingCondition: charging
+		RequiresCondition: !discbarrage
+	Armament@2:
+		Weapon: DestroyerCannonBurst
+		Damage: 340
+		LocalOffset: 820, 0, 600
+		ReloadingCondition: charging
+		RequiresCondition: discbarrage
 	WithIdleOverlay@Charged:
 		RequiresCondition: !charging
 		Sequence: charged
@@ -1131,8 +1140,6 @@ SCRDESTROYER:
 		UsePlayerColor: false
 		TrailLength: 8
 		TrailWidth: 40
-	ActorStatValues:
-		Damage: 170
 
 SCRTRANS:
 	Inherits: ^Helicopter
