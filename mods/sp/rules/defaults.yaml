@@ -1025,6 +1025,8 @@
 		LayerName: ColossusRadiation
 
 ^AffectedByAPAmmunition:
+	ActorStatValues:
+		Upgrades: upgrade.ap_ammunition
 	FirepowerMultiplier@APAMMUNITION:
 		Modifier: 125
 		RequiresCondition: apammo
@@ -1032,20 +1034,26 @@
 		Condition: apammo
 		Prerequisites: upgrade.ap_ammunition
 
-^AffectedByNanofiberWests:
-	DamageMultiplier@NANOFIBERWESTS:
+^AffectedByNanofiberVests:
+	ActorStatValues:
+		Upgrades: upgrade.nanofiber_vests
+	DamageMultiplier@NANOFIBERVESTS:
 		Modifier: 80
 		RequiresCondition: nanofibers
-	GrantConditionOnPrerequisite@NANOFIBERWESTS:
+	GrantConditionOnPrerequisite@NANOFIBERVESTS:
 		Condition: nanofibers
-		Prerequisites: upgrade.nanofiber_wests
+		Prerequisites: upgrade.nanofiber_vests
 
 ^AffectedByRailguns:
+	ActorStatValues:
+		Upgrades: upgrade.railguns
 	GrantConditionOnPrerequisite@RAILGUNS:
 		Condition: railguns
 		Prerequisites: upgrade.railguns
 
 ^AffectedByCeramicPlating:
+	ActorStatValues:
+		Upgrades: upgrade.ceramic_plating
 	DamageMultiplier@CERAMICPLATING:
 		Modifier: 80
 		RequiresCondition: ceramic_plating
@@ -1054,6 +1062,8 @@
 		Prerequisites: upgrade.ceramic_plating
 
 ^AffectedByPurifyingFlame:
+	ActorStatValues:
+		Upgrades: upgrade.purifying_flame
 	FirepowerMultiplier@BLUEFLAME:
 		Modifier: 150
 		RequiresCondition: blueflame
@@ -1062,6 +1072,8 @@
 		Prerequisites: upgrade.purifying_flame
 
 ^AffectedByRaiderPassenger:
+	ActorStatValues:
+		Upgrades: upgrade.raider_passenger
 	FreePassenger:
 		Actor: altnode1
 		RequiresCondition: raidere1
@@ -1070,6 +1082,8 @@
 		Prerequisites: upgrade.raider_passenger
 
 ^AffectedByExplosiveMixtures:
+	ActorStatValues:
+		Upgrades: upgrade.explosive_mixtures
 	FirepowerMultiplier@EXPLOSIVEMIXTURES:
 		Modifier: 150
 		RequiresCondition: explosive_mixtures
@@ -1078,11 +1092,15 @@
 		Prerequisites: upgrade.explosive_mixtures
 
 ^AffectedByImprovedStealthGenerator:
+	ActorStatValues:
+		Upgrades: upgrade.improved_stealth_generator
 	GrantConditionOnPrerequisite@IMPROVEDSGEN:
 		Condition: improvedsgen
 		Prerequisites: upgrade.improved_stealth_generator
 
 ^AffectedByTibCoreMissiles:
+	ActorStatValues:
+		Upgrades: upgrade.tib_core_missiles
 	FirepowerMultiplier@EXPLOSIVEMIXTURES:
 		Modifier: 135
 		RequiresCondition: tibcore
@@ -1091,16 +1109,22 @@
 		Prerequisites: upgrade.tib_core_missiles
 
 ^AffectedByLaserCapacitors:
+	ActorStatValues:
+		Upgrades: upgrade.laser_capacitors
 	GrantConditionOnPrerequisite@CAPACITORS:
 		Condition: capacitors
 		Prerequisites: upgrade.laser_capacitors
 
 ^AffectedByBrickWalls:
+	ActorStatValues:
+		Upgrades: upgrade.brick_walls
 	GrantConditionOnPrerequisite@BRICKWALLS:
 		Condition: brick_walls
 		Prerequisites: upgrade.brick_walls
 
 ^AffectedByBlueShards:
+	ActorStatValues:
+		Upgrades: upgrade.blue_shards
 	FirepowerMultiplier@BLUESHARDS:
 		Modifier: 125
 		RequiresCondition: blue_shards
@@ -1109,6 +1133,8 @@
 		Prerequisites: upgrade.blue_shards
 
 ^AffectedByLynxRockets:
+	ActorStatValues:
+		Upgrades: upgrade.lynx_rockets
 	GrantConditionOnPrerequisite@LYNXROCKETS:
 		Condition: lynx_rockets
 		Prerequisites: upgrade.lynx_rockets
@@ -1128,6 +1154,8 @@
 		Prerequisites: upgrade.tunnel_repairs
 
 ^AffectedByTiberiumInfusion:
+	ActorStatValues:
+		Upgrades: upgrade.tiberium_infusion
 	DamageMultiplier@TIBERIUMINFUSION:
 		Modifier: 80
 		RequiresCondition: tibinfusion
@@ -1146,11 +1174,15 @@
 		Prerequisites: upgrade.tiberium_infusion
 
 ^AffectedByTiberiumGasWarheads:
+	ActorStatValues:
+		Upgrades: upgrade.tiberium_gas_warheads
 	GrantConditionOnPrerequisite@TIBGASWH:
 		Condition: tibgaswh
 		Prerequisites: upgrade.tiberium_gas_warheads
 
 ^AffectedByCyberneticLegEnhancements:
+	ActorStatValues:
+		Upgrades: upgrade.cybernetic_leg_enhancements
 	SpeedMultiplier@CYBERNETICLEGENHANCEMENTS:
 		Modifier: 167
 		RequiresCondition: cyborglegs && !CriticalDamaged
@@ -1159,16 +1191,22 @@
 		Prerequisites: upgrade.cybernetic_leg_enhancements
 
 ^AffectedByLimpetAATargeting:
+	ActorStatValues:
+		Upgrades: upgrade.limpet_aa_targeting
 	GrantConditionOnPrerequisite@LIMPETAA:
 		Condition: limpetaa
 		Prerequisites: upgrade.limpet_aa_targeting
 
 ^AffectedByImprovedReaperNets:
+	ActorStatValues:
+		Upgrades: upgrade.improved_reaper_nets
 	GrantConditionOnPrerequisite@IMPROVEDNETS:
 		Condition: improvednets
 		Prerequisites: upgrade.improved_reaper_nets
 
 ^AffectedByReclaimAndRecycle:
+	ActorStatValues:
+		Upgrades: upgrade.reclaim_and_recycle
 	DamageMultiplier@RECYCLE:
 		Modifier: 67
 		RequiresCondition: recycle
@@ -1177,6 +1215,8 @@
 		Prerequisites: upgrade.reclaim_and_recycle
 
 ^AffectedByGatlingCannons:
+	ActorStatValues:
+		Upgrades: upgrade.gatling_cannons
 	GatlingReloadDelayMultiplier:
 		MinModifier: 40
 		CoolDownDelay: 12
@@ -1187,6 +1227,8 @@
 		Prerequisites: upgrade.gatling_cannons
 
 ^AffectedByViniferaCatalysts:
+	ActorStatValues:
+		Upgrades: upgrade.vinifera_catalysts
 	GrantConditionOnPrerequisite@VINIFERACATALYSTS:
 		Condition: vinifera_catalysts
 		Prerequisites: upgrade.vinifera_catalysts
@@ -1219,12 +1261,14 @@
 		Position: BottomLeft
 		RequiresSelection: true
 		RequiresCondition: tibconversion
-	GrantConditionOnPrerequisite@TIBCONVERSION:
-		Condition: tibconversion
-		Prerequisites: upgrade.tiberium_conversion
+	ActorStatValues:
+		Upgrades: upgrade.tiberium_conversion
 	FirepowerMultiplier@TIBCONVERSION:
 		Modifier: 150
 		RequiresCondition: charged
+	GrantConditionOnPrerequisite@TIBCONVERSION:
+		Condition: tibconversion
+		Prerequisites: upgrade.tiberium_conversion
 	GrantConditionOnTerrain@TIBCONVERSIONAI:
 		Condition: OnTiber
 		TerrainTypes: Tiberium, BlueTiberium
@@ -1236,11 +1280,15 @@
 		RequiresCondition: AImicroManage && OnTiber
 
 ^AffectedByAerialGliders:
+	ActorStatValues:
+		Upgrades: upgrade.aerial_gliders
 	GrantConditionOnPrerequisite@AERIALGLIDERS:
 		Condition: aerial_gliders
 		Prerequisites: upgrade.aerial_gliders
 
 ^AffectedByImprovedPlagueGas:
+	ActorStatValues:
+		Upgrades: upgrade.improved_plague_gas
 	GrantConditionOnPrerequisite@IMPPLAGUEGAS:
 		Condition: impplaguegas
 		Prerequisites: upgrade.improved_plague_gas
@@ -1251,6 +1299,8 @@
 		Prerequisites: upgrade.disc_barrage
 
 ^AffectedByHyperFlightRotors:
+	ActorStatValues:
+		Upgrades: upgrade.hyper_flight_rotors
 	SpeedMultiplier@HYPERFLIGHTROTORS:
 		Modifier: 140
 		RequiresCondition: hyperflight

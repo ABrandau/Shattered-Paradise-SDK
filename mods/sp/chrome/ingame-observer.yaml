@@ -190,10 +190,10 @@ Container@OBSERVER_WIDGETS:
 			X: 19
 			Y: WINDOW_BOTTOM - HEIGHT + 10
 			Width: 240
-			Height: 112
+			Height: 148
 			Children:
 				Background@CLOSED_BACKGROUND:
-					Y: 83
+					Y: 119
 					Width: 240
 					Height: 30
 					Visible: false
@@ -201,10 +201,12 @@ Container@OBSERVER_WIDGETS:
 					Logic: IngameActorStatsLogic
 						LargeIconCount: 3
 						LargeIconSpacing: 14, 2
-						SmallIconCount: 9
+						SmallIconCount: 15
 						SmallIconSpacing: 5, 5
+						UpgradeIconCount: 4
+						UpgradeIconSpacing: 8, 0
 					Width: 240
-					Height: 112
+					Height: 148
 					Children:
 						Label@STAT_NAME:
 							X: 120
@@ -230,6 +232,19 @@ Container@OBSERVER_WIDGETS:
 							IconScale: 0.5
 							DefaultIconSequence: emptyicon
 							TooltipContainer: TOOLTIP_CONTAINER
+						ActorIcon@STAT_ICON_UPGRADE:
+							X: 12
+							Y: 98
+							Width: 48
+							Height: 36
+							IconSize: 48, 36
+							IconScale: 0.75
+							ClickSound:
+							ClickDisabledSound:
+							DefaultIconSequence: emptyicon
+							DisabledOverlayImage: darken
+							DisabledOverlayPalette: chromewithshadow
+							TooltipContainer: TOOLTIP_CONTAINER
 						HealthBar@STAT_HEALTH_BAR:
 							X: 10
 							Y: 73
@@ -253,7 +268,7 @@ Container@OBSERVER_WIDGETS:
 							BarMargin: 1,1
 						Label@STAT_MORE:
 							X: 228
-							Y: 89
+							Y: 123
 							Contrast: true
 							Align: Right
 						Label@STAT_LABEL_1:
@@ -367,7 +382,7 @@ Container@OBSERVER_WIDGETS:
 					TooltipText: Expand
 					TooltipContainer: TOOLTIP_CONTAINER
 		Container@INGAME_OBSERVERSTATS_BG:
-			Logic: ObserverStatsSPLogic
+			Logic: ObserverStatsRVLogic
 				StatisticsNoneKey: StatisticsNone
 				StatisticsMinimalKey: StatisticsMinimal
 				StatisticsBasicKey: StatisticsBasic
@@ -376,6 +391,8 @@ Container@OBSERVER_WIDGETS:
 				StatisticsSupportPowersKey: StatisticsSupportPowers
 				StatisticsCombatKey: StatisticsCombat
 				StatisticsArmyKey: StatisticsArmy
+				StatisticsUpgradesKey: StatisticsUpgrades
+				StatisticsUpgradesTitle: Upgrades
 				StatisticsGraphKey: StatisticsGraph
 				StatisticsArmyGraphKey: StatisticsArmyGraph
 			X: 5
@@ -740,6 +757,42 @@ Container@OBSERVER_WIDGETS:
 									Height: PARENT_BOTTOM
 									Font: Bold
 									Text: Army
+									Shadow: True
+						Container@UPGRADES_HEADERS:
+							X: 0
+							Y: 0
+							Width: 400
+							Height: PARENT_BOTTOM
+							Children:
+								ColorBlock@HEADER_COLOR:
+									X: 0
+									Y: 0
+									Color: 00000090
+									Width: PARENT_RIGHT - 200
+									Height: PARENT_BOTTOM
+								GradientColorBlock@HEADER_GRADIENT:
+									X: PARENT_RIGHT - 200
+									Y: 0
+									TopLeftColor: 00000090
+									BottomLeftColor: 00000090
+									Width: 200
+									Height: PARENT_BOTTOM
+								Label@PLAYER_HEADER:
+									X: 40
+									Y: 0
+									Width: 120
+									Height: PARENT_BOTTOM
+									Font: Bold
+									Text: Player
+									Align: Left
+									Shadow: True
+								Label@UPGRADES_HEADER:
+									X: 160
+									Y: 0
+									Width: 100
+									Height: PARENT_BOTTOM
+									Font: Bold
+									Text: Upgrades
 									Shadow: True
 						Container@COMBAT_STATS_HEADERS:
 							X: 0
@@ -1196,6 +1249,43 @@ Container@OBSERVER_WIDGETS:
 									Font: Bold
 									Shadow: True
 								ObserverArmyIcons@ARMY_ICONS:
+									X: 160
+									Y: 0
+									Width: 0
+									Height: PARENT_BOTTOM
+									TooltipContainer: TOOLTIP_CONTAINER
+						ScrollItem@UPGRADES_PLAYER_TEMPLATE:
+							X: 0
+							Y: 0
+							Width: 400
+							Height: 24
+							BaseName: scrollitem-nohover
+							Children:
+								ColorBlock@PLAYER_COLOR:
+									X: 0
+									Y: 0
+									Width: PARENT_RIGHT - 200
+									Height: PARENT_BOTTOM
+								GradientColorBlock@PLAYER_GRADIENT:
+									X: PARENT_RIGHT - 200
+									Y: 0
+									Width: 200
+									Height: PARENT_BOTTOM
+								Image@FLAG:
+									X: 5
+									Y: 4
+									Width: 35
+									Height: PARENT_BOTTOM - 4
+									ImageName: random
+									ImageCollection: flags
+								Label@PLAYER:
+									X: 40
+									Y: 0
+									Width: 120
+									Height: PARENT_BOTTOM
+									Font: Bold
+									Shadow: True
+								ObserverUpgradesIcons@UPGRADES_ICONS:
 									X: 160
 									Y: 0
 									Width: 0

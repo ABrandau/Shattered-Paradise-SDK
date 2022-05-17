@@ -3,7 +3,7 @@ GDIE1:
 	Inherits@APAMMO: ^AffectedByAPAmmunition
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@NANOFIBERS: ^AffectedByNanofiberWests
+	Inherits@NANOFIBERS: ^AffectedByNanofiberVests
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry.GDI
@@ -36,12 +36,13 @@ GDIE1:
 	RenderSprites:
 	ActorStatValues:
 		Damage: 25
+		Upgrades: upgrade.ap_ammunition, upgrade.nanofiber_vests
 
 GRENADIER:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@NANOFIBERS: ^AffectedByNanofiberWests
+	Inherits@NANOFIBERS: ^AffectedByNanofiberVests
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry.GDI
@@ -137,7 +138,7 @@ E2:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@NANOFIBERS: ^AffectedByNanofiberWests
+	Inherits@NANOFIBERS: ^AffectedByNanofiberVests
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Infantry.GDI
@@ -1026,6 +1027,7 @@ MARAUDER:
 		RequiresCondition: !AImicroManage && deployed
 	ActorStatValues:
 		Damage: 23
+		Upgrades: upgrade.brick_walls, upgrade.tiberium_infusion
 
 MUTFIEND:
 	Inherits: ^Mutant
@@ -1159,6 +1161,7 @@ MUTFIEND:
 		Types: doggie-blue
 	ActorStatValues:
 		Damage: 30
+		Upgrades: upgrade.blue_shards, upgrade.tiberium_infusion
 
 CUTMAN:
 	Inherits: ^Mutant

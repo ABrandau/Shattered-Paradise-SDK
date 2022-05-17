@@ -1048,6 +1048,8 @@ BGGY:
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
+	ActorStatValues:
+		Upgrades: upgrade.raider_passenger
 
 ATTACKBIKE:
 	Inherits: ^Tank
@@ -2834,7 +2836,7 @@ REPAIRVEHICLE:
 		Queue: Vehicle.CABAL
 		BuildPaletteOrder: 24
 		Prerequisites: gadept, ~techlevel.3
-		Description: Repairs nearby vehicles.\n\nSpecial:\n- unarmed\n- Can repairs vehicles ahead while moving\n- repairs vehicles\n- can crush infantry
+		Description: Repairs nearby vehicles.\n\nSpecial:\n- Unarmed\n- Can repairs vehicles ahead while moving\n- Can crush infantry
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Health:
@@ -2919,8 +2921,8 @@ SPIDERARTY:
 	Inherits: ^Walker
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@RENDER: ^CabRender
+	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^5CellVision
 	Inherits@VOICE: ^CabalVehicleVoice
 	Valued:

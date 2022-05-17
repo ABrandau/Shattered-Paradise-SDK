@@ -43,11 +43,11 @@ Container@PLAYER_WIDGETS:
 			X: 19
 			Y: WINDOW_BOTTOM - HEIGHT - 43
 			Width: 240
-			Height: 112
+			Height: 148
 			Children:
 				Background@CLOSED_BACKGROUND:
 					Logic: AddFactionSuffixLogic
-					Y: 83
+					Y: 119
 					Width: 240
 					Height: 30
 					Visible: false
@@ -55,10 +55,12 @@ Container@PLAYER_WIDGETS:
 					Logic: IngameActorStatsLogic, AddFactionSuffixLogic
 						LargeIconCount: 3
 						LargeIconSpacing: 14, 2
-						SmallIconCount: 9
+						SmallIconCount: 15
 						SmallIconSpacing: 5, 5
+						UpgradeIconCount: 4
+						UpgradeIconSpacing: 8, 0
 					Width: 240
-					Height: 112
+					Height: 148
 					Children:
 						Label@STAT_NAME:
 							X: 120
@@ -84,6 +86,19 @@ Container@PLAYER_WIDGETS:
 							IconScale: 0.5
 							DefaultIconSequence: emptyicon
 							TooltipContainer: TOOLTIP_CONTAINER
+						ActorIcon@STAT_ICON_UPGRADE:
+							X: 12
+							Y: 98
+							Width: 48
+							Height: 36
+							IconSize: 48, 36
+							IconScale: 0.75
+							ClickSound:
+							ClickDisabledSound:
+							DefaultIconSequence: emptyicon
+							DisabledOverlayImage: darken
+							DisabledOverlayPalette: chromewithshadow
+							TooltipContainer: TOOLTIP_CONTAINER
 						HealthBar@STAT_HEALTH_BAR:
 							X: 10
 							Y: 73
@@ -107,7 +122,7 @@ Container@PLAYER_WIDGETS:
 							BarMargin: 1,1
 						Label@STAT_MORE:
 							X: 228
-							Y: 89
+							Y: 123
 							Contrast: true
 							Align: Right
 						Label@STAT_LABEL_1:
