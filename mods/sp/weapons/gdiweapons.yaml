@@ -26,7 +26,7 @@ GrenadierBazooka:
 GrenadierBazookaAA:
 	Inherits: GrenadierBazooka
 	Inherits@1: ^AARocketWarhead
-	Range: 7c0
+	Range: 8c0
 	ValidTargets: Air
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
@@ -385,7 +385,7 @@ Titan120mmShellCasing:
 HoverMissile:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn
-	ReloadDelay: 80
+	ReloadDelay: 40
 	Burst: 2
 	Range: 7c0
 	Report: hovrmis1.aud
@@ -396,7 +396,7 @@ HoverMissile:
 		Blockable: false
 		Inaccuracy: 128
 	Warhead@1Dam: SpreadDamage
-		Damage: 3500
+		Damage: 2500
 		InvalidTargets: Air
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
@@ -410,7 +410,6 @@ HoverMissileAA:
 	Projectile: MissileTA
 		RangeLimit: 15c0
 	Warhead@1Dam: SpreadDamage
-		Damage: 3500
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 
@@ -773,7 +772,7 @@ FighterHellfireAA:
 	ValidRelationships: Enemy, Neutral
 	Burst: 2
 	ReloadDelay: 35
-	Range: 6c0
+	Range: 6c512
 	Projectile: MissileTA
 		RangeLimit: 15c0
 	Warhead@1Dam: SpreadDamage
