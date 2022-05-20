@@ -1689,7 +1689,7 @@ COLOSSI:
 		RequiresCondition: undeployed &&  !WebDisable && !inside-tunnel
 	WithSpriteBody@deployed:
 		Sequence: deployed
-		RequiresCondition: !undeployed
+		RequiresCondition: !undeployed && !WebDisable
 	ExplodeWeapon@deploy:
 		Weapon: ColossiBlast
 		RequiresCondition: deployed && !WebDisable
