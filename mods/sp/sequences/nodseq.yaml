@@ -481,9 +481,34 @@ scorpion:
 	muzzle: lightmuzzle
 		Offset: 0, 0
 		Length: *
-		UseTilesetCode: false
 		BlendMode: Additive
 	icon: scorpion_icon
+
+avatar:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Scale: 0.8
+	stand:
+		ShadowStart: 152
+		Facings: -8
+	run:
+		Start: 8
+		Length: 15
+		ShadowStart: 160
+		Facings: -8
+		Tick: 120
+	shoot:
+		Start: 128
+		Length: 3
+		ShadowStart: 280
+		Facings: -8
+		Tick: 320
+	muzzle: lightmuzzle
+		Length: *
+		Offset: 0, 0
+		BlendMode: Additive
+	icon: avataricon
+		Scale: 1
 
 repairvehicle:
 	Inherits: ^SpriteVehicleWithShadow

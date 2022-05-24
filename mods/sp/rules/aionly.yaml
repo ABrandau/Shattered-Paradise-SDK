@@ -330,13 +330,13 @@ GHOST:
 
 COREDEFENDER:
 	Inherits: ^Walker
-	Inherits@1: ^10CellVision
-	Inherits@2: ^CabRender
-	Inherits@3: ^PermanentSelfHeal
-	Inherits@4: ^CabalVehicleVoice
-	Inherits@5: ^CommandoIcon
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@GainsExperience: ^GainsExperience
+	Inherits@COMMANDO: ^CommandoIcon
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^CabRender
+	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@VISION: ^10CellVision
+	Inherits@VOICE: ^CabalVehicleVoice
 	Valued:
 		Cost: 10000
 	Tooltip:
@@ -767,3 +767,61 @@ GMRLS:
 		Bounds: 1400, 2100
 	ActorStatValues:
 		Damage: 120
+
+AVATAR:
+	Inherits: ^Walker
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@VISION: ^8CellVision
+	Valued:
+		Cost: 2750
+	Tooltip:
+		Name: Avatar
+	Selectable:
+		Bounds: 1550, 5000, 0, -1500
+	Buildable:
+		Queue: Vehicle.Lightbringer
+		BuildPaletteOrder: 45
+		Prerequisites: ~AIOnly, ~techlevel.6
+		Description: Heavy Walker armed with a strong laser and enhances nearby Units.\n\nGood vs: Ground\n\nSpecial:\n- Can crush infantry
+		BuildDuration: 2250
+		BuildDurationModifier: 100
+	Voiced:
+		VoiceSet: Vehicle
+	Mobile:
+		TurnSpeed: 20
+		Speed: 70
+	AmbientSound@WalkAnim:
+		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
+		Delay: 16
+		Interval: 16
+		RequiresCondition: walking
+	GrantConditionOnMovement:
+		Condition: walking
+	Health:
+		HP: 180000
+	BodyOrientation:
+		QuantizedFacings: 8
+	AttackFrontal:
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: AvatarLazer
+		LocalOffset: 990,509,2121
+		MuzzlePalette: jascredalpha
+		MuzzleSequence: muzzle
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	RenderSprites:
+	WithMuzzleOverlay:
+	ProximityExternalCondition:
+		Condition: avatarboost
+		Range: 6c512
+	WithRangeCircle:
+		Range: 6c512
+		Type: avatarboost
+		BorderWidth: 0
+		Width: 2
+	HitShape:
+	ActorStatValues:
+		Damage: 200

@@ -484,6 +484,13 @@
 		Palette: mouse
 		ValidRelationships: Enemy, Neutral, Ally
 
+^AvatarUpgrades:
+	FirepowerMultiplier@avatar:
+		RequiresCondition: avatarboost
+		Modifier: 115
+	ExternalCondition@avatar:
+		Condition: avatarboost
+
 ^WolfDebuff:
 	WithIdleOverlay@WolfDebuff:
 		Sequence: bullparticle
@@ -1531,6 +1538,7 @@
 	Inherits@15: ^WithTriggerCloakEffect-Infantry
 	Inherits@16: ^MindControllable
 	Inherits@19: ^Berserkable
+	Inherits@20: ^AvatarUpgrades
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
 	Targetable@FullHealth:
@@ -1564,6 +1572,7 @@
 	Inherits@17: ^Slowdown50pp
 	Inherits@18: ^WithTriggerCloakEffect-Vehicle
 	Inherits@19: ^Berserkable
+	Inherits@20: ^AvatarUpgrades
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
 	Targetable@FullHealth:
@@ -1583,6 +1592,7 @@
 	Inherits@5: ^FullHealthRepairCondition
 	Inherits@6: ^WithTriggerCloakEffect-Vehicle
 	Inherits@7: ^Berserkable
+	Inherits@8: ^AvatarUpgrades
 	SmokeParticleEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self
 	ExplodeWeapon@spawnsparks:
