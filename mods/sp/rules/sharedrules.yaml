@@ -1376,6 +1376,11 @@ TRNSPORT:
 		Image: trnsport
 	SpawnActorOnDeath:
 		Actor: TRNSPORT.Husk
+	WithFacingSpriteBody:
+		RequiresCondition: !ceramic_plating
+	WithFacingSpriteBody@white:
+		Sequence: idle-white
+		RequiresCondition: ceramic_plating
 	WithIdleOverlay@Wind1:
 		Image: orcawind
 		Sequence: idle2

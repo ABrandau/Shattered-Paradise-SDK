@@ -57,6 +57,11 @@ ORCA:
 	SpawnActorOnDeath:
 		Actor: ORCA.Husk
 		RequiresCondition: airborne
+	WithFacingSpriteBody:
+		RequiresCondition: !ceramic_plating
+	WithFacingSpriteBody@white:
+		Sequence: idle-white
+		RequiresCondition: ceramic_plating
 	WithIdleOverlay@Wind1:
 		Image: orcawind
 		Sequence: idle
@@ -136,6 +141,11 @@ ORCAB:
 	SpawnActorOnDeath:
 		Actor: ORCAB.Husk
 		RequiresCondition: airborne
+	WithFacingSpriteBody:
+		RequiresCondition: !ceramic_plating
+	WithFacingSpriteBody@white:
+		Sequence: idle-white
+		RequiresCondition: ceramic_plating
 	WithIdleOverlay@Wind1:
 		Image: orcawind
 		Sequence: idle
@@ -228,6 +238,10 @@ ORCATRAN:
 		Prerequisites: ~disabled
 	RenderSprites:
 	WithVoxelBody:
+		RequiresCondition: !ceramic_plating
+	WithVoxelBody@white:
+		Sequence: idle-white
+		RequiresCondition: ceramic_plating
 	RenderVoxels:
 	-WithFacingSpriteBody:
 	Aircraft:
