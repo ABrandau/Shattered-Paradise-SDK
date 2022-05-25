@@ -54,16 +54,23 @@ DSHP.Husk:
 
 ORCA.Husk:
 	Inherits: ^AircraftHusk
+	Inherits@CERAMICS: ^AffectedByCeramicPlating
 	Tooltip:
 		Name: Orca Fighter
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 186
+	WithFacingSpriteBody:
+		RequiresCondition: !ceramic_plating
+	WithFacingSpriteBody@white:
+		Sequence: idle-white
+		RequiresCondition: ceramic_plating
 	RenderSprites:
 		Image: orca
 
 ORCAB.Husk:
 	Inherits: ^AircraftHusk
+	Inherits@CERAMICS: ^AffectedByCeramicPlating
 	Tooltip:
 		Name: Orca Bomber
 	Aircraft:
@@ -71,12 +78,18 @@ ORCAB.Husk:
 		Speed: 96
 	RenderSprites:
 		Image: orcab
+	WithFacingSpriteBody:
+		RequiresCondition: !ceramic_plating
+	WithFacingSpriteBody@white:
+		Sequence: idle-white
+		RequiresCondition: ceramic_plating
 	FallsToEarth:
 		Moves: true
 		MaximumSpinSpeed: 0
 
 ORCATRAN.Husk:
 	Inherits: ^AircraftHusk
+	Inherits@CERAMICS: ^AffectedByCeramicPlating
 	Tooltip:
 		Name: Orca Transport
 	Aircraft:
@@ -87,28 +100,41 @@ ORCATRAN.Husk:
 	RenderVoxels:
 		Image: orcatran
 	WithVoxelBody:
+		RequiresCondition: !ceramic_plating
+	WithVoxelBody@white:
+		Sequence: idle-white
+		RequiresCondition: ceramic_plating
 	-WithFacingSpriteBody:
 	-WithShadow:
 
-TRNSPORT.Husk:
+^CarryallHusk:
 	Inherits: ^AircraftHusk
-	Tooltip:
-		Name: Orca Carryall
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 149
+
+TRNSPORT.Husk:
+	Inherits: ^CarryallHusk
+	Inherits@CERAMICS: ^AffectedByCeramicPlating
+	Tooltip:
+		Name: Orca Carryall
+	WithFacingSpriteBody:
+		RequiresCondition: !ceramic_plating
+	WithFacingSpriteBody@white:
+		Sequence: idle-white
+		RequiresCondition: ceramic_plating
 	RenderSprites:
 		Image: trnsport
 
 TRNSPORT.nod.Husk:
-	Inherits: TRNSPORT.Husk
+	Inherits: ^CarryallHusk
 	Tooltip:
 		Name: Nod Carryall
 	RenderSprites:
 		Image: nodcarryall
 
 TRNSPORT.mut.Husk:
-	Inherits: TRNSPORT.Husk
+	Inherits: ^CarryallHusk
 	Tooltip:
 		Name: Chinook Carryall
 	WithIdleOverlay@1Air:
@@ -121,14 +147,14 @@ TRNSPORT.mut.Husk:
 		Image: forgcarryall
 
 TRNSPORT.cab.Husk:
-	Inherits: TRNSPORT.Husk
+	Inherits: ^CarryallHusk
 	Tooltip:
 		Name: C.A.B.A.L. Carryall
 	RenderSprites:
 		Image: cabcarryall
 
 TRNSPORT.scr.Husk:
-	Inherits: TRNSPORT.Husk
+	Inherits: ^CarryallHusk
 	Inherits@RENDER: ^ScrinRender
 	Tooltip:
 		Name: Scrin Carryall
@@ -346,6 +372,10 @@ WYVERM2.Husk:
 GLYDER1.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@RENDER: ^ScrinRender
+	RenderSprites:
+		PlayerPalette: playersilver
+	Cloak@CLOAKGENERATOR:
+		Palette: cloaksilver
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 	-ExternalCondition@crate-cloak:
