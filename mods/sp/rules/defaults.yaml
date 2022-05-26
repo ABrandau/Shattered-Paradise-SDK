@@ -696,16 +696,24 @@
 		PercentageStep: 1
 		Step: 0
 		Delay: 100
-		DamageCooldown: 100
 		StartIfBelow: 50
+		DamageCooldown: 100
 
 ^PermanentSelfHeal:
 	ChangesHealth@Permanent:
 		PercentageStep: 1
 		Step: 0
-		Delay: 75
-		DamageCooldown: 100
+		Delay: 100
 		StartIfBelow: 100
+		DamageCooldown: 100
+
+^CABALSelfHeal:
+	ChangesHealth@Permanent:
+		PercentageStep: 1
+		Step: 0
+		Delay: 150
+		StartIfBelow: 100
+		DamageCooldown: 100
 
 ^HealsOnTiberium:
 	GrantConditionOnTerrain@Tib:
@@ -713,18 +721,18 @@
 		TerrainTypes: Tiberium, BlueTiberium
 	ChangesHealth@Tib:
 		PercentageStep: 1
-		Step: 300
 		Delay: 100
-		DamageCooldown: 0
 		StartIfBelow: 100
+		DamageCooldown: 0
 		RequiresCondition: TiberiumHealing
 
 ^HopspitalHeal:
 	ChangesHealth@HOSPITAL:
 		PercentageStep: 1
+		Step: 0
 		Delay: 25
 		StartIfBelow: 100
-		DamageCooldown: 125
+		DamageCooldown: 0
 		RequiresCondition: hospitalheal
 	GrantConditionOnPrerequisite@hospitalheal:
 		Condition: hospitalheal
@@ -741,10 +749,11 @@
 
 ^BarracksHeal:
 	ChangesHealth@BarracksHeal:
-		PercentageStep: 2
-		Delay: 25
+		PercentageStep: 3
+		Step: 0
+		Delay: 100
 		StartIfBelow: 100
-		DamageCooldown: 125
+		DamageCooldown: 0
 		RequiresCondition: BarracksHeal
 	WithDecoration@BarracksHeal:
 		Image: healpip
@@ -759,9 +768,10 @@
 ^MachineShopHeal:
 	ChangesHealth@MachineShopHeal:
 		PercentageStep: 1
-		Delay: 25
+		Step: 0
+		Delay: 100
 		StartIfBelow: 100
-		DamageCooldown: 125
+		DamageCooldown: 0
 		RequiresCondition: MachineShopHeal
 	GrantConditionOnPrerequisite@MachineShopHeal:
 		Condition: MachineShopHeal
@@ -1155,8 +1165,8 @@
 		PercentageStep: 1
 		Step: 0
 		Delay: 5
-		DamageCooldown: 0
 		StartIfBelow: 100
+		DamageCooldown: 0
 		RequiresCondition: in_tunnel && tunnel_repairs
 	GrantConditionOnPrerequisite@TUNNELREPAIRS:
 		Condition: tunnel_repairs
@@ -1175,8 +1185,8 @@
 		PercentageStep: 1
 		Step: 0
 		Delay: 75
-		DamageCooldown: 100
 		StartIfBelow: 100
+		DamageCooldown: 100
 		RequiresCondition: tibinfusion
 	GrantConditionOnPrerequisite@TIBERIUMINFUSION:
 		Condition: tibinfusion

@@ -2232,6 +2232,7 @@ DEATHCLAW:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@MC: ^MindControllableMastermind
 	Inherits@RENDER: ^MutRender
+	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^8CellVision
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
@@ -2259,11 +2260,6 @@ DEATHCLAW:
 		Locomotor: TibVeCritter
 	Armament:
 		Weapon: RavagerStrike
-	ChangesHealth@Bullshit:
-		PercentageStep: 5
-		Delay: 100
-		StartIfBelow: 100
-		DamageCooldown: 100
 	Selectable:
 		DecorationBounds: 903,3015,0,-1207
 	Voiced:
@@ -2488,6 +2484,7 @@ WEASAUSMALL:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@MC: ^MindControllableMastermind
 	Inherits@RENDER: ^MutRender
+	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^8CellVision
 	-Valued:
 	GivesExperience:
@@ -2514,11 +2511,6 @@ WEASAUSMALL:
 		Locomotor: TibVeCritter
 	Armament:
 		Weapon: WeasaurusStrikeSmall
-	ChangesHealth@Bullshit:
-		PercentageStep: 5
-		Delay: 100
-		StartIfBelow: 100
-		DamageCooldown: 100
 	Selectable:
 		DecorationBounds: 903,3015,0,-1207
 	Voiced:
@@ -2960,7 +2952,7 @@ SPIDERARTY:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RENDER: ^CabRender
-	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@SELFHEAL: ^CABALSelfHeal
 	Inherits@VISION: ^5CellVision
 	Inherits@VOICE: ^CabalVehicleVoice
 	Valued:
@@ -3017,7 +3009,7 @@ PALADIN:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RENDER: ^CabRender
-	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@SELFHEAL: ^CABALSelfHeal
 	Inherits@VISION: ^8CellVision
 	Inherits@VOICE: ^CabalVehicleVoice
 	Valued:
@@ -3038,9 +3030,6 @@ PALADIN:
 		TurnSpeed: 48
 		Speed: 75
 		Locomotor: InfantryCrusherVehicle
-	ChangesHealth@Permanent:
-		DamageCooldown: 0
-		Delay: 75
 	Health:
 		HP: 80000
 	BodyOrientation:
@@ -3114,9 +3103,6 @@ BCOREDEF:
 		NoTransformSounds:
 	GrantConditionOnMovement:
 		Condition: walking
-	ChangesHealth@Permanent:
-		DamageCooldown: 0
-		Delay: 75
 	Voiced:
 		VoiceSet: CoreDefender
 		Volume: 0.75
