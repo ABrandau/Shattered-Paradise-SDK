@@ -3,9 +3,9 @@ GAPOWR:
 	Tooltip:
 		Name: GDI Power Plant
 	Buildable:
-		Queue: Building.GDI
+		Queue: Building.Shared, Building.GDI
 		BuildPaletteOrder: 1
-		Prerequisites: ~techlevel.1
+		Prerequisites: ~gacnst, ~techlevel.1
 		Description: Provides power for other structures.
 		BuildDuration: 125
 		BuildDurationModifier: 100
@@ -61,10 +61,10 @@ GAPILE:
 	Tooltip:
 		Name: GDI Barracks
 	Buildable:
-		Queue: Building.GDI
+		Queue: Building.Shared, Building.GDI
 		BuildPaletteOrder: 6
 		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an area around it.
-		Prerequisites: anypower, ~techlevel.1
+		Prerequisites: ~gacnst, anypower, ~techlevel.1
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Building:
@@ -131,7 +131,8 @@ GAPILE:
 	WithIdleOverlay@FLAG:
 		RequiresCondition: !Building-Buildup
 		Sequence: idle-flag
-	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@playerhumanengi:
+		Prerequisite: barracks.humanengi
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -140,9 +141,9 @@ GDIREF:
 	Tooltip:
 		Name: GDI Refinery
 	Buildable:
-		Queue: Building.GDI
+		Queue: Building.Shared, Building.GDI
 		BuildPaletteOrder: 11
-		Prerequisites: anypower, ~techlevel.1, ~AIantiRush, ~!global-megawealth
+		Prerequisites: ~gacnst, anypower, ~techlevel.1, ~AIantiRush, ~!global-megawealth
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 		BuildDuration: 1000
 		BuildDurationModifier: 100
@@ -202,10 +203,10 @@ GAWEAP:
 	Tooltip:
 		Name: GDI War Factory
 	Buildable:
-		Queue: Building.GDI
+		Queue: Building.Shared, Building.GDI
 		BuildPaletteOrder: 16
 		Description: Produces vehicles.
-		Prerequisites: proc, ~techlevel.2
+		Prerequisites: ~gacnst, proc, ~techlevel.2
 		BuildDuration: 750
 		BuildDurationModifier: 100
 	Production:
@@ -247,6 +248,8 @@ GAWEAP:
 	WithMakeOverlay@MAKE-BRIGHT:
 		Sequence: make-bright
 		Palette: bright
+	ProvidesPrerequisite@showhmec:
+		Prerequisite: showhmec
 	IsometricSelectable:
 		DecorationHeight: 36
 
@@ -256,10 +259,10 @@ GARADR:
 	Tooltip:
 		Name: GDI Radar
 	Buildable:
-		Queue: Building.GDI
+		Queue: Building.Shared, Building.GDI
 		BuildPaletteOrder: 26
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
-		Prerequisites: proc, ~techlevel.4
+		Prerequisites: ~gacnst, proc, ~techlevel.4
 		BuildDuration: 875
 		BuildDurationModifier: 100
 	WithIdleOverlay@DISH:
@@ -284,10 +287,10 @@ GAHPAD:
 	Tooltip:
 		Name: GDI Helipad
 	Buildable:
-		Queue: Building.GDI
+		Queue: Building.Shared, Building.GDI
 		BuildPaletteOrder: 36
 		Description: Produces and rearms aircraft.
-		Prerequisites: garadr, ~techlevel.4
+		Prerequisites: ~gacnst, garadr, ~techlevel.4
 		BuildDuration: 500
 		BuildDurationModifier: 100
 	Valued:
@@ -319,9 +322,6 @@ GAHPAD:
 	WithDeathAnimation@BIB:
 		DeathSequence: dead-platform
 		UseDeathTypeSuffix: false
-	ProvidesPrerequisite@buildingname:
-	ProvidesPrerequisite@airhuman:
-		Prerequisite: air.human
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -331,10 +331,10 @@ GATECH:
 	Tooltip:
 		Name: GDI Tech Center
 	Buildable:
-		Queue: Building.GDI
+		Queue: Building.Shared, Building.GDI
 		BuildPaletteOrder: 41
 		Description: Provides access to advanced GDI technologies.
-		Prerequisites: garadr, ~techlevel.5
+		Prerequisites: ~gacnst, garadr, ~techlevel.5
 		BuildDuration: 1250
 		BuildDurationModifier: 100
 	Building:
@@ -354,13 +354,14 @@ GTDROP:
 	Inherits: ^Building
 	Inherits@1: ^SuperWeapon
 	Inherits@2: ^HasSuperSupportPower
+	Inherits@PRODUCTION: ^ProducesStuff
 	Inherits@SHAPE: ^3x3Shape
 	Tooltip:
 		Name: Dropship Bay
 	Buildable:
-		Queue: Building.GDI
+		Queue: Building.Shared, Building.GDI
 		BuildPaletteOrder: 46
-		Prerequisites: gatech, !enoughgtdrop, ~techlevel.6
+		Prerequisites: ~gacnst, gatech, !enoughgtdrop, ~techlevel.6
 		Description: Staging area for drop pod assault.\n\nSpecial:\n- Provides access to Helldiver Drop support\n- Produces the Mammoth Mk. II\n- Requires power to operate
 		BuildDuration: 1000
 		BuildDurationModifier: 100
@@ -369,10 +370,16 @@ GTDROP:
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
-	ProductionAirdrop:
-		Produces: Vehicle.MammothMkII
+	ProductionAirdrop@Shared:
+		Produces: Vehicle.Shared, Mammoth
 		ActorType: dshp
 		ReadyAudio: UnitReady
+		RequiresCondition: !multiqueue
+	ProductionAirdrop:
+		Produces: Vehicle.MammothMkII, Mammoth
+		ActorType: dshp
+		ReadyAudio: UnitReady
+		RequiresCondition: multiqueue
 	ProductionQueue@Vehicle:
 		Type: Vehicle.MammothMkII
 		Group: Vehicle
@@ -386,6 +393,8 @@ GTDROP:
 		ReadyTextNotification: Unit ready.
 		LimitedAudio: BuildingInProgress
 		LimitedTextNotification: Unable to comply. Building in progress.
+	ProductionBar@Vehicle.Shared:
+		ProductionType: Vehicle.Shared
 	ProductionBar@Vehicle:
 		ProductionType: Vehicle.MammothMkII
 	WithIdleOverlay@DISH:
@@ -403,6 +412,8 @@ GTDROP:
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@swlimit:
 		Prerequisite: enoughgtdrop
+	ProvidesPrerequisite@showhmec:
+		Prerequisite: showhmec
 	NukePower:
 		Prerequisites:
 			1: gtdrop
@@ -429,9 +440,15 @@ GTDROP:
 		AreaTypes: building
 	RallyPoint:
 		Path: 4,4
-	Exit@1:
+	Exit@Shared:
 		SpawnOffset: 350,450,0 #-280,400,0
 		ExitCell: 2,2
+		ProductionTypes: Vehicle.Shared, Mammoth
+		RequiresCondition: !multiqueue
+	Exit@Multiqueue:
+		SpawnOffset: 350,450,0 #-280,400,0
+		ExitCell: 2,2
+		RequiresCondition: multiqueue
 	GrantExternalConditionToProduced:
 		Condition: produced
 	Power:
@@ -469,20 +486,16 @@ NODYARD:
 	-WithMakeOverlay@MAKE-BRIGHT:
 	-WithBuildingPlacedOverlay:
 	-ProvidesPrerequisite@structureswall:
-	ProvidesPrerequisite@faction:
-		Prerequisite: structures.nod
-	ProvidesPrerequisite@grantself:
-		Factions: gdi, nod, cab, mut, scr
 
 NAPOWR:
 	Inherits: ^Powerplant
 	Tooltip:
 		Name: Nod Power Plant
 	Buildable:
-		Queue: Building.Nod
+		Queue: Building.Shared, Building.Nod
 		BuildPaletteOrder: 2
 		Description: Provides power for other structures.
-		Prerequisites: ~techlevel.1
+		Prerequisites: ~nodyard, ~techlevel.1
 		BuildDuration: 125
 		BuildDurationModifier: 100
 	Building:
@@ -506,10 +519,10 @@ NAHAND:
 	Tooltip:
 		Name: Hand of Nod
 	Buildable:
-		Queue: Building.Nod
+		Queue: Building.Shared, Building.Nod
 		BuildPaletteOrder: 6
 		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an area around it.
-		Prerequisites: anypower, ~techlevel.1
+		Prerequisites: ~nodyard, anypower, ~techlevel.1
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Building:
@@ -574,6 +587,8 @@ NAHAND:
 		RequiresCondition: !Building-Buildup
 		Sequence: production-light-bright
 		Palette: bright
+	ProvidesPrerequisite@playerhumanengi:
+		Prerequisite: barracks.humanengi
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -582,9 +597,9 @@ NODREF:
 	Tooltip:
 		Name: Nod Refinery
 	Buildable:
-		Queue: Building.Nod
+		Queue: Building.Shared, Building.Nod
 		BuildPaletteOrder: 12
-		Prerequisites: anypower, ~techlevel.1, ~AIantiRush, ~!global-megawealth
+		Prerequisites: ~nodyard, anypower, ~techlevel.1, ~AIantiRush, ~!global-megawealth
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 		BuildDuration: 1000
 		BuildDurationModifier: 100
@@ -644,10 +659,10 @@ NAWEAP:
 	Tooltip:
 		Name: Nod War Factory
 	Buildable:
-		Queue: Building.Nod
+		Queue: Building.Shared, Building.Nod
 		BuildPaletteOrder: 17
 		Description: Produces vehicles.
-		Prerequisites: proc, ~techlevel.2
+		Prerequisites: ~nodyard, proc, ~techlevel.2
 		BuildDuration: 750
 		BuildDurationModifier: 100
 	Production:
@@ -681,10 +696,10 @@ NARADR:
 	Tooltip:
 		Name: Nod Radar
 	Buildable:
-		Queue: Building.Nod
+		Queue: Building.Shared, Building.Nod
 		BuildPaletteOrder: 27
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
-		Prerequisites: proc, ~techlevel.4
+		Prerequisites: ~nodyard, proc, ~techlevel.4
 		BuildDuration: 875
 		BuildDurationModifier: 100
 	WithIdleOverlay@DISH:
@@ -710,10 +725,10 @@ NAAPWR:
 	Tooltip:
 		Name: Advanced Power Plant
 	Buildable:
-		Queue: Building.Nod
+		Queue: Building.Shared, Building.Nod
 		BuildPaletteOrder: 32
 		Description: Provides more power than the standard powerplant\nusing less space.
-		Prerequisites: naradr, ~techlevel.4
+		Prerequisites: ~nodyard, naradr, ~techlevel.4
 		BuildDuration: 375
 		BuildDurationModifier: 100
 	Valued:
@@ -744,10 +759,10 @@ NAHPAD:
 	Tooltip:
 		Name: Nod Helipad
 	Buildable:
-		Queue: Building.Nod
+		Queue: Building.Shared, Building.Nod
 		BuildPaletteOrder: 37
 		Description: Produces and rearms aircraft.
-		Prerequisites: naradr, ~techlevel.4
+		Prerequisites: ~nodyard, naradr, ~techlevel.4
 		BuildDuration: 500
 		BuildDurationModifier: 100
 	Valued:
@@ -779,9 +794,6 @@ NAHPAD:
 	WithDeathAnimation@BIB:
 		DeathSequence: dead-platform
 		UseDeathTypeSuffix: false
-	ProvidesPrerequisite@buildingname:
-	ProvidesPrerequisite@airhuman:
-		Prerequisite: air.human
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -791,10 +803,10 @@ NATECH:
 	Tooltip:
 		Name: Nod Tech Center
 	Buildable:
-		Queue: Building.Nod
+		Queue: Building.Shared, Building.Nod
 		BuildPaletteOrder: 42
 		Description: Provides access to advanced Nod technologies.
-		Prerequisites: naradr, ~techlevel.5
+		Prerequisites: ~nodyard, naradr, ~techlevel.5
 		BuildDuration: 1250
 		BuildDurationModifier: 100
 	Building:
@@ -821,15 +833,19 @@ NAHFAC:
 	Valued:
 		Cost: 2500
 	Buildable:
-		Queue: Building.Nod
+		Queue: Building.Shared, Building.Nod
 		BuildPaletteOrder: 47
-		Description: Produces vehicles, including the Lightbringer.\n\nSpecial:\n- Buildlimit: 1\n- Spawns Templar when sold
-		Prerequisites: natech, ~techlevel.6
+		Description: Produces vehicles, including the Lightbringer.\n\nSpecial:\n- Maximum 1 can be built\n- Spawns Templar when sold
+		Prerequisites: ~nodyard, natech, ~techlevel.6
 		BuildLimit: 1
 		BuildDuration: 875
 		BuildDurationModifier: 100
 	Health:
 		HP: 200000
+	Exit@Shared:
+		ProductionTypes: Vehicle.Shared, Tank, Lightbringer
+	Production@Shared:
+		Produces: Vehicle.Shared, Tank, Lightbringer
 	Production:
 		Produces: Vehicle.Lightbringer
 	ProductionQueue@Vehicle:
@@ -854,6 +870,8 @@ NAHFAC:
 	WithIdleOverlay@BIB:
 		Sequence: bib
 		RequiresCondition: !Building-Buildup
+	ProvidesPrerequisite@naweap:
+		Prerequisite: naweap
 	Power:
 		Amount: -100
 	SpawnActorsOnSell@nod:
@@ -870,9 +888,9 @@ NAMISL:
 	Tooltip:
 		Name: Chemical Missile Silo
 	Buildable:
-		Queue: Building.Nod
+		Queue: Building.Shared, Building.Nod
 		BuildPaletteOrder: 47
-		Prerequisites: natech, !enoughnamisl, ~techlevel.6
+		Prerequisites: ~nodyard, natech, !enoughnamisl, ~techlevel.6
 		Description: Provides access to Nod´s Chemical Missiles.\n\nSpecial:\n- Provides access to the Chemical Missile\n- Requires power to operate
 		BuildDuration: 1000
 		BuildDurationModifier: 100
@@ -989,10 +1007,8 @@ MUTYARD:
 	-WithIdleOverlay@FRONT-BRIGHT:
 	-WithMakeOverlay@MAKE-BRIGHT:
 	-WithBuildingPlacedOverlay:
-	ProvidesPrerequisite@faction:
-		Prerequisite: structures.mut
-	ProvidesPrerequisite@grantself:
-		Factions: gdi, nod, cab, mut, scr
+	-ProvidesPrerequisite@structureswall:
+	-ProvidesPrerequisite@structuresgate:
 
 MUPOWR:
 	Inherits: ^Powerplant
@@ -1000,10 +1016,10 @@ MUPOWR:
 	Tooltip:
 		Name: Mutant Power Plant
 	Buildable:
-		Queue: Building.Mutant
+		Queue: Building.Shared, Building.Mutant
 		BuildPaletteOrder: 3
 		Description: Provides power for other structures.
-		Prerequisites: ~techlevel.1
+		Prerequisites: ~mutyard, ~techlevel.1
 		BuildDuration: 125
 		BuildDurationModifier: 100
 	Building:
@@ -1020,10 +1036,10 @@ MURAX:
 	Inherits@RENDER: ^MutRenderBuilding
 	Inherits@SHAPE: ^2x2Shape
 	Buildable:
-		Queue: Building.Mutant
+		Queue: Building.Shared, Building.Mutant
 		BuildPaletteOrder: 7
 		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an area around it.
-		Prerequisites: anypower, ~techlevel.1
+		Prerequisites: ~mutyard, anypower, ~techlevel.1
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Tooltip:
@@ -1089,9 +1105,9 @@ MUPROC:
 	Tooltip:
 		Name: Mutant Refinery
 	Buildable:
-		Queue: Building.Mutant
+		Queue: Building.Shared, Building.Mutant
 		BuildPaletteOrder: 13
-		Prerequisites: anypower, ~techlevel.1, ~AIantiRush, ~!global-megawealth
+		Prerequisites: ~mutyard, anypower, ~techlevel.1, ~AIantiRush, ~!global-megawealth
 		IconPalette: UnittemIconMut
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 		BuildDuration: 1000
@@ -1161,10 +1177,10 @@ MUWEAP:
 	Tooltip:
 		Name: Mutant War Factory
 	Buildable:
-		Queue: Building.Mutant
+		Queue: Building.Shared, Building.Mutant
 		BuildPaletteOrder: 18
 		Description: Produces vehicles.
-		Prerequisites: proc, ~techlevel.2
+		Prerequisites: ~mutyard, proc, ~techlevel.2
 		BuildDuration: 750
 		BuildDurationModifier: 100
 	Production:
@@ -1190,10 +1206,10 @@ MURADR:
 	Tooltip:
 		Name: Mutant Radar
 	Buildable:
-		Queue: Building.Mutant
+		Queue: Building.Shared, Building.Mutant
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		BuildPaletteOrder: 28
-		Prerequisites: proc, ~techlevel.4
+		Prerequisites: ~mutyard, proc, ~techlevel.4
 		BuildDuration: 875
 		BuildDurationModifier: 100
 	ProvidesPrerequisite@upgrade.mut:
@@ -1217,10 +1233,10 @@ MUAIR:
 	Valued:
 		Cost: 1000
 	Buildable:
-		Queue: Building.Mutant
+		Queue: Building.Shared, Building.Mutant
 		BuildPaletteOrder: 38
 		Description: Produces and rearms aircraft.
-		Prerequisites: muradr, ~techlevel.4
+		Prerequisites: ~mutyard, muradr, ~techlevel.4
 		BuildDuration: 500
 		BuildDurationModifier: 100
 	Building:
@@ -1235,9 +1251,6 @@ MUAIR:
 		ProductionType: Air.Mutant
 	Exit@1:
 		Facing: 0
-	ProvidesPrerequisite@buildingname:
-	ProvidesPrerequisite@airhuman:
-		Prerequisite: air.human
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -1248,10 +1261,10 @@ MUHALL:
 	Tooltip:
 		Name: Forgotten Hall
 	Buildable:
-		Queue: Building.Mutant
+		Queue: Building.Shared, Building.Mutant
 		BuildPaletteOrder: 43
 		Description: Provides access to contact with Forgotten Leaders.
-		Prerequisites: muradr, ~techlevel.5
+		Prerequisites: ~mutyard, muradr, ~techlevel.5
 		BuildDuration: 1250
 		BuildDurationModifier: 100
 	Building:
@@ -1271,9 +1284,9 @@ MUTSW2:
 	Tooltip:
 		Name: Mother Veinhole
 	Buildable:
-		Queue: Building.Mutant
+		Queue: Building.Shared, Building.Mutant
 		BuildPaletteOrder: 48
-		Prerequisites: muhall, !enoughmutsw2, ~techlevel.6
+		Prerequisites: ~mutyard, muhall, !enoughmutsw2, ~techlevel.6
 		Description: With this structure Mutant commanders are able to summon veinhole monster.\n\nSpecial:\n- Provides access to Veinhole Monsters\n- Requires power to operate
 		BuildDuration: 1000
 		BuildDurationModifier: 100
@@ -1350,10 +1363,8 @@ drached:
 	-WithMakeOverlay@MAKE-BRIGHT:
 	-WithBuildingPlacedOverlay:
 	-ProvidesPrerequisite@structureshuman:
-	ProvidesPrerequisite@faction:
-		Prerequisite: structures.scr
-	ProvidesPrerequisite@grantself:
-		Factions: gdi, nod, cab, mut, scr
+	-ProvidesPrerequisite@structureswall:
+	-ProvidesPrerequisite@structuresgate:
 	ThrowsShrapnel@SMALL:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
@@ -1368,10 +1379,10 @@ SCRPOWR:
 	Tooltip:
 		Name: Scrin Generator
 	Buildable:
-		Queue: Building.Scrin
+		Queue: Building.Shared, Building.Scrin
 		BuildPaletteOrder: 5
 		Description: Provides power for other structures.
-		Prerequisites: ~techlevel.1
+		Prerequisites: ~drached, ~techlevel.1
 		BuildDuration: 175
 		BuildDurationModifier: 100
 	Valued:
@@ -1399,10 +1410,10 @@ SCRRAX:
 	Tooltip:
 		Name: Landing Zone
 	Buildable:
-		Queue: Building.Scrin
+		Queue: Building.Shared, Building.Scrin
 		BuildPaletteOrder: 10
 		Description: Calls down Infantry.\n\nSpecial:\n- Heals infantry in an area around it.
-		Prerequisites: anypower, ~techlevel.1
+		Prerequisites: ~drached, anypower, ~techlevel.1
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Building:
@@ -1475,9 +1486,9 @@ SCRPROC:
 	Tooltip:
 		Name: Scrin Refinery
 	Buildable:
-		Queue: Building.Scrin
+		Queue: Building.Shared, Building.Scrin
 		BuildPaletteOrder: 15
-		Prerequisites: anypower, ~techlevel.1, ~AIantiRush, ~!global-megawealth
+		Prerequisites: ~drached, anypower, ~techlevel.1, ~AIantiRush, ~!global-megawealth
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 4000$.
 		IconPalette: UnittemIconScrin
 		BuildDuration: 1000
@@ -1588,10 +1599,10 @@ SCRWEAP:
 		Name: Scrin Forge
 	ProvidesPrerequisite@actorname:
 	Buildable:
-		Queue: Building.Scrin
+		Queue: Building.Shared, Building.Scrin
 		Description: Produces vehicles.
 		BuildPaletteOrder: 20
-		Prerequisites: proc, ~techlevel.2
+		Prerequisites: ~drached, proc, ~techlevel.2
 		BuildDuration: 750
 		BuildDurationModifier: 100
 	Production:
@@ -1621,10 +1632,10 @@ SCRRADR:
 	Tooltip:
 		Name: Scrin Radar
 	Buildable:
-		Queue: Building.Scrin
+		Queue: Building.Shared, Building.Scrin
 		BuildPaletteOrder: 30
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
-		Prerequisites: proc, ~techlevel.4
+		Prerequisites: ~drached, proc, ~techlevel.4
 		BuildDuration: 875
 		BuildDurationModifier: 100
 	Building:
@@ -1666,10 +1677,10 @@ SCRAIR:
 	Tooltip:
 		Name: Stargate
 	Buildable:
-		Queue: Building.Scrin
+		Queue: Building.Shared, Building.Scrin
 		BuildPaletteOrder: 40
 		Description: Warps in warships from a nomad galaxy.\n\nSpecial:\n- Scrin Aircraft do not need to rearm.
-		Prerequisites: scrradr, ~techlevel.4
+		Prerequisites: ~drached, scrradr, ~techlevel.4
 		BuildDuration: 500
 		BuildDurationModifier: 100
 	Valued:
@@ -1698,7 +1709,6 @@ SCRAIR:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
-	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
 	IsometricSelectable:
@@ -1720,10 +1730,10 @@ SCRTECH:
 	Tooltip:
 		Name: Scrin Laboratory
 	Buildable:
-		Queue: Building.Scrin
+		Queue: Building.Shared, Building.Scrin
 		BuildPaletteOrder: 45
 		Description: Provides samples to enable the Scrins most complex technologies.
-		Prerequisites: scrradr, ~techlevel.5
+		Prerequisites: ~drached, scrradr, ~techlevel.5
 		BuildDuration: 1250
 		BuildDurationModifier: 100
 	Valued:
@@ -1753,9 +1763,9 @@ SCRADVPOWR:
 	Tooltip:
 		Name: Wormhole Generator
 	Buildable:
-		Queue: Building.Scrin
+		Queue: Building.Shared, Building.Scrin
 		BuildPaletteOrder: 50
-		Prerequisites: scrtech, !enoughscradvpowr, ~techlevel.6
+		Prerequisites: ~drached, scrtech, !enoughscradvpowr, ~techlevel.6
 		Description: Teleports infantry and vehicles to a selected area.\n\nSpecial:\n- Provides access to the Instant Wormhole support power\n- Requires power to operate
 		BuildDuration: 1000
 		BuildDurationModifier: 100
@@ -1879,10 +1889,6 @@ CABYARD:
 	-WithIdleOverlay@FRONT-BRIGHT:
 	-WithMakeOverlay@MAKE-BRIGHT:
 	-WithBuildingPlacedOverlay:
-	ProvidesPrerequisite@faction:
-		Prerequisite: structures.cab
-	ProvidesPrerequisite@grantself:
-		Factions: gdi, nod, cab, mut, scr
 
 CABPOWR:
 	Inherits: ^Powerplant
@@ -1890,10 +1896,10 @@ CABPOWR:
 	Tooltip:
 		Name: Firestorm Power Plant
 	Buildable:
-		Queue: Building.CABAL
+		Queue: Building.Shared, Building.CABAL
 		BuildPaletteOrder: 4
 		Description: Provides power for other structures.
-		Prerequisites: ~techlevel.1
+		Prerequisites: ~cabyard, ~techlevel.1
 		BuildDuration: 225
 		BuildDurationModifier: 100
 	Valued:
@@ -1915,10 +1921,10 @@ CABCLAW:
 	Tooltip:
 		Name: C.A.B.A.L. Claw
 	Buildable:
-		Queue: Building.CABAL
+		Queue: Building.Shared, Building.CABAL
 		BuildPaletteOrder: 9
 		Description: Processes Infantry.\n\nSpecial:\n- Heals infantry in an area around it.
-		Prerequisites: anypower, ~techlevel.1
+		Prerequisites: ~cabyard, anypower, ~techlevel.1
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	WithProductionOverlay:
@@ -1987,9 +1993,9 @@ CABPROC:
 	Tooltip:
 		Name: C.A.B.A.L. Refinery
 	Buildable:
-		Queue: Building.CABAL
+		Queue: Building.Shared, Building.CABAL
 		BuildPaletteOrder: 14
-		Prerequisites: anypower, ~techlevel.1, ~AIantiRush, ~!global-megawealth
+		Prerequisites: ~cabyard, anypower, ~techlevel.1, ~AIantiRush, ~!global-megawealth
 		Description: Processes raw Tiberium into useable resources.\nCan be rotated.\n\nSpecial:\n- Stores 1000$.
 		IconPalette: UnittemIconCab
 		BuildDuration: 1000
@@ -2070,10 +2076,10 @@ CABWEAP:
 	Tooltip:
 		Name: C.A.B.A.L. War Factory
 	Buildable:
-		Queue: Building.CABAL
+		Queue: Building.Shared, Building.CABAL
 		BuildPaletteOrder: 19
 		Description: Produces vehicles.
-		Prerequisites: proc, ~techlevel.2
+		Prerequisites: ~cabyard, proc, ~techlevel.2
 		BuildDuration: 750
 		BuildDurationModifier: 100
 	Production:
@@ -2101,10 +2107,10 @@ CABRADR:
 	Tooltip:
 		Name: C.A.B.A.L. Radar
 	Buildable:
-		Queue: Building.CABAL
+		Queue: Building.Shared, Building.CABAL
 		BuildPaletteOrder: 29
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
-		Prerequisites: proc, ~techlevel.4
+		Prerequisites: ~cabyard, proc, ~techlevel.4
 		BuildDuration: 875
 		BuildDurationModifier: 100
 	Building:
@@ -2132,10 +2138,10 @@ CABAIR:
 	Tooltip:
 		Name: Air Factory
 	Buildable:
-		Queue: Building.CABAL
+		Queue: Building.Shared, Building.CABAL
 		BuildPaletteOrder: 39
 		Description: Produces aircraft.\n\nSpecial:\n- C.A.B.A.L. Aircraft do not need to rearm.
-		Prerequisites: cabradr, ~techlevel.4
+		Prerequisites: ~cabyard, cabradr, ~techlevel.4
 		BuildDuration: 500
 		BuildDurationModifier: 100
 	Valued:
@@ -2160,9 +2166,6 @@ CABAIR:
 	WithProductionOverlay@WHITELIGHTS:
 		Sequence: lights
 		RequiresCondition: !Building-Buildup
-	ProvidesPrerequisite@buildingname:
-	ProvidesPrerequisite@airhuman:
-		Prerequisite: air.human
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -2173,10 +2176,10 @@ CABTECH:
 	Tooltip:
 		Name: Supercomputer
 	Buildable:
-		Queue: Building.CABAL
+		Queue: Building.Shared, Building.CABAL
 		BuildPaletteOrder: 44
 		Description: Provides access to advanced C.A.B.A.L. technologies.
-		Prerequisites: cabradr, ~techlevel.5
+		Prerequisites: ~cabyard, cabradr, ~techlevel.5
 		BuildDuration: 1250
 		BuildDurationModifier: 100
 	Building:
@@ -2195,8 +2198,8 @@ CABOBELISK:
 	Tooltip:
 		Name: Nanomachine Core
 	Buildable:
-		Queue: Building.CABAL
-		Prerequisites: cabtech, !enoughcabobelisk, ~techlevel.6
+		Queue: Building.Shared, Building.CABAL
+		Prerequisites: ~cabyard, cabtech, !enoughcabobelisk, ~techlevel.6
 		Description: C.A.B.A.L.'s Support Superweapon.\n\nSpecial:\n- Provides access to Nanomachine Swarms\n- Requires power to operate
 		BuildPaletteOrder: 49
 		BuildDuration: 1000

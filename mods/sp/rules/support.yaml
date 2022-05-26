@@ -16,9 +16,9 @@ GAVULC:
 	Tooltip:
 		Name: Vulcan Tower
 	Buildable:
-		Queue: Defense.GDI
+		Queue: Defense.Shared, Defense.GDI
 		BuildPaletteOrder: 16
-		Prerequisites: gapile, ~techlevel.1
+		Prerequisites: ~gacnst, gapile, ~techlevel.1
 		Description: Basic base defense.\n\nGood vs: Infantry.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
 		BuildDuration: 250
 		BuildDurationModifier: 100
@@ -84,9 +84,9 @@ GAROCK:
 	Tooltip:
 		Name: RPG Tower
 	Buildable:
-		Queue: Defense.GDI
+		Queue: Defense.Shared, Defense.GDI
 		BuildPaletteOrder: 17
-		Prerequisites: gaweap, ~techlevel.2
+		Prerequisites: ~gacnst, gaweap, ~techlevel.2
 		Description: Anti-Armor base defense.\n\nGood vs: Vehicles, Structures.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
 		BuildDuration: 250
 		BuildDurationModifier: 100
@@ -133,9 +133,9 @@ GACSAM:
 	Tooltip:
 		Name: SAM Tower
 	Buildable:
-		Queue: Defense.GDI
+		Queue: Defense.Shared, Defense.GDI
 		BuildPaletteOrder: 18
-		Prerequisites: garadr, ~techlevel.4
+		Prerequisites: ~gacnst, garadr, ~techlevel.4
 		Description: Anti-Air base defense.\n\nGood vs: Aircraft\n\nSpecial\n- Can attack Air.\n- Requires power to operate.
 		BuildDuration: 375
 		BuildDurationModifier: 100
@@ -190,9 +190,9 @@ GASONC:
 	Armor@disruptor:
 		Type: Disruptor
 	Buildable:
-		Queue: Defense.GDI
+		Queue: Defense.Shared, Defense.GDI
 		BuildPaletteOrder: 42
-		Prerequisites: gatech, upgrade.sonic_emitter_protocol, ~global-upgrades, ~techlevel.5
+		Prerequisites: ~gacnst, gatech, upgrade.sonic_emitter_protocol, ~global-upgrades, ~techlevel.5
 		Description: High-tech base defense with a powerful harmonic resonance cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Deals heavy damage over time to any unit in the line of fire\n- Requires power to operate
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -239,9 +239,9 @@ NALASR:
 	Tooltip:
 		Name: Laser Turret
 	Buildable:
-		Queue: Defense.Nod
+		Queue: Defense.Shared, Defense.Nod
 		Description: High tech laser defense.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
-		Prerequisites: nahand, ~techlevel.1
+		Prerequisites: ~nodyard, nahand, ~techlevel.1
 		BuildPaletteOrder: 19
 		BuildDuration: 375
 		BuildDurationModifier: 100
@@ -277,10 +277,10 @@ NAOBEL:
 	Tooltip:
 		Name: Obelisk of Light
 	Buildable:
-		Queue: Defense.Nod
+		Queue: Defense.Shared, Defense.Nod
 		Description: Advanced high tech laser defense.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
 		BuildPaletteOrder: 20
-		Prerequisites: natech, ~techlevel.5
+		Prerequisites: ~nodyard, natech, ~techlevel.5
 		BuildDuration: 625
 		BuildDurationModifier: 100
 	Building:
@@ -324,9 +324,9 @@ NASAM:
 	Tooltip:
 		Name: SAM Site
 	Buildable:
-		Queue: Defense.Nod
+		Queue: Defense.Shared, Defense.Nod
 		Description: Anti-Air base defense.\n\nGood vs: Aircraft.\n\nSpecial\n- Can attack Air.\n- Requires power to operate.
-		Prerequisites: naradr, ~techlevel.4
+		Prerequisites: ~nodyard, naradr, ~techlevel.4
 		BuildPaletteOrder: 21
 		BuildDuration: 375
 		BuildDurationModifier: 100
@@ -358,10 +358,10 @@ MUBUNKR:
 	Tooltip:
 		Name: Bunker
 	Buildable:
-		Queue: Defense.Mutant
+		Queue: Defense.Shared, Defense.Mutant
 		Description: Fortified position where infantry can fire from within.\n\nGood vs: Depends what has been garrisoned\n\nSpecial:\n- Provides stealth detection when garrisoned.\n- Infantry units can be garrisoned inside, gaining extra range.\n- Comes with a free marauder.\n- Does not require power to operate.
 		BuildPaletteOrder: 22
-		Prerequisites: murax, ~techlevel.1, ~!AIOnly
+		Prerequisites: ~mutyard, murax, ~techlevel.1, ~!AIOnly
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Building:
@@ -433,9 +433,9 @@ MUCANNON:
 	Tooltip:
 		Name: Guardian Cannon
 	Buildable:
-		Queue: Defense.Mutant
+		Queue: Defense.Shared, Defense.Mutant
 		Description: Anti-Armor base defense.\n\nGood vs: Vehicles\n\nSpecial:\n- Does not require power to operate\n- Provides stealth detection.
-		Prerequisites: muweap, ~techlevel.2
+		Prerequisites: ~mutyard, muweap, ~techlevel.2
 		BuildPaletteOrder: 23
 		BuildDuration: 250
 		BuildDurationModifier: 100
@@ -475,9 +475,9 @@ MUFLAK:
 	Tooltip:
 		Name: Flak Station
 	Buildable:
-		Queue: Defense.Mutant
+		Queue: Defense.Shared, Defense.Mutant
 		Description: Anti-Air base defense.\n\nGood vs: Aircraft.\n\nSpecial\n- Can attack Air.\n- Does not require power to operate.
-		Prerequisites: muradr, ~techlevel.4
+		Prerequisites: ~mutyard, muradr, ~techlevel.4
 		BuildPaletteOrder: 24
 		BuildDuration: 250
 		BuildDurationModifier: 100
@@ -521,10 +521,10 @@ CABPIT:
 	Tooltip:
 		Name: Drone Pit
 	Buildable:
-		Queue: Defense.CABAL
+		Queue: Defense.Shared, Defense.CABAL
 		Description: Drone Hangar, launches bomber drones.\n\nGood vs: Infantry\n\nSpecial:\n- Provides stealth detection\n- Drones can be shoot down with anti air weapons.
 		BuildPaletteOrder: 25
-		Prerequisites: cabclaw, ~techlevel.1
+		Prerequisites: ~cabyard, cabclaw, ~techlevel.1
 		IconPalette: UnittemIconCab
 		BuildDuration: 375
 		BuildDurationModifier: 100
@@ -569,9 +569,9 @@ CABBLAST:
 	Tooltip:
 		Name: Blaster Turret
 	Buildable:
-		Queue: Defense.CABAL
+		Queue: Defense.Shared, Defense.CABAL
 		Description: Artillery defense turret.\n\nGood vs: Ground Targets\n\nSpecial:\n- Provides stealth detection\n- Has minimum range of fire\n- Requires power to operate
-		Prerequisites: cabradr, ~techlevel.4
+		Prerequisites: ~cabyard, cabradr, ~techlevel.4
 		BuildPaletteOrder: 26
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -601,9 +601,9 @@ CABRAIL:
 	Tooltip:
 		Name: Railgun Turret
 	Buildable:
-		Queue: Defense.CABAL
+		Queue: Defense.Shared, Defense.CABAL
 		Description: Anti-Air base defense with low rate of fire but high damage output.\n\nGood vs: Aircraft\n\nSpecial\n- Can attack Air\n- Requires power to operate
-		Prerequisites: cabradr, ~techlevel.4
+		Prerequisites: ~cabyard, cabradr, ~techlevel.4
 		BuildPaletteOrder: 27
 		BuildDuration: 375
 		BuildDurationModifier: 100
@@ -629,9 +629,9 @@ SCRNEEDLER:
 	Tooltip:
 		Name: Ichor Waste Turret
 	Buildable:
-		Queue: Defense.Scrin
+		Queue: Defense.Shared, Defense.Scrin
 		Description: Basic defense.\n\nGood vs Infantry.\n\nSpecial:\n- Requires power to operate.\n- Can mutate killed enemies.\n- Attacks emit radiation that harms infantry in the area.
-		Prerequisites: scrrax, ~techlevel.1
+		Prerequisites: ~drached, scrrax, ~techlevel.1
 		BuildPaletteOrder: 28
 		BuildDuration: 375
 		BuildDurationModifier: 100
@@ -677,10 +677,10 @@ SCRDRONE:
 	Tooltip:
 		Name: Pulsar Tower
 	Buildable:
-		Queue: Defense.Scrin
+		Queue: Defense.Shared, Defense.Scrin
 		BuildPaletteOrder: 45
 		Description: Advanced base defense.\n\nGood vs Ground targets.\n\nSpecial:\n- Warps a portion of a pulsar.\n- Dealing damage and slowing units enemy nearby.\n- Requires power to operate.
-		Prerequisites: scrtech, ~techlevel.5
+		Prerequisites: ~drached, scrtech, ~techlevel.5
 		BuildDuration: 625
 		BuildDurationModifier: 100
 	Building:
@@ -745,9 +745,9 @@ SCRTRACTOR:
 	Tooltip:
 		Name: Tractor Beam
 	Buildable:
-		Queue: Defense.Scrin
+		Queue: Defense.Shared, Defense.Scrin
 		Description: Scrin Anti-Air base defense\n\nGood vs Aircraft\n\nSpecial:\n- Can attack air.\n- Freezes the targetted aircraft momentarily.\n- Requires power to operate.
-		Prerequisites: scrradr, ~techlevel.4
+		Prerequisites: ~drached, scrradr, ~techlevel.4
 		BuildPaletteOrder: 30
 		BuildDuration: 375
 		BuildDurationModifier: 100
@@ -791,10 +791,10 @@ GAPOWRUP:
 	Tooltip:
 		Name: Power Turbine
 	Buildable:
-		Queue: Defense.GDI
+		Queue: Defense.Shared, Defense.GDI
 		Description: Provides extra power generation, place them on the smokestack of the structure.
 		BuildPaletteOrder: 36
-		Prerequisites: gapowr, garadr, ~!global-upgrades, ~techlevel.4
+		Prerequisites: ~gacnst, gapowr, garadr, ~!global-upgrades, ~techlevel.4
 	Plug:
 		Type: powrup
 	Power:
@@ -806,10 +806,10 @@ GAFIRE:
 	Inherits@AIaimingWeapon: ^AutoTargetAll
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Buildable:
-		Queue: Defense.GDI
+		Queue: Defense.Shared, Defense.GDI
 		BuildPaletteOrder: 41
 		Description: Generator that can generates a barrier around it to protect units.\n\nSpecial:\n- Increases damage resistance of nearby units by 30% when activated\n- Consumes 300 power when activated\n- Hostile units that try to cross the firestorm will be killed\n- Power loss does not stop this effect\n- Does not block incoming projectiles\n- Remains active for 12 seconds\n- Takes 60 seconds to charge
-		Prerequisites: gatech, ~techlevel.5
+		Prerequisites: ~gacnst, gatech, ~techlevel.5
 		BuildDuration: 500
 		BuildDurationModifier: 100
 	Valued:
@@ -893,9 +893,9 @@ GAPLUG:
 	Tooltip:
 		Name: Ion Cannon Control Center
 	Buildable:
-		Queue: Defense.GDI
+		Queue: Defense.Shared, Defense.GDI
 		BuildPaletteOrder: 46
-		Prerequisites: gatech, !enoughgaplug, ~techlevel.6
+		Prerequisites: ~gacnst, gatech, !enoughgaplug, ~techlevel.6
 		Description: Communications facility for the Ion Cannon Array.\n\nSpecial:\n- Provides access to the Ion Cannon Array\n- Requires power to operate
 		BuildDuration: 1250
 		BuildDurationModifier: 100
@@ -963,9 +963,9 @@ NASTLH:
 	Tooltip:
 		Name: Stealth Generator
 	Buildable:
-		Queue: Defense.Nod
+		Queue: Defense.Shared, Defense.Nod
 		BuildPaletteOrder: 42
-		Prerequisites: natech, ~techlevel.5
+		Prerequisites: ~nodyard, natech, ~techlevel.5
 		Description: Support structure that cloaks friendly units and buildings.\n\nSpecial:\n- Cloaks friendly assets around it.\n- Generator itself is not cloaked.\n- Requires power to operate.
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -1019,9 +1019,9 @@ NATMPL:
 	Inherits@2: ^HasMisslePower
 	Inherits@SHAPE: ^3x3Shape
 	Buildable:
-		Queue: Defense.Nod
+		Queue: Defense.Shared, Defense.Nod
 		BuildPaletteOrder: 47
-		Prerequisites: natech, !enoughnatmpl, ~techlevel.6
+		Prerequisites: ~nodyard, natech, !enoughnatmpl, ~techlevel.6
 		Description: The religious center of Nod.\n\nSpecial:\n- Provides access to the Atomic Bomb\n- Requires power to operate
 		BuildDuration: 1250
 		BuildDurationModifier: 100
@@ -1069,10 +1069,10 @@ MUVENTI:
 	Inherits@RENDER: ^MutRenderBuilding
 	Inherits@SHAPE: ^2x2Shape
 	Buildable:
-		Queue: Defense.Mutant
+		Queue: Defense.Shared, Defense.Mutant
 		BuildPaletteOrder: 43
 		Description: Allows players to quickly transport units across the battlefield.\n\nSpecial:\n- The building has a shared cargo storage.\n- Infantry can enter any tunnel built and exit on any other.\n- Cannot be repaired by engineers.
-		Prerequisites: muradr, ~techlevel.4
+		Prerequisites: ~mutyard, muradr, ~techlevel.4
 		BuildDuration: 125
 		BuildDurationModifier: 100
 	Valued:
@@ -1129,9 +1129,9 @@ MUTSW1:
 	Inherits@RENDER: ^MutRenderBuilding
 	Inherits@SHAPE: ^3x2Shape
 	Buildable:
-		Queue: Defense.Mutant
+		Queue: Defense.Shared, Defense.Mutant
 		BuildPaletteOrder: 48
-		Prerequisites: muhall, !enoughmutsw1, ~techlevel.6
+		Prerequisites: ~mutyard, muhall, !enoughmutsw1, ~techlevel.6
 		Description: Allows to generate powerful Ion Storms.\n\nSpecial:\n- Provides access to Ion Storm\n- Requires power to operate
 		BuildDuration: 1250
 		BuildDurationModifier: 100
@@ -1188,10 +1188,10 @@ SCREXTRACTOR:
 	Tooltip:
 		Name: Shield Generator
 	Buildable:
-		Queue: Defense.Scrin
+		Queue: Defense.Shared, Defense.Scrin
 		BuildPaletteOrder: 29
 		Description: Support structure.\n\nSpecial:\n- Generates shields around nearby friendly units.\n- Shields provide additional 100 health to the units.\n- Does not protect against super weapons.\n- Requires power to operate.
-		Prerequisites: scrradr, ~techlevel.4
+		Prerequisites: ~drached, scrradr, ~techlevel.4
 		BuildDuration: 500
 		BuildDurationModifier: 100
 	Building:
@@ -1236,9 +1236,9 @@ SCRSW1:
 	Inherits@RENDER: ^ScrinRenderBuilding
 	Inherits@SHAPE: ^3x2Shape
 	Buildable:
-		Queue: Defense.Scrin
+		Queue: Defense.Shared, Defense.Scrin
 		BuildPaletteOrder: 50
-		Prerequisites: scrtech, !enoughscrsw1, ~techlevel.6
+		Prerequisites: ~drached, scrtech, !enoughscrsw1, ~techlevel.6
 		Description: Allows the player to call in meteor storm strikes.\n\nSpecial:\n- Provides access to the Wrath of the Creator superweapon\n- Requires power to operate
 		BuildDuration: 1250
 		BuildDurationModifier: 100
@@ -1290,10 +1290,10 @@ CABEYE:
 	Inherits@RENDER: ^CabRenderBuilding
 	Inherits@SHAPE: ^2x2Shape
 	Buildable:
-		Queue: Defense.CABAL
+		Queue: Defense.Shared, Defense.CABAL
 		BuildPaletteOrder: 44
 		Description: High tech detection system.\n\nSpecial:\n- Provides huge vision range.\n- Shrouds the enemy vision range in a certain area.\n- Requires power to operate.
-		Prerequisites: cabradr, ~techlevel.4
+		Prerequisites: ~cabyard, cabradr, ~techlevel.4
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Valued:
@@ -1340,8 +1340,8 @@ CABSW1:
 	Tooltip:
 		Name: Iron Savior
 	Buildable:
-		Queue: Defense.CABAL
-		Prerequisites: cabtech, !enoughcabsw1, ~techlevel.6
+		Queue: Defense.Shared, Defense.CABAL
+		Prerequisites: ~cabyard, cabtech, !enoughcabsw1, ~techlevel.6
 		Description: Energy cannon based off Scrin technology.\n\nSpecial:\n- Provides access to the Iron Savior cannon\n- Requires power to operate
 		BuildPaletteOrder: 49
 		BuildDuration: 1250
@@ -1488,8 +1488,8 @@ BLACKDEFD:
 			TopLeft: 512, 512
 			BottomRight: 1536, 1536
 	Buildable:
-		Queue: Defense.CABAL
-		Prerequisites: cabobelisk, ~techlevel.6, !DarkDefenderExists
+		Queue: Defense.Shared, Defense.CABAL
+		Prerequisites: ~cabyard, cabobelisk, ~techlevel.6, !DarkDefenderExists
 		Description: C.A.B.A.L.'s ultimate weapon. Defense structure with\n long range plasma artillery. Can transform into\nthe mobile Epic walker version.\n\nGood vs: Ground\n\nSpecial when deployed:\n- Armed with a plasma artillery launcher\n- Maximum Supply of 1\n\nSpecial when mobile:\n- Selfhealing up to 100%\n- Can shoot over walls\n- Can crush everything except other Epics\n- Immune to mind control\n- Buildlimit: 1
 		BuildPaletteOrder: 50
 		BuildLimit: 1

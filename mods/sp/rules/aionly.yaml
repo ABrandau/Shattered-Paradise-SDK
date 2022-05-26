@@ -227,9 +227,9 @@ DRACHE_BOT:
 	Selectable:
 		Class: drache
 	Buildable:
-		Queue: Air.Scrin
+		Queue: Vehicle.Shared, Air.Scrin
 		Description: AI Scrin Host Station
-		Prerequisites: ~techlevel.3, ~fixUndeployDracheBug, ~!global-suddendeath
+		Prerequisites: ~scrair, ~techlevel.3, ~fixUndeployDracheBug, ~!global-suddendeath
 	Aircraft:
 		IdleBehavior: Land
 	RenderSprites:
@@ -238,7 +238,7 @@ DRACHE_BOT:
 MUBUNKRFULL:
 	Inherits: MUBUNKR
 	Buildable:
-		Prerequisites: murax, ~structures.mut, ~techlevel.1, ~AIOnly
+		Prerequisites: ~mutyard, murax, ~techlevel.1, ~AIOnly
 		Description: Bunker(full)
 	IsometricSelectable:
 		Class: mubunkr
@@ -266,9 +266,9 @@ GHOST:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Infantry.Mutant
+		Queue: Infantry.Shared, Infantry.Mutant
 		BuildPaletteOrder: 32
-		Prerequisites: muhall, ~techlevel.5, ~AIOnly
+		Prerequisites: ~murax, muhall, ~techlevel.5, ~AIOnly
 		Description: Gil is the elite commando of Mutants, if not GDI.\nHe is armed with a railgun and C4.\n\nGood vs Ground\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes structures with C4\n- Heals on Tiberium\n- Immune to mindcontrol\n- Crush class: crushable
 		BuildLimit: 1
 		BuildDuration: 1250
@@ -545,8 +545,8 @@ DEFD:
 			TopLeft: 512, 512
 			BottomRight: 1536, 1536
 	Buildable:
-		Queue: Building.CABAL
-		Prerequisites: cabtech, ~techlevel.5, ~AIOnly, ~!DefenderExists
+		Queue: Building.Shared, Building.CABAL
+		Prerequisites: ~cabyard, cabtech, ~techlevel.5, ~AIOnly, ~!DefenderExists
 		Description: C.A.B.A.L.'s final creation armed with crazy weapon.\n\nGood vs: Everything\n\nSpecial:\n- Needs preparing before rising.\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle\n- Immune to mindcontrol
 		BuildPaletteOrder: 54
 	Building:
@@ -622,9 +622,10 @@ RTRIPOD:
 	Selectable:
 		Bounds: 1508,6031, 0, -1809
 	Buildable:
-		Queue: Vehicle.Scrin
+		Queue: Vehicle.Shared, Vehicle.Scrin
+		BuildAtProductionType: Tank
 		BuildPaletteOrder: 50
-		Prerequisites: scrtech, ~AIOnly, ~techlevel.5
+		Prerequisites: ~scrweap, scrtech, ~AIOnly, ~techlevel.5
 		Description: Advanced walker.\n\n  Good vs Ground\n\nSpecial: \n- Can absorb Tiberium on the field to empower it's weapon\n- Absorbs essence from killed units to heal\n- Can shoot over walls\n- Can crush infantry
 		IconPalette: chromescrin
 		BuildDuration: 1000
@@ -731,10 +732,11 @@ GMRLS:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle.GDI
+		Queue: Vehicle.Shared, Vehicle.GDI
+		BuildAtProductionType: Tank
 		BuildPaletteOrder: 35
 		Description: Artillery armed with long range anti-armor and anti-air rockets.\n\nGood vs: Vehicle, Air\n\nSpecial:\n- Armor Type: Light\n- Deals AoE damage\n- Minimum attack distance\n- Can shoot over walls\n- Can crush infantry
-		Prerequisites: gatech, ~AIOnly,  ~techlevel.5
+		Prerequisites: ~gaweap, gatech, ~AIOnly,  ~techlevel.5
 		BuildDuration: 875
 		BuildDurationModifier: 100
 	Mobile:
@@ -783,9 +785,10 @@ AVATAR:
 	Selectable:
 		Bounds: 1550, 5000, 0, -1500
 	Buildable:
-		Queue: Vehicle.Lightbringer
+		Queue: Vehicle.Shared, Vehicle.Lightbringer
+		BuildAtProductionType: Lightbringer
 		BuildPaletteOrder: 45
-		Prerequisites: ~AIOnly, ~techlevel.6
+		Prerequisites: ~naweap, nahfac, ~AIOnly, ~techlevel.6
 		Description: Heavy Walker armed with a strong laser and enhances nearby Units.\n\nGood vs: Ground\n\nSpecial:\n- Can crush infantry
 		BuildDuration: 2250
 		BuildDurationModifier: 100
