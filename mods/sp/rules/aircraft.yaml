@@ -1012,6 +1012,7 @@ DRACHE:
 SCRGLYDER1:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^ScrinAircraftGeneric
+	Inherits@AERIALGLIDERS: ^AffectedByAerialGliders
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@DETECTION: ^BasicStealthDetectionAir
@@ -1032,6 +1033,7 @@ SCRGLYDER1:
 		Bounds: 1206,1809,0,-603
 	Transforms:
 		IntoActor: scrglyder2
+		RequiresCondition: aerial_gliders
 	Aircraft:
 		TurnSpeed: 32
 		Speed: 180
@@ -1060,8 +1062,8 @@ SCRGLYDER1:
 		RequiresCondition: airborne
 	Armament@AITransformDummyWeapon:
 		Weapon: AIGlyder1AimingDummyWeapon
-		RequiresCondition: AImicroManage
 		ReloadingCondition: AIattackGround
+		RequiresCondition: AImicroManage && aerial_gliders
 	TransformOnCondition@AITransform:
 		RequiresCondition: AIattackGround
 		IntoActor: scrglyder2
@@ -1075,7 +1077,6 @@ SCRGLYDER1:
 		IconPalette: chromesilver
 		TooltipActor: scrglyder2
 		Damage: 90
-		Upgrades: upgrade.aerial_gliders
 
 SCRDESTROYER:
 	Inherits: ^CombatHelicopter

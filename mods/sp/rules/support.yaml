@@ -192,7 +192,7 @@ GASONC:
 	Buildable:
 		Queue: Defense.GDI
 		BuildPaletteOrder: 42
-		Prerequisites: gatech, upgrade.sonic_emitter_protocol, ~techlevel.5
+		Prerequisites: gatech, upgrade.sonic_emitter_protocol, ~global-upgrades, ~techlevel.5
 		Description: High-tech base defense with a powerful harmonic resonance cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Deals heavy damage over time to any unit in the line of fire\n- Requires power to operate
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -794,7 +794,7 @@ GAPOWRUP:
 		Queue: Defense.GDI
 		Description: Provides extra power generation, place them on the smokestack of the structure.
 		BuildPaletteOrder: 36
-		Prerequisites: ~disabled # gapowr, garadr, ~techlevel.4
+		Prerequisites: gapowr, garadr, ~!global-upgrades, ~techlevel.4
 	Plug:
 		Type: powrup
 	Power:

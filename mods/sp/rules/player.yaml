@@ -86,6 +86,7 @@ Player:
 		LimitedTextNotification: Unable to comply. Building in progress.
 	Production@Upgrade:
 		Produces: Upgrade.GDI, Upgrade.Nod, Upgrade.Mutant, Upgrade.CABAL, Upgrade.Scrin
+		RequiresCondition: upgrades
 	ProvidesPrerequisite@upgrade.gdi:
 		Prerequisite: upgrade.gdi
 		Factions: gdi
@@ -101,6 +102,9 @@ Player:
 	ProvidesPrerequisite@upgrade.scr:
 		Prerequisite: upgrade.scr
 		Factions: scr
+	GrantConditionOnPrerequisite@upgrades:
+		Condition: upgrades
+		Prerequisites: global-upgrades
 	GrantConditionOnPrerequisiteManager:
 	EnemyWatcher:
 	PlaceBuilding:
@@ -205,6 +209,13 @@ Player:
 		Enabled: True
 		DisplayOrder: 10
 		Prerequisites: global-swlimit
+	LobbyPrerequisiteCheckbox@GLOBALUPGRADES:
+		ID: upgrades
+		Label: Upgrades
+		Description: Enables researching upgrades that improve existing units
+		Enabled: True
+		DisplayOrder: 12
+		Prerequisites: global-upgrades
 	LobbyPrerequisiteCheckbox@DOMINATION:
 		ID: domination
 		Label: Domination
