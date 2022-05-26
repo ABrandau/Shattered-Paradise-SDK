@@ -1662,6 +1662,31 @@ NAPULS:
 			1: emp.gdi
 		OrderName: Nodemp
 		PauseOnCondition: disabled || empdisable
+		RequiresCondition: swlimit
+	FireArmamentPower@unlimited:
+		AllowMultiple: true
+		Cursor: emp
+		ArmamentName: Superweapon
+		Icons:
+			1: emp
+		ChargeInterval: 4500
+		TargetCircleRange: 4c0
+		Names:
+			1: E.M. Pulse
+		Descriptions:
+			1: Fires a pulse blast which disables\nall mechanical units in the area.
+		EndChargeSpeechNotification: EmPulseCannonReady
+		SelectTargetSpeechNotification: SelectTarget
+		EndChargeTextNotification: EMP cannon ready.
+		SelectTargetTextNotification: Select target.
+		Prerequisites:
+			1: emp.gdi
+		OrderName: Nodemp
+		PauseOnCondition: disabled || empdisable
+		RequiresCondition: !swlimit
+	GrantConditionOnPrerequisite@swlimit:
+		Condition: swlimit
+		Prerequisites: global-swlimit
 	-RenderRangeCircle:
 	WithRangeCircle:
 		Range: 25c0
