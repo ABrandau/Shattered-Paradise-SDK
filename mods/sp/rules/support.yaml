@@ -895,9 +895,8 @@ GAPLUG:
 	Buildable:
 		Queue: Defense.GDI
 		BuildPaletteOrder: 46
-		Prerequisites: gatech, ~techlevel.6
+		Prerequisites: gatech, !enoughgaplug, ~techlevel.6
 		Description: Communications facility for the Ion Cannon Array.\n\nSpecial:\n- Provides access to the Ion Cannon Array\n- Requires power to operate
-		BuildLimit: 1
 		BuildDuration: 1250
 		BuildDurationModifier: 100
 	Building:
@@ -945,6 +944,8 @@ GAPLUG:
 		Sequence: idle-hunterseekerb-bright
 		Palette: bright
 	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@swlimit:
+		Prerequisite: enoughgaplug
 	Health:
 		HP: 200000
 	RequiresBuildableArea:
@@ -1020,12 +1021,13 @@ NATMPL:
 	Buildable:
 		Queue: Defense.Nod
 		BuildPaletteOrder: 47
-		Prerequisites: natech, ~techlevel.6
+		Prerequisites: natech, !enoughnatmpl, ~techlevel.6
 		Description: The religious center of Nod.\n\nSpecial:\n- Provides access to the Atomic Bomb\n- Requires power to operate
-		BuildLimit: 1
 		BuildDuration: 1250
 		BuildDurationModifier: 100
 	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@swlimit:
+		Prerequisite: enoughnatmpl
 	Valued:
 		Cost: 5000
 	HitShape:
@@ -1129,9 +1131,8 @@ MUTSW1:
 	Buildable:
 		Queue: Defense.Mutant
 		BuildPaletteOrder: 48
-		Prerequisites: muhall, ~techlevel.6
-		Description: Allows to generate powerful Ion Storms.\n\nSpecial:\n- Provides access to Ion Storm.\n- Requires power to operate.
-		BuildLimit: 1
+		Prerequisites: muhall, !enoughmutsw1, ~techlevel.6
+		Description: Allows to generate powerful Ion Storms.\n\nSpecial:\n- Provides access to Ion Storm\n- Requires power to operate
 		BuildDuration: 1250
 		BuildDurationModifier: 100
 	Valued:
@@ -1142,6 +1143,8 @@ MUTSW1:
 		Footprint: xxx xxx
 		Dimensions: 3,2
 	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@swlimit:
+		Prerequisite: enoughmutsw1
 	NukePower:
 		Prerequisites:
 			1: mutsw1
@@ -1235,9 +1238,8 @@ SCRSW1:
 	Buildable:
 		Queue: Defense.Scrin
 		BuildPaletteOrder: 50
-		Prerequisites: scrtech, ~techlevel.6
-		Description: Allows the player to call in meteor storm strikes.\n\nSpecial:\n- Provides access to the Wrath of the Creator superweapon.\n- Requires power to operate.
-		BuildLimit: 1
+		Prerequisites: scrtech, !enoughscrsw1, ~techlevel.6
+		Description: Allows the player to call in meteor storm strikes.\n\nSpecial:\n- Provides access to the Wrath of the Creator superweapon\n- Requires power to operate
 		BuildDuration: 1250
 		BuildDurationModifier: 100
 	Valued:
@@ -1259,7 +1261,7 @@ SCRSW1:
 		SelectTargetSpeechNotification: SelectTarget
 		SelectTargetTextNotification: Select target.
 		Prerequisites:
-			1: MeteorSpawner
+			1: scrsw1
 		MissileWeapons:
 			1: MeteorSpawner
 		CircleRanges:
@@ -1268,10 +1270,9 @@ SCRSW1:
 		CameraRange: 10c0
 		CameraSpawnAdvance: 0 ## need to be earlier than hit time
 		CameraRemoveDelay: 350
-	ProvidesPrerequisite@MeteorSpawner:
-		Prerequisite: MeteorSpawner
-		Factions: gdi, mut, nod, cab, scr
-		ResetOnOwnerChange: true
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@swlimit:
+		Prerequisite: enoughscrsw1
 	Health:
 		HP: 200000
 	RequiresBuildableArea:
@@ -1340,10 +1341,9 @@ CABSW1:
 		Name: Iron Savior
 	Buildable:
 		Queue: Defense.CABAL
-		Prerequisites: cabtech, ~techlevel.6
+		Prerequisites: cabtech, !enoughcabsw1, ~techlevel.6
 		Description: Energy cannon based off Scrin technology.\n\nSpecial:\n- Provides access to the Iron Savior cannon\n- Requires power to operate
 		BuildPaletteOrder: 49
-		BuildLimit: 1
 		BuildDuration: 1250
 		BuildDurationModifier: 100
 	Building:
@@ -1369,11 +1369,11 @@ CABSW1:
 		Weapon: IronSaviorMuzzle
 		LocalOffset: 1300,0,2300
 		Name: superweapon
-	ProvidesPrerequisite@ironsavior:
-		Prerequisite: ironsavior
-		Factions: gdi, mut, nod, cab, scr
-		ResetOnOwnerChange: true
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@swlimit:
+		Prerequisite: enoughcabsw1
 	FireArmamentPower:
+		AllowMultiple: true
 		Cursor: emp
 		Icons:
 			1: cabcannon
@@ -1389,7 +1389,7 @@ CABSW1:
 		SelectTargetSpeechNotification: SelectTarget
 		SelectTargetTextNotification: Select target.
 		Prerequisites:
-			1: ironsavior
+			1: cabsw1
 		OrderName: IronSavior
 		LaunchSpeechNotification: SuperweaponFired
 		IncomingSpeechNotification: SuperweaponFired

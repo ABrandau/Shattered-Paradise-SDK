@@ -803,6 +803,9 @@ GACNST:
 		Modifier: 0
 	SupportPowerChargeBar:
 	SpawnActorPower:
+		OrderName: RadarScan
+		PauseOnCondition: disabled
+		RequiresCondition: swlimit
 		Cursor: emp
 		Prerequisites:
 			1: radar
@@ -817,13 +820,38 @@ GACNST:
 		SelectTargetTextNotification: Select target.
 		EndChargeSound: SpySatelliteReady.aud
 		DeploySound: sspysate.aud
-		OrderName: RadarScan
-		PauseOnCondition: disabled
 		TargetCircleRanges:
 			1: 8c0
 		Actors:
 			1: radarscandummy
 		LifeTime: -1
+	SpawnActorPower@unlimited:
+		OrderName: RadarScan
+		PauseOnCondition: disabled
+		RequiresCondition: !swlimit
+		AllowMultiple: true
+		Cursor: emp
+		Prerequisites:
+			1: radar
+		Icons:
+			1: radarscan
+		ChargeInterval: 3000
+		Names:
+			1: Spy Satellite
+		Descriptions:
+			1: Reveals shroud and cloaked units on a radius of 8 cells.
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: Select target.
+		EndChargeSound: SpySatelliteReady.aud
+		DeploySound: sspysate.aud
+		TargetCircleRanges:
+			1: 8c0
+		Actors:
+			1: radarscandummy
+		LifeTime: -1
+	GrantConditionOnPrerequisite@swlimit:
+		Condition: swlimit
+		Prerequisites: global-swlimit
 	RenderDetectionCircle:
 		TrailCount: 3
 
@@ -1732,6 +1760,7 @@ SCRGATE_B:
 
 ^SuperSupportPowerBased:
 	NukePower:
+		AllowMultiple: true
 		Cursor: nuke
 		Prerequisites:
 			1: natmpl

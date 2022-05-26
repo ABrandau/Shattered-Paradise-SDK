@@ -272,6 +272,10 @@ GARADR:
 		OrderName: GDIRadarScan
 		Icons:
 			1: GDIradarscan
+	SpawnActorPower@unlimited:
+		OrderName: GDIRadarScan
+		Icons:
+			1: GDIradarscan
 	IsometricSelectable:
 		DecorationHeight: 72
 
@@ -356,8 +360,7 @@ GTDROP:
 	Buildable:
 		Queue: Building.GDI
 		BuildPaletteOrder: 46
-		Prerequisites: gatech, ~techlevel.6
-		BuildLimit: 1
+		Prerequisites: gatech, !enoughgtdrop, ~techlevel.6
 		Description: Staging area for drop pod assault.\n\nSpecial:\n- Provides access to Helldiver Drop support\n- Produces the Mammoth Mk. II\n- Requires power to operate
 		BuildDuration: 1000
 		BuildDurationModifier: 100
@@ -398,6 +401,8 @@ GTDROP:
 		Sequence: idle-lights-bright
 		Palette: bright
 	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@swlimit:
+		Prerequisite: enoughgtdrop
 	NukePower:
 		Prerequisites:
 			1: gtdrop
@@ -692,6 +697,10 @@ NARADR:
 		OrderName: NodRadarScan
 		Icons:
 			1: NODradarscan
+	SpawnActorPower@unlimited:
+		OrderName: NodRadarScan
+		Icons:
+			1: NODradarscan
 	IsometricSelectable:
 		DecorationHeight: 48
 
@@ -863,9 +872,8 @@ NAMISL:
 	Buildable:
 		Queue: Building.Nod
 		BuildPaletteOrder: 47
-		Prerequisites: natech, ~techlevel.6
+		Prerequisites: natech, !enoughnamisl, ~techlevel.6
 		Description: Provides access to Nod´s Chemical Missiles.\n\nSpecial:\n- Provides access to the Chemical Missile\n- Requires power to operate
-		BuildLimit: 1
 		BuildDuration: 1000
 		BuildDurationModifier: 100
 	Valued:
@@ -888,6 +896,8 @@ NAMISL:
 		Condition: powerdown
 		OrderName: PowerDown
 	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@swlimit:
+		Prerequisite: enoughnamisl
 	NukePower:
 		Prerequisites:
 			1: namisl
@@ -1192,6 +1202,10 @@ MURADR:
 		OrderName: MutantRadarScan
 		Icons:
 			1: MUTradarscan
+	SpawnActorPower@unlimited:
+		OrderName: MutantRadarScan
+		Icons:
+			1: MUTradarscan
 	IsometricSelectable:
 		DecorationHeight: 48
 
@@ -1259,9 +1273,8 @@ MUTSW2:
 	Buildable:
 		Queue: Building.Mutant
 		BuildPaletteOrder: 48
-		Prerequisites: muhall, ~techlevel.6
-		Description: With this structure Mutant commanders are able to summon veinhole monster.\n\nSpecial:\n- Provides access to Veinhole Monsters.\n- Requires power to operate.
-		BuildLimit: 1
+		Prerequisites: muhall, !enoughmutsw2, ~techlevel.6
+		Description: With this structure Mutant commanders are able to summon veinhole monster.\n\nSpecial:\n- Provides access to Veinhole Monsters\n- Requires power to operate
 		BuildDuration: 1000
 		BuildDurationModifier: 100
 	Valued:
@@ -1270,6 +1283,8 @@ MUTSW2:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
 	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@swlimit:
+		Prerequisite: enoughmutsw2
 	NukePower:
 		Prerequisites:
 			1: mutsw2
@@ -1627,6 +1642,10 @@ SCRRADR:
 		OrderName: ScrinRadarScan
 		Icons:
 			1: SCRradarscan
+	SpawnActorPower@unlimited:
+		OrderName: ScrinRadarScan
+		Icons:
+			1: SCRradarscan
 	IsometricSelectable:
 		DecorationHeight: 48
 	ThrowsShrapnel@SMALL:
@@ -1733,15 +1752,15 @@ SCRADVPOWR:
 	Buildable:
 		Queue: Building.Scrin
 		BuildPaletteOrder: 50
-		Prerequisites: scrtech, ~techlevel.6
-		Description: Teleports infantry and vehicles to a selected area.\n\nSpecial:\n- Provides access to the Instant Wormhole support power.\n- Requires power to operate.
-		BuildLimit: 1
+		Prerequisites: scrtech, !enoughscradvpowr, ~techlevel.6
+		Description: Teleports infantry and vehicles to a selected area.\n\nSpecial:\n- Provides access to the Instant Wormhole support power\n- Requires power to operate
 		BuildDuration: 1000
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 2500
-	ProvidesPrerequisite:
-		Prerequisite: scradvpowr
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@swlimit:
+		Prerequisite: enoughscradvpowr
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
@@ -1752,6 +1771,7 @@ SCRADVPOWR:
 		RequiresCondition: !AIbuildingMicroControl
 		OrderName: Chronoshift
 		PauseOnCondition: empdisable || disabled
+		AllowMultiple: true
 		Prerequisites:
 			1: scradvpowr
 		Icons:
@@ -2095,6 +2115,10 @@ CABRADR:
 		OrderName: CabalRadarScan
 		Icons:
 			1: CABradarscan
+	SpawnActorPower@unlimited:
+		OrderName: CabalRadarScan
+		Icons:
+			1: CABradarscan
 	IsometricSelectable:
 		DecorationHeight: 96
 
@@ -2169,10 +2193,9 @@ CABOBELISK:
 		Name: Nanomachine Core
 	Buildable:
 		Queue: Building.CABAL
-		Prerequisites: cabtech, ~techlevel.6
+		Prerequisites: cabtech, !enoughcabobelisk, ~techlevel.6
 		Description: C.A.B.A.L.'s Support Superweapon.\n\nSpecial:\n- Provides access to Nanomachine Swarms\n- Requires power to operate
 		BuildPaletteOrder: 49
-		BuildLimit: 1
 		BuildDuration: 1000
 		BuildDurationModifier: 100
 	Valued:
@@ -2183,7 +2206,10 @@ CABOBELISK:
 	BodyOrientation:
 		QuantizedFacings: 32
 	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@swlimit:
+		Prerequisite: enoughcabobelisk
 	SpawnActorPower@nanomachinesson:
+		AllowMultiple: true
 		Cursor: ioncannon
 		Prerequisites:
 			1: cabobelisk
