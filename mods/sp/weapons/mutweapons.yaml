@@ -774,9 +774,13 @@ FalconPunch:
 		Explosions: gasexplo
 		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
 		ExplosionPalette: effect
-	Warhead@5cloud: SpawnSmokeParticle
-		Count: 5
-		Duration: 95
+
+FalconPunchGas:
+	Inherits: FalconPunch
+	Warhead@5Smo: SpawnSmokeParticle
+		Weapon: CloudDamage
+		Count: 10
+		Duration: 190
 		Speed: 30
 		TurnRate: 24
 		Image: tibcloud

@@ -685,12 +685,12 @@ MUTHELI:
 MUTQUEEN:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^SpriteActor
-	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RENDER: ^MutRender
-	Inherits@VISION: ^9CellVision
 	Inherits@SHADOW: ^AircraftShadow
+	Inherits@TIBINFUSION: ^AffectedByTiberiumInfusion
+	Inherits@VISION: ^9CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 1200
@@ -711,10 +711,15 @@ MUTQUEEN:
 		VoiceSet: Queen
 	Aircraft:
 		TurnSpeed: 40
-		Speed: 195
+		Speed: 180
 		Repulsable: true
 		MoveIntoShroud: true
 		IdealSeparation: 1c0
+	SpeedMultiplier@TIBERIUMINFUSION:
+		Modifier: 111
+	SpeedMultiplier@TIBERIUMINFUSION2:
+		Modifier: 98
+		RequiresCondition: tibinfusion
 	-Rearmable:
 	-Repairable:
 	Targetable@GROUND:
@@ -769,6 +774,7 @@ WETP:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SHADOW: ^AircraftShadow
+	Inherits@TIBGASWH: ^AffectedByTiberiumGasWarheads
 	Inherits@VISION: ^9CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
@@ -800,6 +806,11 @@ WETP:
 	Armament:
 		Weapon: FalconPunch
 		PauseOnCondition: !ammo
+		RequiresCondition: !tibgaswh
+	Armament@Upg:
+		Weapon: FalconPunchGas
+		PauseOnCondition: !ammo
+		RequiresCondition: tibgaswh
 	AttackAircraft:
 		FacingTolerance: 40
 	AmmoPool:
