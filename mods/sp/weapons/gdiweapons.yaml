@@ -566,6 +566,18 @@ SonicZapTower:
 	Inherits: SonicZap
 	Range: 7c0
 
+SonicEmitterProjGDI:
+	Inherits: SonicEmitterProj
+	Range: 8c0
+	Projectile: WarheadTrailProjectile
+		Weapon: SonicEmitterHitGDI
+
+SonicEmitterHitGDI:
+	Inherits: SonicEmitterHit
+	Range: 8c0
+	Warhead@1Dam: SpreadDamage
+		ValidRelationships: Enemy, Neutral
+
 4TNKGUN:
 	Inherits: ^APWarhead
 	Inherits@2: ^Mediuml_Clsn

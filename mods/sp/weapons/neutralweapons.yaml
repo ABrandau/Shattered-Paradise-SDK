@@ -248,9 +248,9 @@ SonicEmitterProj:
 		FireMode: Line # try putting "Line" or "Spread" here, "Focus"
 		Inaccuracy: 0c0
 		Weapon: SonicEmitterHit
-		Speed: 250
+		Speed: 200
 		ForceAtGroundLevel: true
-		ExplosionInterval: 4
+		ExplosionInterval: 2
 		ExplodeUnderThisAltitude: -9999
 		Blockable: false
 		KillProjectilesWhenReachedTargetLocation: false #try putting true
@@ -259,13 +259,13 @@ SonicEmitterProj:
 
 SonicEmitterHit:
 	Inherits: ^FullDamage
-	Inherits@2: ^Large_Explosion
-	ReloadDelay: 125
+	Inherits@2: ^Small_Twlt
+	ReloadDelay: 100
 	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 	Range: 11c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c300
-		Damage: 15000
+		Damage: 7500
 		Versus:
 			Infantry: 300
 			Building: 30
@@ -276,14 +276,14 @@ SonicEmitterHit:
 		ValidRelationships: Enemy, Neutral, Ally
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
-	Warhead@2Eff: CreateEffect
-		ExplosionPalette: gensmkexplojFblue
-	Warhead@4Sharpnel: FireShrapnel
-		Weapon: SmallDebris
-		ImpactActors: false
-		Amount: 1
+	Warhead@4EffAir: CreateEffect
+		-InvalidTargets:
 		ValidTargets: Ground, Water, Air
-		InvalidTargets: Infantry, Vehicle, Building, Wall
+		Explosions: jsbrnl20sonic, jsbrnl20bsonic, jsbrnl30sonic, jsbrnl30bsonic
+		ExplosionPalette: gensmkexplojFblue50a
+	-Warhead@3EffWater:
+	-Warhead@4Smu:
+	-Warhead@5Smu:
 
 ServDepoShrapnelSpawn:
 	ReloadDelay: 75

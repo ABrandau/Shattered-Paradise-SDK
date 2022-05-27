@@ -187,8 +187,8 @@ GASONC:
 		Cost: 1000
 	Tooltip:
 		Name: Sonic Emitter
-	Armor@disruptor:
-		Type: Disruptor
+	#Armor@disruptor:
+	#	Type: Disruptor
 	Buildable:
 		Queue: Defense.Shared, Defense.GDI
 		BuildPaletteOrder: 42
@@ -202,8 +202,8 @@ GASONC:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Armament:
-		Weapon: SonicZapTower
-		LocalOffset: 0,0,1440
+		Weapon: SonicEmitterProjGDI
+		LocalOffset: 768,0,1440
 		PauseOnCondition: Building-Buildup
 	WithIdleOverlay@LIGHTS:
 		RequiresCondition: !Building-Buildup && !disabled
@@ -220,15 +220,15 @@ GASONC:
 	LineBuildNode:
 		Types: turret
 	ProvidesPrerequisite@buildingname:
-	Targetable:
-		TargetTypes: Building, Ground, C4, DetonateAttack, Defence, AllySonicImmune
+	#Targetable:
+	#	TargetTypes: Building, Ground, C4, DetonateAttack, Defence, AllySonicImmune
 	RenderSprites:
 	RequiresBuildableArea:
 		AreaTypes: building
 	Replacement:
 		ReplaceableTypes: Tower
 	ActorStatValues:
-		Damage: 200
+		Damage: 75
 
 NALASR:
 	Inherits: ^TurretedDefence
