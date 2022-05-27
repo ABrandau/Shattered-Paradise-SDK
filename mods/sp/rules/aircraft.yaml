@@ -85,6 +85,7 @@ ORCA:
 		Palette: pips
 	ActorStatValues:
 		Damage: 40
+		SplitRanges: true
 
 ORCAB:
 	Inherits: ^CombatPlane
@@ -370,6 +371,7 @@ APACHE:
 		Palette: pips
 	ActorStatValues:
 		Damage: 40
+		SplitRanges: true
 
 SCRIN:
 	Inherits: ^CombatPlane
@@ -464,6 +466,7 @@ SCRIN:
 		TrailLength: 9
 	ActorStatValues:
 		Damage: 50
+		SplitRanges: true
 
 CERBERUS:
 	Inherits: ^CombatHelicopter
@@ -681,6 +684,7 @@ MUTHELI:
 		Palette: pips
 	ActorStatValues:
 		Damage: 40
+		SplitRanges: true
 
 MUTQUEEN:
 	Inherits: ^CombatHelicopter
@@ -963,6 +967,7 @@ STORMRIDER:
 		TrailLength: 9
 	ActorStatValues:
 		Damage: 20
+		SplitRanges: true
 
 DRACHE:
 	Inherits: ^CombatHelicopter
@@ -1315,6 +1320,7 @@ SCRCARRIER:
 		TrailWidth: 40
 	ActorStatValues:
 		Damage: 20
+		SplitRanges: true
 
 STORMRIDERSPAWN:
 	Inherits: ^CombatPlane
@@ -1638,8 +1644,6 @@ WASP:
 	SpawnActorOnDeath:
 		RequiresCondition: airborne
 		Actor: WASP.Husk
-	ActorStatValues:
-		Damage: 60
 	WithIdleOverlay@Wind:
 		Image: flywave
 		Sequence: idle
@@ -1647,6 +1651,9 @@ WASP:
 		RequiresCondition: airborne
 		Palette: apcyan
 		IsDecoration: true ## so this doesn't have shadow
+	ActorStatValues:
+		Damage: 60
+		SplitRanges: true
 
 FIREFLY:
 	Inherits: ^CombatHelicopter
