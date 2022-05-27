@@ -87,7 +87,10 @@ FiendShard2:
 		Shadow: true
 		LaunchAngle: 60
 		Palette: greentiberium
-		-ContrailLength:
+		ContrailLength: 10
+		ContrailColor: 7EFF0188
+		ContrailEndColor: 7EFF0144
+		ContrailWidth: 0c28
 		-TrailImage:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1500
@@ -116,6 +119,9 @@ FiendShardAA:
 		Sequences: idle
 		IsPlayerPalette: false
 		Palette: greentiberium
+		ContrailLength: 10
+		ContrailColor: 7EFF01
+		ContrailWidth: 0c28
 		-Inaccuracy:
 		-TrailImage:
 		-JetImage:
@@ -148,6 +154,10 @@ FiendShard2Blue:
 	Inherits: FiendShard2
 	Projectile: BulletAS
 		Palette: bluetiberium
+		ContrailLength: 10
+		ContrailColor: 5980FF88
+		ContrailEndColor: 5980FF44
+		ContrailWidth: 0c28
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: jascbluealpha
 
@@ -155,6 +165,9 @@ FiendShardBlueAA:
 	Inherits: FiendShardAA
 	Projectile: MissileTA
 		Palette: bluetiberium
+		ContrailLength: 10
+		ContrailColor: 5980FF
+		ContrailWidth: 0c28
 	Warhead@op: FireRadius
 		Weapon: FiendShardBlueAAEffect
 
@@ -867,7 +880,7 @@ WeasaurusSpit:
 			Building: 100
 			Defense: 100
 			Heavy: 100
-			Concrete: 15
+			Concrete: 35
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
 	Warhead@3Eff: CreateEffect
