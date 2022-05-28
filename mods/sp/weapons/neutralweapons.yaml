@@ -624,14 +624,14 @@ FairyElevator:
 		ImpactActors: false
 
 CloudDamage:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^AcidWarhead
 	ReloadDelay: 10
 	Projectile: InstantExplode
 	Warhead@1Dam: SpreadDamage
 		Spread: 196
 		Damage: 500
 		DamageTypes: TiberiumDeath
+		InvalidTargets: Building, Defence, Wall
 		Versus:
 			Building: 0
 			Defense: 0
-			Concrete: 0
