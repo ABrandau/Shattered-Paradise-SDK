@@ -574,19 +574,36 @@ CIVHELI:
 	Inherits@SHAPE: ^Helipad
 	Tooltip:
 		Name: Civilian Helipad
+	TooltipDescription:
+		Description: Rearms and repairs aircraft.
+		RequiresCondition: multiqueue
+	TooltipDescription@2:
+		Description: Produces, rearms and repairs aircraft.
+		RequiresCondition: !multiqueue
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Health:
-		HP: 20000
-	-WithColoredOverlay@EMPDISABLE:
-	-TimedConditionBar@EMPDISABLE:
-	-WithIdleOverlay@EMPDISABLE:
-	-ExternalCondition@empdisable:
+		HP: 50000
+	RepairsUnits:
+		HpPerStep: 2000
+		ValuePercentage: 0
+		Interval: 48
+		StartRepairingNotification: Repairing
+		StartRepairingTextNotification: Repairing.
+		FinishRepairingNotification: UnitRepaired
+		FinishRepairingTextNotification: Unit repaired.
+	-Production:
+	-ProductionQueue@Air:
+	-ProductionBar@Air:
+	-Power:
 	RenderSprites:
 		PlayerPalette: playerunittem
 	WithIdleOverlay:
 		Sequence: flag
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 
 ### Tech Units
 LPST:
