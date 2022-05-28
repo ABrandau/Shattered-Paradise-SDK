@@ -297,7 +297,8 @@ TickLaser:
 	Inherits: ^FullDamage
 	ReloadDelay: 70
 	Range: 7c0
-	Report: lastur1.aud
+	Report: vticwe2a.wav, vticwe2b.wav, vticwe2c.wav, vticwe2d.wav, vticwe2e.wav
+	SoundVolume: 3
 	Projectile: LaserZap
 		TrackTarget: false
 		Duration: 15
@@ -314,6 +315,11 @@ TickLaser:
 	Warhead@1Dam: SpreadDamage
 		Damage: 5000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+	Warhead@2Eff: CreateEffect
+		ImpactSounds: vtichia.wav, vtichib.wav, vtichic.wav, vtichid.wav, vtichie.wav, vtichif.wav, vtichig.wav, vtichih.wav
+		ValidTargets: Ground, Water, Air
+		ImpactActors: false
+		AirThreshold: 8c0
 
 HologramTickLaser:
 	Inherits: TickLaser
