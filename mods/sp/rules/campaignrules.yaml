@@ -29,7 +29,7 @@ NEUTRALFABRICATOR:
 	Inherits@3: ^7CellVision
 	Inherits@4: ^EngineerCapturableVehicle
 	Tooltip:
-		Name: Packed up Fabricator
+		Name: Packed Up Fabricator
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Mobile:
@@ -41,6 +41,7 @@ NEUTRALFABRICATOR:
 	Transforms:
 		IntoActor: neutralfabricatordep
 		Facing: 888
+		PauseOnCondition: empdisable
 	WithFacingSpriteBody:
 		Sequence: vehicle
 	Selectable:
@@ -68,6 +69,7 @@ NEUTRALFABRICATORDEP:
 		IntoActor: neutralfabricator
 		Facing: 888
 		DeployCursor: undeploy
+		PauseOnCondition: empdisable
 	TransformsIntoMobile:
 		RequiresCondition: !Building-Buildup && Campaign
 		Locomotor: InfantryCrusherVehicle

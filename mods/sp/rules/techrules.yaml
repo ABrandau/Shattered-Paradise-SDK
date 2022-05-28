@@ -11,10 +11,10 @@ CAHOSP:
 		Dimensions: 3, 4
 	Health:
 		HP: 100000
-	ProvidesPrerequisite@BuildingName:
 	WithIdleOverlay:
 		Sequence: flag
 	ProvidesPrerequisite@buildingname:
+		RequiresCondition: !empdisable
 	IsometricSelectable:
 		DecorationHeight: 48
 	ActorStatValues:
@@ -37,12 +37,14 @@ WELL:
 	CashTrickler:
 		Interval: 400
 		Amount: 50
+		PauseOnCondition: empdisable
 		RequiresCondition: enabled
 	Health:
 		HP: 100000
 	WithIdleOverlay:
 		Sequence: anim
 		Palette: effect
+		PauseOnCondition: empdisable
 	Explodes:
 		Weapon: TiberiumExplosion
 	SmokeParticleEmitter@spawnsmoke:
@@ -134,6 +136,7 @@ MACHINESHOP:
 		HP: 100000
 	RenderSprites:
 	ProvidesPrerequisite@buildingname:
+		RequiresCondition: !empdisable
 	IsometricSelectable:
 		DecorationHeight: 36
 	ActorStatValues:
@@ -241,7 +244,12 @@ NEUTRALRADAR:
 	RenderSprites:
 	RevealsShroud:
 		Range: 18c0
+		RequiresCondition: !empdisable
+	RevealsShroud:
+		Range: 5c0
+		RequiresCondition: empdisable
 	ProvidesRadar:
+		RequiresCondition: !empdisable
 	IsometricSelectable:
 		DecorationHeight: 48
 	ActorStatValues:
@@ -263,11 +271,13 @@ NEUTRALPOWERPLANT:
 		HP: 150000
 	Power:
 		Amount: 200
+		RequiresCondition: !empdisable
 	RenderSprites:
 	GivesBuildableArea:
 		AreaTypes: building
 	BaseProvider:
 		Range: 10c0
+		PauseOnCondition: empdisable
 	RequiresBuildableArea:
 		AreaTypes: building
 	Explodes:
@@ -338,6 +348,7 @@ SCRINREINFPAD:
 		ChargeDuration: 3000
 		ShowSelectionBar: true
 		ChargeColor: FF00FF
+		PauseOnCondition: empdisable
 		RequiresCondition: enabled && BuildStuffGDI
 	PeriodicProducer@NOD:
 		Actors: ttnk
@@ -345,6 +356,7 @@ SCRINREINFPAD:
 		ChargeDuration: 3000
 		ShowSelectionBar: true
 		ChargeColor: FF00FF
+		PauseOnCondition: empdisable
 		RequiresCondition: enabled && BuildStuffNOD
 	PeriodicProducer@mut:
 		Actors: lynx
@@ -352,6 +364,7 @@ SCRINREINFPAD:
 		ChargeDuration: 3000
 		ShowSelectionBar: true
 		ChargeColor: FF00FF
+		PauseOnCondition: empdisable
 		RequiresCondition: enabled && BuildStuffMUT
 	PeriodicProducer@cab:
 		Actors: reapercab
@@ -359,6 +372,7 @@ SCRINREINFPAD:
 		ChargeDuration: 3000
 		ShowSelectionBar: true
 		ChargeColor: FF00FF
+		PauseOnCondition: empdisable
 		RequiresCondition: enabled && BuildStuffCAB
 	PeriodicProducer@scr:
 		Actors: scrmbt
@@ -366,6 +380,7 @@ SCRINREINFPAD:
 		ChargeDuration: 3000
 		ShowSelectionBar: true
 		ChargeColor: FF00FF
+		PauseOnCondition: empdisable
 		RequiresCondition: enabled && BuildStuffSCR
 	GrantConditionOnCombatantOwner:
 		Condition: enabled
@@ -382,7 +397,6 @@ SCRINREINFPAD:
 NEUTRALSONICTUR:
 	Inherits: ^TechBuilding
 	Inherits@AUTOTARGET: ^AutoTargetGround
-	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@SHAPE: ^1x1Shape
 	Inherits@VISION: ^11CellVision
 	Tooltip:
@@ -417,7 +431,6 @@ NEUTRALSONICTUR:
 CABCANNON:
 	Inherits: ^TechBuilding
 	Inherits@AUTOTARGET: ^AutoTargetGround
-	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@RENDER: ^CabRender
 	Valued:
 		Cost: 500
@@ -446,7 +459,6 @@ CABCANNON:
 REPAIRTUR:
 	Inherits: ^TechBuilding
 	Inherits@AUTOTARGET: ^AutoTargetHeal
-	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@SHAPE: ^2x2Shape
 	Valued:
 		Cost: 1400
@@ -567,6 +579,10 @@ CIVHELI:
 		Dimensions: 2,2
 	Health:
 		HP: 20000
+	-WithColoredOverlay@EMPDISABLE:
+	-TimedConditionBar@EMPDISABLE:
+	-WithIdleOverlay@EMPDISABLE:
+	-ExternalCondition@empdisable:
 	RenderSprites:
 		PlayerPalette: playerunittem
 	WithIdleOverlay:
@@ -784,6 +800,7 @@ MTAR:
 		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@TURBINES:
 		Sequence: idle-turbines
+		PauseOnCondition: empdisable
 		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@BIB:
 		Sequence: bib
