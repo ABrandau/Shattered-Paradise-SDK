@@ -942,6 +942,8 @@ FOUNTAINBLOOD:
 
 AMMOCRAT:
 	Inherits: ^CivBuilding
+	Buildable:
+		Queue: Defense.Tech
 	Tooltip:
 		Name: Ammo Crates
 	Building:
@@ -1464,9 +1466,6 @@ CAARMR:
 		HP: 120000
 	ProvidesPrerequisite:
 		Prerequisite: ArmoryExpBuff
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 
 FLAGNOD:
 	Inherits: CACRSH01
@@ -2204,9 +2203,6 @@ GASPOT:
 	RenderSprites:
 	IsometricSelectable:
 		DecorationHeight: 60
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 
 RADIOTOWER:
 	Inherits: ^CivBuilding
@@ -2669,6 +2665,8 @@ NAMNTK:
 NTPYRA:
 	Inherits: ^CivBuilding
 	Inherits@shape: ^4x4Shape
+	Buildable:
+		Queue: Building.Tech
 	Tooltip:
 		Name: Nod Pyramid
 	Building:
@@ -2690,9 +2688,6 @@ NTPYRA:
 		Modifier: 0
 	IsometricSelectable:
 		DecorationHeight: 60
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 
 NTPYRA.koth:
 	Inherits: ^TechBuilding
@@ -2840,10 +2835,8 @@ TDADVGTWR:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
 	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
-		SplitRanges: true
 		Damage: 50
+		SplitRanges: true
 
 ADVHQ:
 	Inherits: ^Radar
@@ -2883,9 +2876,6 @@ ADVHQ:
 	-SpawnActorsOnSell@cab:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 
 TDADVPP:
 	Inherits: ^Powerplant
@@ -2914,9 +2904,6 @@ TDADVPP:
 	RenderSprites:
 		FactionImages:
 			nod: tdadvpp.nod
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 
 TDAIRSTRIP:
 	Inherits: ^Factory
@@ -2955,9 +2942,6 @@ TDAIRSTRIP:
 	-SpawnActorsOnSell@cab:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 
 TDBARR:
 	Inherits: ^Barracks
@@ -3027,9 +3011,6 @@ TDBARR:
 	-SpawnActorsOnSell@cab:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 
 TDGTWR:
 	Inherits: ^Defence
@@ -3061,8 +3042,6 @@ TDGTWR:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
 	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 		Damage: 40
 
 TDNHAND:
@@ -3135,9 +3114,6 @@ TDNHAND:
 	-SpawnActorsOnSell@cab:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 
 TDNTPL:
 	Inherits: ^Building
@@ -3165,9 +3141,6 @@ TDNTPL:
 	-SpawnActorsOnSell@cab:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 
 TDHELIPAD:
 	Inherits: ^Helipad
@@ -3198,9 +3171,6 @@ TDHELIPAD:
 	RenderSprites:
 		FactionImages:
 			nod: tdhelipad.nod
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 
 TDNTUR:
 	Inherits: ^TurretedDefence
@@ -3226,8 +3196,6 @@ TDNTUR:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
 	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 		Damage: 70
 
 TDOBELISK:
@@ -3277,8 +3245,6 @@ TDOBELISK:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
 	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 		Damage: 300
 
 TDREFINERY:
@@ -3322,9 +3288,6 @@ TDREFINERY:
 	RenderSprites:
 		FactionImages:
 			nod: tdrefinery.nod
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 
 TDREPD:
 	Inherits: GADEPT
@@ -3362,9 +3325,6 @@ TDREPD:
 			nod: tdrepd.nod
 			mut: tdrepd
 			cab: tdrepd
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 
 TDSAMSITE:
 	Inherits: ^TurretedDefence
@@ -3402,8 +3362,6 @@ TDSAMSITE:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
 	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 		Damage: 50
 
 TDPP:
@@ -3441,9 +3399,6 @@ TDPP:
 	RenderSprites:
 		FactionImages:
 			nod: tdpp.nod
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 
 TDSILO:
 	Inherits: ^Building
@@ -3498,9 +3453,6 @@ TDSILO:
 	RenderSprites:
 		FactionImages:
 			nod: tdsilo.nod
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 
 TDWF:
 	Inherits: ^Factory
@@ -3541,9 +3493,6 @@ TDWF:
 	-SpawnActorsOnSell@cab:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 
 ###################################################
 # -------TIBERIAN DAWN BUILDINGS
