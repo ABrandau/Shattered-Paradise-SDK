@@ -1502,6 +1502,7 @@ FLAGNEUTRAL:
 		PlayerPalette: unittemremapplayer
 	Tooltip:
 		Name: Flag
+	-Buildable:
 	-WithColoredOverlay@EMPDISABLE:
 	-TimedConditionBar@EMPDISABLE:
 	-WithIdleOverlay@EMPDISABLE:
@@ -2189,8 +2190,11 @@ GASPOT:
 		Range: 6c0
 		MaxHeightDelta: 3
 	WithIdleOverlay@LIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup
 		Sequence: idle-lights-bright
 		Palette: bright
+	WithMakeAnimation:
+		Condition: Building-Buildup
 	Armament:
 		Weapon: LightTowerClaxon
 		PauseOnCondition: empdisable
@@ -2703,6 +2707,7 @@ NTPYRA.koth:
 	GrantConditionOnPrerequisite@koth:
 		Condition: koth
 		Prerequisites: global-koth
+	-Buildable:
 	-Targetable:
 	-WithColoredOverlay@EMPDISABLE:
 	-TimedConditionBar@EMPDISABLE:
@@ -2806,6 +2811,8 @@ MUSTABLE:
 TDADVGTWR:
 	Inherits: ^TurretedDefence
 	Inherits@AA: ^AntiAir
+	Buildable:
+		Queue: Defense.Tech
 	Tooltip:
 		Name: Advanced Guard Tower
 	BodyOrientation:
@@ -2813,13 +2820,11 @@ TDADVGTWR:
 	Armament:
 		Weapon: HoverMissile
 		LocalOffset: 500,200,2800, 500,-200,2800
-		PauseOnCondition: empdisable
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup || empdisable
 	Armament@AA:
 		Weapon: HoverMissileAA
 		LocalOffset: 500,200,2800, 500,-200,2800
-		PauseOnCondition: empdisable
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup || empdisable
 	RenderSprites:
 	-Capturable:
 	-CapturableProgressBar:
@@ -2837,10 +2842,14 @@ TDADVGTWR:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
+		SplitRanges: true
+		Damage: 50
 
 ADVHQ:
 	Inherits: ^Radar
 	Inherits@SHAPE: ^3x3Shape
+	Buildable:
+		Queue: Building.Tech
 	ProvidesPrerequisite:
 		Prerequisite: radar
 	Building:
@@ -2881,6 +2890,8 @@ ADVHQ:
 TDADVPP:
 	Inherits: ^Powerplant
 	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Building.Tech
 	Tooltip:
 		Name: Advanced Power Plant
 	Building:
@@ -2910,6 +2921,8 @@ TDADVPP:
 TDAIRSTRIP:
 	Inherits: ^Factory
 	Inherits@SHAPE: ^3x6Shape
+	Buildable:
+		Queue: Building.Tech
 	Tooltip:
 		Name: Airstrip
 	ProvidesPrerequisite@ShowLightbringer:
@@ -2949,6 +2962,8 @@ TDAIRSTRIP:
 TDBARR:
 	Inherits: ^Barracks
 	Inherits@SHAPE: ^3x3Shape
+	Buildable:
+		Queue: Building.Tech
 	Tooltip:
 		Name: Barracks
 	Building:
@@ -3018,21 +3033,21 @@ TDBARR:
 
 TDGTWR:
 	Inherits: ^Defence
+	Buildable:
+		Queue: Defense.Tech
 	Tooltip:
 		Name: Guard Tower
 	Armament:
 		Weapon: WolverineVulcan
-		PauseOnCondition: empdisable
+		PauseOnCondition: Building-Buildup || empdisable
 	Armament@1Casing:
 		Weapon: WolverineVulcanCasing
-		PauseOnCondition: empdisable
 		LocalOffset: 0,-275,1300, 0,275,1300
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup || empdisable
 	Armament@2Bullet:
 		Weapon: WolverineVulcanLine
-		PauseOnCondition: empdisable
 		LocalOffset: 0,-275,1300, 0,275,1300
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup || empdisable
 	AttackOmni:
 	-Capturable:
 	-CapturableProgressBar:
@@ -3048,10 +3063,13 @@ TDGTWR:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
+		Damage: 40
 
 TDNHAND:
 	Inherits: ^Barracks
 	Inherits@SHAPE: ^3x2Shape
+	Buildable:
+		Queue: Building.Tech
 	Tooltip:
 		Name: Hand of Nod
 	Building:
@@ -3124,6 +3142,8 @@ TDNHAND:
 TDNTPL:
 	Inherits: ^Building
 	Inherits@SHAPE: ^6x6Shape
+	Buildable:
+		Queue: Building.Tech
 	Tooltip:
 		Name: Temple of Nod
 	-Capturable:
@@ -3152,6 +3172,8 @@ TDNTPL:
 TDHELIPAD:
 	Inherits: ^Helipad
 	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Building.Tech
 	Tooltip:
 		Name: Helipad
 	Valued:
@@ -3182,6 +3204,8 @@ TDHELIPAD:
 
 TDNTUR:
 	Inherits: ^TurretedDefence
+	Buildable:
+		Queue: Defense.Tech
 	Tooltip:
 		Name: Gun Turret
 	BodyOrientation:
@@ -3189,8 +3213,7 @@ TDNTUR:
 	Armament:
 		Weapon: Titan120mm
 		LocalOffset: 800,0,500
-		PauseOnCondition: empdisable
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup || empdisable
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
@@ -3205,11 +3228,14 @@ TDNTUR:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
+		Damage: 70
 
 TDOBELISK:
 	Inherits: ^Defence
 	Inherits@DETECTION: ^TowerStealthDetection
 	Inherits@SHAPE: ^1x1Shape
+	Buildable:
+		Queue: Defense.Tech
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -3225,9 +3251,8 @@ TDOBELISK:
 		LocalOffset: 190,-190,3800
 		MuzzleSequence: muzzle
 		MuzzlePalette: obelpal
-		RequiresCondition: !Building-Buildup
 	AttackCharges:
-		PauseOnCondition: empdisable || disabled
+		PauseOnCondition: Building-Buildup || empdisable || disabled
 		ChargeLevel: 40
 		ChargingCondition: charging
 	AmbientSound:
@@ -3254,9 +3279,12 @@ TDOBELISK:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
+		Damage: 300
 
 TDREFINERY:
 	Inherits: ^FlippedXRefinery
+	Buildable:
+		Queue: Building.Tech
 	Building:
 		Footprint: xxx xxx X+X +++
 	WithIdleOverlay@anim:
@@ -3305,7 +3333,8 @@ TDREPD:
 	WithRepairOverlay@PLATFORM:
 		Sequence: anima
 		RequiresCondition: !Building-Buildup
-	-Buildable:
+	Buildable:
+		Queue: Building.Tech
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
@@ -3341,6 +3370,8 @@ TDSAMSITE:
 	Inherits: ^TurretedDefence
 	Inherits@AA: ^AntiAir
 	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Defense.Tech
 	Tooltip:
 		Name: SAM Site
 	Building:
@@ -3349,8 +3380,7 @@ TDSAMSITE:
 	Armament@AA:
 		Weapon: HoverMissileAA
 		LocalOffset: 1200,200,2000, 1200,-200,2000
-		PauseOnCondition: empdisable
-		RequiresCondition: !Building-Buildup
+		PauseOnCondition: Building-Buildup || empdisable
 	-AttackTurreted:
 	AttackPopupTurreted:
 		CloseDelay: 50
@@ -3374,10 +3404,13 @@ TDSAMSITE:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
+		Damage: 50
 
 TDPP:
 	Inherits: ^Powerplant
 	Inherits@SHAPE: ^2x3Shape
+	Buildable:
+		Queue: Building.Tech
 	Tooltip:
 		Name: Power Plant
 	Valued:
@@ -3415,6 +3448,8 @@ TDPP:
 TDSILO:
 	Inherits: ^Building
 	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Defense.Tech
 	Valued:
 		Cost: 200
 	Tooltip:
@@ -3470,6 +3505,8 @@ TDSILO:
 TDWF:
 	Inherits: ^Factory
 	Inherits@SHAPE: ^4x4Shape
+	Buildable:
+		Queue: Building.Tech
 	Tooltip:
 		Name: Weapons Factory
 	ProvidesPrerequisite@ShowMammMkII:

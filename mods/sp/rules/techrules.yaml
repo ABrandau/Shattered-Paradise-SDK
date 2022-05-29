@@ -146,9 +146,10 @@ MACHINESHOP:
 BLOODDERRICK:
 	Inherits: ^CivBuilding
 	Inherits@RENDER: ^ScrinRender
-	# Inherits@SELECTION: ^SelectableBuilding
 	Inherits@SHAPE: ^3x3Shape
-	# -Interactable:
+	Buildable:
+		Queue: Building.Tech
+		BuildPaletteOrder: 20
 	Tooltip:
 		Name: Tiberian Crab Nest
 	TooltipDescription:
@@ -399,8 +400,10 @@ NEUTRALSONICTUR:
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@SHAPE: ^1x1Shape
 	Inherits@VISION: ^11CellVision
+	Buildable:
+		Queue: Defense.Tech
 	Tooltip:
-		Name: Tech Shockwave Turret
+		Name: Shockwave Turret
 	TooltipDescription:
 		Description: Damages units in a straight line.
 	Building:
@@ -424,14 +427,14 @@ NEUTRALSONICTUR:
 		PauseOnCondition: empdisable
 		LocalOffset: 1500,0, 0
 	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 		Damage: 75
 
 CABCANNON:
 	Inherits: ^TechBuilding
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@RENDER: ^CabRender
+	Buildable:
+		Queue: Defense.Tech
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -445,21 +448,26 @@ CABCANNON:
 		QuantizedFacings: 32
 	WithMuzzleOverlay:
 	Turreted:
-		TurnSpeed: 12
+		TurnSpeed: 16
+		RealignDelay: -1
 	WithSpriteTurret:
 	AttackTurreted:
 		PauseOnCondition: empdisable
 	Armament:
 		Weapon: CTurretCannon
-		LocalOffset: 650,0,550
+		LocalOffset: 750,0,650
 		MuzzleSequence: muzzle
 	RequiresBuildableArea:
 		AreaTypes: building
+	ActorStatValues:
+		Damage: 25
 
 REPAIRTUR:
 	Inherits: ^TechBuilding
 	Inherits@AUTOTARGET: ^AutoTargetHeal
 	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Defense.Tech
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -477,30 +485,41 @@ REPAIRTUR:
 		Width: 2
 	Turreted:
 		TurnSpeed: 12
+		RealignDelay: -1
 	WithSpriteTurret:
 	AttackTurreted:
 		PauseOnCondition: empdisable
 	Armament:
 		Weapon: RepairNeutralTurret
+		Cursor: repair
+		OutsideRangeCursor: repair
 		LocalOffset: 512,0,512
 		TargetRelationships: Ally
 		ForceTargetRelationships: None
 	Armament@1:
 		Weapon: RepairNeutralTurret
+		Cursor: repair
+		OutsideRangeCursor: repair
 		LocalOffset: 512,0,512
 		TargetRelationships: Ally
 		ForceTargetRelationships: None
 		FireDelay: 5
 	Armament@2:
 		Weapon: RepairNeutralTurret
+		Cursor: repair
+		OutsideRangeCursor: repair
 		LocalOffset: 512,0,512
 		TargetRelationships: Ally
 		ForceTargetRelationships: None
 		FireDelay: 10
+	ActorStatValues:
+		Damage: -150
 
 BLUETIBBARREL:
 	Inherits: ^CivBuilding
 	Inherits@SHAPE: ^1x1Shape
+	Buildable:
+		Queue: Defense.Tech
 	Building:
 		Footprint: x
 		Dimensions: 1,1
@@ -546,6 +565,8 @@ BLUETIBBARREL6:
 FUELTOWER:
 	Inherits: ^CivBuilding
 	Inherits@SHAPE: ^1x1Shape
+	Buildable:
+		Queue: Defense.Tech
 	Building:
 		Footprint: x
 		Dimensions: 1,1
@@ -597,6 +618,7 @@ CIVHELI:
 	-ProductionQueue@Air:
 	-ProductionBar@Air:
 	-Power:
+	-WithMakeAnimation:
 	RenderSprites:
 		PlayerPalette: playerunittem
 	WithIdleOverlay:
@@ -790,6 +812,7 @@ MTAR:
 	Inherits: ^TechBuilding
 	Inherits@2: ^Factory
 	Inherits@AIbuilding: ^AIbuildingMicroControl
+	-Buildable:
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -860,3 +883,49 @@ GAARTY:
 		LocalOffset: 0,0,-512
 	WithVoxelTurret:
 	WithMuzzleOverlay:
+
+TACNST:
+	Inherits: GACNST
+	Tooltip:
+		Name: Tech Construction Yard
+		Description: Builds tech structures.
+	Buildable:
+		BuildPaletteOrder: 1001
+	-Transforms:
+	-TransformsIntoMobile:
+	-TransformsIntoRepairable:
+	-TransformsIntoPassenger:
+	-Production@Shared:
+	Production:
+		Produces: Building.Tech, Defense.Tech
+		-RequiresCondition:
+	ProductionQueue@Building:
+		Type: Building.Tech
+	ProductionQueue@Defense:
+		Type: Defense.Tech
+	-ProductionBar@Building.Shared:
+	ProductionBar@Building:
+		ProductionType: Building.Tech
+	-ProductionBar@Defense.Shared:
+	ProductionBar@Defense:
+		ProductionType: Defense.Tech
+	WithIdleOverlay@TOP:
+		-RequiresCondition:
+		Sequence: idle-screen
+		Palette: player
+	-WithIdleOverlay@TOP-BRIGHT:
+	WithIdleOverlay@SIDE:
+		-RequiresCondition:
+		Sequence: idle-lights
+	WithIdleOverlay@FRONT:
+		-RequiresCondition:
+		Sequence: idle-lights2
+		Palette: player
+	-WithIdleOverlay@FRONT-BRIGHT:
+	-WithMakeAnimation:
+	-WithMakeOverlay@MAKE-BRIGHT:
+	-WithBuildingPlacedOverlay:
+	IsometricSelectable:
+		DecorationHeight: 60
+	RenderSprites:
+		Image: core

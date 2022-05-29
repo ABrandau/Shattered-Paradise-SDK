@@ -1520,6 +1520,48 @@ gate_b.cab:
 	Inherits: gate_b.nod
 	icon: cabgate1icon
 
+core:
+	Inherits: ^EmpOverlay
+	Defaults:
+		UseTilesetCode: false
+		Offset: 0, -36, 36
+	idle:
+		ShadowStart: 3
+	damaged-idle:
+		Start: 1
+		ShadowStart: 4
+	dead:
+		Start: 2
+		ShadowStart: 5
+		Tick: 400
+	idle-screen: core_a
+		Length: 60
+		Tick: 120
+	damaged-idle-screen: core_a
+		Start: 60
+		Length: 60
+		Tick: 120
+	idle-lights: core_b
+		Length: 20
+		ShadowStart: 40
+		Tick: 120
+	damaged-idle-lights: core_b
+		Start: 20
+		Length: 20
+		ShadowStart: 60
+		Tick: 120
+	idle-lights2: core_c
+		Length: 30
+		ShadowStart: 60
+		Tick: 120
+	damaged-idle-lights2: core_c
+		Start: 30
+		Length: 30
+		ShadowStart: 90
+		Tick: 120
+	icon: cabcoreicon
+		Offset: 0, 0
+
 coredefender:
 	Inherits: ^EmpOverlay
 	Defaults:
