@@ -534,57 +534,57 @@ blackBlast:
 		AirThreshold: 8c0
 
 AnhTripodLaser:
-	Inherits: ^FullDamage
-	ReloadDelay: 33
-	Burst: 3
-	BurstDelays: 13
+	FirstBurstTargetOffset: -700,-328,0
+	FollowingBurstTargetOffset: 150,0,0
+	ReloadDelay: 95
 	Range: 7c0
-	Report: triplasor0000.wav, triplasor0001.wav, triplasor0002.wav
+	Burst: 10
+	BurstDelays: 1
 	Projectile: LaserZap
 		TrackTarget: false
-		Duration: 11
+		Duration: 2
 		Width: 24
 		ZOffset: 3048
 		Color: FF44FF
 		SecondaryBeam: true
 		SecondaryBeamWidth: 96
 		SecondaryBeamZOffset: 3047
-		SecondaryBeamColor: 5588FF88
+		SecondaryBeamColor: 5588FFAA
 		HitAnim: explosion
-		HitAnimSequence: tripodlaserflare
-		HitAnimPalette: scrinenergystuffs
-	Warhead@1Dam: SpreadDamage
-		Spread: 0c181
-		Damage: 4000
-		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
+		HitAnimSequence: lazerflare
+		HitAnimPalette: appurp
+
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
+	Warhead@1Eff_impact: CreateEffect
+		Explosions: laserburntscr
+		ExplosionPalette: effect
+	Warhead@1Dam: TargetDamage
 
-AnhTripodLaserCharged:
+AnhTripodLaser2:
 	Inherits: AnhTripodLaser
-	Projectile: LaserZap
-		TrackTarget: false
-		Duration: 11
-		Width: 96
-		ZOffset: 3047
-		Color: 00FF0084
-		SecondaryBeam: true
-		SecondaryBeamWidth: 22
-		SecondaryBeamZOffset: 3048
-		SecondaryBeamColor: 96AAFF
-		HitAnim: explosion
-		HitAnimSequence: tripodlaserflare
-		HitAnimPalette: gradientgreen
+	FirstBurstTargetOffset: -700, 410,0
+	FollowingBurstTargetOffset: 150,0,0
+
+AnhTripodLaser3: # This one with true damage and sound
+	Inherits: AnhTripodLaser
+	Inherits: ^FullDamage
+	FirstBurstTargetOffset: -700,0,0
+	FollowingBurstTargetOffset: 150,0,0
+	StartBurstReport: triplasor0000.wav, triplasor0001.wav, triplasor0002.wav
 	Warhead@1Dam: SpreadDamage
-		Damage: 8000
-		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
-	Warhead@5Eff: CreateEffect
-		Explosions: cystalized1, cystalized2, cystalized3, cystalized4, cystalized5
-		ExplosionPalette: apgreen #greentiberium
-		ValidTargets: Ground, Air, Water
-		#InvalidTargets: Water
-		ImpactActors: false
+		Range: 0c512, 0c768, 1c0
+		Falloff: 100, 50, 25
+		Damage: 1400
+		Versus:
+			Infantry: 100
+			Building: 75
+			Defense: 50
+			Light: 75
+			Heavy: 50
+			Concrete: 30
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 
 AnhTripodAbsorb:
 	Range: 8c0
