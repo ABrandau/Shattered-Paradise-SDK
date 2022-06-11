@@ -1,3 +1,10 @@
+^APWarheadRailGunUpgraded:
+	Projectile: Railgun
+		BeamWidth: 48
+		ZOffset: 2047
+		BeamColor: FFDD33
+		HelixColor: FF8888
+
 MarineRifle:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
@@ -359,23 +366,10 @@ Titan120mm:
 
 TitanRailgun:
 	Inherits: Titan120mm
+	Inherits: ^APWarheadRailGunUpgraded
 	Report: vtitwe2a.wav, vtitwe2b.wav, vtitwe2c.wav, vtitwe2d.wav, vtitwe2e.wav, vtitwe2f.wav, vtitwe2g.wav, vtitwe2h.wav, vtitwe2i.wav
-	-Projectile:
-	Projectile: Railgun
-		DamageActorsInLine: false
-		BeamColor: 00BBBB
-		Duration: 20
-		BeamWidth: 75
-		HelixThickness: 36
-		HelixRadiusDeltaPerTick: 6
-		HelixColor: 44FFFF
-		HitAnim: explosion
-		HitAnimSequence: railgunexp
-		HitAnimPalette: effect
 	Warhead@1Dam: SpreadDamage
 		Damage: 9800
-	-Warhead@2Eff:
-	-Warhead@3EffWater:
 
 Titan120mmShellCasing:
 	Inherits: ^ShellCasing
@@ -598,24 +592,11 @@ SonicEmitterHitGDI:
 
 4TNKRAILGUN:
 	Inherits: 4TNKGUN
+	Inherits: ^APWarheadRailGunUpgraded
 	BurstDelays: 12
 	Report: vtitwe2a.wav, vtitwe2b.wav, vtitwe2c.wav, vtitwe2d.wav, vtitwe2e.wav, vtitwe2f.wav, vtitwe2g.wav, vtitwe2h.wav, vtitwe2i.wav
-	-Projectile:
-	Projectile: Railgun
-		DamageActorsInLine: false
-		BeamColor: 00BBBB
-		Duration: 20
-		BeamWidth: 75
-		HelixThickness: 36
-		HelixRadiusDeltaPerTick: 6
-		HelixColor: 44FFFF
-		HitAnim: explosion
-		HitAnimSequence: railgunexp
-		HitAnimPalette: effect
 	Warhead@1Dam: SpreadDamage
 		Damage: 9800
-	-Warhead@2Eff:
-	-Warhead@3EffWater:
 
 4TNKGUNShellCasing:
 	Inherits: ^ShellCasing

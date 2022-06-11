@@ -1161,18 +1161,18 @@ SCRDESTROYER:
 		Actor: SCRDESTROYER.Husk
 		RequiresCondition: airborne
 	Contrail@1:
-		RequiresCondition: airborne
+		RequiresCondition: airborne && hyperflight
 		Offset: -1300, -20, 660
 		Color: AA00FF80
 		UsePlayerColor: false
-		TrailLength: 8
+		TrailLength: 12
 		TrailWidth: 128
 	Contrail@2:
-		RequiresCondition: airborne
+		RequiresCondition: airborne && hyperflight
 		Offset: -1300, -20, 660
 		Color: 0000FF60
 		UsePlayerColor: false
-		TrailLength: 8
+		TrailLength: 12
 		TrailWidth: 40
 	ActorStatValues:
 		Upgrades: upgrade.disc_barrage, upgrade.hyper_flight_rotors
@@ -1228,18 +1228,18 @@ SCRTRANS:
 		Position: BottomLeft
 		RequiresSelection: true
 	Contrail@1:
-		RequiresCondition: airborne
+		RequiresCondition: airborne && hyperflight
 		Offset: -1600, -20, 100
 		Color: AA00FF80
 		UsePlayerColor: false
-		TrailLength: 8
+		TrailLength: 12
 		TrailWidth: 128
 	Contrail@2:
-		RequiresCondition: airborne
+		RequiresCondition: airborne && hyperflight
 		Offset: -1600, -20, 100
 		Color: 0000FF60
 		UsePlayerColor: false
-		TrailLength: 8
+		TrailLength: 12
 		TrailWidth: 40
 
 SCRCARRIER:
@@ -1305,18 +1305,18 @@ SCRCARRIER:
 		RequiresSelection: true
 		ValidRelationships: Ally, Neutral, Enemy
 	Contrail@1:
-		RequiresCondition: airborne
+		RequiresCondition: airborne && hyperflight
 		Offset: -1300, -20, 100
 		Color: AA00FF80
 		UsePlayerColor: false
-		TrailLength: 8
+		TrailLength: 12
 		TrailWidth: 128
 	Contrail@2:
-		RequiresCondition: airborne
+		RequiresCondition: airborne && hyperflight
 		Offset: -1300, -20, 100
 		Color: 0000FF60
 		UsePlayerColor: false
-		TrailLength: 8
+		TrailLength: 12
 		TrailWidth: 40
 	ActorStatValues:
 		Damage: 20
