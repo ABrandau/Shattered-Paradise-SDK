@@ -295,10 +295,13 @@ LtRail:
 		Duration: 20
 		Blockable: true
 		BeamWidth: 72
-		BeamColor: 9940EE
+		BeamColor: 00BBBB
 		HelixColor: 44FFFF
-		HelixThickness: 35
+		HelixThickness: 48
 		DamageActorsInLine: true
+		HitAnim: explosion
+		HitAnimSequence: railgunexp
+		HitAnimPalette: effect
 	Warhead@1Dam: SpreadDamage
 		Range: 0, 32
 		Falloff: 100, 100
@@ -316,7 +319,7 @@ LtRail:
 
 LtRailSmudge:
 	Inherits: ^WeaponGenericUpgrades
-	Inherits@2: ^Mediuml_Clsn
+	Inherits: ^Large_Clsn
 	ReloadDelay: 60
 	Range: 7c0
 	TargetActorCenter: true
