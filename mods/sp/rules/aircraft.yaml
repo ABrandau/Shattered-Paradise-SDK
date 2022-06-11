@@ -1136,20 +1136,29 @@ SCRDESTROYER:
 		Weapon: DestroyerCannon
 		Damage: 170
 		LocalOffset: 820, 0, 600
-		ReloadingCondition: charging
+		AmmoUsage: 4
 		RequiresCondition: !discbarrage
+		PauseOnCondition: !charged
 	Armament@2:
 		Weapon: DestroyerCannonBurst
 		Damage: 340
 		LocalOffset: 820, 0, 600
-		ReloadingCondition: charging
 		RequiresCondition: discbarrage
+		PauseOnCondition: !charged
 	WithIdleOverlay@Charged:
-		RequiresCondition: !charging
+		RequiresCondition: charged
 		Sequence: charged
 		Palette: pips
 		Offset: 820, 0, 600
 		IsDecoration: true ## so this doesn't affect by cloak palette
+	AmmoPool:
+		Ammo: 4
+		ReloadCount: 4
+		ReloadDelay: 210
+		AmmoCondition: charged
+	ReloadAmmoPool:
+		Count: 4
+		Delay: 200
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 40
@@ -1232,14 +1241,14 @@ SCRTRANS:
 		Offset: -1600, -20, 100
 		Color: AA00FF80
 		UsePlayerColor: false
-		TrailLength: 12
+		TrailLength: 7
 		TrailWidth: 128
 	Contrail@2:
 		RequiresCondition: airborne && hyperflight
 		Offset: -1600, -20, 100
 		Color: 0000FF60
 		UsePlayerColor: false
-		TrailLength: 12
+		TrailLength: 7
 		TrailWidth: 40
 
 SCRCARRIER:
