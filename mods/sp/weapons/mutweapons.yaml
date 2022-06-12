@@ -294,7 +294,7 @@ LtRail:
 	Projectile: Railgun
 		Duration: 20
 		Blockable: true
-		BeamWidth: 72
+		BeamWidth: 0
 		BeamColor: 00BBBB
 		HelixColor: 44FFFF
 		HelixThickness: 48
@@ -323,7 +323,19 @@ LtRailSmudge:
 	ReloadDelay: 60
 	Range: 7c0
 	TargetActorCenter: true
-	Projectile: InstantHit
+	Projectile: SpriteRailgun
+		BeamColor: 00BFCE
+		Duration: 13
+		BeamWidth: 81
+		QuantizationCount: 1
+		HelixRadius: 0
+		HelixPitch: 512
+		HelixAnim: railgunsparks
+		HelixAnimSequence: idle2
+		HelixAnimPalette: gensmkexplocyan
+		HitAnim: explosion
+		HitAnimSequence: railgunexp
+		HitAnimPalette: effect
 	Warhead@2Dam: SpreadDamage
 		Range: 0, 32
 		Falloff: 100, 100

@@ -2,8 +2,8 @@
 	Projectile: Railgun
 		BeamWidth: 48
 		ZOffset: 2047
-		BeamColor: 1ee98a
-		HelixColor: 1ee98a
+		BeamColor: 00BBCC
+		HelixColor: 44FFFF
 
 MarineRifle:
 	Inherits: ^RifleWarhead
@@ -372,7 +372,7 @@ TitanRailgun:
 		Damage: 9800
 	Warhead@2Eff: CreateEffect
 		Explosions: sparks, sparks2, sparks3
-		ExplosionPalette: apolcygn
+		ExplosionPalette: gensmkexplocyan
 
 Titan120mmShellCasing:
 	Inherits: ^ShellCasing
@@ -602,7 +602,7 @@ SonicEmitterHitGDI:
 		Damage: 9800
 	Warhead@2Eff: CreateEffect
 		Explosions: sparks, sparks2, sparks3
-		ExplosionPalette: apolcygn
+		ExplosionPalette: gensmkexplocyan
 
 4TNKGUNShellCasing:
 	Inherits: ^ShellCasing
@@ -651,7 +651,19 @@ MechRailgun: ##For hit effect
 	Burst: 2
 	BurstDelays: 10
 	Report: railuse5.aud
-	Projectile: InstantHit
+	Projectile: SpriteRailgun
+		BeamColor: 00BFCE
+		Duration: 13
+		BeamWidth: 81
+		QuantizationCount: 1
+		HelixRadius: 0
+		HelixPitch: 512
+		HelixAnim: railgunsparks
+		HelixAnimSequence: idle1
+		HelixAnimPalette: gensmkexplocyan
+		HitAnim: explosion
+		HitAnimSequence: railgunexp
+		HitAnimPalette: effect
 	-Warhead@2Eff:
 	Warhead@1Dam: SpreadDamage
 		Spread: 50
@@ -680,13 +692,10 @@ MechRailgun2:
 		DamageActorsInLine: true
 		BeamColor: 00BBBB
 		Duration: 20
-		BeamWidth: 100
+		BeamWidth: 0
 		HelixThickness: 48
 		HelixRadiusDeltaPerTick: 16
 		HelixColor: 44FFFF
-		HitAnim: explosion
-		HitAnimSequence: railgunexp
-		HitAnimPalette: effect
 	Warhead@1Dam: SpreadDamage
 		Range: 0, 32
 		Falloff: 100, 100
