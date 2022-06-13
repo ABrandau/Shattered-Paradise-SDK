@@ -2744,6 +2744,7 @@ LIMPED:
 	Inherits: ^HoverVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@LIMPETAA: ^AffectedByLimpetAATargeting
+	Inherits@TINTEDCELLS: ^DamagedByTintedCells
 	Inherits@VISION: ^6CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
@@ -2838,6 +2839,14 @@ LIMPED:
 		Name: deployed
 		Sequence: deployed
 		RequiresCondition: !undeployed
+	DamagedByTintedCells@Default:
+		RequiresCondition: deployed
+	DamagedByTintedCells@BlueRadiation:
+		RequiresCondition: deployed
+	DamagedByTintedCells@OrangeRadiation:
+		RequiresCondition: deployed
+	DamagedByTintedCells@Colossus:
+		RequiresCondition: deployed
 	### AI Control: make limped drone wander randomly and deploy when find enemy
 	Armament@AIAimOnly:
 		RequiresCondition: AImicroManage && !deployed

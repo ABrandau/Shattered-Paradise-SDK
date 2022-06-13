@@ -2081,7 +2081,7 @@ PDRONE:
 		Queue: Infantry.Shared, Infantry.CABAL
 		BuildPaletteOrder: 16
 		Prerequisites: ~cabclaw, ~techlevel.1
-		Description: Melee drone programmed to kill enemy infantry.\n\nSpecial:\n- Can only attack infantry\n- Turns killed infantry into worker cyborgs\n- Does not receive damage from tiberium fields\n- Crush class: crushable\n- Can cross water.
+		Description: Melee drone programmed to kill enemy infantry.\n\nSpecial:\n- Can only attack infantry\n- Turns killed infantry into worker cyborgs\n- Does not receive damage from tiberium fields\n- Crush class: crushable\n- Can cross water
 		BuildDuration: 75
 		BuildDurationModifier: 100
 	Selectable:
@@ -2140,6 +2140,10 @@ PDRONE:
 		EmptyWeapon: SimpleDroneExplode
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@conversionUpg:
+	-DamagedByTintedCells@Default:
+	-DamagedByTintedCells@BlueRadiation:
+	-DamagedByTintedCells@OrangeRadiation:
+	-DamagedByTintedCells@Colossus:
 	ActorStatValues:
 		Damage: 63
 		Upgrades: upgrade.reclaim_and_recycle, upgrade.regenerative_materials
@@ -2316,6 +2320,14 @@ MOTH:
 		Sequence: deployed
 		RequiresCondition: !undeployed && !inside-tunnel && !WebDisable
 	-WithInfantryBody:
+	DamagedByTintedCells@Default:
+		RequiresCondition: deployed
+	DamagedByTintedCells@BlueRadiation:
+		RequiresCondition: deployed
+	DamagedByTintedCells@OrangeRadiation:
+		RequiresCondition: deployed
+	DamagedByTintedCells@Colossus:
+		RequiresCondition: deployed
 	Armament@1:
 		Weapon: LurkerProj
 		PauseOnCondition: WebDisable || empdisable || !deployed
