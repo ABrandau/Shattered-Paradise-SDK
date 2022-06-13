@@ -461,6 +461,7 @@ G4TNK:
 HMEC:
 	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@APAMMO: ^AffectedByAPAmmunition
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -567,12 +568,21 @@ HMEC:
 		LocalOffset: 1200,-250,2650, 1200,250,2650
 		PauseOnCondition: empdisable
 		MuzzleSequence: muzzle2
+	-FirepowerMultiplier@APAMMUNITION:
 	Armament@gun:
 		Weapon: MKIIVulcan
 		Name: quaternary
 		Turret: quaternary
 		LocalOffset: 0,0,1400
 		PauseOnCondition: empdisable
+		RequiresCondition: !apammo
+	Armament@gunAP:
+		Weapon: MKIIVulcanAP
+		Name: quaternary
+		Turret: quaternary
+		LocalOffset: 0,0,1400
+		PauseOnCondition: empdisable
+		RequiresCondition: apammo
 	Armament@gunCasing:
 		Weapon: MKIIVulcanCasing
 		MuzzleSequence: muzzle
