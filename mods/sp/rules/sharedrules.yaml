@@ -301,9 +301,11 @@ GACNST:
 		RequiresForceMove: true
 	Production@Shared:
 		Produces: Building.Shared, Defense.Shared
+		PauseOnCondition: empdisable
 		RequiresCondition: !multiqueue
 	Production:
 		Produces: Building.GDI, Defense.GDI
+		PauseOnCondition: empdisable
 		RequiresCondition: multiqueue
 	ProductionQueue@Building:
 		Type: Building.GDI
@@ -474,9 +476,11 @@ GACNST:
 		ForceSetType: Infantry
 	Production@Shared:
 		Produces: Infantry.Shared
+		PauseOnCondition: empdisable
 		RequiresCondition: !multiqueue
 	Production:
 		Produces: Infantry
+		PauseOnCondition: empdisable
 		RequiresCondition: multiqueue
 	ProductionQueue@Infantry:
 		Type: Infantry
@@ -710,9 +714,11 @@ GACNST:
 		Prerequisite: factoryorair
 	Production@Shared:
 		Produces: Vehicle.Shared, Tank
+		PauseOnCondition: empdisable
 		RequiresCondition: !multiqueue
 	Production:
 		Produces: Vehicle
+		PauseOnCondition: empdisable
 		RequiresCondition: multiqueue
 	ProductionQueue@Vehicle:
 		Type: Vehicle
@@ -759,9 +765,11 @@ GACNST:
 		Cost: 1000
 	Production@Shared:
 		Produces: Air.Shared
+		PauseOnCondition: empdisable
 		RequiresCondition: !multiqueue
 	Production:
 		Produces: Air
+		PauseOnCondition: empdisable
 		RequiresCondition: multiqueue
 	ProductionQueue@Air:
 		Type: Air
