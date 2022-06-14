@@ -115,8 +115,11 @@ MMCH:
 		PauseOnCondition: empdisable
 		RequiresCondition: !railguns
 	Armament@Railgun:
+		Name: secondary
 		Weapon: TitanRailgun
 		Damage: 98
+		Recoil: 127
+		RecoilRecovery: 26
 		MuzzleSequence: muzzle2
 		LocalOffset: 800, 300, 900
 		PauseOnCondition: empdisable
@@ -129,7 +132,12 @@ MMCH:
 		RequiresCondition: !railguns
 	WithSpriteBarrel:
 		LocalOffset: 300, 250, 500
-		RequiresCondition: !inside-tunnel
+		Armament: primary
+		RequiresCondition: !inside-tunnel && !railguns
+	WithSpriteBarrel@Railguns:
+		LocalOffset: 300, 250, 500
+		Armament: secondary
+		RequiresCondition: !inside-tunnel && railguns
 	WithMuzzleOverlay:
 	Selectable:
 		Bounds: 903, 2533, 0, -1024
@@ -427,6 +435,8 @@ G4TNK:
 		Damage: 196
 		LocalOffset: 1150,120,550, 1150,-120,550
 		MuzzleSequence: muzzle2
+		Recoil: 127
+		RecoilRecovery: 26
 		PauseOnCondition: empdisable
 		RequiresCondition: railguns
 		MuzzlePalette: gensmkexplocyan
