@@ -789,7 +789,7 @@ WETP:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.Mutant
-		Description: Fast jet that throws a small tiberium bomb.\n\nGood vs: Ground Targets\nSpecial:\n- Can mutate killed enemy units\n- Moves at super-sonic speed when attacking\n- ignore all attack (except Mind Control) when at super-sonic speed
+		Description: Fast jet that throws a small tiberium bomb.\n\nGood vs: Ground Targets\nSpecial:\n- Can mutate killed enemy units\n- Moves at super-sonic speed when attacking\n- ignore all attack (except Mind Control) when at super-sonic speed\n - Moves at half speed for 5 seconds after attacking
 		BuildPaletteOrder: 25
 		Prerequisites: ~muair, muhall, ~techlevel.5
 		BuildDuration: 1125
@@ -864,6 +864,12 @@ WETP:
 	SpeedMultiplier@Supersonic:
 		RequiresCondition: ammo && attacking
 		Modifier: 300
+	SpeedMultiplier@Slowdown:
+		RequiresCondition: attacked
+		Modifier: 50
+	GrantConditionOnAttack:
+		Condition: attacked
+		RevokeDelay: 125
 	HitShape:
 		RequiresCondition: !ammo || !attacking
 	HitShape@supersonic:
