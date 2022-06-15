@@ -1101,7 +1101,7 @@ ATTACKBIKE:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@TIBCORE: ^AffectedByTibCoreMissiles
-	Inherits@VISION: ^7CellVision
+	Inherits@VISION: ^8CellVision
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1191,7 +1191,7 @@ TTNK:
 	Voiced:
 		VoiceSet: TickTank
 	Mobile:
-		TurnSpeed: 64
+		TurnSpeed: 32
 		Speed: 90
 		Locomotor: InfantryCrusherVehicle
 		PauseOnCondition: empdisable
@@ -2162,7 +2162,7 @@ WOLF:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 30
-		Description: Tiberium beast that uses tiberium acid to harm nearby units.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Attacks reduce target's attack and movement speed by 35%\n- Can attack enemy ahead while moving\n- Can mutate killed units\n- E.M.P. Immune\n- Wild mind: only controlled by MasterMind
+		Description: Tiberium beast that uses tiberium acid to harm nearby units.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Attacks reduce target's attack and movement speed by 35%\n- Can attack enemy ahead while moving\n- Can mutate killed units\n- E.M.P. Immune
 		Prerequisites: ~muweap, muradr, ~techlevel.4
 		BuildDuration: 375
 		BuildDurationModifier: 100
@@ -2271,7 +2271,7 @@ DEATHCLAW:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 41
-		Description: Melee beast from the outer redzones that brings death with its claws.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Has Selfheal\n- E.M.P. Immune\n- Wild mind: only controlled by MasterMind
+		Description: Melee beast from the outer redzones that brings death with its claws.\n\nGood vs: Ground Targets\n\nSpecial:\n- Heals on Tiberium\n- Has Selfheal\n- E.M.P. Immune\n- Slows enemy units with it's attack
 		Prerequisites: ~muweap, muhall, ~techlevel.5
 		BuildDuration: 875
 		BuildDurationModifier: 100
@@ -2308,7 +2308,7 @@ HVRTRUK3:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@RENDER: ^MutRender
 	Valued:
-		Cost: 3500
+		Cost: 4000
 	Tooltip:
 		Name: Demo Truck
 	UpdatesPlayerStatistics:
@@ -2319,7 +2319,7 @@ HVRTRUK3:
 		Description: A hovering demolition truck with a oneway ticket.\n\nGood vs: Everything\n\nSpecial:\n- Demolishes almost everything nearby upon detonation\n- Hovers (it ignores terrain like Veins and Water)\n- Cannot enter Tunnel Networks
 		BuildPaletteOrder: 42
 		Prerequisites: ~muweap, muhall, ~techlevel.5
-		BuildDuration: 1500
+		BuildDuration: 2000
 		BuildDurationModifier: 100
 	Voiced:
 		VoiceSet: DemoTruck
@@ -3671,7 +3671,7 @@ TRIPOD:
 	Inherits@VISION: ^8CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
-		Cost: 1600
+		Cost: 1750
 	Tooltip:
 		Name: Annihilator Tripod
 	UpdatesPlayerStatistics:
@@ -3685,7 +3685,7 @@ TRIPOD:
 		Prerequisites: ~scrweap, scrtech, ~techlevel.5
 		Description: Advanced walker.\n\n  Good vs Ground\n\nSpecial: \n- Absorbs essence from killed units to heal\n- Can shoot over walls\n- Can crush infantry
 		IconPalette: chromescrin
-		BuildDuration: 1000
+		BuildDuration: 1125
 		BuildDurationModifier: 100
 	Mobile:
 		TurnSpeed: 32

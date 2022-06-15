@@ -585,6 +585,13 @@ DevourerGrinder:
 	Warhead@Shake: ShakeScreen
 		Intensity: 1
 		Duration: 10
+	Warhead@emp: GrantExternalCondition
+		Range: 1c0
+		Duration: 45
+		Condition: Slowdown50pp
+		ValidRelationships: Enemy, Neutral
+		ValidTargets: Infantry, Vehicle
+		InvalidTargets: Building, Defence
 	Warhead@2Eff: CreateEffect
 		Explosions: cabspark
 		ExplosionPalette: apolra2
@@ -600,7 +607,7 @@ BasiliskBomb:
 	Report: rketinf1.aud
 	ValidTargets: Ground, Water
 	Projectile: BulletAS
-		Speed: 180
+		Speed: 600
 		Blockable: false
 		Shadow: false
 		LaunchAngle: 62
@@ -614,9 +621,10 @@ BasiliskBomb:
 		Spread: 250
 		Damage: 5000
 		Versus:
-			Infantry: 500
-			Building: 25
+			Infantry: 150
+			Building: 50
 			Defense: 25
+			Light: 75
 			Heavy: 25
 			Concrete: 15
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath
@@ -723,8 +731,8 @@ BlasterProton:
 		Spread: 500
 		Damage: 6000
 		Versus:
-			Building: 50
-			Defense: 50
+			Building: 75
+			Defense: 75
 			Heavy: 100
 		ValidTargets: Ground, Water, Vehicle, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath

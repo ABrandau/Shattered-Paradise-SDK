@@ -193,6 +193,7 @@ BikeMissile:
 	InvalidTargets: Air
 	Projectile: MissileTA
 		Inaccuracy: 128
+		RangeLimit: 13c0
 	Warhead@1Dam: SpreadDamage
 		InvalidTargets: Air
 		Damage: 2500
@@ -204,7 +205,7 @@ BikeMissileAA:
 	Inherits@1: ^AARocketWarhead
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
-	Range: 7c0
+	Range: 8c0
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
@@ -276,7 +277,7 @@ Tick90mm:
 	Inherits: ^APWarhead
 	Inherits@2: ^Mediuml_Clsn
 	ReloadDelay: 70
-	Range: 7c0
+	Range: 6c0
 	Report: 120mmf.aud
 	Projectile: BulletAS
 		Speed: 800
@@ -293,12 +294,12 @@ HologramTick90mm:
 Tick90mmShellCasing:
 	Inherits: ^ShellCasing
 	ReloadDelay: 70
-	Range: 7c0
+	Range: 6c0
 
 TickLaser:
 	Inherits: ^FullDamage
 	ReloadDelay: 70
-	Range: 7c0
+	Range: 6c0
 	Report: vticwe2a.wav, vticwe2b.wav, vticwe2c.wav, vticwe2d.wav, vticwe2e.wav
 	SoundVolume: 3
 	Projectile: LaserZap
@@ -315,6 +316,7 @@ TickLaser:
 		HitAnimSequence: smalldimlaserflare
 		HitAnimPalette: jascredalpha
 	Warhead@1Dam: SpreadDamage
+		Spread: 0c064
 		Damage: 5000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 	Warhead@2Eff: CreateEffect
@@ -490,7 +492,7 @@ HarpyClaw:
 		Versus:
 			Infantry: 250
 			Building: 100
-			Light: 30
+			Light: 50
 
 HarpyClawAA:
 	Inherits: ^FullDamage
@@ -810,20 +812,20 @@ AvatarLazer:
 		ExplosionPalette: jascredalpha
 
 RageEmitter:
-	ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+	ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
 	ReloadDelay: 7700
 	Range: 0c100
 	Projectile: InstantExplode
 	Warhead@2Eff: CreateEffect
 		Explosions: rageflash4
 		ExplosionPalette: jascredalpha
-		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
 		ImpactActors: false
 	Warhead@debuff1: GrantExternalCondition
 		Range: 10c0
 		Duration: 125
 		Condition: chaos
-		ValidTargets: Infantry, Vehicle, Ground, Water, Defence, Air
+		ValidTargets: Infantry, Vehicle, Ground, Water, Defence
 		ValidRelationships: Neutral, Enemy
 
 LightbringerFlame:

@@ -98,8 +98,6 @@ MEDIC:
 	Inherits@AUTOTARGET: ^AutoTargetHeal
 	Inherits@VISION: ^5CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
-	Valued:
-		Cost: 200
 	Tooltip:
 		Name: Medic
 	UpdatesPlayerStatistics:
@@ -109,8 +107,10 @@ MEDIC:
 		BuildPaletteOrder: 15
 		Description: Support infantry capable of healing other infantry.\n\n  Unarmed
 		Prerequisites: ~gapile, ~techlevel.1
-		BuildDuration: 200
+		BuildDuration: 175
 		BuildDurationModifier: 100
+	Valued:
+		Cost: 200
 	Voiced:
 		VoiceSet: Medic
 	Mobile:
@@ -146,7 +146,7 @@ E2:
 		BuildPaletteOrder: 17
 		Prerequisites: ~gapile, garadr, ~techlevel.4
 		Description: Infantry armed with special explosive discs.\n\nGood vs: Infantry, Structures.\n\nSpecial:\n- Can throw over walls\n- Crush class: crushable
-		BuildDuration: 200
+		BuildDuration: 175
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 200
@@ -650,6 +650,8 @@ CRUSADER:
 		AddToArmyValue: true
 	Health:
 		HP: 10000
+	Mobile:
+		Speed: 75
 	Armament@1:
 		Weapon: CrusaderBazooka
 		LocalOffset: 0,0,600
@@ -1057,7 +1059,7 @@ MUTFIEND:
 	Valued:
 		Cost: 250
 	Health:
-		HP: 10000
+		HP: 12000
 	Mobile:
 		Speed: 90
 		Locomotor: TibFiends
@@ -1423,7 +1425,7 @@ SHARK:
 	Health:
 		HP: 6400
 	Mobile:
-		Speed: 85
+		Speed: 90
 		Voice: Move
 	SpawnActorOnDeath@conversion:
 		Actor: chusk
@@ -1471,7 +1473,7 @@ LEGIO:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 12000
+		HP: 15000
 	Passenger:
 		CustomPipType: blue
 	TakeCover:
@@ -1880,7 +1882,7 @@ CABSENTRY:
 		InitialStance: AttackAnything
 	-Armor:
 	Armor@2:
-		Type: Infantry
+		Type: Light
 	RenderSprites:
 	AttackFrontal:
 		Voice: Attack
@@ -1985,7 +1987,7 @@ CBORG:
 	Inherits@RENDER: ^CabRender
 	Inherits@VISION: ^6CellVision
 	Valued:
-		Cost: 350
+		Cost: 400
 	Tooltip:
 		Name: Missile Cyborg
 	UpdatesPlayerStatistics:
