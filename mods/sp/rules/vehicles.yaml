@@ -3360,16 +3360,14 @@ SCRMBT:
 		MuzzleSequence: muzzle
 		MuzzlePalette: appurp
 		ReloadingCondition: reload1
-		PauseOnCondition: empdisable || reload2
-		RequiresCondition: !charged
+		PauseOnCondition: empdisable || charged || reload2
 	Armament@charged:
 		Weapon: ScrMbtLasorCharged
 		LocalOffset: 250,0,900
 		MuzzlePalette: apgreen
 		MuzzleSequence: muzzle
 		ReloadingCondition: reload2
-		PauseOnCondition: empdisable || reload1
-		RequiresCondition: charged
+		PauseOnCondition: empdisable || !charged || reload1
 	WithMuzzleOverlay:
 	AttackTurreted:
 		PauseOnCondition: empdisable
