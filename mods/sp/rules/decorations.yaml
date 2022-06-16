@@ -374,6 +374,7 @@ POWERLINE:
 	Health:
 		HP: 5000
 	-BlocksProjectiles:
+	-SoundOnDamageTransition:
 	Armor:
 		Type: Building
 	Crushable:
@@ -388,13 +389,14 @@ POWERLINE:
 		RequiresCondition: powerlineexploding && !powerlinepost
 	ExternalCondition@powerlineexploding:
 		Condition: powerlineexploding
-	Explodes@UnitExplode:
-		EmptyWeapon: UnitExplode
-		Weapon: UnitExplode
-		RequiresCondition: powerlinepost
 	Explodes@powerlinepost:
+		EmptyWeapon: PowerlineExplosionBase
+		Weapon: PowerlineExplosionBase
+		RequiresCondition: powerlinepost
+	Explodes@powerline:
 		EmptyWeapon: PowerlineExplosion
 		Weapon: PowerlineExplosion
+		RequiresCondition: !powerlinepost
 	RenderSprites:
 		Palette: isotem
 

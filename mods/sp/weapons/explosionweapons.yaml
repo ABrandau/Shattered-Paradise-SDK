@@ -765,26 +765,33 @@ VisceroidExplode:
 		ExplosionPalette: effect
 		ImpactSounds: ssplash3.aud
 
-PowerlineExplosion:
+PowerlineExplosionBase:
+	Inherits: ^Medium_Brnl
 	ValidTargets: Wall, Ground, PowerLine
-	Warhead@PowerlineExplosion: GrantExternalCondition
+	Warhead@1Con: GrantExternalCondition
 		Range: 1c0
 		Duration: 650
 		Condition: powerlineexploding
 		ValidTargets: Wall, Ground, PowerLine
-	Warhead@4: GrantExternalCondition
+	Warhead@2Con: GrantExternalCondition
 		Range: 1c0
 		Duration: 125
 		Condition: empdisable
 		ValidTargets: Vehicle, Building
-	Warhead@5: CreateEffect
-		Explosions: powerlinexplosion
+	Warhead@2Eff: CreateEffect
 		ImpactSounds: voltautofire.wav
+		Volume: 2.5
 		ValidTargets: Ground, Air, Water
-		ExplosionPalette: effect
-	Warhead@6: LeaveSmudge
+	Warhead@3Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall, Air, Water
+
+PowerlineExplosion:
+	Inherits: PowerlineExplosionBase
+	Warhead@2Eff: CreateEffect
+		Explosions: powerlinexplosion
+		-ImpactSounds:
+		ExplosionPalette: effect
 
 DefenderExplosion:
 	Inherits: BuildingExplode
