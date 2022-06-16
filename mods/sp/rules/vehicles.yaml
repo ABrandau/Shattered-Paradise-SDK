@@ -1211,17 +1211,17 @@ TTNK:
 		MuzzleSequence: muzzle
 		ReloadingCondition: reload-undeployed
 		PauseOnCondition: empdisable || reload-deployed
-		RequiresCondition: !capacitors
+		RequiresCondition: !capacitors && !deployed
 	Armament@DEPLOYED:
 		Name: DeployedArm
 		Turret: deployed
 		Recoil: 0c128
-		Weapon: Tick90mm
+		Weapon: Tick90mmDeployed
 		LocalOffset: 256,-0,700
 		MuzzleSequence: muzzle
 		ReloadingCondition: reload-deployed
 		PauseOnCondition: empdisable || reload-undeployed
-		RequiresCondition: !capacitors
+		RequiresCondition: !capacitors && deployed
 	Armament@PRIMARYLaser:
 		Weapon: TickLaser
 		LocalOffset: 500,-0,500
@@ -1229,31 +1229,31 @@ TTNK:
 		MuzzlePalette: jascredalpha
 		ReloadingCondition: reload-undeployed
 		PauseOnCondition: empdisable || reload-deployed
-		RequiresCondition: capacitors
+		RequiresCondition: capacitors && !deployed
 	Armament@DEPLOYEDLaser:
 		Name: DeployedArm
 		Turret: deployed
-		Weapon: TickLaser
+		Weapon: TickLaserDeployed
 		LocalOffset: 786,-0,700
 		MuzzleSequence: muzzle2
 		MuzzlePalette: jascredalpha
 		ReloadingCondition: reload-deployed
 		PauseOnCondition: empdisable || reload-undeployed
-		RequiresCondition: capacitors
+		RequiresCondition: capacitors && deployed
 	Armament@CASINGPRIMARY:
 		Weapon: Tick90mmShellCasing
 		ReloadingCondition: reload-undeployed
 		PauseOnCondition: empdisable || reload-deployed
-		RequiresCondition: !capacitors
+		RequiresCondition: !capacitors && !deployed
 	Armament@CASINGDEPLOYED:
 		Name: DeployedArm
 		Turret: deployed
 		Recoil: 0c128
-		Weapon: Tick90mmShellCasing
+		Weapon: Tick90mmShellCasingDeployed
 		MuzzleSequence: muzzle
 		ReloadingCondition: reload-deployed
 		PauseOnCondition: empdisable || reload-undeployed
-		RequiresCondition: !capacitors
+		RequiresCondition: !capacitors && deployed
 	WithMuzzleOverlay:
 	WithMakeAnimation:
 		BodyNames: deployed

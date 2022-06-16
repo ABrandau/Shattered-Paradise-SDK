@@ -286,6 +286,10 @@ Tick90mm:
 		Damage: 5000
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
+Tick90mmDeployed:
+	Inherits: Tick90mm
+	Range: 7c0
+
 HologramTick90mm:
 	Inherits: Tick90mm
 	Warhead@1Dam: SpreadDamage
@@ -295,6 +299,10 @@ Tick90mmShellCasing:
 	Inherits: ^ShellCasing
 	ReloadDelay: 70
 	Range: 6c0
+
+Tick90mmShellCasingDeployed:
+	Inherits: Tick90mmShellCasing
+	Range: 7c0
 
 TickLaser:
 	Inherits: ^FullDamage
@@ -324,6 +332,10 @@ TickLaser:
 		ValidTargets: Ground, Water, Air
 		ImpactActors: false
 		AirThreshold: 8c0
+
+TickLaserDeployed:
+	Inherits: TickLaser
+	Range: 7c0
 
 HologramTickLaser:
 	Inherits: TickLaser
