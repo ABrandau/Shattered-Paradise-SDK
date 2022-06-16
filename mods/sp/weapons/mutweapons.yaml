@@ -64,12 +64,17 @@ SkirmisherMortar:
 
 SkirmisherMortarGas:
 	Inherits: SkirmisherMortar
+	Warhead@2Con: GrantExternalCondition
+		Range: 1c128
+		Duration: 300
+		Condition: TibGasPoison
+		ValidTargets: Infantry, Vehicle, Ground, Water
+		ValidRelationships: Enemy, Neutral
 	Warhead@5Smo: SpawnSmokeParticle
-		Weapon: CloudDamage
-		Count: 2
-		Duration: 95
-		Speed: 30
-		TurnRate: 24
+		Count: 1
+		Duration: 80
+		Speed: 15
+		TurnRate: 12
 		Image: tibcloud
 		Sequences: cloud2
 		Palette: effectalpha50
@@ -527,12 +532,17 @@ TiberianRocket:
 
 TiberianRocketGas:
 	Inherits: TiberianRocket
+	Warhead@2Con: GrantExternalCondition
+		Range: 1c640
+		Duration: 300
+		Condition: TibGasPoison
+		ValidTargets: Infantry, Vehicle, Ground, Water
+		ValidRelationships: Enemy, Neutral
 	Warhead@5Smo: SpawnSmokeParticle
-		Weapon: CloudDamage
 		Count: 1
-		Duration: 95
-		Speed: 30
-		TurnRate: 24
+		Duration: 70
+		Speed: 15
+		TurnRate: 12
 		Image: tibcloud
 		Sequences: cloud2
 		Palette: effectalpha50
@@ -808,12 +818,17 @@ FalconPunch:
 
 FalconPunchGas:
 	Inherits: FalconPunch
+	Warhead@2Con: GrantExternalCondition
+		Range: 2c512
+		Duration: 300
+		Condition: TibGasPoison
+		ValidTargets: Infantry, Vehicle, Ground, Water
+		ValidRelationships: Enemy, Neutral
 	Warhead@5Smo: SpawnSmokeParticle
-		Weapon: CloudDamage
 		Count: 10
-		Duration: 190
-		Speed: 30
-		TurnRate: 24
+		Duration: 160
+		Speed: 15
+		TurnRate: 12
 		Image: tibcloud
 		Sequences: cloud2
 		Palette: effectalpha50
