@@ -343,6 +343,9 @@ BUS:
 		Type: Light
 	RevealsShroud:
 		Range: 5c0
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 
 CAR2:
 	Inherits: ^CivilianSpriteVehicle
@@ -382,6 +385,9 @@ CARCAMION01:
 	Inherits: CAR2
 	Tooltip:
 		Name: Truck
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 
 CARCAMION02:
 	Inherits: CARCAMION01
@@ -401,13 +407,15 @@ CARBIGCAMION:
 	Inherits: CARCAMION01
 
 TRUCKOPEN:
-	Inherits: CARCAMION01
+	Inherits: CAR2
+	Tooltip:
+		Name: Truck
 
 TRUCKOPEN02:
-	Inherits: CARCAMION01
+	Inherits: TRUCKOPEN
 
 TRUCKOPENTIB:
-	Inherits: CARCAMION01
+	Inherits: TRUCKOPEN
 	RenderSprites:
 		Palette: unittemgreen
 
@@ -1419,6 +1427,8 @@ CA0021:
 CAARAY:
 	Inherits: ^CivBuilding
 	Inherits@shape: ^2x2Shape
+	Buildable:
+		Queue: Building.Tech
 	Tooltip:
 		Name: Civilian Array
 	Building:
@@ -2096,6 +2106,9 @@ WATERTOWER:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2, 2
+	Buildable:
+		Queue: Building.Tech
+		BuildPaletteOrder: 20
 	Armor:
 		Type: Building
 	Health:
@@ -2138,6 +2151,8 @@ GAOLDCC5:
 
 GAOLDCC6:
 	Inherits: ^OldBase
+	Buildable:
+		Queue: Defense.Tech
 	Tooltip:
 		Name: Old Silos
 	Building:
@@ -2146,9 +2161,8 @@ GAOLDCC6:
 GASAND:
 	Inherits: ^Wall
 	Buildable:
-		Queue: Defence
-		BuildPaletteOrder: 1000
-		Prerequisites: ~disabled
+		Queue: Defence.Tech
+		BuildPaletteOrder: 10
 		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
 	SoundOnDamageTransition:
 		DamagedSounds: sandbag1.aud
@@ -2206,6 +2220,8 @@ GASPOT:
 
 RADIOTOWER:
 	Inherits: ^CivBuilding
+	Buildable:
+		Queue: Building.Tech
 	Tooltip:
 		Name: Radio Tower
 	Health:
@@ -2219,6 +2235,8 @@ RADIOTOWER:
 
 SIGNALTOWER:
 	Inherits: RADIOTOWER
+	Buildable:
+		Queue: Building.Tech
 	Tooltip:
 		Name: Communications Tower
 	Health:
@@ -3014,6 +3032,7 @@ TDBARR:
 
 TDGTWR:
 	Inherits: ^Defence
+	Inherits@AUTOTARGET: ^AutoTargetGround
 	Buildable:
 		Queue: Defense.Tech
 	Tooltip:
@@ -3174,6 +3193,7 @@ TDHELIPAD:
 
 TDNTUR:
 	Inherits: ^TurretedDefence
+	Inherits@AUTOTARGET: ^AutoTargetGround
 	Buildable:
 		Queue: Defense.Tech
 	Tooltip:
@@ -3200,6 +3220,7 @@ TDNTUR:
 
 TDOBELISK:
 	Inherits: ^Defence
+	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@DETECTION: ^TowerStealthDetection
 	Inherits@SHAPE: ^1x1Shape
 	Buildable:
