@@ -834,25 +834,6 @@
 		Condition: CriticalDamaged
 		ValidDamageStates: Critical
 
-^TibGasPoison:
-	WithIdleOverlay@TibGasPoison:
-		Image: tibcloud
-		Sequence: cloud2small
-		Palette: effectalpha50
-		IsDecoration: true ## so this doesn't affect by cloak palette
-		RequiresCondition: TibGasPoison
-	ChangesHealth@TibGasPoison:
-		PercentageStep: -1
-		Step: 0
-		Delay: 20
-		StartIfBelow: 200
-		RequiresCondition: TibGasPoison && !CriticalDamaged
-	ExternalCondition@TibGasPoison:
-		Condition: TibGasPoison
-	GrantConditionOnDamageState@Critical:
-		Condition: CriticalDamaged
-		ValidDamageStates: Critical
-
 ^ToxinTrooperDebuff:
 	SpeedMultiplier@ToxinTrooperDebuff:
 		RequiresCondition: ToxinTrooperDebuff
@@ -1567,10 +1548,9 @@
 	Inherits@5: ^Chronoshiftable
 	Inherits@6: ^WebDisable
 	Inherits@7: ^BugPoison
-	Inherits@8: ^TibGasPoison
-	Inherits@9: ^DisplayVanguardShield
-	Inherits@10: ^DamagedByTintedCells
-	Inherits@11: ^WolfDebuff
+	Inherits@8: ^DisplayVanguardShield
+	Inherits@9: ^DamagedByTintedCells
+	Inherits@10: ^WolfDebuff
 	Inherits@12: ^BarracksHeal
 	Inherits@13: ^FullHealthRepairCondition
 	Inherits@14: ^Slowdown50pp
@@ -1597,15 +1577,14 @@
 	Inherits@2: ^DisplayWrench
 	Inherits@3: ^MachineShopHeal
 	Inherits@4: ^BugPoison
-	Inherits@5: ^TibGasPoison
-	Inherits@6: ^EmpDisableMobile
-	Inherits@7: ^SpawnSmoke
-	Inherits@8: ^MindControllable
-	Inherits@9: ^SpawnSpark
-	Inherits@10: ^DisplayVanguardShield
-	Inherits@11: ^VeinholePoisonVehicle
-	Inherits@12: ^DamagedByTintedCells
-	Inherits@13: ^WolfDebuff
+	Inherits@5: ^EmpDisableMobile
+	Inherits@6: ^SpawnSmoke
+	Inherits@7: ^MindControllable
+	Inherits@8: ^SpawnSpark
+	Inherits@9: ^DisplayVanguardShield
+	Inherits@10: ^VeinholePoisonVehicle
+	Inherits@11: ^DamagedByTintedCells
+	Inherits@12: ^WolfDebuff
 	Inherits@14: ^Chronoshiftable
 	Inherits@15: ^FullHealthRepairCondition
 	Inherits@16: ^ToxinTrooperDebuff
