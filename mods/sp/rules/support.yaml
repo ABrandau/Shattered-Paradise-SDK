@@ -804,13 +804,14 @@ GAPOWRUP:
 
 GAFIRE:
 	Inherits: ^Building
+	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
 	Inherits@SHAPE: ^3x2Shape
 	Inherits@AIaimingWeapon: ^AutoTargetAll
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Buildable:
 		Queue: Defense.Shared, Defense.GDI
 		BuildPaletteOrder: 41
-		Description: Generator that can generates a barrier around it to protect units.\n\nSpecial:\n- Increases damage resistance of nearby units by 30% when activated\n- Consumes 300 power when activated\n- Hostile units that try to cross the firestorm will be killed\n- Power loss does not stop this effect\n- Does not block incoming projectiles\n- Remains active for 12 seconds\n- Takes 60 seconds to charge
+		Description: Generator that can generates a barrier around it to protect units.\n\nSpecial:\n- Increases damage resistance of nearby units by 30% when activated\n- Hostile units that try to cross the firestorm will be killed\n- Does not block incoming projectiles\n- Remains active for 12 seconds\n- Takes 60 seconds to charge
 		Prerequisites: ~gacnst, gatech, ~techlevel.5
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -827,24 +828,21 @@ GAFIRE:
 		Color: 8888FFCC
 		BorderWidth: 0
 		Width: 2
-	Power@activated:
-		RequiresCondition: FirestormGen
-		Amount: -500
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: FirestormGen
 		CooldownTicks: 1500
 		StartsFullyCharged: false
 		DeployedTicks: 300
-		RequiresCondition: !empdisable
+		PauseOnCondition: (empdisable || disabled) && !FirestormGen
 	ProximityExternalCondition:
 		Condition: FirestormWallCondition
 		Range: 12c0
 		AffectsParent: false
-		RequiresCondition: FirestormGen && !Building-Buildup && !empdisable
+		RequiresCondition: FirestormGen && !Building-Buildup && !empdisable && !disabled
 	ExplodeWeapon@1:
 		Weapon: FirestormSpawner
 		ResetReloadWhenEnabled: false
-		RequiresCondition: FirestormGen && !empdisable
+		RequiresCondition: FirestormGen && !empdisable && !disabled
 	Health:
 		HP: 100000
 	WithIdleOverlay@lights:
@@ -862,17 +860,17 @@ GAFIRE:
 	WithIdleOverlay@firestormactived:
 		Image: explosion
 		Sequence: firestormactived
-		RequiresCondition: FirestormGen && !Building-Buildup && !empdisable
 		Palette: apolbluealpha
 		Offset: 80, 370, 0
 		IsDecoration: true ## so this doesn't affect by cloak palette
+		RequiresCondition: FirestormGen && !Building-Buildup && !empdisable && !disabled
 	Power:
 		Amount: -100
 	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
 	Armament@AIAimOnly:
-		RequiresCondition: AIbuildingMicroControl && !FirestormGen && !empdisable && !Building-Buildup
+		RequiresCondition: AIbuildingMicroControl && !FirestormGen && !empdisable && !disabled && !Building-Buildup
 		Weapon: FirestormAIAimingDummyWeapon
 	AttackOmni@AIAimOnly:
 		RequiresCondition: !Building-Buildup
