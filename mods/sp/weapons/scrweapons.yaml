@@ -476,62 +476,6 @@ foggydebuff:
 		Condition: Blind
 		ValidTargets: Infantry, Vehicle, Ground, Water
 
-blackBlastdec:
-	ReloadDelay: 80
-	Range: 7c0
-	Projectile: ElectricBolt
-		Width: 64
-		Duration: 7
-		Angle: 0
-		ZOffset: 7000
-		SegmentLength: 1024
-		Colors: 0000A988
-		Distortion: 288
-	Warhead@1Dam: TargetDamage
-		Damage: 0
-
-blackBlast:
-	Inherits: blackBlastdec
-	Inherits@1: ^RifleWarhead
-	Report: laserchaingunfire.wav
-	Projectile: ElectricBolt
-		Width: 80
-		Duration: 7
-		Angle: 0
-		ZOffset: 7000
-		SegmentLength: 1024
-		Colors: 0000AB99
-	Warhead@1Dam: SpreadDamage
-		Spread: 0c512
-		Damage: 25000
-		Versus:
-			Infantry: 100
-			Building: 75
-			Defense: 50
-			Light: 75
-			Heavy: 50
-			Concrete: 30
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: SmallScorch
-		InvalidTargets: Vehicle, Building, Wall
-	Warhead@2Eff: CreateEffect
-		Explosions: tripodshockwave
-		ExplosionPalette: jascbluealpha
-		ImpactActors: false
-		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-	Warhead@3Eff: CreateEffect
-		Explosions: tripodfire
-		ExplosionPalette: jascbluealpha
-		ImpactActors: false
-		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-		ImpactSounds: expnew14.aud, expnew19.aud, expnew18.aud
-	Warhead@4Eff: CreateEffect
-		Explosions: blackhole
-		ExplosionPalette: jascbluealpha
-		ImpactActors: false
-		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-		AirThreshold: 8c0
 
 AnhTripodLaser:
 	FirstBurstTargetOffset: -700,-328,0
@@ -798,7 +742,7 @@ Glyder2Cannon:
 		ImpactSounds: photon1.wav
 
 BattleshipCannon:
-	Inherits: ^FullDamage
+	Inherits: ^RifleWarhead
 	Inherits@2: ^Scrin_Explo
 	ReloadDelay: 25
 	Range: 5c768
@@ -864,6 +808,71 @@ BattleshipPlasma:
 		InvalidTargets: Air
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplopurple
+
+Blackholeblast:
+	Inherits: ^FullDamage
+	ReloadDelay: 80
+	Range: 5c768
+	Report: triplasor0000.wav, triplasor0001.wav, triplasor0002.wav
+	Projectile: ElectricBolt
+		TrackTarget: false
+		Width: 80
+		Duration: 8
+		Angle: 64
+		ZOffset: 7000
+		SegmentLength: 768
+		Distortion: 512
+		Colors: 0000AA99, 0000CCAA, 00008888
+		LaunchEffectImage: scrbattleship
+		LaunchEffectSequence: muzzle3
+		LaunchEffectPalette: jascbluealpha
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 80
+			VehicleArmor: 50
+			DefenseArmor: 50
+			ConcreteArmor: 30
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
+	Warhead@4Eff: CreateEffect
+		Explosions: blackhole
+		ExplosionPalette: jascbluealpha
+		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+	Warhead@later: FireFragment
+		Delay: 25
+		ImpactActors: false
+		Weapon: BlackholeblastFinal
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall
+
+
+BlackholeblastFinal:
+	Inherits: ^RifleWarhead
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 10000
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 80
+			VehicleArmor: 50
+			DefenseArmor: 50
+			ConcreteArmor: 30
+		DamageTypes: Prone60Percent, TriggerProne, FireDeath, ScrinEssenceKill
+	Warhead@2Eff: CreateEffect
+		Explosions: tripodshockwave
+		ExplosionPalette: jascbluealpha
+		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+	Warhead@3Eff: CreateEffect
+		Explosions: tripodfire
+		ExplosionPalette: jascblue
+		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+		ImpactSounds: expnew14.aud, expnew19.aud, expnew18.aud
 
 DestroyerCannon:
 	Inherits: ^ArtilleryWarhead
