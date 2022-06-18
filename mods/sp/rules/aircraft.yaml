@@ -1151,9 +1151,15 @@ SCRDESTROYER:
 		LocalOffset: 820, 0, 600
 		RequiresCondition: discbarrage
 		PauseOnCondition: !charged
-	WithIdleOverlay@Charged:
-		RequiresCondition: charged
-		Sequence: charged
+	WithIdleOverlay@ChargedF:
+		RequiresCondition: discbarrage && charged >= 3
+		Sequence: chargedfull
+		Palette: pips
+		Offset: 820, 0, 600
+		IsDecoration: true ## so this doesn't affect by cloak palette
+	WithIdleOverlay@ChargedH:
+		RequiresCondition:  charged && (!discbarrage || (discbarrage && charged <= 2))
+		Sequence: chargedhalf
 		Palette: pips
 		Offset: 820, 0, 600
 		IsDecoration: true ## so this doesn't affect by cloak palette
