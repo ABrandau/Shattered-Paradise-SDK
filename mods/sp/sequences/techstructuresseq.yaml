@@ -1,53 +1,66 @@
 well:
-	Inherits: ^EmpOverlay
-	idle: tibdrill_a
-		Length: 164
-		Offset: 0,0, 60
-		Tick: 60
+	Defaults:
+		Offset: Offset: 0, 0, 42
 		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+	idle: tibdrill_a
+		Length: 164      
+		Tick: 60        
 		ShadowStart: 330
+		UseTilesetCode: true         
 	damaged-idle: tibdrill_a
 		Start: 164
 		Length: 165
-		Offset: 0,0, 60
 		Tick: 60
 		ShadowStart: 494
 		UseTilesetCode: true
 	anim: tibdrill_b
 		Length: 164
-		Offset: 0,0, 60
 		Tick: 60
-		UseTilesetCode: false
+		UseTilesetCode: false       
 	damaged-anim: tibdrill_b
 		Start: 164
 		Length: 165
-		Offset: 0,0, 60
 		Tick: 60
 		UseTilesetCode: false
 	dead: tibdrill_a
-		Offset: 0,0, 60
 		UseTilesetCode: True
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 43
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		IgnoreWorldTint: True
 	icon: tibdrillicon
 		Offset: 0, 0
+		UseTilesetCode: false
 
 bloodderrick:
-	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: 0, -32, 60
+		Offset: 0, -32, 52
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle: derrickidle
 		Length: *
 		UseTilesetCode: false
 	dead: derrickidle
 		Length: *
 		UseTilesetCode: false
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 53
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		IgnoreWorldTint: True
 	icon: derrickicon
 		Offset: 0, 0
 
 neutralradar:
-	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: 0, -24, 60
+		Offset: 0, -24, 42
+		DepthSprite: isodepth.shp
 	idle:
 		Length: 26
 		Tick: 100
@@ -57,13 +70,20 @@ neutralradar:
 		Tick: 100
 	dead:
 		Start: 26
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 43
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		IgnoreWorldTint: True
 	icon: neutralradaricon
 		Offset: 0, 0
 
 neutralpowerplant:
-	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: 0, -36, 60
+		Offset: 0, -36, 42
+		DepthSprite: isodepth.shp        
 	idle:
 		ShadowStart: 2
 	damaged-idle:
@@ -72,13 +92,20 @@ neutralpowerplant:
 	dead:
 		Start: 1
 		ShadowStart: 3
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 37
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		IgnoreWorldTint: True
 	icon: neutralpowerplanticon
 		Offset: 0, 0
 
 scrinreinfpad:
-	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: 0, -36, 60
+		Offset: 0, -36, 42
+		DepthSprite: isodepth.shp        
 	idle:
 		ShadowStart: 12
 	dead:
@@ -102,12 +129,19 @@ scrinreinfpad:
 		Length: 8
 		Tick: 100
 		ZOffset: 2048
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 37
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		IgnoreWorldTint: True
 	icon: scrinreinfpadicon
 		Offset: 0, 0
 
 bluetibbarrel:
 	Defaults:
-		Offset: 0, -12, 48
+		Offset: 0, -12, 22
 		DepthSpriteOffset: 0, 0
 	idle:
 		ShadowStart: 6
@@ -156,7 +190,7 @@ bluetibbarrel6:
 
 fueltower:
 	Defaults:
-		Offset: 0, 0, 0
+		Offset: 0, 0, 18
 		DepthSpriteOffset: 0, 0
 	idle:
 		ShadowStart: 1
@@ -166,6 +200,7 @@ neutralsonictur:
 	Defaults:
 		Offset: 0, -12, 18
 		UseTilesetCode: false
+		DepthSprite: isodepth.shp
 	idle: dot
 	damaged-idle: dot
 	dead: dot
@@ -178,7 +213,7 @@ neutralsonictur:
 		ShadowStart: 96
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 13
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
@@ -187,10 +222,10 @@ neutralsonictur:
 
 cahosp:
 	Defaults:
+		Offset: 15, -36, 36
 		DepthSprite: isodepth.shp
 		DepthSpriteOffset: 15, 0
 		UseTilesetCode: true
-		Offset: 15, -36, 36
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -210,7 +245,7 @@ cahosp:
 		UseTilesetCode: false
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 37
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
@@ -220,10 +255,9 @@ cahosp:
 
 civheli:
 	Defaults:
-		DepthSprite: isodepth.shp
-		Offset: 0,12,0
+		Offset: 0, 12, 22
+		DepthSpriteOffset: 24, 0
 		UseTilesetCode: false
-		ZOffset: -1c511
 	idle:
 		ShadowStart: 2
 		ZOffset: -1c511

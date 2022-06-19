@@ -653,11 +653,11 @@ limped:
 		Length: 41
 		ShadowStart: 42
 		Tick: 20
-		Offset: 0, -12
+		Offset: 0, -12, 12
 	deployed: dlimpet
 		Facings: 1
 		ShadowStart: 3
-		Offset: 0, -12
+		Offset: 0, -12, 12
 	icon: cablimpicon
 
 cabapc:
@@ -780,12 +780,12 @@ devourer:
 		Stride: 30
 		Facings: 8
 		ZOffset: 1024
-		Offset: 0, 32, 32
+		Offset: 0, 32, 52
 	shoot:
 		Facings: 8
 		Length: 30
 		ZOffset: 1024
-		Offset: 0, 32, 32
+		Offset: 0, 32, 42
 	icon: devourericon
 
 basilisk:
@@ -799,7 +799,7 @@ basilisk:
 cabmcv:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: 0, -18, 24
+		Offset: 0, -18, 34
 	idle:
 		Facings: -16
 		ShadowStart: 341
@@ -822,7 +822,7 @@ cabmcv:
 cabyard:
 	Inherits: ^EmpOverlay
 	Defaults: cabmcv
-		Offset: 0, -18, 36
+		Offset: 0, -18, 46
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
 	idle:
@@ -909,7 +909,7 @@ cabclaw:
 
 cabproc:
 	Defaults: cabproc
-		Offset: -15, -42, 20
+		Offset: -12, -42, 20
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -922,26 +922,30 @@ cabproc:
 		Tick: 400
 	make:
 		Length: 29
+		Offset: -12, -42, 43
 		DepthSpriteOffset: -12, 0
 	flame: ntrefn_b
 		Length: *
+		IgnoreWorldTint: True
 	unload-overlay: narefn_a
 		Length: *
-		Offset: 24, -12
 		ZOffset: 1024
 	bib:
 		Start: 33
-		ZOffset: -9999
+		ZOffset: -1024
+		Offset: -12, -42, 1
 		ZRamp: 1
 		-DepthSprite:
 	damaged-bib:
 		Start: 35
-		ZOffset: -9999
+		ZOffset: -1024
+		Offset: -12, -42, 1
 		ZRamp: 1
 		-DepthSprite:
 	dead-bib:
 		Start: 35
-		ZOffset: -9999
+		ZOffset: -1024
+		Offset: -12, -42, 1
 		ZRamp: 1
 		-DepthSprite:
 	emp-overlay: emp_fx01
@@ -950,6 +954,7 @@ cabproc:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 		-DepthSprite:
 	icon: cabprocicon
 		Offset: 0, 0
@@ -971,27 +976,30 @@ cabproc2:
 		Tick: 400
 	make:
 		Length: 29
-		ShadowStart: 36
-		DepthSpriteOffset: -12, 0
+		Offset: 6, 36, 43
+		DepthSpriteOffset: 6, 0
 	flame: ntrefn_b
 		Length: *
+		IgnoreWorldTint: True
 	unload-overlay: narefn_a
 		Length: *
-		Offset: 24, -12
 		ZOffset: 1024
 	bib:
 		Start: 33
-		ZOffset: -9999
+		ZOffset: -1024
+		Offset: 6, 36, 1
 		ZRamp: 1
 		-DepthSprite:
 	damaged-bib:
 		Start: 35
-		ZOffset: -9999
+		ZOffset: -1024
+		Offset: 6, 36, 1
 		ZRamp: 1
 		-DepthSprite:
 	dead-bib:
 		Start: 35
-		ZOffset: -9999
+		ZOffset: -1024
+		Offset: 6, 36, 1
 		ZRamp: 1
 		-DepthSprite:
 	emp-overlay: emp_fx01
@@ -1000,6 +1008,7 @@ cabproc2:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 		-DepthSprite:
 	icon: cabprocicon
 		Offset: 0, 0
@@ -1021,27 +1030,30 @@ cabproc3:
 		Tick: 400
 	make:
 		Length: 29
-		ShadowStart: 36
+		Offset: 12, -42, 43
 		DepthSpriteOffset: -12, 0
 	flame: ntrefn_b
 		Length: *
+		IgnoreWorldTint: True
 	unload-overlay: narefn_a
 		Length: *
-		Offset: 24, -12
 		ZOffset: 1024
 	bib:
 		Start: 33
-		ZOffset: -9999
+		ZOffset: -1024
+		Offset: 12, -42, 1
 		ZRamp: 1
 		-DepthSprite:
 	damaged-bib:
 		Start: 35
-		ZOffset: -9999
+		ZOffset: -1024
+		Offset: 12, -42, 1
 		ZRamp: 1
 		-DepthSprite:
 	dead-bib:
 		Start: 35
-		ZOffset: -9999
+		ZOffset: -1024
+		Offset: 12, -42, 1
 		ZRamp: 1
 		-DepthSprite:
 	emp-overlay: emp_fx01
@@ -1050,6 +1062,7 @@ cabproc3:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 		-DepthSprite:
 	icon: cabprocicon
 		Offset: 0, 0
@@ -1071,27 +1084,30 @@ cabproc4:
 		Tick: 400
 	make:
 		Length: 29
-		ShadowStart: 36
+		Offset: 12, -42, 43
 		DepthSpriteOffset: -12, 0
 	flame: ntrefn_b
 		Length: *
+		IgnoreWorldTint: True
 	unload-overlay: narefn_a
 		Length: *
-		Offset: 24, -12
 		ZOffset: 1024
 	bib:
 		Start: 33
-		ZOffset: -9999
+		ZOffset: -1024
+		Offset: 12, -42, 1
 		ZRamp: 1
 		-DepthSprite:
 	damaged-bib:
 		Start: 35
-		ZOffset: -9999
+		ZOffset: -1024
+		Offset: 12, -42, 1
 		ZRamp: 1
 		-DepthSprite:
 	dead-bib:
 		Start: 35
-		ZOffset: -9999
+		ZOffset: -1024
+		Offset: 12, -42, 1
 		ZRamp: 1
 		-DepthSprite:
 	emp-overlay: emp_fx01
@@ -1100,6 +1116,7 @@ cabproc4:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+		IgnoreWorldTint: True
 		-DepthSprite:
 	icon: cabprocicon
 		Offset: 0, 0
@@ -1108,7 +1125,7 @@ cabproc4:
 
 cabobelisk:
 	Defaults:
-		Offset: 0, -24, 24
+		Offset: 0, -24, 34
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
 	idle:
@@ -1141,7 +1158,7 @@ cabobelisk:
 
 cabradr:
 	Defaults:
-		Offset: 0, -36, 36
+		Offset: 0, -36, 46
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
 	idle:
@@ -1172,7 +1189,7 @@ cabradr:
 
 cabweap:
 	Defaults:
-		Offset: -12, -42, 25
+		Offset: -12, -42, 52
 		DepthSpriteOffset: 32, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -1282,7 +1299,7 @@ cabair:
 
 cabtech:
 	Defaults:
-		Offset: -12, -30, 30
+		Offset: -12, -30, 40
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
 		DepthSpriteOffset: -12, 0
@@ -1339,7 +1356,7 @@ cabsentryturret:
 
 cabcannon:
 	Defaults:
-		Offset: 0, -12, 18
+		Offset: 0, -12, 28
 		UseTilesetCode: false
 	idle: dot
 	damaged-idle: dot
@@ -1477,7 +1494,7 @@ cabrail:
 
 cabeye:
 	Defaults:
-		Offset: 0, -24, 24
+		Offset: 0, -24, 34
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
 	idle:
@@ -1531,7 +1548,7 @@ cabsw1:
 
 nanomachineswarmdummy:
 	Defaults:
-		Offset: 0,-36
+		Offset: 0, -36, 40
 		ZRamp: 1
 		ZOffset: -5c512
 		UseTilesetCode: false
@@ -1613,7 +1630,7 @@ coredefender:
 	idle: defenderSP
 		Facings: -8
 		ShadowStart: 168
-		Offset: 0,-36, 0
+		Offset: 0,-36, 22
 	dead: defenderSP
 		Facings: -8
 		ShadowStart: 168
@@ -1625,7 +1642,7 @@ coredefender:
 	#	Facings: -8
 	#	ShadowStart: 240
 	#	Tick: 100
-	#	Offset: 0,-36, 0
+	#	Offset: 0,-36, 22
 	shoot2: defenderSP
 		Start: 79
 		Length: 4
@@ -1633,18 +1650,18 @@ coredefender:
 		Facings: -8
 		ShadowStart: 247
 		Tick: 100
-		Offset: 0,-36, 0
+		Offset: 0,-36, 22
 	stand: defenderSP
 		Facings: -8
 		ShadowStart: 168
-		Offset: 0,-36, 0
+		Offset: 0,-36, 22
 	run: defenderSP
 		Start: 8
 		Length: 8
 		Facings: -8
 		Tick: 100
 		ShadowStart: 176
-		Offset: 0,-36, 0
+		Offset: 0,-36, 22
 	muzzle1: lazerflare
 		Length: *
 		Offset: 0, 0, 0
@@ -1677,7 +1694,7 @@ coredefender:
 
 defd:
 	Defaults:
-		Offset: 1, -11, 24
+		Offset: 1, -11, 34
 		UseTilesetCode: false
 	idle:
 		ShadowStart: 3
@@ -1706,12 +1723,12 @@ cdef-black:
 	idle: cdef-black
 		Facings: -8
 		ShadowStart: 184
-		Offset: 0, -36, 0
+		Offset: 0, -36, 22
 	dead: cdef-black
 		Facings: -8
 		ShadowStart: 184
 		Tick: 60
-		Offset: 0,-36, 0
+		Offset: 0,-36, 22
 	shoot2: cdef-black
 		Start: 79
 		Length: 6
@@ -1719,18 +1736,18 @@ cdef-black:
 		Facings: -8
 		ShadowStart: 256
 		Tick: 100
-		Offset: 0, -36, 0
+		Offset: 0, -36, 22
 	stand: cdef-black
 		Facings: -8
 		ShadowStart: 184
-		Offset: 0, -36, 0
+		Offset: 0, -36, 22
 	run: cdef-black
 		Start: 8
 		Length: 8
 		Facings: -8
 		Tick: 100
 		ShadowStart: 192
-		Offset: 0, -36, 0
+		Offset: 0, -36, 22
 	muzzle1: lazerflare
 		Length: *
 		Offset: 0, 0, 0
@@ -1745,7 +1762,7 @@ cdef-black:
 
 blackdefd:
 	Defaults:
-		Offset: 1, -11, 24
+		Offset: 1, -11, 34
 		UseTilesetCode: false
 	idle:
 		Start: 23

@@ -1,4 +1,3 @@
-
 e2:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
@@ -317,8 +316,9 @@ ammocrat:
 	idle: ammo01
 		DepthSprite: isodepth.shp
 		ShadowStart: 2
-		Offset: 0, -12, 12
+		Offset: 0, -12, 22
 	icon: ammocraticon
+		-DepthSprite:
 
 ^abanbase:
 	Defaults:
@@ -332,41 +332,41 @@ ammocrat:
 ^aban1x1:
 	Inherits: ^abanbase
 	Defaults:
-		Offset: 0, -12, 12
+		Offset: 0, -12, 22
 
 ^aban2x2:
 	Inherits: ^abanbase
 	Defaults:
-		Offset: 0, -24, 24
+		Offset: 0, -24, 34
 
 ^aban2x5:
 	Inherits: ^abanbase
 	Defaults:
-		Offset: 36, -42, 42
+		Offset: 36, -42, 52
 		DepthSpriteOffset: 24, 0
 
 ^aban2x6:
 	Inherits: ^abanbase
 	Defaults:
-		Offset: 48, -48, 48
+		Offset: 48, -48, 58
 		DepthSpriteOffset: 36, 0
 
 ^aban3x2:
 	Inherits: ^abanbase
 	Defaults:
-		Offset: -12, -30, 30
+		Offset: -12, -30, 40
 		DepthSpriteOffset: -12, 0
 
 ^aban4x2:
 	Inherits: ^abanbase
 	Defaults:
-		Offset: -24, -36, 36
+		Offset: -24, -36, 46
 		DepthSpriteOffset: -24, 0
 
 ^aban5x3:
 	Inherits: ^abanbase
 	Defaults:
-		Offset: -24, -48, 48
+		Offset: -24, -48, 58
 		DepthSpriteOffset: -24, 0
 
 aban01:
@@ -396,7 +396,7 @@ aban08:
 aban09:
 	Inherits: ^aban2x2
 	Defaults:
-		Offset: 2, -20, 24
+		Offset: 2, -20, 34
 
 aban10:
 	Inherits: ^aban2x2
@@ -404,12 +404,12 @@ aban10:
 aban11:
 	Inherits: ^aban2x2
 	Defaults:
-		Offset: 0, -20, 24
+		Offset: 0, -20, 34
 
 aban12:
 	Inherits: ^aban2x2
 	Defaults:
-		Offset: 2, -22, 24
+		Offset: 2, -22, 34
 
 aban13:
 	Inherits: ^aban1x1
@@ -434,12 +434,16 @@ aban18:
 	Inherits: ^aban1x1
 
 streetsigns:
+	Defaults:
+		Offset: 0, 0, 6 
 	idle:
 	turret:
 		Facings: 32
 		ShadowStart: 40
 
 streetsigns2:
+	Defaults:
+		Offset: 0, 0, 6 
 	idle: streetsigns
 	turret: streetsigns
 		Start: 32
@@ -447,6 +451,8 @@ streetsigns2:
 		ShadowStart: 72
 
 trafficlights:
+	Defaults:
+		Offset: 0, 0, 6
 	idle:
 	turret:
 		Facings: 4
@@ -458,7 +464,7 @@ trafficlights:
 
 tiberumbillboard:
 	Defaults:
-		Offset: -24, -24, 24
+		Offset: -24, -24, 34
 	idle:
 		ShadowStart: 2
 	damaged-idle:
@@ -542,6 +548,7 @@ bboard16:
 
 billboardwater:
 	Defaults:
+		Offset: 0, 0, 6
 	idle:
 		ShadowStart: 2
 	damaged-idle:
@@ -550,6 +557,7 @@ billboardwater:
 
 billboardtibbux:
 	Defaults:
+		Offset: 0, 0, 6
 	idle:
 		ShadowStart: 2
 	damaged-idle:
@@ -558,6 +566,8 @@ billboardtibbux:
 
 fountain:
 	Defaults:
+		DepthSprite: isodepth.shp
+		Offset: 0, 0, 34
 	idle:
 		ShadowStart: 2
 	damaged-idle:
@@ -592,40 +602,40 @@ fountainblood:
 ^ca1x1:
 	Inherits: ^cabase
 	Defaults:
-		Offset: 0, -12, 12
+		Offset: 0, -12, 22
 		UseTilesetCode: true
 
 ^ca1x2:
 	Inherits: ^cabase
 	Defaults:
-		Offset: 12, -18, 18
+		Offset: 12, -18, 28
 		DepthSpriteOffset: 12, 0
 		UseTilesetCode: true
 
 ^ca2x1:
 	Inherits: ^cabase
 	Defaults:
-		Offset: -12, -18, 18
+		Offset: -12, -18, 28
 		DepthSpriteOffset: -12, 0
 		UseTilesetCode: true
 
 ^ca2x3:
 	Inherits: ^cabase
 	Defaults:
-		Offset: 12, -30, 30
+		Offset: 12, -30, 40
 		DepthSpriteOffset: 12, 0
 		UseTilesetCode: true
 
 ^ca3x3:
 	Inherits: ^cabase
 	Defaults:
-		Offset: 0, -36, 36
+		Offset: 0, -36, 46
 		UseTilesetCode: true
 
 ^ca2x2:
 	Inherits: ^cabase
 	Defaults:
-		Offset: 0, -24, 24
+		Offset: 0, -24, 34
 		UseTilesetCode: true
 
 ca0001:
@@ -694,7 +704,7 @@ ca0021:
 caarmr:
 	Defaults:
 		DepthSprite: isodepth.shp
-		Offset: 0, -48, 48
+		Offset: 0, -48, 58
 	idle: ctarmr
 		ShadowStart: 3
 	damaged-idle: ctarmr
@@ -723,7 +733,7 @@ caarmr:
 caaray:
 	Defaults:
 		DepthSprite: isodepth.shp
-		Offset: 0, -24, 24
+		Offset: 0, -24, 34
 	idle: ctaray
 		ShadowStart: 3
 	damaged-idle: ctaray
@@ -752,13 +762,13 @@ cabhut:
 	idle:
 		DepthSprite: isodepth.shp
 		UseTilesetCode: true
-		Offset: 0, -12, 12
+		Offset: 0, -12, 22
 		ShadowStart: 1
 
 ^cacrsh:
 	idle:
 		UseTilesetCode: true
-		Offset: 0, -12, 12
+		Offset: 0, -12, 22
 
 cacrsh01:
 	Inherits: ^cacrsh
@@ -779,58 +789,58 @@ capyr01:
 	idle: ctpyr01
 		DepthSprite: isodepth.shp
 		ShadowStart: 1
-		Offset: 0, -24, 24
+		Offset: 0, -24, 34
 
 capyr02:
 	idle: ctpyr02
 		DepthSprite: isodepth.shp
 		ShadowStart: 1
-		Offset: 0, -48, 48
+		Offset: 0, -48, 58
 
 capyr03:
 	idle: ctpyr03
 		DepthSprite: isodepth.shp
 		ShadowStart: 1
-		Offset: 0, -48, 48
+		Offset: 0, -48, 58
 
 ^city1x1:
 	Inherits: ^cabase
 	Defaults:
-		Offset: 0, -12, 12
+		Offset: 0, -12, 32
 
 ^city2x2:
 	Inherits: ^cabase
 	Defaults:
-		Offset: 0, -24, 24
+		Offset: 0, -24, 34
 
 ^city2x3:
 	Inherits: ^cabase
 	Defaults:
-		Offset: 12, -30, 30
+		Offset: 12, -30, 40
 		DepthSpriteOffset: 12, 0
 
 ^city3x2:
 	Inherits: ^cabase
 	Defaults:
-		Offset: -12, -30, 30
+		Offset: -12, -30, 40
 		DepthSpriteOffset: -12, 0
 
 ^city3x5:
 	Inherits: ^cabase
 	Defaults:
-		Offset: 24, -48, 48
+		Offset: 24, -48, 58
 		DepthSpriteOffset: 24, 0
 
 ^city4x2:
 	Inherits: ^cabase
 	Defaults:
-		Offset: -24, -36, 36
+		Offset: -24, -36, 46
 		DepthSpriteOffset: -24, 48
 
 ^city4x3:
 	Inherits: ^cabase
 	Defaults:
-		Offset: -12, -42, 42
+		Offset: -12, -42, 52
 		DepthSpriteOffset: -12, 0
 
 city01:
@@ -907,7 +917,8 @@ city22:
 
 ctdam:
 	Defaults:
-		Offset: 36,-42
+		DepthSprite: isodepth.shp
+		Offset: 36, -42, 62
 	idle:
 	damaged-idle:
 		Start: 1
@@ -929,7 +940,7 @@ ctdam:
 ctvega:
 	Defaults:
 		DepthSprite: isodepth.shp
-		Offset: 0, -48, 48
+		Offset: 0, -48, 58
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -944,9 +955,10 @@ ctvega:
 		ShadowStart: 2
 		DepthSprite: isodepth.shp
 		UseTilesetCode: true
-		Offset: 0, -24, 24
+		Offset: 0, -24, 34
 	icon: gaoldicon
 		Offset: 0,0
+		-DepthSprite:
 
 gaoldcc1:
 	Inherits: ^gaoldcc
@@ -981,7 +993,7 @@ gakodk:
 		DepthSprite: isodepth.shp
 		DepthSpriteOffset: -24, 0
 		UseTilesetCode: true
-		Offset: -24, -36, 36
+		Offset: -24, -36, 46
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -1011,7 +1023,7 @@ gakodk:
 gaspot:
 	Defaults:
 		DepthSprite: isodepth.shp
-		Offset: 0, -12, 12
+		Offset: 0, -12, 22
 		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
@@ -1050,7 +1062,7 @@ gaspot:
 galite:
 	Defaults:
 		DepthSprite: isodepth.shp
-		Offset: 0, -12, 12
+		Offset: 0, -12, 22
 		UseTilesetCode: true
 		IgnoreWorldTint: True
 	idle: gtlite
@@ -1083,7 +1095,7 @@ namntk:
 		DepthSprite: isodepth.shp
 		DepthSpriteOffset: 24, 0
 		UseTilesetCode: true
-		Offset: 24, -24, 24
+		Offset: 24, -24, 34
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -1099,7 +1111,7 @@ namntk:
 ntpyra:
 	Defaults:
 		DepthSprite: isodepth.shp
-		Offset: 0, -42, 42
+		Offset: 0, -42, 52
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -1122,18 +1134,19 @@ ntpyra:
 ufo:
 	idle: ufo.tem
 		DepthSprite: isodepth.shp
-		Offset: -24, -60, 60
+		Offset: -24, -60, 90
 		AddExtension: false
 
 c_kodiak:
 	idle:
-		Offset: 0,-38
+		DepthSprite: isodepth.shp
+		Offset: 0,-38, 48
 		Start: 1
 		Length: 1
 
 gasand:
 	Defaults:
-		Offset: 0, -12, 12
+		Offset: 0, -12, 22
 		UseTilesetCode: true
 		DepthSprite: isodepth.shp
 	idle:
@@ -1150,7 +1163,7 @@ gasand:
 
 gawall:
 	Defaults:
-		Offset: 0, -12, 12
+		Offset: 0, -12, 22
 		UseTilesetCode: true
 		DepthSprite: isodepth.shp
 	idle:
@@ -1171,7 +1184,7 @@ gawall:
 
 gagate_a:
 	Defaults:
-		Offset: -24, -24, 24
+		Offset: -24, -24, 34
 		DepthSpriteOffset: -24, 0
 		UseTilesetCode: true
 		DepthSprite: isodepth.shp
@@ -1215,7 +1228,7 @@ gagate_a:
 
 gagate_b:
 	Defaults:
-		Offset: 24, -24, 24
+		Offset: 24, -24, 34
 		DepthSpriteOffset: 24, 0
 		UseTilesetCode: true
 		DepthSprite: isodepth.shp
@@ -1259,7 +1272,7 @@ gagate_b:
 
 nagate_a:
 	Defaults:
-		Offset: -24, -24, 24
+		Offset: -24, -24, 34
 		DepthSpriteOffset: -24, 0
 		UseTilesetCode: true
 		Tick: 80
@@ -1308,7 +1321,7 @@ nagate_a:
 
 nagate_b:
 	Defaults:
-		Offset: 24, -24, 24
+		Offset: 24, -24, 34
 		DepthSpriteOffset: 24, 0
 		UseTilesetCode: true
 		DepthSprite: isodepth.shp
@@ -1353,7 +1366,7 @@ nagate_b:
 
 napost:
 	Defaults:
-		Offset: 0, -12, 13
+		Offset: 0, -12, 22
 		UseTilesetCode: true
 		DepthSprite: isodepth.shp
 	idle:
@@ -1417,7 +1430,7 @@ dshp:
 
 nafnce:
 	Defaults:
-		Offset: 0, -12, 13
+		Offset: 0, -12, 22
 		UseTilesetCode: true
 		DepthSprite: isodepth.shp
 	idle:
@@ -1450,7 +1463,7 @@ nafnce:
 
 nawall:
 	Defaults:
-		Offset: 0, -12, 12
+		Offset: 0, -12, 22
 		UseTilesetCode: true
 		DepthSprite: isodepth.shp
 	idle:
@@ -1471,7 +1484,7 @@ nawall:
 
 gaicbm:
 	Defaults:
-		Offset: 0, -12, 12
+		Offset: 0, -12, 22
 		UseTilesetCode: true
 		DepthSprite: isodepth.shp
 		DepthSpriteOffset: -12, 6
@@ -1530,7 +1543,7 @@ container:
 container2:
 	Inherits: container
 	Defaults:
-		Offset: 12, -18, 6
+		Offset: 12, -18, 24
 	idle: container
 		Start: 1
 		ShadowStart: 6
@@ -1561,6 +1574,7 @@ container5:
 
 container2x2:
 	Defaults:
+		Offset: 0, 0, 18
 	idle:
 	turret: container2x2
 		ShadowStart: 32
@@ -1571,6 +1585,8 @@ container2x2:
 		Facings: 16
 
 container1x2:
+	Defaults:
+		Offset: 0, 0, 18
 	idle: container1x2
 		ShadowStart: 12
 	damaged-idle: container1x2
@@ -1578,6 +1594,8 @@ container1x2:
 		ShadowStart: 18
 
 container1x2stacked:
+	Defaults:
+		Offset: 0, 0, 18
 	idle: container1x2
 		Start: 1
 		ShadowStart: 13
@@ -1586,6 +1604,8 @@ container1x2stacked:
 		ShadowStart: 19
 
 container2x1:
+	Defaults:
+		Offset: 0, 0, 18
 	idle: container1x2
 		Start: 4
 		ShadowStart: 16
@@ -1594,6 +1614,8 @@ container2x1:
 		ShadowStart: 17
 
 container2x1stacked:
+	Defaults:
+		Offset: 0, 0, 18
 	idle: container1x2
 		Start: 5
 		ShadowStart: 17
@@ -1602,6 +1624,8 @@ container2x1stacked:
 		ShadowStart: 23
 
 containerdiagonal:
+	Defaults:
+		Offset: 0, 0, 18
 	idle: container1x2
 		Start: 2
 		ShadowStart: 14
@@ -1610,6 +1634,8 @@ containerdiagonal:
 		ShadowStart: 20
 
 containerdiagonalstacked:
+	Defaults:
+		Offset: 0, 0, 18
 	idle: container1x2
 		Start: 3
 		ShadowStart: 15
@@ -1645,6 +1671,7 @@ flagcab:
 
 tent1:
 	Defaults: tents
+		Offset: 0, 0, 24
 	idle:
 		ShadowStart: 8
 	dead:
@@ -1653,6 +1680,7 @@ tent1:
 
 tent2:
 	Defaults: tents
+		Offset: 0, 0, 34    
 	idle:
 		Start: 1
 		ShadowStart: 9
@@ -1663,6 +1691,7 @@ tent2:
 
 tent3:
 	Defaults: tents
+		Offset: 0, 0, 24    
 	idle:
 		Start: 2
 		ShadowStart: 10
@@ -1673,6 +1702,7 @@ tent3:
 
 tent4:
 	Defaults: tents
+		Offset: 0, 0, 24    
 	idle:
 		Start: 3
 		ShadowStart: 11
@@ -1683,6 +1713,7 @@ tent4:
 
 tent5:
 	Defaults: tents
+		Offset: 0, 0, 24
 	idle:
 		Start: 4
 		ShadowStart: 12
@@ -1693,6 +1724,7 @@ tent5:
 
 tent6:
 	Defaults: tents
+		Offset: 0, 0, 34
 	idle:
 		Start: 5
 		ShadowStart: 13
@@ -1703,6 +1735,7 @@ tent6:
 
 tent7:
 	Defaults: tents
+		Offset: 0, 0, 24    
 	idle:
 		Start: 6
 		ShadowStart: 14
@@ -1713,6 +1746,7 @@ tent7:
 
 tent8:
 	Defaults: tents
+		Offset: 0, 0, 34    
 	idle:
 		Start: 7
 		ShadowStart: 15
@@ -1723,6 +1757,7 @@ tent8:
 
 tentsmini1:
 	Defaults: tentsmini
+		Offset: 0, 0, 24
 	idle:
 		ShadowStart: 10
 	dead:
@@ -1731,6 +1766,7 @@ tentsmini1:
 
 tentsmini2:
 	Defaults: tentsmini
+		Offset: 0, 0, 24
 	idle:
 		Start: 1
 		ShadowStart: 11
@@ -1741,6 +1777,7 @@ tentsmini2:
 
 tentsmini3:
 	Defaults: tentsmini
+		Offset: 0, 0, 24    
 	idle:
 		Start: 2
 		ShadowStart: 12
@@ -1751,6 +1788,7 @@ tentsmini3:
 
 tentsmini4:
 	Defaults: tentsmini
+		Offset: 0, 0, 24
 	idle:
 		Start: 3
 		ShadowStart: 13
@@ -1761,6 +1799,7 @@ tentsmini4:
 
 tentsmini5:
 	Defaults: tentsmini
+		Offset: 0, 0, 24
 	idle:
 		Start: 4
 		ShadowStart: 14
@@ -1771,6 +1810,7 @@ tentsmini5:
 
 tentsmini6:
 	Defaults: tentsmini
+		Offset: 0, 0, 24    
 	idle:
 		Start: 5
 		ShadowStart: 15
@@ -1781,6 +1821,7 @@ tentsmini6:
 
 tentsmini7:
 	Defaults: tentsmini
+		Offset: 0, 0, 24    
 	idle:
 		Start: 6
 		ShadowStart: 16
@@ -1791,6 +1832,7 @@ tentsmini7:
 
 tentsmini8:
 	Defaults: tentsmini
+		Offset: 0, 0, 24    
 	idle:
 		Start: 7
 		ShadowStart: 17
@@ -1801,6 +1843,7 @@ tentsmini8:
 
 tentsmini9:
 	Defaults: tentsmini
+		Offset: 0, 0, 24    
 	idle:
 		Start: 8
 		ShadowStart: 18
@@ -1811,6 +1854,7 @@ tentsmini9:
 
 tentsmini10:
 	Defaults: tentsmini
+		Offset: 0, 0, 24    
 	idle:
 		Start: 9
 		ShadowStart: 19
@@ -1821,6 +1865,7 @@ tentsmini10:
 
 civdock01:
 	Defaults: civdock
+		Offset: 0, 0, 24
 	idle:
 		Start: 0
 		ShadowStart: 8
@@ -1835,6 +1880,7 @@ civdock01:
 
 civdock02:
 	Defaults: civdock
+		Offset: 0, 0, 64
 	idle:
 		Start: 1
 		ShadowStart: 9
@@ -1849,6 +1895,7 @@ civdock02:
 
 civdock03:
 	Defaults: civdock
+		Offset: 0, 0, 64
 	idle:
 		Start: 2
 		ShadowStart: 10
@@ -1863,6 +1910,7 @@ civdock03:
 
 civdock04:
 	Defaults: civdock
+		Offset: 0, 0, 64
 	idle:
 		Start: 3
 		ShadowStart: 11
@@ -1882,6 +1930,8 @@ civdock04:
 
 cargoship01:
 	Inherits: ^SpriteVehicleWithShadowCounterClockwise
+	Defaults:
+		Offset: 0, 0, 42
 
 fishingship01:
 	Inherits: ^SpriteVehicleWithShadowCounterClockwise
@@ -1896,7 +1946,7 @@ gdihyperion:
 cpwrp:
 	Defaults:
 		DepthSprite: isodepth.shp
-		Offset: -12, -42, 42
+		Offset: -12, -42, 62
 	idle:
 		ShadowStart: 2
 	damaged-idle:
@@ -1906,7 +1956,7 @@ cpwrp:
 city35:
 	Defaults:
 		DepthSprite: isodepth.shp
-		Offset: -12, -48, 42
+		Offset: -12, -48, 52
 	idle:
 		ShadowStart: 2
 	damaged-idle:
@@ -1916,7 +1966,7 @@ city35:
 carpub:
 	Defaults:
 		DepthSprite: isodepth.shp
-		Offset: 0,-12,0
+		Offset: 0, -12, 52
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -1926,7 +1976,7 @@ carpub:
 apartment1:
 	Defaults:
 		DepthSprite: isodepth.shp
-		Offset: 0, 0,0
+		Offset: 0, 0, 42
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -1940,7 +1990,7 @@ apartment2:
 	Inherits: apartment1
 	Defaults:
 		DepthSprite: isodepth.shp
-		Offset: -12, -6,0
+		Offset: -12, -6, 52
 
 apartment3:
 	Inherits: apartment1
@@ -1948,7 +1998,7 @@ apartment3:
 watertower:
 	Defaults:
 		DepthSprite: isodepth.shp
-		Offset: 0, 0,0
+		Offset: 0, 0, 22
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -2006,7 +2056,8 @@ mwar:
 mtar:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: -12, -42
+		DepthSprite: isodepth.shp
+		Offset: -12, -42, 62
 		UseTilesetCode: false
 	idle: mtar_1
 		ShadowStart: 2
@@ -2072,7 +2123,7 @@ mtar:
 tdadvgtwr:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: 0, -12, 20
+		Offset: 0, -12, 40
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -2095,7 +2146,7 @@ tdadvgtwr:
 
 tdadvhq:
 	Defaults:
-		Offset: 0, -36, 20
+		Offset: 0, -36, 40
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -2130,7 +2181,7 @@ tdadvhq:
 tdadvpp:
 	Inherits: ^EmpOverlay
 	Defaults: tdadvpp
-		Offset: 0, -42, 20
+		Offset: 0, -42, 40
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -2163,7 +2214,7 @@ tdadvpp.nod:
 tdairstrip:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: -25, -64, 20
+		Offset: -25, -64, 60
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -2195,7 +2246,7 @@ tdairstrip:
 tdbarr:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: 0, -36, 20
+		Offset: 0, -36, 60
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -2220,7 +2271,7 @@ tdbarr:
 tdgtwr:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: 0, -9, 20
+		Offset: 0, -9, 40
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -2242,7 +2293,7 @@ tdgtwr:
 tdhelipad:
 	Inherits: ^EmpOverlay
 	Defaults: tdhelipad
-		Offset: 0, -24, 20
+		Offset: 0, -24, 40
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -2276,7 +2327,7 @@ tdhelipad.nod:
 tdnhand:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: -14, -26, 20
+		Offset: -14, -26, 60
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -2302,7 +2353,7 @@ tdnhand:
 tdntpl:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: 0, -65, 20
+		Offset: 0, -65, 90
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -2328,7 +2379,7 @@ tdntpl:
 tdntur:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: 0, -9, 20
+		Offset: 0, -9, 40
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -2354,7 +2405,7 @@ tdntur:
 tdobelisk:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: 0, -6, 20
+		Offset: 0, -6, 40
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -2383,7 +2434,7 @@ tdobelisk:
 tdrepd:
 	Inherits: ^EmpOverlay
 	Defaults: tdrepd
-		Offset: 0, -36, 20
+		Offset: 0, -36, 40
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -2417,7 +2468,7 @@ tdrepd.nod:
 
 tdrefinery:
 	Defaults: tdrefinery
-		Offset: 12, -42, 20
+		Offset: 12, -42, 60
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -2486,7 +2537,7 @@ tdrefinery.nod:
 tdsamsite:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: 0, -24, 20
+		Offset: 0, -24, 40
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		ZRamp: 1
@@ -2531,7 +2582,7 @@ tdsamsite:
 tdpp:
 	Inherits: ^EmpOverlay
 	Defaults: tdpp
-		Offset: 12, -24, 20
+		Offset: 12, -24, 40
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -2564,7 +2615,7 @@ tdpp.nod:
 tdsilo:
 	Inherits: ^EmpOverlay
 	Defaults: tdsilo
-		Offset: -6, -18, 20
+		Offset: -6, -18, 40
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -2596,7 +2647,7 @@ tdsilo.nod:
 tdwf:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: -12, -48, 22
+		Offset: -12, -48, 58
 		DepthSpriteOffset: 32, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp
@@ -2653,25 +2704,29 @@ ciliviantnk:
 		Stride: 2
 		UseTilesetCode: false
 		ShadowStart: 64
+		Offset: 0, 0, 42
 	stand:
 		Facings: -32
 		Stride: 2
 		UseTilesetCode: false
 		ShadowStart: 64
+		Offset: 0, 0, 42
 	shoot:
 		Facings: -32
 		Stride: 2
 		UseTilesetCode: false
 		ShadowStart: 64
+		Offset: 0, 0, 42
 	run:
 		Facings: -32
 		Length: 2
 		UseTilesetCode: false
 		ShadowStart: 64
+		Offset: 0, 0, 42
 	turret: ciliviantnk-turret
 		Start: 0
 		Facings: -32
 		ShadowStart: 32
 		UseTilesetCode: false
-		Offset: 0, -10, 20
+		Offset: 0, -10, 42
 

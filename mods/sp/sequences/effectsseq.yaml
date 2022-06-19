@@ -699,6 +699,7 @@ buildingfire:
 smoothclouds:
 	Defaults:
 		ZOffset: 7500
+		Offset: 0, -60, 60
 	idle0: eoralcloudsmooth0000
 		BlendMode: DoubleMultiplicative
 		IgnoreWorldTint: true
@@ -761,16 +762,16 @@ dig:
 	idle:
 		Length: *
 		ZOffset: 511
-		Offset: 0, 0
+		Offset: 0, 0, 24
 	smallidle:
 		Length: *
 		ZOffset: 511
-		Offset: 0, 0
+		Offset: 0, 0, 24
 		Scale: 0.4
 	smallidleoffset:
 		Length: *
 		ZOffset: 511
-		Offset: 0, -12
+		Offset: 0, -12, 24
 		Scale: 0.4
 
 lgrysmk1:
@@ -832,6 +833,7 @@ discus:
 	idle:
 		Length: *
 		ZOffset: 1023
+		Offset: 0, 0, 12
 
 gdidroppod:
 	idle:
@@ -844,41 +846,49 @@ canister:
 	idle:
 		Length: *
 		ZOffset: 1023
+		Offset: 0, 0, 12
 
 pulsball:
 	idle:
 		Length: *
 		BlendMode: Additive
 		ZOffset: 1023
+		Offset: 0, 0, 24
 
 dragon:
 	idle:
 		Facings: 32
 		ZOffset: 1023
+		Offset: 0, 0, 6
 	idle2: dragonbig
 		Facings: 32
 		ZOffset: 1023
+		Offset: 0, 0, 6
 
 tibshard:
 	idle:
 		Facings: -32
 		ZOffset: 1023
+		Offset: 0, 0, 6
 
 minitibshard:
 	idle:
 		Facings: -32
 		ZOffset: 1023
+		Offset: 0, 0, 6
 
 glaive:
 	idle:
 		Length: *
 		Facings: 1
 		ZOffset: 1023
+		Offset: 0, 0, 6
 
 web2:
 	idle:
 		Length: *
 		ZOffset: 1023
+		Offset: 0, 0, 6
 
 crystal4:
 	idle:
@@ -886,19 +896,25 @@ crystal4:
 		ShadowStart: 15
 		UseTilesetExtension: true
 		ZOffset: 1023
+		Offset: 0, 0, 6
 
 120mm:
 	idle:
 		ZOffset: 1023
-
+		Offset: 0, 0, 4
+        
 torpedo:
 	idle:
 		Length: *
 		ZOffset: 1023
+		Offset: 0, 0, 8
+		IgnoreWorldTint: True
+
 clusterbomb:
 	idle:
 		Length: *
 		ZOffset: 1023
+		Offset: 0, 0, 6
 
 flameall:
 	idle:
@@ -906,16 +922,25 @@ flameall:
 		Facings: -8
 		Tick: 80
 		ZOffset: 1023
+		Offset: 0, 0, 24
+		IgnoreWorldTint: True
+		Alpha: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1
 	idle2:
 		Length: 19
 		Facings: -8
 		Tick: 120
 		ZOffset: 1023
+		Offset: 0, 0, 24
+		IgnoreWorldTint: True
+		Alpha: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1
 	idle3:
 		Length: 19
 		Facings: -8
 		Tick: 50
 		ZOffset: 1023
+		Offset: 0, 0, 24
+		IgnoreWorldTint: True
+		Alpha: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1
 
 flameallremap:
 	Inherits: flameall
@@ -930,34 +955,47 @@ largesmoke:
 	idle: lgrysmk1
 		Length: *
 		ZOffset: 1023
+		Offset: 0, 0, 24
+		AlphaFade: True
 
 smallsmoke:
 	idle: sgrysmk1
 		Length: *
 		ZOffset: 1023
+		Offset: 0, 0, 24
+		AlphaFade: True
 
 large_smoke_trail:
 	idle: smokey
 		Length: *
 		ZOffset: 1023
+		Offset: 0, 0, 24
+		AlphaFade: True
 
 small_smoke_trail:
 	idle: smokey2
 		Length: *
 		ZOffset: 1023
+		Offset: 0, 0, 24
+		AlphaFade: True
 	idle2: smokey3
 		Length: *
 		ZOffset: 1023
+		Offset: 0, 0, 24
+		AlphaFade: True
 	idle3: smokey4
 		Length: *
 		ZOffset: 1023
+		Offset: 0, 0, 24
+		AlphaFade: True
 
 lurkertrail:
 	idle:
-		Offset: 0,-12
+		Offset: 0, -12, 24
 		Length: *
 		ZOffset: 1023
 		Tick: 30
+		AlphaFade: True
 
 sparkprojectile:
 	idle: sparkprojectile
@@ -977,7 +1015,7 @@ sparklong:
 
 viscproj:
 	idle:
-		Offset: 0,6
+		Offset: 0, 6, 12
 		Length: *
 		ZOffset: 1023
 
@@ -993,14 +1031,14 @@ eggproj:
 
 cabswproj:
 	idle:
-		Offset: 0,8,0
+		Offset: 0, 8, 0
 		Length: *
 		ZOffset: 2048
 		BlendMode: Additive
 
 cabswproj2:
 	idle:
-		Offset: 0,3,0
+		Offset: 0, 3, 0
 		Length: *
 		ZOffset: 2048
 		BlendMode: Additive
@@ -1056,40 +1094,62 @@ meteortrail:
 largefire:
 	idle: fire1
 		Length: *
+		Offset: 0, 0, 36
+		Alpha: 0.5
+		IgnoreWorldTint: True
 
 mediumfire:
 	idle: fire2
 		Length: *
+		Offset: 0, 0, 24
+		Alpha: 0.5
+		IgnoreWorldTint: True
 
 smallfire:
 	idle: fire3
 		Length: *
+		Offset: 0, 0, 24
+		Alpha: 0.5
+		IgnoreWorldTint: True
 
 tinyfire:
 	idle: fire4
 		Length: *
+		Offset: 0, 0, 24
+		Alpha: 0.75
+		IgnoreWorldTint: True
 
 moveflsh:
 	idle: ring
 		Length: *
 		Tick: 30
 		ZOffset: 2047
-		Offset: 0,0,24
+		ZRamp: 1
+		AlphaFade: True
 
 wake:
 	idle: wake2
 		Length: *
 		Tick: 180
 		ZOffset: -512
+		ZRamp: 1
+		Offset: 0, 0, 1
+		AlphaFade: True
 	idle2: wake2
 		Length: *
 		Tick: 180
 		ZOffset: -512
 		Scale: 0.5
+		ZRamp: 1
+		Offset: 0, 0, 1
+		AlphaFade: True
 	idlescr: gravitywake
 		Length: *
 		Tick: 55
 		ZOffset: -512
+		ZRamp: 1
+		Offset: 0, 0, 1
+		AlphaFade: True
 
 casing:
 	Defaults:
@@ -1242,14 +1302,17 @@ greenplasma:
 greenplasmamini:
 	idle:
 		Facings: 32
+        
 greenplasma2:
 	idle:
 		Length: *
 		ZOffset: 1023
+        
 smallblueplasma:
 	idle:
 		Length: *
 		ZOffset: 1023
+        
 blueballmini:
 	idle:
 		Facings: 1
@@ -1340,10 +1403,16 @@ hoverwind:
 		Length: *
 		ZOffset: -512
 		Scale: 0.9
+		ZRamp: 1
+		Offset: 0, 0, 1
+		AlphaFade: True
 	non-water: cldrngl1
 		Length: *
 		ZOffset: -512
 		Scale: 0.8
+		ZRamp: 1
+		Offset: 0, 0, 1
+		AlphaFade: True
 
 boomerang:
 	idle:
