@@ -3307,6 +3307,18 @@ CORRUPTOR:
 		Bounds: 1508, 1568, 0, -482
 	SmokeParticleEmitter@spawnsmoke:
 		Palette: gradientgreen40
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo && !vinifera_catalysts
+	SmokeParticleEmitter@spawnsmokeblue:
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo && vinifera_catalysts
+		Sequences: idle
+		SpawnFrequency: 6, 12
+		Speed: 6
+		Gravity: 70
+		Offset: 0,0,0
+		Image: scrsmoke
+		Palette: gradientblue40
+		Duration: 100
+		RandomFacing: True
 	-DamagedByTintedCells@Default:
 	-DamagedByTintedCells@BlueRadiation:
 	ThrowsShrapnel:
