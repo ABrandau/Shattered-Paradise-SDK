@@ -528,11 +528,11 @@ HMEC:
 		TextNofication: Enemy Mammoth Mk.II detected.
 	AttackTurreted:
 		Voice: Attack
-		Turrets: primary, secondary, tertiary, quaternary
-		Armaments: primary, secondary, tertiary, quaternary
+		Turrets: primary, secondary, tertiary, quaternary, quinary
+		Armaments: primary, secondary, tertiary, quaternary, quinary
 		PauseOnCondition: empdisable
 	BodyOrientation:
-		QuantizedFacings: 8
+		QuantizedFacings: 32
 		CameraPitch: 250
 	AmbientSound@WalkAnim:
 		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
@@ -543,21 +543,20 @@ HMEC:
 		Condition: walking
 	Armament@M1:
 		Weapon: MKIITusk
-		LocalOffset: 0,0,2800
+		Damage: 60
 		Name: secondary
 		Turret: secondary
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 	Armament@M1AA:
 		Weapon: MKIITuskAA
-		LocalOffset: 0,0,2800
 		Name: secondary
 		Turret: secondary
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 	Armament@M2:
 		Weapon: MKIITusk
-		LocalOffset: 0,0,2800
+		Damage: 60
 		Name: tertiary
 		Turret: tertiary
 		FireDelay: 5
@@ -565,81 +564,103 @@ HMEC:
 		PauseOnCondition: empdisable || reload-air
 	Armament@M2AA:
 		Weapon: MKIITuskAA
-		LocalOffset: 0,0,2800
 		Name: tertiary
 		Turret: tertiary
 		FireDelay: 5
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
+	Armament@L: ##Hit effect and firedly fire
+		Weapon: MechRailgun
+		Damage: 150
+		PauseOnCondition: empdisable
+	Armament@L2:
+		Weapon: MechRailgun2
+		MuzzleSequence: muzzle2
+		PauseOnCondition: empdisable
 	Armament@R: ##Hit effect and firedly fire
 		Weapon: MechRailgun
-		LocalOffset: 1200,-250,2650, 1200,250,2650
+		Name: quinary
+		Turret: quinary
+		Damage: 150
+		FireDelay: 10
 		PauseOnCondition: empdisable
 	Armament@R2:
 		Weapon: MechRailgun2
-		LocalOffset: 1200,-250,2650, 1200,250,2650
-		PauseOnCondition: empdisable
+		Name: quinary
+		Turret: quinary
+		FireDelay: 10
 		MuzzleSequence: muzzle2
+		PauseOnCondition: empdisable
 	-FirepowerMultiplier@APAMMUNITION:
 	Armament@gun:
 		Weapon: MKIIVulcan
+		Damage: 300
 		Name: quaternary
 		Turret: quaternary
-		LocalOffset: 0,0,1400
 		PauseOnCondition: empdisable
 		RequiresCondition: !apammo
 	Armament@gunAP:
 		Weapon: MKIIVulcanAP
+		Damage: 375
 		Name: quaternary
 		Turret: quaternary
-		LocalOffset: 0,0,1400
 		PauseOnCondition: empdisable
 		RequiresCondition: apammo
 	Armament@gunCasing:
 		Weapon: MKIIVulcanCasing
 		MuzzleSequence: muzzle
-		LocalOffset: 0,0,1400
 		Name: quaternary
 		Turret: quaternary
 		PauseOnCondition: empdisable
 	Armament@gunLine:
 		Weapon: MKIIVulcanLine
-		LocalOffset: 0,0,1400
+		Name: quaternary
 		Turret: quaternary
 		PauseOnCondition: empdisable
 	-Targetable@MC:
 	Turreted@1:
-		Offset: -500,0,0
-		TurnSpeed: 16
+		Offset: 850,800,2200
+		TurnSpeed: 24
 	Turreted@2:
-		Offset: 600,300,-400
+		Offset: -550,750,2400
 		TurnSpeed: 32
 		Turret: secondary
 	Turreted@3:
-		Offset: 600,-300,-400
+		Offset: -550,-750,2400
 		TurnSpeed: 32
 		Turret: tertiary
 	Turreted@4:
-		Offset: 1024,0,-500
+		Offset: 2048,0,1000
 		TurnSpeed: 128
 		Turret: quaternary
+	Turreted@5:
+		Offset: 850,-800,2200
+		TurnSpeed: 24
+		Turret: quinary
 	Carryable:
 		LocalOffset: 0, 0, 1536
+	-WithFacingSpriteBody:
+	WithInfantryBody:
+		-DefaultAttackSequence:
+		RequiresCondition: !inside-tunnel
+		AttackSequences:
+			primary: shoot
+			quinary: shoot
 	WithMuzzleOverlay:
-	WithSpriteTurret:
-		RequiresCondition: !inside-tunnel
-	WithSpriteTurret@2:
-		Sequence: turret2
-		Turret: secondary
-		RequiresCondition: !inside-tunnel
-	WithSpriteTurret@3:
-		Sequence: turret2
-		Turret: tertiary
-		RequiresCondition: !inside-tunnel
+	# WithSpriteTurret:
+	#	RequiresCondition: !inside-tunnel
+	# WithSpriteTurret@2:
+	#	Sequence: turret2
+	#	Turret: secondary
+	#	RequiresCondition: !inside-tunnel
+	# WithSpriteTurret@3:
+	#	Sequence: turret2
+	#	Turret: tertiary
+	#	RequiresCondition: !inside-tunnel
+	# WithMoveAnimation:
+	#	MoveSequence: run
 	Passenger:
 		CustomPipType: red
-	WithMoveAnimation:
-		MoveSequence: run
 	Selectable:
 		Bounds: 2413, 4041, 0, -1508
 	SharedPassenger:
@@ -658,8 +679,7 @@ HMEC:
 		RequiresCondition: produced
 		Voice: Build
 	ActorStatValues:
-		Damage: 720
-		Armaments: primary, secondary
+		Armaments: primary, secondary, tertiary, quinary
 		SplitRanges: true
 
 NODMCV:

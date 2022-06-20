@@ -617,17 +617,40 @@ scrproc2:
 
 hmec:
 	Inherits: ^EmpOverlay
-	idle: mammothtest
-		Facings: 8
-		UseTilesetCode: false
-		ShadowStart: 200
-	run: mammothtest
-		Start: 8
-		Facings: 8
-		Length: 16
-		Tick: 85
-		UseTilesetCode: false
-		ShadowStart: 208
+	stand: mmkiilko
+		Combine:
+			mmkiilko2:
+				Length: 3
+				ShadowStart: 72
+			mmkiilko:
+				Length: 29
+				ShadowStart: 768
+		Facings: -32
+	run: mmkiilko
+		Combine:
+			mmkiilko2:
+				Start: 3
+				Length: 60
+				ShadowStart: 75
+			mmkiilko:
+				Start: 32
+				Length: 580
+				ShadowStart: 800
+		Facings: -32
+		Length: 20
+	shoot:
+		Combine:
+			mmkiilko2:
+				Start: 63
+				Length: 9
+				ShadowStart: 135
+			mmkiilko:
+				Start: 672
+				Length: 87
+				ShadowStart: 1440
+		Tick: 120
+		Facings: -32
+		Length: 3
 	turret: mammothtest
 		Facings: 32
 		Start: 136
@@ -638,11 +661,10 @@ hmec:
 		ZOffset: 2
 	muzzle2: RailgunExp
 		Offset: 0, -10, 0
-		UseTilesetCode: false
 		Start: 7
 		Length: *
 		ZOffset: 1c0
 	shield: shieldlarge
 		Length: *
 		Offset: 0,-20
-	icon: mammothicon
+	icon: mmkiiicon # mammothicon
