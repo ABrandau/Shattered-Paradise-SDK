@@ -332,6 +332,7 @@ CRATE:
 		SelectionShares: 80
 		Sequence: dollar
 		UseCashTick: true
+		Prerequisites: !hack.no_bases
 	SupportPowerCrateAction@nuke:
 		SelectionShares: 4
 		Proxy: NukeCrateDummy
@@ -368,26 +369,31 @@ CRATE:
 		NoBaseSelectionShares: 1000
 		Units: mcv
 		ValidFactions: gdi
+		Prerequisites: !hack.no_bases
 	GiveMcvCrateAction@nod:
 		SelectionShares: 0
 		NoBaseSelectionShares: 1000
 		Units: nodmcv
 		ValidFactions: nod
+		Prerequisites: !hack.no_bases
 	GiveMcvCrateAction@mut:
 		SelectionShares: 0
 		NoBaseSelectionShares: 1000
 		Units: mutmcv
 		ValidFactions: mut
+		Prerequisites: !hack.no_bases
 	GiveMcvCrateAction@cab:
 		SelectionShares: 0
 		NoBaseSelectionShares: 1000
 		Units: cabmcv
 		ValidFactions: cab
+		Prerequisites: !hack.no_bases
 	GiveMcvCrateAction@scr:
 		SelectionShares: 0
 		NoBaseSelectionShares: 1000
 		Units: drache
 		ValidFactions: scr
+		Prerequisites: !hack.no_bases
 	GrantExternalConditionCrateAction@cloak:
 		SelectionShares: 20
 		Sequence: stealth
@@ -406,6 +412,11 @@ CRATE:
 		SelectionShares: 20
 		Condition: speedcrate
 		Notification: UnitSpeedUpgraded
+
+hack.no_bases:
+	Interactable:
+	AlwaysVisible:
+	ProvidesPrerequisite@upgradename:
 
 GALITE:
 	Inherits: ^CivBuilding
