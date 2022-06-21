@@ -251,3 +251,50 @@ WEASAUBLUE2:
 	WithDeathAnimation@blood1:
 		DeathSequencePalette: jasccyan
 		CrushedSequencePalette: jasccyan
+
+
+GMRLS:
+	Inherits: ^Tank
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^MutRender
+	Inherits@VISION: ^5CellVision
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Hypaspist
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 20
+		Speed: 50
+		Locomotor: InfantryCrusherVehicle
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	Health:
+		HP: 18000
+	Armor:
+		Type: Light
+	AutoTarget:
+		ScanRadius: 13
+	Armament:
+		Weapon: GMRLSRocket
+		LocalOffset: 150,225,1000, 150,75,1000, 150,-75,1000, 150, -225,1000
+		ReloadingCondition: reload-ground
+		PauseOnCondition: empdisable || reload-air
+	Armament@2:
+		Weapon: GMRLSRocketAA
+		LocalOffset: 150,150,1000, 150,-150,1000
+		ReloadingCondition: reload-air
+		PauseOnCondition: empdisable || reload-ground
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+		FacingTolerance: 2
+	WithFacingSpriteBody:
+	Selectable:
+		Bounds: 1400, 2100
+	ActorStatValues:
+		Damage: 120
+		SplitRanges: true
