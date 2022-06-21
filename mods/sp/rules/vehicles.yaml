@@ -526,11 +526,11 @@ HMEC:
 		PingRadar: true
 		Notification: MammothDetected
 		TextNofication: Enemy Mammoth Mk.II detected.
-	AttackTurreted:
+	AttackFrontal:
 		Voice: Attack
-		Turrets: primary, secondary, tertiary, quaternary, quinary
-		Armaments: primary, secondary, tertiary, quaternary, quinary
 		PauseOnCondition: empdisable
+		TargetFrozenActors: true
+		FacingTolerance: 2
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
@@ -545,120 +545,58 @@ HMEC:
 		Weapon: MKIITusk
 		Damage: 60
 		Name: secondary
-		Turret: secondary
+		LocalOffset: -550,750,2400, -550,-750,2400
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 	Armament@M1AA:
 		Weapon: MKIITuskAA
+		LocalOffset: -550,750,2400, -550,-750,2400
 		Name: secondary
-		Turret: secondary
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
-	Armament@M2:
-		Weapon: MKIITusk
-		Damage: 60
-		Name: tertiary
-		Turret: tertiary
-		FireDelay: 5
-		ReloadingCondition: reload-ground
-		PauseOnCondition: empdisable || reload-air
-	Armament@M2AA:
-		Weapon: MKIITuskAA
-		Name: tertiary
-		Turret: tertiary
-		FireDelay: 5
-		ReloadingCondition: reload-air
-		PauseOnCondition: empdisable || reload-ground
-	Armament@L: ##Hit effect and firedly fire
-		Weapon: MechRailgun
-		Damage: 150
-		PauseOnCondition: empdisable
-	Armament@L2:
-		Weapon: MechRailgun2
-		MuzzleSequence: muzzle2
-		PauseOnCondition: empdisable
 	Armament@R: ##Hit effect and firedly fire
 		Weapon: MechRailgun
-		Name: quinary
-		Turret: quinary
 		Damage: 150
-		FireDelay: 10
 		PauseOnCondition: empdisable
+		LocalOffset: 900,-950,2200, 900,950,2200
+		Name: primary
 	Armament@R2:
 		Weapon: MechRailgun2
-		Name: quinary
-		Turret: quinary
-		FireDelay: 10
 		MuzzleSequence: muzzle2
 		PauseOnCondition: empdisable
+		Name: primary
+		LocalOffset: 900,-950,2200, 900,950,2200
 	-FirepowerMultiplier@APAMMUNITION:
 	Armament@gun:
 		Weapon: MKIIVulcan
 		Damage: 300
-		Name: quaternary
-		Turret: quaternary
+		LocalOffset: 2048,0,1000
+		Name: primary
 		PauseOnCondition: empdisable
 		RequiresCondition: !apammo
 	Armament@gunAP:
 		Weapon: MKIIVulcanAP
 		Damage: 375
-		Name: quaternary
-		Turret: quaternary
+		LocalOffset: 2048,0,1000
+		Name: primary
 		PauseOnCondition: empdisable
 		RequiresCondition: apammo
 	Armament@gunCasing:
 		Weapon: MKIIVulcanCasing
 		MuzzleSequence: muzzle
-		Name: quaternary
-		Turret: quaternary
+		LocalOffset: 2048,0,1000
+		Name: primary
 		PauseOnCondition: empdisable
 	Armament@gunLine:
 		Weapon: MKIIVulcanLine
-		Name: quaternary
-		Turret: quaternary
+		LocalOffset: 2048,0,1000
+		Name: primary
 		PauseOnCondition: empdisable
 	-Targetable@MC:
-	Turreted@1:
-		Offset: 850,800,2200
-		TurnSpeed: 24
-	Turreted@2:
-		Offset: -550,750,2400
-		TurnSpeed: 32
-		Turret: secondary
-	Turreted@3:
-		Offset: -550,-750,2400
-		TurnSpeed: 32
-		Turret: tertiary
-	Turreted@4:
-		Offset: 2048,0,1000
-		TurnSpeed: 128
-		Turret: quaternary
-	Turreted@5:
-		Offset: 850,-800,2200
-		TurnSpeed: 24
-		Turret: quinary
 	Carryable:
 		LocalOffset: 0, 0, 1536
 	-WithFacingSpriteBody:
-	WithInfantryBody:
-		-DefaultAttackSequence:
-		RequiresCondition: !inside-tunnel
-		AttackSequences:
-			primary: shoot
-			quinary: shoot
 	WithMuzzleOverlay:
-	# WithSpriteTurret:
-	#	RequiresCondition: !inside-tunnel
-	# WithSpriteTurret@2:
-	#	Sequence: turret2
-	#	Turret: secondary
-	#	RequiresCondition: !inside-tunnel
-	# WithSpriteTurret@3:
-	#	Sequence: turret2
-	#	Turret: tertiary
-	#	RequiresCondition: !inside-tunnel
-	# WithMoveAnimation:
-	#	MoveSequence: run
 	Passenger:
 		CustomPipType: red
 	Selectable:
@@ -679,8 +617,13 @@ HMEC:
 		RequiresCondition: produced
 		Voice: Build
 	ActorStatValues:
-		Armaments: primary, secondary, tertiary, quinary
+		Armaments: primary
 		SplitRanges: true
+	WithInfantryBody:
+		-DefaultAttackSequence:
+		RequiresCondition: !inside-tunnel
+		AttackSequences:
+			primary: shoot
 
 NODMCV:
 	Inherits: MCV
