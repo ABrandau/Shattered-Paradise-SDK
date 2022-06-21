@@ -528,9 +528,10 @@ HMEC:
 		TextNofication: Enemy Mammoth Mk.II detected.
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: empdisable
-		TargetFrozenActors: true
+		Armaments: primary, secondary, tertiary
 		FacingTolerance: 2
+		TargetFrozenActors: true
+		PauseOnCondition: empdisable
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
@@ -543,7 +544,7 @@ HMEC:
 		Condition: walking
 	Armament@M1:
 		Weapon: MKIITusk
-		Damage: 60
+		Damage: 120
 		Name: secondary
 		LocalOffset: -440,600,1920, -440,-600,1920
 		ReloadingCondition: reload-ground
@@ -556,7 +557,7 @@ HMEC:
 		PauseOnCondition: empdisable || reload-ground
 	Armament@R: ##Hit effect and firedly fire
 		Weapon: MechRailgun
-		Damage: 150
+		Damage: 300
 		PauseOnCondition: empdisable
 		LocalOffset: 720,-700,1760, 720,700,1760
 		Name: primary
@@ -571,31 +572,36 @@ HMEC:
 		Weapon: MKIIVulcan
 		Damage: 300
 		LocalOffset: 1638,0,800
-		Name: primary
+		Name: tertiary
 		PauseOnCondition: empdisable
 		RequiresCondition: !apammo
 	Armament@gunAP:
 		Weapon: MKIIVulcanAP
 		Damage: 375
 		LocalOffset: 1638,0,800
-		Name: primary
+		Name: tertiary
 		PauseOnCondition: empdisable
 		RequiresCondition: apammo
 	Armament@gunCasing:
 		Weapon: MKIIVulcanCasing
 		MuzzleSequence: muzzle
 		LocalOffset: 1638,0,800
-		Name: primary
+		Name: tertiary
 		PauseOnCondition: empdisable
 	Armament@gunLine:
 		Weapon: MKIIVulcanLine
 		LocalOffset: 1638,0,800
-		Name: primary
+		Name: tertiary
 		PauseOnCondition: empdisable
 	-Targetable@MC:
 	Carryable:
 		LocalOffset: 0, 0, 1536
 	-WithFacingSpriteBody:
+	WithInfantryBody:
+		-DefaultAttackSequence:
+		RequiresCondition: !inside-tunnel
+		AttackSequences:
+			primary: shoot
 	WithMuzzleOverlay:
 	Passenger:
 		CustomPipType: red
@@ -617,13 +623,8 @@ HMEC:
 		RequiresCondition: produced
 		Voice: Build
 	ActorStatValues:
-		Armaments: primary
+		Armaments: primary, secondary
 		SplitRanges: true
-	WithInfantryBody:
-		-DefaultAttackSequence:
-		RequiresCondition: !inside-tunnel
-		AttackSequences:
-			primary: shoot
 
 NODMCV:
 	Inherits: MCV
