@@ -34,6 +34,28 @@ GDIE1:
 		Armaments: OnFoot
 		FacingTolerance: 2
 	RenderSprites:
+	WithInfantryBody:
+		RequiresCondition: !inside-tunnel && !WebDisable && !nanofibers
+	WithInfantryBody@nanofibers:
+		MinIdleDelay: 75
+		MaxIdleDelay: 250
+		IdleSequences: idle1-white,idle2-white
+		MoveSequence: run-white
+		StandSequences: stand-white
+		DefaultAttackSequence: shoot-white
+		RequiresCondition: !inside-tunnel && !WebDisable && nanofibers
+	WithDeathAnimation@normal:
+		RequiresCondition: !nanofibers
+	WithDeathAnimation@nanofibers:
+		DeathSequence: die-white
+		DeathTypes:
+			BulletDeath: 1, 2
+			CabalDeath: 1, 2
+			CabalDeathUpg: 1, 2
+		CrushedSequence: die-crushed-white
+		CrushedSequencePalette: player
+		CrushedPaletteIsPlayerPalette: true
+		RequiresCondition: nanofibers
 	ActorStatValues:
 		Damage: 25
 		Upgrades: upgrade.ap_ammunition, upgrade.nanofiber_vests
@@ -89,6 +111,28 @@ GRENADIER:
 		FacingTolerance: 2
 	Passenger:
 		CustomPipType: blue
+	WithInfantryBody:
+		RequiresCondition: !inside-tunnel && !WebDisable && !nanofibers
+	WithInfantryBody@nanofibers:
+		MinIdleDelay: 75
+		MaxIdleDelay: 250
+		IdleSequences: idle1-white,idle2-white
+		MoveSequence: run-white
+		StandSequences: stand-white
+		DefaultAttackSequence: shoot-white
+		RequiresCondition: !inside-tunnel && !WebDisable && nanofibers
+	WithDeathAnimation@normal:
+		RequiresCondition: !nanofibers
+	WithDeathAnimation@nanofibers:
+		DeathSequence: die-white
+		DeathTypes:
+			BulletDeath: 1, 2
+			CabalDeath: 1, 2
+			CabalDeathUpg: 1, 2
+		CrushedSequence: die-crushed-white
+		CrushedSequencePalette: player
+		CrushedPaletteIsPlayerPalette: true
+		RequiresCondition: nanofibers
 	ActorStatValues:
 		Damage: 30
 		SplitRanges: true
@@ -177,7 +221,27 @@ E2:
 		Armaments: OnFoot
 		FacingTolerance: 2
 	WithInfantryBody:
-		AttackSequences: throw
+		RequiresCondition: !inside-tunnel && !WebDisable && !nanofibers
+	WithInfantryBody@nanofibers:
+		MinIdleDelay: 75
+		MaxIdleDelay: 250
+		IdleSequences: idle1-white,idle2-white
+		MoveSequence: run-white
+		StandSequences: stand-white
+		DefaultAttackSequence: shoot-white
+		RequiresCondition: !inside-tunnel && !WebDisable && nanofibers
+	WithDeathAnimation@normal:
+		RequiresCondition: !nanofibers
+	WithDeathAnimation@nanofibers:
+		DeathSequence: die-white
+		DeathTypes:
+			BulletDeath: 1, 2
+			CabalDeath: 1, 2
+			CabalDeathUpg: 1, 2
+		CrushedSequence: die-crushed-white
+		CrushedSequencePalette: player
+		CrushedPaletteIsPlayerPalette: true
+		RequiresCondition: nanofibers
 	RenderSprites:
 		Image: e2
 	ActorStatValues:
