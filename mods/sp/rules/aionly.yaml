@@ -356,6 +356,7 @@ COREDEFENDER:
 	AnnounceOnSeen:
 		PingRadar: true
 		Notification: CommandoDetected
+		TextNofication: Enemy Core Defender detected.
 	AmbientSound@WalkAnim:
 		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
 		Delay: 50
@@ -606,61 +607,6 @@ DEFD:
 	MapEditorData:
 		Categories: Building
 
-
-GMRLS:
-	Inherits: ^Tank
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@RENDER: ^MutRender
-	Inherits@VISION: ^5CellVision
-	Valued:
-		Cost: 1400
-	Tooltip:
-		Name: Hypaspist
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Buildable:
-		Queue: Vehicle.Shared, Vehicle.GDI
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 36
-		Description: Artillery armed with long range anti-armor and anti-air rockets.\n\nGood vs: Vehicle, Air\n\nSpecial:\n- Armor Type: Light\n- Deals AoE damage\n- Minimum attack distance\n- Can shoot over walls\n- Can crush infantry
-		Prerequisites: ~gaweap, gatech, ~AIOnly,  ~techlevel.5
-		BuildDuration: 875
-		BuildDurationModifier: 100
-	Mobile:
-		TurnSpeed: 20
-		Speed: 50
-		Locomotor: InfantryCrusherVehicle
-	BodyOrientation:
-		QuantizedFacings: 32
-		CameraPitch: 250
-	Health:
-		HP: 18000
-	Armor:
-		Type: Light
-	AutoTarget:
-		ScanRadius: 13
-	Armament:
-		Weapon: GMRLSRocket
-		LocalOffset: 150,225,1000, 150,75,1000, 150,-75,1000, 150, -225,1000
-		ReloadingCondition: reload-ground
-		PauseOnCondition: empdisable || reload-air
-	Armament@2:
-		Weapon: GMRLSRocketAA
-		LocalOffset: 150,150,1000, 150,-150,1000
-		ReloadingCondition: reload-air
-		PauseOnCondition: empdisable || reload-ground
-	AttackFrontal:
-		Voice: Attack
-		PauseOnCondition: empdisable
-		FacingTolerance: 2
-	WithFacingSpriteBody:
-	Selectable:
-		Bounds: 1400, 2100
-	ActorStatValues:
-		Damage: 120
-		SplitRanges: true
-
 AVATAR:
 	Inherits: ^Walker
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -722,4 +668,185 @@ AVATAR:
 	-FirepowerMultiplier@avatar:
 	-ExternalCondition@avatar:
 	-WithDecoration@avatar:
+
+HMECTEST:
+	Inherits: ^Tank
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
+	Inherits@COMMANDO: ^CommandoIcon
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@VISION: ^8CellVision
+	Valued:
+		Cost: 10000
+	Tooltip:
+		Name: Mammoth Mk. III
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.MammothMkII
+		BuildAtProductionType: Mammoth
+		BuildPaletteOrder: 49
+		Prerequisites: ~showhmec, gtdrop, ~AIOnly, ~techlevel.6
+		Description: GDI's final creation for the war when everything is doomed.\n\nGood vs: Everything\n\nSpecial:\n- Build limit: 1\n- Selfhealing up to 100%\n- Can attack air\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything except other Epics\n- It is deployed via dropship at the Dropship Bay\n- Can attack while moving
+		BuildLimit: 1
+		BuildDuration: 6000
+		BuildDurationModifier: 100
+	ProductionTimeMultiplier@2_FACTORY:
+		Multiplier: 80
+		Prerequisites: prerequisite.two_factory, !global-multiqueue
+	ProductionTimeMultiplier@3_FACTORY:
+		Multiplier: 65
+		Prerequisites: prerequisite.three_factory, !global-multiqueue
+	ProductionTimeMultiplier@4_FACTORY:
+		Multiplier: 50
+		Prerequisites: prerequisite.four_factory, !global-multiqueue
+	Voiced:
+		VoiceSet: MammothMkII
+		Volume: 2
+	Mobile:
+		TurnSpeed: 12
+		Speed: 60
+		Locomotor: VehicleCrusher
+	-Crushable:
+	-Passenger:
+	-SharedPassenger:
+	-ChangesHealth@TUNNELREPAIRS:
+	-GrantConditionOnPrerequisite@TUNNELREPAIRS:
+	-Chronoshiftable:
+	SmokeParticleEmitter@spawnsmoke:
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
+	ExplodeWeapon@spawnsparks:
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
+	Health:
+		HP: 650000
+	Armor@Boss:
+		Type: Boss
+	AnnounceOnSeen:
+		PingRadar: true
+		Notification: MammothDetected
+		TextNofication: Enemy Mammoth Mk.III detected.
+	AttackTurreted:
+		Voice: Attack
+		Turrets: primary, secondary, tertiary, quaternary
+		Armaments: primary, secondary, tertiary, quaternary
+		PauseOnCondition: empdisable
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
+	AmbientSound@WalkAnim:
+		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
+		Delay: 16
+		Interval: 16
+		RequiresCondition: walking
+	GrantConditionOnMovement:
+		Condition: walking
+	Armament@M1:
+		Weapon: MKIIITusk
+		LocalOffset: 0,0,2800
+		Name: secondary
+		Turret: secondary
+		ReloadingCondition: reload-ground
+		PauseOnCondition: empdisable || reload-air
+	Armament@M1AA:
+		Weapon: MKIIITuskAA
+		LocalOffset: 0,0,2800
+		Name: secondary
+		Turret: secondary
+		ReloadingCondition: reload-air
+		PauseOnCondition: empdisable || reload-ground
+	Armament@M2:
+		Weapon: MKIIITusk
+		LocalOffset: 0,0,2800
+		Name: tertiary
+		Turret: tertiary
+		FireDelay: 5
+		ReloadingCondition: reload-ground
+		PauseOnCondition: empdisable || reload-air
+	Armament@M2AA:
+		Weapon: MKIIITuskAA
+		LocalOffset: 0,0,2800
+		Name: tertiary
+		Turret: tertiary
+		FireDelay: 5
+		ReloadingCondition: reload-air
+		PauseOnCondition: empdisable || reload-ground
+	Armament@R: ##Hit effect and firedly fire
+		Weapon: MKIIIRailgun
+		LocalOffset: 1200,-250,2650, 1200,250,2650
+		PauseOnCondition: empdisable
+	Armament@R2:
+		Weapon: MKIIIRailgun2
+		LocalOffset: 1200,-250,2650, 1200,250,2650
+		PauseOnCondition: empdisable
+		MuzzleSequence: muzzle2
+	Armament@gun:
+		Weapon: MKIIIVulcan
+		Name: quaternary
+		Turret: quaternary
+		LocalOffset: 0,0,1400
+		PauseOnCondition: empdisable
+		MuzzlePalette: apcyan
+		MuzzleSequence: muzzle
+	Armament@gunLine:
+		Weapon: MKIIIVulcanLine
+		LocalOffset: 0,0,1400
+		Turret: quaternary
+		PauseOnCondition: empdisable
+	-Targetable@MC:
+	Turreted@1:
+		Offset: -500,0,0
+		TurnSpeed: 16
+	Turreted@2:
+		Offset: 600,300,-400
+		TurnSpeed: 32
+		Turret: secondary
+	Turreted@3:
+		Offset: 600,-300,-400
+		TurnSpeed: 32
+		Turret: tertiary
+	Turreted@4:
+		Offset: 1024,0,-500
+		TurnSpeed: 128
+		Turret: quaternary
+	Carryable:
+		LocalOffset: 0, 0, 1536
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+		RequiresCondition: !inside-tunnel
+	WithSpriteTurret@2:
+		Sequence: turret2
+		Turret: secondary
+		RequiresCondition: !inside-tunnel
+	WithSpriteTurret@3:
+		Sequence: turret2
+		Turret: tertiary
+		RequiresCondition: !inside-tunnel
+	Passenger:
+		CustomPipType: red
+	WithMoveAnimation:
+		MoveSequence: run
+	Selectable:
+		Bounds: 2413, 4041, 0, -1508
+	SharedPassenger:
+		CustomPipType: red
+	Explodes:
+		Weapon: BuildingExplode
+		EmptyWeapon: BuildingExplode
+	ThrowsShrapnel:
+		Pieces: 5, 9
+	ThrowsShrapnel@LARGE:
+		Pieces: 2, 4
+		Weapons: LargeDebris
+	ExternalCondition@PRODUCED: ## Use this to prevent map-preplaced MK2 announces itself
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+	RenderSprites:
+		Image: mammothtest
+	ActorStatValues:
+		Damage: 720
+		Armaments: primary, secondary
+		SplitRanges: true
 

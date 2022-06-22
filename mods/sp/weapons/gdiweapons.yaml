@@ -157,11 +157,13 @@ JJBeacon:
 		Explosions: beaconflash
 		ExplosionPalette: gensmkexplocyan70
 		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
 	Warhead@later: FireFragment
 		Delay: 60
 		ImpactActors: false
 		Weapon: OribitBombElevator
 		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
 
 OribitBombElevator:
 	Report: meteor1.aud, meteor2.aud
@@ -175,6 +177,14 @@ OribitBombElevator:
 		ImpactActors: false
 		UseZOffsetAsAbsoluteHeight: true
 		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+	Warhead@2Eff: CreateEffect
+		Image: explosion
+		ImpactActors: false
+		Explosions: smallflash
+		ExplosionPalette: gensmkexplocyan70
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 14c0
 
 OribitBomb:
 	Inherits: ^FullDamage
@@ -664,7 +674,7 @@ MechRailgun: ##For hit effect
 		HitAnim: explosion
 		HitAnimSequence: railgunexp
 		HitAnimPalette: effect
-	-Warhead@2Eff:
+	-Warhead@2Eff: 
 	Warhead@1Dam: SpreadDamage
 		Spread: 50
 		Damage: 15000
@@ -920,3 +930,133 @@ FirestormExplo:
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
+
+
+
+MKIIIRailgun: ##For hit effect
+	Inherits: ^Large_Clsn
+	Inherits@2: ^WeaponGenericUpgrades
+	FirstBurstTargetOffset: 0,-150,0
+	FollowingBurstTargetOffset: 0,300,0
+	ReloadDelay: 75
+	Burst: 2
+	BurstDelays: 8
+	TargetActorCenter: true
+	Range: 8c0
+	Report: railuse5.aud
+	Projectile: SpriteRailgun
+		BeamColor: 00DDEE
+		Duration: 13
+		BeamWidth: 81
+		QuantizationCount: 1
+		HelixRadius: 0
+		HelixPitch: 512
+		HelixAnim: railgunsparks
+		HelixAnimSequence: idle1
+		HelixAnimPalette: gensmkexplocyan
+		HitAnim: explosion
+		HitAnimSequence: railgunexp
+		HitAnimPalette: effect
+	Warhead@1Dam: SpreadDamage
+		Spread: 50
+		Damage: 15000
+		Versus:
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Concrete: 35
+			Shield: 0
+		ValidRelationships: Ally
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Image: explosion
+		ImpactActors: false
+		Explosions: beaconflash
+		ExplosionPalette: gensmkexplocyan70
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+	Warhead@later: FireFragment
+		Delay: 60
+		ImpactActors: false
+		Weapon: OribitBombElevator
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+
+MKIIIRailgun2:
+	Inherits: ^WeaponGenericUpgrades
+	FirstBurstTargetOffset: 0,-150,0
+	FollowingBurstTargetOffset: 0,300,0
+	ReloadDelay: 75
+	Range: 8c0
+	Burst: 2
+	BurstDelays: 8
+	TargetActorCenter: true
+	Report: railuse5.aud
+	Projectile: Railgun
+		DamageActorsInLine: true
+		BeamColor: 00BBBB
+		Duration: 20
+		BeamWidth: 0
+		HelixThickness: 48
+		HelixRadiusDeltaPerTick: 16
+		HelixColor: 44FFFF
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 15000
+		AffectsParent: false
+		Versus:
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Concrete: 35
+			Shield: 0
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+		ValidRelationships: Neutral, Enemy
+
+MKIIITusk:
+	Inherits: MammothTusk
+	Range: 8c0
+	BurstDelays: 20
+	Burst: 4
+	ReloadDelay: 120
+
+MKIIITuskAA:
+	Inherits: MammothTuskAA
+	Inherits@1: ^AARocketWarhead
+	Range: 8c0
+	BurstDelays: 20
+	Burst: 4
+	ReloadDelay: 120
+
+MKIIIVulcan:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	StartBurstReport: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
+	ReloadDelay: 3
+	Range: 8c0
+	Projectile: InstantHit
+		Inaccuracy: 0c512
+	Warhead@1Dam: SpreadDamage
+		Damage: 3000
+		Versus:
+			Light: 80
+			Heavy: 60
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Delay: 5
+		ExplosionPalette: apcyan
+	Warhead@3EffWater: CreateEffect
+		Delay: 5
+
+MKIIIVulcanLine:
+	Inherits: ^LineProjectile
+	ReloadDelay: 3
+	Range: 8c0
+	ValidTargets: Ground, Water
+	Projectile: BulletAS
+		Speed: 1c0
+		ContrailColor: 44FFFF
+		ContrailEndColor: 6688FF
