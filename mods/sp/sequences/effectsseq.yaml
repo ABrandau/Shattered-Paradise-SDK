@@ -8,6 +8,7 @@ explosion:
 	building: twlt070
 	pulse_explosion: pulsefx2
 		Tick: 60
+		BlendMode: Additive
 	small_watersplash: h2o_exp2
 	large_watersplash: h2o_exp1
 	water_piff: w_piff
@@ -1254,7 +1255,6 @@ litning:
 		Start: 4
 		Length: 4
 		IgnoreWorldTint: true
-
 	idle:
 		Offset: 0,0,3
 		Start: 0
@@ -1270,6 +1270,11 @@ scrlitning:
 		Offset: 0,0,3
 		Start: 4
 		Length: 4
+		IgnoreWorldTint: true
+	idle:
+		Offset: 0,0,3
+		Start: 0
+		Length: *
 		IgnoreWorldTint: true
 
 lightest:
@@ -1511,6 +1516,10 @@ railgunsparks:
 		Length: *
 		Scale: 0.5
 		Frames: 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+		IgnoreWorldTint: true
+	idle:
+		ZOffset: 4000
+		Length: *
 		IgnoreWorldTint: true
 
 emboldenedicon:
