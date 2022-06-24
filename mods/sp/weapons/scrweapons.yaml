@@ -434,7 +434,6 @@ ScorpGas:
 		Damage: 0
 		ValidTargets: Infantry, Vehicle, Ground, Water
 		InvalidTargets: Building, Wall
-		ImpactActors: false
 	Warhead@2Con: GrantExternalCondition
 		Range: 4c0
 		Duration: 300
@@ -654,7 +653,6 @@ StormRiderBlastAA:
 	Range: 6c0
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
-	ValidRelationships: Enemy, Neutral
 	Projectile: MissileTA
 		TerrainHeightAware: true
 		CruiseAltitude: 5000
@@ -815,7 +813,6 @@ Blackholeblast:
 	Range: 5c768
 	Report: triplasor0000.wav, triplasor0001.wav, triplasor0002.wav
 	Projectile: ElectricBolt
-		TrackTarget: false
 		Width: 80
 		Duration: 8
 		Angle: 64
@@ -928,7 +925,6 @@ FighterSpawn:
 FighterSpawnAA:
 	Inherits: FighterSpawn
 	ValidTargets: Air
-	ValidRelationships: Enemy, Neutral
 	Warhead@1Dam: TargetDamage
 		ValidTargets: Air
 		ValidRelationships: Enemy, Neutral
@@ -975,7 +971,6 @@ WyvermBlast:
 WyvermBlastAA:
 	Inherits: WyvermBlast
 	ValidTargets: Air
-	ValidRelationships: Enemy, Neutral
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		ValidRelationships: Enemy, Neutral
