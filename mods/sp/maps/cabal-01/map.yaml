@@ -4423,7 +4423,7 @@ Rules: sp|rules/campaign.yaml, sp|rules/campaignrules.yaml
 		-WithSpriteTurret@deployed:
 		WithFacingSpriteBody:
 			Sequence: idle
-			-RequiresCondition:
+			RequiresCondition: !inside-tunnel
 		RenderSprites:
 			Image: ttnk
 		RenderVoxels:
@@ -4437,13 +4437,19 @@ Rules: sp|rules/campaign.yaml, sp|rules/campaignrules.yaml
 		Carryable:
 			-RequiresCondition:
 		Armament@PRIMARY:
+			-ReloadingCondition:
 			PauseOnCondition: empdisable
 			RequiresCondition: !capacitors
 		-Armament@DEPLOYED:
 		Armament@PRIMARYLaser:
+			-ReloadingCondition:
 			PauseOnCondition: empdisable
 			RequiresCondition: capacitors
 		-Armament@DEPLOYEDLaser:
+		Armament@CASINGPRIMARY:
+			-ReloadingCondition:
+			PauseOnCondition: empdisable
+			RequiresCondition: !capacitors
 		-Armament@CASINGDEPLOYED:
 		-Turreted:
 		-AttackTurreted@deployed:
