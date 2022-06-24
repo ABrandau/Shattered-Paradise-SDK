@@ -196,7 +196,7 @@ APC:
 		AfterLoadDelay: 0
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
-		UnloadVoice: Unload
+		UnloadVoice: Move
 		EjectOnDeath: false
 		OwnerChangedAffectsPassengers: false
 	Passenger:
@@ -525,7 +525,7 @@ HMEC:
 	AnnounceOnSeen:
 		PingRadar: true
 		Notification: MammothDetected
-		TextNofication: Enemy Mammoth Mk.II detected.
+		TextNotification: Enemy Mammoth Mk. II detected.
 	AttackFrontal:
 		Voice: Attack
 		Armaments: primary, secondary, tertiary
@@ -1735,7 +1735,7 @@ SCORPION:
 	AnnounceOnSeen:
 		PingRadar: true
 		Notification: CommandoDetected
-		TextNofication: Enemy commando detected.
+		TextNotification: Enemy Lightbringer detected.
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -2386,7 +2386,7 @@ WEASAU:
 	AnnounceOnSeen:
 		PingRadar: true
 		Notification: CommandoDetected
-		TextNofication: Enemy commando detected.
+		TextNotification: Enemy Weasaurus Lord detected.
 	AutoTarget:
 		ScanRadius: 7
 		InitialStance: AttackAnything
@@ -2783,12 +2783,12 @@ LIMPED:
 		RequiresCondition: deployed
 	Armament@1:
 		Weapon: LimpetMissile
-		ReloadCondition: reload-ground
+		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || !deployed || reload-air
 	Armament@2:
 		Weapon: LimpetMissileAA
 		EnableSplitRanges: true
-		ReloadCondition: reload-air
+		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || !deployed || reload-ground
 		RequiresCondition: limpetaa
 	AttackFrontal:
@@ -3185,7 +3185,7 @@ BCOREDEF:
 	AnnounceOnSeen:
 		PingRadar: true
 		Notification: CommandoDetected
-		TextNofication: Enemy commando detected.
+		TextNotification: Enemy C.A.B.A.L. Defender detected.
 	ExternalCondition@PRODUCED:
 		Condition: produced
 	VoiceAnnouncement:
