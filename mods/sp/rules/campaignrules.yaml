@@ -19,9 +19,6 @@ CABGRINDER:
 	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 
 NEUTRALFABRICATOR:
 	Inherits: ^Vehicle
@@ -48,6 +45,9 @@ NEUTRALFABRICATOR:
 		Bounds: 1206,3015,0, -905
 	RenderSprites:
 		PlayerPalette: playerunittem
+	ActorStatValues:
+		Icon: vehicleicon
+		Palette: chrome
 
 NEUTRALFABRICATORDEP:
 	Inherits: ^TechBuilding
@@ -110,6 +110,7 @@ CONTAINMENTUNIT:
 		HP: 15000
 	Armor:
 		Type: Building
+	-WithMakeAnimation:
 	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
