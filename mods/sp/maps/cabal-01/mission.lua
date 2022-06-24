@@ -1,3 +1,11 @@
+--[[
+   Copyright 2007-2022 The OpenRA Developers (see AUTHORS)
+   This file is part of OpenRA, which is free software. It is made
+   available to you under the terms of the GNU General Public License
+   as published by the Free Software Foundation, either version 3 of
+   the License, or (at your option) any later version. For more
+   information, see COPYING.
+]]
 
 InfantryTypes = { "altnode1", "crusader", "templar" }
 NodBasicVehicles = { "bggy", "rocketbggy", "flamebggy", "tickclone" }
@@ -6,11 +14,10 @@ AttackPaths = { {actor1352}, {actor1347}, {actor1348}, {actor1022}, {actor1349},
 
 
 Objectives = function()
-		Objective1 = player.AddPrimaryObjective("Recapture our lost M.C.V.")
-		Objective2 = player.AddPrimaryObjective("Identify the source the unkown signal.")
-		Objective3 = player.AddPrimaryObjective("Secure the source the unkown signal.")
-		Camera.Position = Actor1022.CenterPosition
-
+	Objective1 = player.AddPrimaryObjective("Recapture our lost M.C.V.")
+	Objective2 = player.AddPrimaryObjective("Identify the source the unkown signal.")
+	Objective3 = player.AddPrimaryObjective("Secure the source the unkown signal.")
+	Camera.Position = Actor1022.CenterPosition
 end
 
 IntroductionInfo = function()

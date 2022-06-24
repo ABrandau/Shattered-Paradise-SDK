@@ -4414,8 +4414,13 @@ Rules: sp|rules/campaign.yaml, sp|rules/campaignrules.yaml
 		Inherits@2: ^HologramKillTimer
 		EditorOnlyTooltip:
 			Name: Tick Tank
+		Armor:
+			RequiresCondition: !shields-up
+		-Armor@deployed:
 		-GrantConditionOnDeploy:
+		-WithMakeAnimation:
 		-WithSpriteBody@deployed:
+		-WithSpriteTurret@deployed:
 		WithFacingSpriteBody:
 			Sequence: idle
 			-RequiresCondition:
@@ -4424,9 +4429,25 @@ Rules: sp|rules/campaign.yaml, sp|rules/campaignrules.yaml
 		RenderVoxels:
 			Image: ttnk
 		Mobile:
-			-PauseOnCondition:
+			RequireForceMoveCondition: !AImicroManage
+		Passenger:
+			-RequireForceMoveCondition: !undeployed
+		-RejectsOrders@deployment:
+		-RejectsMoveToAttack:
+		Carryable:
+			-RequiresCondition:
+		Armament@PRIMARY:
+			PauseOnCondition: empdisable
+			RequiresCondition: !capacitors
+		-Armament@DEPLOYED:
+		Armament@PRIMARYLaser:
+			PauseOnCondition: empdisable
+			RequiresCondition: capacitors
+		-Armament@DEPLOYEDLaser:
+		-Armament@CASINGDEPLOYED:
+		-Turreted:
 		-AttackTurreted@deployed:
-		AttackFrontal:
+		AttackFollowFrontal:
 			-RequiresCondition:
 	CABGRINDER:
 		ProximityExternalCondition@hospitalheal:

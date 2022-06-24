@@ -65,23 +65,25 @@ NEUTRALFABRICATORDEP:
 	Targetable:
 		TargetTypes: Building, Ground, C4, SpyInfiltrate, ConsideredValuableForAI
 	BaseBuilding:
+	WithMakeAnimation:
+		Condition: Building-Buildup
 	Transforms:
 		IntoActor: neutralfabricator
 		Facing: 888
 		DeployCursor: undeploy
 		PauseOnCondition: empdisable
 	TransformsIntoMobile:
-		RequiresCondition: !Building-Buildup && Campaign
+		RequiresCondition: !Building-Buildup
 		Locomotor: InfantryCrusherVehicle
 		Voice: Move
 		RequiresForceMove: true
 	TransformsIntoRepairable:
-		RequiresCondition: !Building-Buildup && Campaign
+		RequiresCondition: !Building-Buildup
 		RepairActors: gadept, scrdepot
 		Voice: Move
 		RequiresForceMove: true
 	TransformsIntoPassenger:
-		RequiresCondition: !Building-Buildup && Campaign
+		RequiresCondition: !Building-Buildup
 		CargoType: Vehicle
 		Voice: Move
 		RequiresForceMove: true
@@ -97,7 +99,7 @@ CONTAINMENTUNIT:
 	Valued:
 		Cost: 350
 	Tooltip:
-		Name: Containment unit
+		Name: Containment Unit
 	TooltipDescription:
 		Description: Holds a captive tiberium lifeform
 	AcceptsDeliveredCash:
@@ -135,7 +137,7 @@ CONTAINMENTUNITVEINHOLE:
 # CREEPS
 #######################################################
 
-WEASAU:
+WEASAU2:
 	Inherits: ^Beast
 	Inherits@2: ^6CellVision
 	Tooltip:
@@ -167,10 +169,11 @@ WEASAU:
 		DeathSequencePalette: gradientgreen
 		CrushedSequencePalette: gradientgreen
 	RenderSprites:
+		Image: weasau
 		Palette: orgatemgreen
 
 WEASAUGREEN:
-	Inherits: WEASAU
+	Inherits: WEASAU2
 	Tooltip:
 		Name: Weasaurus
 	Health:
@@ -197,9 +200,11 @@ WEASAUGREEN:
 	WithInfantryBody:
 		IdleSequences: idle1
 		AttackSequences: shoot
+	RenderSprites:
+		Image: weasaugreen
 
 WEASAUBLUE:
-	Inherits: WEASAU
+	Inherits: WEASAU2
 	Tooltip:
 		Name: Weasaurus Mayor
 	Health:
@@ -217,6 +222,8 @@ WEASAUBLUE:
 	WithDeathAnimation@blood1:
 		DeathSequencePalette: jasccyan
 		CrushedSequencePalette: jasccyan
+	RenderSprites:
+		Image: weasaublue
 
 WEASAUBLUE2:
 	Inherits: WEASAUGREEN
@@ -251,7 +258,8 @@ WEASAUBLUE2:
 	WithDeathAnimation@blood1:
 		DeathSequencePalette: jasccyan
 		CrushedSequencePalette: jasccyan
-
+	RenderSprites:
+		Image: weasaublue2
 
 GMRLS:
 	Inherits: ^Tank
