@@ -90,7 +90,7 @@ FiendShard2:
 		Shadow: true
 		LaunchAngle: 60
 		Palette: greentiberium
-		ContrailLength: 10
+		ContrailLength: 3
 		ContrailColor: 7EFF0188
 		ContrailEndColor: 7EFF0144
 		ContrailWidth: 0c28
@@ -122,10 +122,11 @@ FiendShardAA:
 		Sequences: idle
 		IsPlayerPalette: false
 		Palette: greentiberium
-		ContrailLength: 10
+		ContrailLength: 3
 		ContrailColor: 7EFF01
 		ContrailWidth: 0c28
-		HorizontalRateOfTurnStart: 20
+		HorizontalRateOfTurn: 120
+		HorizontalRateOfTurnStart: 120
 		-Inaccuracy:
 		-TrailImage:
 		-JetImage:
@@ -158,7 +159,7 @@ FiendShard2Blue:
 	Inherits: FiendShard2
 	Projectile: BulletAS
 		Palette: bluetiberium
-		ContrailLength: 10
+		ContrailLength: 3
 		ContrailColor: 5980FF88
 		ContrailEndColor: 5980FF44
 		ContrailWidth: 0c28
@@ -169,7 +170,7 @@ FiendShardBlueAA:
 	Inherits: FiendShardAA
 	Projectile: MissileTA
 		Palette: bluetiberium
-		ContrailLength: 10
+		ContrailLength: 3
 		ContrailColor: 5980FF
 		ContrailWidth: 0c28
 	Warhead@op: FireRadius
@@ -604,6 +605,8 @@ QueenTooth:
 		LaunchAngle: 60
 		Palette: playermut
 		Blockable: false
+		HorizontalRateOfTurn: 60
+		HorizontalRateOfTurnStart: 60
 		-ContrailLength:
 		-TrailImage:
 	Warhead@1Dam: SpreadDamage
@@ -636,6 +639,7 @@ QueenToothBack:
 		Shadow: true
 		Palette: playermut
 		HorizontalRateOfTurn: 60
+		HorizontalRateOfTurnStart: 60
 		Arm: 0
 		Speed: 400
 		Inaccuracy: 0c0

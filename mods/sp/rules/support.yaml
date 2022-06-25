@@ -59,7 +59,7 @@ GAVULC:
 		Palette: bright
 	LineBuildNode:
 		Types: turret
-	ProvidesPrerequisite@buildingname:
+	#ProvidesPrerequisite@buildingname:
 	Replacement:
 		ReplaceableTypes: Tower
 	ActorStatValues:
@@ -113,7 +113,7 @@ GAROCK:
 		Palette: bright
 	LineBuildNode:
 		Types: turret
-	ProvidesPrerequisite@buildingname:
+	#ProvidesPrerequisite@buildingname:
 	Replacement:
 		ReplaceableTypes: Tower
 	ActorStatValues:
@@ -162,7 +162,7 @@ GACSAM:
 		Palette: bright
 	LineBuildNode:
 		Types: turret
-	ProvidesPrerequisite@buildingname:
+	#ProvidesPrerequisite@buildingname:
 	RenderSprites:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -221,7 +221,7 @@ GASONC:
 		Palette: bright
 	LineBuildNode:
 		Types: turret
-	ProvidesPrerequisite@buildingname:
+	#ProvidesPrerequisite@buildingname:
 	#Targetable:
 	#	TargetTypes: Building, Ground, C4, DetonateAttack, Defence, AllySonicImmune
 	RenderSprites:
@@ -812,7 +812,7 @@ GAFIRE:
 		Queue: Defense.Shared, Defense.GDI
 		BuildPaletteOrder: 41
 		Description: Generator that can generates a barrier around it to protect units.\n\nSpecial:\n- Increases damage resistance of nearby units by 30% when activated\n- Hostile units that try to cross the firestorm will be killed\n- Does not block incoming projectiles\n- Remains active for 12 seconds\n- Takes 60 seconds to charge
-		Prerequisites: ~gacnst, gatech, ~techlevel.5
+		Prerequisites: ~gacnst, gatech, ~techlevel.5, ~!AIFireStormBuildLimit
 		BuildDuration: 500
 		BuildDurationModifier: 100
 	Valued:
@@ -866,7 +866,7 @@ GAFIRE:
 		RequiresCondition: FirestormGen && !Building-Buildup && !empdisable && !disabled
 	Power:
 		Amount: -100
-	ProvidesPrerequisite@buildingname:
+	#ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
 	Armament@AIAimOnly:
@@ -884,6 +884,9 @@ GAFIRE:
 	-RevealOnFire:
 	ActorStatValues:
 		Armaments: None
+	ProvidesPrerequisite@AIBuildLimit:
+		RequiresCondition: AIbuildingMicroControl
+		Prerequisite: AIFireStormBuildLimit
 
 GAPLUG:
 	Inherits: ^Building

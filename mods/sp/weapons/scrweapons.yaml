@@ -187,6 +187,8 @@ FloatGlaive:
 		ContrailFadeWithColor: false
 		ContrailFadeWithWidth: true
 		ContrailZOffset: 3000
+		HorizontalRateOfTurn: 100
+		HorizontalRateOfTurnStart: 100
 		Jammable: false ## help to save a little bit performance
 		ExplodeWhenEmpty: true
 	Warhead@1Dam: SpreadDamage
@@ -617,8 +619,10 @@ StormRiderBlast:
 		#MaximumLaunchSpeed: 0c543
 		#MinimumLaunchSpeed: 0c301
 		Blockable: false
-		HorizontalRateOfTurn: 100
 		VerticalRateOfTurn: 100
+		HorizontalRateOfTurn: 100
+		HorizontalRateOfTurnAcceleration: 15
+		HorizontalRateOfTurnStart: 60
 		RangeLimit: 20c0
 		AllowSnapping: true
 		Palette: gradientpurple
@@ -692,6 +696,9 @@ Glyder1Cannon:
 		Sequences: lazerflare
 		IsPlayerPalette: false
 		Shadow: false
+		HorizontalRateOfTurn: 100
+		HorizontalRateOfTurnAcceleration: 15
+		HorizontalRateOfTurnStart: 60
 		-TrailImage:
 		-TrailPalette:
 		Palette: apblue
@@ -732,6 +739,9 @@ Glyder2Cannon:
 		Sequences: lazerflare
 		IsPlayerPalette: false
 		RangeLimit: 15c0
+		HorizontalRateOfTurn: 100
+		HorizontalRateOfTurnAcceleration: 15
+		HorizontalRateOfTurnStart: 60
 		Palette: apblue
 	Warhead@1Dam: SpreadDamage
 		Spread: 90
@@ -1206,10 +1216,13 @@ EssenceMissile:
 		Blockable: false
 		AllowSnapping: true
 		CloseEnough: 127
-		HorizontalRateOfTurnStart: 20
+		HorizontalRateOfTurn: 100
+		HorizontalRateOfTurnAcceleration: 15
+		HorizontalRateOfTurnStart: 60
 		ExplodeUnderThisAltitude: -5c0
 		Jammable: false ## help to save a little bit performance
 		ExplodeWhenEmpty: true
+		TerrainHeightAware: false
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: -2000
