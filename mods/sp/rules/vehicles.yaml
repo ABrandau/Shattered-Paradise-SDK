@@ -268,11 +268,13 @@ HVR:
 	Armament:
 		Weapon: HoverMissile
 		LocalOffset: 100,150,384, 100,-150,384
+		LocalYaw: -100, 100
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 	Armament@AA:
 		Weapon: HoverMissileAA
 		LocalOffset: 100,150,384, 100,-150,384
+		LocalYaw: -100, 100
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 	Turreted:
@@ -451,11 +453,13 @@ G4TNK:
 		Weapon: MammothTusk
 		Damage: 60
 		LocalOffset: 100,400,650, 100,-400,650
+		LocalYaw: -168, 168
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 	Armament@SECONDARYSECONDARY:
 		Weapon: MammothTuskAA
 		LocalOffset: 100,400,650, 100,-400,650
+		LocalYaw: -168, 168
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 	AttackTurreted:
@@ -1096,28 +1100,28 @@ ATTACKBIKE:
 	Armament@PRIMARY:
 		Weapon: BikeMissile
 		LocalOffset: -120,-204,400, -120,204,400
-		LocalYaw: 100, -100
+		LocalYaw: -198, 198
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 		RequiresCondition: !tibcore
 	Armament@AA:
 		Weapon: BikeMissileAA
 		LocalOffset: -120,-204,400, -120,204,400
-		LocalYaw: 100, -100
+		LocalYaw: -198, 198
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 		RequiresCondition: !tibcore
 	Armament@PRIMARYTib:
 		Weapon: BikeMissileTib
 		LocalOffset: -120,-204,400, -120,204,400
-		LocalYaw: 100, -100
+		LocalYaw: -140, 140
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 		RequiresCondition: tibcore
 	Armament@AATib:
 		Weapon: BikeMissileTibAA
 		LocalOffset: -120,-204,400, -120,204,400
-		LocalYaw: 100, -100
+		LocalYaw: -140, 140
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 		RequiresCondition: tibcore
@@ -1634,24 +1638,28 @@ STNK:
 	Armament:
 		Weapon: StealthRocket
 		LocalOffset: 400,125,300, 400,-125,300
+		LocalYaw: -120, 120
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 		RequiresCondition: !tibcore
 	Armament@AA:
 		Weapon: StealthRocketAA
 		LocalOffset: 400,125,300, 400,-125,300
+		LocalYaw: -120, 120
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 		RequiresCondition: !tibcore
 	Armament@Tib:
 		Weapon: StealthRocketTib
 		LocalOffset: 400,125,300, 400,-125,300
+		LocalYaw: -90, 90
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 		RequiresCondition: tibcore
 	Armament@TibAA:
 		Weapon: StealthRocketTibAA
 		LocalOffset: 400,125,300, 400,-125,300
+		LocalYaw: -90, 90
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 		RequiresCondition: tibcore
