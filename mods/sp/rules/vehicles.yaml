@@ -1458,13 +1458,13 @@ SAPC:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 29
 		Prerequisites: ~naweap, naradr, ~techlevel.4
-		Description: Troop transport that can move underground.\n\nSpecial:\n- Can move underground.\n- Can transport up to 5 infantry.\n- Can crush infantry.\n- Once burrowed and en route to its destination, the only order it can receive is to surface\n - Cannot move or burrow back for 2 seconds after resufacing
+		Description: Troop transport that can move underground.\n\nSpecial:\n- Can move underground.\n- Can transport up to 5 infantry.\n- Can crush infantry.\n- Once burrowed and en route to its destination, the only order it can receive is to surface\n - Cannot move or burrow back for 3 seconds after resufacing
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Mobile:
 		TurnSpeed: 20
 		Speed: 105
-		PauseOnCondition: empdisable || loading
+		PauseOnCondition: empdisable || resurfaced || loading
 	Health:
 		HP: 20000
 	Cargo:
@@ -1500,7 +1500,7 @@ SUBTANK:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
 		BuildAtProductionType: Tank
-		Description: Subterranean flame tank able to move underground.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Can move underground.\n- Can crush infantry.\n- Once burrowed and en route to its destination, the only order it can receive is to surface\n - Cannot move or burrow back for 2 seconds after resufacing
+		Description: Subterranean flame tank able to move underground.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Can move underground.\n- Can crush infantry.\n- Once burrowed and en route to its destination, the only order it can receive is to surface\n - Cannot move or burrow back for 3 seconds after resufacing
 		BuildPaletteOrder: 37
 		Prerequisites: ~naweap, natech, ~techlevel.5
 		BuildDuration: 500
