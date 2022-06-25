@@ -882,6 +882,8 @@ RPGTower:
 		MinimumLaunchAngle: 172
 		MaximumLaunchAngle: 172
 		Palette: orgatemblueplayer
+		TrailImage: cannonsmokecircle
+		TrailPalette: apolra2alpha
 	Warhead@1Dam: SpreadDamage
 		Damage: 10000
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
@@ -1019,17 +1021,35 @@ MKIIIRailgun2:
 MKIIITusk:
 	Inherits: MammothTusk
 	Range: 8c0
-	BurstDelays: 20
-	Burst: 4
-	ReloadDelay: 120
+	BurstDelays: 15
+	Burst: 3
+	ReloadDelay: 55
+	Projectile: MissileTA
+		Speed: 600
+		Blockable: false
+		TrailImage: explosion
+		TrailSequences: jsmokey2
+		TrailPalette: gensmkexploj50a
+		TrailInterval: 0
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
 
 MKIIITuskAA:
 	Inherits: MammothTuskAA
 	Inherits@1: ^AARocketWarhead
 	Range: 8c0
-	BurstDelays: 20
-	Burst: 4
-	ReloadDelay: 120
+	BurstDelays: 15
+	Burst: 3
+	ReloadDelay: 55
+	Projectile: MissileTA
+		Speed: 600
+		Blockable: false
+		TrailImage: explosion
+		TrailSequences: jsmokey2
+		TrailPalette: gensmkexploj50a
+		TrailInterval: 0
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
 
 MKIIIVulcan:
 	Inherits: ^RifleWarhead
