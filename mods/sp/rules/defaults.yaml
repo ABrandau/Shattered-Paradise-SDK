@@ -2507,6 +2507,8 @@
 	RejectsOrders@subterranean:
 		RequiresCondition: submerged
 		Except: Stop
+	Mobile:
+		PauseOnCondition: empdisable || resurfaced
 	WithVoxelBody:
 		RequiresCondition: !inside-tunnel && !submerged
 	Targetable:
@@ -2518,6 +2520,8 @@
 		TextNotification: Subterranean unit detected.
 	GrantConditionOnSubterraneanLayer:
 		Condition: submerged
+		ResurfaceCondition: resurfaced
+		ResurfaceConditionDuration: 50
 		SubterraneanTransitionImage: dig
 		SubterraneanTransitionSequence: idle
 		SubterraneanTransitionSound: subdril1.aud
