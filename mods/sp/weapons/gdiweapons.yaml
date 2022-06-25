@@ -399,7 +399,6 @@ HoverMissile:
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	InvalidTargets: Air
 	Projectile: MissileTA
-		Arm: 2
 		Blockable: false
 		Inaccuracy: 128
 	Warhead@1Dam: SpreadDamage
@@ -781,7 +780,7 @@ FighterHellfire:
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	Projectile: MissileTA
 		Speed: 650
-		Arm: 2
+		#Arm: 0 ##When cannot reach Arm, missle will also explode but just disappear
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
@@ -866,7 +865,6 @@ GdiRedEye:
 	Inherits@3: ^AntiAirTurretWeapon
 	Report: samshot1.aud
 	Projectile: MissileTA
-		Arm: 2
 		Blockable: false
 		Inaccuracy: 128
 
@@ -1033,7 +1031,7 @@ MKIIIVulcan:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
 	StartBurstReport: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
-	ReloadDelay: 3
+	ReloadDelay: 4
 	Range: 8c0
 	Projectile: InstantHit
 		Inaccuracy: 0c512
@@ -1051,7 +1049,7 @@ MKIIIVulcan:
 
 MKIIIVulcanLine:
 	Inherits: ^LineProjectile
-	ReloadDelay: 3
+	ReloadDelay: 4
 	Range: 8c0
 	ValidTargets: Ground, Water
 	Projectile: BulletAS
