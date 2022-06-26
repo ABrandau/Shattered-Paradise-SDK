@@ -471,9 +471,8 @@ COREDEFENDER:
 		Weapon: CoreDefSuper
 		LocalOffset: 700,0,4900
 		Name: HeadSuperWeapon
-	ProvidesPrerequisite@HeadSuper:
-		Prerequisite: CoreDefSuper
-		Factions: gdi, mut, nod, cab, scr
+	ProvidesPrerequisite@HeadSuperAIbuildinglimit:
+		Prerequisite: DefenderExists
 		ResetOnOwnerChange: true
 	FireArmamentPower:
 		Cursor: emp
@@ -489,7 +488,7 @@ COREDEFENDER:
 		EndChargeSpeechNotification: SuperWeaponReady
 		SelectTargetSound: speech-nod|00-i042.aud
 		Prerequisites:
-			1: CoreDefSuper
+			1: DefenderExists
 		OrderName: CoreDefSuper
 		LaunchSpeechNotification: SuperweaponFired
 		IncomingSpeechNotification: SuperweaponFired
@@ -521,8 +520,6 @@ COREDEFENDER:
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
 		Weapons: LargeDebris
-	ProvidesPrerequisite@AIbuildinglimit:
-		Prerequisite: DefenderExists
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
@@ -601,6 +598,7 @@ DEFD:
 		Range: 2c0
 	ProvidesPrerequisite@AIbuildinglimit:
 		Prerequisite: DefenderExists
+		ResetOnOwnerChange: true
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack, ConsideredThreatForAI
 	WithIdleOverlay@charging:
@@ -742,14 +740,14 @@ HMECTEST:
 		Name: secondary
 		Turret: secondary
 		ReloadingCondition: reload-ground
-		PauseOnCondition: empdisable || reload-air
+		PauseOnCondition: empdisable || reload-air || reload-super
 	Armament@M1AA:
 		Weapon: MKIIITuskAA
 		LocalOffset: 200,0,2900
 		Name: secondary
 		Turret: secondary
 		ReloadingCondition: reload-air
-		PauseOnCondition: empdisable || reload-ground
+		PauseOnCondition: empdisable || reload-ground || reload-super
 	Armament@M2:
 		Weapon: MKIIITusk
 		LocalOffset: 200,0,2900
@@ -757,7 +755,7 @@ HMECTEST:
 		Turret: tertiary
 		FireDelay: 5
 		ReloadingCondition: reload-ground
-		PauseOnCondition: empdisable || reload-air
+		PauseOnCondition: empdisable || reload-air || reload-super
 	Armament@M2AA:
 		Weapon: MKIIITuskAA
 		LocalOffset: 200,0,2900
@@ -765,7 +763,7 @@ HMECTEST:
 		Turret: tertiary
 		FireDelay: 5
 		ReloadingCondition: reload-air
-		PauseOnCondition: empdisable || reload-ground
+		PauseOnCondition: empdisable || reload-ground || reload-super
 	Armament@R: ##Hit effect and firedly fire
 		Weapon: MKIIIRailgun
 		LocalOffset: 1200,-250,2650, 1200,250,2650
@@ -788,6 +786,49 @@ HMECTEST:
 		LocalOffset: 0,0,1400
 		Turret: quaternary
 		PauseOnCondition: empdisable
+	Armament@SuperWeapon1:
+		Weapon: SonicClusterMissile
+		LocalOffset: 200,0,2900
+		Name: MKIIISuperWeapon
+		Turret: secondary
+		ReloadingCondition: reload-super
+		PauseOnCondition: empdisable
+	Armament@SuperWeapon2:
+		Weapon: SonicClusterMissile
+		LocalOffset: 200,0,2900
+		Name: MKIIISuperWeapon
+		Turret: tertiary
+		FireDelay: 5
+		ReloadingCondition: reload-super
+		PauseOnCondition: empdisable
+	FireArmamentPower:
+		Cursor: emp
+		Icons:
+			1: mammothicon
+		ChargeInterval: 3200
+		ArmamentName: MKIIISuperWeapon
+		Names:
+			1: Sonic Missile Storm
+		Descriptions:
+			1: Fires sonic cluster missile bombard target location.\n\nSpecial:\n- Instant kills aircraft
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
+		SelectTargetSound: speech-nod|00-i042.aud
+		Prerequisites:
+			1: MKIIISuper
+		OrderName: MKIIISuper
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
+		DisplayTimerRelationships: Ally, Neutral, Enemy
+		PauseOnCondition: empdisable
+		CameraRange: 10c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
+	ProvidesPrerequisite@MKIIISuper:
+		Prerequisite: MKIIISuper
+		ResetOnOwnerChange: true
 	-Targetable@MC:
 	Turreted@1:
 		Offset: -500,0,0

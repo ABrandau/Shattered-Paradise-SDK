@@ -633,7 +633,7 @@ Player:
 			grenadier: 4000
 			medic: 4000
 			scorpion: 20000
-			hmectest: 120000
+			hmectest: 100000
 	## Mcv Manager also control some tech vehicle's depoyment
 	McvManagerBotModule@AINormal:
 		RequiresCondition: AINormal || AIEasy
@@ -794,13 +794,7 @@ Player:
 					CheckRadius: 4c0
 				Consideration@2:
 					Against: Enemy
-					Types: Building
-					Attractiveness: 1
-					TargetMetric: Value
-					CheckRadius: 6c0
-				Consideration@3:
-					Against: Enemy
-					Types: Ground, Water
+					Types: Ground, Water, Air
 					Attractiveness: 1
 					TargetMetric: Value
 					CheckRadius: 5c0
@@ -963,6 +957,23 @@ Player:
 					Attractiveness: -10
 					TargetMetric: Value
 					CheckRadius: 4c0
+			mk3super:
+				OrderName: MKIIISuper
+				MinimumAttractiveness: 7000
+				MinimumScanTimeInterval: 83
+				MaximumScanTimeInterval: 100
+				Consideration@2:
+					Against: Enemy
+					Types: Ground, Water, Air
+					Attractiveness: 1
+					TargetMetric: Value
+					CheckRadius: 5c0
+				Consideration@4:
+					Against: Ally
+					Types: Air, Ground, Water
+					Attractiveness: -10
+					TargetMetric: Value
+					CheckRadius: 7c0
 	CaptureManagerBotASModule:
 		CapturingActorTypes: engineer, cutman, swarmling, shapeshifter
 		PriorityCaptureChance: 100
