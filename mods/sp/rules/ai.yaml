@@ -58,7 +58,7 @@ Player:
 		Condition: megawealth
 		Prerequisites: global-megawealth
 	BaseBuilderBotModule@AIBase:
-		RequiresCondition: (AIEasy || AINormal || AICheater) && !megawealth
+		RequiresCondition: (AIBase || AIEasy) && !megawealth
 		BuildingQueues: Building.Shared, Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
 		DefenseQueues: Defense.Shared, Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL, Defense.Scrin
 		MaxBaseRadius: 50
@@ -78,18 +78,18 @@ Player:
 		BuildingLimits:
 			gadept: 1
 			scrdepot: 1
-			gdiref: 2
-			nodref: 2
-			scrproc: 2
-			cabproc: 2
-			muproc: 2
-			gasilo: 0
-			napowr: 8
-			naapwr: 5
-			gapowr: 15
-			mupowr: 11
-			cabpowr: 12
-			scrpowr: 12
+			gdiref: 3
+			nodref: 3
+			scrproc: 3
+			cabproc: 3
+			muproc: 3
+			gasilo: 1
+			napowr: 11
+			naapwr: 7
+			gapowr: 20
+			mupowr: 22
+			cabpowr: 22
+			scrpowr: 22
 			gapile: 2
 			nahand: 2
 			murax: 2
@@ -97,7 +97,7 @@ Player:
 			scrrax: 2
 			gaweap: 2
 			cabweap: 2
-			naweap: 2
+			naweap: 1
 			muweap: 2
 			scrweap: 2
 			garadr: 1
@@ -126,207 +126,21 @@ Player:
 			gasonc: 5
 			naobel: 7
 			scrdrone: 7
-			cabeye: 1
-			scrextractor: 2
-			nahpad: 4
-			gahpad: 4
-			muair: 4
-			scrair: 3
-			cabair: 3
-			gaplug: 1
-			natmpl: 1
-			mutsw1: 1
-			cabsw1: 1
-			scrsw1: 1
-			nastlh: 1
-			gafire: 1
-			gtdrop: 1
-			scradvpowr: 1
-			namisl: 1
-			mutsw2: 1
-			cabobelisk: 1
-			blackdefd: 1
-			nahfac: 1
-			defd: 1
-		BuildingFractions:
-			gadept: 1
-			scrdepot: 1
-			gdiref: 100
-			nodref: 100
-			scrproc: 100
-			cabproc: 100
-			muproc: 100
-			napowr: 15
-			naapwr: 15
-			gapowr: 15
-			mupowr: 35
-			cabpowr: 15
-			scrpowr: 15
-			gapile: 10
-			nahand: 10
-			murax: 10
-			cabclaw: 10
-			scrrax: 10
-			gaweap: 60
-			cabweap: 60
-			naweap: 60
-			muweap: 60
-			scrweap: 60
-			garadr: 1
-			naradr: 1
-			cabradr: 1
-			muradr: 1
-			scrradr: 1
-			gatech: 1
-			natech: 1
-			muhall: 1
-			scrtech: 1
-			cabtech: 1
-			gavulc: 10
-			gacsam: 8
-			nalasr: 10
-			nasam: 10
-			cabpit: 10
-			cabrail: 10
-			mubunkrfull: 10
-			muflak: 10
-			mucannon: 10
-			scrneedler: 10
-			scrtractor: 10
-			cabblast: 10
-			garock: 10
-			gasonc: 6
-			naobel: 10
-			scrdrone: 10
-			cabeye: 1
-			scrextractor: 3
-			nahpad: 10
-			gahpad: 10
-			muair: 10
-			scrair: 5
-			cabair: 5
-			gaplug: 1
-			natmpl: 1
-			mutsw1: 1
-			cabsw1: 1
-			scrsw1: 1
-			nastlh: 1
-			gafire: 1
-			gtdrop: 1
-			scradvpowr: 1
-			namisl: 1
-			mutsw2: 1
-			cabobelisk: 1
-			blackdefd: 1
-			nahfac: 1
-			defd: 1
-		BuildingDelays:
-			gaplug: 30000
-			natmpl: 30000
-			mutsw1: 30000
-			cabsw1: 30000
-			scrsw1: 30000
-			nastlh: 10000
-			gtdrop: 21000
-			scradvpowr: 21000
-			namisl: 21000
-			mutsw2: 21000
-			cabobelisk: 21000
-			garadr: 4000
-			naradr: 4000
-			cabradr: 4000
-			muradr: 5000
-			scrradr: 1000
-			gatech: 7000
-			natech: 6000
-			muhall: 7500
-			scrtech: 6000
-			cabtech: 6000
-			nalasr: 3500
-			gadept: 6000
-			defd: 120000
-	BaseBuilderBotModule@AIShattered:
-		RequiresCondition: AIShattered && !megawealth
-		BuildingQueues: Building.Shared, Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
-		DefenseQueues: Defense.Shared, Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL, Defense.Scrin
-		MaxBaseRadius: 50
-		MinimumExcessPower: 90
-		MaximumExcessPower: 250
-		ExcessPowerIncrement: 50
-		ExcessPowerIncreaseThreshold: 4
-		NewProductionCashThreshold: 0
-		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
-		RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4
-		PowerTypes: gapowr, napowor, naapwr, cabpowr, mutpowr, scrpowr
-		BarracksTypes: gapile, nahand, mutrax, cabrax, scrrax
-		VehiclesFactoryTypes: gaweap, naweap, muweap, cabweap, scrweap
-		ProductionTypes: gapile, nahand, mutrax, cabclaw, scrrax, gaweap, naweap, muweap, cabweap, scrweap, gahpad, nahpad, muair, cabair, scrair
-		SiloTypes: gasilo
-		PlaceDefenseTowardsEnemyChance: 50
-		BuildingLimits:
-			gadept: 1
-			scrdepot: 1
-			gdiref: 2
-			nodref: 2
-			scrproc: 2
-			cabproc: 2
-			muproc: 2
-			gasilo: 0
-			napowr: 11
-			naapwr: 7
-			gapowr: 20
-			mupowr: 22
-			cabpowr: 22
-			scrpowr: 22
-			gapile: 7
-			nahand: 7
-			murax: 7
-			cabclaw: 7
-			scrrax: 7
-			gaweap: 4
-			cabweap: 4
-			naweap: 4
-			muweap: 4
-			scrweap: 4
-			garadr: 1
-			naradr: 1
-			cabradr: 1
-			muradr: 1
-			scrradr: 1
-			gatech: 1
-			natech: 1
-			muhall: 1
-			scrtech: 1
-			cabtech: 1
-			gavulc: 8
-			cabpit: 8
-			mubunkrfull: 7
-			nalasr: 8
-			scrneedler: 8
-			muflak: 7
-			mucannon: 7
-			gacsam: 7
-			nasam: 7
-			cabrail: 7
-			scrtractor: 7
-			cabblast: 8
-			garock: 8
-			gasonc: 5
-			naobel: 7
-			scrdrone: 7
 			cabeye: 3
 			scrextractor: 2
-			nahpad: 7
-			gahpad: 7
-			muair: 7
-			scrair: 7
-			cabair: 7
+			nahpad: 3
+			gahpad: 3
+			muair: 3
+			scrair: 2
+			cabair: 2
 			gaplug: 1
 			natmpl: 1
 			mutsw1: 1
 			cabsw1: 1
 			scrsw1: 1
-			nastlh: 3
+			napuls: 1
+			scrshield: 1
+			nastlh: 1
 			gafire: 1
 			gtdrop: 1
 			scradvpowr: 1
@@ -344,6 +158,7 @@ Player:
 			scrproc: 100
 			cabproc: 100
 			muproc: 100
+			gasilo: 1
 			napowr: 15
 			naapwr: 15
 			gapowr: 15
@@ -393,6 +208,8 @@ Player:
 			muair: 10
 			scrair: 10
 			cabair: 10
+			napuls: 1
+			scrshield: 1
 			gaplug: 1
 			natmpl: 1
 			mutsw1: 1
@@ -407,8 +224,10 @@ Player:
 			cabobelisk: 1
 			blackdefd: 1
 			nahfac: 1
-			defd: 1
+			defd: 100
 		BuildingDelays:
+			napuls: 6000
+			scrshield: 6000
 			gaplug: 30000
 			natmpl: 30000
 			mutsw1: 30000
@@ -433,7 +252,7 @@ Player:
 			gadept: 6000
 			defd: 100000
 	BaseBuilderBotModule@AIBaseMegawealth:
-		RequiresCondition: (AIEasy || AINormal || AICheater) && megawealth
+		RequiresCondition: (AIBase || AIEasy) && megawealth
 		BuildingQueues: Building.Shared, Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
 		DefenseQueues: Defense.Shared, Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL, Defense.Scrin
 		MaxBaseRadius: 50
@@ -451,12 +270,12 @@ Player:
 		BuildingLimits:
 			gadept: 1
 			scrdepot: 1
-			napowr: 8
-			naapwr: 5
-			gapowr: 15
-			mupowr: 11
-			cabpowr: 12
-			scrpowr: 12
+			napowr: 11
+			naapwr: 7
+			gapowr: 20
+			mupowr: 22
+			cabpowr: 22
+			scrpowr: 22
 			gapile: 2
 			nahand: 2
 			murax: 2
@@ -464,7 +283,7 @@ Player:
 			scrrax: 2
 			gaweap: 2
 			cabweap: 2
-			naweap: 2
+			naweap: 1
 			muweap: 2
 			scrweap: 2
 			garadr: 1
@@ -493,188 +312,15 @@ Player:
 			gasonc: 5
 			naobel: 7
 			scrdrone: 7
-			cabeye: 1
-			scrextractor: 2
-			nahpad: 4
-			gahpad: 4
-			muair: 4
-			scrair: 3
-			cabair: 3
-			gaplug: 1
-			natmpl: 1
-			mutsw1: 1
-			cabsw1: 1
-			scrsw1: 1
-			nastlh: 1
-			gafire: 1
-			gtdrop: 1
-			scradvpowr: 1
-			namisl: 1
-			mutsw2: 1
-			cabobelisk: 1
-			blackdefd: 1
-			nahfac: 1
-			defd: 1
-		BuildingFractions:
-			gadept: 1
-			scrdepot: 1
-			napowr: 15
-			naapwr: 15
-			gapowr: 15
-			mupowr: 35
-			cabpowr: 15
-			scrpowr: 15
-			gapile: 10
-			nahand: 10
-			murax: 10
-			cabclaw: 10
-			scrrax: 10
-			gaweap: 60
-			cabweap: 60
-			naweap: 60
-			muweap: 60
-			scrweap: 60
-			garadr: 1
-			naradr: 1
-			cabradr: 1
-			muradr: 1
-			scrradr: 1
-			gatech: 1
-			natech: 1
-			muhall: 1
-			scrtech: 1
-			cabtech: 1
-			gavulc: 10
-			gacsam: 8
-			nalasr: 10
-			nasam: 10
-			cabpit: 10
-			cabrail: 10
-			mubunkrfull: 10
-			muflak: 10
-			mucannon: 10
-			scrneedler: 10
-			scrtractor: 10
-			cabblast: 10
-			garock: 10
-			gasonc: 6
-			naobel: 10
-			scrdrone: 10
-			cabeye: 1
-			scrextractor: 3
-			nahpad: 10
-			gahpad: 10
-			muair: 10
-			scrair: 5
-			cabair: 5
-			gaplug: 1
-			natmpl: 1
-			mutsw1: 1
-			cabsw1: 1
-			scrsw1: 1
-			nastlh: 1
-			gafire: 1
-			gtdrop: 1
-			scradvpowr: 1
-			namisl: 1
-			mutsw2: 1
-			cabobelisk: 1
-			blackdefd: 1
-			nahfac: 1
-			defd: 1
-		BuildingDelays:
-			gaplug: 30000
-			natmpl: 30000
-			mutsw1: 30000
-			cabsw1: 30000
-			scrsw1: 30000
-			nastlh: 10000
-			gtdrop: 21000
-			scradvpowr: 21000
-			namisl: 21000
-			mutsw2: 21000
-			cabobelisk: 21000
-			garadr: 4000
-			naradr: 4000
-			cabradr: 4000
-			muradr: 5000
-			scrradr: 1000
-			gatech: 7000
-			natech: 6000
-			muhall: 7500
-			scrtech: 6000
-			cabtech: 6000
-			nalasr: 3500
-			gadept: 6000
-			defd: 120000
-	BaseBuilderBotModule@AIShatteredMegawealth:
-		RequiresCondition: AIShattered && megawealth
-		BuildingQueues: Building.Shared, Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
-		DefenseQueues: Defense.Shared, Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL, Defense.Scrin
-		MaxBaseRadius: 50
-		MinimumExcessPower: 90
-		MaximumExcessPower: 250
-		ExcessPowerIncrement: 50
-		ExcessPowerIncreaseThreshold: 4
-		NewProductionCashThreshold: 0
-		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
-		PowerTypes: gapowr, napowor, naapwr, cabpowr, mutpowr, scrpowr
-		BarracksTypes: gapile, nahand, mutrax, cabrax, scrrax
-		VehiclesFactoryTypes: gaweap, naweap, muweap, cabweap, scrweap
-		ProductionTypes: gapile, nahand, mutrax, cabclaw, scrrax, gaweap, naweap, muweap, cabweap, scrweap, gahpad, nahpad, muair, cabair, scrair
-		PlaceDefenseTowardsEnemyChance: 50
-		BuildingLimits:
-			gadept: 1
-			scrdepot: 1
-			napowr: 11
-			naapwr: 7
-			gapowr: 20
-			mupowr: 22
-			cabpowr: 22
-			scrpowr: 22
-			gapile: 7
-			nahand: 7
-			murax: 7
-			cabclaw: 7
-			scrrax: 7
-			gaweap: 4
-			cabweap: 4
-			naweap: 4
-			muweap: 4
-			scrweap: 4
-			garadr: 1
-			naradr: 1
-			cabradr: 1
-			muradr: 1
-			scrradr: 1
-			gatech: 1
-			natech: 1
-			muhall: 1
-			scrtech: 1
-			cabtech: 1
-			gavulc: 8
-			cabpit: 8
-			mubunkrfull: 7
-			nalasr: 8
-			scrneedler: 8
-			muflak: 7
-			mucannon: 7
-			gacsam: 7
-			nasam: 7
-			cabrail: 7
-			scrtractor: 7
-			cabblast: 8
-			garock: 8
-			gasonc: 5
-			naobel: 7
-			scrdrone: 7
 			cabeye: 3
 			scrextractor: 2
-			nahpad: 7
-			gahpad: 7
-			muair: 7
-			scrair: 7
-			cabair: 7
+			nahpad: 3
+			gahpad: 3
+			muair: 3
+			scrair: 2
+			cabair: 2
+			napuls: 1
+			scrshield: 1
 			gaplug: 1
 			natmpl: 1
 			mutsw1: 1
@@ -742,6 +388,8 @@ Player:
 			muair: 10
 			scrair: 10
 			cabair: 10
+			napuls: 1
+			scrshield: 1
 			gaplug: 1
 			natmpl: 1
 			mutsw1: 1
@@ -756,8 +404,10 @@ Player:
 			cabobelisk: 1
 			blackdefd: 1
 			nahfac: 1
-			defd: 1
+			defd: 100
 		BuildingDelays:
+			napuls: 6000
+			scrshield: 6000
 			gaplug: 30000
 			natmpl: 30000
 			mutsw1: 30000
@@ -872,19 +522,19 @@ Player:
 			wasp: 40
 			basilisk: 1
 			devourer: 1
-			scrin: 50
 			cerberus: 1
+			scrin: 50
 			orca: 40
 			orcab: 30
 			mutheli: 40
 			wetp: 20
+			apache: 5
 			stormrider: 60
 			scrcarrier: 50
 			scrdestroyer: 5
 			scrbattleship: 50
 			howtlizer: 30
 			stnk: 40
-			apache: 5
 			nconf: 10
 			scrrecharger: 100
 			scrmobmine: 5
@@ -908,20 +558,23 @@ Player:
 			ghost: 1
 			mastermind: 1
 			limped: 1
-			hmectest: 1
+			hmectest: 100
 			upgrade.ap_ammunition: 8
 			upgrade.nanofiber_vests: 10
 			upgrade.power_turbines: 10
 			upgrade.sonic_emitter_protocol: 5
 			upgrade.ceramic_plating: 8
+			upgrade.railguns: 1
 			upgrade.purifying_flame: 8
-			upgrade.raider_passenger: 5
 			upgrade.improved_stealth_generator: 5
 			upgrade.tib_core_missiles: 10
+			upgrade.explosive_mixtures: 1
+			upgrade.laser_capacitors: 1
 			upgrade.brick_walls: 8
 			upgrade.blue_shards: 10
 			upgrade.tiberium_infusion: 8
 			upgrade.tiberium_gas_warheads: 3
+			upgrade.lynx_rockets: 1
 			upgrade.cybernetic_leg_enhancements: 5
 			upgrade.improved_reaper_nets: 2
 			upgrade.limpet_aa_targeting: 2
@@ -951,12 +604,18 @@ Player:
 			swarmling: 1
 			shapeshifter: 1
 			scrdestroyer: 5
-			wasp: 8
+			scrin: 5
+			orca: 5
+			orcab: 5
+			mutheli: 5
+			wetp: 5
+			apache: 5
+			wasp: 5
 			devourer: 5
-			basilisk: 8
-			cerberus: 8
-			scrcarrier: 9
-			mutqueen: 10
+			basilisk: 5
+			cerberus: 5
+			scrcarrier: 5
+			mutqueen: 5
 			minelayer: 1
 			struckfull_t3: 1
 			limped: 1
@@ -983,7 +642,7 @@ Player:
 		McvFactoryTypes: gaweap, naweap, muweap, cabweap, scrair
 		MinimumConstructionYardCount: 1
 		MinBaseRadius: 5
-		MaxBaseRadius: 35
+		MaxBaseRadius: 30
 		ScanForNewMcvInterval: 31
 	McvManagerBotModule@AICheater:
 		RequiresCondition: AICheater
@@ -992,7 +651,7 @@ Player:
 		McvFactoryTypes: gaweap, naweap, muweap, cabweap, scrair
 		MinimumConstructionYardCount: 2
 		MinBaseRadius: 5
-		MaxBaseRadius: 35
+		MaxBaseRadius: 30
 		ScanForNewMcvInterval: 31
 	McvManagerBotModule@ShatteredAI:
 		RequiresCondition: AIShattered
@@ -1001,7 +660,7 @@ Player:
 		McvFactoryTypes: gaweap, naweap, muweap, cabweap, scrair
 		MinimumConstructionYardCount: 5
 		MinBaseRadius: 5
-		MaxBaseRadius: 35
+		MaxBaseRadius: 30
 		ScanForNewMcvInterval: 31
 	SupportPowerBotASModule:
 		RequiresCondition: AIBase

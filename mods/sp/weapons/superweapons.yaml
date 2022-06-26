@@ -43,16 +43,6 @@ SuicideBomb:
 			Concrete: 50
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 
-EMPulseCannonMuzzle:
-	ReloadDelay: 25
-	Range: 25c0
-	MinRange: 4c0
-	Projectile: InstantExplode
-	Warhead@1Eff: CreateEffect
-		Explosions: powerlinexplosion
-		ExplosionPalette: effect
-		ValidTargets: Ground, Air, Water
-
 EMPulseCannon:
 	ReloadDelay: 25
 	Range: 25c0
@@ -62,9 +52,13 @@ EMPulseCannon:
 	Projectile: BulletAS
 		Speed: 300
 		Blockable: false
-		Shadow: true
 		LaunchAngle: 110
 		Image: pulsball
+		Palette: apblue
+		Image: hugegreenplasma
+		TrailImage: explosion
+		TrailSequences: emp_fx01
+		TrailPalette: effect
 	Warhead@1Eff: CreateEffect
 		Explosions: pulse_explosion
 		ImpactActors: false
@@ -113,6 +107,7 @@ EMPulseCannon:
 		Amount: 12
 		Delay: 20
 		AirThreshold: 8c0
+
 
 EMPulseCannonShrapnel:
 	Range: 1c0

@@ -1608,6 +1608,7 @@ trnsport.scr:
 NAPULS:
 	Inherits: ^Defence
 	Inherits@SHAPE: ^2x2Shape
+	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -1615,7 +1616,7 @@ NAPULS:
 	Buildable:
 		Queue: Defense.Shared, Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL
 		BuildPaletteOrder: 11
-		Prerequisites: ~structures.human, radar, ~techlevel.4
+		Prerequisites: ~structures.human, radar, ~techlevel.4, ~!AIEmpBuildLimit
 		Description: Cannon that uses EMP projectiles to disable vehicles.\n\nSpecial:\n- Fires a pulse blast which disables all vehicles and buildings in the area\n- Hover units disabled staying over water will be destroyed instantly.\n- Requires power to operate.
 		BuildDuration: 625
 		BuildDurationModifier: 100
@@ -1653,11 +1654,6 @@ NAPULS:
 		LocalOffset: 200,0,1900
 		LocalYaw: 0,100
 		Name: Superweapon
-	Armament@muzzle: ##HACK: FireArmamentPower muzzle
-		Weapon: EMPulseCannonMuzzle
-		LocalOffset: 200,0,1900
-		LocalYaw: 0,100
-		Name: Superweapon
 	SupportPowerChargeBar:
 	FireArmamentPower:
 		AllowMultiple: false
@@ -1679,7 +1675,7 @@ NAPULS:
 			1: emp.gdi
 		OrderName: Nodemp
 		PauseOnCondition: disabled || empdisable
-		RequiresCondition: swlimit
+		RequiresCondition: swlimit && !AIbuildingMicroControl
 	FireArmamentPower@unlimited:
 		AllowMultiple: true
 		Cursor: emp
@@ -1700,7 +1696,7 @@ NAPULS:
 			1: emp.gdi
 		OrderName: Nodemp
 		PauseOnCondition: disabled || empdisable
-		RequiresCondition: !swlimit
+		RequiresCondition: !swlimit && !AIbuildingMicroControl
 	GrantConditionOnPrerequisite@swlimit:
 		Condition: swlimit
 		Prerequisites: global-swlimit
@@ -1716,6 +1712,36 @@ NAPULS:
 		AreaTypes: building
 	ActorStatValues:
 		Range: 25c0
+	Armament@AIonly:
+		Weapon: EMPulseCannon
+		LocalOffset: 200,0,1900
+		LocalYaw: 0,100
+		RequiresCondition: AIbuildingMicroControl
+		PauseOnCondition: !ammo || disabled || empdisable
+	ReloadAmmoPool@AIonly:
+		AmmoPool: primary
+		RequiresCondition: AIbuildingMicroControl
+		Count: 1
+		Delay: 4500
+		PauseOnCondition: disabled || empdisable
+	AmmoPool@AIonly:
+		Ammo: 1
+		InitialAmmo: 0
+		AmmoCondition: ammo
+	ProvidesPrerequisite@AIBuildLimit:
+		RequiresCondition: AIbuildingMicroControl
+		Prerequisite: AIEmpBuildLimit
+	AutoTarget@AIonly:
+		RequiresCondition: AIbuildingMicroControl && ammo
+		InitialStanceAI: Defend
+		MinimumScanTimeInterval: 83
+		MaximumScanTimeInterval: 100
+		ScanRadius: 25
+	AutoTargetPriority@AIonly:
+		RequiresCondition: AIbuildingMicroControl
+		ValidTargets: Vehicle
+		ValidRelationships: Enemy
+		Priority: 2
 
 SCRSHIELD:
 	Inherits: NAPULS
@@ -1727,7 +1753,7 @@ SCRSHIELD:
 	Buildable:
 		Queue: Defense.Shared, Defense.Scrin
 		BuildPaletteOrder: 15
-		Prerequisites: ~drached, scrradr, ~techlevel.4
+		Prerequisites: ~drached, scrradr, ~techlevel.4,  ~!AIEmpBuildLimit
 		BuildDuration: 625
 		BuildDurationModifier: 100
 	-WithSpriteTurret:
