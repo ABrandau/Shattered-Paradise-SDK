@@ -963,6 +963,7 @@ NASTLH:
 	Inherits@IMPSGEN: ^AffectedByImprovedStealthGenerator
 	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
 	Inherits@SHAPE: ^3x2Shape
+	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -970,7 +971,7 @@ NASTLH:
 	Buildable:
 		Queue: Defense.Shared, Defense.Nod
 		BuildPaletteOrder: 43
-		Prerequisites: ~nodyard, natech, ~techlevel.5
+		Prerequisites: ~nodyard, natech, ~techlevel.5, ~!AINASTLHBuildLimit
 		Description: Support structure that cloaks friendly units and buildings.\n\nSpecial:\n- Cloaks friendly assets around it.\n- Generator itself is not cloaked.\n- Requires power to operate.
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -1008,15 +1009,18 @@ NASTLH:
 	-ExternalCondition@CLOAKGENERATOR:
 	-ExternalCondition@crate-cloak:
 	SmokeParticleEmitter@spawnsmoke:
-		RequiresCondition: HeavyDamaged
+		RequiresCondition: HeavyDamaged && (!improvedsgen || (improvedsgen && (disabled || Building-Buildup || empdisable)))
 	ExplodeWeapon@spawnsparks:
-		RequiresCondition: HeavyDamaged
+		RequiresCondition: HeavyDamaged && (!improvedsgen || (improvedsgen && (disabled || Building-Buildup || empdisable)))
 	WithIdleOverlay@SpawnFire:
-		RequiresCondition: HeavyDamaged
+		RequiresCondition: HeavyDamaged && (!improvedsgen || (improvedsgen && (disabled || Building-Buildup || empdisable)))
 	Power:
 		Amount: -100
 	RequiresBuildableArea:
 		AreaTypes: building
+	ProvidesPrerequisite@AIBuildLimit:
+		RequiresCondition: AIbuildingMicroControl
+		Prerequisite: AINASTLHBuildLimit
 
 NATMPL:
 	Inherits: ^Building

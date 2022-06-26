@@ -619,7 +619,7 @@ AVATAR:
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^8CellVision
 	Valued:
-		Cost: 2750
+		Cost: 2250
 	Tooltip:
 		Name: Avatar
 	Selectable:
@@ -659,20 +659,10 @@ AVATAR:
 		DefaultAttackSequence: shoot
 	RenderSprites:
 	WithMuzzleOverlay:
-	ProximityExternalCondition:
-		Condition: avatarboost
-		Range: 6c512
-	WithRangeCircle:
-		Range: 6c512
-		Type: avatarboost
-		BorderWidth: 0
-		Width: 2
+	# Will add new effect later, better not add another searching actor from map function
 	HitShape:
 	ActorStatValues:
 		Damage: 200
-	-FirepowerMultiplier@avatar:
-	-ExternalCondition@avatar:
-	-WithDecoration@avatar:
 
 HMECTEST:
 	Inherits: ^Tank
@@ -854,4 +844,5 @@ HMECTEST:
 		Damage: 720
 		Armaments: primary, secondary
 		SplitRanges: true
-
+	MustBeDestroyed:
+		RequiredForShortGame: true
