@@ -404,22 +404,21 @@ attackbike:
 
 ttnk:
 	Inherits: ^EmpOverlay
-	idle: ticktanksprite
+	idle: ticktank
 		Facings: -32
-		ShadowStart: 85
-	make: ticktankmake
+		ShadowStart: 192
+	make: ticktank
+		Start: 32
 		Length: 20
-		ShadowStart: 20
-	deployed: ticktanksprite
-		Start: 52
-		ShadowStart: 137
-	damaged-deployed: ticktanksprite
-		Start: 52
-		ShadowStart: 137
-	turret: ticktanksprite
-		Start: 53
+		Facings: -8
+		ShadowStart: 224
+	deployed: ticktankdeployed
+		Facings: -8
+		ShadowStart: 40
+	turret: ticktankdeployed
+		Start: 8
 		Facings: -32
-		ShadowStart: 138
+		ShadowStart: 48
 	dieevaporate: infgas
 		Length: *
 		Offset: 0,-6, 32

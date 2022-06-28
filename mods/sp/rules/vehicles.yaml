@@ -1247,7 +1247,7 @@ TTNK:
 		RequiresCondition: undeployed
 	WithFacingSpriteBody:
 		RequiresCondition: undeployed && !inside-tunnel
-	WithSpriteBody@deployed:
+	WithFacingSpriteBody@deployed:
 		Sequence: deployed
 		Name: deployed
 		RequiresCondition: !undeployed
@@ -1264,7 +1264,7 @@ TTNK:
 	Turreted:
 		TurnSpeed: 40
 		Turret: deployed
-		InitialFacing: 640
+		Offset: -128,0,0
 		RealignDelay: -1
 	WithSpriteTurret@deployed:
 		Turret: deployed
