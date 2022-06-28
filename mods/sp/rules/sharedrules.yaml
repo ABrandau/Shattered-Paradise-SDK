@@ -462,6 +462,9 @@ GACNST:
 ^Barracks:
 	Inherits: ^Building
 	Inherits@PRODUCTION: ^ProducesStuff
+	Buildable:
+		BuildDuration: 200
+		BuildDurationModifier: 100
 	Valued:
 		Cost: 500
 	ProvidesPrerequisite:
@@ -687,6 +690,9 @@ GACNST:
 	Inherits: ^Building
 	Inherits@PRODUCTION: ^ProducesStuff
 	Inherits@SHAPE: ^4x3FactoryWithBibShape
+	Buildable:
+		BuildDuration: 750
+		BuildDurationModifier: 100
 	Valued:
 		Cost: 2000
 	ProvidesPrerequisite@factory:
@@ -767,6 +773,9 @@ GACNST:
 		SpawnOffset: 0,-256,0
 	GrantExternalConditionToProduced:
 		Condition: produced
+	Buildable:
+		BuildDuration: 375
+		BuildDurationModifier: 100
 	Valued:
 		Cost: 1000
 	Production@Shared:
@@ -820,6 +829,9 @@ GACNST:
 	Inherits: ^Building
 	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
 	Inherits@VISION: ^12CellVision
+	Buildable:
+		BuildDuration: 1125
+		BuildDurationModifier: 100
 	Valued:
 		Cost: 1500
 	ProvidesPrerequisite:

@@ -65,8 +65,6 @@ GAPILE:
 		BuildPaletteOrder: 6
 		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an area around it.
 		Prerequisites: ~gacnst, anypower, ~techlevel.1
-		BuildDuration: 250
-		BuildDurationModifier: 100
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -207,8 +205,6 @@ GAWEAP:
 		BuildPaletteOrder: 16
 		Description: Produces vehicles.
 		Prerequisites: ~gacnst, proc, ~techlevel.2
-		BuildDuration: 1000
-		BuildDurationModifier: 100
 	Production:
 		Produces: Vehicle.GDI
 	ProductionQueue@Vehicle:
@@ -263,8 +259,6 @@ GARADR:
 		BuildPaletteOrder: 26
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		Prerequisites: ~gacnst, proc, ~techlevel.4
-		BuildDuration: 875
-		BuildDurationModifier: 100
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
@@ -291,8 +285,6 @@ GAHPAD:
 		BuildPaletteOrder: 36
 		Description: Produces and rearms aircraft.
 		Prerequisites: ~gacnst, garadr, ~techlevel.4
-		BuildDuration: 500
-		BuildDurationModifier: 100
 	Valued:
 		Cost: 1000
 	Building:
@@ -523,8 +515,6 @@ NAHAND:
 		BuildPaletteOrder: 6
 		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an area around it.
 		Prerequisites: ~nodyard, anypower, ~techlevel.1
-		BuildDuration: 250
-		BuildDurationModifier: 100
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -663,8 +653,6 @@ NAWEAP:
 		BuildPaletteOrder: 17
 		Description: Produces vehicles.
 		Prerequisites: ~nodyard, proc, ~techlevel.2
-		BuildDuration: 1000
-		BuildDurationModifier: 100
 	Production:
 		Produces: Vehicle.Nod
 	ProductionQueue@Vehicle:
@@ -700,8 +688,6 @@ NARADR:
 		BuildPaletteOrder: 27
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		Prerequisites: ~nodyard, proc, ~techlevel.4
-		BuildDuration: 875
-		BuildDurationModifier: 100
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
@@ -763,8 +749,6 @@ NAHPAD:
 		BuildPaletteOrder: 37
 		Description: Produces and rearms aircraft.
 		Prerequisites: ~nodyard, naradr, ~techlevel.4
-		BuildDuration: 500
-		BuildDurationModifier: 100
 	Valued:
 		Cost: 1000
 	Building:
@@ -1038,8 +1022,6 @@ MURAX:
 		BuildPaletteOrder: 7
 		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an area around it.
 		Prerequisites: ~mutyard, anypower, ~techlevel.1
-		BuildDuration: 250
-		BuildDurationModifier: 100
 	Tooltip:
 		Name: Mutant Armory
 	Building:
@@ -1179,8 +1161,6 @@ MUWEAP:
 		BuildPaletteOrder: 18
 		Description: Produces vehicles.
 		Prerequisites: ~mutyard, proc, ~techlevel.2
-		BuildDuration: 1000
-		BuildDurationModifier: 100
 	Production:
 		Produces: Vehicle.Mutant
 	ProductionQueue@Vehicle:
@@ -1208,8 +1188,6 @@ MURADR:
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		BuildPaletteOrder: 28
 		Prerequisites: ~mutyard, proc, ~techlevel.4
-		BuildDuration: 875
-		BuildDurationModifier: 100
 	ProvidesPrerequisite@upgrade.mut:
 		Prerequisite: upgrade.mut
 	SpawnActorPower:
@@ -1235,8 +1213,6 @@ MUAIR:
 		BuildPaletteOrder: 38
 		Description: Produces and rearms aircraft.
 		Prerequisites: ~mutyard, muradr, ~techlevel.4
-		BuildDuration: 500
-		BuildDurationModifier: 100
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1410,8 +1386,6 @@ SCRRAX:
 		BuildPaletteOrder: 10
 		Description: Calls down Infantry.\n\nSpecial:\n- Heals infantry in an area around it.
 		Prerequisites: ~drached, anypower, ~techlevel.1
-		BuildDuration: 250
-		BuildDurationModifier: 100
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1599,8 +1573,6 @@ SCRWEAP:
 		Description: Produces vehicles.
 		BuildPaletteOrder: 20
 		Prerequisites: ~drached, proc, ~techlevel.2
-		BuildDuration: 1000
-		BuildDurationModifier: 100
 	Production:
 		Produces: Vehicle.Scrin
 	ProductionQueue@Vehicle:
@@ -1632,8 +1604,6 @@ SCRRADR:
 		BuildPaletteOrder: 30
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		Prerequisites: ~drached, proc, ~techlevel.4
-		BuildDuration: 875
-		BuildDurationModifier: 100
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
@@ -1677,8 +1647,6 @@ SCRAIR:
 		BuildPaletteOrder: 40
 		Description: Warps in warships from a nomad galaxy.\n\nSpecial:\n- Scrin Aircraft do not need to rearm.
 		Prerequisites: ~drached, scrradr, ~techlevel.4
-		BuildDuration: 500
-		BuildDurationModifier: 100
 	Valued:
 		Cost: 1000
 	Building:
@@ -1918,8 +1886,6 @@ CABCLAW:
 		BuildPaletteOrder: 9
 		Description: Processes Infantry.\n\nSpecial:\n- Heals infantry in an area around it.
 		Prerequisites: ~cabyard, anypower, ~techlevel.1
-		BuildDuration: 250
-		BuildDurationModifier: 100
 	WithProductionOverlay:
 	Building:
 		Footprint: xx xx xx
@@ -2073,8 +2039,6 @@ CABWEAP:
 		BuildPaletteOrder: 19
 		Description: Produces vehicles.
 		Prerequisites: ~cabyard, proc, ~techlevel.2
-		BuildDuration: 1000
-		BuildDurationModifier: 100
 	Production:
 		Produces: Vehicle.CABAL
 	ProductionQueue@Vehicle:
@@ -2104,8 +2068,6 @@ CABRADR:
 		BuildPaletteOrder: 29
 		Description: Provides an overview of the battlefield and provides the Spy Satellite ability.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Provides Spy Satellite\n- Requires power to operate
 		Prerequisites: ~cabyard, proc, ~techlevel.4
-		BuildDuration: 875
-		BuildDurationModifier: 100
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
@@ -2135,8 +2097,6 @@ CABAIR:
 		BuildPaletteOrder: 39
 		Description: Produces aircraft.\n\nSpecial:\n- C.A.B.A.L. Aircraft do not need to rearm.
 		Prerequisites: ~cabyard, cabradr, ~techlevel.4
-		BuildDuration: 500
-		BuildDurationModifier: 100
 	Valued:
 		Cost: 1000
 	Building:

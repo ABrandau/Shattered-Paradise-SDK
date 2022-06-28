@@ -541,14 +541,14 @@ HMEC:
 		CameraPitch: 250
 	AmbientSound@WalkAnim:
 		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
-		Delay: 16
-		Interval: 16
+		Delay: 12
+		Interval: 12
 		RequiresCondition: walking
 	GrantConditionOnMovement:
 		Condition: walking
 	Armament@M1:
 		Weapon: MKIITusk
-		Damage: 120
+		Damage: 160
 		Name: secondary
 		LocalOffset: -440,600,1920, -440,-600,1920
 		ReloadingCondition: reload-ground
@@ -2933,7 +2933,7 @@ CABAPC:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.CABAL
 		BuildAtProductionType: Tank
-		Description: Armored transport.\n\nSpecial:\n- Can transport 8 infantry units\n- Can transport vehicles\n- Hovers (it ignores terrain like Veins and Water)
+		Description: Armored transport.\n\nSpecial:\n- Can transport up to 12 infantry or 4 vehicles\n- Hovers (it ignores terrain like Veins and Water)
 		BuildPaletteOrder: 31
 		Prerequisites: ~cabweap, cabradr, ~techlevel.4
 		BuildDuration: 250
