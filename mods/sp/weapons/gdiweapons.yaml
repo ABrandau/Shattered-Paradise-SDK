@@ -1080,3 +1080,60 @@ MKIIIVulcanLine:
 		Speed: 1c0
 		ContrailColor: 44FFFF
 		ContrailEndColor: 6688FF
+
+SonicClusterMissile:
+	Inherits: ^RocketWarhead
+	Inherits: ^SWBaseEffects
+	ReloadDelay: 120
+	Range: 999c0
+	Burst: 3
+	BurstDelays: 15
+	Report: samshot1.aud, icbm1.aud
+	ValidTargets: Ground, Water
+	Projectile: MissileTA
+		Blockable: false
+		Speed: 600
+		Shadow: true
+		Image: dronemissile
+		Sequences: idle
+		Inaccuracy: 5c0
+		Palette: jasccyan #effect
+		IsPlayerPalette: false
+		CruiseAltitude: 8000
+		AirburstAltitude: 4144
+		TrailImage: explosion
+		TrailSequences: jsmokey2
+		TrailPalette: gensmkexplocyan70
+		TrailInterval: 0
+		-JetImage:
+		-JetSequences:
+		-JetPalette:
+		-RangeLimit:
+	-Warhead@GetsOneShotedbySuperweapons: ## This for Air only
+	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
+		Spread: 3c0
+	Warhead@op: FireRadius
+		Weapon: SonicClusterMissileShell
+		ImpactActors: false
+		Amount: 8
+		ValidTargets: Ground, Water, Infantry, Vehicle, Air
+	Warhead@2Eff: CreateEffect
+		Explosions: SonicShockwave
+		ExplosionPalette: gensmkexplocyan70
+		AirThreshold: 14c0
+		ValidTargets: Ground, Water, Air
+	Warhead@3Eff: CreateEffect
+		Explosions: SonicMissleExplosion
+		ExplosionPalette: gensmkexplocyan70
+		AirThreshold: 14c0
+		ValidTargets: Ground, Water, Air
+
+SonicClusterMissileShell:
+	Inherits: JJBeacon
+	Range: 1c512
+	ValidTargets: Ground, Water, Vehicle, Infantry, water
+	Projectile: BulletAS
+		Speed: 200
+		Inaccuracy: 2c512
+		LaunchAngle: 196
+		Blockable: false
