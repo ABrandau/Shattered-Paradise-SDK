@@ -71,6 +71,7 @@ SkirmisherMortarGas:
 		Speed: 30
 		TurnRate: 24
 		Image: tibcloud
+		StartSequences: cloud2start
 		Sequences: cloud2
 		EndSequences: cloud2end
 		Palette: effectalpha50
@@ -537,6 +538,7 @@ TiberianRocketGas:
 		Speed: 30
 		TurnRate: 24
 		Image: tibcloud
+		StartSequences: cloud2start
 		Sequences: cloud2
 		EndSequences: cloud2end
 		Palette: effectalpha50
@@ -808,9 +810,8 @@ FalconPunch:
 		Versus:
 			Heavy: 100
 	Warhead@2Eff: CreateEffect
-		Explosions: gasexplo
 		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
-		ExplosionPalette: effect
+		ExplosionPalette: jascgreenalpha
 
 FalconPunchGas:
 	Inherits: FalconPunch
@@ -821,10 +822,15 @@ FalconPunchGas:
 		Speed: 30
 		TurnRate: 24
 		Image: tibcloud
+		StartSequences: cloud1start
 		Sequences: cloud1
 		EndSequences: cloud1end
 		Palette: effectalpha50
 		AirThreshold: 8c0
+	Warhead@2Eff: CreateEffect
+		Explosions: gasexplo
+		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
+		ExplosionPalette: effect
 
 ForgottenCannonWeapon:
 	Inherits: ^APWarhead
