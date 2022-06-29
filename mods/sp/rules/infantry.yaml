@@ -23,12 +23,23 @@ GDIE1:
 	Voiced:
 		VoiceSet: Marine
 	Armament@1:
+		Name: OnFoot
 		Weapon: MarineRifle
 		PauseOnCondition: WebDisable
+		RequiresCondition: !apammo
+	Armament@1AP:
 		Name: OnFoot
+		Weapon: MarineRifleAP
+		PauseOnCondition: WebDisable
+		RequiresCondition: apammo
 	Armament@Garrison:
 		Weapon: GMarineRifle
 		PauseOnCondition: WebDisable
+		RequiresCondition: !apammo
+	Armament@GarrisonAP:
+		Weapon: GMarineRifleAP
+		PauseOnCondition: WebDisable
+		RequiresCondition: apammo
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot

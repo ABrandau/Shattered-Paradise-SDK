@@ -17,6 +17,10 @@ MarineRifle:
 			Light: 30
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
+MarineRifleAP:
+	Inherits: MarineRifle
+	Inherits@2: ^PiffsRed
+
 GrenadierBazooka:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn
@@ -301,6 +305,10 @@ WolverineVulcan:
 		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
+WolverineVulcanAP:
+	Inherits: WolverineVulcan
+	Inherits@2: ^PiffsRed
+
 WolverineVulcanCasing:
 	Inherits: ^BulletCasing
 	ReloadDelay: 40  ## Must be the same as WolverineVulcan
@@ -309,6 +317,12 @@ WolverineVulcanCasing:
 
 WolverineVulcanLine:
 	Inherits: ^BulletProjectile ## Must be the same as WolverineVulcan
+	ReloadDelay: 40
+	Range: 6c0
+	ValidTargets: Ground, Water
+
+WolverineVulcanLineAP:
+	Inherits: ^BulletProjectileRed ## Must be the same as WolverineVulcan
 	ReloadDelay: 40
 	Range: 6c0
 	ValidTargets: Ground, Water
@@ -338,7 +352,7 @@ APCGrenade:
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: grenadexplode, grenadexplode2
-		
+
 ApcVulcan:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
@@ -349,6 +363,10 @@ ApcVulcan:
 		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
+ApcVulcanAP:
+	Inherits: ApcVulcan
+	Inherits@2: ^PiffsRed
+
 ApcVulcanCasing:
 	Inherits: ^BulletCasing
 	ReloadDelay: 40 ## Must be the same as ApcVulcan
@@ -357,6 +375,12 @@ ApcVulcanCasing:
 
 ApcVulcanLine:
 	Inherits: ^LineProjectile
+	ReloadDelay: 40  ## Must be the same as ApcVulcan
+	Range: 5c0
+	ValidTargets: Ground, Water
+
+ApcVulcanLineAP:
+	Inherits: ^LineProjectileRed
 	ReloadDelay: 40  ## Must be the same as ApcVulcan
 	Range: 5c0
 	ValidTargets: Ground, Water
@@ -756,6 +780,7 @@ MKIIVulcan:
 
 MKIIVulcanAP:
 	Inherits: MKIIVulcan
+	Inherits@2: ^PiffsRed
 	Warhead@1Dam: SpreadDamage
 		Damage: 1875
 
@@ -767,6 +792,14 @@ MKIIVulcanCasing:
 
 MKIIVulcanLine:
 	Inherits: ^LineProjectile
+	ReloadDelay: 5
+	Range: 7c0
+	ValidTargets: Ground, Water
+	Projectile: BulletAS
+		Speed: 0c928
+
+MKIIVulcanLineAP:
+	Inherits: ^LineProjectileRed
 	ReloadDelay: 5
 	Range: 7c0
 	ValidTargets: Ground, Water
@@ -853,6 +886,10 @@ VulcanTower:
 		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
+VulcanTowerAP:
+	Inherits: VulcanTower
+	Inherits@2: ^PiffsRed
+
 VulcanTowerCasing:
 	Inherits: ^BulletCasing
 	ReloadDelay: 25 ## Must be the same as VulcanTower
@@ -862,6 +899,13 @@ VulcanTowerCasing:
 
 VulcanTowerLine:
 	Inherits: ^LineProjectile
+	ReloadDelay: 25  ## Must be the same as VulcanTower
+	Burst: 2
+	Range: 7c0
+	ValidTargets: Ground, Water
+
+VulcanTowerLineAP:
+	Inherits: ^LineProjectileRed
 	ReloadDelay: 25  ## Must be the same as VulcanTower
 	Burst: 2
 	Range: 7c0

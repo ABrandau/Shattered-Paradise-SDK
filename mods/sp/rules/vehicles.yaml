@@ -40,6 +40,11 @@ SMECH:
 	Armament:
 		Weapon: WolverineVulcan
 		PauseOnCondition: empdisable
+		RequiresCondition: !apammo
+	Armament@AP:
+		Weapon: WolverineVulcanAP
+		PauseOnCondition: empdisable
+		RequiresCondition: apammo
 	Armament@1Casing:
 		Weapon: WolverineVulcanCasing
 		PauseOnCondition: empdisable
@@ -52,14 +57,32 @@ SMECH:
 		Weapon: WolverineVulcanLine
 		PauseOnCondition: empdisable
 		LocalOffset: 0,280,600
+		RequiresCondition: !apammo
 	Armament@3Bullet:
 		Weapon: WolverineVulcanLine
 		PauseOnCondition: empdisable
 		LocalOffset: 0,-280,600
+		RequiresCondition: !apammo
 	Armament@4Bullet:
 		Weapon: WolverineVulcanLine
 		PauseOnCondition: empdisable
 		LocalOffset: 0,-270,600, 0,270,600
+		RequiresCondition: !apammo
+	Armament@2BulletAP:
+		Weapon: WolverineVulcanLineAP
+		PauseOnCondition: empdisable
+		LocalOffset: 0,280,600
+		RequiresCondition: apammo
+	Armament@3BulletAP:
+		Weapon: WolverineVulcanLineAP
+		PauseOnCondition: empdisable
+		LocalOffset: 0,-280,600
+		RequiresCondition: apammo
+	Armament@4BulletAP:
+		Weapon: WolverineVulcanLineAP
+		PauseOnCondition: empdisable
+		LocalOffset: 0,-270,600, 0,270,600
+		RequiresCondition: apammo
 	ActorStatValues:
 		Damage: 40
 
@@ -213,6 +236,13 @@ APC:
 		LocalOffset: 350,0,1000
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
+		RequiresCondition: !apammo
+	Armament@primaryAP:
+		Weapon: ApcVulcanAP
+		LocalOffset: 350,0,1000
+		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
+		RequiresCondition: apammo
 	Armament@Casing:
 		Weapon: ApcVulcanCasing
 		PauseOnCondition: empdisable
@@ -221,10 +251,22 @@ APC:
 		Weapon: ApcVulcanLine
 		PauseOnCondition: empdisable
 		LocalOffset: 350,0,1000
+		RequiresCondition: !apammo
 	Armament@4Bullet:
 		Weapon: ApcVulcanLine
 		PauseOnCondition: empdisable
 		LocalOffset: 350,-100,1000 
+		RequiresCondition: !apammo
+	Armament@2BulletAP:
+		Weapon: ApcVulcanLineAP
+		PauseOnCondition: empdisable
+		LocalOffset: 350,0,1000
+		RequiresCondition: apammo
+	Armament@4BulletAP:
+		Weapon: ApcVulcanLineAP
+		PauseOnCondition: empdisable
+		LocalOffset: 350,-100,1000 
+		RequiresCondition: apammo
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
@@ -597,6 +639,13 @@ HMEC:
 		LocalOffset: 1638,0,800
 		Name: tertiary
 		PauseOnCondition: empdisable
+		RequiresCondition: !apammo
+	Armament@gunLineAP:
+		Weapon: MKIIVulcanLineAP
+		LocalOffset: 1638,0,800
+		Name: tertiary
+		PauseOnCondition: empdisable
+		RequiresCondition: apammo
 	-Targetable@MC:
 	Carryable:
 		LocalOffset: 0, 0, 1536

@@ -32,6 +32,13 @@ GAVULC:
 		LocalOffset: 588,120,1358, 588,-120,1358
 		MuzzleSequence: muzzle
 		PauseOnCondition: Building-Buildup
+		RequiresCondition: !apammo
+	Armament@1AP:
+		Weapon: VulcanTowerAP
+		LocalOffset: 588,120,1358, 588,-120,1358
+		MuzzleSequence: muzzle
+		PauseOnCondition: Building-Buildup
+		RequiresCondition: apammo
 	Armament@2:
 		Weapon: VulcanTowerCasing
 		LocalOffset: 588,120,1358, 588,-120,1358
@@ -40,10 +47,22 @@ GAVULC:
 		Weapon: VulcanTowerLine
 		LocalOffset: 988,0,1358
 		PauseOnCondition: Building-Buildup
+		RequiresCondition: !apammo
 	Armament@4:
 		Weapon: VulcanTowerLine
 		LocalOffset: 988,-120,1358, 988,120,1358
 		PauseOnCondition: Building-Buildup
+		RequiresCondition: !apammo
+	Armament@3AP:
+		Weapon: VulcanTowerLineAP
+		LocalOffset: 988,0,1358
+		PauseOnCondition: Building-Buildup
+		RequiresCondition: apammo
+	Armament@4AP:
+		Weapon: VulcanTowerLineAP
+		LocalOffset: 988,-120,1358, 988,120,1358
+		PauseOnCondition: Building-Buildup
+		RequiresCondition: apammo
 	WithMuzzleOverlay:
 	WithIdleOverlay@LIGHTS:
 		RequiresCondition: !Building-Buildup && !disabled

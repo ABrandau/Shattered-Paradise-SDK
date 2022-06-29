@@ -72,6 +72,12 @@
 		ImpactActors: false
 		AirThreshold: 8c0
 
+^PiffsRed:
+	Inherits: ^Piffs
+	Warhead@2Eff: CreateEffect
+		Explosions: piffsred
+		ExplosionPalette: effect
+
 ^Tiny_Explo:
 	Inherits: ^MarnFlash6
 	Warhead@2Eff: CreateEffect
@@ -437,11 +443,23 @@
 	Warhead@Line: TargetDamage
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 
+^LineProjectileRed:
+	Inherits: ^LineProjectile
+	Projectile: BulletAS
+		ContrailColor: EE0000
+		ContrailEndColor: BB0000
+
 ^BulletProjectile:
 	Inherits: ^LineProjectile
 	Projectile: BulletAS
 		Blockable: true
 		ContrailWidth: 26
+
+^BulletProjectileRed:
+	Inherits: ^BulletProjectile
+	Projectile: BulletAS
+		ContrailColor: EE0000
+		ContrailEndColor: BB0000
 
 ^LightningDefault:
 	Projectile: InstantHit
