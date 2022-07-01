@@ -1139,7 +1139,7 @@ ATTACKBIKE:
 		VoiceSet: AttackBike
 		Volume: 2
 	Mobile:
-		TurnSpeed: 40
+		TurnSpeed: 56
 		Speed: 165
 		Locomotor: Vehicle
 	Health:
@@ -1174,6 +1174,8 @@ ATTACKBIKE:
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 		RequiresCondition: tibcore
+	FirepowerMultiplier@EXPLOSIVEMIXTURES:
+		Modifier: 150
 	#AttackFrontal:
 	#	PauseOnCondition: empdisable
 	#	FacingTolerance: 20
@@ -1844,7 +1846,7 @@ SCORPION:
 		RequiresCondition: blueflame
 	GrantConditionAfterDelay@laserready:
 		Condition: laserready
-		Delay: 20
+		Delay: 10
 		ShowSelectionBar: false
 		RequiresCondition: chargingLaser
 	GrantTimedConditionOnDeploy:
