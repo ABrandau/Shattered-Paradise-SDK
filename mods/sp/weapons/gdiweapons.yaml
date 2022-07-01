@@ -298,7 +298,7 @@ TrooperRail:
 WolverineVulcan:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
-	ReloadDelay: 40
+	ReloadDelay: 30
 	Range: 6c0
 	Report: tsgun4.aud
 	Warhead@1Dam: SpreadDamage
@@ -311,19 +311,25 @@ WolverineVulcanAP:
 
 WolverineVulcanCasing:
 	Inherits: ^BulletCasing
-	ReloadDelay: 40  ## Must be the same as WolverineVulcan
+	ReloadDelay: 20
+	Burst: 2
+	BurstDelays: 1
 	Range: 6c0
 	ValidTargets: Ground, Water
 
 WolverineVulcanLine:
-	Inherits: ^BulletProjectile ## Must be the same as WolverineVulcan
-	ReloadDelay: 40
+	Inherits: ^BulletProjectile
+	ReloadDelay: 20
+	Burst: 4
+	BurstDelays: 1
 	Range: 6c0
 	ValidTargets: Ground, Water
 
 WolverineVulcanLineAP:
-	Inherits: ^BulletProjectileCyan ## Must be the same as WolverineVulcan
-	ReloadDelay: 40
+	Inherits: ^BulletProjectileCyan
+	ReloadDelay: 20
+	Burst: 4
+	BurstDelays: 1
 	Range: 6c0
 	ValidTargets: Ground, Water
 
@@ -369,19 +375,25 @@ ApcVulcanAP:
 
 ApcVulcanCasing:
 	Inherits: ^BulletCasing
-	ReloadDelay: 40 ## Must be the same as ApcVulcan
+	ReloadDelay: 20
+	Burst: 1
+	BurstDelays: 1
 	Range: 5c0
 	ValidTargets: Ground, Water
 
 ApcVulcanLine:
 	Inherits: ^LineProjectile
-	ReloadDelay: 40  ## Must be the same as ApcVulcan
+	ReloadDelay: 20
+	Burst: 2
+	BurstDelays: 1
 	Range: 5c0
 	ValidTargets: Ground, Water
 
 ApcVulcanLineAP:
 	Inherits: ^LineProjectileCyan
-	ReloadDelay: 40  ## Must be the same as ApcVulcan
+	ReloadDelay: 20
+	Burst: 2
+	BurstDelays: 1
 	Range: 5c0
 	ValidTargets: Ground, Water
 
@@ -892,22 +904,25 @@ VulcanTowerAP:
 
 VulcanTowerCasing:
 	Inherits: ^BulletCasing
-	ReloadDelay: 25 ## Must be the same as VulcanTower
-	Burst: 2
+	ReloadDelay: 10
+	Burst: 3
+	BurstDelays: 1
 	Range: 7c0
 	ValidTargets: Ground, Water
 
 VulcanTowerLine:
 	Inherits: ^LineProjectile
-	ReloadDelay: 25  ## Must be the same as VulcanTower
-	Burst: 2
+	ReloadDelay: 10
+	Burst: 4
+	BurstDelays: 1
 	Range: 7c0
 	ValidTargets: Ground, Water
 
 VulcanTowerLineAP:
 	Inherits: ^LineProjectileCyan
-	ReloadDelay: 25  ## Must be the same as VulcanTower
-	Burst: 2
+	ReloadDelay: 10
+	Burst: 4
+	BurstDelays: 1
 	Range: 7c0
 	ValidTargets: Ground, Water
 

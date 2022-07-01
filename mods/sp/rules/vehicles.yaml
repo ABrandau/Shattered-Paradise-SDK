@@ -32,6 +32,7 @@ SMECH:
 		PauseOnCondition: empdisable
 		FacingTolerance: 64
 		MustFaceTarget: true
+		Armaments: primary, decoration
 	AutoTarget:
 	Voiced:
 		VoiceSet: Mech
@@ -45,43 +46,27 @@ SMECH:
 		Weapon: WolverineVulcanAP
 		PauseOnCondition: empdisable
 		RequiresCondition: apammo
+	GrantConditionOnAttack:
+		Condition: Attacking
+		RevokeDelay: 4
+		ArmamentNames: primary
+		RevokeOnNewTarget: true
 	Armament@1Casing:
+		Name: decoration
 		Weapon: WolverineVulcanCasing
-		PauseOnCondition: empdisable
-		LocalOffset: 0,275,600
-	Armament@2Casing:
-		Weapon: WolverineVulcanCasing
-		PauseOnCondition: empdisable
-		LocalOffset: 0,-275,600
+		PauseOnCondition: empdisable  || !Attacking
+		LocalOffset: 0,275,600, 0,-275,600
 	Armament@2Bullet:
+		Name: decoration
 		Weapon: WolverineVulcanLine
-		PauseOnCondition: empdisable
-		LocalOffset: 0,280,600
-		RequiresCondition: !apammo
-	Armament@3Bullet:
-		Weapon: WolverineVulcanLine
-		PauseOnCondition: empdisable
-		LocalOffset: 0,-280,600
-		RequiresCondition: !apammo
-	Armament@4Bullet:
-		Weapon: WolverineVulcanLine
-		PauseOnCondition: empdisable
-		LocalOffset: 0,-270,600, 0,270,600
+		PauseOnCondition: empdisable || !Attacking
+		LocalOffset: 0,280,600, 0,-280,600
 		RequiresCondition: !apammo
 	Armament@2BulletAP:
+		Name: decoration
 		Weapon: WolverineVulcanLineAP
-		PauseOnCondition: empdisable
-		LocalOffset: 0,280,600
-		RequiresCondition: apammo
-	Armament@3BulletAP:
-		Weapon: WolverineVulcanLineAP
-		PauseOnCondition: empdisable
-		LocalOffset: 0,-280,600
-		RequiresCondition: apammo
-	Armament@4BulletAP:
-		Weapon: WolverineVulcanLineAP
-		PauseOnCondition: empdisable
-		LocalOffset: 0,-270,600, 0,270,600
+		PauseOnCondition: empdisable || !Attacking
+		LocalOffset: 0,280,600, 0,-280,600
 		RequiresCondition: apammo
 	ActorStatValues:
 		Damage: 40
@@ -199,6 +184,7 @@ APC:
 		Offset: -200,0,0
 	AttackTurreted:
 		PauseOnCondition: empdisable
+		Armaments: primary, decoration
 	GrantConditionOnTerrain:
 		Condition: inwater
 		TerrainTypes: Water
@@ -243,28 +229,24 @@ APC:
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
 		RequiresCondition: apammo
+	GrantConditionOnAttack:
+		Condition: Attacking
+		RevokeDelay: 2
+		ArmamentNames: primary
+		RevokeOnNewTarget: true
 	Armament@Casing:
 		Weapon: ApcVulcanCasing
-		PauseOnCondition: empdisable
+		PauseOnCondition: empdisable || !Attacking
 		LocalOffset: 350,0,1000
+		Name: decoration
 	Armament@2Bullet:
 		Weapon: ApcVulcanLine
-		PauseOnCondition: empdisable
+		PauseOnCondition: empdisable || !Attacking
 		LocalOffset: 350,0,1000
 		RequiresCondition: !apammo
-	Armament@4Bullet:
-		Weapon: ApcVulcanLine
-		PauseOnCondition: empdisable
-		LocalOffset: 350,-100,1000 
-		RequiresCondition: !apammo
-	Armament@2BulletAP:
-		Weapon: ApcVulcanLineAP
-		PauseOnCondition: empdisable
-		LocalOffset: 350,0,1000
-		RequiresCondition: apammo
 	Armament@4BulletAP:
 		Weapon: ApcVulcanLineAP
-		PauseOnCondition: empdisable
+		PauseOnCondition: empdisable || !Attacking
 		LocalOffset: 350,-100,1000 
 		RequiresCondition: apammo
 	BodyOrientation:

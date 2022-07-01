@@ -27,6 +27,8 @@ GAVULC:
 		ValidPowerStates: Low, Critical
 	Health:
 		HP: 60000
+	AttackTurreted:
+		Armaments: primary, decoration
 	Armament@1:
 		Weapon: VulcanTower
 		LocalOffset: 588,120,1358, 588,-120,1358
@@ -39,29 +41,27 @@ GAVULC:
 		MuzzleSequence: muzzle
 		PauseOnCondition: Building-Buildup
 		RequiresCondition: apammo
+	GrantConditionOnAttack:
+		Condition: Attacking
+		RevokeDelay: 2
+		ArmamentNames: primary
+		RevokeOnNewTarget: true
 	Armament@2:
 		Weapon: VulcanTowerCasing
-		LocalOffset: 588,120,1358, 588,-120,1358
-		PauseOnCondition: Building-Buildup
+		LocalOffset: 988,0,1358, 988,-120,1358, 988,120,1358
+		PauseOnCondition: Building-Buildup || !Attacking
+		Name: decoration
 	Armament@3:
+		Name: decoration
 		Weapon: VulcanTowerLine
-		LocalOffset: 988,0,1358
-		PauseOnCondition: Building-Buildup
+		LocalOffset: 988,0,1358, 988,-120,1358, 988,120,1358
+		PauseOnCondition: Building-Buildup || !Attacking
 		RequiresCondition: !apammo
-	Armament@4:
-		Weapon: VulcanTowerLine
-		LocalOffset: 988,-120,1358, 988,120,1358
-		PauseOnCondition: Building-Buildup
-		RequiresCondition: !apammo
-	Armament@3AP:
-		Weapon: VulcanTowerLineAP
-		LocalOffset: 988,0,1358
-		PauseOnCondition: Building-Buildup
-		RequiresCondition: apammo
 	Armament@4AP:
+		Name: decoration
 		Weapon: VulcanTowerLineAP
-		LocalOffset: 988,-120,1358, 988,120,1358
-		PauseOnCondition: Building-Buildup
+		LocalOffset: 988,0,1358, 988,-120,1358, 988,120,1358
+		PauseOnCondition: Building-Buildup || !Attacking
 		RequiresCondition: apammo
 	WithMuzzleOverlay:
 	WithIdleOverlay@LIGHTS:
