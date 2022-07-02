@@ -338,7 +338,7 @@ COREDEFENDER:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RENDER: ^CabRender
 	Inherits@SELFHEAL: ^PermanentSelfHeal
-	Inherits@VISION: ^10CellVision
+	Inherits@VISION: ^9CellVision
 	Inherits@VOICE: ^CabalVehicleVoice
 	Valued:
 		Cost: 10000
@@ -669,7 +669,7 @@ HMECTEST:
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SELFHEAL: ^PermanentSelfHeal
-	Inherits@VISION: ^8CellVision
+	Inherits@VISION: ^9CellVision
 	Valued:
 		Cost: 10000
 	Tooltip:
@@ -773,19 +773,6 @@ HMECTEST:
 		LocalOffset: 1200,-250,2650, 1200,250,2650
 		PauseOnCondition: empdisable
 		MuzzleSequence: muzzle2
-	Armament@gun:
-		Weapon: MKIIIVulcan
-		Name: quaternary
-		Turret: quaternary
-		LocalOffset: 0,0,1400
-		PauseOnCondition: empdisable
-		MuzzlePalette: apcyan
-		MuzzleSequence: muzzle
-	Armament@gunLine:
-		Weapon: MKIIIVulcanLine
-		LocalOffset: 0,0,1400
-		Turret: quaternary
-		PauseOnCondition: empdisable
 	Armament@SuperWeapon1:
 		Weapon: SonicClusterMissile
 		LocalOffset: 200,0,2900
@@ -841,10 +828,10 @@ HMECTEST:
 		Offset: 600,-300,-400
 		TurnSpeed: 32
 		Turret: tertiary
-	Turreted@4:
-		Offset: 1024,0,-500
-		TurnSpeed: 128
-		Turret: quaternary
+	DroneSpawnerMaster:
+		Actors: MKIIIDRONE-MINIGUN, MKIIIDRONE-MINIGUN
+		AggregateHealth: false
+		RespawnTicks: 20
 	Carryable:
 		LocalOffset: 0, 0, 1536
 	WithMuzzleOverlay:
@@ -887,3 +874,73 @@ HMECTEST:
 		SplitRanges: true
 	MustBeDestroyed:
 		RequiredForShortGame: true
+
+
+MKIIIDRONE-MINIGUN:
+	Inherits: ^CombatPlane
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Infantry
+	Inherits@SHADOW: ^AircraftShadow
+	Inherits@VISION: ^3CellVision
+	Tooltip:
+		Name: Minigun drone
+	Interactable:
+	Aircraft:
+		MaximumPitch: 90
+		Repulsable: true
+		TurnSpeed: 32
+		Speed: 210
+		AltitudeVelocity: 200
+		VTOL: true
+		AirborneCondition: airborne
+		MoveIntoShroud: true
+	Armament@primaryAP:
+		Weapon: MKIIIDroneVulcan
+		LocalOffset: 350,0,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
+	Armament@Casing:
+		Weapon: MKIIIDroneVulcanCasing
+		PauseOnCondition: empdisable
+		LocalOffset: 150,0,-350
+	Armament@2Bullet:
+		Weapon: MKIIIDroneVulcanLine
+		PauseOnCondition: empdisable
+		LocalOffset: 350,0,-350
+	AttackTurreted:
+		Armaments: primary
+	WithSpriteTurret:
+	Turreted@1:
+		Offset: 0,0,25
+		TurnSpeed: 32
+	RejectsOrders:
+	RenderSprites:
+		Image: mkiiidrone
+	-Rearmable:
+	Health:
+		HP: 5000
+	DroneSpawnerSlave:
+	-Targetable@GROUND:
+	-Targetable@AIRBORNE:
+	Targetable@Ignore:
+		TargetTypes: Summoned
+	-Targetable@MC:
+	-UpdatesPlayerStatistics:
+	-ActorLostNotification:
+	-AppearsOnRadar:
+	-Selectable:
+	-SelectionDecorations:
+	-Explodes@Shrapnel:
+	-GrantConditionOnDamageState@HeavyDamaged:
+	-ExplodeWeapon@spawnsparks:
+	-SmokeParticleEmitter@spawnsmoke:
+	-SpawnActorOnDeath@ScrinEssence:
+	-MapEditorData:
+	WithDeathAnimation:
+		FallbackSequence: die
+		DeathSequence: die
+		DeathSequencePalette: effect
+		DeathPaletteIsPlayerPalette: false
+		UseDeathTypeSuffix: false
+		CrushedSequence: die
+		CrushedSequencePalette: apblue

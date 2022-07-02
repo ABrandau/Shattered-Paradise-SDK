@@ -829,6 +829,10 @@ MKIIVulcanCasing:
 	ReloadDelay: 5
 	Range: 7c0
 	ValidTargets: Ground, Water
+	Warhead@4Sharpnel: FireRadius
+		Weapon: CasingDebris
+		ImpactActors: false
+		Amount: 1
 
 MKIIVulcanLine:
 	Inherits: ^LineProjectile
@@ -1142,36 +1146,6 @@ MKIIITuskAA:
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 
-MKIIIVulcan:
-	Inherits: ^RifleWarhead
-	Inherits@2: ^Piffs
-	StartBurstReport: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
-	ReloadDelay: 4
-	Range: 8c0
-	Projectile: InstantHit
-		Inaccuracy: 0c512
-	Warhead@1Dam: SpreadDamage
-		Damage: 3000
-		Versus:
-			Light: 80
-			Heavy: 60
-		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
-	Warhead@2Eff: CreateEffect
-		Delay: 5
-		ExplosionPalette: apcyan
-	Warhead@3EffWater: CreateEffect
-		Delay: 5
-
-MKIIIVulcanLine:
-	Inherits: ^LineProjectile
-	ReloadDelay: 4
-	Range: 8c0
-	ValidTargets: Ground, Water
-	Projectile: BulletAS
-		Speed: 1c0
-		ContrailColor: 44FFFF
-		ContrailEndColor: 6688FF
-
 SonicClusterMissile:
 	Inherits: ^RocketWarhead
 	Inherits: ^SWBaseEffects
@@ -1228,3 +1202,41 @@ SonicClusterMissileShell:
 		Inaccuracy: 2c512
 		LaunchAngle: 196
 		Blockable: false
+
+MKIIIDroneVulcan:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^PiffsCyan
+	StartBurstReport: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
+	ReloadDelay: 5
+	Range: 5c0
+	Projectile: InstantHit
+		Inaccuracy: 0c512
+	Warhead@1Dam: SpreadDamage
+		Damage: 3000
+		Versus:
+			Light: 80
+			Heavy: 60
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Delay: 5
+		ExplosionPalette: apcyan
+	Warhead@3EffWater: CreateEffect
+		Delay: 5
+
+MKIIIDroneVulcanCasing:
+	Inherits: ^BulletCasing
+	ReloadDelay: 5
+	Range: 5c0
+	ValidTargets: Ground, Water
+	Warhead@4Sharpnel: FireRadius
+		Weapon: CasingDebris
+		ImpactActors: false
+		Amount: 1
+
+MKIIIDroneVulcanLine:
+	Inherits: ^LineProjectileCyan
+	ReloadDelay: 5
+	Range: 5c0
+	ValidTargets: Ground, Water
+	Projectile: BulletAS
+		Speed: 0c928
