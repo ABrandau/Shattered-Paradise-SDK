@@ -369,8 +369,24 @@ ApcVulcan:
 		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
+ApcVulcanAA:
+	Inherits: ApcVulcan
+	Range: 7c0
+	ValidTargets: Air
+	Projectile: InstantHit
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+		Damage: 4000
+		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+
 ApcVulcanAP:
 	Inherits: ApcVulcan
+	Inherits@2: ^PiffsCyan
+
+ApcVulcanAPAA:
+	Inherits: ApcVulcanAA
 	Inherits@2: ^PiffsCyan
 
 ApcVulcanCasing:
@@ -389,6 +405,12 @@ ApcVulcanLine:
 	Range: 5c0
 	ValidTargets: Ground, Water
 
+ApcVulcanLineAA:
+	Inherits: ApcVulcanLine
+	Range: 7c0
+	ValidTargets: Air
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+
 ApcVulcanLineAP:
 	Inherits: ^LineProjectileCyan
 	ReloadDelay: 20
@@ -396,6 +418,12 @@ ApcVulcanLineAP:
 	BurstDelays: 1
 	Range: 5c0
 	ValidTargets: Ground, Water
+
+ApcVulcanLineAPAA:
+	Inherits: ApcVulcanLineAP
+	Range: 7c0
+	ValidTargets: Air
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 
 Titan120mm:
 	Inherits: ^APWarhead

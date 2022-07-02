@@ -174,7 +174,7 @@ APC:
 		BuildDuration: 375
 		BuildDurationModifier: 100
 	Mobile:
-		TurnSpeed: 20
+		TurnSpeed: 24
 		Speed: 90
 		Locomotor: AmphAPCLocomotor
 	Health:
@@ -221,13 +221,29 @@ APC:
 		Weapon: ApcVulcan
 		LocalOffset: 350,0,1000
 		MuzzleSequence: muzzle
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: empdisable || reload-air
 		RequiresCondition: !apammo
 	Armament@primaryAP:
 		Weapon: ApcVulcanAP
 		LocalOffset: 350,0,1000
 		MuzzleSequence: muzzle
-		PauseOnCondition: empdisable
+		ReloadingCondition: reload-ground
+		PauseOnCondition: empdisable || reload-air
+		RequiresCondition: apammo
+	Armament@AA:
+		Weapon: ApcVulcanAA
+		LocalOffset: 350,0,1000
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload-air
+		PauseOnCondition: empdisable || reload-ground
+		RequiresCondition: !apammo
+	Armament@AAAP:
+		Weapon: ApcVulcanAPAA
+		LocalOffset: 350,0,1000
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload-air
+		PauseOnCondition: empdisable || reload-ground
 		RequiresCondition: apammo
 	GrantConditionOnAttack:
 		Condition: Attacking
@@ -244,8 +260,18 @@ APC:
 		PauseOnCondition: empdisable || !Attacking
 		LocalOffset: 350,0,1000
 		RequiresCondition: !apammo
+	Armament@2BulletAA:
+		Weapon: ApcVulcanLineAA
+		PauseOnCondition: empdisable || !Attacking
+		LocalOffset: 350,0,1000
+		RequiresCondition: !apammo
 	Armament@4BulletAP:
 		Weapon: ApcVulcanLineAP
+		PauseOnCondition: empdisable || !Attacking
+		LocalOffset: 350,-100,1000 
+		RequiresCondition: apammo
+	Armament@4BulletAPAA:
+		Weapon: ApcVulcanLineAPAA
 		PauseOnCondition: empdisable || !Attacking
 		LocalOffset: 350,-100,1000 
 		RequiresCondition: apammo
@@ -260,6 +286,7 @@ APC:
 		RequiresSelection: true
 	ActorStatValues:
 		Damage: 40
+		SplitRanges: true
 
 HVR:
 	Inherits: ^HoverTank
@@ -1636,7 +1663,7 @@ STNK:
 	Inherits@TIBCORE: ^AffectedByTibCoreMissiles
 	Inherits@VISION: ^9CellVision
 	Valued:
-		Cost: 1100
+		Cost: 1250
 	Tooltip:
 		Name: Stealth Tank
 	UpdatesPlayerStatistics:
@@ -1647,11 +1674,11 @@ STNK:
 		Prerequisites: ~naweap, natech, ~techlevel.5
 		BuildPaletteOrder: 39
 		Description: Hit-and-run tank armed with twin dragon TOW missiles and a cloaking device.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Stealthed\n- Can attack air\n- Can shoot over walls\n- Can crush infantry\n- Cloaking stops working when at red HP\n- Can attack while moving
-		BuildDuration: 625
+		BuildDuration: 750
 		BuildDurationModifier: 100
 	Mobile:
 		TurnSpeed: 48
-		Speed: 120
+		Speed: 105
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 20000
@@ -1926,8 +1953,8 @@ MUTQUAD:
 		BuildDuration: 500
 		BuildDurationModifier: 100
 	Mobile:
-		TurnSpeed: 28
-		Speed: 90
+		TurnSpeed: 32
+		Speed: 105
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 25000
@@ -3259,7 +3286,7 @@ CORRUPTOR:
 	Inherits@VINIFERA: ^AffectedByViniferaCatalysts
 	Inherits@VISION: ^6CellVision
 	Valued:
-		Cost: 600
+		Cost: 800
 	Tooltip:
 		Name: Corruptor
 	UpdatesPlayerStatistics:
@@ -3270,7 +3297,7 @@ CORRUPTOR:
 		BuildPaletteOrder: 20
 		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n- Can attack enemy ahead while moving\n- Stealth detection\n- Can mutate enemies killed\n- Absorbs essence from killed enemies to heal\n- Attacks emit radiation that harms ground units in the area\n- Immune to Tiberium radiation\n- Can crush infantry
 		Prerequisites: ~scrweap, ~techlevel.2
-		BuildDuration: 375
+		BuildDuration: 500
 		BuildDurationModifier: 100
 	Voiced:
 		VoiceSet: Corruptor
