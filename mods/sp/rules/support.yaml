@@ -1050,7 +1050,7 @@ NATMPL:
 		Queue: Defense.Shared, Defense.Nod
 		BuildPaletteOrder: 47
 		Prerequisites: ~nodyard, natech, !enoughnatmpl, ~techlevel.6
-		Description: The religious center of Nod.\n\nSpecial:\n- Provides access to the Atomic Bomb\n- Requires power to operate
+		Description: The religious center of Nod.\n\nSpecial:\n- Provides access to the Apocalypse Missile\n- Requires power to operate
 		BuildDuration: 1250
 		BuildDurationModifier: 100
 	ProvidesPrerequisite@buildingname:
@@ -1091,6 +1091,21 @@ NATMPL:
 		SelectTargetTextNotification: Select target.
 		CircleRanges:
 			1: 10c0
+		MissileWeapons:
+			1: ApocalypseMissileExplosion
+		Descriptions:
+			1: Launches a liquid-tiberium warhead at a target location.\n\nSpecial:\n- Instant kills ground units and aircraft
+		Names:
+			1: Apocalypse Missile
+		MissileImage: apocalypsemissile
+		OrderName: ApocalypseMissile
+		Cursor: attack
+		TrailImage: explosion
+		TrailPalette: gensmkexplogreen
+		TrailSequences: jsmokey3
+		TrailDelay: 0
+		TrailInterval: 0
+
 
 MUVENTI:
 	Inherits: ^Building

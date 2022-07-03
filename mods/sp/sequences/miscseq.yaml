@@ -152,6 +152,8 @@ rallypoint:
 	circles: null
 
 beacon:
+	Defaults:
+		IgnoreWorldTint: true
 	idle: beaconsp
 		Length: *
 		Tick: 25
@@ -165,7 +167,7 @@ beacon:
 		BlendMode: Additive
 		ZOffset: 2047
 		Offset: 0, 0, 24
-	minimltiicon: nodnukeiconmini
+	nodnukeiconmini: nodnukeiconmini
 		Length: *
 		Offset: 0,-42
 	minichemicon: chemmissileiconmini
@@ -458,7 +460,9 @@ redblood:
 	dieblood6: infblood6
 
 icon:
-	clustermissile: nodnukeicon
+	Defaults:
+		IgnoreWorldTint: true
+	nodnukeicon: nodnukeicon
 	toxinmissile: chemmissileicon
 	ioncannon: ioncicon
 	droppods: podsicon
@@ -490,6 +494,15 @@ icon:
 radarscananim:
 	idle:
 		Length: *
+
+apocalypsemissile:
+	up: apocalypsemissile
+		ZOffset: 1023
+		Offset: 0,-20
+	down: apocalypsemissile
+		Start: 1
+		ZOffset: 1023
+		Offset: 0, 10
 
 nuclearmissile:
 	up: atnukemini

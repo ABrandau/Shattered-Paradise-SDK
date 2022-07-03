@@ -839,3 +839,142 @@ BloodTiny:
 		Explosions: dieblood1, dieblood2, dieblood3, dieblood4, dieblood5, dieblood6
 		ValidTargets: Ground, Air, Water
 		ExplosionPalette: gradientred
+
+NuclearMissile:
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
+	Warhead@ImpactDamage0: SpreadDamage
+		Spread: 1c512
+		Damage: 32000
+		Falloff: 1000, 700, 500, 300, 150, 50, 0
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
+		Versus:
+			Concrete: 25
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		AirThreshold: 8c0
+	Warhead@ClusterDamage3: SpreadDamage
+		Damage: 47000
+		Spread: 2c0
+		Falloff: 1000, 700, 500, 300, 150, 50, 0
+		Delay: 25
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
+		Versus:
+			Infantry: 500
+			Building: 100
+			Defense: 50
+			Heavy: 50
+			Concrete: 5
+			Boss: 50
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		AirThreshold: 8c0
+	Warhead@7Dam_areanukeb: SpreadDamage
+		Spread: 2c512
+		Damage: 2000
+		Falloff: 1000, 700, 500, 300, 150, 50, 0
+		Delay: 50
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Trees
+		AffectsParent: true
+		Versus:
+			Infantry: 500
+			Building: 100
+			Defense: 50
+			Heavy: 50
+			Concrete: 5
+			Boss: 50
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		AirThreshold: 8c0
+	Warhead@SoundEffect0: CreateEffect
+		Explosions: nuke1, nuke2, nuke3
+		ExplosionPalette: effect
+		ImpactSounds: nukeexplo.wav
+		AirThreshold: 8c0
+	Warhead@ClusterSmudges0: LeaveSmudge
+		SmudgeType: LargeCrater
+		Size: 1
+		InvalidTargets: Vehicle, Building, Wall
+		AirThreshold: 8c0
+	Warhead@ClusterSmudges1: LeaveSmudge
+		SmudgeType: LargeScorch
+		Size: 2
+		Delay: 5
+		InvalidTargets: Vehicle, Building, Wall
+		AirThreshold: 8c0
+	Warhead@ClusterSmudges3: LeaveSmudge
+		SmudgeType: MediumScorch
+		Size: 3
+		InvalidTargets: Vehicle, Building, Wall
+		Delay: 25
+		AirThreshold: 8c0
+	Warhead@ClusterSmudges4: LeaveSmudge
+		SmudgeType: SmallScorch
+		Size: 4
+		InvalidTargets: Vehicle, Building, Wall
+		Delay: 25
+		AirThreshold: 8c0
+	Warhead@op: FireRadius
+		Weapon: LargeDebris
+		ImpactActors: false
+		Amount: 10
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
+	Warhead@4Sharpnel: FireRadius
+		Weapon: NukeFlame
+		ImpactActors: false
+		Amount: 128
+		Delay: 10
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
+	Warhead@5Sharpnel: FireRadius
+		Weapon: NukeFlame2
+		ImpactActors: false
+		Amount: 120
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
+	Warhead@Shake: ShakeScreen
+		Intensity: 10
+		Duration: 15
+		AirThreshold: 8c0
+	Warhead@8Radio: CreateTintedCells
+		Spread: 1c0
+		Level: 1500
+		Falloff: 100, 100, 80, 70, 60, 50, 40, 30, 20, 10
+		MaxLevel: 2000
+		LayerName: OrangeRadiation
+		AirThreshold: 8c0
+
+NukeFlame:
+	Inherits: ^FlameWarhead
+	Inherits@2: ^FlameScorch
+	Range: 7c0
+	Projectile: BulletAS
+		Speed: 150
+		Blockable: true
+		Image: FLAMEALL
+		Inaccuracy: 1c0
+		Sequences: idle2
+		Palette: FlameEffectPal
+	Warhead@1Dam: SpreadDamage
+		Spread: 341
+		Damage: 300
+		DamageTypes: Prone100Percent, TriggerProne, FireDeath
+		AirThreshold: 8c0
+
+NukeFlame2:
+	Inherits: NukeFlame
+	Range: 6c0
+
+HealerNuke:
+	Inherits: NuclearMissile
+	Warhead@ImpactDamage0: SpreadDamage
+		Damage: -320000
+	Warhead@ClusterDamage3: SpreadDamage
+		Damage: -470000
+	Warhead@7Dam_areanukeb: SpreadDamage
+		Damage: -20000
+	Warhead@Shake: ShakeScreen
+		Intensity: 999
+		Duration: 100
+	Warhead@SoundEffect0: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@8Radio: CreateTintedCells
+		MaxLevel: 10
+		Spread: 3c0

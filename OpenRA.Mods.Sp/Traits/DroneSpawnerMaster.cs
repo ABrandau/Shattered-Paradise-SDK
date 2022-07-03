@@ -11,7 +11,6 @@
 using System.Linq;
 using OpenRA.Mods.AS.Traits;
 using OpenRA.Mods.Common;
-using OpenRA.Mods.Common.Activities;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Traits;
 
@@ -92,6 +91,13 @@ namespace OpenRA.Mods.SP.Traits
 		Aircraft aircraft;
 		Health health;
 
+		readonly OpenRA.Activities.ActivityType attacktype = OpenRA.Activities.ActivityType.Attack;
+		readonly OpenRA.Activities.ActivityType movetype = OpenRA.Activities.ActivityType.Move;
+		readonly OpenRA.Activities.ActivityType abilitytype = OpenRA.Activities.ActivityType.Ability;
+		readonly OpenRA.Activities.ActivityType othertype = OpenRA.Activities.ActivityType.Undefined;
+
+		OpenRA.Activities.ActivityType preState;
+
 		public DroneSpawnerMaster(ActorInitializer init, DroneSpawnerMasterInfo info)
 			: base(init, info)
 		{
@@ -156,10 +162,10 @@ namespace OpenRA.Mods.SP.Traits
 
 		void INotifyAttack.Attacking(Actor self, in Target target, Armament a, Barrel barrel)
 		{
-			if (Info.SlavesHaveFreeWill)
+			if (Info.SlavesHaveFreeWill || target.Type == TargetType.Invalid)
 				return;
 
-			AssignTargetsToSlaves(target);
+			AssignTargetsToSlaves(self, target);
 		}
 
 		void ITick.Tick(Actor self)
@@ -179,13 +185,6 @@ namespace OpenRA.Mods.SP.Traits
 					if (SelectEntryToSpawn(slaveEntries) != null)
 						spawnReplaceTicks = Util.ApplyPercentageModifiers(Info.RespawnTicks, reloadModifiers.Select(rm => rm.GetReloadModifier()));
 				}
-			}
-
-			// I'm a virtual mob spawning nexus.
-			if (Info.AggregateHealth)
-			{
-				SetNexusPosition(self);
-				SetNexusHealth(self);
 			}
 
 			if (!Info.SlavesHaveFreeWill)
@@ -228,138 +227,76 @@ namespace OpenRA.Mods.SP.Traits
 				spawnReplaceTicks = Info.RespawnTicks;
 		}
 
-		void AssignTargetsToSlaves(Target target)
+		void AssignTargetsToSlaves(Actor self, Target target)
 		{
 			foreach (var se in slaveEntries)
 			{
 				if (!se.IsValid)
 					continue;
-
-				se.SpawnerSlave.Attack(se.Actor, target);
+				if (se.SpawnerSlave.info.AttackCallBackDistance.LengthSquared > (self.CenterPosition - target.CenterPosition).HorizontalLengthSquared)
+					se.SpawnerSlave.Attack(se.Actor, target);
+				else
+				{
+					if (!se.SpawnerSlave.IsMoving())
+					{
+						se.SpawnerSlave.Stop(se.Actor);
+						se.SpawnerSlave.Move(se.Actor, self.Location);
+					}
+				}
 			}
 		}
 
 		void MoveSlaves(Actor self)
 		{
-			var targets = self.CurrentActivity.GetTargets(self);
-			if (!targets.Any())
-				return;
-
-			var location = self.World.Map.CellContaining(targets.First().CenterPosition);
-
 			foreach (var se in slaveEntries)
 			{
 				if (!se.IsValid || !se.Actor.IsInWorld)
-					continue;
-
-				if (se.Actor.Location == location)
 					continue;
 
 				if (!se.SpawnerSlave.IsMoving())
 				{
 					se.SpawnerSlave.Stop(se.Actor);
-					se.SpawnerSlave.Move(se.Actor, location);
+					se.SpawnerSlave.Move(se.Actor, self.Location);
 				}
-			}
-		}
-
-		CPos lastAttackMoveLocation;
-		void AttackMoveSlaves(Actor self)
-		{
-			var targets = self.CurrentActivity.GetTargets(self);
-			if (!targets.Any())
-				return;
-
-			var location = self.World.Map.CellContaining(targets.First().CenterPosition);
-
-			if (lastAttackMoveLocation == location)
-				return;
-
-			lastAttackMoveLocation = location;
-
-			foreach (var se in slaveEntries)
-			{
-				if (!se.IsValid || !se.Actor.IsInWorld)
-					continue;
-
-				se.SpawnerSlave.AttackMove(se.Actor, location);
-			}
-		}
-
-		void SetNexusPosition(Actor self)
-		{
-			int x = 0, y = 0, cnt = 0;
-			foreach (var se in slaveEntries)
-			{
-				if (!se.IsValid || !se.Actor.IsInWorld)
-					continue;
-
-				var pos = se.Actor.CenterPosition;
-				x += pos.X;
-				y += pos.Y;
-				cnt++;
-			}
-
-			if (cnt == 0)
-				return;
-
-			var newPos = new WPos(x / cnt, y / cnt, aircraft != null ? aircraft.Info.CruiseAltitude.Length : 0);
-			if (aircraft == null)
-				position.SetPosition(self, newPos); // breaks arrival detection of the aircraft if we set position.
-
-			position.SetCenterPosition(self, newPos);
-		}
-
-		int aggregateHealthUpdateTicks = 0;
-
-		void SetNexusHealth(Actor self)
-		{
-			if (!Info.AggregateHealth)
-				return;
-
-			if (aggregateHealthUpdateTicks > 0)
-			{
-				aggregateHealthUpdateTicks--;
-				return;
-			}
-
-			aggregateHealthUpdateTicks = Info.AggregateHealthUpdateDelay;
-
-			// Time to aggregate health.
-			int maxHealth = 0;
-			int h = 0;
-
-			foreach (var se in slaveEntries)
-			{
-				maxHealth += se.Health.MaxHP;
-
-				if (!se.IsValid)
-					continue;
-
-				h += se.Health.HP;
-			}
-
-			// Apply the aggregate health.
-			h = h * health.MaxHP / maxHealth;
-
-			if (h > 0)
-			{
-				// Only do these when h > 0.
-				// Nexus kill when wiped out is handled else where.
-				// We can't set health. Inflict damage instead.
-				health.InflictDamage(self, self, new Damage(-health.MaxHP), true); // fully heal
-				health.InflictDamage(self, self, new Damage(health.MaxHP - h), true); // remove some health
 			}
 		}
 
 		void AssignSlaveActivity(Actor self)
 		{
-			if (self.CurrentActivity is Move || self.CurrentActivity is Fly)
-				MoveSlaves(self);
-			else if (self.CurrentActivity is AttackMoveActivity)
-				AttackMoveSlaves(self);
-			else if (self.CurrentActivity is AttackOmni.SetTarget)
-				AssignTargetsToSlaves(self.CurrentActivity.GetTargets(self).First());
+			var effectiveActivity = self.CurrentActivity;
+			if (!self.IsIdle)
+			{
+				while (effectiveActivity.ChildActivity != null)
+					effectiveActivity = effectiveActivity.ChildActivity;
+			}
+
+			if (effectiveActivity == null || effectiveActivity.ActivityType == abilitytype || effectiveActivity.ActivityType == othertype)
+			{
+				if (preState == movetype)
+					MoveSlaves(self);
+				else if (preState == attacktype)
+					MoveSlaves(self);
+			}
+			else if (effectiveActivity.ActivityType == movetype)
+			{
+				if (preState == movetype)
+					MoveSlaves(self);
+				else if (preState == attacktype)
+					StopSlaves();
+			}
+
+			// Actually, new code here or old code in MobSpawnerMaster is not working
+			// The only working code is in INotifyAttack. It is due to Activity of attack
+			// do not achieve `GetTargets(actor)`
+			else if (effectiveActivity.ActivityType == attacktype)
+			{
+				if (preState == movetype)
+					StopSlaves();
+				else if (preState == othertype || preState == abilitytype)
+					StopSlaves();
+			}
+
+			preState = effectiveActivity == null ? othertype : effectiveActivity.ActivityType;
 		}
 	}
 }

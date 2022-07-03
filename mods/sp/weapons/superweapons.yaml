@@ -461,7 +461,7 @@ droppod6:
 		Actors: e2
 		Range: 3
 
-NuclearMissile:
+ApocalypseMissileExplosion:
 	Inherits: ^SWBaseEffects
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 	Warhead@ImpactDamage0: SpreadDamage
@@ -508,10 +508,10 @@ NuclearMissile:
 		Spread: 6c768
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		Spread: 5c256
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
 	Warhead@SoundEffect0: CreateEffect
-		Explosions: nuke1, nuke2, nuke3
-		ExplosionPalette: effect
+		#Explosions: big-bnuke1, big-bnuke2, big-bnuke3
+		#ExplosionPalette: gensmkexplogreen
 		ImpactSounds: nukeexplo.wav
 		AirThreshold: 8c0
 	Warhead@ClusterSmudges0: LeaveSmudge
@@ -537,76 +537,61 @@ NuclearMissile:
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 25
 		AirThreshold: 8c0
-	Warhead@op: FireRadius
-		Weapon: LargeDebris
-		ImpactActors: false
-		Amount: 10
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-		AirThreshold: 8c0
 	Warhead@4Sharpnel: FireRadius
-		Weapon: NukeFlame
+		Weapon: CrystalizedSpread2
 		ImpactActors: false
-		Amount: 128
+		Amount: 32
 		Delay: 10
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		AirThreshold: 8c0
 	Warhead@5Sharpnel: FireRadius
-		Weapon: NukeFlame2
+		Weapon: CrystalizedSpread
 		ImpactActors: false
-		Amount: 120
+		Amount: 32
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		AirThreshold: 8c0
 	Warhead@Shake: ShakeScreen
 		Intensity: 10
 		Duration: 15
 		AirThreshold: 8c0
-	Warhead@8Radio: CreateTintedCells
+	Warhead@8Radio: CreateTintedCells ##used for decoration
 		Spread: 1c0
 		Level: 1500
-		Falloff: 100, 100, 80, 70, 60, 50, 40, 30, 20, 10
+		Falloff: 10, 30, 25, 20, 15, 10, 5, 3, 2, 1
 		MaxLevel: 2000
-		LayerName: OrangeRadiation
+		LayerName: radioactivity
+		AirThreshold: 8c0
+	Warhead@9Radio: CreateTintedCells ##used for decoration
+		Spread: 1c0
+		Level: 1500
+		Falloff: 8, 8, 5, 5, 5, 5, 5, 3, 2, 1
+		MaxLevel: 2000
+		LayerName: BlueRadiation
 		AirThreshold: 8c0
 
-HealerNuke:
-	Inherits: NuclearMissile
-	Warhead@ImpactDamage0: SpreadDamage
-		Damage: -320000
-	Warhead@ClusterDamage3: SpreadDamage
-		Damage: -470000
-	Warhead@7Dam_areanukeb: SpreadDamage
-		Damage: -20000
-	Warhead@Shake: ShakeScreen
-		Intensity: 999
-		Duration: 100
-	-Warhead@GetsOneShotedbySuperweapons:
-	-Warhead@GetsOneShotedbySuperweaponsAA:
-	Warhead@SoundEffect0: CreateEffect
-		ExplosionPalette: gensmkexplojFblue
-	Warhead@8Radio: CreateTintedCells
-		MaxLevel: 10
-		Spread: 3c0
-
-NukeFlame:
-	Inherits: ^FlameWarhead
-	Inherits@2: ^FlameScorch
-	Range: 7c0
+CrystalizedSpread:
+	Range: 9c0
 	Projectile: BulletAS
-		Speed: 150
-		Blockable: true
-		Image: FLAMEALL
-		Inaccuracy: 1c0
-		Sequences: idle2
-		Palette: FlameEffectPal
-	Warhead@1Dam: SpreadDamage
-		Spread: 341
-		Damage: 300
-		DamageTypes: Prone100Percent, TriggerProne, FireDeath
-		AirThreshold: 8c0
+		Speed: 600
+		Blockable: false
+		TrailImage: explosion
+		TrailPalette: gensmkexplogreen
+		TrailSequences: jsclsn42, jsclsn42b, jsbang34, jsclsn58b, jsbrnl30, jsbrnl30b, jsbrnl40, jsbang34b, jsbang34b, jsbang48, jsbang48b, jtwlt070, jtwlt070b, jtwlt100, jtwlt100b, jcrivexpc
+		TrailDelay: 0
+		TrailInterval: 2
+		ExplodeUnderThisAltitude: -11c0
 
-NukeFlame2:
-	Inherits: NukeFlame
-	Range: 6c0
+CrystalizedSpread2:
+	Inherits: CrystalizedSpread
+	Range: 9c0
+	Projectile: BulletAS
+		Speed: 600
+		Blockable: false
+		TrailImage: explosion
+		TrailPalette: gensmkexplogreen
+		TrailSequences: cystalized1stay, cystalized2stay, cystalized3stay, cystalized4stay, cystalized5stay
+		TrailInterval: 1
+		ExplodeUnderThisAltitude: -11c0
 
 MeteorFlame:
 	Inherits: NukeFlame

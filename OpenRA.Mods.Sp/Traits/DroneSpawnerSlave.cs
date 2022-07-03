@@ -24,8 +24,11 @@ namespace OpenRA.Mods.SP.Traits
 	[Desc("Can be slaved to a drone spawner.")]
 	public class DroneSpawnerSlaveInfo : BaseSpawnerSlaveInfo
 	{
-		[Desc("HACK: Aircraft is not stop so we use this to control and save performance")]
-		public readonly WDist AircraftCallBackDistance = WDist.FromCells(3);
+		[Desc("Aircraft slaves outside of this range from master while moving will be call back")]
+		public readonly WDist MovingCallBackDistance = WDist.FromCells(3);
+
+		[Desc("Slaves will follow master instead of attack while target outside of this range")]
+		public readonly WDist AttackCallBackDistance = WDist.FromCells(10);
 
 		public override object Create(ActorInitializer init) { return new DroneSpawnerSlave(this); }
 	}
@@ -35,10 +38,10 @@ namespace OpenRA.Mods.SP.Traits
 		public IMove[] Moves { get; private set; }
 		public IPositionable Positionable { get; private set; }
 		public bool isAircraft;
+		public readonly DroneSpawnerSlaveInfo info;
 		Actor currentActor;
 		Actor masterActor;
 		public readonly Predicate<Actor> InvalidActor;
-		DroneSpawnerSlaveInfo info;
 
 		DroneSpawnerMaster spawnerMaster;
 
@@ -47,7 +50,7 @@ namespace OpenRA.Mods.SP.Traits
 			if (isAircraft)
 			{
 				if (!InvalidActor(currentActor) && !InvalidActor(masterActor) &&
-					(currentActor.CenterPosition - masterActor.CenterPosition).HorizontalLengthSquared > info.AircraftCallBackDistance.LengthSquared)
+					(currentActor.CenterPosition - masterActor.CenterPosition).HorizontalLengthSquared > info.MovingCallBackDistance.LengthSquared)
 					return false;
 
 				return true;
@@ -102,23 +105,6 @@ namespace OpenRA.Mods.SP.Traits
 				}
 		}
 
-		public void AttackMove(Actor self, CPos location)
-		{
-			// And tell attack bases to stop attacking.
-			if (Moves.Length == 0)
-				return;
-
-			foreach (var mv in Moves)
-				if (mv.IsTraitEnabled())
-				{
-					// Must cancel before queueing as the master's attack move order is
-					// issued multiple times on multiple points along the attack move path.
-					self.CancelActivity();
-					self.QueueActivity(new AttackMoveActivity(self, () => mv.MoveTo(location, 1)));
-					break;
-				}
-		}
-
 		void INotifySelected.Selected(Actor self)
 		{
 			if (spawnerMaster.Info.SlavesHaveFreeWill)
@@ -130,5 +116,6 @@ namespace OpenRA.Mods.SP.Traits
 			// Also use RejectsOrder if necessary.
 			self.World.Selection.Add(Master);
 		}
+
 	}
 }
