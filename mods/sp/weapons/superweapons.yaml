@@ -599,77 +599,71 @@ MeteorFlame:
 	Projectile: BulletAS
 		Speed: 400
 
-ToxinMissile:
-	Inherits: ^Large_Explosion
-	Inherits@1: ^SpawnsIrradiation
-	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
-	Warhead@ImpactDamage0: SpreadDamage
-		Spread: 1c128
-		Damage: 6000
-		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
-		Versus:
-			Infantry: 200
-			Concrete: 25
-		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
-		AirThreshold: 8c0
-	Warhead@ClusterSmudges0: LeaveSmudge
-		SmudgeType: LargeCrater
-		Size: 1
-		InvalidTargets: Vehicle, Building, Wall
-		AirThreshold: 8c0
-	Warhead@5cloud: SpawnSmokeParticle
-		Count: 14
-		Weapon: CloudDamage
-		Duration: 179
-		Speed: 30
-		TurnRate: 16
-		Image: tibcloud
-		StartSequences: cloud1start
-		Sequences: cloud1
-		EndSequences: cloud1end
-		Palette: effectalpha50
-		AirThreshold: 8c0
-	Warhead@3Radio: CreateTintedCells
-		Level: 500
-		Spread: 1c512
-		Falloff: 100, 60, 30, 15
-		AirThreshold: 8c0
-	Warhead@4Sharpnel: FireRadius
-		Weapon: ChemicalFlame
+ClusterMissile:
+	Inherits: ^Large_Clsn
+	ValidTargets: Ground, Water, Air
+	Warhead@Cluster1: FireRadius
+		Weapon: MultiCluster1
 		ImpactActors: false
-		Amount: 60
-		Delay: 10
+		Amount: 16
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		AirThreshold: 8c0
-	Warhead@5Sharpnel: FireRadius
-		Weapon: ChemicalFlame2
+	Warhead@Cluster2: FireRadius
+		Weapon: MultiCluster2
 		ImpactActors: false
-		Amount: 45
+		Amount: 8
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		AirThreshold: 8c0
+	Warhead@Cluster3: FireRadius
+		Weapon: MultiCluster3
+		ImpactActors: false
+		Amount: 4
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
+
+MultiCluster1:
+	Inherits: ^RocketWarhead
+	Inherits: ^FullDamage
+	Inherits@2: ^Large_Clsn
+	ValidTargets: Ground, Water, Air, Trees
+	Range: 4c0
+	Projectile: MissileTA
+		Speed: 400
+		MinimumLaunchAngle: -255
+		MaximumLaunchAngle: 255
+		AllowSnapping: false
+		VerticalRateOfTurn: 16
+		Palette: orgatemblueplayer
+		TrailImage: cannonsmokecircle
+		TrailPalette: apolra2alpha
+		TrailInterval: 1
+		Inaccuracy: 0
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c768
+		Damage: 10000
+		ValidTargets: Ground, Water, Air
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+MultiCluster2:
+	Inherits: MultiCluster1
+	Range: 2c512
+	Projectile: MissileTA
+		TrailPalette: apolgreenalpha75
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplogreen
 
-ChemicalFlame:
-	Inherits: NukeFlame
-	Range: 3c0
-	Projectile: BulletAS
-		Palette: apolgreenalpha
-		Image: FLAMEALLREMAP
-		Sequences: idle
-	Warhead@3Eff: CreateEffect
-		ExplosionPalette: jascgreen
-
-ChemicalFlame2:
-	Inherits: NukeFlame2
-	Range: 2c0
-	Projectile: BulletAS
-		Palette: apolgreenalpha
-		Image: FLAMEALLREMAP
-		Sequences: idle
-	Warhead@3Eff: CreateEffect
-		ExplosionPalette: jascgreen
+MultiCluster3:
+	Inherits: MultiCluster1
+	Range: 1c0
+	Projectile: MissileTA
+		TrailPalette: apolredalpha
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: jascredalpha
+	Warhead@debuff1: GrantExternalCondition
+		Range: 1c512
+		Duration: 125
+		Condition: chaos
+		ValidTargets: Infantry, Vehicle, Ground, Water, Defence
 
 MeteorSpawner:
 	ReloadDelay: 200

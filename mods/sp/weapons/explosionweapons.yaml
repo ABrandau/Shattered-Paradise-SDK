@@ -978,3 +978,76 @@ HealerNuke:
 	Warhead@8Radio: CreateTintedCells
 		MaxLevel: 10
 		Spread: 3c0
+
+
+ToxinMissile:
+	Inherits: ^Large_Explosion
+	Inherits@1: ^SpawnsIrradiation
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
+	Warhead@ImpactDamage0: SpreadDamage
+		Spread: 1c128
+		Damage: 6000
+		Falloff: 500, 368, 135, 50, 18, 7, 0
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
+		Versus:
+			Infantry: 200
+			Concrete: 25
+		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
+		AirThreshold: 8c0
+	Warhead@ClusterSmudges0: LeaveSmudge
+		SmudgeType: LargeCrater
+		Size: 1
+		InvalidTargets: Vehicle, Building, Wall
+		AirThreshold: 8c0
+	Warhead@5cloud: SpawnSmokeParticle
+		Count: 14
+		Weapon: CloudDamage
+		Duration: 179
+		Speed: 30
+		TurnRate: 16
+		Image: tibcloud
+		StartSequences: cloud1start
+		Sequences: cloud1
+		EndSequences: cloud1end
+		Palette: effectalpha50
+		AirThreshold: 8c0
+	Warhead@3Radio: CreateTintedCells
+		Level: 500
+		Spread: 1c512
+		Falloff: 100, 60, 30, 15
+		AirThreshold: 8c0
+	Warhead@4Sharpnel: FireRadius
+		Weapon: ChemicalFlame
+		ImpactActors: false
+		Amount: 60
+		Delay: 10
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
+	Warhead@5Sharpnel: FireRadius
+		Weapon: ChemicalFlame2
+		ImpactActors: false
+		Amount: 45
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplogreen
+
+ChemicalFlame:
+	Inherits: NukeFlame
+	Range: 3c0
+	Projectile: BulletAS
+		Palette: apolgreenalpha
+		Image: FLAMEALLREMAP
+		Sequences: idle
+	Warhead@3Eff: CreateEffect
+		ExplosionPalette: jascgreen
+
+ChemicalFlame2:
+	Inherits: NukeFlame2
+	Range: 2c0
+	Projectile: BulletAS
+		Palette: apolgreenalpha
+		Image: FLAMEALLREMAP
+		Sequences: idle
+	Warhead@3Eff: CreateEffect
+		ExplosionPalette: jascgreen

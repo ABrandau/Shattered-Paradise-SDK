@@ -391,22 +391,12 @@ FloaterCloudSpawn:
 		EndSequences: cloud2end
 		Palette: effectalpha50
 		AirThreshold: 8c0
-	Warhead@8Radio: CreateTintedCells
-		Spread: 512
-		Level: 10
-		Falloff: 100, 50, 25, 5
-		MaxLevel: 1000
 
 VeinholeAttack:
 	Inherits: FloaterCloudSpawn
 	ReloadDelay: 100
 	Projectile: AthenaProjectile
 		Altitude: 2560
-	Warhead@8Radio: CreateTintedCells
-		Spread: 1c512
-		Level: 10
-		MaxLevel: 150
-		Falloff: 100, 75, 50, 40
 	Warhead@5cloud: SpawnSmokeParticle
 		Duration: 190
 		TurnRate: 16
@@ -414,17 +404,6 @@ VeinholeAttack:
 		Sequences: cloud1
 		EndSequences: cloud1end
 		AirThreshold: 8c0
-
-Veins:
-	Inherits: ^RifleWarhead
-	ReloadDelay: 12
-	Warhead@Damage: SpreadDamage
-		Spread: 42
-		Damage: 6
-		DamageTypes: TiberiumDeath
-	Warhead@Effect: CreateEffect
-		Explosions: veins
-		ExplosionPalette: player
 
 Repair:
 	ReloadDelay: 80
