@@ -965,11 +965,9 @@ GADEPT:
 		TargetRelationships: Ally
 		ForceTargetRelationships: Ally
 		PauseOnCondition: Building-Buildup
-	CarrierMaster:
+	DroneSpawnerMaster:
 		Actors: REPAIRDRONE, REPAIRDRONE, REPAIRDRONE
-		RespawnTicks: 150
-		RearmTicks: 10
-		InstantRepair: true
+		SpawnOffset: -1024, 1024, 0, 0,0,0, 1024, 1024, 0
 	ProximityExternalCondition:
 		Condition: unit.sellable
 		Range: 1c0
@@ -1061,8 +1059,9 @@ SCRDEPOT:
 		Name: Scrin Maintenance Depot
 	Building:
 		Footprint: =+= ==+ +==
-	CarrierMaster:
+	DroneSpawnerMaster:
 		Actors: REPAIRWYVERN, REPAIRWYVERN, REPAIRWYVERN
+		SpawnOffset: -1024, 1024, 0, 0,0,0, 1024, 1024, 0
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@gadept:
 		Prerequisite: gadept

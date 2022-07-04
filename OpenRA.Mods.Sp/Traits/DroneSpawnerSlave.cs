@@ -11,7 +11,6 @@
 using System;
 using System.Linq;
 using OpenRA.Mods.AS.Traits;
-using OpenRA.Mods.Common.Activities;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Traits;
 
@@ -100,7 +99,10 @@ namespace OpenRA.Mods.SP.Traits
 			foreach (var mv in Moves)
 				if (mv.IsTraitEnabled())
 				{
-					self.QueueActivity(mv.MoveTo(location, 2));
+					if (isAircraft)
+						self.QueueActivity(mv.MoveTo(location, 0));
+					else
+						self.QueueActivity(mv.MoveTo(location, 2));
 					break;
 				}
 		}

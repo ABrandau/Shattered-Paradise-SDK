@@ -1451,13 +1451,25 @@ REPAIRWYVERN:
 	-Armament@AA:
 	-Targetable@GROUND:
 	-Targetable@AIRBORNE:
+	-CarrierSlave:
+	DroneSpawnerSlave:
+		MovingCallBackDistance: 2c512
 	Targetable@Ignore:
 		TargetTypes: Summoned
 	Aircraft:
-		TurnSpeed: 36
-		Speed: 105
+		MaximumPitch: 90
+		Repulsable: true
+		TurnSpeed: 16
+		Speed: 128
+		IdleTurnSpeed: 10
+		IdleSpeed: 64
 		AltitudeVelocity: 200
+		RepulsionSpeed: 16
 		VTOL: true
+		AirborneCondition: airborne
+		MoveIntoShroud: true
+	AttackAircraft:
+		AttackType: Hover
 	Rearmable:
 		RearmActors: scrdepot
 	RenderSprites:
@@ -1527,12 +1539,25 @@ REPAIRDRONE:
 	-AmmoPool:
 	-Targetable@GROUND:
 	-Targetable@AIRBORNE:
+	-CarrierSlave:
+	DroneSpawnerSlave:
+		MovingCallBackDistance: 2c512
 	Targetable@Ignore:
 		TargetTypes: Summoned
 	Aircraft:
-		TurnSpeed: 36
-		Speed: 105
+		MaximumPitch: 90
+		Repulsable: true
+		TurnSpeed: 16
+		Speed: 128
+		IdleTurnSpeed: 10
+		IdleSpeed: 64
 		AltitudeVelocity: 200
+		RepulsionSpeed: 16
+		VTOL: true
+		AirborneCondition: airborne
+		MoveIntoShroud: true
+	AttackAircraft:
+		AttackType: Hover
 	Rearmable:
 		RearmActors: gadept
 	RenderSprites:

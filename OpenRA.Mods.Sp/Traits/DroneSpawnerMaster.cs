@@ -49,11 +49,6 @@ namespace OpenRA.Mods.SP.Traits
 		[Desc("Can the slaves be controlled independently?")]
 		public readonly bool SlavesHaveFreeWill = false;
 
-		[Desc("This is a dummy spawner like cin C&C Generals and use virtual position and health.")]
-		public readonly bool AggregateHealth = true;
-
-		public readonly int AggregateHealthUpdateDelay = 17; // Just a visual parameter, Doesn't affect the game.
-
 		public override void RulesetLoaded(Ruleset rules, ActorInfo ai)
 		{
 			base.RulesetLoaded(rules, ai);
@@ -63,9 +58,6 @@ namespace OpenRA.Mods.SP.Traits
 
 			if (InitialActorCount > Actors.Length || InitialActorCount < -1)
 				throw new YamlException("MobSpawner can't have more InitialActorCount than the actors defined!");
-
-			if (InitialActorCount == 0 && AggregateHealth == true)
-				throw new YamlException("You can't have InitialActorCount == 0 and AggregateHealth");
 		}
 
 		public override object Create(ActorInitializer init) { return new DroneSpawnerMaster(init, this); }
@@ -87,10 +79,6 @@ namespace OpenRA.Mods.SP.Traits
 		bool hasSpawnedInitialLoad = false;
 		int spawnReplaceTicks = 0;
 
-		IPositionable position;
-		Aircraft aircraft;
-		Health health;
-
 		readonly OpenRA.Activities.ActivityType attacktype = OpenRA.Activities.ActivityType.Attack;
 		readonly OpenRA.Activities.ActivityType movetype = OpenRA.Activities.ActivityType.Move;
 		readonly OpenRA.Activities.ActivityType abilitytype = OpenRA.Activities.ActivityType.Ability;
@@ -106,10 +94,6 @@ namespace OpenRA.Mods.SP.Traits
 
 		protected override void Created(Actor self)
 		{
-			position = self.TraitOrDefault<IPositionable>();
-			health = self.Trait<Health>();
-			aircraft = self.TraitOrDefault<Aircraft>();
-
 			base.Created(self);
 
 			// Spawn initial load.
@@ -218,11 +202,6 @@ namespace OpenRA.Mods.SP.Traits
 
 		public override void OnSlaveKilled(Actor self, Actor slave)
 		{
-			// No need to update mobs entry because Actor.IsDead marking is done automatically by the engine.
-			// However, we need to check if all are dead when AggregateHealth.
-			if (Info.AggregateHealth && slaveEntries.All(m => !m.IsValid))
-				self.Dispose();
-
 			if (spawnReplaceTicks <= 0)
 				spawnReplaceTicks = Info.RespawnTicks;
 		}
@@ -272,10 +251,13 @@ namespace OpenRA.Mods.SP.Traits
 
 			if (effectiveActivity == null || effectiveActivity.ActivityType == abilitytype || effectiveActivity.ActivityType == othertype)
 			{
+				/*
 				if (preState == movetype)
 					MoveSlaves(self);
 				else if (preState == attacktype)
 					MoveSlaves(self);
+				*/
+				MoveSlaves(self);
 			}
 			else if (effectiveActivity.ActivityType == movetype)
 			{
