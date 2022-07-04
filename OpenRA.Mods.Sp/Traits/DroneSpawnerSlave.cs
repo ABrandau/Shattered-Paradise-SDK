@@ -116,6 +116,5 @@ namespace OpenRA.Mods.SP.Traits
 			// Also use RejectsOrder if necessary.
 			self.World.Selection.Add(Master);
 		}
-
 	}
 }
