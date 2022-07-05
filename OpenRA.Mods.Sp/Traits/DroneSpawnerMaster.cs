@@ -8,6 +8,7 @@
  */
 #endregion
 
+using System;
 using System.Linq;
 using OpenRA.Mods.AS.Traits;
 using OpenRA.Mods.Common;
@@ -49,15 +50,21 @@ namespace OpenRA.Mods.SP.Traits
 		[Desc("Can the slaves be controlled independently?")]
 		public readonly bool SlavesHaveFreeWill = false;
 
+		[Desc("Place slave will gather to. Only recommended to used on building master")]
+		public readonly CVec[] GatherCell = Array.Empty<CVec>();
+
 		public override void RulesetLoaded(Ruleset rules, ActorInfo ai)
 		{
 			base.RulesetLoaded(rules, ai);
 
 			if (Actors == null || Actors.Length == 0)
-				throw new YamlException("Actors is null or empty for MobSpawner for actor type {0}!".F(ai.Name));
+				throw new YamlException("Actors is null or empty for DroneSpawner for actor type {0}!".F(ai.Name));
 
 			if (InitialActorCount > Actors.Length || InitialActorCount < -1)
-				throw new YamlException("MobSpawner can't have more InitialActorCount than the actors defined!");
+				throw new YamlException("DroneSpawner can't have more InitialActorCount than the actors defined!");
+
+			if (GatherCell.Length > Actors.Length)
+				throw new YamlException("lenght of GatherOffsetCell can't be larger than the actors defined! (Actor type = {0})".F(ai.Name));
 		}
 
 		public override object Create(ActorInitializer init) { return new DroneSpawnerMaster(init, this); }
@@ -69,7 +76,7 @@ namespace OpenRA.Mods.SP.Traits
 		class DroneSpawnerSlaveEntry : BaseSpawnerSlaveEntry
 		{
 			public new DroneSpawnerSlave SpawnerSlave;
-			public Health Health;
+			public CVec GatherOffsetCell = CVec.Zero;
 		}
 
 		public new DroneSpawnerMasterInfo Info { get; private set; }
@@ -96,6 +103,9 @@ namespace OpenRA.Mods.SP.Traits
 		{
 			base.Created(self);
 
+			for (var i = 0; i < Info.GatherCell.Length; i++)
+				slaveEntries[i].GatherOffsetCell = Info.GatherCell[i];
+
 			// Spawn initial load.
 			int burst = Info.InitialActorCount == -1 ? Info.Actors.Length : Info.InitialActorCount;
 			for (int i = 0; i < burst; i++)
@@ -112,7 +122,7 @@ namespace OpenRA.Mods.SP.Traits
 		{
 			slaveEntries = new DroneSpawnerSlaveEntry[info.Actors.Length]; // For this class to use
 
-			for (int i = 0; i < slaveEntries.Length; i++)
+			for (var i = 0; i < slaveEntries.Length; i++)
 				slaveEntries[i] = new DroneSpawnerSlaveEntry();
 
 			return slaveEntries; // For the base class to use
@@ -124,7 +134,6 @@ namespace OpenRA.Mods.SP.Traits
 			base.InitializeSlaveEntry(slave, se);
 
 			se.SpawnerSlave = slave.Trait<DroneSpawnerSlave>();
-			se.Health = slave.Trait<Health>();
 		}
 
 		public void ResolveOrder(Actor self, Order order)
@@ -235,7 +244,7 @@ namespace OpenRA.Mods.SP.Traits
 				if (!se.SpawnerSlave.IsMoving())
 				{
 					se.SpawnerSlave.Stop(se.Actor);
-					se.SpawnerSlave.Move(se.Actor, self.Location);
+					se.SpawnerSlave.Move(se.Actor, self.Location + se.GatherOffsetCell);
 				}
 			}
 		}
@@ -280,5 +289,18 @@ namespace OpenRA.Mods.SP.Traits
 
 			preState = effectiveActivity == null ? othertype : effectiveActivity.ActivityType;
 		}
+
+		/* Debug
+		, ITickRender
+		void ITickRender.TickRender(Graphics.WorldRenderer wr, Actor self)
+		{
+			var font = Game.Renderer.Fonts["Bold"];
+			foreach (var kv in Info.GatherOffsetCell)
+			{
+				var i = new FloatingText(self.World.Map.CenterOfCell(kv + self.Location), Color.Gold, "1", 1);
+				self.World.Add(i);
+			}
+		}
+		*/
 	}
 }
