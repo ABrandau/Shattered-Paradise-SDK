@@ -24,7 +24,7 @@ namespace OpenRA.Mods.SP.Traits
 	public class DroneSpawnerSlaveInfo : BaseSpawnerSlaveInfo
 	{
 		[Desc("Aircraft slaves outside of this range from master while moving will be call back")]
-		public readonly WDist MovingCallBackDistance = WDist.FromCells(3);
+		public readonly WDist MovingCallBackDistance = WDist.FromCells(2);
 
 		[Desc("Slaves will follow master instead of attack while target outside of this range")]
 		public readonly WDist AttackCallBackDistance = WDist.FromCells(10);
