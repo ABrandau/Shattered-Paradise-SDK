@@ -632,11 +632,10 @@ MultiCluster1:
 		MinimumLaunchAngle: -255
 		MaximumLaunchAngle: 255
 		AllowSnapping: false
-		VerticalRateOfTurn: 16
 		Palette: orgatemblueplayer
 		TrailImage: cannonsmokecircle
 		TrailPalette: apolra2alpha
-		TrailInterval: 1
+		TrailInterval: 0
 		Inaccuracy: 0
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c768
@@ -649,21 +648,55 @@ MultiCluster2:
 	Range: 2c512
 	Projectile: MissileTA
 		TrailPalette: apolgreenalpha75
+		VerticalRateOfTurn: 16
 	Warhead@2Eff: CreateEffect
-		ExplosionPalette: gensmkexplogreen
+		ExplosionPalette: jascgreenalpha
+	Warhead@5cloud: SpawnSmokeParticle
+		Count: 1
+		Weapon: CloudDamage
+		Duration: 179
+		Speed: 30
+		TurnRate: 16
+		Image: tibcloud
+		StartSequences: cloud1start
+		Sequences: cloud1
+		EndSequences: cloud1end
+		Palette: effectalpha50
+		AirThreshold: 8c0
+	Warhead@3Radio: CreateTintedCells
+		Level: 300
+		Spread: 1c0
+		Falloff: 60, 40, 20, 10
+		AirThreshold: 8c0
 
 MultiCluster3:
 	Inherits: MultiCluster1
+	Inherits@1: ^BombWarhead
+	Inherits@2: ^Large_Explosion
+	Report: gexpbara, gexpbarb, gexpbarc
 	Range: 1c0
 	Projectile: MissileTA
 		TrailPalette: apolredalpha
-	Warhead@2Eff: CreateEffect
-		ExplosionPalette: jascredalpha
-	Warhead@debuff1: GrantExternalCondition
-		Range: 1c512
-		Duration: 125
-		Condition: chaos
-		ValidTargets: Infantry, Vehicle, Ground, Water, Defence
+		MinimumLaunchAngle: 235
+		MaximumLaunchAngle: 235
+		RangeLimit: -1
+		VerticalRateOfTurn: 32
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c512
+		Damage: 20000
+		ValidTargets: Ground, Water
+		AffectsParent: true
+		InvalidTargets: Air
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		Versus:
+			Building: 75
+			Heavy: 35
+			Concrete: 15
+	Warhead@5Sharpnel: FireRadius
+		Weapon: NukeFlame3
+		ImpactActors: false
+		Amount: 10
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 
 MeteorSpawner:
 	ReloadDelay: 200
