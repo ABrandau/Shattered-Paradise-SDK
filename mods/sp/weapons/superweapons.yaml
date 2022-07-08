@@ -633,9 +633,6 @@ MultiCluster1:
 		MaximumLaunchAngle: 255
 		AllowSnapping: false
 		Palette: orgatemblueplayer
-		TrailImage: cannonsmokecircle
-		TrailPalette: apolra2alpha
-		TrailInterval: 0
 		Inaccuracy: 0
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c768
@@ -647,7 +644,10 @@ MultiCluster2:
 	Inherits: MultiCluster1
 	Range: 2c512
 	Projectile: MissileTA
-		TrailPalette: apolgreenalpha75
+		TrailImage: explosion
+		TrailSequences: jsmokey2
+		TrailInterval: 0
+		TrailPalette: jascgreenalpha
 		VerticalRateOfTurn: 16
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: jascgreenalpha
@@ -676,7 +676,11 @@ MultiCluster3:
 	Report: gexpbara, gexpbarb, gexpbarc
 	Range: 1c0
 	Projectile: MissileTA
-		TrailPalette: apolredalpha
+		Speed: 500
+		TrailImage: explosion
+		TrailSequences: jsmokey2
+		TrailPalette: gensmkexploj50a
+		TrailInterval: 0
 		MinimumLaunchAngle: 235
 		MaximumLaunchAngle: 235
 		RangeLimit: -1

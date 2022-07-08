@@ -905,9 +905,9 @@ NAMISL:
 			1: toxinmissile
 		ChargeInterval: 4500
 		Names:
-			1: Chemical Missile
+			1: Cluster Missile
 		Descriptions:
-			1: Launches a warhead filled with tiberium,\nit spawns gas clouds and radiates the area.
+			1: Launches cluster missile with various warheads.
 		SelectTargetSpeechNotification: SelectTarget
 		SelectTargetTextNotification: Select target.
 		MissileWeapons:
@@ -915,13 +915,13 @@ NAMISL:
 		MissileImage: ToxinMissile
 		MissileDelay: 18
 		FlightDelay: 100
-		FlightVelocity: 1c512
+		FlightVelocity: 1c0
 		DisplayTimerRelationships: Ally, Neutral, Enemy
 		SpawnOffset: 0, 0c128, 0c512
 		BeaconPosters:
 			1: minichemicon
 		ArrowSequence: arrow
-		DetonationAltitude: 8c0
+		DetonationAltitude: 4c0
 		MissilePalette: player
 		IconPalette: chem
 		BeaconPosterPalette: chem
@@ -933,10 +933,11 @@ NAMISL:
 		CameraSpawnAdvance: 25
 		CameraRemoveDelay: 350
 		PauseOnCondition: empdisable || disabled
-		TrailImage: meteortrail
-		TrailPalette: effectalpha
-		TrailSequences: idle3
+		TrailImage: explosion
+		TrailPalette: gensmkexploj
+		TrailSequences: jsmokey4
 		TrailDelay: 0
+		TrailInterval: 0
 	Health:
 		HP: 150000
 	WithDecoration@POWERDOWN:
