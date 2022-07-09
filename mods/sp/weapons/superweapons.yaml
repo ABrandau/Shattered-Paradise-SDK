@@ -550,6 +550,18 @@ ApocalypseMissileExplosion:
 		Amount: 32
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		AirThreshold: 8c0
+	Warhead@6Sharpnel: FireRadius ##We use a short range version to make the explosion looks normaly at map edges
+		Weapon: CrystalizedSpreadShort
+		ImpactActors: false
+		Amount: 32
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
+	Warhead@2Sharpnel: FireRadius ##We use a short range version to make the explosion looks normaly at map edges
+		Weapon: CrystalizedSpread2Short
+		ImpactActors: false
+		Amount: 32
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
 	Warhead@Shake: ShakeScreen
 		Intensity: 10
 		Duration: 15
@@ -581,6 +593,10 @@ CrystalizedSpread:
 		TrailInterval: 2
 		ExplodeUnderThisAltitude: -11c0
 
+CrystalizedSpreadShort:
+	Inherits: CrystalizedSpread
+	Range: 4c0
+
 CrystalizedSpread2:
 	Inherits: CrystalizedSpread
 	Range: 9c0
@@ -591,7 +607,12 @@ CrystalizedSpread2:
 		TrailPalette: gensmkexplogreen
 		TrailSequences: cystalized1stay, cystalized2stay, cystalized3stay, cystalized4stay, cystalized5stay
 		TrailInterval: 1
+		TrailDelay: 0
 		ExplodeUnderThisAltitude: -11c0
+
+CrystalizedSpread2Short:
+	Inherits: CrystalizedSpread2
+	Range: 4c0
 
 MeteorFlame:
 	Inherits: NukeFlame
