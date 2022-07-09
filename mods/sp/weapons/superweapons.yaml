@@ -234,6 +234,12 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 		ImpactActors: false
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
 		AirThreshold: 8c0
+	Warhead@Shake: ShakeScreen
+		Duration: 15
+		Intensity: 8
+		Multiplier: 1,1
+		AirThreshold: 8c0
+		Delay: 110
 
 IonBeamCreator: ### THIS ONE GENERATES THE MINI BEAMS
 	ReloadDelay: 6
@@ -558,8 +564,8 @@ ApocalypseMissileExplosion:
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		AirThreshold: 8c0
 	Warhead@Shake: ShakeScreen
-		Duration: 20
-		Intensity: 5
+		Duration: 25
+		Intensity: 10
 		Multiplier: 1,1
 		AirThreshold: 8c0
 	Warhead@8Radio: CreateTintedCells ##used for decoration
@@ -984,8 +990,10 @@ IronSaviorExplode:
 		InvalidTargets: Water
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@Shake: ShakeScreen
-		Intensity: 10
 		Duration: 15
+		Intensity: 10
+		Multiplier: 1,1
+		AirThreshold: 8c0
 	Warhead@7ClusterSmudges: LeaveSmudge
 		SmudgeType: SmallScorch
 		Size: 2
