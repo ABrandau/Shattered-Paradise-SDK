@@ -537,6 +537,13 @@ ApocalypseMissileExplosion:
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 25
 		AirThreshold: 8c0
+	Warhead@3Sharpnel: FireRadius
+		Weapon: CrystalizedMushroom
+		ImpactActors: false
+		Amount: 8
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
+		Delay: 10
 	Warhead@4Sharpnel: FireRadius
 		Weapon: CrystalizedSpread2
 		ImpactActors: false
@@ -550,21 +557,10 @@ ApocalypseMissileExplosion:
 		Amount: 32
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		AirThreshold: 8c0
-	Warhead@6Sharpnel: FireRadius ##We use a short range version to make the explosion looks normaly at map edges
-		Weapon: CrystalizedSpreadShort
-		ImpactActors: false
-		Amount: 32
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-		AirThreshold: 8c0
-	Warhead@2Sharpnel: FireRadius ##We use a short range version to make the explosion looks normaly at map edges
-		Weapon: CrystalizedSpread2Short
-		ImpactActors: false
-		Amount: 32
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-		AirThreshold: 8c0
 	Warhead@Shake: ShakeScreen
-		Intensity: 10
-		Duration: 15
+		Duration: 20
+		Intensity: 5
+		Multiplier: 1,1
 		AirThreshold: 8c0
 	Warhead@8Radio: CreateTintedCells ##used for decoration
 		Spread: 1c0
@@ -581,8 +577,36 @@ ApocalypseMissileExplosion:
 		LayerName: BlueRadiation
 		AirThreshold: 8c0
 
+CrystalizedMushroom:
+	Range: 1c0
+	Projectile: MissileTA
+		Speed: 1c512
+		Blockable: false
+		TrailImage: explosion
+		TrailPalette: gensmkexplogreen
+		TrailSequences: jtwlt100, jtwlt070
+		TrailDelay: 0
+		TrailInterval: 0
+		ExplodeUnderThisAltitude: -11c0
+		MinimumLaunchAngle: 238
+		MaximumLaunchAngle: 238
+		HorizontalRateOfTurn: 64
+		HorizontalRateOfTurnAcceleration: 64
+		HorizontalRateOfTurnStart: 64
+		Acceleration: 0
+		RangeLimit: 18c0
+		HomingActivationDelay: 10
+		ActivationDelay: 0
+		TrailWhenDeactivated: true
+		ExplodeWhenEmpty: true
+		TerrainHeightAware: false
+	Warhead@SoundEffect0: CreateEffect
+		Explosions: jtwlt100, jtwlt070
+		ExplosionPalette: gensmkexplogreen
+		AirThreshold: 111c0
+
 CrystalizedSpread:
-	Range: 9c0
+	Range: 1c866
 	Projectile: BulletAS
 		Speed: 600
 		Blockable: false
@@ -592,14 +616,13 @@ CrystalizedSpread:
 		TrailDelay: 0
 		TrailInterval: 2
 		ExplodeUnderThisAltitude: -11c0
-
-CrystalizedSpreadShort:
-	Inherits: CrystalizedSpread
-	Range: 4c0
+		BounceCount: 4 ##We use short range and Bounce to make the explosion looks normaly at map edges
+		BounceRangeModifier: 100
+		ValidBounceBlockerStances: None
 
 CrystalizedSpread2:
 	Inherits: CrystalizedSpread
-	Range: 9c0
+	Range: 1c768
 	Projectile: BulletAS
 		Speed: 600
 		Blockable: false
@@ -609,10 +632,10 @@ CrystalizedSpread2:
 		TrailInterval: 1
 		TrailDelay: 0
 		ExplodeUnderThisAltitude: -11c0
+		BounceCount: 4 ##We use short range and Bounce to make the explosion looks normaly at map edges
+		BounceRangeModifier: 100
+		ValidBounceBlockerStances: None
 
-CrystalizedSpread2Short:
-	Inherits: CrystalizedSpread2
-	Range: 4c0
 
 MeteorFlame:
 	Inherits: NukeFlame
