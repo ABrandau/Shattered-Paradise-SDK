@@ -545,104 +545,48 @@ TiberianRocketGas:
 		AirThreshold: 8c0
 
 BombTruckExplo:
-	Inherits@1: ^SpawnsIrradiation
+	Inherits: NuclearMissile
 	ValidTargets: Ground, Water, Water, Air
 	Warhead@ImpactDamage0: SpreadDamage
 		Spread: 1c0
 		Damage: 12800
 		Falloff: 1000, 700, 700, 700, 400, 300, 0
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
-		Versus:
-			Concrete: 25
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-		AirThreshold: 8c0
 	Warhead@ClusterDamage3: SpreadDamage
 		Spread: 1c512
 		Damage: 18800
 		Falloff: 1000, 700, 700, 700, 400, 300, 0
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
-		Delay: 25
-		Versus:
-			Infantry: 500
-			Building: 100
-			Defense: 50
-			Heavy: 50
-			Concrete: 5
-			Boss: 50
-		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
-		AirThreshold: 8c0
 	Warhead@7Dam_areanukeb: SpreadDamage
 		Spread: 2c0
 		Damage: 800
 		Falloff: 1000, 700, 700, 700, 400, 300, 0
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Trees
-		AffectsParent: true
-		Versus:
-			Infantry: 500
-			Building: 100
-			Defense: 50
-			Heavy: 50
-			Concrete: 5
-			Boss: 50
-		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
-		AirThreshold: 8c0
-	Warhead@5cloud: SpawnSmokeParticle
-		Count: 4
-		Weapon: CloudDamage
-		Duration: 190
-		Speed: 30
-		TurnRate: 16
-		Image: tibcloud
-		StartSequences: cloud1start
-		Sequences: cloud1
-		EndSequences: cloud1end
-		Palette: effectalpha50
-		AirThreshold: 8c0
-	Warhead@3Radio: CreateTintedCells
-		Level: 500
-		Spread: 1c512
-		Falloff: 100, 40, 30, 15, 10
-		AirThreshold: 8c0
-	Warhead@2Eff: CreateEffect
-		Explosions: gnuke1, gnuke2, gnuke3
-		ExplosionPalette: jascgreenalpha
-		ImpactSounds: expnew09.aud, expnew10.aud, expnew11.aud
+	Warhead@8Radio: CreateTintedCells
+		Spread: 0c756
+		Level: 1000
+		LayerName: OrangeRadiation
+	Warhead@5Actor: SpawnActor
+		Actors: swvisiondummy
+		FallRate: 5000
+		Range: 2
+		InvalidTargets: Water, Cliff
+		ValidTargets: Ground, Water, Air
 	Warhead@op: FireRadius
-		Weapon: LargeDebris
-		ImpactActors: false
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-		AirThreshold: 8c0
 		Amount: 5
 	Warhead@4Sharpnel: FireRadius
-		Weapon: CloundSpread
-		ImpactActors: false
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-		AirThreshold: 8c0
-		Amount: 6
-	Warhead@Shake: ShakeScreen
-		Duration: 15
-		Intensity: 10
-		Multiplier: 1,1
-		AirThreshold: 8c0
+		Weapon: NukeFlame1mini
+	Warhead@5Sharpnel: FireRadius
+		Weapon: NukeFlame2mini
 
-CloundSpread:
-	Projectile: InstantHit
-		Blockable: false
+NukeFlame1mini:
+	Inherits: NukeFlame
+	Projectile: BulletAS
 		Sequences: idle
-	Range: 2c512
-	Warhead@5cloud: SpawnSmokeParticle
-		Count: 2
-		Weapon: CloudDamage
-		Duration: 190
-		Speed: 30
-		TurnRate: 16
-		Image: tibcloud
-		StartSequences: cloud1start
-		Sequences: cloud1
-		EndSequences: cloud1end
-		Palette: effectalpha50
-		AirThreshold: 8c0
-	ValidTargets: Ground, Water, Water, Air
+	Range: 5c0
+
+NukeFlame2mini:
+	Inherits: NukeFlame
+	Projectile: BulletAS
+		Sequences: idle
+	Range: 4c512
 
 QueenTooth:
 	Inherits: ^APWarhead
