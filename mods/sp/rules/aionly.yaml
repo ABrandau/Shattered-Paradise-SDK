@@ -947,3 +947,130 @@ MKIIIDRONE-MINIGUN:
 		UseDeathTypeSuffix: false
 		CrushedSequence: die
 		CrushedSequencePalette: apblue
+
+SCRINCOUNCIL: 
+	Inherits: ^CombatHelicopter
+	Inherits@1: ^ScrinAircraftGeneric
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
+	Inherits@COMMANDO: ^CommandoIcon
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@SHADOW: ^AircraftShadow
+	Inherits@VISION: ^11CellVision
+	Valued:
+		Cost: 10000
+	Tooltip:
+		Name: Scrin Council
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Air.Shared, Air.Scrin, ~AIOnly
+		Description: A council debates on the world's corpse.\n\nGood vs: Everything\n\nSpecial:\n- Build limit: 1\n- Selfhealing up to 100%\n- Can attack air\n- Immune to mind control\n- Can shoot over walls\n- Can attack while moving
+		BuildPaletteOrder: 29
+		Prerequisites: ~scrair, scradvpowr, ~techlevel.6
+		BuildLimit: 1
+		BuildDuration: 1500
+		BuildDurationModifier: 100
+	Selectable:
+		Bounds: 2709,3135
+	Targetable@Essence:
+		TargetTypes: ScrinUnit
+	-Targetable@MC:
+	AnnounceOnSeen:
+		PingRadar: true
+		Notification: BattleCruiserDetected
+		TextNotification: Enemy Scrin Council detected.
+	Aircraft:
+		AltitudeVelocity: 180
+		TurnSpeed: 20
+		Speed: 30
+		Repulsable: true
+		IdealSeparation: 1920
+		MoveIntoShroud: true
+	-Rearmable:
+	Health:
+		HP: 400000
+	Armor@Boss:
+		Type: Boss
+	MindController:
+		Capacity: 9
+		ArmamentNames: control
+		Sounds: sonpulse.aud
+		ControllingCondition: controlling
+	ExplodeWeapon@Casing:
+		Weapon: MindEnergyCasing
+		LocalOffset: 0,0,2000
+		RequiresCondition: attack
+	GrantConditionOnAttack@Casing:
+		Condition: attack
+		ArmamentNames: control
+	Armament@PRIMARY:
+		Name: control
+		Weapon: MindControllerMastermind
+		PauseOnCondition: !ammo
+	Armament@BUILDING:
+		Weapon: MindControllerMastermindBuilding
+		PauseOnCondition: !ammo
+		RequiresCondition: !control
+	Armament@BUILDINGCONTROL:
+		Name: control
+		Weapon: MindControllerMastermindBuilding
+		PauseOnCondition: !ammo
+		RequiresCondition: control
+	GrantConditionOnAttack@CONTROL:
+		Condition: control
+		ArmamentNames: primary
+		RequiredShotsPerInstance: 8
+		MaximumInstances: 1
+		RevokeDelay: 11
+		RevokeAll: true
+		RevokeOnNewTarget: true
+	AmmoPool:
+		Ammo: 1
+		ReloadDelay: 100
+		AmmoCondition: ammo
+		Armaments: control
+	ReloadAmmoPool:
+		Delay: 100
+	RenderRangeCircle:
+		RangeCircleType: Subjugator
+		Color: 800080CC
+		BorderWidth: 0
+		Width: 2
+	WithMindControllerPipsDecoration:
+		Margin: 4, 3
+		Palette: pips
+		Position: BottomLeft
+		RequiresSelection: true
+		ValidRelationships: Ally, Neutral, Enemy
+	PortableChrono:
+		ChronoshiftSound: instantrift.wav
+		Voice: Move
+		ChargeDelay: 500
+		TargetCursor: emp
+	Contrail@Teleport: ##HACK: add a trace for teleport. 
+		Offset: 0, 0, 700
+		Color: a362a5AA
+		ZOffset: -1024
+		UsePlayerColor: false
+		TrailWidth: 1024
+		TrailLength: 4
+	WithMuzzleOverlay:
+	AttackAircraft:
+		Voice: Attack
+		FacingTolerance: 512
+		Armaments: primary, control
+	BodyOrientation:
+		QuantizedFacings: 32
+	SpawnActorOnDeath:
+		RequiresCondition: airborne
+		Actor: SCRCOUNCIL.Husk
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+	DeathSounds:
+	Voiced:
+		VoiceSet: Battlecruiser

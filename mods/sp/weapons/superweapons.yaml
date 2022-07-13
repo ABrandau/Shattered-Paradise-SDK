@@ -180,6 +180,21 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 		Delay: 110
 		Spread: 4c256
 		AirThreshold: 8c0
+	Warhead@AA: SpreadDamage
+		Falloff: 100, 100
+		ValidTargets: Air
+		Versus:
+			Infantry: 100
+			Building: 0
+			Defense: 0
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 0
+			Boss: 100
+		Spread: 4c256 ### It can just hit the CruiseAltitude: 4c0 aircraft.
+		Damage: 100000
+		Delay: 110
+		AirThreshold: 8c0
 	Warhead@3Smu_area: LeaveSmudge
 		Delay: 110
 		SmudgeType: SmallScorch
@@ -512,8 +527,10 @@ ApocalypseMissileExplosion:
 		AirThreshold: 8c0
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
 		Spread: 6c768
+		Delay: 20
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		Spread: 5c256
+		Delay: 20
 		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
 	Warhead@SoundEffect0: CreateEffect
 		ImpactSounds: nukeexplo.wav
@@ -827,6 +844,20 @@ MeteorAirHit:
 	-Warhead@GetsOneShotedbySuperweapons: ## This for Air only, we cannot expect meteor fall on the ground to hit Air
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
 		Spread: 4c196
+	Warhead@AA: SpreadDamage
+		Falloff: 100, 100
+		ValidTargets: Air
+		Versus:
+			Infantry: 100
+			Building: 0
+			Defense: 0
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 0
+			Boss: 100
+		Spread: 4c196 ### It can just hit the CruiseAltitude: 4c0 aircraft.
+		Damage: 30000
+		AirThreshold: 8c0
 
 MeteorElevator:
 	ReloadDelay: 6
@@ -885,7 +916,7 @@ MeteorRainNormal:
 		Spread: 300
 		Damage: 10000
 		Versus:
-			Boss: 500
+			Boss: 600
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		AirThreshold: 8c0
@@ -1011,6 +1042,20 @@ IronSaviorExplode:
 		AirThreshold: 8c0
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
 		Spread: 4c192
+	Warhead@AA: SpreadDamage
+		Falloff: 100, 100
+		ValidTargets: Air
+		Versus:
+			Infantry: 100
+			Building: 0
+			Defense: 0
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 0
+			Boss: 100
+		Spread: 4c192 ### It can just hit the CruiseAltitude: 4c0 aircraft.
+		Damage: 40000
+		AirThreshold: 8c0
 
 IronSaviorShrapnel:
 	Inherits: ^FullDamage
@@ -1070,6 +1115,8 @@ IronSaviorShrapnel:
 		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
 		Spread: 3c896
+	Warhead@AA: SpreadDamage
+		Spread: 3c896
 
 IonStormSpawnerWeapon: ### THIS ONE GENERATES THE ION STORM PARTICLE
 	ReloadDelay: 6
@@ -1114,12 +1161,26 @@ IonRay:
 		Damage: 7500
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 		Versus:
-			Boss: 250
+			Boss: 400
 		AirThreshold: 8c0
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
 		Spread: 3c768
+	Warhead@AA: SpreadDamage
+		Falloff: 100, 100
+		ValidTargets: Air
+		Versus:
+			Infantry: 100
+			Building: 0
+			Defense: 0
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 0
+			Boss: 100
+		Spread: 3c768 ### It can just hit the CruiseAltitude: 4c0 aircraft.
+		Damage: 30000
+		AirThreshold: 8c0
 
 VeinholeSummonerWeapon:
 	ReloadDelay: 8
