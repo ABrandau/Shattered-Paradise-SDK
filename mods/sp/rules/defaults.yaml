@@ -22,7 +22,7 @@
 ^AutoTargetGround:
 	AutoTarget:
 		AttackAnythingCondition: stance-attackanything
-		MinimumScanTimeInterval: 16
+		MinimumScanTimeInterval: 20
 		MaximumScanTimeInterval: 20
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
@@ -46,8 +46,8 @@
 
 ^AutoTargetAir:
 	AutoTarget:
-		MinimumScanTimeInterval: 18
-		MaximumScanTimeInterval: 18
+		MinimumScanTimeInterval: 20
+		MaximumScanTimeInterval: 20
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: Air
 		InvalidTargets: NoAutoTarget
@@ -55,8 +55,8 @@
 ^AutoTargetAll:
 	AutoTarget:
 		AttackAnythingCondition: stance-attackanything
-		MinimumScanTimeInterval: 18
-		MaximumScanTimeInterval: 18
+		MinimumScanTimeInterval: 20
+		MaximumScanTimeInterval: 20
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
 		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Defence
@@ -78,8 +78,8 @@
 ^AutoTargetHeal:
 	AutoTarget:
 		ScanRadius: 6
-		MinimumScanTimeInterval: 18
-		MaximumScanTimeInterval: 18
+		MinimumScanTimeInterval: 20
+		MaximumScanTimeInterval: 20
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: Infantry, Vehicle, Water, Defence, Building, Air
 		InvalidTargets: FullHealth, Summoned

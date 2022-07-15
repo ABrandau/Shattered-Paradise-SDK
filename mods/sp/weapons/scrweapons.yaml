@@ -501,7 +501,6 @@ AnhTripodLaser:
 		HitAnim: explosion
 		HitAnimSequence: lazerflare
 		HitAnimPalette: appurp
-
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
@@ -1148,9 +1147,10 @@ SrcinOrb:
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 
 OrbZapsShrapnel:
+	ReloadDelay: 2
 	Warhead@Slowdown: GrantExternalCondition
 		Range: 2c0
-		Duration: 45
+		Duration: 10
 		Condition: Slowdown50pp
 		ValidRelationships: Enemy, Neutral, Ally
 		ValidTargets: Infantry, Vehicle
@@ -1167,19 +1167,18 @@ OrbZapsShrapnel:
 
 OrbZaps:
 	Inherits: ^FullDamage
-	ReloadDelay: 15
 	Range: 3c0
 	MinRange: 0c512
 	Projectile: ElectricBolt
 		ZOffset: 7000
-		Distortion: 384
+		Distortion: 512
 		Width: 50
-		Angle: 240
+		Angle: 20
 		Colors: ff44ff99
 		SegmentLength: 326
 		Duration: 4
 	Warhead@1Dam: TargetDamage
-		Damage: 1000
+		Damage: 2000
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 	Warhead@2Eff: CreateEffect
 		Explosions: lightpulsetiny
@@ -1187,24 +1186,9 @@ OrbZaps:
 		ImpactActors: false
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 
-EssenceSmall:
-	ReloadDelay: 45
-	Range: 10c0
-	MinRange: 1c0
-	Projectile: InstantExplode
-	Warhead@op: FireShrapnel
-		Weapon: EssenceMissile
-		ImpactActors: false
-		Amount: 1
-		AimChance: 100
-		ThrowWithoutTarget: false
-		AllowDirectHit: true
-		AimTargetStances: Ally
-		ValidTargets: Ground, Water, Air
-
 CouncilorPlasma:
 	Inherits: ^FullDamage
-	ReloadDelay: 75
+	ReloadDelay: 50
 	Range: 8c0
 	MinRange: 0c100
 	ValidTargets: Ground, Water
@@ -1252,7 +1236,7 @@ CouncilorPlasma:
 
 CouncilorZap:
 	Inherits: ^FullDamage
-	ReloadDelay: 75
+	ReloadDelay: 50
 	Range: 8c0
 	ValidTargets: Air
 	Projectile: ElectricBolt
@@ -1276,6 +1260,91 @@ CouncilorZap:
 		ImpactSounds: expnew14.aud
 		AirThreshold: 8c0
 		ValidTargets: Air
+
+CouncilazerInitial:
+	Range: 0c256
+	ReloadDelay: 1
+	TargetActorCenter: true
+	Projectile: InstantExplode
+	Warhead@later: FireFragment
+		ImpactActors: false
+		Weapon: CouncilazerElevator
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+
+CouncilazerElevator:
+	Projectile: AthenaProjectile
+		Altitude: 256
+	Warhead@later: FireFragment
+		Weapon: Councilazer
+		ImpactActors: false
+		UseZOffsetAsAbsoluteHeight: true
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+
+Councilazer:
+	Inherits: ^FullDamage
+	ReloadDelay: 80
+	Range: 5c768
+	Report: triplasor0000.wav, triplasor0001.wav, triplasor0002.wav
+	Projectile: KKNDLaser
+		Duration: 4
+		Color: f422f4
+		Radius: 2
+		Distortion: 320
+		DistortionAnimation: 256
+		InnerLightness: 0xEE
+		SegmentLength: 512
+		ZOffset: 3000
+	Warhead@1Dam: SpreadDamage
+		Damage: 5000
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 80
+			VehicleArmor: 50
+			DefenseArmor: 50
+			ConcreteArmor: 30
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
+	Warhead@2Eff: CreateEffect
+		Explosions: lightpulse
+		ExplosionPalette: appurp
+		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@Slowdown: GrantExternalCondition
+		Range: 2c0
+		Duration: 10
+		Condition: Slowdown50pp
+		ValidRelationships: Enemy, Neutral, Ally
+		ValidTargets: Infantry, Vehicle
+		InvalidTargets: Building, Defence
+	Warhead@op: FireShrapnel
+		Weapon: OrbZaps
+		ImpactActors: false
+		Amount: 1
+		AimChance: 100
+		ThrowWithoutTarget: true
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+		ValidTargets: Ground, Water, Air
+
+EssenceSmall:
+	ReloadDelay: 45
+	Range: 10c0
+	MinRange: 1c0
+	Projectile: InstantExplode
+	Warhead@op: FireShrapnel
+		Weapon: EssenceMissile
+		ImpactActors: false
+		Amount: 1
+		AimChance: 100
+		ThrowWithoutTarget: false
+		AllowDirectHit: true
+		AimTargetStances: Ally
+		ValidTargets: Ground, Water, Air
+
 
 EssenceMissile:
 	Inherits: ^FullDamage

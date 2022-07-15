@@ -913,6 +913,7 @@ MKIIIDRONE-MINIGUN:
 		LocalOffset: 350,0,-350
 	AttackTurreted:
 		Armaments: primary
+		PersistentTargeting: false
 	WithSpriteTurret:
 	Turreted@1:
 		Offset: 0,0,75
@@ -995,9 +996,9 @@ SCRINCOUNCIL:
 	Armor@Boss:
 		Type: Boss
 	DroneSpawnerMaster:
-		Actors: COUNCILOR, COUNCILOR, COUNCILOR, COUNCILOR, COUNCILOR
-		SpawnOffset: 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-		GatherCell: 0,0,0,0,0,0,0,0,0,0 #-1, 1, -1,-1, 1,1, 1, -1
+		Actors: COUNCILOR, COUNCILOR, COUNCILOR, COUNCILOR
+		SpawnOffset: 0,0,0,0,0,0,0,0,0,0,0,0
+		GatherCell: 0,0,0,0,0,0,0,0 #-1, 1, -1,-1, 1,1, 1, -1
 	MindController:
 		Capacity: -1
 		ArmamentNames: super-control
@@ -1005,7 +1006,9 @@ SCRINCOUNCIL:
 		ControllingCondition: controlling
 	Armament@AA:
 		Weapon: AIGlyder1AimingDummyWeapon
-		ReloadingCondition: reloading
+	Armament@PRIMARY:
+		Weapon:  CouncilazerInitial
+		LocalOffset: 0,0,-1128
 	Armament@SuperWeapon:
 		Name: super-control
 		Weapon: MindControllerMastermind
@@ -1013,7 +1016,8 @@ SCRINCOUNCIL:
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 512
-		#Armaments: primary
+	AutoTarget:
+		ScanRadius: 8
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
@@ -1040,7 +1044,7 @@ COUNCILOR:
 		Repulsable: true
 		TurnSpeed: 1023
 		Speed: 210
-		AltitudeVelocity: 2048
+		AltitudeVelocity: 180
 		RepulsionSpeed: 128
 		CanSlide: true
 		VTOL: true
@@ -1055,20 +1059,21 @@ COUNCILOR:
 		LocalOffset: 0,0,0, 0,0,0
 		LocalYaw: -168, 168
 		ReloadingCondition: reloading
+		PauseOnCondition: !ammo
 	Armament@AA:
 		Weapon: CouncilorZap
 		ReloadingCondition: reloading
+		PauseOnCondition: !ammo
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 1024
 		PersistentTargeting: false
-		PauseOnCondition: !ammo
 	AmmoPool:
 		Ammo: 1
 		AmmoCondition: ammo
 	ReloadAmmoPool:
 		Count: 1
-		Delay: 125
+		Delay: 100
 	RejectsOrders:
 	RenderSprites:
 		Palette: gensmkexplopurple
