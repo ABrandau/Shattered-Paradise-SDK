@@ -995,15 +995,17 @@ SCRINCOUNCIL:
 	Armor@Boss:
 		Type: Boss
 	DroneSpawnerMaster:
-		Actors: COUNCILCYSTAL, COUNCILCYSTAL, COUNCILCYSTAL, COUNCILCYSTAL
-		RespawnTicks: 20
-		SpawnOffset: 0,0,0,0,0,0,0,0,0,0,0,0
-		GatherCell: 0,0,0,0,0,0,0,0 #-1, 1, -1,-1, 1,1, 1, -1
+		Actors: COUNCILOR, COUNCILOR, COUNCILOR, COUNCILOR, COUNCILOR
+		SpawnOffset: 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		GatherCell: 0,0,0,0,0,0,0,0,0,0 #-1, 1, -1,-1, 1,1, 1, -1
 	MindController:
 		Capacity: -1
 		ArmamentNames: super-control
 		Sounds: sonpulse.aud
 		ControllingCondition: controlling
+	Armament@AA:
+		Weapon: AIGlyder1AimingDummyWeapon
+		ReloadingCondition: reloading
 	Armament@SuperWeapon:
 		Name: super-control
 		Weapon: MindControllerMastermind
@@ -1026,19 +1028,18 @@ SCRINCOUNCIL:
 	Voiced:
 		VoiceSet: Battlecruiser
 
-COUNCILCYSTAL:
+COUNCILOR:
 	Inherits: ^CombatPlane
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Infantry
-	Inherits@SHADOW: ^AircraftShadow
 	Inherits@VISION: ^3CellVision
 	Tooltip:
-		Name: Unknown
+		Name: Councilor
 	Interactable:
 	Aircraft:
 		Repulsable: true
 		TurnSpeed: 1023
-		Speed: 2048
+		Speed: 210
 		AltitudeVelocity: 2048
 		RepulsionSpeed: 128
 		CanSlide: true
@@ -1050,13 +1051,24 @@ COUNCILCYSTAL:
 		IdleSpeed: 128
 		IdealSeparation: 512
 	Armament@PRIMARY:
-		Weapon:  DrainerPlasma
+		Weapon:  CouncilorPlasma
 		LocalOffset: 0,0,0, 0,0,0
 		LocalYaw: -168, 168
+		ReloadingCondition: reloading
+	Armament@AA:
+		Weapon: CouncilorZap
 		ReloadingCondition: reloading
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 1024
+		PersistentTargeting: false
+		PauseOnCondition: !ammo
+	AmmoPool:
+		Ammo: 1
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Count: 1
+		Delay: 125
 	RejectsOrders:
 	RenderSprites:
 		Palette: gensmkexplopurple
@@ -1092,9 +1104,4 @@ COUNCILCYSTAL:
 		UseDeathTypeSuffix: false
 		CrushedSequence: die
 		CrushedSequencePalette: appurp
-	Contrail@Teleport: 
-		Color: a362a5
-		ZOffset: -510
-		UsePlayerColor: false
-		TrailWidth: 280
-		TrailLength: 4
+

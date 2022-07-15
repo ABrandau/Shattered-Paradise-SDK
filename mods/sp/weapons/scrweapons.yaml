@@ -408,6 +408,7 @@ ScrMbtLasorCharged:
 	Inherits: ScrMbtLasor
 	Projectile: KKNDLaser
 		Color: 00FF00
+		InnerLightness: 0xFF
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: apgreen
 	Warhead@3Eff: CreateEffect
@@ -1201,11 +1202,9 @@ EssenceSmall:
 		AimTargetStances: Ally
 		ValidTargets: Ground, Water, Air
 
-DrainerPlasma:
+CouncilorPlasma:
 	Inherits: ^FullDamage
 	ReloadDelay: 75
-	#Burst: 1
-	#BurstDelay: 1
 	Range: 8c0
 	MinRange: 0c100
 	ValidTargets: Ground, Water
@@ -1250,6 +1249,33 @@ DrainerPlasma:
 		ValidTargets: Ground, Water
 		AffectsParent: true
 		AirThreshold: 8c0
+
+CouncilorZap:
+	Inherits: ^FullDamage
+	ReloadDelay: 75
+	Range: 8c0
+	ValidTargets: Air
+	Projectile: ElectricBolt
+		ZOffset: 7000
+		Distortion: 384
+		Width: 81
+		Angle: 10
+		Colors: ff88ffA8
+		SegmentLength: 326
+		Duration: 10
+		LaunchEffectImage: explosion
+		LaunchEffectSequence: sparks
+		LaunchEffectPalette: gensmkexplopurple
+	Warhead@1Dam: SpreadDamage
+		Damage: 9000
+		ValidTargets: Air
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
+	Warhead@2Eff: CreateEffect
+		Explosions: sparks
+		ExplosionPalette: gensmkexplopurple
+		ImpactSounds: expnew14.aud
+		AirThreshold: 8c0
+		ValidTargets: Air
 
 EssenceMissile:
 	Inherits: ^FullDamage
