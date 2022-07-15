@@ -158,6 +158,7 @@ FloatTesla:
 		ThrowWithoutTarget: false
 		ValidTargets: Ground, Water, Air
 		InvalidTargets: Summoned
+		AffectsParent: true
 
 FloatGlaive:
 	Inherits: ^FullDamage
@@ -1200,6 +1201,56 @@ EssenceSmall:
 		AimTargetStances: Ally
 		ValidTargets: Ground, Water, Air
 
+DrainerPlasma:
+	Inherits: ^FullDamage
+	ReloadDelay: 75
+	#Burst: 1
+	#BurstDelay: 1
+	Range: 8c0
+	MinRange: 0c100
+	ValidTargets: Ground, Water
+	Projectile: MissileTA
+		Image: essencetrail
+		TrailImage: essencetrailmini
+		TrailPalette: gensmkexplopurple
+		Speed: 300
+		TrailInterval: 2
+		Palette: gensmkexplopurple
+		Acceleration: 0
+		Blockable: false
+		AllowSnapping: true
+		CloseEnough: 127
+		HorizontalRateOfTurn: 20
+		HorizontalRateOfTurnAcceleration: 1
+		HorizontalRateOfTurnStart: 8
+		ExplodeUnderThisAltitude: -5c0
+		Jammable: false ## help to save a little bit performance
+		ExplodeWhenEmpty: true
+		TerrainHeightAware: false
+		RangeLimit: 60c0
+		Gravity: 200
+	Warhead@1Dam: SpreadDamage
+		Damage: 9000
+		ValidTargets: Ground, Water
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: sparks
+		ExplosionPalette: gensmkexplopurple
+		ImpactSounds: expnew14.aud
+		AirThreshold: 8c0
+		ValidTargets: Ground, Water
+	Warhead@op: FireShrapnel
+		Weapon: EssenceMissile
+		ImpactActors: true
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Ally
+		ThrowWithoutTarget: false
+		ValidTargets: Ground, Water
+		AffectsParent: true
+		AirThreshold: 8c0
+
 EssenceMissile:
 	Inherits: ^FullDamage
 	ReloadDelay: 45
@@ -1228,6 +1279,8 @@ EssenceMissile:
 		Spread: 128
 		Damage: -2000
 		ValidTargets: ScrinUnit
+		AffectsParent: true
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolra2ialpha
+		AffectsParent: true

@@ -99,6 +99,7 @@ namespace OpenRA.Mods.SP.Traits
 		WPos preLoc;
 
 		int remainingIdleCheckTick;
+		bool isAircraft;
 
 		public DroneSpawnerMaster(ActorInitializer init, DroneSpawnerMasterInfo info)
 			: base(init, info)
@@ -125,6 +126,8 @@ namespace OpenRA.Mods.SP.Traits
 			SpawnReplenishedSlaves(self);
 
 			hasSpawnedInitialLoad = true;
+
+			isAircraft = self.Info.HasTraitInfo<AircraftInfo>();
 		}
 
 		public override BaseSpawnerSlaveEntry[] CreateSlaveEntries(BaseSpawnerMasterInfo info)
@@ -247,7 +250,7 @@ namespace OpenRA.Mods.SP.Traits
 				if (!se.IsValid || !se.Actor.IsInWorld)
 					continue;
 
-				if (!se.SpawnerSlave.IsMoving())
+				if (!se.SpawnerSlave.IsMoving(self.Location + se.GatherOffsetCell))
 				{
 					se.SpawnerSlave.Stop(se.Actor);
 					se.SpawnerSlave.Move(se.Actor, self.Location + se.GatherOffsetCell);
@@ -285,6 +288,8 @@ namespace OpenRA.Mods.SP.Traits
 
 			// 2. Stop the drone attacking when move for special case of fire at an ally.
 			// Only move slaves when position change
+			// Note: because aircraft always Fly, so drone may get away from master due to auto-targeting
+			// when actor moves.
 			else if (effectiveActivity.ActivityType == movetype)
 			{
 				if (preState == attacktype)
@@ -297,6 +302,13 @@ namespace OpenRA.Mods.SP.Traits
 					MoveSlaves(self);
 					remainingIdleCheckTick = Info.IdleCheckTick;
 				}
+				else if (remainingIdleCheckTick < 0 && isAircraft)
+				{
+					MoveSlaves(self);
+					remainingIdleCheckTick = Info.IdleCheckTick;
+				}
+				else if (isAircraft)
+					remainingIdleCheckTick--;
 			}
 
 			// Actually, new code here or old code in MobSpawnerMaster is not working

@@ -26,11 +26,12 @@ ORCA:
 	Selectable:
 		Bounds: 903,1447
 	Aircraft:
-		TurnSpeed: 56
+		TurnSpeed: 32
 		Speed: 210
 		MoveIntoShroud: true
 		TakeoffSounds: orcaup1.aud
 		LandingSounds: orcadwn1.aud
+		CanSlide: false
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
@@ -1392,6 +1393,7 @@ STORMRIDERSPAWN:
 		VTOL: false #Hack: avoid unable entering carrier while carrier moving
 		AirborneCondition: airborne
 		MoveIntoShroud: true
+		IdealSeparation: 256
 	Armament:
 		Weapon: WyvermBlast
 		ReloadingCondition: reload-ground
@@ -1467,6 +1469,7 @@ REPAIRWYVERN:
 		VTOL: true
 		AirborneCondition: airborne
 		MoveIntoShroud: true
+		IdealSeparation: 256
 	AttackAircraft:
 		AttackType: Hover
 	Rearmable:

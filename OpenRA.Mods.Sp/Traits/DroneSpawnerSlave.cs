@@ -24,7 +24,7 @@ namespace OpenRA.Mods.SP.Traits
 	public class DroneSpawnerSlaveInfo : BaseSpawnerSlaveInfo
 	{
 		[Desc("Aircraft slaves outside of this range from master while moving will be call back")]
-		public readonly WDist MovingCallBackDistance = WDist.FromCells(2);
+		public readonly int MovingCallBackCellDistance = 2;
 
 		[Desc("Slaves will follow master instead of attack while target outside of this range")]
 		public readonly WDist AttackCallBackDistance = WDist.FromCells(10);
@@ -44,12 +44,12 @@ namespace OpenRA.Mods.SP.Traits
 
 		DroneSpawnerMaster spawnerMaster;
 
-		public bool IsMoving()
+		public bool IsMoving(CPos gatherlocation)
 		{
 			if (isAircraft)
 			{
 				if (!InvalidActor(currentActor) && !InvalidActor(masterActor) &&
-					(currentActor.CenterPosition - masterActor.CenterPosition).HorizontalLengthSquared > info.MovingCallBackDistance.LengthSquared)
+					(currentActor.Location - gatherlocation).LengthSquared > info.MovingCallBackCellDistance * info.MovingCallBackCellDistance)
 					return false;
 
 				return true;

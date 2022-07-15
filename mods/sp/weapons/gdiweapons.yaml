@@ -209,6 +209,7 @@ OribitBomb:
 		Versus:
 			Building: 200
 			Defense: 200
+			Boss: 300
 		ValidTargets: Ground, Water
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
@@ -1179,6 +1180,20 @@ SonicClusterMissile:
 	-Warhead@GetsOneShotedbySuperweapons: ## This for Air only
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
 		Spread: 3c0
+	Warhead@AA: SpreadDamage
+		Falloff: 100, 100
+		ValidTargets: Air
+		Versus:
+			Infantry: 100
+			Building: 0
+			Defense: 0
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 0
+			Boss: 100
+		Spread: 3c0
+		Damage: 30000
+		AirThreshold: 8c0
 	Warhead@op: FireRadius
 		Weapon: SonicClusterMissileShell
 		ImpactActors: false

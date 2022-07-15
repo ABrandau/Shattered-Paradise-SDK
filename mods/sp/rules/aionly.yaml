@@ -900,6 +900,7 @@ MKIIIDRONE-MINIGUN:
 		VTOL: true
 		AirborneCondition: airborne
 		MoveIntoShroud: true
+		CruiseAltitude: 3c768
 	Armament@primaryAP:
 		Weapon: MKIIIDroneVulcan
 		LocalOffset: 350,0,0
@@ -973,7 +974,7 @@ SCRINCOUNCIL:
 		BuildDuration: 1500
 		BuildDurationModifier: 100
 	Selectable:
-		Bounds: 2709,3135
+		Bounds: 2709,3135, 0,-1280
 	Targetable@Essence:
 		TargetTypes: ScrinUnit
 	-Targetable@MC:
@@ -984,7 +985,7 @@ SCRINCOUNCIL:
 	Aircraft:
 		AltitudeVelocity: 180
 		TurnSpeed: 20
-		Speed: 30
+		Speed: 40
 		Repulsable: true
 		IdealSeparation: 1920
 		MoveIntoShroud: true
@@ -993,74 +994,24 @@ SCRINCOUNCIL:
 		HP: 400000
 	Armor@Boss:
 		Type: Boss
+	DroneSpawnerMaster:
+		Actors: COUNCILCYSTAL, COUNCILCYSTAL, COUNCILCYSTAL, COUNCILCYSTAL
+		RespawnTicks: 20
+		SpawnOffset: 0,0,0,0,0,0,0,0,0,0,0,0
+		GatherCell: 0,0,0,0,0,0,0,0 #-1, 1, -1,-1, 1,1, 1, -1
 	MindController:
-		Capacity: 9
-		ArmamentNames: control
+		Capacity: -1
+		ArmamentNames: super-control
 		Sounds: sonpulse.aud
 		ControllingCondition: controlling
-	ExplodeWeapon@Casing:
-		Weapon: MindEnergyCasing
-		LocalOffset: 0,0,2000
-		RequiresCondition: attack
-	GrantConditionOnAttack@Casing:
-		Condition: attack
-		ArmamentNames: control
-	Armament@PRIMARY:
-		Name: control
+	Armament@SuperWeapon:
+		Name: super-control
 		Weapon: MindControllerMastermind
-		PauseOnCondition: !ammo
-	Armament@BUILDING:
-		Weapon: MindControllerMastermindBuilding
-		PauseOnCondition: !ammo
-		RequiresCondition: !control
-	Armament@BUILDINGCONTROL:
-		Name: control
-		Weapon: MindControllerMastermindBuilding
-		PauseOnCondition: !ammo
-		RequiresCondition: control
-	GrantConditionOnAttack@CONTROL:
-		Condition: control
-		ArmamentNames: primary
-		RequiredShotsPerInstance: 8
-		MaximumInstances: 1
-		RevokeDelay: 11
-		RevokeAll: true
-		RevokeOnNewTarget: true
-	AmmoPool:
-		Ammo: 1
-		ReloadDelay: 100
-		AmmoCondition: ammo
-		Armaments: control
-	ReloadAmmoPool:
-		Delay: 100
-	RenderRangeCircle:
-		RangeCircleType: Subjugator
-		Color: 800080CC
-		BorderWidth: 0
-		Width: 2
-	WithMindControllerPipsDecoration:
-		Margin: 4, 3
-		Palette: pips
-		Position: BottomLeft
-		RequiresSelection: true
-		ValidRelationships: Ally, Neutral, Enemy
-	PortableChrono:
-		ChronoshiftSound: instantrift.wav
-		Voice: Move
-		ChargeDelay: 500
-		TargetCursor: emp
-	Contrail@Teleport: ##HACK: add a trace for teleport. 
-		Offset: 0, 0, 700
-		Color: a362a5AA
-		ZOffset: -1024
-		UsePlayerColor: false
-		TrailWidth: 1024
-		TrailLength: 4
 	WithMuzzleOverlay:
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 512
-		Armaments: primary, control
+		#Armaments: primary
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
@@ -1074,3 +1025,76 @@ SCRINCOUNCIL:
 	DeathSounds:
 	Voiced:
 		VoiceSet: Battlecruiser
+
+COUNCILCYSTAL:
+	Inherits: ^CombatPlane
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Infantry
+	Inherits@SHADOW: ^AircraftShadow
+	Inherits@VISION: ^3CellVision
+	Tooltip:
+		Name: Unknown
+	Interactable:
+	Aircraft:
+		Repulsable: true
+		TurnSpeed: 1023
+		Speed: 2048
+		AltitudeVelocity: 2048
+		RepulsionSpeed: 128
+		CanSlide: true
+		VTOL: true
+		AirborneCondition: airborne
+		MoveIntoShroud: true
+		CruiseAltitude: 5c256
+		IdleTurnSpeed: 64
+		IdleSpeed: 128
+		IdealSeparation: 512
+	Armament@PRIMARY:
+		Weapon:  DrainerPlasma
+		LocalOffset: 0,0,0, 0,0,0
+		LocalYaw: -168, 168
+		ReloadingCondition: reloading
+	AttackAircraft:
+		AttackType: Hover
+		FacingTolerance: 1024
+	RejectsOrders:
+	RenderSprites:
+		Palette: gensmkexplopurple
+	WithFacingSpriteBody:
+		RequiresCondition: !reloading
+	-Rearmable:
+	Health:
+		HP: 5000
+	DroneSpawnerSlave:
+		MovingCallBackCellDistance: 1
+		AttackCallBackDistance: 0
+	-Targetable@GROUND:
+	-Targetable@AIRBORNE:
+	Targetable@Ignore:
+		TargetTypes: Summoned
+	-Targetable@MC:
+	-UpdatesPlayerStatistics:
+	-ActorLostNotification:
+	-AppearsOnRadar:
+	-Selectable:
+	-SelectionDecorations:
+	-Explodes@Shrapnel:
+	-GrantConditionOnDamageState@HeavyDamaged:
+	-ExplodeWeapon@spawnsparks:
+	-SmokeParticleEmitter@spawnsmoke:
+	-SpawnActorOnDeath@ScrinEssence:
+	-MapEditorData:
+	WithDeathAnimation:
+		FallbackSequence: die
+		DeathSequence: die
+		DeathSequencePalette: effect
+		DeathPaletteIsPlayerPalette: false
+		UseDeathTypeSuffix: false
+		CrushedSequence: die
+		CrushedSequencePalette: appurp
+	Contrail@Teleport: 
+		Color: a362a5
+		ZOffset: -510
+		UsePlayerColor: false
+		TrailWidth: 280
+		TrailLength: 4
