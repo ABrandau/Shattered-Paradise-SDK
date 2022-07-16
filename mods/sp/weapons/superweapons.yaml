@@ -209,42 +209,74 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 		ImpactActors: false
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
 		AirThreshold: 8c0
-	Warhead@4Effect: CreateEffect
-		Delay: 110
-		Explosions: ionbeam
-		ExplosionPalette: effect-ignore-lighting-alpha75
+	Warhead@4Effect: SpawnSmokeParticle
+		Delay: 90
+		Image: explosion
+		Duration: 40
+		Sequences: ionbeam
+		EndSequences: ionbeamstart
+		StartSequences: ionbeamstart
+		Palette: effect-ignore-lighting-alpha75
 		AffectsParent: true
 		ImpactActors: false
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
 		AirThreshold: 8c0
-	Warhead@5Effect: CreateEffect
-		Delay: 110
-		Explosions: ionbeam2
-		ExplosionPalette: effect-ignore-lighting-alpha75
+	Warhead@5Effect: SpawnSmokeParticle
+		Delay: 90
+		Image: explosion
+		Duration: 40
+		Sequences: ionbeam2
+		EndSequences: ionbeamstart2
+		StartSequences: ionbeamstart2
+		Palette: effect-ignore-lighting-alpha75
 		AffectsParent: true
 		ImpactActors: false
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
 		AirThreshold: 8c0
-	Warhead@6Effect: CreateEffect
-		Delay: 110
-		Explosions: ionbeam3
-		ExplosionPalette: effect-ignore-lighting-alpha75
+	Warhead@6Effect: SpawnSmokeParticle
+		Delay: 90
+		Image: explosion
+		Duration: 40
+		Sequences: ionbeam3
+		EndSequences: ionbeamstart3
+		StartSequences: ionbeamstart3
+		Palette: effect-ignore-lighting-alpha75
 		AffectsParent: true
 		ImpactActors: false
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
 		AirThreshold: 8c0
-	Warhead@7Effect: CreateEffect
-		Delay: 110
-		Explosions: ionbeam4
-		ExplosionPalette: effect-ignore-lighting-alpha75
+	Warhead@7Effect: SpawnSmokeParticle
+		Delay: 90
+		Image: explosion
+		Duration: 40
+		Sequences: ionbeam4
+		EndSequences: ionbeamstart4
+		StartSequences: ionbeamstart4
+		Palette: effect-ignore-lighting-alpha75
 		AffectsParent: true
 		ImpactActors: false
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
 		AirThreshold: 8c0
-	Warhead@8Effect: CreateEffect
-		Delay: 110
-		Explosions: ionbeam5
-		ExplosionPalette: effect-ignore-lighting-alpha75
+	Warhead@8Effect: SpawnSmokeParticle
+		Delay: 90
+		Image: explosion
+		Duration: 40
+		Sequences: ionbeam5
+		EndSequences: ionbeamstart5
+		StartSequences: ionbeamstart5
+		Palette: effect-ignore-lighting-alpha75
+		AffectsParent: true
+		ImpactActors: false
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
+		AirThreshold: 8c0
+	Warhead@9Effect: SpawnSmokeParticle
+		Delay: 90
+		Image: explosion
+		Duration: 40
+		Sequences: ionbeam6
+		EndSequences: ionbeamstart6
+		StartSequences: ionbeamstart6
+		Palette: effect-ignore-lighting-alpha75
 		AffectsParent: true
 		ImpactActors: false
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
@@ -254,7 +286,7 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 		Intensity: 8
 		Multiplier: 1,1
 		AirThreshold: 8c0
-		Delay: 110
+		Delay: 114
 
 IonBeamCreator: ### THIS ONE GENERATES THE MINI BEAMS
 	ReloadDelay: 6
