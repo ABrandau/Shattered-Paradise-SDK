@@ -969,6 +969,23 @@ Player:
 					Types: Ground, Water, Air
 					Attractiveness: 1
 					TargetMetric: Value
+					CheckRadius: 6c0
+				Consideration@4:
+					Against: Ally
+					Types: Air, Ground, Water
+					Attractiveness: -10
+					TargetMetric: Value
+					CheckRadius: 7c0
+			tearingreality:
+				OrderName: TearingReality
+				MinimumAttractiveness: 7000
+				MinimumScanTimeInterval: 83
+				MaximumScanTimeInterval: 100
+				Consideration@2:
+					Against: Enemy
+					Types: Ground, Water, Air
+					Attractiveness: 1
+					TargetMetric: Value
 					CheckRadius: 5c0
 				Consideration@4:
 					Against: Ally
@@ -976,6 +993,7 @@ Player:
 					Attractiveness: -10
 					TargetMetric: Value
 					CheckRadius: 7c0
+
 	CaptureManagerBotASModule:
 		CapturingActorTypes: engineer, cutman, swarmling, shapeshifter
 		PriorityCaptureChance: 100

@@ -255,6 +255,7 @@ MUBUNKRFULL:
 	ActorStatValues:
 		TooltipActor: mubunkr
 
+### 3. are meme units to make the game more challenging
 GHOST:
 	Inherits: ^Mutant
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -795,7 +796,7 @@ HMECTEST:
 		Cursor: emp
 		Icons:
 			1: mammothicon
-		ChargeInterval: 3200
+		ChargeInterval: 2500
 		ArmamentName: MKIIISuperWeapon
 		Names:
 			1: Sonic Missile Storm
@@ -999,20 +1000,53 @@ SCRINCOUNCIL:
 		Actors: COUNCILOR, COUNCILOR, COUNCILOR, COUNCILOR
 		SpawnOffset: 0,0,0,0,0,0,0,0,0,0,0,0
 		GatherCell: 0,0,0,0,0,0,0,0 #-1, 1, -1,-1, 1,1, 1, -1
-	MindController:
-		Capacity: -1
-		ArmamentNames: super-control
-		Sounds: sonpulse.aud
-		ControllingCondition: controlling
 	Armament@AA:
 		Weapon: AIGlyder1AimingDummyWeapon
 	Armament@PRIMARY:
 		Weapon:  CouncilazerInitial
 		LocalOffset: 0,0,-1128
 	Armament@SuperWeapon:
-		Name: super-control
-		Weapon: MindControllerMastermind
-	WithMuzzleOverlay:
+		Name: super
+		Weapon: TearingReality
+	GrantConditionOnAttack@muzzle:
+		Condition: SuperAttack
+		ArmamentNames: super
+		RevokeDelay: 200
+	WithIdleOverlay@SuperWeaponMuzzle:
+		Offset: 0,0,1000
+		Image: scrintele
+		Sequence: loop
+		Palette: jascbluealpha
+		RequiresCondition: SuperAttack
+		IsDecoration: true ## so this doesn't affect by cloak palette
+	ProvidesPrerequisite@Super:
+		Prerequisite: CouncilExists
+		ResetOnOwnerChange: true
+	FireArmamentPower:
+		Cursor: emp
+		Icons:
+			1: councilicon
+		IconPalette: chromescrin
+		ChargeInterval: 2500
+		ArmamentName: super
+		Names:
+			1: Tearing Reality
+		Descriptions:
+			1: Tearing the time and space on target location.\n\nSpecial:\n- Teleport troops after dealing damage.
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
+		SelectTargetSound: speech-nod|00-i042.aud
+		Prerequisites:
+			1: CouncilExists
+		OrderName: TearingReality
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
+		DisplayTimerRelationships: Ally, Neutral, Enemy
+		CameraRange: 10c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 512
@@ -1031,6 +1065,8 @@ SCRINCOUNCIL:
 	DeathSounds:
 	Voiced:
 		VoiceSet: Battlecruiser
+	MustBeDestroyed:
+		RequiredForShortGame: true
 
 COUNCILOR:
 	Inherits: ^CombatPlane
