@@ -281,6 +281,18 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 		ImpactActors: false
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
 		AirThreshold: 8c0
+	Warhead@10Effect: SpawnSmokeParticle
+		Delay: 90
+		Image: explosion
+		Duration: 46
+		Sequences: ringmini
+		EndSequences: ringmini
+		StartSequences: ringmini
+		Palette: effect-ignore-lighting-alpha75
+		AffectsParent: true
+		ImpactActors: false
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
+		AirThreshold: 8c0
 	Warhead@Shake: ShakeScreen
 		Duration: 15
 		Intensity: 8
@@ -308,7 +320,7 @@ IonScorch: ### THESE ARE THE WEAPONS OF THE MINI BEAMS ON THE SIDES
 		ExplosionPalette: gradientgray
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1c0
-		Damage: 500
+		Damage: 600
 		InvalidTargets: IonBeam
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
@@ -330,7 +342,7 @@ IonScorch: ### THESE ARE THE WEAPONS OF THE MINI BEAMS ON THE SIDES
 			Concrete: 0
 			Boss: 0
 		Spread: 3c928
-		Damage: 750
+		Damage: 800
 		AirThreshold: 8c0
 
 IonDrag:
