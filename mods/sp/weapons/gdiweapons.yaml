@@ -465,7 +465,6 @@ HoverMissile:
 	InvalidTargets: Air
 	Projectile: MissileTA
 		Blockable: false
-		Inaccuracy: 128
 	Warhead@1Dam: SpreadDamage
 		Damage: 2500
 		InvalidTargets: Air
@@ -697,7 +696,6 @@ MammothTusk:
 	Projectile: MissileTA
 		Blockable: false
 		Speed: 350
-		Inaccuracy: 128
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
@@ -1203,6 +1201,7 @@ SonicClusterMissile:
 		ExplosionPalette: gensmkexplocyan70
 		AirThreshold: 14c0
 		ValidTargets: Ground, Water, Air
+		ImpactSounds: firstrm1.aud
 	Warhead@3Eff: CreateEffect
 		Explosions: SonicMissleExplosion
 		ExplosionPalette: gensmkexplocyan70
@@ -1212,6 +1211,7 @@ SonicClusterMissile:
 SonicClusterMissileShell:
 	Inherits: JJBeacon
 	Range: 1c512
+	-Report: 
 	ValidTargets: Ground, Water, Vehicle, Infantry, water
 	Projectile: BulletAS
 		Speed: 200
