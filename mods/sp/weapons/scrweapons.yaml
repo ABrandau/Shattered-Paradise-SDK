@@ -28,12 +28,12 @@ LegioNeedler:
 		Sequences: idle
 		IsPlayerPalette: false
 		ContrailLength: 5
-		ContrailColor: 000ba833
+		ContrailStartColor: 000ba833
+		ContrailStartColorAlpha: 51
 		ContrailWidth: 0c128
 		ContrailDelay: 0
 		ContrailEndColor: 000ba833
-		ContrailFadeWithColor: false
-		ContrailFadeWithWidth: true
+		ContrailWidthFadeRate: 1
 		-TrailImage:
 		-TrailPalette:
 		-JetImage:
@@ -183,11 +183,12 @@ FloatGlaive:
 		Palette: apblue
 		Blockable: false
 		ContrailLength: 4
-		ContrailColor: 2020ff3E
+		ContrailStartColor: 2020ff3E
+		ContrailStartColorAlpha: 62
 		ContrailWidth: 0c124
 		ContrailEndColor: 2020ffcc
-		ContrailFadeWithColor: false
-		ContrailFadeWithWidth: true
+		ContrailEndColorAlpha: 204
+		ContrailWidthFadeRate: 1
 		ContrailZOffset: 3000
 		HorizontalRateOfTurn: 100
 		HorizontalRateOfTurnStart: 100
@@ -266,11 +267,12 @@ CorruptorAcid:
 	Projectile: BulletAS
 		Speed: 500
 		ContrailLength: 12
-		ContrailColor: 009800BB
+		ContrailStartColor: 009800BB
+		ContrailStartColorAlpha: 187
 		ContrailWidth: 0c138
 		ContrailEndColor: 00440055
-		ContrailFadeWithColor: false
-		ContrailFadeWithWidth: true
+		ContrailEndColorAlpha: 85
+		ContrailWidthFadeRate: 1
 		Inaccuracy: 1c512
 		LaunchAngle: 96
 		Blockable: false
@@ -305,7 +307,7 @@ CorruptorAcidBlue:
 	Inherits: CorruptorAcid
 	Range: 6c0
 	Projectile: BulletAS
-		ContrailColor: 0000ABBB
+		ContrailStartColor: 0000ABBB
 		ContrailEndColor: 00005555
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: apolbluealpha
@@ -630,11 +632,12 @@ StormRiderBlast:
 		Palette: gradientpurple
 		Image: greenplasma2
 		ContrailLength: 5
-		ContrailColor: ad00ff44
+		ContrailStartColor: ad00ff44
+		ContrailStartColorAlpha: 68
 		ContrailWidth: 0c128
 		ContrailEndColor: ad00ff30
-		ContrailFadeWithColor: false
-		ContrailFadeWithWidth: true
+		ContrailEndColorAlpha: 48
+		ContrailWidthFadeRate: 1
 		ContrailDelay: 0
 		Jammable: false ## help to save a little bit performance
 		ExplodeWhenEmpty: true
@@ -768,11 +771,12 @@ BattleshipCannon:
 		Inaccuracy: 1c0
 		Palette: gradientblue
 		ContrailLength: 4
-		ContrailColor: 00006666
+		ContrailStartColor: 00006666
+		ContrailStartColorAlpha: 102
 		ContrailWidth: 0c108
 		ContrailEndColor: FF55FF44
-		ContrailFadeWithColor: false
-		ContrailFadeWithWidth: true
+		ContrailEndColorAlpha: 68
+		ContrailWidthFadeRate: 1
 		ContrailDelay: 0
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
@@ -807,11 +811,13 @@ BattleshipPlasma:
 		Palette: gradientpurple
 		Image: greenplasma2
 		ContrailLength: 5
-		ContrailColor: ad00ff44
+		ContrailStartColor: ad00ff44
+		ContrailStartColorAlpha: 68
 		ContrailWidth: 0c128
 		ContrailEndColor: ad00ff30
+		ContrailEndColorAlpha: 48
 		ContrailFadeWithColor: false
-		ContrailFadeWithWidth: true
+		ContrailWidthFadeRate: 1
 		ContrailDelay: 0
 		ExplodeUnderThisAltitude: 0
 		Jammable: false ## help to save a little bit performance
@@ -1014,11 +1020,12 @@ WasteTurretWeapon:
 		LaunchAngle: 96
 		Blockable: false
 		ContrailLength: 12
-		ContrailColor: 009800BB
+		ContrailStartColor: 009800BB
+		ContrailStartColorAlpha: 187
 		ContrailWidth: 0c156
 		ContrailEndColor: 00440055
-		ContrailFadeWithColor: false
-		ContrailFadeWithWidth: true
+		ContrailEndColorAlpha: 85
+		ContrailWidthFadeRate: 1
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c400
 		Damage: 400
@@ -1053,7 +1060,7 @@ WasteTurretWeaponBlue:
 	Inherits: WasteTurretWeapon
 	Range: 8c0
 	Projectile: BulletAS
-		ContrailColor: 0000ABBB
+		ContrailStartColor: 0000ABBB
 		ContrailEndColor: 00005555
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: apolbluealpha

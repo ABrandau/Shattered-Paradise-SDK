@@ -30,3 +30,64 @@ WeasauBlueStrike:
 		Damage: 10000
 	Warhead@emp: GrantExternalCondition
 		Duration: 20
+
+GMRLSRocket:
+	Inherits: ^APWarhead
+	Inherits@2: ^Small_Clsn
+	ReloadDelay: 90
+	Range: 12c0
+	Burst: 4
+	Report: hovrmis1.aud
+	ValidTargets: Ground, Water
+	MinRange: 3c0
+	FirstBurstTargetOffset: 0, 450,0
+	FollowingBurstTargetOffset: 0, -300,0
+	Projectile: BulletAS
+		Speed: 350
+		Blockable: false
+		Shadow: false
+		LaunchAngle: 128
+		Image: DRAGON
+		Sequences: idle2
+		Palette: player
+		IsPlayerPalette: true
+		ContrailLength: 4
+		ContrailStartColor: 7777FF88
+		ContrailWidth: 0c4
+		ContrailDelay: 0
+		ContrailEndColor: FF5500
+		ContrailEndColorAlpha: 0
+		ContrailFadeWithColor: true
+		ContrailWidthFadeRate: -70
+		-TrailImage:
+	Warhead@1Dam: SpreadDamage
+		Spread: 350
+		Damage: 3000
+		ValidTargets: Ground, Water
+		Versus:
+			Light: 75
+			Heavy: 100
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+
+GMRLSRocketAA:
+	Inherits: HoverMissileAA
+	ReloadDelay: 60
+	Burst: 2
+	BurstDelays: 45
+	Range: 14c0
+	Projectile: MissileTA
+		Speed: 400
+		Blockable: false
+		ContrailLength: 4
+		ContrailStartColor: 7777FF88
+		ContrailWidth: 0c4
+		ContrailDelay: 0
+		ContrailEndColor: FF5500
+		ContrailEndColorAlpha: 0
+		ContrailFadeWithColor: true
+		ContrailWidthFadeRate: -70
+		RangeLimit: 17c0
+		-TrailImage:
+		-JetImage:
+	Warhead@1Dam: SpreadDamage
+		Damage: 5000

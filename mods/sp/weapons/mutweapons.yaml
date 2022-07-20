@@ -47,11 +47,11 @@ SkirmisherMortar:
 		Blockable: false
 		ContrailLength: 8
 		ContrailZOffset: 650
-		ContrailColor: 00AA0088
+		ContrailStartColor: 00AA0088
+		ContrailStartColorAlpha: 136
 		ContrailWidth: 0c66
 		ContrailEndColor: FF0000
-		ContrailFadeWithColor: true
-		ContrailFadeWithWidth: true
+		ContrailWidthFadeRate: 1
 		Image: 120mm
 		Palette: gradientgreen
 	Warhead@1Dam: SpreadDamage
@@ -92,7 +92,8 @@ FiendShard2:
 		LaunchAngle: 60
 		Palette: greentiberium
 		ContrailLength: 3
-		ContrailColor: 7EFF0188
+		ContrailStartColor: 7EFF0188
+		ContrailStartColorAlpha: 136
 		ContrailEndColor: 7EFF0144
 		ContrailWidth: 0c28
 		-TrailImage:
@@ -124,7 +125,7 @@ FiendShardAA:
 		IsPlayerPalette: false
 		Palette: greentiberium
 		ContrailLength: 3
-		ContrailColor: 7EFF01
+		ContrailStartColor: 7EFF01
 		ContrailWidth: 0c28
 		HorizontalRateOfTurn: 120
 		HorizontalRateOfTurnStart: 120
@@ -161,7 +162,7 @@ FiendShard2Blue:
 	Projectile: BulletAS
 		Palette: bluetiberium
 		ContrailLength: 3
-		ContrailColor: 5980FF88
+		ContrailStartColor: 5980FF88
 		ContrailEndColor: 5980FF44
 		ContrailWidth: 0c28
 	Warhead@2Eff: CreateEffect
@@ -172,7 +173,7 @@ FiendShardBlueAA:
 	Projectile: MissileTA
 		Palette: bluetiberium
 		ContrailLength: 3
-		ContrailColor: 5980FF
+		ContrailStartColor: 5980FF
 		ContrailWidth: 0c28
 	Warhead@op: FireRadius
 		Weapon: FiendShardBlueAAEffect
@@ -788,12 +789,11 @@ FalconPunch:
 		AllowSnapping: true
 		CloseEnough: 200
 		ContrailLength: 10
-		ContrailColor: 00CC00AA
+		ContrailStartColor: 00CC00AA
+		ContrailStartColorAlpha: 170
 		ContrailWidth: 0c8
 		ContrailEndColor: 221100
-		ContrailFadeWithColor: true
-		ContrailFadeWithWidth: true
-		ContrailFadeWithWidthRate: -40
+		ContrailWidthFadeRate: -40
 		TrailPalette: jascgreen
 		TrailImage: small_smoke_trail
 		Jammable: false ## help to save a little bit performance

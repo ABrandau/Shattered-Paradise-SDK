@@ -247,7 +247,7 @@ TrooperRail:
 	TargetActorCenter: true
 	Projectile: BulletAS
 		ContrailDelay: 0
-		ContrailColor: AAAAFF #5566ED
+		ContrailStartColor: AAAAFF
 		ContrailLength: 4
 		ContrailWidth: 45
 		Speed: 1c256
@@ -259,9 +259,7 @@ TrooperRail:
 		TrailPalette: apblue
 		TrailInterval: 0
 		ContrailEndColor: 3333FF
-		ContrailFadeWithColor: false
-		ContrailFadeWithWidth: true 
-		ContrailFadeWithWidthRate: 0.8
+		ContrailWidthFadeRate: 0.8
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 6000
@@ -503,11 +501,12 @@ JuggCannon:
 		Blockable: false
 		ContrailLength: 15
 		ContrailZOffset: 650
-		ContrailColor: FFFF0088
+		ContrailStartColor: FFFF0088
+		ContrailStartColorAlpha: 136
 		ContrailWidth: 0c66
 		ContrailEndColor: AA0000
-		ContrailFadeWithColor: true
-		ContrailFadeWithWidth: true
+		ContrailEndColorAlpha: 0
+		ContrailWidthFadeRate: 1
 		TrailImage: cannonsmokecircle
 		TrailPalette: effectalpha75
 		TrailSequences: idle2
@@ -527,67 +526,6 @@ JuggCannonShellCasing:
 	ReloadDelay: 60
 	Range: 12c0
 	MinRange: 3c0
-
-GMRLSRocket:
-	Inherits: ^APWarhead
-	Inherits@2: ^Small_Clsn
-	ReloadDelay: 90
-	Range: 12c0
-	Burst: 4
-	Report: hovrmis1.aud
-	ValidTargets: Ground, Water
-	MinRange: 3c0
-	FirstBurstTargetOffset: 0, 450,0
-	FollowingBurstTargetOffset: 0, -300,0
-	Projectile: BulletAS
-		Speed: 350
-		Blockable: false
-		Shadow: false
-		LaunchAngle: 128
-		Image: DRAGON
-		Sequences: idle2
-		Palette: player
-		IsPlayerPalette: true
-		ContrailLength: 4
-		ContrailColor: 7777FF88
-		ContrailWidth: 0c4
-		ContrailDelay: 0
-		ContrailEndColor: FF5500
-		ContrailFadeWithColor: true
-		ContrailFadeWithWidth: true
-		ContrailFadeWithWidthRate: -70
-		-TrailImage:
-	Warhead@1Dam: SpreadDamage
-		Spread: 350
-		Damage: 3000
-		ValidTargets: Ground, Water
-		Versus:
-			Light: 75
-			Heavy: 100
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
-
-GMRLSRocketAA:
-	Inherits: HoverMissileAA
-	ReloadDelay: 60
-	Burst: 2
-	BurstDelays: 45
-	Range: 14c0
-	Projectile: MissileTA
-		Speed: 400
-		Blockable: false
-		ContrailLength: 4
-		ContrailColor: 7777FF88
-		ContrailWidth: 0c4
-		ContrailDelay: 0
-		ContrailEndColor: FF5500
-		ContrailFadeWithColor: true
-		ContrailFadeWithWidth: true
-		ContrailFadeWithWidthRate: -70
-		RangeLimit: 17c0
-		-TrailImage:
-		-JetImage:
-	Warhead@1Dam: SpreadDamage
-		Damage: 5000
 
 SonicZap:
 	Inherits: ^WeaponGenericUpgrades
