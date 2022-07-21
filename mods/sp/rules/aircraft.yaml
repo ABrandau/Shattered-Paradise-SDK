@@ -1401,7 +1401,6 @@ SCRCARRIER:
 STORMRIDERSPAWN:
 	Inherits: ^CombatPlane
 	Inherits@1: ^ScrinAircraftGeneric
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Infantry
 	Inherits@SHADOW: ^AircraftShadow
 	Inherits@VISION: ^3CellVision
@@ -1478,6 +1477,7 @@ STORMRIDERSPAWN:
 
 REPAIRWYVERN:
 	Inherits: STORMRIDERSPAWN
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Tooltip:
 		Name: Repair Drone?
 	Armament:
@@ -1567,6 +1567,7 @@ CABDRONEJET:
 
 REPAIRDRONE:
 	Inherits: CABDRONEJET
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Tooltip:
 		Name: Repair Drone
 	Armament:
