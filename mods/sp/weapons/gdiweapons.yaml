@@ -575,16 +575,46 @@ SonicZapTower:
 	Range: 7c0
 
 SonicEmitterProjGDI:
-	Inherits: SonicEmitterProj
+	ReloadDelay: 100
 	Range: 8c0
+	Report: bsonwea.wav, bsonweb.wav, bsonwec.wav, bsonwed.wav, bsonwee.wav, bsonwef.wav, bsonweg.wav, bsonweh.wav, bsonwei.wav, bsonwej.wav, bsonwek.wav
 	Projectile: WarheadTrailProjectile
+		Offsets: 0,128,0 #, 64,96,0, -64,96,0
+		FireMode: Line # try putting "Line" or "Spread" here, "Focus"
+		Inaccuracy: 0c0
+		Speed: 200
+		ForceAtGroundLevel: true
+		ExplosionInterval: 2
+		ExplodeUnderThisAltitude: -9999
+		Blockable: false
+		KillProjectilesWhenReachedTargetLocation: false #try putting true
 		Weapon: SonicEmitterHitGDI
+	Warhead@1Dam: TargetDamage
 
 SonicEmitterHitGDI:
-	Inherits: SonicEmitterHit
+	Inherits: ^FullDamage
+	ReloadDelay: 100
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 	Range: 8c0
 	Warhead@1Dam: SpreadDamage
+		Spread: 0c300
+		Damage: 7500
+		Versus:
+			Infantry: 300
+			Building: 30
+			Defense: 50
+			Heavy: 70
+			Aircraft: 100
+			Concrete: 30
 		ValidRelationships: Enemy, Neutral
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
+	Warhead@4EffAir: CreateEffect
+		ValidTargets: Ground, Water, Air
+		Explosions: jsbrnl20sonic, jsbrnl20bsonic, jsbrnl30sonic, jsbrnl30bsonic
+		ExplosionPalette: gensmkexplocyan70
+		ImpactSounds: bsonwe2a.wav, bsonwe2b.wav, bsonwe2c.wav, bsonwe2d.wav, bsonwe2e.wav, bsonwe2f.wav
+		Volume: 0.55
 
 4TNKGUN:
 	Inherits: ^APWarhead
