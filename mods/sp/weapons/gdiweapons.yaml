@@ -533,17 +533,23 @@ SonicZap:
 	Range: 5c512
 	Report: sonic4.aud
 	TargetActorCenter: false
-	Projectile: AreaBeam
+	Projectile: AreaBeamSP
 		Speed: 0c250
 		Duration: 40
 		DamageInterval: 4
 		Width: 300
+		SecondWidth: 600
 		Shape: Cylindrical
 		ZOffset: 2047
 		TrackTarget: true
 		BeyondTargetRange: 0c256
 		Blockable: true
-		Color: 50F5FF45
+		Color: 50F5FF43
+		SecondColor: 50F5FF13
+		HitAnim: explosion
+		HitAnimSequence: sonic_explof2
+		HitAnimPalette: gensmkexplocyan40
+		HitAnimInterval: 8
 	Warhead@1Dam: SpreadDamage
 		Range: 0, 48
 		Falloff: 100, 100
