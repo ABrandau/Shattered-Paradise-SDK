@@ -206,8 +206,6 @@ GASONC:
 		Cost: 1000
 	Tooltip:
 		Name: Sonic Emitter
-	#Armor@disruptor:
-	#	Type: Disruptor
 	Buildable:
 		Queue: Defense.Shared, Defense.GDI
 		BuildPaletteOrder: 42
@@ -224,8 +222,11 @@ GASONC:
 		HP: 60000
 	Armament:
 		Weapon: SonicEmitterProjGDI
-		LocalOffset: 768,0,1440
+		LocalOffset: 300,0,2000
 		PauseOnCondition: Building-Buildup
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplocyan70
+	WithMuzzleOverlay:
 	WithIdleOverlay@LIGHTS:
 		RequiresCondition: !Building-Buildup && !disabled
 		Sequence: idle-lights
@@ -240,9 +241,6 @@ GASONC:
 		Palette: bright
 	LineBuildNode:
 		Types: turret
-	#ProvidesPrerequisite@buildingname:
-	#Targetable:
-	#	TargetTypes: Building, Ground, C4, DetonateAttack, Defence, AllySonicImmune
 	RenderSprites:
 	RequiresBuildableArea:
 		AreaTypes: building
