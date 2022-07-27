@@ -73,18 +73,32 @@ namespace OpenRA.Mods.SP.Projectiles
 		[Desc("The width of the second beam.")]
 		public readonly WDist SecondWidth = new WDist(256);
 
-		[Desc("Impact animation.")]
-		public readonly string HitAnim = null;
+		[Desc("Image containing hit effect sequence.")]
+		public readonly string HitEffectImage = null;
 
-		[SequenceReference(nameof(HitAnim), allowNullImage: true)]
-		[Desc("Sequence of impact animation to use.")]
-		public readonly string HitAnimSequence = "idle";
+		[SequenceReference(nameof(HitEffectImage), allowNullImage: true)]
+		[Desc("Sequence of impact effect to use.")]
+		public readonly string HitEffectSequence = "idle";
 
-		[Desc("Impact animation.")]
-		public readonly int HitAnimInterval = 4;
+		[Desc("Impact effect interval.")]
+		public readonly int HitEffectInterval = 4;
 
 		[PaletteReference]
-		public readonly string HitAnimPalette = "effect";
+		public readonly string HitEffectPalette = "effect";
+
+		[Desc("Image containing launch effect sequence.")]
+		public readonly string LaunchEffectImage = null;
+
+		[SequenceReference(nameof(LaunchEffectImage), allowNullImage: true)]
+		[Desc("Launch effect sequence to play.")]
+		public readonly string LaunchEffectSequence = null;
+
+		[PaletteReference]
+		[Desc("Palette to use for launch effect.")]
+		public readonly string LaunchEffectPalette = "effect";
+
+		[Desc("Launch effect interval.")]
+		public readonly int LaunchEffectInterval = 4;
 
 		public IProjectile Create(ProjectileArgs args)
 		{
@@ -103,7 +117,8 @@ namespace OpenRA.Mods.SP.Projectiles
 		readonly WDist speed;
 		readonly WDist weaponRange;
 
-		int showHitAnimDelay = -1;
+		int showHitEffectDelay = -1;
+		int showLaunchEffectDelay = -1;
 
 		[Sync]
 		WPos headPos;
@@ -121,7 +136,8 @@ namespace OpenRA.Mods.SP.Projectiles
 		bool isHeadTravelling = true;
 		bool isTailTravelling;
 		bool continueTracking = true;
-		Func<WPos> headPosfunc;
+		Func<WPos> hitPosfunc;
+		Func<WPos> launchPosfunc;
 
 		bool IsBeamComplete => !isHeadTravelling && headTicks >= length && !isTailTravelling && tailTicks >= length;
 
@@ -155,10 +171,14 @@ namespace OpenRA.Mods.SP.Projectiles
 			length = Math.Max((target - headPos).Length / speed.Length, 1);
 			weaponRange = new WDist(Common.Util.ApplyPercentageModifiers(args.Weapon.Range.Length, args.RangeModifiers));
 
-			if (!string.IsNullOrEmpty(info.HitAnim))
-				showHitAnimDelay = 0;
+			if (!string.IsNullOrEmpty(info.HitEffectImage))
+				showHitEffectDelay = 0;
 
-			headPosfunc = () => headPos;
+			if (!string.IsNullOrEmpty(info.LaunchEffectImage))
+				showLaunchEffectDelay = 0;
+
+			hitPosfunc = () => headPos;
+			launchPosfunc = () => args.Source;
 		}
 
 		void TrackTarget()
@@ -267,11 +287,18 @@ namespace OpenRA.Mods.SP.Projectiles
 			if (IsBeamComplete)
 				world.AddFrameEndTask(w => w.Remove(this));
 
-			if (showHitAnimDelay != -1 && !isHeadTravelling)
+			if (showHitEffectDelay != -1 && !isHeadTravelling)
 			{
-				if (showHitAnimDelay == 0)
-					world.AddFrameEndTask(w => w.Add(new SpriteEffect(headPosfunc, () => WAngle.Zero, world, info.HitAnim, info.HitAnimSequence, info.HitAnimPalette)));
-				showHitAnimDelay = showHitAnimDelay - 1 >= 0 ? showHitAnimDelay - 1 : info.HitAnimInterval;
+				if (showHitEffectDelay == 0)
+					world.AddFrameEndTask(w => w.Add(new SpriteEffect(hitPosfunc, () => WAngle.Zero, world, info.HitEffectImage, info.HitEffectSequence, info.HitEffectPalette)));
+				showHitEffectDelay = showHitEffectDelay - 1 >= 0 ? showHitEffectDelay - 1 : info.HitEffectInterval;
+			}
+
+			if (showLaunchEffectDelay != -1 && !isTailTravelling)
+			{
+				if (showLaunchEffectDelay == 0)
+					world.AddFrameEndTask(w => w.Add(new SpriteEffect(launchPosfunc, () => WAngle.Zero, world, info.LaunchEffectImage, info.LaunchEffectSequence, info.LaunchEffectPalette)));
+				showLaunchEffectDelay = showLaunchEffectDelay - 1 >= 0 ? showLaunchEffectDelay - 1 : info.LaunchEffectInterval;
 			}
 		}
 
