@@ -240,7 +240,6 @@ BlueTibBurstExplo:
 		InvalidTargets: Water
 
 SonicEmitterProj:
-	Inherits: ^FullDamage
 	ReloadDelay: 100
 	Range: 11c0
 	Report: bsonwea.wav, bsonweb.wav, bsonwec.wav, bsonwed.wav, bsonwee.wav, bsonwef.wav, bsonweg.wav, bsonweh.wav, bsonwei.wav, bsonwej.wav, bsonwek.wav
@@ -255,12 +254,10 @@ SonicEmitterProj:
 		ExplodeUnderThisAltitude: -9999
 		Blockable: false
 		KillProjectilesWhenReachedTargetLocation: false #try putting true
-	Warhead@1Dam: SpreadDamage
-		Damage: 1
+	Warhead@1Dam: TargetDamage
 
 SonicEmitterHit:
 	Inherits: ^FullDamage
-	Inherits@2: ^Small_Twlt
 	ReloadDelay: 100
 	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 	Range: 11c0
@@ -277,16 +274,14 @@ SonicEmitterHit:
 		ValidRelationships: Enemy, Neutral, Ally
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
+		AirThreshold: 8c0
 	Warhead@4EffAir: CreateEffect
-		-InvalidTargets:
 		ValidTargets: Ground, Water, Air
-		Explosions: jsbrnl20sonic, jsbrnl20bsonic, jsbrnl30sonic, jsbrnl30bsonic
-		ExplosionPalette: gensmkexplojFblue50a
+		Explosions: sonic_explo2, sonic_explof2,sonic_explo, sonic_explof #jsbrnl20sonic, jsbrnl20bsonic, jsbrnl30sonic, jsbrnl30bsonic
+		ExplosionPalette: gensmkexplojFblue #50a
 		ImpactSounds: bsonwe2a.wav, bsonwe2b.wav, bsonwe2c.wav, bsonwe2d.wav, bsonwe2e.wav, bsonwe2f.wav
 		Volume: 0.55
-	-Warhead@3EffWater:
-	-Warhead@4Smu:
-	-Warhead@5Smu:
+		AirThreshold: 8c0
 
 ServDepoShrapnelSpawn:
 	ReloadDelay: 75
