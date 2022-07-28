@@ -290,7 +290,7 @@ PsykerRay:
 		Damage: 10000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
-LtRail:
+LtRail: ##For line damage
 	Inherits: ^WeaponGenericUpgrades
 	ReloadDelay: 60
 	Range: 7c0
@@ -299,18 +299,18 @@ LtRail:
 	Projectile: Railgun
 		Duration: 20
 		Blockable: true
-		BeamWidth: 0
-		BeamColor: 00DDEE
+		BeamWidth: 256
+		BeamColor: 00DDEE00
+		BeamAlphaDeltaPerTick: 0
 		HelixColor: 44FFFF
 		HelixThickness: 48
 		DamageActorsInLine: true
 		HitAnim: explosion
 		HitAnimSequence: railgunexp
 		HitAnimPalette: effect
-	Warhead@1Dam: SpreadDamage
-		Range: 0, 32
-		Falloff: 100, 100
-		Damage: 20000
+	Warhead@1Dam: TargetDamage
+		Spread: 0
+		Damage: 30000
 		AffectsParent: false
 		ValidRelationships: Neutral, Enemy
 		Versus:
@@ -321,9 +321,11 @@ LtRail:
 			Concrete: 25
 			Shield: 0
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	Warhead@2Dam: TargetDamage ### Fix when Chaos Ghost Stalker cannot use it on ally
+		ValidRelationships: Ally
 
-LtRailSmudge:
-	Inherits: ^WeaponGenericUpgrades
+LtRailSmudge:  ##For hit effect
+	Inherits: ^FullDamage
 	Inherits: ^Large_Clsn
 	ReloadDelay: 60
 	Range: 7c0
@@ -341,10 +343,10 @@ LtRailSmudge:
 		HitAnim: explosion
 		HitAnimSequence: railgunexp
 		HitAnimPalette: effect
-	Warhead@2Dam: SpreadDamage
+	Warhead@1Dam: SpreadDamage
 		Range: 0, 32
 		Falloff: 100, 100
-		Damage: 20000
+		Damage: 15000
 		AffectsParent: false
 		ValidRelationships: Ally
 		Versus:
@@ -356,6 +358,8 @@ LtRailSmudge:
 			Shield: 0
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	-Warhead@2Eff:
+	Warhead@2Dam: TargetDamage ### Fix when Chaos MK3 cannot use it on enemy
+		ValidRelationships: Neutral, Enemy
 
 BullAcid:
 	Inherits: ^AcidWarhead

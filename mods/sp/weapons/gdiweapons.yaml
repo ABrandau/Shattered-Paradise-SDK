@@ -729,8 +729,8 @@ MechRailgun: ##For hit effect
 	Warhead@2Dam: TargetDamage ### Fix when Chaos MK2 cannot use it on enemy
 		ValidRelationships: Neutral, Enemy
 
-MechRailgun2:
-	Inherits: ^WeaponGenericUpgrades
+MechRailgun2: ##For line damage
+	Inherits: ^FullDamage
 	FirstBurstTargetOffset: 0,-150,0
 	FollowingBurstTargetOffset: 0,300,0
 	ReloadDelay: 100
@@ -1000,8 +1000,6 @@ FirestormExplo:
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
 
-
-
 MKIIIRailgun: ##For hit effect
 	Inherits: ^Large_Clsn
 	Inherits@2: ^FullDamage
@@ -1054,8 +1052,8 @@ MKIIIRailgun: ##For hit effect
 		ValidTargets: Ground, Water, Air
 		AirThreshold: 8c0
 
-MKIIIRailgun2:
-	Inherits: ^WeaponGenericUpgrades
+MKIIIRailgun2: ##For line damage
+	Inherits: ^FullDamage
 	FirstBurstTargetOffset: 0,-150,0
 	FollowingBurstTargetOffset: 0,300,0
 	ReloadDelay: 75
