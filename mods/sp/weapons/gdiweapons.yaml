@@ -554,10 +554,9 @@ SonicZap:
 		LaunchEffectSequence: sonic_explo2
 		LaunchEffectPalette: gensmkexplocyan40
 		LaunchEffectInterval: 8
-	Warhead@1Dam: SpreadDamage
-		Range: 0, 48
-		Falloff: 100, 100
-		Damage: 2000
+	Warhead@1Dam: TargetDamage
+		Spread: 0  ## HACK: Spread of TargetDamage means only deal damage on actor impacted
+		Damage: 4000
 		AffectsParent: false
 		ValidRelationships: Neutral, Enemy
 		Versus:
@@ -566,9 +565,8 @@ SonicZap:
 			Disruptor: 30
 			Concrete: 15
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
-	Warhead@2Dam: SpreadDamage
-		Range: 0, 48
-		Falloff: 50, 50
+	Warhead@2Dam: TargetDamage
+		Spread: 0
 		Damage: 2000
 		AffectsParent: false
 		InvalidTargets: AllySonicImmune
@@ -693,7 +691,7 @@ MammothTuskAA:
 
 MechRailgun: ##For hit effect
 	Inherits: ^Large_Clsn
-	Inherits@2: ^WeaponGenericUpgrades
+	Inherits@2: ^FullDamage
 	FirstBurstTargetOffset: 0,-150,0
 	FollowingBurstTargetOffset: 0,300,0
 	ReloadDelay: 100
@@ -718,7 +716,7 @@ MechRailgun: ##For hit effect
 	-Warhead@2Eff: 
 	Warhead@1Dam: SpreadDamage
 		Spread: 50
-		Damage: 15000
+		Damage: 30000
 		Versus:
 			Infantry: 100
 			Building: 100
@@ -728,6 +726,8 @@ MechRailgun: ##For hit effect
 			Shield: 0
 		ValidRelationships: Ally
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	Warhead@2Dam: TargetDamage ### Fix when Chaos MK2 cannot use it on enemy
+		ValidRelationships: Neutral, Enemy
 
 MechRailgun2:
 	Inherits: ^WeaponGenericUpgrades
@@ -741,16 +741,16 @@ MechRailgun2:
 	Report: railuse5.aud
 	Projectile: Railgun
 		DamageActorsInLine: true
-		BeamColor: 00BBBB
+		BeamColor: 00BBBB00 ## Hack make this beam invisible
+		BeamAlphaDeltaPerTick: 0
 		Duration: 20
-		BeamWidth: 0
+		BeamWidth: 302 ### HACK: this width hardcoded with the line damage check!
 		HelixThickness: 48
 		HelixRadiusDeltaPerTick: 16
 		HelixColor: 44FFFF
-	Warhead@1Dam: SpreadDamage
-		Range: 0, 32
-		Falloff: 100, 100
-		Damage: 15000
+	Warhead@1Dam: TargetDamage
+		Spread: 0 ## HACK: Spread of TargetDamage means only deal damage on actor impacted
+		Damage: 30000
 		AffectsParent: false
 		Versus:
 			Infantry: 100
@@ -983,23 +983,16 @@ FirestormSpawner:
 		ValidTargets: Ground, Water
 
 FirestormExplo:
-	Inherits: ^FullDamage
 	Inherits: ^SWBaseEffects
 	Range: 12c0
 	MinRange: 12c0
 	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Versus:
-			Building: 10
-			Defense: 10
-			Concrete: 10
-		ValidRelationships: Neutral, Enemy
-		DamageTypes: ExplosionDeath
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
 		ValidRelationships: Neutral, Enemy
 		Spread: 3c768
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		ValidRelationships: Neutral, Enemy
+		DamageTypes: ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: firestormexplo, fsidle, firestormexplo1, fsidle, firestormexplo2, fsidle
 		ExplosionPalette: apblue
@@ -1011,7 +1004,7 @@ FirestormExplo:
 
 MKIIIRailgun: ##For hit effect
 	Inherits: ^Large_Clsn
-	Inherits@2: ^WeaponGenericUpgrades
+	Inherits@2: ^FullDamage
 	FirstBurstTargetOffset: 0,-150,0
 	FollowingBurstTargetOffset: 0,300,0
 	ReloadDelay: 75
@@ -1035,7 +1028,7 @@ MKIIIRailgun: ##For hit effect
 		HitAnimPalette: effect
 	Warhead@1Dam: SpreadDamage
 		Spread: 50
-		Damage: 15000
+		Damage: 30000
 		Versus:
 			Infantry: 100
 			Building: 100
@@ -1045,6 +1038,8 @@ MKIIIRailgun: ##For hit effect
 			Shield: 0
 		ValidRelationships: Ally
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	Warhead@2Dam: TargetDamage ### Fix when Chaos MK3 cannot use it on enemy
+		ValidRelationships: Neutral, Enemy
 	Warhead@2Eff: CreateEffect
 		Image: explosion
 		ImpactActors: false
@@ -1071,16 +1066,16 @@ MKIIIRailgun2:
 	Report: railuse5.aud
 	Projectile: Railgun
 		DamageActorsInLine: true
-		BeamColor: 00BBBB
+		BeamColor: 00BBBB00
+		BeamAlphaDeltaPerTick: 0
 		Duration: 20
-		BeamWidth: 0
+		BeamWidth: 302
 		HelixThickness: 48
 		HelixRadiusDeltaPerTick: 16
 		HelixColor: 44FFFF
-	Warhead@1Dam: SpreadDamage
-		Range: 0, 32
-		Falloff: 100, 100
-		Damage: 15000
+	Warhead@1Dam: TargetDamage
+		Spread: 0  ## HACK: Spread of TargetDamage means only deal damage on actor impacted
+		Damage: 30000
 		AffectsParent: false
 		Versus:
 			Infantry: 100
@@ -1091,7 +1086,7 @@ MKIIIRailgun2:
 			Shield: 0
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 		ValidRelationships: Neutral, Enemy
-	Warhead@2Dam: TargetDamage ### Fix when Chaos MK2 cannot use it on ally
+	Warhead@2Dam: TargetDamage ### Fix when Chaos MK3 cannot use it on ally
 		ValidRelationships: Ally
 
 MKIIITusk:
