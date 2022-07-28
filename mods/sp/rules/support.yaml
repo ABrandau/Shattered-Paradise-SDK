@@ -823,7 +823,6 @@ GAFIRE:
 	Inherits: ^Building
 	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
 	Inherits@SHAPE: ^3x2Shape
-	Inherits@AIaimingWeapon: ^AutoTargetAll
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Buildable:
 		Queue: Defense.Shared, Defense.GDI
@@ -892,7 +891,16 @@ GAFIRE:
 	AttackOmni@AIAimOnly:
 		RequiresCondition: !Building-Buildup
 		PauseOnCondition: empdisable
-	AutoTarget@AIAimOnly:
+	AutoTarget@AIonly:
+		RequiresCondition: AIbuildingMicroControl
+		InitialStanceAI: Defend
+		MinimumScanTimeInterval: 41
+		MaximumScanTimeInterval: 50
+	AutoTargetPriority@AIonly:
+		RequiresCondition: AIbuildingMicroControl
+		ValidRelationships: Enemy
+		ValidTargets: Ground, Air, Water
+		Priority: 2
 	AutoDeployer@AI:
 		RequiresCondition: AIbuildingMicroControl
 		DeployChance: 100
