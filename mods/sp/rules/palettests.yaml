@@ -72,11 +72,6 @@
 	PaletteFromFile@pips:
 		Name: pips
 		Filename: palette.pal
-		AllowModifiers: false
-		ShadowIndex: 4
-	PaletteFromFile@ra:
-		Name: ra
-		Filename: palette.pal
 		ShadowIndex: 4
 	PaletteFromFile@effect:
 		Name: effect
@@ -100,9 +95,6 @@
 		Name: MarnAlpha20
 		Alpha: 0.2
 		BasePalette: MarnAlpha
-	PaletteFromFile@effect-nolite:
-		Name: effect-ignore-lighting
-		Filename: anim.pal
 	PaletteFromPaletteWithAlpha@effectalpha10: ## For cloakfield wave effect
 		Name: effectalpha10
 		Alpha: 0.10
@@ -119,22 +111,18 @@
 		Name: effectalpha50
 		Alpha: 0.5
 		BasePalette: effect
+	PaletteFromPaletteWithAlpha@effectalpha60:
+		Name: effectalpha60
+		BasePalette: effect
+		Alpha: 0.6
 	PaletteFromPaletteWithAlpha@effectalpha75:
 		Name: effectalpha75
 		Alpha: 0.75
 		BasePalette: effect
-	PaletteFromPaletteWithAlpha@effect-nolite-alpha25:
-		Name: effect-ignore-lighting-alpha25
-		Alpha: 0.25
-		BasePalette: effect-ignore-lighting
-	PaletteFromPaletteWithAlpha@effect-nolite-alpha50:
-		Name: effect-ignore-lighting-alpha50
-		Alpha: 0.5
-		BasePalette: effect-ignore-lighting
-	PaletteFromPaletteWithAlpha@effect-nolite-alpha75:
-		Name: effect-ignore-lighting-alpha75
-		Alpha: 0.75
-		BasePalette: effect-ignore-lighting
+	PaletteFromPaletteWithAlpha@effectalpha80:
+		Name: effectalpha80 #effectalphaweak
+		BasePalette: effect
+		Alpha: 0.8
 	PaletteFromFile@sidebar:
 		Name: sidebar
 		Filename: sidebar-nod|sidebar.pal
@@ -147,10 +135,6 @@
 		Name: colorpicker
 		BasePalette: player
 		RemapIndex: 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
-		AllowModifiers: false
-	PaletteFromFile@alpha:
-		Name: alpha
-		Filename: alpha.pal
 		AllowModifiers: false
 	PaletteFromRGBA@shadow:
 		Name: shadow
@@ -202,7 +186,7 @@
 		Alpha: 0.75
 	PaletteFromPaletteWithAlpha@placefootprint:
 		Name: placefootprint
-		BasePalette: ra
+		BasePalette: pips
 		Alpha: 0.7
 	PaletteFromPaletteWithAlpha@terrainalpha:
 		BasePalette: terraindecoration
@@ -210,7 +194,7 @@
 		Alpha: 0.55
 	MenuPaletteEffect:
 	GlobalLightingPaletteEffect:
-		ExcludePalettes: cursor, chrome, colorpicker, fog, shroud, alpha, effect-ignore-lighting, effect-ignore-lighting-alpha25, effect-ignore-lighting-alpha50, effect-ignore-lighting-alpha75, greentiberium, bluetiberium
+		ExcludePalettes: cursor, chrome, colorpicker, fog, shroud, greentiberium, bluetiberium
 	PaletteFromFile@unitsno:
 		Name: unitsno
 		Filename: unitsno.pal
