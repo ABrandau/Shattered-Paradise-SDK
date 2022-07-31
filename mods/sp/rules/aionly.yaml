@@ -332,6 +332,68 @@ GHOST:
 	ActorStatValues:
 		Damage: 200
 
+UMAGON:
+	Inherits: ^Mutant
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@COMMANDO: ^CommandoIcon
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^10CellVision
+	Tooltip:
+		Name: Umagon
+	Valued:
+		Cost: 2000
+	Voiced:
+		VoiceSet: Umagon
+	Buildable:
+		Queue: Infantry.Shared, Infantry.Mutant
+		BuildPaletteOrder: 33
+		Prerequisites: ~murax, muhall, ~techlevel.5, ~AIOnly
+		Description: Umagon was one of the GDI's "good girls", she sure was. \nShe is armed with a sniper with silencer and C4.\n\nGood vs Infantry\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes structures with C4\n- Heals on Tiberium\n- Immune to mindcontrol\n- Crush class: crushable
+		BuildLimit: 1
+		BuildDuration: 1250
+		BuildDurationModifier: 100
+	Mobile:
+		Speed: 80
+	-Targetable@MC:
+	Health:
+		HP: 20000
+	Armament@1:
+		Weapon: Sniper
+		LocalOffset: 300,0,800
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Armament@2:
+		Weapon: GSniper
+		LocalOffset: 300,0,800
+		PauseOnCondition: WebDisable
+	Demolition:
+		DetonationDelay: 45
+		Voice: Attack
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+		FacingTolerance: 2
+	WithInfantryBody:
+		AttackSequences: shoot
+	Cloak@CLOAKGENERATOR:
+		CloakedCondition: bettercloak
+	Cloak@personalskill:
+		RequiresCondition: !bettercloak
+		InitialDelay: 40
+		CloakDelay: 40
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage, Move
+		EffectImage: explosion
+		EffectPalette: apolgreenalpha75
+		CloakEffectSequence: smokebomb
+		EffectTracksActor: false
+		EffectOffset: 0, 0, 800
+	-RevealOnFire:
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		Damage: 150
+
 COREDEFENDER:
 	Inherits: ^Walker
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove

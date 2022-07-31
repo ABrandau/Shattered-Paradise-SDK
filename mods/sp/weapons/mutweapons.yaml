@@ -290,77 +290,6 @@ PsykerRay:
 		Damage: 10000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
-LtRail: ##For line damage
-	Inherits: ^WeaponGenericUpgrades
-	ReloadDelay: 60
-	Range: 7c0
-	Report: bigggun1.aud
-	TargetActorCenter: true
-	Projectile: Railgun
-		Duration: 20
-		Blockable: true
-		BeamWidth: 256
-		BeamColor: 00DDEE00
-		BeamAlphaDeltaPerTick: 0
-		HelixColor: 44FFFF
-		HelixThickness: 48
-		DamageActorsInLine: true
-		HitAnim: explosion
-		HitAnimSequence: railgunexp
-		HitAnimPalette: effect
-	Warhead@1Dam: TargetDamage
-		Spread: 0
-		Damage: 15000
-		AffectsParent: false
-		ValidRelationships: Neutral, Enemy
-		Versus:
-			Infantry: 100
-			Building: 100
-			Defense: 100
-			Heavy: 100
-			Concrete: 25
-			Shield: 0
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
-	Warhead@2Dam: TargetDamage ### Fix when Chaos Ghost Stalker cannot use it on ally
-		ValidRelationships: Ally
-
-LtRailSmudge:  ##For hit effect
-	Inherits: ^FullDamage
-	Inherits: ^Large_Clsn
-	ReloadDelay: 60
-	Range: 7c0
-	TargetActorCenter: true
-	Projectile: SpriteRailgun
-		BeamColor: 00DDEE
-		Duration: 13
-		BeamWidth: 64
-		QuantizationCount: 1
-		HelixRadius: 0
-		HelixPitch: 512
-		HelixAnim: railgunsparks
-		HelixAnimSequence: idle2
-		HelixAnimPalette: gensmkexplocyan
-		HitAnim: explosion
-		HitAnimSequence: railgunexp
-		HitAnimPalette: effect
-	Warhead@1Dam: SpreadDamage
-		Range: 0, 32
-		Falloff: 100, 100
-		Damage: 15000
-		AffectsParent: false
-		ValidRelationships: Ally
-		Versus:
-			Infantry: 100
-			Building: 100
-			Defense: 100
-			Heavy: 100
-			Concrete: 25
-			Shield: 0
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
-	-Warhead@2Eff:
-	Warhead@2Dam: TargetDamage ### Fix when Chaos MK3 cannot use it on enemy
-		ValidRelationships: Neutral, Enemy
-
 BullAcid:
 	Inherits: ^AcidWarhead
 	ReloadDelay: 60
@@ -978,3 +907,107 @@ WeasaurusCall:
 		ImpactActors: false
 		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
 		AirThreshold: 8c0
+
+Sniper:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	ReloadDelay: 60
+	Range: 10c0
+	Report: silencer.aud
+	ValidTargets: Infantry, Ground, Water
+	InvalidTargets: Vehicle, Air
+	Projectile: LaserZap
+		Duration: 3
+		Width: 25
+		Color: EE9900
+	Warhead@1Dam: TargetDamage
+		Spread: 42
+		Damage: 7500
+		Versus:
+			Infantry: 600
+			Building: 5
+			Defense: 5
+			Heavy: 5
+			Concrete: 5
+		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: piff
+		Delay: 0
+	Warhead@3EffWater: CreateEffect
+		Explosions: water_piff
+		Delay: 0
+	Warhead@MarnFlash: CreateEffect
+		Explosions: marnflash8
+		Delay: 0
+
+LtRail: ##For line damage
+	Inherits: ^FullDamage
+	ReloadDelay: 60
+	Range: 7c0
+	Report: bigggun1.aud
+	TargetActorCenter: true
+	Projectile: Railgun
+		Duration: 20
+		Blockable: true
+		BeamWidth: 256
+		BeamColor: 00DDEE00
+		BeamAlphaDeltaPerTick: 0
+		HelixColor: 44FFFF
+		HelixThickness: 48
+		DamageActorsInLine: true
+		HitAnim: explosion
+		HitAnimSequence: railgunexp
+		HitAnimPalette: effect
+	Warhead@1Dam: TargetDamage
+		Spread: 0
+		Damage: 15000
+		AffectsParent: false
+		ValidRelationships: Neutral, Enemy
+		Versus:
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Concrete: 25
+			Shield: 0
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	Warhead@2Dam: TargetDamage ### Fix when Chaos Ghost Stalker cannot use it on ally
+		ValidRelationships: Ally
+
+LtRailSmudge:  ##For hit effect
+	Inherits: ^FullDamage
+	Inherits: ^Large_Clsn
+	ReloadDelay: 60
+	Range: 7c0
+	TargetActorCenter: true
+	Projectile: SpriteRailgun
+		BeamColor: 00DDEE
+		Duration: 13
+		BeamWidth: 64
+		QuantizationCount: 1
+		HelixRadius: 0
+		HelixPitch: 512
+		HelixAnim: railgunsparks
+		HelixAnimSequence: idle2
+		HelixAnimPalette: gensmkexplocyan
+		HitAnim: explosion
+		HitAnimSequence: railgunexp
+		HitAnimPalette: effect
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 15000
+		AffectsParent: false
+		ValidRelationships: Ally
+		Versus:
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Concrete: 25
+			Shield: 0
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	-Warhead@2Eff:
+	Warhead@2Dam: TargetDamage ### Fix when Chaos MK3 cannot use it on enemy
+		ValidRelationships: Neutral, Enemy
+
