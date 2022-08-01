@@ -747,26 +747,8 @@
 		Palette: mouse
 		ValidRelationships: Ally, Enemy
 		RequiresCondition: hospitalheal
-	#ExternalCondition@hospitalheal:
-	#	Condition: hospitalheal
-
-^BarracksHeal:
-	ChangesHealth@BarracksHeal:
-		PercentageStep: 3
-		Step: 0
-		Delay: 75
-		StartIfBelow: 100
-		DamageCooldown: 0
-		RequiresCondition: BarracksHeal
-	WithDecoration@BarracksHeal:
-		Image: healpip
-		Sequence: idle
-		Position: BottomLeft
-		Palette: mouse
-		ValidRelationships: Ally, Enemy
-		RequiresCondition: BarracksHeal
-	ExternalCondition@BarracksHeal:
-		Condition: BarracksHeal
+	ExternalCondition@hospitalheal:
+		Condition: hospitalheal
 
 ^MachineShopHeal:
 	ChangesHealth@MachineShopHeal:
@@ -1539,7 +1521,6 @@
 	# Inherits@8: ^DisplayVanguardShield
 	Inherits@9: ^DamagedByTintedCells
 	Inherits@10: ^WolfDebuff
-	Inherits@12: ^BarracksHeal
 	Inherits@13: ^FullHealthRepairCondition
 	Inherits@14: ^Slowdown50pp
 	Inherits@15: ^WithTriggerCloakEffect-Infantry
