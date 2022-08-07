@@ -952,8 +952,14 @@ NAMISL:
 		RequiresCondition: powerdown
 		Modifier: 0
 	WithSupportPowerActivationOverlay:
-		Palette: player-nobright
+		Palette: player
 		IsPlayerPalette: True
+		RequiresCondition: !Building-Buildup && !HeavyDamaged
+	WithSupportPowerActivationOverlay@damaged:
+		Sequence: damaged-active
+		Palette: player
+		IsPlayerPalette: True
+		RequiresCondition: !Building-Buildup && HeavyDamaged
 	WithSupportPowerActivationOverlay@BRIGHT:
 		RequiresCondition: !Building-Buildup
 		Sequence: idle-lights-bright

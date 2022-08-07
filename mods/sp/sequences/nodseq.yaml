@@ -918,15 +918,19 @@ natmpl:
 		UseTilesetCode: true
 		DepthSprite: isodepth.shp
 		DepthSpriteOffset: -12, 0
-	idle:
+	idle: natmpl_loaded
 		ShadowStart: 3
-	active:
-		Start: 1
-		Length: 1
-	damaged-idle:
+	damaged-idle: natmpl_loaded
 		Start: 1
 		ShadowStart: 4
-	dead:
+	active: natmpl_empty
+		ShadowStart: 3
+		Tick: 4000
+	damaged-active: natmpl_empty
+		Start: 1
+		ShadowStart: 4
+		Tick: 4000
+	dead: natmpl_empty
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
