@@ -972,34 +972,6 @@ RepairGun:
 		Damage: -5000
 		ValidTargets: Repair
 
-FirestormSpawner:
-	ReloadDelay: 2
-	Report: firstrm1.aud
-	ValidTargets: Ground, Water
-	Warhead@op: FireShrapnel
-		Weapon: FirestormExplo
-		ImpactActors: false
-		Amount: 50
-		ValidTargets: Ground, Water
-
-FirestormExplo:
-	Inherits: ^SWBaseEffects
-	Range: 12c0
-	MinRange: 12c0
-	Projectile: InstantHit
-	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
-		ValidRelationships: Neutral, Enemy
-		Spread: 3c768
-	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
-		ValidRelationships: Neutral, Enemy
-		DamageTypes: ExplosionDeath
-	Warhead@2Eff: CreateEffect
-		Explosions: firestormexplo, fsidle, firestormexplo1, fsidle, firestormexplo2, fsidle
-		ExplosionPalette: apblue
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: SmallScorch
-		InvalidTargets: Vehicle, Building, Wall
-
 MKIIIRailgun: ##For hit effect
 	Inherits: ^Large_Clsn
 	Inherits@2: ^FullDamage

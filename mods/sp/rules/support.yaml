@@ -855,10 +855,28 @@ GAFIRE:
 		Range: 12c0
 		AffectsParent: false
 		RequiresCondition: FirestormGen && !Building-Buildup && !empdisable && !disabled
-	ExplodeWeapon@1:
-		Weapon: FirestormSpawner
-		ResetReloadWhenEnabled: false
+	FirestromSP:
 		RequiresCondition: FirestormGen && !empdisable && !disabled
+		FirestormEffectImage: explosion
+		FirestormEffectSequences: firestormexplo, fsidle, firestormexplo1, fsidle, firestormexplo2, fsidle
+		FirestormEffectPalette: apblue
+		FirestormEffectRotationAngle: 6
+		Damage: 200000
+		DamageMaxRange: 12544
+		DamageMinRange: 11904
+		Versus:
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 100
+			Boss: 10
+		ValidTargets: Ground, Water, Air
+		InvalidTargets: Building
+		ValidRelationships: Neutral, Enemy
+		DamageTypes: ExplosionDeath
+		LaunchEffectSounds: firstrm1.aud
 	Health:
 		HP: 100000
 	WithIdleOverlay@lights:
@@ -889,7 +907,7 @@ GAFIRE:
 		RequiresCondition: AIbuildingMicroControl && !FirestormGen && !empdisable && !disabled && !Building-Buildup
 		Weapon: FirestormAIAimingDummyWeapon
 	AttackOmni@AIAimOnly:
-		RequiresCondition: !Building-Buildup
+		RequiresCondition: AIbuildingMicroControl && !Building-Buildup && !empdisable && !disabled
 		PauseOnCondition: empdisable
 	AutoTarget@AIonly:
 		RequiresCondition: AIbuildingMicroControl
@@ -902,7 +920,7 @@ GAFIRE:
 		ValidTargets: Ground, Air, Water
 		Priority: 2
 	AutoDeployer@AI:
-		RequiresCondition: AIbuildingMicroControl
+		RequiresCondition: AIbuildingMicroControl && !Building-Buildup && !empdisable && !disabled
 		DeployChance: 100
 		DeployTicks: 200
 		UndeployTicks: 0
