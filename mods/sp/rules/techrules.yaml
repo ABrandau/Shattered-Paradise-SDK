@@ -63,6 +63,11 @@ WELL:
 		Prerequisites: global-megawealth
 	Targetable:
 		RequiresCondition: !megawealth
+	Targetable@MC:
+		RequiresCondition: !megawealth
+	Targetable@MCmegawealth:
+		TargetTypes: MindControllableBuilding, NoAutoTarget ##AI will ignore this due to NoAutoTarget
+		RequiresCondition: megawealth
 	DamageMultiplier@megawealth:
 		RequiresCondition: megawealth
 		Modifier: 0
