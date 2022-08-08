@@ -43,14 +43,14 @@ Player:
 	#	RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4
 	AutoDeployManager@AIall:
 		RequiresCondition: AIBase || AIEasy
-	# PlugSpawnerBotModule@AIBase: ##GDI only
-	#	Plug: gapowrup
-	#	Pluggables: gapowr
-	#	Interval: 750
-	#	RequiresCondition: AIBase && powerplug
-	# GrantConditionOnPrerequisite@powerplug:
-	#	Condition: powerplug
-	#	Prerequisites: gapowr.pluggable, garadr
+	GrantConditionOnPrerequisite@powerplug:
+		Condition: powerplug
+		Prerequisites: !global-upgrades, gapowr.pluggable, garadr
+	PlugSpawnerBotModule@AIBase: ##GDI only
+		Plug: gapowrup
+		Pluggables: gapowr
+		Interval: 750
+		RequiresCondition: powerplug && AIBase
 	ProvidesPrerequisite@AISpecialProduce:
 		RequiresCondition: AICheater || AIShattered
 		Prerequisite: AIOnly
