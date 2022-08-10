@@ -1253,13 +1253,16 @@
 
 ^AffectedByTiberiumConversion:
 	Inherits@AI: ^AImicroManagable
+	GrantConditionOnPrerequisite@megawealth:
+		Condition: megawealth
+		Prerequisites: global-megawealth
 	GrantTimedConditionOnDeploy@TIBCONVERSION:
 		DeployedCondition: absorbTib
 		CooldownTicks: 2000
 		DeployedTicks: 50
 		StartsFullyCharged: true
 		PauseOnCondition: empdisable
-		RequiresCondition: tibconversion
+		RequiresCondition: tibconversion && !megawealth
 	ExplodeWeapon@TIBCONVERSION:
 		Weapon: AnhTripodAbsorb
 		RequiresCondition: !empdisable && absorbTib
@@ -1272,6 +1275,9 @@
 	ReloadAmmoPool@TIBCONVERSION:
 		Delay: 2
 		PauseOnCondition: !charge
+	ReloadAmmoPool@TIBCONVERSIONmegawealth:
+		Delay: 700
+		RequiresCondition: megawealth
 	WithAmmoPipsDecoration@TIBCONVERSION:
 		Margin: 4, 3
 		FullSequence: pip-ammo
