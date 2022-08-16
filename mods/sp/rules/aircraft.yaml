@@ -198,6 +198,7 @@ DSHP:
 	-Targetable@AIRBORNE:
 	-Targetable@GROUND:
 	-Targetable@MC:
+	-Targetable@FullHealth:
 	Health:
 		HP: 20000
 	RejectsOrders:
@@ -1487,6 +1488,7 @@ REPAIRWYVERN:
 	-Armament@AA:
 	-Targetable@GROUND:
 	-Targetable@AIRBORNE:
+	-Targetable@FullHealth:
 	-CarrierSlave:
 	DroneSpawnerSlave:
 	Targetable@Ignore:
@@ -1506,8 +1508,6 @@ REPAIRWYVERN:
 		IdealSeparation: 256
 	AttackAircraft:
 		AttackType: Hover
-	Rearmable:
-		RearmActors: scrdepot
 	RenderSprites:
 		Image: scrinrepairdrone
 	-Contrail@1:
@@ -1576,8 +1576,9 @@ REPAIRDRONE:
 	Health:
 		HP: 5000
 	-AmmoPool:
-	-Targetable@GROUND:
 	-Targetable@AIRBORNE:
+	-Targetable@GROUND:
+	-Targetable@FullHealth:
 	-CarrierSlave:
 	DroneSpawnerSlave:
 	Targetable@Ignore:
@@ -1596,8 +1597,6 @@ REPAIRDRONE:
 		MoveIntoShroud: true
 	AttackAircraft:
 		AttackType: Hover
-	Rearmable:
-		RearmActors: gadept
 	RenderSprites:
 		Image: quaddrone-mini
 	-Contrail@1:
