@@ -15,7 +15,7 @@ ORCA:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.GDI
-		Description: Fast assault gunship with dual missile launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Detects cloaked units\n- Can attack enemy ahead while moving
+		Description: Fast assault gunship with dual missile launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Provides stealth detection\n- Can attack enemies ahead while moving
 		BuildPaletteOrder: 1
 		Prerequisites: ~gahpad, ~techlevel.4
 		BuildDuration: 875
@@ -107,7 +107,7 @@ ORCAB:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.GDI
-		Description: Heavy carpet bomber.\n\nGood vs: Ground Targets\n\nSpecial:\n- Deals AoE damage.\n- Can attack enemy ahead while moving
+		Description: Heavy carpet bomber.\n\nGood vs: Ground targets\n\nSpecial:\n- Can attack enemies ahead while moving
 		BuildPaletteOrder: 22
 		Prerequisites: ~gahpad, gatech, ~techlevel.5
 		BuildDuration: 1000
@@ -300,7 +300,7 @@ APACHE:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.Nod
-		Description: Scout Helicopter armed with chain guns.\n\nGood vs: Infantry, Aircraft\n\nSpecial:\n- Can attack air\n- Detects cloaked units\n- Can attack enemies from all directions
+		Description: Scout Helicopter armed with chain guns.\n\nGood vs: Infantry, Aircraft\n\nSpecial:\n- Can attack air\n- Provides stealth detection\n- Can attack enemies from all directions
 		BuildPaletteOrder: 2
 		Prerequisites: ~nahpad, ~techlevel.4
 		BuildDuration: 875
@@ -398,7 +398,7 @@ SCRIN:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.Nod
-		Description: Advanced fighter-bomber craft armed with twin plasma cannons.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Can attack enemy ahead while moving
+		Description: Advanced fighter-bomber craft armed with twin plasma cannons.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Can attack enemies ahead while moving
 		BuildPaletteOrder: 23
 		Prerequisites: ~nahpad, natech, ~techlevel.5
 		BuildDuration: 1000
@@ -496,7 +496,7 @@ CERBERUS:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.Nod
-		Description: High tech frigate armed with a mobile stealth generator.\n\nGood vs: Ground Targets\n\nSpecial:\n- Cloaks friendly units next to it \n- Stealth generator can't be used with weapon at the same time\n- Can attack enemy ahead while moving
+		Description: High tech frigate armed with a mobile stealth generator.\n\nGood vs: Ground targets\n\nSpecial:\n- Cloaks friendly units next to it \n- Stealth generator can't be used with weapon at the same time\n- Can attack enemies ahead while moving
 		BuildPaletteOrder: 24
 		Prerequisites: ~nahpad, natech, ~techlevel.5
 		BuildDuration: 1250
@@ -639,7 +639,7 @@ MUTHELI:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.Mutant
-		Description: Heavy assault gunship with an auto-cannon.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Detects cloaked units\n- Can attack enemies from all directions
+		Description: Heavy assault gunship with an auto-cannon.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Provides stealth detection\n- Can attack enemies from all directions
 		BuildPaletteOrder: 3
 		Prerequisites: ~muair, ~techlevel.4
 		BuildDuration: 875
@@ -724,7 +724,7 @@ MUTQUEEN:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.Mutant
-		Description: Harasser with eggs.\n\nGood vs: Vehicles, Buildings\n\nSpecial:\n- Can mutate killed enemy units\n- Lays eggs via deploy which later hatch as crabs that are hostile to anyone\n- Can attack enemy ahead while moving
+		Description: Flying tiberium beast dealing high amount of damage and\nable to spread their brood accross the world.\n\nGood vs: Vehicles, Buildings\n\nSpecial:\n- Can mutate killed enemy units\n- Lays eggs via deploy which later hatch as crabs that are hostile to anyone\n- Can attack enemies ahead while moving
 		BuildPaletteOrder: 18
 		Prerequisites: ~muair, ~techlevel.4
 		BuildDuration: 625
@@ -809,7 +809,7 @@ WETP:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.Mutant
-		Description: Fast jet that throws a small tiberium bomb.\n\nGood vs: Ground Targets\nSpecial:\n- Can mutate killed enemy units\n- Moves at super-sonic speed when attacking\n- ignore all attack (except Mind Control) when at super-sonic speed\n - Moves at half speed for 5 seconds after attacking
+		Description: Fast jet that fires a small tiberium missile.\n\nGood vs: Ground targets\nSpecial:\n- Can mutate killed enemy units\n- Moves at super-sonic speed able to dodge all attacks\n - Moves at half speed for 5 seconds after attacking
 		BuildPaletteOrder: 25
 		Prerequisites: ~muair, muhall, ~techlevel.5
 		BuildDuration: 1250
@@ -942,7 +942,7 @@ STORMRIDER:
 	Buildable:
 		Queue: Air.Shared, Air.Scrin
 		BuildPaletteOrder: 5
-		Description: Scrin scout aircraft. \n\nStrong vs Aircraft.\n\nSpecial:\n- Can absorb essence from killed units to heal.\n- Can attack enemies from all directions.\n- Can attack enemies while moving.
+		Description: Scrin scout aircraft.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can absorb essence from killed units to heal\n- Can attack enemies from all directions\n- Can attack enemies while moving
 		Prerequisites: ~scrair, ~techlevel.4
 		BuildDuration: 375
 		BuildDurationModifier: 100
@@ -1018,7 +1018,7 @@ DRACHE:
 	Buildable:
 		Queue: Air.Shared, Air.Scrin
 		BuildPaletteOrder: 21
-		Description: Deploys into a Host Station.\n\nSpecial:\n- Provides a build radius for structures\n- Maximum production speed is reached with 7 Conyards\n- Max production speed reduces production time by 50%\n- Has increased HP when deployed
+		Description: Deploys into a Host Station.\n\nSpecial:\n- Provides build radius for structures\n- Has increased HP when deployed
 		Prerequisites: ~scrair, ~techlevel.3, ~!fixUndeployDracheBug, ~!global-suddendeath
 		BuildDuration: 1500
 		BuildDurationModifier: 100
@@ -1153,7 +1153,7 @@ SCRDESTROYER:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.Scrin
-		Description: Scrin light frigate, designed for long range harassment.\n\nGood vs Ground targets\n\nSpecial:\n- Can absorb essence from killed units to heal\n- Can attack enemy ahead while moving
+		Description: Scrin light frigate designed for long range combat.\n\nGood vs Ground targets\n\nSpecial:\n- Can absorb essence from killed units to heal\n- Can attack enemies ahead while moving
 		BuildPaletteOrder: 20
 		Prerequisites: ~scrair, scrradr, ~techlevel.4
 		BuildDuration: 1000
@@ -1251,7 +1251,7 @@ SCRTRANS:
 		Name: Scrin Transport
 	Buildable:
 		Queue: Air.Shared, Air.Scrin
-		Description: Scrin transport.\n\nSpecial\n- Can carry up to 3 vehicles or ten soldiers.\n- Lands whenever its able to
+		Description: Scrin transport.\n\nSpecial\n- Can carry up to 3 vehicles or ten soldiers (no epics).
 		Prerequisites: ~scrair, scrdepot, ~techlevel.4
 		BuildPaletteOrder: 10
 		BuildDuration: 375
@@ -1323,7 +1323,7 @@ SCRCARRIER:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.Scrin
-		Description: Scrin frigate.\n\nStrong vs Vehicles, Aircraft\n\nSpecial:\n- Sends fighters at enemies\n- Can attack Air\n- Detects cloaked units\n- Can absorb essence from killed enemies to heal\n- Can attack enemies while moving.\n- Can attack enemies from all directions.
+		Description: Scrin frigate.\n\nStrong vs Vehicles, Aircraft\n\nSpecial:\n- Sends fighters at enemies\n- Can attack Air\n- Provides stealth detection\n- Can absorb essence from killed enemies to heal\n- Can attack enemies while moving
 		BuildPaletteOrder: 28
 		Prerequisites: ~scrair, scrtech, ~techlevel.5
 		BuildDuration: 1375
@@ -1620,7 +1620,7 @@ SCRBATTLESHIP:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.Scrin
-		Description: Scrin flagship\n\nStrong vs Ground units\n\nSpecial:\n- Build limit: 1\n- Auto repairs\n- Can absorb essence from killed enemies to heal\n- Can attack enemies from all directions.\n- Can attack enemies while moving\n- Immune to mind control
+		Description: The main battleship of Scrin and the pride of their fleet.\n\nStrong vs Ground targets\n\nSpecial:\n- Build limit: 1\n- Auto repairs\n- Can absorb essence from killed enemies to heal\n- Can attack enemies from all directions\n- Immune to mind control
 		BuildPaletteOrder: 29
 		Prerequisites: ~scrair, scradvpowr, ~techlevel.6
 		BuildLimit: 1
@@ -1721,7 +1721,7 @@ WASP:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.CABAL
-		Description: Aerial drone armed with dual railgun cannons.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Detects cloaked units\n- Can attack enemy ahead while moving
+		Description: Aerial drone armed with dual railgun cannons.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Provides stealth detection\n- Can attack enemies ahead while moving
 		BuildPaletteOrder: 4
 		Prerequisites: ~cabair, ~techlevel.4
 		BuildDuration: 1000
@@ -1824,7 +1824,7 @@ BASILISK:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.CABAL
-		Description: Light frigate armed with firestorm rockets.\n\nGood vs: Infantry\n\nSpecial:\n- Deals AoE damage\n- Can attack enemy ahead while moving
+		Description: Light frigate armed with firestorm rockets.\n\nGood vs: Infantry\n\nSpecial:\n- Deals AoE damage\n- Can attack enemies ahead while moving
 		BuildPaletteOrder: 26
 		Prerequisites: ~cabair, cabtech, ~techlevel.5
 		BuildDuration: 1000
