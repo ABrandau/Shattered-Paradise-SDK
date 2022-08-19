@@ -1306,7 +1306,8 @@ TTNK:
 		RequiresCondition: !AImicroManage && deployed
 	Carryable:
 		RequiresCondition: undeployed
-	WithFacingSpriteBody:
+	-WithFacingSpriteBody:
+	WithInfantryBody: ## support tracks motion animation
 		RequiresCondition: undeployed && !inside-tunnel
 	WithFacingSpriteBody@deployed:
 		Sequence: deployed
@@ -1388,8 +1389,8 @@ TICKHOLOGRAM:
 		Weapon: Tick90mmShellCasing
 		PauseOnCondition: empdisable
 		RequiresCondition: !capacitors
-	WithFacingSpriteBody:
-		Sequence: idle
+	-WithFacingSpriteBody:
+	WithInfantryBody: ## support tracks motion animation
 		RequiresCondition: !inside-tunnel
 	RenderSprites:
 		Image: ttnk
