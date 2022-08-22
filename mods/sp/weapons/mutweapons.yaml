@@ -91,11 +91,12 @@ FiendShard2:
 		Shadow: true
 		LaunchAngle: 60
 		Palette: greentiberium
-		ContrailLength: 3
+		ContrailLength: 2
 		ContrailStartColor: 7EFF0188
-		ContrailStartColorAlpha: 136
+		ContrailEndColorAlpha: 0
 		ContrailEndColor: 7EFF0144
-		ContrailWidth: 0c28
+		ContrailWidth: 0c64
+		ContrailWidthFadeRate: 1
 		-TrailImage:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1500
@@ -126,7 +127,9 @@ FiendShardAA:
 		Palette: greentiberium
 		ContrailLength: 3
 		ContrailStartColor: 7EFF01
-		ContrailWidth: 0c28
+		ContrailEndColorAlpha: 0
+		ContrailWidth: 0c64
+		ContrailWidthFadeRate: 1
 		HorizontalRateOfTurn: 120
 		HorizontalRateOfTurnStart: 120
 		-Inaccuracy:
@@ -161,10 +164,11 @@ FiendShard2Blue:
 	Inherits: FiendShard2
 	Projectile: BulletAS
 		Palette: bluetiberium
-		ContrailLength: 3
+		ContrailLength: 2
 		ContrailStartColor: 5980FF88
 		ContrailEndColor: 5980FF44
-		ContrailWidth: 0c28
+		ContrailWidth: 0c64
+		ContrailWidthFadeRate: 1
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: jascbluealpha
 
@@ -174,7 +178,8 @@ FiendShardBlueAA:
 		Palette: bluetiberium
 		ContrailLength: 3
 		ContrailStartColor: 5980FF
-		ContrailWidth: 0c28
+		ContrailWidth: 0c64
+		ContrailWidthFadeRate: 1
 	Warhead@op: FireRadius
 		Weapon: FiendShardBlueAAEffect
 
