@@ -292,6 +292,18 @@ JellyExplode:
 		ExplosionPalette: gradientyellow
 		ValidTargets: Ground, Water
 		ImpactActors: false
+	Warhead@5cloud: SpawnSmokeParticle
+		Weapon: CloudDamage
+		Count: 5
+		Duration: 95
+		Speed: 30
+		TurnRate: 24
+		Image: tibcloud
+		StartSequences: cloud2start
+		Sequences: cloud2
+		EndSequences: cloud2end
+		Palette: effectalpha50
+		AirThreshold: 8c0
 
 UnitExplode:
 	Inherits: ^ExploDefaults
@@ -417,17 +429,6 @@ ZombieExplosion:
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
 		Damage: 1
-	Warhead@5cloud: SpawnSmokeParticle
-		Weapon: CloudDamage
-		Count: 1
-		Duration: 95
-		Speed: 30
-		TurnRate: 24
-		Image: tibcloud
-		StartSequences: cloud2start
-		Sequences: cloud2
-		EndSequences: cloud2end
-		Palette: effectalpha50
 	Warhead@3Eff: CreateEffect
 		Explosions: tibexp
 		ValidTargets: Ground, Air, Water
