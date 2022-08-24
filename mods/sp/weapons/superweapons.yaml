@@ -1229,6 +1229,18 @@ IonRay:
 		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
 	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
 		Spread: 3c768
+	-Warhead@3Eff: CreateEffect
+	Warhead@3Effect: SpawnSmokeParticle
+		Image: explosion
+		Duration: 1
+		EndSequences: bolt1, bolt3, bolt5, bolt7, bolt9
+		Sequences: bolt2, bolt4, bolt6, bolt8, bolt10
+		StartSequences: bolt1, bolt3, bolt5, bolt7, bolt9
+		Palette: lightningwhite
+		AffectsParent: true
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
 
 VeinholeSummonerWeapon:
 	ReloadDelay: 8
