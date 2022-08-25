@@ -33,14 +33,6 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.SP.Traits
 {
-	// What to do when master is killed or mind controlled
-	public enum MobMemberDisposal
-	{
-		DoNothing,
-		KillSlaves,
-		GiveSlavesToAttacker
-	}
-
 	[Desc("This actor can spawn actors.")]
 	public class DroneSpawnerMasterInfo : BaseSpawnerMasterInfo
 	{
