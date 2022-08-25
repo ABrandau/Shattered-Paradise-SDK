@@ -36,6 +36,7 @@ DOGGIE:
 
 VISC_SML:
 	Inherits: ^Visceroid
+	Inherits@3: ^MindControllableMastermind
 	Tooltip:
 		Name: Baby Visceroid
 	Health:
@@ -68,6 +69,7 @@ VISC_SML:
 
 VISC_LRG:
 	Inherits: ^Visceroid
+	Inherits@3: ^MindControllableMastermind
 	Tooltip:
 		Name: Adult Visceroid
 	Health:
@@ -117,6 +119,7 @@ VISC_LRG:
 ZOMBIE:
 	Inherits: ^Mutant
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@3: ^MindControllableMastermind
 	Tooltip:
 		Name: Haunt
 	Valued:
@@ -135,7 +138,6 @@ ZOMBIE:
 		Speed: 60
 	-SpawnActorOnDeath@conversion:
 	-TakeCover:
-	-Targetable@MC:
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
@@ -177,6 +179,7 @@ BERSERKER:
 	Inherits: ^Mutant
 	Inherits@1: ^MutRender
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@3: ^MindControllableMastermind
 	Tooltip:
 		Name: Berserker
 	Valued:
@@ -198,7 +201,6 @@ BERSERKER:
 	Voiced:
 		VoiceSet: Fiend
 	-TakeCover:
-	-Targetable@MC:
 	Targetable:
 		TargetTypes: Infantry, Ground
 	Armament:
@@ -365,6 +367,7 @@ PERMACRAB:
 jfish:
 	Inherits: ^Visceroid
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@3: ^MindControllableMastermind
 	Tooltip:
 		Name: Floater
 	Health:
