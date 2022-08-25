@@ -1209,13 +1209,13 @@ MUTFIEND:
 		Actor: cybdog
 	WithInfantryBody:
 		IdleSequences: idle1
-		RequiresCondition: !blue_shards
+		RequiresCondition: !blue_shards && !inside-tunnel && !WebDisable
 	WithInfantryBody@blue:
 		IdleSequences: idle1-blue
 		MoveSequence: run-blue
 		StandSequences: stand-blue
 		DefaultAttackSequence: shoot-blue
-		RequiresCondition: blue_shards
+		RequiresCondition: blue_shards && !inside-tunnel && !WebDisable
 	WithDeathAnimation@normal:
 		DeathTypes:
 			TiberiumDeath: 1, 2
@@ -2680,6 +2680,7 @@ WORKERMECH:
 		Voice: Attack
 	WithSpriteTurret:
 		Recoils: true
+		RequiresCondition: !inside-tunnel && !WebDisable
 	Armament@1:
 		Weapon: WorkerDroneMinigun
 		PauseOnCondition: WebDisable || empdisable
@@ -2740,6 +2741,7 @@ NANOS:
 	-WithInfantryBody:
 	WithSpriteBody:
 		Sequence: idle
+		RequiresCondition: !inside-tunnel && !WebDisable
 	Explodes:
 		Weapon: NanoDroneExplode
 		EmptyWeapon: NanoDroneExplode

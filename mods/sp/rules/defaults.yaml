@@ -1914,7 +1914,7 @@
 	-SpeedMultiplier@InstantStop:
 	WithInfantryBody:
 		IdleSequences: idle2, idle3
-		-RequiresCondition: !WebDisable
+		RequiresCondition: !inside-tunnel
 	-WithIdleOverlay@web:
 	-ExternalCondition@WebDisable:
 	BodyOrientation:
@@ -1987,11 +1987,11 @@
 	MustBeDestroyed:
 		RequiresCondition: !suddendeath
 	WithInfantryBody:
-		RequiresCondition: !CriticalDamaged && !WebDisable
+		RequiresCondition: !CriticalDamaged && !WebDisable && !inside-tunnel
 		DefaultAttackSequence: shoot
 		IdleSequences: idle1, idle2
 	WithInfantryBody@Damaged:
-		RequiresCondition: CriticalDamaged && !WebDisable
+		RequiresCondition: CriticalDamaged && !WebDisable && !inside-tunnel
 		MoveSequence: crippled-run
 		AttackSequences: crippled-shoot
 		StandSequences: crippled-stand

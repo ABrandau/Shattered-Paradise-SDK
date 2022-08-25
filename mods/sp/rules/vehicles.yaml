@@ -1312,7 +1312,7 @@ TTNK:
 	WithFacingSpriteBody@deployed:
 		Sequence: deployed
 		Name: deployed
-		RequiresCondition: !undeployed
+		RequiresCondition: !undeployed && !inside-tunnel
 	#AttackFrontal:
 	#	Voice: Attack
 	#	RequiresCondition: undeployed
@@ -2048,10 +2048,11 @@ LYNX:
 		CameraPitch: 250
 	AutoTarget:
 	WithSpriteTurret:
+		RequiresCondition: !inside-tunnel
 	WithSpriteTurret@ROCKET:
 		Sequence: rocket
 		Turret: rocket
-		RequiresCondition: lynx_rockets && !rocketout
+		RequiresCondition: lynx_rockets && !rocketout && !inside-tunnel
 	WithMuzzleOverlay:
 	AttackTurreted:
 		Voice: Attack
@@ -2285,7 +2286,9 @@ MRLS:
 		TurnSpeed: 36
 		Offset: -300,0,0
 	WithFacingSpriteBody:
+		RequiresCondition: !inside-tunnel
 	WithSpriteTurret:
+		RequiresCondition: !inside-tunnel
 	-DamagedByTintedCells@Default:
 	-DamagedByTintedCells@BlueRadiation:
 	SmokeParticleEmitter@spawnsmoke:
@@ -2685,6 +2688,7 @@ CENTURION:
 		PauseOnCondition: empdisable
 	WithSpriteTurret:
 		Recoils: true
+		RequiresCondition: !inside-tunnel
 	RenderSprites:
 	WithInfantryBody:
 		-DefaultAttackSequence:
@@ -3334,12 +3338,12 @@ CORRUPTOR:
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	WithInfantryBody:
-		RequiresCondition: !vinifera_catalysts
+		RequiresCondition: !vinifera_catalysts && !inside-tunnel
 	WithInfantryBody@Blue:
 		MoveSequence: run-blue
 		StandSequences: stand-blue
 		DefaultAttackSequence: shoot-blue
-		RequiresCondition: vinifera_catalysts
+		RequiresCondition: vinifera_catalysts && !inside-tunnel
 	Selectable:
 		Bounds: 1508, 1568, 0, -482
 	SmokeParticleEmitter@spawnsmoke:
