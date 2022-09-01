@@ -124,6 +124,10 @@ namespace OpenRA.Mods.SP.Traits
 				if (!inactivatedActor)
 					continue;
 
+				var mobile = capturer.Actor.TraitOrDefault<Mobile>();
+				if (mobile == null)
+					continue;
+
 				var targetActor = world.Actors.Where(target =>
 				{
 					if (Info.CapturableActorTypes != null && !Info.CapturableActorTypes.Contains(target.Info.Name))
@@ -131,6 +135,9 @@ namespace OpenRA.Mods.SP.Traits
 
 					var captureManager = target.TraitOrDefault<CaptureManager>();
 					if (captureManager == null)
+						return false;
+
+					if (!mobile.PathFinder.PathExistsForLocomotor(mobile.Locomotor, capturer.Actor.Location, target.Location))
 						return false;
 
 					return capturers.Any(tp => captureManager.CanBeTargetedBy(target, tp.Actor, tp.Trait));
