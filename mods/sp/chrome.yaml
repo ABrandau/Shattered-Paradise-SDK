@@ -2074,6 +2074,17 @@ checkmark-cross:
 		unchecked: 0, 0, 0, 0
 		unchecked-pressed: 116, 173, 16, 16
 
+checkmark-mute: 
+	Inherits: ^Buttons
+	Regions:
+		checked: 116, 157, 16, 16
+		checked-pressed: 116, 173, 16, 16
+		unchecked: 0, 0, 0, 0
+		unchecked-pressed: 116, 173, 16, 16
+
+checkmark-highlighted-mute:
+	Inherits: checkmark-mute
+
 checkbox-hover:
 	Inherits: ^Dialog
 	PanelRegion: 641, 129, 2, 2, 122, 122, 2, 2
@@ -2098,17 +2109,40 @@ checkbox-highlighted-hover:
 checkbox-highlighted-disabled:
 	Inherits: checkbox-disabled
 
-scrollitem-selected:
+checkbox-toggle:
+
+checkbox-toggle-hover:
+	Inherits: button
+
+checkbox-toggle-pressed:
+	Inherits: checkbox-pressed
+
+checkbox-toggle-highlighted:
+
+checkbox-toggle-highlighted-hover:
+	Inherits: button-highlighted
+
+checkbox-toggle-highlighted-pressed:
+	Inherits: checkbox-highlighted-pressed
+
+scrollitem:
+
+scrollitem-highlighted:
 	Inherits: button-pressed
 
 scrollitem-hover:
 	Inherits: button
 
+scrollitem-nohover-highlighted:
+
 scrollitem-nohover:
 
 scrollitem-nohover-hover:
 
-scrollheader-selected:
+scrollheader:
+	Inherits: button
+
+scrollheader-highlighted:
 	Inherits: button
 
 mainmenu-border:
