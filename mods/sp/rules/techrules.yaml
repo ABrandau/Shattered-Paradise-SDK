@@ -603,6 +603,28 @@ CIVHELI:
 	WithIdleOverlay:
 		Sequence: flag
 
+CAARMR:
+	Inherits: ^TechBuilding
+	Inherits@shape: ^4x4Shape
+	Tooltip:
+		Name: Civilian Armory
+	TooltipDescription:
+		Description: Increases experience gain.
+	Building:
+		Footprint: xxxx xxxx xxxx xxxx
+		Dimensions: 4, 4
+	Health:
+	ThrowsShrapnel@SMALL:
+		Pieces: 6, 9
+	ThrowsShrapnel@LARGE:
+		Pieces: 3, 4
+	WithIdleOverlay:
+		Sequence: flag
+	Health:
+		HP: 120000
+	ProvidesPrerequisite:
+		Prerequisite: ArmoryExpBuff
+
 ### Tech Units
 LPST:
 	Inherits: ^VoxelVehicle

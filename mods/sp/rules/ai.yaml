@@ -429,10 +429,10 @@ Player:
 			colossi: 3
 			repairvehicle: 2
 			scorpion: 1
-			engineer: 1
-			cutman: 1
-			swarmling: 1
-			shapeshifter: 1
+			engineer: 2
+			cutman: 2
+			swarmling: 2
+			shapeshifter: 2
 			scrdestroyer: 5
 			scrin: 5
 			orca: 5
@@ -824,8 +824,11 @@ Player:
 					TargetMetric: Value
 					CheckRadius: 7c0
 
-	CaptureManagerSPBotModule:
-		CapturingActorTypes: engineer, cutman, swarmling, shapeshifter
-		CapturableActorTypes: well, neutralpowerplant, neutralradar, cahosp, neutralsonictur, caarmr, machineshop, scrinreinfpad, ntpyra.koth, mwar, mtar, lpst, sgen, gacnst, mutyard, cabyard, nodyard, drached
+	CncEngineerSPBotModule:
+		RequiresCondition: AIBase || AIEasy
+		EngineerActorTypes: engineer, cutman, swarmling, shapeshifter
+		CapturableActorTypes: well, neutralpowerplant, neutralradar, cahosp, neutralsonictur, caarmr, machineshop, scrinreinfpad, ntpyra.koth, mwar, mtar, lpst, sgen, gacnst, mutyard, cabyard, nodyard, drached, gate_a, gate_b, gagate_a, gagate_b, nagate_a, nagate_b,mutgate_a, mutgate_b, scrgate_a, scrgate_b
+		RepairableActorTypes: well, machineshop, scrinreinfpad, gacnst, mutyard, cabyard, nodyard, drached, gaweap, naweap, muweap, cabweap, scrweap, garadr, naradr, cabradr, muradr, scrradr, gatech, natech, muhall, scrtech, cabtech, gaplug, natmpl, mutsw1, cabsw1, scrsw1, napuls, scrshield, nastlh, gtdrop, scradvpowr, namisl, mutsw2, cabobelisk, blackdefd, nahfac, defd
+		RepairableHutActorTypes: cabhut
 	PowerDownBotModule:
 		RequiresCondition: AIShattered || AICheater
