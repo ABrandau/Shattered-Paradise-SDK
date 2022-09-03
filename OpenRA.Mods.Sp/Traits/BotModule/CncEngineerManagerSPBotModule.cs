@@ -59,7 +59,7 @@ namespace OpenRA.Mods.SP.Traits
 		// Units that the bot already knows about and has given a capture order. Any unit not on this list needs to be given a new order.
 		readonly List<UnitWposWrapper> activeEngineers = new List<UnitWposWrapper>();
 		readonly List<Actor> stuckCapturers = new List<Actor>();
-		int minCaptureDelayTicks;
+		int minAssignRoleDelayTicks;
 		int actionSelection;
 
 		public CncEngineerManagerSPBotModule(Actor self, CncEngineerSPBotModuleInfo info)
@@ -78,14 +78,14 @@ namespace OpenRA.Mods.SP.Traits
 		protected override void TraitEnabled(Actor self)
 		{
 			// Avoid all AIs reevaluating assignments on the same tick, randomize their initial evaluation delay.
-			minCaptureDelayTicks = world.LocalRandom.Next(0, Info.AssignRoleDelay);
+			minAssignRoleDelayTicks = world.LocalRandom.Next(0, Info.AssignRoleDelay);
 		}
 
 		void IBotTick.BotTick(IBot bot)
 		{
-			if (--minCaptureDelayTicks <= 0)
+			if (--minAssignRoleDelayTicks <= 0)
 			{
-				minCaptureDelayTicks = Info.AssignRoleDelay;
+				minAssignRoleDelayTicks = Info.AssignRoleDelay;
 
 				activeEngineers.RemoveAll(u => unitCannotBeOrderedOrIsIdle(u.Actor));
 				stuckCapturers.RemoveAll(a => unitCannotBeOrdered(a));
