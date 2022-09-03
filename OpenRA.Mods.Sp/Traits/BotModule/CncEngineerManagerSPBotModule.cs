@@ -58,7 +58,7 @@ namespace OpenRA.Mods.SP.Traits
 
 		// Units that the bot already knows about and has given a capture order. Any unit not on this list needs to be given a new order.
 		readonly List<UnitWposWrapper> activeEngineers = new List<UnitWposWrapper>();
-		readonly List<Actor> stuckCapturers = new List<Actor>();
+		readonly List<Actor> stuckEngineers = new List<Actor>();
 		int minAssignRoleDelayTicks;
 		int actionSelection;
 
@@ -88,13 +88,13 @@ namespace OpenRA.Mods.SP.Traits
 				minAssignRoleDelayTicks = Info.AssignRoleDelay;
 
 				activeEngineers.RemoveAll(u => unitCannotBeOrderedOrIsIdle(u.Actor));
-				stuckCapturers.RemoveAll(a => unitCannotBeOrdered(a));
+				stuckEngineers.RemoveAll(a => unitCannotBeOrdered(a));
 				for (var i = 0; i < activeEngineers.Count; i++)
 				{
 					var engineer = activeEngineers[i];
 					if (engineer.Actor.CurrentActivity.ChildActivity != null && engineer.Actor.CurrentActivity.ChildActivity.ActivityType == Activities.ActivityType.Move && engineer.Actor.CenterPosition == engineer.WPos)
 					{
-						stuckCapturers.Add(engineer.Actor);
+						stuckEngineers.Add(engineer.Actor);
 						bot.QueueOrder(new Order("Stop", engineer.Actor, false));
 						activeEngineers.Remove(engineer);
 					}
@@ -118,7 +118,7 @@ namespace OpenRA.Mods.SP.Traits
 				return;
 
 			var capturers = world.ActorsHavingTrait<IPositionable>()
-				.Where(a => Info.EngineerActorTypes.Contains(a.Info.Name) && a.Owner == player && !unitCannotBeOrdered(a) && !stuckCapturers.Contains(a) && a.Info.HasTraitInfo<CapturesInfo>())
+				.Where(a => Info.EngineerActorTypes.Contains(a.Info.Name) && a.Owner == player && !unitCannotBeOrdered(a) && !stuckEngineers.Contains(a) && a.Info.HasTraitInfo<CapturesInfo>())
 				.Select(a => new TraitPair<CaptureManager>(a, a.TraitOrDefault<CaptureManager>()))
 				.Where(tp => tp.Trait != null)
 				.ToArray();
@@ -174,7 +174,7 @@ namespace OpenRA.Mods.SP.Traits
 				return;
 
 			var repairers = world.ActorsHavingTrait<IPositionable>()
-				.Where(a => Info.EngineerActorTypes.Contains(a.Info.Name) && a.Owner == player && !unitCannotBeOrdered(a) && !stuckCapturers.Contains(a) && a.Info.HasTraitInfo<EngineerRepairInfo>())
+				.Where(a => Info.EngineerActorTypes.Contains(a.Info.Name) && a.Owner == player && !unitCannotBeOrdered(a) && !stuckEngineers.Contains(a) && a.Info.HasTraitInfo<EngineerRepairInfo>())
 				.ToArray();
 
 			if (repairers.Length == 0)
@@ -236,7 +236,7 @@ namespace OpenRA.Mods.SP.Traits
 				return;
 
 			var brigdeRepairers = world.ActorsHavingTrait<IPositionable>()
-				.Where(a => Info.EngineerActorTypes.Contains(a.Info.Name) && a.Owner == player && !unitCannotBeOrdered(a) && !stuckCapturers.Contains(a) && a.Info.HasTraitInfo<RepairsBridgesInfo>())
+				.Where(a => Info.EngineerActorTypes.Contains(a.Info.Name) && a.Owner == player && !unitCannotBeOrdered(a) && !stuckEngineers.Contains(a) && a.Info.HasTraitInfo<RepairsBridgesInfo>())
 				.ToArray();
 
 			if (brigdeRepairers.Length == 0)
