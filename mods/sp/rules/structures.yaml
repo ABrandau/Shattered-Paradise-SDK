@@ -1649,7 +1649,6 @@ SCRAIR:
 	Inherits@2: ^ScrinBuildingFire
 	Inherits@RENDER: ^ScrinRenderBuilding
 	Inherits@SHAPE: ^3x3Shape
-	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Tooltip:
 		Name: Stargate
 	Buildable:
@@ -1687,9 +1686,6 @@ SCRAIR:
 		AreaTypes: building
 	IsometricSelectable:
 		DecorationHeight: 72
-	ProvidesPrerequisite@fixAIUndeployDracheBug:
-		RequiresCondition: AIbuildingMicroControl
-		Prerequisite: fixUndeployDracheBug
 	ThrowsShrapnel@SMALL:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:

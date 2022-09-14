@@ -71,7 +71,7 @@ namespace OpenRA.Mods.SP.Traits
 			if (world.Type == WorldType.Editor)
 				return;
 
-			unitCannotBeOrdered = a => a.Owner != player || a.IsDead || !a.IsInWorld;
+			unitCannotBeOrdered = a => a == null || a.Owner != player || a.IsDead || !a.IsInWorld;
 			unitCannotBeOrderedOrIsIdle = a => unitCannotBeOrdered(a) || a.IsIdle;
 		}
 
@@ -96,7 +96,8 @@ namespace OpenRA.Mods.SP.Traits
 					{
 						stuckEngineers.Add(engineer.Actor);
 						bot.QueueOrder(new Order("Stop", engineer.Actor, false));
-						activeEngineers.Remove(engineer);
+						activeEngineers.RemoveAt(i);
+						i--;
 					}
 
 					engineer.WPos = engineer.Actor.CenterPosition;

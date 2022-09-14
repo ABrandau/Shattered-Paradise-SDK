@@ -16,7 +16,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Common.Traits
 {
-	[Desc("Manages AI MCVs.")]
+	[Desc("Manages AI MCVs For SP. Focus on aircraft MCV")]
 	public class McvManagerSPBotModuleInfo : ConditionalTraitInfo
 	{
 		[Desc("Actor types that are considered MCVs (deploy into base builders).")]
@@ -65,6 +65,7 @@ namespace OpenRA.Mods.Common.Traits
 
 		IBotPositionsUpdated[] notifyPositionsUpdated;
 		IBotRequestUnitProduction[] requestUnitProduction;
+		readonly List<UnitWposWrapper> activeMCV = new List<UnitWposWrapper>();
 
 		CPos initialBaseCenter;
 		int scanInterval;
@@ -75,7 +76,7 @@ namespace OpenRA.Mods.Common.Traits
 		{
 			world = self.World;
 			player = self.Owner;
-			unitCannotBeOrdered = a => a.Owner != player || a.IsDead || !a.IsInWorld;
+			unitCannotBeOrdered = a => a == null || a.Owner != player || a.IsDead || !a.IsInWorld;
 		}
 
 		protected override void Created(Actor self)
@@ -101,7 +102,7 @@ namespace OpenRA.Mods.Common.Traits
 		{
 			if (firstTick)
 			{
-				DeployMcvs(bot, false);
+				DeployMcvsFirstTick(bot);
 				firstTick = false;
 			}
 
@@ -136,17 +137,57 @@ namespace OpenRA.Mods.Common.Traits
 				AIUtils.CountBuildingByCommonName(Info.McvFactoryTypes, player) > 0;
 		}
 
-		void DeployMcvs(IBot bot, bool chooseLocation)
+		void DeployMcvsFirstTick(IBot bot)
 		{
 			var newMCVs = world.ActorsHavingTrait<Transforms>()
-				.Where(a => a.Owner == player && a.IsIdle && Info.McvTypes.Contains(a.Info.Name));
+				.Where(a => Info.McvTypes.Contains(a.Info.Name) && !unitCannotBeOrdered(a));
 
 			foreach (var mcv in newMCVs)
-				DeployMcv(bot, mcv, chooseLocation);
+				DeployMcv(bot, mcv, false, false);
+		}
+
+		void DeployMcvs(IBot bot, bool chooseLocation)
+		{
+			for (var i = 0; i < activeMCV.Count; i++)
+			{
+				var mw = activeMCV[i];
+
+				if (unitCannotBeOrdered(mw.Actor))
+				{
+					activeMCV.RemoveAt(i);
+					i--;
+					continue;
+				}
+
+				if (mw.WPos == mw.Actor.CenterPosition)
+					DeployMcv(bot, mw.Actor, chooseLocation, false);
+
+				mw.WPos = mw.Actor.CenterPosition;
+			}
+
+			var newMCVs = world.ActorsHavingTrait<Transforms>()
+				.Where(a => Info.McvTypes.Contains(a.Info.Name) && !unitCannotBeOrdered(a));
+
+			foreach (var mcv in newMCVs)
+			{
+				var skip = false;
+
+				foreach (var amcv in activeMCV)
+				{
+					if (mcv == amcv.Actor)
+					{
+						skip = true;
+						break;
+					}
+				}
+
+				if (!skip)
+					activeMCV.Add(new UnitWposWrapper(mcv));
+			}
 		}
 
 		// Find any MCV and deploy them at a sensible location.
-		void DeployMcv(IBot bot, Actor mcv, bool move)
+		void DeployMcv(IBot bot, Actor mcv, bool move, bool queueOrder)
 		{
 			if (move)
 			{
@@ -158,7 +199,7 @@ namespace OpenRA.Mods.Common.Traits
 				if (desiredLocation == null)
 					return;
 
-				bot.QueueOrder(new Order("Move", mcv, Target.FromCell(world, desiredLocation.Value), true));
+				bot.QueueOrder(new Order("Move", mcv, Target.FromCell(world, desiredLocation.Value), queueOrder));
 			}
 
 			// If the MCV has to move first, we can't be sure it reaches the destination alive, so we only

@@ -265,7 +265,7 @@ Player:
 		RequiresCondition: AIBase
 		SquadSize: 24
 		SquadSizeRandomBonus: 3
-		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, cutman, swarmling, shapeshifter,mcv, drache, drache_bot, cabmcv, nodmcv, mutmcv, mwar, lpst, limped, sgen, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern, ionbeammini, mkiiidrone-minigun, councilor
+		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, cutman, swarmling, shapeshifter,mcv, drache, cabmcv, nodmcv, mutmcv, mwar, lpst, limped, sgen, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern, ionbeammini, mkiiidrone-minigun, councilor
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
 		DangerScanRadius: 18
 		AttackForceInterval: 59
@@ -280,7 +280,7 @@ Player:
 		GuerrillaTypes: cerberus, mutqueen, stormrider, scrglyder1, scrdestroyer, scrcarrier, scrbattleship, wasp, basilisk, struckfull, struckfull_t3, nukecarryall_bot, jumpjetair, nconf, bhs, mutfiend, pdrone, moth, cyc2, shark, smech, hvr, jug, attackbike, riflebggy, rocketbggy, flamebggy, lazorbggy, howtlizer, subtank, stnk, mutquad, lynx, wolf, mrls, scrscorpion, deathclaw, scrmbt, scrglyder2, scrmobmine, reapercab, altnode1, crusader, minelayer, jjcommair, umagon
 		#MaxGuerrillaSize: 15
 		AirUnitsTypes: jumpjetair, jjcommair, orca, orcab, apache, scrin, cerberus, mutheli, mutqueen, mutbird, wetp, stormrider, scrglyder1, scrdestroyer, scrcarrier, stormriderspawn, repairwyvern, cabdronejet, repairdrone, scrbattleship, wasp, basilisk, devourer, nukecarryall_bot, sonicarryall_bot, apcarryall_bot
-		ProtectionTypes: nodmcv, mutmcv, cabmcv, drache, mcv, harv, harv.nod, harv.mut, cabharv, scrharv, gacnst, gadept, scrdepot, gasilo, napuls, scrshield, gate_a, mutgate_a, scrgate_a, scrgate_b, gapowr, gapile, gdiref, gaweap, garadr, gahpad, gatech, gtdrop, nodyard, napowr, nahand, nodref, naweap, naradr, naapwr, nahpad, natech, namisl, mutyard, mupowr, murax, muproc, muweap, muradr, muair, muhall, mutsw2, drached, scrpowr, scrrax, scrproc, scrproc2, scrproc3, scrproc4, scrweap, scrradr, scrair, scrtech, scradvpowr, cabyard, cabpowr, cabclaw, cabproc, cabweap, cabradr, cabair, cabtech, cabobelisk, gavulc, garock, gasonc, gacsam, nalasr, naobel, nasam, mubunkr, mucannon, muflak, cabpit, cabblast, cabrail, scrneedler, scrdrone, scrtractor, gafire, gaplug, nastlh, natmpl, muventi, mutsw1, scrextractor, scrsw1, cabeye, cabsw1, blackdefd, weed, bloodderrick, colorpicker, drache_bot, mubunkrfull, defd
+		ProtectionTypes: nodmcv, mutmcv, cabmcv, drache, mcv, harv, harv.nod, harv.mut, cabharv, scrharv, gacnst, gadept, scrdepot, gasilo, napuls, scrshield, gate_a, mutgate_a, scrgate_a, scrgate_b, gapowr, gapile, gdiref, gaweap, garadr, gahpad, gatech, gtdrop, nodyard, napowr, nahand, nodref, naweap, naradr, naapwr, nahpad, natech, namisl, mutyard, mupowr, murax, muproc, muweap, muradr, muair, muhall, mutsw2, drached, scrpowr, scrrax, scrproc, scrproc2, scrproc3, scrproc4, scrweap, scrradr, scrair, scrtech, scradvpowr, cabyard, cabpowr, cabclaw, cabproc, cabweap, cabradr, cabair, cabtech, cabobelisk, gavulc, garock, gasonc, gacsam, nalasr, naobel, nasam, mubunkr, mucannon, muflak, cabpit, cabblast, cabrail, scrneedler, scrdrone, scrtractor, gafire, gaplug, nastlh, natmpl, muventi, mutsw1, scrextractor, scrsw1, cabeye, cabsw1, blackdefd, weed, bloodderrick, colorpicker, mubunkrfull, defd
 	UnitBuilderBotModule@AIAll:
 		RequiresCondition: AIEasy || AIBase
 		UnitQueues: Infantry.Shared, Infantry.GDI, Infantry.Nod, Infantry.Mutant, Infantry.CABAL, Infantry.Scrin, Vehicle.Shared, Vehicle.GDI, Vehicle.MammothMkII, Vehicle.Nod, Vehicle.Lightbringer, Vehicle.Mutant, Vehicle.CABAL, Vehicle.Scrin, Air.Shared, Air.GDI, Air.Nod, Air.Mutant, Air.CABAL, Air.Scrin, Upgrade.Shared, Upgrade.GDI, Upgrade.Nod, Upgrade.Mutant, Upgrade.CABAL, Upgrade.Scrin
@@ -467,27 +467,27 @@ Player:
 			hmectest: 97500
 			scrincouncil: 97500
 	## Mcv Manager also control some tech vehicle's depoyment
-	McvManagerBotModule@AINormal:
+	McvManagerSPBotModule@AINormal:
 		RequiresCondition: AINormal || AIEasy
-		McvTypes: mcv, cabmcv, nodmcv, mutmcv, drache_bot, drache, mwar
+		McvTypes: mcv, cabmcv, nodmcv, mutmcv, drache, mwar
 		ConstructionYardTypes: gacnst, mutyard, cabyard, nodyard, drached
 		McvFactoryTypes: gaweap, naweap, muweap, cabweap, scrair
 		MinimumConstructionYardCount: 1
 		MinBaseRadius: 5
 		MaxBaseRadius: 30
 		ScanForNewMcvInterval: 31
-	McvManagerBotModule@AICheater:
+	McvManagerSPBotModule@AICheater:
 		RequiresCondition: AICheater
-		McvTypes: mcv, cabmcv, nodmcv, mutmcv, drache_bot, drache, mwar
+		McvTypes: mcv, cabmcv, nodmcv, mutmcv, drache, mwar
 		ConstructionYardTypes: gacnst, mutyard, cabyard, nodyard, drached
 		McvFactoryTypes: gaweap, naweap, muweap, cabweap, scrair
 		MinimumConstructionYardCount: 2
 		MinBaseRadius: 5
 		MaxBaseRadius: 30
 		ScanForNewMcvInterval: 31
-	McvManagerBotModule@ShatteredAI:
+	McvManagerSPBotModule@ShatteredAI:
 		RequiresCondition: AIShattered
-		McvTypes: mcv, cabmcv, nodmcv, mutmcv, drache_bot, drache, mwar
+		McvTypes: mcv, cabmcv, nodmcv, mutmcv, drache, mwar
 		ConstructionYardTypes: gacnst, mutyard, cabyard, nodyard, drached
 		McvFactoryTypes: gaweap, naweap, muweap, cabweap, scrair
 		MinimumConstructionYardCount: 5
