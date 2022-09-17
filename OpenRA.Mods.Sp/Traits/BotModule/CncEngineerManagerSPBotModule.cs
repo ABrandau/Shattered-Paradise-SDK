@@ -162,6 +162,9 @@ namespace OpenRA.Mods.SP.Traits
 					return capturers.Any(tp => captureManager.CanBeTargetedBy(target, tp.Actor, tp.Trait));
 				}).ClosestTo(capturer.Actor);
 
+				if (targetActor == null)
+					continue;
+
 				bot.QueueOrder(new Order("CaptureActor", capturer.Actor, Target.FromActor(targetActor), true));
 				AIUtils.BotDebug("AI ({0}): Ordered {1} to capture {2}", player.ClientIndex, capturer.Actor, targetActor);
 				activeEngineers.Add(new UnitWposWrapper(capturer.Actor));
@@ -223,6 +226,9 @@ namespace OpenRA.Mods.SP.Traits
 
 					return true;
 				}).ClosestTo(r);
+
+				if (targetActor == null)
+					continue;
 
 				bot.QueueOrder(new Order("EngineerRepair", r, Target.FromActor(targetActor), true));
 				AIUtils.BotDebug("AI ({0}): Ordered {1} to Repair {2}", player.ClientIndex, r, targetActor);
@@ -286,6 +292,9 @@ namespace OpenRA.Mods.SP.Traits
 
 					return true;
 				}).ClosestTo(r);
+
+				if (targetActor == null)
+					continue;
 
 				bot.QueueOrder(new Order("RepairBridge", r, Target.FromActor(targetActor), true));
 				AIUtils.BotDebug("AI ({0}): Ordered {1} to repair bridge hut {2}", player.ClientIndex, r, targetActor);
