@@ -10,8 +10,8 @@
 
 using System;
 using System.Linq;
+using OpenRA.Activities;
 using OpenRA.Mods.AS.Traits;
-using OpenRA.Mods.Common;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Traits;
 
@@ -79,14 +79,9 @@ namespace OpenRA.Mods.SP.Traits
 		DroneSpawnerSlaveEntry[] slaveEntries;
 
 		bool hasSpawnedInitialLoad = false;
-		int spawnReplaceTicks = 0;
+		int spawnReplaceTicks = -1;
 
-		readonly OpenRA.Activities.ActivityType attacktype = OpenRA.Activities.ActivityType.Attack;
-		readonly OpenRA.Activities.ActivityType movetype = OpenRA.Activities.ActivityType.Move;
-		readonly OpenRA.Activities.ActivityType abilitytype = OpenRA.Activities.ActivityType.Ability;
-		readonly OpenRA.Activities.ActivityType othertype = OpenRA.Activities.ActivityType.Undefined;
-
-		OpenRA.Activities.ActivityType preState;
+		ActivityType preState;
 
 		WPos preLoc;
 
@@ -167,22 +162,21 @@ namespace OpenRA.Mods.SP.Traits
 
 		void ITick.Tick(Actor self)
 		{
-			if (spawnReplaceTicks > 0)
+			// Time to respawn someting.
+			if (spawnReplaceTicks < 0)
 			{
-				spawnReplaceTicks--;
-
-				// Time to respawn someting.
-				if (spawnReplaceTicks <= 0)
-				{
-					Replenish(self, slaveEntries);
-
-					SpawnReplenishedSlaves(self);
-
-					// If there's something left to spawn, restart the timer.
-					if (SelectEntryToSpawn(slaveEntries) != null)
-						spawnReplaceTicks = Util.ApplyPercentageModifiers(Info.RespawnTicks, reloadModifiers.Select(rm => rm.GetReloadModifier()));
-				}
+				// If there's something left to spawn, restart the timer.
+				if (SelectEntryToSpawn(slaveEntries) != null)
+					spawnReplaceTicks = Info.RespawnTicks;
 			}
+			else if (spawnReplaceTicks == 0)
+			{
+				Replenish(self, slaveEntries);
+				SpawnReplenishedSlaves(self);
+				spawnReplaceTicks--;
+			}
+			else
+				spawnReplaceTicks--;
 
 			if (!Info.SlavesHaveFreeWill)
 				AssignSlaveActivity(self);
@@ -260,7 +254,7 @@ namespace OpenRA.Mods.SP.Traits
 			}
 
 			// 1. Drone may get away from master due to auto-targeting.
-			if (effectiveActivity == null || effectiveActivity.ActivityType == abilitytype || effectiveActivity.ActivityType == othertype)
+			if (effectiveActivity == null || effectiveActivity.ActivityType == ActivityType.Ability || effectiveActivity.ActivityType == ActivityType.Undefined)
 			{
 				if (remainingIdleCheckTick < 0)
 				{
@@ -282,9 +276,9 @@ namespace OpenRA.Mods.SP.Traits
 			// Only move slaves when position change
 			// Note: because aircraft always Fly, so drone may get away from master due to auto-targeting
 			// when actor moves.
-			else if (effectiveActivity.ActivityType == movetype)
+			else if (effectiveActivity.ActivityType == ActivityType.Move)
 			{
-				if (preState == attacktype)
+				if (preState == ActivityType.Attack)
 				{
 					StopSlaves();
 					remainingIdleCheckTick = Info.IdleCheckTick;
@@ -307,21 +301,21 @@ namespace OpenRA.Mods.SP.Traits
 			// The only working code is in INotifyAttack. It is due to Activity of attack
 			// do not achieve `GetTargets(actor)`
 			// 3. Stop the slaves move when prepare to attack
-			else if (effectiveActivity.ActivityType == attacktype)
+			else if (effectiveActivity.ActivityType == ActivityType.Attack)
 			{
-				if (preState == movetype)
+				if (preState == ActivityType.Move)
 				{
 					StopSlaves();
 					remainingIdleCheckTick = Info.IdleCheckTick;
 				}
-				else if (preState == othertype || preState == abilitytype)
+				else if (preState == ActivityType.Undefined || preState == ActivityType.Ability)
 				{
 					StopSlaves();
 					remainingIdleCheckTick = Info.IdleCheckTick;
 				}
 			}
 
-			preState = effectiveActivity == null ? othertype : effectiveActivity.ActivityType;
+			preState = effectiveActivity == null ? ActivityType.Undefined : effectiveActivity.ActivityType;
 			preLoc = self.CenterPosition;
 		}
 
