@@ -9,7 +9,6 @@
 #endregion
 
 using System;
-using System.Linq;
 using OpenRA.Activities;
 using OpenRA.Mods.AS.Traits;
 using OpenRA.Mods.Common.Traits;
@@ -36,9 +35,6 @@ namespace OpenRA.Mods.SP.Traits
 	[Desc("This actor can spawn actors.")]
 	public class DroneSpawnerMasterInfo : BaseSpawnerMasterInfo
 	{
-		[Desc("Spawn at a member, not the nexus?")]
-		public readonly bool ExitByBudding = true;
-
 		[Desc("Can the slaves be controlled independently?")]
 		public readonly bool SlavesHaveFreeWill = false;
 
@@ -77,8 +73,6 @@ namespace OpenRA.Mods.SP.Traits
 		public new DroneSpawnerMasterInfo Info { get; private set; }
 
 		DroneSpawnerSlaveEntry[] slaveEntries;
-
-		bool hasSpawnedInitialLoad = false;
 		int spawnReplaceTicks = -1;
 
 		ActivityType preState;
@@ -100,6 +94,7 @@ namespace OpenRA.Mods.SP.Traits
 			base.Created(self);
 
 			remainingIdleCheckTick = Info.IdleCheckTick;
+
 			for (var i = 0; i < Info.GatherCell.Length; i++)
 				slaveEntries[i].GatherOffsetCell = Info.GatherCell[i];
 
@@ -111,8 +106,6 @@ namespace OpenRA.Mods.SP.Traits
 			// The base class creates the slaves but doesn't move them into world.
 			// Let's do it here.
 			SpawnReplenishedSlaves(self);
-
-			hasSpawnedInitialLoad = true;
 
 			isAircraft = self.Info.HasTraitInfo<AircraftInfo>();
 		}
@@ -184,27 +177,9 @@ namespace OpenRA.Mods.SP.Traits
 
 		void SpawnReplenishedSlaves(Actor self)
 		{
-			WPos centerPosition = WPos.Zero;
-			if (!hasSpawnedInitialLoad || !Info.ExitByBudding)
-			{
-				// Spawning from a solid actor...
-				centerPosition = self.CenterPosition;
-			}
-			else
-			{
-				// Spawning from a virtual nexus: exit by an existing member.
-				var se = slaveEntries.FirstOrDefault(s => s.IsValid && s.Actor.IsInWorld);
-				if (se != null)
-					centerPosition = se.Actor.CenterPosition;
-			}
-
-			// WPos.Zero implies this mob spawner master is dead or something.
-			if (centerPosition == WPos.Zero)
-				return;
-
 			foreach (var se in slaveEntries)
 				if (se.IsValid && !se.Actor.IsInWorld)
-					SpawnIntoWorld(self, se.Actor, centerPosition + se.Offset.Rotate(self.Orientation));
+					SpawnIntoWorld(self, se.Actor, self.CenterPosition + se.Offset.Rotate(self.Orientation));
 		}
 
 		public override void OnSlaveKilled(Actor self, Actor slave)
