@@ -2319,9 +2319,9 @@
 	Passenger:
 		CargoCondition: ascargo
 	SmokeParticleEmitter@spawnsmoke:
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo && !in_tunnel
 	ExplodeWeapon@spawnsparks:
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo && !in_tunnel
 
 ^Tank:
 	Inherits: ^Vehicle
@@ -2345,7 +2345,7 @@
 	Mobile:
 		Locomotor: Hover
 	LeavesTrails@water:
-		RequiresCondition: hoverunitonwater && !carried && !ascargo
+		RequiresCondition: hoverunitonwater && !carried && !ascargo && !in_tunnel
 		Image: hoverwind
 		Sequences: water
 		Palette: effect
@@ -2357,7 +2357,7 @@
 		SpawnAtLastPosition: false
 		StartDelay: -1
 	LeavesTrails@land:
-		RequiresCondition: !hoverunitonwater && !carried && !ascargo
+		RequiresCondition: !hoverunitonwater && !carried && !ascargo && !in_tunnel
 		Image: hoverwind
 		Sequences: non-water
 		Palette: effectalpha25
