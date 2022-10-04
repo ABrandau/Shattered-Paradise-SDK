@@ -1,3 +1,31 @@
+ExplosionGas:
+	Inherits: ^BombWarhead
+	Inherits@2: ^Large_twlt
+	Inherits@3: ^SpawnsIrradiation
+	ValidTargets: Ground, Water
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 10000
+		ValidTargets: Ground, Water
+		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
+		Versus:
+			Heavy: 60
+	Warhead@3Radio: CreateTintedCells
+		Level: 90
+	Warhead@2Eff: CreateEffect
+		Explosions: gnuke1mini, gnuke2mini, gnuke3mini
+		ExplosionPalette: jascgreenalpha
+		ValidTargets: Ground, Air, Water
+		AirThreshold: 8c0
+		ImpactActors: false
+	Warhead@MarnFlash: CreateEffect
+		Explosions: smallflash
+		ExplosionPalette: jascgreenalpha
+		ValidTargets: Ground, Air, Water
+		AirThreshold: 8c0
+		ImpactActors: false
+	-Warhead@3EffWater:
+
 MarauderShotgun:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
@@ -33,8 +61,7 @@ MarauderShotgunInnacurate:
 
 SkirmisherMortar:
 	Inherits: ^ArtilleryWarhead
-	Inherits@2: ^Small_Clsn #^Tiny_Explo
-	Inherits@3: ^SpawnsIrradiation
+	Inherits@2: ^Small_Clsn
 	ReloadDelay: 75
 	Range: 10c0
 	MinRange: 1c0
@@ -47,35 +74,54 @@ SkirmisherMortar:
 		Blockable: false
 		ContrailLength: 8
 		ContrailZOffset: 650
-		ContrailStartColor: 00AA0088
+		ContrailStartColor: 999900
 		ContrailStartColorAlpha: 136
 		ContrailWidth: 0c66
 		ContrailEndColor: FF0000
 		ContrailWidthFadeRate: 1
 		Image: 120mm
-		Palette: gradientgreen
+		Palette: pips
 	Warhead@1Dam: SpreadDamage
 		Spread: 300
 		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
-		ExplosionPalette: jascgreenalpha
 		Explosions: dustexplode, dustexplode2
 
 SkirmisherMortarGas:
 	Inherits: SkirmisherMortar
-	Warhead@5Smo: SpawnSmokeParticle
-		Weapon: CloudDamage
-		Count: 2
-		Duration: 95
-		Speed: 30
-		TurnRate: 24
-		Image: tibcloud
-		StartSequences: cloud2start
-		Sequences: cloud2
-		EndSequences: cloud2end
-		Palette: effectalpha50
+	Inherits@3: ^SpawnsIrradiation
+	Projectile: BulletAS
+		ContrailLength: 8
+		ContrailZOffset: 650
+		ContrailStartColor: 00AA0088
+		ContrailStartColorAlpha: 136
+		ContrailWidth: 0c66
+		ContrailEndColor: FF0000
+		ContrailWidthFadeRate: 1
+		Palette: gradientgreen
+	Warhead@smoke: CreateEffect
+		ExplosionPalette: gradientgreen60
+		ImpactActors: false
+		Explosions: tibgassmoke, tibgassmoke2, tibgassmoke3
+		ValidTargets: Ground, Air, Water
 		AirThreshold: 8c0
+	Warhead@test2: TriggerLayerWeapon
+		LayerName: catalystLayer
+		TiggerWeapon: ExplosionGas
+		TiggerAtLevelMin: 300
+		Level: 90
+		TiggerSetLevel: 0
+		ImpactActors: false
+		ValidTargets: Ground, Air, Water
+		AirThreshold: 8c0
+	Warhead@2Eff: CreateEffect
+		Explosions: dustexplode, dustexplode2
+		ExplosionPalette: jascgreenalpha
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
+	Warhead@3Radio: CreateTintedCells
+		Level: 10
 
 FiendShard2:
 	Inherits: ^APWarhead
@@ -370,7 +416,7 @@ LynxRocket:
 	Report: misl1.aud
 	Projectile: MissileTA
 		Speed: 384
-		TrailSequences: idle3
+		TrailSequences: idle
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
 		Damage: 5000
@@ -427,10 +473,9 @@ QuadFireLineAA:
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 
-TiberianRocket:
+MUTMRLSRocket:
 	Inherits: ^ArtilleryWarhead
-	Inherits@1: ^SpawnsIrradiation
-	Inherits@2: ^DelayedSmokeEffect
+	Inherits@2: ^Small_Clsn
 	ReloadDelay: 110
 	Range: 14c0
 	Burst: 8
@@ -448,40 +493,41 @@ TiberianRocket:
 		Image: DRAGON
 		TrailImage: small_smoke_trail
 		Palette: pips
-		TrailSequences: idle3
+		TrailSequences: idle
 	Warhead@1Dam: SpreadDamage
 		Spread: 400
 		Damage: 3000
 		ValidTargets: Ground, Water
-		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
-	Warhead@2EffWater: CreateEffect
-		Explosions: small_watersplash
-		ExplosionPalette: player
-		ImpactSounds: ssplash3.aud
-		ValidTargets: Water
-	Warhead@4Eff: CreateEffect
-		Explosions: tib_expsmall
-		ImpactSounds: expnew12.aud
-		InvalidTargets: Water
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: grenadexplode, grenadexplode2
+
+
+MUTMRLSRocketGas:
+	Inherits: MUTMRLSRocket
+	Inherits@1: ^SpawnsIrradiation
+	Projectile: BulletAS
+		TrailSequences: idle3
+	Warhead@test2: TriggerLayerWeapon
+		LayerName: catalystLayer
+		TiggerWeapon: ExplosionGas
+		TiggerAtLevelMin: 300
+		Level: 45
+		TiggerSetLevel: 0
+		ImpactActors: false
+		ValidTargets: Ground, Air, Water
+		AirThreshold: 8c0
+	Warhead@2Eff: CreateEffect
+		Explosions: grenadexplode, grenadexplode2
+		ExplosionPalette: jascgreenalpha
 	Warhead@smoke: CreateEffect
 		ExplosionPalette: gradientgreen60
-	Warhead@3Radio: CreateTintedCells
-		Level: 10
-
-TiberianRocketGas:
-	Inherits: TiberianRocket
-	Warhead@5Smo: SpawnSmokeParticle
-		Weapon: CloudDamage
-		Count: 1
-		Duration: 95
-		Speed: 30
-		TurnRate: 24
-		Image: tibcloud
-		StartSequences: cloud2start
-		Sequences: cloud2
-		EndSequences: cloud2end
-		Palette: effectalpha50
+		Explosions: tibgassmoke, tibgassmoke2, tibgassmoke3
+		ImpactActors: false
+		ValidTargets: Ground, Air, Water
 		AirThreshold: 8c0
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
 
 BombTruckExplo:
 	Inherits: NuclearMissile
@@ -695,37 +741,59 @@ GargoylACannonCasing:
 	Warhead@op: FireShrapnel
 		Weapon: ShellCasingDebris
 
-FalconPunch:
+FalconPunch1:
 	Inherits: ^BombWarhead
-	Inherits@2: ^Mediuml_Clsn
-	Inherits@3: ^SpawnsIrradiationFalcon
+	Inherits@2: ^Large_Clsn
+	FirstBurstTargetOffset: -200,-450,0
 	ValidTargets: Ground, Water
 	Report: orca_fire.wav
 	ReloadDelay: 1
 	MinRange: 0c100
 	Range: 5c0
-	TargetActorCenter: true
-	Projectile: MissileTA
-		TerrainHeightAware: true
-		CruiseAltitude: 6000
-		MinimumLaunchAngle: 255
-		MaximumLaunchAngle: 255
-		#MaximumLaunchSpeed: 0c543
-		#MinimumLaunchSpeed: 0c301
+	Projectile: BulletAS
 		Speed: 0c400
-		Acceleration: 0
 		Blockable: false
 		Shadow: false
-		Inaccuracy: 0c181
 		Image: DRAGON
 		Sequences: idle2
-		HorizontalRateOfTurn: 160
-		VerticalRateOfTurn: 160
-		RangeLimit: 28c291
 		Palette: playermut
 		IsPlayerPalette: true
-		AllowSnapping: true
-		CloseEnough: 200
+		ContrailLength: 10
+		ContrailStartColor: CCCC00AA
+		ContrailStartColorAlpha: 170
+		ContrailWidth: 0c8
+		ContrailEndColor: 883300
+		ContrailWidthFadeRate: -40
+		TrailPalette: effect
+		TrailImage: small_smoke_trail
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c324
+		Falloff: 100, 65, 45, 25, 5
+		Damage: 10000
+		ValidTargets: Ground, Water
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+		Versus:
+			Heavy: 100
+
+FalconPunch2:
+	Inherits: FalconPunch1
+	FirstBurstTargetOffset: 200,-150,0
+	-Report:
+
+FalconPunch3:
+	Inherits: FalconPunch1
+	FirstBurstTargetOffset: 200,150,0
+	-Report:
+
+FalconPunch4:
+	Inherits: FalconPunch1
+	FirstBurstTargetOffset: -200,450,0
+	-Report:
+
+FalconPunchGas1:
+	Inherits: FalconPunch1
+	Inherits@3: ^SpawnsIrradiation
+	Projectile: BulletAS
 		ContrailLength: 10
 		ContrailStartColor: 00CC00AA
 		ContrailStartColorAlpha: 170
@@ -734,37 +802,45 @@ FalconPunch:
 		ContrailWidthFadeRate: -40
 		TrailPalette: jascgreen
 		TrailImage: small_smoke_trail
-		Jammable: false ## help to save a little bit performance
-	Warhead@1Dam: SpreadDamage
-		Spread: 0c512
-		Falloff: 100, 65, 45, 25, 5
-		Damage: 40000
-		ValidTargets: Ground, Water
-		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
-		Versus:
-			Heavy: 100
-	Warhead@2Eff: CreateEffect
-		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
-		ExplosionPalette: jascgreenalpha
-
-FalconPunchGas:
-	Inherits: FalconPunch
-	Warhead@5Smo: SpawnSmokeParticle
-		Weapon: CloudDamage
-		Count: 10
-		Duration: 190
-		Speed: 30
-		TurnRate: 24
-		Image: tibcloud
-		StartSequences: cloud1start
-		Sequences: cloud1
-		EndSequences: cloud1end
-		Palette: effectalpha50
+	Warhead@test2: TriggerLayerWeapon
+		LayerName: catalystLayer
+		TiggerWeapon: ExplosionGas
+		TiggerAtLevelMin: 300
+		Level: 150
+		TiggerSetLevel: 0
+		ImpactActors: false
+		ValidTargets: Ground, Air, Water
 		AirThreshold: 8c0
 	Warhead@2Eff: CreateEffect
-		Explosions: gasexplo
-		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
-		ExplosionPalette: effect
+		Explosions: ammoexplode
+		ExplosionPalette: jascgreenalpha
+	-Warhead@smoke: CreateEffect
+	Warhead@smoke: CreateEffect
+		ExplosionPalette: gradientgreen60
+		Explosions: tibgassmoke, tibgassmoke2, tibgassmoke3
+		ImpactActors: false
+		ValidTargets: Ground, Air, Water
+		AirThreshold: 8c0
+	Warhead@3Radio: CreateTintedCells
+		Level: 10
+		Spread: 768
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
+
+FalconPunchGas2:
+	Inherits: FalconPunchGas1
+	FirstBurstTargetOffset: 200,-150,0
+	-Report:
+
+FalconPunchGas3:
+	Inherits: FalconPunchGas1
+	FirstBurstTargetOffset: 200,150,0
+	-Report:
+
+FalconPunchGas4:
+	Inherits: FalconPunchGas1
+	FirstBurstTargetOffset: -200,450,0
+	-Report:
 
 ForgottenCannonWeapon:
 	Inherits: ^APWarhead

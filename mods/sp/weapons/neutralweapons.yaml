@@ -388,7 +388,7 @@ FloaterCloudSpawn:
 
 VeinholeAttack:
 	Inherits: FloaterCloudSpawn
-	ReloadDelay: 100
+	ReloadDelay: 150
 	Projectile: AthenaProjectile
 		Altitude: 2560
 	Warhead@5cloud: SpawnSmokeParticle
@@ -601,14 +601,7 @@ FairyElevator:
 		ImpactActors: false
 
 CloudDamage:
-	Inherits: ^AcidWarhead
+	Inherits@3: ^SpawnsIrradiation
 	ReloadDelay: 10
 	Projectile: InstantExplode
-	Warhead@1Dam: SpreadDamage
-		Spread: 196
-		Damage: 500
-		DamageTypes: TiberiumDeath
-		InvalidTargets: Building, Defence, Wall
-		Versus:
-			Building: 0
-			Defense: 0
+	

@@ -2241,14 +2241,14 @@ MRLS:
 	Valued:
 		Cost: 1100
 	Tooltip:
-		Name: Irradiator MLRS
+		Name: Blighter MLRS
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 40
-		Description: Light artillery armed with unguided tiberium rockets.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can mutate killed units\n- Emits tiberium radiaton that damages nearby units\n- Can shoot over walls\n- Can crush infantry\n- Can attack while moving
+		Description: Light artillery armed with unguided rockets.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can shoot over walls\n- Can crush infantry\n- Can attack while moving
 		Prerequisites: ~muweap, muhall, ~techlevel.5
 		BuildDuration: 625
 		BuildDurationModifier: 100
@@ -2269,12 +2269,12 @@ MRLS:
 	AutoTarget:
 		ScanRadius: 13
 	Armament:
-		Weapon: TiberianRocket
+		Weapon: MUTMRLSRocket
 		LocalOffset: 400,100,900, 400,-100,900
 		PauseOnCondition: empdisable
 		RequiresCondition: !tibgaswh
 	Armament@gas:
-		Weapon: TiberianRocketGas
+		Weapon: MUTMRLSRocketGas
 		LocalOffset: 400,100,900, 400,-100,900
 		PauseOnCondition: empdisable
 		RequiresCondition: tibgaswh

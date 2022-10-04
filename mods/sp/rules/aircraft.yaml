@@ -798,8 +798,8 @@ WETP:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SHADOW: ^AircraftShadow
-	Inherits@TIBGASWH: ^AffectedByTiberiumGasWarheads
 	Inherits@VISION: ^9CellVision
+	Inherits@TIBGASWH: ^AffectedByTiberiumGasWarheads
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 2500
@@ -809,7 +809,7 @@ WETP:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.Mutant
-		Description: Fast jet that fires a small tiberium missile.\n\nGood vs: Ground targets\nSpecial:\n- Can mutate killed enemy units\n- Moves at super-sonic speed able to dodge all attacks\n - Moves at half speed for 5 seconds after attacking
+		Description: Fast jet that fires 4 high-exlosive rockets.\n\nGood vs: Ground targets\nSpecial:\n- Moves at super-sonic speed able to dodge all attacks\n - Moves at half speed for 5 seconds after attacking
 		BuildPaletteOrder: 25
 		Prerequisites: ~muair, muhall, ~techlevel.5
 		BuildDuration: 1250
@@ -827,19 +827,52 @@ WETP:
 		MoveIntoShroud: true
 	Health:
 		HP: 15000
-	Armament:
-		Weapon: FalconPunch
+	Armament@1:
+		Weapon: FalconPunch1
+		LocalOffset: 0, -600, 0
 		PauseOnCondition: !ammo
 		RequiresCondition: !tibgaswh
-	Armament@Upg:
-		Weapon: FalconPunchGas
+	Armament@2:
+		Weapon: FalconPunch4
+		LocalOffset: 0, 600, 0
+		PauseOnCondition: !ammo
+		RequiresCondition: !tibgaswh
+	Armament@3:
+		Weapon: FalconPunch2
+		LocalOffset: 0, -300, 0
+		PauseOnCondition: !ammo
+		RequiresCondition: !tibgaswh
+	Armament@4:
+		Weapon: FalconPunch3
+		LocalOffset: 0, 300, 0
+		PauseOnCondition: !ammo
+		RequiresCondition: !tibgaswh
+	Armament@Upg1:
+		Weapon: FalconPunchGas1
+		LocalOffset: 0, -600, 0
+		PauseOnCondition: !ammo
+		RequiresCondition: tibgaswh
+	Armament@Upg2:
+		Weapon: FalconPunchGas4
+		LocalOffset: 0, 600, 0
+		PauseOnCondition: !ammo
+		RequiresCondition: tibgaswh
+	Armament@Upg3:
+		Weapon: FalconPunchGas2
+		LocalOffset: 0, -300, 0
+		PauseOnCondition: !ammo
+		RequiresCondition: tibgaswh
+	Armament@Upg4:
+		Weapon: FalconPunchGas3
+		LocalOffset: 0, 300, 0
 		PauseOnCondition: !ammo
 		RequiresCondition: tibgaswh
 	AttackAircraft:
 		FacingTolerance: 40
+		PersistentTargeting: false
 	AmmoPool:
-		Ammo: 1
-		ReloadCount: 1
+		Ammo: 4
+		ReloadCount: 4
 		ReloadDelay: 250
 		AmmoCondition: ammo
 	AutoTarget:
@@ -854,6 +887,7 @@ WETP:
 		RequiresCondition: airborne
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
+		PipCount: 1
 		RequiresSelection: true
 		FullSequence: pip-ammo
 		EmptySequence: pip-ammoempty
