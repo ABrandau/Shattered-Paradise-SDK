@@ -39,14 +39,17 @@ Player:
 	##  and sub base is impossible for OpenRA at present. Also this module is heavily performance questionable
 
 	GrantConditionAfterDelay@AIantiRush-unit-order:
+		RequiresCondition: AIBase
 		Condition: AIantiRush-unit-order
 		Delay: 3300
 		ShowSelectionBar: false
+	CashTrickler@AIantiRush-unit-order: ## enough cash to build early game infantry
+		Interval: 500
+		Amount: 200
+		ShowTicks: false
+		RequiresCondition: AIBase && !AIantiRush-unit-order
 	ProvidesPrerequisite@AIantiRush-unit-order:
-		RequiresCondition: AIantiRush-unit-order && (AIBase || AIEasy)
-		Prerequisite: AIantiRush-unit-order
-	ProvidesPrerequisite@HumanPlayer:
-		RequiresCondition: !AIBase && !AIEasy
+		RequiresCondition: (!AIBase) || (AIBase && AIantiRush-unit-order)
 		Prerequisite: AIantiRush-unit-order
 
 	#HarvesterBotModule: 
