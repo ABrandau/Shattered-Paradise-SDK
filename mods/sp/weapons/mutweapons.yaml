@@ -759,12 +759,14 @@ FalconPunch1:
 		Sequences: idle2
 		Palette: playermut
 		IsPlayerPalette: true
-		ContrailLength: 10
-		ContrailStartColor: CCAA00AA
-		ContrailStartColorAlpha: 170
-		ContrailWidth: 0c8
+		ContrailLength: 7
+		ContrailStartColor: c3651cAA
+		ContrailStartColorAlpha: 200
+		ContrailWidth: 0c36
 		ContrailEndColor: 330000
-		ContrailWidthFadeRate: -60
+		ContrailEndColorAlpha: 10
+		ContrailWidthFadeRate: -10
+		ContrailDelay: 0
 		TrailPalette: effect
 		TrailImage: small_smoke_trail
 		TrailDelay: 0
@@ -797,14 +799,9 @@ FalconPunchGas1:
 	Inherits: FalconPunch1
 	Inherits@3: ^SpawnsIrradiation
 	Projectile: BulletAS
-		ContrailLength: 10
 		ContrailStartColor: 00CC00AA
-		ContrailStartColorAlpha: 170
-		ContrailWidth: 0c8
 		ContrailEndColor: 221100
-		ContrailWidthFadeRate: -40
-		TrailPalette: jascgreen
-		TrailImage: small_smoke_trail
+		TrailSequences: idle3
 	Warhead@test2: TriggerLayerWeapon
 		LayerName: catalystLayer
 		TiggerWeapon: ExplosionGas
