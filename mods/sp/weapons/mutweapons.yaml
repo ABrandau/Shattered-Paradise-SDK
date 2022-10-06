@@ -1,5 +1,5 @@
 ExplosionGas:
-	Inherits: ^BombWarhead
+	Inherits: ^FullDamage
 	Inherits@2: ^Large_twlt
 	Inherits@3: ^SpawnsIrradiation
 	ValidTargets: Ground, Water
@@ -8,8 +8,6 @@ ExplosionGas:
 		Damage: 10000
 		ValidTargets: Ground, Water
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
-		Versus:
-			Heavy: 60
 	Warhead@3Radio: CreateTintedCells
 		Level: 90
 	Warhead@2Eff: CreateEffect
@@ -109,8 +107,8 @@ SkirmisherMortarGas:
 	Warhead@test2: TriggerLayerWeapon
 		LayerName: catalystLayer
 		TiggerWeapon: ExplosionGas
-		TiggerAtLevelMin: 300
-		Level: 90
+		TiggerAtLevelMin: 400
+		Level: 120
 		TiggerSetLevel: 0
 		ImpactActors: false
 		ValidTargets: Ground, Air, Water
@@ -511,8 +509,8 @@ MUTMRLSRocketGas:
 	Warhead@test2: TriggerLayerWeapon
 		LayerName: catalystLayer
 		TiggerWeapon: ExplosionGas
-		TiggerAtLevelMin: 300
-		Level: 45
+		TiggerAtLevelMin: 400
+		Level: 60
 		TiggerSetLevel: 0
 		ImpactActors: false
 		ValidTargets: Ground, Air, Water
@@ -805,8 +803,8 @@ FalconPunchGas1:
 	Warhead@test2: TriggerLayerWeapon
 		LayerName: catalystLayer
 		TiggerWeapon: ExplosionGas
-		TiggerAtLevelMin: 300
-		Level: 150
+		TiggerAtLevelMin: 400
+		Level: 200
 		TiggerSetLevel: 0
 		ImpactActors: false
 		ValidTargets: Ground, Air, Water
