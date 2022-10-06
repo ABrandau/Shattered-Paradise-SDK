@@ -726,16 +726,14 @@ ObeliskLaserFire:
 		Explosions: wrecksmoke, wrecksmoke2
 		ExplosionPalette: jascgrayblacktoalpha
 		InvalidTargets: Water
-		ValidTargets: Ground
+		ValidTargets: Ground, Air
 		ImpactActors: false
 
 ScorpionLaserCharge:
 	ReloadDelay: 30
 	Range: 7c0
-	ValidTargets: Ground, Water
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry, Wall
 	Projectile: InstantExplode
-	Warhead@1Dam: TargetDamage
-		ValidTargets: Ground, Water
 
 ScorpionLaser:
 	Inherits: ^FullDamage

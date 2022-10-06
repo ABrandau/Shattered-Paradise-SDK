@@ -323,10 +323,6 @@ MindController:
 	Report: iyurat1a.wav
 	Projectile: InstantHit
 		Blockable: false
-	Warhead@1Dam: TargetDamage
-		Damage: 0
-		ValidTargets: MindControllable
-		InvalidTargets: MindControllableMastermind
 
 MindControllerMastermind:
 	ReloadDelay: 100
@@ -336,18 +332,12 @@ MindControllerMastermind:
 	Report: iyurat1a.wav
 	Projectile: InstantHit
 		Blockable: false
-	Warhead@1Dam: TargetDamage
-		Damage: 0
-		ValidTargets: MindControllable, MindControllableMastermind
-		InvalidTargets: MindControlImmune
 
 MindControllerMastermindBuilding:
 	Inherits: MindControllerMastermind
 	ReloadDelay: 10
 	TargetActorCenter: true
 	ValidTargets: MindControllable, MindControllableMastermind, MindControllableBuilding
-	Warhead@1Dam: TargetDamage
-		ValidTargets: MindControllable, MindControllableMastermind, MindControllableBuilding
 	Warhead@2Fla: FlashTarget
 		ValidTargets: MindControllable, MindControllableMastermind, MindControllableBuilding
 		InvalidTargets: MindControlImmune
@@ -369,7 +359,6 @@ VanguardFollow:
 	Range: 2c0
 	ValidTargets: Infantry, Vehicle
 	InvalidTargets: ShieldGenerator
-	Warhead@1Dam: TargetDamage
 
 ScrMbtLasor:
 	Inherits: ^FullDamage
@@ -437,10 +426,6 @@ ScorpGas:
 		TrailImage: essencetrailmini
 		TrailSequences: idle
 		TrailPalette: jascbluealpha
-	Warhead@1Dam: TargetDamage
-		Damage: 0
-		ValidTargets: Infantry, Vehicle, Ground, Water
-		InvalidTargets: Building, Wall
 	Warhead@2Con: GrantExternalCondition
 		Range: 4c0
 		Duration: 300
@@ -509,7 +494,8 @@ AnhTripodLaser:
 	Warhead@1Eff_impact: CreateEffect
 		Explosions: laserburntscr
 		ExplosionPalette: effect
-	Warhead@1Dam: TargetDamage
+		ValidTargets: Ground, Air
+		ImpactActors: false
 
 AnhTripodLaser2:
 	Inherits: AnhTripodLaser
@@ -939,15 +925,10 @@ FighterSpawn:
 	MinRange: 0c100
 	Projectile: InstantExplode
 	ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
-	Warhead@1Dam: TargetDamage
-		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
 
 FighterSpawnAA:
 	Inherits: FighterSpawn
 	ValidTargets: Air
-	Warhead@1Dam: TargetDamage
-		ValidTargets: Air
-		ValidRelationships: Enemy, Neutral
 
 WyvermBlast:
 	Inherits: ^ArtilleryWarhead
@@ -1077,8 +1058,9 @@ TractorBeam:
 		HitAnimPalette: scrinenergystuffsalpha
 		HitAnimSequence: wakescr
 		TrackTarget: false
-	Warhead@1Dam: SpreadDamage
+	Warhead@1Dam: TargetDamage
 		Damage: 4000
+		Spread: 0c20
 		ValidTargets: Air
 		DamageTypes: ExplosionDeath
 	Warhead@TractorStop: GrantExternalCondition
@@ -1094,9 +1076,8 @@ TractorBeam2:
 		-HitAnimPalette:
 		-HitAnimSequence:
 	-Report:
-	Warhead@1Dam: TargetDamage
-		Damage: 0
 	-Warhead@TractorStop:
+	-Warhead@1Dam:
 
 SrcinOrb:
 	ReloadDelay: 260
@@ -1115,9 +1096,6 @@ SrcinOrb:
 		TrailPalette: appurp
 		TrailInterval: 3
 		TrailDelay: 1
-	Warhead@1Dam: TargetDamage
-		Damage: 0
-		ValidTargets: Infantry, Vehicle, Building, Ground, Water
 	Warhead@3: SpawnSmokeParticle
 		Image: pulsar
 		ImpactActors: false
@@ -1182,7 +1160,7 @@ OrbZaps:
 		SegmentLength: 326
 		Duration: 4
 	Warhead@1Dam: TargetDamage
-		Spread: 0c20 ## HACK: Spread=0 of TargetDamage works not correct on "FireShrapnel"
+		Spread: 0c20 ## HACK: Spread=0c20 of TargetDamage works not correct on "FireShrapnel"
 		Damage: 2000
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 	Warhead@2Eff: CreateEffect

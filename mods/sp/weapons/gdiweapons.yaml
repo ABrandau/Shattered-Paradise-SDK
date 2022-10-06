@@ -153,8 +153,6 @@ JJBeacon:
 		LaunchAngle: 45
 		Image: DRAGON
 		Palette: apcybl
-	Warhead@1Dam: TargetDamage
-		Damage: 0
 	Warhead@2Eff: CreateEffect
 		Image: explosion
 		ImpactActors: false
@@ -692,6 +690,7 @@ MammothTuskAA:
 MechRailgun: ##For hit effect
 	Inherits: ^Large_Clsn
 	Inherits@2: ^FullDamage
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry, Wall
 	FirstBurstTargetOffset: 0,-150,0
 	FollowingBurstTargetOffset: 0,300,0
 	ReloadDelay: 100
@@ -726,11 +725,10 @@ MechRailgun: ##For hit effect
 			Shield: 0
 		ValidRelationships: Ally
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
-	Warhead@2Dam: TargetDamage ### Fix when Chaos MK2 cannot use it on enemy
-		ValidRelationships: Neutral, Enemy
 
 MechRailgun2: ##For line damage
 	Inherits: ^FullDamage
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry, Wall
 	FirstBurstTargetOffset: 0,-150,0
 	FollowingBurstTargetOffset: 0,300,0
 	ReloadDelay: 100
@@ -761,8 +759,6 @@ MechRailgun2: ##For line damage
 			Shield: 0
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 		ValidRelationships: Neutral, Enemy
-	Warhead@2Dam: TargetDamage ### Fix when Chaos MK2 cannot use it on ally
-		ValidRelationships: Ally
 
 MKIITusk:
 	Inherits: MammothTusk
@@ -975,6 +971,7 @@ RepairGun:
 MKIIIRailgun: ##For hit effect
 	Inherits: ^Large_Clsn
 	Inherits@2: ^FullDamage
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry, Wall
 	FirstBurstTargetOffset: 0,-150,0
 	FollowingBurstTargetOffset: 0,300,0
 	ReloadDelay: 75
@@ -1008,8 +1005,6 @@ MKIIIRailgun: ##For hit effect
 			Shield: 0
 		ValidRelationships: Ally
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
-	Warhead@2Dam: TargetDamage ### Fix when Chaos MK3 cannot use it on enemy
-		ValidRelationships: Neutral, Enemy
 	Warhead@2Eff: CreateEffect
 		Image: explosion
 		ImpactActors: false
@@ -1026,6 +1021,7 @@ MKIIIRailgun: ##For hit effect
 
 MKIIIRailgun2: ##For line damage
 	Inherits: ^FullDamage
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry, Wall
 	FirstBurstTargetOffset: 0,-150,0
 	FollowingBurstTargetOffset: 0,300,0
 	ReloadDelay: 75
@@ -1056,8 +1052,6 @@ MKIIIRailgun2: ##For line damage
 			Shield: 0
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 		ValidRelationships: Neutral, Enemy
-	Warhead@2Dam: TargetDamage ### Fix when Chaos MK3 cannot use it on ally
-		ValidRelationships: Ally
 
 MKIIITusk:
 	Inherits: MammothTusk

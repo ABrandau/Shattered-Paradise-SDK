@@ -129,8 +129,6 @@ JellyAttackPrepare:
 	Projectile: InstantHit
 	ReloadDelay: 60
 	Range: 1c512
-	Warhead@1Dam: TargetDamage
-		ValidTargets: Ground, Water, Vehicle, Infantry, Building
 
 ElectricTentacle:
 	Inherits@wh: ^FullDamage
@@ -240,6 +238,7 @@ BlueTibBurstExplo:
 
 SonicEmitterProj:
 	ReloadDelay: 100
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry, Wall
 	Range: 11c0
 	Report: bsonwea.wav, bsonweb.wav, bsonwec.wav, bsonwed.wav, bsonwee.wav, bsonwef.wav, bsonweg.wav, bsonweh.wav, bsonwei.wav, bsonwej.wav, bsonwek.wav
 	Projectile: WarheadTrailProjectile
@@ -253,7 +252,6 @@ SonicEmitterProj:
 		ExplodeUnderThisAltitude: -9999
 		Blockable: false
 		KillProjectilesWhenReachedTargetLocation: false #try putting true
-	Warhead@1Dam: TargetDamage
 
 SonicEmitterHit:
 	Inherits: ^FullDamage
@@ -370,9 +368,8 @@ FloaterCloudSpawn:
 	Inherits: ^RifleWarhead
 	ReloadDelay: 150
 	Range: 5c0
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry, Wall
 	Projectile: InstantExplode
-	Warhead@1Dam: TargetDamage
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 	Warhead@5cloud: SpawnSmokeParticle
 		Weapon: CloudDamage
 		Count: 1
@@ -450,11 +447,7 @@ ServiceDepotDroneSpawn:
 	Projectile: InstantExplode
 	InvalidTargets: FullHealth, NoRepair
 	ValidTargets: Vehicle, Air
-	Warhead@1Dam: TargetDamage
-		Damage: 0
-		InvalidTargets: FullHealth, NoRepair
-		ValidTargets: Vehicle, Air
-		ValidRelationships: Ally
+	ValidRelationships: Ally
 
 Demolish:
 	Warhead@1Dam: SpreadDamage

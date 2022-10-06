@@ -2,9 +2,8 @@
 DemoTruckDummyWeapon:
 	ReloadDelay: 100
 	Range: 1c512
+	ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
 	Projectile: InstantExplode
-	Warhead@1Dam: TargetDamage
-		Damage: 0
 
 EyeLookingDummyWeapon:
 	Range: 6c0
@@ -12,9 +11,6 @@ EyeLookingDummyWeapon:
 	ValidTargets: Ground, Water
 	InvalidTargets: Building, Defence, Wall, Eye
 	Projectile: InstantExplode
-	Warhead@NoDam: TargetDamage
-		Damage: 0
-		ValidTargets: Air, Ground, Water
 
 Eye2LookingDummyWeapon:
 	Inherits: EyeLookingDummyWeapon
@@ -29,16 +25,12 @@ LurkerAimDummyWeapon:
 	Range: 9c0
 	ValidTargets: Ground, Water, Infantry, Vehicle, Building
 	Projectile: InstantExplode
-	Warhead@NoDam: TargetDamage
-		ValidTargets: Ground, Water, Infantry, Vehicle, Building
 
 LimpedAimDummyWeapon:
 	ReloadDelay: 40
 	Range: 7c0
 	ValidTargets: Ground, Water, Infantry, Vehicle, Building
 	Projectile: InstantExplode
-	Warhead@NoDam: TargetDamage
-		ValidTargets: Ground, Water, Infantry, Vehicle, Building
 
 AITransportAimingDummyWeapon:
 	ReloadDelay: 20
@@ -46,49 +38,32 @@ AITransportAimingDummyWeapon:
 	Range: 4c0
 	ValidTargets: Ground, Water
 	Projectile: InstantExplode
-	Warhead@NoDam: TargetDamage
-		ValidTargets: Ground, Water
 
 AIGlyder1AimingDummyWeapon:
 	ReloadDelay: 50
 	Range: 6c0
 	ValidTargets: Air
 	Projectile: InstantExplode
-	Warhead@NoDam: TargetDamage
-		ValidTargets: Air
 
 AIGlyder2AimingDummyWeapon:
 	ReloadDelay: 50
 	Range: 6c0
 	ValidTargets: Ground, Water
 	Projectile: InstantExplode
-	Warhead@NoDam: TargetDamage
-		ValidTargets: Ground, Water
 
 FirestormAIAimingDummyWeapon:
 	Range: 11c0
 	ValidTargets: Air, Ground, Water
 	Projectile: InstantExplode
-	Warhead@NoDam: TargetDamage
-		Damage: 0
-		ValidTargets: Air, Ground, Water
 
 ApcReconDummyWeapon:
 	ValidTargets: Ground, Water, Air
 	Range: 20c0
 	ReloadDelay: 19
-	Projectile: InstantHit
-		Blockable: false
-	Warhead@NoDam: TargetDamage
-		Damage: 0
-		ValidTargets: Air, Ground, Water
+	Projectile: InstantExplode
 
 DroneReconDummyWeapon:
 	ValidTargets: Ground, Air, Water
 	Range: 0c512
 	ReloadDelay: 19000
-	Projectile: InstantHit
-		Blockable: false
-	Warhead@NoDam: TargetDamage
-		Damage: 0
-		ValidTargets: Air, Ground, Water
+	Projectile: InstantExplode

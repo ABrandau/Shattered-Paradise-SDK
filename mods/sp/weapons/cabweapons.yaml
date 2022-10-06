@@ -189,6 +189,7 @@ GLAD120mm:
 LurkerProj:
 	ReloadDelay: 100
 	Range: 10c0
+	ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
 	Projectile: WarheadTrailProjectile
 		Offsets: 0,128,0 #, 64,96,0, -64,96,0
 		FireMode: Line # try putting "Line" or "Spread" here, "Focus"
@@ -200,8 +201,6 @@ LurkerProj:
 		ExplodeUnderThisAltitude: -9999
 		Blockable: false
 		KillProjectilesWhenReachedTargetLocation: false #try putting true
-	Warhead@1Dam: TargetDamage
-		Damage: 0
 
 LurkerHit:
 	Inherits: ^FullDamage
@@ -680,8 +679,6 @@ CabPitFighterSpawn:
 	Range: 8c0
 	Projectile: InstantExplode
 	ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
-	Warhead@1Dam: TargetDamage
-		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
 
 CabJetMiniBomb:
 	Inherits: ^RifleWarhead
@@ -763,7 +760,7 @@ CABRAILAA:
 LaserFence:
 	TargetActorCenter: true
 	Projectile: InstantHit
-	Warhead@1Dam: TargetDamage
+	Warhead@1Dam: TargetDamage ## ensure instant kill
 		DebugOverlayColor: FF0000
 		Damage: 99999
 		DamageTypes: FireDeath

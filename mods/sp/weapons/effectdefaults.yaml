@@ -391,23 +391,18 @@
 		Amount: 2
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		AirThreshold: 8c0
-	Warhead@Line: TargetDamage
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 
 ## Used in ExplodeWeapon only
 ^AircraftCasing:
 	ReloadDelay: 5
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 	Projectile: AthenaProjectile
 		Altitude: 2560
-	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-	Warhead@0Dam: TargetDamage
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 	Warhead@op: FireRadius
 		Weapon: CasingDebrisAir
 		ImpactActors: false
 		Amount: 1
-		ValidTargets: Ground, Water, Air
-		InvalidTargets: Infantry, Vehicle, Building, Wall
+		ValidTargets: Ground, Water, Air, Infantry, Vehicle, Building, Wall
 		AirThreshold: 8c0
 
 ^LineProjectile:
@@ -425,8 +420,6 @@
 		ContrailLength: 2
 		ContrailWidth: 30
 		ContrailZOffset: 3000
-	Warhead@Line: TargetDamage
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 
 ^LineProjectileCyan:
 	Inherits: ^LineProjectile
