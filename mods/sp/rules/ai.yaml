@@ -37,25 +37,28 @@ Player:
 	#################################
 	## Drop "HarvesterBotModule" due to it is senseless when we now use Building as cash cheat,
 	##  and sub base is impossible for OpenRA at present. Also this module is heavily performance questionable
-
-	GrantConditionAfterDelay@AIantiRush-unit-order:
-		RequiresCondition: AIBase
-		Condition: AIantiRush-unit-order
-		Delay: 3300
-		ShowSelectionBar: false
-	CashTrickler@AIantiRush-unit-order: ## enough cash to build early game infantry
-		Interval: 500
-		Amount: 200
-		ShowTicks: false
-		RequiresCondition: AIBase && !AIantiRush-unit-order
-	ProvidesPrerequisite@AIantiRush-unit-order:
-		RequiresCondition: (!AIBase) || (AIBase && AIantiRush-unit-order)
-		Prerequisite: AIantiRush-unit-order
-
 	#HarvesterBotModule: 
 	#	RequiresCondition: AIBase
 	#	HarvesterTypes: harv, scrharv
 	#	RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4
+
+	GrantConditionAfterDelay@AIantiRush-unit-order:
+		RequiresCondition: AIBase
+		Condition: AIantiRush-unit-order
+		Delay: 3000
+		ShowSelectionBar: false
+	ProvidesPrerequisite@AIantiRush-unit-order:
+		RequiresCondition: (!AIBase) || (AIBase && AIantiRush-unit-order)
+		Prerequisite: AIantiRush-unit-order
+	GrantConditionOnPrerequisite@megawealth:
+		Condition: megawealth
+		Prerequisites: global-megawealth
+	CashTrickler@CashCheat: ## enough cash to build early game infantry, always on for megawealth
+		Interval: 500
+		Amount: 400
+		ShowTicks: false
+		RequiresCondition: AIBase && (megawealth || !AIantiRush-unit-order)
+
 	AutoDeployManager@AIall:
 		RequiresCondition: AIBase || AIEasy
 	GrantConditionOnPrerequisite@powerplug:
@@ -69,14 +72,6 @@ Player:
 	ProvidesPrerequisite@AISpecialProduce:
 		RequiresCondition: AICheater || AIShattered
 		Prerequisite: AIOnly
-	GrantConditionOnPrerequisite@megawealth:
-		Condition: megawealth
-		Prerequisites: global-megawealth
-	CashTrickler@AImegawealthCashCheat:
-		Interval: 500
-		Amount: 400
-		ShowTicks: false
-		RequiresCondition: megawealth && AIBase
 	BaseBuilderBotModule@AIBase:
 		RequiresCondition: AIBase || AIEasy
 		BuildingQueues: Building.Shared, Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
