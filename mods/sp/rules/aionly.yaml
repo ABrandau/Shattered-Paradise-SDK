@@ -892,6 +892,7 @@ HMECTEST:
 		Actors: MKIIIDRONE-MINIGUN, MKIIIDRONE-MINIGUN
 		SpawnOffset: 0,0,1024, 0,0,1024
 		RespawnTicks: 128
+		FollowAfterAttackDelay: 35
 		PauseOnCondition: inside-tunnel || carried
 	Carryable:
 		LocalOffset: 0, 0, 1536
@@ -970,6 +971,11 @@ MKIIIDRONE-MINIGUN:
 	Armament@2Bullet:
 		Weapon: MKIIIDroneVulcanLine
 		LocalOffset: 350,0,-350
+	Armament@Repair:
+		Weapon: MKIIIDroneRepair
+		LocalOffset: 0,0,-350
+		TargetRelationships: Ally
+		ForceTargetRelationships: Ally
 	AttackTurreted:
 		Armaments: primary
 		PersistentTargeting: false
@@ -983,6 +989,7 @@ MKIIIDRONE-MINIGUN:
 	AutoTarget:
 		InitialStance: Defend
 		InitialStanceAI: Defend
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	-Rearmable:
 	Health:
 		HP: 10000

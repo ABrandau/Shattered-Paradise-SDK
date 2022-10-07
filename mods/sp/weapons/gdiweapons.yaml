@@ -1168,6 +1168,7 @@ SonicClusterMissileShell:
 MKIIIDroneVulcan:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^PiffsCyan
+	ValidRelationships: Enemy, Neutral
 	StartBurstReport: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
 	ReloadDelay: 5
 	Range: 5c0
@@ -1184,6 +1185,7 @@ MKIIIDroneVulcan:
 
 MKIIIDroneVulcanCasing:
 	Inherits: ^BulletCasing
+	ValidRelationships: Enemy, Neutral
 	ReloadDelay: 5
 	Range: 5c0
 	ValidTargets: Ground, Water
@@ -1194,8 +1196,29 @@ MKIIIDroneVulcanCasing:
 
 MKIIIDroneVulcanLine:
 	Inherits: ^LineProjectileCyan
+	ValidRelationships: Enemy, Neutral
 	ReloadDelay: 5
 	Range: 5c0
 	ValidTargets: Ground, Water
 	Projectile: BulletAS
 		Speed: 0c928
+
+MKIIIDroneRepair:
+	Inherits: RepairVehicleLasor
+	ReloadDelay: 50
+	Range: 2c0
+	Report: vifvrepa.wav
+	ValidTargets: Vehicle
+	Projectile: LaserZap
+		ZOffset: 4000
+		Color: FFFF70
+		Width: 16
+		Duration: 5
+		HitAnim: explosion
+		HitAnimSequence: repairsparks
+		HitAnimPalette: player
+		SecondaryBeam: false
+	Warhead@1Dam: SpreadDamage
+		Damage: -2000
+		ValidTargets: Vehicle
+		ValidRelationships: Ally
