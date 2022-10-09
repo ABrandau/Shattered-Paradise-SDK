@@ -17,6 +17,8 @@ DOGGIE:
 		TargetTypes: Infantry, Ground
 	Armament:
 		Weapon: FiendShard
+	AutoTarget:
+		ScanRadius: 5 #PREF: save trait looks up and scan armaments
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
@@ -133,7 +135,7 @@ ZOMBIE:
 		EmptyWeapon: ZombieExplosion
 		Chance: 80
 	AutoTarget:
-		ScanRadius: 3
+		ScanRadius: 5
 	Mobile:
 		Speed: 60
 	-SpawnActorOnDeath@conversion:
@@ -202,7 +204,7 @@ BERSERKER:
 	Armament:
 		Weapon: BerserkerBlow
 	AutoTarget:
-		ScanRadius: 4
+		ScanRadius: 5
 	WithInfantryBody:
 		AttackSequences: shoot
 		IdleSequences: idle1, idle2, idle3
@@ -523,6 +525,7 @@ GEYE:
 		Weapon: Eye2LookingDummyWeapon
 		TargetRelationships: Enemy, Neutral, Ally
 	AutoTarget:
+		ScanRadius: 4 #PREF: save trait looks up and scan armaments
 		MinimumScanTimeInterval: 31
 		MaximumScanTimeInterval: 31
 	AttackPopupTurreted:
@@ -564,6 +567,8 @@ WEYE:
 		Terrain: Water
 	Armament:
 		Weapon: EyeLookingDummyWeapon
+	AutoTarget:
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 
 SNOWEYE:
 	Inherits: WEYE

@@ -406,6 +406,8 @@ NEUTRALSONICTUR:
 	WithSpriteTurret:
 	AttackTurreted:
 		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 11 #PREF: save trait looks up and scan armaments
 	Armament@1:
 		Weapon: SonicEmitterProj
 		PauseOnCondition: empdisable
@@ -441,6 +443,8 @@ CABCANNON:
 		Weapon: CTurretCannon
 		LocalOffset: 750,0,650
 		MuzzleSequence: muzzle
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	RequiresBuildableArea:
 		AreaTypes: building
 	ActorStatValues:
@@ -473,6 +477,8 @@ REPAIRTUR:
 	WithSpriteTurret:
 	AttackTurreted:
 		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 5 #PREF: save trait looks up and scan armaments
 	Armament:
 		Weapon: RepairNeutralTurret
 		Cursor: repair
@@ -855,32 +861,6 @@ MTAR:
 		DeployTrigger: Periodically
 		DeployTicks: 1700
 		UndeployTicks: 2000
-
-## will probably not used forever
-GAARTY:
-	Inherits@1: ^DeployedVehicle
-	Valued:
-		Cost: 975
-	Tooltip:
-		Name: Deployed Artillery
-	Health:
-		HP: 30000
-	Turreted:
-		TurnSpeed: 20
-		InitialFacing: 512
-		Offset: 0,0,171
-	Armament:
-		Weapon: 155mm
-		LocalOffset: 811,0,0
-		MuzzleSequence: muzzle
-	BodyOrientation:
-		QuantizedFacings: 32
-	RenderVoxels:
-		LightAmbientColor: 0.4, 0.4, 0.4
-	WithVoxelBarrel:
-		LocalOffset: 0,0,-512
-	WithVoxelTurret:
-	WithMuzzleOverlay:
 
 TACNST:
 	Inherits: GACNST
