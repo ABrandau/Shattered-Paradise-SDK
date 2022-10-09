@@ -487,7 +487,7 @@ MUTMRLSRocket:
 		Shadow: false
 		LaunchAngle: 62
 		Inaccuracy: 2c0
-		TrailPalette: effectalpha40
+		TrailPalette: effect
 		Image: DRAGON
 		TrailImage: small_smoke_trail
 		Palette: pips
@@ -739,7 +739,8 @@ GargoylACannonCasing:
 	Warhead@op: FireShrapnel
 		Weapon: ShellCasingDebris
 
-FalconPunch1:
+FalconPunch:
+	Inherits: ^RocketWarhead
 	Inherits: ^BombWarhead
 	Inherits@2: ^Large_Clsn
 	TargetActorCenter: true
@@ -749,12 +750,9 @@ FalconPunch1:
 	ReloadDelay: 1
 	MinRange: 0c100
 	Range: 5c0
-	Projectile: BulletAS
-		Speed: 0c500
-		Blockable: false
-		Shadow: false
-		Image: DRAGON
-		Sequences: idle2
+	Projectile: MissileTA
+		Speed: 400
+		CruiseAltitude: 1024
 		Palette: playermut
 		IsPlayerPalette: true
 		ContrailLength: 7
@@ -767,8 +765,6 @@ FalconPunch1:
 		ContrailDelay: 0
 		TrailPalette: effect
 		TrailImage: small_smoke_trail
-		TrailDelay: 0
-		TrailInterval: 1
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
 		Falloff: 100, 65, 45, 25, 5
@@ -778,25 +774,16 @@ FalconPunch1:
 		Versus:
 			Heavy: 100
 
-FalconPunch2:
-	Inherits: FalconPunch1
+FalconPunchMute:
+	Inherits: FalconPunch
 	FirstBurstTargetOffset: 200,-150,0
 	-Report:
 
-FalconPunch3:
-	Inherits: FalconPunch1
-	FirstBurstTargetOffset: 200,150,0
-	-Report:
 
-FalconPunch4:
-	Inherits: FalconPunch1
-	FirstBurstTargetOffset: -200,450,0
-	-Report:
-
-FalconPunchGas1:
-	Inherits: FalconPunch1
+FalconPunchGas:
+	Inherits: FalconPunch
 	Inherits@3: ^SpawnsIrradiation
-	Projectile: BulletAS
+	Projectile: MissileTA
 		ContrailStartColor: 00CC00AA
 		ContrailEndColor: 221100
 		TrailSequences: idle3
@@ -825,20 +812,11 @@ FalconPunchGas1:
 	Warhead@1Dam: SpreadDamage
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
 
-FalconPunchGas2:
-	Inherits: FalconPunchGas1
+FalconPunchGasMute:
+	Inherits: FalconPunchGas
 	FirstBurstTargetOffset: 200,-150,0
 	-Report:
 
-FalconPunchGas3:
-	Inherits: FalconPunchGas1
-	FirstBurstTargetOffset: 200,150,0
-	-Report:
-
-FalconPunchGas4:
-	Inherits: FalconPunchGas1
-	FirstBurstTargetOffset: -200,450,0
-	-Report:
 
 ForgottenCannonWeapon:
 	Inherits: ^APWarhead

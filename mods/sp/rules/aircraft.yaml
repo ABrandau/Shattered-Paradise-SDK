@@ -41,13 +41,13 @@ ORCA:
 	Armament:
 		Weapon: FighterHellfire
 		LocalOffset: 500,150,70, 500,-150,70
-		LocalYaw: -100, 100
+		LocalYaw: -90, 90
 		ReloadingCondition: reload-ground
 		PauseOnCondition: !ammo || reload-air
 	Armament@AA:
 		Weapon: FighterHellfireAA
 		LocalOffset: 500,150,70, 500,-150,70
-		LocalYaw: -100, 100
+		LocalYaw: -90, 90
 		ReloadingCondition: reload-air
 		PauseOnCondition: !ammo || reload-ground
 	AttackAircraft:
@@ -841,43 +841,51 @@ WETP:
 	Health:
 		HP: 15000
 	Armament@1:
-		Weapon: FalconPunch1
+		Weapon: FalconPunch
 		LocalOffset: 0, -600, 0
+		LocalYaw: 100
 		PauseOnCondition: !ammo
 		RequiresCondition: !tibgaswh
 	Armament@2:
-		Weapon: FalconPunch4
+		Weapon: FalconPunchMute
 		LocalOffset: 0, 600, 0
+		LocalYaw: -100
 		PauseOnCondition: !ammo
 		RequiresCondition: !tibgaswh
 	Armament@3:
-		Weapon: FalconPunch2
+		Weapon: FalconPunchMute
 		LocalOffset: 0, -300, 0
+		LocalYaw: 64
 		PauseOnCondition: !ammo
 		RequiresCondition: !tibgaswh
 	Armament@4:
-		Weapon: FalconPunch3
+		Weapon: FalconPunchMute
 		LocalOffset: 0, 300, 0
+		LocalYaw: -64
 		PauseOnCondition: !ammo
 		RequiresCondition: !tibgaswh
 	Armament@Upg1:
-		Weapon: FalconPunchGas1
+		Weapon: FalconPunchGas
 		LocalOffset: 0, -600, 0
+		LocalYaw: 100
 		PauseOnCondition: !ammo
 		RequiresCondition: tibgaswh
 	Armament@Upg2:
-		Weapon: FalconPunchGas4
+		Weapon: FalconPunchGasMute
 		LocalOffset: 0, 600, 0
+		LocalYaw: -100
 		PauseOnCondition: !ammo
 		RequiresCondition: tibgaswh
 	Armament@Upg3:
-		Weapon: FalconPunchGas2
+		Weapon: FalconPunchGasMute
 		LocalOffset: 0, -300, 0
+		LocalYaw: 64
 		PauseOnCondition: !ammo
 		RequiresCondition: tibgaswh
 	Armament@Upg4:
-		Weapon: FalconPunchGas3
+		Weapon: FalconPunchGasMute
 		LocalOffset: 0, 300, 0
+		LocalYaw: -64
 		PauseOnCondition: !ammo
 		RequiresCondition: tibgaswh
 	AttackAircraft:
