@@ -44,6 +44,8 @@ GDIE1:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 5 #PREF: save trait looks up and scan armaments
 	RenderSprites:
 	WithInfantryBody:
 		RequiresCondition: !inside-tunnel && !WebDisable && !nanofibers
@@ -120,6 +122,8 @@ GRENADIER:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	Passenger:
 		CustomPipType: blue
 	WithInfantryBody:
@@ -183,6 +187,8 @@ MEDIC:
 		PauseOnCondition: WebDisable
 	AttackFrontal:
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 5 #PREF: save trait looks up and scan armaments
 	Passenger:
 		CustomPipType: red
 	DamagedByTerrain:
@@ -231,6 +237,8 @@ E2:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	WithInfantryBody:
 		RequiresCondition: !inside-tunnel && !WebDisable && !nanofibers
 	WithInfantryBody@nanofibers:
@@ -301,6 +309,8 @@ JUMPJET:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage
 		DeployTrigger: Damage
@@ -394,6 +404,8 @@ JUMPJETAIR:
 		FacingTolerance: 20
 		Voice: Attack
 		AttackType: Hover
+	AutoTarget:
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	GrantConditionOnAttack:
 		Condition: JJBuff
 		RevokeDelay: 8
@@ -459,6 +471,8 @@ EAGLEGUARD:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	Passenger:
 		CustomPipType: blue
 	ActorStatValues:
@@ -532,6 +546,8 @@ JJCOMM:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage
 		DeployTrigger: Damage
@@ -630,6 +646,8 @@ JJCOMMAIR:
 		FacingTolerance: 20
 		Voice: Attack
 		AttackType: Hover
+	AutoTarget:
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	GrantConditionOnAttack:
 		Condition: JJBuff
 		RevokeDelay: 5
@@ -696,6 +714,8 @@ ALTNODE1:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 5 #PREF: save trait looks up and scan armaments
 	RenderSprites:
 	ActorStatValues:
 		Damage: 16
@@ -745,10 +765,11 @@ CRUSADER:
 		ReloadingCondition: reload-air
 		PauseOnCondition: WebDisable || reload-ground
 	-TakeCover:
-	AttackTurreted:
+	AttackFollow:
 		Voice: Attack
 		Armaments: OnFoot
-	Turreted:
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	Voiced:
 		VoiceSet: CMCrusaders
 	Passenger:
@@ -813,6 +834,8 @@ TEMPLAR:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 5 #PREF: save trait looks up and scan armaments
 	RenderSprites:
 	-DamagedByTerrain:
 	-TakeCover:
@@ -863,6 +886,8 @@ NCONF:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	RenderSprites:
 	Voiced:
 		VoiceSet: BlackHand
@@ -934,6 +959,8 @@ BHS:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 11 #PREF: save trait looks up and scan armaments
 	Demolition:
 		DetonationDelay: 45
 		Voice: Attack
@@ -1085,6 +1112,8 @@ MARAUDER:
 		RequiresCondition: undeployed
 		PauseOnCondition: WebDisable
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	AttackTurreted@deployed:
 		Armaments: OnFoot
 		Voice: Attack
@@ -1200,6 +1229,8 @@ MUTFIEND:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	-TakeCover:
 	-WithDeathAnimation@tib:
 	-SpawnActorOnDeath@FLAMEGUY:
@@ -1342,6 +1373,8 @@ E3:
 		Armaments: OnFoot
 		TargetFrozenActors: true
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 11 #PREF: save trait looks up and scan armaments
 	-DamagedByTintedCells@Default:
 	-DamagedByTintedCells@BlueRadiation:
 	ActorStatValues:
@@ -1400,6 +1433,8 @@ SEER:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: deployed
 		CooldownTicks: 2000
@@ -1472,6 +1507,8 @@ PSYKER:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 15 #PREF: save trait looks up and scan armaments
 	ActorStatValues:
 		Damage: 400
 
@@ -1583,6 +1620,8 @@ LEGIO:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	ActorStatValues:
 		Damage: 30
 		SplitRanges: true
@@ -1654,6 +1693,8 @@ FLOAT:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	-TakeCover:
 	ActorStatValues:
 		Damage: -40
@@ -1714,6 +1755,8 @@ BUG:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	-TakeCover:
 	Passenger:
 		CustomPipType: blue
@@ -1768,6 +1811,8 @@ COLOSSI:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	Crushable:
 		CrushClasses: HeavyInfantry
 	-TakeCover:
@@ -1880,6 +1925,8 @@ MASTERMIND:
 		CrushClasses: HeavyInfantry
 	AttackFrontal:
 		Armaments: primary, control
+	AutoTarget:
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	RenderRangeCircle:
 		RangeCircleType: Subjugator
 		Color: 800080CC
@@ -2026,6 +2073,8 @@ CYBORG:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 5 #PREF: save trait looks up and scan armaments
 	SelectionDecorations:
 	ActorStatValues:
 		Damage: 66
@@ -2109,6 +2158,8 @@ CBORG:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	RenderSprites:
 	Passenger:
 		CustomPipType: blue
@@ -2323,6 +2374,8 @@ GLAD:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	ActorStatValues:
 		Damage: 200
 		Upgrades: upgrade.cybernetic_leg_enhancements, upgrade.regenerative_materials
@@ -2444,6 +2497,8 @@ MOTH:
 		PauseOnCondition: WebDisable || empdisable
 		Armaments: OnFoot
 		FacingTolerance: 512
+	AutoTarget:
+		ScanRadius: 11 #PREF: save trait looks up and scan armaments
 	RenderRangeCircle:
 		Color: FFFF00CC
 		BorderColor: 000000CC
@@ -2504,6 +2559,8 @@ CYC2:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	Passenger:
 		CustomPipType: red
 	SharedPassenger:
@@ -2583,6 +2640,8 @@ CYBDOG:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 5 #PREF: save trait looks up and scan armaments
 	SelectionDecorations:
 	-SpawnActorOnDeath@nanomachinereanimate:
 	-ExternalCondition@nanomachinereanimate:
@@ -2634,6 +2693,8 @@ CHUSK:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 5 #PREF: save trait looks up and scan armaments
 	SelectionDecorations:
 	-SpawnActorOnDeath@nanomachinereanimate:
 	-ExternalCondition@nanomachinereanimate:
@@ -2678,6 +2739,8 @@ WORKERMECH:
 		TurnSpeed: 30
 	AttackTurreted:
 		Voice: Attack
+	AutoTarget:
+		ScanRadius: 5 #PREF: save trait looks up and scan armaments
 	WithSpriteTurret:
 		Recoils: true
 		RequiresCondition: !inside-tunnel && !WebDisable
@@ -2727,6 +2790,8 @@ NANOS:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 5 #PREF: save trait looks up and scan armaments
 	Armament@1:
 		Weapon: NanoNeedle
 		LocalOffset: 0, 0, 350
