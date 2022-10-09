@@ -426,19 +426,23 @@ TiberiumExplosion:
 		InvalidTargets: Vehicle, Building, Wall
 
 ZombieExplosion:
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
 	Warhead@3Eff: CreateEffect
 		Explosions: tibexp
 		ValidTargets: Ground, Air, Water
 		ImpactActors: false
 		ImpactSounds: expnew09.aud
-	Warhead@3Radio2: CreateTintedCells
-		Spread: 512
-		Level: 200
-		Falloff: 100, 50, 25
-		MaxLevel: 1000
+	Warhead@5cloud: SpawnSmokeParticle
+		Weapon: CloudDamage
+		Count: 2
+		Duration: 95
+		Speed: 30
+		TurnRate: 24
+		Image: tibcloud
+		StartSequences: cloud2start
+		Sequences: cloud2
+		EndSequences: cloud2end
+		Palette: effectalpha50
+		AirThreshold: 8c0
 
 BlueTibBarrelExplo:
 	Inherits: ^ExploDefaults

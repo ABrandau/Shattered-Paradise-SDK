@@ -766,6 +766,7 @@ MultiCluster1:
 
 MultiCluster2:
 	Inherits: MultiCluster1
+	Inherits@3: ^SpawnsIrradiation
 	Range: 2c512
 	Projectile: MissileTA
 		Speed: 300
@@ -777,7 +778,7 @@ MultiCluster2:
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: jascgreenalpha
 	Warhead@5cloud: SpawnSmokeParticle
-		Count: 1
+		Count: 2
 		Weapon: CloudDamage
 		Duration: 179
 		Speed: 30
@@ -789,10 +790,7 @@ MultiCluster2:
 		Palette: effectalpha50
 		AirThreshold: 8c0
 	Warhead@3Radio: CreateTintedCells
-		Level: 300
-		Spread: 1c0
-		Falloff: 60, 40, 20, 10
-		AirThreshold: 8c0
+		Level: 50
 
 MultiCluster3:
 	Inherits: MultiCluster1
