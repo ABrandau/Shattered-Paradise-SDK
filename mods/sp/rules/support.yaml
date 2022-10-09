@@ -29,6 +29,8 @@ GAVULC:
 		HP: 60000
 	AttackTurreted:
 		Armaments: primary, decoration
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	Armament@1:
 		Weapon: VulcanTower
 		LocalOffset: 588,120,1358, 588,-120,1358
@@ -137,6 +139,8 @@ GAROCK:
 		ReplaceableTypes: Tower
 	ActorStatValues:
 		Damage: 100
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 
 GACSAM:
 	Inherits: ^TurretedDefence
@@ -167,6 +171,8 @@ GACSAM:
 		Weapon: GdiRedEye
 		LocalOffset: 400,0,1800
 		PauseOnCondition: Building-Buildup
+	AutoTarget:
+		ScanRadius: 12 #PREF: save trait looks up and scan armaments
 	WithIdleOverlay@LIGHTS:
 		RequiresCondition: !Building-Buildup && !disabled
 		Sequence: idle-lights
@@ -226,6 +232,8 @@ GASONC:
 		PauseOnCondition: Building-Buildup
 		MuzzleSequence: muzzle
 		MuzzlePalette: gensmkexplocyan70
+	AutoTarget:
+		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	WithMuzzleOverlay:
 	WithIdleOverlay@LIGHTS:
 		RequiresCondition: !Building-Buildup && !disabled
@@ -276,6 +284,8 @@ NALASR:
 		MuzzleSequence: muzzle
 		MuzzlePalette: jascredalpha
 		PauseOnCondition: Building-Buildup
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	WithMuzzleOverlay:
 	Power:
 		Amount: -40
@@ -318,6 +328,8 @@ NAOBEL:
 		PauseOnCondition: empdisable || disabled
 		ChargeLevel: 40
 		ChargingCondition: charging
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	AmbientSound:
 		RequiresCondition: charging && !disabled
 		SoundFiles: obelpowr.aud
@@ -360,6 +372,8 @@ NASAM:
 		Weapon: RedEye2Tib
 		LocalOffset: 400,0,1024
 		RequiresCondition: tibcore
+	AutoTarget:
+		ScanRadius: 12 #PREF: save trait looks up and scan armaments
 	ActorStatValues:
 		Damage: 50
 
@@ -407,6 +421,8 @@ MUBUNKR:
 		PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
 		PortYaws: 0, 176, 341, 512, 682, 853
 		PortCones: 88, 88, 88, 88, 88, 887
+	AutoTarget:
+		ScanRadius: 15 #PREF: save trait looks up and scan armaments
 	WithSpriteBody:
 		PauseOnCondition: loaded && !Building-Buildup
 	WithIdleOverlay@1@asd:
@@ -465,6 +481,8 @@ MUCANNON:
 		InitialFacing: 896
 	AttackTurreted:
 		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	DetectCloaked:
 		RequiresCondition: !empdisable
 	WithMuzzleOverlay:
@@ -508,6 +526,8 @@ MUFLAK:
 		InitialFacing: 368
 	AttackTurreted:
 		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 12 #PREF: save trait looks up and scan armaments
 	WithMuzzleOverlay:
 	Armament:
 		Weapon: FlakFire
@@ -560,6 +580,8 @@ CABPIT:
 		HP: 60000
 	AttackOmni:
 		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	Armament:
 		Weapon: CabPitFighterSpawn
 		PauseOnCondition: Building-Buildup
@@ -601,6 +623,8 @@ CABBLAST:
 		QuantizedFacings: 32
 	Turreted:
 		InitialFacing: 368
+	AutoTarget:
+		ScanRadius: 11 #PREF: save trait looks up and scan armaments
 	WithMuzzleOverlay:
 	Armament:
 		Weapon: BlasterProton
@@ -632,6 +656,8 @@ CABRAIL:
 		Weapon: CABRAILAA
 		LocalOffset: 600,400,2000, 600,-400,2000
 		PauseOnCondition: Building-Buildup
+	AutoTarget:
+		ScanRadius: 12 #PREF: save trait looks up and scan armaments
 	ActorStatValues:
 		Damage: 50
 
@@ -658,6 +684,8 @@ SCRNEEDLER:
 		HP: 80000
 	Turreted:
 		InitialFacing: 368
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	Armament@1:
 		Weapon: WasteTurretWeapon
 		LocalOffset: 1000,-100,500, 1000,100,500
@@ -709,6 +737,8 @@ SCRDRONE:
 		HP: 100000
 	AttackOmni:
 		PauseOnCondition: empdisable || disabled
+	AutoTarget:
+		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	Armament:
 		Weapon: SrcinOrb
 		LocalOffset: 0, 0, 3000
@@ -772,6 +802,8 @@ SCRTRACTOR:
 		BuildDurationModifier: 100
 	Turreted:
 		InitialFacing: 368
+	AutoTarget:
+		ScanRadius: 12 #PREF: save trait looks up and scan armaments
 	Armament@2:
 		Weapon: TractorBeam
 		LocalOffset: 512,600,1948
@@ -914,6 +946,7 @@ GAFIRE:
 		InitialStanceAI: Defend
 		MinimumScanTimeInterval: 41
 		MaximumScanTimeInterval: 50
+		ScanRadius: 11 #PREF: save trait looks up and scan armaments
 	AutoTargetPriority@AIonly:
 		RequiresCondition: AIbuildingMicroControl
 		ValidRelationships: Enemy
@@ -1618,6 +1651,8 @@ BLACKDEFD:
 		DecorationHeight: 36
 	AttackOmni:
 		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 19 #PREF: save trait looks up and scan armaments
 	Armament@final:
 		Weapon: BlackCDefArtillery
 		LocalOffset: 0, -256, 2048

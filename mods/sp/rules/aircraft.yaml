@@ -33,6 +33,7 @@ ORCA:
 		LandingSounds: orcadwn1.aud
 		CanSlide: false
 	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
 	Health:
@@ -135,6 +136,7 @@ ORCAB:
 	AttackAircraft:
 		FacingTolerance: 128
 	AutoTarget:
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
 	AmmoPool:
@@ -360,6 +362,7 @@ APACHE:
 		ReloadDelay: 50
 		AmmoCondition: ammo
 	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
 	WithIdleOverlay@ROTORAIR:
@@ -448,6 +451,7 @@ SCRIN:
 		ReloadDelay: 83
 		AmmoCondition: ammo
 	AutoTarget:
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
 	DeathSounds:
@@ -549,6 +553,8 @@ CERBERUS:
 		AttackType: Hover
 		FacingTolerance: 20
 		Voice: Attack
+	AutoTarget:
+		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 	-ExternalCondition@crate-cloak:
@@ -652,6 +658,8 @@ MUTHELI:
 		TurnSpeed: 28
 		Speed: 195
 		MoveIntoShroud: true
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	Health:
 		HP: 15000
 	WithIdleOverlay@ROTORAIR:
@@ -771,6 +779,8 @@ MUTQUEEN:
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 40
+	AutoTarget:
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	Armament@1:
 		Weapon: QueenTooth
 		LocalOffset: 200, 0, -600
@@ -879,7 +889,7 @@ WETP:
 		ReloadDelay: 250
 		AmmoCondition: ammo
 	AutoTarget:
-		ScanRadius: 6
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
 	RenderSprites:
@@ -1013,6 +1023,8 @@ STORMRIDER:
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 512
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	SpawnActorOnDeath:
 		Actor: STORMRIDER.Husk
 		RequiresCondition: airborne
@@ -1150,6 +1162,8 @@ SCRGLYDER1:
 		AttackType: Hover
 		FacingTolerance: 40
 		Voice: Attack
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
@@ -1397,6 +1411,7 @@ SCRCARRIER:
 	AttackAircraft:
 		FacingTolerance: 512
 	AutoTarget:
+		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
@@ -1638,6 +1653,8 @@ REPAIRDRONE:
 		TakeUpCellWhenLand: false
 	AttackAircraft:
 		AttackType: Hover
+	AutoTarget:
+		ScanRadius: 3 #PREF: save trait looks up and scan armaments
 	RenderSprites:
 		Image: quaddrone-mini
 	-Contrail@1:
@@ -1705,6 +1722,8 @@ SCRBATTLESHIP:
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 512
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
@@ -1797,6 +1816,7 @@ WASP:
 		FacingTolerance: 40
 		Voice: Attack
 	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	RenderSprites:
 	WithFacingSpriteBody:
 	BodyOrientation:
@@ -1894,6 +1914,7 @@ BASILISK:
 		FacingTolerance: 40
 		Voice: Attack
 	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	RenderSprites:
 	WithFacingSpriteBody:
 	SpawnActorOnDeath:

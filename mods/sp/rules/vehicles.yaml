@@ -34,6 +34,7 @@ SMECH:
 		MustFaceTarget: true
 		Armaments: primary, decoration
 	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	Voiced:
 		VoiceSet: Mech
 	Selectable:
@@ -110,6 +111,8 @@ MMCH:
 		TurnSpeed: 32
 	AttackTurreted:
 		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	WithSpriteTurret:
 		Recoils: false
 		RequiresCondition: !inside-tunnel
@@ -185,6 +188,8 @@ APC:
 	AttackTurreted:
 		PauseOnCondition: empdisable
 		Armaments: primary, decoration
+	AutoTarget:
+		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	GrantConditionOnTerrain:
 		Condition: inwater
 		TerrainTypes: Water
@@ -334,6 +339,8 @@ HVR:
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	WithMuzzleOverlay:
 	BodyOrientation:
 		QuantizedFacings: 32
@@ -516,6 +523,8 @@ G4TNK:
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
@@ -587,6 +596,8 @@ HMEC:
 		FacingTolerance: 2
 		TargetFrozenActors: true
 		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 10 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
@@ -987,6 +998,8 @@ BGGY:
 	AttackTurreted:
 		TargetFrozenActors: true
 		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 11 #PREF: save trait looks up and scan armaments
 	###################################
 	# Turret Graphics
 	###################################
@@ -1193,6 +1206,8 @@ ATTACKBIKE:
 		PauseOnCondition: empdisable
 		FacingTolerance: 64
 		MustFaceTarget: true
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	ActorStatValues:
 		Damage: 50
 		SplitRanges: true
@@ -1337,6 +1352,8 @@ TTNK:
 		Armaments: DeployedArm
 		RequiresCondition: deployed
 		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && undeployed
 		DeployChance: 100
@@ -1349,7 +1366,6 @@ TTNK:
 TICKHOLOGRAM:
 	Inherits: ^Tank
 	Inherits@1: ^SpriteActor
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CAPACITORS: ^AffectedByLaserCapacitors
 	Inherits@HOLOGRAM: ^HologramKillTimer
 	Inherits@VISION: ^7CellVision
@@ -1410,10 +1426,6 @@ TICKHOLOGRAM:
 		Voice: Attack
 		PauseOnCondition: empdisable
 		FacingTolerance: 2
-	AutoTarget:
-		ScanRadius: 7
-		InitialStance: AttackAnything
-		InitialStanceAI: AttackAnything
 	-Explodes:
 	-ActorLostNotification:
 	-ThrowsShrapnel:
@@ -1588,6 +1600,8 @@ SUBTANK:
 	AttackFrontal:
 		PauseOnCondition: empdisable
 		FacingTolerance: 2
+	AutoTarget:
+		ScanRadius: 5 #PREF: save trait looks up and scan armaments
 	Targetable@MC:
 		RequiresCondition: !mindcontrolled && !submerged
 	WithVoxelBody:
@@ -1737,6 +1751,7 @@ STNK:
 		QuantizedFacings: 32
 		CameraPitch: 250
 	AutoTarget:
+		ScanRadius: 10 #PREF: save trait looks up and scan armaments
 		InitialStance: HoldFire
 		InitialStanceAI: ReturnFire
 	-GrantConditionOnPrerequisite@SUDDENDEATH:
@@ -1811,6 +1826,8 @@ SCORPION:
 		PauseOnCondition: empdisable
 		FacingTolerance: 6
 		Armaments: laserCharger, laserFire, fireArmament
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
 		QuantizedFacings: 8
 		CameraPitch: 250
@@ -1997,6 +2014,8 @@ MUTQUAD:
 	Turreted:
 		TurnSpeed: 24
 		Offset: -300,0,0
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
@@ -2047,6 +2066,7 @@ LYNX:
 		QuantizedFacings: 32
 		CameraPitch: 250
 	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	WithSpriteTurret:
 		RequiresCondition: !inside-tunnel
 	WithSpriteTurret@ROCKET:
@@ -2121,6 +2141,7 @@ STRUCK:
 	Passenger:
 		CargoType: Apc
 	AutoTarget:
+		ScanRadius: 15 #PREF: save trait looks up and scan armaments
 	AttackGarrisoned:
 		PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
 		PortYaws: 0, 176, 341, 512, 682, 853
@@ -2227,6 +2248,8 @@ WOLF:
 		Voice: Attack
 		FacingTolerance: 64
 		MustFaceTarget: true
+	AutoTarget:
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	-AttackFrontal:
 	ActorStatValues:
 		Damage: 37
@@ -2461,7 +2484,7 @@ WEASAU:
 		Notification: CommandoDetected
 		TextNotification: Enemy Weasaurus Lord detected.
 	AutoTarget:
-		ScanRadius: 7
+		ScanRadius: 8
 		InitialStance: AttackAnything
 	BodyOrientation:
 		QuantizedFacings: 8
@@ -2711,6 +2734,7 @@ CENTURION:
 		LocalOffset: 1250,550,1200, 900,-550,1200
 		PauseOnCondition: empdisable
 	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	Selectable:
 		Bounds: 1357, 2533, 0, -482
 	SmokeParticleEmitter@spawnsmoke:
@@ -2791,6 +2815,8 @@ REAPERCAB:
 		PauseOnCondition: empdisable
 		FacingTolerance: 64
 		MustFaceTarget: true
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	WithInfantryBody:
 		-DefaultAttackSequence:
 	BodyOrientation:
@@ -2870,6 +2896,8 @@ LIMPED:
 		FacingTolerance: 512
 		RequiresCondition: AImicroManage || deployed
 		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	ReloadArmamentsBar:
 	WithRangeCircle:
 		Range: 5c0
@@ -2980,6 +3008,8 @@ REPAIRVEHICLE:
 		PauseOnCondition: empdisable
 		FacingTolerance: 64
 		MustFaceTarget: true
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	Voiced:
 		VoiceSet: Limpet
 	WithFacingSpriteBody:
@@ -3125,6 +3155,8 @@ PALADIN:
 		Voice: Attack
 		PauseOnCondition: empdisable
 		FacingTolerance: 3
+	AutoTarget:
+		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	RenderSprites:
 	Armament@1:
 		Weapon: PalaLazor
@@ -3204,6 +3236,8 @@ BCOREDEF:
 		PauseOnCondition: empdisable
 		FacingTolerance: 3
 		Armaments: ArmArmament, HeadArmament, ShoulderArmament
+	AutoTarget:
+		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	-Targetable@MC:
 	WithInfantryBody:
 		-DefaultAttackSequence:
@@ -3322,6 +3356,7 @@ CORRUPTOR:
 		FacingTolerance: 64
 		MustFaceTarget: true
 	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	Armament@PRIMARY:
 		Weapon: CorruptorAcid
 		LocalOffset: 800,0,200
@@ -3424,6 +3459,8 @@ SCRMBT:
 	WithMuzzleOverlay:
 	AttackTurreted:
 		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	-LeavesTrails@land:
 	-LeavesTrails@water:
 	LeavesTrails@gravity:
@@ -3496,6 +3533,8 @@ SCRGLYDER2:
 		PauseOnCondition: empdisable
 		FacingTolerance: 64
 		MustFaceTarget: true
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	Armament@AITransformDummyWeapon:
 		Weapon: AIGlyder2AimingDummyWeapon
 		ReloadingCondition: AIattackAir
@@ -3556,6 +3595,7 @@ SCRSCORPION:
 		PauseOnCondition: empdisable
 		FacingTolerance: 2
 	AutoTarget:
+		ScanRadius: 12 #PREF: save trait looks up and scan armaments
 	Armament@PRIMARY:
 		Weapon: ScorpGas
 		LocalOffset: -100,0,700
@@ -3623,6 +3663,7 @@ SCRRECHARGER:
 	AttackFrontal:
 		PauseOnCondition: empdisable
 	AutoTarget:
+		ScanRadius: 4
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	WithIdleOverlay@shieldpower:
@@ -3686,6 +3727,8 @@ SCRMOBMINE:
 		Locomotor: Hover
 	AttackTurreted:
 		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	Turreted:
 	RenderRangeCircle:
 		RangeCircleType: Subjugator
@@ -3753,6 +3796,7 @@ TRIPOD:
 		PauseOnCondition: empdisable
 		FacingTolerance: 32
 	AutoTarget:
+		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	Armament@primary1:
 		Damage: 240
 		Weapon: AnhTripodLaser3
