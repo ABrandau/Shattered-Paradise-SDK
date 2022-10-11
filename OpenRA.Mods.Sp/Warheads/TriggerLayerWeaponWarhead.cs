@@ -8,6 +8,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.TA.Warheads
 {
+	[Desc("Works like infernal cannon like in cnc General, used by TA")]
 	public class TriggerLayerWeaponWarhead : Warhead, IRulesetLoaded<WeaponInfo>
 	{
 		[Desc("Range between falloff steps in cells.")]
@@ -28,27 +29,26 @@ namespace OpenRA.Mods.TA.Warheads
 		[Desc("It saturates at this level, by this weapon.")]
 		public int MaxLevel = 600;
 
-		[Desc("Allow triggering set level to affected cell when hit position at this trigger level on trigger area")]
+		[Desc("Allow triggering effects when the impacted cell has the value in [TiggerAtLevelMax, TiggerAtLevelMin]")]
 		public bool AllowTiggerLevel = true;
 
-		[Desc("Allow triggering set level to affected cell when hit position at this trigger level on trigger area")]
+		[Desc("Allows a triggering effect: cells (affected by Falloff and Range) set to a specific level defined by TiggerSetLevel")]
 		public bool AllowSetLevelWhenTrigger = true;
 
-		[Desc("Allow triggering set level to affected cell when hit position at this trigger level on trigger area")]
+		[Desc("Allows a triggering effect: impacted cell explode a weapon")]
 		public bool AllowTiggerWeaponWhenTrigger = true;
 
-		[Desc("Trigger ExplodeSetLevel and TiggerWeapon when hit position at this [TiggerAtLevelMin, TiggerAtLevelMax] on trigger area")]
+		[Desc("Impacted cell has the value in [TiggerAtLevelMax, TiggerAtLevelMin] to trigger effect. Requires \"AllowTiggerLevel = true\".")]
 		public int TiggerAtLevelMax = int.MaxValue;
 
-		[Desc("Trigger ExplodeSetLevel and TiggerWeapon when hit position at this [TiggerAtLevelMin, TiggerAtLevelMax] on trigger area")]
+		[Desc("Impacted cell has the value in [TiggerAtLevelMax, TiggerAtLevelMin] to trigger effect.  Requires \"AllowTiggerLevel = true\".")]
 		public int TiggerAtLevelMin = int.MinValue;
 
-		[Desc("Trigger set level to affected cell when hit position at this trigger level on trigger area")]
+		[Desc("Cells (affected by Falloff and Range) set to this level when trigger. Requires \"AllowTiggerLevel = true\" and \"AllowSetLevelWhenTrigger = true\"")]
 		public int TiggerSetLevel = 0;
 
 		[WeaponReference]
-		[FieldLoader.Require]
-		[Desc("Has to be defined in weapons.yaml as well.")]
+		[Desc("Impacted cell explode a weapon when trigger. Has to be defined in weapons.yaml as well.")]
 		public readonly string TiggerWeapon = null;
 
 		WeaponInfo weapon;
@@ -67,7 +67,7 @@ namespace OpenRA.Mods.TA.Warheads
 						throw new YamlException("Range values must be specified in an increasing order.");
 			}
 
-			if (!rules.Weapons.TryGetValue(TiggerWeapon.ToLowerInvariant(), out weapon))
+			if (AllowTiggerLevel && AllowTiggerWeaponWhenTrigger && !rules.Weapons.TryGetValue(TiggerWeapon.ToLowerInvariant(), out weapon))
 				throw new YamlException("Weapons Ruleset does not contain an entry '{0}'".F(TiggerWeapon.ToLowerInvariant()));
 		}
 

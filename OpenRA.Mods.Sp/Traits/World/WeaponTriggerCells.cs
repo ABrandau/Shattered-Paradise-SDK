@@ -6,6 +6,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.TA.Traits
 {
+	[Desc("A layer that support weapon like infernal cannon like in cnc General, used by TA")]
 	[TraitLocation(SystemActors.World | SystemActors.EditorWorld)]
 	public class WeaponTriggerCellsInfo : TraitInfo
 	{
