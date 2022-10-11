@@ -105,10 +105,7 @@ namespace OpenRA.Mods.TA.Traits
 
 			if ((add_level > 0 && new_level > max_level) ||
 				(add_level < 0 && new_level < max_level))
-			{
-				currentLevel = max_level;
 				return;
-			}
 
 			currentLevel = new_level;
 
@@ -132,7 +129,6 @@ namespace OpenRA.Mods.TA.Traits
 		{
 			if (Info.ShowDebugOverlay)
 			{
-				var font = Game.Renderer.Fonts["Bold"];
 				foreach (var kv in tiles)
 				{
 					var i = new FloatingText(world.Map.CenterOfCell(kv.Key), Color.Gold, kv.Value.Level.ToString(), 1);
