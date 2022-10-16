@@ -756,18 +756,30 @@ quaddrone-mini:
 	idle:
 		Facings: 1
 		Length: *
-		Scale: 0.9
 	stand:
 		Facings: 1
 		Length: *
-		Scale: 0.9
 	run:
 		Facings: 1
 		Length: *
-		Scale: 0.9
 	die: explosml
 		Length: *
 		IgnoreWorldTint: true
 
 scrinrepairdrone:
 	Inherits: quaddrone-mini
+
+repairdrone-mini:
+	Inherits: ^EmpOverlay
+	idle:
+		Facings: -32
+		Length: 1
+	stand:
+		Facings: -32
+		Length: 1
+	run:
+		Facings: -32
+		Length: 1
+	die: explosml
+		Length: *
+		IgnoreWorldTint: true
