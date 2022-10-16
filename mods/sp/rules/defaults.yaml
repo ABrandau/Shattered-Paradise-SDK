@@ -2345,7 +2345,7 @@
 	Mobile:
 		Locomotor: Hover
 	LeavesTrails@water:
-		RequiresCondition: hoverunitonwater && !carried && !ascargo && !in_tunnel
+		RequiresCondition: hoverunitonwater && !carried && !ascargo && !in_tunnel && !inside-tunnel
 		Image: hoverwind
 		Sequences: water
 		Palette: effect
@@ -2357,7 +2357,7 @@
 		SpawnAtLastPosition: false
 		StartDelay: -1
 	LeavesTrails@land:
-		RequiresCondition: !hoverunitonwater && !carried && !ascargo && !in_tunnel
+		RequiresCondition: !hoverunitonwater && !carried && !ascargo && !in_tunnel && !inside-tunnel
 		Image: hoverwind
 		Sequences: non-water
 		Palette: effectalpha25
