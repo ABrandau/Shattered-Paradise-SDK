@@ -17,6 +17,7 @@
 		RequiresCondition: stance-attackanything
 		ValidTargets: Vehicle
 		InvalidTargets: NoAutoTarget
+		ValidRelationships: Enemy
 		Priority: 1
 
 ^AutoTargetGround:
@@ -28,11 +29,13 @@
 		RequiresCondition: !stance-attackanything
 		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air
 		InvalidTargets: NoAutoTarget
+		ValidRelationships: Enemy
 		Priority: 2
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air
 		InvalidTargets: NoAutoTarget
+		ValidRelationships: Enemy
 		Priority: 2
 
 ^AutoTargetGroundAssaultMove:
@@ -61,10 +64,12 @@
 		RequiresCondition: !stance-attackanything
 		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Defence
 		InvalidTargets: NoAutoTarget
+		ValidRelationships: Enemy
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything
 		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Building, Defence
 		InvalidTargets: NoAutoTarget
+		ValidRelationships: Enemy
 
 ^AutoTargetAllAssaultMove:
 	Inherits: ^AutoTargetAll
