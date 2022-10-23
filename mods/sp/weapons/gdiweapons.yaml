@@ -1107,7 +1107,8 @@ SonicClusterMissile:
 		Shadow: true
 		Image: patriot
 		Sequences: idle
-		Inaccuracy: 5c0
+		Inaccuracy: 4c0
+		InaccuracyType: Absolute
 		Palette: apcybl #effect
 		IsPlayerPalette: false
 		CruiseAltitude: 8000
@@ -1121,10 +1122,9 @@ SonicClusterMissile:
 		-JetPalette:
 		-RangeLimit:
 	-Warhead@GetsOneShotedbySuperweapons: ## This for Air only
-	Warhead@GetsOneShotedbySuperweaponsAA: SpreadDamage
-		Spread: 3c0
-	Warhead@AA: SpreadDamage
-		Falloff: 100, 100
+	Warhead@GetsOneShotedbySuperweaponsAA: IgnoreHeightDamage
+		Spread: 2c256
+	Warhead@AA: IgnoreHeightDamage ## aircraft boss armor
 		ValidTargets: Air
 		Versus:
 			Infantry: 100
@@ -1134,9 +1134,10 @@ SonicClusterMissile:
 			Aircraft: 100
 			Concrete: 0
 			Boss: 100
-		Spread: 3c0
-		Damage: 30000
+		Spread: 2c256
+		Damage: 45000
 		AirThreshold: 8c0
+		DebugOverlayColor: 0000FF
 	Warhead@op: FireRadius
 		Weapon: SonicClusterMissileShell
 		ImpactActors: false

@@ -1434,6 +1434,20 @@ BlackholeBolt:
 			DefenseArmor: 50
 			ConcreteArmor: 30
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
+	Warhead@AA: IgnoreHeightDamage ## aircraft
+		ValidTargets: Air
+		Versus:
+			Infantry: 100
+			Building: 0
+			Defense: 0
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 0
+			Boss: 100
+		Spread: 1c768 ### It can just hit the CruiseAltitude: 4c0 aircraft.
+		Damage: 3000
+		AirThreshold: 8c0
+		DebugOverlayColor: 0000FF
 
 EssenceSmall:
 	ReloadDelay: 45
