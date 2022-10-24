@@ -306,13 +306,6 @@ WolverineVulcanAP:
 	Inherits: WolverineVulcan
 	Inherits@2: ^PiffsCyan
 
-WolverineVulcanCasing:
-	Inherits: ^BulletCasing
-	ReloadDelay: 20
-	Burst: 2
-	BurstDelays: 1
-	Range: 6c0
-	ValidTargets: Ground, Water
 
 WolverineVulcanLine:
 	Inherits: ^BulletProjectile
@@ -386,14 +379,6 @@ ApcVulcanAPAA:
 	Inherits: ApcVulcanAA
 	Inherits@2: ^PiffsCyan
 
-ApcVulcanCasing:
-	Inherits: ^BulletCasing
-	ReloadDelay: 20
-	Burst: 1
-	BurstDelays: 1
-	Range: 5c0
-	ValidTargets: Ground, Water
-
 ApcVulcanLine:
 	Inherits: ^LineProjectile
 	ReloadDelay: 20
@@ -444,11 +429,6 @@ TitanRailgun:
 	Warhead@2Eff: CreateEffect
 		Explosions: sparks, sparks2, sparks3
 		ExplosionPalette: gensmkexplocyan
-
-Titan120mmShellCasing:
-	Inherits: ^ShellCasing
-	ReloadDelay: 80
-	Range: 6c0
 
 HoverMissile:
 	Inherits: ^RocketWarhead
@@ -516,14 +496,6 @@ JuggCannon:
 		Versus:
 			Infantry: 150
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
-
-JuggCannonShellCasing:
-	Inherits: ^ShellCasing
-	Burst: 2
-	BurstDelays: 3
-	ReloadDelay: 60
-	Range: 12c0
-	MinRange: 3c0
 
 SonicZap:
 	Inherits: ^WeaponGenericUpgrades
@@ -651,13 +623,6 @@ SonicEmitterHitGDI:
 	Warhead@2Eff: CreateEffect
 		Explosions: sparks, sparks2, sparks3
 		ExplosionPalette: gensmkexplocyan
-
-4TNKGUNShellCasing:
-	Inherits: ^ShellCasing
-	ReloadDelay: 80
-	Range: 6c0
-	Burst: 2
-	BurstDelays: 8
 
 MammothTusk:
 	Inherits: ^RocketWarhead
@@ -801,15 +766,6 @@ MKIIVulcanAP:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1875
 
-MKIIVulcanCasing:
-	Inherits: ^BulletCasing
-	ReloadDelay: 5
-	Range: 7c0
-	ValidTargets: Ground, Water
-	Warhead@4Sharpnel: FireRadius
-		Weapon: CasingDebris
-		ImpactActors: false
-		Amount: 1
 
 MKIIVulcanLine:
 	Inherits: ^LineProjectile
@@ -911,14 +867,6 @@ VulcanTower:
 VulcanTowerAP:
 	Inherits: VulcanTower
 	Inherits@2: ^PiffsCyan
-
-VulcanTowerCasing:
-	Inherits: ^BulletCasing
-	ReloadDelay: 10
-	Burst: 3
-	BurstDelays: 1
-	Range: 7c0
-	ValidTargets: Ground, Water
 
 VulcanTowerLine:
 	Inherits: ^LineProjectile
@@ -1178,16 +1126,6 @@ MKIIIDroneVulcan:
 	Warhead@3EffWater: CreateEffect
 		Delay: 5
 
-MKIIIDroneVulcanCasing:
-	Inherits: ^BulletCasing
-	ValidRelationships: Enemy, Neutral
-	ReloadDelay: 5
-	Range: 5c0
-	ValidTargets: Ground, Water
-	Warhead@4Sharpnel: FireRadius
-		Weapon: CasingDebris
-		ImpactActors: false
-		Amount: 1
 
 MKIIIDroneVulcanLine:
 	Inherits: ^LineProjectileCyan

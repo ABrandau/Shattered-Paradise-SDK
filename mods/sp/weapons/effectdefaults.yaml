@@ -372,39 +372,6 @@
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
 
-^ShellCasing:
-	Projectile: InstantExplode
-	Warhead@4Sharpnel: FireShrapnel
-		Weapon: ShellCasingDebris
-		ImpactActors: false
-		AllowDirectHit: false
-		Amount: 1
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-		AirThreshold: 8c0
-
-^BulletCasing:
-	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-	Projectile: InstantExplode
-	Warhead@4Sharpnel: FireRadius
-		Weapon: CasingDebris
-		ImpactActors: false
-		Amount: 2
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-		AirThreshold: 8c0
-
-## Used in ExplodeWeapon only
-^AircraftCasing:
-	ReloadDelay: 5
-	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-	Projectile: AthenaProjectile
-		Altitude: 2560
-	Warhead@op: FireRadius
-		Weapon: CasingDebrisAir
-		ImpactActors: false
-		Amount: 1
-		ValidTargets: Ground, Water, Air, Infantry, Vehicle, Building, Wall
-		AirThreshold: 8c0
-
 ^LineProjectile:
 	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 	Projectile: BulletAS

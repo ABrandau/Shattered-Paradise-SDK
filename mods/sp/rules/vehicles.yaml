@@ -52,22 +52,23 @@ SMECH:
 		RevokeDelay: 4
 		ArmamentNames: primary
 		RevokeOnNewTarget: true
-	Armament@1Casing:
-		Name: decoration
-		Weapon: WolverineVulcanCasing
-		PauseOnCondition: empdisable  || !Attacking
-		LocalOffset: 0,275,600, 0,-275,600
 	Armament@2Bullet:
 		Name: decoration
 		Weapon: WolverineVulcanLine
 		PauseOnCondition: empdisable || !Attacking
 		LocalOffset: 0,280,600, 0,-280,600
+		CasingWeapon: CasingDebris
+		CasingSpawnLocalOffset: 0,275,600, 0,-275,600
+		CasingTargetOffset: 0, 600, 0, 0, -600, 0
 		RequiresCondition: !apammo
 	Armament@2BulletAP:
 		Name: decoration
 		Weapon: WolverineVulcanLineAP
 		PauseOnCondition: empdisable || !Attacking
 		LocalOffset: 0,280,600, 0,-280,600
+		CasingWeapon: CasingDebris
+		CasingSpawnLocalOffset: 0,275,600, 0,-275,600
+		CasingTargetOffset: 0, 600, 0, 0, -600, 0
 		RequiresCondition: apammo
 	ActorStatValues:
 		Damage: 40
@@ -123,6 +124,9 @@ MMCH:
 		RecoilRecovery: 26
 		MuzzleSequence: muzzle
 		LocalOffset: 800, 300, 900
+		CasingWeapon: ShellCasingDebris
+		CasingSpawnLocalOffset: 250, 300, 900
+		CasingTargetOffset: 0, 1024, 0
 		PauseOnCondition: empdisable
 		RequiresCondition: !railguns
 	Armament@Railgun:
@@ -136,11 +140,6 @@ MMCH:
 		PauseOnCondition: empdisable
 		RequiresCondition: railguns
 		MuzzlePalette: gensmkexplocyan
-	Armament@1:
-		Weapon: Titan120mmShellCasing
-		LocalOffset: 250, 300, 900
-		PauseOnCondition: empdisable
-		RequiresCondition: !railguns
 	WithSpriteBarrel:
 		LocalOffset: 300, 250, 500
 		Armament: primary
@@ -255,30 +254,37 @@ APC:
 		RevokeDelay: 2
 		ArmamentNames: primary
 		RevokeOnNewTarget: true
-	Armament@Casing:
-		Weapon: ApcVulcanCasing
-		PauseOnCondition: empdisable || !Attacking
-		LocalOffset: 350,0,1000
-		Name: decoration
 	Armament@2Bullet:
 		Weapon: ApcVulcanLine
 		PauseOnCondition: empdisable || !Attacking
 		LocalOffset: 350,0,1000
+		CasingWeapon: CasingDebris
+		CasingSpawnLocalOffset: 350,0,1000
+		CasingTargetOffset: -1024,0, 0
 		RequiresCondition: !apammo
 	Armament@2BulletAA:
 		Weapon: ApcVulcanLineAA
 		PauseOnCondition: empdisable || !Attacking
 		LocalOffset: 350,0,1000
+		CasingWeapon: CasingDebris
+		CasingSpawnLocalOffset: 350,0,1000
+		CasingTargetOffset: -1024,0, 0
 		RequiresCondition: !apammo
 	Armament@4BulletAP:
 		Weapon: ApcVulcanLineAP
 		PauseOnCondition: empdisable || !Attacking
 		LocalOffset: 350,0,1000 
+		CasingWeapon: CasingDebris
+		CasingSpawnLocalOffset: 350,0,1000
+		CasingTargetOffset: -1024,0, 0
 		RequiresCondition: apammo
 	Armament@4BulletAPAA:
 		Weapon: ApcVulcanLineAPAA
 		PauseOnCondition: empdisable || !Attacking
 		LocalOffset: 350,-100,1000 
+		CasingWeapon: CasingDebris
+		CasingSpawnLocalOffset: 350,0,1000
+		CasingTargetOffset: -1024,0, 0
 		RequiresCondition: apammo
 	BodyOrientation:
 		QuantizedFacings: 32
@@ -387,10 +393,9 @@ JUG:
 		Weapon: JuggCannon
 		LocalOffset: 768, -120, 2650, 768, 120, 2650
 		MuzzleSequence: muzzle
-		PauseOnCondition: empdisable
-	Armament@2:
-		Weapon: JuggCannonShellCasing
-		LocalOffset: 0, -200, 1800, 0, 200, 1800
+		CasingWeapon: ShellCasingDebris 
+		CasingSpawnLocalOffset: 0, -200, 1800, 0, 200, 1800
+		CasingTargetOffset: -200, -256, 0, -200, 256, 0
 		PauseOnCondition: empdisable
 	WithMuzzleOverlay:
 	Selectable:
@@ -490,6 +495,9 @@ G4TNK:
 		MuzzleSequence: muzzle
 		Recoil: 127
 		RecoilRecovery: 26
+		CasingWeapon: ShellCasingDebris #CasingDebris
+		CasingSpawnLocalOffset: 1000,120,550, 1000,-120,550
+		CasingTargetOffset: 256, 1024, 0, 256, -1024, 0
 		PauseOnCondition: empdisable
 		RequiresCondition: !railguns
 	Armament@Railgun:
@@ -502,11 +510,6 @@ G4TNK:
 		PauseOnCondition: empdisable
 		RequiresCondition: railguns
 		MuzzlePalette: gensmkexplocyan
-	Armament@CASINGPRIMARY:
-		Weapon: 4TNKGUNShellCasing
-		LocalOffset: 0,120,550, 0,-120,550
-		PauseOnCondition: empdisable
-		RequiresCondition: !railguns
 	Armament@SECONDARY:
 		Weapon: MammothTusk
 		Damage: 60
@@ -648,22 +651,22 @@ HMEC:
 		Name: tertiary
 		PauseOnCondition: empdisable
 		RequiresCondition: apammo
-	Armament@gunCasing:
-		Weapon: MKIIVulcanCasing
-		MuzzleSequence: muzzle
-		LocalOffset: 1638,0,800
-		Name: tertiary
-		PauseOnCondition: empdisable
 	Armament@gunLine:
 		Weapon: MKIIVulcanLine
-		LocalOffset: 1638,0,800
+		LocalOffset: 1638,0,800, 1638,0,800
 		Name: tertiary
+		CasingWeapon: CasingDebris
+		CasingSpawnLocalOffset: 1638,0,800, 1638,0,800
+		CasingTargetOffset: 620, 512, 0, 620, -512, 0
 		PauseOnCondition: empdisable
 		RequiresCondition: !apammo
 	Armament@gunLineAP:
 		Weapon: MKIIVulcanLineAP
-		LocalOffset: 1638,0,800
+		LocalOffset: 1638,0,800, 1638,0,800
 		Name: tertiary
+		CasingWeapon: CasingDebris
+		CasingSpawnLocalOffset: 1638,0,800, 1638,0,800
+		CasingTargetOffset: 620, 512, 0, 620, -512, 0
 		PauseOnCondition: empdisable
 		RequiresCondition: apammo
 	-Targetable@MC:
@@ -1257,9 +1260,12 @@ TTNK:
 		RequiresCondition: !shields-up && deployed
 	Armament@PRIMARY:
 		Weapon: Tick90mm
-		LocalOffset: 350,-0,500
+		LocalOffset: 350,-0,500, 350,-0,500
 		MuzzleSequence: muzzle
 		ReloadingCondition: reload-undeployed
+		CasingWeapon: ShellCasingDebris
+		CasingSpawnLocalOffset: 0,0,500, 0,0,500
+		CasingTargetOffset: 0, 600, 0, 0, -600, 0
 		PauseOnCondition: empdisable || reload-deployed
 		RequiresCondition: !capacitors && !deployed
 	Armament@DEPLOYED:
@@ -1267,9 +1273,12 @@ TTNK:
 		Turret: deployed
 		Recoil: 0c128
 		Weapon: Tick90mmDeployed
-		LocalOffset: 256,-0,700
+		LocalOffset: 256,-0,700, 256,-0,700
 		MuzzleSequence: muzzle
 		ReloadingCondition: reload-deployed
+		CasingWeapon: ShellCasingDebris
+		CasingSpawnLocalOffset: 0,0,700, 0,0,700
+		CasingTargetOffset: 0, 600, 0, 0, -600, 0
 		PauseOnCondition: empdisable || reload-undeployed
 		RequiresCondition: !capacitors && deployed
 	Armament@PRIMARYLaser:
@@ -1290,20 +1299,6 @@ TTNK:
 		ReloadingCondition: reload-deployed
 		PauseOnCondition: empdisable || reload-undeployed
 		RequiresCondition: capacitors && deployed
-	Armament@CASINGPRIMARY:
-		Weapon: Tick90mmShellCasing
-		ReloadingCondition: reload-undeployed
-		PauseOnCondition: empdisable || reload-deployed
-		RequiresCondition: !capacitors && !deployed
-	Armament@CASINGDEPLOYED:
-		Name: DeployedArm
-		Turret: deployed
-		Recoil: 0c128
-		Weapon: Tick90mmShellCasingDeployed
-		MuzzleSequence: muzzle
-		ReloadingCondition: reload-deployed
-		PauseOnCondition: empdisable || reload-undeployed
-		RequiresCondition: !capacitors && deployed
 	WithMuzzleOverlay:
 	WithMakeAnimation:
 		BodyNames: deployed
@@ -1395,8 +1390,11 @@ TICKHOLOGRAM:
 		TargetTypes: Ground, Vehicle, Summoned
 	Armament@PRIMARY:
 		Weapon: HologramTick90mm
-		LocalOffset: 350,-0,500
+		LocalOffset: 350,-0,500, 350,-0,500
 		MuzzleSequence: muzzle
+		CasingWeapon: ShellCasingDebris
+		CasingSpawnLocalOffset: 0,0,500, 0,0,500
+		CasingTargetOffset: 0, 600, 0, 0, -600, 0
 		PauseOnCondition: empdisable
 		RequiresCondition: !capacitors
 	Armament@PRIMARYLaser:
@@ -1405,10 +1403,6 @@ TICKHOLOGRAM:
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
 		RequiresCondition: capacitors
-	Armament@CASINGPRIMARY:
-		Weapon: Tick90mmShellCasing
-		PauseOnCondition: empdisable
-		RequiresCondition: !capacitors
 	-WithFacingSpriteBody:
 	WithInfantryBody: ## support tracks motion animation
 		RequiresCondition: !inside-tunnel
@@ -1659,9 +1653,12 @@ HOWTLIZER:
 	WithMuzzleOverlay:
 	Armament:
 		Weapon: SpectreCannon
-		LocalOffset: 600,0,1500
+		LocalOffset: 600,0,1500, 600,0,1500
 		MuzzleSequence: muzzle
 		MuzzlePalette: gensmkexploj
+		CasingWeapon: ShellCasingDebris
+		CasingSpawnLocalOffset: 500,0,1250, 500,0,1250
+		CasingTargetOffset: 100, 768, 0, 100, -768, 0
 		PauseOnCondition: empdisable
 	AutoTarget:
 		ScanRadius: 19
@@ -1986,20 +1983,19 @@ MUTQUAD:
 	Voiced:
 		VoiceSet: QuadCannonVoice
 	WithMuzzleOverlay:
-	ExplodeWeapon@Casing:
-		Weapon: QuadFireCasing
-		LocalOffset: -200,0,1200
-		RequiresCondition: attack
-	GrantConditionOnAttack@Casing:
-		Condition: attack
-		ArmamentNames: primary
 	Armament@Fakebullet:
 		Weapon: QuadFireLine
-		LocalOffset: 1200,0,1000
+		LocalOffset: 1200,20,1000, 1200,-20,1000
+		CasingWeapon: CasingDebris
+		CasingSpawnLocalOffset: -200,20,980, -200,-20,980
+		CasingTargetOffset: -256, 512, 0, -256, -512, 0
 		PauseOnCondition: empdisable || reload-air
 	Armament@FakebulletAA:
 		Weapon: QuadFireLineAA
-		LocalOffset: 1200,0,1000
+		LocalOffset: 1200,20,1000, 1200,-20,1000
+		CasingWeapon: CasingDebris
+		CasingSpawnLocalOffset: -200,20,980, -200,-20,980
+		CasingTargetOffset: -256, 512, 0, -256, -512, 0
 		PauseOnCondition: empdisable || reload-ground
 	Armament@1:
 		Weapon: QuadFire
@@ -2085,10 +2081,13 @@ LYNX:
 	Armament:
 		Weapon: LynxCannon
 		Damage: 50
-		LocalOffset: 400,0,600
+		LocalOffset: 400,0,600, 400,0,600
 		MuzzleSequence: muzzle
 		Recoil: 0c128
 		PauseOnCondition: empdisable
+		CasingWeapon: ShellCasingDebris
+		CasingSpawnLocalOffset: 200,0,600, 200,0,600
+		CasingTargetOffset: 0, 512, 0, 0, -512, 0
 	Armament@2:
 		Weapon: LynxRocket
 		Damage: 20
@@ -2096,10 +2095,6 @@ LYNX:
 		ReloadingCondition: rocketout
 		PauseOnCondition: empdisable
 		RequiresCondition: lynx_rockets
-	Armament@casing:
-		Weapon: LynxCannonShellCasing
-		LocalOffset: 0,0,600
-		PauseOnCondition: empdisable
 
 STRUCK:
 	Inherits: ^Tank
@@ -2726,16 +2721,13 @@ CENTURION:
 		RecoilRecovery: 26
 		LocalOffset: 900,550,1200, 900,-550,1200
 		PauseOnCondition: empdisable
-	Armament@2:
-		Weapon: CenturionVulcanCasing
-		RecoilRecovery: 26
-		LocalOffset: 900,550,1200, 900,-550,1200
-		MuzzleSequence: muzzle
-		PauseOnCondition: empdisable
 	Armament@4:
 		Weapon: CenturionVulcanLine
 		RecoilRecovery: 26
 		LocalOffset: 1250,550,1200, 900,-550,1200
+		CasingWeapon: CasingDebris
+		CasingSpawnLocalOffset: 900,550,1200, 900,-550,1200
+		CasingTargetOffset: 900,1280,1200, 900,-1280,1200
 		PauseOnCondition: empdisable
 	AutoTarget:
 		ScanRadius: 7 #PREF: save trait looks up and scan armaments

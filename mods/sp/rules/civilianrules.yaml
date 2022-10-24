@@ -208,14 +208,13 @@ CIV3:
 		TurnSpeed: 32
 	Armament@PRIMARY:
 		Weapon: CivilianLightCannon
-		LocalOffset: 512,0,600
+		LocalOffset: 512,0,600, 512,0,600
 		MuzzleSequence: muzzle
 		Recoil: 127
 		RecoilRecovery: 26
-		PauseOnCondition: empdisable
-	Armament@CASINGPRIMARY:
-		Weapon: CivilianLightCannonShellCasing
-		LocalOffset: 0,0,600
+		CasingWeapon: ShellCasingDebris #CasingDebris
+		CasingSpawnLocalOffset: 256,0,600, 256,0,600
+		CasingTargetOffset: 0, 512, 0, 0, -512, 0
 		PauseOnCondition: empdisable
 	AttackTurreted:
 		Voice: Attack
@@ -3029,13 +3028,12 @@ TDGTWR:
 	Armament:
 		Weapon: WolverineVulcan
 		PauseOnCondition: Building-Buildup || empdisable
-	Armament@1Casing:
-		Weapon: WolverineVulcanCasing
-		LocalOffset: 0,-275,1300, 0,275,1300
-		PauseOnCondition: Building-Buildup || empdisable
 	Armament@2Bullet:
 		Weapon: WolverineVulcanLine
 		LocalOffset: 0,-275,1300, 0,275,1300
+		CasingWeapon: CasingDebris
+		CasingSpawnLocalOffset: 0,-275,1300, 0,275,1300
+		CasingTargetOffset: -300, -600, 0, -300, 600, 0
 		PauseOnCondition: Building-Buildup || empdisable
 	AttackOmni:
 	AutoTarget:
@@ -3209,7 +3207,10 @@ TDNTUR:
 		QuantizedFacings: 32
 	Armament:
 		Weapon: Titan120mm
-		LocalOffset: 800,0,500
+		LocalOffset: 800,0,500, 800,0,500
+		CasingWeapon: ShellCasingDebris
+		CasingSpawnLocalOffset: 700,0,500, 700,0,500
+		CasingTargetOffset: 512, 512, 0, 512, -512, 0
 		PauseOnCondition: Building-Buildup || empdisable
 	AutoTarget:
 		ScanRadius: 7 #PREF: save trait looks up and scan armaments

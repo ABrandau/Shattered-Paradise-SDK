@@ -537,10 +537,10 @@ CasingDebris:
 	Range: 0c1
 	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 	Projectile: Bullet
-		Speed: 100, 200
-		Inaccuracy: 1c512
-		InaccuracyType: PerCellIncrement
-		LaunchAngle: 91, 140
+		Speed: 150
+		Inaccuracy: 0c256
+		InaccuracyType: Absolute
+		LaunchAngle: 164
 		Image: casing
 		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
 		Shadow: true
@@ -549,26 +549,24 @@ CasingDebris:
 		ExplosionPalette: effect
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Air
 		InvalidTargets: Water
+		AirThreshold: 8c0
+		ImpactActors: false
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piffs
 		ExplosionPalette: pips
 		ValidTargets: Water
 		InvalidTargets: Infantry, Vehicle, Building, Wall, Ground, Air
-
-CasingDebrisAir:
-	Inherits: CasingDebris
-		Projectile: Bullet
-		Inaccuracy: 0c512
-		InaccuracyType: PerCellIncrement
+		AirThreshold: 8c0
+		ImpactActors: false
 
 ShellCasingDebris:
 	Inherits: CasingDebris
 	MinRange: 0c512
 	Range: 1c764
 	Projectile: Bullet
-		Speed: 75, 125
-		Inaccuracy: 256
-		LaunchAngle: 91, 140
+		Speed: 100
+		Inaccuracy: 128
+		LaunchAngle: 164
 		Image: shellcasing
 	Warhead@: CreateEffect
 		Explosions: shellcasingscorch, shellcasingscorch2, shellcasingscorch3, shellcasingscorch4, shellcasingscorch5, shellcasingscorch6, shellcasingscorch7

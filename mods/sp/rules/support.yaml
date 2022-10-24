@@ -48,21 +48,22 @@ GAVULC:
 		RevokeDelay: 2
 		ArmamentNames: primary
 		RevokeOnNewTarget: true
-	Armament@2:
-		Weapon: VulcanTowerCasing
-		LocalOffset: 988,0,1358, 988,-120,1358, 988,120,1358
-		PauseOnCondition: Building-Buildup || !Attacking
-		Name: decoration
 	Armament@3:
 		Name: decoration
 		Weapon: VulcanTowerLine
-		LocalOffset: 988,0,1358, 988,-120,1358, 988,120,1358
+		LocalOffset: 988,-120,1358, 988,120,1358
+		CasingWeapon: CasingDebris
+		CasingSpawnLocalOffset: 800,-120,1358, 800,120,1358
+		CasingTargetOffset: 600,-768,1358, 600,768,1358
 		PauseOnCondition: Building-Buildup || !Attacking
 		RequiresCondition: !apammo
 	Armament@4AP:
 		Name: decoration
 		Weapon: VulcanTowerLineAP
-		LocalOffset: 988,0,1358, 988,-120,1358, 988,120,1358
+		LocalOffset: 988,-120,1358, 988,120,1358
+		CasingWeapon: CasingDebris
+		CasingSpawnLocalOffset: 800,-120,1358, 800,120,1358
+		CasingTargetOffset: 600,-768,1358, 600,768,1358
 		PauseOnCondition: Building-Buildup || !Attacking
 		RequiresCondition: apammo
 	WithMuzzleOverlay:
@@ -489,11 +490,10 @@ MUCANNON:
 	Armament:
 		Weapon: ForgottenCannonWeapon
 		MuzzleSequence: muzzle
-		LocalOffset: 1400,0,700
-		PauseOnCondition: Building-Buildup || empdisable
-	Armament@Casing:
-		Weapon: ForgottenCannonCasing
-		LocalOffset: 0,0,700
+		LocalOffset: 1400,0,700, 1400,0,700
+		CasingWeapon: ShellCasingDebris
+		CasingSpawnLocalOffset: 0,0,700, 0,0,700
+		CasingTargetOffset: -128, 768, 0, -128, -768, 0
 		PauseOnCondition: Building-Buildup || empdisable
 	-WithColoredOverlay@IDISABLE:
 	-GrantConditionOnPowerState@LOWPOWER:
@@ -534,10 +534,9 @@ MUFLAK:
 		MuzzleSequence: muzzle
 		MuzzlePalette: apgrey
 		LocalOffset: 450,-200, 900, 450,200,900
-		PauseOnCondition: Building-Buildup || empdisable
-	Armament@Casing:
-		Weapon: FlakFireCasing
-		LocalOffset: 200,-200, 700, 200,200,700
+		CasingWeapon: ShellCasingDebris
+		CasingSpawnLocalOffset: 200,-200, 700, 200,200,700
+		CasingTargetOffset: 0, -768, 0, 0, 768, 0
 		PauseOnCondition: Building-Buildup || empdisable
 	-WithColoredOverlay@IDISABLE:
 	-GrantConditionOnPowerState@LOWPOWER:

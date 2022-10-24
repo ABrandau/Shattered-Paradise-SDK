@@ -401,11 +401,6 @@ LynxCannon:
 		Damage: 5000
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
-LynxCannonShellCasing:
-	Inherits: ^ShellCasing
-	ReloadDelay: 70
-	Range: 6c0
-
 LynxRocket:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Large_Clsn
@@ -447,14 +442,6 @@ QuadFireAA:
 		Damage: 2000
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
-
-# Used in explode weapon
-QuadFireCasing:
-	Inherits: ^BulletCasing
-	ReloadDelay: 200000 #fire once
-	Burst: 4
-	Range: 6c0
-	ValidTargets: Air, Ground, Water, Vehicle, Building, Infantry
 
 QuadFireLine:
 	Inherits: ^LineProjectile
@@ -732,12 +719,6 @@ GargoylACannonAA:
 		ValidRelationships: Enemy, Neutral
 		Damage: 4000
 
-GargoylACannonCasing:
-	Inherits: ^AircraftCasing
-	Range: 5c0
-	ReloadDelay: 300000 #One casing per fire
-	Warhead@op: FireShrapnel
-		Weapon: ShellCasingDebris
 
 FalconPunch:
 	Inherits: ^RocketWarhead
@@ -826,11 +807,6 @@ ForgottenCannonWeapon:
 		Damage: 7000
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
-ForgottenCannonCasing:
-	Inherits: ^ShellCasing
-	ReloadDelay: 70
-	Range: 7c0
-
 FlakFire:
 	Inherits: ^AntiAirTurretWeapon
 	Inherits: ^Small_Brnl
@@ -849,15 +825,6 @@ FlakFire:
 		Explosions: dustexplodetiny, dustexplode2tiny
 		ValidTargets: Ground, Water, Air
 	-Warhead@2Smu:
-
-FlakFireCasing:
-	Inherits: ^ShellCasing
-	ValidTargets: Air
-	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
-	Range: 12c0
-	Burst: 2
-	BurstDelays: 5
-	ReloadDelay: 33
 
 VeinholeEggElevator:
 	Inherits: EggElevator
