@@ -320,9 +320,11 @@ HVR:
 		BuildDurationModifier: 100
 	Mobile:
 		Speed: 120
-		TurnSpeed: 40
 		Locomotor: Hover
+		TurnsWhileMoving: true
+		TurnSpeed: 24
 		CanMoveBackward: true
+		BackwardDuration: 5
 	Health:
 		HP: 30000
 	Armor:
@@ -2386,10 +2388,12 @@ HVRTRUK3:
 		VoiceSet: DemoTruck
 		Volume: 3
 	Mobile:
-		TurnSpeed: 40
-		CanMoveBackward: true
 		Speed: 90
 		Locomotor: Hover
+		TurnsWhileMoving: true
+		TurnSpeed: 24
+		CanMoveBackward: true
+		BackwardDuration: 5
 	-SharedPassenger:
 	-ChangesHealth@TUNNELREPAIRS:
 	-GrantConditionOnPrerequisite@TUNNELREPAIRS:
@@ -2850,6 +2854,7 @@ LIMPED:
 		Speed: 165
 		TurnSpeed: 1023
 		Locomotor: Hover
+		TurnsWhileMoving: true
 		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
@@ -3032,10 +3037,12 @@ CABAPC:
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Mobile:
-		TurnSpeed: 40
-		CanMoveBackward: true
 		Speed: 135
 		Locomotor: Hover
+		TurnsWhileMoving: true
+		TurnSpeed: 24
+		CanMoveBackward: true
+		BackwardDuration: 5
 	Voiced:
 		VoiceSet: Limpet
 	Health:
@@ -3432,10 +3439,12 @@ SCRMBT:
 	Armor:
 		Type: Light
 	Mobile:
-		TurnSpeed: 20
-		CanMoveBackward: true
 		Speed: 105
 		Locomotor: Hover
+		TurnsWhileMoving: true
+		TurnSpeed: 18
+		CanMoveBackward: true
+		BackwardDuration: 5
 	Turreted:
 		TurnSpeed: 24
 	Armament:
@@ -3503,10 +3512,12 @@ SCRGLYDER2:
 	Armor:
 		Type: Light
 	Mobile:
-		TurnSpeed: 40
-		CanMoveBackward: true
 		Speed: 120
 		Locomotor: Hover
+		TurnsWhileMoving: true
+		TurnSpeed: 24
+		CanMoveBackward: true
+		BackwardDuration: 5
 	Transforms:
 		RequiresCondition: aerial_gliders
 		PauseOnCondition: inside-tunnel
@@ -3717,10 +3728,12 @@ SCRMOBMINE:
 	Armor:
 		Type: Light
 	Mobile:
-		TurnSpeed: 40
-		CanMoveBackward: true
 		Speed: 120
 		Locomotor: Hover
+		TurnsWhileMoving: true
+		TurnSpeed: 24
+		CanMoveBackward: true
+		BackwardDuration: 5
 	AttackTurreted:
 		PauseOnCondition: empdisable
 	AutoTarget:
