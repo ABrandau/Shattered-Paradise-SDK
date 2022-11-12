@@ -385,6 +385,7 @@ MUBUNKR:
 	Inherits@PIPS: ^CargoPips
 	Inherits@RENDER: ^MutRenderBuilding
 	Inherits@SHAPE: ^2x2Shape
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 500
 	CustomSellValue:
@@ -395,7 +396,7 @@ MUBUNKR:
 		Queue: Defense.Shared, Defense.Mutant
 		Description: Fortified position where infantry can fire from within.\n\nGood vs: Depends what has been garrisoned\n\nSpecial:\n- Provides stealth detection when garrisoned\n- Infantry garrisoned inside gain extra range\n- Comes with a free marauder
 		BuildPaletteOrder: 22
-		Prerequisites: ~mutyard, murax, ~techlevel.1, ~!AIOnly
+		Prerequisites: ~mutyard, murax, ~techlevel.1
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Building:
@@ -456,6 +457,12 @@ MUBUNKR:
 			yellow: pip-yellow-building
 			blue: pip-blue-building
 			gray: pip-gray-building
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && loaded && HeavyDamaged
+		DeployChance: 100
+		DeployTrigger: Periodically
+		DeployTicks: 10
+		UndeployTicks: 10
 
 MUCANNON:
 	Inherits: ^TurretedDefence

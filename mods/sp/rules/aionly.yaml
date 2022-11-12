@@ -44,21 +44,13 @@ COLOSSI_CHRONO:
 
 APC_BOT:
 	Inherits: APC
-	Inherits@AImicroManagable: ^AImicroManagable
 	Selectable:
 		Class: apc
-	ProductionCostMultiplier:
-		Multiplier: 150
 	RenderSprites:
 		Image: apc
-	Buildable:
-		Prerequisites: ~gaweap, gapile, ~techlevel.2, ~AIOnly
-		Description: APC (full)
+	-Buildable:
 	Cargo:
 		InitialUnits: gdie1, gdie1, medic, gdie1, grenadier
-	AutoDeployer@AI:
-		RequiresCondition: AImicroManage
-		DeployChance: 100
 	AutoTarget:
 		ScanRadius: 7
 	ActorStatValues:
@@ -66,17 +58,13 @@ APC_BOT:
 
 RIFLEBGGY:
 	Inherits: BGGY
-	ProductionCostMultiplier:
-		Multiplier: 125
 	Selectable:
 		Class: bggy
 	EditorOnlyTooltip:
 		Name: Anti Infantry Buggy
 	RenderSprites:
 		Image: bggy
-	Buildable:
-		Prerequisites: ~naweap, ~techlevel.2, ~AIOnly
-		Description: Anti Infantry Buggy
+	-Buildable:
 	Cargo:
 		InitialUnits: altnode1
 	ActorStatValues:
@@ -84,13 +72,8 @@ RIFLEBGGY:
 
 ROCKETBGGY:
 	Inherits: RIFLEBGGY
-	ProductionCostMultiplier:
-		Multiplier: 200
 	EditorOnlyTooltip:
 		Name: Rocket Buggy
-	Buildable:
-		Prerequisites: ~naweap, ~techlevel.2, ~AIOnly
-		Description: Rocket Buggy
 	Cargo:
 		InitialUnits: crusader
 	ActorStatValues:
@@ -98,11 +81,6 @@ ROCKETBGGY:
 
 FLAMEBGGY:
 	Inherits: RIFLEBGGY
-	ProductionCostMultiplier:
-		Multiplier: 200
-	Buildable:
-		Prerequisites: ~naweap, naradr, ~techlevel.4, ~AIOnly
-		Description: Flame Buggy
 	Cargo:
 		InitialUnits: templar
 	EditorOnlyTooltip:
@@ -112,11 +90,6 @@ FLAMEBGGY:
 
 LAZORBGGY:
 	Inherits: RIFLEBGGY
-	ProductionCostMultiplier:
-		Multiplier: 300
-	Buildable:
-		Prerequisites: ~naweap, natech, ~techlevel.5, ~AIOnly
-		Description: Laser Buggy
 	Cargo:
 		InitialUnits: nconf
 	EditorOnlyTooltip:
@@ -128,11 +101,7 @@ STRUCKFULL:
 	Inherits: STRUCK
 	Selectable:
 		Class: struck
-	Buildable:
-		Prerequisites: ~muweap, murax, ~techlevel.2, ~AIOnly
-		Description: Bus(full)
-	ProductionCostMultiplier:
-		Multiplier: 171
+	-Buildable:
 	Cargo:
 		InitialUnits: marauder, marauder, marauder, marauder, marauder
 	RenderSprites:
@@ -144,12 +113,6 @@ STRUCKFULL:
 
 STRUCKFULL_T3:
 	Inherits: STRUCKFULL
-	Buildable:
-		Prerequisites: ~muweap, murax, muhall, ~techlevel.5, !psyker, ~AIOnly ##Hack: Use the buildlimit = prerequisite bug in techtree to save lines
-		Description: Bus(full with T3)
-		BuildLimit: 1
-	ProductionCostMultiplier:
-		Multiplier: 400
 	Cargo:
 		InitialUnits: psyker, seer, seer, seer, seer
 	ProvidesPrerequisite@AIbuildinglimit:
@@ -329,7 +292,7 @@ UMAGON:
 	Tooltip:
 		Name: Umagon
 	Valued:
-		Cost: 2000
+		Cost: 1000
 	Voiced:
 		VoiceSet: Umagon
 	Buildable:

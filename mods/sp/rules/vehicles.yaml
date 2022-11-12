@@ -161,6 +161,7 @@ APC:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@PIPS: ^CargoPips
 	Inherits@VISION: ^6CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -298,6 +299,9 @@ APC:
 	ActorStatValues:
 		Damage: 40
 		SplitRanges: true
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage
+		DeployChance: 100
 
 HVR:
 	Inherits: ^HoverTank
@@ -736,6 +740,7 @@ BGGY:
 	Inherits@RAIDERE1: ^AffectedByRaiderPassenger
 	Inherits@TIBGASWH: ^AffectedByTiberiumGasWarheads
 	Inherits@VISION: ^8CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	-FirepowerMultiplier@BLUEFLAME:
 	Valued:
 		Cost: 300
@@ -746,7 +751,7 @@ BGGY:
 		BuildAtProductionType: Tank
 		Description: Fast vehicle armed with a machine gun and\nhas room for one passenger that modifies the weapon of the vehicle.\n\nGood vs: Changes depending on the passenger\n\nSpecial:\n- The weapon of the vehicle changes with the passenger\n- Provides stealth detection\n- Can attack while moving
 		BuildPaletteOrder: 9
-		Prerequisites: ~naweap, ~techlevel.2, ~!AIOnly
+		Prerequisites: ~naweap, ~techlevel.2
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Voiced:
@@ -1146,6 +1151,12 @@ BGGY:
 		RequiresSelection: true
 	ActorStatValues:
 		Upgrades: upgrade.raider_passenger
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && loaded && HeavyDamaged
+		DeployChance: 100
+		DeployTrigger: Periodically
+		DeployTicks: 10
+		UndeployTicks: 10
 
 ATTACKBIKE:
 	Inherits: ^Tank
@@ -2105,6 +2116,7 @@ STRUCK:
 	Inherits@PIPS: ^CargoPips
 	Inherits@RENDER: ^MutRender
 	Inherits@VISION: ^6CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -2116,7 +2128,7 @@ STRUCK:
 		BuildAtProductionType: Tank
 		Description: Combat transport.\n\nGood vs: Depending on occupants\n\nSpecial:\n- Cargo for 5 soldiers\n- Transported infantry can fire out of its windows\n - Infantry inside has increased weapon range\n- Can attack while moving
 		BuildPaletteOrder: 24
-		Prerequisites: ~muweap, murax, ~techlevel.2, ~!AIOnly
+		Prerequisites: ~muweap, murax, ~techlevel.2
 		BuildDuration: 500
 		BuildDurationModifier: 100
 	Mobile:
@@ -2134,6 +2146,7 @@ STRUCK:
 	Cargo:
 		Types: Infantry
 		MaxWeight: 5
+		LoadedCondition: loaded
 		AfterLoadDelay: 0
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
@@ -2151,6 +2164,12 @@ STRUCK:
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && loaded && HeavyDamaged
+		DeployChance: 100
+		DeployTrigger: Periodically
+		DeployTicks: 10
+		UndeployTicks: 10
 
 MINELAYER:
 	Inherits: ^Vehicle

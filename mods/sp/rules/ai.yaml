@@ -35,13 +35,11 @@ Player:
 	#################################
 	## BotModule and BotLogic
 	#################################
-	## Drop "HarvesterBotModule" due to it is senseless when we now use Building as cash cheat,
-	##  and sub base is impossible for OpenRA at present. Also this module is heavily performance questionable
-	#HarvesterBotModule: 
-	#	RequiresCondition: AIBase
-	#	HarvesterTypes: harv, scrharv
-	#	RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4
-
+	HarvesterBotModule: 
+		RequiresCondition: AIBase || AIEasy
+		HarvesterTypes: harv, scrharv, cabharv, harv.nod, harv.mut
+		RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4
+		scanForIdleHarvestersTicks: 1033 ## This module is pref-questionable, set it long enough. We just need it to steal some resource from player's control
 	GrantConditionAfterDelay@AIantiRush-unit-order:
 		RequiresCondition: AIBase
 		Condition: AIantiRush-unit-order
@@ -85,9 +83,9 @@ Player:
 		AdditionalMinimumRefineryCount: 0 ## We don't need this
 		InititalMinimumRefineryCount: 0 ## We don't need this
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
-		DefenseTypes: gavulc, cabpit, mubunkrfull, nalasr, scrneedler, muflak, mucannon, gacsam, nasam, cabrail, scrtractor, cabblast, garock, gasonc, naobel, scrdrone, scrextractor, napuls, scrshield, gafire, blackdefd, gadept, scrdepot
+		DefenseTypes: gavulc, cabpit, mubunkr, nalasr, scrneedler, muflak, mucannon, gacsam, nasam, cabrail, scrtractor, cabblast, garock, gasonc, naobel, scrdrone, scrextractor, napuls, scrshield, gafire, blackdefd, gadept, scrdepot
 		RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4
-		PowerTypes: gapowr, napowor, naapwr, cabpowr, mutpowr, scrpowr
+		PowerTypes: gapowr, napowr, naapwr, cabpowr, mupowr, scrpowr
 		BarracksTypes: gapile, nahand, mutrax, cabrax, scrrax
 		VehiclesFactoryTypes: gaweap, naweap, muweap, cabweap, scrweap
 		ProductionTypes: gapile, nahand, mutrax, cabclaw, scrrax, gaweap, naweap, muweap, cabweap, scrweap, gahpad, nahpad, muair, cabair, scrair
@@ -102,12 +100,6 @@ Player:
 			cabproc: 2
 			muproc: 2
 			gasilo: 1
-			napowr: 11
-			naapwr: 7
-			gapowr: 20
-			mupowr: 22
-			cabpowr: 22
-			scrpowr: 22
 			gapile: 2
 			nahand: 2
 			murax: 2
@@ -130,7 +122,7 @@ Player:
 			cabtech: 1
 			gavulc: 8
 			cabpit: 8
-			mubunkrfull: 7
+			mubunkr: 7
 			nalasr: 8
 			scrneedler: 8
 			muflak: 7
@@ -177,12 +169,6 @@ Player:
 			cabproc: 100
 			muproc: 100
 			gasilo: 1
-			napowr: 15
-			naapwr: 15
-			gapowr: 15
-			mupowr: 35
-			cabpowr: 15
-			scrpowr: 15
 			gapile: 10
 			nahand: 10
 			murax: 10
@@ -209,7 +195,7 @@ Player:
 			nasam: 10
 			cabpit: 10
 			cabrail: 10
-			mubunkrfull: 10
+			mubunkr: 6
 			muflak: 10
 			mucannon: 10
 			scrneedler: 10
@@ -289,10 +275,10 @@ Player:
 		IgnoredEnemyTargetTypes: Mine, Summoned, Wall, NoAutoTarget, IonSpawner
 		SuggestedGroundLeaderLocomotor: Infantry, HeavyInfantry, TibInmuneInfantry, TibFiends, TibVeCritter, Vehicle, InfantryCrusherVehicle, VehicleCrusher
 		SuggestedNavyLeaderLocomotor: Naval
-		GuerrillaTypes: cerberus, mutqueen, stormrider, scrglyder1, scrdestroyer, scrcarrier, scrbattleship, wasp, basilisk, struckfull, struckfull_t3, nukecarryall_bot, jumpjetair, nconf, bhs, mutfiend, pdrone, moth, cyc2, shark, smech, hvr, jug, attackbike, riflebggy, rocketbggy, flamebggy, lazorbggy, howtlizer, subtank, stnk, mutquad, lynx, wolf, mrls, scrscorpion, deathclaw, scrmbt, scrglyder2, scrmobmine, reapercab, altnode1, crusader, minelayer, jjcommair, umagon
+		GuerrillaTypes: cerberus, mutqueen, stormrider, scrglyder1, scrdestroyer, scrcarrier, scrbattleship, wasp, basilisk, nukecarryall_bot, jumpjetair, nconf, bhs, mutfiend, pdrone, moth, cyc2, shark, smech, hvr, jug, attackbike, bggy, howtlizer, subtank, stnk, mutquad, lynx, wolf, mrls, scrscorpion, deathclaw, scrmbt, scrglyder2, scrmobmine, reapercab, altnode1, crusader, minelayer, jjcommair, umagon
 		#MaxGuerrillaSize: 15
 		AirUnitsTypes: jumpjetair, jjcommair, orca, orcab, apache, scrin, cerberus, mutheli, mutqueen, mutbird, wetp, stormrider, scrglyder1, scrdestroyer, scrcarrier, stormriderspawn, repairwyvern, cabdronejet, repairdrone, scrbattleship, wasp, basilisk, devourer, nukecarryall_bot, sonicarryall_bot, apcarryall_bot
-		ProtectionTypes: nodmcv, mutmcv, cabmcv, drache, mcv, harv, harv.nod, harv.mut, cabharv, scrharv, gacnst, gadept, scrdepot, gasilo, napuls, scrshield, gate_a, mutgate_a, scrgate_a, scrgate_b, gapowr, gapile, gdiref, gaweap, garadr, gahpad, gatech, gtdrop, nodyard, napowr, nahand, nodref, naweap, naradr, naapwr, nahpad, natech, namisl, mutyard, mupowr, murax, muproc, muweap, muradr, muair, muhall, mutsw2, drached, scrpowr, scrrax, scrproc, scrproc2, scrproc3, scrproc4, scrweap, scrradr, scrair, scrtech, scradvpowr, cabyard, cabpowr, cabclaw, cabproc, cabweap, cabradr, cabair, cabtech, cabobelisk, gavulc, garock, gasonc, gacsam, nalasr, naobel, nasam, mubunkr, mucannon, muflak, cabpit, cabblast, cabrail, scrneedler, scrdrone, scrtractor, gafire, gaplug, nastlh, natmpl, muventi, mutsw1, scrextractor, scrsw1, cabeye, cabsw1, blackdefd, weed, bloodderrick, colorpicker, mubunkrfull, defd
+		ProtectionTypes: nodmcv, mutmcv, cabmcv, drache, mcv, harv, harv.nod, harv.mut, cabharv, scrharv, gacnst, gadept, scrdepot, gasilo, napuls, scrshield, gate_a, mutgate_a, scrgate_a, scrgate_b, gapowr, gapile, gdiref, gaweap, garadr, gahpad, gatech, gtdrop, nodyard, napowr, nahand, nodref, naweap, naradr, naapwr, nahpad, natech, namisl, mutyard, mupowr, murax, muproc, muweap, muradr, muair, muhall, mutsw2, drached, scrpowr, scrrax, scrproc, scrproc2, scrproc3, scrproc4, scrweap, scrradr, scrair, scrtech, scradvpowr, cabyard, cabpowr, cabclaw, cabproc, cabweap, cabradr, cabair, cabtech, cabobelisk, gavulc, garock, gasonc, gacsam, nalasr, naobel, nasam, mubunkr, mucannon, muflak, cabpit, cabblast, cabrail, scrneedler, scrdrone, scrtractor, gafire, gaplug, nastlh, natmpl, muventi, mutsw1, scrextractor, scrsw1, cabeye, cabsw1, blackdefd, weed, bloodderrick, colorpicker, mubunkr, defd
 	UnitBuilderBotModule@AIAll:
 		RequiresCondition: AIEasy || AIBase
 		UnitQueues: Infantry.Shared, Infantry.GDI, Infantry.Nod, Infantry.Mutant, Infantry.CABAL, Infantry.Scrin, Vehicle.Shared, Vehicle.GDI, Vehicle.MammothMkII, Vehicle.Nod, Vehicle.Lightbringer, Vehicle.Mutant, Vehicle.CABAL, Vehicle.Scrin, Air.Shared, Air.GDI, Air.Nod, Air.Mutant, Air.CABAL, Air.Scrin, Upgrade.Shared, Upgrade.GDI, Upgrade.Nod, Upgrade.Mutant, Upgrade.CABAL, Upgrade.Scrin
@@ -331,13 +317,10 @@ Player:
 			bug: 30
 			mmch: 30
 			smech: 60
-			riflebggy: 1
-			rocketbggy: 1
-			flamebggy: 2
+			bggy: 10
 			attackbike: 10
 			bike: 1
-			struckfull: 1
-			struckfull_t3: 80
+			struck: 5
 			centurion: 40
 			scrdronec: 40
 			corruptor: 60
@@ -379,8 +362,7 @@ Player:
 			scrrecharger: 100
 			scrmobmine: 5
 			mutqueen: 1
-			lazorbggy: 15
-			apc_bot: 1
+			apc: 10
 			moth: 2
 			nukecarryall_bot: 5
 			sonicarryall_bot: 5
@@ -459,7 +441,6 @@ Player:
 			scrcarrier: 5
 			mutqueen: 5
 			minelayer: 1
-			struckfull_t3: 1
 			limped: 1
 			scrscorpion: 2
 			hmectest: 1
@@ -476,7 +457,6 @@ Player:
 			#mutfiend: 4000
 			#legio: 5000
 			#cborg: 4000
-			rocketbggy: 3500
 			grenadier: 4000
 			medic: 4000
 			scorpion: 20000
@@ -848,3 +828,7 @@ Player:
 		RepairableHutActorTypes: cabhut
 	PowerDownBotModule:
 		RequiresCondition: AIShattered || AICheater
+	GarrisonBotModule:
+		RequiresCondition: AIBase || AIEasy
+		Transports: apc, struck, mubunkr, bggy, apc_bot, riflebggy, rocketbggy, flamebggy, struckfull, struckfull_t3
+		Passengers: gdie1, altnode1, jumpjet, crusader, e3, marauder, cyborg, cborg, legio, grenadier, e2, templar, mutfiend, colossi, seer, eagleguard, bhs, psyker, glad, cyc2, bug, nconf
