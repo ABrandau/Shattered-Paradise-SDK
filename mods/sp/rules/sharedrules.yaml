@@ -194,6 +194,12 @@ HARV:
 		ResourceSequences:
 			Tiberium: pip-green
 			BlueTiberium: pip-blue
+	CarryableHarvester:
+	-Carryable:
+	AutoCarryable:
+		RequiresCondition: !inside-tunnel
+		CarriedCondition: carried
+		LockedCondition: carrylock
 
 harv.nod:
 	Inherits: HARV
@@ -233,8 +239,7 @@ CABHARV:
 
 SCRHARV:
 	Inherits: HARV
-	Inherits@1: ^HoverVehicle
-	Inherits@2: ^ScrinVehicle
+	Inherits@1: ^ScrinVehicle
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -254,8 +259,6 @@ SCRHARV:
 		Volume: 1
 	Selectable:
 		DecorationBounds: 1086,1536
-	-LeavesTrails@land:
-	-LeavesTrails@water:
 
 GACNST:
 	Inherits: ^Building
@@ -1429,6 +1432,7 @@ GASILO:
 	Inherits@1: ^SpriteActor
 	Inherits@SHADOW: ^AircraftShadow
 	Inherits@VISION: ^9CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -1440,7 +1444,7 @@ GASILO:
 		BuildDurationModifier: 100
 	Aircraft:
 		AltitudeVelocity: 350
-		IdealSeparation: 3c0
+		IdealSeparation: 1c0
 		TurnSpeed: 28
 		Speed: 180
 		CruiseAltitude: 3c1022
@@ -1456,11 +1460,19 @@ GASILO:
 	Selectable:
 		Class: trnsport
 		Bounds: 1387,1447,0,-663
-	Carryall:
+	AutoCarryall:
 		LocalOffset: 0,0,-1024
 		Voice: Move
 		CarryableConditions:
 			bcoredef: darkdefender
+		CarryCondition: carring
+		AutoCarryCondition: AImicroManage
+	AutoDeployer@AI: ## HACK: prevent carryall stuck and cannot unload
+		RequiresCondition: AImicroManage && carring
+		DeployChance: 100
+		DeployTrigger: Periodically
+		DeployTicks: 1033
+		UndeployTicks: 1033
 	SpawnActorOnDeath:
 		RequiresCondition: airborne
 	ProvidesPrerequisite@darkdefender:
@@ -1605,7 +1617,7 @@ trnsport.cab:
 		TrailLength: 5
 		ZOffset: 4100
 
-trnsport.scr:
+trnsport.scr:  ## only used for AI
 	Inherits: ^Carryall
 	Inherits@1: ^ScrinAircraftGeneric
 	Tooltip:
@@ -1613,7 +1625,7 @@ trnsport.scr:
 	Buildable:
 		Queue: Air.Shared, Air.Scrin
 		BuildPaletteOrder: 15
-		Prerequisites: ~disabled # ~scrair, gadept, ~techlevel.4
+		Prerequisites: ~scrair, scrdepot, ~techlevel.4, ~AIOnly
 	RenderSprites:
 		Image: scrpod
 	SpawnActorOnDeath:

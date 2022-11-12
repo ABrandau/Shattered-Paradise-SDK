@@ -39,7 +39,7 @@ Player:
 		RequiresCondition: AIBase || AIEasy
 		HarvesterTypes: harv, scrharv, cabharv, harv.nod, harv.mut
 		RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4
-		scanForIdleHarvestersTicks: 1033 ## This module is pref-questionable, set it long enough. We just need it to steal some resource from player's control
+		scanForIdleHarvestersTicks: 1033 ## This module is pref-questionable, set it long enough. We only need AI to steal some resource from player's control area
 	GrantConditionAfterDelay@AIantiRush-unit-order:
 		RequiresCondition: AIBase
 		Condition: AIantiRush-unit-order
@@ -263,7 +263,7 @@ Player:
 		RequiresCondition: AIBase
 		SquadSize: 24
 		SquadSizeRandomBonus: 3
-		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, cutman, swarmling, shapeshifter,mcv, drache, cabmcv, nodmcv, mutmcv, mwar, lpst, limped, sgen, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern, ionbeammini, mkiiidrone-minigun, councilor
+		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, cutman, swarmling, shapeshifter,mcv, drache, cabmcv, nodmcv, mutmcv, mwar, lpst, limped, sgen, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern, ionbeammini, mkiiidrone-minigun, councilor, trnsport, trnsport.nod, trnsport.mut, trnsport.cab, trnsport.scr
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
 		DangerScanRadius: 18
 		AttackForceInterval: 59
@@ -385,6 +385,11 @@ Player:
 			limped: 1
 			hmectest: 100
 			scrincouncil: 100
+			trnsport: 1
+			trnsport.nod: 1
+			trnsport.mut: 1
+			trnsport.cab: 1
+			trnsport.scr: 1
 			upgrade.ap_ammunition: 8
 			upgrade.nanofiber_vests: 10
 			upgrade.power_turbines: 10
@@ -420,6 +425,11 @@ Player:
 			cabharv: 4
 			harv.nod: 4
 			harv.mut: 4
+			trnsport: 2
+			trnsport.nod: 2
+			trnsport.mut: 2
+			trnsport.cab: 2
+			trnsport.scr: 2
 			scrrecharger: 1
 			scrmobmine: 2
 			bike: 1

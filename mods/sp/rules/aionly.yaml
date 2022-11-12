@@ -122,22 +122,17 @@ STRUCKFULL_T3:
 
 ^BotCarryall:
 	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@AImicroManagable: ^AImicroManagable
 	Health:
 		HP: 18000
-	Carryall:
+	AutoCarryall:
 		CarryCondition: loaded
+		AutoCarryCondition: none ## No longer Auto Action
 	Armament@AIunloadingDummyWeapon:
 		Weapon: AITransportAimingDummyWeapon
 		RequiresCondition: AImicroManage && loaded
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 512
-	AutoDeployer@AI:
-		RequiresCondition: AImicroManage && loaded
-		DeployChance: 100
-		DeployTicks: 50
-		UndeployTicks: 200
 	AutoTarget:
 		ScanRadius: 9
 		InitialStanceAI: AttackAnything
@@ -161,8 +156,14 @@ NUKECARRYALL_BOT:
 		Prerequisites: ~muair, muhall, ~techlevel.5, ~AIOnly, ~!LoadedExists
 	ProductionCostMultiplier:
 		Multiplier: 400
-	Carryall:
+	AutoCarryall:
 		InitialActor: hvrtruk3
+	-AutoDeployer@AI:
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && loaded
+		DeployChance: 100
+		DeployTicks: 50
+		UndeployTicks: 200
 
 SONICARRYALL_BOT:
 	Inherits: TRNSPORT
@@ -172,8 +173,14 @@ SONICARRYALL_BOT:
 		Prerequisites: ~gahpad, gatech, ~techlevel.5, ~AIOnly, ~!LoadedExists
 	ProductionCostMultiplier:
 		Multiplier: 200
-	Carryall:
+	AutoCarryall:
 		InitialActor: sonic
+	-AutoDeployer@AI:
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && loaded
+		DeployChance: 100
+		DeployTicks: 50
+		UndeployTicks: 200
 
 APCARRYALL_BOT:
 	Inherits: TRNSPORT
@@ -183,8 +190,14 @@ APCARRYALL_BOT:
 		Prerequisites: ~gahpad, gapile, ~techlevel.2, ~AIOnly, ~!LoadedExists
 	ProductionCostMultiplier:
 		Multiplier: 180
-	Carryall:
+	AutoCarryall:
 		InitialActor: apc_bot
+	-AutoDeployer@AI:
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && loaded
+		DeployChance: 100
+		DeployTicks: 50
+		UndeployTicks: 200
 
 MUBUNKRFULL:
 	Inherits: MUBUNKR

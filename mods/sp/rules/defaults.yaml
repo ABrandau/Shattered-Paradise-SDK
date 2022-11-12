@@ -2323,7 +2323,11 @@
 	Inherits@2: ^VehicleEffects
 	Inherits@3: ^ExistsInWorld
 	Carryable:
+		RequiresCondition: !inside-tunnel
 		CarriedCondition: carried
+		LockedCondition: carrylock
+	Mobile:
+		PauseOnCondition: empdisable || carrylock
 	Passenger:
 		CargoCondition: ascargo
 	SmokeParticleEmitter@spawnsmoke:

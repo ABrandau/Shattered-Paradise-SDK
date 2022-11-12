@@ -1262,7 +1262,6 @@ TTNK:
 		TurnSpeed: 32
 		Speed: 90
 		Locomotor: InfantryCrusherVehicle
-		PauseOnCondition: empdisable
 		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
@@ -1399,7 +1398,6 @@ TICKHOLOGRAM:
 	Mobile:
 		TurnSpeed: 64
 		Speed: 90
-		PauseOnCondition: empdisable
 		Locomotor: Vehicle
 	Targetable:
 		TargetTypes: Ground, Vehicle, Summoned
@@ -1551,7 +1549,7 @@ SAPC:
 	Mobile:
 		TurnSpeed: 20
 		Speed: 105
-		PauseOnCondition: empdisable || resurfaced || loading
+		PauseOnCondition: empdisable || resurfaced || loading || carrylock
 	Health:
 		HP: 20000
 	Cargo:
