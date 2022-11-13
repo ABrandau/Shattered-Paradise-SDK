@@ -27,7 +27,8 @@ namespace OpenRA.Mods.SP.Traits
 		public readonly string EnterOrderName = "EnterSharedTransport";
 		public readonly string UnloadOrderName = "UnloadShared";
 		public readonly int ScanTick = 400;
-		public readonly int PassengersPerTick = 2;
+		public readonly int PassengersPerScan = 2;
+		public readonly int MaxPassengers = 6;
 		public readonly DamageState ValidDamageState = DamageState.Heavy;
 
 		[Desc("Radius in cells that SharedCargo unit should scan for enemies around their position and unload.")]
@@ -77,7 +78,7 @@ namespace OpenRA.Mods.SP.Traits
 
 		void IBotTick.BotTick(IBot bot)
 		{
-			if (--minAssignRoleDelayTicks <= 0 && sharedCargoManager != null)
+			if (--minAssignRoleDelayTicks <= 0 && sharedCargoManager != null && Info.MaxPassengers > sharedCargoManager.PassengerCount)
 			{
 				minAssignRoleDelayTicks = Info.ScanTick;
 
@@ -133,7 +134,7 @@ namespace OpenRA.Mods.SP.Traits
 						activePassengers.Add(new UnitWposWrapper(p.Actor));
 					}
 
-					if (!sharedCargoManager.HasSpace(spaceTaken + 1) || passengerCount >= Info.PassengersPerTick)
+					if (!sharedCargoManager.HasSpace(spaceTaken + 1) || passengerCount >= Info.PassengersPerScan)
 						break;
 				}
 
