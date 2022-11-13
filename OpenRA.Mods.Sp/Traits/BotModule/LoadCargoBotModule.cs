@@ -18,7 +18,7 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.SP.Traits
 {
 	[Desc("Manages AI load unit.")]
-	public class GarrisonBotModuleInfo : ConditionalTraitInfo
+	public class LoadCargoBotModuleInfo : ConditionalTraitInfo
 	{
 		public readonly HashSet<string> Transports = default;
 		public readonly HashSet<string> Passengers = default;
@@ -27,10 +27,10 @@ namespace OpenRA.Mods.SP.Traits
 		public readonly int ScanTick = 300;
 		public readonly DamageState ValidDamageState = DamageState.Heavy;
 
-		public override object Create(ActorInitializer init) { return new GarrisonBotModule(init.Self, this); }
+		public override object Create(ActorInitializer init) { return new LoadCargoBotModule(init.Self, this); }
 	}
 
-	public class GarrisonBotModule : ConditionalTrait<GarrisonBotModuleInfo>, IBotTick
+	public class LoadCargoBotModule : ConditionalTrait<LoadCargoBotModuleInfo>, IBotTick
 	{
 		readonly World world;
 		readonly Player player;
@@ -43,7 +43,7 @@ namespace OpenRA.Mods.SP.Traits
 		readonly List<Actor> stuckPassengers = new List<Actor>();
 		int minAssignRoleDelayTicks;
 
-		public GarrisonBotModule(Actor self, GarrisonBotModuleInfo info)
+		public LoadCargoBotModule(Actor self, LoadCargoBotModuleInfo info)
 			: base(info)
 		{
 			world = self.World;
@@ -102,7 +102,7 @@ namespace OpenRA.Mods.SP.Traits
 				var spaceTaken = 0;
 
 				var passengers = world.ActorsWithTrait<Passenger>().Where(at => !unitCannotBeOrderedOrIsBusy(at.Actor) && Info.Passengers.Contains(at.Actor.Info.Name) && !stuckPassengers.Contains(at.Actor) && cargo.HasSpace(at.Trait.Info.Weight))
-					.OrderByDescending(at => (at.Actor.CenterPosition - transport.CenterPosition).HorizontalLengthSquared);
+					.OrderBy(at => (at.Actor.CenterPosition - transport.CenterPosition).HorizontalLengthSquared);
 
 				var orderedActors = new List<Actor>();
 
