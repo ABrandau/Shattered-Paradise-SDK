@@ -954,7 +954,6 @@ GAFIRE:
 		MaximumScanTimeInterval: 50
 		ScanRadius: 11 #PREF: save trait looks up and scan armaments
 	AutoTargetPriority@AIonly:
-		RequiresCondition: AIbuildingMicroControl
 		ValidRelationships: Enemy
 		ValidTargets: Ground, Air, Water
 		Priority: 2
@@ -1195,6 +1194,7 @@ MUVENTI:
 	Inherits: ^Building
 	Inherits@RENDER: ^MutRenderBuilding
 	Inherits@SHAPE: ^2x2Shape
+	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Buildable:
 		Queue: Defense.Shared, Defense.Mutant
 		BuildPaletteOrder: 38
@@ -1246,7 +1246,31 @@ MUVENTI:
 			gray: pip-gray-building
 	IsometricSelectable:
 		DecorationHeight: 36
+	Armament@AIAimOnly:
+		RequiresCondition: AIbuildingMicroControl && !Building-Buildup && !StopAndDeploy
+		Weapon: MutTunnelAIAimingDummyWeapon
+		ReloadingCondition: StopAndDeploy ## HACK: SharedCargo can only deploy when not firing
+	AttackOmni@AIAimOnly:
+		RequiresCondition: AIbuildingMicroControl && !Building-Buildup && !StopAndDeploy
+	AutoTarget@AIonly:
+		RequiresCondition: AIbuildingMicroControl && !StopAndDeploy
+		InitialStanceAI: Defend
+		MinimumScanTimeInterval: 30
+		MaximumScanTimeInterval: 30
+		ScanRadius: 10 #PREF: save trait looks up and scan armaments
+	AutoTargetPriority@AIonly:
+		ValidRelationships: Enemy
+		ValidTargets: Ground, Air, Water
+		Priority: 2
+	AutoDeployer@AI:
+		RequiresCondition: AIbuildingMicroControl
+		DeployTrigger: Attack
+		DeployChance: 100
+		DeployTicks: 30
+		UndeployTicks: 5
+	-RevealOnFire:
 	ActorStatValues:
+		Armaments: None
 		Upgrades: upgrade.tunnel_repairs
 
 MUTSW1:

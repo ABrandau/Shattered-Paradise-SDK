@@ -76,14 +76,14 @@ Player:
 		DefenseQueues: Defense.Shared, Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL, Defense.Scrin
 		MaxBaseRadius: 50
 		MinimumExcessPower: 90
-		MaximumExcessPower: 250
+		MaximumExcessPower: 750
 		ExcessPowerIncrement: 50
 		ExcessPowerIncreaseThreshold: 4
 		NewProductionCashThreshold: 0
 		AdditionalMinimumRefineryCount: 0 ## We don't need this
 		InititalMinimumRefineryCount: 0 ## We don't need this
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
-		DefenseTypes: gavulc, cabpit, mubunkr, nalasr, scrneedler, muflak, mucannon, gacsam, nasam, cabrail, scrtractor, cabblast, garock, gasonc, naobel, scrdrone, scrextractor, napuls, scrshield, gafire, blackdefd, gadept, scrdepot
+		DefenseTypes: gavulc, cabpit, mubunkr, nalasr, scrneedler, muflak, mucannon, gacsam, nasam, cabrail, scrtractor, cabblast, garock, gasonc, naobel, scrdrone, scrextractor, napuls, scrshield, gafire, blackdefd, gadept, scrdepot, muventi
 		RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4
 		PowerTypes: gapowr, napowr, naapwr, cabpowr, mupowr, scrpowr
 		BarracksTypes: gapile, nahand, mutrax, cabrax, scrrax
@@ -149,6 +149,7 @@ Player:
 			cabsw1: 1
 			scrsw1: 1
 			napuls: 1
+			muventi: 3
 			scrshield: 1
 			nastlh: 1
 			gafire: 1
@@ -203,6 +204,7 @@ Player:
 			cabblast: 10
 			garock: 10
 			gasonc: 6
+			muventi: 8
 			naobel: 10
 			scrdrone: 10
 			cabeye: 1
@@ -411,6 +413,7 @@ Player:
 			upgrade.improved_plague_gas: 2
 			upgrade.disc_barrage: 8
 			upgrade.hyper_flight_rotors: 5
+			upgrade.tunnel_repairs: 1
 		UnitLimits:
 			harv: 4
 			scrharv: 4
@@ -832,3 +835,7 @@ Player:
 		RequiresCondition: AIBase || AIEasy
 		Transports: apc, struck, mubunkr, bggy, apc_bot, riflebggy, rocketbggy, flamebggy, struckfull, struckfull_t3
 		Passengers: gdie1, altnode1, jumpjet, crusader, e3, marauder, cyborg, cborg, legio, grenadier, e2, templar, mutfiend, colossi, seer, eagleguard, bhs, psyker, glad, cyc2, bug, nconf
+	SharedCargoBotModule:
+		RequiresCondition: AIBase || AIEasy
+		Transports: muventi
+		Passengers: apc, struck, bggy, apc_bot, riflebggy, rocketbggy, flamebggy, struckfull, struckfull_t3, mmch,smech,attackbike,centurion,scrdronec,corruptor,scrglyder2,hvr,ttnk,subtank,lynx,mutquad,wolf,g4tnk,scrmbt,sonic,jug,mrls,deathclaw,spiderarty,paladin,tripod,howtlizer,stnk,scrrecharger,scrmobmine
