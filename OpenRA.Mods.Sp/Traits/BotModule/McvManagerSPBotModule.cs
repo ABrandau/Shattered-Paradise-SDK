@@ -31,6 +31,15 @@ namespace OpenRA.Mods.Common.Traits
 		[Desc("Try to maintain at least this many ConstructionYardTypes, build an MCV if number is below this.")]
 		public readonly int MinimumConstructionYardCount = 1;
 
+		[Desc("Build another MCV if number is below this.")]
+		public readonly int AddtionalConstructionYardInterval = 8000;
+
+		[Desc("Build another MCV if number is below this.")]
+		public readonly int AddtionalConstructionYardCount = 1;
+
+		[Desc("Build another MCV if number is below this.")]
+		public readonly int MaxmiumConstructionYardCount = 1;
+
 		[Desc("Delay (in ticks) between looking for and giving out orders to new MCVs.")]
 		public readonly int ScanForNewMcvInterval = 20;
 
@@ -70,6 +79,8 @@ namespace OpenRA.Mods.Common.Traits
 		CPos initialBaseCenter;
 		int scanInterval;
 		bool firstTick = true;
+		int baseShouldHave;
+		int countdown;
 
 		public McvManagerSPBotModule(Actor self, McvManagerSPBotModuleInfo info)
 			: base(info)
@@ -77,6 +88,8 @@ namespace OpenRA.Mods.Common.Traits
 			world = self.World;
 			player = self.Owner;
 			unitCannotBeOrdered = a => a == null || a.Owner != player || a.IsDead || !a.IsInWorld;
+			baseShouldHave = info.MinimumConstructionYardCount;
+			countdown = info.AddtionalConstructionYardInterval;
 		}
 
 		protected override void Created(Actor self)
@@ -100,6 +113,18 @@ namespace OpenRA.Mods.Common.Traits
 
 		void IBotTick.BotTick(IBot bot)
 		{
+			if (--countdown <= 0)
+			{
+				countdown = Info.AddtionalConstructionYardInterval;
+				baseShouldHave += Info.AddtionalConstructionYardCount;
+
+				if (baseShouldHave >= Info.MaxmiumConstructionYardCount)
+				{
+					baseShouldHave = Info.AddtionalConstructionYardCount;
+					countdown = int.MaxValue;
+				}
+			}
+
 			if (firstTick)
 			{
 				DeployMcvsFirstTick(bot);
@@ -133,7 +158,7 @@ namespace OpenRA.Mods.Common.Traits
 				return false;
 
 			// Build MCV if we don't have the desired number of construction yards, unless we have no factory (can't build it).
-			return AIUtils.CountBuildingByCommonName(Info.ConstructionYardTypes, player) < Info.MinimumConstructionYardCount &&
+			return AIUtils.CountBuildingByCommonName(Info.ConstructionYardTypes, player) < baseShouldHave &&
 				AIUtils.CountBuildingByCommonName(Info.McvFactoryTypes, player) > 0;
 		}
 
