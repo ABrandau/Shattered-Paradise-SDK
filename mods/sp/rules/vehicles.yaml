@@ -2392,6 +2392,7 @@ HVRTRUK3:
 	Inherits@: ^HoverVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@RENDER: ^MutRender
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 4000
 	Tooltip:
@@ -2457,6 +2458,11 @@ HVRTRUK3:
 		ScanRadius: 8
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
+	GrantConditionOnMovement:
+		Condition: walking
+	RejectsOrders:
+		RequiresCondition: walking && AImicroManage
+		Except: Attack
 	ActorStatValues:
 		Damage: 3240
 		Spread: 6c0

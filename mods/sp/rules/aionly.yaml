@@ -121,21 +121,17 @@ STRUCKFULL_T3:
 		TooltipActor: struck
 
 ^BotCarryall:
-	Inherits@1: ^AutoTargetAllAssaultMove
-	Health:
-		HP: 18000
 	AutoCarryall:
 		CarryCondition: loaded
 		AutoCarryCondition: none ## No longer Auto Action
 	Armament@AIunloadingDummyWeapon:
 		Weapon: AITransportAimingDummyWeapon
-		RequiresCondition: AImicroManage && loaded
+		RequiresCondition: AImicroManage && loaded && !StopAndDeploy
+		ReloadingCondition: StopAndDeploy
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 512
-	AutoTarget:
-		ScanRadius: 9
-		InitialStanceAI: AttackAnything
+		RequiresCondition: AImicroManage && loaded && !StopAndDeploy
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	ProvidesPrerequisite@AIbuildinglimit:
@@ -168,6 +164,10 @@ NUKECARRYALL_BOT:
 SONICARRYALL_BOT:
 	Inherits: TRNSPORT
 	Inherits@1: ^BotCarryall
+	Inherits@2: ^AutoTargetAllAssaultMove
+	AutoTarget:
+		ScanRadius: 9
+		InitialStanceAI: AttackAnything
 	Buildable:
 		Description: AI Sonic Transport
 		Prerequisites: ~gahpad, gatech, ~techlevel.5, ~AIOnly, ~!LoadedExists
@@ -185,6 +185,10 @@ SONICARRYALL_BOT:
 APCARRYALL_BOT:
 	Inherits: TRNSPORT
 	Inherits@1: ^BotCarryall
+	Inherits@2: ^AutoTargetAllAssaultMove
+	AutoTarget:
+		ScanRadius: 9
+		InitialStanceAI: AttackAnything
 	Buildable:
 		Description: AI APC Transport
 		Prerequisites: ~gahpad, gapile, ~techlevel.2, ~AIOnly, ~!LoadedExists
