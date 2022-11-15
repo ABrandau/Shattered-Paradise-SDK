@@ -75,10 +75,10 @@ Player:
 		BuildingQueues: Building.Shared, Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
 		DefenseQueues: Defense.Shared, Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL, Defense.Scrin
 		MaxBaseRadius: 50
-		MinimumExcessPower: 90
+		MinimumExcessPower: 50
 		MaximumExcessPower: 750
 		ExcessPowerIncrement: 50
-		ExcessPowerIncreaseThreshold: 4
+		ExcessPowerIncreaseThreshold: 25
 		NewProductionCashThreshold: 0
 		AdditionalMinimumRefineryCount: 0 ## We don't need this
 		InititalMinimumRefineryCount: 0 ## We don't need this
@@ -246,7 +246,7 @@ Player:
 		RequiresCondition: AIBase
 		SquadSize: 24
 		SquadSizeRandomBonus: 3
-		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, cutman, swarmling, shapeshifter,mcv, drache, cabmcv, nodmcv, mutmcv, mwar, lpst, limped, sgen, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern, ionbeammini, mkiiidrone-minigun, councilor, trnsport, trnsport.nod, trnsport.mut, trnsport.cab, trnsport.scr, nukecarryall_bot, subtank
+		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.gdi, harv.nod, harv.mut, harv.cab, engineer, cutman, swarmling, shapeshifter,mcv, drache, cabmcv, nodmcv, mutmcv, mwar, lpst, limped, sgen, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern, ionbeammini, mkiiidrone-minigun, councilor, trnsport, trnsport.nod, trnsport.mut, trnsport.cab, trnsport.scr, nukecarryall_bot, subtank, sapc, hvrtruk3
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
 		DangerScanRadius: 18
 		AttackForceInterval: 59
@@ -312,7 +312,8 @@ Player:
 			scrglyder2: 30
 			hvr: 5
 			ttnk: 20
-			subtank: 1
+			subtank: 5
+			sapc: 1
 			lynx: 40
 			mutquad: 30
 			wolf: 5
@@ -349,7 +350,7 @@ Player:
 			mutqueen: 1
 			apc: 10
 			moth: 2
-			nukecarryall_bot: 5
+			nukecarryall_bot: 1
 			sonicarryall_bot: 5
 			apcarryall_bot: 1
 			repairvehicle: 2
@@ -816,7 +817,6 @@ Player:
 					Attractiveness: -10
 					TargetMetric: Value
 					CheckRadius: 7c0
-
 	CncEngineerSPBotModule:
 		RequiresCondition: AIBase || AIEasy
 		EngineerActorTypes: engineer, cutman, swarmling, shapeshifter
@@ -827,15 +827,19 @@ Player:
 		RequiresCondition: AIShattered || AICheater
 	LoadCargoBotModule:
 		RequiresCondition: AIBase || AIEasy
-		Transports: apc, struck, mubunkr, bggy, apc_bot, riflebggy, rocketbggy, flamebggy, struckfull, struckfull_t3
+		Transports: apc, struck, mubunkr, bggy, apc_bot, riflebggy, rocketbggy, flamebggy, struckfull, struckfull_t3, sapc
 		Passengers: gdie1, altnode1, jumpjet, crusader, e3, marauder, cyborg, cborg, legio, grenadier, e2, templar, mutfiend, colossi, seer, eagleguard, bhs, psyker, glad, cyc2, bug, nconf
 	SharedCargoBotModule:
 		RequiresCondition: AIBase || AIEasy
 		Transports: muventi
-		Passengers: apc, struck, bggy, apc_bot, riflebggy, rocketbggy, flamebggy, struckfull, struckfull_t3, mmch,smech,attackbike,centurion,scrdronec,corruptor,scrglyder2,hvr,ttnk,subtank,lynx,mutquad,wolf,g4tnk,scrmbt,sonic,jug,mrls,deathclaw,spiderarty,paladin,tripod,howtlizer,stnk,scrrecharger,scrmobmine
+		Passengers: apc, struck, bggy, apc_bot, riflebggy, rocketbggy, flamebggy, struckfull, struckfull_t3, mmch,smech,attackbike,centurion,scrdronec,corruptor,scrglyder2,hvr,ttnk,lynx,mutquad,wolf,g4tnk,scrmbt,sonic,jug,mrls,deathclaw,spiderarty,paladin,tripod,howtlizer,stnk,scrrecharger,scrmobmine
 	SendUnitToAttackBotModule:
 		RequiresCondition: AIBase
-		Units: subtank, nukecarryall_bot
+		ActorsAndAttackDesire: 
+			subtank: 10
+			sapc: 10
+			nukecarryall_bot: 100
+			hvrtruk3: 100
 		ValidTargets: Building
 		InvalidTargets: Defence
 

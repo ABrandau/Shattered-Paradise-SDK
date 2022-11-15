@@ -213,6 +213,7 @@ APC:
 		UnloadVoice: Move
 		EjectOnDeath: false
 		OwnerChangedAffectsPassengers: false
+		LoadedCondition: loaded
 	Passenger:
 		CargoType: Apc
 	LeavesTrails:
@@ -300,7 +301,7 @@ APC:
 		Damage: 40
 		SplitRanges: true
 	AutoDeployer@AI:
-		RequiresCondition: AImicroManage
+		RequiresCondition: AImicroManage && loaded
 		DeployChance: 100
 		DeployTicks: 40
 		UndeployTicks: 5
@@ -1532,6 +1533,8 @@ SAPC:
 	Inherits: ^SubterraneanVoxelVehicle
 	Inherits@PIPS: ^CargoPips
 	Inherits@VISION: ^6CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1546,6 +1549,9 @@ SAPC:
 		Description: Troop transport that can move underground.\n\nSpecial:\n- Can move underground\n- Can transport up to 5 infantry units\n- Can crush infantry\n - Cannot move or burrow back for 3 seconds after resufacing
 		BuildDuration: 250
 		BuildDurationModifier: 100
+	ProductionCostMultiplier@AI: ## AI cannot use it well
+		Multiplier: 10
+		Prerequisites: AIOnly
 	Mobile:
 		TurnSpeed: 20
 		Speed: 105
@@ -1561,6 +1567,7 @@ SAPC:
 		UnloadVoice: Move
 		LoadingCondition: loading
 		OwnerChangedAffectsPassengers: false
+		LoadedCondition: loaded
 	Passenger:
 		CargoType: Apc
 	Targetable@MC:
@@ -1569,6 +1576,22 @@ SAPC:
 		RequiresCondition: !submerged && !inside-tunnel
 	WithDecoration@UNDERGROUND:
 		RequiresCondition: inside-tunnel || submerged
+	Armament@AIunloadingDummyWeapon:
+		Weapon: AITransportAimingDummyWeapon
+		RequiresCondition: AImicroManage && loaded && !StopAndDeploy
+		ReloadingCondition: StopAndDeploy
+	AttackFrontal@AIAimOnly:
+		RequiresCondition: AImicroManage && loaded && !StopAndDeploy
+		FacingTolerance: 512
+	AutoTarget:
+		RequiresCondition: AImicroManage
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && loaded
+		DeployChance: 100
+		DeployTicks: 200
+		UndeployTicks: 0
+	ActorStatValues:
+		Armaments: None
 
 SUBTANK:
 	Inherits: ^SubterraneanVoxelVehicle
@@ -2132,7 +2155,7 @@ STRUCK:
 		BuildDuration: 500
 		BuildDurationModifier: 100
 	ProductionCostMultiplier@AI: ## AI cannot use it well
-		Multiplier: 0
+		Multiplier: 10
 		Prerequisites: AIOnly
 	Mobile:
 		TurnSpeed: 24

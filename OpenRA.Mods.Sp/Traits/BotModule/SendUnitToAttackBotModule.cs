@@ -19,9 +19,18 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Sp.Traits
 {
+	[Flags]
+	public enum AttackRequires
+	{
+		None = 0,
+		CargoLoadedIfPossible = 1
+	}
+
 	public class SendUnitToAttackBotModuleInfo : ConditionalTraitInfo
 	{
-		public readonly HashSet<string> Units = default;
+		[Desc("Actors used for attack, and their base desire provided for attack desire.",
+			"When desire reach 100, AI will send them to attack.")]
+		public readonly Dictionary<string, int> ActorsAndAttackDesire = default;
 
 		[Desc("Target types that can be targeted.")]
 		public readonly BitSet<TargetableType> ValidTargets = new BitSet<TargetableType>("Building");
@@ -29,11 +38,20 @@ namespace OpenRA.Mods.Sp.Traits
 		[Desc("Target types that can't be targeted.")]
 		public readonly BitSet<TargetableType> InvalidTargets;
 
+		[Desc("Should attack the furthest or closest target.")]
 		public readonly bool AttackFurthest = true;
 
+		[Desc("Attack order name.")]
 		public readonly string AttackOrderName = "Attack";
 
+		[Desc("Find target and attack actor in this interval.")]
 		public readonly int ScanTick = 400;
+
+		[Desc("The attack desire increase this amount when there is actor can attack.")]
+		public readonly int AttackDesireIncreasedPerScan = 10;
+
+		[Desc("Filters units don't meet the requires.")]
+		public readonly AttackRequires AttackRequires = AttackRequires.CargoLoadedIfPossible;
 
 		public override object Create(ActorInitializer init) { return new SendUnitToAttackBotModule(init.Self, this); }
 	}
@@ -50,16 +68,19 @@ namespace OpenRA.Mods.Sp.Traits
 		readonly List<UnitWposWrapper> activeActors = new List<UnitWposWrapper>();
 		readonly List<Actor> stuckActors = new List<Actor>();
 		int minAssignRoleDelayTicks;
+		Player targetPlayer;
+		int desireIncreased;
 
 		public SendUnitToAttackBotModule(Actor self, SendUnitToAttackBotModuleInfo info)
 		: base(info)
 		{
 			world = self.World;
 			player = self.Owner;
-			isInvalidActor = a => a == null || a.IsDead || !a.IsInWorld || a.Owner.RelationshipWith(player) != PlayerRelationship.Enemy;
+			isInvalidActor = a => a == null || a.IsDead || !a.IsInWorld || a.Owner != targetPlayer;
 			unitCannotBeOrdered = a => a == null || a.IsDead || !a.IsInWorld || a.Owner != player;
 			unitCannotBeOrderedOrIsBusy = a => unitCannotBeOrdered(a) || (!a.IsIdle && !(a.CurrentActivity is FlyIdle));
 			unitCannotBeOrderedOrIsIdle = a => unitCannotBeOrdered(a) || a.IsIdle || a.CurrentActivity is FlyIdle;
+			desireIncreased = 0;
 		}
 
 		protected override void TraitEnabled(Actor self)
@@ -90,10 +111,41 @@ namespace OpenRA.Mods.Sp.Traits
 					p.WPos = p.Actor.CenterPosition;
 				}
 
-				var actors = world.Actors.Where(a => Info.Units.Contains(a.Info.Name) && !unitCannotBeOrderedOrIsBusy(a) && !stuckActors.Contains(a)).ToList();
+				var shouldAttackdesire = 0;
+				var actors = world.Actors.Where(a =>
+				{
+					if (Info.ActorsAndAttackDesire.ContainsKey(a.Info.Name) && !unitCannotBeOrderedOrIsBusy(a) && !stuckActors.Contains(a))
+					{
+						if (Info.AttackRequires.HasFlag(AttackRequires.CargoLoadedIfPossible) && a.Info.HasTraitInfo<CargoInfo>())
+						{
+							if (a.Trait<Cargo>().IsEmpty())
+								return false;
+							else
+							{
+								shouldAttackdesire += Info.ActorsAndAttackDesire[a.Info.Name];
+								return true;
+							}
+						}
+						else
+						{
+							shouldAttackdesire += Info.ActorsAndAttackDesire[a.Info.Name];
+							return true;
+						}
+					}
+
+					return false;
+				}).ToList();
 
 				if (actors.Count == 0)
+					desireIncreased = 0;
+				else
+					desireIncreased += Info.AttackDesireIncreasedPerScan;
+
+				if (desireIncreased + shouldAttackdesire < 100)
 					return;
+
+				// Randomly choose enemy player to attack
+				targetPlayer = world.Players.Where(p => p.RelationshipWith(player) == PlayerRelationship.Enemy).Random(world.LocalRandom);
 
 				var targets = world.Actors.Where(a =>
 				{
@@ -102,7 +154,20 @@ namespace OpenRA.Mods.Sp.Traits
 
 					var t = a.GetAllTargetTypes();
 
-					return Info.ValidTargets.Overlaps(t) && !Info.InvalidTargets.Overlaps(t);
+					if (!Info.ValidTargets.Overlaps(t) || Info.InvalidTargets.Overlaps(t))
+						return false;
+
+					var hasModifier = false;
+					var visModifiers = a.TraitsImplementing<IVisibilityModifier>();
+					foreach (var v in visModifiers)
+					{
+						if (v.IsVisible(a, player))
+							return true;
+
+						hasModifier = true;
+					}
+
+					return !hasModifier;
 				});
 
 				if (Info.AttackFurthest)
@@ -128,8 +193,12 @@ namespace OpenRA.Mods.Sp.Traits
 					}
 
 					actors.RemoveAll(a => orderedActors.Contains(a));
+
 					if (orderedActors.Count > 0)
 						bot.QueueOrder(new Order(Info.AttackOrderName, null, Target.FromActor(t), false, groupedActors: orderedActors.ToArray()));
+
+					if (actors.Count == 0)
+						break;
 				}
 			}
 		}

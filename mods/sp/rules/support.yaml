@@ -866,7 +866,7 @@ GAFIRE:
 		Queue: Defense.Shared, Defense.GDI
 		BuildPaletteOrder: 41
 		Description: Generates a firestorm barrier in a circle around the building.\n\nSpecial:\n- When activated it increases the durability of friendly units inside the barrier by 30%\n- Units trying to cross the firestorm will be killed no matter if friend or foe
-		Prerequisites: ~gacnst, gatech, ~techlevel.5, ~!AIFireStormBuildLimit
+		Prerequisites: ~gacnst, gatech, ~techlevel.5
 		BuildDuration: 500
 		BuildDurationModifier: 100
 	Valued:
@@ -965,9 +965,6 @@ GAFIRE:
 	-RevealOnFire:
 	ActorStatValues:
 		Armaments: None
-	ProvidesPrerequisite@AIBuildLimit:
-		RequiresCondition: AIbuildingMicroControl
-		Prerequisite: AIFireStormBuildLimit
 
 GAPLUG:
 	Inherits: ^Building
@@ -1203,7 +1200,7 @@ MUVENTI:
 		BuildDuration: 125
 		BuildDurationModifier: 100
 	ProductionCostMultiplier@AI: ## AI cannot use it well
-		Multiplier: 0
+		Multiplier: 10
 		Prerequisites: AIOnly
 	Valued:
 		Cost: 500

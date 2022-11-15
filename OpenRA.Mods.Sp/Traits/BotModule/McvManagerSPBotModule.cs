@@ -120,7 +120,7 @@ namespace OpenRA.Mods.Common.Traits
 
 				if (baseShouldHave >= Info.MaxmiumConstructionYardCount)
 				{
-					baseShouldHave = Info.AddtionalConstructionYardCount;
+					baseShouldHave = Info.MaxmiumConstructionYardCount;
 					countdown = int.MaxValue;
 				}
 			}
