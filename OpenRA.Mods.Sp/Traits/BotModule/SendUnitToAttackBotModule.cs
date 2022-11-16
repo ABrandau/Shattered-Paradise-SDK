@@ -47,7 +47,7 @@ namespace OpenRA.Mods.Sp.Traits
 		[Desc("Find target and attack actor in this interval.")]
 		public readonly int ScanTick = 400;
 
-		[Desc("The attack desire increase this amount when there is actor can attack.")]
+		[Desc("The total attack desire increase this amount oer scan")]
 		public readonly int AttackDesireIncreasedPerScan = 10;
 
 		[Desc("Filters units don't meet the requires.")]
@@ -112,7 +112,7 @@ namespace OpenRA.Mods.Sp.Traits
 				}
 
 				var shouldAttackdesire = 0;
-				var actors = world.Actors.Where(a =>
+				var actors = world.ActorsWithTrait<AttackBase>().Select(at => at.Actor).Where(a =>
 				{
 					if (Info.ActorsAndAttackDesire.ContainsKey(a.Info.Name) && !unitCannotBeOrderedOrIsBusy(a) && !stuckActors.Contains(a))
 					{
