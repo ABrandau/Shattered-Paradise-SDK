@@ -1014,9 +1014,15 @@ BGGY:
 	AutoTarget:
 		ScanRadius: 11 #PREF: save trait looks up and scan armaments
 	AutoTargetPriority@DEFAULT:
-		ValidRelationships: Enemy, Ally
+		RequiresCondition: !stance-attackanything && !assault-move && !ifv.engineer && !ifv.medic
 	AutoTargetPriority@ATTACKANYTHING:
-		ValidRelationships: Enemy, Ally
+		RequiresCondition:  (stance-attackanything || assault-move) && !ifv.engineer && !ifv.medic
+	AutoTargetPriority@HEAL:
+		RequiresCondition: ifv.engineer || ifv.medic
+		ValidTargets: Vehicle, Infantry
+		InvalidTargets: FullHealth, Summoned
+		ValidRelationships: Ally
+		Priority: 2
 	###################################
 	# Turret Graphics
 	###################################
