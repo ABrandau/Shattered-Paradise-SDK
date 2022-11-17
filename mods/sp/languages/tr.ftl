@@ -1,4 +1,15 @@
+## MapOptions, MissionBrowserLogic
+
+slowest = En Yavaş
+slower = Daha Yavaş
+normal = Normal
+fast = Hızlı
+faster = Daha Hızlı
+fastest = En Hızlı
+ludicrous = Aşırı Hızlı
+
 ## Server Orders
+
 custom-rules = Bu harita özel kurallar içermektedir. Oyun deneyimi değişebilir.
 map-bots-disabled = Botlar bu haritada devre dışı bırakılmışdır.
 two-humans-required = Bu sunucu oyunu başlatmak için en az iki insan oyuncu gerektirir.
@@ -74,24 +85,30 @@ no-permission = Bu sunucuya katılmaya izniniz yok.
 slot-closed = Slotunuz sunucu tarafından kapatıldı.
 
 ## Server
+
 game-started = Oyun başladı
 
 ## PlayerMessageTracker
+
 chat-temp-disabled = Sohbet devre dışı. Lütfen { $remaining } saniye sonra tekrar deneyin.
 
 ## ActorEditLogic
+
 duplicate-actor-id = Kopya Aktör ID'si
 enter-actor-id = Bir Aktör ID'si girin
 owner = Sahip
 
 ## ActorSelectorLogic
+
 type = Tür
 
 ## CommonSelectorLogic
+
 search-results = Arama Sonuçları
 multiple = Çok
 
 ## SaveMapLogic
+
 unpacked = paketlenmemiş
 
 save-map-failed-title = Harita kaydedilemedi
@@ -109,6 +126,7 @@ overwrite-map-outside-edit-prompt = "Bu harita düzenleyicinin dışında deği�
 overwrite-map-outside-edit-confirm = Kaydet
 
 ## GameInfoLogic
+
 objectives = Hedefler
 briefing = Brifing
 options = Seçenekler
@@ -116,15 +134,18 @@ debug = Hata Bulma
 chat = Sohbet
 
 ## GameInfoObjectivesLogic, GameInfoStatsLogic
+
 in-progress = Devam ediyor
 accomplished = Tamamlandı
 failed = Başarısız oldu
 
 ## GameInfoStatsLogic
+
 mute = Bu oyuncuyu sustur
 unmute = Bu oyuncunun sesini aç
 
 ## GameInfoStatsLogic
+
 gone = Ayrıldı
 
 kick-title = { $player } adlı oyuncuyu at?
@@ -132,16 +153,19 @@ kick-prompt = Oyuna geri katılamayacaklar.
 kick-accept = At
 
 ## GameTimerLogic
+
 paused = Duraklatıldı
 max-speed = Maks. Hız
 speed = %{ $percentage } Hız
 complete = %{ $percentage } tamamlandı
 
 ## LobbyLogic, InGameChatLogic
+
 chat-disabled = Sohbet devre dışı
 chat-availability = Sohbet { $seconds } saniye içinde etkinleşecek...
 
 ## IngameMenuLogic
+
 leave = Ayrıl
 abort-mission = Görevden Ayrıl
 
@@ -189,20 +213,26 @@ exit-map-editor-confirm-anyway = Yine de çık
 exit-map-editor-confirm = Çık
 
 ## IngamePowerBarLogic
+
 ## IngamePowerCounterLogic
+
 power-usage = Güç Kullanımı: { $usage }/{ $capacity }
 infinite-power = Sınırsız
 
 ## IngameSiloBarLogic
+
 ## IngameCashCounterLogic
+
 silo-usage = Depo Kullanımı: { $usage }/{ $capacity }
 
 ## ObserverShroudSelectorLogic
+
 camera-option-all-players = Tüm Oyuncular
 camera-option-disable-shroud = Karanlığı Devre Dışı Bırak
 camera-option-other = Diğer
 
 ## ObserverStatsLogic
+
 minimal = En Düşük
 information-none = Bilgi: Hiçbiri
 basic = Genel
@@ -216,9 +246,11 @@ earnings-graph = Gelir (grafik)
 army-graph = Ordu (grafik)
 
 ## WorldTooltipLogic
+
 unrevealed-terrain = Keşfedilmemiş Arazi
 
 ## DownloadPackageLogic
+
 downloading = { $title } indiriliyor
 fetching-mirror-list = Aynaların listesi alınıyor...
 downloading-from = { $host } adresinden indiriliyor { $received } { $suffix }
@@ -232,6 +264,7 @@ archive-extraction-failed = Arşivden çıkarma başarısız oldu
 mirror-selection-failed = Çevrimiçi ayna kullanılabilir değil. Lütfen orijinal bir diskten yükleyin.
 
 ## InstallFromDiscLogic
+
 detecting-drives = Sürücüler tespit ediliyor
 checking-discs = Diskler kontrol ediliyor
 searching-disc-for = { $title } aranıyor
@@ -251,21 +284,27 @@ cancel = İptal Et
 retry = Yeniden Dene
 
 ## InstallFromDiscLogic, LobbyLogic
+
 back = Geri Dön
 
 # InstallFromDiscLogic, ModContentPromptLogic
+
 continue = Devam Et
 
 ## ModContentLogic
+
 manual-install = Elle Yükleme
 
 ## ModContentPromptLogic
+
 quit = Çık
 
 ## KickClientLogic
+
 kick-client = { $player } atılsın mı?
 
 ## KickSpectatorsLogic
+
 kick-spectators =
     { $count ->
         [one] Bir izleyiciyi atmak istediğinize emin misiniz?
@@ -273,6 +312,7 @@ kick-spectators =
     }
 
 ## LobbyLogic
+
 add = Ekle
 remove = Kaldır
 configure-bots = Botları Ayarla
@@ -282,40 +322,51 @@ free-for-all = Herkes Tek
 configure-teams = Takımları Ayarla
 
 ## LobbyLogic, CommonSelectorLogic, InGameChatLogic
+
 all = Tümü
 
 ## InputSettingsLogic, CommonSelectorLogic
+
 none = Hiçbiri
 
 ## LobbyLogic, IngameChatLogic
+
 team = Takım
 
 ## LobbyOptionsLogic
+
 not-available = Mevcut Değil
 
 ## LobbyUtils
+
 slot = Slot
 open = Açık
 closed = Kapalı
 bots = Botlar
 
 # LobbyUtils, Server
+
 bots-disabled = Bots Disabled
 
 ## MapPreviewLogic
+
 connecting = Bağlanılıyor...
 downloading-map = İndiriliyor { $size } kB
 downloading-map-progress = İndiriliyor { $size } kB ({ $progress }%)
 retry-install = Yüklemeyi Tekrar Dene
 retry-search = Aramayı Tekrar Dene
+
 ## also MapChooserLogic
+
 created-by = Yapımcı: { $author }
 
 ## SpawnSelectorTooltipLogic
+
 disabled-spawn = Kapalı başlangıç noktası
 available-spawn = Kullanılabilir başlangıç noktası
 
 ## DisplaySettingsLogic
+
 close = Yakın
 medium = Orta
 far = Uzak
@@ -334,14 +385,17 @@ automatic = Otomatik
 manual = Elle
 
 ## DisplaySettingsLogic, InputSettingsLogic
+
 disabled = Devre Dışı
 
 ## DisplaySettingsLogic, InputSettingsLogic, IntroductionPromptLogic
+
 classic = Klasik
 modern = Modern
 standard = Standart
 
 ## DisplaySettingsLogic, IntroductionPromptLogic
+
 inverted = Ters
 joystick = Joystick
 
@@ -351,6 +405,7 @@ meta = Meta
 shift = Shift
 
 ## SettingsLogic
+
 settings-save-title = Yeniden Başlatma Gerekli
 settings-save-prompt = Bazı değişiklikler oyun yeniden başlatılana
     kadar uygulanmayacak.
@@ -369,10 +424,12 @@ reset-accept = Sıfırla
 reset-cancel = İptal Et
 
 ## AssetBrowserLogic
+
 all-packages = Tüm Paketler
 length-in-seconds = { $length } sn
 
 ## ConnectionLogic
+
 connecting-to-endpoint = { $endpoint } adresine bağlanılıyor...
 could-not-connect-to-target = { $target } suncusuna bağlanılamadı
 unknown-error = Bilinmeyen hata
@@ -381,6 +438,7 @@ connection-failed = Bağlantı Başarısız Oldu
 mod-switch-failed = Mod değiştirme başarısız oldu.
 
 ## GameSaveBrowserLogic
+
 rename-save-title = Kaydı Yeniden Adlandır
 rename-save-prompt = Yeni bir dosya adı girin:
 rename-save-accept = Yeniden Adlandır
@@ -400,11 +458,13 @@ overwrite-save-prompt = { $file } kaydının üzerine yazılsın mı?
 overwrite-save-accept = Üzerine Yaz
 
 ## MainMenuLogic
+
 loading-news = Haberler yükleniyor
 news-retrival-failed = Haberler alınamadı: { $message }
 news-parsing-failed = Haberler işlenemedi: { $message }
 
 ## MapChooserLogic
+
 all-maps = Tüm Haritalar
 no-matches = Eşleşme yok
 player-players = { $players } Oyuncu
@@ -423,7 +483,11 @@ delete-all-maps-title = Haritaları sil
 delete-all-maps-prompt = Bu sayfadaki tüm haritalar silinsin mi?
 delete-all-maps-accept = Sil
 
+order-maps-players = Oyuncu Sayısı
+order-maps-date = Değiştirme Tarihi
+
 ## MissionBrowserLogic
+
 no-video-title = Video yüklenmemiş
 no-video-prompt = Oyunun videoları ana menüdeki "İçerikleri
     Yönet" kısmından yüklenebilir.
@@ -434,18 +498,22 @@ cant-play-prompt = Videoyu oynatırken bir şeyler ters gitti.
 cant-play-cancel = Geri Dön
 
 ## MusicPlayerLogic
+
 sound-muted = Ses ayarlardan kapatılmış.
 no-song-playing = Hiçbir şarkı oynatılmıyor
 
 ## MuteHotkeyLogic
+
 audio-muted = Ses kapatıldı.
 audio-unmuted = Ses açıldı.
 
 ## PlayerProfileLogic
+
 loading-player-profile = Oyuncu profili yükleniyor...
 loading-player-profile-failed = Oyuncu profilini yükleme başarısız oldu.
 
 ## ReplayBrowserLogic
+
 duration = Süre: { $time }
 singleplayer = Tek Oyunculu
 multiplayer = Çok Oyunculu
@@ -478,6 +546,7 @@ delete-all-replays-accept = Tümünü Sil
 replay-deletion-failed = Geri oynatma dosyası '{ $file }' silinemedi. Ayrıntılar için debug.log dosyasına bakın.
 
 ## ReplayUtils
+
 incompatible-replay-title = Uyumsuz Geri Oynatma
 incompatible-replay-prompt = Geri oynatma meta verileri okunamadı.
 incompatible-replay-accept = Tamam
@@ -491,6 +560,7 @@ incompatible-replay-unavailable-map = Mevcut olmayan bir haritada { -incompatibl
     { $map }.
 
 ## ServerCreationLogic
+
 internet-server-nat-A = İnternet Sunucusu (UPnP/NAT-PMP
 internet-server-nat-B-enabled = Etkin
 internet-server-nat-B-not-supported = Desteklenmiyor
@@ -506,6 +576,7 @@ server-creation-failed-title = Sunucu Oluşturma Başarısız Oldu
 server-creation-failed-cancel = Geri Dön
 
 ## ServerListLogic
+
 players-online = { $players } Oyuncu Çevrimiçi
 
 search-status-failed = Sunucu listesi alınamadı.
@@ -530,9 +601,11 @@ bots-label =
     }
 
 ## ServerListLogic, ReplayBrowserLogic, ObserverShroudSelectorLogic
+
 players = Oyuncular
 
 ## ServerListLogic, GameInfoStatsLogic
+
 spectators = İzleyiciler
 spectators-label =
     { $spectators ->
@@ -542,6 +615,7 @@ spectators-label =
     }
 
 ## ServerlistLogic, GameInfoStatsLogic, ObserverShroudSelectorLogic, SpawnSelectorTooltipLogic, ReplayBrowserLogic
+
 team-number = Takım { $team }
 no-team = Takım Yok
 
@@ -565,12 +639,15 @@ server-shutting-down = Sunucu kapatılıyor
 unknown-server-state = Bilinmeyen sunucu durumu
 
 ## Game
+
 saved-screenshot = Ekran görüntüsü { $filename } kaydedildi.
 
 ## ChatCommands
+
 invalid-command = { $name } geçerli bir komut değil.
 
 ## DebugVisualizationCommands
+
 combat-geometry-description = savaş geometrisi kaplamasını ayarlar.
 render-geometry-description = render geometrisi kaplamasını ayarlar.
 screen-map-overlay-description = ekran haritası kaplamasını ayarlar.
@@ -578,6 +655,7 @@ depth-buffer-description = derinlik tamponu kaplamasını ayarlar.
 actor-tags-overlay-description = aktör etiketleri kaplamasını ayarlar.
 
 ## DevCommands
+
 cheats-disabled = Hileler devre dışı.
 invalid-cash-amount = Geçersiz para değeri.
 toggle-visibility = görünürlülük konrollerini ve haritayı ayarlar.
@@ -597,31 +675,40 @@ kill-selected-actors = seçili aktörleri öldürür.
 dispose-selected-actors = seçili aktörleri kaldırır.
 
 ## HelpCommands
+
 available-commands = Kullanılabilir komutlar şunlardır:
 no-description = açıklama mevcut değil.
 help-description = çeşitli komutlar üzerinde kullanışlı bilgiler verir
 
 ## PlayerCommands
+
 pause-description = oyunu duraklatır ya da devam ettirir
 surrender-description = her şeyi yok edip oyunu kaybetmenize sebep olur
 
 ## DeveloperMode
+
 cheat-used = Hile kullanıldı: { $cheat }, Kullanan: { $player }{ $suffix }
 
 ## CustomTerrainDebugOverlay
+
 custom-terrain-debug-overlay-description = özel arazi hata bulma kaplamasını ayarlar.
 
 ## CellTriggerOverlay
+
 cell-trigger-overlay-description = kod tetikleyicileri kaplamasını ayarlar.
 
 ## ExitsDebugOverlay
+
 exits-debug-overlay-description = Fabrika çıkışlarını gösterir.
 
 ## HierarchicalPathFinderOverlay
+
 hpf-overlay-description = hiyeralşik yol bulucu kaplamasını ayarlar.
 
 ## PathFinderOverlay
+
 path-debug-description = yol aramalarının görselleştirilmesini ayarlar.
 
 ## TerrainGeometryOverlay
+
 terrain-geometry-overlay = arazi geometrisi kaplamasını ayarlar.
