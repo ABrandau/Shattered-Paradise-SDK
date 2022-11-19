@@ -11,8 +11,8 @@ set RequireAuthentication=False
 set ProfileIDBlacklist=""
 set ProfileIDWhitelist=""
 
-set EnableSingleplayer=False
-set EnableSyncReports=False
+set EnableSingleplayer=True
+set EnableSyncReports=True
 set EnableGeoIP=True
 set ShareAnonymizedIPs=True
 
