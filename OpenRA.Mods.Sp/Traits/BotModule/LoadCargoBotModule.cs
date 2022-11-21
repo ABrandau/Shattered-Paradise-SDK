@@ -27,6 +27,7 @@ namespace OpenRA.Mods.SP.Traits
 		public readonly string EnterOrderName = "EnterTransport";
 		public readonly int ScanTick = 300;
 		public readonly DamageState ValidDamageState = DamageState.Heavy;
+		public readonly WDist MaxDistance = WDist.FromCells(20);
 
 		public override object Create(ActorInitializer init) { return new LoadCargoBotModule(init.Self, this); }
 	}
@@ -102,7 +103,7 @@ namespace OpenRA.Mods.SP.Traits
 				var transport = tc.Actor;
 				var spaceTaken = 0;
 
-				var passengers = world.ActorsWithTrait<Passenger>().Where(at => !unitCannotBeOrderedOrIsBusy(at.Actor) && Info.Passengers.Contains(at.Actor.Info.Name) && !stuckPassengers.Contains(at.Actor) && cargo.HasSpace(at.Trait.Info.Weight))
+				var passengers = world.ActorsWithTrait<Passenger>().Where(at => !unitCannotBeOrderedOrIsBusy(at.Actor) && Info.Passengers.Contains(at.Actor.Info.Name) && !stuckPassengers.Contains(at.Actor) && cargo.HasSpace(at.Trait.Info.Weight) && (at.Actor.CenterPosition - transport.CenterPosition).HorizontalLengthSquared <= Info.MaxDistance.LengthSquared)
 					.OrderBy(at => (at.Actor.CenterPosition - transport.CenterPosition).HorizontalLengthSquared);
 
 				var orderedActors = new List<Actor>();
