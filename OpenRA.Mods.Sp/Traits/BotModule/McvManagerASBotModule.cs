@@ -17,7 +17,7 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.Common.Traits
 {
 	[Desc("Manages AI MCVs For SP. Focus on aircraft MCV")]
-	public class McvManagerSPBotModuleInfo : ConditionalTraitInfo
+	public class McvManagerASBotModuleInfo : ConditionalTraitInfo
 	{
 		[Desc("Actor types that are considered MCVs (deploy into base builders).")]
 		public readonly HashSet<string> McvTypes = new HashSet<string>();
@@ -53,10 +53,10 @@ namespace OpenRA.Mods.Common.Traits
 		[Desc("Should deployment of additional MCVs be restricted to MaxBaseRadius if explicit deploy locations are missing or occupied?")]
 		public readonly bool RestrictMCVDeploymentFallbackToBase = true;
 
-		public override object Create(ActorInitializer init) { return new McvManagerSPBotModule(init.Self, this); }
+		public override object Create(ActorInitializer init) { return new McvManagerASBotModule(init.Self, this); }
 	}
 
-	public class McvManagerSPBotModule : ConditionalTrait<McvManagerSPBotModuleInfo>, IBotTick, IBotPositionsUpdated, IGameSaveTraitData
+	public class McvManagerASBotModule : ConditionalTrait<McvManagerASBotModuleInfo>, IBotTick, IBotPositionsUpdated, IGameSaveTraitData
 	{
 		public CPos GetRandomBaseCenter()
 		{
@@ -82,7 +82,7 @@ namespace OpenRA.Mods.Common.Traits
 		int baseShouldHave;
 		int countdown;
 
-		public McvManagerSPBotModule(Actor self, McvManagerSPBotModuleInfo info)
+		public McvManagerASBotModule(Actor self, McvManagerASBotModuleInfo info)
 			: base(info)
 		{
 			world = self.World;

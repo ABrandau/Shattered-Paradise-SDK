@@ -19,7 +19,7 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.SP.Traits
 {
 	[Desc("Manages AI traditional cnc engineer logic. Only consider closest buildings and AI stuck problem.")]
-	public class CncEngineerSPBotModuleInfo : ConditionalTraitInfo
+	public class CncEngineerBotModuleInfo : ConditionalTraitInfo
 	{
 		[Desc("Actor types that can capture other actors (via `Captures`).",
 			"Leave this empty to disable capturing.")]
@@ -46,10 +46,10 @@ namespace OpenRA.Mods.SP.Traits
 		[Desc("Minimum delay (in ticks) between trying to capture with CapturingActorTypes.")]
 		public readonly int AssignRoleDelay = 120;
 
-		public override object Create(ActorInitializer init) { return new CncEngineerManagerSPBotModule(init.Self, this); }
+		public override object Create(ActorInitializer init) { return new CncEngineerManagerBotModule(init.Self, this); }
 	}
 
-	public class CncEngineerManagerSPBotModule : ConditionalTrait<CncEngineerSPBotModuleInfo>, IBotTick
+	public class CncEngineerManagerBotModule : ConditionalTrait<CncEngineerBotModuleInfo>, IBotTick
 	{
 		readonly World world;
 		readonly Player player;
@@ -62,7 +62,7 @@ namespace OpenRA.Mods.SP.Traits
 		int minAssignRoleDelayTicks;
 		int actionSelection;
 
-		public CncEngineerManagerSPBotModule(Actor self, CncEngineerSPBotModuleInfo info)
+		public CncEngineerManagerBotModule(Actor self, CncEngineerBotModuleInfo info)
 			: base(info)
 		{
 			world = self.World;
