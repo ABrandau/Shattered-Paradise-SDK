@@ -32,8 +32,8 @@ namespace OpenRA.Mods.SP.Traits
 		public readonly int MaxPassengers = 6;
 		public readonly DamageState ValidDamageState = DamageState.Heavy;
 
-		[Desc("Radius in cells that SharedCargo unit should scan for enemies around their position and unload.")]
-		public readonly int ProtectionScanRadius = 8;
+		[Desc("Don't load passengers that are further than this distance to this actor.")]
+		public readonly WDist MaxDistance = WDist.FromCells(40);
 
 		public override object Create(ActorInitializer init) { return new SharedCargoBotModule(init.Self, this); }
 	}
@@ -115,7 +115,7 @@ namespace OpenRA.Mods.SP.Traits
 				var transport = tc.Actor;
 				var spaceTaken = 0;
 
-				var passengers = world.ActorsWithTrait<SharedPassenger>().Where(at => !unitCannotBeOrderedOrIsBusy(at.Actor) && Info.Passengers.Contains(at.Actor.Info.Name) && !stuckPassengers.Contains(at.Actor) && sharedCargoManager.HasSpace(at.Trait.Info.Weight))
+				var passengers = world.ActorsWithTrait<SharedPassenger>().Where(at => !unitCannotBeOrderedOrIsBusy(at.Actor) && Info.Passengers.Contains(at.Actor.Info.Name) && !stuckPassengers.Contains(at.Actor) && sharedCargoManager.HasSpace(at.Trait.Info.Weight) && (at.Actor.CenterPosition - transport.CenterPosition).HorizontalLengthSquared <= Info.MaxDistance.LengthSquared)
 					.OrderBy(at => (at.Actor.CenterPosition - transport.CenterPosition).HorizontalLengthSquared);
 
 				var orderedActors = new List<Actor>();
@@ -140,7 +140,7 @@ namespace OpenRA.Mods.SP.Traits
 				}
 
 				if (orderedActors.Count > 0)
-					bot.QueueOrder(new Order(Info.EnterOrderName, null, Target.FromActor(transport), false, groupedActors: orderedActors.ToArray()));
+					bot.QueueOrder(new Order("EnterSharedTransport", null, Target.FromActor(transport), false, groupedActors: orderedActors.ToArray()));
 			}
 		}
 	}
