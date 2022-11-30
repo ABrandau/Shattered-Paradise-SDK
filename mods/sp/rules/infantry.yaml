@@ -2250,6 +2250,15 @@ PDRONE:
 		IdleSequences: idle1, idle2
 		AttackSequences: shoot
 		DefaultAttackSequence: fire
+		RequiresCondition: !inside-tunnel && !WebDisable && !recycle
+	WithInfantryBody@recycle:
+		MinIdleDelay: 75
+		MaxIdleDelay: 250
+		IdleSequences: idle1-upg,idle2-upg
+		MoveSequence: run-upg
+		StandSequences: stand-upg
+		DefaultAttackSequence: shoot-upg
+		RequiresCondition: !inside-tunnel && !WebDisable && recycle
 	AutoTarget:
 		ScanRadius: 8
 		InitialStance: AttackAnything
