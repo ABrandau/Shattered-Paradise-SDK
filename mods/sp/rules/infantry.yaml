@@ -1094,11 +1094,19 @@ MARAUDER:
 		RealignDelay: -1
 		Turret: Marauderturr
 	WithSpriteTurret@idle:
-		RequiresCondition: !WebDisable && deployed && !AnimateTurret
+		RequiresCondition: !WebDisable && deployed && !AnimateTurret && !brick_walls
 		Turret: Marauderturr
 	WithSpriteTurret@animated:
-		RequiresCondition: !WebDisable && deployed && AnimateTurret
+		RequiresCondition: !WebDisable && deployed && AnimateTurret && !brick_walls
 		Sequence: turret-shoot
+		Turret: Marauderturr
+	WithSpriteTurret@idle-upg:
+		RequiresCondition: !WebDisable && deployed && !AnimateTurret && brick_walls
+		Sequence: turret-upg
+		Turret: Marauderturr
+	WithSpriteTurret@animated-upg:
+		RequiresCondition: !WebDisable && deployed && AnimateTurret && brick_walls
+		Sequence: turret-shoot-upg
 		Turret: Marauderturr
 	TakeCover:
 		RequiresCondition: undeployed
