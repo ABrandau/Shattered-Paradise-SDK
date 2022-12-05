@@ -1047,10 +1047,10 @@ MARAUDER:
 	Passenger:
 		RequireForceMoveCondition: !undeployed
 	Crushable:
-		RequiresCondition: undeployed || !brick_walls
+		RequiresCondition: undeployed || !fortified_upg
 	Crushable@deployed:
 		CrushClasses: Vehicle
-		RequiresCondition: !undeployed && brick_walls
+		RequiresCondition: !undeployed && fortified_upg
 	Armament@1:
 		Weapon: MarauderShotgun
 		Name: OnFoot
@@ -1086,34 +1086,42 @@ MARAUDER:
 		RequiresCondition: !editorhack
 	WithInfantryBody:
 		RequiresCondition: !WebDisable && undeployed && !inside-tunnel
+	WithSpriteBody:
+		Sequence: dot
+		Name: dot
+		RequiresCondition: !undeployed && !fortified_upg
+	WithSpriteBody@fortifications:
+		Sequence: dot
+		Name: dot-fortifications
+		RequiresCondition:  !undeployed && fortified_upg
 	WithMakeAnimation:
+		Sequence: make
 		BodyNames: dot
+	WithMakeAnimation@fortifications:
+		Sequence: make-upg
+		BodyNames: dot-fortifications
 	Turreted:
 		TurnSpeed: 200
 		InitialFacing: 640
 		RealignDelay: -1
 		Turret: Marauderturr
 	WithSpriteTurret@idle:
-		RequiresCondition: !WebDisable && deployed && !AnimateTurret && !brick_walls
+		RequiresCondition: !WebDisable && deployed && !AnimateTurret && !fortified_upg
 		Turret: Marauderturr
 	WithSpriteTurret@animated:
-		RequiresCondition: !WebDisable && deployed && AnimateTurret && !brick_walls
+		RequiresCondition: !WebDisable && deployed && AnimateTurret && !fortified_upg
 		Sequence: turret-shoot
 		Turret: Marauderturr
 	WithSpriteTurret@idle-upg:
-		RequiresCondition: !WebDisable && deployed && !AnimateTurret && brick_walls
+		RequiresCondition: !WebDisable && deployed && !AnimateTurret && fortified_upg
 		Sequence: turret-upg
 		Turret: Marauderturr
 	WithSpriteTurret@animated-upg:
-		RequiresCondition: !WebDisable && deployed && AnimateTurret && brick_walls
+		RequiresCondition: !WebDisable && deployed && AnimateTurret && fortified_upg
 		Sequence: turret-shoot-upg
 		Turret: Marauderturr
 	TakeCover:
 		RequiresCondition: undeployed
-	WithSpriteBody:
-		Sequence: dot
-		Name: dot
-		RequiresCondition: !undeployed
 	AttackFrontal:
 		Armaments: OnFoot
 		Voice: Attack
@@ -1147,7 +1155,7 @@ MARAUDER:
 		RequiresCondition: !AImicroManage && deployed
 	ActorStatValues:
 		Damage: 23
-		Upgrades: upgrade.brick_walls, upgrade.tiberium_infusion
+		Upgrades: upgrade.fortified_upg, upgrade.tiberium_infusion
 
 MUTFIEND:
 	Inherits: ^Mutant
