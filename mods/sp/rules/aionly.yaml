@@ -154,7 +154,9 @@ NUKECARRYALL_BOT:
 	Buildable:
 		Description: AI Nuke Transport
 		Prerequisites: ~muair, muhall, ~techlevel.5, ~AIOnly, ~!LoadedExists
-	ProductionCostMultiplier:
+	ProductionCostMultiplier@Preload:
+		Multiplier: 600
+	ProductionTimeMultiplier@Preload:
 		Multiplier: 600
 	AutoCarryall:
 		InitialActor: hvrtruk3
@@ -175,7 +177,9 @@ SONICARRYALL_BOT:
 	Buildable:
 		Description: AI Sonic Transport
 		Prerequisites: ~gahpad, gatech, ~techlevel.5, ~AIOnly, ~!LoadedExists
-	ProductionCostMultiplier:
+	ProductionCostMultiplier@Preload:
+		Multiplier: 200
+	ProductionTimeMultiplier@Preload:
 		Multiplier: 200
 	AutoCarryall:
 		InitialActor: sonic
@@ -192,7 +196,9 @@ APCARRYALL_BOT:
 	Buildable:
 		Description: AI APC Transport
 		Prerequisites: ~gahpad, gapile, ~techlevel.2, ~AIOnly, ~!LoadedExists
-	ProductionCostMultiplier:
+	ProductionCostMultiplier@Preload:
+		Multiplier: 180
+	ProductionTimeMultiplier@Preload:
 		Multiplier: 180
 	AutoCarryall:
 		InitialActor: apc_bot
@@ -240,6 +246,9 @@ GHOST:
 		BuildLimit: 1
 		BuildDuration: 1250
 		BuildDurationModifier: 100
+	ProductionCostMultiplier@AI: ## AI cheat
+		Multiplier: 10
+		Prerequisites: AIOnly
 	Armor:
 		Type: Infantry
 	Mobile:
@@ -307,7 +316,7 @@ UMAGON:
 	Tooltip:
 		Name: Umagon
 	Valued:
-		Cost: 1000
+		Cost: 2000
 	Voiced:
 		VoiceSet: Umagon
 	Buildable:
@@ -318,6 +327,9 @@ UMAGON:
 		BuildLimit: 1
 		BuildDuration: 1250
 		BuildDurationModifier: 100
+	ProductionCostMultiplier@AI: ## AI cheat
+		Multiplier: 10
+		Prerequisites: AIOnly
 	Mobile:
 		Speed: 80
 	-Targetable@MC:
@@ -664,6 +676,9 @@ AVATAR:
 		Description: Heavy Walker armed with a strong laser and enhances nearby Units.\n\nGood vs: Ground\n\nSpecial:\n- Can crush infantry
 		BuildDuration: 2250
 		BuildDurationModifier: 100
+	ProductionCostMultiplier@AI: ## AI cheat
+		Multiplier: 10
+		Prerequisites: AIOnly
 	Voiced:
 		VoiceSet: Vehicle
 	Mobile:
