@@ -526,8 +526,12 @@ GEYE:
 		TargetRelationships: Enemy, Neutral, Ally
 	AutoTarget:
 		ScanRadius: 4 #PREF: save trait looks up and scan armaments
-		MinimumScanTimeInterval: 31
-		MaximumScanTimeInterval: 31
+		MinimumScanTimeInterval: 37
+		MaximumScanTimeInterval: 37
+	AutoTargetPriority@DEFAULT:
+		-ValidRelationships: 
+	AutoTargetPriority@ATTACKANYTHING:
+		-ValidRelationships: 
 	AttackPopupTurreted:
 		CloseDelay: 10
 		DefaultFacing: 512
