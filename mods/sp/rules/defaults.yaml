@@ -1420,6 +1420,59 @@
 		Duration: 50
 		Radius: 7c0
 
+^7CellVisionAir:
+	RevealsShroud@Landed:
+		Range: 6c0
+		Type: GroundPosition
+		RequiresCondition: !airborne
+	RevealOnDeath@Landed:
+		Duration: 50
+		Radius: 3c0
+		RequiresCondition: !airborne
+	RevealsShroud@Airborne:
+		Range: 7c0
+		Type: GroundPosition
+		RequiresCondition: airborne
+	RevealOnDeath@Airborne:
+		Duration: 50
+		Radius: 3c512
+		RequiresCondition: airborne
+
+^8CellVisionAir:
+	Inherits: ^7CellVisionAir
+	RevealsShroud@Airborne:
+		Range: 8c0
+	RevealOnDeath@Airborne:
+		Radius: 4c0
+
+^9CellVisionAir:
+	Inherits: ^7CellVisionAir
+	RevealsShroud@Airborne:
+		Range: 9c0
+	RevealOnDeath@Airborne:
+		Radius: 4c512
+
+^10CellVisionAir:
+	Inherits: ^7CellVisionAir
+	RevealsShroud@Airborne:
+		Range: 10c0
+	RevealOnDeath@Airborne:
+		Radius: 5c0
+
+^11CellVisionAir:
+	Inherits: ^7CellVisionAir
+	RevealsShroud@Airborne:
+		Range: 11c0
+	RevealOnDeath@Airborne:
+		Radius: 5c512
+
+^12CellVisionAir:
+	Inherits: ^7CellVisionAir
+	RevealsShroud@Airborne:
+		Range: 12c0
+	RevealOnDeath@Airborne:
+		Radius: 6c0
+
 ^Blind:
 	RevealsShroudMultiplier@Blind:
 		RequiresCondition: Blind
@@ -2547,7 +2600,7 @@
 	Inherits@2: ^AircraftEffects
 	Inherits@3: ^ExistsInWorld
 	Inherits@4: ^VehicleShape
-	Inherits@5: ^10CellVision
+	Inherits@5: ^10CellVisionAir
 	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	DrawLineToTarget:
