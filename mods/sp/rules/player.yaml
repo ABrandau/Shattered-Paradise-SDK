@@ -399,6 +399,15 @@ Player:
 	PlayerExperience:
 	SharedCargoManager:
 		MaxWeight: 15
+	ChangeSharedPassengerHealth@TUNNELREPAIRS:
+		PercentageStep: 1
+		Step: 0
+		Delay: 5
+		StartIfBelow: 100
+		RequiresCondition: tunnel_repairs
+	GrantConditionOnPrerequisite@TUNNELREPAIRS:
+		Condition: tunnel_repairs
+		Prerequisites: upgrade.tunnel_repairs
 	TeleportNetworkManager:
 		Type: mutantteleportnetwork
 	GameSaveViewportManager:

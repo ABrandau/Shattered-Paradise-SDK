@@ -1148,19 +1148,6 @@
 		Condition: lynx_rockets
 		Prerequisites: upgrade.lynx_rockets
 
-^AffectedByTunnelRepairs:
-	SharedPassenger:
-		CargoCondition: in_tunnel
-	ChangesHealth@TUNNELREPAIRS:
-		PercentageStep: 1
-		Step: 0
-		Delay: 5
-		StartIfBelow: 100
-		DamageCooldown: 0
-		RequiresCondition: in_tunnel && tunnel_repairs
-	GrantConditionOnPrerequisite@TUNNELREPAIRS:
-		Condition: tunnel_repairs
-		Prerequisites: upgrade.tunnel_repairs
 
 ^AffectedByTiberiumInfusion:
 	ActorStatValues:
@@ -1676,13 +1663,13 @@
 	Inherits@4: ^InfantryShape
 	Inherits@5: ^5CellVision
 	Inherits@6: ^Blind
-	Inherits@7: ^AffectedByTunnelRepairs
 	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	ActorLostNotification:
 		TextNotification: Unit lost.
 	SharedPassenger:
 		CargoType: Infantry
+		CargoCondition: in_tunnel
 	AttackMove:
 		Voice: Move
 	Armor:
@@ -2199,7 +2186,6 @@
 	Inherits@1: ^VehicleShape
 	Inherits@2: ^5CellVision
 	Inherits@3: ^Blind
-	Inherits@4: ^AffectedByTunnelRepairs
 	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	ActorLostNotification:
@@ -2271,6 +2257,7 @@
 	SharedPassenger:
 		CargoType: Vehicle
 		CustomPipType: blue
+		CargoCondition: in_tunnel
 	Sellable:
 		SellSounds: cashturn.aud
 		Cursor: sell2
@@ -2441,7 +2428,6 @@
 	Voiced:
 		VoiceSet: Seeker
 	SmokeParticleEmitter@spawnsmoke:
-		Duration: 100
 		Image: scrsmoke
 		Palette: gradientblue20
 
@@ -2555,8 +2541,6 @@
 	-Carryable:
 	-Passenger:
 	-SharedPassenger:
-	-ChangesHealth@TUNNELREPAIRS:
-	-GrantConditionOnPrerequisite@TUNNELREPAIRS:
 
 ^Aircraft:
 	Inherits: ^SpriteActor
@@ -3515,10 +3499,12 @@
 ^InfantryStealthDetection:
 	DetectCloaked:
 		Range: 1c0
+		RequiresCondition: !ascargo && !in_tunnel && !inside-tunnel && !Blind
 
 ^BasicStealthDetection:
 	DetectCloaked:
 		Range: 5c0
+		RequiresCondition: !carried && !ascargo && !in_tunnel && !inside-tunnel && !empdisable && !Blind
 	RenderDetectionCircle:
 		BorderWidth: 0
 		Width: 2
@@ -3528,6 +3514,7 @@
 	Inherits: ^BasicStealthDetection
 	DetectCloaked:
 		Range: 6c0
+		RequiresCondition: airborne
 	RenderDetectionCircle:
 		RenderOnGround: true
 

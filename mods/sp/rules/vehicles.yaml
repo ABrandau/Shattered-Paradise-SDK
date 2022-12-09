@@ -589,8 +589,6 @@ HMEC:
 	-Crushable:
 	-Passenger:
 	-SharedPassenger:
-	-ChangesHealth@TUNNELREPAIRS:
-	-GrantConditionOnPrerequisite@TUNNELREPAIRS:
 	-Chronoshiftable:
 	SmokeParticleEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
@@ -1851,8 +1849,6 @@ SCORPION:
 	-Crushable:
 	-Passenger:
 	-SharedPassenger:
-	-ChangesHealth@TUNNELREPAIRS:
-	-GrantConditionOnPrerequisite@TUNNELREPAIRS:
 	-Chronoshiftable:
 	-FirepowerMultiplier@BLUEFLAME:
 	SmokeParticleEmitter@spawnsmoke:
@@ -2446,8 +2442,6 @@ HVRTRUK3:
 		CanMoveBackward: true
 		BackwardDuration: 5
 	-SharedPassenger:
-	-ChangesHealth@TUNNELREPAIRS:
-	-GrantConditionOnPrerequisite@TUNNELREPAIRS:
 	Health:
 		HP: 12000
 	Armor:
@@ -2533,8 +2527,6 @@ WEASAU:
 	-Crushable:
 	-Passenger:
 	-SharedPassenger:
-	-ChangesHealth@TUNNELREPAIRS:
-	-GrantConditionOnPrerequisite@TUNNELREPAIRS:
 	-Chronoshiftable:
 	Health:
 		HP: 300000
@@ -2692,8 +2684,6 @@ WEASAUSMALL:
 	-UpdatesPlayerStatistics:
 	-Passenger:
 	-SharedPassenger:
-	-ChangesHealth@TUNNELREPAIRS:
-	-GrantConditionOnPrerequisite@TUNNELREPAIRS:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
@@ -3347,8 +3337,6 @@ BCOREDEF:
 	-Crushable:
 	-Passenger:
 	-SharedPassenger:
-	-ChangesHealth@TUNNELREPAIRS:
-	-GrantConditionOnPrerequisite@TUNNELREPAIRS:
 	-Chronoshiftable:
 	AnnounceOnSeen:
 		PingRadar: true
@@ -3440,20 +3428,6 @@ CORRUPTOR:
 		RequiresCondition: vinifera_catalysts && !inside-tunnel
 	Selectable:
 		Bounds: 1508, 1568, 0, -482
-	SmokeParticleEmitter@spawnsmoke:
-		Palette: gradientgreen40
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo && !vinifera_catalysts
-	SmokeParticleEmitter@spawnsmokeblue:
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo && vinifera_catalysts
-		Sequences: idle
-		SpawnFrequency: 6, 12
-		Speed: 6
-		Gravity: 70
-		Offset: 0,0,0
-		Image: scrsmoke
-		Palette: gradientblue40
-		Duration: 100
-		RandomFacing: True
 	-DamagedByTintedCells@Default:
 	-DamagedByTintedCells@BlueRadiation:
 	ThrowsShrapnel:
