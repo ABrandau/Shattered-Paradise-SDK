@@ -561,7 +561,7 @@ JJCOMM:
 JJCOMMAIR:
 	Inherits: ^Aircraft
 	Inherits@1: ^FullHealthRepairCondition
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^10CellVision
@@ -1039,8 +1039,6 @@ MARAUDER:
 		Volume: 5
 	Health:
 		HP: 10000
-	AutoTarget:
-		ScanRadius: 8
 	Mobile:
 		PauseOnCondition: WebDisable
 		RequireForceMoveCondition: !AImicroManage && !undeployed
