@@ -1249,18 +1249,8 @@ CouncilorZap:
 		AirThreshold: 8c0
 		ValidTargets: Air
 
-CouncilazerInitial:
-	Range: 0c256
-	ReloadDelay: 1
-	TargetActorCenter: true
-	Projectile: InstantExplode
-	Warhead@later: FireFragment
-		ImpactActors: false
-		Weapon: CouncilazerElevator
-		ValidTargets: Ground, Water, Air
-		AirThreshold: 8c0
-
 CouncilazerElevator:
+	ReloadDelay: 0
 	Projectile: AthenaProjectile
 		Altitude: 256
 	Warhead@later: FireFragment
@@ -1272,7 +1262,6 @@ CouncilazerElevator:
 
 Councilazer:
 	Inherits: ^FullDamage
-	ReloadDelay: 80
 	Range: 5c768
 	Report: laserchaingunfire.wav
 	Projectile: KKNDLaser
@@ -1283,7 +1272,7 @@ Councilazer:
 		DistortionAnimation: 256
 		InnerLightness: 0xEE
 		SegmentLength: 512
-		ZOffset: 7000
+		ZOffset: 9000
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		Versus:

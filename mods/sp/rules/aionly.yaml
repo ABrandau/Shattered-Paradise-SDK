@@ -1065,18 +1065,38 @@ SCRINCOUNCIL:
 		Actors: COUNCILOR, COUNCILOR, COUNCILOR, COUNCILOR
 		SpawnOffset: 0,0,0,0,0,0,0,0,0,0,0,0
 		GatherCell: 0,0,0,0,0,0,0,0 #-1, 1, -1,-1, 1,1, 1, -1
+	## AA Target Weapon
 	Armament@AA:
 		Weapon: AIGlyder1AimingDummyWeapon
-	Armament@PRIMARY:
-		Weapon:  CouncilazerInitial
+		Name: secondary
+	## Main Target Weapon. This will make Scrin Council fire its weapon and try get closer when firing
+	Armament@PRIMARY1:
+		Weapon:  CouncilazerAimingDummyWeaponFar
+		Name: primary
+		ReloadingCondition: moveclose
+		RequiresCondition: !moveclose
+	Armament@PRIMARY2:
+		Weapon:  CouncilazerAimingDummyWeaponClose
+		Name: primary
+	GrantConditionOnAttack@NormalWeapon:
+		Condition: NormalAttack
+		ArmamentNames: primary
+		RevokeDelay: 51
+	WithIdleOverlay@NormalWeaponMuzzle:
+		Offset:  0,0,-1128
+		Sequence: muzzle
+		Palette: jascpurplealpha
+		RequiresCondition: NormalAttack
+		IsDecoration: true ## so this doesn't affect by cloak palette
+	ExplodeWeapon@NormalWeapon:
 		LocalOffset: 0,0,-1128
-		MuzzleSequence: muzzle
-		MuzzlePalette: jascpurplealpha
-	WithMuzzleOverlay:
+		Weapon: CouncilazerElevator
+		RequiresCondition: NormalAttack
+	## Superweapon
 	Armament@SuperWeapon:
 		Name: super
 		Weapon: TearingReality
-	GrantConditionOnAttack@muzzle:
+	GrantConditionOnAttack@muzzle-sup:
 		Condition: SuperAttack
 		ArmamentNames: super
 		RevokeDelay: 200
@@ -1118,6 +1138,7 @@ SCRINCOUNCIL:
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 512
+		Armaments: primary, secondary
 	AutoTarget:
 		ScanRadius: 9
 	BodyOrientation:
