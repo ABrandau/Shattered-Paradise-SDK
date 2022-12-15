@@ -34,7 +34,7 @@ namespace OpenRA.Mods.Sp.Traits
 		public readonly string SuggestedMinelayersLocomotor = null;
 
 		[Desc("Scan suitable actors and target in this interval.")]
-		public readonly int ScanTick = 421;
+		public readonly int ScanTick = 331;
 
 		[Desc("Minelayer radius.")]
 		public readonly int MineFieldRadius = 1;
@@ -122,10 +122,7 @@ namespace OpenRA.Mods.Sp.Traits
 					minelayingPosition = positionCache[0].Value;
 					if (HasInvalidActorInCircle(world.Map.CenterOfCell(minelayingPosition), WDist.FromCells(Info.AwayFromDistance)))
 					{
-						for (var i = 1; i < positionCacheLength; i++)
-							positionCache[i - 1] = positionCache[i];
-						positionCache[positionCacheLength - 1] = null;
-						positionCacheLength--;
+						RemoveFirstCachedPosition();
 						return;
 					}
 				}
@@ -150,19 +147,25 @@ namespace OpenRA.Mods.Sp.Traits
 
 				if (orderedActors.Count > 0)
 				{
-					for (var i = 1; i < positionCacheLength; i++)
-						positionCache[i - 1] = positionCache[i];
-					positionCache[positionCacheLength - 1] = null;
-					positionCacheLength--;
-
+					RemoveFirstCachedPosition();
 					var vec = new CVec(Info.MineFieldRadius, Info.MineFieldRadius);
 					bot.QueueOrder(new Order("PlaceMinefield", null, Target.FromCell(world, minelayingPosition + vec), false, groupedActors: orderedActors.ToArray()) { ExtraLocation = minelayingPosition - vec });
 					bot.QueueOrder(new Order("Move", null, Target.FromCell(world, orderedActors.First().Location), true, groupedActors: orderedActors.ToArray()));
 				}
+				else
+					RemoveFirstCachedPosition();
 			}
 		}
 
-		public bool IsPreferredEnemyUnit(Actor a)
+		void RemoveFirstCachedPosition()
+		{
+			for (var i = 1; i < positionCacheLength; i++)
+				positionCache[i - 1] = positionCache[i];
+			positionCache[positionCacheLength - 1] = null;
+			positionCacheLength--;
+		}
+
+		bool IsPreferredEnemyUnit(Actor a)
 		{
 			if (a == null || a.IsDead || player.RelationshipWith(a.Owner) != PlayerRelationship.Enemy || a.Info.HasTraitInfo<HuskInfo>())
 				return false;

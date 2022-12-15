@@ -2203,6 +2203,7 @@ MINELAYER:
 	Inherits@RENDER: ^MutRender
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Inherits@VISION: ^5CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -2247,6 +2248,11 @@ MINELAYER:
 		Palette: pips
 		Margin: 5, 2
 		ValidRelationships: Ally, Neutral, Enemy
+	ReloadAmmoPool@AIAmmoCheat:
+		AmmoPool: primary
+		RequiresCondition: AImicroManage
+		Count: 10
+		Delay: 127
 
 WOLF:
 	Inherits: ^Beast
