@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using OpenRA.Activities;
 using OpenRA.Mods.Cnc.Traits;
+using OpenRA.Mods.Common;
 using OpenRA.Mods.Common.Activities;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Primitives;
@@ -29,6 +30,9 @@ namespace OpenRA.Mods.Sp.Traits
 
 		[Desc("Actor types that used for mine laying, must have Minelayer.")]
 		public readonly HashSet<string> Minelayers = default;
+
+		[Desc("Scan suitable actors and target in this interval.")]
+		public readonly int MaxMinelayersPerAssign = 1;
 
 		[Desc("Locomotor types that used for mine laying.")]
 		public readonly string SuggestedMinelayersLocomotor = null;
@@ -46,7 +50,10 @@ namespace OpenRA.Mods.Sp.Traits
 		public readonly BitSet<TargetableType> AwayFromEnemyTargetTypes = default;
 
 		[Desc("Minefield is laying this cell distance away from those target type belong to AwayFromAlliedTargettype and AwayFromEnemyTargettype.")]
-		public readonly int AwayFromDistance = 8;
+		public readonly int AwayFromDistance = 9;
+
+		[Desc("Bot module merge 2 favorite minefield position into 1 when they are within this distance.")]
+		public readonly int FavoritePositionDistance = 6;
 
 		public override object Create(ActorInitializer init) { return new MinelayerBotModule(init.Self, this); }
 	}
@@ -54,7 +61,7 @@ namespace OpenRA.Mods.Sp.Traits
 	public class MinelayerBotModule : ConditionalTrait<MinelayerBotModuleInfo>, IBotTick, IBotRespondToAttack
 	{
 		const int maxPositionCacheLength = 5;
-		const int RepeatedAltertTicks = 20;
+		const int RepeatedAltertTicks = 40;
 
 		readonly World world;
 		readonly Player player;
@@ -65,8 +72,12 @@ namespace OpenRA.Mods.Sp.Traits
 		readonly List<UnitWposWrapper> activeMinelayers = new List<UnitWposWrapper>();
 		readonly List<Actor> stuckMinelayers = new List<Actor>();
 		int minAssignRoleDelayTicks;
-		CPos?[] positionCache;
-		int positionCacheLength;
+		CPos?[] conflictPositionQueue;
+		CPos?[] favoritePositions;
+
+		int conflictPositionLength;
+		int favoritePositionsLength;
+		int currentFavoritePositionIndex;
 		int alertedTicks;
 
 		Locomotor locomotor;
@@ -79,7 +90,8 @@ namespace OpenRA.Mods.Sp.Traits
 			unitCannotBeOrdered = a => a == null || a.IsDead || !a.IsInWorld || a.Owner != player;
 			unitCannotBeOrderedOrIsBusy = a => unitCannotBeOrdered(a) || (!a.IsIdle && !(a.CurrentActivity is FlyIdle));
 			unitCannotBeOrderedOrIsIdle = a => unitCannotBeOrdered(a) || a.IsIdle || a.CurrentActivity is FlyIdle;
-			positionCache = new CPos?[maxPositionCacheLength] { null, null, null, null, null };
+			conflictPositionQueue = new CPos?[maxPositionCacheLength] { null, null, null, null, null };
+			favoritePositions = new CPos?[maxPositionCacheLength] { null, null, null, null, null };
 		}
 
 		protected override void TraitEnabled(Actor self)
@@ -87,7 +99,9 @@ namespace OpenRA.Mods.Sp.Traits
 			// Avoid all AIs reevaluating assignments on the same tick, randomize their initial evaluation delay.
 			minAssignRoleDelayTicks = world.LocalRandom.Next(0, Info.ScanTick);
 			alertedTicks = 0;
-			positionCacheLength = 0;
+			conflictPositionLength = 0;
+			favoritePositionsLength = 0;
+			currentFavoritePositionIndex = 0;
 			locomotor = self.World.WorldActor.TraitsImplementing<Locomotor>().First(l => l.Info.Name == Info.SuggestedMinelayersLocomotor);
 		}
 
@@ -117,17 +131,36 @@ namespace OpenRA.Mods.Sp.Traits
 				}
 
 				var minelayingPosition = CPos.Zero;
-				if (positionCacheLength > 0)
+				var useFavoritePosition = false;
+
+				while (conflictPositionLength > 0)
 				{
-					minelayingPosition = positionCache[0].Value;
+					minelayingPosition = conflictPositionQueue[0].Value;
 					if (HasInvalidActorInCircle(world.Map.CenterOfCell(minelayingPosition), WDist.FromCells(Info.AwayFromDistance)))
-					{
-						RemoveFirstCachedPosition();
+						DequeueFirstConflictPosition();
+					else
+						break;
+				}
+
+				if (conflictPositionLength == 0)
+				{
+					if (favoritePositionsLength == 0)
 						return;
+
+					useFavoritePosition = true;
+					while (favoritePositionsLength > 0)
+					{
+						minelayingPosition = favoritePositions[currentFavoritePositionIndex].Value;
+						if (HasInvalidActorInCircle(world.Map.CenterOfCell(minelayingPosition), WDist.FromCells(Info.AwayFromDistance)))
+						{
+							DeleteCurrentFavoritePosition();
+							if (favoritePositionsLength == 0)
+								return;
+						}
+						else
+							break;
 					}
 				}
-				else
-					return;
 
 				var ats = world.ActorsWithTrait<Minelayer>().Where(at => !unitCannotBeOrderedOrIsBusy(at.Actor)).ToArray();
 
@@ -143,26 +176,94 @@ namespace OpenRA.Mods.Sp.Traits
 						continue;
 
 					orderedActors.Add(at.Actor);
+
+					if (orderedActors.Count >= Info.MaxMinelayersPerAssign)
+						break;
 				}
 
 				if (orderedActors.Count > 0)
 				{
-					RemoveFirstCachedPosition();
+					if (useFavoritePosition)
+					{
+						AIUtils.BotDebug("AI ({0}): Use favorite position {1} at index {2}", player.ClientIndex, minelayingPosition, currentFavoritePositionIndex);
+						NextFavoritePositionIndex();
+					}
+					else
+					{
+						DequeueFirstConflictPosition();
+						AddPositionToFavoritePositions(minelayingPosition);
+						AIUtils.BotDebug("AI ({0}): Use in time conflict position {1}", player.ClientIndex, minelayingPosition);
+					}
+
 					var vec = new CVec(Info.MineFieldRadius, Info.MineFieldRadius);
 					bot.QueueOrder(new Order("PlaceMinefield", null, Target.FromCell(world, minelayingPosition + vec), false, groupedActors: orderedActors.ToArray()) { ExtraLocation = minelayingPosition - vec });
 					bot.QueueOrder(new Order("Move", null, Target.FromCell(world, orderedActors.First().Location), true, groupedActors: orderedActors.ToArray()));
 				}
 				else
-					RemoveFirstCachedPosition();
+				{
+					if (useFavoritePosition)
+						DeleteCurrentFavoritePosition();
+					else
+						DequeueFirstConflictPosition();
+				}
 			}
 		}
 
-		void RemoveFirstCachedPosition()
+		void DequeueFirstConflictPosition()
 		{
-			for (var i = 1; i < positionCacheLength; i++)
-				positionCache[i - 1] = positionCache[i];
-			positionCache[positionCacheLength - 1] = null;
-			positionCacheLength--;
+			for (var i = 1; i < conflictPositionLength; i++)
+				conflictPositionQueue[i - 1] = conflictPositionQueue[i];
+			conflictPositionQueue[conflictPositionLength - 1] = null;
+			conflictPositionLength--;
+		}
+
+		void DeleteCurrentFavoritePosition()
+		{
+			if (favoritePositionsLength == 0)
+				return;
+
+			for (var i = currentFavoritePositionIndex; i < favoritePositionsLength - 1; i++)
+				favoritePositions[i] = favoritePositions[i + 1];
+			favoritePositions[favoritePositionsLength - 1] = null;
+			favoritePositionsLength--;
+
+			if (favoritePositionsLength == 0)
+				return;
+
+			currentFavoritePositionIndex = currentFavoritePositionIndex % favoritePositionsLength;
+		}
+
+		void AddPositionToFavoritePositions(CPos cpos)
+		{
+			var favoriteDistSquare = Info.FavoritePositionDistance * Info.FavoritePositionDistance;
+			var closestIndex = 0;
+			var closestDistSquare = int.MaxValue;
+			for (var i = 0; i < favoritePositionsLength; i++)
+			{
+				var lengthsquare = (favoritePositions[i].Value - cpos).LengthSquared;
+				if (lengthsquare < closestDistSquare)
+				{
+					closestIndex = i;
+					closestDistSquare = lengthsquare;
+				}
+			}
+
+			// Add new if there is space
+			if (closestDistSquare > favoriteDistSquare && favoritePositionsLength < favoritePositions.Length)
+			{
+				favoritePositions[favoritePositionsLength] = cpos;
+				favoritePositionsLength++;
+			}
+			else
+			{
+				var pos = favoritePositions[closestIndex].Value;
+				favoritePositions[closestIndex] = (pos - cpos) / 2 + cpos;
+			}
+		}
+
+		void NextFavoritePositionIndex()
+		{
+			currentFavoritePositionIndex = (currentFavoritePositionIndex + 1) % favoritePositionsLength;
 		}
 
 		bool IsPreferredEnemyUnit(Actor a)
@@ -206,13 +307,13 @@ namespace OpenRA.Mods.Sp.Traits
 			if (hasInvalidActor)
 				return;
 
-			if (positionCacheLength < maxPositionCacheLength)
+			if (conflictPositionLength < maxPositionCacheLength)
 			{
-				positionCache[positionCacheLength] = e.Attacker.Location;
-				positionCacheLength++;
+				conflictPositionQueue[conflictPositionLength] = e.Attacker.Location;
+				conflictPositionLength++;
 			}
 			else
-				positionCache[positionCacheLength - 1] = e.Attacker.Location;
+				conflictPositionQueue[conflictPositionLength - 1] = e.Attacker.Location;
 		}
 	}
 }
