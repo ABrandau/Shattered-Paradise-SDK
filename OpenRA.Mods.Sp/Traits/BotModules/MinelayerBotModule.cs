@@ -28,10 +28,13 @@ namespace OpenRA.Mods.Sp.Traits
 		[Desc("Enemy target types to never target when calculate the mine layer route.")]
 		public readonly BitSet<TargetableType> IgnoredEnemyTargetTypes = default;
 
+		[Desc("Victim target types that considering lay mine to enemy location instead of victim location.")]
+		public readonly BitSet<TargetableType> UseEnemyLocationTargetTypes = default;
+
 		[Desc("Actor types that used for mine laying, must have Minelayer.")]
 		public readonly HashSet<string> Minelayers = default;
 
-		[Desc("Scan suitable actors and target in this interval.")]
+		[Desc("Scan this amount of suitable actors and lay mine to a location.")]
 		public readonly int MaxMinelayersPerAssign = 1;
 
 		[Desc("Locomotor types that used for mine laying.")]
@@ -307,13 +310,20 @@ namespace OpenRA.Mods.Sp.Traits
 			if (hasInvalidActor)
 				return;
 
+			var targetTypes = self.GetEnabledTargetTypes();
+			CPos pos;
+			if (!targetTypes.IsEmpty && targetTypes.Overlaps(Info.UseEnemyLocationTargetTypes))
+				pos = e.Attacker.Location;
+			else
+				pos = self.Location;
+
 			if (conflictPositionLength < maxPositionCacheLength)
 			{
-				conflictPositionQueue[conflictPositionLength] = e.Attacker.Location;
+				conflictPositionQueue[conflictPositionLength] = pos;
 				conflictPositionLength++;
 			}
 			else
-				conflictPositionQueue[conflictPositionLength - 1] = e.Attacker.Location;
+				conflictPositionQueue[maxPositionCacheLength - 1] = pos;
 		}
 	}
 }
