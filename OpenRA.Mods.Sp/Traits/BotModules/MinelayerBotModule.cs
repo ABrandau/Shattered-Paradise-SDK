@@ -276,9 +276,8 @@ namespace OpenRA.Mods.Sp.Traits
 			for (var i = currentFavoritePositionIndex; i < favoritePositionsLength - 1; i++)
 				favoritePositions[i] = favoritePositions[i + 1];
 			favoritePositions[favoritePositionsLength - 1] = null;
-			favoritePositionsLength--;
 
-			if (favoritePositionsLength > 0)
+			if (--favoritePositionsLength > 0)
 				currentFavoritePositionIndex = currentFavoritePositionIndex % favoritePositionsLength;
 		}
 
