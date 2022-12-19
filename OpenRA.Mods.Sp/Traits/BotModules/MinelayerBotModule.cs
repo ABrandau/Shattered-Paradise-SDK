@@ -22,23 +22,22 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Sp.Traits
 {
-	[Desc("Manages AI minelayer unit related with Minelayer traits.")]
+	[Desc("Manages AI minelayer unit related with Minelayer traits.",
+		"When enemy damage AI's actors, the location of conflict will be recorded,",
+		"If a location is confirmed as can lay mine, it will add/merge to favorite location")]
 	public class MinelayerBotModuleInfo : ConditionalTraitInfo
 	{
-		[Desc("Enemy target types to never target when calculate the mine layer route.")]
+		[Desc("Enemy target types to ignore when add the minefield location to conflict location.")]
 		public readonly BitSet<TargetableType> IgnoredEnemyTargetTypes = default;
 
-		[Desc("Victim target types that considering lay mine to enemy location instead of victim location.")]
+		[Desc("Victim target types that considering conflict location as enemy location instead of victim location.")]
 		public readonly BitSet<TargetableType> UseEnemyLocationTargetTypes = default;
 
 		[Desc("Actor types that used for mine laying, must have Minelayer.")]
 		public readonly HashSet<string> Minelayers = default;
 
-		[Desc("Scan this amount of suitable actors and lay mine to a location.")]
+		[Desc("Find this amount of suitable actors and lay mine to a location.")]
 		public readonly int MaxMinelayersPerAssign = 1;
-
-		[Desc("Locomotor types that used for mine laying.")]
-		public readonly string SuggestedMinelayersLocomotor = null;
 
 		[Desc("Scan suitable actors and target in this interval.")]
 		public readonly int ScanTick = 331;
@@ -46,16 +45,19 @@ namespace OpenRA.Mods.Sp.Traits
 		[Desc("Minelayer radius.")]
 		public readonly int MineFieldRadius = 1;
 
-		[Desc("Minefield is laying away from those target type belong to allied.")]
+		[Desc("Minefield location is cancelled if those whose target type belong to allied nearby.")]
 		public readonly BitSet<TargetableType> AwayFromAlliedTargetTypes = default;
 
-		[Desc("Minefield is laying away from those target type belong to enemy.")]
+		[Desc("Minefield location is cancelled if those whose target type belong to enemy nearby.")]
 		public readonly BitSet<TargetableType> AwayFromEnemyTargetTypes = default;
 
-		[Desc("Minefield is laying this cell distance away from those target type belong to AwayFromAlliedTargettype and AwayFromEnemyTargettype.")]
-		public readonly int AwayFromDistance = 9;
+		[Desc("Minefield location check distance to AwayFromAlliedTargettype and AwayFromEnemyTargettype.",
+			"In addition, if any emeny actor within this range and minefield location is not cancelled,",
+			"minelayer will try lay mines at the 3/4 path to minefield location")]
+		public readonly int AwayFromCellDistance = 9;
 
-		[Desc("Bot module merge 2 favorite minefield position into 1 when they are within this distance.")]
+		[Desc("Merge conflict point minefield position to a favorite minefield position if within this range and closest.",
+			"If favorite minefield positions is at the max of 5, we always merge it to closest regardless of this")]
 		public readonly int FavoritePositionDistance = 6;
 
 		public override object Create(ActorInitializer init) { return new MinelayerBotModule(init.Self, this); }
@@ -83,7 +85,7 @@ namespace OpenRA.Mods.Sp.Traits
 		int currentFavoritePositionIndex;
 		int alertedTicks;
 
-		Locomotor locomotor;
+		PathFinder pathFinder;
 
 		public MinelayerBotModule(Actor self, MinelayerBotModuleInfo info)
 		: base(info)
@@ -105,7 +107,7 @@ namespace OpenRA.Mods.Sp.Traits
 			conflictPositionLength = 0;
 			favoritePositionsLength = 0;
 			currentFavoritePositionIndex = 0;
-			locomotor = self.World.WorldActor.TraitsImplementing<Locomotor>().First(l => l.Info.Name == Info.SuggestedMinelayersLocomotor);
+			pathFinder = self.World.WorldActor.Trait<PathFinder>();
 		}
 
 		void IBotTick.BotTick(IBot bot)
@@ -135,37 +137,74 @@ namespace OpenRA.Mods.Sp.Traits
 
 				var minelayingPosition = CPos.Zero;
 				var useFavoritePosition = false;
+				var layMineOnHalfway = false;
 
 				while (conflictPositionLength > 0)
 				{
 					minelayingPosition = conflictPositionQueue[0].Value;
-					if (HasInvalidActorInCircle(world.Map.CenterOfCell(minelayingPosition), WDist.FromCells(Info.AwayFromDistance)))
+					var check = HasInvalidActorInCircle(world.Map.CenterOfCell(minelayingPosition), WDist.FromCells(Info.AwayFromCellDistance));
+					if (check.hasInvalidActors)
 						DequeueFirstConflictPosition();
 					else
+					{
+						layMineOnHalfway = check.hasEnemyNearby;
 						break;
+					}
 				}
+
+				TraitPair<Minelayer>[] ats = null;
 
 				if (conflictPositionLength == 0)
 				{
+					// If enemy turtle themselves at base and we don't have valid position recorded,
+					// we will try find a location that at the middle of pathfinding cells
 					if (favoritePositionsLength == 0)
-						return;
+					{
+						ats = world.ActorsWithTrait<Minelayer>().Where(at => !unitCannotBeOrderedOrIsBusy(at.Actor)).ToArray();
+						if (ats.Length == 0)
+							return;
+
+						var enemies = world.Actors.Where(a => IsPreferredEnemyUnit(a)).ToArray();
+						if (enemies.Length == 0)
+							return;
+
+						var enemy = enemies.Random(world.LocalRandom);
+
+						foreach (var at in ats)
+						{
+							var cells = pathFinder.FindPathToTargetCell(at.Actor, new[] { at.Actor.Location }, enemy.Location, BlockedByActor.Immovable, laneBias: false);
+							if (cells != null && !(cells.Count == 0))
+							{
+								AIUtils.BotDebug("AI ({0}): try find a location to lay mine.", player.ClientIndex);
+								EnqueueConflictPosition(cells[cells.Count / 2]);
+
+								// We don't do other things in this tick, just find new location and abort
+								return;
+							}
+						}
+					}
 
 					useFavoritePosition = true;
 					while (favoritePositionsLength > 0)
 					{
 						minelayingPosition = favoritePositions[currentFavoritePositionIndex].Value;
-						if (HasInvalidActorInCircle(world.Map.CenterOfCell(minelayingPosition), WDist.FromCells(Info.AwayFromDistance)))
+						var check = HasInvalidActorInCircle(world.Map.CenterOfCell(minelayingPosition), WDist.FromCells(Info.AwayFromCellDistance));
+						if (check.hasInvalidActors)
 						{
 							DeleteCurrentFavoritePosition();
 							if (favoritePositionsLength == 0)
 								return;
 						}
 						else
+						{
+							layMineOnHalfway = check.hasEnemyNearby;
 							break;
+						}
 					}
 				}
 
-				var ats = world.ActorsWithTrait<Minelayer>().Where(at => !unitCannotBeOrderedOrIsBusy(at.Actor)).ToArray();
+				if (ats == null)
+					ats = world.ActorsWithTrait<Minelayer>().Where(at => !unitCannotBeOrderedOrIsBusy(at.Actor)).ToArray();
 
 				if (ats.Length == 0)
 					return;
@@ -174,14 +213,22 @@ namespace OpenRA.Mods.Sp.Traits
 
 				foreach (var at in ats)
 				{
-					var mobile = at.Actor.TraitOrDefault<Mobile>();
-					if (mobile == null || !mobile.PathFinder.PathExistsForLocomotor(locomotor, at.Actor.Location, minelayingPosition))
-						continue;
+					var cells = pathFinder.FindPathToTargetCell(at.Actor, new[] { at.Actor.Location }, minelayingPosition, BlockedByActor.Immovable, laneBias: false);
+					if (cells != null && !(cells.Count == 0))
+					{
+						orderedActors.Add(at.Actor);
 
-					orderedActors.Add(at.Actor);
+						// if there is enemy actor nearby, we will try to lay mine on
+						//  3/4 distance to desired position (the path cell is reversed)
+						if (layMineOnHalfway)
+						{
+							minelayingPosition = cells[cells.Count * 1 / 4];
+							layMineOnHalfway = false;
+						}
 
-					if (orderedActors.Count >= Info.MaxMinelayersPerAssign)
-						break;
+						if (orderedActors.Count >= Info.MaxMinelayersPerAssign)
+							break;
+					}
 				}
 
 				if (orderedActors.Count > 0)
@@ -278,9 +325,11 @@ namespace OpenRA.Mods.Sp.Traits
 			return !targetTypes.IsEmpty && !targetTypes.Overlaps(Info.IgnoredEnemyTargetTypes);
 		}
 
-		bool HasInvalidActorInCircle(WPos pos, WDist dist)
+		(bool hasInvalidActors, bool hasEnemyNearby) HasInvalidActorInCircle(WPos pos, WDist dist)
 		{
-			return world.FindActorsInCircle(pos, dist).Any(a =>
+			var hasInvalidActor = false;
+			var hasEnemyActor = false;
+			hasInvalidActor = world.FindActorsInCircle(pos, dist).Any(a =>
 			{
 				if (a.Owner.RelationshipWith(player) == PlayerRelationship.Ally)
 				{
@@ -290,12 +339,26 @@ namespace OpenRA.Mods.Sp.Traits
 
 				if (a.Owner.RelationshipWith(player) == PlayerRelationship.Enemy)
 				{
+					hasEnemyActor = true;
 					var targetTypes = a.GetEnabledTargetTypes();
 					return !targetTypes.IsEmpty && targetTypes.Overlaps(Info.AwayFromEnemyTargetTypes);
 				}
 
 				return false;
 			});
+
+			return (hasInvalidActor, hasEnemyActor);
+		}
+
+		void EnqueueConflictPosition(CPos cPos)
+		{
+			if (conflictPositionLength < maxPositionCacheLength)
+			{
+				conflictPositionQueue[conflictPositionLength] = cPos;
+				conflictPositionLength++;
+			}
+			else
+				conflictPositionQueue[maxPositionCacheLength - 1] = cPos;
 		}
 
 		void IBotRespondToAttack.RespondToAttack(IBot bot, Actor self, AttackInfo e)
@@ -305,7 +368,7 @@ namespace OpenRA.Mods.Sp.Traits
 
 			alertedTicks = RepeatedAltertTicks;
 
-			var hasInvalidActor = HasInvalidActorInCircle(self.CenterPosition, WDist.FromCells(Info.AwayFromDistance));
+			var hasInvalidActor = HasInvalidActorInCircle(self.CenterPosition, WDist.FromCells(Info.AwayFromCellDistance)).hasInvalidActors;
 
 			if (hasInvalidActor)
 				return;
@@ -317,13 +380,7 @@ namespace OpenRA.Mods.Sp.Traits
 			else
 				pos = self.Location;
 
-			if (conflictPositionLength < maxPositionCacheLength)
-			{
-				conflictPositionQueue[conflictPositionLength] = pos;
-				conflictPositionLength++;
-			}
-			else
-				conflictPositionQueue[maxPositionCacheLength - 1] = pos;
+			EnqueueConflictPosition(pos);
 		}
 	}
 }
