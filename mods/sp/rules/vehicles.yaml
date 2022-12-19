@@ -2873,7 +2873,7 @@ LIMPED:
 	Valued:
 		Cost: 500
 	ProductionCostMultiplier@AI: ## AI cannot use it well
-		Multiplier: 5
+		Multiplier: 10
 		Prerequisites: AIOnly
 	Tooltip:
 		Name: Limpet Drone
@@ -2979,7 +2979,7 @@ LIMPED:
 	### AI Control: make limped drone wander randomly and deploy when find enemy
 	Armament@AIAimOnly:
 		RequiresCondition: AImicroManage && !deployed
-		Weapon: LurkerAimDummyWeapon
+		Weapon: LimpedAimDummyWeapon
 		PauseOnCondition: empdisable
 	AttackWander@AI:
 		RequiresCondition: AImicroManage && !deployed

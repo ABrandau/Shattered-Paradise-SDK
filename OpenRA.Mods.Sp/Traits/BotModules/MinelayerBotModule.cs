@@ -182,23 +182,27 @@ namespace OpenRA.Mods.Sp.Traits
 								return;
 							}
 						}
-					}
 
-					useFavoritePosition = true;
-					while (favoritePositionsLength > 0)
+						return;
+					}
+					else
 					{
-						minelayingPosition = favoritePositions[currentFavoritePositionIndex].Value;
-						var check = HasInvalidActorInCircle(world.Map.CenterOfCell(minelayingPosition), WDist.FromCells(Info.AwayFromCellDistance));
-						if (check.hasInvalidActors)
+						while (favoritePositionsLength > 0)
 						{
-							DeleteCurrentFavoritePosition();
-							if (favoritePositionsLength == 0)
-								return;
-						}
-						else
-						{
-							layMineOnHalfway = check.hasEnemyNearby;
-							break;
+							minelayingPosition = favoritePositions[currentFavoritePositionIndex].Value;
+							var check = HasInvalidActorInCircle(world.Map.CenterOfCell(minelayingPosition), WDist.FromCells(Info.AwayFromCellDistance));
+							if (check.hasInvalidActors)
+							{
+								DeleteCurrentFavoritePosition();
+								if (favoritePositionsLength == 0)
+									return;
+							}
+							else
+							{
+								layMineOnHalfway = check.hasEnemyNearby;
+								useFavoritePosition = true;
+								break;
+							}
 						}
 					}
 				}
@@ -269,18 +273,13 @@ namespace OpenRA.Mods.Sp.Traits
 
 		void DeleteCurrentFavoritePosition()
 		{
-			if (favoritePositionsLength == 0)
-				return;
-
 			for (var i = currentFavoritePositionIndex; i < favoritePositionsLength - 1; i++)
 				favoritePositions[i] = favoritePositions[i + 1];
 			favoritePositions[favoritePositionsLength - 1] = null;
 			favoritePositionsLength--;
 
-			if (favoritePositionsLength == 0)
-				return;
-
-			currentFavoritePositionIndex = currentFavoritePositionIndex % favoritePositionsLength;
+			if (favoritePositionsLength > 0)
+				currentFavoritePositionIndex = currentFavoritePositionIndex % favoritePositionsLength;
 		}
 
 		void AddPositionToFavoritePositions(CPos cpos)
