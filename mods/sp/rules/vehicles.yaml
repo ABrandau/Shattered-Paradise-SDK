@@ -3736,15 +3736,12 @@ SCRMOBMINE:
 		Capacity: 3
 		Sounds: sonpulse.aud
 		ControllingCondition: controlling
-	ExplodeWeapon@Casing:
-		Weapon: MindEnergyCasing
-		LocalOffset: 0,0,2000
-		RequiresCondition: attack
-	GrantConditionOnAttack@Casing:
-		Condition: attack
-		ArmamentNames: primary
 	Armament@PRIMARY:
 		Weapon: MindController
+		CasingWeapon: MindEnergyCasing
+		CasingSpawnLocalOffset: 0,0,2000
+		CasingTargetOffset: 0,0,2000
+		CasingHitGroundLevel: false
 		PauseOnCondition: empdisable
 	Health:
 		HP: 20000

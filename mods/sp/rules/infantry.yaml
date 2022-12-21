@@ -1899,16 +1899,13 @@ MASTERMIND:
 		ArmamentNames: control
 		Sounds: sonpulse.aud
 		ControllingCondition: controlling
-	ExplodeWeapon@Casing:
-		Weapon: MindEnergyCasing
-		LocalOffset: 0,0,2000
-		RequiresCondition: attack
-	GrantConditionOnAttack@Casing:
-		Condition: attack
-		ArmamentNames: control
 	Armament@PRIMARY:
 		Name: control
 		Weapon: MindControllerMastermind
+		CasingWeapon: MindEnergyCasing
+		CasingSpawnLocalOffset: 0,0,2000
+		CasingTargetOffset: 0,0,2000
+		CasingHitGroundLevel: false
 		PauseOnCondition: !ammo
 	Armament@BUILDING:
 		Weapon: MindControllerMastermindBuilding
@@ -1917,6 +1914,10 @@ MASTERMIND:
 	Armament@BUILDINGCONTROL:
 		Name: control
 		Weapon: MindControllerMastermindBuilding
+		CasingWeapon: MindEnergyCasing
+		CasingSpawnLocalOffset: 0,0,2000
+		CasingTargetOffset: 0,0,2000
+		CasingHitGroundLevel: false
 		PauseOnCondition: !ammo
 		RequiresCondition: control
 	GrantConditionOnAttack@CONTROL:
