@@ -221,6 +221,7 @@ namespace OpenRA.Mods.Sp.Traits
 					if (cells != null && !(cells.Count == 0))
 					{
 						orderedActors.Add(at.Actor);
+						activeMinelayers.Add(new UnitWposWrapper(at.Actor));
 
 						// if there is enemy actor nearby, we will try to lay mine on
 						//  3/4 distance to desired position (the path cell is reversed)
