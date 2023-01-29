@@ -505,11 +505,11 @@ PalaLazor:
 		TrackTarget: false
 		Width: 250
 		Duration: 15
-		ZOffset: 3000
-		Color: 0000AB88
+		ZOffset: 3047
+		Color: 0000FF88
 		SecondaryBeam: true
 		SecondaryBeamWidth: 30
-		SecondaryBeamZOffset: 3000
+		SecondaryBeamZOffset: 3048
 		SecondaryBeamColor: 55ffffaa
 		Blockable: false
 		HitAnim: explosion
@@ -755,6 +755,112 @@ LaserFence:
 		Damage: 99999
 		DamageTypes: FireDeath
 
+BlackCDefLazer1:
+	Inherits: PalaLazor
+	Inherits@2: ^CoreDefLazerProjectile
+	ReloadDelay: 70
+	Range: 7c0
+	Projectile: LaserZap
+		Duration: 15
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 100, 50
+		Damage: 9000
+		Spread: 384
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+
+BlackCDefLazer2:
+	Inherits: BlackCDefLazer1
+	Projectile: LaserZap
+		HitAnimSequence: bigdimlaserflare
+		HitAnimPalette: jascbluealpha
+	-Report:
+	Warhead@5Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall
+
+BlackCDefCannon:
+	Inherits: ^FullDamage
+	Inherits@2: ^GreenPlasmaExplosion
+	ReloadDelay: 100
+	Burst: 8
+	Range: 7c0
+	Report: scrin5b.aud
+	ValidTargets: Ground, Water, Vehicle, Infantry
+	Projectile: BulletAS
+		Speed: 300
+		Blockable: false
+		Shadow: false
+		Inaccuracy: 1c0
+		LaunchAngle: 42
+		Palette: jascgreen
+		Image: greenplasma2
+		ContrailLength: 5
+		ContrailStartColor: 0CD95730
+		ContrailStartColorAlpha: 48
+		ContrailWidth: 0c128
+		ContrailEndColor: 0CD95730
+		ContrailEndColorAlpha: 48
+		ContrailWidthFadeRate: 1
+		ContrailDelay: 0
+	Warhead@1Dam: SpreadDamage
+		Spread: 500
+		Damage: 6000
+		Versus:
+			Building: 50
+			Defense: 50
+			Heavy: 100
+		ValidTargets: Ground, Water, Vehicle, Infantry
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+
+BlackCDefArtillery:
+	Inherits: ^FullDamage
+	Inherits@2: ^GreenPlasmaExplosion
+	ReloadDelay: 100
+	Burst: 1
+	MinRange: 5c0
+	Range: 18c0
+	Report: scrin5b.aud
+	ValidTargets: Ground, Water, Vehicle, Infantry
+	Projectile: BulletAS
+		Speed: 300
+		Blockable: false
+		Shadow: false
+		Inaccuracy: 1c0
+		LaunchAngle: 196
+		Palette: apgreen
+		Image: hugegreenplasma
+		TrailImage: explosion
+		TrailSequences: lazerflare
+		TrailPalette: apgreen
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c768
+		Damage: 15000
+		Versus:
+			Building: 50
+			Defense: 50
+			Heavy: 100
+		ValidTargets: Ground, Water, Vehicle, Infantry
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: boltexplo
+		ExplosionPalette: gensmkexplogreen
+	Warhead@op: FireRadius
+		Weapon: BlackCDefArtilleryShrepnel
+		ImpactActors: false
+		Amount: 12
+		ValidTargets: Ground, Water, Infantry, Vehicle, Air
+
+BlackCDefArtilleryShrepnel:
+	Inherits: BlackCDefCannon
+	-Report:
+	Range: 1c0
+	Projectile: BulletAS
+		Speed: 100
+		Inaccuracy: 2c512
+		LaunchAngle: 196
+		-ContrailLength:
+
+
 ^CoreDefLazerProjectile:
 	Inherits: ^FullDamage
 	TargetActorCenter: true
@@ -763,7 +869,7 @@ LaserFence:
 		Width: 250
 		Duration: 2
 		ZOffset: 3000
-		Color: 0000AB99
+		Color: 0000FF99
 		SecondaryBeam: true
 		SecondaryBeamWidth: 30
 		SecondaryBeamZOffset: 3000
@@ -968,107 +1074,3 @@ CoreDefSuper:
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
 
-BlackCDefLazer1:
-	Inherits: PalaLazor
-	Inherits@2: ^CoreDefLazerProjectile
-	ReloadDelay: 70
-	Range: 7c0
-	Projectile: LaserZap
-		Duration: 15
-	Warhead@1Dam: SpreadDamage
-		Falloff: 100, 100, 50
-		Damage: 9000
-		Spread: 384
-		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
-
-BlackCDefLazer2:
-	Inherits: BlackCDefLazer1
-	Projectile: LaserZap
-		HitAnimSequence: bigdimlaserflare
-		HitAnimPalette: jascbluealpha
-	-Report:
-	Warhead@5Smu: LeaveSmudge
-		SmudgeType: SmallScorch
-		InvalidTargets: Vehicle, Building, Wall
-
-BlackCDefCannon:
-	Inherits: ^FullDamage
-	Inherits@2: ^GreenPlasmaExplosion
-	ReloadDelay: 100
-	Burst: 8
-	Range: 7c0
-	Report: scrin5b.aud
-	ValidTargets: Ground, Water, Vehicle, Infantry
-	Projectile: BulletAS
-		Speed: 300
-		Blockable: false
-		Shadow: false
-		Inaccuracy: 1c0
-		LaunchAngle: 42
-		Palette: jascgreen
-		Image: greenplasma2
-		ContrailLength: 5
-		ContrailStartColor: 0CD95730
-		ContrailStartColorAlpha: 48
-		ContrailWidth: 0c128
-		ContrailEndColor: 0CD95730
-		ContrailEndColorAlpha: 48
-		ContrailWidthFadeRate: 1
-		ContrailDelay: 0
-	Warhead@1Dam: SpreadDamage
-		Spread: 500
-		Damage: 6000
-		Versus:
-			Building: 50
-			Defense: 50
-			Heavy: 100
-		ValidTargets: Ground, Water, Vehicle, Infantry
-		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
-
-BlackCDefArtillery:
-	Inherits: ^FullDamage
-	Inherits@2: ^GreenPlasmaExplosion
-	ReloadDelay: 100
-	Burst: 1
-	MinRange: 5c0
-	Range: 18c0
-	Report: scrin5b.aud
-	ValidTargets: Ground, Water, Vehicle, Infantry
-	Projectile: BulletAS
-		Speed: 300
-		Blockable: false
-		Shadow: false
-		Inaccuracy: 1c0
-		LaunchAngle: 196
-		Palette: apgreen
-		Image: hugegreenplasma
-		TrailImage: explosion
-		TrailSequences: lazerflare
-		TrailPalette: apgreen
-	Warhead@1Dam: SpreadDamage
-		Spread: 0c768
-		Damage: 15000
-		Versus:
-			Building: 50
-			Defense: 50
-			Heavy: 100
-		ValidTargets: Ground, Water, Vehicle, Infantry
-		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
-	Warhead@2Eff: CreateEffect
-		Explosions: boltexplo
-		ExplosionPalette: gensmkexplogreen
-	Warhead@op: FireRadius
-		Weapon: BlackCDefArtilleryShrepnel
-		ImpactActors: false
-		Amount: 12
-		ValidTargets: Ground, Water, Infantry, Vehicle, Air
-
-BlackCDefArtilleryShrepnel:
-	Inherits: BlackCDefCannon
-	-Report:
-	Range: 1c0
-	Projectile: BulletAS
-		Speed: 100
-		Inaccuracy: 2c512
-		LaunchAngle: 196
-		-ContrailLength:
