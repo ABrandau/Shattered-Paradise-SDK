@@ -988,6 +988,7 @@ BHS:
 
 FlameHologram:
 	Inherits: ^HologramSoldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@VISION: ^6CellVision
 	Health:
 		HP: 10000
@@ -1000,6 +1001,8 @@ FlameHologram:
 	AutoTarget:
 		ScanRadius: 7
 		InitialStance: AttackAnything
+		MinimumScanTimeInterval: 43
+		MaximumScanTimeInterval: 43
 	Targetable:
 		TargetTypes: Ground, Infantry, Summoned
 	-DeathSounds@NORMAL:
@@ -2011,7 +2014,7 @@ CABSENTRY:
 	-Passenger:
 	-Targetable@MC:
 	Targetable:
-		TargetTypes: Ground, Infantry, Summoned
+		TargetTypes: Ground, Infantry, Summoned, IgnoredByAI
 	Mobile:
 		Speed: 60
 		Locomotor: HeavyInfantry

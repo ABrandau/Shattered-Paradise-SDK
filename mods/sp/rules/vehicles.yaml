@@ -1242,7 +1242,7 @@ ATTACKBIKE:
 TTNK:
 	Inherits: ^Tank
 	Inherits@1: ^SpriteActor
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CAPACITORS: ^AffectedByLaserCapacitors
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^7CellVision
@@ -1386,6 +1386,7 @@ TICKHOLOGRAM:
 	Inherits@1: ^SpriteActor
 	Inherits@CAPACITORS: ^AffectedByLaserCapacitors
 	Inherits@HOLOGRAM: ^HologramKillTimer
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@VISION: ^7CellVision
 	GivesExperience:
 		Experience: 50
@@ -1406,6 +1407,11 @@ TICKHOLOGRAM:
 		Locomotor: Vehicle
 	Targetable:
 		TargetTypes: Ground, Vehicle, Summoned
+	AutoTarget:
+		ScanRadius: 8 #PREF: save trait looks up and scan armaments
+		InitialStance: AttackAnything
+		MinimumScanTimeInterval: 43
+		MaximumScanTimeInterval: 43
 	Armament@PRIMARY:
 		Weapon: HologramTick90mm
 		LocalOffset: 350,-0,500, 350,-0,500
