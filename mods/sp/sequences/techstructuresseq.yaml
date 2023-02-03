@@ -1,52 +1,60 @@
 well:
 	Inherits: ^EmpOverlay
-	idle: tibdrill_a
+	idle:
+		TilesetFilenames:
+			TEMPERATE: ttbdrill_a.shp
+			SNOW: tabdrill_a.shp
 		Length: 164
 		Offset: 0,0, 60
 		Tick: 60
-		UseTilesetCode: true
 		ShadowStart: 330
-	damaged-idle: tibdrill_a
+	damaged-idle:
+		TilesetFilenames:
+			TEMPERATE: ttbdrill_a.shp
+			SNOW: tabdrill_a.shp
 		Start: 164
 		Length: 165
 		Offset: 0,0, 60
 		Tick: 60
 		ShadowStart: 494
-		UseTilesetCode: true
-	anim: tibdrill_b
+	anim:
+		Filename: tibdrill_b.shp
 		Length: 164
 		Offset: 0,0, 60
 		Tick: 60
-		UseTilesetCode: false
-	damaged-anim: tibdrill_b
+	damaged-anim:
+		Filename: tibdrill_b.shp
 		Start: 164
 		Length: 165
 		Offset: 0,0, 60
 		Tick: 60
-		UseTilesetCode: false
-	dead: tibdrill_a
+	dead:
+		TilesetFilenames:
+			TEMPERATE: ttbdrill_a.shp
+			SNOW: tabdrill_a.shp
 		Offset: 0,0, 60
-		UseTilesetCode: True
-	icon: tibdrillicon
+	icon:
+		Filename: tibdrillicon.shp
 		Offset: 0, 0
 
 bloodderrick:
 	Inherits: ^EmpOverlay
 	Defaults:
 		Offset: 0, -32, 60
-		UseTilesetCode: false
-	idle: derrickidle
+	idle:
+		Filename: derrickidle.shp
 		Length: *
-		UseTilesetCode: false
-	dead: derrickidle
+	dead:
+		Filename: derrickidle.shp
 		Length: *
-		UseTilesetCode: false
-	icon: derrickicon
+	icon:
+		Filename: derrickicon.shp
 		Offset: 0, 0
 
 neutralradar:
 	Inherits: ^EmpOverlay
 	Defaults:
+		Filename: neutralradar.shp
 		Offset: 0, -24, 60
 	idle:
 		Length: 26
@@ -57,12 +65,14 @@ neutralradar:
 		Tick: 100
 	dead:
 		Start: 26
-	icon: neutralradaricon
+	icon:
+		Filename: neutralradaricon.shp
 		Offset: 0, 0
 
 neutralpowerplant:
 	Inherits: ^EmpOverlay
 	Defaults:
+		Filename: neutralpowerplant.shp
 		Offset: 0, -36, 60
 	idle:
 		ShadowStart: 2
@@ -72,12 +82,14 @@ neutralpowerplant:
 	dead:
 		Start: 1
 		ShadowStart: 3
-	icon: neutralpowerplanticon
+	icon:
+		Filename: neutralpowerplanticon.shp
 		Offset: 0, 0
 
 scrinreinfpad:
 	Inherits: ^EmpOverlay
 	Defaults:
+		Filename: scrinreinfpad.shp
 		Offset: 0, -36, 60
 	idle:
 		ShadowStart: 12
@@ -102,73 +114,91 @@ scrinreinfpad:
 		Length: 8
 		Tick: 100
 		ZOffset: 2048
-	icon: scrinreinfpadicon
+	icon:
+		Filename: scrinreinfpadicon.shp
 		Offset: 0, 0
 
 bluetibbarrel:
 	Defaults:
+		Filename: bluetibbarrel.shp
 		Offset: 0, -12, 48
 		DepthSpriteOffset: 0, 0
 	idle:
 		ShadowStart: 6
-	icon: bluetibbarrelicon
+	icon:
+		Filename: bluetibbarrelicon.shp
 		Offset: 0,0
 
 bluetibbarrel2:
 	Inherits: bluetibbarrel
-	idle: bluetibbarrel
+	idle:
+		Filename: bluetibbarrel.shp
 		Start: 1
 		ShadowStart: 7
-	icon: bluetibbarrelicon
+	icon:
+		Filename: bluetibbarrelicon.shp
 		Start: 1
 
 bluetibbarrel3:
 	Inherits: bluetibbarrel
-	idle: bluetibbarrel
+	idle:
+		Filename: bluetibbarrel.shp
 		Start: 2
 		ShadowStart: 8
-	icon: bluetibbarrelicon
+	icon:
+		Filename: bluetibbarrelicon.shp
 		Start: 2
 
 bluetibbarrel4:
 	Inherits: bluetibbarrel
-	idle: bluetibbarrel
+	idle:
+		Filename: bluetibbarrel.shp
 		Start: 3
 		ShadowStart: 9
-	icon: bluetibbarrelicon
+	icon:
+		Filename: bluetibbarrelicon.shp
 		Start: 3
 
 bluetibbarrel5:
 	Inherits: bluetibbarrel
-	idle: bluetibbarrel
+	idle:
+		Filename: bluetibbarrel.shp
 		Start: 4
 		ShadowStart: 10
-	icon: bluetibbarrelicon
+	icon:
+		Filename: bluetibbarrelicon.shp
 		Start: 4
 
 bluetibbarrel6:
 	Inherits: bluetibbarrel
-	idle: bluetibbarrel
+	idle:
+		Filename: bluetibbarrel.shp
 		Start: 5
 		ShadowStart: 11
-	icon: bluetibbarrelicon
+	icon:
+		Filename: bluetibbarrelicon.shp
 		Start: 5
 
 fueltower:
 	Defaults:
+		Filename: fueltower.shp
 		Offset: 0, 0, 0
 		DepthSpriteOffset: 0, 0
 	idle:
 		ShadowStart: 1
-	icon: fueltowericon
+	icon:
+		Filename: fueltowericon.shp
 
 neutralsonictur:
 	Defaults:
+		Filename: neutralsonictur.shp
 		Offset: 0, -12, 18
-		UseTilesetCode: false
-	idle: dot
-	damaged-idle: dot
-	dead: dot
+	idle:
+		Filename: dot.shp
+	damaged-idle:
+		Filename: dot.shp
+	dead:
+		Filename: dot.shp
 	turret:
 		Facings: 32
 		ShadowStart: 64
@@ -176,20 +206,23 @@ neutralsonictur:
 		Start: 32
 		Facings: 32
 		ShadowStart: 96
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: neutralsonicturicon
+	icon:
+		Filename: neutralsonicturicon.shp
 		Offset: 0, 0
 
 cahosp:
 	Defaults:
+		TilesetFilenames:
+			TEMPERATE: cthosp.shp
+			SNOW: cahosp.shp
 		DepthSprite: isodepth.shp
 		DepthSpriteOffset: 15, 0
-		UseTilesetCode: true
 		Offset: 15, -36, 36
 	idle:
 		ShadowStart: 3
@@ -203,26 +236,29 @@ cahosp:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	flag: techstructureflag
+	flag:
+		Filename: techstructureflag.shp
+		TilesetFilenames:
 		Length: 80
 		ShadowStart: 80
 		Offset: -48,-9
-		UseTilesetCode: false
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: cahospicon
+	icon:
+		Filename: cahospicon.shp
+		TilesetFilenames:
 		Offset: 0,0
-		UseTilesetCode: false
 
 civheli:
 	Defaults:
+		Filename: civheli.shp
 		DepthSprite: isodepth.shp
 		Offset: 0,12,0
-		UseTilesetCode: false
 		ZOffset: -1c511
 	idle:
 		ShadowStart: 2
@@ -232,17 +268,17 @@ civheli:
 		ShadowStart: 3
 		ShadowZOffset: -1c511
 		ZOffset: -1c450
-	flag: techstructureflag
+	flag:
+		Filename: techstructureflag.shp
 		Length: 80
 		ShadowStart: 80
 		Offset: 38,-4
-		UseTilesetCode: false
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: civheliicon
+	icon:
+		Filename: civheliicon.shp
 		Offset: 0,0
-		UseTilesetCode: false

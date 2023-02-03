@@ -1,6 +1,7 @@
 worker:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
+		Filename: worker.shp
 		Tick: 80
 	stand:
 		Facings: 8
@@ -58,9 +59,12 @@ worker:
 		Length: 2
 		Facings: 8
 		ShadowStart: 552
-	icon: workericon
+	icon:
+		Filename: workericon.shp
 
 workermech:
+	Defaults:
+		Filename: workermech.shp
 	Inherits@1: ^InfantryDeathAnims
 	Inherits@2: ^EmpOverlay
 	stand:
@@ -73,14 +77,17 @@ workermech:
 		Start: 8
 		Facings: 32
 		ShadowStart: 49
-	muzzle: gunfire
+	muzzle:
+		Filename: gunfire.shp
 		Length: *
-	icon: sentinelicon
+	icon:
+		Filename: sentinelicon.shp
 
 cybdog:
 	Inherits@1: ^InfantryDeathAnims
 	Inherits: ^EmpOverlay
 	Defaults:
+		Filename: cybdog.shp
 		Tick: 80
 	stand:
 		Facings: 8
@@ -111,11 +118,13 @@ cybdog:
 		Start: 174
 		Length: 10
 		Facings: 8
-	icon: dogicon
+	icon:
+		Filename: dogicon.shp
 
 chusk:
 	Inherits@1: ^SrcinInfantryDeathAnims
 	Defaults:
+		Filename: chusk.shp
 		Tick: 80
 	stand:
 		Facings: -8
@@ -159,9 +168,12 @@ chusk:
 		Length: 8
 		ShadowStart: 374
 		ZOffset: -511
-	icon: chuskicon
+	icon:
+		Filename: chuskicon.shp
 
 cabsentry:
+	Defaults:
+		Filename: cabsentry.shp
 	Inherits@1: ^InfantryDeathAnims
 	stand:
 		Facings: -32
@@ -177,22 +189,28 @@ cabsentry:
 		Length: 8
 		ShadowStart: 72
 		Tick: 90
-	muzzle: gunfire
+	muzzle:
+		Filename: gunfire.shp
 		Length: *
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		ZOffset: 512
 		IgnoreWorldTint: True
-	webguy: droneweb
+	webguy:
+		Filename: droneweb.shp
 		Length: 1
 		ShadowStart: 1
-	die: xgrymed1
+	die:
+		Filename: xgrymed1.shp
 		Length: *
-	icon: cabsentryicon
+	icon:
+		Filename: cabsentryicon.shp
 
 cborg:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
+		Filename: cborg.shp
 		Tick: 80
 		Offset: 0, 0, 16
 	stand:
@@ -208,14 +226,18 @@ cborg:
 	idle2:
 		Start: 141
 		Length: 18
-	die1: cborgdeath
+	die1:
+		Filename: cborgdeath.shp
 		Length: 6
-	die2: cborgdeath
+	die2:
+		Filename: cborgdeath.shp
 		Start: 6
 		Length: 5
-	die3: infdie
+	die3:
+		Filename: infdie.shp
 		Length: *
-	die4: s_bang34
+	die4:
+		Filename: s_bang34.shp
 		Length: *
 	shoot:
 		Start: 72
@@ -234,16 +256,20 @@ cborg:
 		Start: 231
 		Length: 5
 		Facings: -8
-	die6: electro
+	die6:
+		Filename: electro.shp
 		Length: *
-	webguy: webguySPmid
+	webguy:
+		Filename: webguySPmid.shp
 		Length: 6
 		ShadowStart: 6
-	icon: cborgicon
+	icon:
+		Filename: cborgicon.shp
 
 cyborg:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
+		Filename: cyborg.shp
 		Tick: 80
 	stand:
 		Facings: 8
@@ -289,18 +315,22 @@ cyborg:
 		Length: 6
 		Facings: 8
 		ShadowStart: 582
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		ZOffset: 512
 		IgnoreWorldTint: True
-	webguy: webguySPmid
+	webguy:
+		Filename: webguySPmid.shp
 		Length: 6
 		ShadowStart: 6
-	icon: cybiicon
+	icon:
+		Filename: cybiicon.shp
 
 pdrone:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
+		Filename: pdrone.shp
 		Tick: 80
 	stand:
 		Facings: 8
@@ -323,24 +353,30 @@ pdrone:
 		Start: 146
 		Length: 8
 		Facings: 8
-	stand-upg: pdrone2
+	stand-upg:
+		Filename: pdrone2.shp
 		Facings: 8
-	run-upg: pdrone2
+	run-upg:
+		Filename: pdrone2.shp
 		Tick: 40
 		Start: 8
 		Length: 7
 		Facings: 8
-	idle1-upg: pdrone2
+	idle1-upg:
+		Filename: pdrone2.shp
 		Start: 64
 		Length: 13
-	idle2-upg: pdrone2
+	idle2-upg:
+		Filename: pdrone2.shp
 		Start: 108
 		Length: 18
-	shoot-upg: pdrone2
+	shoot-upg:
+		Filename: pdrone2.shp
 		Start: 146
 		Length: 8
 		Facings: 8
-	fire-upg: pdrone2
+	fire-upg:
+		Filename: pdrone2.shp
 		Start: 146
 		Length: 8
 		Facings: 8
@@ -355,20 +391,23 @@ pdrone:
 		Length: 1
 		Tick: 800
 		ZOffset: -511
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	webguy: droneweb
+	webguy:
+		Filename: droneweb.shp
 		Length: 1
 		ShadowStart: 1
-	icon: processingicon
+	icon:
+		Filename: processingicon.shp
 
 swarmling:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
+		Filename: swarmling.shp
 		Tick: 80
 	stand:
 		Facings: 8
@@ -379,23 +418,30 @@ swarmling:
 		Start: 8
 		Length: 12
 		Facings: 8
-	die1: pdrone
+	die1:
+		Filename: pdrone.shp
 		Start: 126
 		Length: 10
-	die2: pdrone
+	die2:
+		Filename: pdrone.shp
 		Start: 126
 		Length: 10
-	die-crushed: pdrone
+	die-crushed:
+		Filename: pdrone.shp
 		Start: 132
 		Length: 1
 		Tick: 800
 		ZOffset: -511
-	webguy: droneweb
+	webguy:
+		Filename: droneweb.shp
 		Length: 1
 		ShadowStart: 1
-	icon: swarmlingicon
+	icon:
+		Filename: swarmlingicon.shp
 
 moth:
+	Defaults:
+		Filename: moth.shp
 	Inherits@1: ^InfantryDeathAnims
 	stand:
 		Facings: -32
@@ -406,29 +452,36 @@ moth:
 	run:
 		Facings: -32
 		ShadowStart: 55
-	make: mothmake
+	make:
+		Filename: mothmake.shp
 		Length: 15
 		ShadowStart: 15
 	deployed:
 		Start: 45
 		Length: 10
 		Tick: 75
-	dot: dot
+	dot:
+		Filename: dot.shp
 		ZOffset: -999
-	muzzle: gunfire
+	muzzle:
+		Filename: gunfire.shp
 		Length: *
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		ZOffset: 512
 		IgnoreWorldTint: True
-	webguy: droneweb
+	webguy:
+		Filename: droneweb.shp
 		Length: 1
 		ShadowStart: 1
-	icon: mothicon
+	icon:
+		Filename: mothicon.shp
 
 glad:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
+		Filename: glad.shp
 		Tick: 80
 	stand:
 		Facings: 8
@@ -457,7 +510,8 @@ glad:
 	die2:
 		Start: 161
 		Length: 12
-	muzzle: gunfire
+	muzzle:
+		Filename: gunfire.shp
 		Length: *
 	shoot:
 		Tick: 60
@@ -469,23 +523,27 @@ glad:
 		Start: 389
 		Length: 7
 		Facings: 8
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	webguy: webguySPbig
+	webguy:
+		Filename: webguySPbig.shp
 		Length: 6
 		ShadowStart: 6
-	shield: shieldmedium
+	shield:
+		Filename: shieldmedium.shp
 		Length: 1
 		Offset: 0,-12
-	icon: gladicon
+	icon:
+		Filename: gladicon.shp
 
 cyc2:
 	Inherits@1: ^InfantryDeathAnims
-	Defaults: cycSP
+	Defaults:
+		Filename: cycSP.shp
 	stand:
 		Facings: 8
 		ShadowStart: 308
@@ -530,17 +588,22 @@ cyc2:
 		Length: 6
 		Facings: 8
 		ShadowStart: 568
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		ZOffset: 512
 		IgnoreWorldTint: True
-	webguy: webguySPmid
+	webguy:
+		Filename: webguySPmid.shp
 		Length: 6
 		ShadowStart: 6
-	icon: cyborgcomandoicon
+	icon:
+		Filename: cyborgcomandoicon.shp
 
 jenn:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: jenn.shp
 	shoot:
 		Start: 96
 		Facings: -8
@@ -557,17 +620,21 @@ jenn:
 		Length: 12
 		Facings: -8
 		ShadowStart: 120
-	muzzle: gunfire
+	muzzle:
+		Filename: gunfire.shp
 		Length: *
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: jennicon
+	icon:
+		Filename: jennicon.shp
 
 dino:
 	Inherits: ^EmpOverlay
 	Defaults:
+		Filename: dino.shp
 	shoot:
 		Facings: 8
 		ShadowStart: 86
@@ -583,7 +650,8 @@ dino:
 		Facings: 8
 		Tick: 70
 		ShadowStart: 94
-	muzzle: gunfire
+	muzzle:
+		Filename: gunfire.shp
 		Length: *
 	make:
 		Start: 72
@@ -592,15 +660,19 @@ dino:
 	deployed:
 		Start: 85
 		ShadowStart: 171
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: dinoicon
+	icon:
+		Filename: dinoicon.shp
 		Offset: 0, 0
 
 centurion:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: centurion.shp
 	stand:
 		Facings: -8
 		Length: 1
@@ -634,14 +706,17 @@ centurion:
 		Length: 1
 		ShadowStart: 278
 		Offset: 0, 12
-	shield: shieldlarge
+	shield:
+		Filename: shieldlarge.shp
 		Length: *
 		Offset: 0,-20
-	icon: centurionicon
+	icon:
+		Filename: centurionicon.shp
 
 reapercab:
 	Inherits: ^EmpOverlay
 	Defaults:
+		Filename: reapercab.shp
 		Tick: 80
 	stand:
 		Facings: -8
@@ -656,10 +731,13 @@ reapercab:
 		Start: 104
 		Length: 13
 		ShadowStart: 221
-	icon: reapercabicon
+	icon:
+		Filename: reapercabicon.shp
 
 limped:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: limped.shp
 	stand:
 		Facings: 1
 		ShadowStart: 10
@@ -670,27 +748,35 @@ limped:
 	idle:
 		Facings: 1
 		ShadowStart: 10
-	make: dlimpmk
+	make:
+		Filename: dlimpmk.shp
 		Length: 41
 		ShadowStart: 42
 		Tick: 20
 		Offset: 0, -12
-	deployed: dlimpet
+	deployed:
+		Filename: dlimpet.shp
 		Facings: 1
 		ShadowStart: 3
 		Offset: 0, -12
-	icon: cablimpicon
+	icon:
+		Filename: cablimpicon.shp
 
 cabapc:
+	Defaults:
+		Filename: cabapc.shp
 	Inherits@1: ^SpriteVehicleWithShadow
-	icon: cabapcicon
-	shield: shieldlarge
+	icon:
+		Filename: cabapcicon.shp
+	shield:
+		Filename: shieldlarge.shp
 		Length: *
 		Offset: 0,-20
 
 spiderarty:
 	Inherits: ^EmpOverlay
 	Defaults:
+		Filename: spiderarty.shp
 	idle:
 		Facings: -8
 		ShadowStart: 120
@@ -713,14 +799,18 @@ spiderarty:
 		Facings: 8
 		Tick: 110
 		ShadowStart: 136
-	shield: shieldlarge
+	shield:
+		Filename: shieldlarge.shp
 		Length: *
 		Offset: 0,-20
-	icon: spiderartyicon
+	icon:
+		Filename: spiderartyicon.shp
 		Offset: 0, 0
 
 paladin:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: paladin.shp
 	stand:
 		Facings: 8
 		ShadowStart: 120
@@ -742,17 +832,22 @@ paladin:
 		Length: 6
 		Facings: 8
 		ShadowStart: 192
-	icon: paladinicon
-	shield: shieldlarge
+	icon:
+		Filename: paladinicon.shp
+	shield:
+		Filename: shieldlarge.shp
 		Length: *
 		Offset: 0,-20
-	muzzle: jgcmuzzlemini
+	muzzle:
+		Filename: jgcmuzzlemini.shp
 		Length: *
 		ZOffset: 4000
 		BlendMode: Additive
 
 miniwyverm:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: miniwyverm.shp
 	idle:
 		Facings: -32
 	stand:
@@ -760,10 +855,13 @@ miniwyverm:
 	run:
 		Tick: 90
 		Facings: -32
-	icon: waspicon
+	icon:
+		Filename: waspicon.shp
 
 wasp:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: wasp.shp
 	idle:
 		Facings: -32
 	stand:
@@ -771,21 +869,28 @@ wasp:
 	run:
 		Tick: 90
 		Facings: -32
-	icon: waspicon
+	icon:
+		Filename: waspicon.shp
 
 cabdronejet:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: cabdronejet.shp
 	idle:
 		Facings: 32
 	stand:
 		Facings: 32
 	run:
 		Facings: 32
-	die: explosml
+	die:
+		Filename: explosml.shp
 		Length: *
-	icon: waspicon
+	icon:
+		Filename: waspicon.shp
 
 firefly:
+	Defaults:
+		Filename: firefly.shp
 	Inherits: ^EmpOverlay
 	idle:
 		Facings: -32
@@ -794,10 +899,13 @@ firefly:
 	run:
 		Tick: 90
 		Facings: -32
-	icon: fireflyicon
+	icon:
+		Filename: fireflyicon.shp
 
 devourer:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: devourer.shp
 	idle:
 		Stride: 30
 		Facings: 8
@@ -808,11 +916,15 @@ devourer:
 		Length: 30
 		ZOffset: 1024
 		Offset: 0, 32, 32
-	icon: devourericon
+	icon:
+		Filename: devourericon.shp
 
 basilisk:
+	Defaults:
+		Filename: basilisk.shp
 	Inherits@1: ^SpriteVehicle
-	icon: basiliskicon
+	icon:
+		Filename: basiliskicon.shp
 
 ############################################################################
 # Buildings
@@ -821,11 +933,11 @@ basilisk:
 cabmcv:
 	Inherits: ^EmpOverlay
 	Defaults:
+		Filename: cabmcv.shp
 		Offset: 0,-18,0
 	idle:
 		Facings: -16
 		ShadowStart: 341
-		UseTilesetCode: false
 		Scale: 0.85
 	stand:
 		Facings: -16
@@ -838,16 +950,18 @@ cabmcv:
 		Tick: 100
 		ShadowStart: 357
 		Scale: 0.85
-	shield: shieldlarge
+	shield:
+		Filename: shieldlarge.shp
 		Length: *
 		Offset: 0,-20
-	icon: cabmcvicon
+	icon:
+		Filename: cabmcvicon.shp
 		Offset: 0, 0
 
 cabyard:
 	Inherits: ^EmpOverlay
-	Defaults: cabmcv
-		UseTilesetCode: false
+	Defaults:
+		Filename: cabmcv.shp
 		Offset: 0, -18, 24
 	idle:
 		Start: 307
@@ -861,16 +975,18 @@ cabyard:
 		Start: 324
 		ShadowStart: 665
 		Tick: 400
-	make: cabmcvmake
+	make:
+		Filename: cabmcvmake.shp
 		Length: 50
 		ShadowStart: 51
-	icon: cabyardicon
+	icon:
+		Filename: cabyardicon.shp
 		Offset: 0, 0
 
 cabpowr:
 	Defaults:
+		Filename: cabpowr.shp
 		Offset: 0, -24, 24
-		UseTilesetCode: false
 	idle:
 		Start: 31
 		Length: 8
@@ -881,23 +997,23 @@ cabpowr:
 	dead:
 		Start: 40
 		Tick: 400
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
 	make:
 		Length: 30
 		ShadowStart: 50
-	icon: cabpowricon
+	icon:
+		Filename: cabpowricon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 cabclaw:
 	Defaults:
+		Filename: cabclaw.shp
 		Offset: 8, -32, 32
-		UseTilesetCode: false
 	idle:
 		Start: 29
 		ShadowStart: 80
@@ -907,10 +1023,10 @@ cabclaw:
 	dead:
 		Start: 40
 		Tick: 400
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
 	make:
@@ -924,15 +1040,15 @@ cabclaw:
 		Start: 41
 		Length: 10
 		Tick: 150
-	icon: cabclawicon
+	icon:
+		Filename: cabclawicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 cabproc:
-	Defaults: cabproc
+	Defaults:
+		Filename: cabproc.shp
 		Offset: -15, -42, 20
 		DepthSpriteOffset: 22, 0
-		UseTilesetCode: false
 		DepthSprite: isodepth.shp
 	idle:
 		Start: 32
@@ -944,9 +1060,11 @@ cabproc:
 	make:
 		Length: 29
 		DepthSpriteOffset: -12, 0
-	flame: ntrefn_b
+	flame:
+		Filename: ntrefn_b.shp
 		Length: *
-	unload-overlay: narefn_a
+	unload-overlay:
+		Filename: narefn_a.shp
 		Length: *
 		Offset: 24, -12
 		ZOffset: 1024
@@ -954,34 +1072,34 @@ cabproc:
 		Start: 33
 		ZOffset: -9999
 		ZRamp: 1
-		-DepthSprite:
+		DepthSprite:
 	damaged-bib:
 		Start: 35
 		ZOffset: -9999
 		ZRamp: 1
-		-DepthSprite:
+		DepthSprite:
 	dead-bib:
 		Start: 35
 		ZOffset: -9999
 		ZRamp: 1
-		-DepthSprite:
-	emp-overlay: emp_fx01
+		DepthSprite:
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 21
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-		-DepthSprite:
-	icon: cabprocicon
+		DepthSprite:
+	icon:
+		Filename: cabprocicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
-		-DepthSprite:
+		DepthSprite:
 
 cabproc2:
 	Defaults:
+		Filename: cabproc2.shp
 		Offset: 6, 36, 20
 		DepthSpriteOffset: 22, 0
-		UseTilesetCode: false
 		DepthSprite: isodepth.shp
 	idle:
 		Start: 32
@@ -994,9 +1112,11 @@ cabproc2:
 		Length: 29
 		ShadowStart: 36
 		DepthSpriteOffset: -12, 0
-	flame: ntrefn_b
+	flame:
+		Filename: ntrefn_b.shp
 		Length: *
-	unload-overlay: narefn_a
+	unload-overlay:
+		Filename: narefn_a.shp
 		Length: *
 		Offset: 24, -12
 		ZOffset: 1024
@@ -1004,34 +1124,34 @@ cabproc2:
 		Start: 33
 		ZOffset: -9999
 		ZRamp: 1
-		-DepthSprite:
+		DepthSprite:
 	damaged-bib:
 		Start: 35
 		ZOffset: -9999
 		ZRamp: 1
-		-DepthSprite:
+		DepthSprite:
 	dead-bib:
 		Start: 35
 		ZOffset: -9999
 		ZRamp: 1
-		-DepthSprite:
-	emp-overlay: emp_fx01
+		DepthSprite:
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 21
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-		-DepthSprite:
-	icon: cabprocicon
+		DepthSprite:
+	icon:
+		Filename: cabprocicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
-		-DepthSprite:
+		DepthSprite:
 
 cabproc3:
 	Defaults:
+		Filename: cabproc3.shp
 		Offset: 12, -42, 20
 		DepthSpriteOffset: 22, 0
-		UseTilesetCode: false
 		DepthSprite: isodepth.shp
 	idle:
 		Start: 32
@@ -1044,9 +1164,11 @@ cabproc3:
 		Length: 29
 		ShadowStart: 36
 		DepthSpriteOffset: -12, 0
-	flame: ntrefn_b
+	flame:
+		Filename: ntrefn_b.shp
 		Length: *
-	unload-overlay: narefn_a
+	unload-overlay:
+		Filename: narefn_a.shp
 		Length: *
 		Offset: 24, -12
 		ZOffset: 1024
@@ -1054,34 +1176,34 @@ cabproc3:
 		Start: 33
 		ZOffset: -9999
 		ZRamp: 1
-		-DepthSprite:
+		DepthSprite:
 	damaged-bib:
 		Start: 35
 		ZOffset: -9999
 		ZRamp: 1
-		-DepthSprite:
+		DepthSprite:
 	dead-bib:
 		Start: 35
 		ZOffset: -9999
 		ZRamp: 1
-		-DepthSprite:
-	emp-overlay: emp_fx01
+		DepthSprite:
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 21
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-		-DepthSprite:
-	icon: cabprocicon
+		DepthSprite:
+	icon:
+		Filename: cabprocicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
-		-DepthSprite:
+		DepthSprite:
 
 cabproc4:
 	Defaults:
+		Filename: cabproc4.shp
 		Offset: 12, -42, 20
 		DepthSpriteOffset: 22, 0
-		UseTilesetCode: false
 		DepthSprite: isodepth.shp
 	idle:
 		Start: 32
@@ -1094,9 +1216,11 @@ cabproc4:
 		Length: 29
 		ShadowStart: 36
 		DepthSpriteOffset: -12, 0
-	flame: ntrefn_b
+	flame:
+		Filename: ntrefn_b.shp
 		Length: *
-	unload-overlay: narefn_a
+	unload-overlay:
+		Filename: narefn_a.shp
 		Length: *
 		Offset: 24, -12
 		ZOffset: 1024
@@ -1104,33 +1228,33 @@ cabproc4:
 		Start: 33
 		ZOffset: -9999
 		ZRamp: 1
-		-DepthSprite:
+		DepthSprite:
 	damaged-bib:
 		Start: 35
 		ZOffset: -9999
 		ZRamp: 1
-		-DepthSprite:
+		DepthSprite:
 	dead-bib:
 		Start: 35
 		ZOffset: -9999
 		ZRamp: 1
-		-DepthSprite:
-	emp-overlay: emp_fx01
+		DepthSprite:
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 21
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-		-DepthSprite:
-	icon: cabprocicon
+		DepthSprite:
+	icon:
+		Filename: cabprocicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
-		-DepthSprite:
+		DepthSprite:
 
 cabobelisk:
 	Defaults:
+		Filename: cabobelisk.shp
 		Offset: 0, -24, 24
-		UseTilesetCode: false
 	idle:
 		Start: 30
 		Length: 5
@@ -1143,23 +1267,23 @@ cabobelisk:
 		Start: 42
 		Length: 6
 		Tick: 400
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
 	active:
 	make:
 		Length: 24
-	icon: cabobeliskicon
+	icon:
+		Filename: cabobeliskicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 cabradr:
 	Defaults:
+		Filename: cabradr.shp
 		Offset: 0, -36, 36
-		UseTilesetCode: false
 	idle:
 		Start: 31
 		Length: 14
@@ -1171,22 +1295,22 @@ cabradr:
 	dead:
 		Start: 45
 		Tick: 400
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
 	make:
 		Length: 29
-	icon: cabradricon
+	icon:
+		Filename: cabradricon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 cabweap:
 	Defaults:
+		Filename: cabweap.shp
 		Offset: -12, -42
-		UseTilesetCode: false
 	idle:
 		Start: 87
 		ZOffset: -1026
@@ -1220,24 +1344,25 @@ cabweap:
 	damaged-bib:
 		Start: 3
 		ZOffset: -2048
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	dead-bib: cabweap_bb
+	dead-bib:
+		Filename: cabweap_bb.shp
 		Start: 2
 		ZOffset: -2048
-	icon: cabweapicon
+	icon:
+		Filename: cabweapicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 cabair:
 	Defaults:
+		Filename: cabair.shp
 		Offset: 0, -36, 36
 		ZOffset: -1c511
-		UseTilesetCode: false
 	idle:
 		Start: 20
 		ZOffset: -1c511
@@ -1257,23 +1382,23 @@ cabair:
 		Length: 11
 		ZOffset: -1c511
 		Tick: 100
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
 	make:
 		Length: 20
 		Tick: 60
-	icon: cabairicon
+	icon:
+		Filename: cabairicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 cabtech:
 	Defaults:
+		Filename: cabtech.shp
 		Offset: -12, -30, 30
-		UseTilesetCode: false
 	idle:
 		Start: 31
 		Length: 18
@@ -1285,25 +1410,28 @@ cabtech:
 	dead:
 		Start: 51
 		Tick: 400
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
 	make:
 		Length: 30
-	icon: cabtechicon
+	icon:
+		Filename: cabtechicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 cabsentryturret:
 	Defaults:
+		Filename: cabsentryturret.shp
 		Offset: 0, -12, 18
-		UseTilesetCode: false
-	idle: dot
-	damaged-idle: dot
-	dead: dot
+	idle:
+		Filename: dot.shp
+	damaged-idle:
+		Filename: dot.shp
+	dead:
+		Filename: dot.shp
 		Tick: 400
 	make:
 	turret:
@@ -1312,23 +1440,26 @@ cabsentryturret:
 	damaged-turret:
 		Facings: -32
 		ZOffset: -512
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: cabcannonicon
+	icon:
+		Filename: cabcannonicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 cabcannon:
 	Defaults:
+		Filename: cabcannon.shp
 		Offset: 0, -12, 18
-		UseTilesetCode: false
-	idle: dot
-	damaged-idle: dot
-	dead: dot
+	idle:
+		Filename: dot.shp
+	damaged-idle:
+		Filename: dot.shp
+	dead:
+		Filename: dot.shp
 		Tick: 400
 	turret:
 		Start: 31
@@ -1338,72 +1469,72 @@ cabcannon:
 		Start: 64
 		Facings: 32
 		Offset: 0,-12
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	muzzle: gunfire
+	muzzle:
+		Filename: gunfire.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 	make:
 		Length: 25
-	icon: cabcannonicon
+	icon:
+		Filename: cabcannonicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 cabpit:
 	Defaults:
+		Filename: cabpit.shp
 		Offset: 0, -24, 24
-		UseTilesetCode: false
 	idle:
 		Start: 30
 	damaged-idle:
 		Start: 31
 	dead:
 		Start: 31
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
 	make:
 		Length: 30
-	icon: cabpiticon
+	icon:
+		Filename: cabpiticon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 		AllowModifiers: false
 
 cabnexus:
 	Defaults:
+		Filename: cabnexus.shp
 		Offset: 0, -18, 36
-		UseTilesetCode: false
 	idle:
 		Start: 30
 	damaged-idle:
 		Start: 31
 	dead:
 		Start: 31
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
 	make:
 		Length: 30
-	icon: cabnexusicon
+	icon:
+		Filename: cabnexusicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 		AllowModifiers: false
 
 cabblast:
 	Defaults:
+		Filename: cabblast.shp
 		Offset: 0, -12, 18
-		UseTilesetCode: false
 	idle:
 		Start: 94
 	damaged-idle:
@@ -1417,53 +1548,56 @@ cabblast:
 	damaged-turret:
 		Start: 62
 		Facings: 32
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
 	make:
 		Length: 29
-	muzzle: lazerflare
+	muzzle:
+		Filename: lazerflare.shp
 		Length: *
 		Offset: 0, 0, 0
-		UseTilesetCode: false
 		ZOffset: 1c0
 		Tick: 50
-	icon: cablasticon
+	icon:
+		Filename: cablasticon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 cabrail:
 	Defaults:
+		Filename: cabrail.shp
 		Offset: 0, -12, 18
-		UseTilesetCode: false
-	idle: dot
-	damaged-idle: dot
-	dead: dot
+	idle:
+		Filename: dot.shp
+	damaged-idle:
+		Filename: dot.shp
+	dead:
+		Filename: dot.shp
 	turret:
 		Start: 26
 		Facings: 32
 	damaged-turret:
 		Start: 26
 		Facings: 32
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
 	make:
 		Length: 24
-	icon: cabrailicon
+	icon:
+		Filename: cabrailicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 cabeye:
 	Defaults:
+		Filename: cabeye.shp
 		Offset: 0, -24, 24
-		UseTilesetCode: false
 	idle:
 		Start: 30
 		Length: 17
@@ -1475,64 +1609,70 @@ cabeye:
 	dead:
 	make:
 		Length: 29
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: cabeyeicon
+	icon:
+		Filename: cabeyeicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 cabsw1:
 	Defaults:
+		Filename: cabsw1.shp
 		Offset: 0, -36, 36
-		UseTilesetCode: false
-	idle: dot
-	damaged-idle: dot
-	dead: dot
+	idle:
+		Filename: dot.shp
+	damaged-idle:
+		Filename: dot.shp
+	dead:
+		Filename: dot.shp
 	turret:
 		Start: 31
 		Facings: 32
 	damaged-turret:
 		Start: 63
 		Facings: 32
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
 	make:
 		Length: 29
-	icon: cabsw1icon
+	icon:
+		Filename: cabsw1icon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 nanomachineswarmdummy:
 	Defaults:
 		Offset: 0,-36
 		ZRamp: 1
 		ZOffset: -5c512
-		UseTilesetCode: false
-	idle: dot
-	make: smokebomb4
+	idle:
+		Filename: dot.shp
+	make:
+		Filename: smokebomb4.shp
 		Length: 19
-	stand: smokebomb4
+	stand:
+		Filename: smokebomb4.shp
 		Start: 19
 		Length: 25
 		Tick: 100
-	dead: smokebomb4
+	dead:
+		Filename: smokebomb4.shp
 		Start: 50
 		Length: 10
 
 nanos:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
+		Filename: nanos.shp
 		Offset: 0,0
 		ZRamp: 1
-		UseTilesetCode: false
 	idle:
 		Facings: 1
 		Start: 0
@@ -1540,16 +1680,28 @@ nanos:
 
 gate_a.cab:
 	Inherits: gate_a.nod
-	icon: cabgate2icon
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntgate_a.shp
+			SNOW: nagate_a.shp
+	icon:
+		Filename: cabgate2icon.shp
+		TilesetFilenames:
 
 gate_b.cab:
 	Inherits: gate_b.nod
-	icon: cabgate1icon
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntgate_b.shp
+			SNOW: nagate_b.shp
+	icon:
+		Filename: cabgate1icon.shp
+		TilesetFilenames:
 
 core:
 	Inherits: ^EmpOverlay
 	Defaults:
-		UseTilesetCode: false
+		Filename: core.shp
 		Offset: 0, -36, 36
 	idle:
 		ShadowStart: 3
@@ -1560,42 +1712,50 @@ core:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	idle-screen: core_a
+	idle-screen:
+		Filename: core_a.shp
 		Length: 60
 		Tick: 120
-	damaged-idle-screen: core_a
+	damaged-idle-screen:
+		Filename: core_a.shp
 		Start: 60
 		Length: 60
 		Tick: 120
-	idle-lights: core_b
+	idle-lights:
+		Filename: core_b.shp
 		Length: 20
 		ShadowStart: 40
 		Tick: 120
-	damaged-idle-lights: core_b
+	damaged-idle-lights:
+		Filename: core_b.shp
 		Start: 20
 		Length: 20
 		ShadowStart: 60
 		Tick: 120
-	idle-lights2: core_c
+	idle-lights2:
+		Filename: core_c.shp
 		Length: 30
 		ShadowStart: 60
 		Tick: 120
-	damaged-idle-lights2: core_c
+	damaged-idle-lights2:
+		Filename: core_c.shp
 		Start: 30
 		Length: 30
 		ShadowStart: 90
 		Tick: 120
-	icon: cabcoreicon
+	icon:
+		Filename: cabcoreicon.shp
 		Offset: 0, 0
 
 coredefender:
 	Inherits: ^EmpOverlay
-	Defaults:
-	idle: defenderSP
+	idle:
+		Filename: defenderSP.shp
 		Facings: -8
 		ShadowStart: 168
 		Offset: 0,-36, 0
-	dead: defenderSP
+	dead:
+		Filename: defenderSP.shp
 		Facings: -8
 		ShadowStart: 168
 		Tick: 60
@@ -1607,7 +1767,8 @@ coredefender:
 	#	ShadowStart: 240
 	#	Tick: 100
 	#	Offset: 0,-36, 0
-	shoot2: defenderSP
+	shoot2:
+		Filename: defenderSP.shp
 		Start: 79
 		Length: 4
 		Stride: 12
@@ -1615,85 +1776,93 @@ coredefender:
 		ShadowStart: 247
 		Tick: 100
 		Offset: 0,-36, 0
-	stand: defenderSP
+	stand:
+		Filename: defenderSP.shp
 		Facings: -8
 		ShadowStart: 168
 		Offset: 0,-36, 0
-	run: defenderSP
+	run:
+		Filename: defenderSP.shp
 		Start: 8
 		Length: 8
 		Facings: -8
 		Tick: 100
 		ShadowStart: 176
 		Offset: 0,-36, 0
-	muzzle1: lazerflare
+	muzzle1:
+		Filename: lazerflare.shp
 		Length: *
 		Offset: 0, 0, 0
-		UseTilesetCode: false
 		ZOffset: 6000
 		Tick: 50
-	muzzle2: lazerflare
+	muzzle2:
+		Filename: lazerflare.shp
 		Frames: 1,2,3
 		Length: *
 		Offset: 0, 0, 0
-		UseTilesetCode: false
 		ZOffset: 6000
 		Tick: 50
-	muzzle3: lightmuzzle
+	muzzle3:
+		Filename: lightmuzzle.shp
 		Offset: 0, 0
 		Length: *
-		UseTilesetCode: false
 		BlendMode: Additive
 		ZOffset: 6000
-	dead_explosion: defd_exp
+	dead_explosion:
+		Filename: defd_exp.shp
 		Offset: 0, 0
 		Length: *
-		UseTilesetCode: false
 		Tick: 100
-	shield: shieldlarge
+	shield:
+		Filename: shieldlarge.shp
 		Length: *
 		Offset: 0,-20
-	icon: coreicon
+	icon:
+		Filename: coreicon.shp
 		Offset: 0, 0
 
 defd:
 	Defaults:
+		Filename: defd.shp
 		Offset: 1, -11, 24
-		UseTilesetCode: false
 	idle:
 		ShadowStart: 3
 	dead:
 		ShadowStart: 3
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 21
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	make: defdmkSP
+	make:
+		Filename: defdmkSP.shp
 		Length: 24
 		ShadowStart: 24
-	flag: techstructureflag
+	flag:
+		Filename: techstructureflag.shp
 		Length: 80
 		ShadowStart: 80
 		Offset: -48,-9
-		UseTilesetCode: false
-	icon: coreicon
+	icon:
+		Filename: coreicon.shp
 		Offset: 0, 0
 
 cdef-black:
 	Inherits: ^EmpOverlay
-	Defaults:
-	idle: cdef-black
+	idle:
+		Filename: cdef-black.shp
 		Facings: -8
 		ShadowStart: 184
 		Offset: 0, -36, 0
-	dead: cdef-black
+	dead:
+		Filename: cdef-black.shp
 		Facings: -8
 		ShadowStart: 184
 		Tick: 60
 		Offset: 0,-36, 0
-	shoot2: cdef-black
+	shoot2:
+		Filename: cdef-black.shp
 		Start: 79
 		Length: 6
 		Stride: 14
@@ -1701,47 +1870,53 @@ cdef-black:
 		ShadowStart: 256
 		Tick: 100
 		Offset: 0, -36, 0
-	stand: cdef-black
+	stand:
+		Filename: cdef-black.shp
 		Facings: -8
 		ShadowStart: 184
 		Offset: 0, -36, 0
-	run: cdef-black
+	run:
+		Filename: cdef-black.shp
 		Start: 8
 		Length: 8
 		Facings: -8
 		Tick: 100
 		ShadowStart: 192
 		Offset: 0, -36, 0
-	muzzle1: lazerflare
+	muzzle1:
+		Filename: lazerflare.shp
 		Length: *
 		Offset: 0, 0, 0
-		UseTilesetCode: false
 		ZOffset: 6000
 		Tick: 50
-	shield: shieldlarge
+	shield:
+		Filename: shieldlarge.shp
 		Length: *
 		Offset: 0,-20
-	icon: core3icon
+	icon:
+		Filename: core3icon.shp
 		Offset: 0, 0
 
 blackdefd:
 	Defaults:
+		Filename: blackdefd.shp
 		Offset: 1, -11, 24
-		UseTilesetCode: false
 	idle:
 		Start: 23
 		ShadowStart: 47
 	dead:
 		Start: 23
 		ShadowStart: 47
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 21
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	make: blackdefd
+	make:
+		Filename: blackdefd.shp
 		Length: 24
 		ShadowStart: 24
-	icon: core3icon
+	icon:
+		Filename: core3icon.shp
 		Offset: 0, 0

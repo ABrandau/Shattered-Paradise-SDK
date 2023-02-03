@@ -1,11 +1,14 @@
 ^SrcinInfantryDeathAnims:
 	Inherits@1: ^InfantryDeathAnims
-	die6: scrinfiredeath
+	die6:
+		Filename: scrinfiredeath.shp
 		Tick: 60
 		Offset: 0, -20
 
 shark:
 	Inherits@1: ^SrcinInfantryDeathAnims
+	Defaults:
+		Filename: shark.shp
 	defaults:
 		Tick: 120
 		Offset: 0, -12
@@ -60,12 +63,15 @@ shark:
 		Length: 18
 		Facings: -8
 		ShadowStart: 995
-	icon: sharkicon
-	diebody1: shark
+	icon:
+		Filename: sharkicon.shp
+	diebody1:
+		Filename: shark.shp
 		Start: 137
 		Length: 1
 		Tick: 4000
-	diebody2: shark
+	diebody2:
+		Filename: shark.shp
 		Start: 144
 		Length: 1
 		Tick: 4000
@@ -73,6 +79,7 @@ shark:
 legio:
 	Inherits@1: ^SrcinInfantryDeathAnims
 	Defaults:
+		Filename: legio.shp
 		Tick: 80
 	stand:
 		Facings: -8
@@ -127,89 +134,109 @@ legio:
 		Start: 149
 		Facings: -8
 		# ShadowStart: 556
-	icon: scrlegio
-	diebody1: legio
+	icon:
+		Filename: scrlegio.shp
+	diebody1:
+		Filename: legio.shp
 		Start: 284
 		Length: 1
 		Tick: 4000
-	diebody2: legio
+	diebody2:
+		Filename: legio.shp
 		Start: 293
 		Length: 1
 		Tick: 4000
 
 shapeshifter:
 	Inherits@1: ^InfantryDeathAnims
-	Defaults: e1
+	Defaults:
+		Filename: e1.shp
 		Tick: 80
-	stand: civ1
+	stand:
+		Filename: civ1.shp
 		Facings: 8
 		ShadowStart: 292
-	run: mwmn
+	run:
+		Filename: mwmn.shp
 		Start: 8
 		Length: 6
 		Facings: 8
 		ShadowStart: 300
-	idle1: engineer
+	idle1:
+		Filename: engineer.shp
 		Start: 71
 		Length: 15
 		ShadowStart: 363
-	idle2: medic
+	idle2:
+		Filename: medic.shp
 		Start: 56
 		Length: 15
 		ShadowStart: 363
-	idle3: slav
+	idle3:
+		Filename: slav.shp
 		Start: 56
 		Length: 15
 		ShadowStart: 348
-	idle4: chamspy
+	idle4:
+		Filename: chamspy.shp
 		Start: 71
 		Length: 15
 		ShadowStart: 363
-	prone-run: e1
+	prone-run:
+		Filename: e1.shp
 		Start: 86
 		Length: 6
 		Facings: 8
 		ShadowStart: 378
-	prone-stand: umagon
+	prone-stand:
+		Filename: umagon.shp
 		Start: 86
 		Facings: 8
 		Stride: 6
 		ShadowStart: 378
-	die1: civ2
+	die1:
+		Filename: civ2.shp
 		Start: 149
 		Length: 15
 		ShadowStart: 441
 		Tick: 80
-	die2: doggie
+	die2:
+		Filename: doggie.shp
 		Start: 99
 		Length: 10
 		ShadowStart: 218
-	die-crushed: ghost
+	die-crushed:
+		Filename: ghost.shp
 		Start: 159
 		Length: 5
 		ShadowStart: 451
 		Tick: 800
 		ZOffset: -511
-	shoot: e3
+	shoot:
+		Filename: e3.shp
 		Start: 164
 		Length: 6
 		Facings: 8
 		ShadowStart: 456
-	prone-shoot: e3
+	prone-shoot:
+		Filename: e3.shp
 		Start: 212
 		Length: 6
 		Facings: 8
 		ShadowStart: 504
-	standup-0: e3
+	standup-0:
+		Filename: e3.shp
 		Start: 260
 		Length: 2
 		Facings: 8
 		ShadowStart: 552
-	icon: shapeshiftericon
+	icon:
+		Filename: shapeshiftericon.shp
 
 bug:
 	Inherits@1: ^SrcinInfantryDeathAnims
 	Defaults:
+		Filename: bug.shp
 		Tick: 80
 	stand:
 		Facings: -8
@@ -238,22 +265,27 @@ bug:
 		Start: 98
 		Length: 5
 		Facings: -8
-	icon: bugicon
-	diebody1: bug
+	icon:
+		Filename: bugicon.shp
+	diebody1:
+		Filename: bug.shp
 		Start: 148
 		Length: 1
 		Tick: 4000
-	diebody2: bug
+	diebody2:
+		Filename: bug.shp
 		Start: 158
 		Length: 1
 		Tick: 4000
-	webguy: webguySPmid
+	webguy:
+		Filename: webguySPmid.shp
 		Length: 6
 		ShadowStart: 6
 
 float:
 	Inherits@1: ^SrcinInfantryDeathAnims
 	Defaults:
+		Filename: float.shp
 		Tick: 80
 	stand:
 		Facings: 8
@@ -289,12 +321,15 @@ float:
 		Length: 9
 		Facings: 8
 		ShadowStart: 300
-	icon: scrfloater
-	diebody1: float
+	icon:
+		Filename: scrfloater.shp
+	diebody1:
+		Filename: float.shp
 		Start: 191
 		Length: 1
 		Tick: 4000
-	diebody2: float
+	diebody2:
+		Filename: float.shp
 		Start: 191
 		Length: 1
 		Tick: 4000
@@ -302,6 +337,7 @@ float:
 stalker:
 	Inherits@1: ^SrcinInfantryDeathAnims
 	Defaults:
+		Filename: stalker.shp
 		Tick: 80
 	stand:
 		Facings: -8
@@ -345,11 +381,13 @@ stalker:
 		Length: 8
 		ShadowStart: 374
 		ZOffset: -511
-	icon: stalkericon
+	icon:
+		Filename: stalkericon.shp
 
 colossi:
 	Inherits: ^SrcinInfantryDeathAnims
 	Defaults:
+		Filename: colossi.shp
 		Tick: 80
 	stand:
 		Facings: 8
@@ -384,9 +422,10 @@ colossi:
 		Length: 8
 		Facings: 8
 		ShadowStart: 319
-	dummy: dot
-	light: ulpha
-		UseTilesetExtension: false
+	dummy:
+		Filename: dot.shp
+	light:
+		Filename: ulpha.shp
 		BlendMode: Additive
 	make:
 		Start: 226
@@ -396,22 +435,28 @@ colossi:
 		Start: 230
 		Length: 17
 		ShadowStart: 477
-	icon: colossiicon
-	diebody1: colossi
+	icon:
+		Filename: colossiicon.shp
+	diebody1:
+		Filename: colossi.shp
 		Start: 217
 		Length: 1
 		Tick: 4000
-	diebody2: colossi
+	diebody2:
+		Filename: colossi.shp
 		Start: 225
 		Length: 1
 		Tick: 4000
-	webguy: webguySPbig
+	webguy:
+		Filename: webguySPbig.shp
 		Length: 6
 		ShadowStart: 6
-	shield: shieldmedium
+	shield:
+		Filename: shieldmedium.shp
 		Length: 1
 		Offset: 0,-12
-	colossideploy: colossideploy
+	colossideploy:
+		Filename: colossideploy.shp
 		Length: *
 		Offset: 0,0,0
 		ZOffset: -5c512
@@ -420,6 +465,7 @@ colossi:
 mastermind:
 	Inherits@1: ^SrcinInfantryDeathAnims
 	Defaults:
+		Filename: mastermind.shp
 		Tick: 90
 	stand:
 		Length: 1
@@ -450,11 +496,14 @@ mastermind:
 		Start: 168
 		Length: 11
 		Facings: 8
-	icon: mastermindicon
-	webguy: webguySPbig
+	icon:
+		Filename: mastermindicon.shp
+	webguy:
+		Filename: webguySPbig.shp
 		Length: 6
 		ShadowStart: 6
-	shield: shieldmedium
+	shield:
+		Filename: shieldmedium.shp
 		Length: 1
 		Offset: 0,-12
 
@@ -462,11 +511,13 @@ mastermind:
 drache:
 	Inherits: ^EmpOverlay
 	Defaults:
+		Filename: drache.shp
 		Tick: 150
 		Offset: 0, 0, 60
 	stand:
 		Facings: 1
-	icon: dracheicon
+	icon:
+		Filename: dracheicon.shp
 		Offset: 0, 0
 	idle:
 		Start: 35
@@ -481,14 +532,17 @@ drache:
 
 drache.falling:
 	Inherits: ^EmpOverlay
-	Defaults: drache
+	Defaults:
 		Tick: 150
 		Offset: 0, 0
-	idle: drache
+	idle:
+		Filename: drache.shp
 		Start: 1
 
 scrscorpion:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: scrscorpion.shp
 	stand:
 		Stride: 16
 		Facings: 8
@@ -504,33 +558,41 @@ scrscorpion:
 		Stride: 16
 		Facings: 8
 		Tick: 100
-	icon: scrscorpionicon
+	icon:
+		Filename: scrscorpionicon.shp
 
 scrmbt:
 	Inherits: ^EmpOverlay
-	idle: scrmbt2
+	idle:
+		Filename: scrmbt2.shp
 		Facings: 32
 		ShadowStart: 64
-	turret: scrmbt2
+	turret:
+		Filename: scrmbt2.shp
 		Start: 32
 		Facings: 32
-	muzzle: lightmuzzle
+	muzzle:
+		Filename: lightmuzzle.shp
 		Offset: 0, 0
 		Start: 3
 		Length: *
-		UseTilesetCode: false
 		ZOffset: 202
-	icon: scrmbticon
+	icon:
+		Filename: scrmbticon.shp
 
 scrmobmine:
 	Inherits: ^EmpOverlay
 	idle:
+		Filename: scrmobmine.shp
 		Facings: -32
 		ShadowStart: 32
-	icon: scrmobmineicon
+	icon:
+		Filename: scrmobmineicon.shp
 
 corruptor:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: corruptor.shp
 	stand:
 		Facings: 8
 	run:
@@ -547,27 +609,35 @@ corruptor:
 		Start: 248
 		Length: 10
 		Tick: 120
-	stand-blue: corruptorb
+	stand-blue:
+		Filename: corruptorb.shp
 		Facings: 8
-	run-blue: corruptorb
+	run-blue:
+		Filename: corruptorb.shp
 		Start: 8
 		Facings: 8
 		Length: 20
 		Tick: 20
-	shoot-blue: corruptorb
+	shoot-blue:
+		Filename: corruptorb.shp
 		Start: 168
 		Facings: 8
 		Length: 10
 		Tick: 120
-	die-blue1: corruptorb
+	die-blue1:
+		Filename: corruptorb.shp
 		Start: 248
 		Length: 10
 		Tick: 120
-	icon: corruptoricon
-	icon-blue: corruptorbicon
+	icon:
+		Filename: corruptoricon.shp
+	icon-blue:
+		Filename: corruptorbicon.shp
 
 scrrecharger:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: scrrecharger.shp
 	stand:
 		Facings: -8
 		ShadowStart: 96
@@ -583,20 +653,26 @@ scrrecharger:
 		Length: 11
 		Tick: 50
 		ShadowStart: 104
-	particles: batterybuff
+	particles:
+		Filename: batterybuff.shp
 		Length: *
-	icon: scrrechargericon
+	icon:
+		Filename: scrrechargericon.shp
 
 scrdronec:
 	Inherits: ^EmpOverlay
 	idle:
+		Filename: scrdronec.shp
 		Facings: 32
 		ShadowStart: 32
-	icon: scrdronecicon
+	icon:
+		Filename: scrdronecicon.shp
 
 ### Unused
 tripod:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: tripod.shp
 	stand:
 		Start: 192
 		Facings: -8
@@ -619,19 +695,25 @@ tripod:
 		Start: 291
 		Length: 36
 		ShadowStart: 618
-	shield: shieldtrip
+	shield:
+		Filename: shieldtrip.shp
 		Length: 1
 		Offset: 0,-32
-	icon: tripodicon
-	emp-overlay: emp_fx01
+	icon:
+		Filename: tripodicon.shp
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Offset: 0, -64, 0
-	muzzle: beaconflash
+	muzzle:
+		Filename: beaconflash.shp
 		Length: *
 		ZOffset: 1024
 		Tick: 30
 
 anhltrpd:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: anhltrpd.shp
 	stand:
 		Start: 240
 		Length: 1
@@ -649,92 +731,114 @@ anhltrpd:
 		Facings: -8
 		Tick: 90
 		Scale: 0.91
-	muzzle: tripodlaserflare
+	muzzle:
+		Filename: tripodlaserflare.shp
 		Length: *
 		ZOffset: 1024
 		Scale: 0.5
-	shield: shieldtrip
+	shield:
+		Filename: shieldtrip.shp
 		Length: 1
 		Offset: 0,-32
-	icon: anhltrpdicon
+	icon:
+		Filename: anhltrpdicon.shp
 
 stormrider:
 	Inherits: ^SpriteVehicle
 	Defaults:
+		Filename: stormrider.shp
 		ZRamp: 1
 	idle:
 		Facings: 32
 		ZOffset: 200
 		ZRamp: 1
-	muzzle: lightmuzzle
+	muzzle:
+		Filename: lightmuzzle.shp
 		Offset: 0, 0
 		Start: 3
 		Length: *
-		UseTilesetCode: false
 		ZOffset: 202
-	icon: stormridericon
+	icon:
+		Filename: stormridericon.shp
 
 scrglyder1:
 	Inherits: ^EmpOverlay
-	idle: scrglyder
+	idle:
+		Filename: scrglyder.shp
 		Facings: -32
-	icon: glider1icon
+	icon:
+		Filename: glider1icon.shp
 
 scrglyder2:
 	Inherits: ^EmpOverlay
-	idle: scrglyder
+	idle:
+		Filename: scrglyder.shp
 		Start: 32
 		ShadowStart: 96
 		Facings: -32
-	icon: glider2icon
+	icon:
+		Filename: glider2icon.shp
 
 scrdestroyer:
 	Inherits: ^SpriteVehicle
 	Defaults:
+		Filename: scrdestroyer.shp
 		ZRamp: 1
 	idle:
 		Facings: 32
-	chargedfull: destroshell
+	chargedfull:
+		Filename: destroshell.shp
 		Facings: 1
 		Offset: 0, 0
 		Start: 0
 		Length: *
-		UseTilesetCode: false
-	chargedhalf: destroshell
+	chargedhalf:
+		Filename: destroshell.shp
 		Facings: 1
 		Offset: 0, 0
 		Start: 0
 		Length: *
 		Scale: 0.7
-		UseTilesetCode: false
-	icon: scrdestroyericon
+	icon:
+		Filename: scrdestroyericon.shp
 
 scrtrans:
 	Inherits: ^SpriteVehicle
-	icon: scrtransporticon
+	Defaults:
+		Filename: scrtrans.shp
+	icon:
+		Filename: scrtransporticon.shp
 
 wyverm2:
 	Inherits: ^SpriteVehicle
-	die: explosml
+	Defaults:
+		Filename: wyverm2.shp
+	die:
+		Filename: explosml.shp
 		Length: *
-	icon: scrbattleshipicon
+	icon:
+		Filename: scrbattleshipicon.shp
 
 scrbattleship:
 	Inherits: ^SpriteVehicle
 	Defaults:
+		Filename: scrbattleship.shp
 		ZRamp: 1
 	idle:
 		Facings: 32
-	icon: scrbattleshipicon
-	muzzle1: scrinmuzzlemini
+	icon:
+		Filename: scrbattleshipicon.shp
+	muzzle1:
+		Filename: scrinmuzzlemini.shp
 		Length: *
-	muzzle2: lightmuzzle
+	muzzle2:
+		Filename: lightmuzzle.shp
 		Offset: 0, 0
 		Start: 3
 		Length: *
-		UseTilesetCode: false
 		BlendMode: Additive
-	muzzle3: beaconflash
+	muzzle3:
+		Filename: beaconflash.shp
 		Length: *
 		ZOffset: 9000
 		Tick: 30
@@ -742,6 +846,7 @@ scrbattleship:
 scrcarrier:
 	Inherits: ^EmpOverlay
 	Defaults:
+		Filename: scrcarrier.shp
 		Offset: 0,0,64
 		ZRamp: 1
 	stand:
@@ -750,11 +855,13 @@ scrcarrier:
 		Facings: 32
 	run:
 		Facings: 32
-	icon: scrcarriericon
+	icon:
+		Filename: scrcarriericon.shp
 
 scrincouncil:
 	Inherits: ^EmpOverlay
 	Defaults:
+		Filename: scrincouncil.shp
 		Tick: 80
 		Offset: 0,-10,0
 		ZRamp: 1
@@ -770,16 +877,19 @@ scrincouncil:
 		Length: 7
 		Facings: 1
 		Tick: 40
-	muzzle: beaconflash
+	muzzle:
+		Filename: beaconflash.shp
 		Frames: 0, 1, 2, 1
 		Length: *
 		ZOffset: 9000
 		Tick: 30
-	icon: councilicon
+	icon:
+		Filename: councilicon.shp
 		-Offset:
 
 drached:
 	Defaults:
+		Filename: drached.shp
 		Tick: 80
 		Offset: 0, 0, 48
 	stand:
@@ -797,23 +907,25 @@ drached:
 		Start: 35
 		Tick: 400
 		ShadowStart: 71
-	make: drachedmake
+	make:
+		Filename: drachedmake.shp
 		Length: 14
 		# ShadowStart: 15
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: drachedicon
+	icon:
+		Filename: drachedicon.shp
 		Offset: 0, 0
 
 scrpowr:
 	Defaults:
+		Filename: scrpowr.shp
 		Offset: -12, -30, 52
 		DepthSpriteOffset: 32, 0
-		UseTilesetCode: false
 		DepthSprite: isodepth.shp
 	idle:
 		Start: 31
@@ -821,35 +933,35 @@ scrpowr:
 		ZOffset: -1024
 		ZRamp: 1
 		Tick: 100
-		-DepthSprite:
+		DepthSprite:
 	damaged-idle:
 		Start: 41
 		Length: 8
 		ZOffset: -1024
 		ZRamp: 1
 		Tick: 100
-		-DepthSprite:
+		DepthSprite:
 	dead:
 		Start: 40
 		Tick: 400
 	make:
 		Length: 30
 		DepthSpriteOffset: -12, 0
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 23
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-		-DepthSprite:
-	icon: scrpowricon
+		DepthSprite:
+	icon:
+		Filename: scrpowricon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scradvpowr:
 	Defaults:
+		Filename: scradvpowr.shp
 		Offset: 0, -36, 36
-		UseTilesetCode: false
 	idle:
 		Start: 29
 	active:
@@ -869,20 +981,20 @@ scradvpowr:
 		Tick: 200
 	make:
 		Length: 30
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scradvpowricon
+	icon:
+		Filename: scradvpowricon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrrax:
 	Defaults:
+		Filename: scrrax.shp
 		Offset: 0, -24, 24
-		UseTilesetCode: false
 	idle:
 		Start: 40
 	damaged-idle:
@@ -892,25 +1004,25 @@ scrrax:
 		Tick: 400
 	make:
 		Length: 38
-	ship: scrpodanim
-		UseTilesetCode: false
+	ship:
+		Filename: scrpodanim.shp
 		Offset: 52, -240
 		Length: *
 		ZOffset: 4048
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrraxicon
+	icon:
+		Filename: scrraxicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrproc:
 	Defaults:
+		Filename: scrproc.shp
 		Offset: 0, -30, 42
-		UseTilesetCode: false
 	idle:
 		Start: 30
 		ShadowStart: 64
@@ -939,20 +1051,20 @@ scrproc:
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrprocicon
+	icon:
+		Filename: scrprocicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrproc2:
 	Defaults:
+		Filename: scrproc2.shp
 		Offset: 6, 34, 20
-		UseTilesetCode: false
 	idle:
 		Start: 30
 		ShadowStart: 64
@@ -981,20 +1093,20 @@ scrproc2:
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrprocicon
+	icon:
+		Filename: scrprocicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrproc3:
 	Defaults:
+		Filename: scrproc3.shp
 		Offset: 12, -42, 20
-		UseTilesetCode: false
 	idle:
 		Start: 30
 		ShadowStart: 64
@@ -1023,20 +1135,20 @@ scrproc3:
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrprocicon
+	icon:
+		Filename: scrprocicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrproc4:
 	Defaults:
+		Filename: scrproc4.shp
 		Offset: 12, -42, 20
-		UseTilesetCode: false
 	idle:
 		Start: 30
 		ShadowStart: 64
@@ -1065,20 +1177,20 @@ scrproc4:
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrprocicon
+	icon:
+		Filename: scrprocicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrair:
 	Defaults:
+		Filename: scrair.shp
 		Offset: 0, -36, 36
-		UseTilesetCode: false
 	idle:
 		Start: 30
 		ZOffset: -1c511
@@ -1114,20 +1226,20 @@ scrair:
 	make:
 		Length: 29
 		ZOffset: -1c511
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrairicon
+	icon:
+		Filename: scrairicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrradr:
 	Defaults:
+		Filename: scrradr.shp
 		Offset: 0, -36, 36
-		UseTilesetCode: false
 	idle:
 		Start: 30
 	damaged-idle:
@@ -1147,30 +1259,32 @@ scrradr:
 		Tick: 70
 	make:
 		Length: 29
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrradricon
+	icon:
+		Filename: scrradricon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrweap:
 	Defaults:
+		Filename: scrweap.shp
 		Offset: -12, -42
 		ZOffset: -2048
-		UseTilesetCode: false
 	idle:
 		Start: 49
 		ZOffset: -1024
 	damaged-idle:
 		Start: 60
 		ZOffset: -1024
-	idle-roof: scrweap_1
+	idle-roof:
+		Filename: scrweap_1.shp
 		ZOffset: 2048
-	damaged-idle-roof: scrweap_1
+	damaged-idle-roof:
+		Filename: scrweap_1.shp
 		Start: 1
 		ZOffset: 2048
 	dead:
@@ -1190,20 +1304,20 @@ scrweap:
 	make:
 		Length: 39
 		Tick: 40
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrweapicon
+	icon:
+		Filename: scrweapicon.shp
 		Offset: 0,0
-		UseTilesetCode: false
 
 scrdepot:
 	Defaults:
+		Filename: scrdepot.shp
 		Offset: 0, -36, 36
-		UseTilesetCode: false
 	idle:
 		Start: 29
 		Length: 1
@@ -1229,20 +1343,20 @@ scrdepot:
 		Length: 10
 		ZOffset: -1c611
 		ZRamp: 1
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrdepoticon
+	icon:
+		Filename: scrdepoticon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrtech:
 	Defaults:
+		Filename: scrtech.shp
 		Offset: 12, -30, 30
-		UseTilesetCode: false
 	idle:
 		Start: 30
 	damaged-idle:
@@ -1253,80 +1367,86 @@ scrtech:
 	make:
 		Length: 29
 		ShadowStart: 32
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrtechicon
+	icon:
+		Filename: scrtechicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrwall:
-	Defaults: scrwall
+	Defaults:
 		Offset: 0, -12, 12
-		UseTilesetCode: false
-	idle: scrwall
+	idle:
+		Filename: scrwall.shp
 		Length: 16
-	icon: scrwallicon
+	icon:
+		Filename: scrwallicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrgate_a:
-	Defaults: scrgate
+	Defaults:
+		Filename: scrgate.shp
 		Offset: -24, -24, 24
-		UseTilesetCode: false
 		ZOffset: -3000
-	idle: scrgate
+	idle:
+		Filename: scrgate.shp
 		Length: 19
-	dead: scrgate
+	dead:
+		Filename: scrgate.shp
 	open:
 		Start: 20
 		ZRamp: 1
-	make: scrgate
+	make:
+		Filename: scrgate.shp
 		Frames: 9, 8, 7, 6, 5, 4, 3, 2, 1
 		Length: 9
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrgateaicon
+	icon:
+		Filename: scrgateaicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrgate_b:
-	Defaults: scrgate
+	Defaults:
+		Filename: scrgate.shp
 		Offset: 24, -24, 24
-		UseTilesetCode: false
 		ZOffset: -3000
-	idle: scrgate
+	idle:
+		Filename: scrgate.shp
 		Start: 21
 		Length: 19
 	open:
 		Start: 41
 		ZRamp: 1
-	dead: scrgate
+	dead:
+		Filename: scrgate.shp
 		Start: 21
-	make: scrgate
+	make:
+		Filename: scrgate.shp
 		Frames: 41, 40, 39, 38, 37, 36, 35, 34, 33
 		Length: 9
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrgatebicon
+	icon:
+		Filename: scrgatebicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrneedler:
 	Defaults:
+		Filename: scrneedler.shp
 		Offset: 0, -12, 12
-		UseTilesetCode: false
 	idle:
 		Start: 92
 		ShadowStart: 186
@@ -1350,23 +1470,24 @@ scrneedler:
 	make:
 		Length: 25
 		ShadowStart: 94
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrneedlericon
+	icon:
+		Filename: scrneedlericon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
-	muzzle: scrinmuzzlemini
+	muzzle:
+		Filename: scrinmuzzlemini.shp
 		Length: *
 		Offset: 0, 0
 
 scrtractor:
 	Defaults:
+		Filename: scrtractor.shp
 		Offset: 0, -12, 12
-		UseTilesetCode: false
 	idle:
 		Start: 31
 		ShadowStart: 128
@@ -1390,39 +1511,39 @@ scrtractor:
 	make:
 		Length: 25
 		ShadowStart: 97
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrtractoricon
+	icon:
+		Filename: scrtractoricon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrmine:
 	Defaults:
+		Filename: scrmine.shp
 		Offset: 0, -12, 12
-		UseTilesetCode: false
 	idle:
 	damaged-idle:
 	make:
 	dead:
 		Tick: 400
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: muflakicon
+	icon:
+		Filename: muflakicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrextractor:
 	Defaults:
+		Filename: scrextractor.shp
 		Offset: 0, -12, 12
-		UseTilesetCode: false
 	idle:
 		Start: 31
 		Length: 11
@@ -1434,20 +1555,20 @@ scrextractor:
 		Tick: 400
 	make:
 		Length: 30
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrextractoricon
+	icon:
+		Filename: scrextractoricon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrdrone:
 	Defaults:
+		Filename: scrdrone.shp
 		Offset: 0, -24, 32
-		UseTilesetCode: false
 	idle:
 		Start: 29
 	damaged-idle:
@@ -1458,20 +1579,20 @@ scrdrone:
 	make:
 		Length: 28
 		ShadowStart: 31
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrdroneicon
+	icon:
+		Filename: scrdroneicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrshield:
 	Defaults:
+		Filename: scrshield.shp
 		Offset: 0, -24, 24
-		UseTilesetCode: false
 	idle:
 		Start: 29
 	damaged-idle:
@@ -1482,20 +1603,20 @@ scrshield:
 	make:
 		Length: 28
 		ShadowStart: 31
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrshieldicon
+	icon:
+		Filename: scrshieldicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrsw1:
 	Defaults:
+		Filename: scrsw1.shp
 		Offset: -6, -30, 30
-		UseTilesetCode: false
 	idle:
 		Start: 30
 		Length: 9
@@ -1508,20 +1629,20 @@ scrsw1:
 	active:
 	make:
 		Length: 29
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: scrsw1icon
+	icon:
+		Filename: scrsw1icon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 scrinessencesmall:
-	Defaults: essence
+	Defaults:
+		Filename: essence.shp
 		Offset: 0, 0, 30
-		UseTilesetCode: false
 		ZOffset: 512
 	idle:
 		Start: 21
@@ -1529,25 +1650,27 @@ scrinessencesmall:
 	make:
 		Length: 21
 		SkipMakeAnimations: false
-	icon: scrsw1icon
+	icon:
+		Filename: scrsw1icon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 councilor:
-	Defaults: essencetrail
+	Defaults:
+		Filename: essencetrail.shp
 		IgnoreWorldTint: True
 		ZOffset: 512
-	idle: 
+	idle:
 		Facings: 1
 		Length: *
 		ZOffset: 200
-	stand: 
+	stand:
 		Facings: 1
 		Length: *
 		ZOffset: 200
-	run: 
+	run:
 		Facings: 1
 		Length: *
 		ZOffset: 200
-	die: explosml
+	die:
+		Filename: explosml.shp
 		Length: *

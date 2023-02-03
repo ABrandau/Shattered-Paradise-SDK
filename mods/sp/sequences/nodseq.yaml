@@ -1,6 +1,7 @@
 altnode1:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
+		Filename: altnode1.shp
 		Tick: 80
 	stand:
 		Facings: 8
@@ -48,11 +49,13 @@ altnode1:
 		Start: 260
 		Length: 2
 		Facings: 8
-	icon: sidebar-nod|e1icon
+	icon:
+		Filename: sidebar-nod|e1icon.shp
 
 crusader:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
+		Filename: crusader.shp
 		Tick: 80
 	stand:
 		Facings: -8
@@ -97,11 +100,13 @@ crusader:
 	standup-0:
 		Start: 227
 		Facings: -8
-	icon: crusadericon
+	icon:
+		Filename: crusadericon.shp
 
 templar:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
+		Filename: templar.shp
 		Tick: 60
 	stand:
 		Facings: 8
@@ -162,14 +167,17 @@ templar:
 		Length: 2
 		Facings: 8
 		ShadowStart: 776
-	webguy: webguySPmid
+	webguy:
+		Filename: webguySPmid.shp
 		Length: 6
 		ShadowStart: 6
-	icon: templaricon
+	icon:
+		Filename: templaricon.shp
 
 nconf:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
+		Filename: nconf.shp
 		Tick: 80
 		Offset: 0, 0, 16
 	stand:
@@ -206,9 +214,11 @@ nconf:
 		Start: 327
 		Length: 11
 		ShadowStart: 665
-	die3: infdie
+	die3:
+		Filename: infdie.shp
 		Length: *
-	die4: s_bang34
+	die4:
+		Filename: s_bang34.shp
 		Length: *
 	die-crushed:
 		Start: 333
@@ -235,11 +245,13 @@ nconf:
 		Length: 1
 		Facings: 8
 		ShadowStart: 646
-	icon: nconficon
+	icon:
+		Filename: nconficon.shp
 
 bhs:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
+		Filename: bhs.shp
 		Tick: 80
 	stand:
 		Facings: 8
@@ -297,11 +309,13 @@ bhs:
 		Length: 2
 		Facings: 8
 		ShadowStart: 552
-	icon: weaticon
+	icon:
+		Filename: weaticon.shp
 
 chamspy:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
+		Filename: chamspy.shp
 		Tick: 80
 	stand:
 		Facings: 8
@@ -358,15 +372,16 @@ chamspy:
 		Length: 2
 		Facings: 8
 		ShadowStart: 552
-	icon: chamicon
+	icon:
+		Filename: chamicon.shp
 
 nodmcv:
 	Inherits: ^EmpOverlay
 	Defaults:
+		Filename: nodmcv.shp
 		Offset: 0,0,0
 	idle:
 		Facings: 32
-		UseTilesetCode: false
 		Scale: 0.85
 	stand:
 		Facings: 32
@@ -374,16 +389,18 @@ nodmcv:
 	run:
 		Facings: 32
 		Scale: 0.85
-	icon: nodmcvicon
+	icon:
+		Filename: nodmcvicon.shp
 		Offset: 0, 0
-	shield: shieldlarge
+	shield:
+		Filename: shieldlarge.shp
 		Length: *
 		Offset: 0,-20
 
 nodyard:
 	Inherits: ^EmpOverlay
-	Defaults: nodmcv
-		UseTilesetCode: false
+	Defaults:
+		Filename: nodmcv.shp
 		Offset: 0, -36, 24
 	idle:
 		Start: 66
@@ -396,89 +413,108 @@ nodyard:
 	dead:
 		Start: 96
 		Tick: 400
-	make: nodmcvmake
+	make:
+		Filename: nodmcvmake.shp
 		Length: 35
-	icon: nodyardicon
+	icon:
+		Filename: nodyardicon.shp
 		Offset: 0, 0
 
 bike:
 	Inherits@1: ^SpriteVehicleWithShadow
-	icon: bikeicon
+	Defaults:
+		Filename: bike.shp
+	icon:
+		Filename: bikeicon.shp
 
 attackbike:
 	Inherits@1: ^SpriteVehicleWithShadow
+	Defaults:
+		Filename: attackbike.shp
 	idle:
 		Scale: 0.78
 	stand:
 		Scale: 0.78
-	icon: cyclicon
+	icon:
+		Filename: cyclicon.shp
 
 ttnk:
 	Inherits: ^EmpOverlay
-	idle: ticktank
+	idle:
+		Filename: ticktank.shp
 		Facings: -32
 		Stride: 2
-		UseTilesetCode: false
 		ShadowStart: 224 #192
-	stand: ticktank
+	stand:
+		Filename: ticktank.shp
 		Facings: -32
 		Stride: 2
-		UseTilesetCode: false
 		ShadowStart: 224 #192
-	run: ticktank
+	run:
+		Filename: ticktank.shp
 		Facings: -32
 		Length: 2
-		UseTilesetCode: false
 		ShadowStart: 224 #192
-	make: ticktank
+	make:
+		Filename: ticktank.shp
 		Start: 64 #32
 		Length: 20
 		Facings: -8
 		ShadowStart: 288 #224
-	deployed: ticktankdeployed
+	deployed:
+		Filename: ticktankdeployed.shp
 		Facings: -8
 		ShadowStart: 40
-	turret: ticktankdeployed
+	turret:
+		Filename: ticktankdeployed.shp
 		Start: 8
 		Facings: -32
 		ShadowStart: 48
-	dieevaporate: infgas
+	dieevaporate:
+		Filename: infgas.shp
 		Length: *
 		Offset: 0,-6, 32
 		Tick: 30
-	muzzle2: jgcmuzzlemini
+	muzzle2:
+		Filename: jgcmuzzlemini.shp
 		Length: *
 		ZOffset: 4001
-		UseTilesetCode: false
 		Offset: 0, 0, 12
 		BlendMode: Additive
-	icon: ticktankcameo
+	icon:
+		Filename: ticktankcameo.shp
 
 sapc:
 	Inherits: ^EmpOverlay
-	icon: sapcicon
+	icon:
+		Filename: sapcicon.shp
 
 subtank:
 	Inherits: ^EmpOverlay
-	icon: subticon
+	icon:
+		Filename: subticon.shp
 
 stnk:
 	Inherits: ^EmpOverlay
-	idle: stealthtank3
+	idle:
+		Filename: stealthtank3.shp
 		Facings: -32
 		ShadowStart: 32
-	turret: stnkturret
+	turret:
+		Filename: stnkturret.shp
 		Start: 0
 		Facings: -32
-		UseTilesetCode: false
-	turretloaded: stnkturretloaded
+	turretloaded:
+		Filename: stnkturretloaded.shp
 		Start: 0
 		Facings: -32
-		UseTilesetCode: false
-	icon: stealthtankicon2
+	icon:
+		Filename: stealthtankicon2.shp
 
 scorpion:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: scorpion.shp
 	stand:
 		Start: 160
 		Facings: -8
@@ -490,7 +526,7 @@ scorpion:
 		Offset: 0, -10, 0
 	shoot:
 		Frames: 207, 206, 205, 204, 203, 202, 201, 200, 199, 198, 197, 196, 195, 194, 193, 192, 191, 190, 189, 188, 187, 186, 185, 184, 183, 182, 181, 180, 179, 178, 177, 176, 175, 174, 173, 172, 171, 170, 169, 168, 487, 486, 485, 484, 483, 482, 481, 480, 479, 478, 477, 476, 475, 474, 473, 472, 471, 470, 469, 468, 467, 466, 465, 464, 463, 462, 461, 460, 459, 458, 457, 456, 455, 454, 453, 452, 451, 450, 449, 448, 447, 446, 445, 444, 443, 442, 441, 440, 439, 438, 437, 436, 435, 434, 433, 432, 431, 430, 429, 428, 427, 426, 425, 424, 423, 422, 421, 420, 419, 418, 417, 416, 415, 414, 413, 412, 411, 410, 409, 408, 407, 406, 405, 404, 403, 402, 401, 400, 399, 398, 397, 396, 395, 394, 393, 392, 391, 390, 389, 388, 387, 386, 385, 384, 383, 382, 381, 380, 379, 378, 377, 376, 375, 374, 373, 372, 371, 370, 369, 368, 367, 366, 365, 364, 363, 362, 361, 360, 359, 358, 357, 356, 355, 354, 353, 352, 351, 350, 349, 348, 347, 346, 345, 344, 343, 342, 341, 340, 339, 338, 337, 336, 335, 334, 333, 332, 331, 330, 329, 328, 327, 326, 325, 324, 323, 322, 321, 320, 319, 318, 317, 316, 315, 314, 313, 312, 311, 310, 309, 308, 307, 306, 305, 304, 303, 302, 301, 300, 299, 298, 297, 296, 295, 294, 293, 292, 291, 290, 289, 288, 287, 286, 285, 284, 283, 282, 281, 280, 279, 278, 277, 276, 275, 274, 273, 272, 271, 270, 269, 268, 267, 266, 265, 264, 263, 262, 261, 260, 259, 258, 257, 256, 255, 254, 253, 252, 251, 250, 249, 248, 247, 246, 245, 244, 243, 242, 241, 240, 239, 238, 237, 236, 235, 234, 233, 232, 231, 230, 229, 228, 227, 226, 225, 224, 223, 222, 221, 220, 219, 218, 217, 216, 215, 214, 213, 212, 211, 210, 209, 208, 735, 734, 733, 732, 731, 730, 729, 728, 727, 726, 725, 724, 723, 722, 721, 720, 719, 718, 717, 716, 715, 714, 713, 712, 711, 710, 709, 708, 707, 706, 705, 704, 703, 702, 701, 700, 699, 698, 697, 696
- 		Length: 40
+		Length: 40
 		Facings: 8
 		Offset: 0, -10, 0
 		Tick: 28
@@ -498,15 +534,18 @@ scorpion:
 		Start: 488
 		Tick: 20
 		Offset: 0, -10, 0
-	muzzle: lightmuzzle
+	muzzle:
+		Filename: lightmuzzle.shp
 		Offset: 0, 0
 		Length: *
 		BlendMode: Additive
-	icon: scorpion_icon
+	icon:
+		Filename: scorpion_icon.shp
 
 avatar:
 	Inherits: ^EmpOverlay
 	Defaults:
+		Filename: avatar.shp
 		Scale: 0.8
 	stand:
 		ShadowStart: 152
@@ -523,38 +562,52 @@ avatar:
 		ShadowStart: 280
 		Facings: -8
 		Tick: 320
-	muzzle: lightmuzzle
+	muzzle:
+		Filename: lightmuzzle.shp
 		Length: *
 		Offset: 0, 0
 		BlendMode: Additive
-	icon: avataricon
+	icon:
+		Filename: avataricon.shp
 		Scale: 1
 
 repairvehicle:
 	Inherits: ^SpriteVehicleWithShadow
-	muzzle: repairsparks
+	Defaults:
+		Filename: repairvehicle.shp
+	muzzle:
+		Filename: repairsparks.shp
 		Offset: 0, 0
 		Length: *
 		Scale: 0.75
-		UseTilesetCode: false
-	icon: repairvehicleicon
+	icon:
+		Filename: repairvehicleicon.shp
 
 repair:
 	Inherits: ^EmpOverlay
-	icon: repairicon
+	icon:
+		Filename: rboticon.shp
 
 hologramprojector:
 	Inherits: ^EmpOverlay
-	icon: hologramprojectoricon
+	icon:
+		Filename: hologramprojectoricon.shp
 
 armh:
 	Inherits@1: ^SpriteVehicleWithShadow
-	icon: beamcannonicon
+	Defaults:
+		Filename: armh.shp
+	icon:
+		Filename: beamcannonicon.shp
 
 howtlizer:
 	Inherits@1: ^SpriteVehicleWithShadow
-	icon: howtlizericon
-	muzzle: japmuzzle
+	Defaults:
+		Filename: howtlizer.shp
+	icon:
+		Filename: howtlizericon.shp
+	muzzle:
+		Filename: japmuzzle.shp
 		Length: *
 
 icbm:
@@ -562,8 +615,10 @@ icbm:
 
 napowr:
 	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntpowr.shp
+			SNOW: napowr.shp
 		Offset: 0, -24, 24
-		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -573,39 +628,58 @@ napowr:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	idle-lights: ntpowr_a
+	idle-lights:
+		TilesetFilenames:
+			TEMPERATE: ntpowr_a.shp
+			SNOW: napowr_a.shp
 		Length: 9
 		Tick: 200
-	idle-lights-bright: ntpowr_a
-		Length: 9
-		Tick: 200
-		IgnoreWorldTint: True
-	damaged-idle-lights: ntpowr_a
-		Start: 9
-		Length: 9
-		Tick: 200
-	damaged-idle-lights-bright: ntpowr_a
-		Start: 9
+	idle-lights-bright:
+		TilesetFilenames:
+			TEMPERATE: ntpowr_a.shp
+			SNOW: napowr_a.shp
 		Length: 9
 		Tick: 200
 		IgnoreWorldTint: True
-	make: ntpowrmk
+	damaged-idle-lights:
+		TilesetFilenames:
+			TEMPERATE: ntpowr_a.shp
+			SNOW: napowr_a.shp
+		Start: 9
+		Length: 9
+		Tick: 200
+	damaged-idle-lights-bright:
+		TilesetFilenames:
+			TEMPERATE: ntpowr_a.shp
+			SNOW: napowr_a.shp
+		Start: 9
+		Length: 9
+		Tick: 200
+		IgnoreWorldTint: True
+	make:
+		TilesetFilenames:
+			TEMPERATE: ntpowrmk.shp
+			SNOW: napowrmk.shp
 		Length: 19
 		ShadowStart: 19
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: npwricon
+	icon:
+		Filename: npwricon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 naapwr:
 	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntapwr.shp
+			SNOW: naapwr.shp
 		Offset: 12, -30, 30
-		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -615,39 +689,58 @@ naapwr:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	idle-lights: ntapwr_a
+	idle-lights:
+		TilesetFilenames:
+			TEMPERATE: ntapwr_a.shp
+			SNOW: naapwr_a.shp
 		Length: 9
 		Tick: 200
-	idle-lights-bright: ntapwr_a
-		Length: 9
-		Tick: 200
-		IgnoreWorldTint: True
-	damaged-idle-lights: ntapwr_a
-		Start: 9
-		Length: 9
-		Tick: 200
-	damaged-idle-lights-bright: ntapwr_a
-		Start: 9
+	idle-lights-bright:
+		TilesetFilenames:
+			TEMPERATE: ntapwr_a.shp
+			SNOW: naapwr_a.shp
 		Length: 9
 		Tick: 200
 		IgnoreWorldTint: True
-	make: ntapwrmk
+	damaged-idle-lights:
+		TilesetFilenames:
+			TEMPERATE: ntapwr_a.shp
+			SNOW: naapwr_a.shp
+		Start: 9
+		Length: 9
+		Tick: 200
+	damaged-idle-lights-bright:
+		TilesetFilenames:
+			TEMPERATE: ntapwr_a.shp
+			SNOW: naapwr_a.shp
+		Start: 9
+		Length: 9
+		Tick: 200
+		IgnoreWorldTint: True
+	make:
+		TilesetFilenames:
+			TEMPERATE: ntapwrmk.shp
+			SNOW: naapwrmk.shp
 		Length: 19
 		ShadowStart: 19
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: apwricon
+	icon:
+		Filename: apwricon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 nahand:
 	Defaults:
+		TilesetFilenames:
+			TEMPERATE: nthand.shp
+			SNOW: nahand.shp
 		Offset: -6, -30, 30
-		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -657,138 +750,201 @@ nahand:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	production-light-bright: nthand_a
+	production-light-bright:
+		TilesetFilenames:
+			TEMPERATE: nthand_a.shp
+			SNOW: nahand_a.shp
 		Length: 5
 		Tick: 100
 		ZOffset: 1023
 		IgnoreWorldTint: True
-	damaged-production-light-bright: nthand_a
+	damaged-production-light-bright:
+		TilesetFilenames:
+			TEMPERATE: nthand_a.shp
+			SNOW: nahand_a.shp
 		Start: 5
 		Length: 5
 		Tick: 100
 		ZOffset: 1023
 		IgnoreWorldTint: True
-	idle-lights-bright: nthand_b
+	idle-lights-bright:
+		TilesetFilenames:
+			TEMPERATE: nthand_b.shp
+			SNOW: nahand_b.shp
 		Length: 12
 		Tick: 200
 		IgnoreWorldTint: True
-	damaged-idle-lights-bright: nthand_b
+	damaged-idle-lights-bright:
+		TilesetFilenames:
+			TEMPERATE: nthand_b.shp
+			SNOW: nahand_b.shp
 		Start: 12
 		Length: 12
 		Tick: 200
 		IgnoreWorldTint: True
-	make: nthandmk
+	make:
+		TilesetFilenames:
+			TEMPERATE: nthandmk.shp
+			SNOW: nahandmk.shp
 		Length: 15
 		ShadowStart: 15
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: handicon
+	icon:
+		Filename: handicon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 naweap:
 	Defaults:
 		Offset: -12, -42, 30
 		DepthSpriteOffset: 24, 0
-		UseTilesetCode: true
 		DepthSprite: isodepth.shp
-	idle: ntweap_1
+	idle:
+		TilesetFilenames:
+			TEMPERATE: ntweap_1.shp
+			SNOW: naweap_1.shp
 		ShadowStart: 2
 		ZOffset: -1024
 		Offset: -12, -42, 1
 		ZRamp: 1
-		-DepthSprite:
-	damaged-idle: ntweap_1
+		DepthSprite:
+	damaged-idle:
+		TilesetFilenames:
+			TEMPERATE: ntweap_1.shp
+			SNOW: naweap_1.shp
 		Start: 1
 		ShadowStart: 3
 		ZOffset: -1024
 		Offset: -12, -42, 1
 		ZRamp: 1
-		-DepthSprite:
-	idle-roof: ntweap_2
+		DepthSprite:
+	idle-roof:
+		TilesetFilenames:
+			TEMPERATE: ntweap_2.shp
+			SNOW: naweap_2.shp
 		ShadowStart: 2
 		ZOffset: 512
-	damaged-idle-roof: ntweap_2
+	damaged-idle-roof:
+		TilesetFilenames:
+			TEMPERATE: ntweap_2.shp
+			SNOW: naweap_2.shp
 		Start: 1
 		ShadowStart: 3
 		ZOffset: 512
-	dead: ntweap
+	dead:
+		TilesetFilenames:
+			TEMPERATE: ntweap.shp
+			SNOW: naweap.shp
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	production-lights: ntweap_a
+	production-lights:
+		TilesetFilenames:
+			TEMPERATE: ntweap_a.shp
+			SNOW: naweap_a.shp
 		Length: 16
 		Tick: 100
 		ZOffset: 2048
-	production-lights-bright: ntweap_a
-		Length: 16
-		Tick: 100
-		ZOffset: 2048
-		IgnoreWorldTint: True
-	damaged-production-lights: ntweap_a
-		Start: 16
-		Length: 16
-		Tick: 100
-		ZOffset: 2048
-	damaged-production-lights-bright: ntweap_a
-		Start: 16
+	production-lights-bright:
+		TilesetFilenames:
+			TEMPERATE: ntweap_a.shp
+			SNOW: naweap_a.shp
 		Length: 16
 		Tick: 100
 		ZOffset: 2048
 		IgnoreWorldTint: True
-	build-door: ntweap_b
+	damaged-production-lights:
+		TilesetFilenames:
+			TEMPERATE: ntweap_a.shp
+			SNOW: naweap_a.shp
+		Start: 16
+		Length: 16
+		Tick: 100
+		ZOffset: 2048
+	damaged-production-lights-bright:
+		TilesetFilenames:
+			TEMPERATE: ntweap_a.shp
+			SNOW: naweap_a.shp
+		Start: 16
+		Length: 16
+		Tick: 100
+		ZOffset: 2048
+		IgnoreWorldTint: True
+	build-door:
+		TilesetFilenames:
+			TEMPERATE: ntweap_b.shp
+			SNOW: naweap_b.shp
 		Length: 10
 		ShadowStart: 10
 		ZOffset: 512
-	damaged-build-door: ntweap_b
+	damaged-build-door:
+		TilesetFilenames:
+			TEMPERATE: ntweap_b.shp
+			SNOW: naweap_b.shp
 		Start: 10
 		Length: 10
 		ShadowStart: 20
 		ZOffset: 512
-	make: ntweapmk
+	make:
+		TilesetFilenames:
+			TEMPERATE: ntweapmk.shp
+			SNOW: naweapmk.shp
 		Length: 22
 		Tick: 80
 		ShadowStart: 22
 		Offset: -12, -42, 43
 		DepthSpriteOffset: -12, 0
-	bib: ntweapbb
+	bib:
+		TilesetFilenames:
+			TEMPERATE: ntweapbb.shp
+			SNOW: naweapbb.shp
 		ZOffset: -1024
 		Offset: -12, -42, 1
 		ZRamp: 1
-		-DepthSprite:
-	damaged-bib: ntweapbb
+		DepthSprite:
+	damaged-bib:
+		TilesetFilenames:
+			TEMPERATE: ntweapbb.shp
+			SNOW: naweapbb.shp
 		Start: 1
 		ZOffset: -1024
 		Offset: -12, -42, 1
 		ZRamp: 1
-		-DepthSprite:
-	dead-bib: ntweapbb
+		DepthSprite:
+	dead-bib:
+		TilesetFilenames:
+			TEMPERATE: ntweapbb.shp
+			SNOW: naweapbb.shp
 		Start: 2
 		ZOffset: -1024
 		Offset: -12, -42, 1
 		ZRamp: 1
-		-DepthSprite:
-	emp-overlay: emp_fx01
+		DepthSprite:
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 31
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-		-DepthSprite:
-	icon: nwepicon
+		DepthSprite:
+	icon:
+		Filename: nwepicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
-		-DepthSprite:
+		DepthSprite:
 
 nahpad:
 	Defaults:
+		TilesetFilenames:
+			TEMPERATE: nthpad.shp
+			SNOW: nahpad.shp
 		Offset: 0, -24, 0
 		DepthSpriteOffset: -24, 0
-		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
 		ZOffset: -1c511
@@ -807,65 +963,93 @@ nahpad:
 		Tick: 400
 		Offset: 0, -24, 3
 		DepthSprite: isodepth.shp
-	idle-platform: nthpadbb
+	idle-platform:
+		TilesetFilenames:
+			TEMPERATE: nthpadbb.shp
+			SNOW: nahpadbb.shp
 		ShadowStart: 3
 		ZOffset: -1c511
 		ZRamp: 1
-	damaged-idle-platform: nthpadbb
+	damaged-idle-platform:
+		TilesetFilenames:
+			TEMPERATE: nthpadbb.shp
+			SNOW: nahpadbb.shp
 		Start: 1
 		ShadowStart: 4
 		ZOffset: -1c511
 		ZRamp: 1
-	dead-platform: nthpadbb
+	dead-platform:
+		TilesetFilenames:
+			TEMPERATE: nthpadbb.shp
+			SNOW: nahpadbb.shp
 		Start: 2
 		ShadowStart: 5
 		ZOffset: -1c511
 		Tick: 400
 		ZRamp: 1
-	idle-lights: nthpad_a
+	idle-lights:
+		TilesetFilenames:
+			TEMPERATE: nthpad_a.shp
+			SNOW: nahpad_a.shp
 		Length: 46
 		ZOffset: -1c511
 		Tick: 100
 		ZRamp: 1
-	idle-lights-bright: nthpad_a
+	idle-lights-bright:
+		TilesetFilenames:
+			TEMPERATE: nthpad_a.shp
+			SNOW: nahpad_a.shp
 		Length: 46
 		ZOffset: -1c511
 		Tick: 100
 		ZRamp: 1
 		IgnoreWorldTint: True
-	damaged-idle-lights: nthpad_a
+	damaged-idle-lights:
+		TilesetFilenames:
+			TEMPERATE: nthpad_a.shp
+			SNOW: nahpad_a.shp
 		Start: 46
 		Length: 46
 		Tick: 100
 		ZOffset: -1c511
 		ZRamp: 1
-	damaged-idle-lights-bright: nthpad_a
+	damaged-idle-lights-bright:
+		TilesetFilenames:
+			TEMPERATE: nthpad_a.shp
+			SNOW: nahpad_a.shp
 		Start: 46
 		Length: 46
 		Tick: 100
 		ZOffset: -1c511
 		ZRamp: 1
 		IgnoreWorldTint: True
-	make: nthpadmk
+	make:
+		TilesetFilenames:
+			TEMPERATE: nthpadmk.shp
+			SNOW: nahpadmk.shp
 		Length: 20
 		ShadowStart: 20
 		Offset: 0, -24, 24
 		DepthSpriteOffset: 0, 0
 		DepthSprite: isodepth.shp
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0, 2
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: nhpdicon
+	icon:
+		Filename: nhpdicon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 naradr:
 	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntradr.shp
+			SNOW: naradr.shp
 		Offset: 0, -24, 24
-		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -875,30 +1059,43 @@ naradr:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	idle-dish: ntradr_a
+	idle-dish:
+		TilesetFilenames:
+			TEMPERATE: ntradr_a.shp
+			SNOW: naradr_a.shp
 		Length: 24
 		Tick: 120
-	damaged-idle-dish: ntradr_a
+	damaged-idle-dish:
+		TilesetFilenames:
+			TEMPERATE: ntradr_a.shp
+			SNOW: naradr_a.shp
 		Start: 24
 		Length: 24
 		Tick: 120
-	make: ntradrmk
+	make:
+		TilesetFilenames:
+			TEMPERATE: ntradrmk.shp
+			SNOW: naradrmk.shp
 		Length: 20
 		ShadowStart: 20
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: nradicon
+	icon:
+		Filename: nradicon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 natech:
 	Defaults:
+		TilesetFilenames:
+			TEMPERATE: nttech.shp
+			SNOW: natech.shp
 		Offset: 0, -24, 24
-		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -908,168 +1105,228 @@ natech:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	idle-lights: nttech_a
+	idle-lights:
+		TilesetFilenames:
+			TEMPERATE: nttech_a.shp
+			SNOW: natech_a.shp
 		Length: 10
 		Tick: 120
-	idle-lights-bright: nttech_a
-		Length: 10
-		Tick: 120
-		IgnoreWorldTint: True
-	damaged-idle-lights: nttech_a
-		Start: 10
-		Length: 10
-		Tick: 120
-	damaged-idle-lights-bright: nttech_a
-		Start: 10
+	idle-lights-bright:
+		TilesetFilenames:
+			TEMPERATE: nttech_a.shp
+			SNOW: natech_a.shp
 		Length: 10
 		Tick: 120
 		IgnoreWorldTint: True
-	make: nttechmk
+	damaged-idle-lights:
+		TilesetFilenames:
+			TEMPERATE: nttech_a.shp
+			SNOW: natech_a.shp
+		Start: 10
+		Length: 10
+		Tick: 120
+	damaged-idle-lights-bright:
+		TilesetFilenames:
+			TEMPERATE: nttech_a.shp
+			SNOW: natech_a.shp
+		Start: 10
+		Length: 10
+		Tick: 120
+		IgnoreWorldTint: True
+	make:
+		TilesetFilenames:
+			TEMPERATE: nttechmk.shp
+			SNOW: natechmk.shp
 		Length: 18
 		ShadowStart: 18
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: ntchicon
+	icon:
+		Filename: ntchicon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 natmpl:
 	Defaults:
 		Offset: -12,-42, 42
-		UseTilesetCode: true
 		DepthSprite: isodepth.shp
 		DepthSpriteOffset: -12, 0
-	idle: natmpl_loaded
+	idle:
+		TilesetFilenames:
+			TEMPERATE: nttmpl_loaded.shp
+			SNOW: natmpl_loaded.shp
 		ShadowStart: 3
-	damaged-idle: natmpl_loaded
+	damaged-idle:
+		TilesetFilenames:
+			TEMPERATE: nttmpl_loaded.shp
+			SNOW: natmpl_loaded.shp
 		Start: 1
 		ShadowStart: 4
-	active: natmpl_empty
+	active:
+		TilesetFilenames:
+			TEMPERATE: nttmpl_empty.shp
+			SNOW: natmpl_empty.shp
 		ShadowStart: 3
 		Tick: 4000
-	damaged-active: natmpl_empty
+	damaged-active:
+		TilesetFilenames:
+			TEMPERATE: nttmpl_empty.shp
+			SNOW: natmpl_empty.shp
 		Start: 1
 		ShadowStart: 4
 		Tick: 4000
-	dead: natmpl_empty
+	dead:
+		TilesetFilenames:
+			TEMPERATE: nttmpl_empty.shp
+			SNOW: natmpl_empty.shp
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	idle-lights: nttmpl_a
+	idle-lights:
+		TilesetFilenames:
+			TEMPERATE: nttmpl_a.shp
+			SNOW: natmpl_a.shp
 		Length: 16
 		Tick: 120
-	idle-lights-bright: nttmpl_a
+	idle-lights-bright:
+		TilesetFilenames:
+			TEMPERATE: nttmpl_a.shp
+			SNOW: natmpl_a.shp
 		Length: 16
 		Tick: 120
 		IgnoreWorldTint: True
-	make: nttmplmk
+	make:
+		TilesetFilenames:
+			TEMPERATE: nttmplmk.shp
+			SNOW: natmplmk.shp
 		Length: 17
 		ShadowStart: 17
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 43
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-		-DepthSprite:
-	icon: tmplicon
+		DepthSprite:
+	icon:
+		Filename: tmplicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
-		-DepthSprite:
+		DepthSprite:
 
 nahfac:
 	Defaults:
 		Offset: -12, -42, 30
 		DepthSpriteOffset: 24, 0
 		DepthSprite: isodepth.shp
-	idle: nahfac_1
+	idle:
+		Filename: nahfac_1.shp
 		ShadowStart: 2
 		ZOffset: -1024
 		Offset: -12, -42, 1
 		ZRamp: 1
-		-DepthSprite:
-	damaged-idle: nahfac_1
+		DepthSprite:
+	damaged-idle:
+		Filename: nahfac_1.shp
 		Start: 1
 		ShadowStart: 3
 		ZOffset: -1024
 		Offset: -12, -42, 1
 		ZRamp: 1
-		-DepthSprite:
-	idle-roof: nahfac_2
+		DepthSprite:
+	idle-roof:
+		Filename: nahfac_2.shp
 		ShadowStart: 2
 		ZOffset: 512
-	damaged-idle-roof: nahfac_2
+	damaged-idle-roof:
+		Filename: nahfac_2.shp
 		Start: 1
 		ShadowStart: 3
 		ZOffset: 512
-	dead: nahfac
+	dead:
+		Filename: nahfac.shp
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	production-lights: nahfac_p
+	production-lights:
+		Filename: nahfac_p.shp
 		Length: 25
 		Tick: 100
 		ZOffset: 2048
-	production-lights2: nahfac_b
+	production-lights2:
+		Filename: nahfac_b.shp
 		Length: 20
 		ZOffset: 1024
-	damaged-production-lights2: nahfac_b
+	damaged-production-lights2:
+		Filename: nahfac_b.shp
 		Length: 20
 		ZOffset: 1024
-	idle-fan: nahfac_a
+	idle-fan:
+		Filename: nahfac_a.shp
 		Length: 9
 		ZOffset: 1024
-	damaged-idle-fan: nahfac_a
+	damaged-idle-fan:
+		Filename: nahfac_a.shp
 		Length: 9
 		ZOffset: 1024
-	build-door: nahfac_d
+	build-door:
+		Filename: nahfac_d.shp
 		Length: 17
 		ShadowStart: 34
 		Tick: 20
 		ZOffset: 512
-	damaged-build-door: nahfac_d
+	damaged-build-door:
+		Filename: nahfac_d.shp
 		Start: 17
 		Length: 17
 		ShadowStart: 51
 		Tick: 20
 		ZOffset: 512
-	make: nahfacmk
+	make:
+		Filename: nahfacmk.shp
 		Length: 25
 		ShadowStart: 25
-	bib: nahfac_bb
+	bib:
+		Filename: nahfac_bb.shp
 		ZOffset: -1024
 		Offset: -12, -42, 1
 		ZRamp: 1
-		-DepthSprite:
-	damaged-bib: nahfac_bb
+		DepthSprite:
+	damaged-bib:
+		Filename: nahfac_bb.shp
 		Start: 1
 		ZOffset: -1024
 		Offset: -12, -42, 1
 		ZRamp: 1
-		-DepthSprite:
-	dead-bib: nahfac_bb
+		DepthSprite:
+	dead-bib:
+		Filename: nahfac_bb.shp
 		Start: 2
 		ZOffset: -1024
 		Offset: -12, -42, 1
 		ZRamp: 1
-		-DepthSprite:
-	emp-overlay: emp_fx01
+		DepthSprite:
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 25
 		ZOffset: 512
 		IgnoreWorldTint: True
-		-DepthSprite:
-	icon: nahfacicon
+		DepthSprite:
+	icon:
+		Filename: nahfacicon.shp
 		Offset: 0, 0
 
 nawast:
-	Defaults: ntwast
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntwast.shp
+			SNOW: nawast.shp
 		Offset: -12, -42, 20
-		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -1079,119 +1336,185 @@ nawast:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	make: ntwastmk
+	make:
+		TilesetFilenames:
+			TEMPERATE: ntwastmk.shp
+			SNOW: nawastmk.shp
 		Length: 19
 		ShadowStart: 19
-	idle-glow: ntwast_a
+	idle-glow:
+		TilesetFilenames:
+			TEMPERATE: ntwast_a.shp
+			SNOW: nawast_a.shp
 		Length: 20
 		ShadowStart: 40
 		Tick: 120
-	idle-redlights: ntwast_a
+	idle-redlights:
+		TilesetFilenames:
+			TEMPERATE: ntwast_a.shp
+			SNOW: nawast_a.shp
 		Length: 20
 		ShadowStart: 40
 		Tick: 120
-	damaged-redlights: ntwast_a
+	damaged-redlights:
+		TilesetFilenames:
+			TEMPERATE: ntwast_a.shp
+			SNOW: nawast_a.shp
 		Start: 20
 		Length: 20
 		ShadowStart: 60
 		Tick: 120
-	flame: ntrefn_b
+	flame:
+		TilesetFilenames:
+			TEMPERATE: ntrefn_b.shp
+			SNOW: narefn_b.shp
 		Length: *
-	unload-overlay: narefn_a
+	unload-overlay:
+		TilesetFilenames:
+			TEMPERATE: ntrefn_a.shp
+			SNOW: narefn_a.shp
 		Length: *
 		ZOffset: 1024
-	damaged-idle-glow: ntwast_a
+	damaged-idle-glow:
+		TilesetFilenames:
+			TEMPERATE: ntwast_a.shp
+			SNOW: nawast_a.shp
 		Start: 20
 		Length: 20
 		ShadowStart: 60
 		Tick: 120
-	idle-lights: ntwast_b
+	idle-lights:
+		TilesetFilenames:
+			TEMPERATE: ntwast_b.shp
+			SNOW: nawast_b.shp
 		Length: 16
 		Tick: 120
-	damaged-idle-lights: ntwast_b
+	damaged-idle-lights:
+		TilesetFilenames:
+			TEMPERATE: ntwast_b.shp
+			SNOW: nawast_b.shp
 		Start: 16
 		Length: 16
 		Tick: 120
-	bib: ntwastbb
+	bib:
+		TilesetFilenames:
+			TEMPERATE: ntwastbb.shp
+			SNOW: nawastbb.shp
 		ZOffset: -1024
-	damaged-bib: ntwastbb
+	damaged-bib:
+		TilesetFilenames:
+			TEMPERATE: ntwastbb.shp
+			SNOW: nawastbb.shp
 		Start: 1
 		ZOffset: -1024
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: wasticon
+	icon:
+		Filename: wasticon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 namisl:
 	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntmisl.shp
+			SNOW: namisl.shp
 		Offset: 0, -24, 24
-		UseTilesetCode: true
 	idle:
 	damaged-idle:
 		Start: 1
 	dead:
 		Start: 2
 		Tick: 400
-	idle-lights: ntmisl_b
+	idle-lights:
+		TilesetFilenames:
+			TEMPERATE: ntmisl_b.shp
+			SNOW: namisl_b.shp
 		Length: 10
 		Tick: 120
-	idle-lights-bright: ntmisl_b
-		Length: 10
-		Tick: 120
-		IgnoreWorldTint: True
-	damaged-idle-lights: ntmisl_b
-		Start: 10
-		Length: 10
-		Tick: 120
-	damaged-idle-lights-bright: ntmisl_b
-		Start: 10
+	idle-lights-bright:
+		TilesetFilenames:
+			TEMPERATE: ntmisl_b.shp
+			SNOW: namisl_b.shp
 		Length: 10
 		Tick: 120
 		IgnoreWorldTint: True
-	make: ntmislmk
+	damaged-idle-lights:
+		TilesetFilenames:
+			TEMPERATE: ntmisl_b.shp
+			SNOW: namisl_b.shp
+		Start: 10
+		Length: 10
+		Tick: 120
+	damaged-idle-lights-bright:
+		TilesetFilenames:
+			TEMPERATE: ntmisl_b.shp
+			SNOW: namisl_b.shp
+		Start: 10
+		Length: 10
+		Tick: 120
+		IgnoreWorldTint: True
+	make:
+		TilesetFilenames:
+			TEMPERATE: ntmislmk.shp
+			SNOW: namislmk.shp
 		Length: 18
 		ShadowStart: 18
-	active: ntmisl_a
+	active:
+		TilesetFilenames:
+			TEMPERATE: ntmisl_a.shp
+			SNOW: namisl_a.shp
 		Frames: 0, 1, 2, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 8, 9, 10, 11
 		Length: 25
 		Tick: 80
 		ZOffset: 2
-	active-bright: ntmisl_a
+	active-bright:
+		TilesetFilenames:
+			TEMPERATE: ntmisl_a.shp
+			SNOW: namisl_a.shp
 		Frames: 11, 12, 13, 14, 14, 14, 14, 14, 15, 16, 16, 16, 16, 17, 17, 17, 17, 17, 17, 17, 17, 18, 19, 20, 12, 22
 		Length: 25
 		Tick: 80
 		ZOffset: 2
 		IgnoreWorldTint: True
-	damaged-active: ntmisl_a
+	damaged-active:
+		TilesetFilenames:
+			TEMPERATE: ntmisl_a.shp
+			SNOW: namisl_a.shp
 		Start: 11
 		Length: 10
 		Tick: 80
 		ZOffset: 1
-	damaged-active-bright: ntmisl_a
+	damaged-active-bright:
+		TilesetFilenames:
+			TEMPERATE: ntmisl_a.shp
+			SNOW: namisl_a.shp
 		Start: 11
 		Length: 10
 		Tick: 80
 		ZOffset: 1
 		IgnoreWorldTint: True
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: msslicon
+	icon:
+		Filename: msslicon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 napost:
 	Defaults:
+		Filename: napost.shp
 		Offset: 0, -12, 13
-		UseTilesetCode: false
 		DepthSprite: isodepth.shp
 	idle:
 		Start: 0
@@ -1199,35 +1522,41 @@ napost:
 	damaged-idle:
 		Start: 1
 		ShadowStart: 4
-	lights-bright: napost_b
+	lights-bright:
+		Filename: napost_b.shp
 		Start: 0
 		Length: 7
 		ShadowStart: 14
 		Tick: 80
 		IgnoreWorldTint: True
-	damaged-lights-bright: napost_b
+	damaged-lights-bright:
+		Filename: napost_b.shp
 		Start: 7
 		Length: 7
 		ShadowStart: 21
 		Tick: 80
 		IgnoreWorldTint: True
-	chainoflights: napost_a
+	chainoflights:
+		Filename: napost_a.shp
 		Start: 0
 		Length: 12
 		ShadowStart: 24
 		Tick: 80
-	chainoflights-bright: napost_a
+	chainoflights-bright:
+		Filename: napost_a.shp
 		Start: 0
 		Length: 12
 		ShadowStart: 24
 		Tick: 80
 		IgnoreWorldTint: True
-	damaged-chainoflights: napost_a
+	damaged-chainoflights:
+		Filename: napost_a.shp
 		Start: 12
 		Length: 12
 		ShadowStart: 36
 		Tick: 80
-	damaged-chainoflights-bright: napost_a
+	damaged-chainoflights-bright:
+		Filename: napost_a.shp
 		Start: 12
 		Length: 12
 		ShadowStart: 36
@@ -1237,26 +1566,27 @@ napost:
 		Start: 2
 		Tick: 400
 		ShadowStart: 5
-	make: napostmk
+	make:
+		Filename: napostmk.shp
 		Start: 0
 		Length: 12
 		ShadowStart: 12
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 25
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-		-DepthSprite:
-	icon: lasricon
+		DepthSprite:
+	icon:
+		Filename: lasricon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
-		-DepthSprite:
+		DepthSprite:
 
 nafnce:
 	Defaults:
+		Filename: nafnce.shp
 		Offset: 0, -12, 13
-		UseTilesetCode: false
 		DepthSprite: isodepth.shp
 	idle:
 		Length: 1
@@ -1265,13 +1595,13 @@ nafnce:
 		Length: 1
 		Offset: 0, -12, 1
 		ZRamp: 1
-		-DepthSprite:
+		DepthSprite:
 	disabled-y:
 		Start: 12
 		Length: 1
 		Offset: 0, -12, 1
 		ZRamp: 1
-		-DepthSprite:
+		DepthSprite:
 	enabled-x:
 		Frames: 3,3,1,1,3,3,1,1,2,2,0,0,2,2,0,0
 		Length: 16
@@ -1286,44 +1616,60 @@ nafnce:
 		Frames: 7,5,7,5,6,4,6,4,7,5,7,5,6,4,6,4
 		Length: 16
 		IgnoreWorldTint: True
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 25
-		UseTilesetCode: false
 		ZOffset: 512
-
 		IgnoreWorldTint: True
-		-DepthSprite:
+		DepthSprite:
+
 
 wall.nod:
-	Defaults: nawall
+	Defaults:
 		Offset: 0, -12, 12
-		UseTilesetCode: true
-	idle: nawall
+	idle:
+		TilesetFilenames:
+			TEMPERATE: ntwall.shp
+			SNOW: nawall.shp
 		Length: 16
 		ShadowStart: 48
-	damaged-idle: nawall
+	damaged-idle:
+		TilesetFilenames:
+			TEMPERATE: ntwall.shp
+			SNOW: nawall.shp
 		Start: 16
 		Length: 16
 		ShadowStart: 64
-	critical-idle: nawall
+	critical-idle:
+		TilesetFilenames:
+			TEMPERATE: ntwall.shp
+			SNOW: nawall.shp
 		Start: 32
 		Length: 16
 		ShadowStart: 80
-	icon: nwalicon
+	icon:
+		Filename: nwalicon.shp
 		Offset: 0, 0
-		UseTilesetCode: false
 
 gate_a.nod:
-	Defaults: nagate_a
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntgate_a.shp
+			SNOW: nagate_a.shp
 		Offset: -24, -24
-		UseTilesetCode: true
 		Tick: 80
 		ZOffset: -3000
-	idle: nagate_a
+	idle:
+		TilesetFilenames:
+			TEMPERATE: ntgate_a.shp
+			SNOW: nagate_a.shp
 		Length: 7
 		ShadowStart: 15
-	damaged-idle: nagate_a
+	damaged-idle:
+		TilesetFilenames:
+			TEMPERATE: ntgate_a.shp
+			SNOW: nagate_a.shp
 		Start: 7
 		Length: 7
 		ShadowStart: 22
@@ -1337,33 +1683,49 @@ gate_a.nod:
 		ShadowStart: 21
 		Offset: -24, -24, 1
 		ZRamp: 1
-	dead: nagate_a
+	dead:
+		TilesetFilenames:
+			TEMPERATE: ntgate_a.shp
+			SNOW: nagate_a.shp
 		Start: 14
 		Tick: 400
 		ShadowStart: 29
-	make: nagate_a
+	make:
+		TilesetFilenames:
+			TEMPERATE: ntgate_a.shp
+			SNOW: nagate_a.shp
 		Frames: 6, 5, 4, 3, 2, 1
 		Length: 6
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: ngaticon
+	icon:
+		Filename: ngaticon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 gate_b.nod:
-	Defaults: nagate_b
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntgate_b.shp
+			SNOW: nagate_b.shp
 		Offset: 24, -24, 24
-		UseTilesetCode: true
 		Tick: 80
 		ZOffset: -3000
-	idle: nagate_b
+	idle:
+		TilesetFilenames:
+			TEMPERATE: ntgate_b.shp
+			SNOW: nagate_b.shp
 		Length: 7
 		ShadowStart: 15
-	damaged-idle: nagate_b
+	damaged-idle:
+		TilesetFilenames:
+			TEMPERATE: ntgate_b.shp
+			SNOW: nagate_b.shp
 		Start: 7
 		Length: 7
 		ShadowStart: 22
@@ -1377,92 +1739,122 @@ gate_b.nod:
 		ShadowStart: 21
 		Offset: 24, -24, 1
 		ZRamp: 1
-	dead: nagate_b
+	dead:
+		TilesetFilenames:
+			TEMPERATE: ntgate_b.shp
+			SNOW: nagate_b.shp
 		Start: 14
 		Tick: 400
 		ShadowStart: 29
-	make: nagate_b
+	make:
+		TilesetFilenames:
+			TEMPERATE: ntgate_b.shp
+			SNOW: nagate_b.shp
 		Frames: 6, 5, 4, 3, 2, 1
 		Length: 6
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: nga2icon
+	icon:
+		Filename: nga2icon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 gatick:
 	Defaults:
+		TilesetFilenames:
+			TEMPERATE: gttick.shp
+			SNOW: gatick.shp
 		Offset: 0, -13, 13
-		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
 	damaged-idle:
 		Start: 1
 		ShadowStart: 4
-	muzzle: gunfire
+	muzzle:
+		Filename: gunfire.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	make: gatickmk
+	make:
+		TilesetFilenames:
+			TEMPERATE: gttickmk.shp
+			SNOW: gatickmk.shp
 		Length: 24
 		ShadowStart: 24
 
 gaicbm:
 	Defaults:
+		TilesetFilenames:
+			TEMPERATE: gticbm.shp
+			SNOW: gaicbm.shp
 		Offset: 0, -12, 12
-		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
 	damaged-idle:
 		Start: 1
 		ShadowStart: 4
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	make: gaicbmmk
+	make:
+		TilesetFilenames:
+			TEMPERATE: gticbmmk.shp
+			SNOW: gaicbmmk.shp
 		Length: 30
 		ShadowStart: 30
 
 gaarty:
 	Defaults:
+		TilesetFilenames:
+			TEMPERATE: gtarty.shp
+			SNOW: gaarty.shp
 		Offset: 0, -12, 12
-		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
 	damaged-idle:
 		Start: 1
 		ShadowStart: 4
-	muzzle: gunfire
+	muzzle:
+		Filename: gunfire.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	make: gaartymk
+	make:
+		TilesetFilenames:
+			TEMPERATE: gtartymk.shp
+			SNOW: gaartymk.shp
 		Length: 16
 		ShadowStart: 16
 
 naobel:
 	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntobel.shp
+			SNOW: naobel.shp
 		Offset: 0, -24, 24
-		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -1472,70 +1864,93 @@ naobel:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	active: ntobel_b
+	active:
+		TilesetFilenames:
+			TEMPERATE: ntobel_b.shp
+			SNOW: naobel_b.shp
 		Length: 12
 		Tick: 200
 		ZOffset: 2
-	idle-lights: ntobel_a
+	idle-lights:
+		TilesetFilenames:
+			TEMPERATE: ntobel_a.shp
+			SNOW: naobel_a.shp
 		Length: 12
 		Tick: 80
-	make: ntobelmk
+	make:
+		TilesetFilenames:
+			TEMPERATE: ntobelmk.shp
+			SNOW: naobelmk.shp
 		Length: 19
 		ShadowStart: 19
-	muzzle: lightmuzzle
+	muzzle:
+		Filename: lightmuzzle.shp
+		TilesetFilenames:
 		Offset: 0, 0
 		Length: *
-		UseTilesetCode: false
 		BlendMode: Additive
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: obliicon
+	icon:
+		Filename: obliicon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 nalasr:
 	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntlasr.shp
+			SNOW: nalasr.shp
 		Offset: 0, -12, 12
-		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
 	damaged-idle:
 		Start: 1
 		ShadowStart: 4
-	turret: lasertursprite
+	turret:
+		Filename: lasertursprite.shp
+		TilesetFilenames:
 		Facings: 32
-		UseTilesetCode: false
 	dead:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	make: ntlasrmk
+	make:
+		TilesetFilenames:
+			TEMPERATE: ntlasrmk.shp
+			SNOW: nalasrmk.shp
 		Length: 21
 		ShadowStart: 21
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: plticon
+	icon:
+		Filename: plticon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
-	muzzle: jgcmuzzlemini
+	muzzle:
+		Filename: jgcmuzzlemini.shp
+		TilesetFilenames:
 		Length: *
 		ZOffset: 4001
-		UseTilesetCode: false
 		Offset: 0, 0, 12
 		BlendMode: Additive
 
 nasam:
 	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntsam.shp
+			SNOW: nasam.shp
 		Offset: 0, -12, 12
-		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -1545,26 +1960,36 @@ nasam:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	turret: gtctwr_d
+	turret:
+		TilesetFilenames:
+			TEMPERATE: gtctwr_d.shp
+			SNOW: gactwr_d.shp
 		Facings: 32
 		Offset: -4, 0
-	make: ntsammk
+	make:
+		TilesetFilenames:
+			TEMPERATE: ntsammk.shp
+			SNOW: nasammk.shp
 		Length: 8
 		ShadowStart: 8
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: samicon
+	icon:
+		Filename: samicon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 nastlh:
 	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntstlh.shp
+			SNOW: nastlh.shp
 		Offset: -16, -28, 28
-		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -1574,36 +1999,52 @@ nastlh:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	pulse: ntstlh_a
+	pulse:
+		TilesetFilenames:
+			TEMPERATE: ntstlh_a.shp
+			SNOW: nastlh_a.shp
 		Length: 4
 		Tick: 480
-	damaged-pulse: ntstlh_a
+	damaged-pulse:
+		TilesetFilenames:
+			TEMPERATE: ntstlh_a.shp
+			SNOW: nastlh_a.shp
 		Start: 4
 		Length: 4
 		Tick: 480
-	make: ntstlhmk
+	make:
+		TilesetFilenames:
+			TEMPERATE: ntstlhmk.shp
+			SNOW: nastlhmk.shp
 		Length: 18
 		ShadowStart: 20
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		IgnoreWorldTint: True
-	icon: clckicon
+	icon:
+		Filename: clckicon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 apache:
 	Inherits@1: ^SpriteVehicle
-	icon: apchicon
-	rotor: tsrotor
+	Defaults:
+		Filename: apache.shp
+	icon:
+		Filename: apchicon.shp
+	rotor:
+		Filename: tsrotor.shp
 		Start: 32
 		Length: 31
 		Offset: 0, 0, 16
 		ZRamp: 1
 		Tick: 25
-	slow-rotor: tsrotor
+	slow-rotor:
+		Filename: tsrotor.shp
 		Start: 64
 		Length: 31
 		Offset: 0, 0, 16
@@ -1612,16 +2053,21 @@ apache:
 
 scrin:
 	Inherits@1: ^SpriteVehicle
-	muzzle: lazerflare
+	Defaults:
+		Filename: scrin.shp
+	muzzle:
+		Filename: lazerflare.shp
 		Length: *
 		Offset: 0, 0, 0
-		UseTilesetCode: false
 		ZOffset: 6000
 		Tick: 50
-	icon: proicon
+	icon:
+		Filename: proicon.shp
 
 cerberus:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: cerberus.shp
 	stand:
 		Facings: -32
 	idle:
@@ -1629,36 +2075,45 @@ cerberus:
 	run:
 		Tick: 90
 		Facings: -32
-	muzzle: lazerflare
+	muzzle:
+		Filename: lazerflare.shp
 		Offset: 0, 0
 		Frames: 1, 2, 3
 		Length: *
-		UseTilesetCode: false
 		BlendMode: Additive
 		Tick: 50
-	icon: cerberusicon
+	icon:
+		Filename: cerberusicon.shp
 
 blackhanddummy:
 	Inherits@1: ^InfantryDeathAnims
 	Inherits: ^EmpOverlay
-	idle: dot
-		UseTilesetCode: false
-	stand: dot
-	nanomachinecloud: smokebomb4
+	idle:
+		Filename: dot.shp
+	stand:
+		Filename: dot.shp
+	nanomachinecloud:
+		Filename: smokebomb4.shp
 		Length: 30
 		Tick: 40
-		UseTilesetCode: false
-	icon: apchicon
-	run: dot
-	die1: infdeathexplo1
+	icon:
+		Filename: apchicon.shp
+	run:
+		Filename: dot.shp
+	die1:
+		Filename: infdeathexplo1.shp
 		Length: *
-	die2: infdeathexplo1
+	die2:
+		Filename: infdeathexplo1.shp
 		Length: *
-	die-crushed: infdeathexplo1
+	die-crushed:
+		Filename: infdeathexplo1.shp
 		Length: *
 
 fire:
-	idle: dot
+	idle:
+		Filename: dot.shp
 		Length: *
-	1: dot
+	1:
+		Filename: dot.shp
 		Length: *

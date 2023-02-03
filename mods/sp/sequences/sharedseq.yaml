@@ -1,6 +1,7 @@
 e1.gdi:
 	Inherits: ^InfantryDeathAnims
-	Defaults: e1
+	Defaults:
+		Filename: e1.shp
 		Tick: 80
 	stand:
 		Facings: 8
@@ -57,15 +58,18 @@ e1.gdi:
 		Length: 2
 		Facings: 8
 		ShadowStart: 552
-	die5: flameguy
+	die5:
+		Filename: flameguy.shp
 		Start: 42
 		Length: 104
 		ShadowStart: 190
-	icon: sidebar-gdi|e1icon
+	icon:
+		Filename: sidebar-gdi|e1icon.shp
 
 e1.nod:
 	Inherits: ^InfantryDeathAnims
-	Defaults: e1
+	Defaults:
+		Filename: e1.shp
 		Tick: 80
 	stand:
 		Facings: 8
@@ -122,11 +126,13 @@ e1.nod:
 		Length: 2
 		Facings: 8
 		ShadowStart: 552
-	icon: sidebar-nod|e1icon
+	icon:
+		Filename: sidebar-nod|e1icon.shp
 
 engineer.gdi:
 	Inherits: ^InfantryDeathAnims
-	Defaults: engineer
+	Defaults:
+		Filename: engineer.shp
 		Tick: 80
 	stand:
 		Facings: 8
@@ -176,11 +182,13 @@ engineer.gdi:
 		Length: 2
 		Facings: 8
 		ShadowStart: 552
-	icon: sidebar-gdi|engnicon
+	icon:
+		Filename: sidebar-gdi|engnicon.shp
 
 engineer.nod:
 	Inherits: ^InfantryDeathAnims
-	Defaults: nodengineer
+	Defaults:
+		Filename: nodengineer.shp
 		Tick: 80
 	stand:
 		Facings: 8
@@ -230,12 +238,15 @@ engineer.nod:
 		Length: 2
 		Facings: 8
 		ShadowStart: 552
-	icon: sidebar-nod|engnicon
+	icon:
+		Filename: sidebar-nod|engnicon.shp
 
 mcv.gdi:
 	Inherits: ^EmpOverlay
-	icon: sidebar-gdi|mcvicon
-	shield: shieldlarge
+	icon:
+		Filename: sidebar-gdi|mcvicon.shp
+	shield:
+		Filename: shieldlarge.shp
 		Length: *
 		Offset: 0,-20
 
@@ -248,12 +259,14 @@ mcv.gdi:
 		Length: 1
 		Facings: -64
 		ShadowStart: 64
-	harvest: harvestr
+	harvest:
+		Filename: harvestr.shp
 		Length: *
 		ZRamp: 1
 		Offset: 0,0,0
 		ZOffset: -512
-	icon: sidebar-gdi|harvicon
+	icon:
+		Filename: sidebar-gdi|harvicon.shp
 	dock:
 		Length: 1
 		Facings: -64
@@ -265,40 +278,57 @@ mcv.gdi:
 
 gdiharv:
 	Inherits: ^Harvester
-	icon: sidebar-gdi|harvicon
+	Defaults:
+		Filename: gdiharv.shp
+	icon:
+		Filename: sidebar-gdi|harvicon.shp
 
 nodharv:
 	Inherits: ^Harvester
-	icon: nodharvicon
+	Defaults:
+		Filename: nodharv.shp
+	icon:
+		Filename: nodharvicon.shp
 
 mutharv:
 	Inherits: ^Harvester
-	icon: mutharvicon
+	Defaults:
+		Filename: mutharv.shp
+	icon:
+		Filename: mutharvicon.shp
 
 cabharv:
 	Inherits: ^Harvester
-	idle: dino3
+	idle:
+		Filename: dino3.shp
 		Facings: 8
 		ShadowStart: 86
-	stand: dino3
+	stand:
+		Filename: dino3.shp
 		Facings: 8
 		ShadowStart: 86
-	move: dino3
+	move:
+		Filename: dino3.shp
 		Start: 8
 		Length: 8
 		Facings: 8
 		Tick: 80
 		ShadowStart: 94
-	dock: dino3
+	dock:
+		Filename: dino3.shp
 		Facings: 8
 		ShadowStart: 86
-	dock-loop: dino3
+	dock-loop:
+		Filename: dino3.shp
 		Facings: 8
 		ShadowStart: 86
-	icon: cabharvicon
+	icon:
+		Filename: cabharvicon.shp
 
 scrharv:
 	Inherits: ^Harvester
+	Defaults:
+		Filename: scrharv.shp
 	idle:
 		Facings: -32
 		ShadowStart: 32
@@ -311,12 +341,15 @@ scrharv:
 	dock-loop:
 		Facings: -32
 		ShadowStart: 32
-	icon: scrharvicon
+	icon:
+		Filename: scrharvicon.shp
 
 gacnst:
 	Defaults:
+		TilesetFilenames:
+			TEMPERATE: gtcnst.shp
+			SNOW: gacnst.shp
 		Offset: 0, -36, 36
-		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -326,65 +359,111 @@ gacnst:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	active: dot
-	make: gtcnstmk
+	active:
+		TilesetFilenames:
+			TEMPERATE: dtt.shp
+			SNOW: dat.shp
+	make:
+		TilesetFilenames:
+			TEMPERATE: gtcnstmk.shp
+			SNOW: gacnstmk.shp
 		Length: 24
 		ShadowStart: 24
-	make-bright: gtcnstmk
+	make-bright:
+		TilesetFilenames:
+			TEMPERATE: gtcnstmk.shp
+			SNOW: gacnstmk.shp
 		Length: 24
 		IgnoreWorldTint: True
 		ZOffset: 1023
-	crane-overlay: gtcnst_d
+	crane-overlay:
+		TilesetFilenames:
+			TEMPERATE: gtcnst_d.shp
+			SNOW: gacnst_d.shp
 		Length: 20
 		ZOffset: 1023
-	damaged-crane-overlay: gtcnst_d
+	damaged-crane-overlay:
+		TilesetFilenames:
+			TEMPERATE: gtcnst_d.shp
+			SNOW: gacnst_d.shp
 		Length: 20
 		ZOffset: 1023
-	critical-crane-overlay: gtcnst_d
+	critical-crane-overlay:
+		TilesetFilenames:
+			TEMPERATE: gtcnst_d.shp
+			SNOW: gacnst_d.shp
 		Start: 20
 		Length: 20
 		ZOffset: 1023
-	idle-top: gtcnst_c
+	idle-top:
+		TilesetFilenames:
+			TEMPERATE: gtcnst_c.shp
+			SNOW: gacnst_c.shp
 		Length: 15
 		Tick: 80
-	idle-top-bright: gtcnst_c
-		Length: 15
-		Tick: 80
-		IgnoreWorldTint: True
-	damaged-idle-top: gtcnst_c
-		Start: 15
-		Length: 15
-		Tick: 80
-	damaged-idle-top-bright: gtcnst_c
-		Start: 15
+	idle-top-bright:
+		TilesetFilenames:
+			TEMPERATE: gtcnst_c.shp
+			SNOW: gacnst_c.shp
 		Length: 15
 		Tick: 80
 		IgnoreWorldTint: True
-	idle-side: gtcnst_a
+	damaged-idle-top:
+		TilesetFilenames:
+			TEMPERATE: gtcnst_c.shp
+			SNOW: gacnst_c.shp
+		Start: 15
+		Length: 15
+		Tick: 80
+	damaged-idle-top-bright:
+		TilesetFilenames:
+			TEMPERATE: gtcnst_c.shp
+			SNOW: gacnst_c.shp
+		Start: 15
+		Length: 15
+		Tick: 80
+		IgnoreWorldTint: True
+	idle-side:
+		TilesetFilenames:
+			TEMPERATE: gtcnst_a.shp
+			SNOW: gacnst_a.shp
 		Length: 10
-	damaged-idle-side: gtcnst_a
+	damaged-idle-side:
+		TilesetFilenames:
+			TEMPERATE: gtcnst_a.shp
+			SNOW: gacnst_a.shp
 		Start: 10
 		Length: 10
-	idle-front: gtcnst_b
+	idle-front:
+		TilesetFilenames:
+			TEMPERATE: gtcnst_b.shp
+			SNOW: gacnst_b.shp
 		Length: 10
-	idle-front-bright: gtcnst_b
+	idle-front-bright:
+		TilesetFilenames:
+			TEMPERATE: gtcnst_b.shp
+			SNOW: gacnst_b.shp
 		Length: 10
 		IgnoreWorldTint: True
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
-	icon: facticon
+	icon:
+		Filename: facticon.shp
+		TilesetFilenames:
 		Offset: 0,0
-		UseTilesetCode: false
 
 ^Proc:
-	Defaults: ntrefn
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntrefn.shp
+			SNOW: narefn.shp
 		Offset: -12, -42, 20
 		DepthSpriteOffset: 22, 0
-		UseTilesetCode: true
 		DepthSprite: isodepth.shp
 	idle:
 		ShadowStart: 3
@@ -395,65 +474,109 @@ gacnst:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	make: ntrefnmk
+	make:
+		TilesetFilenames:
+			TEMPERATE: ntrefnmk.shp
+			SNOW: narefnmk.shp
 		Length: 20
 		ShadowStart: 20
 		Offset: -12, -42, 43
 		DepthSpriteOffset: -12, 0
-	flame: ntrefn_b
+	flame:
+		TilesetFilenames:
+			TEMPERATE: ntrefn_b.shp
+			SNOW: narefn_b.shp
 		Length: *
-	unload-overlay: narefn_a
+	unload-overlay:
+		TilesetFilenames:
+			TEMPERATE: ntrefn_a.shp
+			SNOW: narefn_a.shp
 		Length: *
 		ZOffset: 1024
-	idle-redlights: ntrefn_c
+	idle-redlights:
+		TilesetFilenames:
+			TEMPERATE: ntrefn_c.shp
+			SNOW: narefn_c.shp
 		Length: 16
 		Tick: 120
-	damaged-idle-redlights: ntrefn_c
+	damaged-idle-redlights:
+		TilesetFilenames:
+			TEMPERATE: ntrefn_c.shp
+			SNOW: narefn_c.shp
 		Length: 16
 		Tick: 120
-	bib: ntrefnbb
+	bib:
+		TilesetFilenames:
+			TEMPERATE: ntrefnbb.shp
+			SNOW: narefnbb.shp
 		Length: 1
 		ZOffset: -1024
 		Offset: -12, -42, 5
 		ZRamp: 1
-		-DepthSprite:
-	damaged-bib: ntrefnbb
+		DepthSprite:
+	damaged-bib:
+		TilesetFilenames:
+			TEMPERATE: ntrefnbb.shp
+			SNOW: narefnbb.shp
 		Start: 1
 		ZOffset: -1024
 		Offset: -12, -42, 5
 		ZRamp: 1
-		-DepthSprite:
-	dead-bib: ntrefnbb
+		DepthSprite:
+	dead-bib:
+		TilesetFilenames:
+			TEMPERATE: ntrefnbb.shp
+			SNOW: narefnbb.shp
 		Start: 2
 		ZOffset: -1024
 		Offset: -12, -42, 5
 		ZRamp: 1
-		-DepthSprite:
-	emp-overlay: emp_fx01
+		DepthSprite:
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0, 21
-		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
-		-DepthSprite:
+		DepthSprite:
 
 proc:
 	Inherits: ^Proc
-	icon: sidebar-gdi|reficon
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntrefn.shp
+			SNOW: narefn.shp
+	icon:
+		Filename: sidebar-gdi|reficon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
-		-DepthSprite:
+		DepthSprite:
 
 ^Gasilo:
-	Defaults: gtsilo
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: gtsilo.shp
+			SNOW: gasilo.shp
 		Offset: 0, -24, 24
-		UseTilesetCode: true
-	idle: gtsilo_a
-	damaged-idle: gtsilo_a
+	idle:
+		TilesetFilenames:
+			TEMPERATE: gtsilo_a.shp
+			SNOW: gasilo_a.shp
+	damaged-idle:
+		TilesetFilenames:
+			TEMPERATE: gtsilo_a.shp
+			SNOW: gasilo_a.shp
 		Start: 4
-	stages: gtsilo_a
+	stages:
+		TilesetFilenames:
+			TEMPERATE: gtsilo_a.shp
+			SNOW: gasilo_a.shp
 		Length: 4
-	damaged-stages: gtsilo_a
+	damaged-stages:
+		TilesetFilenames:
+			TEMPERATE: gtsilo_a.shp
+			SNOW: gasilo_a.shp
 		Start: 4
 		Length: 4
 	idle-underlay:
@@ -468,54 +591,86 @@ proc:
 		ShadowStart: 5
 		ZOffset: -512
 		Tick: 400
-	idle-lights-bright: gtsilo_b
+	idle-lights-bright:
+		TilesetFilenames:
+			TEMPERATE: gtsilo_b.shp
+			SNOW: gasilo_b.shp
 		Length: 16
 		Tick: 120
 		IgnoreWorldTint: True
-	damaged-idle-lights-bright: gtsilo_b
+	damaged-idle-lights-bright:
+		TilesetFilenames:
+			TEMPERATE: gtsilo_b.shp
+			SNOW: gasilo_b.shp
 		Start: 16
 		Length: 16
 		Tick: 120
 		IgnoreWorldTint: True
-	make: gtsilomk
+	make:
+		TilesetFilenames:
+			TEMPERATE: gtsilomk.shp
+			SNOW: gasilomk.shp
 		Length: 18
 		ShadowStart: 20
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
 		IgnoreWorldTint: True
 
 gasilo.gdi:
 	Inherits: ^Gasilo
-	icon: sidebar-gdi|siloicon
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: gtsilo.shp
+			SNOW: gasilo.shp
+	icon:
+		Filename: sidebar-gdi|siloicon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 gasilo.nod:
 	Inherits: ^Gasilo
-	icon: sidebar-nod|siloicon
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: gtsilo.shp
+			SNOW: gasilo.shp
+	icon:
+		Filename: sidebar-nod|siloicon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 gasilo.mut:
 	Inherits: ^Gasilo
-	icon: mutsilo
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: gtsilo.shp
+			SNOW: gasilo.shp
+	icon:
+		Filename: mutsilo.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 gasilo.cab:
 	Inherits: ^Gasilo
-	icon: cabsilo
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: gtsilo.shp
+			SNOW: gasilo.shp
+	icon:
+		Filename: cabsilo.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 ^Gadept:
-	Defaults: gtdept
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: gtdept.shp
+			SNOW: gadept.shp
 		Offset: 0, -36, 36
-		UseTilesetCode: true
 		DepthSprite: isodepth.shp
 	idle:
 		ShadowStart: 3
@@ -526,128 +681,199 @@ gasilo.cab:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	ground: gtdeptbb
+	ground:
+		TilesetFilenames:
+			TEMPERATE: gtdeptbb.shp
+			SNOW: gadeptbb.shp
 		ShadowStart: 3
 		ZOffset: -1c611
 		ZRamp: 1
-	damaged-ground: gtdeptbb
+	damaged-ground:
+		TilesetFilenames:
+			TEMPERATE: gtdeptbb.shp
+			SNOW: gadeptbb.shp
 		Start: 1
 		ShadowStart: 4
 		ZOffset: -1c611
 		ZRamp: 1
-	dead-ground: gtdeptbb
+	dead-ground:
+		TilesetFilenames:
+			TEMPERATE: gtdeptbb.shp
+			SNOW: gadeptbb.shp
 		Start: 2
 		ShadowStart: 5
 		ZOffset: -1c611
 		Tick: 400
 		ZRamp: 1
-	idle-light: gtdept_b
+	idle-light:
+		TilesetFilenames:
+			TEMPERATE: gtdept_b.shp
+			SNOW: gadept_b.shp
 		Offset: 0, -36, 13
 		Length: 7
 		Tick: 120
 		ZRamp: 1
-	idle-light-bright: gtdept_b
+	idle-light-bright:
+		TilesetFilenames:
+			TEMPERATE: gtdept_b.shp
+			SNOW: gadept_b.shp
 		Offset: 0, -36, 13
 		Length: 7
 		Tick: 120
 		IgnoreWorldTint: True
 		ZRamp: 1
-	circuits: gtdept_a
+	circuits:
+		TilesetFilenames:
+			TEMPERATE: gtdept_a.shp
+			SNOW: gadept_a.shp
 		Length: 5
 		ZOffset: -1c511
 		Tick: 120
 		ZRamp: 1
-	circuits-bright: gtdept_a
+	circuits-bright:
+		TilesetFilenames:
+			TEMPERATE: gtdept_a.shp
+			SNOW: gadept_a.shp
 		Length: 5
 		ZOffset: -1c511
 		Tick: 120
 		ZRamp: 1
 		IgnoreWorldTint: True
-	damaged-circuits: gtdept_a
+	damaged-circuits:
+		TilesetFilenames:
+			TEMPERATE: gtdept_a.shp
+			SNOW: gadept_a.shp
 		Start: 5
 		Length: 5
 		ZOffset: -1c511
 		Tick: 120
 		ZRamp: 1
-	damaged-circuits-bright: gtdept_a
+	damaged-circuits-bright:
+		TilesetFilenames:
+			TEMPERATE: gtdept_a.shp
+			SNOW: gadept_a.shp
 		Start: 5
 		Length: 5
 		ZOffset: -1c511
 		Tick: 120
 		ZRamp: 1
 		IgnoreWorldTint: True
-	crane-start: gtdept_c
+	crane-start:
+		TilesetFilenames:
+			TEMPERATE: gtdept_c.shp
+			SNOW: gadept_c.shp
 		Length: 6
 		Offset: 0, -36, 12
 		Tick: 60
-	crane-loop: gtdept_c
+	crane-loop:
+		TilesetFilenames:
+			TEMPERATE: gtdept_c.shp
+			SNOW: gadept_c.shp
 		Start: 6
 		Length: 5
 		Offset: 0, -36, 12
 		Tick: 60
-	crane-loop-bright: gtdept_c
+	crane-loop-bright:
+		TilesetFilenames:
+			TEMPERATE: gtdept_c.shp
+			SNOW: gadept_c.shp
 		Start: 6
 		Length: 5
 		Offset: 0, -36, 12
 		Tick: 60
 		IgnoreWorldTint: True
-	crane-end: gtdept_c
+	crane-end:
+		TilesetFilenames:
+			TEMPERATE: gtdept_c.shp
+			SNOW: gadept_c.shp
 		Start: 10
 		Length: 6
 		Offset: 0, -36, 12
 		Tick: 60
-	platform: gtdept_d
+	platform:
+		TilesetFilenames:
+			TEMPERATE: gtdept_d.shp
+			SNOW: gadept_d.shp
 		Length: 7
 		ZOffset: -1c511
 		ZRamp: 1
-	damaged-platform: gtdept_d
+	damaged-platform:
+		TilesetFilenames:
+			TEMPERATE: gtdept_d.shp
+			SNOW: gadept_d.shp
 		Start: 7
 		Length: 7
 		ZOffset: -1c511
 		ZRamp: 1
-	make: gtdeptmk
+	make:
+		TilesetFilenames:
+			TEMPERATE: gtdeptmk.shp
+			SNOW: gadeptmk.shp
 		Length: 10
 		Tick: 60
 		ShadowStart: 10
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0, 37
-		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
-		-DepthSprite:
+		DepthSprite:
 
 gadept.gdi:
 	Inherits: ^Gadept
-	icon: sidebar-gdi|fixicon
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: gtdept.shp
+			SNOW: gadept.shp
+	icon:
+		Filename: sidebar-gdi|fixicon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
-		-DepthSprite:
+		DepthSprite:
 
 gadept.nod:
 	Inherits: ^Gadept
-	icon: fixnod
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: gtdept.shp
+			SNOW: gadept.shp
+	icon:
+		Filename: fixnod.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
-		-DepthSprite:
+		DepthSprite:
 
 gadept.mut:
 	Inherits: ^Gadept
-	icon: fixforg
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: gtdept.shp
+			SNOW: gadept.shp
+	icon:
+		Filename: fixforg.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
-		-DepthSprite:
+		DepthSprite:
 
 gadept.cab:
 	Inherits: ^Gadept
-	icon: fixcab
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: gtdept.shp
+			SNOW: gadept.shp
+	icon:
+		Filename: fixcab.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
-		-DepthSprite:
+		DepthSprite:
 
 trnsport:
 	Inherits@1: ^SpriteVehicle
-	idle: 
+	Defaults:
+		Filename: trnsport.shp
+	idle:
 		UseClassicFacings: true
 		ZOffset: 3000
 	idle2:
@@ -655,57 +881,85 @@ trnsport:
 		UseClassicFacings: true
 		Offset: 0,-25
 		ZOffset: 3000
-	idle-white: trnsportw
+	idle-white:
+		Filename: trnsportw.shp
 		Facings: -32
 		UseClassicFacings: true
 		ZOffset: 3000
 	stand:
-	rotor: lrotor
+	rotor:
+		Filename: lrotor.shp
 		Length: 4
 		ZOffset: 4000
-	slow-rotor: lrotor
+	slow-rotor:
+		Filename: lrotor.shp
 		Start: 4
 		Length: 8
 		ZOffset: 4000
-	icon: otrnicon
+	icon:
+		Filename: otrnicon.shp
 
 forgcarryall:
 	Inherits: trnsport
-	idle: forgcarryall
-	idle2: forgcarryall
-	icon: forgcarryallicon
-	rotor: lrotor
+	idle:
+		Filename: forgcarryall.shp
+	idle2:
+		Filename: forgcarryall.shp
+	icon:
+		Filename: forgcarryallicon.shp
+	rotor:
+		Filename: lrotor.shp
 		Length: 4
 		ZOffset: 4000
-	slow-rotor: lrotor
+	slow-rotor:
+		Filename: lrotor.shp
 		Start: 4
 		Length: 8
 		ZOffset: 4000
+	stand:
+		Filename: forgcarryall.shp
 
 nodcarryall:
 	Inherits: trnsport
-	idle: nodcarryall
-	idle2: nodcarryall
-	icon: nodcarryallicon
+	idle:
+		Filename: nodcarryall.shp
+	idle2:
+		Filename: nodcarryall.shp
+	icon:
+		Filename: nodcarryallicon.shp
+	stand:
+		Filename: nodcarryall.shp
 
 cabcarryall:
 	Inherits: trnsport
-	idle: cabcarryall
-	idle2: cabcarryall
-	icon: cabcarryallicon
+	idle:
+		Filename: cabcarryall.shp
+	idle2:
+		Filename: cabcarryall.shp
+	icon:
+		Filename: cabcarryallicon.shp
+	stand:
+		Filename: cabcarryall.shp
 
 scrpod:
 	Inherits: trnsport
-	idle: scrpod
+	idle:
+		Filename: scrpod.shp
 		Facings: 32
-	idle2: scrpod
+	idle2:
+		Filename: scrpod.shp
 		Facings: 32
-	icon: scrpodicon
+	icon:
+		Filename: scrpodicon.shp
+	stand:
+		Filename: scrpod.shp
 
 ^Napuls:
-	Defaults: ntpuls
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntpuls.shp
+			SNOW: napuls.shp
 		Offset: 0, -24, 24
-		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -715,44 +969,73 @@ scrpod:
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
-	turret: ntpuls_a
+	turret:
+		TilesetFilenames:
+			TEMPERATE: ntpuls_a.shp
+			SNOW: napuls_a.shp
 		Facings: 32
-	make: ntpulsmk
+	make:
+		TilesetFilenames:
+			TEMPERATE: ntpulsmk.shp
+			SNOW: napulsmk.shp
 		Length: 20
 		ShadowStart: 20
-	emp-overlay: emp_fx01
+	emp-overlay:
+		Filename: emp_fx01.shp
+		TilesetFilenames:
 		Length: *
 		Offset: 0, 0
-		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
 
 napuls.gdi:
 	Inherits: ^Napuls
-	icon: sidebar-gdi|empicon
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntpuls.shp
+			SNOW: napuls.shp
+	icon:
+		Filename: sidebar-gdi|empicon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 napuls.nod:
 	Inherits: ^Napuls
-	icon: sidebar-nod|empicon
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntpuls.shp
+			SNOW: napuls.shp
+	icon:
+		Filename: sidebar-nod|empicon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 napuls.mut:
 	Inherits: ^Napuls
-	icon: mutpulsicon
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntpuls.shp
+			SNOW: napuls.shp
+	icon:
+		Filename: mutpulsicon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 napuls.cab:
 	Inherits: ^Napuls
-	icon: cabpulsicon
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntpuls.shp
+			SNOW: napuls.shp
+	icon:
+		Filename: cabpulsicon.shp
+		TilesetFilenames:
 		Offset: 0, 0
-		UseTilesetCode: false
 
 quaddrone-mini:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: quaddrone-mini.shp
 	idle:
 		Facings: 1
 		Length: *
@@ -762,15 +1045,20 @@ quaddrone-mini:
 	run:
 		Facings: 1
 		Length: *
-	die: explosml
+	die:
+		Filename: explosml.shp
 		Length: *
 		IgnoreWorldTint: true
 
 scrinrepairdrone:
 	Inherits: quaddrone-mini
+	Defaults:
+		Filename: scrinrepairdrone.shp
 
 repairdrone-mini:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: repairdrone-mini.shp
 	idle:
 		Facings: -32
 		Length: 1
@@ -780,6 +1068,7 @@ repairdrone-mini:
 	run:
 		Facings: -32
 		Length: 1
-	die: explosml
+	die:
+		Filename: explosml.shp
 		Length: *
 		IgnoreWorldTint: true
