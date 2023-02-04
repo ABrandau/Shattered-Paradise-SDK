@@ -233,17 +233,18 @@ camera-option-other = Diğer
 
 ## ObserverStatsLogic
 
-minimal = En Düşük
-information-none = Bilgi: Hiçbiri
-basic = Genel
-economy = Ekonomi
-production = Üretim
-support-powers = Destek Güçler
-combat = Savaş
-army = Ordu
-cps-and-upgrades = KG ve Geliştirmeler
-earnings-graph = Gelir (grafik)
-army-graph = Ordu (grafik)
+options-observer-stats =
+    .none = Bilgi: Hiçbiri
+    .basic = Genel
+    .economy = Ekonomi
+    .production = Üretim
+    .support-powers = Destek Güçler
+    .combat = Savaş
+    .army = Ordu
+    .earnings-graph = Gelir (grafik)
+    .army-graph = Ordu (grafik)
+    .minimal = En Düşük
+    .cps-and-upgrades = KG ve Geliştirmeler
 
 ## WorldTooltipLogic
 
