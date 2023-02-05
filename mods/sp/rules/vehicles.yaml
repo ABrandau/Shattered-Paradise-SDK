@@ -6,7 +6,7 @@ SMECH:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^8CellVision
 	Valued:
-		Cost: 300
+		Cost: 400
 	Tooltip:
 		Name: Wolverine
 	UpdatesPlayerStatistics:
@@ -14,7 +14,7 @@ SMECH:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
-		Description: Small but fast anti-infantry walker.\n\nGood vs: Infantry\n\nSpecial:\n- Provides stealth detection\n- Can attack enemies ahead while moving
+		Description: Small but fast anti-infantry walker.\n\nGood vs: Infantry\n\nSpecial:\n - Provides stealth detection\n - Can attack enemies ahead while moving
 		BuildPaletteOrder: 6
 		Prerequisites: ~gaweap, ~techlevel.2
 		BuildDuration: 250
@@ -24,7 +24,7 @@ SMECH:
 		Speed: 120
 		Locomotor: Vehicle
 	Health:
-		HP: 17500
+		HP: 20000
 	Armor:
 		Type: Light
 	AttackFollowFrontal:
@@ -89,7 +89,7 @@ MMCH:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 7
-		Description: GDI's main battle walker armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can shoot over walls\n- Can crush infantry\n- Can attack while moving
+		Description: GDI's main battle walker armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n - Can shoot over walls\n - Can crush infantry\n - Can attack while moving
 		Prerequisites: ~gaweap, ~techlevel.2
 		BuildDuration: 625
 		BuildDurationModifier: 100
@@ -132,7 +132,7 @@ MMCH:
 	Armament@Railgun:
 		Name: secondary
 		Weapon: TitanRailgun
-		Damage: 98
+		Damage: 105
 		Recoil: 127
 		RecoilRecovery: 26
 		MuzzleSequence: muzzle2
@@ -171,7 +171,7 @@ APC:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
-		Description: Armored infantry transport.\n\nGood vs: Infantry.\n\nSpecial:\n- Can transport 5 infantry units\n- Can travel over water\n- Can crush infantry\n- Can attack while moving
+		Description: Armored infantry transport.\n\nGood vs: Infantry.\n\nSpecial:\n - Can transport 5 infantry units\n - Can travel over water\n - Can crush infantry\n - Can attack while moving
 		BuildPaletteOrder: 23
 		Prerequisites: ~gaweap, gapile, ~techlevel.2
 		BuildDuration: 375
@@ -320,7 +320,7 @@ HVR:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
-		Description: Hovering vehicle, armed with long range missiles.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack Air\n- Can shoot over walls\n- Hovers (it ignores terrain like Veins and Water)\n- Can attack while moving
+		Description: Hovering vehicle, armed with long range missiles.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n - Can attack Air\n - Can shoot over walls\n - Hovers (it ignores terrain like Veins and Water)\n - Can attack while moving
 		BuildPaletteOrder: 27
 		Prerequisites: ~gaweap, garadr, ~techlevel.4
 		BuildDuration: 625
@@ -378,7 +378,7 @@ JUG:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
-		Description: Heavy mechanized artillery walker.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can shoot over walls\n- Can crush infantry
+		Description: Heavy mechanized artillery walker.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n - Deals AoE damage\n - Minimum attack distance\n - Can shoot over walls\n - Can crush infantry
 		BuildPaletteOrder: 33
 		Prerequisites: ~gaweap, gatech, ~techlevel.5
 		BuildDuration: 875
@@ -431,7 +431,7 @@ SONIC:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
-		Description: Armored high-tech vehicle with a powerful harmonic resonance cannon.\n\nGood vs: Ground targets\n\nSpecial:\n- Deals heavy damage over time to any unit in the line of fire\n- Can crush infantry\n- Can attack while moving
+		Description: Armored high-tech vehicle with a powerful harmonic resonance cannon.\n\nGood vs: Ground targets\n\nSpecial:\n - Deals heavy damage over time to any unit in the line of fire\n - Can crush infantry\n - Can attack while moving
 		BuildPaletteOrder: 34
 		Prerequisites: ~gaweap, gatech, ~techlevel.5
 		BuildDuration: 750
@@ -480,7 +480,7 @@ G4TNK:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
-		Description: Heavy assault tank.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Selfheal to 50%\n- Can attack air\n- Only the Missiles can pass over walls\n- Can crush infantry\n- Can attack while moving
+		Description: Heavy assault tank.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n - Selfheal to 50%\n - Can attack air\n - Only the Missiles can pass over walls\n - Can crush infantry\n - Can attack while moving
 		BuildPaletteOrder: 35
 		Prerequisites: ~gaweap, gatech, ~techlevel.5
 		BuildDuration: 1125
@@ -499,7 +499,7 @@ G4TNK:
 		Offset: -200,0,0
 	Armament@PRIMARY:
 		Weapon: 4TNKGUN
-		Damage: 140
+		Damage: 160
 		LocalOffset: 1150,120,550, 1150,-120,550
 		MuzzleSequence: muzzle
 		Recoil: 127
@@ -511,7 +511,7 @@ G4TNK:
 		RequiresCondition: !railguns
 	Armament@Railgun:
 		Weapon: 4TNKRAILGUN
-		Damage: 196
+		Damage: 240
 		LocalOffset: 1150,120,550, 1150,-120,550
 		MuzzleSequence: muzzle2
 		Recoil: 127
@@ -566,7 +566,7 @@ HMEC:
 		BuildAtProductionType: Mammoth
 		BuildPaletteOrder: 49
 		Prerequisites: ~showhmec, gtdrop, ~techlevel.6
-		Description: GDI's super-heavy walker and the pride of their army.\n\nGood vs: Everything\n\nSpecial:\n- Build limit: 1\n- Selfhealing up to 100%\n- Can attack air\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything except other Epics
+		Description: GDI's super-heavy walker and the pride of their army.\n\nGood vs: Everything\n\nSpecial:\n - Build limit: 1\n - Selfhealing up to 100%\n - Can attack air\n - Immune to mind control\n - Can shoot over walls\n - Can crush everything except other Epics
 		BuildLimit: 1
 		BuildDuration: 1500
 		BuildDurationModifier: 100
@@ -750,7 +750,7 @@ BGGY:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
 		BuildAtProductionType: Tank
-		Description: Fast vehicle armed with a machine gun and\nhas room for one passenger that modifies the weapon of the vehicle.\n\nGood vs: Changes depending on the passenger\n\nSpecial:\n- The weapon of the vehicle changes with the passenger\n- Provides stealth detection\n- Can attack while moving
+		Description: Fast vehicle armed with a machine gun and\nhas room for one passenger that modifies the weapon of the vehicle.\n\nGood vs: Changes depending on the passenger\n\nSpecial:\n - The weapon of the vehicle changes with the passenger\n - Provides stealth detection\n - Can attack while moving
 		BuildPaletteOrder: 9
 		Prerequisites: ~naweap, ~techlevel.2
 		BuildDuration: 250
@@ -1182,7 +1182,7 @@ ATTACKBIKE:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 10
 		Prerequisites: ~naweap, ~techlevel.2
-		Description: Fast scout vehicle armed with\nrockets.\n\nGood vs: vs Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Can attack enemies ahead while moving
+		Description: Fast scout vehicle armed with\nrockets.\n\nGood vs: vs Vehicles, Aircraft\n\nSpecial:\n - Can attack air\n - Can attack enemies ahead while moving
 		BuildDuration: 375
 		BuildDurationModifier: 100
 	Voiced:
@@ -1257,7 +1257,7 @@ TTNK:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 12
-		Description: Nod's main battle tank armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can deploy to gain extra protection\n- Can crush infantry\n- Can attack enemies ahead while moving
+		Description: Nod's main battle tank armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n - Can deploy to gain extra protection\n - Can crush infantry\n - Can attack enemies ahead while moving
 		Prerequisites: ~naweap, ~techlevel.2
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -1479,7 +1479,7 @@ BIKE:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 28
-		Description: Fast moving suicide vehicle.\n\nGood vs: Ground targets\n\nSpecial:\n- Can deploy to explode
+		Description: Fast moving suicide vehicle.\n\nGood vs: Ground targets\n\nSpecial:\n - Can deploy to explode
 		Prerequisites: ~naweap, naradr, ~techlevel.4
 		BuildDuration: 625
 		BuildDurationModifier: 100
@@ -1556,7 +1556,7 @@ SAPC:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 29
 		Prerequisites: ~naweap, naradr, ~techlevel.4
-		Description: Troop transport that can move underground.\n\nSpecial:\n- Can move underground\n- Can transport up to 5 infantry units\n- Can crush infantry\n - Cannot move or burrow back for 3 seconds after resufacing
+		Description: Troop transport that can move underground.\n\nSpecial:\n - Can move underground\n - Can transport up to 5 infantry units\n - Can crush infantry\n - Cannot move or burrow back for 3 seconds after resufacing
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	ProductionCostMultiplier@AI: ## AI cannot use it well
@@ -1619,7 +1619,7 @@ SUBTANK:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
 		BuildAtProductionType: Tank
-		Description: Subterranean flame tank able to move underground.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Can move underground\n- Can crush infantry\n - Cannot move or burrow back for 3 seconds after resufacing
+		Description: Subterranean flame tank able to move underground.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n - Can move underground\n - Can crush infantry\n - Cannot move or burrow back for 3 seconds after resufacing
 		BuildPaletteOrder: 37
 		Prerequisites: ~naweap, natech, ~techlevel.5
 		BuildDuration: 500
@@ -1670,7 +1670,7 @@ HOWTLIZER:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
 		BuildAtProductionType: Tank
-		Description: High tech artillery armed with a self-propelled howitzer and a cloaking device.\n\nGood vs: Ground targets\n\nSpecial:\n- Can shoot over walls\n- Can crush infantry\n- Cloaked\n- Cloaking malfunctions when at red hp
+		Description: High tech artillery armed with a self-propelled howitzer and a cloaking device.\n\nGood vs: Ground targets\n\nSpecial:\n - Can shoot over walls\n - Can crush infantry\n- Cloaked\n - Cloaking malfunctions when at red hp
 		BuildPaletteOrder: 38
 		Prerequisites: ~naweap, natech, ~techlevel.5
 		BuildDuration: 875
@@ -1727,7 +1727,7 @@ STNK:
 	Inherits@TIBCORE: ^AffectedByTibCoreMissiles
 	Inherits@VISION: ^9CellVision
 	Valued:
-		Cost: 1250
+		Cost: 1400
 	Tooltip:
 		Name: Stealth Tank
 	UpdatesPlayerStatistics:
@@ -1737,15 +1737,15 @@ STNK:
 		BuildAtProductionType: Tank
 		Prerequisites: ~naweap, natech, ~techlevel.5
 		BuildPaletteOrder: 39
-		Description: Hit-and-run tank armed with twin dragon TOW missiles and a cloaking device.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Stealthed\n- Can attack air\n- Can shoot over walls\n- Can crush infantry\n- Cloaking malfunctions when at red hp\n- Can attack while moving
-		BuildDuration: 750
+		Description: Hit-and-run tank armed with twin dragon TOW missiles and a cloaking device.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n - Stealthed\n - Can attack air\n - Can shoot over walls\n - Can crush infantry\n - Cloaking malfunctions when at red hp\n - Can attack while moving
+		BuildDuration: 875
 		BuildDurationModifier: 100
 	Mobile:
 		TurnSpeed: 48
 		Speed: 105
 		Locomotor: InfantryCrusherVehicle
 	Health:
-		HP: 20000
+		HP: 25000
 	Armor:
 		Type: Light
 	WithIdleOverlay@shield:
@@ -1832,7 +1832,7 @@ SCORPION:
 		BuildAtProductionType: Lightbringer
 		BuildPaletteOrder: 50
 		Prerequisites: ~naweap, nahfac, ~techlevel.6
-		Description: Nod's super-heavy walker. One vision one purpose.\n\nGood vs: Ground\n\nSpecial:\n- Build limit: 1\n- Selfhealing up to 100%\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything except other Epics\n- Deployability: Enemy units get out of control for 5 seconds
+		Description: Nod's super-heavy walker. One vision one purpose.\n\nGood vs: Ground\n\nSpecial:\n - Build limit: 1\n - Selfhealing up to 100%\n - Immune to mind control\n - Can shoot over walls\n - Can crush everything except other Epics\n - Deployability: Enemy units get out of control for 5 seconds
 		BuildLimit: 1
 		BuildDuration: 1500
 		BuildDurationModifier: 100
@@ -2013,7 +2013,7 @@ MUTQUAD:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 13
-		Description: Armored truck armed with a quad cannon.\n\nGood vs: Infantry, Aircraft\n\nSpecial:\n- Provides stealth detection\n- Can crush infantry\n- Can attack while moving
+		Description: Armored truck armed with a quad cannon.\n\nGood vs: Infantry, Aircraft\n\nSpecial:\n - Provides stealth detection\n - Can crush infantry\n - Can attack while moving
 		Prerequisites: ~muweap, ~techlevel.2
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -2079,7 +2079,7 @@ LYNX:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
-		Description: Light tank armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can crush infantry\n- Can attack while moving
+		Description: Light tank armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n - Can crush infantry\n - Can attack while moving
 		BuildPaletteOrder: 14
 		Prerequisites: ~muweap, ~techlevel.2
 		BuildDuration: 500
@@ -2158,7 +2158,7 @@ STRUCK:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
-		Description: Combat transport.\n\nGood vs: Depending on occupants\n\nSpecial:\n- Cargo for 5 soldiers\n- Transported infantry can fire out of its windows\n - Infantry inside has increased weapon range\n- Can attack while moving
+		Description: Combat transport.\n\nGood vs: Depending on occupants\n\nSpecial:\n - Cargo for 5 soldiers\n - Transported infantry can fire out of its windows\n - Infantry inside has increased weapon range\n - Can attack while moving
 		BuildPaletteOrder: 24
 		Prerequisites: ~muweap, murax, ~techlevel.2
 		BuildDuration: 500
@@ -2218,7 +2218,7 @@ MINELAYER:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
-		Description: Mines...mines everywhere!\n\nSpecial:\n- Can place up to 5 mines on the battlefield\n- Reloads on service depot\n- Mines are cloaked\n- Can crush Infantry
+		Description: Mines...mines everywhere!\n\nSpecial:\n - Can place up to 5 mines on the battlefield\n - Reloads on service depot\n - Mines are cloaked\n - Can crush Infantry
 		BuildPaletteOrder: 25
 		Prerequisites: ~muweap, gadept, ~techlevel.3
 		BuildDuration: 500
@@ -2266,7 +2266,7 @@ WOLF:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 30
-		Description: Tiberium beast that uses tiberium acid to harm nearby units.\n\nGood vs: Ground targets\n\nSpecial:\n- Heals on Tiberium\n- Immune to Tiberium fields, -radition and gas\n- Attacks reduce target's attack and movement speed by 35%\n- Can attack enemies ahead while moving\n- Can mutate killed units\n- E.M.P. Immune\n- Wild mind: Mind only controllable by MasterMind
+		Description: Tiberium beast that uses tiberium acid to harm nearby units.\n\nGood vs: Ground targets\n\nSpecial:\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - Attacks reduce target's attack and movement speed by 35%\n - Can attack enemies ahead while moving\n - Can mutate killed units\n - E.M.P. Immune\n - Wild mind: Mind only controllable by MasterMind
 		Prerequisites: ~muweap, muradr, ~techlevel.4
 		BuildDuration: 375
 		BuildDurationModifier: 100
@@ -2317,7 +2317,7 @@ MRLS:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 40
-		Description: Light artillery armed with unguided rockets.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can shoot over walls\n- Can crush infantry\n- Can attack while moving
+		Description: Light artillery armed with unguided rockets.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n - Deals AoE damage\n - Minimum attack distance\n - Can shoot over walls\n - Can crush infantry\n - Can attack while moving
 		Prerequisites: ~muweap, muhall, ~techlevel.5
 		BuildDuration: 625
 		BuildDurationModifier: 100
@@ -2358,8 +2358,6 @@ MRLS:
 		RequiresCondition: !inside-tunnel
 	WithSpriteTurret:
 		RequiresCondition: !inside-tunnel
-	-DamagedByTintedCells@Default:
-	-DamagedByTintedCells@BlueRadiation:
 	ActorStatValues:
 		Damage: 240
 
@@ -2370,13 +2368,13 @@ DEATHCLAW:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@MC: ^MindControllableMastermind
 	Inherits@RENDER: ^MutRender
-	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@TIBINFUSION: ^AffectedByTiberiumInfusion
 	Inherits@VISION: ^8CellVision
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 41
-		Description: Melee beast from the outer redzones that brings death with its claws.\n\nGood vs: Ground targets\n\nSpecial:\n- Heals on Tiberium\n- Immune to Tiberium fields, -radition and gas\n- Has Selfheal\n- E.M.P. Immune\n- Slows enemy units with it's attack\n- Wild mind: Mind only controllable by MasterMind
+		Description: Melee beast from the outer redzones that brings death with its claws.\n\nGood vs: Ground targets\n\nSpecial:\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - E.M.P. Immune\n - Slows enemy units with it's attack\n - Wild mind: Mind only controllable by MasterMind
 		Prerequisites: ~muweap, muhall, ~techlevel.5
 		BuildDuration: 875
 		BuildDurationModifier: 100
@@ -2394,8 +2392,10 @@ DEATHCLAW:
 	Health:
 		HP: 70000
 	Mobile:
-		Speed: 120
+		Speed: 105
 		Locomotor: TibVeCritter
+	SpeedMultiplier@TIBERIUMINFUSION:
+		Modifier: 115
 	Armament:
 		Weapon: RavagerStrike
 	Selectable:
@@ -2422,7 +2422,7 @@ HVRTRUK3:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
-		Description: A hovering demolition truck with a oneway ticket.\n\nGood vs: Everything\n\nSpecial:\n- Demolishes almost everything nearby upon detonation\n- Hovers (it ignores terrain like Veins and Water)\n- Cannot enter Tunnel Networks
+		Description: A hovering demolition truck with a oneway ticket.\n\nGood vs: Everything\n\nSpecial:\n - Demolishes almost everything nearby upon detonation\n - Hovers (it ignores terrain like Veins and Water)\n - Cannot enter Tunnel Networks
 		BuildPaletteOrder: 42
 		Prerequisites: ~muweap, muhall, ~techlevel.5
 		BuildDuration: 2000
@@ -2507,7 +2507,7 @@ WEASAU:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 52
 		Prerequisites: ~muweap, mutsw2, ~techlevel.6
-		Description: A long forgotten creature that has emerged again\nto defend its territory.\n\nGood vs: Ground\n\nSpecial:\n- Build limit: 1\n- Selfhealing up to 100%\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything execept other Epics\n- Heals on Tiberium\n- Immune to Tiberium fields, -radition and gas\n- E.M.P. Immune\n- Deployability: Summons a massive brood of Tiberium Creatures
+		Description: A long forgotten creature that has emerged again\nto defend its territory.\n\nGood vs: Ground\n\nSpecial:\n - Build limit: 1\n - Selfhealing up to 100%\n - Immune to mind control\n - Can shoot over walls\n - Can crush everything execept other Epics\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - E.M.P. Immune\n - Deployability: Summons a massive brood of Tiberium Creatures
 		BuildLimit: 1
 		BuildDuration: 1500
 		BuildDurationModifier: 100
@@ -2736,7 +2736,7 @@ CENTURION:
 		Queue: Vehicle.Shared, Vehicle.CABAL
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 16
-		Description: Heavy walker equipped with chain guns.\n\nGood vs: Infantry\n\nSpecial:\n- Provides stealth detection\n- Can shoot over walls\n- Can crush infantry\n- Can attack while moving
+		Description: Heavy walker equipped with chain guns.\n\nGood vs: Infantry\n\nSpecial:\n - Provides stealth detection\n - Can shoot over walls\n - Can crush infantry\n - Can attack while moving
 		Prerequisites: ~cabweap, ~techlevel.2
 		BuildDuration: 625
 		BuildDurationModifier: 100
@@ -2802,7 +2802,7 @@ REAPERCAB:
 		Queue: Vehicle.Shared, Vehicle.CABAL
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 17
-		Description: Fast raiding walker armed with cluster missiles and web launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack enemies ahead while moving\n- Can target air\n- Can ensnare infantry with webs\n- Can shoot over walls
+		Description: Fast raiding walker armed with cluster missiles and web launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n - Can attack enemies ahead while moving\n - Can target air\n - Can ensnare infantry with webs\n - Can shoot over walls
 		Prerequisites: ~cabweap, ~techlevel.2
 		BuildDuration: 625
 		BuildDurationModifier: 100
@@ -2887,7 +2887,7 @@ LIMPED:
 		Queue: Vehicle.Shared, Vehicle.CABAL
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 19
-		Description: Small drone armed with explosives.\n\nGood vs: Infantry, Vehicles\n\nSpecial:\n- Needs to be deployed to be armed\n- Invisible when deployed\n- Launches explosives towards a target after small delay
+		Description: Small drone armed with explosives.\n\nGood vs: Infantry, Vehicles\n\nSpecial:\n - Needs to be deployed to be armed\n - Invisible when deployed\n - Launches explosives towards a target after small delay
 		Prerequisites: ~cabweap, ~techlevel.2
 		BuildDuration: 250
 		BuildDurationModifier: 100
@@ -3025,7 +3025,7 @@ REPAIRVEHICLE:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 26
 		Prerequisites: ~cabweap, gadept, ~techlevel.3
-		Description: Repairs nearby vehicles.\n\nSpecial:\n- Unarmed\n- Can repair vehicles ahead while moving\n- Can crush infantry
+		Description: Repairs nearby vehicles.\n\nSpecial:\n - Unarmed\n - Can repair vehicles ahead while moving\n - Can crush infantry
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Health:
@@ -3076,7 +3076,7 @@ CABAPC:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.CABAL
 		BuildAtProductionType: Tank
-		Description: Armored transport.\n\nSpecial:\n- Can transport up to 12 infantry or 4 vehicles\n- Hovers (it ignores terrain like Veins and Water)
+		Description: Armored transport.\n\nSpecial:\n - Can transport up to 12 infantry or 4 vehicles\n - Hovers (it ignores terrain like Veins and Water)
 		BuildPaletteOrder: 31
 		Prerequisites: ~cabweap, cabradr, ~techlevel.4
 		BuildDuration: 250
@@ -3129,7 +3129,7 @@ SPIDERARTY:
 		Queue: Vehicle.Shared, Vehicle.CABAL
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 43
-		Description: Heavy artillery that deploys drones at the targetted area.\n\nGood vs: Ground targets\n\nSpecial:\n- Deals AOE damage\n- Minimum attack distance\n- Converts killed units into workers\n- Can shoot over walls\n- Can crush infantry\n- Selfrepair
+		Description: Heavy artillery that deploys drones at the targetted area.\n\nGood vs: Ground targets\n\nSpecial:\n - Deals AOE damage\n - Minimum attack distance\n - Converts killed units into workers\n - Can shoot over walls\n - Can crush infantry\n - Selfrepair
 		Prerequisites: ~cabweap, cabtech, ~techlevel.5
 		BuildDuration: 1000
 		BuildDurationModifier: 100
@@ -3186,7 +3186,7 @@ PALADIN:
 		Queue: Vehicle.Shared, Vehicle.CABAL
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 44
-		Description: Advanced walker armed with a twin laser cannon.\n\nGood vs: Ground targets\n\nSpecial:\n- Selfrepair\n- Can shoot over walls\n- Can crush infantry
+		Description: Advanced walker armed with a twin laser cannon.\n\nGood vs: Ground targets\n\nSpecial:\n - Selfrepair\n - Can shoot over walls\n - Can crush infantry
 		Prerequisites: ~cabweap, cabtech, ~techlevel.5
 		BuildDuration: 1125
 		BuildDurationModifier: 100
@@ -3381,7 +3381,7 @@ CORRUPTOR:
 		Queue: Vehicle.Shared, Vehicle.Scrin
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 20
-		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n- Can attack enemies ahead while moving\n- Provides stealth detection\n- Can mutate enemies killed\n- Absorbs essence from killed enemies to heal\n- Attacks emit radiation that harms ground units in the area\n- Immune to Tiberium radiation\n- Can crush infantry
+		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n - Can attack enemies ahead while moving\n - Provides stealth detection\n - Can mutate enemies killed\n - Absorbs essence from killed enemies to heal\n - Attacks emit radiation that harms ground units in the area\n - Immune to Tiberium radiation\n - Can crush infantry
 		Prerequisites: ~scrweap, ~techlevel.2
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -3453,7 +3453,7 @@ SCRMBT:
 		Queue: Vehicle.Shared, Vehicle.Scrin
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 21
-		Description: Advanced hover tank armed with a laser cannon.\n\nGood vs Ground targets\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water)\n- Absorbs essence from killed units to heal\n- Cannot crush infantry\n- Can attack while moving
+		Description: Advanced hover tank armed with a laser cannon.\n\nGood vs Ground targets\n\nSpecial:\n - Hovers (it ignores terrain like Veins and Water)\n - Absorbs essence from killed units to heal\n - Cannot crush infantry\n - Can attack while moving
 		Prerequisites: ~scrweap, ~techlevel.2
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -3526,7 +3526,7 @@ SCRGLYDER2:
 		Queue: Vehicle.Shared, Vehicle.Scrin
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 22
-		Description: Anti-air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Can attack enemies ahead while moving\n- Can be upgraded to transform into an aerial version that can only engage ground units\n- Aerial Version weapon performs good vs infantry\n- Absorbs essence from killed units to heal\n- Hovers (it ignores terrain like Veins and Water)
+		Description: Anti-air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n - Can attack enemies ahead while moving\n - Can be upgraded to transform into an aerial version that can only engage ground units\n - Aerial Version weapon performs good vs infantry\n - Absorbs essence from killed units to heal\n - Hovers (it ignores terrain like Veins and Water)
 		Prerequisites: ~scrweap, ~techlevel.3
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -3614,7 +3614,7 @@ SCRSCORPION:
 		Queue: Vehicle.Shared, Vehicle.Scrin
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 32
-		Description: Long range assault walker.\n\n Good vs: Infantry, Vehicle\n\nSpecial:\n- Absorbs essence from killed enemies to heal\n- Fog inflicts blinding and poison effect in the area\n- Can crush infantry
+		Description: Long range assault walker.\n\n Good vs: Infantry, Vehicle\n\nSpecial:\n - Absorbs essence from killed enemies to heal\n - Fog inflicts blinding and poison effect in the area\n - Can crush infantry
 		Prerequisites: ~scrweap, scrradr, ~techlevel.4
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -3665,7 +3665,7 @@ SCRRECHARGER:
 		Queue: Vehicle.Shared, Vehicle.Scrin
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 45
-		Description: Mobile shield generator.\n\nSpecial:\n- Generates shields around nearby friendly land vehicles\n- Shields provide additional 150 health points\n- Does not protect against super weapons\n- Absorbs essence from killed enemies to heal\n- Can crush infantry
+		Description: Mobile shield generator.\n\nSpecial:\n - Generates shields around nearby friendly land vehicles\n - Shields provide additional 150 health points\n - Does not protect against super weapons\n - Absorbs essence from killed enemies to heal\n - Can crush infantry
 		Prerequisites: ~scrweap, scrtech, ~techlevel.5
 		BuildDuration: 875
 		BuildDurationModifier: 100
@@ -3728,7 +3728,7 @@ SCRMOBMINE:
 		Queue: Vehicle.Shared, Vehicle.Scrin
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 46
-		Description: Mind Control unit.\n\nSpecial:\n- Can take over regular ground units\n- Can control up to three units\n- Absorbs essence from killed units to heal\n- Cannot mind control heroics, flying units, beasts, structures\n- Can shoot over walls\n- Can mind control units while moving
+		Description: Mind Control unit.\n\nSpecial:\n - Can take over regular ground units\n - Can control up to three units\n - Absorbs essence from killed units to heal\n - Cannot mind control heroics, flying units, beasts, structures\n - Can shoot over walls\n - Can mind control units while moving
 		Prerequisites: ~scrweap, scrtech, ~techlevel.5
 		BuildDuration: 1125
 		BuildDurationModifier: 100
@@ -3811,7 +3811,7 @@ TRIPOD:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 47
 		Prerequisites: ~scrweap, scrtech, ~techlevel.5
-		Description: Advanced walker.\n\n  Good vs Ground\n\nSpecial:\n- Absorbs essence from killed units to heal\n- Can shoot over walls\n- Can crush infantry
+		Description: Advanced walker.\n\nGood vs Ground\n\nSpecial:\n - Absorbs essence from killed units to heal\n - Can shoot over walls\n - Can crush infantry
 		IconPalette: chromescrin
 		BuildDuration: 1125
 		BuildDurationModifier: 100
@@ -3868,4 +3868,4 @@ TRIPOD:
 		Weapon: TripodExplode
 		EmptyWeapon: TripodExplode
 	ActorStatValues:
-		Damage: 250
+		Damage: 200
