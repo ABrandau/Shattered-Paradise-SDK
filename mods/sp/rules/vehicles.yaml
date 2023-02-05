@@ -148,6 +148,7 @@ MMCH:
 		LocalOffset: 300, 250, 500
 		Armament: secondary
 		RequiresCondition: !inside-tunnel && railguns
+		Sequence: barrel2
 	WithMuzzleOverlay:
 	Selectable:
 		Bounds: 903, 2533, 0, -1024
@@ -516,7 +517,7 @@ G4TNK:
 	Armament@Railgun:
 		Weapon: 4TNKRAILGUN
 		Damage: 240
-		LocalOffset: 1150,120,550, 1150,-120,550
+		LocalOffset: 1150,180,500, 1150,-180,500
 		MuzzleSequence: muzzle2
 		Recoil: 127
 		RecoilRecovery: 26
@@ -539,6 +540,11 @@ G4TNK:
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
+	WithSpriteTurret:
+		RequiresCondition: !inside-tunnel && !railguns
+	WithSpriteTurret@2:
+		Sequence: turret2
+		RequiresCondition: !inside-tunnel && railguns
 	AutoTarget:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
