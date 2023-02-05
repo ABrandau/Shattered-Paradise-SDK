@@ -445,22 +445,26 @@ SONIC:
 	Armor@disruptor:
 		Type: Disruptor
 	Armament:
-		Weapon: SonicZap
-		LocalOffset: 0,0,800
+		Weapon: SonicEmitterProjGDITank
+		LocalOffset: 400,0,800
 		PauseOnCondition: empdisable
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplocyan70
+	WithMuzzleOverlay:
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	Targetable:
-		TargetTypes: Ground, Vehicle, AllySonicImmune
+		TargetTypes: Ground, Vehicle
 	Turreted:
 		TurnSpeed: 24
+		Offset: -340,0,0
 	AutoTarget:
 		ScanRadius: 7
 	BodyOrientation:
 		CameraPitch: 240
 	Selectable:
-		Bounds: 1400, 2700, 0, -300 #1206,1809
+		Bounds: 1206,1809, 0, -300 #1206,1809
 	ActorStatValues:
 		Damage: 200
 

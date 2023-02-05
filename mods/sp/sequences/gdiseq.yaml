@@ -786,22 +786,24 @@ sonic:
 	# Inherits: ^SpriteVehicleWithShadowAndTurret
 	Inherits: ^EmpOverlay
 	Defaults:
-		Filename: sonic.shp
+		Filename: sonic2.shp
 	idle:
 		Facings: -32
 		ShadowStart: 32
-		Offset: 0, -10, 0
 	stand:
 		Facings: -32
 		ShadowStart: 32
-		Offset: 0, -10, 0
 	turret:
 		Filename: sonicturret.shp
 		Start: 32
 		Facings: -32
-	# stand: sonicturret
-	# idle: sonicturret
-	# turret: sonicturret
+	muzzle:
+		Filename: sonic_explo.shp
+		Length: *
+		ZOffset: 5000
+		Tick: 20
+		Scale: 0.8
+		IgnoreWorldTint: true
 	icon:
 		Filename: soniicon.shp
 
