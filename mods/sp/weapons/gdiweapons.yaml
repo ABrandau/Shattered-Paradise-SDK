@@ -560,18 +560,18 @@ SonicEmitterProjGDI:
 	ReloadDelay: 100
 	Range: 8c0
 	Report: sonic4.aud
+	TargetActorCenter: true ## Make shockwave more controllable to bulding
 	Projectile: WarheadTrailProjectile
 		Offsets: 0,128,0 #, 64,96,0, -64,96,0
 		FireMode: Line # try putting "Line" or "Spread" here, "Focus"
 		Inaccuracy: 0c0
-		Speed: 200
+		Speed: 256
 		ForceAtGroundLevel: true
 		ExplosionInterval: 2
 		ExplodeUnderThisAltitude: -9999
 		Blockable: false
 		KillProjectilesWhenReachedTargetLocation: false #try putting true
 		Weapon: SonicEmitterHitGDI
-	Warhead@1Dam: TargetDamage
 
 SonicEmitterHitGDI:
 	Inherits: ^FullDamage
@@ -600,8 +600,20 @@ SonicEmitterHitGDI:
 		Volume: 0.55
 		AirThreshold: 8c0
 
+SonicChargeTank:
+	ReloadDelay: 7
+	Range: 5c512
+	Projectile: LaserZap
+		Blockable: false
+		Width: 0
+		Duration: 0
+		LaunchEffectImage: explosion
+		LaunchEffectSequence: sonic_beam_explof3
+		LaunchEffectPalette: gensmkexplocyan40
+
 SonicEmitterProjGDITank:
 	Inherits: SonicEmitterProjGDI
+	ReloadDelay: 70
 	Range: 5c512
 	Projectile: WarheadTrailProjectile
 		Weapon: SonicEmitterHitGDITank

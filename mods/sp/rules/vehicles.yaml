@@ -445,20 +445,32 @@ SONIC:
 		HP: 55000
 	Armor@disruptor:
 		Type: Disruptor
-	Armament:
+	Armament@charge:
+		Name: charge
+		Weapon: SonicChargeTank
+		LocalOffset: 0,0,768
+		PauseOnCondition: empdisable || cooldown
+	GrantConditionOnAttack@charge:
+		Condition: charged
+		RequiredShotsPerInstance: 4
+		ArmamentNames: charge
+	Armament@wave:
+		Name: primary
 		Weapon: SonicEmitterProjGDITank
-		LocalOffset: 400,0,800
-		PauseOnCondition: empdisable
+		LocalOffset: 768,0,400
+		PauseOnCondition: empdisable || !charged
+		ReloadingCondition: cooldown
 		MuzzleSequence: muzzle
 		MuzzlePalette: gensmkexplocyan70
 	WithMuzzleOverlay:
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
+		Armaments: charge, primary
 	Targetable:
 		TargetTypes: Ground, Vehicle
 	Turreted:
-		TurnSpeed: 24
+		TurnSpeed: 32
 		Offset: -330,0,0
 	AutoTarget:
 		ScanRadius: 7
