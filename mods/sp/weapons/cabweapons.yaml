@@ -104,7 +104,7 @@ ReaperWeb:
 		Image: web2
 		Shadow: true
 		LaunchAngle: 130
-		Palette: pips
+		Palette: gradientgray
 	Warhead@emp: GrantExternalCondition
 		Range: 1c0
 		Duration: 200
@@ -117,6 +117,11 @@ ReaperWeb:
 
 ImprovedReaperWeb:
 	Inherits: ReaperWeb
+	Projectile: BulletAS
+		Speed: 300
+		Image: web3
+	Warhead@2Eff: CreateEffect
+		Explosions: spiderweb2
 	Warhead@emp: GrantExternalCondition
 		Duration: 300
 
