@@ -556,8 +556,19 @@ SonicZapTower:
 	Inherits: SonicZap
 	Range: 7c0
 
+SonicCharge:
+	ReloadDelay: 7
+	Range: 8c0
+	Projectile: LaserZap
+		Blockable: false
+		Width: 0
+		Duration: 0
+		LaunchEffectImage: explosion
+		LaunchEffectSequence: sonic_beam_explof3
+		LaunchEffectPalette: gensmkexplocyan40
+
 SonicEmitterProjGDI:
-	ReloadDelay: 100
+	ReloadDelay: 70
 	Range: 8c0
 	Report: sonic4.aud
 	TargetActorCenter: true ## Make shockwave more controllable to bulding
@@ -601,15 +612,8 @@ SonicEmitterHitGDI:
 		AirThreshold: 8c0
 
 SonicChargeTank:
-	ReloadDelay: 7
+	Inherits: SonicCharge
 	Range: 5c512
-	Projectile: LaserZap
-		Blockable: false
-		Width: 0
-		Duration: 0
-		LaunchEffectImage: explosion
-		LaunchEffectSequence: sonic_beam_explof3
-		LaunchEffectPalette: gensmkexplocyan40
 
 SonicEmitterProjGDITank:
 	Inherits: SonicEmitterProjGDI
