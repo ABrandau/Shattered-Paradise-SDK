@@ -628,6 +628,8 @@ HMEC:
 		FacingTolerance: 2
 		TargetFrozenActors: true
 		PauseOnCondition: empdisable
+	RevealOnFire:
+		Armaments: primary, secondary, tertiary
 	AutoTarget:
 		ScanRadius: 10 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
@@ -1390,6 +1392,8 @@ TTNK:
 		Armaments: DeployedArm
 		RequiresCondition: deployed
 		PauseOnCondition: empdisable
+	RevealOnFire:
+		Armaments: primary, DeployedArm
 	AutoTarget:
 		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	AutoDeployer@AI:
@@ -2962,9 +2966,13 @@ LIMPED:
 		FacingTolerance: 512
 		RequiresCondition: AImicroManage || deployed
 		PauseOnCondition: empdisable
+		Armaments: primary, AIAim
+	RevealOnFire:
+		Armaments: primary, AIAim
 	AutoTarget:
 		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	ReloadArmamentsBar:
+		Armaments: primary
 	WithRangeCircle:
 		Range: 5c0
 		Color: FFFF00CC
@@ -3007,6 +3015,7 @@ LIMPED:
 		RequiresCondition: AImicroManage && !deployed
 		Weapon: LimpedAimDummyWeapon
 		PauseOnCondition: empdisable
+		Name: AIAim
 	AttackWander@AI:
 		RequiresCondition: AImicroManage && !deployed
 		WanderMoveRadius: 15
@@ -3303,7 +3312,9 @@ BCOREDEF:
 		Voice: Attack
 		PauseOnCondition: empdisable
 		FacingTolerance: 3
-		Armaments: ArmArmament, HeadArmament, ShoulderArmament
+		Armaments: ArmArmament, ShoulderArmament
+	RevealOnFire:
+		Armaments: ArmArmament, ShoulderArmament
 	AutoTarget:
 		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	-Targetable@MC:
@@ -3718,6 +3729,7 @@ SCRRECHARGER:
 	WithMuzzleOverlay:
 	AttackFrontal:
 		PauseOnCondition: empdisable
+	-RevealOnFire:
 	AutoTarget:
 		ScanRadius: 4
 	QuantizeFacingsFromSequence:
@@ -3741,6 +3753,9 @@ SCRMOBMINE:
 	Inherits@MC: ^MindControllableMastermind
 	Inherits@VISION: ^7CellVision
 	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
+		MinimumScanTimeInterval: 19
+		MaximumScanTimeInterval: 19
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: MindControllable
 		RequiresCondition: controlling < 3
@@ -3782,8 +3797,6 @@ SCRMOBMINE:
 		BackwardDuration: 5
 	AttackFollow:
 		PauseOnCondition: empdisable
-	AutoTarget:
-		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	RenderRangeCircle:
 		RangeCircleType: Subjugator
 		Color: 800080CC

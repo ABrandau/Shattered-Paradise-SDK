@@ -2521,12 +2521,12 @@ MOTH:
 	Armament@AIAimOnly:
 		RequiresCondition: AImicroManage && !deployed
 		Weapon: LurkerAimDummyWeapon
-		Name: OnFoot
+		Name: AIAim
 		PauseOnCondition: WebDisable || empdisable
 	AttackFrontal:
 		RequiresCondition: AImicroManage || deployed
 		PauseOnCondition: WebDisable || empdisable
-		Armaments: OnFoot
+		Armaments: OnFoot, AIAim
 		FacingTolerance: 512
 	AutoTarget:
 		ScanRadius: 11 #PREF: save trait looks up and scan armaments

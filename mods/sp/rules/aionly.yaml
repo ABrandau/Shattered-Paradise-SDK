@@ -170,6 +170,7 @@ NUKECARRYALL_BOT:
 		DeployChance: 100
 		DeployTicks: 20
 		UndeployTicks: 20
+	-RevealOnFire:
 
 SONICARRYALL_BOT:
 	Inherits: TRNSPORT
@@ -189,6 +190,7 @@ SONICARRYALL_BOT:
 		DeployChance: 100
 		DeployTicks: 20
 		UndeployTicks: 20
+	-RevealOnFire:
 
 APCARRYALL_BOT:
 	Inherits: TRNSPORT
@@ -208,6 +210,7 @@ APCARRYALL_BOT:
 		DeployChance: 100
 		DeployTicks: 20
 		UndeployTicks: 20
+	-RevealOnFire:
 
 MUBUNKRFULL:
 	Inherits: MUBUNKR
@@ -430,13 +433,14 @@ COREDEFENDER:
 		PauseOnCondition: empdisable
 		FacingTolerance: 3
 		Armaments: ArmArmament, HeadArmament, ShoulderArmament
+	RevealOnFire:
+		Armaments: ArmArmament, HeadArmament, ShoulderArmament
 	-Targetable@MC:
 	AutoTarget:
 		ScanRadius: 9
 		InitialStanceAI: AttackAnything
 	RenderSprites:
 	WithMuzzleOverlay:
-	AutoTarget:
 	Selectable:
 		Bounds: 1809, 5428, 0, -2412
 	-Passenger:
@@ -771,6 +775,8 @@ HMECTEST:
 		Turrets: primary, secondary, tertiary, quaternary
 		Armaments: primary, secondary, tertiary, quaternary
 		PauseOnCondition: empdisable
+	RevealOnFire:
+		Armaments: primary, secondary
 	AutoTarget:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
@@ -1146,6 +1152,8 @@ SCRINCOUNCIL:
 		Voice: Attack
 		FacingTolerance: 512
 		Armaments: primary, secondary
+	RevealOnFire:
+		Armaments: primary
 	AutoTarget:
 		ScanRadius: 9
 	BodyOrientation:
