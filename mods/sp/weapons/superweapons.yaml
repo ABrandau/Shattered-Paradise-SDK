@@ -730,8 +730,14 @@ ClusterMissile:
 		Amount: 16
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		AirThreshold: 8c0
-	Warhead@Cluster2: FireRadius
+	Warhead@Cluster2: FireRadius ## HACK: Toxin cluster's body and warhead
 		Weapon: MultiCluster2
+		ImpactActors: false
+		Amount: 8
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
+	Warhead@Cluster2light: FireRadius ## HACK: Toxin cluster's light,only visual effect 
+		Weapon: MultiCluster2light
 		ImpactActors: false
 		Amount: 8
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
@@ -766,13 +772,14 @@ MultiCluster2:
 	Inherits: MultiCluster1
 	Inherits@3: ^SpawnsIrradiation
 	Range: 2c512
-	Projectile: MissileTA
-		Speed: 300
-		TrailImage: explosion
-		TrailSequences: jsmokey2
-		TrailInterval: 0
-		TrailPalette: jascgreenalpha
-		VerticalRateOfTurn: 32
+	Projectile: GravityBomb
+		Velocity: 40, 0, 280
+		Acceleration: 0, 0, -12
+		Shadow: true
+		Image: toxin_bomb
+		Sequences: idle
+		Palette: effect
+		IsPlayerPalette: false
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: jascgreenalpha
 	Warhead@5cloud: SpawnSmokeParticle
@@ -789,6 +796,18 @@ MultiCluster2:
 		AirThreshold: 8c0
 	Warhead@3Radio: CreateTintedCells
 		Level: 50
+
+MultiCluster2light: ## HACK: projectile's params need to be the same as MultiCluster2
+	Range: 2c512
+	ValidTargets: Ground, Water, Air, Trees
+	Projectile: GravityBomb
+		Velocity: 40, 0, 280
+		Acceleration: 0, 0, -12
+		Shadow: true
+		Image: explosion
+		Sequences: toxinbomb_flash
+		Palette: gensmkexplogreen50a
+		IsPlayerPalette: false
 
 MultiCluster3:
 	Inherits: MultiCluster1
