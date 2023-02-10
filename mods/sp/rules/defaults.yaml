@@ -1003,8 +1003,8 @@
 	Inherits: ^HeavyDamagedEffect
 	WithIdleOverlay@SpawnFire:
 		RequiresCondition: HeavyDamaged
-		Image: Explosion
-		Sequence: fire1
+		Image: explosion
+		Sequence: fire1_higher
 		Palette: effect
 		IsDecoration: true ## so this doesn't affect by cloak palette
 
@@ -2945,7 +2945,7 @@
 	MapEditorData:
 		Categories: Defence
 	WithIdleOverlay@SpawnFire:
-		Sequence: fire2
+		Sequence: fire2_higher
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -3466,13 +3466,13 @@
 ^ScrinBuildingFire:
 	Inherits: ^SpawnFire
 	WithIdleOverlay@SpawnFire:
-		Sequence: scrinfire1
+		Sequence: scrinfire1_higher
 		RequiresCondition: HeavyDamaged && !cloaking-self
 
 ^ScrinDefenceFire:
 	Inherits: ^ScrinBuildingFire
 	WithIdleOverlay@SpawnFire:
-		Sequence: scrinfire2
+		Sequence: scrinfire2_higher
 		RequiresCondition: HeavyDamaged && !cloaking-self
 
 ^ScrinAircraftVoice:
