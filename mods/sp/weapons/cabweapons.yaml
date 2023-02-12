@@ -555,8 +555,8 @@ WaspBullet:
 	Projectile: Railgun
 		BeamWidth: 10
 		ZOffset: 2047
-		BeamColor: AAAAAA
-		HelixColor: BBBBBB
+		BeamColor: 00BBCC
+		HelixColor: 44FFFF
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 3000
@@ -565,6 +565,11 @@ WaspBullet:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		InvalidTargets: Air
+	Warhead@2Eff: CreateEffect
+		Explosions: sparks
+		ValidTargets: Ground, Air
+		InvalidTargets: Water
+		ExplosionPalette: gensmkexplocyan
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ImpactSounds: ssplash1.aud, ssplash2.aud, ssplash3.aud
@@ -753,10 +758,14 @@ CABRAILAA:
 	Report: railgunfire.wav
 	SoundVolume: 0.5
 	Projectile: Railgun
-		BeamWidth: 75
+		BeamWidth: 36
 		ZOffset: 2047
-		BeamColor: AAAAAA
-		HelixColor: BBBBBB
+		BeamColor: 00BBCC
+		HelixColor: 44FFFF
+	Warhead@2Eff: CreateEffect
+		Explosions: sparks
+		ValidTargets: Air
+		ExplosionPalette: gensmkexplocyan
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 2500
