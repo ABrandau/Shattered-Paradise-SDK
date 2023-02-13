@@ -629,7 +629,7 @@ HMEC:
 		TargetFrozenActors: true
 		PauseOnCondition: empdisable
 	RevealOnFire:
-		Armaments: primary, secondary, tertiary
+		ArmamentNames: primary, secondary, tertiary
 	AutoTarget:
 		ScanRadius: 10 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
@@ -1389,7 +1389,7 @@ TTNK:
 		RequiresCondition: deployed
 		PauseOnCondition: empdisable
 	RevealOnFire:
-		Armaments: primary, DeployedArm
+		ArmamentNames: primary, DeployedArm
 	AutoTarget:
 		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	AutoDeployer@AI:
@@ -1892,6 +1892,8 @@ SCORPION:
 		PauseOnCondition: empdisable
 		FacingTolerance: 6
 		Armaments: laserCharger, laserFire, fireArmament
+	RevealOnFire:
+		ArmamentNames: laserFire, fireArmament
 	AutoTarget:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
@@ -2563,7 +2565,7 @@ WEASAU:
 		FacingTolerance: 6
 		Armaments: breath, melee
 	RevealOnFire:
-		Armaments: breath, melee
+		ArmamentNames: breath, melee
 	WithMuzzleOverlay:
 	Armament@breath:
 		Name: breath
@@ -2961,7 +2963,7 @@ LIMPED:
 		PauseOnCondition: empdisable
 		Armaments: primary, AIAim
 	RevealOnFire:
-		Armaments: primary, AIAim
+		ArmamentNames: primary
 	AutoTarget:
 		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	ReloadArmamentsBar:
@@ -3307,7 +3309,7 @@ BCOREDEF:
 		FacingTolerance: 3
 		Armaments: ArmArmament, ShoulderArmament
 	RevealOnFire:
-		Armaments: ArmArmament, ShoulderArmament
+		ArmamentNames: ArmArmament, ShoulderArmament
 	AutoTarget:
 		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	-Targetable@MC:
