@@ -294,36 +294,6 @@ SeerTeslaSpark:
 	Warhead@1Dam: SpreadDamage
 		Damage: 0
 
-KnightAcid:
-	Inherits: ^AcidWarhead
-	ReloadDelay: 75
-	Range: 4c0
-	Burst: 6
-	Report: chemweaponfire.wav
-	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
-	Projectile: BulletAS
-		Speed: 250
-		Image: acidall32mini
-		Inaccuracy: 2c0
-		Palette: apolgreenalpha
-	Warhead@1Dam: SpreadDamage
-		Spread: 256
-		Damage: 300
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
-	Warhead@2Eff: CreateEffect
-		Explosions: tib_expsmall
-		ExplosionPalette: apolgreenalpha
-		ImpactSounds: expnew14.aud
-		InvalidTargets: Water
-	Warhead@3Smu: LeaveSmudge
-		SmudgeType: SmallScorch
-
-KnightAcid2:
-	Inherits: KnightAcid
-	Projectile: BulletAS
-		Inaccuracy: 256
-
 PsykerRay:
 	Inherits: ^FullDamage
 	Inherits@3: ^LightningDefault
@@ -869,6 +839,12 @@ WeasaurusSpit:
 		ImpactActors: false
 		ValidTargets: Ground, Water, Air
 		AirThreshold: 8c0
+	Warhead@5op: FireRadius
+		Weapon: LightningSparkDebris
+		ImpactActors: false
+		Amount: 3
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
 
 WeasaurusStrike:
 	Inherits: ^FullDamage
@@ -909,7 +885,7 @@ WeasaurusCall:
 	Range: 2c0
 	Report: SSUSBLargeMonster0009
 	SoundVolume: 3
-	Projectile: InstantHit
+	Projectile: InstantExplode
 	Warhead@5Actor: SpawnActor
 		FallRate: 5000
 		Range: 5
@@ -923,10 +899,66 @@ WeasaurusCall:
 		Palette: orgatemblue
 	Warhead@2Eff: CreateEffect
 		Explosions: call
-		ExplosionPalette: effectalpha40
+		ExplosionPalette: effectalpha50
 		ImpactActors: false
 		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
 		AirThreshold: 8c0
+
+WeasaurusStrikeGreen:
+	Inherits: WeasaurusStrike
+	Range: 1c800
+	ReloadDelay: 20
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+	Warhead@2Eff: CreateEffect
+		Explosions: chompmiddle
+		ExplosionPalette: apgreen
+
+WeasaurusSpitGreen:
+	Inherits: ^FullDamage
+	ReloadDelay: 40
+	Range: 7c0
+	Report: flamtnk1.aud
+	SoundVolume: 2
+	Projectile: BulletAS
+		Speed: 400
+		TrailImage: explosion
+		TrailPalette: gensmkexplogreen
+		TrailSequences: jsbrnl30fireball, jsbrnl20fireball
+		TrailInterval: 0
+		TrailDelay: 0
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 75, 75
+		Spread: 0c512
+		Damage: 5000
+		Versus:
+			Light: 90
+			Heavy: 80
+			Defense: 80
+			Concrete: 35
+		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
+		ValidTargets: Vehicle, Infantry, Building, Ground, Water
+	Warhead@2Eff: CreateEffect
+		Explosions: MilkFire1,MilkFire2, MilkFire3
+		ExplosionPalette: gensmkexplogreen
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+		Delay: 7
+	Warhead@3Eff: CreateEffect
+		ImpactSounds: flamethrower_fire.wav
+		Explosions: smallacidfire
+		ExplosionPalette: gensmkexplogreen
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+
+WeasaurusCallGreen:
+	Inherits: WeasaurusCall
+	-Warhead@5Actor:
+	Warhead@2Eff: CreateEffect
+		Explosions: call2
+		ExplosionPalette: effectalpha50
 
 Sniper:
 	Inherits: ^RifleWarhead
@@ -935,7 +967,7 @@ Sniper:
 	Range: 10c0
 	Report: silencer.aud
 	ValidTargets: Infantry, Ground, Water
-	InvalidTargets: Vehicle, Air
+	InvalidTargets: Vehicle, Building, Defence, Air
 	Projectile: LaserZap
 		Duration: 3
 		Width: 25

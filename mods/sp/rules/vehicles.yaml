@@ -710,12 +710,8 @@ HMEC:
 		AttackSequences:
 			primary: shoot
 	WithMuzzleOverlay:
-	Passenger:
-		CustomPipType: red
 	Selectable:
 		Bounds: 2413, 4041, 0, -1508
-	SharedPassenger:
-		CustomPipType: red
 	Explodes:
 		Weapon: BuildingExplode
 		EmptyWeapon: BuildingExplode
@@ -1966,12 +1962,8 @@ SCORPION:
 	Carryable:
 		LocalOffset: 0, 0, 20
 	WithMuzzleOverlay:
-	Passenger:
-		CustomPipType: red
 	Selectable:
 		Bounds: 2413, 4041, 0, -1508
-	SharedPassenger:
-		CustomPipType: red
 	Explodes:
 		Weapon: BuildingExplode
 		EmptyWeapon: BuildingExplode
@@ -2570,12 +2562,17 @@ WEASAU:
 	AttackFrontal:
 		FacingTolerance: 6
 		Armaments: breath, melee
+	RevealOnFire:
+		Armaments: breath, melee
+	WithMuzzleOverlay:
 	Armament@breath:
 		Name: breath
 		Damage: 100
 		Weapon: WeasaurusSpit
 		LocalOffset: 1100,0,1350
 		RequiresCondition: !deployed
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplojFblue
 	Armament@melee:
 		Name: melee
 		Damage: 75
@@ -2604,8 +2601,6 @@ WEASAU:
 		ValidRelationships: Ally, Enemy, Neutral
 	Carryable:
 		LocalOffset: 0, 0, 1536
-	Passenger:
-		CustomPipType: red
 	RenderSprites:
 		PlayerPalette: orgatemblueplayer
 		Image: weasaublue2
@@ -2631,8 +2626,6 @@ WEASAU:
 		Palette: cloakorgatemblueplayer
 	Selectable:
 		Bounds: 2413, 4041, 0, -1508
-	SharedPassenger:
-		CustomPipType: red
 	-Targetable@MC:
 	ExternalCondition@PRODUCED:
 		Condition: produced

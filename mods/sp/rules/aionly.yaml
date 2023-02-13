@@ -250,7 +250,7 @@ GHOST:
 		BuildDuration: 1250
 		BuildDurationModifier: 100
 	ProductionCostMultiplier@AI: ## AI cheat
-		Multiplier: 10
+		Multiplier: 50
 		Prerequisites: AIOnly
 	Armor:
 		Type: Infantry
@@ -331,7 +331,7 @@ UMAGON:
 		BuildDuration: 1250
 		BuildDurationModifier: 100
 	ProductionCostMultiplier@AI: ## AI cheat
-		Multiplier: 10
+		Multiplier: 30
 		Prerequisites: AIOnly
 	Mobile:
 		Speed: 80
@@ -665,7 +665,7 @@ AVATAR:
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^8CellVision
 	Valued:
-		Cost: 2250
+		Cost: 2000
 	Tooltip:
 		Name: Avatar
 	Selectable:
@@ -676,10 +676,10 @@ AVATAR:
 		BuildPaletteOrder: 51
 		Prerequisites: ~naweap, nahfac, ~AIOnly, ~techlevel.6
 		Description: Heavy Walker armed with a strong laser and enhances nearby Units.\n\nGood vs: Ground\n\nSpecial:\n- Can crush infantry
-		BuildDuration: 2250
+		BuildDuration: 1125
 		BuildDurationModifier: 100
 	ProductionCostMultiplier@AI: ## AI cheat
-		Multiplier: 10
+		Multiplier: 50
 		Prerequisites: AIOnly
 	Voiced:
 		VoiceSet: Vehicle
@@ -694,7 +694,7 @@ AVATAR:
 	GrantConditionOnMovement:
 		Condition: walking
 	Health:
-		HP: 180000
+		HP: 100000
 	BodyOrientation:
 		QuantizedFacings: 8
 	AttackFrontal:
@@ -711,9 +711,120 @@ AVATAR:
 	RenderSprites:
 	WithMuzzleOverlay:
 	# Will add new effect later, better not add another searching actor from map function
-	HitShape:
 	ActorStatValues:
 		Damage: 200
+
+WEASAU3:
+	Inherits: ^Beast
+	Inherits@RENDER: ^MutRender
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableMastermind
+	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@VISION: ^8CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
+	Valued:
+		Cost: 1750
+	Tooltip:
+		Name: Green Weasaurus
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Mutant
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 52
+		Prerequisites: ~muweap, mutsw2, ~AIOnly, ~techlevel.6
+		Description: Some long forgotten creature trained by mutant.\n\nGood vs: Ground\n\nSpecial:\n - Selfhealing up to 100%\n - Wild mind: Mind only controllable by MasterMind\n - Can shoot over walls\n - Can crush Infantry \n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - E.M.P. Immune\n - Deployability: use melee attack for a short period
+		BuildDuration: 1125
+		BuildDurationModifier: 100
+	ProductionCostMultiplier@AI: ## AI cheat
+		Multiplier: 50
+		Prerequisites: AIOnly
+	Voiced:
+		VoiceSet: LargeBeast
+		Volume: 1
+	Targetable:
+		TargetTypes: Ground, Vehicle, OrganicVehicle, NoRepair
+	Mobile:
+		TurnSpeed: 64
+		Speed: 60
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 100000
+	AutoTarget:
+		ScanRadius: 8
+		InitialStance: AttackAnything
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
+	AttackFrontal:
+		FacingTolerance: 6
+		Armaments: breath, melee
+	RevealOnFire:
+		Armaments: breath, melee
+	Armament@breath:
+		Name: breath
+		Damage: 50
+		Weapon: WeasaurusSpitGreen
+		LocalOffset: 990,0,1210
+		RequiresCondition: !deployed
+	Armament@melee:
+		Name: melee
+		Damage: 30
+		Weapon: WeasaurusStrikeGreen
+		LocalOffset: 990,0,1210
+		RequiresCondition: deployed
+	GrantTimedConditionOnDeploy:
+		DeployedCondition: deployed
+		CooldownTicks: 1500
+		DeployedTicks: 500
+		StartsFullyCharged: true
+		DischargingColor: FF0000
+	ExplodeWeapon:
+		Weapon: WeasaurusCallGreen
+		LocalOffset: 0,0,1800
+		RequiresCondition: deployed
+	SpeedMultiplier@melee:
+		Modifier: 200
+		RequiresCondition: deployed
+	Carryable:
+		LocalOffset: 0, 0, 1536
+	Passenger:
+		CustomPipType: red
+	RenderSprites:
+		PlayerPalette: orgatemgreenplayer
+		Image: weasaugreen2
+	WithDeathAnimation@normal:
+		DeathSequencePalette: orgatemgreenplayer
+		CrushedSequencePalette: orgatemgreenplayer
+		DeathTypes:
+			BulletDeath: 1, 2
+			CabalDeath: 1, 2
+			CabalDeathUpg: 1, 2
+			FireDeath: 1, 2
+			EnergyDeath: 1, 2
+			TiberiumDeath: 1, 2
+			ExplosionDeath: 1, 2
+	WithInfantryBody:
+		IdleSequences: idle1, idle2
+		RequiresCondition: !inside-tunnel
+		AttackSequences:
+			breath: shoot
+			melee: melee
+		-DefaultAttackSequence:
+	Cloak@CLOAKGENERATOR:
+		Palette: cloakorgatemgreenplayer
+	Selectable:
+		Bounds: 2000, 3400, 0, -400
+	SharedPassenger:
+		CustomPipType: red
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage
+		DeployTrigger: Attack
+		DeployChance: 50
+		DeployTicks: 1005
+		UndeployTicks: 1
 
 HMECTEST:
 	Inherits: ^Tank
