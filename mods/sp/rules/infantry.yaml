@@ -426,8 +426,12 @@ JUMPJETAIR:
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	SpawnActorOnDeath:
-		Actor: JUMPJET.Husk
-	-Explodes:
+		Actor: JUMPJET.Husk ### TheHusk cannot fall properly if at ground level
+		RequiresCondition: airborne
+	Explodes:
+		Weapon: JumjetFall
+		EmptyWeapon: JumjetFall
+		RequiresCondition: !airborne
 	ActorStatValues:
 		Damage: 50
 
@@ -669,7 +673,11 @@ JJCOMMAIR:
 		Sequence: stand
 	SpawnActorOnDeath:
 		Actor: JJCOMM.Husk
-	-Explodes:
+		RequiresCondition: airborne
+	Explodes:
+		Weapon: CJumjetFall
+		EmptyWeapon: CJumjetFall
+		RequiresCondition: !airborne
 	ProvidesPrerequisite@jjcomm:
 		Prerequisite: jjcomm
 	ActorStatValues:
