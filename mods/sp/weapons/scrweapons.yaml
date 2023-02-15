@@ -478,13 +478,13 @@ AnhTripodLaser:
 	Projectile: LaserZap
 		TrackTarget: false
 		Duration: 2
-		Width: 48
-		ZOffset: 3048
-		Color: FF44FF
+		Width: 128
+		ZOffset: 4000
+		Color: ff00ff
 		SecondaryBeam: true
-		SecondaryBeamWidth: 128
-		SecondaryBeamZOffset: 3047
-		SecondaryBeamColor: 5588FFAA
+		SecondaryBeamWidth: 48
+		SecondaryBeamZOffset: 4000
+		SecondaryBeamColor: ffEEFF
 		HitAnim: explosion
 		HitAnimSequence: lazerflare
 		HitAnimPalette: appurp
@@ -501,6 +501,9 @@ AnhTripodLaser2:
 	Inherits: AnhTripodLaser
 	FirstBurstTargetOffset: -700, 410,0
 	FollowingBurstTargetOffset: 150,0,0
+	Projectile: LaserZap
+		Color: 8833FF
+		SecondaryBeamColor: EEEEFF
 
 AnhTripodLaser3: # This one with true damage and sound
 	Inherits: AnhTripodLaser
@@ -508,6 +511,9 @@ AnhTripodLaser3: # This one with true damage and sound
 	FirstBurstTargetOffset: -700,0,0
 	FollowingBurstTargetOffset: 150,0,0
 	StartBurstReport: triplasor0000.wav, triplasor0001.wav, triplasor0002.wav
+	Projectile: LaserZap
+		Color: BB1AFF
+		SecondaryBeamColor: fafaff
 	Warhead@1Dam: SpreadDamage
 		Range: 0c512, 0c768, 1c0
 		Falloff: 100, 50, 25

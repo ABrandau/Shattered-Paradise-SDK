@@ -1322,7 +1322,7 @@ TTNK:
 		Weapon: TickLaser
 		LocalOffset: 500,-0,500
 		MuzzleSequence: muzzle2
-		MuzzlePalette: jascredalpha
+		MuzzlePalette: gensmkexplojFred
 		ReloadingCondition: reload-undeployed
 		PauseOnCondition: empdisable || reload-deployed
 		RequiresCondition: capacitors && !deployed
@@ -1332,7 +1332,7 @@ TTNK:
 		Weapon: TickLaserDeployed
 		LocalOffset: 786,-0,700
 		MuzzleSequence: muzzle2
-		MuzzlePalette: jascredalpha
+		MuzzlePalette: gensmkexplojFred
 		ReloadingCondition: reload-deployed
 		PauseOnCondition: empdisable || reload-undeployed
 		RequiresCondition: capacitors && deployed
@@ -1444,7 +1444,8 @@ TICKHOLOGRAM:
 	Armament@PRIMARYLaser:
 		Weapon: HologramTickLaser
 		LocalOffset: 350,-0,500
-		MuzzleSequence: muzzle
+		MuzzleSequence: muzzle2
+		MuzzlePalette: gensmkexplojFred
 		PauseOnCondition: empdisable
 		RequiresCondition: capacitors
 	-WithFacingSpriteBody:
@@ -1931,6 +1932,8 @@ SCORPION:
 		Weapon: LightbringerFlame
 		Damage: 112
 		LocalOffset: 1300,500,700, 1300,-500,700
+		MuzzleSequence: muzzle2
+		MuzzlePalette: gensmkexploj
 		PauseOnCondition: empdisable
 		RequiresCondition: !blueflame
 	Armament@EFLAMES:
@@ -1940,6 +1943,8 @@ SCORPION:
 		LocalOffset: 1300,500,700, 1300,-500,700
 		PauseOnCondition: empdisable
 		RequiresCondition: blueflame
+		MuzzleSequence: muzzle2
+		MuzzlePalette: gensmkexplojFblue
 	GrantConditionAfterDelay@laserready:
 		Condition: laserready
 		Delay: 10
@@ -3234,13 +3239,13 @@ PALADIN:
 		Weapon: PalaLazor
 		LocalOffset: 555,500,1275
 		PauseOnCondition: empdisable
-		MuzzlePalette: jascbluealpha
+		MuzzlePalette: gensmkexplojFblue
 		MuzzleSequence: muzzle
 	Armament@2:
 		Weapon: PalaLazorMute
 		LocalOffset: 555,-500,1275
 		PauseOnCondition: empdisable
-		MuzzlePalette: jascbluealpha
+		MuzzlePalette: gensmkexplojFblue
 		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
 	Selectable:
@@ -3323,14 +3328,14 @@ BCOREDEF:
 		Weapon: BlackCDefLazer2
 		LocalOffset: 1580,500,3400
 		PauseOnCondition: empdisable
-		MuzzlePalette: apblue
+		MuzzlePalette: gensmkexplojFblue
 		MuzzleSequence: muzzle1
 		Name: ArmArmament
 	Armament@LeftArm2:
 		Weapon: BlackCDefLazer1
 		LocalOffset: 1480,-800,3350
 		PauseOnCondition: empdisable
-		MuzzlePalette: apblue
+		MuzzlePalette: gensmkexplojFblue
 		MuzzleSequence: muzzle1
 		Name: ArmArmament
 	Armament@Shoulder:
@@ -3338,7 +3343,7 @@ BCOREDEF:
 		LocalOffset: 600,450,4000
 		PauseOnCondition: empdisable
 		MuzzlePalette: apgreen
-		MuzzleSequence: muzzle1
+		MuzzleSequence: muzzle2
 		Name: ShoulderArmament
 	WithMuzzleOverlay:
 	Selectable:
@@ -3863,19 +3868,19 @@ TRIPOD:
 		Damage: 240
 		Weapon: AnhTripodLaser3
 		LocalOffset: 273,0,3531
-		MuzzlePalette: scrinenergystuffs
+		MuzzlePalette: gensmkexplopurple
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
 	Armament@primary2:
 		Weapon: AnhTripodLaser2
 		LocalOffset: 774,410,3049
-		MuzzlePalette: scrinenergystuffs
+		MuzzlePalette: gensmkexplopurple
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
 	Armament@primary3:
 		Weapon: AnhTripodLaser
 		LocalOffset: 1092,-328,2898
-		MuzzlePalette: scrinenergystuffs
+		MuzzlePalette: gensmkexplopurple
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
 	WithMuzzleOverlay:
