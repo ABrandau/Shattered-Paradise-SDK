@@ -949,7 +949,7 @@
 		Sequence: shield
 		IsPlayerPalette: true
 		Palette: cloakscrinshield
-		RequiresCondition: shields-up
+		RequiresCondition: shields-up && !inside-tunnel
 		IsDecoration: true ## so this doesn't affect by cloak palette
 	ExternalCondition@VanguardShield:
 		Condition: VanguardShield
@@ -2447,6 +2447,54 @@
 		QuantizedFacings: 32
 		CameraPitch: 250
 
+^SubterraneanVehicle:
+	Inherits: ^Vehicle
+	Mobile:
+		TurnSpeed: 24
+		Speed: 90
+		Locomotor: subterranean
+	RevealsShroud:
+		Range: 3c0
+		RequiresCondition: !inside-tunnel && !submerged
+	ChangesHealth@veinholedrain:
+		RequiresCondition: veinholedrain && !submerged
+	WithIdleOverlay@veinholedrain:
+		RequiresCondition: veinholedrain && !submerged
+	Cloak@subterranean:
+		RequiresCondition: submerged
+		InitialDelay: 25
+		CloakDelay: 25
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
+	RejectsOrders@subterranean:
+		RequiresCondition: submerged
+		Except: Stop
+	Mobile:
+		PauseOnCondition: empdisable || resurfaced
+	Targetable:
+		RequiresCondition: !inside-tunnel && !submerged
+	-SmokeParticleEmitter@spawnsmoke:
+	AnnounceOnSeen@subterranean:
+		PingRadar: true
+		Notification: SubterraneanUnitDetected
+		TextNotification: Subterranean unit detected.
+	GrantConditionOnSubterraneanLayer:
+		Condition: submerged
+		ResurfaceCondition: resurfaced
+		ResurfaceConditionDuration: 75
+		SubterraneanTransitionImage: dig
+		SubterraneanTransitionSequence: idle
+		SubterraneanTransitionSound: subdril1.aud
+	WithFacingSpriteBody:
+		RequiresCondition: !inside-tunnel && !submerged
+	WithIdleOverlay@shield:
+		RequiresCondition: shields-up && !submerged && !inside-tunnel
+	#-GrantRandomCondition@tiberium:
+	#-SpawnActorOnDeath@tiberium1:
+	#-SpawnActorOnDeath@tiberium2:
+	-ExternalCondition@nanomachinereanimate:
+	-SpawnActorOnDeath@nanomachinereanimate:
+
 ^Walker:
 	Inherits: ^Vehicle
 	Explodes:
@@ -2507,52 +2555,14 @@
 	-WithFacingSpriteBody:
 
 ^SubterraneanVoxelVehicle:
-	Inherits: ^VoxelVehicle
-	Mobile:
-		TurnSpeed: 24
-		Speed: 90
-		Locomotor: subterranean
-	RevealsShroud:
-		Range: 3c0
-		RequiresCondition: !inside-tunnel && !submerged
-	ChangesHealth@veinholedrain:
-		RequiresCondition: veinholedrain && !submerged
-	WithIdleOverlay@veinholedrain:
-		RequiresCondition: veinholedrain && !submerged
-	Cloak@subterranean:
-		RequiresCondition: submerged
-		InitialDelay: 25
-		CloakDelay: 25
-		IsPlayerPalette: true
-		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
-	RejectsOrders@subterranean:
-		RequiresCondition: submerged
-		Except: Stop
-	Mobile:
-		PauseOnCondition: empdisable || resurfaced
+	Inherits@1: ^VoxelVehicle
+	Inherits@2: ^SubterraneanVehicle
+	-WithFacingSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
 	WithVoxelBody:
 		RequiresCondition: !inside-tunnel && !submerged
-	Targetable:
-		RequiresCondition: !inside-tunnel && !submerged
-	-SmokeParticleEmitter@spawnsmoke:
-	AnnounceOnSeen@subterranean:
-		PingRadar: true
-		Notification: SubterraneanUnitDetected
-		TextNotification: Subterranean unit detected.
-	GrantConditionOnSubterraneanLayer:
-		Condition: submerged
-		ResurfaceCondition: resurfaced
-		ResurfaceConditionDuration: 75
-		SubterraneanTransitionImage: dig
-		SubterraneanTransitionSequence: idle
-		SubterraneanTransitionSound: subdril1.aud
-	WithIdleOverlay@shield:
-		RequiresCondition: shields-up && !submerged
-	#-GrantRandomCondition@tiberium:
-	#-SpawnActorOnDeath@tiberium1:
-	#-SpawnActorOnDeath@tiberium2:
-	-ExternalCondition@nanomachinereanimate:
-	-SpawnActorOnDeath@nanomachinereanimate:
 
 ^CivilianVoxelVehicle:
 	Inherits: ^VoxelVehicle

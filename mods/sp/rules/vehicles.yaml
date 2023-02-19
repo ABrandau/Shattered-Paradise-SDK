@@ -1603,8 +1603,6 @@ SAPC:
 		CargoType: Apc
 	Targetable@MC:
 		RequiresCondition: !mindcontrolled && !submerged
-	WithVoxelBody:
-		RequiresCondition: !submerged && !inside-tunnel
 	WithDecoration@UNDERGROUND:
 		RequiresCondition: inside-tunnel || submerged
 	Armament@AIunloadingDummyWeapon:
@@ -1670,8 +1668,6 @@ SUBTANK:
 		ScanRadius: 5 #PREF: save trait looks up and scan armaments
 	Targetable@MC:
 		RequiresCondition: !mindcontrolled && !submerged
-	WithVoxelBody:
-		RequiresCondition: !submerged && !inside-tunnel
 	WithDecoration@UNDERGROUND:
 		RequiresCondition: inside-tunnel || submerged
 	ActorStatValues:
