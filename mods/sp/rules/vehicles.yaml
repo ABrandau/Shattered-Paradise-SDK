@@ -1568,7 +1568,7 @@ BIKE:
 		ExplosionWeapon: true
 
 SAPC:
-	Inherits: ^SubterraneanVoxelVehicle
+	Inherits: ^SubterraneanVehicle
 	Inherits@PIPS: ^CargoPips
 	Inherits@VISION: ^6CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
@@ -1631,7 +1631,7 @@ SAPC:
 	-RevealOnFire:
 
 SUBTANK:
-	Inherits: ^SubterraneanVoxelVehicle
+	Inherits: ^SubterraneanVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@BLUEFLAME: ^AffectedByPurifyingFlame
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -1658,16 +1658,24 @@ SUBTANK:
 		Speed: 105
 	Health:
 		HP: 30000
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
 	Armament:
 		Weapon: DevilsFlame
-		LocalOffset: 0,400,0, 0,-400,0
+		LocalOffset: 700,500,-200, 700,-500,-200
 		PauseOnCondition: empdisable || submerged
 		RequiresCondition: !blueflame
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
 	Armament@Elite:
 		Weapon: DevilsFlameE
-		LocalOffset: 0,400,0, 0,-400,0
+		LocalOffset: 700,500,-200, 700,-500,-200
 		PauseOnCondition: empdisable || submerged
 		RequiresCondition: blueflame
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplojFblue
+	WithMuzzleOverlay:
 	AttackFrontal:
 		PauseOnCondition: empdisable
 		FacingTolerance: 2

@@ -487,12 +487,24 @@ ttnk:
 		Filename: ticktankcameo.shp
 
 sapc:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicleWithShadow
+	Defaults:
+		Filename: sapc.shp
 	icon:
 		Filename: sapcicon.shp
 
 subtank:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicleWithShadow
+	Defaults:
+		Filename: subtnk.shp
+	muzzle:
+		Filename: jsbrnl20b.shp
+		Length: *
+		Offset: 0, 0, 12
+		Scale: 0.3
+		Tick: 15
+		ZOffset: 4001
+		IgnoreWorldTint: true
 	icon:
 		Filename: subticon.shp
 
