@@ -822,9 +822,104 @@ WEASAU3:
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage
 		DeployTrigger: Attack
-		DeployChance: 50
+		DeployChance: 20
 		DeployTicks: 1005
 		UndeployTicks: 1
+
+ICBM:
+	Inherits: ^Vehicle
+	Inherits@AImicroManagable: ^AImicroManagable
+	Inherits@VISION: ^6CellVision
+	Inherits@2: ^HasMisslePower
+	Valued:
+		Cost: 4000
+	Tooltip:
+		Name: Ballistic Missile Launcher
+		RequiresCondition: !deployed
+	Tooltip@DEPLOYED:
+		Name: Ballistic Missile Launcher (deployed)
+		RequiresCondition: deployed
+	Health:
+		HP: 50000
+	Armor:
+		Type: Light
+	Mobile:
+		TurnSpeed: 20
+		Speed: 40
+	GrantConditionOnDeploy:
+		PauseOnCondition: empdisable
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		UndeployOnMove: true
+		UndeployOnPickup: true
+		Facing: 640
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Tiberium, BlueTiberium
+		DeploySounds: place2.aud
+		UndeploySounds: clicky1.aud
+		Voice: Move
+	WithMakeAnimation:
+	EntersTunnels:
+		RequireForceMoveCondition: !undeployed
+	Repairable:
+		RequireForceMoveCondition: !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
+	GrantCondition@PREVIEWWORKAROUND:
+		Condition: real-actor
+	WithFacingSpriteBody:
+		Name: undeploy-body
+		RequiresCondition: !inside-tunnel && undeployed
+	WithSpriteBody@deployedloaded:
+		RequiresCondition: !inside-tunnel && !undeployed
+		Sequence: unlaunched-idle
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && undeployed
+		DeployChance: 100
+		DeployTrigger: BecomingIdle
+		DeployTicks: 100
+		UndeployTicks: 100
+	Wanders@AI:
+		RequiresCondition: AImicroManage && !deployed
+		WanderMoveRadius: 4
+		MinMoveDelay: 300
+		MaxMoveDelay: 300
+	ProvidesPrerequisite@icbm:
+		Prerequisite: icbm
+		ResetOnOwnerChange: true
+	NukePower:
+		Prerequisites:
+			1: icbm
+		Names:
+			1: ICBM Strike
+		Descriptions:
+			1: Launches an ICBM with nuclear warhead.
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: Select target.
+		MissileImage: icbm_missile
+		MissileDelay: 0
+		FlightDelay: 300
+		FlightVelocity: 0c512
+		DisplayTimerRelationships: Ally, Neutral, Enemy
+		SpawnOffset: 512, -580, 0
+		ArrowSequence: arrow
+		MissilePalette: player
+		IsPlayerPalette: false
+		OrderName: ToxinMissile
+		CircleRanges:
+			1: 7c0
+		CameraRange: 5c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
+		PauseOnCondition: empdisable
+		RequiresCondition: deployed
+		TrailImage: explosion
+		TrailPalette: gensmkexploj
+		TrailSequences: jsmokey4
+		TrailDelay: 0
+		TrailInterval: 0
+	WithSupportPowerActivationAnimation:
+		RequiresCondition: !inside-tunnel && deployed
+		Sequence: launched-idle
 
 HMECTEST:
 	Inherits: ^Tank
