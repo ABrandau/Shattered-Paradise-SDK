@@ -624,7 +624,41 @@ howtlizer:
 		Length: *
 
 icbm:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicleWithShadow
+	Defaults:
+		Filename: icbm_undeploy.shp
+	launched-idle:
+		-Filename:
+		TilesetFilenames:
+			TEMPERATE: gticbm.shp
+			SNOW: gaicbm.shp
+		Offset: 0, -3, 9 #0, -12, 12
+		DepthSprite: isodepth.shp
+		DepthSpriteOffset: -12, 6
+		ShadowStart: 3
+		Tick: 2000
+	make:
+		Offset: 0, -3, 9 #0, -12, 12
+		DepthSprite: isodepth.shp
+		DepthSpriteOffset: -12, 6
+		-Filename:
+		TilesetFilenames:
+			TEMPERATE: gticbmmk.shp
+			SNOW: gaicbmmk.shp
+		Length: 28
+		ShadowStart: 30
+	unlaunched-idle:
+		Offset: 0, -3, 9 #0, -12, 12
+		DepthSprite: isodepth.shp
+		DepthSpriteOffset: -12, 6
+		-Filename:
+		TilesetFilenames:
+			TEMPERATE: gticbmmk.shp
+			SNOW: gaicbmmk.shp
+		Start: 28
+		ShadowStart: 58
+	icon: 
+		Filename: mltiicon
 
 napowr:
 	Defaults:
