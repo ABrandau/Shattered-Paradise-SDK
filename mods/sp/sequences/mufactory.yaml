@@ -31,35 +31,36 @@ gdiref:
 		Length: 1
 		ZOffset: -9999
 		ZRamp: 1
-		DepthSprite:
+		-DepthSprite:
 	damaged-bib:
 		Start: 36
 		ShadowStart: 73
 		ZOffset: -9999
 		ZRamp: 1
-		DepthSprite:
+		-DepthSprite:
 	dead-bib:
 		Start: 36
 		ShadowStart: 73
 		ZOffset: -9999
 		ZRamp: 1
-		DepthSprite:
+		-DepthSprite:
 	emp-overlay:
 		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 21
 		ZOffset: 512
-		BlendMode: Additive
-		DepthSprite:
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon:
 		Filename: gdireficon.shp
 		Offset: 0, 0
 
 gdiref2:
-	Inherits gdiref:
 	Defaults:
 		Filename: gdiref2.shp
 		Offset: 3, 32, 20
+		DepthSpriteOffset: 22, 0
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 33
 		ShadowStart: 70
@@ -102,16 +103,17 @@ gdiref2:
 		Length: *
 		Offset: 0, 0, 21
 		ZOffset: 512
-		BlendMode: Additive
+		IgnoreWorldTint: True
 	icon:
 		Filename: gdireficon.shp
 		Offset: 0, 0
 
 gdiref3:
-	Inherits gdiref:
 	Defaults:
 		Filename: gdiref3.shp
 		Offset: 12, -42, 20
+		DepthSpriteOffset: 22, 0
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 33
 		ShadowStart: 70
@@ -139,31 +141,36 @@ gdiref3:
 		Length: 1
 		ZOffset: -9999
 		ZRamp: 1
+		-DepthSprite:
 	damaged-bib:
 		Start: 36
 		ShadowStart: 73
 		ZOffset: -9999
 		ZRamp: 1
+		-DepthSprite:
 	dead-bib:
 		Start: 36
 		ShadowStart: 73
 		ZOffset: -9999
 		ZRamp: 1
+		-DepthSprite:
 	emp-overlay:
 		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 21
 		ZOffset: 512
-		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon:
 		Filename: gdireficon.shp
 		Offset: 0, 0
 
 gdiref4:
-	Inherits gdiref:
 	Defaults:
 		Filename: gdiref4.shp
 		Offset: -62, -5, 20
+		DepthSpriteOffset: 22, 0
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 33
 		ShadowStart: 70
@@ -191,22 +198,26 @@ gdiref4:
 		Length: 1
 		ZOffset: -9999
 		ZRamp: 1
+		-DepthSprite:
 	damaged-bib:
 		Start: 36
 		ShadowStart: 73
 		ZOffset: -9999
 		ZRamp: 1
+		-DepthSprite:
 	dead-bib:
 		Start: 36
 		ShadowStart: 73
 		ZOffset: -9999
 		ZRamp: 1
+		-DepthSprite:
 	emp-overlay:
 		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 21
 		ZOffset: 512
-		BlendMode: Additive
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon:
 		Filename: gdireficon.shp
 		Offset: 0, 0
@@ -215,8 +226,8 @@ nodref:
 	Defaults:
 		Filename: nodref.shp
 		Offset: -12, -38, 20
-		# DepthSpriteOffset: 22, 0
-		# DepthSprite: isodepth.shp
+		DepthSpriteOffset: 22, 0
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 31
 		ShadowStart: 66
@@ -230,7 +241,7 @@ nodref:
 	make:
 		Length: 29
 		ShadowStart: 35
-		# DepthSpriteOffset: -12, 0
+		DepthSpriteOffset: -12, 0
 	unload-overlay:
 		Filename: narefn_a.shp
 		Length: *
@@ -243,26 +254,26 @@ nodref:
 		ShadowStart: 67
 		ZOffset: -9999
 		ZRamp: 1
-		# -DepthSprite:
+		-DepthSprite:
 	damaged-bib:
 		Start: 34
 		ShadowStart: 69
 		ZOffset: -9999
 		ZRamp: 1
-		# -DepthSprite:
+		-DepthSprite:
 	dead-bib:
 		Start: 34
 		ShadowStart: 69
 		ZOffset: -9999
 		ZRamp: 1
-		# -DepthSprite:
+		-DepthSprite:
 	emp-overlay:
 		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 21
 		ZOffset: 512
-		BlendMode: Additive
-		# -DepthSprite:
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon:
 		Filename: nodreficon.shp
 		Offset: 0, 0
@@ -271,8 +282,8 @@ nodref2:
 	Defaults:
 		Filename: nodref2.shp
 		Offset: 6, 36, 20
-		# DepthSpriteOffset: 22, 0
-		# DepthSprite: isodepth.shp
+		DepthSpriteOffset: 22, 0
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 31
 		ShadowStart: 66
@@ -286,7 +297,7 @@ nodref2:
 	make:
 		Length: 29
 		ShadowStart: 35
-		# DepthSpriteOffset: -12, 0
+		DepthSpriteOffset: -12, 0
 	unload-overlay:
 		Filename: narefn_a.shp
 		Length: *
@@ -300,26 +311,26 @@ nodref2:
 		Length: 1
 		ZOffset: -9999
 		ZRamp: 1
-		# -DepthSprite:
+		-DepthSprite:
 	damaged-bib:
 		Start: 34
 		ShadowStart: 69
 		ZOffset: -9999
 		ZRamp: 1
-		# -DepthSprite:
+		-DepthSprite:
 	dead-bib:
 		Start: 34
 		ShadowStart: 69
 		ZOffset: -9999
 		ZRamp: 1
-		# -DepthSprite:
+		-DepthSprite:
 	emp-overlay:
 		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 21
 		ZOffset: 512
-		BlendMode: Additive
-		# -DepthSprite:
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon:
 		Filename: nodreficon.shp
 		Offset: 0, 0
@@ -328,8 +339,8 @@ nodref3:
 	Defaults:
 		Filename: nodref3.shp
 		Offset: 3, -36, 20
-		# DepthSpriteOffset: 22, 0
-		# DepthSprite: isodepth.shp
+		DepthSpriteOffset: 22, 0
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 31
 		ShadowStart: 66
@@ -343,7 +354,7 @@ nodref3:
 	make:
 		Length: 29
 		ShadowStart: 35
-		# DepthSpriteOffset: -12, 0
+		DepthSpriteOffset: -12, 0
 	unload-overlay:
 		Filename: narefn_a.shp
 		Length: *
@@ -357,26 +368,26 @@ nodref3:
 		Length: 1
 		ZOffset: -9999
 		ZRamp: 1
-		# -DepthSprite:
+		-DepthSprite:
 	damaged-bib:
 		Start: 34
 		ShadowStart: 69
 		ZOffset: -9999
 		ZRamp: 1
-		# -DepthSprite:
+		-DepthSprite:
 	dead-bib:
 		Start: 34
 		ShadowStart: 69
 		ZOffset: -9999
 		ZRamp: 1
-		# -DepthSprite:
+		-DepthSprite:
 	emp-overlay:
 		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 21
 		ZOffset: 512
-		BlendMode: Additive
-		# -DepthSprite:
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon:
 		Filename: nodreficon.shp
 		Offset: 0, 0
@@ -385,8 +396,8 @@ nodref4:
 	Defaults:
 		Filename: nodref4.shp
 		Offset: -60, -3, 20
-		# DepthSpriteOffset: 22, 0
-		# DepthSprite: isodepth.shp
+		DepthSpriteOffset: 22, 0
+		DepthSprite: isodepth.shp
 	idle:
 		Start: 31
 		ShadowStart: 66
@@ -400,7 +411,7 @@ nodref4:
 	make:
 		Length: 29
 		ShadowStart: 35
-		# DepthSpriteOffset: -12, 0
+		DepthSpriteOffset: -12, 0
 	unload-overlay:
 		Filename: narefn_a.shp
 		Length: *
@@ -414,26 +425,26 @@ nodref4:
 		Length: 1
 		ZOffset: -9999
 		ZRamp: 1
-		# -DepthSprite:
+		-DepthSprite:
 	damaged-bib:
 		Start: 34
 		ShadowStart: 69
 		ZOffset: -9999
 		ZRamp: 1
-		# -DepthSprite:
+		-DepthSprite:
 	dead-bib:
 		Start: 34
 		ShadowStart: 69
 		ZOffset: -9999
 		ZRamp: 1
-		# -DepthSprite:
+		-DepthSprite:
 	emp-overlay:
 		Filename: emp_fx01.shp
 		Length: *
 		Offset: 0, 0, 21
 		ZOffset: 512
-		BlendMode: Additive
-		# -DepthSprite:
+		IgnoreWorldTint: True
+		-DepthSprite:
 	icon:
 		Filename: nodreficon.shp
 		Offset: 0, 0
@@ -459,7 +470,7 @@ machineshop:
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
-		BlendMode: Additive
+		IgnoreWorldTint: True
 	icon:
 		Filename: machineshopicon.shp
 		Offset: 0, 0
@@ -546,98 +557,6 @@ bggy:
 		Scale: 0.75
 	icon:
 		Filename: buggyicon.shp
-
-scrproc:
-	Defaults:
-		Filename: scrproc.shp
-		Offset: 0, -30, 42
-	idle:
-		Start: 31
-		ShadowStart: 65
-	damaged-idle:
-		Start: 33
-		ShadowStart: 67
-	dead:
-		Start: 33
-		ShadowStart: 67
-		Tick: 400
-	make:
-		Length: 30
-		ShadowStart: 34
-	bib:
-		Start: 32
-		ShadowStart: 66
-		Length: 1
-		ZOffset: -9999
-		ZRamp: 1
-		# -DepthSprite:
-	damaged-bib:
-		Start: 32
-		ShadowStart: 66
-		ZOffset: -9999
-		ZRamp: 1
-		# -DepthSprite:
-	dead-bib:
-		Start: 32
-		ShadowStart: 66
-		ZOffset: -9999
-		ZRamp: 1
-		# -DepthSprite:
-	emp-overlay:
-		Filename: emp_fx01.shp
-		Length: *
-		Offset: 0, 0
-		ZOffset: 512
-		BlendMode: Additive
-	icon:
-		Filename: scrprocicon.shp
-		Offset: 0, 0
-
-scrproc2:
-	Defaults:
-		Filename: scrproc2.shp
-		Offset: 6, 34, 20
-	idle:
-		Start: 31
-		ShadowStart: 65
-	damaged-idle:
-		Start: 33
-		ShadowStart: 67
-	dead:
-		Start: 33
-		ShadowStart: 67
-		Tick: 400
-	make:
-		Length: 30
-		ShadowStart: 34
-	bib:
-		Start: 32
-		ShadowStart: 66
-		Length: 1
-		ZOffset: -9999
-		ZRamp: 1
-		# -DepthSprite:
-	damaged-bib:
-		Start: 32
-		ShadowStart: 66
-		ZOffset: -9999
-		ZRamp: 1
-		# -DepthSprite:
-	dead-bib:
-		Start: 32
-		ShadowStart: 66
-		ZOffset: -9999
-		ZRamp: 1
-		# -DepthSprite:
-	emp-overlay:
-		Filename: emp_fx01.shp
-		Length: *
-		Offset: 0, 0
-		ZOffset: 512
-		BlendMode: Additive
-	icon:
-		Filename: scrprocicon.shp
-		Offset: 0, 0
 
 hmec:
 	Inherits: ^EmpOverlay

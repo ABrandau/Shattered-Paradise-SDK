@@ -451,7 +451,7 @@ gacnst:
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
-		BlendMode: Additive
+		IgnoreWorldTint: True
 	icon:
 		Filename: facticon.shp
 		TilesetFilenames:
@@ -513,7 +513,7 @@ gacnst:
 		ZOffset: -1024
 		Offset: -12, -42, 5
 		ZRamp: 1
-		DepthSprite:
+		-DepthSprite:
 	damaged-bib:
 		TilesetFilenames:
 			TEMPERATE: ntrefnbb.shp
@@ -522,7 +522,7 @@ gacnst:
 		ZOffset: -1024
 		Offset: -12, -42, 5
 		ZRamp: 1
-		DepthSprite:
+		-DepthSprite:
 	dead-bib:
 		TilesetFilenames:
 			TEMPERATE: ntrefnbb.shp
@@ -531,15 +531,15 @@ gacnst:
 		ZOffset: -1024
 		Offset: -12, -42, 5
 		ZRamp: 1
-		DepthSprite:
+		-DepthSprite:
 	emp-overlay:
 		Filename: emp_fx01.shp
 		TilesetFilenames:
 		Length: *
 		Offset: 0, 0, 21
 		ZOffset: 512
-		BlendMode: Additive
-		DepthSprite:
+		IgnoreWorldTint: True
+		-DepthSprite:
 
 proc:
 	Inherits: ^Proc
@@ -551,7 +551,7 @@ proc:
 		Filename: sidebar-gdi|reficon.shp
 		TilesetFilenames:
 		Offset: 0, 0
-		DepthSprite:
+		-DepthSprite:
 
 ^Gasilo:
 	Defaults:
@@ -618,7 +618,6 @@ proc:
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
-		BlendMode: Additive
 		IgnoreWorldTint: True
 
 gasilo.gdi:
@@ -818,8 +817,8 @@ gasilo.cab:
 		Length: *
 		Offset: 0, 0, 37
 		ZOffset: 512
-		BlendMode: Additive
-		DepthSprite:
+		IgnoreWorldTint: True
+		-DepthSprite:
 
 gadept.gdi:
 	Inherits: ^Gadept
@@ -831,7 +830,7 @@ gadept.gdi:
 		Filename: sidebar-gdi|fixicon.shp
 		TilesetFilenames:
 		Offset: 0, 0
-		DepthSprite:
+		-DepthSprite:
 
 gadept.nod:
 	Inherits: ^Gadept
@@ -843,7 +842,7 @@ gadept.nod:
 		Filename: fixnod.shp
 		TilesetFilenames:
 		Offset: 0, 0
-		DepthSprite:
+		-DepthSprite:
 
 gadept.mut:
 	Inherits: ^Gadept
@@ -855,7 +854,7 @@ gadept.mut:
 		Filename: fixforg.shp
 		TilesetFilenames:
 		Offset: 0, 0
-		DepthSprite:
+		-DepthSprite:
 
 gadept.cab:
 	Inherits: ^Gadept
@@ -867,7 +866,7 @@ gadept.cab:
 		Filename: fixcab.shp
 		TilesetFilenames:
 		Offset: 0, 0
-		DepthSprite:
+		-DepthSprite:
 
 trnsport:
 	Inherits@1: ^SpriteVehicle
@@ -986,7 +985,7 @@ scrpod:
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
-		BlendMode: Additive
+		IgnoreWorldTint: True
 
 napuls.gdi:
 	Inherits: ^Napuls
