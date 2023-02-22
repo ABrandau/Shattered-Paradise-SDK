@@ -905,8 +905,10 @@ ICBM:
 		MissilePalette: player
 		IsPlayerPalette: false
 		OrderName: ToxinMissile
+		MissileWeapons:
+			1: BombTruckExplo
 		CircleRanges:
-			1: 7c0
+			1: 6c0
 		CameraRange: 5c0
 		CameraSpawnAdvance: 25
 		CameraRemoveDelay: 350
@@ -925,11 +927,21 @@ LPST:
 	Inherits: ^Vehicle
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
-		Cost: 800
+		Cost: 700
+	Armor:
+		Type: Light
 	Tooltip:
 		Name: Sensor Array
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.GDI
+		BuildAtProductionType: Tank
+		Description: Support unit for large stealth detection.\n\nUnarmed.\n\nSpecial:\n - Deploy to reveal stealth unit in a large area
+		BuildPaletteOrder: 51
+		Prerequisites: ~gaweap, gatech, ~AIOnly, ~techlevel.5
+		BuildDuration: 625
+		BuildDurationModifier: 100
 	Mobile:
 		TurnSpeed: 32
 		Speed: 45
@@ -942,6 +954,8 @@ LPST:
 		RequiresCondition: undeployed
 	Health:
 		HP: 25000
+	Armor:
+		Type: Light
 	WithMakeAnimation:
 		BodyNames: deployed
 	GrantConditionOnDeploy:
@@ -1019,6 +1033,8 @@ SGEN:
 		RequiresCondition: undeployed
 	Health:
 		HP: 25000
+	Armor:
+		Type: Light
 	WithMakeAnimation:
 		BodyNames: deployed
 	GrantConditionOnDeploy:
