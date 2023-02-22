@@ -305,6 +305,7 @@
 		Voice: Feedback
 		ValidRelationships: None
 
+## Unused
 ^EngineerCapturableVehicle:
 	CaptureManager:
 	Capturable:
@@ -320,6 +321,7 @@
 		Condition: instantcapture
 		Prerequisites: global-instantcapture
 
+## Unused
 ^EngineerHackableDrone:
 	CaptureManager:
 	Capturable:
@@ -2199,6 +2201,7 @@
 	RepairsBridges:
 		RepairNotification: BridgeRepaired
 		RepairTextNotification: Bridge repaired.
+	CaptureManager:
 	Captures@NormalBuilding:
 		CaptureTypes: Building
 		PlayerExperience: 25
@@ -2209,29 +2212,29 @@
 		PlayerExperience: 25
 		CaptureDelay: 250
 		RequiresCondition: !instantcapture
-	Captures@HackTechDrone:
-		CaptureTypes: Drone
-		PlayerExperience: 10
-		CaptureDelay: 80
-		ConsumedByCapture: false
-		EnterCursor: powerdown
-		EnterBlockedCursor: powerdown-blocked
-		RequiresCondition: !instantcapture
 	Captures@InstantBuilding:
 		CaptureTypes: Building, TechBuilding
 		PlayerExperience: 25
 		RequiresCondition: instantcapture
-	Captures@InstantDrone:
-		CaptureTypes: Drone
-		PlayerExperience: 10
-		ConsumedByCapture: false
-		EnterCursor: powerdown
-		EnterBlockedCursor: powerdown-blocked
-		RequiresCondition: instantcapture
 	GrantConditionOnPrerequisite@INSTANTCAPTURE:
 		Condition: instantcapture
 		Prerequisites: global-instantcapture
-	CaptureManager:
+	#Captures@InstantDrone:
+	#	CaptureTypes: Drone
+	#	PlayerExperience: 10
+	#	ConsumedByCapture: false
+	#	EnterCursor: powerdown
+	#	EnterBlockedCursor: powerdown-blocked
+	#	RequiresCondition: instantcapture
+	#Captures@HackTechDrone:
+	#	CaptureTypes: Drone
+	#	PlayerExperience: 10
+	#	CaptureDelay: 80
+	#	ConsumedByCapture: false
+	#	EnterCursor: powerdown
+	#	EnterBlockedCursor: powerdown-blocked
+	#	RequiresCondition: !instantcapture
+
 
 ^BasicVehicle:
 	Inherits@1: ^VehicleShape

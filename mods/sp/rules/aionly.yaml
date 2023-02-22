@@ -921,6 +921,240 @@ ICBM:
 		RequiresCondition: !inside-tunnel && deployed
 		Sequence: launched-idle
 
+LPST:
+	Inherits: ^Vehicle
+	Inherits@AImicroManagable: ^AImicroManagable
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Sensor Array
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 32
+		Speed: 45
+		Locomotor: InfantryCrusherVehicle
+		PauseOnCondition: empdisable
+		RequireForceMoveCondition: !AImicroManage && !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
+	Carryable:
+		RequiresCondition: undeployed
+	Health:
+		HP: 25000
+	WithMakeAnimation:
+		BodyNames: deployed
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		Facing: 640
+		SmartDeploy: true
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
+		DeploySounds: place2.aud
+		CanDeployOnRamps: true
+		UndeployOnMove: true
+		UndeploySounds: clicky1.aud
+		RequiresCondition: !inside-tunnel && !empdisable
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: !AImicroManage && deployed
+	WithSpriteBody@deployed:
+		Sequence: deployed
+		Name: deployed
+		RequiresCondition: !undeployed
+	WithFacingSpriteBody:
+		RequiresCondition: !inside-tunnel && undeployed
+	RenderDetectionCircle:
+		TrailCount: 3
+	DetectCloaked:
+		RequiresCondition: !empdisable && deployed
+		Range: 15c0
+	RevealsShroud:
+		RequiresCondition: !inside-tunnel && undeployed
+		Range: 4c0
+		MaxHeightDelta: 3
+	RevealsShroud@DEPLOYED:
+		RequiresCondition: !undeployed
+		Range: 15c0
+		MaxHeightDelta: 3
+	### AI Control
+	Wanders@AI:
+		RequiresCondition: AImicroManage
+		WanderMoveRadius: 10
+		MinMoveDelay: 300
+		MaxMoveDelay: 300
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && !deployed
+		DeployTrigger: Periodically
+		DeployTicks: 150
+		UndeployTicks: 150
+
+SGEN:
+	Inherits: ^Vehicle
+	Inherits@IMPSGEN: ^AffectedByImprovedStealthGenerator
+	Inherits@AImicroManagable: ^AImicroManagable
+	Valued:
+		Cost: 1000
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
+		BuildAtProductionType: Tank
+		Prerequisites: ~naweap, natech, ~AIOnly, ~techlevel.5
+		BuildPaletteOrder: 51
+		Description: Support unit that projects a cloaking field.\n\nUnarmed\n\nSpecial:\n - Cloak nearby unit when deploy
+		BuildDuration: 875
+		BuildDurationModifier: 100
+	Tooltip:
+		Name: Mobile Stealth Generator
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 32
+		Speed: 45
+		Locomotor: InfantryCrusherVehicle
+		PauseOnCondition: empdisable
+		RequireForceMoveCondition: !AImicroManage && !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
+	Carryable:
+		RequiresCondition: undeployed
+	Health:
+		HP: 25000
+	WithMakeAnimation:
+		BodyNames: deployed
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		Facing: 384
+		SmartDeploy: true
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
+		DeploySounds: place2.aud
+		CanDeployOnRamps: true
+		UndeployOnMove: true
+		UndeploySounds: clicky1.aud
+		RequiresCondition: !inside-tunnel && !empdisable
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: !AImicroManage && deployed
+	WithSpriteBody@deployed:
+		Sequence: deployed
+		Name: deployed
+		RequiresCondition: !undeployed
+	WithFacingSpriteBody:
+		RequiresCondition: !inside-tunnel && undeployed
+	RenderVoxels:
+		Scale: 11.5
+	ProximityExternalCondition:
+		Condition: cloakgenerator
+		RequiresCondition: deployed && !empdisable
+		Range: 5c0
+		EnableSound: cloak5.aud
+		DisableSound: cloak5.aud
+		AffectsParent: true
+	Cloak@CLOAKGENERATOR:
+		RequiresCondition: (improvedsgen && deployed || undeployed) && (cloakgenerator || crate-cloak)
+	WithRangeCircle:
+		Range: 5c0
+		Type: cloakgenerator
+		Color: 00FF7FCC
+		BorderWidth: 0
+		Width: 2
+		RequiresCondition: deployed && !empdisable
+	WithIdleOverlay@cloakgeneratoreff:
+		Sequence: cloakgeneratorwave
+		Offset: -25, 0, 0
+		RequiresCondition: deployed && !empdisable
+		Image: explosion
+		Palette: effectalpha10
+		IsDecoration: true ## so this doesn't have shadow
+	### AI Control
+	Wanders@AI:
+		RequiresCondition: AImicroManage
+		WanderMoveRadius: 10
+		MinMoveDelay: 300
+		MaxMoveDelay: 300
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && !deployed
+		DeployTrigger: Periodically
+		DeployTicks: 150
+		UndeployTicks: 150
+
+## AI control it by using McvManagerBotModule
+MWAR:
+	Inherits: ^VoxelVehicle
+	Inherits@4: ^EngineerCapturableVehicle
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Mobile War Factory
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 32
+		Speed: 45
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 25000
+	RenderVoxels:
+		Scale: 11.5
+	Transforms:
+		IntoActor: mtar
+		Facing: 384
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		PauseOnCondition: mindcontrolled || empdisable
+		Voice: Move
+		Offset: -1,-1
+
+MTAR: ## TODO: as we use muti-queue it is buggy now
+	Inherits: ^TechBuilding
+	Inherits@2: ^Factory
+	Inherits@AIbuilding: ^AIbuildingMicroControl
+	-Buildable:
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Mobile War Factory
+	Health:
+		HP: 25000
+	Transforms:
+		IntoActor: mwar
+		Facing: 384
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		PauseOnCondition: mindcontrolled || empdisable
+		Voice: Move
+		Offset: 1,1
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+		RequiresCondition: !Building-Buildup
+	WithProductionDoorOverlay@DOOR:
+		RequiresCondition: !Building-Buildup
+	WithProductionOverlay@WHITELIGHTS:
+		Sequence: production-lights-white
+		RequiresCondition: !Building-Buildup
+	WithProductionOverlay@REDLIGHTS:
+		Sequence: production-lights-red
+		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@TURBINES:
+		Sequence: idle-turbines
+		PauseOnCondition: empdisable
+		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@BIB:
+		Sequence: bib
+		RequiresCondition: !Building-Buildup
+	IsometricSelectable:
+		DecorationHeight: 36
+	-ProvidesPrerequisite@factory:
+	### AI Control
+	RejectsOrders@deploymentAI: ## Hack: Need to prevent first time deploy
+		Reject: DeployTransform
+		RequiresCondition: Building-Buildup && AIbuildingMicroControl
+	AutoDeployer@AI:
+		RequiresCondition: AIbuildingMicroControl
+		DeployTrigger: Periodically
+		DeployTicks: 1700
+		UndeployTicks: 2000
+
 HMECTEST:
 	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
