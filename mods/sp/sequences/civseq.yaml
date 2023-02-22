@@ -2391,31 +2391,41 @@ watertower:
 		ShadowStart: 5
 
 lpst:
-	Inherits: ^EmpOverlay
+	Inherits: ^SpriteVehicleWithShadow
+	Defaults:
+		Filename: lpst.shp
 	deployed:
 		Filename: gtdpsa.shp
-		Offset: 0, -13, 12
+		Offset: 0, -3, 3
 		ShadowStart: 3
 	make:
 		Filename: gtdpsamk.shp
-		Offset: 0, -13, 12
+		Offset: 0, -3, 3
 		Length: 36
 		ShadowStart: 36
+	icon:
+		Filename: lpsticon.shp
 
 sgen:
-	Inherits: ^EmpOverlay
+	Inherits: ^SpriteVehicleWithShadow
+	Defaults:
+		Filename: sgen.shp
 	icon:
 		Filename: mstlicon.shp
 	deployed:
 		Filename: mttl.shp
+		Offset: -6, 0, 3
 		ShadowStart: 3
 	damaged-deployed:
 		Filename: mttl.shp
+		Offset: -6, 0, 3
 		Start: 1
 		ShadowStart: 4
 	make:
 		Filename: mtstlmk.shp
-		Length: 20
+		Start: 1
+		Offset: -6, 0, 3
+		Length: 19
 		ShadowStart: 20
 
 mastl:

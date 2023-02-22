@@ -635,7 +635,7 @@ CAARMR:
 
 ### Tech Units
 LPST:
-	Inherits: ^VoxelVehicle
+	Inherits: ^Vehicle
 	Inherits@4: ^EngineerCapturableVehicle
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
@@ -676,12 +676,10 @@ LPST:
 		Sequence: deployed
 		Name: deployed
 		RequiresCondition: !undeployed
-	WithVoxelBody:
-		RequiresCondition: undeployed
+	WithFacingSpriteBody:
+		RequiresCondition: !inside-tunnel && undeployed
 	RenderDetectionCircle:
 		TrailCount: 3
-	RenderVoxels:
-		Scale: 11.5
 	DetectCloaked:
 		RequiresCondition: !empdisable && deployed
 		Range: 15c0
@@ -706,8 +704,9 @@ LPST:
 		UndeployTicks: 150
 
 SGEN:
-	Inherits: ^VoxelVehicle
+	Inherits: ^Vehicle
 	Inherits@4: ^EngineerCapturableVehicle
+	Inherits@IMPSGEN: ^AffectedByImprovedStealthGenerator
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 800
@@ -747,34 +746,33 @@ SGEN:
 		Sequence: deployed
 		Name: deployed
 		RequiresCondition: !undeployed
-	WithVoxelBody:
-		RequiresCondition: undeployed
+	WithFacingSpriteBody:
+		RequiresCondition: !inside-tunnel && undeployed
 	RenderVoxels:
 		Scale: 11.5
 	ProximityExternalCondition:
 		Condition: cloakgenerator
 		RequiresCondition: deployed && !empdisable
-		Range: 3c0
+		Range: 5c0
 		EnableSound: cloak5.aud
 		DisableSound: cloak5.aud
 		AffectsParent: true
+	Cloak@CLOAKGENERATOR:
+		RequiresCondition: (improvedsgen && deployed || undeployed) && (cloakgenerator || crate-cloak)
 	WithRangeCircle:
-		Range: 3c0
+		Range: 5c0
 		Type: cloakgenerator
 		Color: 00FF7FCC
 		BorderWidth: 0
 		Width: 2
 		RequiresCondition: deployed && !empdisable
-	SmokeParticleEmitter@cloakgeneratoreff:
+	WithIdleOverlay@cloakgeneratoreff:
+		Sequence: cloakgeneratorwave
+		Offset: -25, 0, 0
 		RequiresCondition: deployed && !empdisable
-		Sequences: cloakgeneratorwave
-		SpawnFrequency: 40
-		Speed: 0
-		Gravity: 0
-		Offset: 0,0,0
 		Image: explosion
 		Palette: effectalpha10
-		Duration: 18
+		IsDecoration: true ## so this doesn't have shadow
 	### AI Control
 	Wanders@AI:
 		RequiresCondition: AImicroManage
