@@ -387,7 +387,7 @@ COREDEFENDER:
 	Inherits@VISION: ^9CellVision
 	Inherits@VOICE: ^CabalVehicleVoice
 	Valued:
-		Cost: 10000
+		Cost: 20000
 	Tooltip:
 		Name: Core Defender
 	UpdatesPlayerStatistics:
@@ -579,7 +579,7 @@ DEFD:
 	Inherits@SHAPE: ^2x3Shape
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Valued:
-		Cost: 10000
+		Cost: 20000
 	Health:
 		HP: 1100000
 	HitShape:
@@ -597,7 +597,7 @@ DEFD:
 		Prerequisites: ~cabyard, cabtech, ~techlevel.5, ~AIOnly, ~!DefenderExists
 		Description: C.A.B.A.L.'s final creation armed with crazy weapon.\n\nGood vs: Everything\n\nSpecial:\n- Needs preparing before rising.\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle\n- Immune to mindcontrol
 		BuildPaletteOrder: 54
-		BuildDuration: 7000
+		BuildDuration: 10000
 		BuildDurationModifier: 100
 		BuildLimit: 1
 	Building:
@@ -678,9 +678,6 @@ AVATAR:
 		Description: Heavy Walker armed with a strong laser and enhances nearby Units.\n\nGood vs: Ground\n\nSpecial:\n- Can crush infantry
 		BuildDuration: 1125
 		BuildDurationModifier: 100
-	ProductionCostMultiplier@AI: ## AI cheat
-		Multiplier: 40
-		Prerequisites: AIOnly
 	Voiced:
 		VoiceSet: Vehicle
 	Mobile:
@@ -738,9 +735,6 @@ WEASAU3:
 		Description: Some long forgotten creature trained by mutant.\n\nGood vs: Ground\n\nSpecial:\n - Selfhealing up to 100%\n - Wild mind: Mind only controllable by MasterMind\n - Can shoot over walls\n - Can crush Infantry \n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - E.M.P. Immune\n - Deployability: use melee attack for a short period
 		BuildDuration: 1125
 		BuildDurationModifier: 100
-	ProductionCostMultiplier@AI: ## AI cheat
-		Multiplier: 40
-		Prerequisites: AIOnly
 	Voiced:
 		VoiceSet: LargeBeast
 		Volume: 1
@@ -831,6 +825,14 @@ ICBM:
 	Inherits@AImicroManagable: ^AImicroManagable
 	Inherits@VISION: ^6CellVision
 	Inherits@2: ^HasMisslePower
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 51
+		Prerequisites: ~naweap, nahfac, ~AIOnly, ~techlevel.6
+		Description: Even ICBM is deployed as the tension increased.\n\nUnarmed. \n\nSpecial:\n- Deploy to gain ICBM strike abiility
+		BuildDuration: 2000
+		BuildDurationModifier: 100
 	Valued:
 		Cost: 4000
 	Tooltip:
@@ -927,7 +929,7 @@ LPST:
 	Inherits: ^Vehicle
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
-		Cost: 700
+		Cost: 1000
 	Armor:
 		Type: Light
 	Tooltip:
@@ -945,7 +947,6 @@ LPST:
 	Mobile:
 		TurnSpeed: 32
 		Speed: 45
-		Locomotor: InfantryCrusherVehicle
 		PauseOnCondition: empdisable
 		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
@@ -1024,7 +1025,6 @@ SGEN:
 	Mobile:
 		TurnSpeed: 32
 		Speed: 45
-		Locomotor: InfantryCrusherVehicle
 		PauseOnCondition: empdisable
 		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
@@ -1180,7 +1180,7 @@ HMECTEST:
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^9CellVision
 	Valued:
-		Cost: 10000
+		Cost: 20000
 	Tooltip:
 		Name: Mammoth Mk. III
 	UpdatesPlayerStatistics:
@@ -1192,7 +1192,7 @@ HMECTEST:
 		Prerequisites: ~showhmec, gtdrop, ~AIOnly, ~techlevel.6
 		Description: GDI's final creation for the war when everything is doomed.\n\nGood vs: Everything\n\nSpecial:\n- Build limit: 1\n- Selfhealing up to 100%\n- Can attack air\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything except other Epics\n- It is deployed via dropship at the Dropship Bay\n- Can attack while moving\n- Can spawn 2 gun drones
 		BuildLimit: 1
-		BuildDuration: 7000
+		BuildDuration: 10000
 		BuildDurationModifier: 100
 	ProductionTimeMultiplier@2_FACTORY:
 		Multiplier: 80
@@ -1496,7 +1496,7 @@ SCRINCOUNCIL:
 	Inherits@SHADOW: ^AircraftShadow
 	Inherits@VISION: ^11CellVision
 	Valued:
-		Cost: 10000
+		Cost: 20000
 	Tooltip:
 		Name: Scrin Council
 	UpdatesPlayerStatistics:
@@ -1507,7 +1507,7 @@ SCRINCOUNCIL:
 		BuildPaletteOrder: 29
 		Prerequisites: ~scrair, scradvpowr, ~techlevel.6, ~AIOnly
 		BuildLimit: 1
-		BuildDuration: 7000
+		BuildDuration: 10000
 		BuildDurationModifier: 100
 	Selectable:
 		Bounds: 2709,3135, 0,-1280
