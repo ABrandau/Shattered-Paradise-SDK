@@ -2984,7 +2984,7 @@ LIMPED:
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish
 		CloakedCondition: cloaking-self
-		EffectOffset: 0, 0, -600
+		EffectOffset: 0, 0, -700
 		EffectImage: dig
 		EffectPalette: effect
 		CloakEffectSequence: smallidleoffset
@@ -3013,11 +3013,12 @@ LIMPED:
 		PauseOnCondition: empdisable
 		Name: AIAim
 	AttackWander@AI:
-		RequiresCondition: AImicroManage && !deployed
-		WanderMoveRadius: 15
-		MinMoveDelay: 300
-		MaxMoveDelay: 300
-	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && undeployed
+		WanderMoveRadius: 8
+		MinMoveDelay: 10
+		MaxMoveDelay: 10
+	### AI Control
+	AutoDeployer@AIDeploy:
 		RequiresCondition: AImicroManage && !deployed
 		DeployTrigger: Attack
 		DeployChance: 100

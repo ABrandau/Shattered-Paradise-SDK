@@ -387,7 +387,7 @@ COREDEFENDER:
 	Inherits@VISION: ^9CellVision
 	Inherits@VOICE: ^CabalVehicleVoice
 	Valued:
-		Cost: 20000
+		Cost: 15000
 	Tooltip:
 		Name: Core Defender
 	UpdatesPlayerStatistics:
@@ -579,7 +579,7 @@ DEFD:
 	Inherits@SHAPE: ^2x3Shape
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Valued:
-		Cost: 20000
+		Cost: 15000
 	Health:
 		HP: 1100000
 	HitShape:
@@ -597,7 +597,7 @@ DEFD:
 		Prerequisites: ~cabyard, cabtech, ~techlevel.5, ~AIOnly, ~!DefenderExists
 		Description: C.A.B.A.L.'s final creation armed with crazy weapon.\n\nGood vs: Everything\n\nSpecial:\n- Needs preparing before rising.\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle\n- Immune to mindcontrol
 		BuildPaletteOrder: 54
-		BuildDuration: 10000
+		BuildDuration: 7000
 		BuildDurationModifier: 100
 		BuildLimit: 1
 	Building:
@@ -874,17 +874,6 @@ ICBM:
 	WithSpriteBody@deployedloaded:
 		RequiresCondition: !inside-tunnel && !undeployed
 		Sequence: unlaunched-idle
-	AutoDeployer@AI:
-		RequiresCondition: AImicroManage && undeployed
-		DeployChance: 100
-		DeployTrigger: BecomingIdle
-		DeployTicks: 100
-		UndeployTicks: 100
-	Wanders@AI:
-		RequiresCondition: AImicroManage && !deployed
-		WanderMoveRadius: 4
-		MinMoveDelay: 300
-		MaxMoveDelay: 300
 	ProvidesPrerequisite@icbm:
 		Prerequisite: icbm
 		ResetOnOwnerChange: true
@@ -924,6 +913,17 @@ ICBM:
 	WithSupportPowerActivationAnimation:
 		RequiresCondition: !inside-tunnel && deployed
 		Sequence: launched-idle
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && undeployed
+		DeployChance: 100
+		DeployTrigger: BecomingIdle
+		DeployTicks: 100
+		UndeployTicks: 5
+	Wanders@AI:
+		RequiresCondition: AImicroManage && undeployed
+		WanderMoveRadius: 10
+		MinMoveDelay: 30
+		MaxMoveDelay: 30
 
 LPST:
 	Inherits: ^Vehicle
@@ -993,16 +993,17 @@ LPST:
 		Range: 15c0
 		MaxHeightDelta: 3
 	### AI Control
-	Wanders@AI:
-		RequiresCondition: AImicroManage
-		WanderMoveRadius: 10
-		MinMoveDelay: 300
-		MaxMoveDelay: 300
 	AutoDeployer@AI:
-		RequiresCondition: AImicroManage && !deployed
-		DeployTrigger: Periodically
-		DeployTicks: 150
-		UndeployTicks: 150
+		RequiresCondition: AImicroManage && undeployed
+		DeployChance: 100
+		DeployTrigger: BecomingIdle
+		DeployTicks: 100
+		UndeployTicks: 5
+	Wanders@AI:
+		RequiresCondition: AImicroManage && undeployed
+		WanderMoveRadius: 10
+		MinMoveDelay: 30
+		MaxMoveDelay: 30
 
 SGEN:
 	Inherits: ^Vehicle
@@ -1057,8 +1058,6 @@ SGEN:
 		RequiresCondition: !undeployed
 	WithFacingSpriteBody:
 		RequiresCondition: !inside-tunnel && undeployed
-	RenderVoxels:
-		Scale: 11.5
 	ProximityExternalCondition:
 		Condition: cloakgenerator
 		RequiresCondition: deployed && !empdisable
@@ -1083,16 +1082,17 @@ SGEN:
 		Palette: effectalpha10
 		IsDecoration: true ## so this doesn't have shadow
 	### AI Control
-	Wanders@AI:
-		RequiresCondition: AImicroManage
-		WanderMoveRadius: 10
-		MinMoveDelay: 300
-		MaxMoveDelay: 300
 	AutoDeployer@AI:
-		RequiresCondition: AImicroManage && !deployed
-		DeployTrigger: Periodically
-		DeployTicks: 150
-		UndeployTicks: 150
+		RequiresCondition: AImicroManage && undeployed
+		DeployChance: 100
+		DeployTrigger: BecomingIdle
+		DeployTicks: 100
+		UndeployTicks: 5
+	Wanders@AI:
+		RequiresCondition: AImicroManage && undeployed
+		WanderMoveRadius: 10
+		MinMoveDelay: 30
+		MaxMoveDelay: 30
 
 ## AI control it by using McvManagerBotModule
 MWAR:
@@ -1180,7 +1180,7 @@ HMECTEST:
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^9CellVision
 	Valued:
-		Cost: 20000
+		Cost: 15000
 	Tooltip:
 		Name: Mammoth Mk. III
 	UpdatesPlayerStatistics:
@@ -1192,7 +1192,7 @@ HMECTEST:
 		Prerequisites: ~showhmec, gtdrop, ~AIOnly, ~techlevel.6
 		Description: GDI's final creation for the war when everything is doomed.\n\nGood vs: Everything\n\nSpecial:\n- Build limit: 1\n- Selfhealing up to 100%\n- Can attack air\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything except other Epics\n- It is deployed via dropship at the Dropship Bay\n- Can attack while moving\n- Can spawn 2 gun drones
 		BuildLimit: 1
-		BuildDuration: 10000
+		BuildDuration: 7000
 		BuildDurationModifier: 100
 	ProductionTimeMultiplier@2_FACTORY:
 		Multiplier: 80
@@ -1496,7 +1496,7 @@ SCRINCOUNCIL:
 	Inherits@SHADOW: ^AircraftShadow
 	Inherits@VISION: ^11CellVision
 	Valued:
-		Cost: 20000
+		Cost: 15000
 	Tooltip:
 		Name: Scrin Council
 	UpdatesPlayerStatistics:
@@ -1507,7 +1507,7 @@ SCRINCOUNCIL:
 		BuildPaletteOrder: 29
 		Prerequisites: ~scrair, scradvpowr, ~techlevel.6, ~AIOnly
 		BuildLimit: 1
-		BuildDuration: 10000
+		BuildDuration: 7000
 		BuildDurationModifier: 100
 	Selectable:
 		Bounds: 2709,3135, 0,-1280
