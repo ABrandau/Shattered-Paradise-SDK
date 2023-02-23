@@ -2166,49 +2166,37 @@ sgen:
 		Length: 19
 		ShadowStart: 20
 
-mastl:
-	Inherits: ^EmpOverlay
-	Defaults:
-		Offset: 0, -13, 13
-	idle:
-		Filename: mttl.shp
-		ShadowStart: 3
-	damaged-idle:
-		Filename: mttl.shp
-		Start: 1
-		ShadowStart: 4
-	make:
-		Filename: mtstlmk.shp
-		Length: 20
-		ShadowStart: 20
-
 mwar:
-	Inherits: ^EmpOverlay
+	Inherits: ^SpriteVehicleWithShadow
+	Defaults:
+		Filename: mwar.shp
+	icon:
+		Filename: mwaricon-nod.shp
 
 mtar:
 	Inherits: ^EmpOverlay
 	Defaults:
 		Offset: -12, -42
 	idle:
-		Filename: mtar_1.shp
+		Filename: mtar_1-nod.shp
 		ShadowStart: 2
 		ZOffset: -1024
 	damaged-idle:
-		Filename: mtar_1.shp
+		Filename: mtar_1-nod.shp
 		Start: 1
 		ShadowStart: 3
 		ZOffset: -1024
 	idle-roof:
-		Filename: mtar_2.shp
+		Filename: mtar_2-nod.shp
 		ShadowStart: 2
 		ZOffset: 1024
 	damaged-idle-roof:
-		Filename: mtar_2.shp
+		Filename: mtar_2-nod.shp
 		Start: 1
 		ShadowStart: 3
 		ZOffset: 1024
 	dead:
-		Filename: mtar.shp
+		Filename: mtar-nod.shp
 		Start: 2
 		ShadowStart: 5
 		Tick: 400
@@ -2248,8 +2236,9 @@ mtar:
 		ShadowStart: 12
 		ZOffset: 1024
 	make:
-		Filename: mtarmk.shp
-		Length: 20
+		Filename: mtarmk-nod.shp
+		Length: 19
+		Start: 1
 		Tick: 80
 		ShadowStart: 20
 	bib:

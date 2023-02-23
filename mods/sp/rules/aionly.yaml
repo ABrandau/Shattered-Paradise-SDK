@@ -1096,10 +1096,17 @@ SGEN:
 
 ## AI control it by using McvManagerBotModule
 MWAR:
-	Inherits: ^VoxelVehicle
-	Inherits@4: ^EngineerCapturableVehicle
+	Inherits: ^Vehicle
 	Valued:
-		Cost: 800
+		Cost: 2000
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
+		BuildAtProductionType: Tank
+		Prerequisites: ~naweap, natech, ~AIOnly, ~techlevel.5
+		BuildPaletteOrder: 51
+		Description: Support unit can deploy into warfactory.\n\nUnarmed\n\nSpecial:\n - Can deploy into a factory to produce vehicle. \n - Needs Nod's War Factory to unlock basic vehicle. \n - Can crush infantry
+		BuildDuration: 1150
+		BuildDurationModifier: 100
 	Tooltip:
 		Name: Mobile War Factory
 	UpdatesPlayerStatistics:
@@ -1110,8 +1117,6 @@ MWAR:
 		Locomotor: InfantryCrusherVehicle
 	Health:
 		HP: 25000
-	RenderVoxels:
-		Scale: 11.5
 	Transforms:
 		IntoActor: mtar
 		Facing: 384
@@ -1121,17 +1126,24 @@ MWAR:
 		Voice: Move
 		Offset: -1,-1
 
-MTAR: ## TODO: as we use muti-queue it is buggy now
-	Inherits: ^TechBuilding
-	Inherits@2: ^Factory
+MTAR:
+	Inherits@1: ^Factory
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	-Buildable:
+	-MustBeDestroyed:
 	Valued:
-		Cost: 800
+		Cost: 2000
 	Tooltip:
 		Name: Mobile War Factory
+	Production@VehicleNod:
+		Produces: Vehicle.Nod
+	ProductionQueue@VehicleNod:
+		Type: Vehicle.Nod
+		DisplayOrder: 16
+	ProductionBar@VehicleNod:
+		ProductionType: Vehicle.Nod
 	Health:
-		HP: 25000
+		HP: 150000
 	Transforms:
 		IntoActor: mwar
 		Facing: 384
@@ -1168,7 +1180,7 @@ MTAR: ## TODO: as we use muti-queue it is buggy now
 	AutoDeployer@AI:
 		RequiresCondition: AIbuildingMicroControl
 		DeployTrigger: Periodically
-		DeployTicks: 1700
+		DeployTicks: 3000
 		UndeployTicks: 2000
 
 HMECTEST:
