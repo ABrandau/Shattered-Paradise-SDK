@@ -478,7 +478,6 @@ Player:
 			lpst: 95000
 			sgen: 95000
 			icbm: 97500
-	## Mcv Manager also control some tech vehicle's depoyment
 	McvManagerASBotModule@AINormal:
 		RequiresCondition: AINormal || AIEasy
 		McvTypes: mcv, cabmcv, nodmcv, mutmcv, drache
@@ -508,11 +507,12 @@ Player:
 		MinBaseRadius: 5
 		MaxBaseRadius: 30
 		ScanForNewMcvInterval: 31
+	## Mcv Manager also control some tech vehicle's depoyment
 	McvManagerASBotModule@mobilewarfactory-control:
 		RequiresCondition: AIBase || AIEasy
 		McvTypes: mwar
 		ConstructionYardTypes: mtar
-		McvFactoryTypes: naweap, nahfac, mtar
+		McvFactoryTypes: nahfac
 		MinimumConstructionYardCount: 0
 		MaxmiumConstructionYardCount: 1
 		AddtionalConstructionYardInterval: 95000
