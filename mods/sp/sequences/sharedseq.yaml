@@ -1031,6 +1031,121 @@ napuls.cab:
 		TilesetFilenames:
 		Offset: 0, 0
 
+
+mwar:
+	Inherits: ^SpriteVehicleWithShadow
+	Defaults:
+		Filename: mwar.shp
+	icon:
+		Filename: mwaricon.shp
+
+mwar.nod:
+	Inherits: mwar
+	icon:
+		Filename: mwaricon-nod.shp
+
+mtar:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Offset: -12, -42
+	idle:
+		Filename: mtar_1.shp
+		ShadowStart: 2
+		ZOffset: -1024
+	damaged-idle:
+		Filename: mtar_1.shp
+		Start: 1
+		ShadowStart: 3
+		ZOffset: -1024
+	idle-roof:
+		Filename: mtar_2.shp
+		ShadowStart: 2
+		ZOffset: 1024
+	damaged-idle-roof:
+		Filename: mtar_2.shp
+		Start: 1
+		ShadowStart: 3
+		ZOffset: 1024
+	dead:
+		Filename: mtar.shp
+		Start: 2
+		ShadowStart: 5
+		Tick: 400
+	production-lights-white:
+		Filename: mtar_a.shp
+		Length: 5
+		Tick: 100
+		ZOffset: 2048
+	damaged-production-lights-white:
+		Filename: mtar_a.shp
+		Length: 5
+		Tick: 100
+	production-lights-red:
+		Filename: mtar_b.shp
+		Length: 12
+		Tick: 120
+	damaged-production-lights-red:
+		Filename: mtar_b.shp
+		Length: 12
+		Tick: 120
+	idle-turbines:
+		Filename: mtar_c.shp
+		Length: 8
+		Tick: 80
+	damaged-idle-turbines:
+		Filename: mtar_c.shp
+		Length: 8
+		Tick: 80
+	build-door:
+		Filename: mtar_d.shp
+		Length: 11
+		ShadowStart: 12
+		ZOffset: 1024
+	damaged-build-door:
+		Filename: mtar_d.shp
+		Length: 11
+		ShadowStart: 12
+		ZOffset: 1024
+	make:
+		Filename: mtarmk.shp
+		Length: 19
+		Start: 1
+		Tick: 80
+		ShadowStart: 20
+	bib:
+		Filename: mtarbb.shp
+		Length: 1
+		ZOffset: -1024
+	damaged-bib:
+		Filename: mtarbb.shp
+		Start: 1
+		Length: 1
+		ZOffset: -1024
+	dead-bib:
+		Filename: mtarbb.shp
+		Start: 2
+		Length: 1
+		ZOffset: -1024
+	icon:
+		Filename: mwaricon.shp
+
+mtar.nod:
+	Inherits: mtar
+	idle:
+		Filename: mtar_1-nod.shp
+	damaged-idle:
+		Filename: mtar_1-nod.shp
+	idle-roof:
+		Filename: mtar_2-nod.shp
+	damaged-idle-roof:
+		Filename: mtar_2-nod.shp
+	dead:
+		Filename: mtar-nod.shp
+	make:
+		Filename: mtarmk-nod.shp
+	icon:
+		Filename: mwaricon-nod.shp
+
 quaddrone-mini:
 	Inherits: ^EmpOverlay
 	Defaults:

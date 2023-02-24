@@ -1125,6 +1125,11 @@ MWAR:
 		PauseOnCondition: mindcontrolled || empdisable
 		Voice: Move
 		Offset: -1,-1
+	RenderSprites:
+		Image: mwar
+		FactionImages:
+			nod: mwar.nod
+			cab: mwar.nod
 
 MTAR:
 	Inherits@1: ^Factory
@@ -1173,6 +1178,11 @@ MTAR:
 	IsometricSelectable:
 		DecorationHeight: 36
 	-ProvidesPrerequisite@factory:
+	RenderSprites:
+		Image: mtar
+		FactionImages:
+			nod: mtar.nod
+			cab: mtar.nod
 	### AI Control
 	RejectsOrders@deploymentAI: ## Hack: Need to prevent first time deploy
 		Reject: DeployTransform
