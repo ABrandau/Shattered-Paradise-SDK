@@ -782,6 +782,9 @@ BGGY:
 		TurnSpeed: 40
 		Speed: 165
 		Locomotor: Vehicle
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
 	Turreted:
 		Offset: -250,0,400
 		TurnSpeed: 32
@@ -871,13 +874,17 @@ BGGY:
 	Armament@templar:
 		Weapon: TemplarFlame
 		Damage: 40
-		LocalOffset: 250,0,125
+		LocalOffset: 400,0,75
 		RequiresCondition: ifv.templar && !blueflame
+		MuzzleSequence: muzzle-flame
+		MuzzlePalette: gensmkexploj
 	Armament@templar-elite:
 		Weapon: BuggyTemplarFlameE
 		Damage: 60
-		LocalOffset: 250,0,125
+		LocalOffset: 400,0,75
 		RequiresCondition: ifv.templar && blueflame
+		MuzzleSequence: muzzle-flame
+		MuzzlePalette: gensmkexplojFblue
 	Armament@nconf:
 		Weapon: BlackHandLasorBuggy
 		Damage: 96
