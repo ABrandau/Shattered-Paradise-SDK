@@ -1193,6 +1193,61 @@ MTAR:
 		DeployTicks: 3000
 		UndeployTicks: 2000
 
+M_EMP:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AImicroManagable: ^AImicroManagable
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Mobile EMP
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.GDI
+		BuildAtProductionType: Tank
+		Description: Support unit can generate emp pulse.\n\nUnarmed.\n\nSpecial:\n - Deploy to generate emp pulse to disable building, cyborg and vehicle \n - Immumes to EMP \n - Can crush Infantry
+		BuildPaletteOrder: 51
+		Prerequisites: ~gaweap, gatech, ~AIOnly, ~techlevel.5
+		BuildDuration: 625
+		BuildDurationModifier: 100
+	Mobile:
+		TurnSpeed: 32
+		Speed: 80
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 25000
+	Armament@AIAim:
+		Weapon: MEMPDummyWeapon
+		RequiresCondition: AImicroManage
+	AttackFrontal:
+		RequiresCondition: AImicroManage
+		TargetFrozenActors: true ## For better AI control
+		FacingTolerance: 128
+	AutoTarget:
+		RequiresCondition: AImicroManage
+		ScanRadius: 6
+		InitialStance: HoldFire
+		InitialStanceAI: AttackAnything
+	GrantTimedConditionOnDeploy:
+		DeployedCondition: empSpawn
+		CooldownTicks: 1600
+		DeployedTicks: 1
+		StartsFullyCharged: true
+	ExplodeWeapon@Deployed:
+		Weapon: EMPulseCannon
+		RequiresCondition: empSpawn
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage
+		DeployTrigger: Attack
+		DeployChance: 100
+		DeployTicks: 1605
+		UndeployTicks: 1
+	-ExternalCondition@empdisable:
+	-TimedConditionBar@EMPDISABLE:
+	-WithIdleOverlay@EMPDISABLE:
+
+########## AI Boss unit ###############
 HMECTEST:
 	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
