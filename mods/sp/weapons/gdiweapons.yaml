@@ -1199,3 +1199,20 @@ MKIIIDroneRepair:
 		Damage: -2000
 		ValidTargets: Vehicle
 		ValidRelationships: Ally
+
+MEMPulse:
+	Inherits: EMPulseCannon
+	Projectile: InstantExplode
+	Warhead@1Eff: CreateEffect
+		Explosions: mempfx
+		ImpactActors: false
+		AirThreshold: 8c0
+	Warhead@3: GrantExternalCondition
+		Range: 3c0
+	Warhead@4: GrantExternalCondition
+		Range: 3c0
+	Warhead@5: SpreadDamage
+		Spread: 2c512
+	Warhead@7: FireRadius
+		Amount: 6
+		Delay: 20

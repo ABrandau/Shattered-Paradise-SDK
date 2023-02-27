@@ -1224,6 +1224,14 @@ M_EMP:
 		RequiresCondition: AImicroManage
 		TargetFrozenActors: true ## For better AI control
 		FacingTolerance: 128
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	WithMuzzleOverlay:
+	-WithFacingSpriteBody:
+	WithInfantryBody: ## support tracks motion animation
+		RequiresCondition: !inside-tunnel
+		IdleSequences: idle, idle2
 	AutoTarget:
 		RequiresCondition: AImicroManage
 		ScanRadius: 6
@@ -1235,7 +1243,7 @@ M_EMP:
 		DeployedTicks: 1
 		StartsFullyCharged: true
 	ExplodeWeapon@Deployed:
-		Weapon: EMPulseCannon
+		Weapon: MEMPulse
 		RequiresCondition: empSpawn
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage
