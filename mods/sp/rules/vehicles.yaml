@@ -1658,9 +1658,6 @@ SUBTANK:
 		Speed: 105
 	Health:
 		HP: 30000
-	BodyOrientation:
-		QuantizedFacings: 32
-		CameraPitch: 250
 	Armament:
 		Weapon: DevilsFlame
 		LocalOffset: 700,500,-200, 700,-500,-200
@@ -1675,7 +1672,13 @@ SUBTANK:
 		RequiresCondition: blueflame
 		MuzzleSequence: muzzle
 		MuzzlePalette: gensmkexplojFblue
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
 	WithMuzzleOverlay:
+	-WithFacingSpriteBody:
+	WithInfantryBody: ## support tracks motion animation
+		RequiresCondition: !inside-tunnel && !submerged
 	AttackFrontal:
 		PauseOnCondition: empdisable
 		FacingTolerance: 2
