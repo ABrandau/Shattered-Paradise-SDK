@@ -1126,10 +1126,9 @@ MWAR:
 		Voice: Move
 		Offset: -1,-1
 	RenderSprites:
-		Image: mwar
+		Image: mwar.nod
 		FactionImages:
-			nod: mwar.nod
-			cab: mwar.nod
+			gdi: mwar
 
 MTAR:
 	Inherits@1: ^Factory
@@ -1179,10 +1178,13 @@ MTAR:
 		DecorationHeight: 36
 	-ProvidesPrerequisite@factory:
 	RenderSprites:
-		Image: mtar
+		Image: mtar.nod
 		FactionImages:
-			nod: mtar.nod
-			cab: mtar.nod
+			gdi: mtar
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: mtar
 	### AI Control
 	RejectsOrders@deploymentAI: ## Hack: Need to prevent first time deploy
 		Reject: DeployTransform
