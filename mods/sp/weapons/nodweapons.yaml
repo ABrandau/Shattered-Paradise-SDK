@@ -47,7 +47,7 @@ TemplarFlame:
 	Inherits@2: ^FlameScorch
 	ReloadDelay: 50
 	Burst: 10
-	BurstDelays: 0
+	BurstDelays: 1
 	Range: 4c0
 	StartBurstReport: flamtnk1.aud
 	Projectile: BulletAS
@@ -149,6 +149,12 @@ BuggyCannon:
 	ReloadDelay: 40
 	Range: 5c0
 	Report: tsgun4.aud
+	Projectile: LaserZap
+		Duration: 3
+		Width: 25
+		Color: EE9900
+		Blockable: true
+		TrackTarget: false
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
@@ -168,19 +174,62 @@ BuggyRepair:
 		ValidTargets: Vehicle
 		InvalidTargets: FullHealth, NoRepair
 
-SharkJumpNod:
+BuggySaw:
 	Inherits: ^RifleWarhead
 	ValidTargets: Ground, Water
 	ReloadDelay: 20
 	Range: 1c512
-	Report: SharkStrike0001.wav, SharkStrike0003.wav, SharkStrike0004.wav, SharkStrike0006.wav
+	Report: piston1.wav, piston2.wav
 	Warhead@1Dam: SpreadDamage
 		Damage: 6000
 		Versus:
 			Infantry: 100
 			Building: 75
 		Spread: 0c030
-		DamageTypes: Prone100Percent, BulletDeath, ScrinEssenceKill, TriggerProne
+		DamageTypes: Prone100Percent, BulletDeath, TriggerProne
+
+BuggyGLAD:
+	Inherits: GLAD120mm
+	Burst: 4
+	BurstDelays: 1
+
+BuggyDisc:
+	Inherits: Grenade
+	ReloadDelay: 90
+	Projectile: Bullet
+		LaunchAngle: 165
+	Warhead@op: FireShrapnel
+		Weapon: BuggyGrenade
+		ImpactActors: false
+		Amount: 3
+		AirThreshold: 8c0
+		ValidTargets: Infantry, Vehicle, Building, Ground, Wall, Water
+
+BuggyGrenade:
+	Inherits: JJGroundGrenade
+	Range: 2c0
+	Projectile: BulletAS
+		Inaccuracy: 0c256
+		LaunchAngle: 210
+		Speed: 100
+
+BuggyJJBeacon:
+	Inherits: JJBeacon
+	Projectile: BulletAS
+		LaunchAngle: 165
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
+
+BuggyVoidField:
+	ReloadDelay: 5
+	Range: 1c256
+	ValidTargets: Ground, Water
+	InvalidTargets: Building
+	Projectile: InstantExplode
+	Warhead@8Radio: CreateTintedCells
+		Spread: 1c128
+		Level: 30
+		Falloff: 100, 85, 60, 45, 30, 15
+		LayerName: ColossusRadiation
 
 BikeMissile:
 	Inherits: ^RocketWarhead

@@ -811,6 +811,7 @@ BGGY:
 			cyborg: ifv.militant
 			worker: ifv.militant
 			cybdog: ifv.militant
+			umagon: ifv.militant
 			crusader: ifv.crusader
 			grenadier: ifv.crusader
 			mutfiend: ifv.crusader
@@ -824,23 +825,22 @@ BGGY:
 			nconf: ifv.nconf
 			bhs: ifv.bhs
 			medic: ifv.medic
+			float: ifv.medic #ifv.float
 			e2: ifv.disc
-			jumpjet: ifv.jumpjet
-			eagleguard: ifv.eagleguard
+			jumpjet: ifv.disc #ifv.jumpjet
 			jjcomm: ifv.jjcomm
+			eagleguard: ifv.eagleguard
 			e3: ifv.skirmisher
 			seer: ifv.seer
-			ghost: ifv.ghost
-			umagon: ifv.militant
+			ghost: ifv.eagleguard
 			psyker: ifv.psyker
 			glad: ifv.glad
 			cyc2: ifv.cyc2
 			moth: ifv.moth
-			pdrone: ifv.pdrone
+			pdrone: ifv.shark #ifv.pdrone
 			shark: ifv.shark
 			bug: ifv.bug
 			colossi: ifv.colossi
-			float: ifv.float
 			mastermind: ifv.mastermind
 	############################################
 	# Armaments
@@ -850,7 +850,7 @@ BGGY:
 		Damage: 40
 		LocalOffset: 250,0,125
 		MuzzleSequence: muzzle
-		RequiresCondition: !loaded
+		RequiresCondition: !loaded || ifv.mastermind
 	Armament@militant1:
 		Weapon: BuggyCannonLoaded
 		Damage: 50
@@ -897,17 +897,11 @@ BGGY:
 		MuzzleSequence: muzzle
 		RequiresCondition: ifv.bhs
 	Armament@discthrower:
-		Weapon: Grenade
+		Weapon: BuggyDisc
 		Damage: 50
-		LocalOffset: 250,0,125
+		LocalOffset: 500,0,800
 		MuzzleSequence: muzzle
 		RequiresCondition: ifv.disc
-	Armament@jumpjet:
-		Weapon: JJGrenade
-		Damage: 50
-		LocalOffset: 250,0,125
-		MuzzleSequence: muzzle
-		RequiresCondition: ifv.jumpjet
 	Armament@medic:
 		Weapon: Heal
 		Damage: -75
@@ -929,24 +923,24 @@ BGGY:
 		MuzzleSequence: muzzle-repair
 		MuzzlePalette: player
 	Armament@eagleguard:
-		Weapon: TrooperRail
+		Weapon: TitanRailgun
 		Damage: 60
-		LocalOffset: 250,0,125
+		LocalOffset: 500,0,150
 		RequiresCondition: ifv.eagleguard
 	Armament@jumpjetcommando:
-		Weapon: JJSMG
+		Weapon: BuggyJJBeacon
 		Damage: 200
-		LocalOffset: 250,0,125
+		LocalOffset: 500,0,800
 		RequiresCondition: ifv.jjcomm
 	Armament@skirmisher:
 		Weapon: SkirmisherMortar
 		Damage: 40
-		LocalOffset: 250,0,125
+		LocalOffset: 500,0,800
 		RequiresCondition: ifv.skirmisher && !tibgaswh
 	Armament@skirmisherGas:
 		Weapon: SkirmisherMortarGas
 		Damage: 40
-		LocalOffset: 250,0,125
+		LocalOffset: 500,0,800
 		RequiresCondition: ifv.skirmisher && tibgaswh
 	Armament@seer:
 		Weapon: SeerTesla
@@ -967,17 +961,8 @@ BGGY:
 		Damage: 400
 		LocalOffset: 250,0,125
 		RequiresCondition: ifv.psyker
-	Armament@ghost:
-		Weapon: LtRail
-		Damage: 200
-		LocalOffset: 250,0,125
-		RequiresCondition: ifv.ghost
-	Armament@ghostpit:
-		Weapon: LtRailSmudge
-		LocalOffset: 250,0,125
-		RequiresCondition: ifv.ghost
-	Armament@shark:
-		Weapon: SharkJumpNod
+	Armament@Saw:
+		Weapon: BuggySaw
 		Damage: 60
 		LocalOffset: 250,0,125
 		RequiresCondition: ifv.shark
@@ -992,35 +977,14 @@ BGGY:
 		LocalOffset: 250,0,125
 		RequiresCondition: ifv.bug && impplaguegas
 	Armament@colossi:
-		Weapon: ColossiShard
-		Damage: 200
+		Weapon: BuggyVoidField
+		Damage: 0
 		LocalOffset: 250,0,125
 		RequiresCondition: ifv.colossi
-	Armament@mastermind:
-		Weapon: MindWave
-		Damage: 150
-		LocalOffset: 250,0,125
-		RequiresCondition: ifv.mastermind
-	Armament@float:
-		Weapon: FloatTesla
-		Damage: -40
-		LocalOffset: 250,0,125
-		RequiresCondition: ifv.float
-	Armament@pdrone:
-		Weapon: ReclaimerHit
-		Damage: 63
-		LocalOffset: 250,0,125
-		RequiresCondition: ifv.pdrone
 	Armament@glad:
-		Weapon: GLAD120mm
+		Weapon: buggyGLAD
 		Damage: 100
-		LocalOffset: 400,-200,125
-		RequiresCondition: ifv.glad
-		MuzzleSequence: muzzle
-	Armament@glad2:
-		Weapon: GLAD120mm
-		Damage: 100
-		LocalOffset: 400,200,125
+		LocalOffset: 400,-200,125, 400,200,125
 		RequiresCondition: ifv.glad
 		MuzzleSequence: muzzle
 	Armament@moth:
@@ -1053,7 +1017,7 @@ BGGY:
 	###################################
 	WithSpriteTurret@asd:
 		Sequence: turret-none
-		RequiresCondition: !inside-tunnel && !loaded
+		RequiresCondition: !inside-tunnel && (!loaded || ifv.mastermind)
 	WithSpriteTurret@militant:
 		Sequence: turret-minigun
 		RequiresCondition: !inside-tunnel && ifv.militant
@@ -1074,7 +1038,7 @@ BGGY:
 		RequiresCondition: !inside-tunnel && ifv.medic
 	WithSpriteTurret@eagleguard:
 		Sequence: turret-eagleguard
-		RequiresCondition: !inside-tunnel && (ifv.eagleguard || ifv.jjcomm || ifv.ghost)
+		RequiresCondition: !inside-tunnel && (ifv.eagleguard || ifv.ghost)
 	WithSpriteTurret@abductor:
 		Sequence: turret-abductor
 		RequiresCondition: !inside-tunnel && ifv.moth
@@ -1089,19 +1053,16 @@ BGGY:
 		RequiresCondition: !inside-tunnel && ifv.cyc2
 	WithSpriteTurret@mortar:
 		Sequence: turret-mortar
-		RequiresCondition: !inside-tunnel && (ifv.disc || ifv.jumpjet || ifv.skirmisher)
+		RequiresCondition: !inside-tunnel && (ifv.disc || ifv.skirmisher || ifv.jjcomm)
 	WithSpriteTurret@tesla:
 		Sequence: turret-tesla
 		RequiresCondition: !inside-tunnel && (ifv.seer || ifv.psyker)
 	WithSpriteTurret@bug:
-		Sequence: turret-bug
-		RequiresCondition: !inside-tunnel && ifv.bug
-	WithSpriteTurret@float:
 		Sequence: turret-float
-		RequiresCondition: !inside-tunnel && ifv.float
+		RequiresCondition: !inside-tunnel && ifv.bug
 	WithSpriteTurret@colossi:
 		Sequence: turret-colossi
-		RequiresCondition: !inside-tunnel && (ifv.colossi || ifv.mastermind)
+		RequiresCondition: !inside-tunnel && ifv.colossi
 	############################################
 	# Names
 	############################################
@@ -1112,74 +1073,71 @@ BGGY:
 		Name: Anti-Infantry Buggy
 		RequiresCondition: ifv.militant
 	Tooltip@crusader:
-		Name: Anti-Vehicle Buggy
+		Name: Rocket Buggy
 		RequiresCondition: ifv.crusader
 	Tooltip@templar:
 		Name: Flame Buggy
 		RequiresCondition: ifv.templar
 	Tooltip@nconf:
-		Name: Black Hand Buggy
+		Name: Laser Buggy
 		RequiresCondition: ifv.nconf
 	Tooltip@bhs:
 		Name: Toxin Commando Buggy
 		RequiresCondition: ifv.bhs
 	Tooltip@discthrower:
-		Name: Disc Launcher Buggy
-		RequiresCondition: ifv.disc
-	Tooltip@jumpjet:
 		Name: Grenade Launcher Buggy
-		RequiresCondition: ifv.jumpjet
-	Tooltip@eagleguard:
-		Name: Eagle Guard Buggy
-		RequiresCondition: ifv.eagleguard
+		RequiresCondition: ifv.disc
 	Tooltip@jjcomm:
-		Name: Sonic Buggy
+		Name: Beacon Launcher Buggy
 		RequiresCondition: ifv.jjcomm
+	Tooltip@eagleguard:
+		Name: Railgun Buggy
+		RequiresCondition: ifv.eagleguard
 	Tooltip@medic:
 		Name: Medical Buggy
 		RequiresCondition: ifv.medic
 	Tooltip@skirmisher:
-		Name: Skirmisher Buggy
+		Name: Mortar Buggy
 		RequiresCondition: ifv.skirmisher
 	Tooltip@Engineer:
-		Name: Engineer Buggy
+		Name: Repair Buggy
 		RequiresCondition: ifv.engineer
 	Tooltip@seer:
-		Name: Tyrant Buggy
+		Name: Tesla Buggy
 		RequiresCondition: ifv.seer
 	Tooltip@psyker:
-		Name: Lyra Buggy
+		Name: Thunder Buggy
 		RequiresCondition: ifv.psyker
-	Tooltip@ghost:
-		Name: Gil Buggy
-		RequiresCondition: ifv.ghost
 	Tooltip@glad:
-		Name: Gladiator Buggy
+		Name: Cannon Buggy
 		RequiresCondition: ifv.glad
 	Tooltip@cyc2:
-		Name: Cyborg Commando Buggy
+		Name: Proton Buggy
 		RequiresCondition: ifv.cyc2
 	Tooltip@moth:
-		Name: Abductor Buggy
+		Name: Spike Buggy
 		RequiresCondition: ifv.moth
-	Tooltip@pdrone:
-		Name: Flood Buggy
-		RequiresCondition: ifv.pdrone
 	Tooltip@shark:
-		Name: RazorBuggy
+		Name: Chainsaw Buggy
 		RequiresCondition: ifv.shark
 	Tooltip@bug:
 		Name: Plague Buggy
 		RequiresCondition: ifv.bug
 	Tooltip@colossi:
-		Name: Colossal Buggy
+		Name: Void Field Buggy
 		RequiresCondition: ifv.colossi
-	Tooltip@float:
-		Name: Essential Buggy
-		RequiresCondition: ifv.float
 	Tooltip@mastermind:
-		Name: Mastermind Buggy
+		Name: Teleport Buggy
 		RequiresCondition: ifv.mastermind
+	PortableChrono@MasterMind:
+		RequiresCondition: ifv.mastermind
+		ChronoshiftSound: instantrift.wav
+		Voice: Move
+		ChargeDelay: 500
+		TargetCursor: emp
+		KillCargo: false
+	DamagedByTintedCells@Colossus:
+		RequiresCondition: !ifv.colossi
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
