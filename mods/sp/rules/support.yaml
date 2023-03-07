@@ -1226,16 +1226,28 @@ MUVENTI:
 		Types: Infantry, Vehicle
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
-	Exit:
 	Targetable:
 		TargetTypes: Building, Ground, C4
 	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
+	#Exit@1:
+	#	Facing: 640
+	#	SpawnOffset: 256,256,0
+	#	ExitCell: 2,1
 	RallyPoint:
 		Path: 2,2
 		Palette: mouse
 		IsPlayerPalette: false
+	MapEditorData:
+		Categories: Defence
+	WithIdleOverlay@SpawnFire:
+		Sequence: fire2_higher
+	RenderSprites:
+		Image: musnek
+	WithIdleOverlay@BIB:
+		Sequence: bib
+		RequiresCondition: !Building-Buildup
 	WithSharedCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1276,11 +1288,12 @@ MUVENTI:
 		DeployTicks: 30
 		UndeployTicks: 5
 	-RevealOnFire:
+	-GivesBuildableArea:
+	-GrantConditionOnPrerequisite@SUDDENDEATH:
+	-MustBeDestroyed:
 	ActorStatValues:
 		Armaments: None
 		Upgrades: upgrade.tunnel_repairs
-	RenderSprites:
-		Image: musnek
 
 MUTSW1:
 	Inherits: ^Building
