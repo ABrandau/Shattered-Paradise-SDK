@@ -773,10 +773,20 @@ smech:
 g4tnk:
 	Inherits@1: ^SpriteVehicleWithShadowAndTurret
 	Defaults:
-		Filename: g4tnk_golden.shp
+		Filename: g4tnk_body_golden.shp
+	idle:
+		Filename: g4tnk_body_golden.shp
+		ShadowStart: 32
+	stand:
+		Filename: g4tnk_body_golden.shp
+		ShadowStart: 32
+	turret:
+		Filename: g4tnk_turret_golden.shp
+		Start: 0
+		Facings: -32
 	turret2:
-		Filename: g4tnk_golden.shp
-		Start: 128
+		Filename: g4tnk_Rturret_golden.shp
+		Start: 0
 		Facings: -32
 	muzzle2:
 		Filename: sparks.shp
@@ -846,9 +856,10 @@ mmch:
 		Start: 64
 		Facings: -32
 	barrel2:
-		Filename: titan_rail_barrel.shp
+		Filename: buggyturret2.shp
 		Start: 0
 		Facings: -32
+		Offset: 0,-9, 9
 	muzzle2:
 		Filename: sparks.shp
 		Length: *

@@ -513,11 +513,12 @@ G4TNK:
 		Volume: 3
 	Turreted:
 		TurnSpeed: 20
-		Offset: -200,0,40
+		#Offset: -200,0,-40
+		Offset: -64,0,600 ##new turret
 	Armament@PRIMARY:
 		Weapon: 4TNKGUN
 		Damage: 140
-		LocalOffset: 1150,120,550, 1150,-120,550
+		LocalOffset: 1280,180,-200, 1280,-180,-200
 		MuzzleSequence: muzzle
 		Recoil: 127
 		RecoilRecovery: 26
@@ -529,7 +530,7 @@ G4TNK:
 	Armament@Railgun:
 		Weapon: 4TNKRAILGUN
 		Damage: 210
-		LocalOffset: 1150,180,500, 1150,-180,500
+		LocalOffset: 1280,180,-200, 1280,-180,-200
 		MuzzleSequence: muzzle2
 		Recoil: 127
 		RecoilRecovery: 26
@@ -539,13 +540,13 @@ G4TNK:
 	Armament@SECONDARY:
 		Weapon: MammothTusk
 		Damage: 60
-		LocalOffset: 100,400,650, 100,-400,650
+		LocalOffset: 100,400,0, 100,-400,0
 		LocalYaw: -168, 168
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 	Armament@SECONDARYSECONDARY:
 		Weapon: MammothTuskAA
-		LocalOffset: 100,400,650, 100,-400,650
+		LocalOffset: 100,400,0, 100,-400,0
 		LocalYaw: -168, 168
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
