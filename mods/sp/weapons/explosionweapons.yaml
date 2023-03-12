@@ -250,6 +250,22 @@ UnitExplodeSmall:
 		Sequences: fire3
 		Palette: effect
 
+ReaperExplode:
+	Inherits@2: UnitExplodeSmall
+	Warhead@3Eff: CreateEffect
+		Explosions: infdeathexplo1, infdeathexplo2, infdeathexplo3
+		ExplosionPalette: gensmkexploj
+		ImpactActors: false
+		ValidTargets: Ground, Air
+	Warhead@1Dam: SpreadDamage
+		Delay: 34
+	Warhead@2Eff: CreateEffect
+		Delay: 34
+	Warhead@2Smu: LeaveSmudge
+		Delay: 34
+	Warhead@2: SpawnSmokeParticle
+		Delay: 34
+
 GrenadeExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Small_Brnl
