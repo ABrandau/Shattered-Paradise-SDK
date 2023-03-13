@@ -869,20 +869,29 @@ mmch:
 		Filename: mmchicon.shp
 
 apc:
-	Inherits@1: ^SpriteVehicleWithShadowAndTurret
+	Inherits@1: ^EmpOverlay
 	Inherits@2: ^BuggyMuzzle
 	Defaults:
 		Filename: apc.shp
 	icon:
 		Filename: apcicon2.shp
+	idle:
+		Facings: -32
+		ShadowStart: 32
 	idle-water:
-		Filename: apcwater.shp
+		Filename: apc_water.shp
 		Facings: -32
-		ShadowStart: 64
+		ShadowStart: 32
+	turret:
+		Filename: apc_tur.shp
+		Start: 0
+		Facings: -32
+		Offset: 0, -6.8, 6.8
 	turret-water:
-		Filename: apcwater.shp
-		Start: 32
+		Filename: apc_tur_water.shp
+		Start: 0
 		Facings: -32
+		Offset: 0, 3, -3
 
 hvr:
 	Inherits: ^EmpOverlay
@@ -895,8 +904,8 @@ hvr:
 		Facings: -32
 		ShadowStart: 32
 	turret:
-		Filename: hvr.shp
-		Start: 32
+		Filename: hvr-tur.shp
+		Start: 0
 		Facings: -32
 	icon:
 		Filename: hovricon.shp
