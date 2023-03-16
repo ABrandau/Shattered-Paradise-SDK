@@ -820,111 +820,6 @@ WEASAU3:
 		DeployTicks: 1005
 		UndeployTicks: 1
 
-ICBM:
-	Inherits: ^Vehicle
-	Inherits@AImicroManagable: ^AImicroManagable
-	Inherits@VISION: ^6CellVision
-	Inherits@2: ^HasMisslePower
-	Buildable:
-		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 51
-		Prerequisites: ~naweap, nahfac, ~AIOnly, ~techlevel.6
-		Description: Even ICBM is deployed as the tension increased.\n\nUnarmed. \n\nSpecial:\n- Deploy to gain ICBM strike abiility
-		BuildDuration: 2000
-		BuildDurationModifier: 100
-	Valued:
-		Cost: 4000
-	Tooltip:
-		Name: Ballistic Missile Launcher
-		RequiresCondition: !deployed
-	Tooltip@DEPLOYED:
-		Name: Ballistic Missile Launcher (deployed)
-		RequiresCondition: deployed
-	Health:
-		HP: 50000
-	Armor:
-		Type: Light
-	Mobile:
-		TurnSpeed: 20
-		Speed: 40
-	GrantConditionOnDeploy:
-		PauseOnCondition: empdisable
-		DeployedCondition: deployed
-		UndeployedCondition: undeployed
-		UndeployOnMove: true
-		UndeployOnPickup: true
-		Facing: 640
-		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Tiberium, BlueTiberium
-		DeploySounds: place2.aud
-		UndeploySounds: clicky1.aud
-		Voice: Move
-	WithMakeAnimation:
-	EntersTunnels:
-		RequireForceMoveCondition: !undeployed
-	Repairable:
-		RequireForceMoveCondition: !undeployed
-	Passenger:
-		RequireForceMoveCondition: !undeployed
-	GrantCondition@PREVIEWWORKAROUND:
-		Condition: real-actor
-	WithFacingSpriteBody:
-		Name: undeploy-body
-		RequiresCondition: !inside-tunnel && undeployed
-	WithSpriteBody@deployedloaded:
-		RequiresCondition: !inside-tunnel && !undeployed
-		Sequence: unlaunched-idle
-	ProvidesPrerequisite@icbm:
-		Prerequisite: icbm
-		ResetOnOwnerChange: true
-	NukePower:
-		Prerequisites:
-			1: icbm
-		Names:
-			1: ICBM Strike
-		Descriptions:
-			1: Launches an ICBM with nuclear warhead.
-		SelectTargetSpeechNotification: SelectTarget
-		SelectTargetTextNotification: Select target.
-		MissileImage: icbm_missile
-		MissileDelay: 0
-		FlightDelay: 300
-		FlightVelocity: 0c512
-		DisplayTimerRelationships: Ally, Neutral, Enemy
-		SpawnOffset: 488, -520, 0
-		ArrowSequence: arrow
-		MissilePalette: player
-		IsPlayerPalette: false
-		OrderName: ToxinMissile
-		MissileWeapons:
-			1: BombTruckExplo
-		CircleRanges:
-			1: 6c0
-		CameraRange: 5c0
-		CameraSpawnAdvance: 25
-		CameraRemoveDelay: 350
-		PauseOnCondition: empdisable
-		RequiresCondition: deployed
-		TrailImage: explosion
-		TrailPalette: gensmkexploj
-		TrailSequences: jsmokey4
-		TrailDelay: 0
-		TrailInterval: 0
-	WithSupportPowerActivationAnimation:
-		RequiresCondition: !inside-tunnel && deployed
-		Sequence: launched-idle
-	AutoDeployer@AI:
-		RequiresCondition: AImicroManage && undeployed
-		DeployChance: 100
-		DeployTrigger: BecomingIdle
-		DeployTicks: 100
-		UndeployTicks: 5
-	Wanders@AI:
-		RequiresCondition: AImicroManage && undeployed
-		WanderMoveRadius: 10
-		MinMoveDelay: 30
-		MaxMoveDelay: 30
-
 LPST:
 	Inherits: ^Vehicle
 	Inherits@AImicroManagable: ^AImicroManagable
@@ -1082,6 +977,112 @@ SGEN:
 		Palette: effectalpha10
 		IsDecoration: true ## so this doesn't have shadow
 	### AI Control
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && undeployed
+		DeployChance: 100
+		DeployTrigger: BecomingIdle
+		DeployTicks: 100
+		UndeployTicks: 5
+	Wanders@AI:
+		RequiresCondition: AImicroManage && undeployed
+		WanderMoveRadius: 10
+		MinMoveDelay: 30
+		MaxMoveDelay: 30
+
+
+ICBM:
+	Inherits: ^Vehicle
+	Inherits@AImicroManagable: ^AImicroManagable
+	Inherits@VISION: ^6CellVision
+	Inherits@2: ^HasMisslePower
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 51
+		Prerequisites: ~naweap, nahfac, ~AIOnly, ~techlevel.6
+		Description: Even ICBM is deployed as the tension increased.\n\nUnarmed. \n\nSpecial:\n- Deploy to gain ICBM strike abiility
+		BuildDuration: 2000
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 4000
+	Tooltip:
+		Name: Ballistic Missile Launcher
+		RequiresCondition: !deployed
+	Tooltip@DEPLOYED:
+		Name: Ballistic Missile Launcher (deployed)
+		RequiresCondition: deployed
+	Health:
+		HP: 50000
+	Armor:
+		Type: Light
+	Mobile:
+		TurnSpeed: 20
+		Speed: 40
+	GrantConditionOnDeploy:
+		PauseOnCondition: empdisable
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		UndeployOnMove: true
+		UndeployOnPickup: true
+		Facing: 640
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Tiberium, BlueTiberium
+		DeploySounds: place2.aud
+		UndeploySounds: clicky1.aud
+		Voice: Move
+	WithMakeAnimation:
+	EntersTunnels:
+		RequireForceMoveCondition: !undeployed
+	Repairable:
+		RequireForceMoveCondition: !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
+	GrantCondition@PREVIEWWORKAROUND:
+		Condition: real-actor
+	WithFacingSpriteBody:
+		Name: undeploy-body
+		RequiresCondition: !inside-tunnel && undeployed
+	WithSpriteBody@deployedloaded:
+		RequiresCondition: !inside-tunnel && !undeployed
+		Sequence: unlaunched-idle
+	ProvidesPrerequisite@icbm:
+		Prerequisite: icbm
+		ResetOnOwnerChange: true
+	NukePower:
+		Prerequisites:
+			1: icbm
+		Names:
+			1: ICBM Strike
+		Descriptions:
+			1: Launches an ICBM with nuclear warhead.
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: Select target.
+		MissileImage: icbm_missile
+		MissileDelay: 0
+		FlightDelay: 300
+		FlightVelocity: 0c512
+		DisplayTimerRelationships: Ally, Neutral, Enemy
+		SpawnOffset: 488, -520, 0
+		ArrowSequence: arrow
+		MissilePalette: player
+		IsPlayerPalette: false
+		OrderName: ToxinMissile
+		MissileWeapons:
+			1: BombTruckExplo
+		CircleRanges:
+			1: 6c0
+		CameraRange: 5c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
+		PauseOnCondition: empdisable
+		RequiresCondition: deployed
+		TrailImage: explosion
+		TrailPalette: gensmkexploj
+		TrailSequences: jsmokey4
+		TrailDelay: 0
+		TrailInterval: 0
+	WithSupportPowerActivationAnimation:
+		RequiresCondition: !inside-tunnel && deployed
+		Sequence: launched-idle
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && undeployed
 		DeployChance: 100
