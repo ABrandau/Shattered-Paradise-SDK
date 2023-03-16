@@ -1999,7 +1999,7 @@ MUTQUAD:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DETECTION: ^BasicStealthDetection
 	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@RENDER: ^MutRender
+	Inherits@RENDER: ^MutRenderGreen
 	Inherits@VISION: ^8CellVision
 	Valued:
 		Cost: 700
@@ -2028,35 +2028,46 @@ MUTQUAD:
 	WithMuzzleOverlay:
 	Armament@Fakebullet:
 		Weapon: QuadFireLine
-		LocalOffset: 1200,20,1000, 1200,-20,1000
+		LocalOffset: 800,90,370, 800,-90,370
 		CasingWeapon: CasingDebris
-		CasingSpawnLocalOffset: -200,20,980, -200,-20,980
+		CasingSpawnLocalOffset: 100,20,400, 100,-20,400
 		CasingTargetOffset: -256, 512, 0, -256, -512, 0
 		PauseOnCondition: empdisable || reload-air
+		MuzzleSequence: muzzle
+		MuzzlePalette: effect
 	Armament@FakebulletAA:
 		Weapon: QuadFireLineAA
-		LocalOffset: 1200,20,1000, 1200,-20,1000
+		Name: secondary
+		LocalOffset: 500,90,1000, 500,-90,1000
 		CasingWeapon: CasingDebris
-		CasingSpawnLocalOffset: -200,20,980, -200,-20,980
+		CasingSpawnLocalOffset: 100,20,600, 100,-20,600
 		CasingTargetOffset: -256, 512, 0, -256, -512, 0
 		PauseOnCondition: empdisable || reload-ground
+		MuzzleSequence: muzzle
+		MuzzlePalette: effect
 	Armament@1:
 		Weapon: QuadFire
-		MuzzleSequence: muzzle
-		LocalOffset: 800,0,700
-		MuzzlePalette: apgrey
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 	Armament@AA1:
 		Weapon: QuadFireAA
-		MuzzleSequence: muzzle
-		MuzzlePalette: apgrey
-		LocalOffset: 800,0,700
+		Name: secondary
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
+	GrantConditionOnAttack@attackair:
+		Condition: show-airturret
+		RevokeDelay: 12
+		ArmamentNames: secondary
 	Turreted:
 		TurnSpeed: 24
-		Offset: -300,0,0
+		Offset: -250,0,80
+	AttackTurreted:
+		Armaments: primary, secondary
+	WithSpriteTurret:
+		RequiresCondition: !inside-tunnel && !reload-air && !show-airturret
+	WithSpriteTurret@2:
+		Sequence: turret2
+		RequiresCondition: !inside-tunnel && (reload-air || show-airturret)
 	AutoTarget:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
