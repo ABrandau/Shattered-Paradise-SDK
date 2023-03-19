@@ -201,10 +201,16 @@ APC:
 		Name: water
 		RequiresCondition: inwater && !inside-tunnel
 	WithSpriteTurret:
-		RequiresCondition: !inwater && !inside-tunnel
-	WithSpriteTurret@2:
+		RequiresCondition: !inwater && !inside-tunnel && !attack-air
+	WithSpriteTurret@GroundAA:
+		Sequence: turret-aa
+		RequiresCondition: !inwater && !inside-tunnel && attack-air
+	WithSpriteTurret@Water:
 		Sequence: turret-water
-		RequiresCondition: inwater && !inside-tunnel
+		RequiresCondition: inwater && !inside-tunnel && !attack-air
+	WithSpriteTurret@WaterAA:
+		Sequence: turret-water-aa
+		RequiresCondition: inwater && !inside-tunnel && attack-air
 	Cargo:
 		Types: Infantry
 		MaxWeight: 5
@@ -224,69 +230,81 @@ APC:
 		#TerrainTypes: Water
 		StationaryInterval: 18
 		MovingInterval: 12
+	AttackTurreted:
+		Armaments: primary, secondary, dec
 	Armament@primary:
 		Weapon: ApcVulcan
 		LocalOffset: 350,0,700
 		MuzzleSequence: muzzle
-		ReloadingCondition: reload-ground
-		PauseOnCondition: empdisable || reload-air
+		PauseOnCondition: empdisable || attack-air
 		RequiresCondition: !apammo
 	Armament@primaryAP:
 		Weapon: ApcVulcanAP
 		LocalOffset: 350,0,700
 		MuzzleSequence: muzzle
-		ReloadingCondition: reload-ground
-		PauseOnCondition: empdisable || reload-air
+		PauseOnCondition: empdisable || attack-air
 		RequiresCondition: apammo
 	Armament@AA:
+		Name: secondary
 		Weapon: ApcVulcanAA
-		LocalOffset: 350,0,700
+		LocalOffset: 290,0,1020
 		MuzzleSequence: muzzle
-		ReloadingCondition: reload-air
-		PauseOnCondition: empdisable || reload-ground
+		PauseOnCondition: empdisable || attack-ground
 		RequiresCondition: !apammo
 	Armament@AAAP:
+		Name: secondary
 		Weapon: ApcVulcanAPAA
-		LocalOffset: 350,0,700
+		LocalOffset: 290,0,1020
 		MuzzleSequence: muzzle
-		ReloadingCondition: reload-air
-		PauseOnCondition: empdisable || reload-ground
+		PauseOnCondition: empdisable || attack-ground
 		RequiresCondition: apammo
+	GrantConditionOnAttack@attack-air:
+		Condition: attack-air
+		RevokeDelay: 40
+		ArmamentNames: secondary
+	GrantConditionOnAttack@attack-ground:
+		Condition: attack-ground
+		RevokeDelay: 40
+		ArmamentNames: primary
 	GrantConditionOnAttack:
 		Condition: Attacking
 		RevokeDelay: 2
-		ArmamentNames: primary
+		ArmamentNames: primary,secondary
 		RevokeOnNewTarget: true
 	Armament@2Bullet:
+		Name: dec
 		Weapon: ApcVulcanLine
-		PauseOnCondition: empdisable || !Attacking
-		LocalOffset: 350,0,700
-		CasingWeapon: CasingDebris
-		CasingSpawnLocalOffset: 350,0,700
-		CasingTargetOffset: -1024,0, 0
-		RequiresCondition: !apammo
-	Armament@2BulletAA:
-		Weapon: ApcVulcanLineAA
-		PauseOnCondition: empdisable || !Attacking
+		PauseOnCondition: empdisable || !Attacking || attack-air
 		LocalOffset: 350,0,700
 		CasingWeapon: CasingDebris
 		CasingSpawnLocalOffset: 350,0,700
 		CasingTargetOffset: -1024,0, 0
 		RequiresCondition: !apammo
 	Armament@4BulletAP:
+		Name: dec
 		Weapon: ApcVulcanLineAP
-		PauseOnCondition: empdisable || !Attacking
+		PauseOnCondition: empdisable || !Attacking || attack-air
 		LocalOffset: 350,0,700 
 		CasingWeapon: CasingDebris
 		CasingSpawnLocalOffset: 350,0,700
 		CasingTargetOffset: -1024,0, 0
 		RequiresCondition: apammo
-	Armament@4BulletAPAA:
-		Weapon: ApcVulcanLineAPAA
-		PauseOnCondition: empdisable || !Attacking
-		LocalOffset: 350,0,700
+	Armament@2BulletAA:
+		Name: dec
+		Weapon: ApcVulcanLineAA
+		PauseOnCondition: empdisable || !Attacking || attack-ground
+		LocalOffset: 290,0,1020
 		CasingWeapon: CasingDebris
-		CasingSpawnLocalOffset: 350,0,700
+		CasingSpawnLocalOffset:  290,0,1020
+		CasingTargetOffset: -1024,0, 0
+		RequiresCondition: !apammo
+	Armament@4BulletAPAA:
+		Name: dec
+		Weapon: ApcVulcanLineAPAA
+		PauseOnCondition: empdisable || !Attacking || attack-ground
+		LocalOffset: 290,0,1020
+		CasingWeapon: CasingDebris
+		CasingSpawnLocalOffset: 290,0,1020
 		CasingTargetOffset: -1024,0, 0
 		RequiresCondition: apammo
 	BodyOrientation:
@@ -2066,10 +2084,10 @@ MUTQUAD:
 	AttackTurreted:
 		Armaments: primary, secondary
 	WithSpriteTurret:
-		RequiresCondition: !inside-tunnel && !reload-air && !attack-air
+		RequiresCondition: !inside-tunnel && !attack-air
 	WithSpriteTurret@2:
 		Sequence: turret2
-		RequiresCondition: !inside-tunnel && (reload-air || attack-air)
+		RequiresCondition: !inside-tunnel && attack-air
 	AutoTarget:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
