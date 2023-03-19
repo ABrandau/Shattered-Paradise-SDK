@@ -2032,7 +2032,7 @@ MUTQUAD:
 		CasingWeapon: CasingDebris
 		CasingSpawnLocalOffset: 100,20,400, 100,-20,400
 		CasingTargetOffset: -256, 512, 0, -256, -512, 0
-		PauseOnCondition: empdisable || reload-air
+		PauseOnCondition: empdisable || attack-air
 		MuzzleSequence: muzzle
 		MuzzlePalette: effect
 	Armament@FakebulletAA:
@@ -2042,32 +2042,34 @@ MUTQUAD:
 		CasingWeapon: CasingDebris
 		CasingSpawnLocalOffset: 100,20,600, 100,-20,600
 		CasingTargetOffset: -256, 512, 0, -256, -512, 0
-		PauseOnCondition: empdisable || reload-ground
+		PauseOnCondition: empdisable || attack-ground
 		MuzzleSequence: muzzle
 		MuzzlePalette: effect
 	Armament@1:
 		Weapon: QuadFire
-		ReloadingCondition: reload-ground
-		PauseOnCondition: empdisable || reload-air
+		PauseOnCondition: empdisable || attack-air
 	Armament@AA1:
 		Weapon: QuadFireAA
 		Name: secondary
-		ReloadingCondition: reload-air
-		PauseOnCondition: empdisable || reload-ground
-	GrantConditionOnAttack@attackair:
-		Condition: show-airturret
-		RevokeDelay: 12
+		PauseOnCondition: empdisable || attack-ground
+	GrantConditionOnAttack@attackair: ## HACK: ReloadingCondition cannot control well when Burst > 1
+		Condition: attack-air
+		RevokeDelay: 30
 		ArmamentNames: secondary
+	GrantConditionOnAttack@attackground:
+		Condition: attack-ground
+		RevokeDelay: 30
+		ArmamentNames: primary
 	Turreted:
 		TurnSpeed: 24
 		Offset: -250,0,80
 	AttackTurreted:
 		Armaments: primary, secondary
 	WithSpriteTurret:
-		RequiresCondition: !inside-tunnel && !reload-air && !show-airturret
+		RequiresCondition: !inside-tunnel && !reload-air && !attack-air
 	WithSpriteTurret@2:
 		Sequence: turret2
-		RequiresCondition: !inside-tunnel && (reload-air || show-airturret)
+		RequiresCondition: !inside-tunnel && (reload-air || attack-air)
 	AutoTarget:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
