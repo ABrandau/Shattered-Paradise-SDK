@@ -2103,7 +2103,7 @@ LYNX:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@LYNXROCKETS: ^AffectedByLynxRockets
-	Inherits@RENDER: ^MutRender
+	Inherits@RENDER: ^MutRenderGreen
 	Inherits@VISION: ^6CellVision
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
@@ -2131,11 +2131,11 @@ LYNX:
 		Volume: 3
 	Turreted:
 		TurnSpeed: 24
-		Offset: 150,0,0
+		Offset: 10,0,600
 	Turreted@missile:
 		TurnSpeed: 24
 		Turret: rocket
-		Offset: 150,0,800
+		Offset: 0,0,850
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
@@ -2155,12 +2155,12 @@ LYNX:
 	Armament:
 		Weapon: LynxCannon
 		Damage: 50
-		LocalOffset: 400,0,600, 400,0,600
+		LocalOffset: 400,0,100, 400,0,100
 		MuzzleSequence: muzzle
 		Recoil: 0c128
 		PauseOnCondition: empdisable
 		CasingWeapon: ShellCasingDebris
-		CasingSpawnLocalOffset: 200,0,600, 200,0,600
+		CasingSpawnLocalOffset: 200,0,100, 200,0,100
 		CasingTargetOffset: 0, 512, 0, 0, -512, 0
 	Armament@2:
 		Weapon: LynxRocket
