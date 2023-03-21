@@ -1157,6 +1157,7 @@ MTAR:
 		PauseOnCondition: mindcontrolled || empdisable
 		Voice: Move
 		Offset: 1,1
+		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
 		RequiresCondition: !Building-Buildup
@@ -1186,9 +1187,6 @@ MTAR:
 		Icon: icon
 		IconPalette: chrome
 		TooltipActor: mtar
-	RejectsOrders@AvoidDoubleTapsUndeployment: ## Hack: upon transforming, reject the undeployorder
-		Reject: DeployTransform
-		RequiresCondition: Building-Buildup
 	### AI Control
 	AutoDeployer@AI:
 		RequiresCondition: AIbuildingMicroControl

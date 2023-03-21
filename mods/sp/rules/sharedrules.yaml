@@ -298,6 +298,7 @@ GACNST:
 		Facing: 384
 		DeployCursor: undeploy
 		PauseOnCondition: empdisable
+		RequiresCondition: !Building-Buildup
 	TransformsIntoMobile:
 		RequiresCondition: !Building-Buildup
 		Locomotor: InfantryCrusherVehicle
@@ -444,9 +445,6 @@ GACNST:
 		Prerequisite: AIantiRush-building-order ## Hack: AI Building control. AI build refinary only when it has a combat producing line.
 	IsometricSelectable:
 		DecorationHeight: 36
-	RejectsOrders@AvoidDoubleTapsUndeployment: ## Hack: upon transforming, reject the undeploy order from player
-		Reject: DeployTransform
-		RequiresCondition: Building-Buildup
 
 ^Powerplant:
 	Inherits: ^Building
