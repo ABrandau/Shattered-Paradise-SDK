@@ -1186,10 +1186,10 @@ MTAR:
 		Icon: icon
 		IconPalette: chrome
 		TooltipActor: mtar
-	### AI Control
-	RejectsOrders@deploymentAI: ## Hack: Need to prevent first time deploy
+	RejectsOrders@AvoidDoubleTapsUndeployment: ## Hack: upon transforming, reject the undeployorder
 		Reject: DeployTransform
-		RequiresCondition: Building-Buildup && AIbuildingMicroControl
+		RequiresCondition: Building-Buildup
+	### AI Control
 	AutoDeployer@AI:
 		RequiresCondition: AIbuildingMicroControl
 		DeployTrigger: Periodically
