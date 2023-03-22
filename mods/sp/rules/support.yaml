@@ -1352,9 +1352,18 @@ MUTSW1:
 		Palette: playermut
 		IsPlayerPalette: True
 	WithIdleOverlay@LIGHTS-BRIGHT:
-		RequiresCondition: !Building-Buildup && !disabled
+		RequiresCondition: !Building-Buildup && !disabled && !HeavyDamaged
 		Sequence: idle-dec-lights
 		Palette: playermut
+	WithIdleOverlay@DAMAGED-LIGHTS-BRIGHT:
+		RequiresCondition: !Building-Buildup && !disabled && HeavyDamaged
+		Sequence: damaged-idle-dec-lights
+		Palette: playermut
+	WithSupportPowerActivationOverlay@LIGHTS:
+		RequiresCondition: !Building-Buildup
+		Sequence: idle-dec-lights-active
+		Palette: playermut
+		IsPlayerPalette: True
 
 SCREXTRACTOR:
 	Inherits: ^Building

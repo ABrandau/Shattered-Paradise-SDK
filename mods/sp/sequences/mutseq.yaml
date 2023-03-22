@@ -1842,23 +1842,26 @@ mutsw1:
 		Start: 0
 		Length: 1
 		Tick: 40
-	damaged-idle-dec:
-		Filename: mutsw1_dec.shp
-		Start: 0
-		Length: 1
-		Tick: 40
 	idle-dec-lights:
 		Filename: mutsw1_declight.shp
 		Start: 0
-		Length: 24
+		Length: *
 		Tick: 40
 		IgnoreWorldTint: True
 	damaged-idle-dec-lights:
 		Filename: mutsw1_declight.shp
 		Start: 0
-		Length: 24
+		Length: *
 		Tick: 40
 		IgnoreWorldTint: True
+		AlphaFade: true
+	idle-dec-lights-active:
+		Filename: mutsw1_declight.shp
+		Start: 0
+		Length: *
+		Tick: 20
+		IgnoreWorldTint: True
+		Reverses: true
 	emp-overlay:
 		Filename: emp_fx01.shp
 		Length: *
