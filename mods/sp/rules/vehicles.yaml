@@ -2134,11 +2134,7 @@ LYNX:
 		Volume: 3
 	Turreted:
 		TurnSpeed: 24
-		Offset: 0,0,460
-	Turreted@missile:
-		TurnSpeed: 24
-		Turret: rocket
-		Offset: 0,0,720
+		Offset: 0,0,650
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
@@ -2148,7 +2144,6 @@ LYNX:
 		RequiresCondition: !inside-tunnel
 	WithSpriteTurret@ROCKET:
 		Sequence: rocket
-		Turret: rocket
 		RequiresCondition: lynx_rockets && !rocketout && !inside-tunnel
 	WithMuzzleOverlay:
 	AttackTurreted:
@@ -2158,7 +2153,7 @@ LYNX:
 	Armament:
 		Weapon: LynxCannon
 		Damage: 50
-		LocalOffset: 400,0,100, 400,0,100
+		LocalOffset: 600,0,100, 600,0,100
 		MuzzleSequence: muzzle
 		Recoil: 0c128
 		PauseOnCondition: empdisable
@@ -2168,7 +2163,7 @@ LYNX:
 	Armament@2:
 		Weapon: LynxRocket
 		Damage: 20
-		Turret: rocket
+		LocalOffset: 0,0,200, 0,0,200
 		ReloadingCondition: rocketout
 		PauseOnCondition: empdisable
 		RequiresCondition: lynx_rockets
