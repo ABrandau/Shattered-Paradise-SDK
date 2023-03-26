@@ -795,6 +795,19 @@ FlakFire:
 		ValidTargets: Ground, Water, Air
 	-Warhead@2Smu:
 
+ClearMine:
+	ReloadDelay: 1
+	Range: 1c0
+	ValidTargets: Mine
+	TargetActorCenter: true
+	Projectile: InstantHit
+	Warhead@1Dam: TargetDamage
+		Spread: 200  ## HACK: Spread=0 of TargetDamage means only deal damage on actor impacted
+		Damage: 15000
+		DamageTypes: clearmine
+		ValidTargets: Mine
+		AirThreshold: 8c0
+
 VeinholeEggElevator:
 	Inherits: EggElevator
 	MinRange: 1c0

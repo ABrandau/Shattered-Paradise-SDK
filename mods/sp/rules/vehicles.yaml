@@ -2177,6 +2177,8 @@ MINELAYER:
 	Inherits@RENDER: ^MutRenderGreen
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Inherits@VISION: ^5CellVision
+	Inherits@DETECTION: ^BasicStealthDetection
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -2197,20 +2199,39 @@ MINELAYER:
 	Mobile:
 		TurnSpeed: 24
 		Speed: 105
-		Locomotor: InfantryCrusherMineImmuneVehicle
+		Locomotor: InfantryCrusherVehicle
 	Voiced:
 		VoiceSet: Trike
 		Volume: 3
-	AmmoPool:
+	AmmoPool@mine:
 		Ammo: 5
 		ReloadDelay: 25
-	Rearmable:
-		RearmActors: gadept, scrdepot
-	Targetable:
-		TargetTypes: Ground, Vehicle, Minelayer
+		Name: mines
+		Armaments: none
 	Minelayer:
 		Mine: mumine
 		TileUnknownName: build-invalid
+		AmmoPoolName: mines
+	Rearmable:
+		RearmActors: gadept, scrdepot
+		AmmoPools: mines
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 64
+		MustFaceTarget: true
+	Armament:
+		Weapon: ClearMine
+		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 5
+		InitialStance: AttackAnything
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Mine
+	AutoTargetPriority@ATTACKANYTHING:
+		ValidTargets: Mine
+	Targetable:
+		TargetTypes: Ground, Vehicle, Minelayer
+
 	Health:
 		HP: 40000
 	SelectionDecorations:
