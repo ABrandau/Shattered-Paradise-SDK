@@ -2174,7 +2174,7 @@ STRUCK:
 
 MINELAYER:
 	Inherits: ^Vehicle
-	Inherits@RENDER: ^MutRender
+	Inherits@RENDER: ^MutRenderGreen
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Inherits@VISION: ^5CellVision
 	Valued:
@@ -2214,13 +2214,23 @@ MINELAYER:
 	Health:
 		HP: 40000
 	SelectionDecorations:
+	ExternalCondition@minelayer-digging: ## play minelayer-digging by MUMINE
+		Condition: minelayer-digging
 	WithFacingSpriteBody:
+		RequiresCondition: !minelayer-digging && !inside-tunnel
+		Sequence: idle
+	WithFacingSpriteBody@minelayer-digging:
+		Name: Body1
+		Sequence: laymine
+		RequiresCondition: minelayer-digging && !inside-tunnel
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
 		Palette: pips
 		Margin: 5, 2
 		ValidRelationships: Ally, Neutral, Enemy
+	Selectable:
+		Bounds: 1206,1950, 0, -300
 
 WOLF:
 	Inherits: ^Beast
@@ -2319,6 +2329,8 @@ MRLS:
 		Voice: Attack
 		PauseOnCondition: empdisable
 		TargetFrozenActors: true
+	Selectable:
+		Bounds: 1206,2100, 0, -250
 	Turreted:
 		TurnSpeed: 36
 		Offset: -500,0,200

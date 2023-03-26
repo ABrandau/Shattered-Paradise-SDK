@@ -951,11 +951,20 @@ struck:
 		Filename: battlebusicon.shp
 
 minelayer:
-	Inherits@1: ^SpriteVehicleWithShadowCounterClockwise
+	Inherits@1: ^SpriteVehicleWithShadow
 	Defaults:
-		Filename: minelayer.shp
+		Filename: mutminelayer.shp
+	idle:
+		Facings: -32
+		Length: 1
+		Stride: 9
+		ShadowStart: 288
+	laymine:
+		Facings: -32
+		Length: 9
+		ShadowStart: 288
 	icon:
-		Filename: minelayericon.shp
+		Filename: mutminelayericon.shp
 
 muttank:
 	Inherits: ^EmpOverlay
@@ -1676,8 +1685,8 @@ mumine:
 		IgnoreWorldTint: True
 	idle:
 		Frames: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 2, 1
-	dead:
-		Frames: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 2, 1
+	make:
+		Length: *
 	emp-overlay:
 		Filename: emp_fx01.shp
 		Length: *

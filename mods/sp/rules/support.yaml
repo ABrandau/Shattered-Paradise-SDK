@@ -1635,10 +1635,11 @@ MUMINE:
 		Palette: cloakmut
 		IsPlayerPalette: true
 		UncloakOn: None
-		EffectImage: dig
-		EffectPalette: effect
-		CloakEffectSequence: smallidle
-		EffectTracksActor: false
+	WithMakeAnimation:
+		Condition: minelayer-diging
+	ExplodeWeapon: ## HACK: this will make minelayer play animation 
+		Weapon: MinelayerAnimationDummyWeapon
+		RequiresCondition: minelayer-diging
 	Mine:
 		CrushClasses: mine
 		DetonateClasses: minetrigger
