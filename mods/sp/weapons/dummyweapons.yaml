@@ -83,26 +83,6 @@ MutTunnelAIAimingDummyWeapon:
 	ValidTargets: Air, Ground, Water
 	Projectile: InstantExplode
 
-MinelayerAnimationDummyWeapon:
-	ReloadDelay: 20
-	Range: 0c256
-	ValidTargets: Air, Ground, Water
-	Projectile: InstantExplode
-	Warhead@emp1: GrantExternalCondition
-		Range: 0c128
-		Duration: 18
-		Condition: minelayer-digging
-		ValidTargets: Minelayer
-		ValidRelationships: Ally
-		AirThreshold: 8c0
-	Warhead@2Eff: CreateEffect
-		Image: dig
-		Explosions: middleidlelow
-		ValidTargets: Ground, Air, Water
-		ImpactActors: false
-		ExplosionPalette: effect
-		AirThreshold: 8c0
-
 ## Unused
 ApcReconDummyWeapon:
 	ValidTargets: Ground, Water, Air

@@ -959,6 +959,68 @@ WeasaurusCallGreen:
 		Explosions: call2
 		ExplosionPalette: effectalpha50
 
+MineTrigger:
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
+	Range: 0c064
+	Warhead@ExlodeNormally: FireFragment
+		ImpactActors: true
+		Weapon: MineExplode
+		ValidTargets: Ground, Water, Air
+		InvalidTargets: Minelayer
+		AirThreshold: 8c0
+	Warhead@Cleared: FireFragment
+		ImpactActors: true
+		Weapon: AnimateMinelayer-clear
+		ValidTargets: Minelayer
+		AirThreshold: 8c0
+		ValidRelationships: Enemy, Neutral
+
+MineExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Large_twlt
+	Projectile: InstantExplode
+	Warhead@2Eff: CreateEffect
+		ImpactSounds: mine-alert.wav
+		Volume: 0.4
+		Explosions: large_explosion, large_explosionf
+		ExplosionPalette: effect
+	Warhead@1Dam: SpreadDamage
+		Spread: 320
+		Damage: 32000
+		AffectsParent: true
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		InvalidTargets: Minelayer, Mine, Air
+	-Warhead@op:
+
+AnimateMinelayer-lay:
+	ReloadDelay: 20
+	Range: 0c256
+	ValidTargets: Air, Ground, Water
+	Projectile: InstantExplode
+	Warhead@anim: GrantExternalCondition
+		Range: 0c128
+		Duration: 18
+		Condition: minelayer-digging
+		ValidTargets: Minelayer
+		ValidRelationships: Ally
+		AirThreshold: 8c0
+	Warhead@2Eff: CreateEffect
+		Image: dig
+		Explosions: middleidlelow
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
+		ExplosionPalette: effect
+		AirThreshold: 8c0
+
+AnimateMinelayer-clear:
+	Inherits: AnimateMinelayer-lay
+	ReloadDelay: 20
+	Range: 0c256
+	ValidTargets: Air, Ground, Water
+	Projectile: InstantExplode
+	Warhead@anim: GrantExternalCondition
+		ValidRelationships: Enemy, Neutral
+
 Sniper:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
