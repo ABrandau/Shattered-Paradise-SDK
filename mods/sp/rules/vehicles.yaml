@@ -2456,6 +2456,8 @@ HVRTRUK3:
 		PauseOnCondition: empdisable
 		TargetFrozenActors: true ## For better AI control
 		FacingTolerance: 128
+	Selectable:
+		Bounds: 1206,1950, 0, -400
 	WithDecoration@TNT:
 		Image: bombicon
 		Sequence: idle
@@ -2468,7 +2470,7 @@ HVRTRUK3:
 		InitialStanceAI: AttackAnything
 	GrantConditionOnMovement:
 		Condition: walking
-	RejectsOrders:
+	RejectsOrders@AI-noreturn:
 		RequiresCondition: walking && AImicroManage
 		Except: Attack
 	ActorStatValues:
