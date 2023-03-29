@@ -376,7 +376,7 @@ chamspy:
 		Filename: chamicon.shp
 
 nodmcv:
-	Inherits: ^EmpOverlay
+	Inherits: ^SpriteVehicleWithShadow
 	Defaults:
 		Filename: nodmcv.shp
 		Offset: 0,0,0
@@ -400,22 +400,50 @@ nodmcv:
 nodyard:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Filename: nodmcv.shp
+		Filename: nodyard-build.shp
 		Offset: 0, -36, 24
+		Tick: 80
 	idle:
-		Start: 66
-		Length: 30
-		Tick: 80
+		Start: 5
+		ShadowStart: 65
 	damaged-idle:
-		Start: 96
+		Start: 35
+		ShadowStart: 95
+	idle-pit:
+		Filename: nodyard-pit.shp
+		Start: 7
+		Length: 6
+	damaged-idle-pit:
+		Start: 37
+		Length: 6
+		Filename: nodyard-pit.shp
+	idle-fans:
+		Filename: nodyard-fan.shp
+		Start: 0
 		Length: 30
-		Tick: 80
+	damaged-idle-fans:
+		Start: 30
+		Length: 30
+		Filename: nodyard-fan.shp
+	build:
+		Filename: nodyard-build.shp
+		Start: 0
+		Length: 30
+		ZOffset: 1023
+		ShadowStart: 60
+	damaged-build:
+		Filename: nodyard-build.shp
+		Start: 30
+		Length: 30
+		ZOffset: 1023
+		ShadowStart: 90
 	dead:
 		Start: 96
 		Tick: 400
 	make:
 		Filename: nodmcvmake.shp
-		Length: 35
+		Length: *
+		Tick: 38
 	icon:
 		Filename: nodyardicon.shp
 		Offset: 0, 0

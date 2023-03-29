@@ -470,13 +470,18 @@ NODYARD:
 		ProductionType: Building.Nod
 	ProductionBar@Defense:
 		ProductionType: Defense.Nod
-	-WithIdleOverlay@TOP:
+	-WithBuildingPlacedOverlay:
+	WithBuildingPlacedAnimation:
+		Sequence: build
+		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@TOP:
+		Sequence: idle-fans
+	WithIdleOverlay@SIDE:
+		Sequence: idle-pit
 	-WithIdleOverlay@TOP-BRIGHT:
-	-WithIdleOverlay@SIDE:
 	-WithIdleOverlay@FRONT:
 	-WithIdleOverlay@FRONT-BRIGHT:
 	-WithMakeOverlay@MAKE-BRIGHT:
-	-WithBuildingPlacedOverlay:
 	-ProvidesPrerequisite@structureswall:
 
 NAPOWR:
