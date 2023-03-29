@@ -990,13 +990,22 @@ MUTYARD:
 		ProductionType: Building.Mutant
 	ProductionBar@Defense:
 		ProductionType: Defense.Mutant
-	-WithIdleOverlay@TOP:
+	-WithBuildingPlacedOverlay:
+	WithBuildingPlacedAnimation:
+		Sequence: build
+		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@TOP:
+		Sequence: idle-fans
+		Palette: playermut
+		IsPlayerPalette: True
+	WithIdleOverlay@SIDE:
+		Sequence: idle-lights
+		Palette: playermut
+		IsPlayerPalette: True
 	-WithIdleOverlay@TOP-BRIGHT:
-	-WithIdleOverlay@SIDE:
 	-WithIdleOverlay@FRONT:
 	-WithIdleOverlay@FRONT-BRIGHT:
 	-WithMakeOverlay@MAKE-BRIGHT:
-	-WithBuildingPlacedOverlay:
 	-ProvidesPrerequisite@structureswall:
 	-ProvidesPrerequisite@structuresgate:
 

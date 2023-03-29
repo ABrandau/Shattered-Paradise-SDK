@@ -1092,7 +1092,7 @@ mutheli:
 ##########################################################################
 
 mutmcv:
-	Inherits: ^EmpOverlay
+	Inherits: ^SpriteVehicleWithShadow
 	Defaults:
 		Filename: mutmcv.shp
 		Offset: 0,-3,0
@@ -1116,22 +1116,46 @@ mutmcv:
 mutyard:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Filename: mutmcv.shp
+		Filename: mutconyard-build.shp
 		Offset: 0, -36, 24
 	idle:
-		Start: 65
-		Length: 45
-		ShadowStart: 221
-		Tick: 80
+		Start: 0
+		Length: 1
+		ShadowStart: 92
 	damaged-idle:
-		Start: 110
+		Start: 46
+		Length: 1
+		ShadowStart: 138
+	idle-lights:
+		Filename: mutconyard-light.shp
+		Start: 0
 		Length: 45
-		ShadowStart: 266
-		Tick: 80
+	damaged-idle-lights:
+		Start: 45
+		Length: 46
+		Filename: mutconyard-light.shp
+	idle-fans:
+		Filename: mutconyard-fan.shp
+		Start: 0
+		Length: 7
+	damaged-idle-fans:
+		Start: 7
+		Length: 8
+		Filename: mutconyard-fan.shp
+	build:
+		Filename: mutconyard-build.shp
+		Start: 0
+		Length: 46
+		ZOffset: 1023
+		ShadowStart: 92
+	damaged-build:
+		Filename: mutconyard-build.shp
+		Start: 46
+		Length: 45
+		ZOffset: 1023
+		ShadowStart: 138
 	dead:
-		Start: 110
-		ShadowStart: 266
-		Ticks: 125
+		Start: 46
 		Tick: 400
 	make:
 		Filename: mutmcvmake.shp
