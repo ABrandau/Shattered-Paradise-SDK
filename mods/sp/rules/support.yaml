@@ -762,19 +762,12 @@ SCRDRONE:
 		PauseOnCondition: Building-Buildup
 	Power:
 		Amount: -50
-	WithIdleOverlay@Charged1:
-		Image: explosion
-		Sequence: wakescr
-		Offset: 0, 0, 3000
-		RequiresCondition: !Building-Buildup && !charging  && !empdisable && !disabled
-		Palette: scrinenergystuffsalpha
-		IsDecoration: true ## so this doesn't affect by cloak palette
 	WithIdleOverlay@Charged2:
 		Image: pulsar
 		Sequence: sorb
 		Offset: 0, 0, 3000
 		RequiresCondition: !Building-Buildup && !charging && !empdisable && !disabled
-		Palette: scrinenergystuffs
+		Palette: gensmkexplopurple
 		IsDecoration: true ## so this doesn't affect by cloak palette
 	WithIdleOverlay@Charging1:
 		Image: pulsar
@@ -788,7 +781,7 @@ SCRDRONE:
 		Sequence: sorbtiny
 		Offset: 0, 0, 3000
 		RequiresCondition: !Building-Buildup && charging && !empdisable && !disabled
-		Palette: scrinenergystuffs
+		Palette: gensmkexplopurple
 		IsDecoration: true ## so this doesn't affect by cloak palette
 	IsometricSelectable:
 		DecorationHeight: 52

@@ -1054,7 +1054,9 @@ SrcinOrb:
 		Speed: 256
 		Image: pulsar
 		Shadow: false
-		Palette: scrinenergystuffs
+		Palette: gensmkexplopurple
+		Shadow: true
+		ShadowColor: FFAAFF22
 		Sequences: sorb
 		TrailImage: pulsar
 		TrailSequences: sorbtail
@@ -1069,27 +1071,13 @@ SrcinOrb:
 		EndSequences: sorbpulsetiny
 		Duration: 200
 		Palette: gradientpurple
-	Warhead@4: SpawnSmokeParticle
-		Image: pulsar
-		ImpactActors: false
-		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-		Sequences: sorbray-down
-		Duration: 200
-		Palette: appurp
-	Warhead@5: SpawnSmokeParticle
-		Image: pulsar
-		ImpactActors: false
-		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-		Sequences: sorbray-up
-		Duration: 200
-		Palette: appurp
 	Warhead@main: SpawnSmokeParticle
 		Weapon: OrbZapsShrapnel
 		Image: pulsar
-		Sequences: sorb
+		Sequences: sorb-shadow
 		Duration: 200
-		EndSequences: sorbtiny
-		Palette: scrinenergystuffs
+		EndSequences: sorbtiny-shadow
+		Palette: gensmkexplopurple
 		ImpactActors: false
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 
