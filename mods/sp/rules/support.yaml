@@ -1423,7 +1423,7 @@ SCRSW1:
 	Valued:
 		Cost: 5000
 	Tooltip:
-		Name: Signal Transmitter
+		Name: Meteor Tractor
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -1445,6 +1445,8 @@ SCRSW1:
 		CircleRanges:
 			1: 6c0
 		OrderName: MeteorSpawner
+		FlightDelay: 30
+		FlightVelocity: 1c0
 		CameraRange: 10c0
 		CameraSpawnAdvance: 0 ## need to be earlier than hit time
 		CameraRemoveDelay: 350
@@ -1461,6 +1463,10 @@ SCRSW1:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	WithSupportPowerActivationExplodeWeapon:
+		Weapon: MeteorDragLazer
+		LocalOffset: 120,140,3200 #1200, 1400, 0 #700,0,4900
+		HitOffset: 4500,4750,15000
 
 CABEYE:
 	Inherits: ^Building
