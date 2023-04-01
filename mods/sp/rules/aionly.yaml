@@ -377,287 +377,6 @@ UMAGON:
 		IconPalette: chrome
 		Damage: 150
 
-COREDEFENDER:
-	Inherits: ^Walker
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@COMMANDO: ^BossIcon
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@RENDER: ^CabRender
-	Inherits@SELFHEAL: ^PermanentSelfHeal
-	Inherits@VISION: ^9CellVision
-	Inherits@VOICE: ^CabalVehicleVoice
-	Valued:
-		Cost: 15000
-	Tooltip:
-		Name: Core Defender
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Mobile:
-		TurnSpeed: 30
-		Speed: 60
-		Locomotor: VehicleCrusher
-	Voiced:
-		VoiceSet: CoreDefender
-		Volume: 0.75
-	-Crushable:
-	AnnounceOnSeen:
-		PingRadar: true
-		Notification: CommandoDetected
-		TextNotification: Enemy Core Defender detected.
-	AmbientSound@WalkAnim:
-		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
-		Delay: 50
-		Interval: 16
-		RequiresCondition: walking
-	GrantConditionOnMovement:
-		Condition: walking
-	SmokeParticleEmitter@spawnsmoke:
-		Offset: 0,0,3000
-	Armor:
-		-RequiresCondition:
-	Armor@Boss:
-		Type: Boss
-	ExplodeWeapon@spawnsparks:
-		LocalOffset: 0,0,3000
-	Health:
-		HP: 650000
-	-WithIdleOverlay@shield:
-	-ExternalCondition@VanguardShield:
-	-Shielded@Shield:
-	-Targetable@Shield:
-	BodyOrientation:
-		QuantizedFacings: 8
-		CameraPitch: 250
-	AttackFrontal:
-		Voice: Attack
-		PauseOnCondition: empdisable
-		FacingTolerance: 3
-		Armaments: ArmArmament, HeadArmament, ShoulderArmament
-	RevealOnFire:
-		ArmamentNames: ArmArmament, HeadArmament, ShoulderArmament
-	-Targetable@MC:
-	AutoTarget:
-		ScanRadius: 9
-		InitialStanceAI: AttackAnything
-	RenderSprites:
-	WithMuzzleOverlay:
-	Selectable:
-		Bounds: 1809, 5428, 0, -2412
-	-Passenger:
-	-SharedPassenger:
-	-Chronoshiftable:
-	-Carryable:
-	SmokeParticleEmitter@spawnsmoke:
-		Offset: 0,0,2500
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
-	ExplodeWeapon@spawnsparks:
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
-	WithInfantryBody:
-		-DefaultAttackSequence:
-		RequiresCondition: !inside-tunnel
-		AttackSequences:
-			ArmArmament: shoot2
-	MustBeDestroyed:
-		RequiredForShortGame: true
-	####### arm weapon###########
-	Armament@RightArm1:
-		Weapon: CoreDefLazer1R
-		LocalOffset: 1580,500,3400
-		PauseOnCondition: empdisable
-		MuzzlePalette: apblue
-		MuzzleSequence: muzzle1
-		Name: ArmArmament
-	Armament@RightArm2:
-		Weapon: CoreDefLazer2R
-		LocalOffset: 1580,500,3400
-		PauseOnCondition: empdisable
-		MuzzlePalette: jascbluealpha
-		MuzzleSequence: muzzle2
-		Name: ArmArmament
-	Armament@LeftArm1:
-		Weapon: CoreDefLazer1L
-		LocalOffset: 1480,-800,3350
-		PauseOnCondition: empdisable
-		MuzzlePalette: apblue
-		MuzzleSequence: muzzle1
-		Name: ArmArmament
-	Armament@LeftArm2:
-		Weapon: CoreDefLazer2L
-		LocalOffset: 1480,-800,3350
-		PauseOnCondition: empdisable
-		MuzzlePalette: gensmkexplojFblue
-		MuzzleSequence: muzzle2
-		Name: ArmArmament
-	####### shoulder weapon###########
-	Armament@Shoulder:
-		Weapon: CoreDefenderCannon
-		LocalOffset: 600,450,4000
-		PauseOnCondition: empdisable
-		MuzzlePalette: apblue
-		MuzzleSequence: muzzle1
-		Name: ShoulderArmament
-	Armament@ShoulderAA:
-		Weapon: CoreDefenderCannonAA
-		LocalOffset: 600,450,4000
-		PauseOnCondition: empdisable
-		MuzzlePalette: apblue
-		MuzzleSequence: muzzle1
-		Name: ShoulderArmament
-	####### head weapon###########
-	Armament@Head:
-		Weapon: CoreDefLazerAA
-		LocalOffset: 700,0,4900
-		PauseOnCondition: empdisable
-		MuzzlePalette: apblue
-		MuzzleSequence: muzzle1
-		Name: HeadArmament
-		RequiresCondition: !SuperAttack ##Head AA laser weapon cannot use when superweapon attack
-	Armament@HeadSuper:
-		Weapon: CoreDefSuper
-		LocalOffset: 700,0,4900
-		Name: HeadSuperWeapon
-	ProvidesPrerequisite@HeadSuperAIbuildinglimit:
-		Prerequisite: DefenderExists
-		ResetOnOwnerChange: true
-	FireArmamentPower:
-		Cursor: emp
-		Icons:
-			1: coreicon
-		ChargeInterval: 2500
-		ArmamentName: HeadSuperWeapon
-		Names:
-			1: Core Defender Rage
-		Descriptions:
-			1: Fires Firestorm laser sweep through target location.\n\nSpecial:\n- Instant kills ground units and aircraft
-		EndChargeSound: SuperWeaponReady
-		EndChargeSpeechNotification: SuperWeaponReady
-		SelectTargetSound: speech-nod|00-i042.aud
-		Prerequisites:
-			1: DefenderExists
-		OrderName: CoreDefSuper
-		LaunchSpeechNotification: SuperweaponFired
-		IncomingSpeechNotification: SuperweaponFired
-		IncomingSound: SuperweaponFired
-		LaunchSound: n_swlaunch.aud
-		DisplayTimerRelationships: Ally, Neutral, Enemy
-		PauseOnCondition: empdisable
-		CameraRange: 10c0
-		CameraSpawnAdvance: 25
-		CameraRemoveDelay: 350
-	GrantConditionOnAttack@muzzle:
-		Condition: SuperAttack
-		ArmamentNames: HeadSuperWeapon
-	WithIdleOverlay@SuperWeaponMuzzle:
-		Offset: 700,0,4900
-		Image: explosion
-		Sequence: firestormactived
-		Palette: apolbluealpha
-		RequiresCondition: SuperAttack
-		IsDecoration: true ## so this doesn't affect by cloak palette
-	Explodes@shattered:
-		Weapon: DefenderExplosion
-		EmptyWeapon: DefenderExplosion
-	Explodes:
-		Weapon: BuildingExplode
-		EmptyWeapon: BuildingExplode
-	ThrowsShrapnel:
-		Pieces: 5, 9
-	ThrowsShrapnel@LARGE:
-		Pieces: 2, 4
-		Weapons: LargeDebris
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
-		TooltipActor: defd
-		Damage: 1668
-
-DEFD:
-	Inherits: ^BasicBuilding
-	Inherits@1: ^StructureEffects
-	Inherits@2: ^6CellVision
-	Inherits@3: ^SelectableBuilding
-	Inherits@SHAPE: ^2x3Shape
-	Inherits@AIbuilding: ^AIbuildingMicroControl
-	Valued:
-		Cost: 15000
-	Health:
-		HP: 1100000
-	HitShape:
-		Type: Rectangle
-			TopLeft: -1536, -1536
-			BottomRight: 512, 1536
-	HitShape@2:
-		UseTargetableCellsOffsets: true
-		Type: Rectangle
-			LocalYaw: -128
-			TopLeft: 512, 512
-			BottomRight: 1536, 1536
-	Buildable:
-		Queue: Building.Shared, Building.CABAL
-		Prerequisites: ~cabyard, cabtech, ~techlevel.5, ~AIOnly, ~!DefenderExists
-		Description: C.A.B.A.L.'s final creation armed with crazy weapon.\n\nGood vs: Everything\n\nSpecial:\n- Needs preparing before rising.\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle\n- Immune to mindcontrol
-		BuildPaletteOrder: 54
-		BuildDuration: 7000
-		BuildDurationModifier: 100
-		BuildLimit: 1
-	Building:
-		Footprint: xx_ xx_ xxx
-		Dimensions: 3,3
-	CaptureNotification:
-		Notification: BuildingCaptured
-		LoseNotification: BuildingLostToCapture
-	CaptureManager:
-	Capturable:
-		Types: Building
-		RequiresCondition: !Building-Buildup
-	CapturableProgressBar:
-	CapturableProgressBlink:
-	GivesExperience:
-		PlayerExperienceModifier: 100
-	RevealsShroud:
-		Type: Footprint
-		MaxHeightDelta: 3
-	MustBeDestroyed:
-		RequiredForShortGame: true
-	WithMakeAnimation:
-		Condition: Building-Buildup
-	GrantConditionAfterDelay:
-		Delay: 10000
-		Condition: Rising
-		PauseOnCondition: empdisable
-	Transforms:
-		RequiresCondition: Rising
-		IntoActor: coredefender
-		Offset: 1, 1
-		Facing: 384
-		TransformSounds: coreup1.aud
-		NoTransformSounds:
-	AutoDeployer@AI:
-		RequiresCondition: Rising && AIbuildingMicroControl
-		DeployChance: 100
-		DeployTrigger: Periodically
-		DeployTicks: 20
-		UndeployTicks: 20
-	Tooltip:
-		Name: Core Defender
-	RevealsShroud@revealitself:
-		ValidRelationships: Neutral, Enemy
-		MaxHeightDelta: 3
-		Range: 2c0
-	ProvidesPrerequisite@AIbuildinglimit:
-		Prerequisite: DefenderExists
-		ResetOnOwnerChange: true
-	Targetable:
-		TargetTypes: Building, Ground, C4, DetonateAttack, ConsideredThreatForAI
-	WithIdleOverlay@charging:
-		RequiresCondition: !Building-Buildup
-		Sequence: flag
-		Palette: playercab
-		IsPlayerPalette: true
-	-Targetable@MC:
-	MapEditorData:
-		Categories: Building
-
 AVATAR:
 	Inherits: ^Walker
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -1257,6 +976,287 @@ M_EMP:
 	-WithIdleOverlay@EMPDISABLE:
 
 ########## AI Boss unit ###############
+COREDEFENDER:
+	Inherits: ^Walker
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@COMMANDO: ^BossIcon
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^CabRender
+	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@VISION: ^9CellVision
+	Inherits@VOICE: ^CabalVehicleVoice
+	Valued:
+		Cost: 15000
+	Tooltip:
+		Name: Core Defender
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 30
+		Speed: 60
+		Locomotor: VehicleCrusher
+	Voiced:
+		VoiceSet: CoreDefender
+		Volume: 0.75
+	-Crushable:
+	AnnounceOnSeen:
+		PingRadar: true
+		Notification: CommandoDetected
+		TextNotification: Enemy Core Defender detected.
+	AmbientSound@WalkAnim:
+		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
+		Delay: 50
+		Interval: 16
+		RequiresCondition: walking
+	GrantConditionOnMovement:
+		Condition: walking
+	SmokeParticleEmitter@spawnsmoke:
+		Offset: 0,0,3000
+	Armor:
+		-RequiresCondition:
+	Armor@Boss:
+		Type: Boss
+	ExplodeWeapon@spawnsparks:
+		LocalOffset: 0,0,3000
+	Health:
+		HP: 650000
+	-WithIdleOverlay@shield:
+	-ExternalCondition@VanguardShield:
+	-Shielded@Shield:
+	-Targetable@Shield:
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+		FacingTolerance: 3
+		Armaments: ArmArmament, HeadArmament, ShoulderArmament
+	RevealOnFire:
+		ArmamentNames: ArmArmament, HeadArmament, ShoulderArmament
+	-Targetable@MC:
+	AutoTarget:
+		ScanRadius: 9
+		InitialStanceAI: AttackAnything
+	RenderSprites:
+	WithMuzzleOverlay:
+	Selectable:
+		Bounds: 1809, 5428, 0, -2412
+	-Passenger:
+	-SharedPassenger:
+	-Chronoshiftable:
+	-Carryable:
+	SmokeParticleEmitter@spawnsmoke:
+		Offset: 0,0,2500
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
+	ExplodeWeapon@spawnsparks:
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
+	WithInfantryBody:
+		-DefaultAttackSequence:
+		RequiresCondition: !inside-tunnel
+		AttackSequences:
+			ArmArmament: shoot2
+	MustBeDestroyed:
+		RequiredForShortGame: true
+	####### arm weapon###########
+	Armament@RightArm1:
+		Weapon: CoreDefLazer1R
+		LocalOffset: 1580,500,3400
+		PauseOnCondition: empdisable
+		MuzzlePalette: apblue
+		MuzzleSequence: muzzle1
+		Name: ArmArmament
+	Armament@RightArm2:
+		Weapon: CoreDefLazer2R
+		LocalOffset: 1580,500,3400
+		PauseOnCondition: empdisable
+		MuzzlePalette: jascbluealpha
+		MuzzleSequence: muzzle2
+		Name: ArmArmament
+	Armament@LeftArm1:
+		Weapon: CoreDefLazer1L
+		LocalOffset: 1480,-800,3350
+		PauseOnCondition: empdisable
+		MuzzlePalette: apblue
+		MuzzleSequence: muzzle1
+		Name: ArmArmament
+	Armament@LeftArm2:
+		Weapon: CoreDefLazer2L
+		LocalOffset: 1480,-800,3350
+		PauseOnCondition: empdisable
+		MuzzlePalette: gensmkexplojFblue
+		MuzzleSequence: muzzle2
+		Name: ArmArmament
+	####### shoulder weapon###########
+	Armament@Shoulder:
+		Weapon: CoreDefenderCannon
+		LocalOffset: 600,450,4000
+		PauseOnCondition: empdisable
+		MuzzlePalette: apblue
+		MuzzleSequence: muzzle1
+		Name: ShoulderArmament
+	Armament@ShoulderAA:
+		Weapon: CoreDefenderCannonAA
+		LocalOffset: 600,450,4000
+		PauseOnCondition: empdisable
+		MuzzlePalette: apblue
+		MuzzleSequence: muzzle1
+		Name: ShoulderArmament
+	####### head weapon###########
+	Armament@Head:
+		Weapon: CoreDefLazerAA
+		LocalOffset: 700,0,4900
+		PauseOnCondition: empdisable
+		MuzzlePalette: apblue
+		MuzzleSequence: muzzle1
+		Name: HeadArmament
+		RequiresCondition: !SuperAttack ##Head AA laser weapon cannot use when superweapon attack
+	Armament@HeadSuper:
+		Weapon: CoreDefSuper
+		LocalOffset: 700,0,4900
+		Name: HeadSuperWeapon
+	ProvidesPrerequisite@HeadSuperAIbuildinglimit:
+		Prerequisite: DefenderExists
+		ResetOnOwnerChange: true
+	FireArmamentPower:
+		Cursor: emp
+		Icons:
+			1: coreicon
+		ChargeInterval: 2500
+		ArmamentName: HeadSuperWeapon
+		Names:
+			1: Core Defender Rage
+		Descriptions:
+			1: Fires Firestorm laser sweep through target location.\n\nSpecial:\n- Instant kills ground units and aircraft
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
+		SelectTargetSound: speech-nod|00-i042.aud
+		Prerequisites:
+			1: DefenderExists
+		OrderName: CoreDefSuper
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
+		DisplayTimerRelationships: Ally, Neutral, Enemy
+		PauseOnCondition: empdisable
+		CameraRange: 10c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
+	GrantConditionOnAttack@muzzle:
+		Condition: SuperAttack
+		ArmamentNames: HeadSuperWeapon
+	WithIdleOverlay@SuperWeaponMuzzle:
+		Offset: 700,0,4900
+		Image: explosion
+		Sequence: firestormactived
+		Palette: apolbluealpha
+		RequiresCondition: SuperAttack
+		IsDecoration: true ## so this doesn't affect by cloak palette
+	Explodes@shattered:
+		Weapon: DefenderExplosion
+		EmptyWeapon: DefenderExplosion
+	Explodes:
+		Weapon: BuildingExplode
+		EmptyWeapon: BuildingExplode
+	ThrowsShrapnel:
+		Pieces: 5, 9
+	ThrowsShrapnel@LARGE:
+		Pieces: 2, 4
+		Weapons: LargeDebris
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: defd
+		Damage: 1668
+
+DEFD:
+	Inherits: ^BasicBuilding
+	Inherits@1: ^StructureEffects
+	Inherits@2: ^6CellVision
+	Inherits@3: ^SelectableBuilding
+	Inherits@SHAPE: ^2x3Shape
+	Inherits@AIbuilding: ^AIbuildingMicroControl
+	Valued:
+		Cost: 15000
+	Health:
+		HP: 1100000
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1536, -1536
+			BottomRight: 512, 1536
+	HitShape@2:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: 512, 512
+			BottomRight: 1536, 1536
+	Buildable:
+		Queue: Building.Shared, Building.CABAL
+		Prerequisites: ~cabyard, cabtech, ~techlevel.5, ~AIOnly, ~!DefenderExists
+		Description: C.A.B.A.L.'s final creation armed with crazy weapon.\n\nGood vs: Everything\n\nSpecial:\n- Needs preparing before rising.\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle\n- Immune to mindcontrol
+		BuildPaletteOrder: 54
+		BuildDuration: 7000
+		BuildDurationModifier: 100
+		BuildLimit: 1
+	Building:
+		Footprint: xx_ xx_ xxx
+		Dimensions: 3,3
+	CaptureNotification:
+		Notification: BuildingCaptured
+		LoseNotification: BuildingLostToCapture
+	CaptureManager:
+	Capturable:
+		Types: Building
+		RequiresCondition: !Building-Buildup
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	GivesExperience:
+		PlayerExperienceModifier: 100
+	RevealsShroud:
+		Type: Footprint
+		MaxHeightDelta: 3
+	MustBeDestroyed:
+		RequiredForShortGame: true
+	WithMakeAnimation:
+		Condition: Building-Buildup
+	GrantConditionAfterDelay:
+		Delay: 10000
+		Condition: Rising
+		PauseOnCondition: empdisable
+	Transforms:
+		RequiresCondition: Rising
+		IntoActor: coredefender
+		Offset: 1, 1
+		Facing: 384
+		TransformSounds: coreup1.aud
+		NoTransformSounds:
+	AutoDeployer@AI:
+		RequiresCondition: Rising && AIbuildingMicroControl
+		DeployChance: 100
+		DeployTrigger: Periodically
+		DeployTicks: 20
+		UndeployTicks: 20
+	Tooltip:
+		Name: Core Defender
+	RevealsShroud@revealitself:
+		ValidRelationships: Neutral, Enemy
+		MaxHeightDelta: 3
+		Range: 2c0
+	ProvidesPrerequisite@AIbuildinglimit:
+		Prerequisite: DefenderExists
+		ResetOnOwnerChange: true
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, ConsideredThreatForAI
+	WithIdleOverlay@charging:
+		RequiresCondition: !Building-Buildup
+		Sequence: flag
+		Palette: playercab
+		IsPlayerPalette: true
+	-Targetable@MC:
+	MapEditorData:
+		Categories: Building
+
 HMECTEST:
 	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
