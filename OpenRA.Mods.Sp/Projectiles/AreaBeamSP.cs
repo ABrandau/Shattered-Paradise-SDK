@@ -136,8 +136,8 @@ namespace OpenRA.Mods.SP.Projectiles
 		bool isHeadTravelling = true;
 		bool isTailTravelling;
 		bool continueTracking = true;
-		Func<WPos> hitPosfunc;
-		Func<WPos> launchPosfunc;
+		readonly Func<WPos> hitPosfunc;
+		readonly Func<WPos> launchPosfunc;
 
 		bool IsBeamComplete => !isHeadTravelling && headTicks >= length && !isTailTravelling && tailTicks >= length;
 
@@ -147,7 +147,7 @@ namespace OpenRA.Mods.SP.Projectiles
 			this.args = args;
 			this.color = color;
 			this.color2 = color2;
-			actorAttackBase = args.SourceActor.Trait<AttackBase>();
+			actorAttackBase = args.SourceActor.TraitOrDefault<AttackBase>();
 
 			var world = args.SourceActor.World;
 			if (info.Speed.Length > 1)
@@ -239,7 +239,7 @@ namespace OpenRA.Mods.SP.Projectiles
 			// While the head is travelling, the tail must start to follow Duration ticks later.
 			// Alternatively, also stop emitting the beam if source actor dies or is ordered to stop.
 			if ((headTicks >= info.Duration && !isTailTravelling) || args.SourceActor.IsDead ||
-				!actorAttackBase.IsAiming || outOfWeaponRange)
+				(actorAttackBase != null && !actorAttackBase.IsAiming) || outOfWeaponRange)
 				StopTargeting();
 
 			if (isTailTravelling)
@@ -287,14 +287,14 @@ namespace OpenRA.Mods.SP.Projectiles
 			if (IsBeamComplete)
 				world.AddFrameEndTask(w => w.Remove(this));
 
-			if (showHitEffectDelay != -1 && !isHeadTravelling)
+			if (showHitEffectDelay != -1 && !isHeadTravelling && !IsBeamComplete)
 			{
 				if (showHitEffectDelay == 0)
 					world.AddFrameEndTask(w => w.Add(new SpriteEffect(hitPosfunc, () => WAngle.Zero, world, info.HitEffectImage, info.HitEffectSequence, info.HitEffectPalette)));
 				showHitEffectDelay = showHitEffectDelay - 1 >= 0 ? showHitEffectDelay - 1 : info.HitEffectInterval;
 			}
 
-			if (showLaunchEffectDelay != -1 && !isTailTravelling)
+			if (showLaunchEffectDelay != -1 && !isTailTravelling && !IsBeamComplete)
 			{
 				if (showLaunchEffectDelay == 0)
 					world.AddFrameEndTask(w => w.Add(new SpriteEffect(launchPosfunc, () => WAngle.Zero, world, info.LaunchEffectImage, info.LaunchEffectSequence, info.LaunchEffectPalette)));
