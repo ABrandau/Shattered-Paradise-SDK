@@ -1431,8 +1431,7 @@ MeteorDragLazer:
 		SecondWidth: 600
 		Shape: Cylindrical
 		ZOffset: 8000
-		TrackTarget: true
-		BeyondTargetRange: 0c256
+		BeyondTargetRange: 0
 		Blockable: true
 		Color: E288FF88
 		SecondColor: E288DD33
@@ -1441,3 +1440,23 @@ MeteorDragLazer:
 		LaunchEffectPalette: gensmkexplopurple
 		LaunchEffectInterval: 8
 
+TeleportLazer:
+	ReloadDelay: 80
+	Range: 5c768
+	Report: laserchaingunfire.wav
+	Projectile: ElectricBolt
+		Width: 80
+		Duration: 20
+		Angle: 64
+		ZOffset: 7000
+		SegmentLength: 768
+		Distortion: 512
+		Colors: 0000AA99, 0000CCAA, 00008888
+	Warhead@3Eff: SpawnSmokeParticle
+		ImpactActors: false
+		Duration: 60
+		Sequences: begin
+		#StartSequences: end
+		Image: scrintele
+		Palette: jascbluealpha
+		AirThreshold: 8c0
