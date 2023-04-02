@@ -1171,24 +1171,10 @@ NATMPL:
 		BeaconPosters:
 			1: nodtibnukeiconmini
 		SpawnOffset: -1200, 1400, 0
-	WithSupportPowerActivationOverlay:
+	WithSupportPowerActivationAnimation:
 		Palette: player
 		IsPlayerPalette: True
-		RequiresCondition: !Building-Buildup && !HeavyDamaged
-	WithSupportPowerActivationOverlay@damaged:
-		Sequence: damaged-active
-		Palette: player
-		IsPlayerPalette: True
-		RequiresCondition: !Building-Buildup && HeavyDamaged
-	WithSupportPowerActivationOverlay@BRIGHT:
 		RequiresCondition: !Building-Buildup
-		Sequence: idle-lights-bright
-		Palette: bright
-	WithSupportPowerActivationOverlay@LIGHTS:
-		RequiresCondition: !Building-Buildup
-		Sequence: idle-lights
-		Palette: player-nobright
-		IsPlayerPalette: True
 
 MUVENTI:
 	Inherits: ^Building
