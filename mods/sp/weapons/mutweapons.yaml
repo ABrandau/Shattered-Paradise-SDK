@@ -1119,3 +1119,21 @@ LtRailSmudge:  ##For hit effect
 			Shield: 0
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	-Warhead@2Eff:
+
+MutSWLightningCharge:
+	Inherits@3: ^LightningDefault
+	Burst: 10
+	BurstDelays: 2
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
+	Projectile: InstantExplode
+	-Warhead@2Eff:
+	Warhead@3Eff: CreateEffect
+		ImpactSounds: electro1.aud, voltautofire.wav
+	-Warhead@4: LeaveSmudge
+	Warhead@5op: FireRadius
+		Weapon: LightningSparkDebris
+		ImpactActors: false
+		Amount: 1
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
+	-Warhead@6Eff: CreateEffect
