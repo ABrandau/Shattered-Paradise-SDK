@@ -17,7 +17,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.SP.Traits
 {
-	[Desc("Trigger an weapon when a support power is triggered.")]
+	[Desc("Trigger an weapon when a support power is triggered. Mainly for visual effect")]
 	public class WithSupportPowerActivationExplodeWeaponInfo : ConditionalTraitInfo
 	{
 		[WeaponReference]
@@ -100,6 +100,10 @@ namespace OpenRA.Mods.SP.Traits
 					? body.LocalToWorld(info.LocalOffset.Rotate(body.QuantizeOrientation(self.Orientation)))
 					: info.LocalOffset;
 
+				var hitOffset = body != null
+					? body.LocalToWorld(info.HitOffset.Rotate(body.QuantizeOrientation(self.Orientation)))
+					: info.HitOffset;
+
 				var args = new ProjectileArgs
 				{
 					Weapon = weapon,
@@ -115,7 +119,7 @@ namespace OpenRA.Mods.SP.Traits
 					Source = self.CenterPosition + localoffset,
 					CurrentSource = () => self.CenterPosition + localoffset,
 					SourceActor = self,
-					PassiveTarget = self.CenterPosition + Info.HitOffset
+					PassiveTarget = self.CenterPosition + hitOffset
 				};
 
 				if (args.Weapon.Projectile != null)
