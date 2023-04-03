@@ -1020,6 +1020,7 @@ GAPLUG:
 	WithIdleOverlay@ioncannona:
 		RequiresCondition: !Building-Buildup
 		Sequence: idle-ioncannona
+		Offset: -250, 1100, 1500
 	WithIdleOverlay@hunterseekerb:
 		RequiresCondition: !Building-Buildup
 		Sequence: idle-hunterseekerb
@@ -1028,6 +1029,17 @@ GAPLUG:
 	WithIdleOverlay@hunterseekerb-bright:
 		RequiresCondition: !Building-Buildup
 		Sequence: idle-hunterseekerb-bright
+		Palette: bright
+	WithIdleOverlay@droppoda:
+		RequiresCondition: !Building-Buildup
+		PauseOnCondition: disabled
+		Sequence: idle-droppoda
+		Palette: player-nobright
+		IsPlayerPalette: True
+	WithIdleOverlay@droppoda-bright:
+		RequiresCondition: !Building-Buildup
+		PauseOnCondition: disabled
+		Sequence: idle-droppoda-bright
 		Palette: bright
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@swlimit:
