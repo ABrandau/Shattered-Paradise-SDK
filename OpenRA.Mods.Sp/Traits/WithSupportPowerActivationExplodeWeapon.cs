@@ -18,7 +18,7 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.SP.Traits
 {
 	[Desc("Trigger an weapon when a support power is triggered. Mainly for visual effect")]
-	public class WithSupportPowerActivationExplodeWeaponInfo : ConditionalTraitInfo
+	public class WithSupportPowerActivationExplodeWeaponInfo : PausableConditionalTraitInfo
 	{
 		[WeaponReference]
 		[FieldLoader.Require]
@@ -36,6 +36,9 @@ namespace OpenRA.Mods.SP.Traits
 		[Desc("Weapon hit offset relative to actor's position.")]
 		public readonly WVec HitOffset = WVec.Zero;
 
+		[Desc("Delay the weapon when activate")]
+		public readonly int Delays = 0;
+
 		public override object Create(ActorInitializer init) { return new WithSupportPowerActivationExplodeWeapon(init.Self, this); }
 
 		public override void RulesetLoaded(Ruleset rules, ActorInfo ai)
@@ -50,7 +53,7 @@ namespace OpenRA.Mods.SP.Traits
 		}
 	}
 
-	public class WithSupportPowerActivationExplodeWeapon : ConditionalTrait<WithSupportPowerActivationExplodeWeaponInfo>, INotifySupportPower, ITick
+	public class WithSupportPowerActivationExplodeWeapon : PausableConditionalTrait<WithSupportPowerActivationExplodeWeaponInfo>, INotifySupportPower, ITick
 	{
 		readonly WithSupportPowerActivationExplodeWeaponInfo info;
 		readonly WeaponInfo weapon;
@@ -69,6 +72,7 @@ namespace OpenRA.Mods.SP.Traits
 			weapon = info.WeaponInfo;
 			burst = weapon.Burst;
 			body = self.TraitOrDefault<BodyOrientation>();
+			fireDelay = info.Delays;
 		}
 
 		void INotifySupportPower.Charged(Actor self) { }
@@ -81,7 +85,7 @@ namespace OpenRA.Mods.SP.Traits
 
 		public void Tick(Actor self)
 		{
-			if (!shouldAcitate || IsTraitDisabled)
+			if (!shouldAcitate || IsTraitDisabled || IsTraitPaused)
 				return;
 
 			for (var i = 0; i < delayedActions.Count; i++)
@@ -152,7 +156,7 @@ namespace OpenRA.Mods.SP.Traits
 				}
 				else
 				{
-					fireDelay = 0;
+					fireDelay = Info.Delays;
 					burst = weapon.Burst;
 					shouldAcitate = false;
 
@@ -185,6 +189,8 @@ namespace OpenRA.Mods.SP.Traits
 		protected override void TraitDisabled(Actor self)
 		{
 			shouldAcitate = false;
+			fireDelay = Info.Delays;
+			burst = weapon.Burst;
 			base.TraitDisabled(self);
 		}
 	}

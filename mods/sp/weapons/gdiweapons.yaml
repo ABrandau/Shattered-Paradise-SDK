@@ -1190,3 +1190,33 @@ MEMPulse:
 	Warhead@7: FireRadius
 		Amount: 6
 		Delay: 20
+
+IonCannonConnectionWave:
+	ValidTargets: Ground, Water, Air
+	Burst: 14
+	BurstDelays: 4
+	Projectile: BulletAS
+		Speed: 500
+		Image: connectionwave
+		Sequences: idle1
+		Shadow: true
+		Palette: gensmkexplocyan70
+		Blockable: false
+
+IonCannonConnectionWave2:
+	Burst: 10
+	BurstDelays: 5
+	Range: 999c0
+	ValidTargets: Vehicle, Infantry, Building, Ground, Water
+	Projectile: AreaBeamSP
+		Speed: 400
+		Duration: 3
+		DamageInterval: 4000
+		Width: 200
+		SecondWidth: 600
+		Shape: Cylindrical
+		ZOffset: 8000
+		BeyondTargetRange: 0
+		Blockable: false
+		Color: 50F5FF30
+		SecondColor: 50F5FF13

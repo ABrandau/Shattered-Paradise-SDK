@@ -1015,20 +1015,24 @@ GAPLUG:
 		MissileWeapons:
 			1: IonCannonSpawner
 		OrderName: IonCannon2
+		FlightDelay: 23
 		Cursor: ioncannon
 	SupportPowerChargeBar:
 	WithIdleOverlay@ioncannona:
 		RequiresCondition: !Building-Buildup
 		Sequence: idle-ioncannona
 		Offset: -250, 1100, 1500
+		PauseOnCondition: disabled
 	WithIdleOverlay@hunterseekerb:
 		RequiresCondition: !Building-Buildup
 		Sequence: idle-hunterseekerb
 		Palette: player-nobright
 		IsPlayerPalette: true
+		PauseOnCondition: disabled
 	WithIdleOverlay@hunterseekerb-bright:
 		RequiresCondition: !Building-Buildup
 		Sequence: idle-hunterseekerb-bright
+		PauseOnCondition: disabled
 		Palette: bright
 	WithIdleOverlay@droppoda:
 		RequiresCondition: !Building-Buildup
@@ -1050,6 +1054,15 @@ GAPLUG:
 		AreaTypes: building
 	IsometricSelectable:
 		DecorationHeight: 48
+	WithSupportPowerActivationExplodeWeapon:
+		Weapon: IonCannonConnectionWave
+		LocalOffset: 0,0,3200
+		HitOffset: 0,0,15000
+	WithSupportPowerActivationExplodeWeapon@back:
+		Weapon: IonCannonConnectionWave2
+		LocalOffset: 0,0,15000
+		HitOffset: 0,0,3200
+		Delays: 20
 
 NASTLH:
 	Inherits: ^Building
@@ -1446,7 +1459,7 @@ SCRSW1:
 		CircleRanges:
 			1: 6c0
 		OrderName: MeteorSpawner
-		FlightDelay: 30
+		FlightDelay: 29
 		FlightVelocity: 1c0
 		CameraRange: 10c0
 		CameraSpawnAdvance: 0 ## need to be earlier than hit time
