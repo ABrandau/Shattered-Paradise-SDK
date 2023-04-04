@@ -977,22 +977,26 @@ scradvpowr:
 		Filename: scradvpowr.shp
 		Offset: 0, -36, 36
 	idle:
-		Start: 29
-	active:
+		Start: 31
+		Length: 10
+		Tick: 80
 	damaged-idle:
-		Start: 39
+		Start: 41
+		Length: 10
+		Tick: 80
 	dead:
 		Start: 40
 		Tick: 400
-	idle-lights:
-		Start: 31
-		Length: 10
-		Tick: 200
-		ZOffset: 512
-	damaged-idle-lights:
-		Start: 41
-		Length: 10
-		Tick: 200
+	active:
+		Frames: 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40
+		Length: *
+		Tick: 40
+		Reverses: true
+	damaged-active:
+		Frames: 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50
+		Length: *
+		Tick: 40
+		Reverses: true
 	make:
 		Length: 30	
 	emp-overlay:

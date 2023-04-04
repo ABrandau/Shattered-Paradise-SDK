@@ -1767,9 +1767,6 @@ SCRADVPOWR:
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
-	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
-		RequiresCondition: !Building-Buildup
 	ChronoshiftPower@chronoshift:
 		RequiresCondition: !AIbuildingMicroControl
 		OrderName: Chronoshift
@@ -1838,6 +1835,9 @@ SCRADVPOWR:
 		Weapon: TeleportLazer
 		LocalOffset: 0, 0, 18000
 		HitOffset: 0, 0, 3000
+	WithSupportPowerActivationAnimation:
+		Palette: playerscrin
+		IsPlayerPalette: true
 	Health:
 		HP: 150000
 	RequiresBuildableArea:
