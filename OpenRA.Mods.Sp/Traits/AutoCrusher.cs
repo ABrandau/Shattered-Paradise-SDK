@@ -11,6 +11,7 @@
 
 using System.Linq;
 using OpenRA.Mods.Common;
+using OpenRA.Mods.Common.Activities;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Primitives;
 using OpenRA.Traits;
@@ -41,6 +42,7 @@ namespace OpenRA.Mods.SP.Traits
 	{
 		int nextScanTime;
 		readonly IMoveInfo moveInfo;
+		readonly bool isAircraft;
 		protected readonly IMove Move;
 
 		public AutoCrusher(Actor self, AutoCrusherInfo info)
@@ -48,6 +50,9 @@ namespace OpenRA.Mods.SP.Traits
 		{
 			Move = self.Trait<IMove>();
 			moveInfo = self.Info.TraitInfo<IMoveInfo>();
+
+			if (self.Info.HasTraitInfo<AircraftInfo>())
+				isAircraft = true;
 		}
 
 		protected override void Created(Actor self)
@@ -63,15 +68,18 @@ namespace OpenRA.Mods.SP.Traits
 
 			var crushableActor = self.World.FindActorsInCircle(self.CenterPosition, Info.ScanRadius)
 				.Where(a => a != self && !a.IsDead && a.IsInWorld &&
-				a.IsAtGroundLevel() && Info.TargetRelationships.HasRelationship(self.Owner.RelationshipWith(a.Owner))
-				&& self.Location != a.Location &&
+				self.Location != a.Location && a.IsAtGroundLevel() &&
+				Info.TargetRelationships.HasRelationship(self.Owner.RelationshipWith(a.Owner)) &&
 				a.TraitsImplementing<ICrushable>().Any(c => c.CrushableBy(a, self, Info.CrushClasses)))
 				.ClosestTo(self); // TODO: Make it use shortest pathfinding distance instead
 
 			if (crushableActor == null)
 				return;
 
-			self.QueueActivity(Move.MoveTo(crushableActor.Location, targetLineColor: moveInfo.GetTargetLineColor()));
+			if (isAircraft)
+				self.QueueActivity(new Land(self, Target.FromActor(crushableActor), targetLineColor: moveInfo.GetTargetLineColor()));
+			else
+				self.QueueActivity(Move.MoveTo(crushableActor.Location, targetLineColor: moveInfo.GetTargetLineColor()));
 
 			nextScanTime = self.World.SharedRandom.Next(Info.MinimumScanTimeInterval, Info.MaximumScanTimeInterval);
 		}
