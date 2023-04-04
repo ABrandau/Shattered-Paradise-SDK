@@ -319,16 +319,16 @@ CRAB:
 		CrushedSequencePalette: playermut
 	KillsSelf@TimedLife:
 		Delay: 2300
-		DamageTypes: DigAway
+		DamageTypes: TimeOutDeath
 	WithDeathAnimation@Dust: ## In game, when time is up the crabs will dig into ground and go for good
 		DeathSequencePalette: effect
 		DeathPaletteIsPlayerPalette: false
 		DeathTypes:
-			DigAway: dig
+			TimeOutDeath: dig
 	WithDeathAnimation@Digging: ## In game, when time is up the crabs will dig into ground and go for good
 		DeathSequencePalette: playermut
 		DeathTypes:
-			DigAway: esc
+			TimeOutDeath: esc
 	WithDeathAnimation@blood1:
 		DeathSequencePalette: gradientgreen
 		CrushedSequencePalette: gradientgreen
