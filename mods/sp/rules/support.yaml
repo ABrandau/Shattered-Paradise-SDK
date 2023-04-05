@@ -1202,16 +1202,21 @@ NATMPL:
 
 MUVENTI:
 	Inherits: ^Building
+	Inherits@2: ^HasSuperSupportPower
 	Inherits@RENDER: ^MutRenderBuilding
 	Inherits@SHAPE: ^2x2Shape
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Buildable:
 		Queue: Defense.Shared, Defense.Mutant
-		BuildPaletteOrder: 38
+		BuildPaletteOrder: 44
 		Description: Allows mutants to quickly transport their units across the battlefield.\n\nSpecial:\n- Transports units between tunnels (except Epics and Demotrucks)\n- Cannot be repaired by engineers
-		Prerequisites: ~mutyard, muradr, ~techlevel.4
+		Prerequisites: ~mutyard, muhall, !enoughmuventi, ~techlevel.4
 		BuildDuration: 125
 		BuildDurationModifier: 100
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@swlimit:
+		RequiresPrerequisites: global-swlimit
+		Prerequisite: enoughmuventi
 	ProductionCostMultiplier@AI: ## AI cannot use it well
 		Multiplier: 10
 		Prerequisites: AIOnly
@@ -1222,7 +1227,6 @@ MUVENTI:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-		BuildSounds: ssneakat.wav
 	Health:
 		HP: 50000
 	-InstantlyRepairable:
@@ -1230,27 +1234,23 @@ MUVENTI:
 		Types: Infantry, Vehicle
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
+		PauseOnCondition: Building-Buildup
 	Targetable:
 		TargetTypes: Building, Ground, C4
-	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
 	#Exit@1:
 	#	Facing: 640
 	#	SpawnOffset: 256,256,0
 	#	ExitCell: 2,1
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+		RequiresCondition: !Building-Buildup
 	RallyPoint:
 		Palette: mouse
 		IsPlayerPalette: false
 	MapEditorData:
 		Categories: Defence
-	WithIdleOverlay@SpawnFire:
-		Sequence: fire2_higher
-	RenderSprites:
-		Image: musnek
-	WithIdleOverlay@BIB:
-		Sequence: bib
-		RequiresCondition: !Building-Buildup
 	WithSharedCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1292,9 +1292,49 @@ MUVENTI:
 	-GivesBuildableArea:
 	-GrantConditionOnPrerequisite@SUDDENDEATH:
 	-MustBeDestroyed:
+	SupportPowerChargeBar:
+	NukePower:
+		Cost: 500
+		Prerequisites:
+			1: muventi
+		Icons:
+			1: musnekicon
+		Names:
+			1: Sneak Attack
+		Descriptions:
+			1: Spawns a Tunnel that is connected to the Tunnel Network at the target location.
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: Select target.
+		OrderName: SneakAttackPowerInfoOrder
+		MissileWeapons:
+			1: MutTunnelSpawnerDummyWeapon
+		ChargeInterval: 1500
+		CameraRange: 0
+		DisplayTimerRelationships: None
 	ActorStatValues:
 		Armaments: None
 		Upgrades: upgrade.tunnel_repairs
+
+MUVENT:
+	Inherits: MUVENTI
+	-Buildable:
+	-ProvidesPrerequisite@swlimit:
+	Tooltip:
+		Name: Tunnel
+	-NukePower:
+	-SupportPowerChargeBar:
+	-WithIdleOverlay@LIGHTS:
+	WithIdleOverlay@BIB:
+		Sequence: bib
+		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@SpawnFire:
+		Sequence: fire2_higher
+	RenderSprites:
+		Image: musnek
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: muventi
 
 MUTSW1:
 	Inherits: ^Building
