@@ -1528,6 +1528,15 @@
 		Condition: AIShattered
 		Bots: ShatteredAI
 
+^AICashCheatRefinary: ## provide 0.35 cash cheat
+	Inherits: ^AICashCheat
+	CashTrickler@AICashDevour:
+		Amount: 133
+	CashTrickler@AICashCheater:
+		Amount: 91
+	CashTrickler@AICashNormal:
+		Amount: 49
+
 ^AImicroManagable:
 	GrantConditionOnBotOwner@AImicroManage:
 		Condition: AImicroManage

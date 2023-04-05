@@ -550,11 +550,25 @@ GACNST:
 		PipCount: 25
 		Palette: pips
 		ValidRelationships: Ally, Neutral, Enemy
+	IsometricSelectable:
+		DecorationHeight: 36
+	ThrowsShrapnel@SMALL:
+		Pieces: 1, 2
+		Weapons: SmallDebris
+	ThrowsShrapnel@LARGE:
+		Pieces: 1, 2
+		Weapons: LargeDebris
+	ThrowsShrapnel@TSMALL:
+		Pieces: 3, 6
+		Weapons: TSmallDebris
+	ThrowsShrapnel@TLARGE:
+		Pieces: 2, 4
+		Weapons: TLargeDebris
 
 ^Refinery:
 	Inherits: ^Building
 	Inherits@1: ^RefineryHP
-	Inherits@2: ^AICashCheat
+	Inherits@2: ^AICashCheatRefinary
 	Inherits@SHAPE: ^NormalRefineryHitShape
 	Building:
 		Footprint: xx++ xx++ xx++
@@ -582,25 +596,11 @@ GACNST:
 	RenderSprites:
 	RequiresBuildableArea:
 		AreaTypes: building
-	IsometricSelectable:
-		DecorationHeight: 36
-	ThrowsShrapnel@SMALL:
-		Pieces: 1, 2
-		Weapons: SmallDebris
-	ThrowsShrapnel@LARGE:
-		Pieces: 1, 2
-		Weapons: LargeDebris
-	ThrowsShrapnel@TSMALL:
-		Pieces: 3, 6
-		Weapons: TSmallDebris
-	ThrowsShrapnel@TLARGE:
-		Pieces: 2, 4
-		Weapons: TLargeDebris
 
 ^FlippedRefinery:
 	Inherits: ^Building
 	Inherits@1: ^RefineryHP
-	Inherits@2: ^AICashCheat
+	Inherits@2: ^AICashCheatRefinary
 	Inherits@SHAPE: ^FlippedRefineryHitshape
 	Building:
 		Footprint: ++xx ++xx ++xx
@@ -631,7 +631,7 @@ GACNST:
 ^FlippedXRefinery:
 	Inherits: ^Building
 	Inherits@1: ^RefineryHP
-	Inherits@2: ^AICashCheat
+	Inherits@2: ^AICashCheatRefinary
 	Inherits@SHAPE: ^FlippedRefineryXHitshape
 	Building:
 		Footprint: xxx xxx +++ +++
@@ -662,7 +662,7 @@ GACNST:
 ^FlippedYRefinery:
 	Inherits: ^Building
 	Inherits@1: ^RefineryHP
-	Inherits@2: ^AICashCheat
+	Inherits@2: ^AICashCheatRefinary
 	Inherits@SHAPE: ^FlippedRefineryYHitshape
 	Building:
 		Footprint: +++ +++ xxx xxx
@@ -834,6 +834,7 @@ GACNST:
 	Inherits: ^Building
 	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
 	Inherits@VISION: ^12CellVision
+	Inherits@2: ^AICashCheatRefinary
 	Buildable:
 		BuildDuration: 1125
 		BuildDurationModifier: 100
@@ -1094,6 +1095,7 @@ SCRDEPOT:
 
 ^TechCenter:
 	Inherits: ^Building
+	Inherits@2: ^AICashCheatRefinary
 	Buildable:
 		BuildDuration: 1500
 		BuildDurationModifier: 100
