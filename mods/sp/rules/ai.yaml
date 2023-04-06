@@ -735,6 +735,36 @@ Player:
 					Attractiveness: 1
 					TargetMetric: Value
 					CheckRadius: 5c0
+			tunnel:
+				OrderName: SneakAttackPowerInfoOrder
+				MinimumAttractiveness: 3000
+				MinimumScanTimeInterval: 83
+				MaximumScanTimeInterval: 100
+				Consideration@1:
+					Against: Enemy
+					Types: ConsideredThreatForAI
+					IgnoreVisibility: true
+					Attractiveness: 1000000
+					TargetMetric: None
+					CheckRadius: 4c0
+				Consideration@2:
+					Against: Enemy
+					Types: Building
+					Attractiveness: 10
+					TargetMetric: Value
+					CheckRadius: 5c0
+				Consideration@3:
+					Against: Enemy
+					Types: Defence
+					Attractiveness: -100
+					TargetMetric: Value
+					CheckRadius: 7c0
+				Consideration@4:
+					Against: Enemy
+					Types: Ground
+					Attractiveness: 1
+					TargetMetric: Value
+					CheckRadius: 5c0
 			nano:
 				OrderName: NanomachineSwarm
 				MinimumAttractiveness: 7000
