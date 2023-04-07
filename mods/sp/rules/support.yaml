@@ -1243,9 +1243,10 @@ MUVENTI:
 	#	Facing: 640
 	#	SpawnOffset: 256,256,0
 	#	ExitCell: 2,1
-	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
-		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@SpawnFire:
+		Sequence: fire2_higher
+	RenderSprites:
+		Image: td-tunnel
 	RallyPoint:
 		Palette: mouse
 		IsPlayerPalette: false
@@ -1294,6 +1295,16 @@ MUVENTI:
 	-MustBeDestroyed:
 	SupportPowerChargeBar:
 	NukePower:
+		-LaunchSpeechNotification:
+		-IncomingSpeechNotification:
+		-IncomingSound:
+		-LaunchTextNotification:
+		-IncomingTextNotification:
+		-LaunchSound:
+		-EndChargeSound:
+		-EndChargeSpeechNotification:
+		RequiresCondition: !AIbuildingMicroControl
+		EndChargeTextNotification: Commander, our SneakAttack is ready.
 		Cost: 500
 		Prerequisites:
 			1: muventi
@@ -1311,19 +1322,56 @@ MUVENTI:
 		ChargeInterval: 1500
 		CameraRange: 0
 		DisplayTimerRelationships: None
+	NukePower@AI:
+		RequiresCondition: AIbuildingMicroControl
+		AllowMultiple: false
+		Cursor: nuke
+		EndChargeTextNotification: Commander, our SneakAttack is ready.
+		SelectTargetSound:
+		InsufficientPowerSound:
+		DisplayRadarPing: true
+		PauseOnCondition: empdisable || disabled
+
+		FlightDelay: 1
+		FlightVelocity: 1c0
+		DisplayBeacon: false
+
+		Prerequisites:
+			1: muventi
+		Icons:
+			1: musnekicon
+		Names:
+			1: Sneak Attack
+		Descriptions:
+			1: Spawns a Tunnel that is connected to the Tunnel Network at the target location.
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: Select target.
+		OrderName: SneakAttackPowerInfoOrder
+		MissileWeapons:
+			1: MutTunnelSpawnerDummyWeapon
+		ChargeInterval: 5000
+		CameraRange: 0
+		DisplayTimerRelationships: None
 	ActorStatValues:
 		Armaments: None
 		Upgrades: upgrade.tunnel_repairs
 
 MUVENT:
 	Inherits: MUVENTI
-	-Buildable:
 	-ProvidesPrerequisite@swlimit:
 	Tooltip:
 		Name: Tunnel
+	Buildable:
+		Queue: Defense.Shared, Defense.Mutant
+		BuildPaletteOrder: 44
+		Description: Allows mutants to quickly transport their units across the battlefield.\n\nSpecial:\n- Transports units between tunnels (except Epics and Demotrucks)\n- Cannot be repaired by engineers
+		Prerequisites: ~mutyard, muventi, ~AIOnly, ~techlevel.4
+		BuildDuration: 125
+		BuildDurationModifier: 100
+	Building:
+		BuildSounds: ssneakat.wav
 	-NukePower:
 	-SupportPowerChargeBar:
-	-WithIdleOverlay@LIGHTS:
 	WithIdleOverlay@BIB:
 		Sequence: bib
 		RequiresCondition: !Building-Buildup
@@ -1385,6 +1433,7 @@ MUTSW1:
 		BeaconPosters:
 			1: miniionstromicon
 		BeaconRemoveAdvance: 0
+		Cursor: ioncannon
 	Health:
 		HP: 200000
 	RequiresBuildableArea:

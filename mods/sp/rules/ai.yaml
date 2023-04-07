@@ -83,7 +83,7 @@ Player:
 		AdditionalMinimumRefineryCount: 0 ## We don't need this
 		InititalMinimumRefineryCount: 0 ## We don't need this
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
-		DefenseTypes: gavulc, cabpit, mubunkr, nalasr, scrneedler, muflak, mucannon, gacsam, nasam, cabrail, scrtractor, cabblast, garock, gasonc, naobel, scrdrone, scrextractor, napuls, scrshield, gafire, blackdefd, gadept, scrdepot, muventi
+		DefenseTypes: gavulc, cabpit, mubunkr, nalasr, scrneedler, muflak, mucannon, gacsam, nasam, cabrail, scrtractor, cabblast, garock, gasonc, naobel, scrdrone, scrextractor, napuls, scrshield, gafire, blackdefd, gadept, scrdepot, muvent
 		RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4
 		PowerTypes: gapowr, napowr, naapwr, cabpowr, mupowr, scrpowr
 		BarracksTypes: gapile, nahand, mutrax, cabrax, scrrax
@@ -187,7 +187,8 @@ Player:
 			cabblast: 10
 			garock: 10
 			gasonc: 6
-			muventi: 6
+			muvent: 6
+			muventi: 1
 			naobel: 10
 			scrdrone: 10
 			cabeye: 1
@@ -264,7 +265,7 @@ Player:
 		GuerrillaTypes: cerberus, mutqueen, stormrider, scrglyder1, scrdestroyer, scrcarrier, scrbattleship, wasp, basilisk, sonicarryall_bot, apcarryall_bot, jumpjetair, nconf, bhs, mutfiend, pdrone, moth, cyc2, shark, smech, hvr, jug, attackbike, bggy, howtlizer, stnk, mutquad, lynx, wolf, mrls, scrscorpion, deathclaw, scrmbt, scrglyder2, scrmobmine, reapercab, altnode1, crusader, jjcommair, umagon
 		#MaxGuerrillaSize: 15
 		AirUnitsTypes: jumpjetair, jjcommair, orca, orcab, apache, scrin, cerberus, mutheli, mutqueen, mutbird, wetp, stormrider, scrglyder1, scrdestroyer, scrcarrier, stormriderspawn, repairwyvern, cabdronejet, repairdrone, scrbattleship, wasp, basilisk, devourer, sonicarryall_bot, apcarryall_bot
-		ProtectionTypes: nodmcv, mutmcv, cabmcv, drache, mcv, harv, harv.nod, harv.mut, cabharv, scrharv, gacnst, gadept, scrdepot, gasilo, napuls, scrshield, gate_a, mutgate_a, scrgate_a, scrgate_b, gapowr, gapile, gdiref, gaweap, garadr, gahpad, gatech, gtdrop, nodyard, napowr, nahand, nodref, naweap, naradr, naapwr, nahpad, natech, namisl, mutyard, mupowr, murax, muproc, muweap, muradr, muair, muhall, mutsw2, drached, scrpowr, scrrax, scrproc, scrproc2, scrproc3, scrproc4, scrweap, scrradr, scrair, scrtech, scradvpowr, cabyard, cabpowr, cabclaw, cabproc, cabweap, cabradr, cabair, cabtech, cabobelisk, gavulc, garock, gasonc, gacsam, nalasr, naobel, nasam, mubunkr, mucannon, muflak, cabpit, cabblast, cabrail, scrneedler, scrdrone, scrtractor, gafire, gaplug, nastlh, natmpl, muventi, mutsw1, scrextractor, scrsw1, cabeye, cabsw1, blackdefd, weed, bloodderrick, colorpicker, mubunkr, defd, mtar, mwar
+		ProtectionTypes: nodmcv, mutmcv, cabmcv, drache, mcv, harv, harv.nod, harv.mut, cabharv, scrharv, gacnst, gadept, scrdepot, gasilo, napuls, scrshield, gate_a, mutgate_a, scrgate_a, scrgate_b, gapowr, gapile, gdiref, gaweap, garadr, gahpad, gatech, gtdrop, nodyard, napowr, nahand, nodref, naweap, naradr, naapwr, nahpad, natech, namisl, mutyard, mupowr, murax, muproc, muweap, muradr, muair, muhall, mutsw2, drached, scrpowr, scrrax, scrproc, scrproc2, scrproc3, scrproc4, scrweap, scrradr, scrair, scrtech, scradvpowr, cabyard, cabpowr, cabclaw, cabproc, cabweap, cabradr, cabair, cabtech, cabobelisk, gavulc, garock, gasonc, gacsam, nalasr, naobel, nasam, mubunkr, mucannon, muflak, cabpit, cabblast, cabrail, scrneedler, scrdrone, scrtractor, gafire, gaplug, nastlh, natmpl, muvent, mutsw1, scrextractor, scrsw1, cabeye, cabsw1, blackdefd, weed, bloodderrick, colorpicker, mubunkr, defd, mtar, mwar
 	UnitBuilderBotModule@AIAll:
 		RequiresCondition: AIEasy || AIBase
 		UnitQueues: Infantry.Shared, Infantry.GDI, Infantry.Nod, Infantry.Mutant, Infantry.CABAL, Infantry.Scrin, Vehicle.Shared, Vehicle.GDI, Vehicle.MammothMkII, Vehicle.Nod, Vehicle.Lightbringer, Vehicle.Mutant, Vehicle.CABAL, Vehicle.Scrin, Air.Shared, Air.GDI, Air.Nod, Air.Mutant, Air.CABAL, Air.Scrin, Upgrade.Shared, Upgrade.GDI, Upgrade.Nod, Upgrade.Mutant, Upgrade.CABAL, Upgrade.Scrin
@@ -855,7 +856,7 @@ Player:
 		Passengers: gdie1, altnode1, jumpjet, crusader, e3, marauder, cyborg, cborg, legio, grenadier, e2, templar, mutfiend, colossi, seer, eagleguard, bhs, psyker, glad, cyc2, bug, nconf
 	SharedCargoBotModule:
 		RequiresCondition: AIBase || AIEasy
-		Transports: muventi
+		Transports: muvent, muventi
 		Passengers: apc, struck, bggy, apc_bot, riflebggy, rocketbggy, flamebggy, struckfull, struckfull_t3, mmch,smech,attackbike,centurion,scrdronec,corruptor,scrglyder2,hvr,ttnk,lynx,mutquad,wolf,g4tnk,scrmbt,sonic,jug,mrls,deathclaw,spiderarty,paladin,tripod,howtlizer,stnk,scrrecharger,scrmobmine
 	SendUnitToAttackBotModule:
 		RequiresCondition: AIBase
