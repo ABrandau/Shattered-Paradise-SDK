@@ -1322,7 +1322,7 @@ MUVENTI:
 		ChargeInterval: 1500
 		CameraRange: 0
 		DisplayTimerRelationships: None
-	NukePower@AI:
+	NukePower@AI: ### AI will use it less, and have the ability to build tunnel instead
 		RequiresCondition: AIbuildingMicroControl
 		AllowMultiple: false
 		Cursor: nuke
@@ -1358,11 +1358,11 @@ MUVENTI:
 
 MUVENT:
 	Inherits: MUVENTI
-	Inherits@SHAPE: ^3x3Shape
+	Inherits@SHAPE: ^2x2Shape
 	-ProvidesPrerequisite@swlimit:
 	Tooltip:
 		Name: Tunnel
-	Buildable:
+	Buildable: ### AI cannot use the support power properly as defence purpose, so AI build tunnel instead
 		Queue: Defense.Shared, Defense.Mutant
 		BuildPaletteOrder: 44
 		Description: Allows mutants to quickly transport their units across the battlefield.\n\nSpecial:\n- Transports units between tunnels (except Epics and Demotrucks)\n- Cannot be repaired by engineers
