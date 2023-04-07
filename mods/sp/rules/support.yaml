@@ -1204,7 +1204,7 @@ MUVENTI:
 	Inherits: ^Building
 	Inherits@2: ^HasSuperSupportPower
 	Inherits@RENDER: ^MutRenderBuilding
-	Inherits@SHAPE: ^2x2Shape
+	Inherits@SHAPE: ^3x3Shape
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Buildable:
 		Queue: Defense.Shared, Defense.Mutant
@@ -1225,8 +1225,8 @@ MUVENTI:
 	Tooltip:
 		Name: Tunnel Network
 	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
 	Health:
 		HP: 50000
 	-InstantlyRepairable:
@@ -1358,6 +1358,7 @@ MUVENTI:
 
 MUVENT:
 	Inherits: MUVENTI
+	Inherits@SHAPE: ^3x3Shape
 	-ProvidesPrerequisite@swlimit:
 	Tooltip:
 		Name: Tunnel
@@ -1369,6 +1370,8 @@ MUVENT:
 		BuildDuration: 125
 		BuildDurationModifier: 100
 	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
 		BuildSounds: ssneakat.wav
 	-NukePower:
 	-SupportPowerChargeBar:
