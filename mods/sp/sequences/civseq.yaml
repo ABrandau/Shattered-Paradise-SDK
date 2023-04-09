@@ -251,11 +251,6 @@ carbigcamion:
 		Filename: carcamionicon.shp
 		Start: 4
 
-carpickup:
-	Defaults:
-		Filename: carpickup.shp
-	Inherits: ^SpriteVehicleWithShadowCounterClockwise
-
 truckopen:
 	Defaults:
 		Filename: truckopen.shp
@@ -2840,10 +2835,11 @@ tdsamsite:
 		ShadowStart: 82
 		-ZRamp:
 	closing:
-		ShadowStart: 82
-		Length: 21
+		#ShadowStart: 103 
+		Start: 0
+		Length: *
 		Frames: 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4
-		Z-Ramp:
+		-ZRamp:
 	idle:
 		Start: 46
 		Facings: 32

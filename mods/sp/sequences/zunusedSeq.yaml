@@ -1,0 +1,279 @@
+armh:
+	Inherits@1: ^SpriteVehicleWithShadow
+	Defaults:
+		Filename: armh.shp
+	icon:
+		Filename: beamcannonicon.shp
+
+howtlizer: ## unused
+	Inherits@1: ^SpriteVehicleWithShadow
+	Defaults:
+		Filename: howtlizer.shp
+	icon:
+		Filename: howtlizericon.shp
+	muzzle:
+		Filename: japmuzzle.shp
+		Length: *
+
+hologramprojector:
+	Inherits: ^EmpOverlay
+	icon:
+		Filename: hologramprojectoricon.shp
+
+
+mutapc:
+	Inherits: ^EmpOverlay
+	idle:
+		Filename: tdtank.shp
+		Facings: -32
+		ShadowStart: 64
+	turret:
+		Filename: tdtank.shp
+		Start: 32
+		Facings: -32
+	muzzle0:
+		Filename: mgun-n.shp
+		Length: *
+	muzzle1:
+		Filename: mgun-nw.shp
+		Length: *
+	muzzle2:
+		Filename: mgun-w.shp
+		Length: *
+	muzzle3:
+		Filename: mgun-sw.shp
+		Length: *
+	muzzle4:
+		Filename: mgun-s.shp
+		Length: *
+	muzzle5:
+		Filename: mgun-se.shp
+		Length: *
+	muzzle6:
+		Filename: mgun-e.shp
+		Length: *
+	muzzle7:
+		Filename: mgun-ne.shp
+		Length: *
+	icon:
+		Filename: mutapcicon.shp
+
+
+trike:
+	Inherits: ^EmpOverlay
+	icon:
+		Filename: trikeicon.shp
+
+2stug3:
+	Inherits: ^EmpOverlay
+	icon:
+		Filename: stugicon.shp
+		
+mutbird:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: mutbird.shp
+	idle:
+		Facings: -8
+	stand:
+		Facings: -8
+	run:
+		Start: 8
+		Length: 14
+		Tick: 25
+		Facings: -8
+	icon:
+		Filename: mutbirdicon.shp
+		
+guardian:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: guardian.shp
+	stand:
+		Facings: 32
+	idle:
+		Facings: 32
+	run:
+		Tick: 90
+		Facings: 32
+	icon:
+		Filename: guardianicon.shp
+
+guardiandep:
+	Inherits: ^EmpOverlay
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: gtardiandep.shp
+			SNOW: gaardiandep.shp
+		Offset: 0,-18
+	dead:
+		Start: 0
+		Length: 1
+	make:
+		ShadowStart: 1
+	stand:
+		ShadowStart: 1
+	idle:
+		ShadowStart: 1
+	icon:
+		TilesetFilenames:
+			TEMPERATE: gtardianicon.shp
+			SNOW: gaardianicon.shp
+
+gmrls:
+	Inherits@1: ^SpriteVehicleWithShadow
+	Defaults:
+		Filename: gmrls.shp
+	idle:
+		Offset: 0, 4, 0
+	stand:
+		Offset: 0, 4, 0
+	icon:
+		Filename: gmrlsicon.shp
+
+jenn:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: jenn.shp
+	shoot:
+		Start: 96
+		Facings: -8
+		ShadowStart: 216
+	idle:
+		Start: 96
+		Facings: -8
+		ShadowStart: 216
+	stand:
+		Start: 96
+		Facings: -8
+		ShadowStart: 216
+	run:
+		Length: 12
+		Facings: -8
+		ShadowStart: 120
+	muzzle:
+		Filename: gunfire.shp
+		Length: *
+	emp-overlay:
+		Filename: emp_fx01.shp
+		Length: *
+		ZOffset: 512
+		IgnoreWorldTint: True
+	icon:
+		Filename: jennicon.shp
+
+firefly:
+	Defaults:
+		Filename: firefly.shp
+	Inherits: ^EmpOverlay
+	idle:
+		Facings: -32
+	stand:
+		Facings: -32
+	run:
+		Tick: 90
+		Facings: -32
+	icon:
+		Filename: fireflyicon.shp
+		dino:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: dino.shp
+	shoot:
+		Facings: 8
+		ShadowStart: 86
+	idle:
+		Facings: 8
+		ShadowStart: 86
+	stand:
+		Facings: 8
+		ShadowStart: 86
+	run:
+		Start: 8
+		Length: 8
+		Facings: 8
+		Tick: 70
+		ShadowStart: 94
+	muzzle:
+		Filename: gunfire.shp
+		Length: *
+	make:
+		Start: 72
+		Length: 13
+		ShadowStart: 158
+	deployed:
+		Start: 85
+		ShadowStart: 171
+	emp-overlay:
+		Filename: emp_fx01.shp
+		Length: *
+		ZOffset: 512
+		IgnoreWorldTint: True
+	icon:
+		Filename: dinoicon.shp
+		Offset: 0, 0
+		
+miniwyverm:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: miniwyverm.shp
+	idle:
+		Facings: -32
+	stand:
+		Facings: -32
+	run:
+		Tick: 90
+		Facings: -32
+	icon:
+		Filename: waspicon.shp
+		
+scrdronec:
+	Inherits: ^EmpOverlay
+	idle:
+		Filename: scrdronec.shp
+		Facings: 32
+		ShadowStart: 32
+	icon:
+		Filename: scrdronecicon.shp
+
+tripod:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: tripod.shp
+	stand:
+		Start: 192
+		Facings: -8
+		ShadowStart: 519
+	run:
+		Facings: -8
+		Length: 24
+		ShadowStart: 327
+	shoot:
+		Start: 200
+		Length: 5
+		Facings: -8
+		ShadowStart: 527
+		Tick: 100
+	die1:
+		Length: 51
+		Start: 240
+		ShadowStart: 567
+	die2:
+		Start: 291
+		Length: 36
+		ShadowStart: 618
+	shield:
+		Filename: shieldtrip.shp
+		Length: 1
+		Offset: 0,-32
+	icon:
+		Filename: tripodicon.shp
+	emp-overlay:
+		Filename: emp_fx01.shp
+		Offset: 0, -64, 0
+	muzzle:
+		Filename: beaconflash.shp
+		Length: *
+		ZOffset: 1024
+		Tick: 30
+

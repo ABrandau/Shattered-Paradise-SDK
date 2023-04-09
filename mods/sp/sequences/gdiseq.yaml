@@ -128,69 +128,6 @@ gdie1:
 	icon:
 		Filename: sidebar-gdi|e1icon.shp
 
-marauder2:
-	Inherits@1: ^InfantryDeathAnims
-	Defaults:
-		Filename: marauder2.shp
-		Tick: 80
-	stand:
-		Facings: 8
-		ShadowStart: 218
-	run:
-		Start: 13
-		Length: 6
-		Facings: 8
-		ShadowStart: 230
-	prone-run:
-		Start: 65
-		Length: 8
-		Facings: 8
-		ShadowStart: 283
-	idle1:
-		Start: 159
-		Length: 27
-		ShadowStart: 378
-	idle2:
-		Start: 185
-		Length: 17
-		ShadowStart: 403
-	prone-stand:
-		Facings: 8
-		ShadowStart: 219
-	die1:
-		Start: 203
-		Length: 7
-		ShadowStart: 420
-	die2:
-		Start: 210
-		Length: 7
-		ShadowStart: 427
-	die-crushed:
-		Filename: gdie1.shp
-		Start: 160
-		Length: 5
-		ShadowStart: 452
-		Tick: 800
-		ZOffset: -511
-	shoot:
-		Start: 127
-		Length: 4
-		Facings: 8
-		ShadowStart: 344
-	prone-shoot:
-		Start: 128
-		Length: 4
-		Facings: 8
-		ShadowStart: 344
-	standup-0:
-		Filename: gdie1.shp
-		Start: 260
-		Length: 2
-		Facings: 8
-		ShadowStart: 552
-	icon:
-		Filename: sidebar-gdi|e1icon.shp
-
 grenadier:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
@@ -957,16 +894,6 @@ jugger:
 	icon:
 		Filename: juggicon.shp
 
-gmrls:
-	Inherits@1: ^SpriteVehicleWithShadow
-	Defaults:
-		Filename: gmrls.shp
-	idle:
-		Offset: 0, 4, 0
-	stand:
-		Offset: 0, 4, 0
-	icon:
-		Filename: gmrlsicon.shp
 
 orca:
 	Inherits@1: ^SpriteVehicle
@@ -999,54 +926,9 @@ orcab:
 		Filename: obmbicon.shp
 
 orcatran:
-	Inherits@1: ^SpriteVehicle
-	Defaults:
-		Filename: orcatran.shp
-	idle:
-		ZRamp: 1
-	idle-white:
-		Filename: orcatranw.shp
-		ZRamp: 1
-		Facings: -32
-	stand:
-		ZRamp: 1
+	Inherits: ^EmpOverlay
 	icon:
 		Filename: crryicon.shp
-
-guardian:
-	Inherits: ^EmpOverlay
-	Defaults:
-		Filename: guardian.shp
-	stand:
-		Facings: 32
-	idle:
-		Facings: 32
-	run:
-		Tick: 90
-		Facings: 32
-	icon:
-		Filename: guardianicon.shp
-
-guardiandep:
-	Inherits: ^EmpOverlay
-	Defaults:
-		TilesetFilenames:
-			TEMPERATE: gtardiandep.shp
-			SNOW: gaardiandep.shp
-		Offset: 0,-18
-	dead:
-		Start: 0
-		Length: 1
-	make:
-		ShadowStart: 1
-	stand:
-		ShadowStart: 1
-	idle:
-		ShadowStart: 1
-	icon:
-		TilesetFilenames:
-			TEMPERATE: gtardianicon.shp
-			SNOW: gaardianicon.shp
 
 gapowr:
 	Defaults:
