@@ -48,14 +48,51 @@ Player:
 	ProvidesPrerequisite@AIantiRush-unit-order:
 		RequiresCondition: (!AIBase) || (AIBase && AIantiRush-unit-order)
 		Prerequisite: AIantiRush-unit-order
+
 	GrantConditionOnPrerequisite@megawealth:
 		Condition: megawealth
 		Prerequisites: global-megawealth
-	CashTrickler@CashCheat: ## enough cash to build early game infantry, always on for megawealth
-		Interval: 500
+	CashTrickler@MegawealthCashCheat:  ## enough cash to build engineer
+		Interval: 300
 		Amount: 500
 		ShowTicks: false
-		RequiresCondition: AIBase && (megawealth || !AIantiRush-unit-order)
+		RequiresCondition: AIBase && megawealth
+
+	CashCheater@AIShattered: 
+		RequiresCondition: AIShattered
+		CashAmountForEachHarvester: 100
+		CashDelayForHarvester: 500
+		MaxCashAmountForHarvester: 400
+		CashAmountForEachRefinery: 50
+		CashDelayForRefinery: 500
+		MaxCashAmountForRefinery: 100
+		CashAmountForEachBaseBuilder: 300
+		CashDelayForBaseBuilder: 500
+		MaxCashAmountForBaseBuilder: 1500
+
+	CashCheater@AICheater:
+		RequiresCondition: AICheater
+		CashAmountForEachHarvester: 80
+		CashDelayForHarvester: 500
+		MaxCashAmountForHarvester: 320
+		CashAmountForEachRefinery: 40
+		CashDelayForRefinery: 500
+		MaxCashAmountForRefinery: 80
+		CashAmountForEachBaseBuilder: 200
+		CashDelayForBaseBuilder: 500
+		MaxCashAmountForBaseBuilder: 400
+
+	CashCheater@AINormal:
+		RequiresCondition: AINormal
+		CashAmountForEachHarvester: 60
+		CashDelayForHarvester: 500
+		MaxCashAmountForHarvester: 240
+		CashAmountForEachRefinery: 30
+		CashDelayForRefinery: 500
+		MaxCashAmountForRefinery: 60
+		CashAmountForEachBaseBuilder: 100
+		CashDelayForBaseBuilder: 500
+		MaxCashAmountForBaseBuilder: 100
 
 	AutoDeployManager@AIall:
 		RequiresCondition: AIBase || AIEasy
@@ -501,7 +538,7 @@ Player:
 		MinBaseRadius: 5
 		MaxBaseRadius: 30
 		ScanForNewMcvInterval: 31
-	McvManagerASBotModule@ShatteredAI:
+	McvManagerASBotModule@AIShattered:
 		RequiresCondition: AIShattered
 		McvTypes: mcv, cabmcv, nodmcv, mutmcv, drache
 		ConstructionYardTypes: gacnst, mutyard, cabyard, nodyard, drached

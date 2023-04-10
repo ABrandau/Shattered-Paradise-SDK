@@ -1502,32 +1502,6 @@
 		Position: BottomLeft
 		RequiresSelection: true
 
-^AICashCheat:
-	CashTrickler@AICashDevour:
-		Interval: 500
-		Amount: 300
-		ShowTicks: false
-		RequiresCondition: AIShattered
-	CashTrickler@AICashCheater:
-		Interval: 500
-		Amount: 200
-		ShowTicks: false
-		RequiresCondition: AICheater
-	CashTrickler@AICashNormal:
-		Interval: 500
-		Amount: 100
-		ShowTicks: false
-		RequiresCondition: AINormal
-	GrantConditionOnBotOwner@AINormal:
-		Condition: AINormal
-		Bots: NormalAI
-	GrantConditionOnBotOwner@AICheater:
-		Condition: AICheater
-		Bots: CheaterAI
-	GrantConditionOnBotOwner@AIShattered:
-		Condition: AIShattered
-		Bots: ShatteredAI
-
 ^AImicroManagable:
 	GrantConditionOnBotOwner@AImicroManage:
 		Condition: AImicroManage
@@ -2226,6 +2200,9 @@
 	GrantConditionOnPrerequisite@INSTANTCAPTURE:
 		Condition: instantcapture
 		Prerequisites: global-instantcapture
+	ProductionCostMultiplier@AI: ## AI cannot use it well
+		Multiplier: 30
+		Prerequisites: AIOnly
 	#Captures@InstantDrone:
 	#	CaptureTypes: Drone
 	#	PlayerExperience: 10

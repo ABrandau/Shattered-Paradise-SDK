@@ -209,8 +209,10 @@ HARV:
 		CarriedCondition: carried
 		LockedCondition: carrylock
 	ProductionCostMultiplier@AI: ## AI cannot use it well
-		Multiplier: 30
+		Multiplier: 75
 		Prerequisites: AIOnly
+	AddCashCheater@AI:
+		CashCheatType: Harvester
 
 harv.nod:
 	Inherits: HARV
@@ -271,7 +273,6 @@ SCRHARV:
 
 GACNST:
 	Inherits: ^Building
-	Inherits@1: ^AICashCheat
 	Inherits@SHAPE: ^3x3Shape
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Building:
@@ -449,6 +450,8 @@ GACNST:
 		Prerequisite: AIantiRush-building-order ## Hack: AI Building control. AI build refinary only when it has a combat producing line.
 	IsometricSelectable:
 		DecorationHeight: 36
+	AddCashCheater@AI:
+		CashCheatType: BaseBuilder
 
 ^Powerplant:
 	Inherits: ^Building
@@ -556,11 +559,12 @@ GACNST:
 		PipCount: 25
 		Palette: pips
 		ValidRelationships: Ally, Neutral, Enemy
+	AddCashCheater@AI:
+		CashCheatType: Refinery
 
 ^Refinery:
 	Inherits: ^Building
 	Inherits@1: ^RefineryHP
-	Inherits@2: ^AICashCheat
 	Inherits@SHAPE: ^NormalRefineryHitShape
 	Building:
 		Footprint: xx++ xx++ xx++
@@ -606,7 +610,6 @@ GACNST:
 ^FlippedRefinery:
 	Inherits: ^Building
 	Inherits@1: ^RefineryHP
-	Inherits@2: ^AICashCheat
 	Inherits@SHAPE: ^FlippedRefineryHitshape
 	Building:
 		Footprint: ++xx ++xx ++xx
@@ -637,7 +640,6 @@ GACNST:
 ^FlippedXRefinery:
 	Inherits: ^Building
 	Inherits@1: ^RefineryHP
-	Inherits@2: ^AICashCheat
 	Inherits@SHAPE: ^FlippedRefineryXHitshape
 	Building:
 		Footprint: xxx xxx +++ +++
@@ -668,7 +670,6 @@ GACNST:
 ^FlippedYRefinery:
 	Inherits: ^Building
 	Inherits@1: ^RefineryHP
-	Inherits@2: ^AICashCheat
 	Inherits@SHAPE: ^FlippedRefineryYHitshape
 	Building:
 		Footprint: +++ +++ xxx xxx
