@@ -117,6 +117,9 @@ MCV:
 	Explodes:
 		Weapon: BuildingExplode
 		EmptyWeapon: BuildingExplode
+	ProductionCostMultiplier@AI: ## AI cannot use it well
+		Multiplier: 30
+		Prerequisites: AIOnly
 
 HARV:
 	Inherits: ^Vehicle
@@ -205,6 +208,9 @@ HARV:
 		RequiresCondition: !inside-tunnel
 		CarriedCondition: carried
 		LockedCondition: carrylock
+	ProductionCostMultiplier@AI: ## AI cannot use it well
+		Multiplier: 30
+		Prerequisites: AIOnly
 
 harv.nod:
 	Inherits: HARV
@@ -1447,6 +1453,9 @@ GASILO:
 		Description: VTOL aircraft for transporting vehicles.\n\nSpecial:\n - Can transport one vehicle
 		BuildDuration: 250
 		BuildDurationModifier: 100
+	ProductionCostMultiplier@AI: ## AI cannot use it well
+		Multiplier: 10
+		Prerequisites: AIOnly
 	Aircraft:
 		AltitudeVelocity: 350
 		IdealSeparation: 1c0
