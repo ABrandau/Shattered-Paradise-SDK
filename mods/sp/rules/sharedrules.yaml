@@ -452,6 +452,13 @@ GACNST:
 		DecorationHeight: 36
 	AddCashCheater@AI:
 		CashCheatType: BaseBuilder
+	### AI Control
+	AutoDeployer@AI:
+		RequiresCondition: AIbuildingMicroControl
+		DeployTrigger: Periodically
+		DeployTicks: 13000
+		DeployChance: 90
+		UndeployTicks: 2000
 
 ^Powerplant:
 	Inherits: ^Building
