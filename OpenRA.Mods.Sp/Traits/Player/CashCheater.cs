@@ -20,19 +20,28 @@ namespace OpenRA.Mods.SP.Traits
 	public class CashCheaterInfo : PausableConditionalTraitInfo, IRulesetLoaded
 	{
 		public readonly int CashAmountForEachHarvester = 0;
-		public readonly int CashDelayForHarvester = 500;
 		public readonly int MaxCashAmountForHarvester = 0;
 
 		public readonly int CashAmountForEachRefinery = 50;
-		public readonly int CashDelayForRefinery = 500;
 		public readonly int MaxCashAmountForRefinery = 0;
 
 		public readonly int CashAmountForEachBaseBuilder = 0;
-		public readonly int CashDelayForBaseBuilder = 500;
 		public readonly int MaxCashAmountForBaseBuilder = 0;
+
+		[Desc("When game start, player (AI) get this amount of cash.")]
+		public readonly int StartCashCheat = 3000;
+
+		[Desc("Use resource storage for cash granted.")]
+		public readonly int CashCheatInterval = 500;
+
+		[Desc("Stop cash cheat when player (AI) has more than this amount of cash.")]
+		public readonly int CashCheatCap = 15000;
 
 		[Desc("Use resource storage for cash granted.")]
 		public readonly bool UseResourceStorage = false;
+
+		[Desc("Show cash granted.")]
+		public readonly bool ShowCashCheat = false;
 
 		public override object Create(ActorInitializer init) { return new CashCheater(this); }
 	}
@@ -41,13 +50,10 @@ namespace OpenRA.Mods.SP.Traits
 	{
 		readonly CashCheaterInfo info;
 		PlayerResources resources;
+		int startcash;
 
 		[Sync]
-		public int HarvesterTicks { get; private set; }
-
-		public int RefineryTicks { get; private set; }
-
-		public int BaseBuilderTicks { get; private set; }
+		public int CashCheatTicks { get; private set; }
 
 		public int HarvestersNum { get; set; }
 
@@ -59,39 +65,30 @@ namespace OpenRA.Mods.SP.Traits
 			: base(info)
 		{
 			this.info = info;
+			startcash = info.StartCashCheat;
 		}
 
 		protected override void Created(Actor self)
 		{
 			resources = self.Owner.PlayerActor.Trait<PlayerResources>();
-
 			base.Created(self);
 		}
 
 		void ITick.Tick(Actor self)
 		{
-			if (IsTraitPaused || IsTraitDisabled || self.Owner.WinState == WinState.Lost)
+			if (IsTraitPaused || IsTraitDisabled || self.Owner.WinState == WinState.Lost || resources.Cash > info.CashCheatCap)
 				return;
 
-			if (--HarvesterTicks < 0)
+			if (--CashCheatTicks < 0)
 			{
-				HarvesterTicks = info.CashDelayForHarvester;
-				var cash = info.CashAmountForEachHarvester * HarvestersNum;
-				ModifyCash(Math.Min(Info.MaxCashAmountForHarvester, cash));
-			}
-
-			if (--RefineryTicks < 0)
-			{
-				RefineryTicks = info.CashDelayForRefinery;
-				var cash = info.CashAmountForEachRefinery * RefineryNum;
-				ModifyCash(Math.Min(Info.MaxCashAmountForRefinery, cash));
-			}
-
-			if (--BaseBuilderTicks < 0)
-			{
-				BaseBuilderTicks = info.CashDelayForBaseBuilder;
-				var cash = info.CashAmountForEachBaseBuilder * BaseBuilderNum;
-				ModifyCash(Math.Min(Info.MaxCashAmountForBaseBuilder, cash));
+				CashCheatTicks = info.CashCheatInterval;
+				var harvcash = Math.Min(Info.MaxCashAmountForHarvester, info.CashAmountForEachHarvester * HarvestersNum);
+				var refcash = Math.Min(Info.MaxCashAmountForRefinery, info.CashAmountForEachRefinery * RefineryNum);
+				var basebuildercash = Math.Min(Info.MaxCashAmountForBaseBuilder, info.CashAmountForEachBaseBuilder * BaseBuilderNum);
+				ModifyCash(harvcash + refcash + basebuildercash + startcash);
+				startcash = 0;
+				if (info.ShowCashCheat)
+					TextNotificationsManager.AddSystemLine($"{self.Owner}:CashAmountForBaseBuilder:{basebuildercash}.CashAmountForRefinery:{refcash}.CashAmountForHarvester:{harvcash}");
 			}
 		}
 
