@@ -357,8 +357,8 @@ ScrMbtLasor:
 		ExplosionPalette: appurp
 		ImpactActors: false
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: SmallScorch
+	Warhead@2Smu: LeaveSmudgeSP
+		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Building, Wall
 
 ScrMbtLasorCharged:
@@ -454,8 +454,8 @@ AnhTripodLaser:
 		HitAnim: explosion
 		HitAnimSequence: lazerflare
 		HitAnimPalette: appurp
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: SmallScorch
+	Warhead@2Smu: LeaveSmudgeSP
+		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@1Eff_impact: CreateEffect
 		Explosions: laserburntscr
@@ -813,8 +813,8 @@ Blackholeblast:
 		ImpactActors: false
 		Weapon: BlackholeblastFinal
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: SmallScorch
+	Warhead@2Smu: LeaveSmudgeSP
+		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Building, Wall
 
 
@@ -869,8 +869,9 @@ DestroyerCannon:
 		ImpactSounds: expnew14.aud
 		ValidTargets: Ground, Air, Water
 	-Warhead@3EffWater:
-	Warhead@4Smu: LeaveSmudge
-		SmudgeType: MediumCrater
+	Warhead@4Smu: LeaveSmudgeSP
+		SmudgeType: Crater
+		InitialSmudgeLevel: 5, 9
 		InvalidTargets: Vehicle, Building, Wall
 
 DestroyerCannonBurst:
@@ -1240,8 +1241,8 @@ Councilazer:
 		ExplosionPalette: appurp
 		ImpactActors: false
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: SmallScorch
+	Warhead@2Smu: LeaveSmudgeSP
+		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@op: FireShrapnel
 		Weapon: OrbZaps
@@ -1303,8 +1304,8 @@ TearingReality:
 		AirThreshold: 8c0
 		Delay: 201
 		ValidTargets: Water
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: SmallScorch
+	Warhead@2Smu: LeaveSmudgeSP
+		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Building, Wall
 
 BlackBlastBoltSpawner:

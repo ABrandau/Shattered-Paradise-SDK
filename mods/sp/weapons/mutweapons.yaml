@@ -455,7 +455,10 @@ MUTMRLSRocket:
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: grenadexplode, grenadexplode2
-
+	Warhead@5Smu: LeaveSmudgeSP
+		SmudgeType: Crater
+		InitialSmudgeLevel: 1
+		MaxSmudgeLevel: 4
 
 MUTMRLSRocketGas:
 	Inherits: MUTMRLSRocket
@@ -1129,7 +1132,7 @@ MutSWLightningCharge:
 	-Warhead@2Eff:
 	Warhead@3Eff: CreateEffect
 		ImpactSounds: electro1.aud, voltautofire.wav
-	-Warhead@4: LeaveSmudge
+	-Warhead@4: LeaveSmudgeSP
 	Warhead@5op: FireRadius
 		Weapon: LightningSparkDebris
 		ImpactActors: false

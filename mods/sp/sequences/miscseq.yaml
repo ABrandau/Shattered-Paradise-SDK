@@ -595,14 +595,15 @@ pips:
 	pip-blue-building:
 		Start: 5
 
-smallscorches:
+scorches:
 	Defaults:
 		Offset: 0, -12, 1
 		ZRamp: 1
+	#smallscorches levels:
 	sc1:
 		TilesetFilenames:
-			TEMPERATE: burnt01.tem
-			SNOW: burnt01.sno
+			TEMPERATE: burnt05.tem
+			SNOW: burnt05.sno
 	sc2:
 		TilesetFilenames:
 			TEMPERATE: burnt02.tem
@@ -613,55 +614,86 @@ smallscorches:
 			SNOW: burnt03.sno
 	sc4:
 		TilesetFilenames:
-			TEMPERATE: burnt04.tem
-			SNOW: burnt04.sno
+			TEMPERATE: burnt01.tem
+			SNOW: burnt01.sno
 	sc5:
-		TilesetFilenames:
-			TEMPERATE: burnt05.tem
-			SNOW: burnt05.sno
-	sc6:
 		TilesetFilenames:
 			TEMPERATE: burnt06.tem
 			SNOW: burnt06.sno
-
-mediumscorches:
-	Defaults:
-		Offset: 0, -18, 1
-		ZRamp: 1
+	sc6:
+		TilesetFilenames:
+			TEMPERATE: burnt04.tem
+			SNOW: burnt04.sno
+	#mediumscorches levels:
 	sc7:
-		TilesetFilenames:
-			TEMPERATE: burnt07.tem
-			SNOW: burnt07.sno
+		Combine:
+			1:
+				TilesetFilenames:
+					TEMPERATE: burnt08.tem
+					SNOW: burnt08.sno
+				Offset: -6, -5, 1
+			2:
+				TilesetFilenames:
+					TEMPERATE: burnt08.tem
+					SNOW: burnt08.sno
+				FlipX: true
+				Offset: 6, -5, 1
+		Length: *
 	sc8:
-		TilesetFilenames:
-			TEMPERATE: burnt08.tem
-			SNOW: burnt08.sno
+		Combine:
+			1:
+				TilesetFilenames:
+					TEMPERATE: burnt09.tem
+					SNOW: burnt09.sno
+				Offset: 0, -15, 1
+			2:
+				TilesetFilenames:
+					TEMPERATE: burnt09.tem
+					SNOW: burnt09.sno
+				FlipX: true
+				Offset: 0, -15, 1
+		Length: *
 	sc9:
-		TilesetFilenames:
-			TEMPERATE: burnt09.tem
-			SNOW: burnt09.sno
+		Combine:
+			1:
+				TilesetFilenames:
+					TEMPERATE: burnt07.tem
+					SNOW: burnt07.sno
+				Offset: -12, -16, 1
+			2:
+				TilesetFilenames:
+					TEMPERATE: burnt07.tem
+					SNOW: burnt07.sno
+				FlipX: true
+				Offset: 12, -16, 1
+		Length: *
 	sc10:
 		TilesetFilenames:
 			TEMPERATE: burnt10.tem
 			SNOW: burnt10.sno
-
-largescorches:
-	Defaults:
-		Offset: 0, -24, 1
+		Offset: 0, -17, 1
 		ZRamp: 1
+	#largescorches levels:
 	sc11:
-		TilesetFilenames:
-			TEMPERATE: burnt11.tem
-			SNOW: burnt11.sno
-	sc12:
 		TilesetFilenames:
 			TEMPERATE: burnt12.tem
 			SNOW: burnt12.sno
 
-smallcraters:
+		Offset: 0, -24, 1
+		ZRamp: 1
+	sc12:
+		TilesetFilenames:
+			TEMPERATE: burnt11.tem
+			SNOW: burnt11.sno
+
+		Offset: 0, -24, 1
+		ZRamp: 1
+
+craters:
 	Defaults:
 		Offset: 0, -12, 1
 		ZRamp: 1
+	#smallcraters leveld:
 	cr1:
 		TilesetFilenames:
 			TEMPERATE: crater01.tem
@@ -686,40 +718,44 @@ smallcraters:
 		TilesetFilenames:
 			TEMPERATE: crater06.tem
 			SNOW: crater06.sno
-
-mediumcraters:
-	Defaults:
-		Offset: 0, -12, 1
-		ZRamp: 1
+	#mediumcraters levels:
 	cr7:
 		TilesetFilenames:
 			TEMPERATE: crater07.tem
 			SNOW: crater07.sno
+		Offset: 0, -12, 1
+		ZRamp: 1
 	cr8:
 		TilesetFilenames:
 			TEMPERATE: crater08.tem
 			SNOW: crater08.sno
+		Offset: 0, -12, 1
+		ZRamp: 1
 	cr9:
 		TilesetFilenames:
 			TEMPERATE: crater09.tem
 			SNOW: crater09.sno
+		Offset: 0, -12, 1
+		ZRamp: 1
 	cr10:
 		TilesetFilenames:
 			TEMPERATE: crater10.tem
 			SNOW: crater10.sno
-
-largecraters:
-	Defaults:
-		Offset: 0, -24, 1
+		Offset: 0, -12, 1
 		ZRamp: 1
+	#largecraters levels:
 	cr11:
 		TilesetFilenames:
 			TEMPERATE: crater11.tem
 			SNOW: crater11.sno
+		Offset: 0, -24, 1
+		ZRamp: 1
 	cr12:
 		TilesetFilenames:
 			TEMPERATE: crater12.tem
 			SNOW: crater12.sno
+		Offset: 0, -24, 1
+		ZRamp: 1
 
 corpses:
 	Defaults:

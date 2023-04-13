@@ -195,9 +195,9 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 		Delay: 110
 		AirThreshold: 8c0
 		DebugOverlayColor: 0000FF
-	Warhead@3Smu_area: LeaveSmudge
+	Warhead@3Smu_area: LeaveSmudgeSP
 		Delay: 110
-		SmudgeType: SmallScorch
+		SmudgeType: Scorch
 		Size: 2,1
 		InvalidTargets: Vehicle, Building, Wall
 		AirThreshold: 8c0
@@ -480,8 +480,8 @@ droppod1:
 		ContrailEndColorAlpha: 00
 		ContrailWidth: 120
 		ContrailDelay: 0
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: SmallCrater
+	Warhead@2Smu: LeaveSmudgeSP
+		SmudgeType: Crater
 	-Warhead@2Eff:
 	Warhead@4Eff: CreateEffect
 		Explosions: podring
@@ -493,8 +493,8 @@ droppod1:
 		Explosions: droppod, droppod2
 		InvalidTargets: Vehicle, Building, Wall
 		AirThreshold: 8c0
-	Warhead@5Smu: LeaveSmudge
-		SmudgeType: SmallCrater
+	Warhead@5Smu: LeaveSmudgeSP
+		SmudgeType: Crater
 		InvalidTargets: Vehicle, Building, Wall
 		AirThreshold: 8c0
 	Warhead@5Actor: SpawnActor
@@ -590,25 +590,28 @@ ApocalypseMissileExplosion:
 	Warhead@SoundEffect0: CreateEffect
 		ImpactSounds: nukeexplo.wav
 		AirThreshold: 8c0
-	Warhead@ClusterSmudges0: LeaveSmudge
-		SmudgeType: LargeCrater
+	Warhead@ClusterSmudges0: LeaveSmudgeSP
+		SmudgeType: Crater
+		InitialSmudgeLevel: 10, 11
 		Size: 1
 		InvalidTargets: Vehicle, Building, Wall
 		AirThreshold: 8c0
-	Warhead@ClusterSmudges1: LeaveSmudge
-		SmudgeType: LargeScorch
+	Warhead@ClusterSmudges1: LeaveSmudgeSP
+		SmudgeType: Scorch
+		InitialSmudgeLevel: 10, 11
 		Size: 2
 		Delay: 5
 		InvalidTargets: Vehicle, Building, Wall
 		AirThreshold: 8c0
-	Warhead@ClusterSmudges3: LeaveSmudge
-		SmudgeType: MediumScorch
+	Warhead@ClusterSmudges3: LeaveSmudgeSP
+		SmudgeType: Scorch
+		InitialSmudgeLevel: 6, 9
 		Size: 3
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 25
 		AirThreshold: 8c0
-	Warhead@ClusterSmudges4: LeaveSmudge
-		SmudgeType: SmallScorch
+	Warhead@ClusterSmudges4: LeaveSmudgeSP
+		SmudgeType: Scorch
 		Size: 4
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 25
@@ -999,8 +1002,8 @@ MeteorRainNormal:
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 	-Warhead@GetsOneShotedbySuperweaponsAA: ## This for Ground only, we cannot expect meteor fall on the ground to hit Air
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: SmallCrater
+	Warhead@2Smu: LeaveSmudgeSP
+		SmudgeType: Crater
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@op: FireShrapnel
 		Weapon: SmallDebris
@@ -1092,8 +1095,9 @@ IronSaviorExplode:
 		ValidTargets: Ground, Air
 		ImpactSounds: expnew09.aud, expnew02.aud, expnew03.aud, expnew04.aud
 		AirThreshold: 8c0
-	Warhead@4Smu: LeaveSmudge
-		SmudgeType: LargeCrater
+	Warhead@4Smu: LeaveSmudgeSP
+		SmudgeType: Crater
+		InitialSmudgeLevel: 10, 11
 		InvalidTargets: Water
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@Shake: ShakeScreen
@@ -1101,8 +1105,8 @@ IronSaviorExplode:
 		Intensity: 10
 		Multiplier: 1,1
 		AirThreshold: 8c0
-	Warhead@7ClusterSmudges: LeaveSmudge
-		SmudgeType: SmallScorch
+	Warhead@7ClusterSmudges: LeaveSmudgeSP
+		SmudgeType: Scorch
 		Size: 2
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 15
@@ -1176,15 +1180,16 @@ IronSaviorShrapnel:
 		ValidTargets: Ground, Air
 		ImpactSounds: expnew09.aud, expnew02.aud, expnew03.aud, expnew04.aud
 		AirThreshold: 8c0
-	Warhead@4Smu: LeaveSmudge
-		SmudgeType: LargeCrater
+	Warhead@4Smu: LeaveSmudgeSP
+		SmudgeType: Crater
+		InitialSmudgeLevel: 10, 11
 		InvalidTargets: Water
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@Shake: ShakeScreen
 		Intensity: 4
 		Duration: 7
-	Warhead@7ClusterSmudges: LeaveSmudge
-		SmudgeType: SmallScorch
+	Warhead@7ClusterSmudges: LeaveSmudgeSP
+		SmudgeType: Scorch
 		Size: 2
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 15

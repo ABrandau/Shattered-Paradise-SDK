@@ -303,24 +303,16 @@ World:
 	WeaponTriggerCells@catalyst:
 		Name: catalystLayer
 		#ShowDebugOverlay: true
-	SmudgeLayer@SMALLSCORCH:
-		Type: SmallScorch
-		Sequence: smallscorches
-	SmudgeLayer@MEDIUMSCORCH:
-		Type: MediumScorch
-		Sequence: mediumscorches
-	SmudgeLayer@LARGESCORCH:
-		Type: LargeScorch
-		Sequence: largescorches
-	SmudgeLayer@SMALLCRATER:
-		Type: SmallCrater
-		Sequence: smallcraters
-	SmudgeLayer@MEDIUMCRATER:
-		Type: MediumCrater
-		Sequence: mediumcraters
-	SmudgeLayer@LARGECRATER:
-		Type: LargeCrater
-		Sequence: largecraters
+	SmudgeLayerSP@LARGECRATER:
+		SmudgeTypesImages:
+			Scorch: scorches
+			Crater: craters
+		SmudgeLevelSequences:
+			Scorch: sc1, sc2, sc3, sc4, sc5, sc6, sc7, sc8, sc9, sc10, sc11, sc12
+			Crater: cr1, cr2, cr3, cr4, cr5, cr6, cr7, cr8, cr9, cr10, cr11, cr12
+		SmudgeDurationOfEachLevel:
+			Scorch: 120
+			Crater: 150
 	TSResourceLayer:
 		VeinholeActors: veinhole
 		ResourceTypes:

@@ -27,8 +27,9 @@ BuildingExplode:
 	Warhead@4EffAir: CreateEffect
 		Explosions: jtwlt100, jtwlt100b, jtwlt070, jtwlt070b, jstumu42, jstumu42b ,jstumu60, jstumu60b, jbrrlexp1, jsbang34, jsbang34b, jsbang48, jsbang48b, jbrrlexp1b
 		ExplosionPalette: gensmkexploj
-	Warhead@5Smu: LeaveSmudge
-		SmudgeType: MediumCrater
+	Warhead@5Smu: LeaveSmudgeSP
+		SmudgeType: Crater
+		InitialSmudgeLevel: 5, 9
 		InvalidTargets: Vehicle, Building, Wall
 	-Warhead@op:
 
@@ -245,7 +246,9 @@ ReaperExplode:
 		Delay: 34
 	Warhead@2Eff: CreateEffect
 		Delay: 34
-	Warhead@2Smu: LeaveSmudge
+	Warhead@5Smu: LeaveSmudgeSP
+		SmudgeType: Crater
+		InitialSmudgeLevel: 3, 4
 		Delay: 34
 	Warhead@2: SpawnSmokeParticle
 		Delay: 34
@@ -425,8 +428,9 @@ TiberiumExplosion:
 		ValidTargets: Ground, Air, Water
 		ImpactActors: false
 		ImpactSounds: expnew09.aud
-	Warhead@5Smu: LeaveSmudge
-		SmudgeType: MediumCrater
+	Warhead@5Smu: LeaveSmudgeSP
+		SmudgeType: Crater
+		InitialSmudgeLevel: 5, 9
 		InvalidTargets: Vehicle, Building, Wall
 
 ZombieExplosion:
@@ -792,8 +796,8 @@ PowerlineExplosionBase:
 		ImpactSounds: voltautofire.wav
 		Volume: 2.5
 		ValidTargets: Ground, Air, Water
-	Warhead@3Smu: LeaveSmudge
-		SmudgeType: SmallScorch
+	Warhead@3Smu: LeaveSmudgeSP
+		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Building, Wall, Air, Water
 
 PowerlineExplosion:
@@ -894,25 +898,28 @@ NuclearMissile:
 		ExplosionPalette: effect
 		ImpactSounds: nukeexplo.wav
 		AirThreshold: 8c0
-	Warhead@ClusterSmudges0: LeaveSmudge
-		SmudgeType: LargeCrater
+	Warhead@ClusterSmudges0: LeaveSmudgeSP
+		SmudgeType: Crater
+		InitialSmudgeLevel: 10, 11
 		Size: 1
 		InvalidTargets: Vehicle, Building, Wall
 		AirThreshold: 8c0
-	Warhead@ClusterSmudges1: LeaveSmudge
-		SmudgeType: LargeScorch
+	Warhead@ClusterSmudges1: LeaveSmudgeSP
+		SmudgeType: Scorch
+		InitialSmudgeLevel: 10, 11
 		Size: 2
 		Delay: 5
 		InvalidTargets: Vehicle, Building, Wall
 		AirThreshold: 8c0
-	Warhead@ClusterSmudges3: LeaveSmudge
-		SmudgeType: MediumScorch
+	Warhead@ClusterSmudges3: LeaveSmudgeSP
+		SmudgeType: Scorch
+		InitialSmudgeLevel: 6, 9
 		Size: 3
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 25
 		AirThreshold: 8c0
-	Warhead@ClusterSmudges4: LeaveSmudge
-		SmudgeType: SmallScorch
+	Warhead@ClusterSmudges4: LeaveSmudgeSP
+		SmudgeType: Scorch
 		Size: 4
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 25
@@ -1001,8 +1008,9 @@ ToxinMissile:
 			Concrete: 25
 		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
 		AirThreshold: 8c0
-	Warhead@ClusterSmudges0: LeaveSmudge
-		SmudgeType: LargeCrater
+	Warhead@ClusterSmudges0: LeaveSmudgeSP
+		SmudgeType: Crater
+		InitialSmudgeLevel: 10, 11
 		Size: 1
 		InvalidTargets: Vehicle, Building, Wall
 		AirThreshold: 8c0
