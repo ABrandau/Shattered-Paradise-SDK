@@ -989,7 +989,7 @@
 
 ^SpawnSmoke:
 	Inherits: ^HeavyDamagedEffect
-	SmokeParticleEmitter@spawnsmoke:
+	FloatingSpriteEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged
 		Sequences: idle
 		SpawnFrequency: 6, 12
@@ -998,7 +998,8 @@
 		Offset: 0,0,0
 		Image: sgrysmk1
 		Palette: effectalpha40
-		Duration: 60
+		Lifetime: 60
+		Duration: -1
 		RandomFacing: True
 
 ^SpawnSpark:
@@ -1531,7 +1532,7 @@
 	Inherits@3: ^SpawnSpark
 	Inherits@4: ^WithTriggerCloakEffect-Building
 	Inherits@5: ^MindControllableBuilding
-	SmokeParticleEmitter@spawnsmoke:
+	FloatingSpriteEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self
 	ExplodeWeapon@spawnsparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self
@@ -1593,7 +1594,7 @@
 	Targetable@FullHealth:
 		RequiresCondition: FullHealth || inside-tunnel
 		TargetTypes: FullHealth
-	SmokeParticleEmitter@spawnsmoke:
+	FloatingSpriteEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
 	ExplodeWeapon@spawnsparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
@@ -1607,7 +1608,7 @@
 	Inherits@5: ^FullHealthRepairCondition
 	Inherits@6: ^WithTriggerCloakEffect-Vehicle
 	Inherits@7: ^Berserkable
-	SmokeParticleEmitter@spawnsmoke:
+	FloatingSpriteEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self
 	ExplodeWeapon@spawnsparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self
@@ -2354,7 +2355,7 @@
 		PauseOnCondition: empdisable || carrylock
 	Passenger:
 		CargoCondition: ascargo
-	SmokeParticleEmitter@spawnsmoke:
+	FloatingSpriteEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo && !in_tunnel
 	ExplodeWeapon@spawnsparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo && !in_tunnel
@@ -2459,7 +2460,7 @@
 		PauseOnCondition: empdisable || resurfaced
 	Targetable:
 		RequiresCondition: !inside-tunnel && !submerged
-	-SmokeParticleEmitter@spawnsmoke:
+	-FloatingSpriteEmitter@spawnsmoke:
 	AnnounceOnSeen@subterranean:
 		PingRadar: true
 		Notification: SubterraneanUnitDetected
@@ -2486,8 +2487,7 @@
 	Explodes:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode
-	SmokeParticleEmitter@spawnsmoke:
-		Duration: 100
+	FloatingSpriteEmitter@spawnsmoke:
 		Offset: 0,0,400
 	HitShape:
 		TargetableOffsets: 0,0,400
@@ -2512,7 +2512,7 @@
 		Palette: cloaksilver
 	Voiced:
 		VoiceSet: Seeker
-	SmokeParticleEmitter@spawnsmoke:
+	FloatingSpriteEmitter@spawnsmoke:
 		Image: scrsmoke
 		Palette: gradientblue20
 
@@ -3451,7 +3451,7 @@
 	Explodes@BuildingFireBigSpawn:
 		Weapon: ScrinBuildingFireBigShrapnel
 		EmptyWeapon: ScrinBuildingFireBigShrapnel
-	SmokeParticleEmitter@spawnsmoke:
+	FloatingSpriteEmitter@spawnsmoke:
 		Image: scrsmoke
 		Palette: gradientblue20
 		RequiresCondition: HeavyDamaged && !cloaking-self
