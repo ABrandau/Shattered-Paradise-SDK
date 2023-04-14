@@ -1738,11 +1738,9 @@ MUMINE:
 		Palette: cloakmut
 		IsPlayerPalette: true
 		UncloakOn: None
-	WithMakeAnimation:
-		Condition: minelayer-diging
-	ExplodeWeapon: ## HACK: this will make minelayer play animation 
+	WithMakeExplodeWeapon:
 		Weapon: AnimateMinelayer-lay
-		RequiresCondition: minelayer-diging
+		ExplodesEvenWhenSkipMakeAnimation: false
 	Mine:
 		CrushClasses: minetrigger
 		DetonateClasses: minetrigger
