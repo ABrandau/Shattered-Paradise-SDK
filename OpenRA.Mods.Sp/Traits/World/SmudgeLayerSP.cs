@@ -73,7 +73,7 @@ namespace OpenRA.Mods.SP.Traits
 		public override object Create(ActorInitializer init) { return new SmudgeLayerSP(init.Self, this); }
 	}
 
-	public class SmudgeLayerSP : IRenderOverlay, IWorldLoaded, ITickRender, INotifyActorDisposing
+	public class SmudgeLayerSP : IRenderOverlay, IWorldLoaded, ITick, INotifyActorDisposing
 	{
 		struct SmudgeSP
 		{
@@ -230,15 +230,8 @@ namespace OpenRA.Mods.SP.Traits
 			dirty[loc] = tile;
 		}
 
-		int updatedTick = -1;
-
-		void ITickRender.TickRender(WorldRenderer wr, Actor self)
+		void ITick.Tick(Actor self)
 		{
-			if (updatedTick == self.World.WorldTick)
-				return;
-
-			updatedTick = self.World.WorldTick;
-
 			var remove = new List<CPos>();
 			foreach (var kv in dirty)
 			{
