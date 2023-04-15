@@ -1,4 +1,5 @@
 #!/bin/sh
+# example launch script, see https://github.com/OpenRA/OpenRA/wiki/Dedicated-Server for details
 # Usage:
 #  $ ./launch-dedicated.sh # Launch a dedicated server with default settings
 #  $ Mod="<mod id>" ./launch-dedicated.sh # Launch a dedicated server with default settings but override the Mod
@@ -50,6 +51,7 @@ fi
 
 NAME="${Name:-"Dedicated Server"}"
 LAUNCH_MOD="${Mod:-"${MOD_ID}"}"
+Map="${Map:-""}"
 LISTEN_PORT="${ListenPort:-"1234"}"
 ADVERTISE_ONLINE="${AdvertiseOnline:-"True"}"
 PASSWORD="${Password:-""}"
@@ -65,7 +67,7 @@ ENABLE_GEOIP="${EnableGeoIP:-"True"}"
 ENABLE_LINT_CHECKS="${EnableLintChecks:-"True"}"
 SHARE_ANONYMISED_IPS="${ShareAnonymizedIPs:-"True"}"
 
-JOIN_CHAT_DELAY="${JoinChatDelay:-"5000"}"
+JOIN_CHAT_DELAY="${FloodLimitJoinCooldown:-"5000"}"
 
 SUPPORT_DIR="${SupportDir:-""}"
 
@@ -82,6 +84,7 @@ while true; do
      MOD_SEARCH_PATHS="${MOD_SEARCH_PATHS}"
      ${RUNTIME_LAUNCHER} bin/OpenRA.Server.dll Engine.EngineDir=".." Game.Mod="${LAUNCH_MOD}" \
      Server.Name="${NAME}" \
+	 Server.Map="$Map" \
      Server.ListenPort="${LISTEN_PORT}" \
      Server.AdvertiseOnline="${ADVERTISE_ONLINE}" \
      Server.Password="${PASSWORD}" \
@@ -94,6 +97,6 @@ while true; do
      Server.EnableGeoIP="${ENABLE_GEOIP}" \
      Server.EnableLintChecks="${ENABLE_LINT_CHECKS}" \
      Server.ShareAnonymizedIPs="${SHARE_ANONYMISED_IPS}" \
-     Server.JoinChatDelay="${JOIN_CHAT_DELAY}" \
+     Server.FloodLimitJoinCooldown="${JOIN_CHAT_DELAY}" \
      Engine.SupportDir="${SUPPORT_DIR}"
 done
