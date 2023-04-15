@@ -294,49 +294,6 @@
 			TopLeft: -3072, -3072
 			BottomRight: 3072, 3072
 
-^WithFeedbackVoicelines:
-	GrantRandomCondition@Feedback:
-		Conditions: playfeedback, dontplayfeedback, dontplayfeedback, dontplayfeedback, dontplayfeedback
-	GrantConditionOnDamageState@Feedback:
-		Condition: feedback
-		ValidDamageStates: Critical
-	VoiceAnnouncement:
-		RequiresCondition: feedback && playfeedback
-		Voice: Feedback
-		ValidRelationships: None
-
-## Unused
-^EngineerCapturableVehicle:
-	CaptureManager:
-	Capturable:
-		Types: TechBuilding
-		ValidRelationships: Neutral
-	CapturableProgressBar:
-		RequiresCondition: !instantcapture
-	CapturableProgressBlink:
-		Interval: 25
-		Sound: ucapture.aud
-		RequiresCondition: !instantcapture
-	GrantConditionOnPrerequisite@INSTANTCAPTURE:
-		Condition: instantcapture
-		Prerequisites: global-instantcapture
-
-## Unused
-^EngineerHackableDrone:
-	CaptureManager:
-	Capturable:
-		Types: Drone
-		ValidRelationships: Neutral
-	CapturableProgressBar:
-		RequiresCondition: !instantcapture
-	CapturableProgressBlink:
-		Interval: 25
-		Sound: ucapture.aud
-		RequiresCondition: !instantcapture
-	GrantConditionOnPrerequisite@INSTANTCAPTURE:
-		Condition: instantcapture
-		Prerequisites: global-instantcapture
-
 ^CrateBuffs:
 	SpeedMultiplier@speedcrate:
 		RequiresCondition: speedcrate
@@ -617,13 +574,6 @@
 	Chronoshiftable:
 		ReturnToOrigin: false
 		ChronoshiftSound: instantrift.wav
-
-^KillSelf: ##Unused for now
-	KillsSelf:
-		RequiresCondition: KillSelf
-		DamageTypes: FireDeath
-	ExternalCondition@KillSelf:
-		Condition: KillSelf
 
 ^PlayerHandicaps:
 	HandicapFirepowerMultiplier:
