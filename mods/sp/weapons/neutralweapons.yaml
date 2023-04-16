@@ -360,38 +360,6 @@ ZombieAttack:
 			Defense: 60
 			Concrete: 20
 
-FloaterCloudSpawn:
-	Inherits: ^RifleWarhead
-	ReloadDelay: 150
-	Range: 5c0
-	ValidTargets: Ground, Water, Vehicle, Building, Infantry, Wall
-	Projectile: InstantExplode
-	Warhead@5cloud: SpawnSmokeParticle
-		Weapon: CloudDamage
-		Count: 1
-		Duration: 95
-		Speed: 30
-		TurnRate: 24
-		Image: tibcloud
-		StartSequences: cloud2start
-		Sequences: cloud2
-		EndSequences: cloud2end
-		Palette: effectalpha50
-		AirThreshold: 8c0
-
-VeinholeAttack:
-	Inherits: FloaterCloudSpawn
-	ReloadDelay: 150
-	Projectile: AthenaProjectile
-		Altitude: 2560
-	Warhead@5cloud: SpawnSmokeParticle
-		Duration: 190
-		TurnRate: 16
-		StartSequences: cloud1start
-		Sequences: cloud1
-		EndSequences: cloud1end
-		AirThreshold: 8c0
-
 Repair:
 	ReloadDelay: 80
 	Range: 1c819

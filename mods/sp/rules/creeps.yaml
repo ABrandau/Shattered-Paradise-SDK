@@ -373,8 +373,19 @@ jfish:
 		Type: Heavy
 	RevealsShroud:
 		Range: 5c0
-	ExplodeWeapon:
-		Weapon: FloaterCloudSpawn
+	SmokeParticleEmitter@cloud:
+		SpawnFrequency: 150
+		Weapon: CloudDamage
+		Count: 1
+		Duration: 95
+		Speed: 30
+		TurnRate: 24
+		Image: tibcloud
+		StartSequences: cloud2start
+		Sequences: cloud2
+		EndSequences: cloud2end
+		Palette: effectalpha50
+		AirThreshold: 8c0
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	-WithFacingSpriteBody:
@@ -465,8 +476,18 @@ MINIVEIN:
 		StartIfBelow: 200
 		DamageCooldown: 50
 		Delay: 25
-	ExplodeWeapon@1:
-		Weapon: VeinholeAttack
+	SmokeParticleEmitter@cloud:
+		SpawnFrequency: 150
+		Weapon: CloudDamage
+		Count: 1
+		Speed: 30
+		Image: tibcloud
+		Duration: 190
+		TurnRate: 16
+		StartSequences: cloud1start
+		Sequences: cloud1
+		EndSequences: cloud1end
+		Palette: effectalpha50
 
 VEINHOLE:
 	Inherits@1: ^ExistsInWorld
