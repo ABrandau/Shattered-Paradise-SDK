@@ -2252,9 +2252,6 @@
 		Notification: UnitSold
 		TextNotification: Unit sold.
 		RequiresCondition: unit.sellable
-	ProximityExternalCondition:
-		Condition: unit.docked
-		Range: 1c0
 	ExternalCondition@Sellable:
 		Condition: unit.sellable
 	HiddenUnderFog:
@@ -2581,10 +2578,6 @@
 		Notification: UnitSold
 		TextNotification: Unit sold.
 		RequiresCondition: unit.sellable && !airborne
-	ProximityExternalCondition:
-		Condition: unit.docked
-		Range: 1c0
-		RequiresCondition: !airborne
 	ExternalCondition@Sellable:
 		Condition: unit.sellable
 	Repairable:
