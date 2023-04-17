@@ -2015,8 +2015,6 @@ CABSENTRY:
 	-DetectCloaked:
 	-ActorLostNotification:
 	-UpdatesPlayerStatistics:
-	-SpawnActorOnDeath@nanomachinereanimate:
-	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@conversionUpg:
 	-SpawnActorOnDeath@ScrinEssence:
@@ -2066,6 +2064,37 @@ CABSENTRY:
 		UseDeathTypeSuffix: false
 		CrushedSequence: die
 		CrushedSequencePalette: effect
+
+	-ChangesHealth@nanomachinerecovery:
+	-WithIdleOverlay@nanomachinerecovery:
+	-SpawnActorOnDeath@nanomachinereanimate:
+	-ExternalCondition@nanomachinerecovery:
+	-ExternalCondition@nanomachinereanimate:
+
+	-DamageMultiplier@firestorm:
+	-ExternalCondition@FirestormWallCondition:
+	-WithDecoration@FirestormWallCondition:
+	-SpeedMultiplier@speedcrate:
+	-FirepowerMultiplier@firepowercrate:
+	-DamageMultiplier@damagecrate:
+	-ExternalCondition@damagecrate:
+	-ExternalCondition@firepowercrate:
+	-ExternalCondition@speedcrate:
+	-Berserkable@CHAOS:
+	-RejectsOrders@CHAOS:
+	-WithDecoration@CHAOS:
+	-TimedConditionBar@CHAOS:
+	-ExternalCondition@CHAOS:
+	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@CLOAKGENERATOR:
+	-ExternalCondition@crate-cloak:
+
+	-Chronoshiftable:
+
+	-ChangesHealth@HOSPITAL:
+	-GrantConditionOnPrerequisite@hospitalheal:
+	-WithDecoration@hospitalheal:
+	-ExternalCondition@hospitalheal:
 
 CYBORG:
 	Inherits: ^Cyborg

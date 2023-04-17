@@ -1405,8 +1405,6 @@ TICKHOLOGRAM:
 	#-GrantRandomCondition@tiberium:
 	#-SpawnActorOnDeath@tiberium1:
 	#-SpawnActorOnDeath@tiberium2:
-	-SpawnActorOnDeath@nanomachinereanimate:
-	-ExternalCondition@nanomachinereanimate:
 	-SpawnActorOnDeath@ScrinEssence:
 	ActorStatValues:
 		Icon: icon
@@ -1414,6 +1412,36 @@ TICKHOLOGRAM:
 		TooltipActor: ttnk
 		Damage: 50
 		Sight: 14c0
+
+	-ChangesHealth@nanomachinerecovery:
+	-WithIdleOverlay@nanomachinerecovery:
+	-SpawnActorOnDeath@nanomachinereanimate:
+	-ExternalCondition@nanomachinerecovery:
+	-ExternalCondition@nanomachinereanimate:
+
+	-DamageMultiplier@firestorm:
+	-ExternalCondition@FirestormWallCondition:
+	-WithDecoration@FirestormWallCondition:
+	-SpeedMultiplier@speedcrate:
+	-FirepowerMultiplier@firepowercrate:
+	-DamageMultiplier@damagecrate:
+	-ExternalCondition@damagecrate:
+	-ExternalCondition@firepowercrate:
+	-ExternalCondition@speedcrate:
+	-Berserkable@CHAOS:
+	-RejectsOrders@CHAOS:
+	-WithDecoration@CHAOS:
+	-TimedConditionBar@CHAOS:
+	-ExternalCondition@CHAOS:
+	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@CLOAKGENERATOR:
+	-ExternalCondition@crate-cloak:
+
+	-Chronoshiftable:
+
+	-ChangesHealth@MachineShopHeal:
+	-GrantConditionOnPrerequisite@MachineShopHeal:
+	-WithDecoration@MachineShopHeal:
 
 BIKE:
 	Inherits: ^Vehicle
