@@ -2281,8 +2281,10 @@
 		Notification: UnitSold
 		TextNotification: Unit sold.
 		RequiresCondition: unit.sellable
-	ExternalCondition@Sellable:
+	GrantConditionWhenDockClient@Sellable:
 		Condition: unit.sellable
+		AfterDockDuration: 20
+		DockHostNames: gadept, scrdepot, tdrepd
 	HiddenUnderFog:
 	Guard:
 		Voice: Move
@@ -2607,8 +2609,10 @@
 		Notification: UnitSold
 		TextNotification: Unit sold.
 		RequiresCondition: unit.sellable && !airborne
-	ExternalCondition@Sellable:
+	GrantConditionWhenDockClient@Sellable:
 		Condition: unit.sellable
+		AfterDockDuration: 20
+		DockHostNames: gadept, scrdepot, tdrepd
 	Repairable:
 		RepairActors: gadept, scrdepot, tdrepd, civheli
 		Voice: Move
