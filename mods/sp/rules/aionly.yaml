@@ -1019,7 +1019,7 @@ COREDEFENDER:
 		-RequiresCondition:
 	Armor@Boss:
 		Type: Boss
-	ExplodeWeapon@spawnsparks:
+	SpawnSparks:
 		LocalOffset: 0,0,3000
 	Health:
 		HP: 650000
@@ -1052,7 +1052,8 @@ COREDEFENDER:
 	FloatingSpriteEmitter@spawnsmoke:
 		Offset: 0,0,2500
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
-	ExplodeWeapon@spawnsparks:
+	SpawnSparks:
+		Offset: 0,0,2500
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
 	WithInfantryBody:
 		-DefaultAttackSequence:
@@ -1305,8 +1306,10 @@ HMECTEST:
 	-Chronoshiftable:
 	FloatingSpriteEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
-	ExplodeWeapon@spawnsparks:
+		Offset: 0, 0, 1000
+	SpawnSparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
+		LocalOffset: 0, 0, 900
 	Health:
 		HP: 650000
 	Armor@Boss:
@@ -1557,7 +1560,7 @@ MKIIIDRONE-MINIGUN:
 	-SelectionDecorations:
 	-Explodes@Shrapnel:
 	-GrantConditionOnDamageState@HeavyDamaged:
-	-ExplodeWeapon@spawnsparks:
+	-SpawnSparks:
 	-FloatingSpriteEmitter@spawnsmoke:
 	-SpawnActorOnDeath@ScrinEssence:
 	-MapEditorData:
@@ -1818,7 +1821,7 @@ COUNCILOR:
 	-SelectionDecorations:
 	-Explodes@Shrapnel:
 	-GrantConditionOnDamageState@HeavyDamaged:
-	-ExplodeWeapon@spawnsparks:
+	-SpawnSparks:
 	-FloatingSpriteEmitter@spawnsmoke:
 	-SpawnActorOnDeath@ScrinEssence:
 	-MapEditorData:

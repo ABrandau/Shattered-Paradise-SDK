@@ -54,31 +54,6 @@
 # Dummy Instances
 #######################################################
 
-BigFireSpawnerDummy:
-	Inherits: ^GROUNDDUMMY
-	ExplodeWeapon:
-		Weapon: BuildingFireBigShrapnel
-		ResetReloadWhenEnabled: false
-	KillsSelf@TimedLife:
-		Delay: 10
-
-SmallFireSpawnerDummy:
-	Inherits: BigFireSpawnerDummy
-	ExplodeWeapon:
-		Weapon: BuildingFireSmallShrapnel
-	KillsSelf@TimedLife:
-		Delay: 15
-
-ScrinBigFireSpawnerDummy:
-	Inherits: BigFireSpawnerDummy
-	ExplodeWeapon:
-		Weapon: ScrinBuildingFireBigShrapnel
-
-ScrinSmallFireSpawnerDummy:
-	Inherits: SmallFireSpawnerDummy
-	ExplodeWeapon:
-		Weapon: ScrinBuildingFireSmallShrapnel
-
 NukeCrateDummy:
 	Inherits: ^DUMMYAIRCRAFT
 	Inherits: ^HasMisslePower

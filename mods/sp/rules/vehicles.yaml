@@ -636,8 +636,10 @@ HMEC:
 	-Chronoshiftable:
 	FloatingSpriteEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
-	ExplodeWeapon@spawnsparks:
+		Offset: 0, 0, 1000
+	SpawnSparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
+		LocalOffset: 0, 0, 900
 	Health:
 		HP: 300000
 	AnnounceOnSeen:
@@ -1847,7 +1849,7 @@ SCORPION:
 	-FirepowerMultiplier@BLUEFLAME:
 	FloatingSpriteEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
-	ExplodeWeapon@spawnsparks:
+	SpawnSparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	Health:
 		HP: 300000
@@ -3369,7 +3371,7 @@ BCOREDEF:
 	FloatingSpriteEmitter@spawnsmoke:
 		Offset: 0,0,2500
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
-	ExplodeWeapon@spawnsparks:
+	SpawnSparks:
 		LocalOffset: 0,0,3000
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	Explodes:
@@ -3907,7 +3909,7 @@ TRIPOD:
 		Offset: 0,0,2700
 	RenderSprites:
 		Image: anhltrpd
-	ExplodeWeapon@spawnsparks:
+	SpawnSparks:
 		LocalOffset: 0,0,2700
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin

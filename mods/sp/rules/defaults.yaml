@@ -954,9 +954,12 @@
 
 ^SpawnSpark:
 	Inherits: ^HeavyDamagedEffect
-	ExplodeWeapon@spawnsparks:
+	SpawnSparks:
 		RequiresCondition: HeavyDamaged
-		Weapon: SparkSpawner
+		SparkWeapon: SparkDebris
+		Amount: 3
+		LaunchEffectImage: explosion
+		LaunchEffectSequences: smallspark
 
 ^SpawnFire:
 	Inherits: ^HeavyDamagedEffect
@@ -1484,7 +1487,7 @@
 	Inherits@5: ^MindControllableBuilding
 	FloatingSpriteEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self
-	ExplodeWeapon@spawnsparks:
+	SpawnSparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self
 	WithIdleOverlay@SpawnFire:
 		RequiresCondition: HeavyDamaged && !cloaking-self
@@ -1546,7 +1549,7 @@
 		TargetTypes: FullHealth
 	FloatingSpriteEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
-	ExplodeWeapon@spawnsparks:
+	SpawnSparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
 
 ^AircraftEffects:
@@ -1560,7 +1563,7 @@
 	Inherits@7: ^Berserkable
 	FloatingSpriteEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self
-	ExplodeWeapon@spawnsparks:
+	SpawnSparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self
 
 ^ProducesStuff:
@@ -2335,7 +2338,7 @@
 		CargoCondition: ascargo
 	FloatingSpriteEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo && !in_tunnel
-	ExplodeWeapon@spawnsparks:
+	SpawnSparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo && !in_tunnel
 
 ^Tank:

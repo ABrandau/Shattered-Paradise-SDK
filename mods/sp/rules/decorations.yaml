@@ -484,9 +484,15 @@ SC_BOXES:
 		RandomFacing: false
 		SpawnFrequency: 64, 128
 		Offset: 0, 0, 600
-	ExplodeWeapon@spores:
+	SpawnSparks@spores:
 		Weapon: BlossomTreeSporeGreen
 		LocalOffset: 0,-5,1880
+		Interval: 300
+		Delay: 310
+		LaunchEffectImage: tibtilegasanim
+		LaunchEffectSequences: idle, idle2, idle3, idle4
+		LaunchEffectPalette: gradientgreen60
+		ResetReloadWhenEnabled: false
 	WithIdleAnimation:
 		Interval: 300
 
@@ -501,7 +507,7 @@ TIBTRE02:
 TIBTRE03:
 	Inherits: ^BlossomTree
 	Inherits@1: ^TibutterflySpawner
-	ExplodeWeapon@spores:
+	SpawnSparks@spores:
 		LocalOffset: 0,-128,2164
 
 ^TibMonolithEffect:
