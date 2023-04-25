@@ -482,9 +482,9 @@ SCRIN:
 		StartColorUsePlayerColor: false
 		EndColor: 11FF11
 		EndColorAlpha: 64
-		TrailWidth: 110
+		StartWidth: 110
 		TrailLength: 4
-		WidthFadeRate: 1
+		EndWidth: 0
 	Contrail@2:
 		RequiresCondition: airborne
 		Offset: -414,163, 123
@@ -493,9 +493,9 @@ SCRIN:
 		StartColorUsePlayerColor: false
 		EndColor: 11FF11
 		EndColorAlpha: 64
-		TrailWidth: 110
+		StartWidth: 110
 		TrailLength: 4
-		WidthFadeRate: 1
+		EndWidth: 0
 	ActorStatValues:
 		Damage: 50
 		SplitRanges: true
@@ -611,7 +611,7 @@ CERBERUS:
 		StartColorUsePlayerColor: false
 		EndColor: FFEA0000
 		TrailLength: 8
-		TrailWidth: 96
+		StartWidth: 96
 	Contrail@2:
 		RequiresCondition: airborne
 		Offset: -1500, 112, -50
@@ -620,7 +620,7 @@ CERBERUS:
 		StartColorUsePlayerColor: false
 		EndColor: FFEA0000
 		TrailLength: 8
-		TrailWidth: 96
+		StartWidth: 96
 	Contrail@3:
 		RequiresCondition: airborne
 		Offset: -1500, -112, -50
@@ -629,7 +629,7 @@ CERBERUS:
 		StartColorUsePlayerColor: false
 		EndColor: FFEA0000
 		TrailLength: 8
-		TrailWidth: 96
+		StartWidth: 96
 	Contrail@4:
 		RequiresCondition: airborne
 		Offset: -1500, -336, -50
@@ -638,7 +638,7 @@ CERBERUS:
 		StartColorUsePlayerColor: false
 		EndColor: FFEA0000
 		TrailLength: 8
-		TrailWidth: 96
+		StartWidth: 96
 	ActorStatValues:
 		Damage: 324
 
@@ -928,7 +928,7 @@ WETP:
 		StartColorAlpha: 128
 		StartColorUsePlayerColor: false
 		EndColor: AAAAAA00
-		TrailWidth: 32
+		StartWidth: 32
 		TrailLength: 16
 	Contrail@2:
 		RequiresCondition: airborne
@@ -937,7 +937,7 @@ WETP:
 		StartColorAlpha: 128
 		StartColorUsePlayerColor: false
 		EndColor: AAAAAA00
-		TrailWidth: 32
+		StartWidth: 32
 		TrailLength: 16
 	Contrail@FlameTrail:
 		RequiresCondition: airborne && !attacked
@@ -946,9 +946,9 @@ WETP:
 		StartColorAlpha: 128
 		StartColorUsePlayerColor: false
 		EndColor: FFEA0000
-		TrailWidth: 128
+		StartWidth: 128
 		TrailLength: 7
-		WidthFadeRate: 1
+		EndWidth: 0
 	GrantConditionOnActivity:
 		Condition: attacking
 	SpeedMultiplier@Supersonic:
@@ -1296,7 +1296,7 @@ SCRDESTROYER:
 		StartColorUsePlayerColor: false
 		EndColor: AA00FF00
 		TrailLength: 12
-		TrailWidth: 128
+		StartWidth: 128
 	Contrail@2:
 		RequiresCondition: airborne && hyperflight
 		Offset: -1300, -20, 660
@@ -1305,7 +1305,7 @@ SCRDESTROYER:
 		StartColorUsePlayerColor: false
 		EndColor: 0000FF00
 		TrailLength: 12
-		TrailWidth: 40
+		StartWidth: 40
 	ActorStatValues:
 		Upgrades: upgrade.disc_barrage, upgrade.hyper_flight_rotors
 
@@ -1367,7 +1367,7 @@ SCRTRANS:
 		StartColorUsePlayerColor: false
 		EndColor: AA00FF00
 		TrailLength: 6
-		TrailWidth: 128
+		StartWidth: 128
 	Contrail@2:
 		RequiresCondition: airborne && hyperflight
 		Offset: -1600, -20, 100
@@ -1376,7 +1376,7 @@ SCRTRANS:
 		StartColorUsePlayerColor: false
 		EndColor: 0000FF00
 		TrailLength: 6
-		TrailWidth: 40
+		StartWidth: 40
 
 SCRCARRIER:
 	Inherits: ^CombatHelicopter
@@ -1451,7 +1451,7 @@ SCRCARRIER:
 		StartColorUsePlayerColor: false
 		EndColor: AA00FF00
 		TrailLength: 12
-		TrailWidth: 128
+		StartWidth: 128
 	Contrail@2:
 		RequiresCondition: airborne && hyperflight
 		Offset: -1300, -20, 100
@@ -1460,7 +1460,7 @@ SCRCARRIER:
 		StartColorUsePlayerColor: false
 		EndColor: 0000FF00
 		TrailLength: 12
-		TrailWidth: 40
+		StartWidth: 40
 	DeathSounds:
 	Voiced:
 		VoiceSet: AssaultCarrier
@@ -1554,7 +1554,7 @@ SCRBATTLESHIP:
 		StartColorUsePlayerColor: false
 		EndColor: 0000FF00
 		TrailLength: 15
-		TrailWidth: 64
+		StartWidth: 64
 	Contrail@2:
 		RequiresCondition: airborne
 		Offset: -2300, 80, 350
@@ -1563,7 +1563,7 @@ SCRBATTLESHIP:
 		StartColorUsePlayerColor: false
 		EndColor: AA00FF00
 		TrailLength: 8
-		TrailWidth: 128
+		StartWidth: 128
 	Contrail@3:
 		RequiresCondition: airborne
 		Offset: -2300, -140, 350
@@ -1572,7 +1572,7 @@ SCRBATTLESHIP:
 		StartColorUsePlayerColor: false
 		EndColor: AA00FF00
 		TrailLength: 8
-		TrailWidth: 128
+		StartWidth: 128
 	ActorStatValues:
 		Damage: 360
 
@@ -1838,7 +1838,7 @@ STORMRIDERSPAWN:
 		StartColorAlpha: 128
 		StartColorUsePlayerColor: false
 		EndColor: 0000FF00
-		TrailWidth: 32
+		StartWidth: 32
 		TrailLength: 8
 	GivesExperience:
 		Experience: 50
@@ -2010,7 +2010,7 @@ CABDRONEJET:
 		StartColorUsePlayerColor: false
 		EndColor: FFFF0000
 		TrailLength: 6
-		TrailWidth: 40
+		StartWidth: 40
 	WithDeathAnimation:
 		FallbackSequence: die
 		DeathSequence: die
