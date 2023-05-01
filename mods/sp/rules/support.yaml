@@ -967,6 +967,7 @@ GAFIRE:
 		UndeployTicks: 0
 	-RevealOnFire:
 	-MustBeDestroyed:
+	-GivesBuildableArea:
 	ActorStatValues:
 		Armaments: None
 
@@ -1129,6 +1130,7 @@ NASTLH:
 		RequiresCondition: AIbuildingMicroControl
 		Prerequisite: AINASTLHBuildLimit
 	-MustBeDestroyed:
+	-GivesBuildableArea:
 
 NATMPL:
 	Inherits: ^Building
@@ -1289,9 +1291,9 @@ MUVENTI:
 		DeployTicks: 30
 		UndeployTicks: 5
 	-RevealOnFire:
-	-GivesBuildableArea:
 	-GrantConditionOnPrerequisite@SUDDENDEATH:
 	-MustBeDestroyed:
+	-GivesBuildableArea:
 	SupportPowerChargeBar:
 	NukePower:
 		-LaunchSpeechNotification:
@@ -1511,6 +1513,8 @@ SCREXTRACTOR:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	-MustBeDestroyed:
+	-GivesBuildableArea:
 
 SCRSW1:
 	Inherits: ^Building
@@ -1624,6 +1628,8 @@ CABEYE:
 		AreaTypes: building
 	IsometricSelectable:
 		DecorationHeight: 96
+	-MustBeDestroyed:
+	-GivesBuildableArea:
 
 CABSW1:
 	Inherits: ^Defence
