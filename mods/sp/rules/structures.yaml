@@ -1632,7 +1632,7 @@ SCRRADR:
 	Inherits@RENDER: ^ScrinRenderBuilding
 	Inherits@SHAPE: ^3x3Shape
 	Tooltip:
-		Name: Scrin Transmitter
+		Name: Signal Transmitter
 	Buildable:
 		Queue: Building.Shared, Building.Scrin
 		BuildPaletteOrder: 30
@@ -1814,6 +1814,9 @@ SCRADVPOWR:
 		SelectionEndSequence: end
 		TeleportTargetSequence: end
 		EffectPalette: jascbluealpha #scrinenergystuffs
+		TeleportingCondition: BeingTeleport ## HACK: disable the teleport trail from Mastermind
+		AfterTeleportDelay: 5
+		BeforeTeleportDelay: 1
 	NukePower:
 		RequiresCondition: AIbuildingMicroControl
 		Prerequisites:
