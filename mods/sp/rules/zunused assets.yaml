@@ -595,53 +595,6 @@ REPAIR:
 		Voice: Attack
 		FacingTolerance: 2
 
-SCRINCOUNCIL:
-	Inherits: ^CombatHelicopter
-	Inherits@2: ^ScrinRender
-	Inherits@Shadow: ^AircraftShadow
-	Valued:
-		Cost: 3000
-	Tooltip:
-		Name: Creation engine
-	Selectable:
-		Bounds: 80,70,0,-12
-	Voiced:
-		VoiceSet: Deva
-	Selectable:
-		Priority: 6
-	Health:
-		HP: 50000
-	Aircraft:
-		TurnSpeed: 5
-		Speed: 55
-		MoveIntoShroud: true
-	WithSpriteBody:
-		Sequence: dummy
-	Production:
-		Produces: Vehicle
-	Exit@1:
-		SpawnOffset: 0,0,-50
-	WithTextDecoration@primary:
-		Text: PRIMARY
-		ReferencePoint: Top
-		Color: E0D048
-		ZOffset: 9999
-		RequiresCondition: primary
-	PrimaryBuilding:
-		PrimaryCondition: primary
-	RenderSprites:
-	Hovers:
-	WithInfantryBody:
-	-RenderVoxels:
-	-WithVoxelBody:
-	SpawnActorOnDeath:
-		Actor: SCRCOUNCIL.Husk
-	FloatingSpriteEmitter@spawnsmoke:
-		Image: scrsmoke
-		Palette: apolbluealpha60
-	ProvidesPrerequisite:
-		Prerequisite: scrweap
-
 ###########################################################################
 # UNUSED
 ###########################################################################
