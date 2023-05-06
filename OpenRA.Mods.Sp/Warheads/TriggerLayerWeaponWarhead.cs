@@ -68,7 +68,7 @@ namespace OpenRA.Mods.TA.Warheads
 			}
 
 			if (AllowTiggerLevel && AllowTiggerWeaponWhenTrigger && !rules.Weapons.TryGetValue(TiggerWeapon.ToLowerInvariant(), out weapon))
-				throw new YamlException("Weapons Ruleset does not contain an entry '{0}'".F(TiggerWeapon.ToLowerInvariant()));
+				throw new YamlException($"Weapons Ruleset does not contain an entry '{TiggerWeapon.ToLowerInvariant()}'");
 		}
 
 		public override void DoImpact(in Target target, WarheadArgs args)
