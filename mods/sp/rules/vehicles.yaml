@@ -3702,6 +3702,7 @@ SCRRECHARGER:
 	Inherits@1: ^ScrinVehicle
 	Inherits@VISION: ^5CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
+	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -3742,12 +3743,17 @@ SCRRECHARGER:
 		Width: 2
 	Targetable:
 		TargetTypes: Ground, Vehicle, ShieldGenerator
-	WithMuzzleOverlay:
 	AttackFrontal:
 		PauseOnCondition: empdisable
 	-RevealOnFire:
 	AutoTarget:
 		ScanRadius: 4
+		MinimumScanTimeInterval: 47
+		MaximumScanTimeInterval: 47
+		InitialStance: AttackAnything
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Vehicle
+		ValidRelationships: Ally
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	WithIdleOverlay@shieldpower:
