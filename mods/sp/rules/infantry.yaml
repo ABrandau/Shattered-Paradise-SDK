@@ -1924,6 +1924,7 @@ MASTERMIND:
 		Weapon: MindControllerMastermindBuilding
 		PauseOnCondition: !ammo
 		RequiresCondition: !control
+		Name: OnFoot
 	Armament@BUILDINGCONTROL:
 		Name: control
 		Weapon: MindControllerMastermindBuilding
@@ -1935,7 +1936,7 @@ MASTERMIND:
 		RequiresCondition: control
 	GrantConditionOnAttack@CONTROL:
 		Condition: control
-		ArmamentNames: primary
+		ArmamentNames: OnFoot
 		RequiredShotsPerInstance: 8
 		MaximumInstances: 1
 		RevokeDelay: 11
@@ -1958,7 +1959,7 @@ MASTERMIND:
 	Crushable:
 		CrushClasses: HeavyInfantry
 	AttackFrontal:
-		Armaments: primary, control
+		Armaments: OnFoot, control
 	AutoTarget:
 		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	RenderRangeCircle:
