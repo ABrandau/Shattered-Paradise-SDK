@@ -12,19 +12,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using OpenRA.Graphics;
 using OpenRA.Mods.Common.Traits;
-using OpenRA.Mods.Common.Traits.Render;
-using OpenRA.Primitives;
 
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.SP.Traits
 {
-	public class FirePortSP
+	public struct FirePortSP
 	{
-		public WVec Offset;
-		public WAngle Yaw;
+		public Armament[] armaments;
+		public IFacing paxFacing;
+		public IPositionable paxPos;
+		public int PortIndex;
 	}
 
 	[Desc("Cargo can fire their weapons out of fire ports.")]
@@ -34,97 +33,80 @@ namespace OpenRA.Mods.SP.Traits
 		[Desc("Fire port offsets in local coordinates.")]
 		public readonly WVec[] PortOffsets = null;
 
-		[FieldLoader.Require]
-		[Desc("Fire port yaw angles.")]
-		public readonly WAngle[] PortYaws = null;
-
-		public FirePortSP[] Ports { get; private set; }
-
-		[PaletteReference]
-		public readonly string MuzzlePalette = "effect";
-
 		public override object Create(ActorInitializer init) { return new AttackGarrisonedSP(init.Self, this); }
 		public override void RulesetLoaded(Ruleset rules, ActorInfo ai)
 		{
 			if (PortOffsets.Length == 0)
 				throw new YamlException("PortOffsets must have at least one entry.");
 
-			if (PortYaws.Length != PortOffsets.Length)
-				throw new YamlException("PortYaws must define an angle for each port.");
-
-			Ports = new FirePortSP[PortOffsets.Length];
-
-			for (var i = 0; i < PortOffsets.Length; i++)
-			{
-				Ports[i] = new FirePortSP
-				{
-					Offset = PortOffsets[i],
-					Yaw = PortYaws[i]
-				};
-			}
-
 			base.RulesetLoaded(rules, ai);
 		}
 	}
 
-	public class AttackGarrisonedSP : AttackFollow, INotifyPassengerEntered, INotifyPassengerExited, IRender
+	public class AttackGarrisonedSP : AttackFollow, INotifyPassengerEntered, INotifyPassengerExited
 	{
 		public new readonly AttackGarrisonedSPInfo Info;
 		readonly Lazy<BodyOrientation> coords;
-		readonly List<Armament> armaments;
-		readonly List<AnimationWithOffset> muzzles;
-		readonly Dictionary<Actor, IFacing> paxFacing;
-		readonly Dictionary<Actor, IPositionable> paxPos;
-		readonly Dictionary<Actor, RenderSprites> paxRender;
+		INotifyAttack[] notifyAttacks;
+
+		Dictionary<Actor, FirePortSP> ports = new();
 
 		public AttackGarrisonedSP(Actor self, AttackGarrisonedSPInfo info)
 			: base(self, info)
 		{
 			Info = info;
 			coords = Exts.Lazy(() => self.Trait<BodyOrientation>());
-			armaments = new List<Armament>();
-			muzzles = new List<AnimationWithOffset>();
-			paxFacing = new Dictionary<Actor, IFacing>();
-			paxPos = new Dictionary<Actor, IPositionable>();
-			paxRender = new Dictionary<Actor, RenderSprites>();
+		}
+
+		protected override void Created(Actor self)
+		{
+			notifyAttacks = self.TraitsImplementing<INotifyAttack>().ToArray();
+			base.Created(self);
 		}
 
 		protected override Func<IEnumerable<Armament>> InitializeGetArmaments(Actor self)
 		{
-			return () => armaments;
+			return () =>
+			{
+				var passengers = ports.Keys;
+
+				List<Armament> arms = new();
+				foreach (var pass in passengers)
+				{
+					var port = ports[pass];
+
+					foreach (var arm in port.armaments)
+						arms.Add(arm);
+				}
+
+				return arms;
+			};
 		}
 
+		int CurrentPortIndex;
 		void INotifyPassengerEntered.OnPassengerEntered(Actor self, Actor passenger)
 		{
-			paxFacing.Add(passenger, passenger.Trait<IFacing>());
-			paxPos.Add(passenger, passenger.Trait<IPositionable>());
-			paxRender.Add(passenger, passenger.Trait<RenderSprites>());
-			armaments.AddRange(
-				passenger.TraitsImplementing<Armament>()
-				.Where(a => Info.Armaments.Contains(a.Info.Name)));
+			CurrentPortIndex = (CurrentPortIndex + 1) % Info.PortOffsets.Length;
+			var port = new FirePortSP
+			{
+				armaments = passenger.TraitsImplementing<Armament>().Where(a => Info.Armaments.Contains(a.Info.Name)).ToArray(),
+				paxFacing = passenger.Trait<IFacing>(),
+				paxPos = passenger.Trait<IPositionable>(),
+				PortIndex = CurrentPortIndex,
+			};
+
+			ports[passenger] = port;
 		}
 
 		void INotifyPassengerExited.OnPassengerExited(Actor self, Actor passenger)
 		{
-			paxFacing.Remove(passenger);
-			paxPos.Remove(passenger);
-			paxRender.Remove(passenger);
-			armaments.RemoveAll(a => a.Actor == passenger);
-		}
-
-		int currentPort;
-		FirePortSP SelectFirePort()
-		{
-			// Pick a random port that faces the target
-			var bodyYaw = facing != null ? facing.Facing : WAngle.Zero;
-			currentPort = (currentPort + 1) % Info.Ports.Length;
-			return Info.Ports[currentPort];
+			ports.Remove(passenger);
 		}
 
 		WVec PortOffset(Actor self, FirePortSP p)
 		{
 			var bodyOrientation = coords.Value.QuantizeOrientation(self.Orientation);
-			return coords.Value.LocalToWorld(p.Offset.Rotate(bodyOrientation));
+			return coords.Value.LocalToWorld(Info.PortOffsets[p.PortIndex].Rotate(bodyOrientation));
 		}
 
 		public override void DoAttack(Actor self, in Target target)
@@ -136,64 +118,32 @@ namespace OpenRA.Mods.SP.Traits
 			var targetedPosition = GetTargetPosition(pos, target);
 			var targetYaw = (targetedPosition - pos).Yaw;
 
-			foreach (var a in Armaments)
+			var passengers = ports.Keys;
+			foreach (var pass in passengers)
 			{
-				if (a.IsTraitDisabled)
-					continue;
+				var port = ports[pass];
 
-				var port = SelectFirePort();
-				if (port == null)
-					return;
-
-				paxFacing[a.Actor].Facing = targetYaw;
-				paxPos[a.Actor].SetCenterPosition(a.Actor, pos + PortOffset(self, port));
-
-				var barrel = a.CheckFire(a.Actor, facing, target);
-				if (barrel == null)
-					continue;
-
-				if (a.Info.MuzzleSequence != null)
+				foreach (var arm in port.armaments)
 				{
-					// Muzzle facing is fixed once the firing starts
-					var muzzleAnim = new Animation(self.World, paxRender[a.Actor].GetImage(a.Actor), () => targetYaw);
-					var sequence = a.Info.MuzzleSequence;
-					var muzzleFlash = new AnimationWithOffset(muzzleAnim,
-						() => PortOffset(self, port),
-						() => false,
-						p => RenderUtils.ZOffsetFromCenter(self, p, 1024));
+					if (arm.IsTraitDisabled)
+						continue;
 
-					muzzles.Add(muzzleFlash);
-					muzzleAnim.PlayThen(sequence, () => muzzles.Remove(muzzleFlash));
+					port.paxFacing.Facing = targetYaw;
+					port.paxPos.SetCenterPosition(pass, pos + PortOffset(self, port));
+
+					var barrel = arm.CheckFire(pass, facing, target);
+					if (barrel == null)
+						continue;
+
+					foreach (var npa in notifyAttacks)
+						npa.Attacking(self, target, arm, barrel);
 				}
-
-				foreach (var npa in self.TraitsImplementing<INotifyAttack>())
-					npa.Attacking(self, target, a, barrel);
 			}
-		}
-
-		IEnumerable<IRenderable> IRender.Render(Actor self, WorldRenderer wr)
-		{
-			var pal = wr.Palette(Info.MuzzlePalette);
-
-			// Display muzzle flashes
-			foreach (var m in muzzles)
-				foreach (var r in m.Render(self, pal))
-					yield return r;
-		}
-
-		IEnumerable<Rectangle> IRender.ScreenBounds(Actor self, WorldRenderer wr)
-		{
-			// Muzzle flashes don't contribute to actor bounds
-			yield break;
 		}
 
 		protected override void Tick(Actor self)
 		{
 			base.Tick(self);
-
-			// Take a copy so that Tick() can remove animations
-			foreach (var m in muzzles.ToArray())
-				m.Animation.Tick();
 		}
 	}
 }
