@@ -12,8 +12,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using OpenRA.Graphics;
 using OpenRA.Mods.Common.Traits;
-
+using OpenRA.Mods.Common.Traits.Render;
+using OpenRA.Primitives;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.SP.Traits
@@ -23,6 +25,7 @@ namespace OpenRA.Mods.SP.Traits
 		public Armament[] armaments;
 		public IFacing paxFacing;
 		public IPositionable paxPos;
+		public RenderSprites paxRender;
 		public int PortIndex;
 	}
 
@@ -43,12 +46,12 @@ namespace OpenRA.Mods.SP.Traits
 		}
 	}
 
-	public class AttackGarrisonedSP : AttackFollow, INotifyPassengerEntered, INotifyPassengerExited
+	public class AttackGarrisonedSP : AttackFollow, INotifyPassengerEntered, INotifyPassengerExited, IRender
 	{
 		public new readonly AttackGarrisonedSPInfo Info;
 		readonly Lazy<BodyOrientation> coords;
+		readonly Dictionary<AnimationWithOffset, string> muzzles = new();
 		INotifyAttack[] notifyAttacks;
-
 		Dictionary<Actor, FirePortSP> ports = new();
 
 		public AttackGarrisonedSP(Actor self, AttackGarrisonedSPInfo info)
@@ -92,6 +95,7 @@ namespace OpenRA.Mods.SP.Traits
 				armaments = passenger.TraitsImplementing<Armament>().Where(a => Info.Armaments.Contains(a.Info.Name)).ToArray(),
 				paxFacing = passenger.Trait<IFacing>(),
 				paxPos = passenger.Trait<IPositionable>(),
+				paxRender = passenger.Trait<RenderSprites>(),
 				PortIndex = CurrentPortIndex,
 			};
 
@@ -135,15 +139,47 @@ namespace OpenRA.Mods.SP.Traits
 					if (barrel == null)
 						continue;
 
+					if (arm.Info.MuzzleSequence != null)
+					{
+						// Muzzle facing is fixed once the firing starts
+						var muzzleAnim = new Animation(self.World, port.paxRender.GetImage(pass), () => targetYaw);
+						var sequence = arm.Info.MuzzleSequence;
+						var muzzleFlash = new AnimationWithOffset(muzzleAnim,
+							() => PortOffset(self, port),
+							() => false,
+							p => RenderUtils.ZOffsetFromCenter(self, p, 1024));
+
+						muzzles[muzzleFlash] = arm.Info.MuzzlePalette;
+						muzzleAnim.PlayThen(sequence, () => muzzles.Remove(muzzleFlash));
+					}
+
 					foreach (var npa in notifyAttacks)
 						npa.Attacking(self, target, arm, barrel);
 				}
 			}
 		}
 
+		IEnumerable<IRenderable> IRender.Render(Actor self, WorldRenderer wr)
+		{
+			// Display muzzle flashes
+			foreach (var m in muzzles.Keys)
+				foreach (var r in m.Render(self, wr.Palette(muzzles[m])))
+					yield return r;
+		}
+
+		IEnumerable<Rectangle> IRender.ScreenBounds(Actor self, WorldRenderer wr)
+		{
+			// Muzzle flashes don't contribute to actor bounds
+			yield break;
+		}
+
 		protected override void Tick(Actor self)
 		{
 			base.Tick(self);
+
+			// Take a copy so that Tick() can remove animations
+			foreach (var m in muzzles.Keys)
+				m.Animation.Tick();
 		}
 	}
 }
