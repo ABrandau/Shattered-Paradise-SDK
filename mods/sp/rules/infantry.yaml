@@ -36,10 +36,12 @@ GDIE1:
 		Weapon: GMarineRifle
 		PauseOnCondition: WebDisable
 		RequiresCondition: !apammo
+		MuzzleSequence: garrison-muzzle
 	Armament@GarrisonAP:
 		Weapon: GMarineRifleAP
 		PauseOnCondition: WebDisable
 		RequiresCondition: apammo
+		MuzzleSequence: garrison-muzzle
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -108,12 +110,10 @@ GRENADIER:
 		Name: OnFoot
 	Armament@Garrison1:
 		Weapon: GGrenadierBazooka
-		LocalOffset: 0,0,600
 		ReloadingCondition: reload-ground
 		PauseOnCondition: WebDisable || reload-air
 	Armament@Garrison2:
 		Weapon: GGrenadierBazookaAA
-		LocalOffset: 0,0,600
 		ReloadingCondition: reload-air
 		PauseOnCondition: WebDisable || reload-ground
 	Voiced:
@@ -185,8 +185,10 @@ MEDIC:
 		TargetRelationships: Ally
 		ForceTargetRelationships: Ally
 		PauseOnCondition: WebDisable
+		Name: OnFoot
 	AttackFrontal:
 		FacingTolerance: 2
+		Armaments: OnFoot
 	AutoTarget:
 		ScanRadius: 5 #PREF: save trait looks up and scan armaments
 	Passenger:
@@ -229,7 +231,6 @@ E2:
 		PauseOnCondition: WebDisable
 	Armament@Garrison:
 		Weapon: GGrenade
-		LocalOffset: 0,0,785
 		PauseOnCondition: WebDisable
 	TakeCover:
 		ProneOffset: 160,128,-555
@@ -301,8 +302,8 @@ JUMPJET:
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GJJGrenade
-		LocalOffset: 300,0,900
 		PauseOnCondition: WebDisable
+		MuzzleSequence: garrison-muzzle
 	Passenger:
 		CustomPipType: blue
 	AttackFrontal:
@@ -469,8 +470,9 @@ EAGLEGUARD:
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GTrooperRail
-		LocalOffset: 550,100,550
 		PauseOnCondition: WebDisable
+		MuzzleSequence: garrison-muzzle
+		MuzzlePalette: apblue
 	Crushable:
 		CrushClasses: HeavyInfantry
 	AttackFrontal:
@@ -538,10 +540,8 @@ JJCOMM:
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GJJSMG
-		LocalOffset: 300,0,900
 	Armament@Garrison2:
 		Weapon: GJJBeacon
-		LocalOffset: 300,0,900
 	Passenger:
 		CustomPipType: red
 	AnnounceOnSeen:
@@ -722,6 +722,7 @@ ALTNODE1:
 	Armament@Garrison:
 		Weapon: GMilitantRifle
 		PauseOnCondition: WebDisable
+		MuzzleSequence: garrison-muzzle
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -768,12 +769,10 @@ CRUSADER:
 		Name: OnFoot
 	Armament@Garrison1:
 		Weapon: GCrusaderBazooka
-		LocalOffset: 0,0,600
 		ReloadingCondition: reload-ground
 		PauseOnCondition: WebDisable || reload-air
 	Armament@Garrison2:
 		Weapon: GCrusaderBazookaAA
-		LocalOffset: 0,0,600
 		ReloadingCondition: reload-air
 		PauseOnCondition: WebDisable || reload-ground
 	-TakeCover:
@@ -828,7 +827,6 @@ TEMPLAR:
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GTemplarFlame
-		LocalOffset: 200,50,320
 		PauseOnCondition: WebDisable
 		RequiresCondition: !blueflame
 	Armament@1Elite:
@@ -839,7 +837,6 @@ TEMPLAR:
 		Name: OnFoot
 	Armament@GarrisonElite:
 		Weapon: GTemplarFlameE
-		LocalOffset: 200,50,320
 		PauseOnCondition: WebDisable
 		RequiresCondition: blueflame
 	AttackFrontal:
@@ -885,8 +882,9 @@ NCONF:
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GBlackHandLasor
-		LocalOffset: 800,100,778
 		PauseOnCondition: WebDisable
+		MuzzleSequence: garrison-muzzle
+		MuzzlePalette: apred
 	-ExternalCondition@crate-cloak:
 	Cloak@CLOAKGENERATOR:
 		InitialDelay: 80
@@ -960,9 +958,9 @@ BHS:
 		PauseOnCondition: WebDisable
 		Name: OnFoot
 	Armament@Garrison:
-		LocalOffset: 200,0,800
 		Weapon: GToxinCommandoRifle
 		PauseOnCondition: WebDisable
+		MuzzleSequence: garrison-muzzle
 	AnnounceOnSeen:
 		PingRadar: true
 		Notification: CommandoDetected
@@ -1072,10 +1070,10 @@ MARAUDER:
 		RequiresCondition: !deployed
 	Armament@Garrison:
 		Weapon: GMarauderShotgun
-		MuzzlePalette: playermut
 		ReloadingCondition: reload-undeployed
 		PauseOnCondition: reload-deployed
 		RequiresCondition: !deployed
+		MuzzleSequence: garrison-muzzle
 	Armament@Deployed:
 		Weapon: DeployedMarauderShotgun
 		Name: OnFoot
@@ -1397,12 +1395,13 @@ E3:
 		RequiresCondition: tibgaswh
 	Armament@Garrison:
 		Weapon: GSkirmisherMortar
-		LocalOffset: 128,0,640
 		RequiresCondition: !tibgaswh
+		MuzzleSequence: garrison-muzzle
 	Armament@GarrisonUpg:
 		Weapon: GSkirmisherMortarGas
-		LocalOffset: 128,0,640
 		RequiresCondition: tibgaswh
+		MuzzleSequence: garrison-muzzle
+		MuzzlePalette: apgreen
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -1456,12 +1455,10 @@ SEER:
 		PauseOnCondition: WebDisable || reload-ground
 	Armament@Garrison1:
 		Weapon: SeerTesla
-		LocalOffset: 100,0,400
 		ReloadingCondition: reload-ground
 		PauseOnCondition: reload-air
 	Armament@Garrison2:
 		Weapon: SeerTeslaAA
-		LocalOffset: 100,0,400
 		ReloadingCondition: reload-air
 		PauseOnCondition: reload-ground
 	AttackFrontal:
@@ -1533,7 +1530,8 @@ PSYKER:
 		PauseOnCondition: WebDisable
 	Armament@Garrison:
 		Weapon: GPsykerRay
-		LocalOffset: 128,0,640
+		MuzzleSequence: garrison-muzzle
+		MuzzlePalette: lightningwhite
 	Passenger:
 		CustomPipType: red
 	SharedPassenger:
@@ -1580,10 +1578,12 @@ SHARK:
 		Actor: chusk
 	Armament@1:
 		Weapon: SharkJump
+		Name: OnFoot
 		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 2
+		Armaments: OnFoot
 	AutoTargetPriority:
 		Priority: 1
 		ValidTargets: Infantry
@@ -1639,13 +1639,11 @@ LEGIO:
 		Name: OnFoot
 	Armament@Garrison1:
 		Weapon: GLegioNeedler
-		LocalOffset: 350,200,800
 		FireDelay: 5
 		ReloadingCondition: reload-ground
 		PauseOnCondition: WebDisable || reload-air
 	Armament@Garrison2:
 		Weapon: GLegioNeedlerAA
-		LocalOffset: 350,200,800
 		FireDelay: 5
 		ReloadingCondition: reload-air
 		PauseOnCondition: WebDisable || reload-ground
@@ -1718,7 +1716,6 @@ FLOAT:
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GFloatTesla
-		LocalOffset: 0,0,500
 		FireDelay: 10
 		PauseOnCondition: WebDisable
 		ForceTargetRelationships: Enemy
@@ -1837,7 +1834,6 @@ COLOSSI:
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GColossiShard
-		LocalOffset: 300,0,1000
 		RequiresCondition: undeployed
 		PauseOnCondition: WebDisable
 	AttackFrontal:
@@ -2135,6 +2131,7 @@ CYBORG:
 	Armament@Garrison:
 		Weapon: GCyborgVulcan
 		PauseOnCondition: WebDisable || empdisable
+		MuzzleSequence: garrison-muzzle
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -2214,12 +2211,10 @@ CBORG:
 		Name: OnFoot
 	Armament@Garrison1:
 		Weapon: GCyborgRocket
-		LocalOffset: 424,198,1086
 		ReloadingCondition: reload-ground
 		PauseOnCondition: WebDisable || empdisable || reload-air
 	Armament@Garrison2:
 		Weapon: GCyborgRocketAA
-		LocalOffset: 424,198,1086
 		ReloadingCondition: reload-air
 		PauseOnCondition: WebDisable || empdisable || reload-ground
 	AttackFrontal:
@@ -2335,13 +2330,16 @@ PDRONE:
 		Weapon: ReclaimerHit
 		PauseOnCondition: WebDisable || empdisable
 		RequiresCondition: !recycle
+		Name: OnFoot
 	Armament@2:
 		Weapon: ReclaimerHitUpg
 		PauseOnCondition: WebDisable || empdisable
 		RequiresCondition: recycle
+		Name: OnFoot
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 2
+		Armaments: OnFoot
 	WithDeathAnimation@normal:
 		DeathTypes:
 			BulletDeath: 1, 2
@@ -2441,12 +2439,6 @@ GLAD:
 	Armament@Garrison1:
 		Weapon: GGLAD120mm
 		MuzzleSequence: muzzle
-		LocalOffset: 170,250,500
-		PauseOnCondition: WebDisable
-	Armament@Garrison2:
-		Weapon: GGLAD120mm
-		MuzzleSequence: muzzle
-		LocalOffset: 170,-250,500
 		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
@@ -2632,8 +2624,9 @@ CYC2:
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GCyCannon
-		LocalOffset: 170,85,683
 		PauseOnCondition: WebDisable || empdisable
+		MuzzleSequence: garrison-muzzle
+		MuzzlePalette: apgreen
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -2672,6 +2665,8 @@ WORKER:
 	Armament@Garrison:
 		Weapon: GWorkerMinigun
 		PauseOnCondition: WebDisable || empdisable
+		MuzzleSequence: garrison-muzzle
+		MuzzlePalette: apgreen
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -2714,8 +2709,8 @@ CYBDOG:
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GDogBomb
-		LocalOffset: 0,-100,700, 0, 100,700
 		PauseOnCondition: WebDisable || empdisable
+		MuzzleSequence: garrison-muzzle
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -2767,7 +2762,6 @@ CHUSK:
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GNanoNeedle
-		LocalOffset: 0,-100,700, 0, 100,700
 		PauseOnCondition: WebDisable || empdisable
 	AttackFrontal:
 		Voice: Attack
@@ -2831,6 +2825,7 @@ WORKERMECH:
 	Armament@Garrison:
 		Weapon: GWorkerDroneMinigun
 		PauseOnCondition: WebDisable || empdisable
+		MuzzleSequence: garrison-muzzle
 	Selectable:
 		Bounds: 754, 1327, 0, -302
 	-SpawnActorOnDeath@nanomachinereanimate:
@@ -2879,7 +2874,6 @@ NANOS:
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: NanoNeedle
-		LocalOffset: 0, 0, 350
 		PauseOnCondition: WebDisable || empdisable
 	Selectable:
 		Bounds: 754, 1327, 0, 0
