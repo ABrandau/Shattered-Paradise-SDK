@@ -16,49 +16,45 @@ using OpenRA.Mods.Common.Traits;
 using OpenRA.Primitives;
 using OpenRA.Traits;
 
+/** Deprecated and will be replaced by upstream (AutoCrusher)
+ * Remove this class after the next engine upgrade,
+ * and change the related YAML to AutoCrusher **/
 namespace OpenRA.Mods.SP.Traits
 {
-	class AutoCrusherInfo : PausableConditionalTraitInfo, Requires<IMoveInfo>
+	class AutoCrusherSPInfo : PausableConditionalTraitInfo, Requires<IMoveInfo>
 	{
 		[Desc("Maximum range to scan for targets.")]
 		public readonly WDist ScanRadius = WDist.FromCells(5);
 
-		[Desc("Ticks to wait until scan for targets.")]
+		[Desc("The minimal amount of ticks to wait between scanning for targets.")]
 		public readonly int MinimumScanTimeInterval = 10;
 
-		[Desc("Ticks to wait until scan for targets.")]
+		[Desc("The maximal amount of ticks to wait between scanning for targets.")]
 		public readonly int MaximumScanTimeInterval = 15;
 
-		[Desc("The crush class that will be auto crush.")]
+		[Desc("The crush class(es) that can be automatically crushed.")]
 		public readonly BitSet<CrushClass> CrushClasses = default;
 
-		[Desc("Player relationships the owner of the actor needs to get targeted")]
+		[Desc("Player relationships the owner of the actor needs to get targeted.")]
 		public readonly PlayerRelationship TargetRelationships = PlayerRelationship.Ally | PlayerRelationship.Neutral | PlayerRelationship.Enemy;
 
-		public override object Create(ActorInitializer init) { return new AutoCrusher(init.Self, this); }
+		public override object Create(ActorInitializer init) { return new AutoCrusherSP(init.Self, this); }
 	}
 
-	class AutoCrusher : PausableConditionalTrait<AutoCrusherInfo>, INotifyIdle
+	class AutoCrusherSP : PausableConditionalTrait<AutoCrusherSPInfo>, INotifyIdle
 	{
 		int nextScanTime;
 		readonly IMoveInfo moveInfo;
 		readonly bool isAircraft;
 		protected readonly IMove Move;
 
-		public AutoCrusher(Actor self, AutoCrusherInfo info)
+		public AutoCrusherSP(Actor self, AutoCrusherSPInfo info)
 			: base(info)
 		{
 			Move = self.Trait<IMove>();
 			moveInfo = self.Info.TraitInfo<IMoveInfo>();
-
-			if (self.Info.HasTraitInfo<AircraftInfo>())
-				isAircraft = true;
-		}
-
-		protected override void Created(Actor self)
-		{
 			nextScanTime = self.World.SharedRandom.Next(Info.MinimumScanTimeInterval, Info.MaximumScanTimeInterval);
-			base.Created(self);
+			isAircraft = Move is Aircraft;
 		}
 
 		void INotifyIdle.TickIdle(Actor self)
@@ -66,11 +62,12 @@ namespace OpenRA.Mods.SP.Traits
 			if (nextScanTime-- > 0)
 				return;
 
+			// TODO: Add a proper Cloak and Disguise detection here.
 			var crushableActor = self.World.FindActorsInCircle(self.CenterPosition, Info.ScanRadius)
 				.Where(a => a != self && !a.IsDead && a.IsInWorld &&
-				self.Location != a.Location && a.IsAtGroundLevel() &&
-				Info.TargetRelationships.HasRelationship(self.Owner.RelationshipWith(a.Owner)) &&
-				a.TraitsImplementing<ICrushable>().Any(c => c.CrushableBy(a, self, Info.CrushClasses)))
+					self.Location != a.Location && a.IsAtGroundLevel() &&
+					Info.TargetRelationships.HasRelationship(self.Owner.RelationshipWith(a.Owner)) &&
+					a.TraitsImplementing<ICrushable>().Any(c => c.CrushableBy(a, self, Info.CrushClasses)))
 				.ClosestTo(self); // TODO: Make it use shortest pathfinding distance instead
 
 			if (crushableActor == null)
