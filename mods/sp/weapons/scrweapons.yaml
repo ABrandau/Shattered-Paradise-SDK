@@ -1378,6 +1378,7 @@ EssenceSmall:
 		AllowDirectHit: true
 		AimTargetStances: Ally
 		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
 
 EssenceMissile:
 	Inherits: ^FullDamage
@@ -1403,8 +1404,8 @@ EssenceMissile:
 		Jammable: false ## help to save a little bit performance
 		ExplodeWhenEmpty: true
 		TerrainHeightAware: false
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
+	Warhead@1Dam: TargetDamage
+		Spread: 256
 		Damage: -2000
 		ValidTargets: ScrinUnit
 		AffectsParent: true
