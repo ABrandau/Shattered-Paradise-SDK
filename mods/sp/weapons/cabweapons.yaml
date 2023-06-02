@@ -467,6 +467,7 @@ DroneHostMissile:
 		Weapon: DroneHostShellSpawner
 		ImpactActors: false
 		ValidTargets: Ground, Air, Water
+		AllowDirectHit: true
 
 DroneHostShell:
 	Inherits: ^ArtilleryWarhead
@@ -503,9 +504,7 @@ DroneHostShellSpawner:
 		FallRate: 5000
 		Range: 3
 		ValidTargets: Ground, Vehicle, Infantry, Air
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
+	-Warhead@1Dam: 
 	Warhead@2Eff: CreateEffect
 		Explosions: infdeathexplo1
 		ExplosionPalette: gensmkexploj
