@@ -1098,3 +1098,132 @@ FIREFLY:
 	SpawnActorOnDeath:
 		RequiresCondition: airborne
 		Actor: FIREFLY.Husk
+
+
+#######################################################
+# CREEPS
+#######################################################
+
+WEASAU2:
+	Inherits: ^Beast
+	Inherits@2: ^6CellVision
+	Tooltip:
+		Name: Baby Weasaurus
+	Health:
+		HP: 25000
+	Armor:
+		Type: Infantry
+	Mobile:
+		Speed: 130
+	Voiced:
+		VoiceSet: Fiend
+	Targetable:
+		TargetTypes: Infantry, Ground
+	Armament:
+		Weapon: WeasauBabyStrike
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	WithInfantryBody:
+		IdleSequences: idle1
+		AttackSequences: melee
+	MapEditorData:
+		Categories: Creep
+	WithDeathAnimation@normal:
+		DeathSequencePalette: orgatemgreen
+		DeathPaletteIsPlayerPalette: false
+	WithDeathAnimation@blood1:
+		DeathSequencePalette: gradientgreen
+		CrushedSequencePalette: gradientgreen
+	RenderSprites:
+		Image: weasau
+		Palette: orgatemgreen
+
+WEASAUGREEN:
+	Inherits: WEASAU2
+	Tooltip:
+		Name: Weasaurus
+	Health:
+		HP: 10000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 80
+	Armament:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@1:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@2:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@3:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	Armament@4:
+		Weapon: WeasaurusShard
+		LocalOffset: 700,0,700
+	WithInfantryBody:
+		IdleSequences: idle1
+		AttackSequences: shoot
+	RenderSprites:
+		Image: weasaugreen
+
+WEASAUBLUE:
+	Inherits: WEASAU2
+	Tooltip:
+		Name: Weasaurus Mayor
+	Health:
+		HP: 50000
+	Mobile:
+		Speed: 90
+	Armor:
+		Type: Heavy
+	Armament:
+		Weapon: WeasauBlueStrike
+	RenderSprites:
+		Palette: orgatemblue
+	WithDeathAnimation@normal:
+		DeathSequencePalette: orgatemblue
+	WithDeathAnimation@blood1:
+		DeathSequencePalette: jasccyan
+		CrushedSequencePalette: jasccyan
+	RenderSprites:
+		Image: weasaublue
+
+WEASAUBLUE2:
+	Inherits: WEASAUGREEN
+	Inherits@2: ^PermanentSelfHeal
+	Tooltip:
+		Name: Weasaurus Patriarch
+	Health:
+		HP: 90000
+	Mobile:
+		Speed: 70
+	Armor:
+		Type: Heavy
+	RenderSprites:
+		Palette: orgatemblue
+	Armament:
+		Weapon: WeasaurusBlueShard
+		LocalOffset: 700,0,700
+	Armament@1:
+		Weapon: WeasaurusBlueShard
+		LocalOffset: 700,0,700
+	Armament@2:
+		Weapon: WeasaurusBlueShard
+		LocalOffset: 700,0,700
+	Armament@3:
+		Weapon: WeasaurusBlueShard
+		LocalOffset: 700,0,700
+	Armament@4:
+		Weapon: WeasaurusBlueShard
+		LocalOffset: 700,0,700
+	WithDeathAnimation@normal:
+		DeathSequencePalette: orgatemblue
+	WithDeathAnimation@blood1:
+		DeathSequencePalette: jasccyan
+		CrushedSequencePalette: jasccyan
+	RenderSprites:
+		Image: weasaublue2

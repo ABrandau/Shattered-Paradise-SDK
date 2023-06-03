@@ -8,8 +8,8 @@
 ]]
 
 InfantryTypes = { "altnode1", "crusader", "templar" }
-NodBasicVehicles = { "bggy", "rocketbggy", "flamebggy", "tickclone" }
-NodVehicles = { "bggy", "rocketbggy", "flamebggy", "stnk", "tickclone"}
+NodBasicVehicles = { "bggy", "attackbike", "ttnk"}
+NodVehicles = { "bggy", "attackbike", "ttnk", "stnk"}
 AttackPaths = { {actor1352}, {actor1347}, {actor1348}, {actor1022}, {actor1349}, {actor1345}, {actor1207} }
 
 
