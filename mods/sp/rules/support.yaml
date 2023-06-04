@@ -1236,10 +1236,6 @@ MUVENTI:
 		TargetTypes: Building, Ground, C4
 	RequiresBuildableArea:
 		AreaTypes: building
-	#Exit@1:
-	#	Facing: 640
-	#	SpawnOffset: 256,256,0
-	#	ExitCell: 2,1
 	WithIdleOverlay@SpawnFire:
 		Sequence: fire2_higher
 	RenderSprites:
@@ -1357,7 +1353,6 @@ MUVENTI:
 MUVENT:
 	Inherits: MUVENTI
 	Inherits@SHAPE: ^2x2Shape
-	-ProvidesPrerequisite@swlimit:
 	Tooltip:
 		Name: Tunnel
 	Buildable: ### AI cannot use the support power properly as defence purpose, so AI build tunnel instead
@@ -1371,6 +1366,8 @@ MUVENT:
 		Footprint: xx xx
 		Dimensions: 2,2
 		BuildSounds: ssneakat.wav
+	-ProvidesPrerequisite@swlimit:
+	-ProvidesPrerequisite@buildingname:
 	-NukePower:
 	-NukePower@AI:
 	-SupportPowerChargeBar:
@@ -1391,6 +1388,11 @@ MUVENT:
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
+	-SpawnActorsOnSell@gdi:
+	-SpawnActorsOnSell@nod:
+	-SpawnActorsOnSell@cab:
+	-SpawnActorsOnSell@mut:
+	-SpawnActorsOnSell@scr:
 
 MUTSW1:
 	Inherits: ^Building

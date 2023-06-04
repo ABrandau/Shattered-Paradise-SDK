@@ -89,8 +89,15 @@ CAMERA:
 	RevealsShroud:
 		Range: 10c0
 		Type: CenterPosition
+
+SCAMERA:
+	Inherits: CAMERA
+	EditorOnlyTooltip:
+		Name: (reveals area to owner and detect stealth unit)
 	DetectCloaked:
 		Range: 10c0
+	RenderSpritesEditorOnly:
+		Image: camera
 
 INGALITE:
 	Interactable:
@@ -230,11 +237,13 @@ colorpicker:
 	RenderSprites:
 		Palette: unittemred
 		Image: abilitycrates
+	Crate:
+		Duration: 0 ## always exists
 
 MONEYCRATE:
 	Inherits: ^PowerupCrate
 	Tooltip:
-		Name: Gold Lingots (Provides $2000)
+		Name: Cash Crate (Provides $2000)
 	WithCrateBody:
 		IdleSequence: money
 	GiveCashCrateAction:
@@ -246,7 +255,7 @@ MONEYCRATE:
 VETERANCYCRATE:
 	Inherits: ^PowerupCrate
 	Tooltip:
-		Name: Veterancy Crate
+		Name: Veterancy Crate (Increase max to 4 unit rank by 1)
 	WithCrateBody:
 		IdleSequence: veterancy
 	LevelUpCrateAction:
@@ -257,18 +266,19 @@ VETERANCYCRATE:
 HEALCRATE:
 	Inherits: ^PowerupCrate
 	Tooltip:
-		Name: Medical Supplies (Heals units)
+		Name:  Supplies Of Healing (Heals all units)
 	WithCrateBody:
 		IdleSequence: healing
 	HealActorsCrateAction:
 		SelectionShares: 100
 		Sequence: heal
 		Sound: healer1.aud
+		TargetTypes: Infantry, Vehicle, Air, OrganicVehicle
 
 BUFFCRATE:
 	Inherits: ^PowerupCrate
 	Tooltip:
-		Name: Upgrade Kit
+		Name: Upgrade Kit (Give buff)
 	WithCrateBody:
 		IdleSequence: upgrade
 	GrantExternalConditionCrateAction@cloak:
@@ -293,7 +303,7 @@ BUFFCRATE:
 UNITCRATE:
 	Inherits: ^PowerupCrate
 	Tooltip:
-		Name: Unit Crate
+		Name: Unit Crate (Give unit)
 	WithCrateBody:
 		IdleSequence: unit
 	GiveBaseBuilderCrateAction@gdi:
@@ -322,7 +332,7 @@ UNITCRATE:
 		Units: drache
 		ValidFactions: scr
 	GiveUnitCrateAction:
-		Units: ghost
+		Units: 4tnk
 		SelectionShares: 100
 		Notification: ReinforcementsArrived
 

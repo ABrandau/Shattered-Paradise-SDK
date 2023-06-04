@@ -2,7 +2,7 @@ MapFormat: 12
 
 RequiresMod: sp
 
-Title: Assimilate the Alien Artifact
+Title: Cabal 01: Hacky Situation
 
 Author: Nolt, jrb0001
 
@@ -16,6 +16,8 @@ Visibility: MissionSelector
 
 Categories: Campaign (C.A.B.A.L.)
 
+Translations: languages/en.ftl, languages/tr.ftl
+
 Players:
 	PlayerReference@Neutral:
 		Name: Neutral
@@ -26,7 +28,7 @@ Players:
 		Name: Creeps
 		NonCombatant: True
 		Faction: cab
-		Enemies: Cabal, Nod1, Nod2
+		Enemies: Cabal, Cyborg Squad, Nod, Armed Civilians, Mercenaries, Angry Mercenaries
 	PlayerReference@Cabal:
 		Name: Cabal
 		Playable: True
@@ -38,9 +40,23 @@ Players:
 		LockSpawn: True
 		LockTeam: True
 		Team: 1
-		Enemies: Creeps, Nod1, Nod2
-	PlayerReference@Nod1:
-		Name: Nod1
+		Allies: Cyborg Squad
+		Enemies: Creeps, Nod, Armed Civilians, Angry Mercenaries
+	PlayerReference@Cyborg Squad:
+		Name: Cyborg Squad
+		Required: True
+		NonCombatant: True
+		LockFaction: True
+		Faction: cab
+		LockColor: True
+		Color: 92B7FE
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: Cabal
+		Enemies: Creeps, Nod, Armed Civilians, Angry Mercenaries
+	PlayerReference@Nod:
+		Name: Nod
 		Bot: NormalAI
 		Required: True
 		LockFaction: True
@@ -50,9 +66,9 @@ Players:
 		LockSpawn: True
 		LockTeam: True
 		Team: 2
-		Enemies: Creeps, Cabal
-	PlayerReference@Nod2:
-		Name: Nod2
+		Enemies: Creeps, Cabal, Cyborg Squad, Angry Mercenaries
+	PlayerReference@Armed Civilians:
+		Name: Armed Civilians
 		Bot: EasyAI
 		Required: True
 		LockFaction: True
@@ -62,24 +78,47 @@ Players:
 		LockSpawn: True
 		LockTeam: True
 		Team: 2
-		Enemies: Creeps, Cabal
+		Enemies: Creeps, Cabal, Cyborg Squad, Angry Mercenaries
+	PlayerReference@Mercenaries:
+		Name: Mercenaries
+		Bot: EasyAI
+		LockFaction: True
+		Faction: mut
+		LockColor: True
+		Color: 0CBB01
+		LockSpawn: True
+		LockTeam: True
+		Team: 3
+		Allies: Angry Mercenaries
+	PlayerReference@Angry Mercenaries:
+		Name: Angry Mercenaries
+		Bot: EasyAI
+		LockFaction: True
+		Faction: mut
+		LockColor: True
+		Color: 0CBB01
+		LockSpawn: True
+		LockTeam: True
+		Team: 3
+		Allies: Mercenaries
+		Enemies: Creeps, Cabal, Cyborg Squad, Nod, Armed Civilians, Mercenaries, Angry Mercenaries
 
 Actors:
 	Actor0: city11
 		Location: 105,94
 		Facing: 640
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor1: city09
 		Location: 109,94
 		Facing: 640
 		Faction: cab
-		Owner: Nod1
+		Owner: Armed Civilians
 	Actor2: city09
 		Location: 123,89
 		Facing: 644
 		Faction: cab
-		Owner: Nod1
+		Owner: Armed Civilians
 	Actor7: gasand
 		Location: 90,76
 		Owner: Neutral
@@ -92,22 +131,22 @@ Actors:
 		Location: 118,86
 		Facing: 640
 		Faction: cab
-		Owner: Nod1
+		Owner: Armed Civilians
 	Actor13: city10
 		Location: 127,98
 		Facing: 640
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor14: city13
 		Location: 127,86
 		Facing: 636
 		Faction: cab
-		Owner: Nod1
+		Owner: Armed Civilians
 	Actor16: city03
 		Location: 108,98
 		Facing: 640
 		Faction: cab
-		Owner: Nod1
+		Owner: Armed Civilians
 	Actor17: gasand
 		Location: 88,76
 		Owner: Neutral
@@ -116,7 +155,7 @@ Actors:
 		Location: 106,85
 		Facing: 640
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor19: gasand
 		Location: 88,77
 		Owner: Neutral
@@ -401,36 +440,26 @@ Actors:
 		Location: 69,44
 		Owner: Neutral
 		Facing: 640
-	Actor90: city08
-		Location: 121,21
-		Facing: 640
-		Faction: cab
-		Owner: Nod2
-	Actor91: city09
-		Location: 114,33
-		Facing: 640
-		Faction: cab
-		Owner: Nod2
 	Actor92: city19
 		Location: 127,26
 		Facing: 640
 		Faction: cab
-		Owner: Nod1
+		Owner: Armed Civilians
 	Actor93: city21
 		Location: 125,29
 		Facing: 640
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor94: city20
 		Location: 127,29
 		Facing: 640
 		Faction: cab
-		Owner: Nod1
+		Owner: Nod
 	Actor95: city20
 		Location: 128,29
 		Facing: 640
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor96: nawall
 		Location: 129,51
 		Owner: Neutral
@@ -463,10 +492,6 @@ Actors:
 		Location: 129,45
 		Owner: Neutral
 		Facing: 640
-	Actor104: nawall
-		Location: 129,43
-		Owner: Neutral
-		Facing: 644
 	Actor105: nawall
 		Location: 129,42
 		Owner: Neutral
@@ -531,38 +556,6 @@ Actors:
 		Location: 130,36
 		Owner: Neutral
 		Facing: 640
-	Actor121: nawall
-		Location: 129,36
-		Owner: Neutral
-		Facing: 640
-	Actor122: nawall
-		Location: 128,36
-		Owner: Neutral
-		Facing: 640
-	Actor123: nawall
-		Location: 127,36
-		Owner: Neutral
-		Facing: 640
-	Actor124: nawall
-		Location: 125,36
-		Owner: Neutral
-		Facing: 640
-	Actor125: nawall
-		Location: 124,36
-		Owner: Neutral
-		Facing: 640
-	Actor126: nawall
-		Location: 126,36
-		Owner: Neutral
-		Facing: 640
-	Actor127: nawall
-		Location: 123,36
-		Owner: Neutral
-		Facing: 640
-	Actor128: nawall
-		Location: 122,36
-		Owner: Neutral
-		Facing: 640
 	Actor129: nawall
 		Location: 121,36
 		Owner: Neutral
@@ -581,26 +574,6 @@ Actors:
 		Facing: 640
 	Actor133: nawall
 		Location: 120,38
-		Owner: Neutral
-		Facing: 640
-	Actor134: nawall
-		Location: 120,40
-		Owner: Neutral
-		Facing: 640
-	Actor135: nawall
-		Location: 120,41
-		Owner: Neutral
-		Facing: 640
-	Actor136: nawall
-		Location: 120,42
-		Owner: Neutral
-		Facing: 640
-	Actor137: nawall
-		Location: 120,43
-		Owner: Neutral
-		Facing: 640
-	Actor138: nawall
-		Location: 120,44
 		Owner: Neutral
 		Facing: 640
 	Actor139: nawall
@@ -627,74 +600,50 @@ Actors:
 		Location: 120,50
 		Owner: Neutral
 		Facing: 640
-	Actor145: nawall
-		Location: 128,51
-		Owner: Neutral
-		Facing: 640
 	Actor149: nawall
 		Location: 120,51
-		Owner: Neutral
-		Facing: 640
-	Actor150: nawall
-		Location: 121,51
-		Owner: Neutral
-		Facing: 640
-	Actor151: nawall
-		Location: 122,51
 		Owner: Neutral
 		Facing: 640
 	Actor153: ca0010
 		Location: 125,17
 		Facing: 640
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor154: ca0008
 		Location: 131,23
 		Facing: 640
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor157: city08
 		Location: 129,20
 		Facing: 640
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor158: bboard14
 		Location: 90,34
-		Owner: Neutral
 		Facing: 640
+		Faction: cab
+		Owner: Armed Civilians
 	Actor159: city19
 		Location: 93,31
-		Owner: Neutral
 		Facing: 640
+		Faction: cab
+		Owner: Armed Civilians
 	Actor160: aban18
 		Location: 91,33
-		Owner: Neutral
 		Facing: 640
+		Faction: cab
+		Owner: Armed Civilians
 	Actor161: city20
 		Location: 93,34
-		Owner: Neutral
 		Facing: 640
+		Faction: cab
+		Owner: Armed Civilians
 	Actor162: city20
 		Location: 93,33
-		Owner: Neutral
 		Facing: 640
-	Actor165: naobel
-		Location: 51,29
-		Owner: Nod1
-		Facing: 640
-	Actor167: nahand
-		Location: 70,35
-		Owner: Nod1
-		Facing: 640
-	Actor168: nalasr
-		Location: 70,43
-		Owner: Nod1
-		Facing: 640
-	Actor172: nalasr
-		Location: 95,76
-		Facing: 640
-		TurretFacing: 176
-		Owner: Nod2
+		Faction: cab
+		Owner: Armed Civilians
 	Actor173: gasand
 		Location: 70,44
 		Owner: Neutral
@@ -747,10 +696,6 @@ Actors:
 		Location: 76,50
 		Owner: Neutral
 		Facing: 640
-	Actor186: ca0004
-		Location: 82,-18
-		Owner: Neutral
-		Facing: 640
 	Actor187: ca0013
 		Location: 147,88
 		Owner: Neutral
@@ -767,59 +712,27 @@ Actors:
 		Location: 150,94
 		Owner: Neutral
 		Facing: 640
-	Actor191: ca0011
-		Location: 144,86
-		Owner: Neutral
-		Facing: 640
-	Actor192: ca0006
-		Location: 79,-21
-		Owner: Neutral
-		Facing: 640
-	Actor193: ca0007
-		Location: 82,-23
-		Owner: Neutral
-		Facing: 640
-	Actor194: city08
-		Location: 87,-9
-		Owner: Neutral
-		Facing: 640
-	Actor195: ca0008
-		Location: 79,-9
-		Owner: Neutral
-		Facing: 640
-	Actor196: ca0012
-		Location: 82,-10
-		Owner: Neutral
-		Facing: 640
 	Actor197: nahand
 		Location: 59,0
-		Owner: Nod1
+		Owner: Nod
 		Facing: 640
 	Actor198: nalasr
 		Location: 60,-2
-		Owner: Nod1
-		Facing: 640
-	Actor199: naapwr
-		Location: 13,4
-		Owner: Nod1
-		Facing: 640
-	Actor200: naapwr
-		Location: 10,4
-		Owner: Nod1
+		Owner: Nod
 		Facing: 640
 	Actor201: naapwr
 		Location: 62,13
-		Owner: Nod1
+		Owner: Nod
 		Facing: 640
 	Actor202: naapwr
 		Location: 59,12
-		Owner: Nod1
+		Owner: Nod
 		Facing: 640
 	Actor203: city19
 		Location: 70,9
 		Facing: 640
 		Faction: cab
-		Owner: Nod1
+		Owner: Nod
 	Actor204: city08
 		Location: 60,18
 		Owner: Neutral
@@ -832,17 +745,17 @@ Actors:
 		Location: 69,13
 		Facing: 640
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor207: ca0015
 		Location: 46,-23
 		Facing: 640
 		Faction: cab
-		Owner: Nod1
+		Owner: Nod
 	Actor208: ca0016
 		Location: 49,-20
 		Facing: 640
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor209: ca0017
 		Location: 35,-24
 		Owner: Neutral
@@ -851,12 +764,12 @@ Actors:
 		Location: 44,-21
 		Facing: 640
 		Faction: cab
-		Owner: Nod1
+		Owner: Nod
 	Actor211: ca0015
 		Location: 41,-22
 		Facing: 640
 		Faction: cab
-		Owner: Nod1
+		Owner: Nod
 	Actor212: ca0019
 		Location: 34,-23
 		Owner: Neutral
@@ -881,81 +794,42 @@ Actors:
 		Location: 71,12
 		Facing: 640
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor218: city20
 		Location: 71,13
 		Facing: 640
 		Faction: cab
-		Owner: Nod2
-	Actor220: bboard05
-		Location: 116,38
-		Facing: 640
-		Faction: cab
-		Owner: Nod2
-	Actor221: naweap
-		Location: 70,17
-		Owner: Nod1
-		Facing: 640
+		Owner: Armed Civilians
 	Actor222: ca0004
 		Location: 61,-8
-		Owner: Neutral
 		Facing: 640
+		Faction: cab
+		Owner: Armed Civilians
 	Actor223: ca0005
 		Location: 64,-5
-		Owner: Neutral
 		Facing: 640
+		Faction: cab
+		Owner: Armed Civilians
 	Actor224: ca0007
 		Location: 64,-11
-		Owner: Neutral
 		Facing: 640
+		Faction: cab
+		Owner: Armed Civilians
 	Actor225: ca0008
 		Location: 50,-8
 		Facing: 640
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor226: ca0009
 		Location: 48,-11
 		Facing: 640
 		Faction: cab
-		Owner: Nod2
-	Actor227: pick
-		Location: 115,36
-		Faction: cab
-		Owner: Nod2
-		Facing: 640
-	Actor228: trucka
-		Location: 123,20
-		Faction: cab
-		Facing: 640
-		Owner: Nod2
-	Actor229: truckb
-		Location: 129,28
-		Faction: cab
-		Facing: 640
-		Owner: Nod2
-	Actor230: wini
-		Location: 127,20
-		Faction: cab
-		Facing: 640
-		Owner: Nod1
-	Actor231: civ2
-		Location: 126,21
-		Faction: cab
-		Facing: 384
-		Owner: Nod1
-	Actor232: civ3
-		Location: 129,25
-		Faction: cab
-		Facing: 388
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor239: fona10
 		Location: 48,-41
 		Owner: Neutral
 	Actor240: fona15
 		Location: 44,-40
-		Owner: Neutral
-	Actor241: fona09
-		Location: 53,-38
 		Owner: Neutral
 	Actor242: fona12
 		Location: 76,-38
@@ -1206,9 +1080,6 @@ Actors:
 	Actor328: fona11
 		Location: 77,73
 		Owner: Neutral
-	Actor329: tree14
-		Location: 100,73
-		Owner: Neutral
 	Actor330: tree19
 		Location: 102,73
 		Owner: Neutral
@@ -1377,9 +1248,6 @@ Actors:
 	Actor388: tree04
 		Location: 119,114
 		Owner: Neutral
-	Actor389: tree04
-		Location: 121,114
-		Owner: Neutral
 	Actor390: tree21
 		Location: 122,114
 		Owner: Neutral
@@ -1422,9 +1290,6 @@ Actors:
 	Actor403: tree24
 		Location: 130,115
 		Owner: Neutral
-	Actor404: tree19
-		Location: 134,115
-		Owner: Neutral
 	Actor405: tree14
 		Location: 135,115
 		Owner: Neutral
@@ -1436,9 +1301,6 @@ Actors:
 		Owner: Neutral
 	Actor408: tree08
 		Location: 139,115
-		Owner: Neutral
-	Actor409: tree06
-		Location: 119,116
 		Owner: Neutral
 	Actor410: tree18
 		Location: 122,116
@@ -1460,9 +1322,6 @@ Actors:
 		Owner: Neutral
 	Actor416: tree15
 		Location: 132,116
-		Owner: Neutral
-	Actor417: tree22
-		Location: 134,116
 		Owner: Neutral
 	Actor418: tree08
 		Location: 137,116
@@ -1491,18 +1350,6 @@ Actors:
 	Actor426: tree11
 		Location: 129,117
 		Owner: Neutral
-	Actor427: tree05
-		Location: 130,117
-		Owner: Neutral
-	Actor428: tree16
-		Location: 134,117
-		Owner: Neutral
-	Actor429: tree24
-		Location: 135,117
-		Owner: Neutral
-	Actor430: tree05
-		Location: 136,117
-		Owner: Neutral
 	Actor431: tree07
 		Location: 139,117
 		Owner: Neutral
@@ -1518,21 +1365,6 @@ Actors:
 	Actor435: tree13
 		Location: 126,118
 		Owner: Neutral
-	Actor436: tree04
-		Location: 130,118
-		Owner: Neutral
-	Actor437: tree06
-		Location: 132,118
-		Owner: Neutral
-	Actor438: tree16
-		Location: 135,118
-		Owner: Neutral
-	Actor439: tree21
-		Location: 136,118
-		Owner: Neutral
-	Actor440: tree08
-		Location: 138,118
-		Owner: Neutral
 	Actor441: tree25
 		Location: 139,118
 		Owner: Neutral
@@ -1545,56 +1377,11 @@ Actors:
 	Actor444: tree09
 		Location: 126,119
 		Owner: Neutral
-	Actor445: tree18
-		Location: 127,119
-		Owner: Neutral
-	Actor446: tree11
-		Location: 128,119
-		Owner: Neutral
-	Actor447: tree06
-		Location: 129,119
-		Owner: Neutral
-	Actor448: tree16
-		Location: 130,119
-		Owner: Neutral
-	Actor449: tree06
-		Location: 131,119
-		Owner: Neutral
-	Actor450: tree18
-		Location: 133,119
-		Owner: Neutral
-	Actor451: tree17
-		Location: 135,119
-		Owner: Neutral
-	Actor452: tree05
-		Location: 136,119
-		Owner: Neutral
-	Actor453: tree25
-		Location: 137,119
-		Owner: Neutral
-	Actor454: tree08
-		Location: 138,119
-		Owner: Neutral
 	Actor455: tree19
 		Location: 125,120
 		Owner: Neutral
-	Actor456: tree04
-		Location: 126,120
-		Owner: Neutral
 	Actor457: tree20
 		Location: 127,120
-		Owner: Neutral
-	Actor458: tree08
-		Location: 135,120
-		Owner: Neutral
-	Actor459: tree06
-		Location: 136,120
-		Owner: Neutral
-	Actor460: tree20
-		Location: 137,120
-		Owner: Neutral
-	Actor461: tree21
-		Location: 138,120
 		Owner: Neutral
 	Actor462: tree05
 		Location: 126,121
@@ -1602,35 +1389,11 @@ Actors:
 	Actor463: tree10
 		Location: 128,121
 		Owner: Neutral
-	Actor464: tree20
-		Location: 135,121
-		Owner: Neutral
 	Actor465: tree24
 		Location: 128,122
 		Owner: Neutral
-	Actor466: tree04
-		Location: 130,122
-		Owner: Neutral
-	Actor467: tree13
-		Location: 133,122
-		Owner: Neutral
-	Actor468: tree13
-		Location: 134,122
-		Owner: Neutral
 	Actor469: tree15
 		Location: 129,123
-		Owner: Neutral
-	Actor470: tree11
-		Location: 130,123
-		Owner: Neutral
-	Actor471: tree20
-		Location: 131,123
-		Owner: Neutral
-	Actor472: tree20
-		Location: 132,123
-		Owner: Neutral
-	Actor473: tree04
-		Location: 133,123
 		Owner: Neutral
 	Actor474: tree09
 		Location: 132,124
@@ -1642,266 +1405,111 @@ Actors:
 		Location: 81,70
 		Owner: Neutral
 	Actor480: city07
-		Owner: Neutral
 		Location: 78,4
+		Faction: cab
+		Owner: Armed Civilians
 	Actor484: city15
 		Location: 96,16
 		Faction: cab
-		Owner: Nod2
-	Actor486: city08
-		Location: 100,-13
-		Faction: cab
-		Owner: Nod2
-	Actor491: civ3
-		Location: 99,10
-		SubCell: 2
-		Faction: cab
-		Facing: 368
-		Owner: Nod2
-	Actor492: civ3
-		Location: 86,6
-		SubCell: 2
-		Faction: cab
-		Facing: 368
-		Owner: Nod2
-	Actor493: civ2
-		Location: 106,5
-		SubCell: 2
-		Faction: cab
-		Facing: 368
-		Owner: Nod2
-	Actor494: civ2
-		Location: 111,3
-		SubCell: 2
-		Faction: cab
-		Facing: 368
-		Owner: Nod2
-	Actor498: car
-		Location: 94,6
-		Faction: cab
-		Facing: 368
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor500: city14
 		Location: 83,11
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor501: city14
 		Location: 85,11
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor505: nodref
-		Owner: Nod1
+		Owner: Nod
 		Location: 63,-17
-	Actor520: nahand
-		Owner: Nod1
-		Location: 44,30
-	Actor521: nahand
-		Owner: Nod1
-		Location: 41,25
-	Actor522: nahand
-		Owner: Nod1
-		Location: 47,26
 	Actor524: gadept
-		Owner: Nod1
+		Owner: Nod
 		Location: 32,15
-	Actor531: mpspawn
-		Owner: Nod1
-		Location: 119,99
 	Actor534: nahpad
-		Owner: Nod1
+		Owner: Nod
 		Location: 48,14
 	Actor535: nahpad
-		Owner: Nod1
+		Owner: Nod
 		Location: 48,20
 	Actor537: nahpad
-		Owner: Nod1
+		Owner: Nod
 		Location: 45,17
 	Actor538: nahpad
-		Owner: Nod1
+		Owner: Nod
 		Location: 51,17
 	Actor542: gate_b
-		Owner: Neutral
 		Location: 25,0
-	Actor549: ca0013
-		Owner: Neutral
-		Location: 62,-39
-	Actor550: ca0013
-		Owner: Neutral
-		Location: 52,-39
-	Actor551: ca0013
-		Owner: Neutral
-		Location: 72,-36
-	Actor569: gate_b
-		Owner: Nod1
-		Location: 30,0
+		Faction: cab
+		Owner: Nod
 	Actor571: naobel
-		Owner: Nod1
+		Owner: Nod
 		Location: 28,4
-	Actor567: templar
-		Owner: Nod1
-		Location: 22,3
-		SubCell: 2
-		Facing: 368
-	Actor570: templar
-		Owner: Nod1
-		Location: 20,3
-		SubCell: 2
-		Facing: 368
 	Actor572: city11
 		Location: 13,1
 		Faction: cab
-		Owner: Nod1
-	Actor633: scrin
-		Owner: Nod1
-		Location: 47,19
-		Facing: 368
-	Actor635: scrin
-		Owner: Nod1
-		Location: 50,16
-		Facing: 368
-	Actor631: scrin
-		Owner: Nod1
-		Location: 50,18
-		Facing: 368
-	Actor634: scrin
-		Owner: Nod1
-		Location: 47,17
-		Facing: 368
-	Actor636: naapwr
-		Owner: Nod1
-		Location: 31,24
-	Actor637: naapwr
-		Owner: Nod1
-		Location: 34,24
+		Owner: Nod
 	Actor639: nalasr
-		Owner: Nod1
+		Owner: Nod
 		Location: 54,31
 		TurretFacing: 368
 	Actor640: nalasr
-		Owner: Nod1
+		Owner: Nod
 		Location: 55,36
 		TurretFacing: 368
 	Actor641: nalasr
-		Owner: Nod1
+		Owner: Nod
 		Location: 56,43
 		TurretFacing: 368
-	Actor642: altnode1
-		Owner: Nod1
-		Location: 70,38
-		SubCell: 2
-		Facing: 368
-	Actor643: altnode1
-		Owner: Nod1
-		Location: 71,38
-		SubCell: 2
-		Facing: 368
-	Actor644: altnode1
-		Owner: Nod1
-		Location: 72,38
-		SubCell: 2
-		Facing: 368
-	Actor661: well
-		Owner: Nod1
-		Location: 76,-18
 	Actor660: civ2
-		Owner: Neutral
 		Location: 64,-7
 		SubCell: 2
+		Faction: cab
 		Facing: 368
-	Actor663: civ3
-		Owner: Neutral
-		Location: 82,-21
-		SubCell: 2
-		Facing: 368
-	Actor664: civ1
-		Owner: Neutral
-		Location: 80,-19
-		SubCell: 2
-		Facing: 368
+		Owner: Armed Civilians
 	Actor665: civ2
 		Location: 43,-23
 		SubCell: 2
 		Faction: cab
+		Owner: Armed Civilians
 		Facing: 368
-		Owner: Nod2
 	Actor666: civ2
 		Location: 47,-20
 		SubCell: 2
 		Faction: cab
+		Owner: Armed Civilians
 		Facing: 368
-		Owner: Nod2
 	Actor667: civ3
 		Location: 51,-10
 		SubCell: 2
 		Faction: cab
+		Owner: Armed Civilians
 		Facing: 368
-		Owner: Nod2
 	Actor668: civ1
 		Location: 52,-8
 		SubCell: 2
 		Faction: cab
+		Owner: Armed Civilians
 		Facing: 368
-		Owner: Nod2
 	Actor669: civ1
 		Location: 62,19
 		SubCell: 2
 		Faction: cab
 		Facing: 368
-		Owner: Nod2
-	Actor819: altnode1
-		Owner: Nod1
-		Location: 105,48
-		SubCell: 2
-		Facing: 368
-	Actor820: altnode1
-		Owner: Nod1
-		Location: 105,52
-		SubCell: 2
-		Facing: 368
-	Actor821: altnode1
-		Owner: Nod1
-		Location: 104,50
-		SubCell: 2
-		Facing: 368
-	Actor839: naapwr
-		Owner: Nod2
-		Location: 127,46
-	Actor840: naapwr
-		Owner: Nod2
-		Location: 127,42
-	Actor841: naweap
-		Owner: Nod2
-		Location: 121,37
-	Actor843: well
-		Owner: Nod2
-		Location: 130,37
-	Actor847: naobel
-		Owner: Nod2
-		Location: 156,70
-	Actor848: nalasr
-		Owner: Nod2
-		Location: 153,56
-		TurretFacing: 368
-	Actor850: nagate_a
-		Owner: Nod2
-		Location: 170,77
-	Actor851: city02
-		Location: 89,49
-		Faction: cab
-		Owner: Nod1
+		Owner: Armed Civilians
 	Actor852: city12
 		Location: 101,51
 		Faction: cab
-		Owner: Nod1
+		Owner: Armed Civilians
 	Actor853: city04
 		Location: 94,49
 		Faction: cab
-		Owner: Nod1
+		Owner: Armed Civilians
 	Actor854: pick
 		Location: 92,52
 		Faction: cab
 		Facing: 368
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor855: tree03
 		Owner: Neutral
 		Location: 86,48
@@ -1917,9 +1525,6 @@ Actors:
 	Actor859: tree07
 		Owner: Neutral
 		Location: 89,54
-	Actor860: tree06
-		Owner: Neutral
-		Location: 99,61
 	Actor861: tree05
 		Owner: Neutral
 		Location: 94,62
@@ -1953,21 +1558,6 @@ Actors:
 	Actor871: tree03
 		Owner: Neutral
 		Location: 101,58
-	Actor872: cacrsh05
-		Owner: Neutral
-		Location: 111,62
-	Actor873: tree01
-		Owner: Neutral
-		Location: 127,70
-	Actor874: tree05
-		Owner: Neutral
-		Location: 129,67
-	Actor875: tree02
-		Owner: Neutral
-		Location: 133,71
-	Actor876: tree04
-		Owner: Neutral
-		Location: 130,69
 	Actor877: tree03
 		Owner: Neutral
 		Location: 137,34
@@ -1998,9 +1588,6 @@ Actors:
 	Actor886: tree06
 		Owner: Neutral
 		Location: 72,-7
-	Actor887: tree04
-		Owner: Neutral
-		Location: 78,-10
 	Actor888: tree02
 		Owner: Neutral
 		Location: 77,-8
@@ -2010,12 +1597,6 @@ Actors:
 	Actor890: tree08
 		Owner: Neutral
 		Location: 75,-6
-	Actor891: tree03
-		Owner: Neutral
-		Location: 76,-7
-	Actor892: tree02
-		Owner: Neutral
-		Location: 73,-5
 	Actor893: tree04
 		Owner: Neutral
 		Location: 87,40
@@ -2028,9 +1609,6 @@ Actors:
 	Actor896: tree04
 		Owner: Neutral
 		Location: 96,46
-	Actor897: tree02
-		Owner: Neutral
-		Location: 102,45
 	Actor898: tree02
 		Owner: Neutral
 		Location: 128,112
@@ -2043,48 +1621,6 @@ Actors:
 	Actor901: tree06
 		Owner: Neutral
 		Location: 136,108
-	Actor903: nalasr
-		Owner: Nod2
-		Location: 110,12
-		TurretFacing: 368
-	Actor904: nalasr
-		Owner: Nod2
-		Location: 117,7
-		TurretFacing: 368
-	Actor905: nalasr
-		Owner: Nod2
-		Location: 96,20
-		TurretFacing: 368
-	Actor906: nalasr
-		Owner: Nod2
-		Location: 89,20
-		TurretFacing: 368
-	Actor907: nalasr
-		Owner: Nod2
-		Location: 100,-10
-		TurretFacing: 368
-	Actor908: nalasr
-		Owner: Nod2
-		Location: 97,-4
-		TurretFacing: 368
-	Actor909: nalasr
-		Owner: Nod2
-		Location: 90,-2
-		TurretFacing: 368
-	Actor910: nalasr
-		Owner: Nod2
-		Location: 83,2
-		TurretFacing: 368
-	Actor912: nasam
-		Owner: Nod2
-		Location: 91,6
-		TurretFacing: 368
-	Actor913: nodyard
-		Owner: Nod2
-		Location: 100,4
-	Actor914: nahand
-		Owner: Nod2
-		Location: 83,5
 	Actor917: srock04
 		Owner: Neutral
 		Location: 102,20
@@ -2097,24 +1633,6 @@ Actors:
 	Actor920: trock05
 		Owner: Neutral
 		Location: 85,16
-	Actor921: well
-		Owner: Nod2
-		Location: 88,11
-	Actor922: naweap
-		Owner: Nod2
-		Location: 90,2
-	Actor924: naapwr
-		Owner: Nod2
-		Location: 97,11
-	Actor915: naapwr
-		Owner: Nod2
-		Location: 101,0
-	Actor926: naapwr
-		Owner: Nod2
-		Location: 98,0
-	Actor927: naobel
-		Owner: Nod2
-		Location: 97,5
 	Actor928: srock01
 		Owner: Neutral
 		Location: 126,79
@@ -2142,18 +1660,14 @@ Actors:
 	Actor936: trock02
 		Owner: Neutral
 		Location: 106,35
-	Actor937: city01
-		Location: 117,80
-		Faction: cab
-		Owner: Nod2
 	Actor938: city14
 		Location: 115,86
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor939: city22
 		Location: 127,89
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor940: trock02
 		Owner: Neutral
 		Location: 60,41
@@ -2169,221 +1683,91 @@ Actors:
 	Actor944: trock02
 		Owner: Neutral
 		Location: 55,49
-	Actor998: naapwr
-		Owner: Nod2
-		Location: 106,-3
-	Actor1003: nasam
-		Owner: Nod2
-		Location: 108,1
-		TurretFacing: 368
 	Actor1007: cyborg
-		Owner: Cabal
 		Location: 116,90
 		SubCell: 2
-		Facing: 368
-	Actor1008: cyborg
-		Owner: Cabal
-		Location: 115,90
-		SubCell: 2
-		Facing: 368
+		Facing: 1023
+		Owner: Cyborg Squad
 	Actor1010: cyborg
-		Owner: Cabal
 		Location: 115,89
 		SubCell: 2
-		Facing: 368
+		Facing: 1023
+		Owner: Cyborg Squad
 	Actor1011: cyborg
-		Owner: Cabal
 		Location: 116,89
 		SubCell: 2
-		Facing: 368
-	Actor1017: cborg
-		Owner: Cabal
-		Location: 118,94
-		SubCell: 2
-		Facing: 368
-	Actor1018: cborg
-		Owner: Cabal
-		Location: 117,94
-		SubCell: 2
-		Facing: 368
-	Actor1019: cborg
-		Owner: Cabal
-		Location: 116,94
-		SubCell: 2
-		Facing: 368
-	Actor1020: cborg
-		Owner: Cabal
-		Location: 115,94
-		SubCell: 2
-		Facing: 368
-	Actor1023: cabyard
+		Facing: 1023
+		Owner: Cyborg Squad
+	cabconyard1: cabyard
 		Owner: Neutral
 		Location: 122,41
-	Actor1024: swarmling
-		Owner: Cabal
-		Location: 119,95
-		SubCell: 2
-		Facing: 368
-	Actor1025: swarmling
-		Owner: Cabal
-		Location: 119,96
-		SubCell: 2
-		Facing: 368
-	Actor1026: swarmling
-		Owner: Cabal
-		Location: 119,97
-		SubCell: 2
-		Facing: 368
-	Actor997: nconf
-		Owner: Nod1
-		Location: 52,25
-		SubCell: 2
-		Facing: 368
 	Actor1027: nconf
-		Owner: Nod1
+		Owner: Nod
 		Location: 50,8
 		SubCell: 2
 		Facing: 368
 	replicator: scrinreinfpad
-		Owner: Nod1
+		Owner: Nod
 		Location: 20,0
-	Actor1029: nawall
-		Owner: Nod1
-		Location: 23,3
-	Actor1030: nawall
-		Owner: Nod1
-		Location: 23,1
-	Actor1031: nawall
-		Owner: Nod1
-		Location: 23,2
-	Actor1032: nawall
-		Owner: Nod1
-		Location: 23,0
-	Actor1033: nawall
-		Owner: Nod1
-		Location: 23,-1
-	Actor1034: nawall
-		Owner: Nod1
-		Location: 23,-2
-	Actor1035: nawall
-		Owner: Nod1
-		Location: 22,-2
-	Actor1036: nawall
-		Owner: Nod1
-		Location: 21,-2
-	Actor1037: nawall
-		Owner: Nod1
-		Location: 20,-2
-	Actor1038: nawall
-		Owner: Nod1
-		Location: 19,-2
-	Actor1039: nawall
-		Owner: Nod1
-		Location: 19,-1
-	Actor1040: nawall
-		Owner: Nod1
-		Location: 19,0
-	Actor1041: nawall
-		Owner: Nod1
-		Location: 19,1
-	Actor1044: nawall
-		Owner: Nod1
-		Location: 19,3
-	Actor1042: nawall
-		Owner: Nod1
-		Location: 19,2
-	Actor1043: nodyard
-		Owner: Nod1
-		Location: 34,4
-	Actor1047: container3
-		Owner: Neutral
-		Location: 156,61
 	Actor1049: nasam
-		Owner: Nod1
+		Owner: Nod
 		Location: 39,5
 		TurretFacing: 368
 	Actor1051: naapwr
-		Owner: Nod1
+		Owner: Nod
 		Location: 26,10
 	Actor1052: naapwr
-		Owner: Nod1
+		Owner: Nod
 		Location: 23,10
-	Actor1053: naapwr
-		Owner: Nod1
-		Location: 20,10
-	Actor1054: naapwr
-		Owner: Nod1
-		Location: 17,10
-	Actor1055: naapwr
-		Owner: Nod1
-		Location: 26,14
-	Actor1058: nasam
-		Owner: Nod1
-		Location: 25,13
-		TurretFacing: 368
 	Actor1059: nalasr
-		Owner: Nod1
+		Owner: Nod
 		Location: 26,18
 		TurretFacing: 368
-	Actor1048: nasam
-		Owner: Nod1
-		Location: 45,24
-		TurretFacing: 368
 	Actor1060: nasam
-		Owner: Nod1
+		Owner: Nod
 		Location: 47,40
 		TurretFacing: 368
-	Actor1061: city15
-		Owner: Neutral
-		Location: 51,21
-	Actor1062: city13
-		Owner: Neutral
-		Location: 44,21
-	Actor1063: nalasr
-		Owner: Nod2
-		Location: 139,82
-		TurretFacing: 368
 	Actor1064: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 136,79
 		SubCell: 2
 		Facing: 368
 	Actor1065: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 136,77
 		SubCell: 2
 		Facing: 368
 	Actor1066: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 138,79
 		SubCell: 2
 		Facing: 368
 	Actor1067: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 138,77
 		SubCell: 2
 		Facing: 368
 	Actor1068: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 137,76
 		SubCell: 2
 		Facing: 368
 	Actor1069: city20
 		Location: 137,84
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor1071: city20
 		Location: 137,82
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor1070: city19
 		Location: 134,82
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor1072: city21
 		Location: 135,85
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor1073: trock01
 		Owner: Neutral
 		Location: 141,86
@@ -2396,7 +1780,7 @@ Actors:
 	Actor1076: bboard09
 		Location: 139,76
 		Faction: cab
-		Owner: Nod1
+		Owner: Nod
 	Actor1077: tree04
 		Owner: Neutral
 		Location: 132,110
@@ -2406,9 +1790,6 @@ Actors:
 	Actor1079: tree12
 		Owner: Neutral
 		Location: 129,105
-	Actor1080: tree15
-		Owner: Neutral
-		Location: 116,104
 	Actor1081: tree14
 		Owner: Neutral
 		Location: 121,105
@@ -2419,129 +1800,93 @@ Actors:
 		Owner: Neutral
 		Location: 124,106
 	Actor989: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 43,-7
 	Actor991: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 42,-7
 	Actor992: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 33,-11
 	Actor993: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 34,-11
 	Actor994: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 34,-10
 	Actor995: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 35,-10
 	Actor996: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 36,-9
 	Actor999: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 35,-9
 	Actor1000: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 36,-8
 	Actor1001: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 37,-7
 	Actor1002: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 37,-6
 	Actor1084: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 36,-7
-	Actor976: nawall
-		Owner: Nod1
-		Location: 50,33
 	Actor977: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 50,32
 	Actor978: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 50,31
 	Actor979: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 50,30
 	Actor980: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 50,29
 	Actor981: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 50,28
 	Actor982: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 51,28
 	Actor983: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 52,28
 	Actor984: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 53,28
-	Actor985: naobel
-		Owner: Nod1
-		Location: 49,39
-	Actor986: nawall
-		Owner: Nod1
-		Location: 50,36
-	Actor987: nawall
-		Owner: Nod1
-		Location: 49,37
-	Actor988: nawall
-		Owner: Nod1
-		Location: 49,36
-	Actor1085: nawall
-		Owner: Nod1
-		Location: 49,38
-	Actor1086: nawall
-		Owner: Nod1
-		Location: 48,38
-	Actor1087: nawall
-		Owner: Nod1
-		Location: 48,40
-	Actor1088: nawall
-		Owner: Nod1
-		Location: 48,39
-	Actor1089: nawall
-		Owner: Nod1
-		Location: 48,41
-	Actor1090: nawall
-		Owner: Nod1
-		Location: 49,41
-	Actor1091: nawall
-		Owner: Nod1
-		Location: 50,41
 	Actor1092: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 51,41
 	Actor1093: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 51,42
 	Actor1094: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 51,43
 	Actor1095: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 51,44
 	Actor1096: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 51,45
 	Actor1097: nawall
-		Owner: Nod1
+		Owner: Nod
 		Location: 52,45
 	Actor1098: nasam
-		Owner: Nod1
+		Owner: Nod
 		Location: 51,13
 		TurretFacing: 368
 	Actor1050: nasam
-		Owner: Nod1
+		Owner: Nod
 		Location: 22,-7
 		TurretFacing: 368
 	Actor1099: nalasr
-		Owner: Nod1
+		Owner: Nod
 		Location: 29,-2
 		TurretFacing: 368
 	Actor1100: tree01
@@ -2566,553 +1911,448 @@ Actors:
 		Owner: Neutral
 		Location: 151,60
 	Actor1107: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 168,63
 	Actor1108: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 169,63
 	Actor1109: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 169,62
 	Actor1110: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 169,61
 	Actor1111: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 169,60
 	Actor1112: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 169,59
 	Actor1113: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 169,57
 	Actor1114: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 169,58
 	Actor1115: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 169,56
 	Actor1116: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 168,56
 	Actor1117: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 161,56
 	Actor1118: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 162,56
 	Actor1121: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 161,58
 	Actor1122: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 161,59
 	Actor1119: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 161,57
 	Actor1120: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 161,63
 	Actor1123: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 162,63
 	Actor1124: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 161,62
 	Actor1125: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 161,61
 	Actor1126: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 161,60
-	Actor1127: nahand
-		Owner: Nod2
-		Location: 162,57
-	Actor1129: nalasr
-		Owner: Nod2
-		Location: 162,62
-		TurretFacing: 368
-	Actor1130: nalasr
-		Owner: Nod2
-		Location: 168,57
-		TurretFacing: 368
 	Actor1045: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 181,67
 	Actor1131: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 180,67
 	Actor1132: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 179,67
 	Actor1133: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 181,68
 	Actor1134: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 181,69
 	Actor1135: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 181,71
 	Actor1136: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 181,70
 	Actor1137: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 181,72
 	Actor1138: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 181,74
 	Actor1139: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 181,73
 	Actor1140: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 181,75
 	Actor1141: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 181,76
 	Actor1142: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 181,77
 	Actor1143: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 180,77
 	Actor1144: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 179,77
 	Actor1145: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 178,77
 	Actor1146: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 177,77
 	Actor1147: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 175,77
 	Actor1148: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 176,77
 	Actor1149: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 174,77
-	Actor1150: nawall
-		Owner: Nod2
-		Location: 173,77
-	Actor1151: nawall
-		Owner: Nod2
-		Location: 169,77
 	Actor1152: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 168,77
 	Actor1153: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 167,77
 	Actor1154: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 166,77
 	Actor1155: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 165,77
 	Actor1156: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 164,77
 	Actor1157: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 162,77
 	Actor1158: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 163,77
 	Actor1159: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 161,77
 	Actor1160: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 161,76
 	Actor1161: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 161,75
 	Actor1162: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 161,74
 	Actor1164: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 161,73
 	Actor1163: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 161,72
 	Actor1165: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 157,72
 	Actor1166: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 156,72
 	Actor1167: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 154,63
 	Actor1168: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 154,64
 	Actor1169: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 154,65
 	Actor1170: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 154,66
 	Actor1171: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 154,67
 	Actor1174: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 154,69
 	Actor1176: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 155,69
 	Actor1177: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 155,70
 	Actor1178: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 155,72
 	Actor1172: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 154,68
 	Actor1173: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 155,71
 	Actor1046: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 154,62
 	Actor1175: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 154,61
 	Actor1181: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 154,57
 	Actor1182: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 154,56
 	Actor1183: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 154,59
 	Actor1184: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 154,60
 	Actor1179: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 154,58
 	Actor1180: nagate_a
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 158,72
-	helipad: nahpad
-		Owner: Nod2
-		Location: 168,67
-	Actor1186: nahpad
-		Owner: Nod2
-		Location: 165,67
-	Actor1188: city06
-		Location: 166,71
-		Faction: cab
-		Owner: Nod2
 	Actor1189: city10
 		Location: 161,67
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor1190: city11
 		Location: 163,75
 		Faction: cab
-		Owner: Nod2
-	Actor1195: container
-		Owner: Neutral
-		Location: 156,58
-	Actor1194: container
-		Owner: Neutral
-		Location: 157,56
-	Actor1191: caaray
-		Owner: Nod2
+		Owner: Armed Civilians
+	cradar1: caaray
+		Owner: Armed Civilians
 		Location: 176,68
 	Actor1206: city15
 		Location: 173,62
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor1227: civ2
 		Location: 168,74
 		SubCell: 2
 		Faction: cab
 		Facing: 368
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor1228: civ1
 		Location: 174,67
 		SubCell: 2
 		Faction: cab
 		Facing: 368
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor1229: civ2
 		Location: 173,59
 		SubCell: 2
 		Faction: cab
 		Facing: 368
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor1230: civ3
 		Location: 156,67
 		SubCell: 2
 		Faction: cab
+		Owner: Armed Civilians
 		Facing: 368
-		Owner: Nod2
-	Actor1231: nalasr
-		Owner: Nod2
-		Location: 173,76
-		TurretFacing: 368
-	Actor1232: nalasr
-		Owner: Nod2
-		Location: 169,76
-		TurretFacing: 368
 	Actor1233: car
 		Location: 164,71
 		Faction: cab
+		Owner: Armed Civilians
 		Facing: 368
-		Owner: Nod2
 	Actor945: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 98,20
 	Actor946: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 97,19
 	Actor947: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 98,19
 	Actor948: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 96,19
 	Actor949: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 94,19
 	Actor950: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 95,19
 	Actor951: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 91,19
 	Actor952: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 117,6
 	Actor953: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 116,5
 	Actor954: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 117,5
 	Actor955: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 115,5
 	Actor956: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 114,5
 	Actor957: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 113,5
 	Actor958: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 109,13
 	Actor959: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 109,12
 	Actor960: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 109,11
 	Actor961: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 109,10
-	Actor962: nalasr
-		Owner: Nod2
-		Location: 110,6
-		TurretFacing: 368
 	Actor963: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 92,-2
 	Actor964: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 92,-1
 	Actor965: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 92,0
 	Actor966: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 91,1
 	Actor967: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 92,1
 	Actor968: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 90,1
 	Actor969: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 89,1
 	Actor970: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 84,1
 	Actor971: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 85,1
 	Actor972: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 84,2
 	Actor973: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 84,3
 	Actor974: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 83,3
 	Actor975: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 82,3
 	Actor1234: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 82,2
 	Actor1235: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 95,-3
 	Actor1236: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 96,-3
 	Actor1237: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 97,-3
 	Actor1238: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 98,-3
 	Actor1239: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 98,-4
-	Actor1240: nawall
-		Owner: Nod2
-		Location: 101,-9
-	Actor1241: nawall
-		Owner: Nod2
-		Location: 101,-10
-	Actor1242: nawall
-		Owner: Nod2
-		Location: 101,-11
 	Actor1243: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 100,-11
-	Actor1244: nalasr
-		Owner: Nod2
-		Location: 89,18
-		TurretFacing: 368
-	Actor1251: trucka
-		Location: 110,90
-		Faction: cab
-		Facing: 644
-		Owner: Nod2
-	Actor1252: trucka
-		Location: 109,85
-		Faction: cab
-		Owner: Nod1
-		Facing: 640
-	Actor1253: car
-		Location: 117,96
-		Faction: cab
-		Facing: 368
-		Owner: Nod1
 	Actor1254: bus
 		Location: 124,95
 		Faction: cab
 		Facing: 368
-		Owner: Nod2
-	Actor1255: car
-		Owner: Neutral
-		Location: 90,-9
-		Facing: 368
+		Owner: Armed Civilians
 	Actor1256: car
-		Owner: Neutral
 		Location: 53,-5
+		Faction: cab
 		Facing: 624
+		Owner: Armed Civilians
 	Actor1257: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 156,53
 		SubCell: 2
 		Facing: 368
 	Actor1258: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 158,55
 		SubCell: 2
 		Facing: 368
 	Actor1259: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 158,53
 		SubCell: 2
 		Facing: 368
 	Actor1260: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 165,79
 		SubCell: 2
 		Facing: 368
 	Actor1261: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 167,79
 		SubCell: 2
 		Facing: 368
 	Actor1262: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 167,80
 		SubCell: 2
 		Facing: 368
 	Actor1263: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 165,74
 		SubCell: 2
 		Facing: 368
 	Actor1264: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 163,72
 		SubCell: 2
 		Facing: 368
 	Actor1265: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 166,73
 		SubCell: 2
 		Facing: 368
-	Actor1266: altnode1
-		Owner: Nod2
-		Location: 166,64
-		SubCell: 2
-		Facing: 368
-	Actor1267: altnode1
-		Owner: Nod2
-		Location: 165,62
-		SubCell: 2
-		Facing: 368
-	Actor1268: altnode1
-		Owner: Nod2
-		Location: 162,64
-		SubCell: 2
-		Facing: 368
-	Actor1269: altnode1
-		Owner: Nod2
-		Location: 164,65
-		SubCell: 2
-		Facing: 368
 	Actor1271: naapwr
-		Owner: Nod1
+		Owner: Nod
 		Location: 29,-9
-	Actor1272: naapwr
-		Owner: Nod1
-		Location: 25,-9
-	Actor1273: napowr
-		Owner: Nod1
-		Location: 27,-12
-	Actor1274: naweap
-		Owner: Nod1
-		Location: 31,19
 	Actor990: nodref
-		Owner: Nod1
+		Owner: Nod
 		Location: 36,-4
 	Actor1275: nodref
-		Owner: Nod1
+		Owner: Nod
 		Location: 36,0
 	Actor1276: city09
-		Owner: Nod1
+		Owner: Nod
 		Location: 37,31
 	Actor1277: trock01
 		Owner: Neutral
@@ -3120,10 +2360,6 @@ Actors:
 	Actor1278: trock03
 		Owner: Neutral
 		Location: 127,33
-	Actor1279: nalasr
-		Owner: Nod1
-		Location: 51,10
-		TurretFacing: 368
 	Actor1280: bridge1
 		Owner: Neutral
 		Location: 56,8
@@ -3181,38 +2417,27 @@ Actors:
 	Actor1298: bridge1
 		Owner: Neutral
 		Location: 76,10
-	Actor1022: waypoint
-		Owner: Neutral
-		Location: 117,91
-	Actor1304: nalasr
-		Owner: Nod1
-		Location: 94,53
-		TurretFacing: 368
 	Actor1198: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 179,73
 	Actor1199: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 180,73
 	Actor1200: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 178,73
 	Actor1201: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 177,73
 	Actor1202: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 177,74
 	Actor1203: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 177,76
 	Actor1204: nawall
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 177,75
-	Actor1205: city05
-		Location: 173,73
-		Faction: cab
-		Owner: Nod2
 	Actor1210: waypoint
 		Owner: Neutral
 		Location: 96,8
@@ -3223,79 +2448,55 @@ Actors:
 		Owner: Neutral
 		Location: 92,86
 	Actor1214: nalasr
-		Owner: Nod1
+		Owner: Nod
 		Location: 44,-8
 		TurretFacing: 368
-	Actor1215: nalasr
-		Owner: Nod1
-		Location: 34,-9
-		TurretFacing: 368
-	Actor1216: altnode1
-		Owner: Nod2
-		Location: 71,-13
-		SubCell: 2
-		Facing: 368
-	Actor1217: altnode1
-		Owner: Nod2
-		Location: 73,-12
-		SubCell: 2
-		Facing: 368
-	Actor1218: altnode1
-		Owner: Nod2
-		Location: 74,-13
-		SubCell: 2
-		Facing: 368
 	Actor1219: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 35,-18
 		SubCell: 2
 		Facing: 368
 	Actor1220: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 37,-17
 		SubCell: 2
 		Facing: 368
 	Actor1221: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 38,-19
 		SubCell: 2
 		Facing: 368
-	Actor1222: altnode1
-		Owner: Nod2
-		Location: 71,21
-		SubCell: 2
-		Facing: 368
 	Actor1223: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 70,23
 		SubCell: 2
 		Facing: 368
 	Actor1224: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 71,23
 		SubCell: 2
 		Facing: 368
 	Actor1226: ca0002
 		Location: 70,27
 		Faction: cab
-		Owner: Nod1
+		Owner: Nod
 	Actor1305: car
 		Location: 73,26
 		Faction: cab
-		Owner: Nod2
+		Owner: Armed Civilians
 		Facing: 368
 	Actor1306: civ1
 		Location: 75,30
 		SubCell: 2
 		Faction: cab
 		Facing: 368
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor1307: civ2
 		Location: 74,28
 		SubCell: 2
 		Faction: cab
 		Facing: 368
-		Owner: Nod2
+		Owner: Armed Civilians
 	Actor1308: tibtre01
 		Owner: Neutral
 		Location: 90,-21
@@ -3311,15 +2512,6 @@ Actors:
 	Actor1312: nawall
 		Owner: Neutral
 		Location: 72,-24
-	Actor1313: nawall
-		Owner: Neutral
-		Location: 71,-24
-	Actor1314: nawall
-		Owner: Neutral
-		Location: 69,-24
-	Actor1315: nawall
-		Owner: Neutral
-		Location: 70,-24
 	Actor1316: nawall
 		Owner: Neutral
 		Location: 68,-24
@@ -3365,9 +2557,6 @@ Actors:
 	Actor1330: nawall
 		Owner: Neutral
 		Location: 44,-32
-	Actor1331: nawall
-		Owner: Neutral
-		Location: 44,-31
 	Actor1332: nawall
 		Owner: Neutral
 		Location: 45,-31
@@ -3450,125 +2639,68 @@ Actors:
 		Owner: Neutral
 		Location: 67,12
 	Actor1364: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 59,3
 		SubCell: 2
 		Facing: 368
 	Actor1365: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 61,2
 		SubCell: 2
 		Facing: 368
 	Actor1366: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 62,4
 		SubCell: 2
 		Facing: 368
 	Actor1367: templar
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 60,5
 		SubCell: 2
 		Facing: 368
-	Actor1368: templar
-		Owner: Nod2
-		Location: 112,36
-		SubCell: 2
-		Facing: 368
-	Actor1369: templar
-		Owner: Nod2
-		Location: 115,38
-		SubCell: 2
-		Facing: 368
-	Actor1370: templar
-		Owner: Nod2
-		Location: 94,38
-		SubCell: 2
-		Facing: 368
-	Actor1371: templar
-		Owner: Nod2
-		Location: 91,37
-		SubCell: 2
-		Facing: 368
 	Actor1372: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 121,62
 		SubCell: 2
 		Facing: 368
-	Actor1373: altnode1
-		Owner: Nod2
-		Location: 118,60
-		SubCell: 2
-		Facing: 368
-	Actor1374: altnode1
-		Owner: Nod2
-		Location: 121,58
-		SubCell: 2
-		Facing: 368
 	Actor1376: bggy
-		Owner: Nod2
 		Location: 116,57
 		Facing: 368
+		Owner: Nod
 	Actor1377: bggy
-		Owner: Nod2
 		Location: 118,55
 		Facing: 368
-	Actor1338: crusader
-		Owner: Nod2
-		Location: 115,74
-		SubCell: 2
-		Facing: 368
-	Actor1378: crusader
-		Owner: Nod2
-		Location: 116,74
-		SubCell: 2
-		Facing: 368
-	Actor1384: altnode1
-		Owner: Nod2
-		Location: 118,73
-		SubCell: 2
-		Facing: 368
-	Actor1385: altnode1
-		Owner: Nod2
-		Location: 116,73
-		SubCell: 2
-		Facing: 368
-	Actor1388: bggy
-		Owner: Nod2
-		Location: 140,79
-		Facing: 368
+		Owner: Nod
 	Actor1339: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 96,73
 		SubCell: 2
 		Facing: 368
 	Actor1340: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 97,75
 		SubCell: 2
 		Facing: 368
 	Actor1341: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 95,74
 		SubCell: 2
 		Facing: 368
 	Actor1342: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 97,78
 		SubCell: 2
 		Facing: 368
 	Actor1389: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 99,75
 		SubCell: 2
 		Facing: 368
 	Actor1390: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 97,73
 		SubCell: 2
 		Facing: 368
-	Actor1391: nahand
-		Owner: Nod2
-		Location: 91,74
 	Actor1392: waypoint
 		Owner: Neutral
 		Location: 39,-17
@@ -3581,18 +2713,9 @@ Actors:
 	Actor1395: waypoint
 		Owner: Neutral
 		Location: 172,81
-	Actor1396: waypoint
-		Owner: Neutral
-		Location: 167,66
 	Actor1397: waypoint
 		Owner: Neutral
 		Location: 157,46
-	Actor1398: waypoint
-		Owner: Neutral
-		Location: 165,60
-	Actor1399: waypoint
-		Owner: Neutral
-		Location: 125,42
 	Actor1400: waypoint
 		Owner: Neutral
 		Location: 44,34
@@ -3602,9 +2725,6 @@ Actors:
 	Actor1402: waypoint
 		Owner: Neutral
 		Location: 33,-4
-	Actor1403: waypoint
-		Owner: Neutral
-		Location: 22,6
 	Actor1404: waypoint
 		Owner: Neutral
 		Location: 36,16
@@ -3620,482 +2740,244 @@ Actors:
 	Actor1408: waypoint
 		Owner: Neutral
 		Location: 57,-33
-	Actor1409: altnode1
-		Owner: Nod2
-		Location: 121,45
-		SubCell: 2
-		Facing: 368
-	Actor1410: altnode1
-		Owner: Nod2
-		Location: 121,45
-		SubCell: 0
-		Facing: 368
-	Actor1411: altnode1
-		Owner: Nod2
-		Location: 121,45
-		SubCell: 3
-		Facing: 368
-	Actor1412: altnode1
-		Owner: Nod2
-		Location: 125,39
-		SubCell: 2
-		Facing: 368
-	Actor1413: altnode1
-		Owner: Nod2
-		Location: 125,39
-		SubCell: 0
-		Facing: 368
-	Actor1414: altnode1
-		Owner: Nod2
-		Location: 125,39
-		SubCell: 3
-		Facing: 368
-	Actor1415: crusader
-		Owner: Nod2
-		Location: 125,44
-		SubCell: 2
-		Facing: 368
-	Actor1416: crusader
-		Owner: Nod2
-		Location: 125,44
-		SubCell: 0
-		Facing: 368
-	Actor1417: crusader
-		Owner: Nod2
-		Location: 125,44
-		SubCell: 3
-		Facing: 368
 	Actor1418: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 112,50
 		SubCell: 2
 		Facing: 368
 	Actor1419: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 112,50
 		SubCell: 0
 		Facing: 368
 	Actor1420: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 112,50
 		SubCell: 3
 		Facing: 368
 	Actor1421: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 115,46
 		SubCell: 2
 		Facing: 368
 	Actor1422: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 115,46
 		SubCell: 0
 		Facing: 368
 	Actor1423: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 115,46
 		SubCell: 3
 		Facing: 368
 	Actor1424: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 109,59
 		SubCell: 2
 		Facing: 368
 	Actor1425: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 109,59
 		SubCell: 0
 		Facing: 368
 	Actor1426: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 109,59
 		SubCell: 3
 		Facing: 368
 	Actor1427: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 112,65
 		SubCell: 2
 		Facing: 368
 	Actor1428: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 112,65
 		SubCell: 0
 		Facing: 368
 	Actor1429: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 107,65
 		SubCell: 2
 		Facing: 368
 	Actor1430: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 107,65
 		SubCell: 0
 		Facing: 368
 	Actor1434: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 103,69
 		SubCell: 2
 		Facing: 368
 	Actor1435: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 103,69
 		SubCell: 0
 		Facing: 368
 	Actor1436: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 103,69
 		SubCell: 3
 		Facing: 368
 	Actor1437: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 99,84
 		SubCell: 2
 		Facing: 368
 	Actor1438: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 99,84
 		SubCell: 0
 		Facing: 368
 	Actor1439: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 99,84
 		SubCell: 3
 		Facing: 368
-	Actor1440: altnode1
-		Owner: Nod2
-		Location: 98,92
-		SubCell: 2
-		Facing: 368
-	Actor1441: altnode1
-		Owner: Nod2
-		Location: 98,92
-		SubCell: 0
-		Facing: 368
-	Actor1442: altnode1
-		Owner: Nod2
-		Location: 98,92
-		SubCell: 3
-		Facing: 368
-	Actor1449: altnode1
-		Owner: Nod2
-		Location: 116,67
-		SubCell: 2
-		Facing: 368
-	Actor1450: altnode1
-		Owner: Nod2
-		Location: 116,67
-		SubCell: 0
-		Facing: 368
-	Actor1451: altnode1
-		Owner: Nod2
-		Location: 116,67
-		SubCell: 3
-		Facing: 368
 	Actor1452: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 120,67
 		SubCell: 2
 		Facing: 368
 	Actor1453: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 120,67
 		SubCell: 0
 		Facing: 368
 	Actor1454: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 120,67
 		SubCell: 3
 		Facing: 368
-	Actor1455: altnode1
-		Owner: Nod2
-		Location: 116,50
-		SubCell: 2
-		Facing: 368
-	Actor1456: altnode1
-		Owner: Nod2
-		Location: 116,50
-		SubCell: 0
-		Facing: 368
-	Actor1457: altnode1
-		Owner: Nod2
-		Location: 116,50
-		SubCell: 3
-		Facing: 368
 	Actor1458: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 110,54
 		SubCell: 2
 		Facing: 368
 	Actor1459: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 110,54
 		SubCell: 0
 		Facing: 368
 	Actor1460: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 110,55
 		SubCell: 2
 		Facing: 368
 	Actor1461: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 96,60
 		SubCell: 2
 		Facing: 368
 	Actor1462: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 96,60
 		SubCell: 0
 		Facing: 368
 	Actor1463: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 96,60
 		SubCell: 3
 		Facing: 368
 	Actor1185: templar
-		Owner: Nod2
 		Location: 113,63
 		SubCell: 2
 		Facing: 368
+		Owner: Nod
 	Actor1225: templar
-		Owner: Nod2
 		Location: 118,53
 		SubCell: 2
 		Facing: 368
-	Actor1476: altnode1
-		Owner: Nod2
-		Location: 125,60
-		SubCell: 2
-		Facing: 368
-	Actor1477: altnode1
-		Owner: Nod2
-		Location: 125,60
-		SubCell: 0
-		Facing: 368
-	Actor1478: altnode1
-		Owner: Nod2
-		Location: 125,60
-		SubCell: 3
-		Facing: 368
+		Owner: Nod
 	Actor1479: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 125,75
 		SubCell: 2
 		Facing: 368
 	Actor1480: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 125,75
 		SubCell: 0
 		Facing: 368
 	Actor1481: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 125,75
 		SubCell: 3
 		Facing: 368
-	Actor1482: stnk
-		Owner: Nod2
-		Location: 129,74
-		Stance: Defend
-		Facing: 634
-	Actor1483: stnk
-		Owner: Nod2
-		Location: 93,85
-		Facing: 368
-	Actor1484: stnk
-		Owner: Nod2
-		Location: 97,68
-		Facing: 368
-		Stance: Defend
-	Actor1485: stnk
-		Owner: Nod2
-		Location: 111,46
-		Facing: 626
-		Stance: Defend
-	Actor1486: stnk
-		Owner: Nod2
-		Location: 99,54
-		Facing: 368
-		Stance: Defend
 	Actor1471: cyborg
-		Owner: Cabal
 		Location: 115,90
 		SubCell: 2
-		Facing: 368
-	Actor1473: cyborg
-		Owner: Cabal
-		Location: 115,89
-		SubCell: 4
-		Facing: 368
-	Actor1361: cashnotifier
-		Owner: Neutral
-		Location: 39,15
+		Facing: 1023
+		Owner: Cyborg Squad
 	Actor1362: cashnotifier
 		Owner: Neutral
 		Location: 96,2
-	Actor1489: cabgrinder
-		Owner: Cabal
-		Location: 114,97
-	Actor1490: moneycrate
-		Owner: Neutral
-		Location: 97,52
-	Actor1491: moneycrate
-		Owner: Neutral
-		Location: 99,48
-	Actor1492: moneycrate
-		Owner: Neutral
-		Location: 92,48
-	Actor1493: healcrate
-		Owner: Neutral
-		Location: 127,37
-	Actor1494: veterancycrate
-		Owner: Neutral
-		Location: 128,50
-	Actor1495: veterancycrate
-		Owner: Neutral
-		Location: 121,50
-	Actor1496: moneycrate
-		Owner: Neutral
-		Location: 178,76
-	Actor1192: unitcrate
-		Owner: Neutral
-		Location: 178,74
-	Actor1193: unitcrate
-		Owner: Neutral
-		Location: 179,74
-	Actor1196: unitcrate
-		Owner: Neutral
-		Location: 179,75
-	Actor1197: unitcrate
-		Owner: Neutral
-		Location: 178,75
-	Actor1497: veterancycrate
-		Owner: Neutral
-		Location: 153,95
-	Actor1498: buffcrate
-		Owner: Neutral
-		Location: 75,-37
-	Actor1499: buffcrate
-		Owner: Neutral
-		Location: 48,-42
-	Actor1500: buffcrate
-		Owner: Neutral
-		Location: 58,-36
-	Actor1501: buffcrate
-		Owner: Neutral
-		Location: 44,-36
 	Actor1470: reapercab
-		Owner: Cabal
 		Location: 121,95
-		Facing: 586
+		Facing: 904
+		Owner: Cyborg Squad
 	Actor1472: reapercab
-		Owner: Cabal
 		Location: 121,97
 		Facing: 586
-	Actor1502: engineer
-		Owner: Nod1
-		Facing: 384
-		SubCell: 2
-		Location: 20,4
-	Actor1503: engineer
-		Owner: Nod1
-		Facing: 384
-		Location: 21,4
-		SubCell: 2
-	Actor1363: moth
-		Owner: Cabal
-		SubCell: 2
-		Facing: 384
-		Location: 117,89
-	Actor1386: moth
-		Owner: Cabal
-		Facing: 384
-		Location: 118,89
-		SubCell: 2
-	Actor1387: moth
-		Owner: Cabal
-		Facing: 384
-		Location: 119,89
-		SubCell: 2
-	Actor1474: moth
-		Owner: Cabal
-		Facing: 384
-		SubCell: 2
-		Location: 117,90
-	Actor1475: moth
-		Owner: Cabal
-		Facing: 384
-		Location: 118,90
-		SubCell: 2
-	Actor1487: moth
-		Owner: Cabal
-		Facing: 384
-		Location: 119,90
-		SubCell: 2
+		Owner: Cyborg Squad
 	Actor1247: pdrone
-		Owner: Cabal
-		Facing: 384
 		SubCell: 2
 		Location: 109,87
-	Actor1248: pdrone
-		Owner: Cabal
 		Facing: 384
+		Owner: Cyborg Squad
+	Actor1248: pdrone
 		Location: 110,87
 		SubCell: 2
-	Actor1249: pdrone
-		Owner: Cabal
 		Facing: 384
+		Owner: Cyborg Squad
+	Actor1249: pdrone
 		SubCell: 2
 		Location: 123,92
+		Facing: 618
+		Owner: Cyborg Squad
 	Actor1250: pdrone
-		Owner: Cabal
-		Facing: 384
 		Location: 123,93
 		SubCell: 2
-	Actor1270: pdrone
-		Owner: Cabal
-		Facing: 384
-		SubCell: 2
-		Location: 121,86
-	Actor1299: pdrone
-		Owner: Cabal
-		Facing: 384
-		Location: 121,85
-		SubCell: 2
+		Facing: 610
+		Owner: Cyborg Squad
 	Actor1246: civ1
-		Owner: Nod1
+		Owner: Nod
 		Facing: 384
 		Location: 109,90
 		SubCell: 2
 	Actor1245: civ1
-		Owner: Nod1
+		Owner: Nod
 		Facing: 384
 		SubCell: 2
 		Location: 110,96
 	Actor1300: civ2
-		Owner: Nod1
+		Owner: Nod
 		SubCell: 2
 		Facing: 384
 		Location: 128,94
 	Actor1301: civ3
-		Owner: Nod1
+		Owner: Nod
 		Facing: 384
 		SubCell: 2
 		Location: 125,87
 	Actor1302: civ1
-		Owner: Nod2
+		Owner: Armed Civilians
 		SubCell: 2
 		Facing: 384
 		Location: 127,95
 	Actor1303: civ3
-		Owner: Nod2
+		Owner: Armed Civilians
 		Facing: 384
 		Location: 110,91
 		SubCell: 2
 	Actor1464: civ1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Facing: 384
 		SubCell: 2
 		Location: 111,97
 	Actor1465: civ2
-		Owner: Nod2
+		Owner: Armed Civilians
 		Facing: 384
 		Location: 125,86
 		SubCell: 2
@@ -4120,163 +3002,1768 @@ Actors:
 		Location: 128,95
 		SubCell: 2
 	Actor1379: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Facing: 384
 		SubCell: 2
 		Location: 144,90
 	Actor1380: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Facing: 384
 		Location: 144,90
 		SubCell: 1
 	Actor1381: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Facing: 384
 		Location: 144,90
 		SubCell: 3
 	Actor1382: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Facing: 384
 		SubCell: 2
 		Location: 145,94
 	Actor1383: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Facing: 384
 		Location: 145,94
 		SubCell: 1
 	Actor1431: altnode1
-		Owner: Nod2
+		Owner: Armed Civilians
 		Facing: 384
 		Location: 145,94
 		SubCell: 3
-	Actor1432: altnode1
-		Owner: Nod2
-		Facing: 384
-		Location: 117,73
-		SubCell: 2
-	Actor1443: gaspot
-		Owner: Nod2
-		Location: 127,50
-	Actor1444: gaspot
-		Owner: Nod2
-		Location: 122,50
-	Actor1445: gaspot
-		Owner: Nod2
-		Location: 155,56
 	Actor1446: gaspot
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 161,72
-	Actor1447: gaspot
-		Owner: Nod2
-		Location: 91,18
-	Actor1448: gaspot
-		Owner: Nod2
-		Location: 96,18
-	Actor1507: gaspot
-		Owner: Nod2
-		Location: 116,4
-	Actor1508: gaspot
-		Owner: Nod2
-		Location: 108,11
-	Actor1509: gaspot
-		Owner: Nod2
-		Location: 101,-10
-	Actor1510: gaspot
-		Owner: Nod2
-		Location: 97,-2
-	Actor1511: gaspot
-		Owner: Nod2
-		Location: 93,-1
-	Actor1512: gaspot
-		Owner: Nod2
-		Location: 84,4
 	Actor1504: gaspot
-		Owner: Nod1
+		Owner: Nod
 		Location: 49,29
-	Actor1513: gaspot
-		Owner: Nod1
-		Location: 48,37
-	Actor1514: gaspot
-		Owner: Nod1
-		Location: 50,10
-	Actor1515: gaspot
-		Owner: Nod1
-		Location: 36,-6
 	Actor1516: gaspot
-		Owner: Nod1
+		Owner: Nod
 		Location: 42,-6
-	Actor1505: attackbike
-		Owner: Nod2
-		Facing: 384
-		Location: 91,53
-	Actor1506: attackbike
-		Owner: Nod2
-		Facing: 384
-		Location: 94,45
 	Actor1517: attackbike
-		Owner: Nod2
-		Facing: 384
+		Owner: Armed Civilians
 		Location: 116,55
+		Facing: 384
 	Actor1518: attackbike
-		Owner: Nod2
-		Facing: 384
 		Location: 118,57
-	Actor923: naradr
-		Owner: Nod2
-		Location: 107,3
+		Facing: 384
+		Owner: Armed Civilians
 	Actor902: nodref
-		Owner: Nod2
+		Owner: Armed Civilians
 		Location: 103,10
-	Actor925: nodref2
-		Owner: Nod2
-		Location: 99,-7
-	Actor1488: glad
-		Owner: Cabal
-		Facing: 384
-		Location: 118,88
-	Actor1337: glad
-		Owner: Cabal
-		Facing: 384
-		Location: 115,88
-	Actor1519: nahfac
-		Owner: Nod1
+	mechfac: nahfac
+		Owner: Nod
 		Location: 32,11
-	Actor1187: naapwr
-		Owner: Nod2
-		Location: 95,0
-	Actor1520: naapwr
-		Owner: Nod2
-		Location: 87,3
-	Actor1521: naapwr
-		Owner: Nod2
-		Location: 95,4
-	Actor1523: gate_a
-		Owner: Nod2
-		Location: 124,51
-	Actor1524: nalasr
-		Owner: Nod2
-		TurretFacing: 368
-		Location: 123,52
-	Actor1525: nalasr
-		Owner: Nod2
-		TurretFacing: 368
-		Location: 127,52
-	Actor1526: shawall
-		Owner: Nod2
-		Location: 127,51
-	Actor1527: shawall
-		Owner: Nod2
-		Location: 123,51
 	Actor1375: nconf
-		Owner: Nod2
-		Facing: 384
 		SubCell: 2
 		Location: 115,57
-	Actor1433: engineer
-		Owner: Nod2
 		Facing: 384
-		Location: 133,37
+		Owner: Nod
+	Actor1373: altnode1
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 121,62
+		SubCell: 1
+	Actor1374: altnode1
+		Owner: Armed Civilians
+		Location: 121,62
+		SubCell: 3
+		Facing: 384
+	Actor1253: 4tnk
+		Owner: Armed Civilians
+		Location: 120,86
+		Facing: 372
+		TurretFacing: 991
+	Actor1455: 4tnk
+		Owner: Armed Civilians
+		Location: 112,86
+		Facing: 384
+		TurretFacing: 158
+	Actor1478: 4tnk
+		Owner: Armed Civilians
+		Location: 121,92
+		Facing: 626
+	Actor1387: moth
+		Location: 119,89
 		SubCell: 2
+		DeployState: Deployed
+		Owner: Cyborg Squad
+		Facing: 384
+	Actor1487: moth
+		Location: 119,90
+		SubCell: 2
+		DeployState: Deployed
+		Facing: 384
+		Owner: Cyborg Squad
+	Actor1386: moth
+		Location: 118,89
+		SubCell: 2
+		DeployState: Deployed
+		Facing: 384
+		Owner: Cyborg Squad
+	Actor1475: moth
+		Location: 118,90
+		SubCell: 2
+		DeployState: Deployed
+		Owner: Cyborg Squad
+		Facing: 384
+	Actor1506: attackbike
+		Owner: Armed Civilians
+		Location: 94,45
+		Facing: 384
+	Actor1505: attackbike
+		Owner: Armed Civilians
+		Location: 91,53
+		Facing: 384
+	Actor1482: 4tnk
+		Owner: Armed Civilians
+		Location: 94,52
+		Facing: 384
+	Actor1484: 4tnk
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 100,45
+	avatar4: avatar
+		Owner: Nod
+		Location: 37,12
+		Stance: AttackAnything
+		Facing: 634
+	nodgate3: gate_a
+		Location: 122,36
+		Owner: Armed Civilians
+	Actor1399: waypoint
+		Owner: Neutral
+		Location: 125,42
+	Actor1545: boxset1
+		Owner: Armed Civilians
+		Location: 125,43
+		TurretFacing: 341
+	Engineer1: engineer
+		Owner: Nod
+		Location: 125,19
+		SubCell: 2
+		Facing: 384
+	Engineer3: engineer
+		Owner: Nod
+		SubCell: 2
+		Location: 130,24
+		Facing: 384
+	Actor1337: glad
+		Location: 114,87
+		Facing: 118
+		Owner: Cyborg Squad
+	Actor1488: glad
+		Location: 120,88
+		Facing: 927
+		Owner: Cyborg Squad
+	Actor1270: pdrone
+		SubCell: 2
+		Location: 123,85
+		Facing: 483
+		Owner: Cyborg Squad
+	Actor1299: pdrone
+		SubCell: 2
+		Location: 123,86
+		Facing: 610
+		Owner: Cyborg Squad
+	Actor569: gate_b
+		Owner: Nod
+		Location: 30,0
+	Actor1502: engineer
+		Owner: Nod
+		Facing: 384
+		SubCell: 2
+		Location: 37,16
+	Actor1503: engineer
+		Owner: Nod
+		Facing: 384
+		SubCell: 2
+		Location: 36,15
+	Actor1547: shawall
+		Owner: Nod
+		Location: 30,3
+	Actor1550: shawall
+		Owner: Nod
+		Location: 30,4
+	Actor1551: shawall
+		Owner: Nod
+		Location: 30,5
+	Actor1552: shawall
+		Owner: Nod
+		Location: 30,6
+	Actor1553: shawall
+		Owner: Nod
+		Location: 30,-1
+	Actor1554: shawall
+		Owner: Nod
+		Location: 30,-2
+	Actor1555: shawall
+		Owner: Nod
+		Location: 30,-3
+	Actor1556: shawall
+		Owner: Nod
+		Location: 29,6
+	Actor1557: shawall
+		Owner: Nod
+		Location: 28,6
+	Actor1558: shawall
+		Owner: Nod
+		Location: 27,6
+	Actor1559: shawall
+		Owner: Nod
+		Location: 25,6
+	Actor1560: shawall
+		Owner: Nod
+		Location: 26,6
+	Actor1565: shawall
+		Owner: Nod
+		Location: 25,3
+	Actor1566: shawall
+		Owner: Nod
+		Location: 25,4
+	Actor1567: shawall
+		Owner: Nod
+		Location: 25,5
+	Actor1568: shawall
+		Owner: Nod
+		Location: 25,-1
+	Actor1569: shawall
+		Owner: Nod
+		Location: 25,-2
+	Actor1570: shawall
+		Owner: Nod
+		Location: 29,-3
+	Actor1571: shawall
+		Owner: Nod
+		Location: 28,-3
+	Actor1572: shawall
+		Owner: Nod
+		Location: 27,-3
+	Actor1573: shawall
+		Owner: Nod
+		Location: 26,-3
+	Actor1574: shawall
+		Owner: Nod
+		Location: 25,-3
+	Actor1575: shawall
+		Owner: Nod
+		Location: 24,-3
+	Actor1576: shawall
+		Owner: Nod
+		Location: 23,-3
+	Actor1577: shawall
+		Owner: Nod
+		Location: 22,-3
+	Actor1578: shawall
+		Owner: Nod
+		Location: 21,-3
+	Actor1579: shawall
+		Owner: Nod
+		Location: 20,-3
+	Actor1580: shawall
+		Owner: Nod
+		Location: 19,-3
+	Actor1581: shawall
+		Owner: Nod
+		Location: 18,-3
+	Actor1582: shawall
+		Owner: Nod
+		Location: 18,-2
+	Actor1583: shawall
+		Owner: Nod
+		Location: 18,-1
+	Actor1584: shawall
+		Owner: Nod
+		Location: 18,0
+	Actor1585: shawall
+		Owner: Nod
+		Location: 18,1
+	Actor1586: shawall
+		Owner: Nod
+		Location: 18,2
+	Actor1587: shawall
+		Owner: Nod
+		Location: 18,2
+	Actor1588: shawall
+		Owner: Nod
+		Location: 18,3
+	Actor1589: shawall
+		Owner: Nod
+		Location: 18,4
+	Actor1590: shawall
+		Owner: Nod
+		Location: 18,5
+	Actor1591: shawall
+		Owner: Nod
+		Location: 18,6
+	Actor1403: waypoint
+		Faction: nod
+		Location: 22,8
+		Owner: Neutral
+	Actor1561: shawall
+		Owner: Nod
+		Location: 19,6
+	Actor1593: shawall
+		Owner: Nod
+		Location: 24,6
+	Actor1594: boxset1
+		Owner: Armed Civilians
+		Location: 124,21
+		TurretFacing: 237
+	Actor1595: boxset1
+		Owner: Armed Civilians
+		Location: 125,21
+		TurretFacing: 428
+	Actor1433: boxset1
+		Owner: Armed Civilians
+		Location: 125,22
+		TurretFacing: 341
+	mech1: paladin
+		Owner: Neutral
+		Location: 127,44
+		Facing: 642
+	mech2: avatar
+		Owner: Neutral
+		Location: 127,41
+		Facing: 578
+	nodgate1: gate_a
+		Faction: cab
+		Location: 127,36
+		Owner: Nod
+	Engineer2: engineer
+		Owner: Nod
+		Location: 131,21
+		SubCell: 2
+		Facing: 384
+	Actor1398: waypoint
+		Owner: Neutral
+		Location: 164,62
+	Actor1192: caarmr
+		Owner: Neutral
+		Location: 163,57
+	Actor1231: veterancycrate
+		Owner: Neutral
+		Location: 168,57
+	Actor1232: veterancycrate
+		Owner: Neutral
+		Location: 168,59
+	Actor1267: veterancycrate
+		Owner: Neutral
+		Location: 168,61
+	Actor1530: attackbike
+		Owner: Armed Civilians
+		Location: 157,53
+		Facing: 142
+	Actor1536: attackbike
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 168,75
+	Actor1548: attackbike
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 173,75
+	Actor1194: container
+		Owner: Neutral
+		Location: 157,56
+	Actor1195: container
+		Owner: Neutral
+		Location: 156,58
+	Actor1521: well
+		Owner: Armed Civilians
+		Location: 174,72
+	Actor1541: city06
+		Owner: Armed Civilians
+		Location: 107,2
+	ctnk2: 4tnk
+		Owner: Armed Civilians
+		Location: 93,8
+		Facing: 384
+	ctnk3: 4tnk
+		Owner: Armed Civilians
+		Location: 93,7
+		Facing: 384
+	ctnk1: 4tnk
+		Owner: Armed Civilians
+		Location: 92,8
+		Facing: 384
+	ctnk4: 4tnk
+		Owner: Armed Civilians
+		Location: 92,7
+		Facing: 384
+	ctnk6: 4tnk
+		Owner: Armed Civilians
+		Location: 91,8
+		Facing: 384
+	ctnk5: 4tnk
+		Owner: Armed Civilians
+		Location: 91,7
+		Facing: 384
+	Actor1533: crusader
+		Owner: Armed Civilians
+		Facing: 384
+		SubCell: 2
+		Location: 141,78
+	Actor1598: crusader
+		Owner: Armed Civilians
+		Facing: 384
+		SubCell: 2
+		Location: 95,72
+	Actor1599: crusader
+		Owner: Armed Civilians
+		Facing: 384
+		SubCell: 2
+		Location: 157,69
+	Actor1600: crusader
+		Owner: Armed Civilians
+		Facing: 384
+		SubCell: 2
+		Location: 175,75
+	Actor1601: crusader
+		Owner: Armed Civilians
+		Facing: 384
+		SubCell: 2
+		Location: 167,75
+	Actor1603: crusader
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 156,54
+		SubCell: 2
+	Actor1607: crusader
+		Owner: Armed Civilians
+		Facing: 384
+		SubCell: 2
+		Location: 90,61
+	Actor1608: crusader
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 90,60
+		SubCell: 2
+	Actor1609: crusader
+		Owner: Armed Civilians
+		Facing: 384
+		SubCell: 2
+		Location: 107,13
+	Actor1610: altnode1
+		Owner: Armed Civilians
+		Facing: 384
+		SubCell: 2
+		Location: 106,14
+	Actor1611: altnode1
+		Owner: Armed Civilians
+		Facing: 384
+		SubCell: 2
+		Location: 106,15
+	Actor1612: altnode1
+		Owner: Armed Civilians
+		Facing: 384
+		SubCell: 2
+		Location: 90,15
+	Actor1613: altnode1
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 91,15
+		SubCell: 2
+	Actor1614: bggy
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 105,15
+	Actor1615: bggy
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 91,14
+	Actor1625: crusader
+		Owner: Armed Civilians
+		Facing: 384
+		SubCell: 2
+		Location: 91,13
+	Actor1626: shawall
+		Owner: Armed Civilians
+		Location: 163,56
+	Actor1627: shawall
+		Owner: Armed Civilians
+		Location: 164,56
+	Actor1628: shawall
+		Owner: Armed Civilians
+		Location: 165,56
+	Actor1629: shawall
+		Owner: Armed Civilians
+		Location: 166,56
+	Actor1630: shawall
+		Owner: Armed Civilians
+		Location: 167,56
+	Actor1535: 4tnk
+		Owner: Armed Civilians
+		Location: 117,59
+		Facing: 384
+	Actor1396: waypoint
+		Owner: Neutral
+		Location: 171,65
+	Actor1047: container3
+		Owner: Neutral
+		Location: 156,61
+	Actor1497: civdock02
+		Owner: Neutral
+		Location: 149,87
+	Actor1606: 4tnk
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 161,70
+	Actor1631: 4tnk
+		Owner: Armed Civilians
+		Location: 157,54
+		Facing: 118
+	cradar2: caaray
+		Owner: Armed Civilians
+		Location: 100,47
+	Actor1269: ttnk
+		Owner: Nod
+		Facing: 384
+		Location: 119,59
+	avatar5: avatar
+		Owner: Nod
+		Location: 52,4
+		Facing: 689
+	Actor1520: naobel
+		Owner: Nod
+		Location: 70,38
+	cradar3: caaray
+		Owner: Armed Civilians
+		Location: 123,98
+	Actor1477: 4tnk
+		Owner: Armed Civilians
+		Location: 117,101
+		Facing: 904
+		TurretFacing: 0
+	Actor1483: cborg
+		SubCell: 2
+		Location: 116,99
+		Facing: 507
+		Owner: Cyborg Squad
+	Actor1633: cborg
+		SubCell: 2
+		Location: 117,99
+		Facing: 368
+		Owner: Cyborg Squad
+	Actor1634: cborg
+		Location: 118,99
+		SubCell: 2
+		Facing: 384
+		Owner: Cyborg Squad
+	Actor1635: cborg
+		Location: 119,99
+		SubCell: 1
+		Facing: 384
+		Owner: Cyborg Squad
+	Actor897: tree02
+		Owner: Neutral
+		Location: 102,45
+	Actor1645: civ1
+		Owner: Armed Civilians
+		Facing: 384
+		SubCell: 1
+		Location: 94,32
+	Actor1646: civ2
+		Owner: Armed Civilians
+		Location: 92,33
+		SubCell: 2
+		Facing: 384
+	Actor1647: civ3
+		Owner: Armed Civilians
+		Facing: 384
+		SubCell: 2
+		Location: 92,35
+	Actor1651: 4tnk
+		Owner: Armed Civilians
+		Location: 97,76
+		Facing: 642
+	Actor1652: 4tnk
+		Owner: Armed Civilians
+		Location: 136,80
+		Facing: 134
+	avatar2: avatar
+		Faction: cab
+		Location: 41,-4
+		Owner: Nod
+		Stance: AttackAnything
+		Facing: 864
+	avatar3: avatar
+		Faction: cab
+		Location: 32,-10
+		Owner: Nod
+		Stance: AttackAnything
+		Facing: 800
+	Actor1604: tdgtwr
+		Owner: Armed Civilians
+		Location: 95,76
+	Actor1648: tdgtwr
+		Owner: Armed Civilians
+		Location: 139,82
+	Actor1653: tdgtwr
+		Owner: Armed Civilians
+		Location: 104,52
+	Actor1304: tdgtwr
+		Owner: Armed Civilians
+		Location: 156,71
+	Actor1445: tdgtwr
+		Owner: Armed Civilians
+		Location: 155,56
+	Actor850: nagate_a
+		Owner: Armed Civilians
+		Location: 170,77
+	Actor1529: tdgtwr
+		Owner: Armed Civilians
+		Location: 173,77
+	Actor1543: tdgtwr
+		Owner: Armed Civilians
+		Location: 169,77
+	Actor1274: tdgtwr
+		Owner: Armed Civilians
+		Location: 110,6
+	Actor1546: tdgtwr
+		Owner: Armed Civilians
+		Location: 115,4
+	Actor1507: tdgtwr
+		Owner: Armed Civilians
+		Location: 108,11
+	Actor1509: tdgtwr
+		Owner: Armed Civilians
+		Location: 93,0
+	Actor1510: tdgtwr
+		Owner: Armed Civilians
+		Location: 99,-3
+	Actor1244: tdgtwr
+		Owner: Armed Civilians
+		Location: 95,18
+	Actor1447: tdgtwr
+		Owner: Armed Civilians
+		Location: 91,18
+	Actor1448: tdnhand
+		Owner: Armed Civilians
+		Location: 83,4
+	Actor1222: 4tnk
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 117,72
+	Actor1378: altnode1
+		Owner: Armed Civilians
+		Location: 119,72
+		SubCell: 2
+		Facing: 384
+	Actor1338: altnode1
+		Owner: Armed Civilians
+		SubCell: 2
+		Location: 118,72
+		Facing: 384
+	Actor1384: attackbike
+		Owner: Armed Civilians
+		Location: 119,71
+		Facing: 384
+	Actor1385: attackbike
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 118,71
+	Actor1449: attackbike
+		Owner: Nod
+		Facing: 384
+		Location: 114,71
+	Actor1450: ttnk
+		Owner: Nod
+		Facing: 384
+		Location: 114,72
+	Actor1432: attackbike
+		Owner: Nod
+		Facing: 384
+		Location: 113,71
+	Actor1451: altnode1
+		Owner: Nod
+		SubCell: 2
+		Facing: 384
+		Location: 113,72
+	Actor1486: altnode1
+		Owner: Nod
+		Facing: 384
+		Location: 112,72
+		SubCell: 2
+	Actor1511: tankbarrier2
+		Owner: Armed Civilians
+		Location: 115,73
+	Actor1512: tankbarrier
+		Owner: Armed Civilians
+		Location: 116,73
+	Actor1644: constructionbarrier
+		Owner: Armed Civilians
+		Location: 123,75
+	Actor1649: constructionbarrier
+		Owner: Armed Civilians
+		Location: 123,73
+	Actor1650: constructionbarrier
+		Owner: Armed Civilians
+		Location: 110,75
+	Actor1655: constructionbarrier
+		Owner: Armed Civilians
+		Location: 110,73
+	Actor1638: constructionbarrier
+		Owner: Armed Civilians
+		Location: 132,93
+	Actor1643: constructionbarrier
+		Owner: Armed Civilians
+		Location: 132,91
+	Actor1656: constructionbarrier
+		Owner: Armed Civilians
+		Location: 101,84
+	Actor1657: constructionbarrier
+		Owner: Armed Civilians
+		Location: 101,82
+	Actor1658: constructionbarrier2
+		Owner: Armed Civilians
+		Location: 102,81
+	Actor1659: constructionbarrier2
+		Owner: Armed Civilians
+		Location: 103,81
+	Actor1660: constructionbarrier2
+		Owner: Armed Civilians
+		Location: 129,77
+	Actor1661: constructionbarrier2
+		Owner: Armed Civilians
+		Location: 130,77
+	Actor1662: waypoint
+		Owner: Neutral
+		Location: 112,92
+	hacker: cabecm
+		Location: 112,108
+		Facing: 904
+		Owner: Cyborg Squad
+	Actor1443: shawall
+		Owner: Neutral
+		Location: 118,39
+	Actor1444: shawall
+		Owner: Neutral
+		Location: 119,39
+	Actor1525: shawall
+		Owner: Neutral
+		Location: 119,45
+	Actor1524: shawall
+		Owner: Neutral
+		Location: 118,44
+	cradar4: caaray
+		Owner: Armed Civilians
+		Location: 99,1
+	Actor1534: attackbike
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 103,48
+	Actor1632: crusader
+		Owner: Armed Civilians
+		SubCell: 2
+		Facing: 384
+		Location: 104,49
+	Actor1666: crusader
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 104,48
+		SubCell: 2
+	Actor1597: crusader
+		Owner: Armed Civilians
+		Facing: 384
+		SubCell: 2
+		Location: 95,78
+	Actor1667: gasand
+		Owner: Armed Civilians
+		Location: 94,77
+	Actor1668: gasand
+		Owner: Armed Civilians
+		Location: 95,77
+	Actor1669: gasand
+		Owner: Armed Civilians
+		Location: 96,77
+	Actor1670: gasand
+		Owner: Armed Civilians
+		Location: 96,76
+	Actor1671: gasand
+		Owner: Armed Civilians
+		Location: 95,75
+	Actor1672: gasand
+		Owner: Armed Civilians
+		Location: 96,75
+	Actor1673: gasand
+		Owner: Armed Civilians
+		Location: 94,76
+	Actor1674: gasand
+		Owner: Armed Civilians
+		Location: 138,83
+	Actor1675: gasand
+		Owner: Armed Civilians
+		Location: 139,83
+	Actor1676: gasand
+		Owner: Armed Civilians
+		Location: 140,82
+	Actor1677: gasand
+		Owner: Armed Civilians
+		Location: 140,83
+	Actor1678: gasand
+		Owner: Armed Civilians
+		Location: 139,81
+	Actor1679: gasand
+		Owner: Armed Civilians
+		Location: 140,81
+	Actor1680: gasand
+		Owner: Armed Civilians
+		Location: 138,82
+	Actor1681: gasand
+		Owner: Armed Civilians
+		Location: 103,53
+	Actor1682: gasand
+		Owner: Armed Civilians
+		Location: 104,53
+	Actor1683: gasand
+		Owner: Armed Civilians
+		Location: 105,53
+	Actor1684: gasand
+		Owner: Armed Civilians
+		Location: 105,52
+	Actor1685: gasand
+		Owner: Armed Civilians
+		Location: 104,51
+	Actor1686: gasand
+		Owner: Armed Civilians
+		Location: 103,52
+	Actor1687: gasand
+		Owner: Armed Civilians
+		Location: 105,51
+	Actor1688: gasand
+		Owner: Armed Civilians
+		Location: 100,60
+	Actor1689: gasand
+		Owner: Armed Civilians
+		Location: 101,60
+	Actor1690: gasand
+		Owner: Armed Civilians
+		Location: 99,61
+	Actor1691: gasand
+		Owner: Armed Civilians
+		Location: 99,60
+	Actor1692: gasand
+		Owner: Armed Civilians
+		Location: 99,62
+	Actor1693: gasand
+		Owner: Armed Civilians
+		Location: 100,62
+	Actor1694: gasand
+		Owner: Armed Civilians
+		Location: 101,61
+	Actor1695: tdgtwr
+		Owner: Armed Civilians
+		Location: 100,61
+	Actor1697: tdadvgtwr
+		Owner: Armed Civilians
+		Location: 97,13
+	Actor1696: tdadvgtwr
+		Owner: Armed Civilians
+		Location: 107,5
+	Actor1698: shawall
+		Owner: Armed Civilians
+		Location: 110,7
+	Actor1699: shawall
+		Owner: Armed Civilians
+		Location: 111,7
+	Actor1700: shawall
+		Owner: Armed Civilians
+		Location: 111,6
+	Actor1701: shawall
+		Owner: Armed Civilians
+		Location: 90,18
+	Actor1702: shawall
+		Owner: Armed Civilians
+		Location: 90,19
+	Actor1703: shawall
+		Owner: Armed Civilians
+		Location: 93,-2
+	Actor1704: tdadvgtwr
+		Owner: Armed Civilians
+		Location: 97,53
+	Actor1707: tdgtwr
+		Owner: Armed Civilians
+		Location: 85,2
+	Actor1637: naapwr
+		Owner: Armed Civilians
+		Location: 92,3
+	Actor1705: naapwr
+		Owner: Armed Civilians
+		Location: 96,-1
+	Actor1706: napowr
+		Owner: Armed Civilians
+		Location: 95,4
+	Actor1708: tdadvgtwr
+		Owner: Armed Civilians
+		Location: 94,-2
+	Actor1388: napowr
+		Faction: cab
+		Location: 89,3
+		Owner: Armed Civilians
+	Actor1709: tdadvgtwr
+		Owner: Armed Civilians
+		Location: 174,69
+	Actor1495: boxset1
+		Owner: Armed Civilians
+		Location: 125,44
+		TurretFacing: 253
+	Actor1602: flamehologram
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 163,62
+		SubCell: 2
+	Actor1605: flamehologram
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 165,62
+		SubCell: 2
+	Actor1663: crusader
+		Owner: Armed Civilians
+		SubCell: 2
+		Facing: 384
+		Location: 166,62
+	Actor1391: gasand
+		Owner: Armed Civilians
+		Location: 93,69
+	Actor1664: gasand
+		Owner: Armed Civilians
+		Location: 94,68
+	Actor1665: gasand
+		Owner: Armed Civilians
+		Location: 93,70
+	Actor1712: tdgtwr
+		Owner: Armed Civilians
+		Location: 94,69
+	Actor1713: gasand
+		Owner: Armed Civilians
+		Location: 95,68
+	Actor1714: gasand
+		Owner: Armed Civilians
+		Location: 94,70
+	Actor1715: gasand
+		Owner: Armed Civilians
+		Location: 95,69
+	Actor1716: gasand
+		Owner: Armed Civilians
+		Location: 93,68
+	Actor1717: gasand
+		Owner: Armed Civilians
+		Location: 95,70
+	startpoint: mpspawn
+		Owner: Neutral
+		Location: 117,88
+	Actor1723: carbus01
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 126,90
+	Actor1724: carpanterb
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 91,52
+	Actor1725: car
+		Owner: Nod
+		Location: 110,90
+		Facing: 634
+	Actor1726: carbigcamion
+		Owner: Nod
+		Location: 110,86
+		Facing: 634
+	Actor1727: carcobra
+		Owner: Nod
+		Location: 110,89
+		Facing: 626
+	Actor1728: carpanterb
+		Owner: Nod
+		Location: 118,95
+		Facing: 642
+	Actor1729: carcamion02
+		Owner: Nod
+		Facing: 384
+		Location: 131,92
+	Actor1730: carcamion04
+		Owner: Nod
+		Location: 118,96
+		Facing: 650
+	Actor1731: pdrone
+		Owner: Cyborg Squad
+		Facing: 384
+		Location: 109,96
+		SubCell: 2
+	avatar6: avatar
+		Owner: Nod
+		Location: 63,0
+		Facing: 578
+		Stance: Defend
+	avatar1: avatar
+		Owner: Nod
+		Location: 71,32
+		Facing: 563
+		Stance: Defend
+	Actor1746: trnsport.mut
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 101,-1
+	Actor1719: geye
+		Owner: Neutral
+		Location: 118,16
+	Actor1732: geye
+		Owner: Neutral
+		Location: 90,38
+	Actor1736: geye
+		Owner: Neutral
+		Location: 108,78
+	labpowerplant4: napowr
+		Owner: Nod
+		Location: 132,37
+	labpowerplant2: napowr
+		Owner: Nod
+		Location: 132,39
+	labpowerplant1: napowr
+		Owner: Nod
+		Location: 130,37
+	labpowerplant3: napowr
+		Owner: Nod
+		Location: 130,39
+	Actor1409: nasam
+		Owner: Nod
+		Location: 32,20
+	Actor1410: naapwr
+		Owner: Nod
+		Location: 32,23
+	nodlab: natech
+		Owner: Nod
+		Location: 124,46
+	Actor1412: fence4
+		Owner: Neutral
+		Location: 117,73
+	Actor1456: fence4
+		Owner: Neutral
+		Location: 118,73
+	Actor1710: fence4
+		Owner: Neutral
+		Location: 119,73
+	Actor1718: fence4
+		Owner: Neutral
+		Location: 114,73
+	Actor1733: fence4
+		Owner: Neutral
+		Location: 113,73
+	Actor1737: fence4
+		Owner: Neutral
+		Location: 112,73
+	Engineer4: engineer
+		Owner: Nod
+		Location: 126,46
+		SubCell: 2
+		Facing: 384
+	Engineer5: engineer
+		Owner: Nod
+		Location: 123,47
+		SubCell: 2
+		Facing: 384
+	Actor1272: naapwr
+		Owner: Nod
+		Location: 25,-9
+	Actor1055: naapwr
+		Owner: Nod
+		Location: 26,14
+	Actor1411: naapwr
+		Owner: Nod
+		Location: 20,11
+	Actor1537: nasam
+		Owner: Nod
+		Location: 23,14
+	Actor1749: nasam
+		Owner: Nod
+		Location: 63,3
+	Actor1750: naobel
+		Owner: Nod
+		Location: 63,-9
+	Actor1751: naapwr
+		Owner: Nod
+		Location: 12,4
+	Actor1752: nasam
+		Owner: Nod
+		Location: 63,-6
+		TurretFacing: 368
+	Actor1542: nasam
+		Owner: Nod
+		Location: 65,-19
+		TurretFacing: 368
+	laser3: nalasr
+		Owner: Nod
+		Location: 121,35
+		TurretFacing: 769
+	laser4: nalasr
+		Owner: Nod
+		Location: 132,35
+		TurretFacing: 872
+	nodgate4: gate_b
+		Location: 118,41
+		Owner: Armed Civilians
+	Actor1485: shawall
+		Owner: Nod
+		Location: 118,40
+	Actor1493: nawall
+		Owner: Nod
+		Location: 118,45
+	Actor1522: shawall
+		Owner: Nod
+		Location: 125,36
+	Actor1523: shawall
+		Owner: Nod
+		Location: 126,36
+	nodob3: naobel
+		Owner: Nod
+		Location: 114,35
+	nodob4: naobel
+		Owner: Nod
+		Location: 120,20
+	nodsam: nasam
+		Owner: Nod
+		Location: 122,20
+		TurretFacing: 368
+	avatar8: avatar
+		Owner: Nod
+		Location: 54,16
+		Stance: AttackAnything
+		Facing: 658
+	Actor1754: boxset1
+		Owner: Armed Civilians
+		Location: 121,43
+		TurretFacing: 428
+	Actor1755: boxset1
+		Owner: Armed Civilians
+		Location: 35,15
+		TurretFacing: 459
+	Actor1756: boxset1
+		Owner: Armed Civilians
+		Location: 44,32
+		TurretFacing: 412
+	Actor1757: boxset1
+		Owner: Armed Civilians
+		Location: 45,33
+		TurretFacing: 333
+	nodob1: naobel
+		Owner: Nod
+		Location: 119,40
+	nodgate5: gate_a
+		Owner: Armed Civilians
+		Location: 121,51
+	nodgate2: gate_a
+		Owner: Nod
+		Location: 126,51
+	Actor1528: shawall
+		Owner: Neutral
+		Location: 124,51
+	Actor1654: shawall
+		Owner: Neutral
+		Location: 125,51
+	nodob2: naobel
+		Owner: Nod
+		Location: 124,49
+	laser2: nalasr
+		Owner: Nod
+		Location: 125,52
+		TurretFacing: 176
+	laser1: nalasr
+		Owner: Nod
+		Location: 120,52
+		TurretFacing: 176
+	laser5: nalasr
+		Owner: Nod
+		Location: 130,52
+		TurretFacing: 176
+	Actor1539: ttnk
+		Owner: Nod
+		Location: 125,34
+		DeployState: Deployed
+		Stance: Defend
+		Facing: 384
+		TurretFacing: 512
+	Actor1740: ttnk
+		Owner: Nod
+		Location: 124,34
+		DeployState: Deployed
+		Stance: Defend
+		Facing: 384
+		TurretFacing: 512
+	Actor1738: waypoint
+		Owner: Nod
+		Location: 126,37
+	bike1: attackbike
+		Owner: Armed Civilians
+		Location: 114,37
+		Facing: 384
+		Stance: Defend
+	bike2: attackbike
+		Owner: Armed Civilians
+		Location: 125,37
+		Facing: 384
+		Stance: Defend
+	Actor1540: waypoint
+		Owner: Neutral
+		Location: 125,48
+	Actor1370: stnk
+		Owner: Nod
+		Location: 87,29
+		Stance: Defend
+		Facing: 507
+	Actor1473: fueltower
+		Owner: Neutral
+		Location: 92,32
+	Actor1526: altnode1
+		Owner: Armed Civilians
+		SubCell: 2
+		Facing: 384
+		Location: 95,33
+	Actor1527: altnode1
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 96,33
+		SubCell: 2
+	Actor1544: waypoint
+		Owner: Armed Civilians
+		Location: 125,20
+	Actor1640: waypoint
+		Owner: Neutral
+		Location: 120,43
+	Actor1641: trucka
+		Owner: Armed Civilians
+		Location: 123,21
+		Facing: 384
+	Actor1642: trucka
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 113,35
+	Actor1739: gaspot
+		Faction: cab
+		Location: 130,43
+		Owner: Armed Civilians
+	Actor1741: shawall
+		Owner: Neutral
+		Location: 129,43
+	Actor1742: waypoint
+		Owner: Neutral
+		Location: 118,92
+	Actor1743: waypoint
+		Owner: Neutral
+		Location: 118,96
+	Actor1759: healcrate
+		Owner: Neutral
+		Location: 88,51
+	Actor1440: waypoint
+		Owner: Neutral
+		Location: 112,101
+	reinforcepoint2: waypoint
+		Owner: Neutral
+		Location: 106,101
+	Actor1441: naobel
+		Owner: Nod
+		Location: 52,11
+	Actor1442: naobel
+		Owner: Nod
+		Location: 34,-7
+	Actor1514: gaspot
+		Owner: Nod
+		Location: 52,5
+	Actor167: nahand
+		Location: 70,35
+		Owner: Nod
+		Facing: 640
+	Actor1474: naobel
+		Owner: Nod
+		Location: 74,19
+	Actor221: naweap
+		Location: 70,17
+		Facing: 640
+		Owner: Nod
+	Actor1745: nasam
+		Owner: Nod
+		Location: 71,37
+		TurretFacing: 368
+	Actor1747: nasam
+		Owner: Nod
+		Location: 75,17
+		TurretFacing: 368
+	Actor644: altnode1
+		Owner: Nod
+		Location: 72,38
+		SubCell: 2
+		Facing: 368
+	Actor1361: howtlizer
+		Owner: Nod
+		Location: 72,21
+		Facing: 594
+		Stance: Defend
+	Actor1515: howtlizer
+		Owner: Nod
+		Location: 69,40
+		Facing: 650
+		Stance: Defend
+	Actor1538: howtlizer
+		Owner: Nod
+		Location: 62,-12
+		Facing: 634
+		Stance: Defend
+	Actor1711: howtlizer
+		Owner: Nod
+		Location: 60,3
+		Facing: 626
+	avatar9: avatar
+		Faction: cab
+		Location: 72,24
+		Owner: Nod
+		Facing: 642
+		Stance: Defend
+	Actor1363: avatar
+		Owner: Nod
+		Location: 73,15
+		Facing: 384
+		Stance: Defend
+	Actor1760: avatar
+		Owner: Nod
+		Location: 62,-5
+		Stance: Defend
+		Facing: 697
+	Actor1368: avatar
+		Owner: Nod
+		Location: 70,42
+		Facing: 372
+		Stance: Defend
+	Actor1489: fountain
+		Owner: Nod
+		Location: 114,95
+	Actor1761: billboardwater
+		Owner: Nod
+		Location: 116,94
+	Actor165: naobel
+		Location: 51,29
+		Owner: Nod
+		Facing: 640
+	Actor1513: shawall
+		Owner: Nod
+		Location: 51,40
+	Actor1762: shawall
+		Owner: Nod
+		Location: 50,39
+	Actor1763: shawall
+		Owner: Nod
+		Location: 51,39
+	Actor1764: shawall
+		Owner: Nod
+		Location: 50,38
+	Actor1765: shawall
+		Owner: Nod
+		Location: 50,37
+	Actor1767: avatar
+		Owner: Nod
+		Location: 49,41
+		Facing: 689
+	Actor1768: avatar
+		Owner: Nod
+		Location: 48,31
+		Facing: 666
+	Actor1769: gaspot
+		Owner: Nod
+		Location: 50,42
+	Actor1766: watertower
+		Owner: Neutral
+		Location: 148,92
+	Actor1498: weye
+		Owner: Neutral
+		Location: 59,-49
+	Actor1500: nahand
+		Owner: Nod
+		Location: 41,4
+	Actor1501: nconf
+		Owner: Nod
+		SubCell: 2
+		Location: 20,4
+		Facing: 384
+	Actor1770: nconf
+		Owner: Nod
+		Facing: 384
+		SubCell: 2
+		Location: 22,4
+	Actor1771: stnk
+		Owner: Nod
+		Location: 27,1
+		TurretFacing: 0
+		Facing: 650
+		Stance: Defend
+	Actor1562: shawall
+		Owner: Nod
+		Location: 20,6
+	Actor1532: nodmcv
+		Owner: Nod
+		Location: 36,5
+		Facing: 384
+	Actor1563: gaspot
+		Owner: Nod
+		Location: 20,5
+	Actor1564: gaspot
+		Owner: Nod
+		Location: 23,5
+	Actor1592: shawall
+		Owner: Nod
+		Location: 23,6
+	Actor1748: gate_a
+		Owner: Nod
+		Location: 69,-24
+	Actor1314: avatar
+		Owner: Nod
+		Location: 63,-13
+		Stance: Defend
+		Facing: 650
+	Actor1773: 4tnk
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 90,14
+	Actor1774: 4tnk
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 104,15
+	Actor1775: 4tnk
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 112,3
+	Actor1776: 4tnk
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 110,4
+	Actor1722: well
+		Faction: cab
+		Location: 92,71
+		Owner: Armed Civilians
+	Actor921: well
+		Owner: Armed Civilians
+		Location: 88,11
+	shopkeeper4: mrls
+		Location: 128,68
+		Owner: Mercenaries
+		Facing: 840
+	Actor1508: nodref2
+		Owner: Armed Civilians
+		Location: 99,-7
+	Actor1744: shawall
+		Owner: Armed Civilians
+		Location: 100,-10
+	Actor1753: shawall
+		Owner: Armed Civilians
+		Location: 100,-9
+	Actor1787: tdgtwr
+		Owner: Armed Civilians
+		Location: 101,-10
+	Actor1798: boxset1
+		Owner: Armed Civilians
+		Location: 103,13
+		TurretFacing: 523
+	Actor1799: boxset1
+		Owner: Armed Civilians
+		Location: 104,13
+		TurretFacing: 618
+	Actor1531: boxset1
+		Owner: Armed Civilians
+		Location: 35,16
+		TurretFacing: 333
+	Actor1800: boxset1
+		Owner: Armed Civilians
+		Location: 101,-4
+		TurretFacing: 499
+	Actor1801: boxset1
+		Owner: Armed Civilians
+		Location: 102,-4
+		TurretFacing: 697
+	Actor1804: tree13
+		Owner: Neutral
+		Location: 127,70
+	Actor1805: tree24
+		Owner: Neutral
+		Location: 133,71
+	Actor1806: boxset1
+		Owner: Armed Civilians
+		Location: 93,74
+		TurretFacing: 610
+	Actor1490: boxset1
+		Owner: Armed Civilians
+		Location: 91,12
+		TurretFacing: 547
+	Actor1807: cahosp
+		Faction: nod
+		Location: 89,47
+		Owner: Neutral
+	Actor1808: city01
+		Owner: Armed Civilians
+		Location: 117,77
+	Actor1491: city02
+		Owner: Armed Civilians
+		Location: 114,79
+	Actor1549: civheli
+		Owner: Armed Civilians
+		Location: 167,71
+	Actor1596: civheli
+		Owner: Armed Civilians
+		Location: 167,68
+	Actor1809: civheli
+		Owner: Armed Civilians
+		Location: 164,68
+	Actor1810: apache
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 164,68
+	Actor1811: apache
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 167,68
+	Actor1812: apache
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 167,71
+	shopkeeper16: mustable
+		Owner: Mercenaries
+		Location: 88,-24
+	Actor1414: boxset1
+		Owner: Armed Civilians
+		Location: 178,76
+		TurretFacing: 650
+	Actor1415: boxset1
+		Owner: Armed Civilians
+		Location: 178,75
+		TurretFacing: 618
+	Actor1416: boxset1
+		Owner: Armed Civilians
+		Location: 178,74
+		TurretFacing: 594
+	Actor1494: boxset1
+		Owner: Armed Civilians
+		Location: 179,74
+		TurretFacing: 563
+	Actor1496: boxset1
+		Owner: Armed Civilians
+		TurretFacing: 507
+		Location: 179,75
+	Actor1782: boxset1
+		Owner: Armed Civilians
+		Location: 179,76
+		TurretFacing: 555
+	Actor1802: boxset1
+		Owner: Armed Civilians
+		Location: 180,76
+		TurretFacing: 674
+	Actor1803: boxset1
+		Owner: Armed Civilians
+		Location: 180,75
+		TurretFacing: 563
+	shopkeeper11: tent1
+		Owner: Mercenaries
+		Location: 79,-9
+	shopkeeper10: tent7
+		Owner: Mercenaries
+		Location: 81,-10
+	Actor1813: campfire
+		Owner: Mercenaries
+		Location: 81,-8
+	shopkeeper9: marauder
+		Owner: Mercenaries
+		SubCell: 2
+		Location: 81,-9
+		DeployState: Deployed
+		Facing: 384
+		TurretFacing: 640
+	shopkeeper12: flagmut
+		Owner: Mercenaries
+		Location: 79,-10
+	shopkeeper13: billboardtibbux
+		Location: 78,-19
+		Faction: cab
+		Owner: Mercenaries
+	shopkeeper15: tiberumbillboard
+		Owner: Mercenaries
+		Location: 79,-23
+	shopkeeper14: carpub
+		Owner: Mercenaries
+		Location: 80,-21
+	mound1: mutmound
+		Owner: Mercenaries
+		Location: 85,-16
+	tunnel1: muvent
+		Owner: Mercenaries
+		Location: 128,66
+		Stance@AIonly: HoldFire
+	shopkeeper1: weasau3
+		Owner: Mercenaries
+		Location: 128,65
+		Facing: 384
+	shopkeeper2: deathclaw
+		Owner: Mercenaries
+		Location: 129,65
+		Facing: 384
+	shopkeeper7: e3
+		Owner: Mercenaries
+		SubCell: 2
+		Location: 80,-9
+		Facing: 384
+	Actor1331: nawall
+		Owner: Neutral
+		Location: 44,-31
+	Actor1413: mutambush
+		Owner: Mercenaries
+		Location: 150,101
+	Actor456: tree04
+		Location: 126,120
+		Owner: Neutral
+	Actor1313: mutambush
+		Owner: Angry Mercenaries
+		Location: 128,118
+	tunnel2: muvent
+		Owner: Angry Mercenaries
+		Location: 52,-38
+	Actor1279: mrls
+		Owner: Angry Mercenaries
+		Location: 51,-38
+		Facing: 610
+	Actor1417: mrls
+		Owner: Angry Mercenaries
+		Location: 54,-37
+		TurretFacing: 0
+		Facing: 63
+	Actor1457: mrls
+		Owner: Angry Mercenaries
+		Location: 52,-39
+		Facing: 384
+	Actor1476: weasau3
+		Owner: Angry Mercenaries
+		Location: 53,-39
+		Facing: 384
+	Actor1492: weasau3
+		Owner: Angry Mercenaries
+		Location: 54,-38
+		Facing: 384
+	Actor1616: struckfull
+		Owner: Angry Mercenaries
+		Location: 52,-36
+		Facing: 800
+	Actor1617: struckfull
+		Owner: Angry Mercenaries
+		Location: 53,-36
+		Facing: 911
+	Actor1618: lynx
+		Owner: Angry Mercenaries
+		Location: 54,-36
+		Facing: 1023
+	Actor1619: lynx
+		Owner: Angry Mercenaries
+		Facing: 384
+		Location: 51,-39
+	Actor1621: mutquad
+		Owner: Angry Mercenaries
+		Location: 54,-38
+		Facing: 222
+	Actor1622: deathclaw
+		Owner: Angry Mercenaries
+		Facing: 384
+		Location: 54,-39
+	Actor1623: deathclaw
+		Owner: Angry Mercenaries
+		Location: 52,-35
+		Facing: 384
+	Actor1720: lynx
+		Owner: Angry Mercenaries
+		Location: 53,-38
+		Facing: 142
+	Actor1620: mutquad
+		Owner: Angry Mercenaries
+		Location: 51,-37
+		Facing: 658
+	Actor1624: wolf
+		Owner: Angry Mercenaries
+		Facing: 384
+		Location: 51,-36
+	shopkeeper6: lynx
+		Owner: Mercenaries
+		Location: 130,67
+		TurretFacing: 0
+		Facing: 95
+	shopkeeper5: mutquad
+		Owner: Mercenaries
+		Location: 129,68
+		Facing: 919
+	shopkeeper3: wolf
+		Owner: Mercenaries
+		Location: 127,66
+		Facing: 602
+	shopkeeper8: lynx
+		Owner: Mercenaries
+		Location: 130,66
+		Facing: 158
+	Actor1369: naweap
+		Owner: Nod
+		Location: 43,22
+	Actor1499: naradr
+		Owner: Nod
+		Location: 48,17
+	Actor1639: scrin
+		Owner: Nod
+		Facing: 384
+		Location: 45,17
+	Actor1721: scrin
+		Owner: Nod
+		Facing: 384
+		Location: 48,20
+	Actor1734: scrin
+		Owner: Nod
+		Facing: 384
+		Location: 48,14
+	Actor1735: scrin
+		Owner: Nod
+		Facing: 384
+		Location: 51,17
+	Actor1758: trnsport.nod
+		Owner: Nod
+		Facing: 384
+		Location: 34,1
+	Actor1772: trnsport.nod
+		Owner: Nod
+		Facing: 384
+		Location: 34,-4
+	nodmcv1: nodmcv
+		Owner: Nod
+		Location: 53,22
+		Facing: 384
+	Actor1519: napuls
+		Owner: Nod
+		Location: 49,24
+		TurretFacing: 658
+	reinforcepoint1: waypoint
+		Owner: Neutral
+		Location: 161,93
+	subtank1: subtank
+		Owner: Nod
+		Location: 42,-15
+		Facing: 515
+	subtank2: subtank
+		Owner: Nod
+		Location: 43,-14
+		Facing: 507
+	subtank3: subtank
+		Owner: Nod
+		Location: 44,-15
+		Facing: 547
+	subtank4: subtank
+		Owner: Nod
+		Location: 45,-13
+		Facing: 578
+	Actor1315: stnk
+		Owner: Nod
+		Location: 112,62
+		Facing: 384
+		Stance: Defend
+	Actor1371: stnk
+		Owner: Nod
+		Location: 133,75
+		Facing: 134
+		Stance: Defend
 
 Rules: sp|rules/campaign.yaml, sp|rules/campaignrules.yaml, rules.yaml
 

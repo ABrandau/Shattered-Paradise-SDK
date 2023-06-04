@@ -8,32 +8,373 @@ World:
 	MapOptions:
 		TechLevelDropdownLocked: true
 		TechLevel: nosuperweapons
+	## TODO: change to translation label after next engine rebase
+	ScriptLobbyDropdown@difficulty: 
+		ID: difficulty
+		Label: dropdown-difficulty.label
+		Description: The difficulty of the mission #dropdown-difficulty.description
+		Values:
+			normal: Normal #options-difficulty.normal
+			hard: Hard #options-difficulty.hard
+		Default: normal
 	MissionData:
-		Briefing: Assimilate the alien artifact.\n\nAn unknown signal has been detected in this sector... Tactical Value: High... Planning next course of action... Identified unused M.C.V. on the area... Deploying strike team...\n\nPraetor, you shall capture this M.C.V. in my name, establish a base and identify the source of these signals.\n\nC.A.B.A.L. demands any technological advantage that can be salvaged from this object.
+		Briefing: An unknown signal has been detected in this sector... Tactical Value: High... Planning next course of action... Identified our lost M.C.V. on the area... Deploying strike team...\n\nPraetor, you shall search this area and identify the source of this signal, we demands any technological advantage that can be salvaged from this object.\n\nMap Settings: Mutiqueues Production & Enable Upgrades\n\nOverall Difficulty: Challenging
 
 Player:
+	### AI Related
+	SharedCargoBotModule:
+		Transports: muvent, mutventshop
+		PassengersPerScan: 16
+		MaxPassengers: 16
+		ScanTick: 443
+		ValidDamageState: Critical
+	McvManagerASBotModule@AINormal:
+		MaxBaseRadius: 15 ## keep mcv at AI base in mission
 	UnitBuilderBotModule@AIAll:
-		RequiresCondition: AIBase && enable-ai
+		RequiresCondition: AIBase && enable-ai-combat
 	SquadManagerBotModule@AIBase:
-		RequiresCondition: AIBase && enable-ai
+		RequiresCondition: AIBase && enable-ai-combat
 		-UnitDelays:
 	BaseBuilderBotModule@AIBase:
-		RequiresCondition: AIBase && enable-ai
-	McvManagerASBotModule@AINormal:
-		RequiresCondition: (AIBase || AIEasy) && enable-ai
+		RequiresCondition: AIBase && enable-ai-combat
 	CncEngineerBotModule:
-		RequiresCondition: (AIBase || AIEasy) && enable-ai
-		CapturableActorTypes: well, neutralpowerplant, neutralradar, cahosp, neutralsonictur, caarmr, machineshop, scrinreinfpad, ntpyra.koth, gacnst, mutyard, cabyard, nodyard, drached, nodref, nodref2, nodref3, nodref4
-	ExternalCondition@enable-ai:
-		Condition: enable-ai
+		RequiresCondition: AIBase && enable-ai-combat
+		CapturableActorTypes: well, neutralradar, cahosp, neutralsonictur, caarmr, machineshop, scrinreinfpad, ntpyra.koth, gacnst, mutyard, cabyard, nodyard, drached, nodref, nodref2, nodref3, nodref4
+	SendUnitToAttackBotModule:
+		RequiresCondition: AIBase && enable-ai-combat
+	ExternalCondition@enable-ai-combat:
+		Condition: enable-ai-combat
+	### Mission: Hack Civilian Array Related
+	ExternalCondition@revealbase:
+		Condition: revealbase
+	ProvidesPrerequisite@RevealBase:
+		Prerequisite: RevealBase
+		RequiresCondition: revealbase
+	ExternalCondition@revealunit:
+		Condition: revealunit
+	ProvidesPrerequisite@RevealUnit:
+		Prerequisite: RevealUnit
+		RequiresCondition: revealunit
+	##### Mercenaries Shop Related
+	ClassicProductionQueue@HireMercenary:
+		Type: HireMercenary.Vehicle
+		Group: Vehicle
+		DisplayOrder: 27
+		DisallowPaused: true
+		InstantCashDrain: true
+		ItemLimit: 1
+		QueueLimit: 1
+		ReadyAudio: UnitReady
+		ReadyTextNotification: Unit ready.
 
+##### Mission: Hack Civilian Array Related Actors
 SCRINREINFPAD:
 	-PeriodicProducer@GDI:
 	-PeriodicProducer@NOD:
 	-PeriodicProducer@mut:
 	-PeriodicProducer@cab:
 	-PeriodicProducer@scr:
+	Targetable@NoAutoTarget:
+		TargetTypes: NoAutoTarget
 
-UNITCRATE:
-	GiveUnitCrateAction:
-		Units: reapercab
+^TextTag:
+	WithTextDecoration@textflash:
+		UsePlayerColor: true
+		Text: --- Hello !!! ---
+		Position: Top
+		ValidRelationships: Ally, Enemy, Neutral
+		BlinkPattern: On,On,On,Off
+		BlinkInterval: 15
+
+
+^HackedTag:
+	Inherits: ^TextTag
+	WithTextDecoration@textflash:
+		UsePlayerColor: false
+		Color: 1262E2
+		Text: --- Hacked ---
+		RequiresCondition: hacked
+
+CAARAY:
+	Inherits@Hacked: ^HackedTag
+	Targetable@NoAutoTarget:
+		TargetTypes: NoAutoTarget
+	Targetable@Hackable:
+		TargetTypes: Hackable
+		RequiresCondition: !hacked ## Only allow hack for once of each Array
+	GrantConditionOnInfiltration@hacked:
+		Types: Hackable
+		Condition: hacked
+	## Reveal all Array When Hacked
+	GrantConditionOnPrerequisite@Hacked.lv1:
+		Prerequisites: RevealBase
+		Condition: hacked-reveal
+	RevealsShroud@Hacked.lv1--revealradar:
+		RequiresCondition: hacked-reveal
+		ValidRelationships: Enemy
+		MaxHeightDelta: 3
+		Range: 6c0
+
+CABMCV:
+	## Reveal all Avatar When Hacked 3 times
+	GrantConditionOnPrerequisite@Hacked.lv3:
+		Prerequisites: RevealUnit
+		Condition: hacked-reveal
+	RevealsShroud@Hacked.lv3--reveal:
+		RequiresCondition: hacked-reveal
+		ValidRelationships: Enemy
+		Range: 5c0
+		Type: GroundPosition
+
+CABYARD:
+	## Reveal CABAL conyard when find or Hacked 3 times
+	GrantConditionOnPrerequisite@RevealBase:
+		Prerequisites: RevealBase
+		Condition: found-reveal
+	RevealsShroud@RevealBase:
+		RequiresCondition: found-reveal
+		ValidRelationships: Neutral, Enemy
+		MaxHeightDelta: 3
+		Range: 10c0
+		Type: CenterPosition
+
+TRUCKA:
+	## Reveal all Avatar related personal when Hacked 3 times
+	GrantConditionOnPrerequisite@Hacked.lv3:
+		Prerequisites: RevealUnit
+		Condition: hacked-reveal
+	RevealsShroud@Hacked.lv3--reveal:
+		RequiresCondition: hacked-reveal
+		ValidRelationships: Enemy
+		Range: 5c0
+		Type: GroundPosition
+
+TRUCKB:
+	## Reveal all Avatar related personal when Hacked 3 times
+	GrantConditionOnPrerequisite@Hacked.lv3:
+		Prerequisites: RevealUnit
+		Condition: hacked-reveal
+	RevealsShroud@Hacked.lv3--reveal:
+		RequiresCondition: hacked-reveal
+		ValidRelationships: Enemy
+		Range: 5c0
+		Type: GroundPosition
+	SpawnActorOnDeath@Money:
+		Actor: moneycrate
+		Probability: 100
+		OwnerType: Killer
+		RequiresLobbyCreeps: false
+
+BOXSET1:
+	SpawnActorOnDeath@Money:
+		Actor: moneycrate
+		Probability: 100
+		OwnerType: Killer
+		RequiresLobbyCreeps: false
+	Targetable: ## Box can be autotargeted
+		TargetTypes: Ground, Creep
+		
+^ErrorTag:
+	Inherits: ^TextTag
+	ExternalCondition@textflash:
+		Condition: error
+		TotalCap: 1
+		SourceCap: 1
+	WithTextDecoration@textflash:
+		Text: --- Error !!! ---
+		RequiresCondition: error
+
+PALADIN:
+	Inherits@Error: ^ErrorTag
+	## Reveal all Avatar When Hacked 3 times
+	GrantConditionOnPrerequisite@Hacked.lv3:
+		Prerequisites: RevealUnit
+		Condition: hacked-reveal
+	RevealsShroud@Hacked.lv3--reveal:
+		RequiresCondition: hacked-reveal
+		ValidRelationships: Enemy
+		Range: 5c0
+		Type: GroundPosition
+
+AVATAR:
+	Inherits@Error: ^ErrorTag
+	## Reveal all Avatar When Hacked 3 times
+	GrantConditionOnPrerequisite@Hacked.lv3:
+		Prerequisites: RevealUnit
+		Condition: hacked-reveal
+	RevealsShroud@Hacked.lv3--reveal:
+		RequiresCondition: hacked-reveal
+		ValidRelationships: Enemy
+		Range: 5c0
+		Type: GroundPosition
+	AutoTarget:
+		InitialStance: AttackAnything
+
+NAHFAC:
+	Inherits@Error: ^ErrorTag
+	## Reveal all Avatar produce facility when Hacked 3 times
+	GrantConditionOnPrerequisite@Hacked.lv3:
+		Prerequisites: RevealBase
+		Condition: hacked-reveal
+	RevealsShroud@Hacked.lv3--reveal:
+		RequiresCondition: hacked-reveal
+		ValidRelationships: Enemy
+		MaxHeightDelta: 3
+		Range: 10c0
+		Type: CenterPosition
+	Power:
+		RequiresCondition: !error
+
+CABECM:
+	## Allow to use emp when Hacked 2 times
+	ExternalCondition@Hacked.lv2:
+		Condition: allow-disable
+	Armament@2:
+		RequiresCondition: allow-disable
+
+######## Mercenary Shop Related Actors
+HIRE.PRODUCTION.DUMMY:
+	Inherits@3: ^GROUNDDUMMY
+
+	Inherits@4: ^TibMonolithEffect ## For visual and debug
+	SmokeParticleEmitter@acarus:
+		Palette: greentibpal
+
+	AlwaysVisible:
+	ScriptTriggers:
+	Production@HireMercenary:
+		Produces: HireMercenary.Vehicle
+		RequiresCondition: player-nearby
+	FreeActor@EnableDummy:
+		Actor: QueueUpdaterDummy
+		RequiresCondition: player-nearby
+		AllowRespawn: true
+	RevealsShroud:
+		Range: 6c0
+		Type: GroundPosition
+		RequiresCondition: player-nearby
+	Armament@FindPlayerToBuy:
+		Weapon: ShowBuyerDummyWeapon
+		TargetRelationships: Ally
+	AttackOmni:
+	GrantConditionOnAttack:
+		Condition: player-nearby
+		RevokeDelay: 10
+		ArmamentNames: primary
+	AutoTarget:
+		MinimumScanTimeInterval: 23
+		MaximumScanTimeInterval: 23
+		ScanRadius: 5 #PREF: save trait looks up and scan armaments
+	AutoTargetPriority:
+		ValidTargets: Infantry, Vehicle, Air
+		InvalidTargets: Summoned
+		ValidRelationships: Ally
+
+MUTANGRY.WEAPON.DUMMY:
+	Inherits: ^GROUNDDUMMY
+	Inherits@2: ^WithDeathEffects
+	Explodes@SummonTunnelMany:
+		Weapon: TunnelsSummon
+		EmptyWeapon: TunnelsSummon
+	KillsSelf:
+
+MUTVENTSHOP:
+	Inherits: MUTAMBUSHVENT
+	Tooltip:
+		Name: Underground Black Market
+	Health:
+		HP: 150000
+	EditorOnlyTooltip:
+		Name: Black Market (not the actual producer, see .lua)
+	AutoDeployer@AI2:
+		RequiresCondition: AIbuildingMicroControl && Building-Buildup
+		DeployTrigger: Periodically
+		DeployChance: 100
+		DeployTicks: 4
+
+^HireMercenaryDUMMY:
+	Buildable:
+		Queue: HireMercenary.Vehicle
+		BuildDuration: 10
+		BuildDurationModifier: 100
+	RenderSprites:
+	Valued:
+		Cost: 1000
+	Interactable:
+	Tooltip:
+		Name: Hire a guy
+	AlwaysVisible:
+	KillsSelf:
+		RemoveInstead: true
+
+IHIRE.MAR.DUMMY:
+	Inherits@Mercenary: ^HireMercenaryDUMMY
+	Buildable:
+		BuildPaletteOrder: 1
+		Description: "You, pay your bills and get f**king out of my pub!" \n\nGood vs: Infantry\n\nSpecial:\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - Can deploy to increase health and attackrange\n - Crush class: crushable
+	RenderSprites:
+		Image: marauder
+	Valued:
+		Cost: 250
+	Tooltip:
+		Name: Pay the bills for "that guy"
+
+IHIRE.FIEND.DUMMY:
+	Inherits@Mercenary: ^HireMercenaryDUMMY
+	Buildable:
+		BuildPaletteOrder: 2
+		Description: Pet abandonment was a global issue, when Tiberium is a global issue.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - Can attack Air\n - Crush class: crushable\n - Wild mind: Mind only controllable by MasterMind
+	RenderSprites:
+		Image: doggie
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Adopt a "cute doggie"
+
+IHIRE.E3.DUMMY:
+	Inherits@Mercenary: ^HireMercenaryDUMMY
+	Buildable:
+		BuildPaletteOrder: 3
+		Description: Jumping on the top of a damned glowing mushroom is just a daily life of a mutant plumber.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - High attack range\n - Has a minimum attack distance\n - Can shoot over walls\n - Crush class: crushable
+	RenderSprites:
+		Image: e3
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Ask a suspicious "plumber"
+
+VHIRE.LYNX.DUMMY:
+	Inherits@Mercenary: ^HireMercenaryDUMMY
+	Buildable:
+		Description: "Finally, Some uncrushable teammates!".\n\nGood vs: Vehicles\n\nSpecial:\n - Can crush infantry\n - Can attack while moving
+		BuildPaletteOrder: 4
+	RenderSprites:
+		Image: lynx
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Hire an "unlicensed driver"
+
+VHIRE.QUAD.DUMMY:
+	Inherits@Mercenary: ^HireMercenaryDUMMY
+	Buildable:
+		BuildPaletteOrder: 5
+		Description: Midlife is uneasy for him, which reminds you of your "old man" -- C.A.B.A.L. \n\nGood vs: Infantry, Aircraft\n\nSpecial:\n - Provides stealth detection\n - Can crush infantry\n - Can attack while moving
+	RenderSprites:
+		Image: mutquad
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Buy drinks for an "impatient old man"
+
+VHIRE.STRUCK.DUMMY:
+	Inherits@Mercenary: ^HireMercenaryDUMMY
+	Buildable:
+		BuildPaletteOrder: 6
+		Description: "I said, keep your arms and head INSIDE THE BUS!".\n\nGood vs: Depending on occupants\n\nSpecial:\n - Cargo for 5 soldiers\n - Transported infantry can fire out of its windows\n - Infantry inside has increased weapon range\n - Can attack while moving
+	RenderSprites:
+		Image: struck
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Call a pick up

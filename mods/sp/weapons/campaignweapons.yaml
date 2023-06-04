@@ -1,93 +1,116 @@
-#######################################################
-# CREEPS
-#######################################################
-
-WeasaurusShard:
-	Inherits: FiendShard
-	-Burst:
-	Projectile: BulletAS
-		Inaccuracy: 1024
-	Warhead@1Dam: SpreadDamage
-		Damage: 2000
-
-WeasaurusBlueShard:
-	Inherits: WeasaurusShard
-	Projectile: BulletAS
-		Inaccuracy: 1024
-		Palette: apblue
-	Warhead@1Dam: SpreadDamage
-		Damage: 6000
-
-WeasauBabyStrike:
-	Inherits: RavagerStrike
-	Warhead@1Dam: SpreadDamage
-		Damage: 1500
-	-Warhead@emp:
-
-WeasauBlueStrike:
-	Inherits: RavagerStrike
-	Warhead@1Dam: SpreadDamage
-		Damage: 10000
-	Warhead@emp: GrantExternalCondition
-		Duration: 20
-
-GMRLSRocket:
-	Inherits: ^APWarhead
-	Inherits@2: ^Small_Clsn
-	ReloadDelay: 90
-	Range: 12c0
-	Burst: 4
-	Report: hovrmis1.aud
+HackerReconDummyWeapon:
 	ValidTargets: Ground, Water
-	MinRange: 3c0
-	FirstBurstTargetOffset: 0, 450,0
-	FollowingBurstTargetOffset: 0, -300,0
-	Projectile: BulletAS
-		Speed: 350
-		Blockable: false
-		Shadow: false
-		LaunchAngle: 128
-		Image: DRAGON
-		Sequences: idle2
-		Palette: player
-		IsPlayerPalette: true
-		ContrailLength: 4
-		ContrailStartColor: 7777FF88
-		ContrailStartWidth: 0c4
-		ContrailDelay: 0
-		ContrailEndColor: FF5500
-		ContrailEndColorAlpha: 0
-		ContrailFadeWithColor: true
-		ContrailEndWidth: 90
-		-TrailImage:
-	Warhead@1Dam: SpreadDamage
-		Spread: 350
-		Damage: 3000
-		ValidTargets: Ground, Water
-		Versus:
-			Light: 75
-			Heavy: 100
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	InvalidTargets: Hackable, Infantry, Vehicle, Air, Building, Defence
+	Range: 20c0
+	ReloadDelay: 10
+	Projectile: InstantExplode
 
-GMRLSRocketAA:
-	Inherits: HoverMissileAA
-	ReloadDelay: 60
-	Burst: 2
-	BurstDelays: 45
-	Range: 14c0
-	Projectile: MissileTA
-		Speed: 400
-		Blockable: false
-		ContrailLength: 4
-		ContrailStartColor: 7777FF88
-		ContrailStartWidth: 0c4
-		ContrailDelay: 0
-		ContrailEndColor: FF5500
-		ContrailEndColorAlpha: 0
-		ContrailFadeWithColor: true
-		ContrailEndWidth: 90
-		RangeLimit: 17c0
-		-TrailImage:
-		-JetImage:
-	Warhead@1Dam: SpreadDamage
-		Damage: 5000
+HackerHackDummyWeapon:
+	ValidTargets: Hackable
+	Range: 20c0
+	ReloadDelay: 5
+	Projectile: InstantExplode
+
+HackerEMPDummyWeapon:
+	ValidTargets: Defence, Vehicle
+	InvalidTargets: OrganicVehicle
+	Range: 20c0
+	ReloadDelay: 5
+	Projectile: InstantExplode
+
+DroneReconDummyWeapon:
+	ValidTargets: Ground, Air, Water
+	InvalidTargets: Hackable, Infantry, Vehicle, Air, Building, Defence
+	Range: 0c512
+	ReloadDelay: 1900000
+
+DroneHackWeapon:
+	ValidTargets: Hackable
+	Range: 2c0
+	ReloadDelay: 15
+	Report: ucapture.aud
+	TargetActorCenter: true
+	Projectile: LaserZap
+		Color: 00ff0066
+		Duration: 20
+		HitAnim: explosion
+		HitAnimSequence: hack-tiny
+		HitAnimPalette: jascgreenalpha
+	Warhead@1: FlashTarget
+		FlashColor: 00ff0088
+		UsePlayerColor: false
+
+DroneHackWeaponFinal:
+	ValidTargets: Hackable
+	TargetActorCenter: true
+	Range: 2c0
+	ReloadDelay: 1000
+	Projectile: InstantHit
+	Warhead@LuaTrigger: Infiltrates
+		Types: Hackable
+		TextNotification: Hack Complete.
+		PlayerExperience: 25
+		ValidRelationships: Neutral, Enemy
+	Warhead@2Eff: CreateEffect
+		Explosions: hack-small1, hack-small2
+		ExplosionPalette: jascgreenalpha
+		AirThreshold: 8c0
+		Delay: 8
+	Warhead@5cloud: SpawnSmokeParticle
+		Duration: 350
+		Image: explosion
+		StartSequences: hack-small1, hack-small2
+		Sequences: hack-small1, hack-small2
+		EndSequences: hack-small-fade1, hack-small-fade2
+		Palette: jascgreenalpha
+		AirThreshold: 8c0
+		ImpactActors: false
+
+DroneEMPWeapon:
+	Inherits: DroneHackWeapon
+	ValidTargets: Defence, Vehicle
+	InvalidTargets: OrganicVehicle
+
+DroneEMPWeaponFinal:
+	Inherits: DroneHackWeaponFinal
+	ValidTargets: Defence, Vehicle
+	InvalidTargets: OrganicVehicle
+	-Warhead@LuaTrigger
+	Warhead@1: GrantExternalCondition
+		Condition: empdisable
+		Duration: 400
+
+ShowBuyerDummyWeapon:
+	ReloadDelay: 9
+	Range: 5c0
+	ValidTargets: Infantry, Vehicle
+	ValidRelationships: Ally
+	Projectile: LaserZap
+		Width: 0
+		Duration: 0
+		HitAnim: shoptag
+		HitAnimSequence: arrow
+		HitAnimPalette: player
+
+TunnelsSummon:
+	ReloadDelay: 8
+	Range: 3c0
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
+	Projectile: InstantExplode
+	Warhead@4Sharpnel: FireRadius
+		Weapon: Tunnel8RangeScatter
+		ImpactActors: false
+		Amount: 7
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+		Delay: 20
+
+Tunnel8RangeScatter:
+	Range: 8c0
+	ReloadDelay: 10000
+	Report: ssneakat.wav
+	Projectile: InstantHit
+	Warhead@2Spawner: SpawnBuilding
+		Buildings: muvent
+		AirThreshold: 12c0
+		ImpactActors: false

@@ -203,7 +203,7 @@ CIV3:
 		TurnSpeed: 32
 		Locomotor: InfantryCrusherVehicle
 	Health:
-		HP: 37500
+		HP: 35000
 	Turreted:
 		TurnSpeed: 32
 	Armament@PRIMARY:
@@ -1395,10 +1395,8 @@ CAARAY:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2, 2
-	Armor:
-		Type: Concrete
 	Health:
-		HP: 40000
+		HP: 80000
 	RenderSprites:
 		-Palette:
 	WithIdleOverlay@SATELLITE:
@@ -1422,6 +1420,11 @@ FLAGNOD:
 		Palette: unittemred
 	Tooltip:
 		Name: Flag
+	Health:
+		HP: 500
+	Targetable:
+		TargetTypes: Ground, Creep
+	ScriptTriggers:
 
 FLAGMUT:
 	Inherits: FLAGNOD
@@ -2152,8 +2155,13 @@ GASPOT:
 	Armament:
 		Weapon: LightTowerClaxon
 		PauseOnCondition: empdisable
-	GivesCashOnCapture:
-		Amount: 300
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, Defence
+	Sellable:
+		SellSounds: cashturn.aud
+		Notification: StructureSold
+		TextNotification: Structure sold.
+		RequiresCondition: !Building-Buildup
 	AttackOmni:
 	RenderSprites:
 	IsometricSelectable:
@@ -2728,8 +2736,6 @@ MUSTABLE:
 		Cost: 500
 	Tooltip:
 		Name: Training Grounds
-	ProvidesPrerequisite:
-		Prerequisite: tech
 	Building:
 		Footprint: xx xx xx
 		Dimensions: 2,3
@@ -2737,11 +2743,20 @@ MUSTABLE:
 		HP: 23000
 	Armor:
 		Type: Building
-	Power:
-		Amount: -40
+	WithIdleOverlay:
+		Sequence: fiend-overlay
+		IsPlayerPalette: true
+		Palette: playermut
 	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	-WithMindControlArc:
+	-MindControllable:
+	-Targetable@MC:
+	-WithDecoration@mindcontrolled:
 
 ###################################################
 # TIBERIAN DAWN BUILDINGS: cannot be captured
@@ -2749,23 +2764,28 @@ MUSTABLE:
 
 TDADVGTWR:
 	Inherits: ^TurretedDefence
-	Inherits@AA: ^AntiAir
+	Inherits@0: ^8CellVision
+	Inherits@AUTOTARGET: ^AutoTargetAll
 	Buildable:
 		Queue: Defense.Tech
 	Tooltip:
 		Name: Advanced Guard Tower
 	BodyOrientation:
 		QuantizedFacings: 32
+	Health:
+		HP: 100000
 	Armament:
-		Weapon: HoverMissile
+		Weapon: ADVTowerMissile
 		LocalOffset: 500,200,2800, 500,-200,2800
 		PauseOnCondition: Building-Buildup || empdisable
 	Armament@AA:
-		Weapon: HoverMissileAA
+		Weapon: ADVTowerMissileAA
 		LocalOffset: 500,200,2800, 500,-200,2800
 		PauseOnCondition: Building-Buildup || empdisable
 	AutoTarget:
 		ScanRadius: 8 #PREF: save trait looks up and scan armaments
+	RevealsShroud:
+		Type: Footprint
 	RenderSprites:
 	-WithMindControlArc:
 	-MindControllable:
@@ -2784,6 +2804,8 @@ TDADVGTWR:
 	ActorStatValues:
 		Damage: 50
 		SplitRanges: true
+	Power:
+		Amount: -80
 
 ADVHQ:
 	Inherits: ^Radar
@@ -2982,11 +3004,13 @@ TDGTWR:
 		Queue: Defense.Tech
 	Tooltip:
 		Name: Guard Tower
+	Health:
+		HP: 60000
 	Armament:
-		Weapon: WolverineVulcan
+		Weapon: GuradTowerVulcan
 		PauseOnCondition: Building-Buildup || empdisable
 	Armament@2Bullet:
-		Weapon: WolverineVulcanLine
+		Weapon: GuradTowerVulcanLine
 		LocalOffset: 0,-275,1300, 0,275,1300
 		CasingWeapon: CasingDebris
 		CasingSpawnLocalOffset: 0,-275,1300, 0,275,1300
@@ -2994,7 +3018,15 @@ TDGTWR:
 		PauseOnCondition: Building-Buildup || empdisable
 	AttackOmni:
 	AutoTarget:
-		ScanRadius: 6 #PREF: save trait looks up and scan armaments
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
+
+	-WithColoredOverlay@IDISABLE:
+	-GrantConditionOnPowerState@LOWPOWER:
+	-GrantCondition@IDISABLE:
+	-ToggleConditionOnOrder:
+	-WithDecoration@POWERDOWN:
+	-PowerMultiplier@POWERDOWN:
+
 	-WithMindControlArc:
 	-MindControllable:
 	-Targetable@MC:
