@@ -5,8 +5,27 @@ World:
 		Height: 8
 		Orientation: X
 		Length: 20
+	MapOptions:
+		TechLevelDropdownLocked: true
+		TechLevel: nosuperweapons
 	MissionData:
 		Briefing: Assimilate the alien artifact.\n\nAn unknown signal has been detected in this sector... Tactical Value: High... Planning next course of action... Identified unused M.C.V. on the area... Deploying strike team...\n\nPraetor, you shall capture this M.C.V. in my name, establish a base and identify the source of these signals.\n\nC.A.B.A.L. demands any technological advantage that can be salvaged from this object.
+
+Player:
+	UnitBuilderBotModule@AIAll:
+		RequiresCondition: AIBase && enable-ai
+	SquadManagerBotModule@AIBase:
+		RequiresCondition: AIBase && enable-ai
+		-UnitDelays:
+	BaseBuilderBotModule@AIBase:
+		RequiresCondition: AIBase && enable-ai
+	McvManagerASBotModule@AINormal:
+		RequiresCondition: (AIBase || AIEasy) && enable-ai
+	CncEngineerBotModule:
+		RequiresCondition: (AIBase || AIEasy) && enable-ai
+		CapturableActorTypes: well, neutralpowerplant, neutralradar, cahosp, neutralsonictur, caarmr, machineshop, scrinreinfpad, ntpyra.koth, gacnst, mutyard, cabyard, nodyard, drached, nodref, nodref2, nodref3, nodref4
+	ExternalCondition@enable-ai:
+		Condition: enable-ai
 
 SCRINREINFPAD:
 	-PeriodicProducer@GDI:
@@ -18,3 +37,8 @@ SCRINREINFPAD:
 UNITCRATE:
 	GiveUnitCrateAction:
 		Units: reapercab
+
+SGEN:
+	Buildable:
+		Prerequisites: ~disabled
+
