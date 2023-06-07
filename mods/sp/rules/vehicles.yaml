@@ -42,10 +42,12 @@ SMECH:
 	Armament:
 		Weapon: WolverineVulcan
 		PauseOnCondition: empdisable
+		LocalOffset: 0,0,600
 		RequiresCondition: !apammo
 	Armament@AP:
 		Weapon: WolverineVulcanAP
 		PauseOnCondition: empdisable
+		LocalOffset: 0,0,600
 		RequiresCondition: apammo
 	GrantConditionOnAttack:
 		Condition: Attacking
@@ -2042,9 +2044,11 @@ MUTQUAD:
 		MuzzlePalette: effect
 	Armament@1:
 		Weapon: QuadFire
+		LocalOffset: 800,0,370
 		PauseOnCondition: empdisable || attack-air
 	Armament@AA1:
 		Weapon: QuadFireAA
+		LocalOffset: 800,0,370
 		Name: secondary
 		PauseOnCondition: empdisable || attack-ground
 	GrantConditionOnAttack@attackair: ## HACK: ReloadingCondition cannot control well when Burst > 1

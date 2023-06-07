@@ -337,8 +337,9 @@ ApcVulcanAA:
 	Inherits: ApcVulcan
 	Range: 7c0
 	ValidTargets: Air
-	Projectile: InstantHit
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+	Projectile: InstantHit
+		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		Damage: 4000
@@ -366,6 +367,8 @@ ApcVulcanLineAA:
 	Range: 7c0
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+	Projectile: BulletAS
+		Blockable: false
 
 ApcVulcanLineAP:
 	Inherits: ^BulletProjectileCyan
@@ -380,6 +383,8 @@ ApcVulcanLineAPAA:
 	Range: 7c0
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+	Projectile: BulletAS
+		Blockable: false
 
 Titan120mm:
 	Inherits: ^APWarhead
@@ -869,6 +874,7 @@ VulcanTower:
 	Range: 7c0
 	StartBurstReport: chaingn1.aud
 	Projectile: InstantHit
+		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
@@ -883,6 +889,8 @@ VulcanTowerLine:
 	Burst: 4
 	BurstDelays: 1
 	Range: 7c0
+	Projectile: BulletAS
+		Blockable: false
 	ValidTargets: Ground, Water
 
 VulcanTowerLineAP:
@@ -891,6 +899,8 @@ VulcanTowerLineAP:
 	Burst: 4
 	BurstDelays: 1
 	Range: 7c0
+	Projectile: BulletAS
+		Blockable: false
 	ValidTargets: Ground, Water
 
 GdiRedEye:
