@@ -295,7 +295,7 @@ GACNST:
 	BaseProvider:
 		Range: 14c0
 	Targetable:
-		TargetTypes: Building, Ground, C4, SpyInfiltrate, ConsideredValuableForAI
+		TargetTypes: Building, Ground, C4, ConsideredValuableForAI
 	BaseBuilding:
 	Transforms:
 		IntoActor: mcv
@@ -466,9 +466,8 @@ GACNST:
 	ProvidesPrerequisite@anypower:
 		Prerequisite: anypower
 	ProvidesPrerequisite@buildingname:
-	AffectedByPowerOutage:
 	Targetable:
-		TargetTypes: Building, Ground, C4, SpyInfiltrate, Powerplant
+		TargetTypes: Building, Ground, C4, Powerplant
 	ScalePowerWithHealth:
 	Health:
 		HP: 50000
@@ -476,6 +475,7 @@ GACNST:
 		Cost: 300
 	Power:
 		Amount: 100
+		RequiresCondition: !empdisable
 	IsometricSelectable:
 		DecorationHeight: 48
 
@@ -870,12 +870,11 @@ GACNST:
 		OrderName: PowerDown
 	ProvidesRadar:
 		RequiresCondition: !disabled && !empdisable
-	InfiltrateForExploration:
 	DetectCloaked:
 		Range: 10c0
 	RenderDetectionCircle:
 	Targetable:
-		TargetTypes: Building, Ground, C4, SpyInfiltrate
+		TargetTypes: Building, Ground, C4
 	Power:
 		Amount: -75
 	ProvidesPrerequisite@buildingname:

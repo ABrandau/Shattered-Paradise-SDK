@@ -36,10 +36,10 @@ GAPOWR:
 		EditorOptions:
 			powrup: Power Turbine
 	Power@pluga:
-		RequiresCondition: powrup.a
+		RequiresCondition: powrup.a && !empdisable
 		Amount: 100
 	Power@PowerTurbines:
-		RequiresCondition: power_turbines
+		RequiresCondition: power_turbines && !empdisable
 		Amount: 100
 	WithIdleOverlay@pluga:
 		RequiresCondition: powrup.a || power_turbines
