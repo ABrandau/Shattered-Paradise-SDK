@@ -223,6 +223,8 @@ PALLET:
 		Name: Pallet (Supports facings)
 	RenderSprites:
 		Palette: player
+	Targetable:
+		TargetTypes: Ground
 
 BOXSET1:
 	Inherits: ^1x1TurretedCivBuilding
@@ -232,6 +234,10 @@ BOXSET1:
 		Name: Boxes (Supports facings)
 	RenderSprites:
 		Palette: unittem
+	Targetable:
+		TargetTypes: Ground
+	Health:
+		HP: 20000
 	-ThrowsShrapnel@LARGE:
 	ThrowsShrapnel@SMALL:
 		Pieces: 1,3
@@ -441,6 +447,8 @@ SC_TUBES:
 		Name: Pipes (Supports facings)
 	Health:
 		HP: 15000
+	Targetable:
+		TargetTypes: Ground
 	RenderSprites:
 		-Palette:
 		PlayerPalette: playerunittem
@@ -468,6 +476,8 @@ SC_BOXES:
 	ThrowsShrapnel@SMALL:
 		Pieces: 1,3
 		Weapons: SmallDebris
+	Targetable:
+		TargetTypes: Ground
 	-Explodes:
 	-ShakeOnDeath:
 	-Explodes@BuildingFireSmallParticleSpawner:
