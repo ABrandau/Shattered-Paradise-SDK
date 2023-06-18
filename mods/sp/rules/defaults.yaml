@@ -689,8 +689,10 @@
 		Sequence: idle
 		Position: BottomLeft
 		Palette: mouse
-		ValidRelationships: Ally, Enemy
-		RequiresCondition: hospitalheal
+		ValidRelationships: Ally, Enemy, Neutral
+		BlinkPattern: On,On, Off
+		BlinkInterval: 15
+		RequiresCondition: hospitalheal && !FullHealth
 	ExternalCondition@hospitalheal:
 		Condition: hospitalheal
 
@@ -709,9 +711,11 @@
 		Image: wrenchicon
 		Sequence: idle
 		Position: BottomLeft
-		ValidRelationships: Ally, Enemy
+		ValidRelationships: Ally, Enemy, Neutral
 		Palette: player
-		RequiresCondition: MachineShopHeal
+		BlinkPattern: On,On, Off
+		BlinkInterval: 15
+		RequiresCondition: MachineShopHeal && !FullHealth
 
 ^VeinholePoisonVehicle:
 	ChangesHealth@veinholedrain:
