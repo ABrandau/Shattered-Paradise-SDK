@@ -1227,3 +1227,228 @@ WEASAUBLUE2:
 		CrushedSequencePalette: jasccyan
 	RenderSprites:
 		Image: weasaublue2
+
+########### Singlequeue production
+
+Player:
+	ClassicProductionQueue@Building:
+		Type: Building.Shared
+		Group: Building
+		DisplayOrder: 0
+		BuildDurationModifier: 100
+		LowPowerModifier: 200
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		ReadyAudio: ConstructionComplete
+		ReadyTextNotification: Construction complete.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
+		SpeedUp: true
+		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
+	ClassicProductionQueue@Defense:
+		Type: Defense.Shared
+		Group: Defense
+		DisplayOrder: 1
+		BuildDurationModifier: 100
+		LowPowerModifier: 200
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		ReadyAudio: ConstructionComplete
+		ReadyTextNotification: Construction complete.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
+		SpeedUp: true
+		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
+	ClassicProductionQueue@Infantry:
+		Type: Infantry.Shared
+		Group: Infantry
+		DisplayOrder: 2
+		LowPowerModifier: 200
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		ReadyAudio: UnitReady
+		ReadyTextNotification: Unit ready.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
+		SpeedUp: true
+		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
+	ClassicProductionQueue@Vehicle:
+		Type: Vehicle.Shared
+		Group: Vehicle
+		DisplayOrder: 3
+		BuildDurationModifier: 100
+		LowPowerModifier: 200
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		ReadyAudio: UnitReady
+		ReadyTextNotification: Unit ready.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
+		SpeedUp: true
+		BuildTimeSpeedReduction: 100, 80, 65, 50
+	ClassicProductionQueue@Air:
+		Type: Air.Shared
+		Group: Air
+		DisplayOrder: 5
+		BuildDurationModifier: 100
+		LowPowerModifier: 200
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		ReadyAudio: UnitReady
+		ReadyTextNotification: Unit ready.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
+		SpeedUp: true
+		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
+	ClassicProductionQueue@UpgShared:
+		Type: Upgrade.Shared
+		Group: Upgrade
+		DisplayOrder: 25
+		BuildDurationModifier: 100
+		LowPowerModifier: 200
+		AlwaysShowForFactions: gdi, nod, mut, cab, scr
+		QueuedAudio: Upgrading
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		ReadyAudio: UpgradeComplete
+		ReadyTextNotification: Upgrade complete.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
+	Production@Upgrade.Shared:
+		Produces: Upgrade.Shared
+		RequiresCondition: upgrades && !multiqueue
+	LobbyPrerequisiteCheckbox@GLOBALMULTIQUEUE:
+		ID: multiqueue
+		Label: checkbox-multiqueue.label
+		Description: checkbox-multiqueue.description
+		Enabled: True
+		DisplayOrder: 11
+		Prerequisites: global-multiqueue
+	GrantConditionOnPrerequisite@multiqueue:
+		Condition: multiqueue
+		Prerequisites: global-multiqueue
+
+^ProducesStuff
+	PrimaryBuilding:
+		PrimaryCondition: primary
+		SelectionNotification: PrimaryBuildingSelected
+		SelectionTextNotification: Primary building set.
+		RequiresCondition: !multiqueue
+	WithTextDecoration@primary:
+		RequiresSelection: true
+		Text: PRIMARY
+		Position: Top
+		Color: E0D048
+		RequiresCondition: primary && !multiqueue
+	GrantConditionOnPrerequisite@multiqueue:
+		Condition: multiqueue
+		Prerequisites: global-multiqueue
+	FreeActor@Dummy:
+		Actor: QueueUpdaterDummy
+		RequiresCondition: updatequeue
+	GrantConditionAfterDelay:
+		Delay: 1
+		Condition: updatequeue
+		ShowSelectionBar: false
+
+GACNST:
+	GrantConditionOnPrerequisite@multiqueue:
+		Condition: multiqueue
+		Prerequisites: global-multiqueue
+	Production@Shared:
+		Produces: Building.Shared, Defense.Shared
+		PauseOnCondition: empdisable
+		RequiresCondition: !multiqueue
+	ProductionBar@Defense.Shared:
+		ProductionType: Defense.Shared
+		Color: 8A8A8A
+	ProductionBar@Building.Shared:
+		ProductionType: Building.Shared
+	GrantConditionAfterDelay:
+		Delay: 1
+		Condition: updatequeue
+	FreeActor@Dummy:
+		Actor: QueueUpdaterDummy
+		RequiresCondition: updatequeue
+
+^Barracks:
+	Production@Shared:
+		Produces: Infantry.Shared
+		PauseOnCondition: empdisable
+		RequiresCondition: !multiqueue
+	FreeActor@Dummy:
+		Actor: QueueUpdaterDummy
+	ProductionBar@Infantry.Shared:
+		ProductionType: Infantry.Shared
+
+^Factory:
+	Exit@Shared:
+		SpawnOffset: -384,-384,0
+		ExitCell: 3,1
+		ExitDelay: 5
+		ProductionTypes: Vehicle.Shared, Tank
+		RequiresCondition: !multiqueue
+	Production@Shared:
+		Produces: Vehicle.Shared, Tank
+		PauseOnCondition: empdisable
+		RequiresCondition: !multiqueue
+	ProductionBar@Vehicle.Shared:
+		ProductionType: Vehicle.Shared
+
+^Helipad:
+	Production@Shared:
+		Produces: Air.Shared
+		PauseOnCondition: empdisable
+		RequiresCondition: !multiqueue
+	ProductionBar@Air.Shared:
+		ProductionType: Air.Shared
+	FreeActor@Dummy:
+		Actor: QueueUpdaterDummy
+
+GTDROP:
+	ProductionAirdrop@Shared:
+		Produces: Vehicle.Shared, Mammoth
+		ActorType: dshp
+		ReadyAudio: UnitReady
+		PauseOnCondition: disabled || empdisable
+		RequiresCondition: !multiqueue
+	ProductionBar@Vehicle.Shared:
+		ProductionType: Vehicle.Shared
+	Exit@Shared:
+		SpawnOffset: 350,450,0 #-280,400,0
+		ExitCell: 2,2
+		ProductionTypes: Vehicle.Shared, Mammoth
+		RequiresCondition: !multiqueue
+
+NAHFAC:
+	Exit@Shared:
+		ProductionTypes: Tank, Lightbringer
+	Production@Shared:
+		Produces: Tank, Lightbringer
+
+HMECTEST:
+	ProductionTimeMultiplier@2_FACTORY:
+		Multiplier: 80
+		Prerequisites: prerequisite.two_factory, !global-multiqueue
+	ProductionTimeMultiplier@3_FACTORY:
+		Multiplier: 65
+		Prerequisites: prerequisite.three_factory, !global-multiqueue
+	ProductionTimeMultiplier@4_FACTORY:
+		Multiplier: 50
+		Prerequisites: prerequisite.four_factory, !global-multiqueue
+
+SCORPION:
+	ProductionTimeMultiplier@2_FACTORY:
+		Multiplier: 80
+		Prerequisites: prerequisite.two_factory, !global-multiqueue
+	ProductionTimeMultiplier@3_FACTORY:
+		Multiplier: 65
+		Prerequisites: prerequisite.three_factory, !global-multiqueue
+	ProductionTimeMultiplier@4_FACTORY:
+		Multiplier: 50
+		Prerequisites: prerequisite.four_factory, !global-multiqueue

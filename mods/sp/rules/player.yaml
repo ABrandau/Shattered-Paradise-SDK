@@ -14,94 +14,6 @@ Player:
 	Inherits: ^BasePlayer
 	AlwaysVisible:
 	TechTree:
-	ClassicProductionQueue@Building:
-		Type: Building.Shared
-		Group: Building
-		DisplayOrder: 0
-		BuildDurationModifier: 100
-		LowPowerModifier: 200
-		QueuedAudio: Building
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
-		ReadyAudio: ConstructionComplete
-		ReadyTextNotification: Construction complete.
-		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
-		SpeedUp: true
-		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
-	ClassicProductionQueue@Defense:
-		Type: Defense.Shared
-		Group: Defense
-		DisplayOrder: 1
-		BuildDurationModifier: 100
-		LowPowerModifier: 200
-		QueuedAudio: Building
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
-		ReadyAudio: ConstructionComplete
-		ReadyTextNotification: Construction complete.
-		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
-		SpeedUp: true
-		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
-	ClassicProductionQueue@Infantry:
-		Type: Infantry.Shared
-		Group: Infantry
-		DisplayOrder: 2
-		LowPowerModifier: 200
-		QueuedAudio: Building
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
-		ReadyAudio: UnitReady
-		ReadyTextNotification: Unit ready.
-		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
-		SpeedUp: true
-		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
-	ClassicProductionQueue@Vehicle:
-		Type: Vehicle.Shared
-		Group: Vehicle
-		DisplayOrder: 3
-		BuildDurationModifier: 100
-		LowPowerModifier: 200
-		QueuedAudio: Building
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
-		ReadyAudio: UnitReady
-		ReadyTextNotification: Unit ready.
-		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
-		SpeedUp: true
-		BuildTimeSpeedReduction: 100, 80, 65, 50
-	ClassicProductionQueue@Air:
-		Type: Air.Shared
-		Group: Air
-		DisplayOrder: 5
-		BuildDurationModifier: 100
-		LowPowerModifier: 200
-		QueuedAudio: Building
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
-		ReadyAudio: UnitReady
-		ReadyTextNotification: Unit ready.
-		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
-		SpeedUp: true
-		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
-	ClassicProductionQueue@UpgShared:
-		Type: Upgrade.Shared
-		Group: Upgrade
-		DisplayOrder: 25
-		BuildDurationModifier: 100
-		LowPowerModifier: 200
-		AlwaysShowForFactions: gdi, nod, mut, cab, scr
-		QueuedAudio: Upgrading
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
-		ReadyAudio: UpgradeComplete
-		ReadyTextNotification: Upgrade complete.
-		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
 	ClassicProductionQueue@UpgGDI:
 		Type: Upgrade.GDI
 		Group: Upgrade
@@ -172,12 +84,9 @@ Player:
 		ReadyTextNotification: Upgrade complete.
 		LimitedAudio: BuildingInProgress
 		LimitedTextNotification: Unable to comply. Building in progress.
-	Production@Upgrade.Shared:
-		Produces: Upgrade.Shared
-		RequiresCondition: upgrades && !multiqueue
 	Production@Upgrade:
 		Produces: Upgrade.GDI, Upgrade.Nod, Upgrade.Mutant, Upgrade.CABAL, Upgrade.Scrin
-		RequiresCondition: upgrades && multiqueue
+		RequiresCondition: upgrades
 	ProvidesPrerequisite@upgrade.gdi:
 		Prerequisite: upgrade.gdi
 		Factions: gdi
@@ -196,9 +105,6 @@ Player:
 	GrantConditionOnPrerequisite@upgrades:
 		Condition: upgrades
 		Prerequisites: global-upgrades
-	GrantConditionOnPrerequisite@multiqueue:
-		Condition: multiqueue
-		Prerequisites: global-multiqueue
 	GrantConditionOnPrerequisiteManager:
 	EnemyWatcher:
 	PlaceBuilding:
@@ -297,13 +203,6 @@ Player:
 		Enabled: True
 		DisplayOrder: 10
 		Prerequisites: global-swlimit
-	LobbyPrerequisiteCheckbox@GLOBALMULTIQUEUE:
-		ID: multiqueue
-		Label: checkbox-multiqueue.label
-		Description: checkbox-multiqueue.description
-		Enabled: True
-		DisplayOrder: 11
-		Prerequisites: global-multiqueue
 	LobbyPrerequisiteCheckbox@GLOBALUPGRADES:
 		ID: upgrades
 		Label: checkbox-upgrades.label

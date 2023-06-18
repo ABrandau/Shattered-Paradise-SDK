@@ -32,7 +32,7 @@ ENGINEER:
 	Tooltip:
 		Name: Engineer
 	Buildable:
-		Queue: Infantry.Shared, Infantry.GDI, Infantry.Nod
+		Queue: Infantry.GDI, Infantry.Nod
 		BuildPaletteOrder: 11
 		Prerequisites: ~barracks.humanengi, ~techlevel.1, ~AIantiRush-unit-order
 		Description: Support infantry.\n\nGood vs: Buildings\n\nSpecial:\n - Can capture neutral and enemy buildings\n - Can repair buildings and bridges\n - Crush class: crushable
@@ -71,7 +71,7 @@ MCV:
 	Inherits@SELECTIOMODE: ^LowPrioritySelectionMode
 	Inherits@VISION: ^5CellVision
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.GDI
+		Queue: Vehicle.GDI
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 8
 		Prerequisites: ~player.gdi, ~gaweap, ~techlevel.3, ~!global-suddendeath
@@ -129,7 +129,7 @@ HARV:
 	Tooltip:
 		Name: GDI Harvester
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.GDI
+		Queue: Vehicle.GDI
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 1
 		Prerequisites: ~gaweap, proc, ~techlevel.1, ~!global-megawealth
@@ -219,7 +219,7 @@ harv.nod:
 	Tooltip:
 		Name: Nod Harvester
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
+		Queue: Vehicle.Nod, Vehicle.Lightbringer
 		BuildPaletteOrder: 2
 		Prerequisites: ~naweap, proc, ~techlevel.1, ~!global-megawealth
 	RenderSprites:
@@ -230,7 +230,7 @@ harv.mut:
 	Tooltip:
 		Name: Mutant Harvester
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.Mutant
+		Queue: Vehicle.Mutant
 		BuildPaletteOrder: 3
 		Prerequisites: ~muweap, proc, ~techlevel.1, ~!global-megawealth
 	RenderSprites:
@@ -242,7 +242,7 @@ CABHARV:
 	Tooltip:
 		Name: C.A.B.A.L. Harvester
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.CABAL
+		Queue: Vehicle.CABAL
 		BuildPaletteOrder: 4
 		Prerequisites: ~cabweap, proc, ~techlevel.1, ~!global-megawealth
 	RenderSprites:
@@ -258,7 +258,7 @@ SCRHARV:
 	Tooltip:
 		Name: Scrin Harvester
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.Scrin
+		Queue: Vehicle.Scrin
 		BuildPaletteOrder: 5
 		Prerequisites: ~scrweap, proc, ~techlevel.1, ~!global-megawealth
 	Mobile:
@@ -280,7 +280,7 @@ GACNST:
 		BuildSounds: facbld1.aud
 		Dimensions: 3,3
 	Buildable:
-		Queue: Building.Shared, Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
+		Queue: Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
 		BuildPaletteOrder: 996
 		Prerequisites: ~disabled
 		Description: Builds base structures.
@@ -319,14 +319,9 @@ GACNST:
 		CargoType: Vehicle
 		Voice: Move
 		RequiresForceMove: true
-	Production@Shared:
-		Produces: Building.Shared, Defense.Shared
-		PauseOnCondition: empdisable
-		RequiresCondition: !multiqueue
 	Production:
 		Produces: Building.GDI, Defense.GDI
 		PauseOnCondition: empdisable
-		RequiresCondition: multiqueue
 	ProductionQueue@Building:
 		Type: Building.GDI
 		Group: Building
@@ -353,25 +348,11 @@ GACNST:
 		ReadyTextNotification: Construction complete.
 		LimitedAudio: BuildingInProgress
 		LimitedTextNotification: Unable to comply. Building in progress.
-	ProductionBar@Building.Shared:
-		ProductionType: Building.Shared
 	ProductionBar@Building:
 		ProductionType: Building.GDI
-	ProductionBar@Defense.Shared:
-		ProductionType: Defense.Shared
-		Color: 8A8A8A
 	ProductionBar@Defense:
 		ProductionType: Defense.GDI
 		Color: 8A8A8A
-	GrantConditionOnPrerequisite@multiqueue:
-		Condition: multiqueue
-		Prerequisites: global-multiqueue
-	FreeActor@Dummy:
-		Actor: QueueUpdaterDummy
-		RequiresCondition: updatequeue
-	GrantConditionAfterDelay:
-		Delay: 1
-		Condition: updatequeue
 		ShowSelectionBar: false
 	WithIdleOverlay@TOP:
 		RequiresCondition: !Building-Buildup
@@ -503,14 +484,9 @@ GACNST:
 	ExitsDebugOverlay:
 	RallyPoint:
 		ForceSetType: Infantry
-	Production@Shared:
-		Produces: Infantry.Shared
-		PauseOnCondition: empdisable
-		RequiresCondition: !multiqueue
 	Production:
 		Produces: Infantry
 		PauseOnCondition: empdisable
-		RequiresCondition: multiqueue
 	ProductionQueue@Infantry:
 		Type: Infantry
 		Group: Infantry
@@ -523,12 +499,8 @@ GACNST:
 		ReadyTextNotification: Unit ready.
 		LimitedAudio: BuildingInProgress
 		LimitedTextNotification: Unable to comply. Building in progress.
-	ProductionBar@Infantry.Shared:
-		ProductionType: Infantry.Shared
 	ProductionBar@Infantry:
 		ProductionType: Infantry
-	FreeActor@Dummy:
-		Actor: QueueUpdaterDummy
 	Power:
 		Amount: -20
 	GrantConditionOnPrerequisite@megawealth:
@@ -727,29 +699,17 @@ GACNST:
 		Palette: mouse
 		IsPlayerPalette: false
 		ForceSetType: Vehicle
-	Exit@Shared:
-		SpawnOffset: -384,-384,0
-		ExitCell: 3,1
-		ExitDelay: 5
-		ProductionTypes: Vehicle.Shared, Tank
-		RequiresCondition: !multiqueue
 	Exit@Multiqueue:
 		SpawnOffset: -384,-384,0
 		ExitCell: 3,1
 		ExitDelay: 5
-		RequiresCondition: multiqueue
 	Tooltip:
 		Name: War Factory
 	ProvidesPrerequisite@factoryhelipad:
 		Prerequisite: factoryorair
-	Production@Shared:
-		Produces: Vehicle.Shared, Tank
-		PauseOnCondition: empdisable
-		RequiresCondition: !multiqueue
 	Production:
 		Produces: Vehicle
 		PauseOnCondition: empdisable
-		RequiresCondition: multiqueue
 	ProductionQueue@Vehicle:
 		Type: Vehicle
 		Group: Vehicle
@@ -763,8 +723,6 @@ GACNST:
 		ReadyTextNotification: Unit ready.
 		LimitedAudio: BuildingInProgress
 		LimitedTextNotification: Unable to comply. Building in progress.
-	ProductionBar@Vehicle.Shared:
-		ProductionType: Vehicle.Shared
 	ProductionBar@Vehicle:
 		ProductionType: Vehicle
 	Power:
@@ -796,14 +754,9 @@ GACNST:
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 1000
-	Production@Shared:
-		Produces: Air.Shared
-		PauseOnCondition: empdisable
-		RequiresCondition: !multiqueue
 	Production:
 		Produces: Air
 		PauseOnCondition: empdisable
-		RequiresCondition: multiqueue
 	ProductionQueue@Air:
 		Type: Air
 		Group: Air
@@ -817,17 +770,13 @@ GACNST:
 		ReadyTextNotification: Unit ready.
 		LimitedAudio: BuildingInProgress
 		LimitedTextNotification: Unable to comply. Building in progress.
-	ProductionBar@Air.Shared:
-		ProductionType: Air.Shared
 	ProductionBar@Air:
 		ProductionType: Air
-	FreeActor@Dummy:
-		Actor: QueueUpdaterDummy
 	RallyPoint:
 		Palette: mouse
 		IsPlayerPalette: false
 		ForceSetType: Air
-		-Path: ## Aircraft that still go to former target location after resupply, we hide it by using default value
+		-Path: ## Bug: Aircraft that still go to former target location after resupply. We hide this bug by using default value
 	Tooltip:
 		Name: Helipad
 	ProvidesPrerequisite@buildingname:
@@ -954,7 +903,7 @@ GADEPT:
 	Tooltip:
 		Name: Service Depot
 	Buildable:
-		Queue: Building.Shared, Building.GDI, Building.Nod, Building.Mutant, Building.CABAL
+		Queue: Building.GDI, Building.Nod, Building.Mutant, Building.CABAL
 		BuildPaletteOrder: 21
 		Prerequisites: ~structures.human, factoryorair, ~techlevel.3
 		Description: Provides 3 Repair Drones to repair nearby damaged vehicles.\n\nSpecial:\n - Vehicles standing at the center of the building can be sold
@@ -1070,7 +1019,7 @@ SCRDEPOT:
 	Inherits@2: ^ScrinBuildingFire
 	Inherits@RENDER: ^ScrinRenderBuilding
 	Buildable:
-		Queue: Building.Shared, Building.Scrin
+		Queue: Building.Scrin
 		BuildPaletteOrder: 25
 		Prerequisites: ~drached, factoryorair, ~techlevel.3
 		Description: Provides 3 Repair drone to repair nearby damaged vehicles.\n\nSpecial:\n - Vehicles standing at the center of the building can be sold
@@ -1169,7 +1118,7 @@ TECH:
 SHAWALL:
 	Inherits: ^Wall
 	Buildable:
-		Queue: Defense.Shared, Defense.GDI, Defense.CABAL
+		Queue: Defense.GDI, Defense.CABAL
 		BuildPaletteOrder: 1
 		Prerequisites: ~structures.wall, ~techlevel.1
 		Description: Stops infantry, Vehicles and blocks enemy fire.
@@ -1196,7 +1145,7 @@ NAPOST:
 	Inherits: ^Defence
 	Inherits@IDISABLED: ^DisableOnLowPowerOrPowerDown
 	Buildable:
-		Queue: Defense.Shared, Defense.Nod
+		Queue: Defense.Nod
 		BuildPaletteOrder: 2
 		Prerequisites: ~nodyard, napowr, ~techlevel.1
 		Description: Stops infantry and blocks enemy fire\n - Can NOT be crushed\n - Requires power to operate
@@ -1335,7 +1284,7 @@ MUTWALL:
 	Inherits: ^Wall
 	Inherits@RENDER: ^MutRender
 	Buildable:
-		Queue: Defense.Shared, Defense.Mutant
+		Queue: Defense.Mutant
 		BuildPaletteOrder: 3
 		Description: Stops infantry, Vehicles and blocks enemy fire.
 		Prerequisites: ~mutyard, ~techlevel.1
@@ -1359,7 +1308,7 @@ SCRWALL:
 	Inherits: ^Wall
 	Inherits@RENDER: ^ScrinRender
 	Buildable:
-		Queue: Defense.Shared, Defense.Scrin
+		Queue: Defense.Scrin
 		BuildPaletteOrder: 5
 		Description: Stops infantry, Vehicles and blocks enemy fire.
 		Prerequisites: ~drached, ~techlevel.1
@@ -1381,7 +1330,7 @@ GASILO:
 	Inherits: ^Building
 	Inherits@SHAPE: ^2x2Shape
 	Buildable:
-		Queue: Defense.Shared, Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL
+		Queue: Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL
 		BuildPaletteOrder: 31
 		Prerequisites: ~structures.human, proc, ~techlevel.1, ~!global-megawealth
 		Description: Stores excess Tiberium.\n\nSpecial:\n - Stores 3000$\n - Power loss does not affect storage capacity
@@ -1453,7 +1402,7 @@ GASILO:
 	Tooltip:
 		Name: Carryall
 	Buildable:
-		Queue: Air.Shared, Air
+		Queue: Air
 		Description: VTOL aircraft for transporting vehicles.\n\nSpecial:\n - Can transport one vehicle
 		BuildDuration: 250
 		BuildDurationModifier: 100
@@ -1503,7 +1452,7 @@ TRNSPORT:
 	Tooltip:
 		Name: Orca Carryall
 	Buildable:
-		Queue: Air.Shared, Air.GDI
+		Queue: Air.GDI
 		BuildPaletteOrder: 11
 		Prerequisites: ~gahpad, gadept, ~techlevel.4
 	RenderSprites:
@@ -1550,7 +1499,7 @@ trnsport.nod:
 	Tooltip:
 		Name: Nod Carryall
 	Buildable:
-		Queue: Air.Shared, Air.Nod
+		Queue: Air.Nod
 		BuildPaletteOrder: 12
 		Prerequisites: ~nahpad, gadept, ~techlevel.4
 	RenderSprites:
@@ -1579,7 +1528,7 @@ trnsport.mut:
 	Tooltip:
 		Name: Chinook Carryall
 	Buildable:
-		Queue: Air.Shared, Air.Mutant
+		Queue: Air.Mutant
 		BuildPaletteOrder: 13
 		Prerequisites: ~muair, gadept, ~techlevel.4
 	RenderSprites:
@@ -1608,7 +1557,7 @@ trnsport.cab:
 	Tooltip:
 		Name: C.A.B.A.L. Carryall
 	Buildable:
-		Queue: Air.Shared, Air.CABAL
+		Queue: Air.CABAL
 		BuildPaletteOrder: 14
 		Prerequisites: ~cabair, gadept, ~techlevel.4
 	RenderSprites:
@@ -1641,7 +1590,7 @@ trnsport.scr:  ## only used for AI
 	Tooltip:
 		Name: Scrin Carryall
 	Buildable:
-		Queue: Air.Shared, Air.Scrin
+		Queue: Air.Scrin
 		BuildPaletteOrder: 15
 		Prerequisites: ~scrair, scrdepot, ~techlevel.4, ~AIOnly
 	RenderSprites:
@@ -1666,7 +1615,7 @@ NAPULS:
 	Tooltip:
 		Name: EMP Cannon
 	Buildable:
-		Queue: Defense.Shared, Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL
+		Queue: Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL
 		BuildPaletteOrder: 11
 		Prerequisites: ~structures.human, radar, ~techlevel.4, ~!AIEmpBuildLimit
 		Description: Cannon that uses EMP projectiles to disable vehicles.\n\nSpecial:\n - Fires a pulse blast which disables all vehicles and buildings in the area\n - Hover units disabled staying over water will be destroyed instantly\n - Requires power to operate
@@ -1804,7 +1753,7 @@ SCRSHIELD:
 	Tooltip:
 		Name: Stasis Field Generator
 	Buildable:
-		Queue: Defense.Shared, Defense.Scrin
+		Queue: Defense.Scrin
 		BuildPaletteOrder: 15
 		Prerequisites: ~drached, scrradr, ~techlevel.4,  ~!AIEmpBuildLimit
 		BuildDuration: 625
@@ -1823,7 +1772,7 @@ SCRSHIELD:
 GATE_A:
 	Inherits: ^Gate_A
 	Buildable:
-		Queue: Defense.Shared, Defense.GDI, Defense.Nod, Defense.CABAL
+		Queue: Defense.GDI, Defense.Nod, Defense.CABAL
 		BuildPaletteOrder: 6
 		Prerequisites: ~structures.gate, ~techlevel.1
 		Description: Automated barrier that opens for allied units.\nCan be rotated.
@@ -1866,7 +1815,7 @@ MUTGATE_A:
 	Inherits: ^Gate_A
 	Inherits@RENDER: ^MutRender
 	Buildable:
-		Queue: Defense.Shared, Defense.Mutant
+		Queue: Defense.Mutant
 		BuildPaletteOrder: 7
 		Prerequisites: ~mutyard, ~techlevel.1
 		Description: Automated barrier that opens for allied units.\nCan be rotated.
@@ -1894,7 +1843,7 @@ SCRGATE_A:
 	Inherits@2: ^ScrinDefenceFire
 	Inherits@RENDER: ^ScrinRender
 	Buildable:
-		Queue: Defense.Shared, Defense.Scrin
+		Queue: Defense.Scrin
 		BuildPaletteOrder: 10
 		Prerequisites: ~drached, ~techlevel.1
 		Description: Automated barrier that opens for allied units.\nCan be rotated.
