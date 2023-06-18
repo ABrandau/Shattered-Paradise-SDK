@@ -591,7 +591,7 @@
 
 ^Cloakable: ##Mainly used for Nod cloak field effect
 	Cloak@CLOAKGENERATOR:
-		RequiresCondition: cloakgenerator || crate-cloak
+		RequiresCondition: cloakgenerator
 		InitialDelay: 75
 		CloakDelay: 150
 		IsPlayerPalette: true
@@ -599,8 +599,6 @@
 		CloakedCondition: cloaking-self
 	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
-	ExternalCondition@crate-cloak:
-		Condition: crate-cloak
 
 ##Mainly used for Nod cloak field effect, pre-require ^Cloakable
 ^WithTriggerCloakEffect:
@@ -2144,7 +2142,6 @@
 	-ExternalCondition@CHAOS:
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
-	-ExternalCondition@crate-cloak:
 
 	-Chronoshiftable:
 

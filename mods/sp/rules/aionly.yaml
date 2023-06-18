@@ -683,7 +683,7 @@ SGEN:
 		DisableSound: cloak5.aud
 		AffectsParent: true
 	Cloak@CLOAKGENERATOR:
-		RequiresCondition: (improvedsgen && deployed || undeployed) && (cloakgenerator || crate-cloak)
+		RequiresCondition: (improvedsgen && deployed || undeployed) && cloakgenerator
 	WithRangeCircle:
 		Range: 5c0
 		Type: cloakgenerator
@@ -1602,8 +1602,6 @@ MKIIIDRONE-MINIGUN:
 	-TimedConditionBar@CHAOS:
 	-ExternalCondition@CHAOS:
 
-	-ExternalCondition@crate-cloak:
-
 SCRINCOUNCIL: 
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^ScrinAircraftGeneric
@@ -1862,5 +1860,3 @@ COUNCILOR:
 	-WithDecoration@CHAOS:
 	-TimedConditionBar@CHAOS:
 	-ExternalCondition@CHAOS:
-
-	-ExternalCondition@crate-cloak:
