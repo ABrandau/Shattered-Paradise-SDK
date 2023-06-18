@@ -294,23 +294,6 @@
 			TopLeft: -3072, -3072
 			BottomRight: 3072, 3072
 
-^CrateBuffs:
-	SpeedMultiplier@speedcrate:
-		RequiresCondition: speedcrate
-		Modifier: 300
-	FirepowerMultiplier@firepowercrate:
-		RequiresCondition: firepowercrate
-		Modifier: 300
-	DamageMultiplier@damagecrate:
-		RequiresCondition: damagecrate
-		Modifier: 33
-	ExternalCondition@damagecrate:
-		Condition: damagecrate
-	ExternalCondition@firepowercrate:
-		Condition: firepowercrate
-	ExternalCondition@speedcrate:
-		Condition: speedcrate
-
 ^CabalVehicleVoice:
 	Voiced:
 		VoiceSet: CabalVehicle
@@ -442,10 +425,10 @@
 		RequiresCondition: TyrannyBuff
 		Modifier: 120
 	WithDecoration@TyrannyBuff:
-		Image: tibicon
+		Image: zapicon
 		Sequence: idle
 		Position: BottomLeft
-		Palette: mouse
+		Palette: apgreen
 		ValidRelationships: Enemy, Neutral, Ally
 		RequiresCondition: TyrannyBuff
 	ExternalCondition@TyrannyBuff:
@@ -1469,7 +1452,6 @@
 	Inherits@2: ^ScrinEssence
 	Inherits@3: ^Nanomachinebuff
 	Inherits@4: ^FirestormGenBuff
-	Inherits@5: ^CrateBuffs
 	RevealOnFire:
 		Duration: 50
 		Radius: 3c0
@@ -2129,12 +2111,7 @@
 	-DamageMultiplier@firestorm:
 	-ExternalCondition@FirestormWallCondition:
 	-WithDecoration@FirestormWallCondition:
-	-SpeedMultiplier@speedcrate:
-	-FirepowerMultiplier@firepowercrate:
-	-DamageMultiplier@damagecrate:
-	-ExternalCondition@damagecrate:
-	-ExternalCondition@firepowercrate:
-	-ExternalCondition@speedcrate:
+
 	-Berserkable@CHAOS:
 	-RejectsOrders@CHAOS:
 	-WithDecoration@CHAOS:

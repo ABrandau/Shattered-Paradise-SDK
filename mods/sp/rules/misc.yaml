@@ -282,23 +282,22 @@ BUFFCRATE:
 	WithCrateBody:
 		IdleSequence: upgrade
 	GrantExternalConditionCrateAction@cloak:
-		SelectionShares: 20
+		SelectionShares: 33
 		Sequence: stealth
 		Condition: cloakgenerator
-	GrantExternalConditionCrateAction@firepower:
-		SelectionShares: 20
-		Sequence: firepower
-		Condition: firepowercrate
-		Notification: UnitArmourUpgraded
+		TextNotification: Find a personal stealth generator
 	GrantExternalConditionCrateAction@armor:
-		SelectionShares: 20
+		SelectionShares: 33
 		Sequence: armor
-		Condition: damagecrate
+		Condition: VanguardShield
 		Notification: UnitArmourUpgraded
+		TextNotification: Find a personal sheild generator
 	GrantExternalConditionCrateAction@speed:
-		SelectionShares: 20
-		Condition: speedcrate
+		SelectionShares: 33
+		Condition: TyrannyBuff
+		Sound: voltautofire.wav
 		Notification: UnitSpeedUpgraded
+		TextNotification: Find a personal psychic enforcer
 
 UNITCRATE:
 	Inherits: ^PowerupCrate
@@ -368,7 +367,7 @@ CRATE:
 	DuplicateUnitCrateAction:
 		MaxAmount: 4
 		SelectionShares: 80
-		Sequence: levelup
+		Sequence: firepowercrate
 	HideMapCrateAction:
 		SelectionShares: 4
 		Sequence: hide-map
@@ -406,24 +405,22 @@ CRATE:
 		ValidFactions: scr
 		Prerequisites: !hack.no_bases
 	GrantExternalConditionCrateAction@cloak:
-		SelectionShares: 20
+		SelectionShares: 33
 		Sequence: stealth
 		Condition: cloakgenerator
-	GrantExternalConditionCrateAction@firepower:
-		SelectionShares: 20
-		Sequence: firepower
-		Condition: firepowercrate
-		Notification: UnitArmourUpgraded
+		TextNotification: Find a personal stealth generator
 	GrantExternalConditionCrateAction@armor:
-		SelectionShares: 20
+		SelectionShares: 33
 		Sequence: armor
-		Condition: damagecrate
+		Condition: VanguardShield
 		Notification: UnitArmourUpgraded
+		TextNotification: Find a personal sheild generator
 	GrantExternalConditionCrateAction@speed:
-		SelectionShares: 20
-		Condition: speedcrate
+		SelectionShares: 33
+		Condition: TyrannyBuff
+		Sound: voltautofire.wav
 		Notification: UnitSpeedUpgraded
-
+		TextNotification: Find a personal psychic enforcer
 
 GALITE:
 	Inherits: ^CivBuilding
