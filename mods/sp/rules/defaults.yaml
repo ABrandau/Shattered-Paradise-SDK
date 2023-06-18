@@ -1199,8 +1199,10 @@
 		StartsFullyCharged: true
 		PauseOnCondition: empdisable
 		RequiresCondition: tibconversion && !megawealth
-	ExplodeWeapon@TIBCONVERSION:
-		Weapon: AnhTripodAbsorb
+	SpawnSparks@TIBCONVERSION:
+		Interval: 3
+		SparkWeapon: AnhTripodAbsorb
+		Amount: 1
 		RequiresCondition: !empdisable && absorbTib
 	ExternalCondition@TIBCONVERSION:
 		Condition: charge

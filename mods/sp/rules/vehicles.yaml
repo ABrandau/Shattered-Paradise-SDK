@@ -1924,8 +1924,10 @@ SCORPION:
 		DeployChance: 100
 		DeployTicks: 2255
 		UndeployTicks: 1
-	ExplodeWeapon@Deployed:
-		Weapon: RageEmitter
+	SpawnSparks@Deployed:
+		SparkWeapon: RageEmitter
+		Amount: 1
+		Interval: 999999
 		RequiresCondition: rage
 	-Targetable@MC:
 	Carryable:
@@ -2591,9 +2593,14 @@ WEASAU:
 		DeployedTicks: 500
 		StartsFullyCharged: true
 		DischargingColor: FF0000
-	ExplodeWeapon:
-		Weapon: WeasaurusCall
+	SpawnSparks@Deployed:
+		SparkWeapon: WeasaurusCall
+		Amount: 1
+		Interval: 9999999
 		LocalOffset: 0,0,2000
+		LaunchEffectImage: explosion
+		LaunchEffectSequences: call
+		LaunchEffectPalette: effectalpha50
 		RequiresCondition: deployed
 	SpeedMultiplier@melee:
 		Modifier: 200

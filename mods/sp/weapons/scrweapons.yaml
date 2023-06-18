@@ -94,11 +94,14 @@ ColossiShard:
 ColossiBlast:
 	ReloadDelay: 5
 	Range: 8c0
+	Projectile: InstantExplode
+	ValidTargets: Ground, Water, Air
 	Warhead@8Radio: CreateTintedCells
 		Spread: 1c128
 		Level: 30
 		Falloff: 100, 85, 60, 45, 30, 15
 		LayerName: ColossusRadiation
+		AirThreshold: 8c0
 
 FloatTesla:
 	ReloadDelay: 75
@@ -484,6 +487,7 @@ AnhTripodAbsorb:
 	Range: 8c0
 	ValidTargets: Ground, Air, Water
 	ReloadDelay: 3
+	Projectile: InstantExplode
 	Warhead@op: FireRadius
 		Weapon: AbsorbShrapnel
 		ValidTargets: Ground, Air, Water

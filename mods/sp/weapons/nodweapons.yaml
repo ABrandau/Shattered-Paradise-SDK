@@ -419,35 +419,47 @@ FlameHoloShrapnel:
 	ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
 	ReloadDelay: 300
 	Range: 2c0
-	Projectile: InstantHit
+	Projectile: InstantExplode
 	Warhead@op: FireRadius
 		Weapon: FlameHologram
 		ImpactActors: false
 		Amount: 4
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
 	Warhead@5Actor: SpawnActor
 		FallRate: 5000
 		Range: 5
 		Delay: 10
-		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
 		Actors: tickhologram
+		ForceGround: true
+		Image: explosion
+		Sequence: holosmoke2
+		Palette: cyanjascpal
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+		ImpactActors: false
 
 FlameHologram:
 	ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
 	ReloadDelay: 300
 	Range: 2c0
 	Projectile: InstantHit
-	ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+	ValidTargets: Ground, Water, Air
 	Warhead@5Actor: SpawnActor
 		Actors: flamehologram
 		FallRate: 5000
 		Range: 5
+		ForceGround: true
 		Delay: 10
-		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+		ImpactActors: false
 	Warhead@4EffAir: CreateEffect
 		Explosions: holosmoke1, holosmoke2, holosmoke3, holosmoke4
 		ExplosionPalette: cyanjascpal
-		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+		ImpactActors: false
 
 SpectreCannon:
 	Inherits: ^ArtilleryWarhead

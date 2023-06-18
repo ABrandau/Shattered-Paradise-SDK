@@ -230,8 +230,10 @@ IONBEAMMINI:
 	WithSpriteBody@m2:
 		Sequence: muzzle2
 		Name: m2
-	ExplodeWeapon:
-		Weapon: IonScorch
+	SpawnSparks:
+		Interval: 2
+		SparkWeapon: IonScorch
+		Amount: 1
 	HiddenUnderFog:
 		AlwaysVisibleRelationships: Ally, Enemy, Neutral
 
@@ -313,8 +315,10 @@ FOGCAMERADUMMY:
 		Type: CenterPosition
 		MaxHeightDelta: 3
 		Range: 4c0
-	ExplodeWeapon@2:
-		Weapon: VeinholeEggElevator
+	SpawnSparks@Deployed:
+		Interval: 800
+		SparkWeapon: VeinholeEggElevator
+		Amount: 1
 
 SCRINESSENCESMALL:
 	Inherits: ^GROUNDDUMMY

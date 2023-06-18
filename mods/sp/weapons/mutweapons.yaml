@@ -275,7 +275,7 @@ SparkExplo:
 	ReloadDelay: 10
 	Range: 5c0
 	Projectile: InstantExplode
-	ValidTargets: Ground, Water
+	ValidTargets: Ground, Water, Air
 	Warhead@op: FireShrapnel
 		Weapon: SeerTeslaSpark
 		ImpactActors: false
@@ -284,10 +284,12 @@ SparkExplo:
 		ThrowWithoutTarget: false
 		AimChance: 100
 		AimTargetStances: Ally
-		ValidTargets: Ground, Water
+		AirThreshold: 8c0
+		ValidTargets: Ground, Water, Air
 
 SeerTeslaSpark:
 	Inherits: SeerTesla
+	ValidTargets: Infantry, Vehicle
 	Range: 5c0
 	Projectile: TeslaZap
 		Palette: apgreen
@@ -903,12 +905,6 @@ WeasaurusCall:
 		Image: explosion
 		Sequence: wood_vfx_11
 		Palette: orgatemblue
-	Warhead@2Eff: CreateEffect
-		Explosions: call
-		ExplosionPalette: effectalpha50
-		ImpactActors: false
-		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
-		AirThreshold: 8c0
 
 WeasaurusStrikeGreen:
 	Inherits: WeasaurusStrike
@@ -958,13 +954,6 @@ WeasaurusSpitGreen:
 		ImpactActors: false
 		ValidTargets: Ground, Water, Air
 		AirThreshold: 8c0
-
-WeasaurusCallGreen:
-	Inherits: WeasaurusCall
-	-Warhead@5Actor:
-	Warhead@2Eff: CreateEffect
-		Explosions: call2
-		ExplosionPalette: effectalpha50
 
 MineTrigger:
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air

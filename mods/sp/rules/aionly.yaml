@@ -497,9 +497,12 @@ WEASAU3:
 		DeployedTicks: 500
 		StartsFullyCharged: true
 		DischargingColor: FF0000
-	ExplodeWeapon:
-		Weapon: WeasaurusCallGreen
+	SpawnSparks@Deployed:
+		Interval: 9999999
 		LocalOffset: 0,0,1800
+		LaunchEffectImage: explosion
+		LaunchEffectSequences: call2
+		LaunchEffectPalette: effectalpha50
 		RequiresCondition: deployed
 	SpeedMultiplier@melee:
 		Modifier: 200
@@ -965,8 +968,10 @@ M_EMP:
 		CooldownTicks: 1600
 		DeployedTicks: 1
 		StartsFullyCharged: true
-	ExplodeWeapon@Deployed:
-		Weapon: MEMPulse
+	SpawnSparks@Deployed:
+		Interval: 9999999
+		SparkWeapon: MEMPulse
+		Amount: 1
 		RequiresCondition: empSpawn
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage
@@ -1667,7 +1672,7 @@ SCRINCOUNCIL:
 		Palette: jascpurplealpha
 		RequiresCondition: NormalAttack
 		IsDecoration: true ## so this doesn't affect by cloak palette
-	ExplodeWeapon@NormalWeapon:
+	ExplodeWeapon@NormalWeapon: ## Use ExplodeWeapon for its Reload speed modifier
 		LocalOffset: 0,0,-1128
 		Weapon: CouncilazerElevator
 		RequiresCondition: NormalAttack

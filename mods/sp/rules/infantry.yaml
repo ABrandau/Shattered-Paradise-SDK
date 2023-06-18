@@ -906,8 +906,10 @@ NCONF:
 		CooldownTicks: 4000
 		DeployedTicks: 10
 		StartsFullyCharged: true
-	ExplodeWeapon@Deployed:
-		Weapon: FlameHoloShrapnel
+	SpawnSparks@Deployed:
+		SparkWeapon: FlameHoloShrapnel
+		Amount: 1
+		Interval: 999999
 		RequiresCondition: HologramSpawn
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage
@@ -1472,11 +1474,15 @@ SEER:
 		DeployedTicks: 60
 		StartsFullyCharged: true
 		PauseOnCondition: WebDisable
-	ExplodeWeapon:
-		Weapon: SeerTyranyBuff
+	SpawnSparks@buff:
+		SparkWeapon: SeerTyranyBuff
+		Amount: 1
+		Interval: 999999
 		RequiresCondition: deployed
-	ExplodeWeapon@2:
-		Weapon: SparkExplo
+	SpawnSparks@dec:
+		SparkWeapon: SparkExplo
+		Amount: 1
+		Interval: 10
 		RequiresCondition: deployed
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage
@@ -1861,8 +1867,10 @@ COLOSSI:
 	WithSpriteBody@deployed:
 		Sequence: deployed
 		RequiresCondition: !undeployed && !WebDisable
-	ExplodeWeapon@deploy:
-		Weapon: ColossiBlast
+	SpawnSparks@deploy:
+		SparkWeapon: ColossiBlast
+		Amount: 1
+		Interval: 10
 		RequiresCondition: deployed && !WebDisable
 	WithIdleOverlay@deploy:
 		Sequence: colossideploy

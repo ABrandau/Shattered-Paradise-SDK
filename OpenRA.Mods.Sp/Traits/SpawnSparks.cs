@@ -122,11 +122,11 @@ namespace OpenRA.Mods.Sp.Traits
 						Facing = default,
 						CurrentMuzzleFacing = () => default,
 
-						DamageModifiers = new int[] { 1 },
+						DamageModifiers = new int[] { 100 },
 
-						InaccuracyModifiers = new int[] { 1 },
+						InaccuracyModifiers = new int[] { 100 },
 
-						RangeModifiers = new int[] { 1 },
+						RangeModifiers = new int[] { 100 },
 						Source = epicenter,
 						CurrentSource = () => epicenter,
 						SourceActor = self,

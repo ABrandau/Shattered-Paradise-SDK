@@ -401,17 +401,18 @@ jfish:
 	GrantConditionOnAttack@JellyAttackPrepare:
 		Condition: attack
 		ArmamentNames: primary
-	ExplodeWeapon@ElectricTentacle:
-		Weapon: ElectricTentacle
+	SpawnSparks@ElectricTentacle:
+		Interval: 10
+		SparkWeapon: ElectricTentacle
+		Amount: 1
 		RequiresCondition: attack
 	AutoTarget:
 		ScanRadius: 6
 		InitialStance: AttackAnything
 	WithAttackAnimation:
 		Sequence: attack
-	AttackFrontal:
+	AttackFollow:
 		Voice: Attack
-		FacingTolerance: 2
 	AttackWander:
 		WanderMoveRadius: 1
 		ReduceMoveRadiusDelay: 5
