@@ -5,6 +5,12 @@ QueueUpdaterDummy:
 	KillsSelf:
 		RemoveInstead: true
 
+## Used for no base game mode
+hack.no_bases:
+	Interactable:
+	AlwaysVisible:
+	ProvidesPrerequisite@upgradename:
+
 ## Used for flying dummy ignore terrain type while moving
 ^DUMMYAIRCRAFT:
 	Inherits: ^SpriteActor
@@ -60,26 +66,6 @@ QueueUpdaterDummy:
 ########################################################
 # Dummy Instances
 #######################################################
-
-NukeCrateDummy:
-	Inherits: ^DUMMYAIRCRAFT
-	Inherits: ^HasMisslePower
-	NukePower:
-		CircleRanges:
-			1: 15c0
-		-PauseOnCondition:
-	-RevealsShroud:
-
-HealerNukeDummy:
-	Inherits: NukeCrateDummy
-	NukePower:
-		CircleRanges:
-			1: 15c0
-		InsufficientPowerSound:
-		MissileWeapons:
-			1: HealerNuke
-		OrderName: HealerNuke
-
 VISIONACTOR:
 	Inherits: ^DUMMYAIRCRAFT
 	RevealsShroud:

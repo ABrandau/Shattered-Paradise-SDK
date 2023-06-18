@@ -344,14 +344,13 @@ CRATE:
 		Sequence: dollar
 		UseCashTick: true
 		Prerequisites: !hack.no_bases
-	SupportPowerCrateAction@nuke:
-		SelectionShares: 4
-		Proxy: NukeCrateDummy
-		Sequence: nuke
-	SupportPowerCrateAction@trollnuke:
-		SelectionShares: 1
-		Proxy: HealerNukeDummy
-		Sequence: nuke
+	GiveUnitCrateAction@nuke:
+		Units: icbm
+		SelectionShares: 5
+	#SupportPowerCrateAction@trollnuke:
+	#	SelectionShares: 1
+	#	Proxy: HealerNukeDummy
+	#	Sequence: nuke
 	#GiveUnitCrateAction@fabricator:
 	#	Units: neutralfabricator
 	#	SelectionShares: 50
@@ -424,10 +423,6 @@ CRATE:
 		Condition: speedcrate
 		Notification: UnitSpeedUpgraded
 
-hack.no_bases:
-	Interactable:
-	AlwaysVisible:
-	ProvidesPrerequisite@upgradename:
 
 GALITE:
 	Inherits: ^CivBuilding
