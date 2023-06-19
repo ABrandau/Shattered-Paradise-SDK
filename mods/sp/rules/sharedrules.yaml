@@ -66,10 +66,21 @@ ENGINEER:
 		Notification: EnemyEngineerDetected
 		TextNotification: Enemy engineer detected.
 
+^SuddenDeathTag: ## TODO: Add visual tag
+	TooltipDescription@Enemy:
+		Description: Destroy it to checkmate!
+		ValidRelationships: Enemy
+		RequiresCondition: suddendeath
+	TooltipDescription@Ally:
+		Description: Protect it at all cost!
+		ValidRelationships: Ally
+		RequiresCondition: suddendeath
+
 MCV:
 	Inherits: ^Vehicle
 	Inherits@SELECTIOMODE: ^LowPrioritySelectionMode
 	Inherits@VISION: ^5CellVision
+	Inherits@SuddenDeathRequired: ^SuddenDeathTag
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
@@ -275,6 +286,7 @@ GACNST:
 	Inherits: ^Building
 	Inherits@SHAPE: ^3x3Shape
 	Inherits@AIbuilding: ^AIbuildingMicroControl
+	Inherits@SuddenDeathRequired: ^SuddenDeathTag
 	Building:
 		Footprint: xxx xxx xxx
 		BuildSounds: facbld1.aud
@@ -1927,6 +1939,39 @@ SCRGATE_B:
 		Icon: icon
 		IconPalette: chromescrin
 		TooltipActor: scrgate_a
+
+KING:
+	Inherits: ^Walker
+	Inherits@SuddenDeathRequired: ^SuddenDeathTag
+	-Valued:
+	Health:
+		HP: 65000
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
+	Tooltip:
+		Name: King Drone
+	TooltipDescription@Enemy:
+		-RequiresCondition:
+	TooltipDescription@Ally:
+		-RequiresCondition:
+	Mobile:
+		TurnSpeed: 24
+		Speed: 90
+		Locomotor: Vehicle
+	Armor:
+		Type: Light
+	Selectable:
+		Priority: 4
+		Bounds: 980, 2390, 0, -1006
+	MustBeDestroyed:
+		RequiredForShortGame: true
+		-RequiresCondition:
+	GrantConditionWhenEnableShortGame:
+		Condition: shortgame-enabled
+	KillsSelf:
+		RemoveInstead: true
+		RequiresCondition: !shortgame-enabled && !suddendeath
 
 ^SuperSupportPowerBased:
 	NukePower:
