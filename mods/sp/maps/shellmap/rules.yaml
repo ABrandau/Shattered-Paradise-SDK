@@ -2,6 +2,8 @@ Player:
 	-ConquestVictoryConditions:
 	Shroud:
 		FogCheckboxEnabled: False
+	LobbyPrerequisiteCheckbox@GLOBALMULTIQUEUE:
+		Enabled: false
 
 ^BaseWorld:
 	TerrainLighting:
@@ -62,6 +64,9 @@ BIGBLUE:
 ^ProducesStuff:
 	GrantExternalConditionToProduced:
 		Condition: produced
+
+^Barracks:
+	-ProximityExternalCondition@hospitalheal:
 
 GAPOWR:
 	Power:
