@@ -261,7 +261,7 @@ MeetMercenaryMessage = function()
 		if IsShopAngry then
 			return
 		end
-		Tip("You can deal with Mercenaries by moving your unit to the Black Market, then see the 'Vehicle' production tab. \nKill/Destroy their property will make them mad!")
+		Tip("You can deal with Mercenaries by moving your unit to the Black Market, then build unit on the 'Infantry' production tab. \nKill/Destroy their property will make them mad!")
 	end)
 end
 

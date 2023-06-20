@@ -62,10 +62,10 @@ Player:
 	ProvidesPrerequisite@RevealUnit:
 		Prerequisite: RevealUnit
 		RequiresCondition: revealunit
-	##### Mercenaries Shop Related
+	##### Mercenaries Shop Related (for mutiqueue)
 	ClassicProductionQueue@HireMercenary:
-		Type: HireMercenary.Vehicle
-		Group: Vehicle
+		Type: Infantry.Mercenary
+		Group: Infantry
 		DisplayOrder: 27
 		DisallowPaused: true
 		InstantCashDrain: true
@@ -240,6 +240,14 @@ CABECM:
 		RequiresCondition: allow-disable
 
 ######## Mercenary Shop Related Actors
+MUTANGRY.WEAPON.DUMMY:
+	Inherits: ^GROUNDDUMMY
+	Inherits@2: ^WithDeathEffects
+	Explodes@SummonTunnelMany:
+		Weapon: TunnelsSummon
+		EmptyWeapon: TunnelsSummon
+	KillsSelf:
+
 HIRE.PRODUCTION.DUMMY:
 	Inherits@3: ^GROUNDDUMMY
 
@@ -249,9 +257,21 @@ HIRE.PRODUCTION.DUMMY:
 
 	AlwaysVisible:
 	ScriptTriggers:
-	Production@HireMercenary:
-		Produces: HireMercenary.Vehicle
+
+	ProvidesPrerequisite:
+		Prerequisite: mercenary
 		RequiresCondition: player-nearby
+	GrantConditionOnPrerequisite@multiqueue:
+		Condition: multiqueue
+		Prerequisites: global-multiqueue
+	## 1. Use "Infantry.Shared" on single queue production
+	Production@Shared: 
+		Produces: Infantry.Shared, Hire
+		RequiresCondition: player-nearby && !multiqueue
+	## 2. Use "Infantry.Mercenary" on multi-queue production
+	Production@Multiqueue: 
+		Produces: Infantry.Mercenary, Hire
+		RequiresCondition: player-nearby && multiqueue
 	FreeActor@EnableDummy:
 		Actor: QueueUpdaterDummy
 		RequiresCondition: player-nearby
@@ -277,14 +297,6 @@ HIRE.PRODUCTION.DUMMY:
 		InvalidTargets: Summoned
 		ValidRelationships: Ally
 
-MUTANGRY.WEAPON.DUMMY:
-	Inherits: ^GROUNDDUMMY
-	Inherits@2: ^WithDeathEffects
-	Explodes@SummonTunnelMany:
-		Weapon: TunnelsSummon
-		EmptyWeapon: TunnelsSummon
-	KillsSelf:
-
 MUTVENTSHOP:
 	Inherits: MUTAMBUSHVENT
 	Tooltip:
@@ -301,7 +313,9 @@ MUTVENTSHOP:
 
 ^HireMercenaryDUMMY:
 	Buildable:
-		Queue: HireMercenary.Vehicle
+		Queue: Infantry.Shared, Infantry.Mercenary
+		BuildAtProductionType: Hire
+		Prerequisites: ~mercenary
 		BuildDuration: 10
 		BuildDurationModifier: 100
 	RenderSprites:
@@ -317,7 +331,7 @@ MUTVENTSHOP:
 IHIRE.MAR.DUMMY:
 	Inherits@Mercenary: ^HireMercenaryDUMMY
 	Buildable:
-		BuildPaletteOrder: 1
+		BuildPaletteOrder: 990
 		Description: "Then, pay your bills and get f**king out of my pub!" \n\nGood vs: Infantry\n\nSpecial:\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - Can deploy to increase health and attackrange\n - Crush class: crushable
 	RenderSprites:
 		Image: marauder
@@ -329,7 +343,7 @@ IHIRE.MAR.DUMMY:
 IHIRE.FIEND.DUMMY:
 	Inherits@Mercenary: ^HireMercenaryDUMMY
 	Buildable:
-		BuildPaletteOrder: 2
+		BuildPaletteOrder: 991
 		Description: Pet abandonment was a global issue, when Tiberium is a global issue.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - Can attack Air\n - Crush class: crushable\n - Wild mind: Mind only controllable by MasterMind
 	RenderSprites:
 		Image: doggie
@@ -341,7 +355,7 @@ IHIRE.FIEND.DUMMY:
 IHIRE.E3.DUMMY:
 	Inherits@Mercenary: ^HireMercenaryDUMMY
 	Buildable:
-		BuildPaletteOrder: 3
+		BuildPaletteOrder: 992
 		Description: Jumping on the top of a damned glowing mushroom is just a daily life of a mutant plumber.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - High attack range\n - Has a minimum attack distance\n - Can shoot over walls\n - Crush class: crushable
 	RenderSprites:
 		Image: e3
@@ -354,7 +368,7 @@ VHIRE.LYNX.DUMMY:
 	Inherits@Mercenary: ^HireMercenaryDUMMY
 	Buildable:
 		Description: "Finally, Some uncrushable teammates!".\n\nGood vs: Vehicles\n\nSpecial:\n - Can crush infantry\n - Can attack while moving
-		BuildPaletteOrder: 4
+		BuildPaletteOrder: 993
 	RenderSprites:
 		Image: lynx
 	Valued:
@@ -365,7 +379,7 @@ VHIRE.LYNX.DUMMY:
 VHIRE.QUAD.DUMMY:
 	Inherits@Mercenary: ^HireMercenaryDUMMY
 	Buildable:
-		BuildPaletteOrder: 5
+		BuildPaletteOrder: 994
 		Description: Midlife is uneasy for him, which reminds you of your "old man" -- C.A.B.A.L. \n\nGood vs: Infantry, Aircraft\n\nSpecial:\n - Provides stealth detection\n - Can crush infantry\n - Can attack while moving
 	RenderSprites:
 		Image: mutquad
@@ -377,7 +391,7 @@ VHIRE.QUAD.DUMMY:
 VHIRE.STRUCK.DUMMY:
 	Inherits@Mercenary: ^HireMercenaryDUMMY
 	Buildable:
-		BuildPaletteOrder: 6
+		BuildPaletteOrder: 995
 		Description: "I said, keep your arms and head INSIDE THE BUS!".\n\nGood vs: Depending on occupants\n\nSpecial:\n - Cargo for 5 soldiers\n - Transported infantry can fire out of its windows\n - Infantry inside has increased weapon range\n - Can attack while moving
 	RenderSprites:
 		Image: struck
