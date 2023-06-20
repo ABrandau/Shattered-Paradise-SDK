@@ -1,4 +1,4 @@
-MapFormat: 11
+MapFormat: 12
 
 RequiresMod: sp
 
@@ -29,7 +29,6 @@ Players:
 		Enemies: GDI, Nod, Cabal, Mutants, Scrin
 	PlayerReference@GDI:
 		Name: GDI
-		Bot: SPAI
 		LockFaction: True
 		Faction: gdi
 		LockColor: True
@@ -37,7 +36,6 @@ Players:
 		Enemies: Cabal, Mutants, Scrin, Nod, Creeps
 	PlayerReference@Scrin:
 		Name: Scrin
-		Bot: SPAI
 		LockFaction: True
 		Faction: scr
 		LockColor: True
@@ -45,7 +43,6 @@ Players:
 		Enemies: GDI, Cabal, Nod, Creeps
 	PlayerReference@Nod:
 		Name: Nod
-		Bot: SPAI
 		LockFaction: True
 		Faction: nod
 		LockColor: True
@@ -53,7 +50,6 @@ Players:
 		Enemies: GDI, Cabal, Mutants, Scrin, Creeps
 	PlayerReference@Cabal:
 		Name: Cabal
-		Bot: SPAI
 		LockFaction: True
 		Faction: cab
 		LockColor: True
@@ -61,7 +57,6 @@ Players:
 		Enemies: GDI, Mutants, Scrin, Nod, Creeps
 	PlayerReference@Mutants:
 		Name: Mutants
-		Bot: SPAI
 		LockFaction: True
 		Faction: mut
 		LockColor: True
@@ -2577,9 +2572,10 @@ Actors:
 		Owner: Mutants
 		Location: 144,-22
 		SubCell: 2
-		Facing: 368
 		DeployState: Deployed
 		Stance: Defend
+		Facing: 368
+		TurretFacing: 0
 	Actor1110: marauder
 		Owner: Mutants
 		Location: 172,-1
@@ -4260,11 +4256,12 @@ Actors:
 		Owner: Scrin
 		Location: 72,62
 		Facing: 896
+		Stance: HoldFire
 	ScrinTripod: tripod
 		Owner: Scrin
 		Location: 72,60
-		Facing: 896
 		Stance: Defend
+		Facing: 896
 	Actor1531: scrmobmine
 		Owner: Scrin
 		Location: 92,63
