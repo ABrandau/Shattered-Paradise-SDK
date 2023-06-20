@@ -4,15 +4,22 @@ World:
 	MapBuildRadius:
 		AllyBuildRadiusCheckboxLocked: true
 		AllyBuildRadiusCheckboxEnabled: true
+		AllyBuildRadiusCheckboxVisible: false
+
 		BuildRadiusCheckboxLocked: true
 		BuildRadiusCheckboxEnabled: true
+		BuildRadiusCheckboxVisible: false
 	MapOptions:
 		TechLevelDropdownLocked: true
+		TechLevelDropdownVisible: false
+
 		ShortGameCheckboxLocked: true
 		ShortGameCheckboxEnabled: true
+		ShortGameCheckboxVisible: false
 	CrateSpawner:
 		CheckboxEnabled: false
 		CheckboxLocked: true
+		CheckboxVisible: false
 	LuaScript:
 		Scripts: lua/utils.lua, lua/players.lua, lua/objectives.lua, lua/actors.lua, lua/world.lua, mission.lua
 	ObjectivesPanel:
@@ -22,15 +29,59 @@ Player:
 	-ConquestVictoryConditions:
 	MissionObjectives:
 		EarlyGameOver: true
-	EnemyWatcher:
+	LobbyPrerequisiteCheckbox@GLOBALMULTIQUEUE:
+		Enabled: True
+		Locked: true
+		Visible: false
+	LobbyPrerequisiteCheckbox@GLOBALUPGRADES:
+		Enabled: True
+		Locked: true
+		Visible: false
+	LobbyPrerequisiteCheckbox@INSTANTCAPTURE:
+		Enabled: False
+		Locked: true
+		Visible: false
+	LobbyPrerequisiteCheckbox@FREEMINIMAP:
+		Enabled: true
+		Locked: true
+		Visible: false
+	LobbyPrerequisiteCheckbox@GLOBALSWLIMIT:
+		Enabled: True
+		Locked: true
+		Visible: false
+	LobbyPrerequisiteCheckbox@DOMINATION:
+		Enabled: False
+		Locked: true
+		Visible: false
+	LobbyPrerequisiteCheckbox@MEGAWEALTH:
+		Enabled: False
+		Locked: true
+		Visible: false
+	LobbyPrerequisiteCheckbox@KOTH:
+		Enabled: False
+		Locked: true
+		Visible: false
+	LobbyPrerequisiteCheckbox@SUDDENDEATH:
+		Enabled: False
+		Locked: true
+		Visible: false
+
+	DeveloperMode:
+		CheckboxEnabled: false
+		CheckboxLocked: true
+		CheckboxVisible: false
 	Shroud:
 		FogCheckboxLocked: true
 		FogCheckboxEnabled: true
+		FogCheckboxVisible: false
+
 		ExploredMapCheckboxLocked: true
 		ExploredMapCheckboxEnabled: false
+		ExploredMapCheckboxVisible: false
 	PlayerResources:
 		DefaultCashDropdownLocked: true
 		DefaultCash: 5000
+		DefaultCashDropdownVisible: false
 	##AI
 	## Use Easy AI for basic AI logic like load and unload,
 	## so we remove the builder and squad manager from Easy AI
