@@ -16,12 +16,10 @@ using OpenRA.Mods.Common.Traits;
 using OpenRA.Primitives;
 using OpenRA.Traits;
 
-/** Deprecated and will be replaced by upstream (AutoCrusher)
- * Remove this class after the next engine upgrade,
- * and change the related YAML to AutoCrusher **/
+// Deprecated and will be replaced by upstream (AutoCrusher)
 namespace OpenRA.Mods.SP.Traits
 {
-	class AutoCrusherSPInfo : PausableConditionalTraitInfo, Requires<IMoveInfo>
+	sealed class AutoCrusherSPInfo : PausableConditionalTraitInfo, Requires<IMoveInfo>
 	{
 		[Desc("Maximum range to scan for targets.")]
 		public readonly WDist ScanRadius = WDist.FromCells(5);
@@ -41,20 +39,20 @@ namespace OpenRA.Mods.SP.Traits
 		public override object Create(ActorInitializer init) { return new AutoCrusherSP(init.Self, this); }
 	}
 
-	class AutoCrusherSP : PausableConditionalTrait<AutoCrusherSPInfo>, INotifyIdle
+	sealed class AutoCrusherSP : PausableConditionalTrait<AutoCrusherSPInfo>, INotifyIdle
 	{
 		int nextScanTime;
 		readonly IMoveInfo moveInfo;
 		readonly bool isAircraft;
-		protected readonly IMove Move;
+		readonly IMove move;
 
 		public AutoCrusherSP(Actor self, AutoCrusherSPInfo info)
 			: base(info)
 		{
-			Move = self.Trait<IMove>();
+			move = self.Trait<IMove>();
 			moveInfo = self.Info.TraitInfo<IMoveInfo>();
 			nextScanTime = self.World.SharedRandom.Next(Info.MinimumScanTimeInterval, Info.MaximumScanTimeInterval);
-			isAircraft = Move is Aircraft;
+			isAircraft = move is Aircraft;
 		}
 
 		void INotifyIdle.TickIdle(Actor self)
@@ -76,7 +74,7 @@ namespace OpenRA.Mods.SP.Traits
 			if (isAircraft)
 				self.QueueActivity(new Land(self, Target.FromActor(crushableActor), targetLineColor: moveInfo.GetTargetLineColor()));
 			else
-				self.QueueActivity(Move.MoveTo(crushableActor.Location, targetLineColor: moveInfo.GetTargetLineColor()));
+				self.QueueActivity(move.MoveTo(crushableActor.Location, targetLineColor: moveInfo.GetTargetLineColor()));
 
 			nextScanTime = self.World.SharedRandom.Next(Info.MinimumScanTimeInterval, Info.MaximumScanTimeInterval);
 		}

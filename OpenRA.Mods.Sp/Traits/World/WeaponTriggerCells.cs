@@ -8,7 +8,7 @@ namespace OpenRA.Mods.TA.Traits
 {
 	[Desc("A layer that support weapon like infernal cannon like in cnc General, used by TA")]
 	[TraitLocation(SystemActors.World | SystemActors.EditorWorld)]
-	public class WeaponTriggerCellsInfo : TraitInfo
+	public sealed class WeaponTriggerCellsInfo : TraitInfo
 	{
 		[Desc("Name of the layer type")]
 		public readonly string Name = "";
@@ -22,12 +22,12 @@ namespace OpenRA.Mods.TA.Traits
 		public override object Create(ActorInitializer init) { return new WeaponTriggerCells(init.Self, this); }
 	}
 
-	class TriggerCell
+	sealed class TriggerCell
 	{
 		public int Level;
 	}
 
-	public class WeaponTriggerCells : INotifyActorDisposing, ITick, ITickRender
+	public sealed class WeaponTriggerCells : INotifyActorDisposing, ITick, ITickRender
 	{
 		readonly World world;
 		public readonly WeaponTriggerCellsInfo Info;

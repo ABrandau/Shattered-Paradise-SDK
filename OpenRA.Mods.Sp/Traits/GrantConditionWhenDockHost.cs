@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.Sp.Traits
 {
-	public class GrantConditionWhenDockHostInfo : TraitInfo
+	public sealed class GrantConditionWhenDockHostInfo : TraitInfo
 	{
 		[FieldLoader.Require]
 		[GrantedConditionReference]
@@ -22,9 +20,9 @@ namespace OpenRA.Mods.Sp.Traits
 		public override object Create(ActorInitializer init) { return new GrantConditionWhenDockHost(this); }
 	}
 
-	public class GrantConditionWhenDockHost : INotifyDockHost, ITick, ISync
+	public sealed class GrantConditionWhenDockHost : INotifyDockHost, ITick, ISync
 	{
-		GrantConditionWhenDockHostInfo info;
+		readonly GrantConditionWhenDockHostInfo info;
 		int token;
 		int delayedtoken;
 
@@ -40,7 +38,7 @@ namespace OpenRA.Mods.Sp.Traits
 
 		void INotifyDockHost.Docked(Actor self, Actor client)
 		{
-			if (info.Condition != null && info.DockClientNames == null ? true : info.DockClientNames.Contains(client.Info.Name))
+			if ((info.Condition != null && info.DockClientNames == null) || info.DockClientNames.Contains(client.Info.Name))
 			{
 				if (token == Actor.InvalidConditionToken)
 					token = self.GrantCondition(info.Condition);

@@ -6,7 +6,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Sp.Traits
 {
-	public class GrantConditionWhenDockClientInfo : TraitInfo
+	public sealed class GrantConditionWhenDockClientInfo : TraitInfo
 	{
 		[FieldLoader.Require]
 		[GrantedConditionReference]
@@ -22,7 +22,7 @@ namespace OpenRA.Mods.Sp.Traits
 		public override object Create(ActorInitializer init) { return new GrantConditionWhenDockClient(this); }
 	}
 
-	public class GrantConditionWhenDockClient : INotifyDockClient, ITick, ISync
+	public sealed class GrantConditionWhenDockClient : INotifyDockClient, ITick, ISync
 	{
 		GrantConditionWhenDockClientInfo info;
 		int token;

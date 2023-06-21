@@ -22,15 +22,15 @@ namespace OpenRA.Mods.SP.Traits
 {
 	public struct FirePortSP
 	{
-		public Armament[] armaments;
-		public IFacing paxFacing;
-		public IPositionable paxPos;
-		public RenderSprites paxRender;
+		public Armament[] Armaments;
+		public IFacing PaxFacing;
+		public IPositionable PaxPos;
+		public RenderSprites PaxRender;
 		public int PortIndex;
 	}
 
 	[Desc("Cargo can fire their weapons out of fire ports.")]
-	public class AttackGarrisonedSPInfo : AttackFollowInfo, IRulesetLoaded, Requires<CargoInfo>
+	public sealed class AttackGarrisonedSPInfo : AttackFollowInfo, IRulesetLoaded, Requires<CargoInfo>
 	{
 		[FieldLoader.Require]
 		[Desc("Fire port offsets in local coordinates.")]
@@ -46,13 +46,13 @@ namespace OpenRA.Mods.SP.Traits
 		}
 	}
 
-	public class AttackGarrisonedSP : AttackFollow, INotifyPassengerEntered, INotifyPassengerExited, IRender
+	public sealed class AttackGarrisonedSP : AttackFollow, INotifyPassengerEntered, INotifyPassengerExited, IRender
 	{
 		public new readonly AttackGarrisonedSPInfo Info;
 		readonly Lazy<BodyOrientation> coords;
+		readonly Dictionary<Actor, FirePortSP> ports = new();
 		readonly Dictionary<AnimationWithOffset, string> muzzles = new();
 		INotifyAttack[] notifyAttacks;
-		Dictionary<Actor, FirePortSP> ports = new();
 
 		public AttackGarrisonedSP(Actor self, AttackGarrisonedSPInfo info)
 			: base(self, info)
@@ -78,7 +78,7 @@ namespace OpenRA.Mods.SP.Traits
 				{
 					var port = ports[pass];
 
-					foreach (var arm in port.armaments)
+					foreach (var arm in port.Armaments)
 						arms.Add(arm);
 				}
 
@@ -86,17 +86,17 @@ namespace OpenRA.Mods.SP.Traits
 			};
 		}
 
-		int CurrentPortIndex;
+		int currentPortIndex;
 		void INotifyPassengerEntered.OnPassengerEntered(Actor self, Actor passenger)
 		{
-			CurrentPortIndex = (CurrentPortIndex + 1) % Info.PortOffsets.Length;
+			currentPortIndex = (currentPortIndex + 1) % Info.PortOffsets.Length;
 			var port = new FirePortSP
 			{
-				armaments = passenger.TraitsImplementing<Armament>().Where(a => Info.Armaments.Contains(a.Info.Name)).ToArray(),
-				paxFacing = passenger.Trait<IFacing>(),
-				paxPos = passenger.Trait<IPositionable>(),
-				paxRender = passenger.Trait<RenderSprites>(),
-				PortIndex = CurrentPortIndex,
+				Armaments = passenger.TraitsImplementing<Armament>().Where(a => Info.Armaments.Contains(a.Info.Name)).ToArray(),
+				PaxFacing = passenger.Trait<IFacing>(),
+				PaxPos = passenger.Trait<IPositionable>(),
+				PaxRender = passenger.Trait<RenderSprites>(),
+				PortIndex = currentPortIndex,
 			};
 
 			ports[passenger] = port;
@@ -127,13 +127,13 @@ namespace OpenRA.Mods.SP.Traits
 			{
 				var port = ports[pass];
 
-				foreach (var arm in port.armaments)
+				foreach (var arm in port.Armaments)
 				{
 					if (arm.IsTraitDisabled)
 						continue;
 
-					port.paxFacing.Facing = targetYaw;
-					port.paxPos.SetCenterPosition(pass, pos + PortOffset(self, port));
+					port.PaxFacing.Facing = targetYaw;
+					port.PaxPos.SetCenterPosition(pass, pos + PortOffset(self, port));
 
 					var barrel = arm.CheckFire(pass, facing, target);
 					if (barrel == null)
@@ -142,7 +142,7 @@ namespace OpenRA.Mods.SP.Traits
 					if (arm.Info.MuzzleSequence != null)
 					{
 						// Muzzle facing is fixed once the firing starts
-						var muzzleAnim = new Animation(self.World, port.paxRender.GetImage(pass), () => targetYaw);
+						var muzzleAnim = new Animation(self.World, port.PaxRender.GetImage(pass), () => targetYaw);
 						var sequence = arm.Info.MuzzleSequence;
 						var muzzleFlash = new AnimationWithOffset(muzzleAnim,
 							() => PortOffset(self, port),

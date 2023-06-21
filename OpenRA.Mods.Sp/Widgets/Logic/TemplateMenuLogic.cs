@@ -14,7 +14,7 @@ using OpenRA.Widgets;
 
 namespace OpenRA.Mods.Example.Widgets.Logic
 {
-	public class TemplateMenuLogic : ChromeLogic
+	public sealed class TemplateMenuLogic : ChromeLogic
 	{
 		[ObjectCreator.UseCtor]
 		public TemplateMenuLogic(Widget widget, World world, ModData modData)

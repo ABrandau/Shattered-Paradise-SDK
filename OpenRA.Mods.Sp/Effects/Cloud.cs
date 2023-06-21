@@ -16,7 +16,7 @@ using OpenRA.Mods.Sp.Traits;
 
 namespace OpenRA.Mods.Sp.Effects
 {
-	class Cloud : IEffect, ISpatiallyPartitionable
+	sealed class Cloud : IEffect, ISpatiallyPartitionable
 	{
 		readonly World world;
 		readonly Animation animation;

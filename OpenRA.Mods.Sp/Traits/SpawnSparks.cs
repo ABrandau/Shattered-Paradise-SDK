@@ -7,7 +7,7 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.Sp.Traits
 {
 	[Desc("Support spark weapons spawning or just simply generates an effect after an interval.")]
-	class SpawnSparksInfo : ConditionalTraitInfo, IRulesetLoaded
+	sealed class SpawnSparksInfo : ConditionalTraitInfo, IRulesetLoaded
 	{
 		[WeaponReference]
 		[Desc("Interval of each spark spawning.")]
@@ -62,13 +62,13 @@ namespace OpenRA.Mods.Sp.Traits
 		}
 	}
 
-	class SpawnSparks: ConditionalTrait<SpawnSparksInfo>, ITick
+	sealed class SpawnSparks : ConditionalTrait<SpawnSparksInfo>, ITick
 	{
 		readonly SpawnSparksInfo info;
 		readonly WeaponInfo weapon;
 		readonly BodyOrientation body;
-		bool hasWeapon;
-		bool hasLaunchEffect;
+		readonly bool hasWeapon;
+		readonly bool hasLaunchEffect;
 
 		int interval;
 
@@ -157,6 +157,5 @@ namespace OpenRA.Mods.Sp.Traits
 			if (info.ResetReloadWhenEnabled)
 				interval = 0;
 		}
-
 	}
 }

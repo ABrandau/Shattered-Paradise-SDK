@@ -17,7 +17,7 @@ namespace OpenRA.Mods.SP.Traits
 {
 	[TraitLocation(SystemActors.Player)]
 	[Desc("Lets the player (AI) generate cash in a set of rules.")]
-	public class CashCheaterInfo : PausableConditionalTraitInfo, IRulesetLoaded
+	public sealed class CashCheaterInfo : PausableConditionalTraitInfo, IRulesetLoaded
 	{
 		public readonly int CashAmountForEachHarvester = 0;
 		public readonly int MaxCashAmountForHarvester = 0;
@@ -46,7 +46,7 @@ namespace OpenRA.Mods.SP.Traits
 		public override object Create(ActorInitializer init) { return new CashCheater(this); }
 	}
 
-	public class CashCheater : PausableConditionalTrait<CashCheaterInfo>, ITick, ISync, INotifyCreated
+	public sealed class CashCheater : PausableConditionalTrait<CashCheaterInfo>, ITick, ISync, INotifyCreated
 	{
 		readonly CashCheaterInfo info;
 		PlayerResources resources;

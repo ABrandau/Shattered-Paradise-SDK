@@ -23,7 +23,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.SP.Projectiles
 {
-	public class AreaBeamSPInfo : IProjectileInfo
+	public sealed class AreaBeamSPInfo : IProjectileInfo
 	{
 		[Desc("Projectile speed in WDist / tick, two values indicate a randomly picked velocity per beam.")]
 		public readonly WDist[] Speed = { new WDist(128) };
@@ -35,19 +35,19 @@ namespace OpenRA.Mods.SP.Projectiles
 		public readonly int DamageInterval = 3;
 
 		[Desc("The width of the beam.")]
-		public readonly WDist Width = new WDist(512);
+		public readonly WDist Width = new(512);
 
 		[Desc("The shape of the beam.  Accepts values Cylindrical or Flat.")]
 		public readonly BeamRenderableShape Shape = BeamRenderableShape.Cylindrical;
 
 		[Desc("How far beyond the target the projectile keeps on travelling.")]
-		public readonly WDist BeyondTargetRange = new WDist(0);
+		public readonly WDist BeyondTargetRange = new(0);
 
 		[Desc("Damage modifier applied at each range step.")]
 		public readonly int[] Falloff = { 100, 100 };
 
 		[Desc("Ranges at which each Falloff step is defined.")]
-		public readonly WDist[] Range = { WDist.Zero, new WDist(int.MaxValue) };
+		public readonly WDist[] Range = { WDist.Zero, new(int.MaxValue) };
 
 		[Desc("Can this projectile be blocked when hitting actors with an IBlocksProjectiles trait.")]
 		public readonly bool Blockable = false;
@@ -71,7 +71,7 @@ namespace OpenRA.Mods.SP.Projectiles
 		public readonly Color SecondColor = Color.Red;
 
 		[Desc("The width of the second beam.")]
-		public readonly WDist SecondWidth = new WDist(256);
+		public readonly WDist SecondWidth = new(256);
 
 		[Desc("Image containing hit effect sequence.")]
 		public readonly string HitEffectImage = null;
@@ -107,7 +107,7 @@ namespace OpenRA.Mods.SP.Projectiles
 		}
 	}
 
-	public class AreaBeamSP : IProjectile, ISync
+	public sealed class AreaBeamSP : IProjectile, ISync
 	{
 		readonly AreaBeamSPInfo info;
 		readonly ProjectileArgs args;

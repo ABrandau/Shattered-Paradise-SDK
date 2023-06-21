@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using OpenRA.GameRules;
+﻿using OpenRA.GameRules;
 using OpenRA.Mods.Common.Effects;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Traits;
@@ -10,7 +6,7 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.Sp.Traits
 {
 	[Desc("Launch weapon or/and generate sprite effect when created or deploying.")]
-	class WithMakeExplodeWeaponInfo : TraitInfo, IRulesetLoaded
+	sealed class WithMakeExplodeWeaponInfo : TraitInfo, IRulesetLoaded
 	{
 		[WeaponReference]
 		[FieldLoader.AllowEmptyEntries]
@@ -66,13 +62,13 @@ namespace OpenRA.Mods.Sp.Traits
 		}
 	}
 
-	class WithMakeExplodeWeapon : INotifyCreated, INotifyDeployTriggered
+	sealed class WithMakeExplodeWeapon : INotifyCreated, INotifyDeployTriggered
 	{
-		WithMakeExplodeWeaponInfo info;
+		readonly WithMakeExplodeWeaponInfo info;
 		readonly bool skipMakeAnimation;
-		BodyOrientation body;
-		bool hasWeapon;
-		bool hasLaunchEffect;
+		readonly BodyOrientation body;
+		readonly bool hasWeapon;
+		readonly bool hasLaunchEffect;
 
 		public WithMakeExplodeWeapon(ActorInitializer init, WithMakeExplodeWeaponInfo info)
 		{
@@ -152,14 +148,14 @@ namespace OpenRA.Mods.Sp.Traits
 			}
 		}
 
-		protected virtual WRot CalculateMuzzleOrientation(Actor self)
+		WRot CalculateMuzzleOrientation(Actor self)
 		{
 			return WRot.FromYaw(info.FireYaw).Rotate(self.Orientation);
 		}
 
 		void INotifyDeployTriggered.Deploy(Actor self, bool skipMakeAnim)
 		{
-			if(info.ExplodesWhenDeploy)
+			if (info.ExplodesWhenDeploy)
 				LaunchWeapon(self);
 		}
 

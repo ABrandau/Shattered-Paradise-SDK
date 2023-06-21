@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using OpenRA.GameRules;
-using OpenRA.Mods.Cnc.Traits;
+﻿using OpenRA.GameRules;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.Common.Warheads;
 using OpenRA.Primitives;
@@ -9,7 +7,7 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.Sp.Warheads
 {
 	[Desc("Hack: This warhead only used for mission to trigger the lua trigger. It only calls victim's INotifyInfiltrated and doesn't directly affect the one who fire it")]
-	class InfiltratesWarhead : Warhead
+	sealed class InfiltratesWarhead : Warhead
 	{
 		[Desc("Infiltrate will be applied to actors in this area. A value of zero means only targeted actor will be damaged.")]
 		public readonly WDist Spread = WDist.Zero;
@@ -58,7 +56,7 @@ namespace OpenRA.Mods.Sp.Warheads
 						return;
 
 					playerExp = firedBy.Owner.PlayerActor.TraitOrDefault<PlayerExperience>();
-					Infiltrate(victim, firedBy, closestActiveShape, args);
+					Infiltrate(victim, firedBy);
 				}
 
 				return;
@@ -95,11 +93,11 @@ namespace OpenRA.Mods.Sp.Warheads
 				// Summary: when find victim actors, OpenRA ignores height,
 				// but when calculate hitshape, most of damage warhead will
 				// consider height.
-				Infiltrate(victim, firedBy, closestActiveShape, args);
+				Infiltrate(victim, firedBy);
 			}
 		}
 
-		protected virtual void Infiltrate(Actor victim, Actor firedBy, HitShape shape, WarheadArgs args)
+		void Infiltrate(Actor victim, Actor firedBy)
 		{
 			if (!Types.Overlaps(victim.GetEnabledTargetTypes()) || !ValidRelationships.HasRelationship(firedBy.Owner.RelationshipWith(victim.Owner)))
 				return;

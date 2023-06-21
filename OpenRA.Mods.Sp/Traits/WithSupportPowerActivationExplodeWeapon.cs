@@ -18,7 +18,7 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.SP.Traits
 {
 	[Desc("Trigger an weapon when a support power is triggered. Mainly for visual effect")]
-	public class WithSupportPowerActivationExplodeWeaponInfo : PausableConditionalTraitInfo
+	public sealed class WithSupportPowerActivationExplodeWeaponInfo : PausableConditionalTraitInfo
 	{
 		[WeaponReference]
 		[FieldLoader.Require]
@@ -53,7 +53,7 @@ namespace OpenRA.Mods.SP.Traits
 		}
 	}
 
-	public class WithSupportPowerActivationExplodeWeapon : PausableConditionalTrait<WithSupportPowerActivationExplodeWeaponInfo>, INotifySupportPower, ITick
+	public sealed class WithSupportPowerActivationExplodeWeapon : PausableConditionalTrait<WithSupportPowerActivationExplodeWeaponInfo>, INotifySupportPower, ITick
 	{
 		readonly WithSupportPowerActivationExplodeWeaponInfo info;
 		readonly WeaponInfo weapon;
@@ -62,7 +62,7 @@ namespace OpenRA.Mods.SP.Traits
 		int fireDelay;
 		int burst;
 
-		readonly List<(int Delay, Action Action)> delayedActions = new List<(int Delay, Action Action)>();
+		readonly List<(int Delay, Action Action)> delayedActions = new();
 
 		public WithSupportPowerActivationExplodeWeapon(Actor self, WithSupportPowerActivationExplodeWeaponInfo info)
 			: base(info)
@@ -173,7 +173,7 @@ namespace OpenRA.Mods.SP.Traits
 			}
 		}
 
-		protected void ScheduleDelayedAction(int t, Action a)
+		void ScheduleDelayedAction(int t, Action a)
 		{
 			if (t > 0)
 				delayedActions.Add((t, a));
@@ -181,7 +181,7 @@ namespace OpenRA.Mods.SP.Traits
 				a();
 		}
 
-		protected virtual WRot CalculateMuzzleOrientation(Actor self)
+		WRot CalculateMuzzleOrientation(Actor self)
 		{
 			return WRot.FromYaw(Info.FireYaw).Rotate(self.Orientation);
 		}

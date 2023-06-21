@@ -25,7 +25,7 @@ namespace OpenRA.Mods.Sp.Traits
 	[Desc("Manages AI minelayer unit related with Minelayer traits.",
 		"When enemy damage AI's actors, the location of conflict will be recorded,",
 		"If a location is confirmed as can lay mine, it will add/merge to favorite location")]
-	public class MinelayerBotModuleInfo : ConditionalTraitInfo
+	public sealed class MinelayerBotModuleInfo : ConditionalTraitInfo
 	{
 		[Desc("Enemy target types to ignore when add the minefield location to conflict location.")]
 		public readonly BitSet<TargetableType> IgnoredEnemyTargetTypes = default;
@@ -63,9 +63,9 @@ namespace OpenRA.Mods.Sp.Traits
 		public override object Create(ActorInitializer init) { return new MinelayerBotModule(init.Self, this); }
 	}
 
-	public class MinelayerBotModule : ConditionalTrait<MinelayerBotModuleInfo>, IBotTick, IBotRespondToAttack
+	public sealed class MinelayerBotModule : ConditionalTrait<MinelayerBotModuleInfo>, IBotTick, IBotRespondToAttack
 	{
-		const int maxPositionCacheLength = 5;
+		const int MaxPositionCacheLength = 5;
 		const int RepeatedAltertTicks = 40;
 
 		readonly World world;
@@ -74,12 +74,12 @@ namespace OpenRA.Mods.Sp.Traits
 		readonly Predicate<Actor> unitCannotBeOrderedOrIsBusy;
 		readonly Predicate<Actor> unitCannotBeOrderedOrIsIdle;
 
-		readonly List<UnitWposWrapper> activeMinelayers = new List<UnitWposWrapper>();
-		readonly List<Actor> stuckMinelayers = new List<Actor>();
-		int minAssignRoleDelayTicks;
-		CPos?[] conflictPositionQueue;
-		CPos?[] favoritePositions;
+		readonly List<UnitWposWrapper> activeMinelayers = new();
+		readonly List<Actor> stuckMinelayers = new();
+		readonly CPos?[] conflictPositionQueue;
+		readonly CPos?[] favoritePositions;
 
+		int minAssignRoleDelayTicks;
 		int conflictPositionLength;
 		int favoritePositionsLength;
 		int currentFavoritePositionIndex;
@@ -95,8 +95,8 @@ namespace OpenRA.Mods.Sp.Traits
 			unitCannotBeOrdered = a => a == null || a.IsDead || !a.IsInWorld || a.Owner != player;
 			unitCannotBeOrderedOrIsBusy = a => unitCannotBeOrdered(a) || (!a.IsIdle && !(a.CurrentActivity is FlyIdle));
 			unitCannotBeOrderedOrIsIdle = a => unitCannotBeOrdered(a) || a.IsIdle || a.CurrentActivity is FlyIdle;
-			conflictPositionQueue = new CPos?[maxPositionCacheLength] { null, null, null, null, null };
-			favoritePositions = new CPos?[maxPositionCacheLength] { null, null, null, null, null };
+			conflictPositionQueue = new CPos?[MaxPositionCacheLength] { null, null, null, null, null };
+			favoritePositions = new CPos?[MaxPositionCacheLength] { null, null, null, null, null };
 		}
 
 		protected override void TraitEnabled(Actor self)
@@ -142,12 +142,12 @@ namespace OpenRA.Mods.Sp.Traits
 				while (conflictPositionLength > 0)
 				{
 					minelayingPosition = conflictPositionQueue[0].Value;
-					var check = HasInvalidActorInCircle(world.Map.CenterOfCell(minelayingPosition), WDist.FromCells(Info.AwayFromCellDistance));
-					if (check.hasInvalidActors)
+					var (hasInvalidActors, hasEnemyNearby) = HasInvalidActorInCircle(world.Map.CenterOfCell(minelayingPosition), WDist.FromCells(Info.AwayFromCellDistance));
+					if (hasInvalidActors)
 						DequeueFirstConflictPosition();
 					else
 					{
-						layMineOnHalfway = check.hasEnemyNearby;
+						layMineOnHalfway = hasEnemyNearby;
 						break;
 					}
 				}
@@ -190,8 +190,8 @@ namespace OpenRA.Mods.Sp.Traits
 						while (favoritePositionsLength > 0)
 						{
 							minelayingPosition = favoritePositions[currentFavoritePositionIndex].Value;
-							var check = HasInvalidActorInCircle(world.Map.CenterOfCell(minelayingPosition), WDist.FromCells(Info.AwayFromCellDistance));
-							if (check.hasInvalidActors)
+							var (hasInvalidActors, hasEnemyNearby) = HasInvalidActorInCircle(world.Map.CenterOfCell(minelayingPosition), WDist.FromCells(Info.AwayFromCellDistance));
+							if (hasInvalidActors)
 							{
 								DeleteCurrentFavoritePosition();
 								if (favoritePositionsLength == 0)
@@ -199,7 +199,7 @@ namespace OpenRA.Mods.Sp.Traits
 							}
 							else
 							{
-								layMineOnHalfway = check.hasEnemyNearby;
+								layMineOnHalfway = hasEnemyNearby;
 								useFavoritePosition = true;
 								break;
 							}
@@ -279,7 +279,7 @@ namespace OpenRA.Mods.Sp.Traits
 			favoritePositions[favoritePositionsLength - 1] = null;
 
 			if (--favoritePositionsLength > 0)
-				currentFavoritePositionIndex = currentFavoritePositionIndex % favoritePositionsLength;
+				currentFavoritePositionIndex %= favoritePositionsLength;
 		}
 
 		void AddPositionToFavoritePositions(CPos cpos)
@@ -324,7 +324,7 @@ namespace OpenRA.Mods.Sp.Traits
 			return !targetTypes.IsEmpty && !targetTypes.Overlaps(Info.IgnoredEnemyTargetTypes);
 		}
 
-		(bool hasInvalidActors, bool hasEnemyNearby) HasInvalidActorInCircle(WPos pos, WDist dist)
+		(bool HasInvalidActors, bool HasEnemyNearby) HasInvalidActorInCircle(WPos pos, WDist dist)
 		{
 			var hasInvalidActor = false;
 			var hasEnemyActor = false;
@@ -351,13 +351,13 @@ namespace OpenRA.Mods.Sp.Traits
 
 		void EnqueueConflictPosition(CPos cPos)
 		{
-			if (conflictPositionLength < maxPositionCacheLength)
+			if (conflictPositionLength < MaxPositionCacheLength)
 			{
 				conflictPositionQueue[conflictPositionLength] = cPos;
 				conflictPositionLength++;
 			}
 			else
-				conflictPositionQueue[maxPositionCacheLength - 1] = cPos;
+				conflictPositionQueue[MaxPositionCacheLength - 1] = cPos;
 		}
 
 		void IBotRespondToAttack.RespondToAttack(IBot bot, Actor self, AttackInfo e)
@@ -367,7 +367,7 @@ namespace OpenRA.Mods.Sp.Traits
 
 			alertedTicks = RepeatedAltertTicks;
 
-			var hasInvalidActor = HasInvalidActorInCircle(self.CenterPosition, WDist.FromCells(Info.AwayFromCellDistance)).hasInvalidActors;
+			var hasInvalidActor = HasInvalidActorInCircle(self.CenterPosition, WDist.FromCells(Info.AwayFromCellDistance)).HasInvalidActors;
 
 			if (hasInvalidActor)
 				return;

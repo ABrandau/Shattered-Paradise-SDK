@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.SP.Traits;
@@ -7,10 +6,10 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Sp.Traits
 {
-	public enum CashCheatType {None, Refinery, Harvester, BaseBuilder};
+	public enum CashCheatType { None, Refinery, Harvester, BaseBuilder }
 
 	[Desc("Lets the actor make CashCheater generate more cash.")]
-	public class AddCashCheaterInfo : TraitInfo
+	public sealed class AddCashCheaterInfo : TraitInfo
 	{
 		[Desc("Type of cash cheat for CashCheater.")]
 		public readonly CashCheatType CashCheatType = CashCheatType.None;
@@ -18,7 +17,7 @@ namespace OpenRA.Mods.Sp.Traits
 		public override object Create(ActorInitializer init) { return new AddCashCheater(this); }
 	}
 
-	public class AddCashCheater : INotifyOwnerChanged, INotifyKilled, INotifySold, INotifyTransform, INotifyCreated, INotifyActorDisposing
+	public sealed class AddCashCheater : INotifyOwnerChanged, INotifyKilled, INotifySold, INotifyTransform, INotifyCreated, INotifyActorDisposing
 	{
 		readonly CashCheatType type;
 		IEnumerable<CashCheater> cashCheaters;
@@ -124,6 +123,5 @@ namespace OpenRA.Mods.Sp.Traits
 					break;
 			}
 		}
-
 	}
 }

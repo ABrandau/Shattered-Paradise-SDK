@@ -14,7 +14,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.SP.Traits
 {
-	public class WithCargoSoundsInfo : ConditionalTraitInfo, Requires<CargoInfo>
+	public sealed class WithCargoSoundsInfo : ConditionalTraitInfo, Requires<CargoInfo>
 	{
 		[Desc("Speech notification played when the first actor enters this garrison.")]
 		public readonly string EnterNotification = null;
@@ -37,15 +37,10 @@ namespace OpenRA.Mods.SP.Traits
 		public override object Create(ActorInitializer init) { return new WithCargoSounds(init.Self, this); }
 	}
 
-	public class WithCargoSounds : ConditionalTrait<WithCargoSoundsInfo>, INotifyPassengerEntered, INotifyPassengerExited
+	public sealed class WithCargoSounds : ConditionalTrait<WithCargoSoundsInfo>, INotifyPassengerEntered, INotifyPassengerExited
 	{
-		readonly Cargo cargo;
-
 		public WithCargoSounds(Actor self, WithCargoSoundsInfo info)
-            : base(info)
-		{
-			cargo = self.Trait<Cargo>();
-		}
+			: base(info) { }
 
 		void INotifyPassengerEntered.OnPassengerEntered(Actor self, Actor passenger)
 		{

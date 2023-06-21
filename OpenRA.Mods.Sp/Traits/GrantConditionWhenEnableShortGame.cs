@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenRA.Mods.Common.Traits;
+﻿using OpenRA.Mods.Common.Traits;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.Sp.Traits
@@ -18,9 +13,9 @@ namespace OpenRA.Mods.Sp.Traits
 		public override object Create(ActorInitializer init) { return new GrantConditionWhenEnableShortGame(this); }
 	}
 
-	sealed class GrantConditionWhenEnableShortGame: INotifyCreated
+	sealed class GrantConditionWhenEnableShortGame : INotifyCreated
 	{
-		GrantConditionWhenEnableShortGameInfo info;
+		readonly GrantConditionWhenEnableShortGameInfo info;
 		int token;
 
 		public GrantConditionWhenEnableShortGame(GrantConditionWhenEnableShortGameInfo info)

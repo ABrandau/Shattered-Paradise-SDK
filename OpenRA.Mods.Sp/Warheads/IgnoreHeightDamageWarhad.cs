@@ -6,7 +6,7 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.Sp.Warheads
 {
 	[Desc("Apply fixed damage in a specified range ignore height. used for superweapon instant kill for air unit")]
-	class IgnoreHeightDamageWarhead : TargetDamageWarhead
+	sealed class IgnoreHeightDamageWarhead : TargetDamageWarhead
 	{
 		protected override void DoImpact(WPos pos, Actor firedBy, WarheadArgs args)
 		{

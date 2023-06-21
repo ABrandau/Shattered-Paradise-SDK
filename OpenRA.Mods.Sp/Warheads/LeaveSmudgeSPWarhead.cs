@@ -20,7 +20,7 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.SP.Warheads
 {
 	[Desc("Creates a smudge in `SmudgeLayer`.")]
-	public class LeaveSmudgeSPWarhead : Warhead
+	public sealed class LeaveSmudgeSPWarhead : Warhead
 	{
 		[Desc("Size of the area. A smudge will be created in each tile.", "Provide 2 values for a ring effect (outer/inner).")]
 		public readonly int[] Size = { 0, 0 };

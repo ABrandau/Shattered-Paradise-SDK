@@ -9,10 +9,10 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.TA.Warheads
 {
 	[Desc("Works like infernal cannon like in cnc General, used by TA")]
-	public class TriggerLayerWeaponWarhead : Warhead, IRulesetLoaded<WeaponInfo>
+	public sealed class TriggerLayerWeaponWarhead : Warhead, IRulesetLoaded<WeaponInfo>
 	{
 		[Desc("Range between falloff steps in cells.")]
-		public readonly WDist Spread = new WDist(1024);
+		public readonly WDist Spread = new(1024);
 
 		[Desc("Level percentage at each range step.")]
 		public readonly int[] Falloff = { 100, 75, 50 };
@@ -29,27 +29,27 @@ namespace OpenRA.Mods.TA.Warheads
 		[Desc("It saturates at this level, by this weapon.")]
 		public int MaxLevel = 600;
 
-		[Desc("Allow triggering effects when the impacted cell has the value in [TiggerAtLevelMax, TiggerAtLevelMin]")]
-		public bool AllowTiggerLevel = true;
+		[Desc("Allow triggering effects when the impacted cell has the value in [triggerAtLevelMax, triggerAtLevelMin]")]
+		public bool AllowtriggerLevel = true;
 
-		[Desc("Allows a triggering effect: cells (affected by Falloff and Range) set to a specific level defined by TiggerSetLevel")]
+		[Desc("Allows a triggering effect: cells (affected by Falloff and Range) set to a specific level defined by triggerSetLevel")]
 		public bool AllowSetLevelWhenTrigger = true;
 
 		[Desc("Allows a triggering effect: impacted cell explode a weapon")]
-		public bool AllowTiggerWeaponWhenTrigger = true;
+		public bool AllowtriggerWeaponWhenTrigger = true;
 
-		[Desc("Impacted cell has the value in [TiggerAtLevelMax, TiggerAtLevelMin] to trigger effect. Requires \"AllowTiggerLevel = true\".")]
-		public int TiggerAtLevelMax = int.MaxValue;
+		[Desc("Impacted cell has the value in [triggerAtLevelMax, triggerAtLevelMin] to trigger effect. Requires \"AllowtriggerLevel = true\".")]
+		public int TriggerAtLevelMax = int.MaxValue;
 
-		[Desc("Impacted cell has the value in [TiggerAtLevelMax, TiggerAtLevelMin] to trigger effect.  Requires \"AllowTiggerLevel = true\".")]
-		public int TiggerAtLevelMin = int.MinValue;
+		[Desc("Impacted cell has the value in [triggerAtLevelMax, triggerAtLevelMin] to trigger effect.  Requires \"AllowtriggerLevel = true\".")]
+		public int TriggerAtLevelMin = int.MinValue;
 
-		[Desc("Cells (affected by Falloff and Range) set to this level when trigger. Requires \"AllowTiggerLevel = true\" and \"AllowSetLevelWhenTrigger = true\"")]
-		public int TiggerSetLevel = 0;
+		[Desc("Cells (affected by Falloff and Range) set to this level when trigger. Requires \"AllowtriggerLevel = true\" and \"AllowSetLevelWhenTrigger = true\"")]
+		public int TriggerSetLevel = 0;
 
 		[WeaponReference]
 		[Desc("Impacted cell explode a weapon when trigger. Has to be defined in weapons.yaml as well.")]
-		public readonly string TiggerWeapon = null;
+		public readonly string TriggerWeapon = null;
 
 		WeaponInfo weapon;
 
@@ -67,8 +67,8 @@ namespace OpenRA.Mods.TA.Warheads
 						throw new YamlException("Range values must be specified in an increasing order.");
 			}
 
-			if (AllowTiggerLevel && AllowTiggerWeaponWhenTrigger && !rules.Weapons.TryGetValue(TiggerWeapon.ToLowerInvariant(), out weapon))
-				throw new YamlException($"Weapons Ruleset does not contain an entry '{TiggerWeapon.ToLowerInvariant()}'");
+			if (AllowtriggerLevel && AllowtriggerWeaponWhenTrigger && !rules.Weapons.TryGetValue(TriggerWeapon.ToLowerInvariant(), out weapon))
+				throw new YamlException($"Weapons Ruleset does not contain an entry '{TriggerWeapon.ToLowerInvariant()}'");
 		}
 
 		public override void DoImpact(in Target target, WarheadArgs args)
@@ -91,25 +91,25 @@ namespace OpenRA.Mods.TA.Warheads
 				.First(l => l.Info.Name == LayerName);
 
 			var triggeredSetLevel = false;
-			if (AllowTiggerLevel &&
-				raLayer.GetLevel(targetTile) >= TiggerAtLevelMin &&
-				raLayer.GetLevel(targetTile) <= TiggerAtLevelMax)
+			if (AllowtriggerLevel &&
+				raLayer.GetLevel(targetTile) >= TriggerAtLevelMin &&
+				raLayer.GetLevel(targetTile) <= TriggerAtLevelMax)
 			{
-				if (AllowTiggerWeaponWhenTrigger)
+				if (AllowtriggerWeaponWhenTrigger)
 					weapon.Impact(Target.FromPos(target.CenterPosition), firedBy);
 
-				var affectedCells = world.Map.FindTilesInCircle(targetTile, (int)Math.Ceiling((decimal)Range[Range.Length - 1].Length / 1024));
+				var affectedCells = world.Map.FindTilesInCircle(targetTile, (int)Math.Ceiling((decimal)Range[^1].Length / 1024));
 				if (AllowSetLevelWhenTrigger)
 				{
 					triggeredSetLevel = true;
 					foreach (var cell in affectedCells)
-						raLayer.SetLevel(cell, TiggerSetLevel);
+						raLayer.SetLevel(cell, TriggerSetLevel);
 				}
 			}
 
 			if (!triggeredSetLevel && Level != 0)
 			{
-				var affectedCells = world.Map.FindTilesInCircle(targetTile, (int)Math.Ceiling((decimal)Range[Range.Length - 1].Length / 1024));
+				var affectedCells = world.Map.FindTilesInCircle(targetTile, (int)Math.Ceiling((decimal)Range[^1].Length / 1024));
 				foreach (var cell in affectedCells)
 				{
 					var mul = GetIntensityFalloff((target.CenterPosition - world.Map.CenterOfCell(cell)).Length);

@@ -18,7 +18,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Sp.Traits
 {
-	public class FirestromSPInfo : ConditionalTraitInfo
+	public sealed class FirestromSPInfo : ConditionalTraitInfo
 	{
 		[Desc("List of sounds that can be played on launching.")]
 		public readonly string[] LaunchEffectSounds = null;
@@ -37,7 +37,7 @@ namespace OpenRA.Mods.Sp.Traits
 		public readonly string[] FirestormEffectSequences = null;
 
 		[Desc("Firestorm effect range.")]
-		public readonly WDist FirestormEffectRange = new WDist(12288); // 12 cell
+		public readonly WDist FirestormEffectRange = new(12288); // 12 cell
 
 		[Desc("Amount of Firestorm effect.")]
 		public readonly int FirestormEffectAmounts = 12; // 12 cell
@@ -56,7 +56,7 @@ namespace OpenRA.Mods.Sp.Traits
 		public readonly string FirestormEffectPalette = "effect";
 
 		[Desc("What types of targets are affected.")]
-		public readonly BitSet<TargetableType> ValidTargets = new BitSet<TargetableType>("Ground", "Water");
+		public readonly BitSet<TargetableType> ValidTargets = new("Ground", "Water");
 
 		[Desc("What types of targets are unaffected.", "Overrules ValidTargets.")]
 		public readonly BitSet<TargetableType> InvalidTargets;
@@ -65,26 +65,26 @@ namespace OpenRA.Mods.Sp.Traits
 		public readonly PlayerRelationship ValidRelationships = PlayerRelationship.Ally | PlayerRelationship.Neutral | PlayerRelationship.Enemy;
 
 		[Desc("Types of damage that firestorm causes. Leave empty for no damage types.")]
-		public readonly BitSet<DamageType> DamageTypes = default(BitSet<DamageType>);
+		public readonly BitSet<DamageType> DamageTypes = default;
 
 		[Desc("Damage percentage versus each armor type.")]
-		public readonly Dictionary<string, int> Versus = new Dictionary<string, int>();
+		public readonly Dictionary<string, int> Versus = new();
 
 		[Desc("Damage min range.")]
-		public readonly WDist DamageMinRange = new WDist(12032); // 11.75 cell
+		public readonly WDist DamageMinRange = new(12032); // 11.75 cell
 
 		[Desc("Damage max range.")]
-		public readonly WDist DamageMaxRange = new WDist(12544); // 12.25 cell
+		public readonly WDist DamageMaxRange = new(12544); // 12.25 cell
 
 		public override object Create(ActorInitializer init) { return new FirestromSP(init.Self, this); }
 	}
 
-	public class FirestromSP : ConditionalTrait<FirestromSPInfo>, ITick
+	public sealed class FirestromSP : ConditionalTrait<FirestromSPInfo>, ITick
 	{
-		int[] effectsOffet;
+		readonly int[] effectsOffet;
 		readonly FirestromSPInfo info;
-		World world;
-		Actor self;
+		readonly World world;
+		readonly Actor self;
 		int damageTicks;
 		int soundTicks;
 
@@ -177,7 +177,7 @@ namespace OpenRA.Mods.Sp.Traits
 			if (soundTicks-- <= 0)
 			{
 				var launchSound = info.LaunchEffectSounds.RandomOrDefault(world.LocalRandom);
-				if (launchSound != null && ((!world.ShroudObscures(self.CenterPosition) && !world.FogObscures(self.CenterPosition))))
+				if (launchSound != null && !world.ShroudObscures(self.CenterPosition) && !world.FogObscures(self.CenterPosition))
 					Game.Sound.Play(SoundType.World, launchSound, self.CenterPosition, info.LaunchEffectSoundVolume);
 				soundTicks = info.LaunchEffectSoundInterval;
 			}

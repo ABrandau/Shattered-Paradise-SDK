@@ -27,7 +27,7 @@ namespace OpenRA.Mods.SP.Traits
 
 	[TraitLocation(SystemActors.World)]
 	[Desc("Attach this to the world actor.", "Order of the layers defines the Z sorting.")]
-	public class SmudgeLayerSPInfo : TraitInfo
+	public sealed class SmudgeLayerSPInfo : TraitInfo
 	{
 		[Desc("Smudge and their sprites set name")]
 		public readonly Dictionary<string, string> SmudgeTypesImages = default;
@@ -73,7 +73,7 @@ namespace OpenRA.Mods.SP.Traits
 		public override object Create(ActorInitializer init) { return new SmudgeLayerSP(init.Self, this); }
 	}
 
-	public class SmudgeLayerSP : IRenderOverlay, IWorldLoaded, ITickRender, INotifyActorDisposing
+	public sealed class SmudgeLayerSP : IRenderOverlay, IWorldLoaded, ITickRender, INotifyActorDisposing
 	{
 		struct SmudgeSP
 		{

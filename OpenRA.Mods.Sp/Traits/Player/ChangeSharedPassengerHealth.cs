@@ -18,7 +18,7 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.SP.Traits
 {
 	[Desc("Change the health of SharedPassenger actors when they are in typical SharedCargo.")]
-	public class ChangeSharedPassengerHealthInfo : PausableConditionalTraitInfo, Requires<SharedCargoManagerInfo>
+	public sealed class ChangeSharedPassengerHealthInfo : PausableConditionalTraitInfo, Requires<SharedCargoManagerInfo>
 	{
 		[Desc("`SharedCargoManager.Type` that this actor shares its passengers.")]
 		public readonly string ShareType = "tunnel";
@@ -44,7 +44,7 @@ namespace OpenRA.Mods.SP.Traits
 		public override object Create(ActorInitializer init) { return new ChangeSharedPassengerHealth(this); }
 	}
 
-	public class ChangeSharedPassengerHealth : PausableConditionalTrait<ChangeSharedPassengerHealthInfo>, INotifyCreated, ITick
+	public sealed class ChangeSharedPassengerHealth : PausableConditionalTrait<ChangeSharedPassengerHealthInfo>, INotifyCreated, ITick
 	{
 		SharedCargoManager manager;
 
