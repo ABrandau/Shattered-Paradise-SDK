@@ -1,0 +1,71 @@
+World:
+	MapOptions:
+		TechLevelDropdownLocked: true
+		TechLevel: nosuperweapons
+	## TODO: change to translation label after next engine rebase
+	ScriptLobbyDropdown@difficulty: 
+		ID: difficulty
+		Label: dropdown-difficulty.label
+		Description: The difficulty of the mission #dropdown-difficulty.description
+		Values:
+			normal: Normal #options-difficulty.normal
+			hard: Hard #options-difficulty.hard
+		Default: normal
+	MissionData:
+		Briefing: A test minigame
+
+Player:
+	Shroud:
+		FogCheckboxEnabled:  false
+		ExploredMapCheckboxEnabled: true
+	## TODO: change to translation label after next engine rebase
+	SquadManagerBotModule@AIBase:
+		AssignRolesTicks: 23 ## This map is small and unit is limited
+		MinimumAttackForceDelay: 31
+		SquadSize: 1
+		SquadSizeRandomBonus: 1
+		
+
+MUTAMBUSH:
+	KillsSelf@tset:
+		Delay: 400, 1200
+
+MUTAMBUSHVENT:
+	SpawnActorOnDeath:
+		Actor: mutambush
+	Production:
+		Produces: mutvent
+	GrantRandomCondition:
+		Conditions: tank, mortar, beast
+	AutoTarget:
+		ScanRadius: 8 #PREF: save trait looks up and scan armaments
+	PeriodicProducer@1:
+		Actors: lynx
+		Type: mutvent
+		ChargeDuration: 10
+		RequiresCondition: !Building-Buildup && tank
+	PeriodicProducer@2:
+		Actors: e3
+		Type: mutvent
+		ChargeDuration: 10
+		RequiresCondition: !Building-Buildup && mortar
+	PeriodicProducer@3:
+		Actors: deathclaw
+		Type: mutvent
+		ChargeDuration: 10
+		RequiresCondition: !Building-Buildup && beast
+	Exit@1:
+		SpawnOffset: 256,256,0
+		ExitCell: 2,1
+		ExitDelay: 0
+
+GAIONTUR:
+	TooltipDescription:
+		Description: Select this defence and fire manually!
+	ReloadDelayMultiplier@minigame:
+		Modifier: 5
+	RangeMultiplier@minigame:
+		Modifier: 4000
+	-RenderRangeCircle:
+	-Power:
+

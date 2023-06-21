@@ -114,3 +114,42 @@ Tunnel8RangeScatter:
 		Buildings: muvent
 		AirThreshold: 12c0
 		ImpactActors: false
+
+IonCannonTurret:
+	Inherits: ^FullDamage
+	ReloadDelay: 200
+	Range: 18c0
+	TargetActorCenter: true
+	Projectile: SpriteRailgun
+		BeamColor: 00f4f4
+		Duration: 0
+		BeamWidth: 32
+		QuantizationCount: 1
+		HelixRadius: 0
+		HelixPitch: 512
+		HelixAnim: spitspark
+		HelixAnimSequence: idle
+		HelixAnimPalette: gensmkexplocyan
+		HitAnim: spitspark
+		HitAnimSequence: idle
+		HitAnimPalette: gensmkexplocyan
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 75, 75
+		Spread: 526
+		Damage: 100000
+		DamageTypes: Prone70Percent, TriggerProne, FireDeath
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
+	Warhead@2Effect: CreateEffect
+		Explosions: ioncannon_sparks
+		ExplosionPalette: gensmkexplocyan70
+		AffectsParent: true
+		ImpactActors: false
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
+		AirThreshold: 8c0
+	Warhead@3Effect: CreateEffect
+		Explosions: ionring
+		ImpactSounds: ion1.aud
+		AffectsParent: true
+		ImpactActors: false
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
+		AirThreshold: 8c0

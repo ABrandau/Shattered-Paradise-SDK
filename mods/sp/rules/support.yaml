@@ -1,3 +1,19 @@
+GAPOWRUP:
+	Inherits: ^BuildingPlug
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Power Turbine
+	Buildable:
+		Queue: Defense.Shared, Defense.GDI
+		Description: Provides extra power generation, place them on the smokestack of the structure.
+		BuildPaletteOrder: 36
+		Prerequisites: ~gacnst, gapowr, garadr, ~!global-upgrades, ~techlevel.4
+	Plug:
+		Type: powrup
+	Power:
+		Amount: 100
+
 GAVULC:
 	Inherits: ^TurretedDefence
 	Inherits@APAMMO: ^AffectedByAPAmmunition
@@ -838,22 +854,6 @@ SCRTRACTOR:
 		Weapons: LargeDebrisScrin
 	ActorStatValues:
 		Damage: 40
-
-GAPOWRUP:
-	Inherits: ^BuildingPlug
-	Valued:
-		Cost: 200
-	Tooltip:
-		Name: Power Turbine
-	Buildable:
-		Queue: Defense.Shared, Defense.GDI
-		Description: Provides extra power generation, place them on the smokestack of the structure.
-		BuildPaletteOrder: 36
-		Prerequisites: ~gacnst, gapowr, garadr, ~!global-upgrades, ~techlevel.4
-	Plug:
-		Type: powrup
-	Power:
-		Amount: 100
 
 GAFIRE:
 	Inherits: ^Building

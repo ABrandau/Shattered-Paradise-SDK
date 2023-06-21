@@ -1,0 +1,104 @@
+MapFormat: 12
+
+RequiresMod: sp
+
+Title: Minigame: Whack-a-mutant
+
+Author: Marn
+
+Tileset: TEMPERATE
+
+MapSize: 60,120
+
+Bounds: 18,20,20,70
+
+Visibility: MissionSelector
+
+Categories: Campaign
+
+Players:
+	PlayerReference@Neutral:
+		Name: Neutral
+		OwnsWorld: True
+		NonCombatant: True
+		Faction: nod
+	PlayerReference@Creeps:
+		Name: Creeps
+		Faction: nod
+		Enemies: Bandits, GDI
+	PlayerReference@GDI:
+		Name: GDI
+		Playable: True
+		Required: True
+		LockFaction: True
+		Faction: gdi
+		LockColor: True
+		Color: EEEE66
+		Enemies: Bandits, Creeps
+	PlayerReference@Bandits:
+		Name: Bandits
+		LockFaction: True
+		Faction: mut
+		LockColor: True
+		Bot: NormalAI
+		Color: 0CBB01
+		LockSpawn: True
+		Enemies: Creeps, GDI
+
+Actors:
+	Actor1: mutambush
+		Owner: Bandits
+		Location: 53,3
+	IonTur: gaiontur
+		Faction: gdi
+		Location: 54,-2
+		Owner: GDI
+		TurretFacing: 368
+	Actor3: mutambush
+		Owner: Bandits
+		Location: 48,-9
+	Actor10: mutambush
+		Owner: Bandits
+		Location: 57,4
+	Actor11: mutambush
+		Owner: Bandits
+		Location: 48,-3
+	Actor17: mutambush
+		Owner: Bandits
+		Location: 51,6
+	Actor19: veinhole
+		Location: 59,13
+		Owner: Creeps
+	Actor22: mutambush
+		Owner: Bandits
+		Location: 67,-1
+	Actor23: mutambush
+		Owner: Bandits
+		Location: 56,-10
+	Actor20: mutambush
+		Owner: Bandits
+		Location: 60,-3
+	Actor24: mutambush
+		Owner: Bandits
+		Location: 62,-7
+	Actor16: mutambush
+		Owner: Bandits
+		Location: 63,7
+	Actor18: mutambush
+		Owner: Bandits
+		Location: 69,7
+	Actor21: mutambush
+		Owner: Bandits
+		Location: 74,6
+	Actor25: mutambush
+		Owner: Bandits
+		Location: 47,-16
+	Actor26: mutambush
+		Owner: Bandits
+		Location: 46,2
+
+Rules: sp|rules/campaign.yaml, sp|rules/campaignrules.yaml, rules.yaml
+
+Sequences: sp|sequences/campaignseq.yaml
+
+Weapons: sp|weapons/campaignweapons.yaml
