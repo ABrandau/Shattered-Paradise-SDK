@@ -128,7 +128,7 @@ MCVFoundMessage = function()
 			Warning("Successfully capture the MCV will start the direct conflict between Nod! Be prepared!")
 		end)
 		Trigger.AfterDelay(DateTime.Seconds(14), function()
-			Tip("Explore the map more before you recapture the MCV. Your MCV needs to relocated to somewhere with rich resource and easy to defend.")
+			Tip("Explore the map more before you recapture the MCV. You needs to find somewhere close to resource and easy to defend.")
 		end)
 	end
 end
@@ -466,6 +466,14 @@ AICaptureMCV = function()
 	AICapture(Engineer3,cabconyard1)
 	AICapture(Engineer4,cabconyard1)
 	AICapture(Engineer5,cabconyard1)
+	AICapture(Engineer6,cabconyard1)
+	AICapture(Engineer7,cabconyard1)
+	AICapture(Engineer8,cabconyard1)
+	AICapture(Engineer9,cabconyard1)
+	AICapture(Engineer10,cabconyard1)
+	AICapture(Engineer11,cabconyard1)
+	AICapture(Engineer12,cabconyard1)
+	AICapture(Engineer13,cabconyard1)
 end
 
 -- ####### Hack Array stroy line
