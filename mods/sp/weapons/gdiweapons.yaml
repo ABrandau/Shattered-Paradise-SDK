@@ -41,6 +41,7 @@ GrenadierBazookaAA:
 	ValidTargets: Air
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
+		NoUnintendedFriendlyFire: All
 
 Grenade:
 	Inherits: ^ArtilleryWarhead
@@ -345,6 +346,7 @@ ApcVulcanAA:
 		Damage: 4000
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+		NoUnintendedFriendlyFire: All
 
 ApcVulcanAP:
 	Inherits: ApcVulcan
@@ -437,6 +439,7 @@ HoverMissileAA:
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+		NoUnintendedFriendlyFire: All
 
 JuggCannon:
 	Inherits: ^ArtilleryWarhead
@@ -577,7 +580,7 @@ SonicEmitterHitGDI:
 			Heavy: 70
 			Aircraft: 100
 			Concrete: 30
-		ValidRelationships: Enemy, Neutral
+		NoUnintendedFriendlyFire: All
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 		AirThreshold: 8c0
@@ -757,6 +760,7 @@ MKIITuskAA:
 	ReloadDelay: 120
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
+		NoUnintendedFriendlyFire: All
 
 MKIIVulcan:
 	Inherits: ^RifleWarhead
@@ -835,7 +839,7 @@ FighterHellfireAA:
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		ValidTargets: Air
-		ValidRelationships: Enemy, Neutral
+		NoUnintendedFriendlyFire: All
 
 OBBombFrontal:
 	Inherits: ^BombWarhead
@@ -911,6 +915,8 @@ GdiRedEye:
 	Projectile: MissileTA
 		Blockable: false
 		Inaccuracy: 128
+	Warhead@1Dam: SpreadDamage
+		NoUnintendedFriendlyFire: All
 
 RPGTower:
 	Inherits: ^RocketWarhead
@@ -1055,6 +1061,7 @@ MKIIITuskAA:
 		TrailInterval: 0
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
+		NoUnintendedFriendlyFire: All
 
 MKIIIDroneTargeter:
 	ReloadDelay: 10

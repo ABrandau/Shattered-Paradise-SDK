@@ -184,6 +184,7 @@ FiendShardAA:
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		Damage: 2250
+		NoUnintendedFriendlyFire: All
 	Warhead@op: FireRadius
 		Weapon: FiendShardAAEffect
 		ImpactActors: false
@@ -252,6 +253,7 @@ SeerTesla:
 			Aircraft: 100
 			Concrete: 30
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+		NoUnintendedFriendlyFire: All
 
 SeerTeslaAA:
 	Inherits: SeerTesla
@@ -351,6 +353,7 @@ RavagerStrike:
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 		Versus:
 			Infantry: 150
+		NoUnintendedFriendlyFire: All
 	Warhead@emp: GrantExternalCondition
 		Range: 1c0
 		Duration: 45
@@ -415,6 +418,7 @@ QuadFireAA:
 		Damage: 2000
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+		NoUnintendedFriendlyFire: All
 
 QuadFireLine:
 	Inherits: ^LineProjectile
@@ -693,9 +697,8 @@ GargoylACannonAA:
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
-		ValidRelationships: Enemy, Neutral
 		Damage: 4000
-
+		NoUnintendedFriendlyFire: All
 
 FalconPunch:
 	Inherits: ^RocketWarhead
@@ -798,6 +801,7 @@ FlakFire:
 		TrackTarget: false
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
+		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
 		Explosions: dustexplodetiny, dustexplode2tiny
 		ValidTargets: Ground, Water, Air
@@ -870,6 +874,7 @@ WeasaurusStrike:
 		Spread: 0c090
 		Damage: 7500
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
+		NoUnintendedFriendlyFire: All
 	Warhead@emp: GrantExternalCondition
 		Range: 1c0
 		Duration: 45
@@ -888,6 +893,7 @@ WeasaurusStrikeSmall:
 	ReloadDelay: 40
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
+		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
 		Explosions: chompsmall
 		ExplosionPalette: effect
@@ -1040,6 +1046,7 @@ Sniper:
 			Defense: 5
 			Heavy: 5
 			Concrete: 5
+		NoUnintendedFriendlyFire: All
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piff

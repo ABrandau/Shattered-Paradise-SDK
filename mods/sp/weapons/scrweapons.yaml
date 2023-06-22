@@ -11,6 +11,7 @@ SharkJump:
 			Building: 10
 			Light: 30
 		Spread: 0c030
+		NoUnintendedFriendlyFire: All
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath, ScrinEssenceKill
 
 LegioNeedler:
@@ -42,14 +43,9 @@ LegioNeedler:
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building
-		InvalidTargets: Air, Shark
+		InvalidTargets: Air
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
-	Warhead@2Shark: SpreadDamage
-		Damage: 3000
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
-		InvalidTargets: Building, Vehicle, Air
-		ValidRelationships: Enemy, Neutral
-		ValidTargets: Shark
+		NoUnintendedFriendlyFire: Actor
 
 LegioNeedlerAA:
 	Inherits: LegioNeedler
@@ -60,6 +56,7 @@ LegioNeedlerAA:
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Infantry, Vehicle, Building
+		NoUnintendedFriendlyFire: All
 
 ColossiShard:
 	Inherits: ^RifleWarhead
@@ -167,6 +164,7 @@ FloatGlaive:
 		Damage: 2000
 		ValidTargets: Ground, Water
 		DamageTypes: ExplosionDeath, ScrinEssenceKill
+		NoUnintendedFriendlyFire: Actor
 	Warhead@op: FireShrapnel
 		Weapon: FloatGlaive2
 		ImpactActors: false
@@ -254,18 +252,7 @@ CorruptorAcid:
 			Defense: 25
 			Heavy: 25
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
-		InvalidTargets: Shark
-	Warhead@2Shark: SpreadDamage
-		Spread: 0c384
-		Damage: 975
-		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
-		Versus:
-			Infantry: 200
-			Building: 75
-			Defense: 25
-			Heavy: 25
-		ValidTargets: Shark
-		ValidRelationships: Enemy, Neutral
+		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
@@ -341,14 +328,7 @@ ScrMbtLasor:
 		Spread: 0c045
 		Damage: 9000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
-		InvalidTargets: Shark
-	Warhead@2shark: SpreadDamage
-		Spread: 0c045
-		Damage: 9000
-		ValidTargets: Shark
-		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
-		InvalidTargets: Building, Vehicle
-		ValidRelationships: Enemy, Neutral
+		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
 		Explosions: lightpulse
 		ExplosionPalette: appurp
@@ -482,6 +462,7 @@ AnhTripodLaser3: # This one with true damage and sound
 		Falloff: 100, 50, 25
 		Damage: 1000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
+		NoUnintendedFriendlyFire: All
 
 AnhTripodAbsorb:
 	Range: 8c0
@@ -569,8 +550,6 @@ StormRiderBlast:
 		MinimumLaunchAngle: 0
 		MaximumLaunchAngle: 0
 		HomingActivationDelay: 1
-		#MaximumLaunchSpeed: 0c543
-		#MinimumLaunchSpeed: 0c301
 		Blockable: false
 		VerticalRateOfTurn: 100
 		HorizontalRateOfTurn: 100
@@ -594,19 +573,11 @@ StormRiderBlast:
 		Damage: 2000
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
-		InvalidTargets: Shark, Air
+		InvalidTargets: Air
 		Versus:
 			Infantry: 35
 			Defense: 35
-	Warhead@2Shark: SpreadDamage
-		Damage: 2000
-		ValidTargets: Shark
-		InvalidTargets: Building, Vehicle, Air
-		ValidRelationships: Enemy, Neutral
-		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
-		Versus:
-			Infantry: 35
-			Defense: 35
+		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplopurple
 
@@ -620,8 +591,6 @@ StormRiderBlastAA:
 		CruiseAltitude: 5000
 		MinimumLaunchAngle: 255
 		MaximumLaunchAngle: 255
-		#MaximumLaunchSpeed: 0c543
-		#MinimumLaunchSpeed: 0c301
 		AllowSnapping: true
 		CloseEnough: 200
 		Speed: 400
@@ -632,7 +601,6 @@ StormRiderBlastAA:
 		Damage: 2000
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
-		ValidRelationships: Enemy, Neutral
 
 Glyder1Cannon:
 	Inherits: ^RocketWarhead
@@ -665,6 +633,7 @@ Glyder1Cannon:
 			Concrete: 5
 		ValidTargets: Ground, Water
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
+		NoUnintendedFriendlyFire: Actor
 	Warhead@2Eff: CreateEffect
 		Explosions: marnflash7
 		ExplosionPalette: MarnAlphaAlpha
@@ -699,6 +668,7 @@ Glyder2Cannon:
 		Damage: 3000
 		ValidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
+		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
 		Explosions: marnflash7
 		ExplosionPalette: MarnAlphaAlpha
@@ -942,7 +912,7 @@ WyvermBlastAA:
 	ValidTargets: Air
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
-		ValidRelationships: Enemy, Neutral
+		NoUnintendedFriendlyFire: All
 		Damage: 1500
 
 WasteTurretWeapon:
@@ -977,17 +947,7 @@ WasteTurretWeapon:
 			Heavy: 75
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		ValidTargets: Building, Structure, Infantry, Vehicle, Ground
-		InvalidTargets: Shark
-	Warhead@2Shark: SpreadDamage
-		Spread: 0c400
-		Damage: 400
-		Versus:
-			Infantry: 200
-			Building: 75
-			Heavy: 75
-		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
-		ValidTargets: Shark
-		ValidRelationships: Enemy, Neutral
+		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
@@ -1022,11 +982,13 @@ TractorBeam:
 		HitAnimPalette: scrinenergystuffsalpha
 		HitAnimSequence: wakescr
 		TrackTarget: false
-	Warhead@1Dam: TargetDamage
+	Warhead@1Dam: SpreadDamage
 		Damage: 4000
+		Falloff: 100, 100
 		Spread: 0c20
 		ValidTargets: Air
 		DamageTypes: ExplosionDeath
+		NoUnintendedFriendlyFire: All
 	Warhead@TractorStop: GrantExternalCondition
 		Range: 0c512
 		Duration: 10
@@ -1194,6 +1156,7 @@ CouncilorZap:
 		Damage: 9000
 		ValidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
+		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
 		Explosions: sparks
 		ExplosionPalette: gensmkexplopurple

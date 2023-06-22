@@ -41,6 +41,7 @@ CrusaderBazookaAA:
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		NoUnintendedFriendlyFire: All
 
 TemplarFlame:
 	Inherits: ^FlameWarhead
@@ -99,6 +100,7 @@ BlackHandLasor:
 		Spread: 0c045
 		Damage: 2400
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+		NoUnintendedFriendlyFire: All
 
 BlackHandLasorBuggy:
 	Inherits: BlackHandLasor
@@ -129,6 +131,7 @@ ToxinCommandoRifle:
 			Aircraft: 50
 			Concrete: 5
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
+		NoUnintendedFriendlyFire: All
 	Warhead@emp1: GrantExternalCondition
 		Range: 2c0
 		Duration: 125
@@ -186,6 +189,7 @@ BuggySaw:
 			Infantry: 100
 			Building: 75
 		Spread: 0c030
+		NoUnintendedFriendlyFire: All
 		DamageTypes: Prone100Percent, BulletDeath, TriggerProne
 
 BuggyGLAD:
@@ -259,6 +263,7 @@ BikeMissileAA:
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		NoUnintendedFriendlyFire: All
 
 BikeMissileTib:
 	Inherits: BikeMissile
@@ -372,6 +377,7 @@ TickLaser:
 		Spread: 0c064
 		Damage: 5000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
 		ImpactSounds: vtichia.wav, vtichib.wav, vtichic.wav, vtichid.wav, vtichie.wav, vtichif.wav, vtichig.wav, vtichih.wav
 		ValidTargets: Ground, Water, Air
@@ -520,6 +526,7 @@ StealthRocketAA:
 		RangeLimit: 15c0
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
+		NoUnintendedFriendlyFire: All
 
 StealthRocketTib:
 	Inherits: StealthRocket
@@ -578,9 +585,9 @@ HarpyClawAA:
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		ValidTargets: Air
-		ValidRelationships: Enemy, Neutral
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+		NoUnintendedFriendlyFire: Actor
 
 HarpyClawBullet:
 	Inherits: ^BulletProjectile
@@ -662,7 +669,7 @@ ProtonAA:
 		Spread: 128
 		Damage: 5000
 		ValidTargets: Air
-		ValidRelationships: Enemy, Neutral
+		NoUnintendedFriendlyFire: Actor
 
 CerberusSublazor1:
 	Inherits: ^FullDamage
@@ -698,6 +705,7 @@ CerberusSublazor1:
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building
 		InvalidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+		NoUnintendedFriendlyFire: All
 	Warhead@1Eff_impact: CreateEffect
 		Explosions: laserburnt
 		ExplosionPalette: effect
@@ -737,6 +745,8 @@ RedEye2:
 	Inherits@2: ^Small_Clsn
 	Inherits@3: ^AntiAirTurretWeapon
 	Report: samshot1.aud
+	Warhead@1Dam: SpreadDamage
+		NoUnintendedFriendlyFire: All
 
 RedEye2Tib:
 	Inherits: RedEye2
@@ -769,6 +779,7 @@ ObeliskLaserFire:
 	Warhead@1Dam: SpreadDamage
 		Damage: 30000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
 		Explosions: dimlaserflare
 		ExplosionPalette: gensmkexplojFred
@@ -809,6 +820,7 @@ ScorpionLaser:
 	Warhead@1Dam: SpreadDamage
 		Damage: 20000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
 		Explosions: bigdimlaserflare
 		ExplosionPalette: gensmkexplojFred
@@ -848,6 +860,7 @@ ScorpionLaserShrapnel:
 	Warhead@1Dam: SpreadDamage
 		Damage: 10000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+		NoUnintendedFriendlyFire: All
 	Warhead@2Smu: LeaveSmudgeSP
 		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Building, Wall
@@ -874,6 +887,7 @@ AvatarLazer:
 		Spread: 0c045
 		Damage: 20000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
 		Explosions: dimlaserflare
 		ExplosionPalette: gensmkexplojFred

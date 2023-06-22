@@ -33,6 +33,7 @@ CyborgRocketAA:
 	Range: 8c0
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
+		NoUnintendedFriendlyFire: All
 
 LimpetMissile:
 	Inherits: ^RocketWarhead
@@ -66,6 +67,7 @@ LimpetMissileAA:
 	Range: 6c0
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
+		NoUnintendedFriendlyFire: All
 
 SentryGun:
 	Inherits: ^FullDamage
@@ -161,6 +163,7 @@ ReaperScytheAA:
 		RangeLimit: 15c0
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
+		NoUnintendedFriendlyFire: All
 		ValidTargets: Air
 
 ReclaimerHit:
@@ -173,6 +176,7 @@ ReclaimerHit:
 		Damage: 6300
 		ValidTargets: Infantry
 		DamageTypes: Prone100Percent, TriggerProne, CabalDeath
+		NoUnintendedFriendlyFire: All
 
 ReclaimerHitUpg:
 	Inherits: ReclaimerHit
@@ -230,7 +234,7 @@ LurkerHit:
 			Heavy: 10
 			Aircraft: 100
 			Concrete: 5
-		ValidRelationships: Enemy, Neutral
+		NoUnintendedFriendlyFire: All
 		DamageTypes: Prone100Percent, TriggerProne, CabalDeath
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: playercab
@@ -533,6 +537,7 @@ PalaLazor:
 		Spread: 0c045
 		Damage: 10000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+		NoUnintendedFriendlyFire: All
 
 PalaLazorMute:
 	Inherits: PalaLazor
@@ -585,7 +590,7 @@ WaspBulletAA:
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		InvalidTargets: Infantry, Vehicle, Building, Defence, Ground, Water
-		ValidRelationships: Enemy, Neutral
+		NoUnintendedFriendlyFire: All
 
 DevourerGrinder:
 	Inherits: ^ArtilleryWarhead
@@ -596,6 +601,7 @@ DevourerGrinder:
 	Warhead@1Dam: SpreadDamage
 		Spread: 90
 		Damage: 20000
+		NoUnintendedFriendlyFire: All
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 	Warhead@Shake: ShakeScreen
 		Intensity: 1
@@ -769,6 +775,7 @@ CABRAILAA:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 2500
+		NoUnintendedFriendlyFire: All
 
 LaserFence:
 	TargetActorCenter: true
@@ -790,6 +797,7 @@ BlackCDefLazer1:
 		Damage: 9000
 		Spread: 384
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+		NoUnintendedFriendlyFire: All
 
 BlackCDefLazer2:
 	Inherits: BlackCDefLazer1
@@ -919,6 +927,7 @@ CoreDefLazer1R:
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building
 		InvalidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+		NoUnintendedFriendlyFire: All
 	Warhead@1Eff_impact: CreateEffect
 		Explosions: laserscorch
 		ExplosionPalette: gradientgray
@@ -1030,6 +1039,7 @@ CoreDefenderCannonAA:
 		Spread: 90
 		Damage: 5300
 		ValidTargets: Air
+		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
 	Warhead@3Eff: CreateEffect
@@ -1066,10 +1076,13 @@ CoreDefSuper:
 		Versus:
 			Boss: 300
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+		NoUnintendedFriendlyFire: All
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
 		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
+		NoUnintendedFriendlyFire: All
 	Warhead@GetsOneShotedbySuperweaponsAA: IgnoreHeightDamage
 		Spread: 1c768
+		NoUnintendedFriendlyFire: All
 	Warhead@AA: IgnoreHeightDamage ## aircraft boss armor
 		ValidTargets: Air
 		Versus:
