@@ -624,8 +624,7 @@ SpawnEggShrapnelE:
 
 EggElevator:
 	ReloadDelay: 5
-	Projectile: AthenaProjectile
-		Altitude: 2560
+	Projectile: InstantExplode
 	InvalidTargets: Infantry, Vehicle, Building, Water, Cliff, Defence
 	Warhead@op: FireShrapnel
 		Weapon: SpawnEgg
@@ -806,8 +805,15 @@ FlakFire:
 
 VeinholeEggElevator:
 	Inherits: EggElevator
-	MinRange: 1c0
 	ReloadDelay: 800
+	Warhead@op: FireShrapnel
+		Weapon: VeinholeSpawnEgg
+
+VeinholeSpawnEgg:
+	Inherits: SpawnEgg
+	MinRange: 1c0
+	Projectile: BulletAS
+		LaunchAngle: 200
 
 WeasaurusSpit:
 	Inherits: ^FullDamage
