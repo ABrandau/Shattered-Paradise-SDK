@@ -2,7 +2,7 @@ MapFormat: 12
 
 RequiresMod: sp
 
-Title: Minigame: Whack-a-mutant
+Title: Tunnel Whacker
 
 Author: Marn
 
@@ -24,51 +24,45 @@ Players:
 		Faction: nod
 	PlayerReference@Creeps:
 		Name: Creeps
+		NonCombatant: True
 		Faction: nod
-		Enemies: Bandits, GDI
-	PlayerReference@GDI:
-		Name: GDI
+		Enemies: Bandits, GDI, You
+	PlayerReference@You:
+		Name: You
 		Playable: True
 		Required: True
 		LockFaction: True
 		Faction: gdi
 		LockColor: True
 		Color: EEEE66
+		Allies: GDI
+		Enemies: Bandits, Creeps
+	PlayerReference@GDI:
+		Name: GDI
+		LockFaction: True
+		Faction: gdi
+		LockColor: True
+		Color: EEEE66
+		Allies: You
 		Enemies: Bandits, Creeps
 	PlayerReference@Bandits:
 		Name: Bandits
+		Bot: NormalAI
 		LockFaction: True
 		Faction: mut
 		LockColor: True
-		Bot: NormalAI
 		Color: 0CBB01
 		LockSpawn: True
-		Enemies: Creeps, GDI
+		Enemies: Creeps, GDI, You
 
 Actors:
-	Actor1: mutambush
-		Owner: Bandits
-		Location: 53,3
 	IonTur: gaiontur
-		Faction: gdi
 		Location: 54,-2
-		Owner: GDI
+		Owner: You
 		TurretFacing: 368
-	Actor3: mutambush
-		Owner: Bandits
-		Location: 48,-9
-	Actor10: mutambush
-		Owner: Bandits
-		Location: 57,4
-	Actor11: mutambush
-		Owner: Bandits
-		Location: 48,-3
-	Actor17: mutambush
-		Owner: Bandits
-		Location: 51,6
 	Actor19: veinhole
 		Location: 59,13
-		Owner: Creeps
+		Owner: Neutral
 	Actor22: mutambush
 		Owner: Bandits
 		Location: 67,-1
@@ -81,21 +75,66 @@ Actors:
 	Actor24: mutambush
 		Owner: Bandits
 		Location: 62,-7
-	Actor16: mutambush
-		Owner: Bandits
-		Location: 63,7
-	Actor18: mutambush
-		Owner: Bandits
-		Location: 69,7
-	Actor21: mutambush
-		Owner: Bandits
-		Location: 74,6
 	Actor25: mutambush
 		Owner: Bandits
 		Location: 47,-16
 	Actor26: mutambush
 		Owner: Bandits
 		Location: 46,2
+	Reinforce_1: waypoint
+		Owner: Neutral
+		Location: 44,7
+	Way1: waypoint
+		Owner: Neutral
+		Location: 48,7
+	Way2: waypoint
+		Owner: Neutral
+		Location: 52,0
+	Way2_up_3: waypoint
+		Owner: Neutral
+		Location: 50,-24
+	Way2_down_2: waypoint
+		Owner: Neutral
+		Location: 65,5
+	Way2_down_4: waypoint
+		Owner: Neutral
+		Location: 76,2
+	Actor27: mutambush
+		Owner: Bandits
+		Location: 48,-2
+	Actor28: mutambush
+		Owner: Bandits
+		Location: 47,-11
+	Actor29: mutambush
+		Owner: Bandits
+		Location: 48,-7
+	Actor30: mutambush
+		Owner: Bandits
+		Location: 67,7
+	Actor31: mutambush
+		Owner: Bandits
+		Location: 72,6
+	Actor21: mutambush
+		Owner: Bandits
+		Location: 62,6
+	Actor32: mutambush
+		Owner: Bandits
+		Location: 52,5
+	Actor33: mutambush
+		Owner: Bandits
+		Location: 57,4
+	Way2_down_3: waypoint
+		Owner: Neutral
+		Location: 71,4
+	Way2_up_1: waypoint
+		Owner: Neutral
+		Location: 51,-8
+	Way2_up_2: waypoint
+		Owner: Neutral
+		Location: 51,-17
+	Way2_down_1: waypoint
+		Owner: Neutral
+		Location: 58,2
 
 Rules: sp|rules/campaign.yaml, sp|rules/campaignrules.yaml, rules.yaml
 

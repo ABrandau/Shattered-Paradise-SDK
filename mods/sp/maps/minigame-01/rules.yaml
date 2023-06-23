@@ -12,7 +12,7 @@ World:
 			hard: Hard #options-difficulty.hard
 		Default: normal
 	MissionData:
-		Briefing: A test minigame
+		Briefing: Control an Ion Turret to lay the brigands waste and try to survive. Protects our MCVs if possible! \n\nDestroy tunnels first!
 
 Player:
 	Shroud:
@@ -20,15 +20,12 @@ Player:
 		ExploredMapCheckboxEnabled: true
 	## TODO: change to translation label after next engine rebase
 	SquadManagerBotModule@AIBase:
-		AssignRolesTicks: 23 ## This map is small and unit is limited
-		MinimumAttackForceDelay: 31
-		SquadSize: 1
-		SquadSizeRandomBonus: 1
-		
+		AssignRolesTicks: 31 ## This map is small and unit is limited
+		ProtectionTypes: mutambushvent, e3, deathclaw, lynx
 
 MUTAMBUSH:
 	KillsSelf@tset:
-		Delay: 400, 1200
+		Delay: 400, 1000
 
 MUTAMBUSHVENT:
 	SpawnActorOnDeath:
@@ -52,7 +49,7 @@ MUTAMBUSHVENT:
 	PeriodicProducer@3:
 		Actors: deathclaw
 		Type: mutvent
-		ChargeDuration: 10
+		ChargeDuration: 34
 		RequiresCondition: !Building-Buildup && beast
 	Exit@1:
 		SpawnOffset: 256,256,0
