@@ -61,7 +61,7 @@ Tick = function()
 	if RemainingTime >= 0 then
 		RemainingTime = RemainingTime - 1
 		UserInterface.SetMissionText( "Remaining Time: " .. Utils.FormatTime(RemainingTime))
-		if RemainingTime == 380 then
+		if RemainingTime == 250 then
 			Reinforcements.Reinforce(gdi_ai, {"kodk"}, {Reinforce_1.Location, IonTurLocation})
 			Media.DisplayMessage("Hold on, we are going to pick you up! Call for orbital strikes, NOW!", "GDI Commander", HSLColor.FromHex("EEEE66"))
 		end
