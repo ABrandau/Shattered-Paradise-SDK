@@ -28,15 +28,15 @@ MUTAMBUSH:
 		Delay: 400, 1000
 
 MUTAMBUSHVENT:
+	AutoTarget@AIonly:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	SpawnActorOnDeath:
 		Actor: mutambush
 	Production:
 		Produces: mutvent
 	GrantRandomCondition:
 		Conditions: tank, mortar, beast
-	AutoTarget:
-		ScanRadius: 8 #PREF: save trait looks up and scan armaments
-	PeriodicProducer@1:
+		PeriodicProducer@1:
 		Actors: lynx
 		Type: mutvent
 		ChargeDuration: 10
@@ -65,4 +65,24 @@ GAIONTUR:
 		Modifier: 4000
 	-RenderRangeCircle:
 	-Power:
+
+KODK:
+	GrantConditionAfterDelay@active-bacon:
+		Condition: can-active
+		Delay: 50
+		ShowSelectionBar: false
+	ProvidesPrerequisite@active-bacon:
+		Prerequisite: ActiveBeacon
+		RequiresCondition: can-active
+
+ORBIT.DUMMY:
+	Inherits: ^GROUNDDUMMY
+	SpawnSparks:
+		SparkWeapon: OrbitBeaconExp
+		Amount: 1
+		Interval: 50
+		RequiresCondition: active
+	GrantConditionOnPrerequisite:
+		Condition: active
+		Prerequisites: ActiveBeacon
 

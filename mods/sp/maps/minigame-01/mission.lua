@@ -61,6 +61,10 @@ Tick = function()
 	if RemainingTime >= 0 then
 		RemainingTime = RemainingTime - 1
 		UserInterface.SetMissionText( "Remaining Time: " .. Utils.FormatTime(RemainingTime))
+		if RemainingTime == 380 then
+			Reinforcements.Reinforce(gdi_ai, {"kodk"}, {Reinforce_1.Location, IonTurLocation})
+			Media.DisplayMessage("Hold on, we are going to pick you up! Call for orbital strikes, NOW!", "GDI Commander", HSLColor.FromHex("EEEE66"))
+		end
 	else
 		UserInterface.SetMissionText("You Survived!")
 		CheckObjectivesOnMissionEnd(true)
@@ -80,6 +84,12 @@ WorldLoaded = function()
 	MCVprotected = 0
 	Waves = 6
 	RemainingTime = 6800
+	IonTurLocation = IonTur.Location
+
+
+	for k,actor in ipairs(bandits_ai.GetActorsByTypes({"mutambush"})) do
+		Actor.Create("orbit.dummy", true, {Owner = gdi_ai, Location = actor.Location})
+	end
 
 	MissionText()
 	Trigger.AfterDelay(200, function()

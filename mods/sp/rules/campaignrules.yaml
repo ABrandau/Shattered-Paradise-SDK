@@ -223,6 +223,102 @@ GAIONTUR:
 	ActorStatValues:
 		Damage: 2000
 
+KODK:
+	Inherits: ^CombatHelicopter
+	Inherits@SHADOW: ^AircraftShadow
+	Inherits@VISION: ^9CellVisionAir
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 5000
+	Tooltip:
+		Name: Kodiak Command Ship
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Selectable:
+		Bounds: 2800,3100, 0, -512
+	Aircraft:
+		AltitudeVelocity: 180
+		TurnSpeed: 20
+		Speed: 75
+		Repulsable: true
+		MoveIntoShroud: true
+		IdealSeparation: 1706
+		TakeoffSounds: orcaup1.aud
+		LandingSounds: orcadwn1.aud
+	AttackAircraft:
+		AttackType: Hover
+		FacingTolerance: 512
+		Voice: Attack
+	Armament@1:
+		Weapon: KodkRail
+		LocalOffset: 1900, 0, -40, 1300, 0, -40, 700, 0, -400
+	AutoTarget:
+		ScanRadius: 10 #PREF: save trait looks up and scan armaments
+	-Rearmable:
+	Health:
+		HP: 45000
+	SpawnActorOnDeath:
+		Actor: KODK.Husk
+		RequiresCondition: airborne
+	Explodes@Shrapnel:
+		Weapon: BigAircraftShrapnel
+		EmptyWeapon: BigAircraftShrapnel
+	Contrail@1:
+		RequiresCondition: airborne
+		Offset: -1600, 800, 50
+		StartColor: FFEA0080
+		StartColorAlpha: 128
+		StartColorUsePlayerColor: false
+		EndColor: FFEA0000
+		TrailLength: 8
+		StartWidth: 96
+	Contrail@2:
+		RequiresCondition: airborne
+		Offset: -1600, 500, 50
+		StartColor: FFEA0080
+		StartColorAlpha: 128
+		StartColorUsePlayerColor: false
+		EndColor: FFEA0000
+		TrailLength: 8
+		StartWidth: 96
+	Contrail@3:
+		RequiresCondition: airborne
+		Offset: -1600, -500, 50
+		StartColor: FFEA0080
+		StartColorAlpha: 128
+		StartColorUsePlayerColor: false
+		EndColor: FFEA0000
+		TrailLength: 8
+		StartWidth: 96
+	Contrail@4:
+		RequiresCondition: airborne
+		Offset: -1600, -800, 50
+		StartColor: FFEA0080
+		StartColorAlpha: 128
+		StartColorUsePlayerColor: false
+		EndColor: FFEA0000
+		TrailLength: 8
+		StartWidth: 96
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+
+KODK.Husk:
+	Inherits: ^AircraftHusk
+	Tooltip:
+		Name: Kodiak Command Ship
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 149
+	WithShadow:
+	WithFacingSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 32
+	RenderSprites:
+		Image: kodk
+	FallsToEarth:
+		Explosion: DevourerExplode
+
 ############ Unused Below ################
 CABGRINDER:
 	Inherits: ^TechBuilding
