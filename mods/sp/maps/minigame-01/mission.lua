@@ -77,6 +77,7 @@ WorldLoaded = function()
 	if Difficulty == "hard" then
 		Actor.Create("upgrade.lynx_rockets",  true, { Owner =  bandits_ai})
 		Actor.Create("upgrade.tiberium_infusion", true, { Owner =  bandits_ai})
+		Actor.Create("upgrade.fortified_upg", true, { Owner = bandits_ai })
 	end
 	
 	gdi_ai = Player.GetPlayer("GDI")

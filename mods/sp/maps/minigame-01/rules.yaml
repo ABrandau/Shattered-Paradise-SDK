@@ -18,39 +18,56 @@ Player:
 	Shroud:
 		FogCheckboxEnabled:  false
 		ExploredMapCheckboxEnabled: true
-	## TODO: change to translation label after next engine rebase
+	## AI
 	SquadManagerBotModule@AIBase:
 		AssignRolesTicks: 31 ## This map is small and unit is limited
-		ProtectionTypes: mutambushvent, e3, deathclaw, lynx
+		ProtectionTypes: mutambushvent, e3, deathclaw, lynx, mutfiend, mutquad
+		SquadSize: 5
+		SquadSizeRandomBonus: 0
+	LoadCargoBotModule:
+		ScanTick: 157
+	## Game logic: prevent too many tunnel
+	ExternalCondition@PreventTooManyTunnel:
+		Condition: tunnel
+	ProvidesPrerequisite@PreventTooManyTunnel:
+		Prerequisite: TooManyTunnel
+		RequiresCondition: tunnel > 3
 
 MUTAMBUSH:
+	GrantConditionOnPrerequisite@PreventTooManyTunnel:
+		Condition: nomore
+		Prerequisites: TooManyTunnel
 	KillsSelf@tset:
 		Delay: 400, 1000
+		RequiresCondition: !nomore
 
 MUTAMBUSHVENT:
+	GrantExternalConditionToOwner@PreventTooManyTunnel:
+		Condition: tunnel
 	AutoTarget@AIonly:
 		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	SpawnActorOnDeath:
 		Actor: mutambush
+	## Production
 	Production:
 		Produces: mutvent
 	GrantRandomCondition:
-		Conditions: tank, mortar, beast
+		Conditions: squad1, squad2, squad3
 	PeriodicProducer@1:
 		Actors: lynx
 		Type: mutvent
 		ChargeDuration: 10
-		RequiresCondition: !Building-Buildup && tank
+		RequiresCondition: !Building-Buildup && squad1
 	PeriodicProducer@2:
 		Actors: e3
 		Type: mutvent
 		ChargeDuration: 10
-		RequiresCondition: !Building-Buildup && mortar
+		RequiresCondition: !Building-Buildup && squad2
 	PeriodicProducer@3:
 		Actors: deathclaw
 		Type: mutvent
 		ChargeDuration: 34
-		RequiresCondition: !Building-Buildup && beast
+		RequiresCondition: !Building-Buildup && squad3
 	Exit@1:
 		SpawnOffset: 256,256,0
 		ExitCell: 2,1
@@ -67,6 +84,7 @@ GAIONTUR:
 	-Power:
 
 KODK:
+	Inherits@3: ^Unkillable
 	GrantConditionAfterDelay@active-bacon:
 		Condition: can-active
 		Delay: 50
