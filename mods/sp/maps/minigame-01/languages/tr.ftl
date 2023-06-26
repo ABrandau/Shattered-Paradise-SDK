@@ -3,5 +3,6 @@ dropdown-difficulty =
     .description = Görevin zorluğu
 
 options-difficulty =
+    .easy = Casual
     .normal = Normal
     .hard = Sert

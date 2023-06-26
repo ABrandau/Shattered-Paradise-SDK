@@ -37,6 +37,32 @@ CheckObjectivesOnMissionEnd = function(survived)
 	end
 end
 
+DifficultySetUp = function()
+	if Difficulty == "normal" or Difficulty == "hard" then
+		Actor.Create("upgrade.tiberium_gas_warheads", true, { Owner =  bandits_ai})
+		Actor.Create("upgrade.lynx_rockets",  true, { Owner =  bandits_ai})
+		Actor.Create("upgrade.tiberium_infusion", true, { Owner =  bandits_ai})
+	end
+
+	if Difficulty == "easy" then
+		bandits_ai.GrantCondition("easy-game")
+	elseif Difficulty == "normal" then
+		bandits_ai.GrantCondition("normal-game")
+		Trigger.AfterDelay(1000, function()
+			SendNukeLoop()
+		end)
+	else
+		bandits_ai.GrantCondition("hard-game")
+		Trigger.AfterDelay(100, function()
+			Media.DisplayMessage("This vile turret brings only massacre, we must turn it off!", "Anarchist", HSLColor.FromHex("1288FF"))
+			SendHackerLoop()
+		end)
+		Trigger.AfterDelay(800, function()
+			SendNukeLoop()
+		end)
+	end
+end
+
 SendWaveLoop = function()
 	Reinforcements.Reinforce(gdi_ai, GDIForces, Utils.Random(GDIWays), 60,  function(a)
 		if a.Type == "mcv" then
@@ -56,48 +82,89 @@ SendWaveLoop = function()
 	end)
 end
 
+CabHackerPath = {Cab_way1.Location, Cab_way2.Location}
+SendHackerLoop = function()
+	if (Hacker == nil or Hacker.IsDead) and not IonTur.IsDead then
+		Hacker = Utils.Random(Reinforcements.Reinforce(cab_ai, {"cabecm"}, CabHackerPath, 60, function(a)
+			a.Attack(IonTur)
+		end))
+	end
+
+	Trigger.AfterDelay(200, function()
+		SendHackerLoop()
+	end)
+end
+
+NukeSpawnPoints = {Mut_nuke1.Location, Mut_nuke2.Location, Mut_nuke3.Location}
+NukeSounds = {"demotruckvoice0006.aud", "demotruckvoice0007.aud", "demotruckvoice0008.aud"}
+NukeSpawnDelay = {700, 800, 1000, 1100, 1200}
+SendNukeLoop = function()
+	if not IonTur.IsDead then
+		local nuke = Actor.Create("hvrtruk3", true, {Owner = bandits_ai, Facing = Angle.New(919), Location = Utils.Random(NukeSpawnPoints)})
+		nuke.Attack(IonTur)
+		nuke.Flash(HSLColor.FromHex("FFFFFF"), 15, DateTime.Seconds(1) / 4)
+		Media.PlaySound(Utils.Random(NukeSounds))
+	end
+
+	Trigger.AfterDelay(Utils.Random(NukeSpawnDelay), function()
+		SendNukeLoop()
+	end)
+end
 
 Tick = function()
 	if RemainingTime >= 0 then
 		RemainingTime = RemainingTime - 1
 		UserInterface.SetMissionText( "Remaining Time: " .. Utils.FormatTime(RemainingTime))
-		if RemainingTime == 250 then
-			Reinforcements.Reinforce(gdi_ai, {"kodk"}, {Reinforce_1.Location, IonTurLocation})
-			Media.DisplayMessage("Hold on, we are going to pick you up! Call for orbital strikes, NOW!", "GDI Commander", HSLColor.FromHex("EEEE66"))
-		end
 	else
 		UserInterface.SetMissionText("You Survived!")
 		CheckObjectivesOnMissionEnd(true)
+	end
+
+	--## Kodiak comes to save you plot
+	if RemainingTime == 280 then
+		Media.DisplayMessage("Hold on, we are going to pick you up!", "GDI Commander", HSLColor.FromHex("EEEE66"))
+
+		local kodiak = Utils.Random(Reinforcements.Reinforce(gdi_ai, {"kodk"}, {Reinforce_1.Location, IonTurLocation}, 10, function(a)
+			Trigger.AfterDelay(105, function()
+				if not IonTur.IsDead then
+					a.Land(IonTur)
+				end
+			end)
+		end))
+
+		Trigger.AfterDelay(100, function()
+			Media.DisplayMessage("Orbital strikes! NOW!!!", "GDI Commander", HSLColor.FromHex("EEEE66"))
+			kodiak.GrantCondition("can-active")
+			Utils.Do(gdi_ai.GetActorsByType("orbit.dummy"), function(a)
+				a.Attack(kodiak, true)
+			end)
+		end)
 	end
 end
 
 WorldLoaded = function()
 	bandits_ai = Player.GetPlayer("Bandits")
-	Actor.Create("upgrade.tiberium_gas_warheads", true, { Owner =  bandits_ai})
-	if Difficulty == "hard" then
-		Actor.Create("upgrade.lynx_rockets",  true, { Owner =  bandits_ai})
-		Actor.Create("upgrade.tiberium_infusion", true, { Owner =  bandits_ai})
-		Actor.Create("upgrade.fortified_upg", true, { Owner = bandits_ai })
-	end
-	
+	cab_ai = Player.GetPlayer("Anarchists")
 	gdi_ai = Player.GetPlayer("GDI")
 	player = Player.GetPlayer("You")
 	MCVprotected = 0
 	Waves = 6
 	RemainingTime = 6800
 	IonTurLocation = IonTur.Location
-
-
-	for k,actor in ipairs(bandits_ai.GetActorsByTypes({"mutambush"})) do
-		Actor.Create("orbit.dummy", true, {Owner = gdi_ai, Location = actor.Location})
-	end
+	Hacker = nil
 
 	MissionText()
+	DifficultySetUp()
+
 	Trigger.AfterDelay(200, function()
 		SendWaveLoop()
 	end)
 
 	Trigger.OnKilled(IonTur, function(s, k)
 		CheckObjectivesOnMissionEnd(false)
+	end)
+
+	Utils.Do(bandits_ai.GetActorsByType("mutambush"), function(a)
+		Actor.Create("orbit.dummy", true, {Owner = gdi_ai, Location = a.Location})
 	end)
 end

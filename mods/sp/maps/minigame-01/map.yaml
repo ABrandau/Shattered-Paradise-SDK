@@ -23,12 +23,12 @@ Players:
 		Name: Neutral
 		OwnsWorld: True
 		NonCombatant: True
-		Faction: nod
+		Faction: gdi
 	PlayerReference@Creeps:
 		Name: Creeps
 		NonCombatant: True
-		Faction: nod
-		Enemies: Bandits, GDI, You
+		Faction: mut
+		Enemies: Bandits, GDI, You, Anarchists
 	PlayerReference@You:
 		Name: You
 		Playable: True
@@ -38,7 +38,7 @@ Players:
 		LockColor: True
 		Color: EEEE66
 		Allies: GDI
-		Enemies: Bandits, Creeps
+		Enemies: Bandits, Creeps, Anarchists
 	PlayerReference@GDI:
 		Name: GDI
 		LockFaction: True
@@ -47,6 +47,13 @@ Players:
 		Color: EEEE66
 		Allies: You
 		Enemies: Bandits, Creeps
+	PlayerReference@Anarchists:
+		Name: Anarchists
+		LockFaction: True
+		Faction: cab
+		LockColor: True
+		Color: 1288FF
+		Enemies: You, Creeps
 	PlayerReference@Bandits:
 		Name: Bandits
 		Bot: NormalAI
@@ -62,7 +69,7 @@ Actors:
 		Location: 54,-2
 		Owner: You
 		TurretFacing: 368
-	Actor19: veinhole
+	Veinhole1: veinhole
 		Location: 59,13
 		Owner: Neutral
 	Actor22: mutambush
@@ -146,9 +153,27 @@ Actors:
 	Actor37: mutambush
 		Owner: Bandits
 		Location: 47,-18
+	Cab_way1: waypoint
+		Faction: cab
+		Location: 34,-5
+		Owner: Neutral
+	Mut_nuke2: waypoint
+		Faction: cab
+		Location: 70,23
+		Owner: Neutral
+	Mut_nuke1: waypoint
+		Faction: cab
+		Location: 65,27
+		Owner: Neutral
+	Mut_nuke3: waypoint
+		Owner: Neutral
+		Location: 59,22
+	Cab_way2: waypoint
+		Owner: Neutral
+		Location: 41,-5
 
 Rules: sp|rules/campaign.yaml, sp|rules/campaignrules.yaml, rules.yaml
 
 Sequences: sp|sequences/campaignseq.yaml
 
-Weapons: sp|weapons/campaignweapons.yaml
+Weapons: sp|weapons/campaignweapons.yaml, weapons.yaml

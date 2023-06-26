@@ -8,9 +8,10 @@ World:
 		Label: dropdown-difficulty.label
 		Description: The difficulty of the mission #dropdown-difficulty.description
 		Values:
+			easy: Casual #options-difficulty.easy
 			normal: Normal #options-difficulty.normal
 			hard: Hard #options-difficulty.hard
-		Default: normal
+		Default: easy
 	MissionData:
 		Briefing: Control an Ion Turret to lay the brigands waste and try to survive. Protects our MCVs if possible! \n\nDestroy tunnels first!
 
@@ -21,25 +22,54 @@ Player:
 	## AI
 	SquadManagerBotModule@AIBase:
 		AssignRolesTicks: 31 ## This map is small and unit is limited
-		ProtectionTypes: mutambushvent, e3, deathclaw, lynx, mutfiend, mutquad
+		ProtectionTypes: mutambushvent, e3, deathclaw, lynx
 		SquadSize: 5
 		SquadSizeRandomBonus: 0
-	LoadCargoBotModule:
-		ScanTick: 157
-	## Game logic: prevent too many tunnel
+	SharedCargoBotModule:
+		ScanTick: 217
+		Passengers: e3, deathclaw, lynx
+	-LoadCargoBotModule:
+	-CncEngineerBotModule:
+	-SendUnitToAttackBotModule:
+	-MinelayerBotModule:
+	## Game logic
 	ExternalCondition@PreventTooManyTunnel:
 		Condition: tunnel
-	ProvidesPrerequisite@PreventTooManyTunnel:
-		Prerequisite: TooManyTunnel
-		RequiresCondition: tunnel > 3
+	ExternalCondition@EasyGame:
+		Condition: easy-game
+	ProvidesPrerequisite@EasyGame:
+		Prerequisite: EasyGame
+		RequiresCondition: easy-game && tunnel < 4
+	ExternalCondition@NormalGame:
+		Condition: normal-game
+	ProvidesPrerequisite@NormalGame:
+		Prerequisite: NormalGame
+		RequiresCondition: normal-game && tunnel < 5
+	ExternalCondition@HardGame:
+		Condition: hard-game
+	ProvidesPrerequisite@HardGame:
+		Prerequisite: HardGame
+		RequiresCondition: hard-game && tunnel < 6
 
 MUTAMBUSH:
-	GrantConditionOnPrerequisite@PreventTooManyTunnel:
-		Condition: nomore
-		Prerequisites: TooManyTunnel
-	KillsSelf@tset:
-		Delay: 400, 1200
-		RequiresCondition: !nomore
+	GrantConditionOnPrerequisite@HardGame:
+		Condition: hard-game
+		Prerequisites: HardGame
+	GrantConditionOnPrerequisite@NormalGame:
+		Condition: normal-game
+		Prerequisites: NormalGame
+	GrantConditionOnPrerequisite@EasyGame:
+		Condition: easy-game
+		Prerequisites: EasyGame
+	KillsSelf@EasyGame:
+		Delay: 450, 1200
+		RequiresCondition: easy-game
+	KillsSelf@NormalGame:
+		Delay: 350, 800
+		RequiresCondition: normal-game
+	KillsSelf@HardGame:
+		Delay: 250, 500
+		RequiresCondition: hard-game
 
 MUTAMBUSHVENT:
 	GrantExternalConditionToOwner@PreventTooManyTunnel:
@@ -85,10 +115,8 @@ GAIONTUR:
 
 KODK:
 	Inherits@3: ^Unkillable
-	GrantConditionAfterDelay@active-bacon:
+	ExternalCondition@active-bacon:
 		Condition: can-active
-		Delay: 50
-		ShowSelectionBar: false
 	ProvidesPrerequisite@active-bacon:
 		Prerequisite: ActiveBeacon
 		RequiresCondition: can-active
@@ -103,4 +131,7 @@ ORBIT.DUMMY:
 	GrantConditionOnPrerequisite:
 		Condition: active
 		Prerequisites: ActiveBeacon
+	Armament@AimKODK:
+		Weapon: BeaconConnectionLine
+	AttackOmni@AimKODK:
 
