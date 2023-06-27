@@ -37,29 +37,67 @@ CheckObjectivesOnMissionEnd = function(survived)
 	end
 end
 
+CivSquad = {Protester6, Protester5, Protester4, Protester3, Protester2, Protester1}
+HardModes = {"HackerMode", "VeinholeMode"}
 DifficultySetUp = function()
-	if Difficulty == "normal" or Difficulty == "hard" then
-		Actor.Create("upgrade.tiberium_gas_warheads", true, { Owner =  bandits_ai})
-		Actor.Create("upgrade.lynx_rockets",  true, { Owner =  bandits_ai})
-		Actor.Create("upgrade.tiberium_infusion", true, { Owner =  bandits_ai})
-	end
+	Actor.Create("upgrade.tiberium_gas_warheads", true, { Owner =  bandits_ai})
+	Actor.Create("upgrade.lynx_rockets",  true, { Owner =  bandits_ai})
+	Actor.Create("upgrade.tiberium_infusion", true, { Owner =  bandits_ai})
 
 	if Difficulty == "easy" then
 		bandits_ai.GrantCondition("easy-game")
+		Utils.Do(CivSquad, function(a)
+			a.Destroy()
+		end)
+		Eye1.Destroy()
+		Eye2.Destroy()
 	elseif Difficulty == "normal" then
 		bandits_ai.GrantCondition("normal-game")
 		Trigger.AfterDelay(1000, function()
 			SendNukeLoop()
 		end)
+		Utils.Do(CivSquad, function(a)
+			a.Destroy()
+		end)
+		Eye1.Destroy()
+		Eye2.Destroy()
 	else
 		bandits_ai.GrantCondition("hard-game")
-		Trigger.AfterDelay(100, function()
-			Media.DisplayMessage("This vile turret brings only massacre, we must turn it off!", "Anarchist", HSLColor.FromHex("1288FF"))
-			SendHackerLoop()
-		end)
+
 		Trigger.AfterDelay(800, function()
 			SendNukeLoop()
 		end)
+
+		local mode = Utils.Random(HardModes)
+		if mode  == "VeinholeMode" then
+			Trigger.AfterDelay(50, function()
+				Veinhole1.Attack(IonTur, true, true)
+			end)
+			Trigger.AfterDelay(200, function()
+				Media.DisplayMessage("Sorry man, I ate too much last night and I really feel sick today.", "Talking Hole", HSLColor.FromHex("1288FF"))
+				Veinhole1.GrantCondition("talking", 150)
+				Veinhole1.Flash(HSLColor.FromHex("FFFFFF"), 10, DateTime.Seconds(1) / 3)
+			end)
+			Utils.Do(CivSquad, function(a)
+				a.Destroy()
+			end)
+		elseif mode  == "HackerMode" then
+			Trigger.AfterDelay(150, function()
+				Media.DisplayMessage("This vile GDI machine brings only war to our home, we must turn it off!", "Protesters", HSLColor.FromHex("66AAFF"))
+				SendHackerLoop()
+			end)
+			Trigger.AfterDelay(160, function()
+				if Hacker == nil or Hacker.IsDead then
+					return
+				end
+				Hacker.Flash(HSLColor.FromHex("FFFFFF"), 25, DateTime.Seconds(1) / 4)
+			end)
+			Utils.Do(CivSquad, function(a)
+				CivRespawnOnKill(a, Cab_way1.Location)
+			end)
+			Eye1.Destroy()
+			Eye2.Destroy()
+		end
 	end
 end
 
@@ -90,7 +128,7 @@ SendHackerLoop = function()
 		end))
 	end
 
-	Trigger.AfterDelay(200, function()
+	Trigger.AfterDelay(20, function()
 		SendHackerLoop()
 	end)
 end
@@ -99,15 +137,37 @@ NukeSpawnPoints = {Mut_nuke1.Location, Mut_nuke2.Location, Mut_nuke3.Location}
 NukeSounds = {"demotruckvoice0006.aud", "demotruckvoice0007.aud", "demotruckvoice0008.aud"}
 NukeSpawnDelay = {700, 800, 1000, 1100, 1200}
 SendNukeLoop = function()
-	if not IonTur.IsDead then
-		local nuke = Actor.Create("hvrtruk3", true, {Owner = bandits_ai, Facing = Angle.New(919), Location = Utils.Random(NukeSpawnPoints)})
-		nuke.Attack(IonTur)
-		nuke.Flash(HSLColor.FromHex("FFFFFF"), 15, DateTime.Seconds(1) / 4)
+
+	local nuke = Utils.Random(Reinforcements.Reinforce(bandits_ai, {"hvrtruk3"}, {Utils.Random(NukeSpawnPoints), IonTurLocation}, 10, function(a)
+		if not IonTur.IsDead then
+			a.Attack(IonTur)
+		end
+	end))
+
+	Trigger.AfterDelay(1, function()
+		nuke.Flash(HSLColor.FromHex("FFFFFF"), 25, DateTime.Seconds(1) / 4)
 		Media.PlaySound(Utils.Random(NukeSounds))
-	end
+	end)
 
 	Trigger.AfterDelay(Utils.Random(NukeSpawnDelay), function()
 		SendNukeLoop()
+	end)
+end
+
+CivRespawnOnKill = function(actor, spawnLoc, toLoc)
+	if (spawnLoc == nil) then
+		return
+	end
+
+	Trigger.OnKilled(actor, function(s,k)
+		respawned = Actor.Create(actor.Type, true, {Owner = actor.Owner, Location = spawnLoc})
+		if respawned ~= nil then
+			if (toLoc == nil) then
+				toLoc = actor.Location
+			end
+			respawned.Move(toLoc)
+			CivRespawnOnKill(respawned, spawnLoc, toLoc)
+		end
 	end)
 end
 
@@ -144,7 +204,7 @@ end
 
 WorldLoaded = function()
 	bandits_ai = Player.GetPlayer("Bandits")
-	cab_ai = Player.GetPlayer("Anarchists")
+	cab_ai = Player.GetPlayer("Instigator")
 	gdi_ai = Player.GetPlayer("GDI")
 	player = Player.GetPlayer("You")
 	MCVprotected = 0

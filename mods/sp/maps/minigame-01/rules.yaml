@@ -19,6 +19,8 @@ Player:
 	Shroud:
 		FogCheckboxEnabled:  false
 		ExploredMapCheckboxEnabled: true
+	LobbyPrerequisiteCheckbox@FREEMINIMAP:
+		Enabled: false
 	## AI
 	SquadManagerBotModule@AIBase:
 		AssignRolesTicks: 31 ## This map is small and unit is limited
@@ -32,6 +34,8 @@ Player:
 	-CncEngineerBotModule:
 	-SendUnitToAttackBotModule:
 	-MinelayerBotModule:
+	-BaseBuilderBotModule@AIBase:
+	-McvManagerASBotModule@AINormal:
 	## Game logic
 	ExternalCondition@PreventTooManyTunnel:
 		Condition: tunnel
@@ -39,17 +43,63 @@ Player:
 		Condition: easy-game
 	ProvidesPrerequisite@EasyGame:
 		Prerequisite: EasyGame
-		RequiresCondition: easy-game && tunnel < 4
+		RequiresCondition: easy-game && tunnel < 3
 	ExternalCondition@NormalGame:
 		Condition: normal-game
 	ProvidesPrerequisite@NormalGame:
 		Prerequisite: NormalGame
-		RequiresCondition: normal-game && tunnel < 5
+		RequiresCondition: normal-game && tunnel < 4
 	ExternalCondition@HardGame:
 		Condition: hard-game
 	ProvidesPrerequisite@HardGame:
 		Prerequisite: HardGame
-		RequiresCondition: hard-game && tunnel < 6
+		RequiresCondition: hard-game && tunnel < 5
+
+HVRTRUK3:
+	AutoTarget:
+		InitialStanceAI: HoldFire
+
+^ProtesterBase:
+	WithIdleOverlay@talk:
+		Image: talkbubl
+		Sequence: idle2
+		IsDecoration: true
+		Palette: player
+	Tooltip:
+		Name: Protester
+	AttackWander:
+		MinMoveDelay: 24
+		MaxMoveDelay: 48
+
+CIV1:
+	Inherits@Protester: ^ProtesterBase
+
+CIV2:
+	Inherits@Protester: ^ProtesterBase
+
+CIV3:
+	Inherits@Protester: ^ProtesterBase
+
+VEINHOLE:
+	-AttackOmni:
+	AttackFollow:
+	ExternalCondition@talking:
+		Condition: talking
+	WithIdleAnimation@talking:
+		Sequences: active1
+		Interval: 12
+		RequiresCondition: talking
+	GrantPeriodicCondition@attack-pause:
+		Condition: attack-pause
+		CooldownDuration: 200, 400
+		ActiveDuration: 200, 400
+	Armament:
+		PauseOnCondition: attack-pause || talking
+	Armament@2:
+		Weapon: HugeVeinholeEgg
+		LocalOffset: 0, 0, 1200
+		PauseOnCondition: attack-pause || talking
+
 
 MUTAMBUSH:
 	GrantConditionOnPrerequisite@HardGame:
@@ -66,10 +116,7 @@ MUTAMBUSH:
 		RequiresCondition: easy-game
 	KillsSelf@NormalGame:
 		Delay: 350, 800
-		RequiresCondition: normal-game
-	KillsSelf@HardGame:
-		Delay: 250, 500
-		RequiresCondition: hard-game
+		RequiresCondition: normal-game || hard-game
 
 MUTAMBUSHVENT:
 	GrantExternalConditionToOwner@PreventTooManyTunnel:
@@ -104,6 +151,10 @@ MUTAMBUSHVENT:
 		ExitDelay: 0
 
 GAIONTUR:
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
+	Health:
+		HP: 400000
 	TooltipDescription:
 		Description: Select this defence and fire manually!
 	ReloadDelayMultiplier@minigame:
@@ -114,7 +165,7 @@ GAIONTUR:
 	-Power:
 
 KODK:
-	Inherits@3: ^Unkillable
+	Inherits@Unkillable: ^Unkillable
 	ExternalCondition@active-bacon:
 		Condition: can-active
 	ProvidesPrerequisite@active-bacon:

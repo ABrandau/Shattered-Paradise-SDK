@@ -1,3 +1,8 @@
+CloudDamage:
+	Inherits@3: ^SpawnsIrradiation
+	ReloadDelay: 17
+	Projectile: InstantExplode
+
 FireballLauncher:
 	Inherits: ^RifleWarhead
 	ReloadDelay: 50
@@ -388,48 +393,42 @@ BerserkerBlow:
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 		NoUnintendedFriendlyFire: All
 
-## unused
-VisceLauncher:
-	Inherits: ^BombWarhead
-	ReloadDelay: 150
-	Range: 7c0
-	Burst: 2
-	BurstDelays: 10
-	MinRange: 1c0
-	ValidTargets: Infantry, Vehicle, Building
+
+HugeVeinholeCloud:
+	ValidTargets: Ground, Water, Air
+	ReloadDelay: 90
+	Range: 8c0
+	Report: tentaclem0001.wav, tentaclem0002.wav, tentaclem0003.wav
+	Projectile: InstantExplode
+	Warhead@5cloud: SpawnSmokeParticle
+		Count: 1
+		Duration: 179
+		Speed: 30
+		TurnRate: 16
+		Image: tibcloud
+		StartSequences: cloud1start_veinhole
+		Sequences: cloud1
+		EndSequences: cloud1end
+		Palette: effectalpha50
+		AirThreshold: 8c0
+		ImpactActors: false
+		Delay: 14
+
+HugeVeinholeEgg:
+	Inherits: EggElevator
+	Range: 8c0
+	ReloadDelay: 90
+	Warhead@op: FireShrapnel
+		Weapon: ThrowEgg
+		Delay: 14
+
+ThrowEgg:
+	Inherits: SpawnEgg
+	Range: 4c0
+	MinRange: 2c0
 	Projectile: BulletAS
-		Speed: 360
-		Image: viscproj
-		Shadow: true
-		Palette: effect
-		LaunchAngle: 50
-	Warhead@1Dam: SpreadDamage
-		Spread: 150
-		Damage: 4000
-		Versus:
-			Infantry: 100
-			Building: 100
-			Defense: 100
-			Heavy: 100
-			Aircraft: 100
-			Concrete: 15
-		ValidTargets: Ground, Water, Air
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
-	Warhead@2Eff: CreateEffect
-		Explosions: viscexplo
-		ExplosionPalette: effect
-		ImpactSounds: expnew14.aud
-		InvalidTargets: : Water
-	Warhead@3EffWater: CreateEffect
-		Explosions: viscexplo
-		ExplosionPalette: effect
-		ImpactSounds: ssplash3.aud
-		ValidTargets: Water
-	Warhead@5Actor: SpawnActor
-		Actors: visc_lrg, visc_lrg
-		FallRate: 5000
-		Range: 3
-		ValidTargets: Ground, Infantry, Vehicle, Building, Structure, Water, Air
+		LaunchAngle: 230
+		Speed: 50
 
 FairyFlyAndBack:
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
@@ -496,7 +495,45 @@ FairyElevator:
 		AirThreshold: 20c0
 		ImpactActors: false
 
-CloudDamage:
-	Inherits@3: ^SpawnsIrradiation
-	ReloadDelay: 17
-	Projectile: InstantExplode
+## unused
+VisceLauncher:
+	Inherits: ^BombWarhead
+	ReloadDelay: 150
+	Range: 7c0
+	Burst: 2
+	BurstDelays: 10
+	MinRange: 1c0
+	ValidTargets: Infantry, Vehicle, Building
+	Projectile: BulletAS
+		Speed: 360
+		Image: viscproj
+		Shadow: true
+		Palette: effect
+		LaunchAngle: 50
+	Warhead@1Dam: SpreadDamage
+		Spread: 150
+		Damage: 4000
+		Versus:
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 15
+		ValidTargets: Ground, Water, Air
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
+	Warhead@2Eff: CreateEffect
+		Explosions: viscexplo
+		ExplosionPalette: effect
+		ImpactSounds: expnew14.aud
+		InvalidTargets: : Water
+	Warhead@3EffWater: CreateEffect
+		Explosions: viscexplo
+		ExplosionPalette: effect
+		ImpactSounds: ssplash3.aud
+		ValidTargets: Water
+	Warhead@5Actor: SpawnActor
+		Actors: visc_lrg, visc_lrg
+		FallRate: 5000
+		Range: 3
+		ValidTargets: Ground, Infantry, Vehicle, Building, Structure, Water, Air

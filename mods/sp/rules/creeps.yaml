@@ -442,6 +442,7 @@ MINIVEIN:
 		Terrain: Veins
 	Tooltip:
 		Name: Baby Veinhole
+		ShowOwnerRow: false
 	-Interactable:
 	Selectable:
 		Bounds: 1206,1809
@@ -508,10 +509,15 @@ VEINHOLE:
 		QuantizedFacings: 1
 	Tooltip:
 		Name: Veinhole Monster
+		ShowOwnerRow: false
 	#SeedsResource: ## The image of the slope vein layer is absent
 	#	Interval: 5
 	#	ResourceType: Veins
 	#	MaxRange: 24
+	#Targetable:
+	#	TargetTypes: Building, Ground, Veinhole
+	#Armor:
+	#	Type: Building
 	RenderSprites:
 		Palette: player
 	ChangesHealth:
@@ -520,17 +526,21 @@ VEINHOLE:
 		DamageCooldown: 50
 		Delay: 25
 	WithSpriteBody:
+		RequiresCondition: !attacking
+	WithSpriteBody@2:
+		Name: body2
+		Sequence: active2
+		RequiresCondition: attacking
+	AttackOmni:
+	Armament:
+		Weapon: HugeVeinholeCloud
+		LocalOffset: 0, 0, 2800
+	GrantConditionOnAttack:
+		Condition: attacking
+		RevokeDelay: 29
 	ShakeOnDeath:
-	#Targetable:
-	#	TargetTypes: Building, Ground, Veinhole
-	AmbientSound:
-		SoundFiles: tentaclem0001.wav, tentaclem0002.wav, tentaclem0003.wav
-		Delay: 0, 100
-		Interval: 150, 300
 	Health:
 		HP: 200000
-	Armor:
-		Type: Building
 	MapEditorData:
 		Categories: Tib Spawners
 	RequiresBuildableArea:
@@ -548,6 +558,7 @@ GEYE:
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Tooltip:
 		Name: Curiosity
+		ShowOwnerRow: false
 	Building:
 		Footprint: x
 		Dimensions: 1,1
@@ -626,6 +637,7 @@ TIBFAIRY:
 	Inherits: ^NonBuildingStaticActor
 	Tooltip:
 		Name: Fairy
+		ShowOwnerRow: false
 	EditorOnlyTooltip:
 		Name: Fairy
 	RenderSprites:

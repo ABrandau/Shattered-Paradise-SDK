@@ -10,7 +10,7 @@ Tileset: TEMPERATE
 
 MapSize: 60,120
 
-Bounds: 18,20,20,70
+Bounds: 18,17,20,67
 
 Visibility: MissionSelector
 
@@ -28,7 +28,9 @@ Players:
 		Name: Creeps
 		NonCombatant: True
 		Faction: mut
-		Enemies: Bandits, GDI, You, Anarchists
+		LockSpawn: True
+		Allies: Instigator
+		Enemies: GDI, You
 	PlayerReference@You:
 		Name: You
 		Playable: True
@@ -37,23 +39,26 @@ Players:
 		Faction: gdi
 		LockColor: True
 		Color: EEEE66
+		LockSpawn: True
 		Allies: GDI
-		Enemies: Bandits, Creeps, Anarchists
+		Enemies: Bandits, Creeps, Instigator
 	PlayerReference@GDI:
 		Name: GDI
 		LockFaction: True
 		Faction: gdi
 		LockColor: True
 		Color: EEEE66
+		LockSpawn: True
 		Allies: You
 		Enemies: Bandits, Creeps
-	PlayerReference@Anarchists:
-		Name: Anarchists
+	PlayerReference@Instigator:
+		Name: Instigator
 		LockFaction: True
 		Faction: cab
 		LockColor: True
 		Color: 1288FF
-		Enemies: You, Creeps
+		LockSpawn: True
+		Enemies: You
 	PlayerReference@Bandits:
 		Name: Bandits
 		Bot: NormalAI
@@ -62,16 +67,16 @@ Players:
 		LockColor: True
 		Color: 0CBB01
 		LockSpawn: True
-		Enemies: Creeps, GDI, You
+		Enemies: GDI, You
 
 Actors:
 	IonTur: gaiontur
 		Location: 54,-2
 		Owner: You
-		TurretFacing: 368
+		TurretFacing: 512
 	Veinhole1: veinhole
 		Location: 59,13
-		Owner: Neutral
+		Owner: You
 	Actor22: mutambush
 		Owner: Bandits
 		Location: 67,-1
@@ -87,30 +92,15 @@ Actors:
 	Actor26: mutambush
 		Owner: Bandits
 		Location: 46,2
-	Reinforce_1: waypoint
-		Owner: Neutral
-		Location: 44,7
 	Way1: waypoint
 		Owner: Neutral
 		Location: 48,7
 	Way2: waypoint
 		Owner: Neutral
 		Location: 52,0
-	Way2_up_3: waypoint
-		Owner: Neutral
-		Location: 50,-24
 	Way2_down_2: waypoint
 		Owner: Neutral
 		Location: 65,5
-	Way2_down_4: waypoint
-		Owner: Neutral
-		Location: 76,2
-	Actor27: mutambush
-		Owner: Bandits
-		Location: 48,-2
-	Actor29: mutambush
-		Owner: Bandits
-		Location: 48,-7
 	Actor30: mutambush
 		Owner: Bandits
 		Location: 67,7
@@ -138,39 +128,96 @@ Actors:
 	Actor34: mutambush
 		Owner: Bandits
 		Location: 50,10
-	Actor35: mutambush
-		Owner: Bandits
-		Location: 53,-18
 	Actor36: mutambush
 		Owner: Bandits
 		Location: 72,7
 	Actor31: mutambush
 		Owner: Bandits
 		Location: 76,4
-	Actor28: mutambush
+	Mut_nuke1: waypoint
+		Owner: Neutral
+		Location: 40,-18
+	Mut_nuke2: waypoint
+		Owner: Neutral
+		Location: 67,-8
+	Cab_way1: waypoint
+		Owner: Neutral
+		Location: 31,-5
+	Way2_up_3: waypoint
+		Owner: Neutral
+		Location: 53,-22
+	Actor35: mutambush
 		Owner: Bandits
-		Location: 47,-13
+		Location: 54,-17
 	Actor37: mutambush
 		Owner: Bandits
-		Location: 47,-18
-	Cab_way1: waypoint
+		Location: 48,-3
+	Actor39: mutambush
+		Owner: Bandits
+		Location: 48,-9
+	Actor38: mutambush
+		Owner: Bandits
+		Location: 47,-16
+	Actor41: mutambush
+		Owner: Bandits
+		Location: 48,-22
+	Protester2: civ2
+		SubCell: 2
+		Location: 40,-3
 		Faction: cab
-		Location: 34,-5
+		Facing: 384
+		Owner: Creeps
+	Protester5: civ2
+		SubCell: 2
+		Location: 40,-8
+		Facing: 384
+		Owner: Instigator
+	Protester6: civ3
+		Owner: Creeps
+		SubCell: 2
+		Location: 39,-10
+		Facing: 384
+	Reinforce_1: waypoint
 		Owner: Neutral
-	Mut_nuke2: waypoint
-		Faction: cab
-		Location: 70,23
+		Location: 44,8
+	Way2_down_4: waypoint
 		Owner: Neutral
-	Mut_nuke1: waypoint
-		Faction: cab
-		Location: 65,27
-		Owner: Neutral
+		Location: 76,1
 	Mut_nuke3: waypoint
 		Owner: Neutral
-		Location: 59,22
+		Location: 71,16
 	Cab_way2: waypoint
 		Owner: Neutral
+		Location: 40,-4
+	Protester3: civ1
+		Faction: cab
+		SubCell: 2
 		Location: 41,-5
+		Facing: 384
+		Owner: Creeps
+	Protester1: civ1
+		Faction: mut
+		SubCell: 2
+		Location: 38,-1
+		Facing: 384
+		Owner: Instigator
+	Protester4: civ3
+		SubCell: 2
+		Owner: Instigator
+		Location: 41,-6
+		Facing: 384
+	Actor40: ca0010
+		Owner: Creeps
+		Location: 36,-9
+	Actor42: ca0001
+		Owner: Creeps
+		Location: 36,-4
+	Eye1: geye
+		Owner: Neutral
+		Location: 59,14
+	Eye2: geye
+		Owner: Neutral
+		Location: 60,13
 
 Rules: sp|rules/campaign.yaml, sp|rules/campaignrules.yaml, rules.yaml
 

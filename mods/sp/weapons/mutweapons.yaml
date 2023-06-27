@@ -600,43 +600,32 @@ QueenToothBack:
 		Gravity: 0
 		Jammable: false ## help to save a little bit performance
 
-SpawnEggShrapnel:
-	ReloadDelay: 500
-	Range: 8c0
-	ValidTargets: Infantry, Building, Vehicle, Defence, Air, Ground
-	Projectile: InstantExplode
-	Warhead@op: FireShrapnel
-		Weapon: EggElevator
-		ImpactActors: false
-		Amount: 1
-		AimChance: 100
-		AllowDirectHit: true
-		ValidRelationships: Enemy
-		ValidTargets: Infantry, Building, Vehicle, Defence, Air, Ground
-
-
-SpawnEggShrapnelE:
-	Inherits: SpawnEggShrapnel
-	Warhead@op2: FireShrapnel
-		Weapon: EggElevator
-		ImpactActors: false
-		Amount: 2
-		AimChance: 100
-		AllowDirectHit: true
-		ValidRelationships: Enemy
-		ValidTargets: Infantry, Building, Vehicle, Defence, Air, Ground
 
 EggElevator:
 	ReloadDelay: 5
+	ValidTargets: Ground, Water, Air
 	Projectile: InstantExplode
-	InvalidTargets: Infantry, Vehicle, Building, Water, Cliff, Defence
 	Warhead@op: FireShrapnel
 		Weapon: SpawnEgg
 		ImpactActors: false
 		Amount: 1
-		ValidTargets: Ground, Water, Air
-		InvalidTargets: Infantry, Vehicle, Building, Wall
+		ValidTargets: Ground, Air
+		InvalidTargets: Infantry, Vehicle, Building, Water, Cliff, Defence, Wall
 		AirThreshold: 8c0
+
+SpawnEggShrapnel:
+	Inherits: EggElevator
+	Warhead@op: FireShrapnel
+		AimChance: 100
+		AllowDirectHit: true
+		ValidTargets: Ground, Air
+		InvalidTargets: Water
+		ValidRelationships: Enemy
+
+SpawnEggShrapnelE:
+	Inherits: SpawnEggShrapnel
+	Warhead@op: FireShrapnel
+		Amount: 3
 
 SpawnEgg:
 	ReloadDelay: 5
