@@ -130,7 +130,7 @@ namespace OpenRA.Mods.SP.Traits
 				{
 					var projectile = args.Weapon.Projectile.Create(args);
 					if (projectile != null)
-						self.World.Add(projectile);
+						self.World.AddFrameEndTask(w => w.Add(projectile));
 
 					if (args.Weapon.Report != null && args.Weapon.Report.Length > 0)
 					{
