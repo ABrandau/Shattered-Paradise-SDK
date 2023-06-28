@@ -38,7 +38,7 @@ CheckObjectivesOnMissionEnd = function(survived)
 end
 
 CivSquad = {Protester6, Protester5, Protester4, Protester3, Protester2, Protester1}
-HardModes = {"HackerMode", "VeinholeMode"}
+RandomHardModes = {"HackerMode", "VeinholeMode"}
 DifficultySetUp = function()
 	Actor.Create("upgrade.tiberium_gas_warheads", true, { Owner =  bandits_ai})
 	Actor.Create("upgrade.lynx_rockets",  true, { Owner =  bandits_ai})
@@ -68,14 +68,14 @@ DifficultySetUp = function()
 			SendNukeLoop()
 		end)
 
-		local mode = Utils.Random(HardModes)
+		local mode = Utils.Random(RandomHardModes)
 		if mode  == "VeinholeMode" then
 			Trigger.AfterDelay(50, function()
 				Veinhole1.Attack(IonTur, true, true)
 			end)
 			Trigger.AfterDelay(200, function()
-				Media.DisplayMessage("Sorry man, I ate too much last night and I really feel sick today.", "Talking Hole", HSLColor.FromHex("1288FF"))
-				Veinhole1.GrantCondition("talking", 150)
+				Media.DisplayMessage("Sorry man, I ate too much last night and I really feel sick today.", "Mr.Hole", HSLColor.FromHex("FF8812"))
+				Veinhole1.GrantCondition("talking", 130)
 				Veinhole1.Flash(HSLColor.FromHex("FFFFFF"), 10, DateTime.Seconds(1) / 3)
 			end)
 			Utils.Do(CivSquad, function(a)
