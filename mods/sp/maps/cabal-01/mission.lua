@@ -40,6 +40,8 @@ MissionMapSetUp = function()
 		AISell(nodob2)
 		AISell(nodob3)
 		AISell(nodob4)
+		Engineer4.Destroy()
+		Engineer5.Destroy()
 
 		for key,unit in ipairs(nod_ai2.GetActorsByType("tdadvgtwr")) do
 			unit.Destroy()
