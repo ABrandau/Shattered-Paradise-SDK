@@ -17,7 +17,7 @@ local players = {}
 local in_play = false
 
 EachKotHInterval = function()
-	KotHText = "\n\nNod Pyramid is offline."
+	KotHText = "\n\nNod Pyramid has no owner."
 
 	if beacon_owner ~= beacon.Owner then
 		timer = target_time
@@ -28,7 +28,7 @@ EachKotHInterval = function()
 	if beacon_owner ~= neutral then
 		timer = timer - 1
 
-		KotHText = "\n\nNod Pyramid is held by: " .. beacon_owner.Name .. "\nIt'll activate in: " .. Utils.FormatTime(timer)
+		KotHText = "\n\nNod Pyramid is held by: " .. beacon_owner.Name .. "\nTacitus will be found in: " .. Utils.FormatTime(timer)
 	end
 
 	local localPlayerIsNull = true
@@ -63,34 +63,19 @@ EachKotHInterval = function()
 	end
 
 	if timer <= 0 then
-		Lighting.Red = Lighting.Red * 2
 
-		KotHText = "\n\nPsychic Beacon is activated by " .. beacon_owner.Name
+		KotHText = "\n\nTacitus is held by " .. beacon_owner.Name
 		for i,player in pairs(players) do
-			local actors = player.object.GetActors()
-			Utils.Do(actors, function(actor)
-				if actor.Type ~= "player" then
-					actor.Owner = beacon_owner
-				end
-			end)
-
 			if player.IsLocalPlayer then
 				UserInterface.SetMissionText(DominationText .. KotHText, player.Color)
 			end
 		end
 
-		local neutrals = neutral.GetActors()
-		Utils.Do(neutrals, function(actor)
-			if actor.Type ~= "player" then
-				actor.Owner = beacon_owner
-			end
-		end)
-
 		-- beacon.GrantCondition("activated")
 
-		Trigger.AfterDelay(DateTime.Seconds(5), function()
+		Trigger.AfterDelay(160, function()
 			for i,player in pairs(players) do
-				if player.object == beacon_owner then
+				if player.object == beacon_owner or player.object.IsAlliedWith(beacon_owner) then
 					player.object.MarkCompletedObjective(player.objective)
 				else
 					player.object.MarkFailedObjective(player.objective)
