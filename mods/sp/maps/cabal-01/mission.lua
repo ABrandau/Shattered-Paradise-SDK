@@ -124,8 +124,8 @@ MCVFoundMessage = function()
 	Notification("M.C.V. located, we find our 'Minotaur' and a Nod's mech prototype. We can restart both mech once the M.C.V. is captured.")
 	cabconyard1.Flash(HSLColor.FromHex("FFFFFF"), 20, DateTime.Seconds(1) / 4)
 
-	  -- Warning before Nod AI triggered
-	if not player.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) then
+	-- Warning before Nod AI triggered
+	if not AwaredByNod then
 		Trigger.AfterDelay(DateTime.Seconds(7), function()
 			Warning("Successfully capture the MCV will start the direct conflict between Nod! Be prepared!")
 		end)
@@ -162,6 +162,12 @@ MCVFailedMessage = function()
 	end
 end
 
+
+NodAlertedMessage = function()
+	Warning("Nod has been awared of our attack, be prepared for a face to face combat.")
+end
+
+
 HackOneArrayMessage = function()
 	Notification("We can now intercept some of their communication and 3 other Civilian Arrays can be located.")
 	Trigger.AfterDelay(DateTime.Seconds(7), function()
@@ -186,8 +192,9 @@ HackThreeArrayMessage = function()
 	Trigger.AfterDelay(DateTime.Seconds(7), function()
 		Notification("We have revealed all the 'Avatar' project related by hacking. We will launch a cyber attack when the final Civilian Array is hacked")
 	end)
-		-- Warning before Nod AI triggered
-	if not player.IsObjectiveCompleted(SecondaryObjectiveCaptureMCV) then
+
+	-- Warning before Nod AI triggered
+	if not AwaredByNod then
 		Trigger.AfterDelay(DateTime.Seconds(14), function()
 			Warning("Successfully hack into the final Civilian Array will start the direct conflict between Nod! Be prepared!")
 		end)
@@ -463,6 +470,7 @@ AISellMCVResearchBases = function()
 end
 
 -- ####### AI capture actor
+
 AICapture = function(unit, target)
 	if not (unit.IsDead or target.IsDead) then
 		unit.Capture(target)
@@ -501,10 +509,6 @@ OnArrayHacked = function(hackedArray)
 		for key,actor in ipairs(ally.GetGroundAttackers()) do
 			actor.Owner = player
 		end
-		Radar.Ping(player, cradar1.CenterPosition, HSLColor.FromHex("FFFF00"))
-		Radar.Ping(player, cradar2.CenterPosition, HSLColor.FromHex("FFFF00"))
-		Radar.Ping(player, cradar4.CenterPosition, HSLColor.FromHex("FFFF00"))
-
 
 
 	elseif NumberOfArrayHacked == 2 then
@@ -514,9 +518,11 @@ OnArrayHacked = function(hackedArray)
 
 		Trigger.AfterDelay(700, function()
 			MercenaryFoundMessage()
-			Radar.Ping(player, mound1.CenterPosition, HSLColor.FromHex("00FF00"))
-			mercenary_ai.GrantCondition("revealbase")
-			mercenary_ai2.GrantCondition("revealbase")
+			if not mound1.IsDead then
+				Radar.Ping(player, mound1.CenterPosition, HSLColor.FromHex("00FF00"))
+				mercenary_ai.GrantCondition("revealbase")
+				mercenary_ai2.GrantCondition("revealbase")
+			end
 		end)
 
 	elseif NumberOfArrayHacked == 3 then
@@ -562,12 +568,18 @@ OnArrayHacked = function(hackedArray)
 		Trigger.AfterDelay(RemainingSabotogeTime, function() poweroff_dummy.Destroy() end)
 
 		 -- Trigger AI if player haven't triggered
-		if not player.IsObjectiveCompleted(SecondaryObjectiveCaptureMCV) then
+		if not AwaredByNod then
+			AwaredByNod = true
 			NodWarnedOnFourHackedMessage()
 			Trigger.AfterDelay(300, function()
 				nod_ai.GrantCondition("enable-ai-combat")
 				AICaptureMCV()
 			end)
+
+			if NodBaseAlertTrigger ~= nil then
+				Trigger.RemoveFootprintTrigger(NodBaseAlertTrigger)
+				NodBaseAlertTrigger = nil
+			end
 		end
 	end
 	
@@ -610,9 +622,9 @@ EnrageMercenaries = function()
 	IsShopAngry = true
 	MercenaryMessageMadMessage()
 
-	if pid3 ~= nil then
-		Trigger.RemoveProximityTrigger(pid3)
-		pid3 = nil
+	if FindMercenaryTrigger ~= nil then
+		Trigger.RemoveProximityTrigger(FindMercenaryTrigger)
+		FindMercenaryTrigger = nil
 	end
 
 	if TunnelShop ~= nil then
@@ -670,6 +682,8 @@ WorldLoaded = function()
 	ally = Player.GetPlayer("Cyborg Squad")
 	neutral = Player.GetPlayer("Neutral")
 
+	AwaredByNod = false -- Nod will enable AI and attack player when 'true'
+
 	NumberOfArrayHacked = 0
 	RemainingSabotogeTime = 0
 
@@ -695,25 +709,25 @@ WorldLoaded = function()
 	--  Player Find the MCV by getting close
 	local isFoundMcv = false
 
-	pid1 = Trigger.OnEnteredProximityTrigger(Actor1399.CenterPosition, WDist.New(1024 * 15), function(a, id)
+	FindMCVTrigger = Trigger.OnEnteredProximityTrigger(Actor1399.CenterPosition, WDist.New(1024 * 15), function(a, id)
 		if a.Owner == player then
 			MCVFoundMessage()
 			neutral.GrantCondition("revealbase")
 			isFoundMcv = true
 
 			Trigger.RemoveProximityTrigger(id)
-			pid1 = nil
+			FindMCVTrigger = nil
 		end
 	end)
 
 	--  Player threats the MCV research, Nod trying to restart MCV
-	pid2 = Trigger.OnEnteredProximityTrigger(Actor1399.CenterPosition, WDist.New(1024 * 6), function(a, id)
+	StealMCVTrigger = Trigger.OnEnteredProximityTrigger(Actor1399.CenterPosition, WDist.New(1024 * 6), function(a, id)
 		if isFoundMcv and a.Owner == player and a.Type ~= "qdrone" then
 			MCVThreatMessage()
 			AICaptureMCV()
 
 			Trigger.RemoveProximityTrigger(id)
-			pid2 = nil
+			StealMCVTrigger = nil
 		end
 	end)
 
@@ -747,7 +761,8 @@ WorldLoaded = function()
 				GoMechError(mech2, player)
 			end
 
-			if not player.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) then -- Trigger AI if player haven't triggered
+			if not AwaredByNod then -- Trigger AI if player haven't triggered
+				AwaredByNod = true
 				NodWarnedOnMCVMessage()
 				Trigger.AfterDelay(400, function()
 					AIAttackUnhackedArray()
@@ -755,6 +770,11 @@ WorldLoaded = function()
 				Trigger.AfterDelay(500, function()
 					nod_ai.GrantCondition("enable-ai-combat")
 				end)
+
+				if NodBaseAlertTrigger ~= nil then
+					Trigger.RemoveFootprintTrigger(NodBaseAlertTrigger)
+					NodBaseAlertTrigger = nil
+				end
 			end
 
 
@@ -776,26 +796,26 @@ WorldLoaded = function()
 			MCVFailedMessage()
 		end
 
-		if pid1 ~= nil then
-			Trigger.RemoveProximityTrigger(pid1)
-			pid1 = nil
+		if FindMCVTrigger ~= nil then
+			Trigger.RemoveProximityTrigger(FindMCVTrigger)
+			FindMCVTrigger = nil
 		end
-		if pid2 ~= nil then
-			Trigger.RemoveProximityTrigger(pid2)
-			pid2 = nil
+		if StealMCVTrigger ~= nil then
+			Trigger.RemoveProximityTrigger(StealMCVTrigger)
+			StealMCVTrigger = nil
 		end
 		Trigger.ClearAll(cabconyard1)
 	end)
 
 	-- MCV killed before captured.
 	Trigger.OnKilled(cabconyard1, function(self, killer)
-		if pid1 ~= nil then
-			Trigger.RemoveProximityTrigger(pid1)
-			pid1 = nil
+		if FindMCVTrigger ~= nil then
+			Trigger.RemoveProximityTrigger(FindMCVTrigger)
+			FindMCVTrigger = nil
 		end
-		if pid2 ~= nil then
-			Trigger.RemoveProximityTrigger(pid2)
-			pid2 = nil
+		if StealMCVTrigger ~= nil then
+			Trigger.RemoveProximityTrigger(StealMCVTrigger)
+			StealMCVTrigger = nil
 		end
 		Trigger.ClearAll(cabconyard1)
 
@@ -836,14 +856,17 @@ WorldLoaded = function()
 		AISell(tunnel2)
 	end)
 
-	pid3 = Trigger.OnEnteredProximityTrigger(mound1.CenterPosition, WDist.New(1024 * 4), function(a, id)
+	FindMercenaryTrigger = Trigger.OnEnteredProximityTrigger(mound1.CenterPosition, WDist.New(1024 * 4), function(a, id)
 		if (IsShopAngry) then
 			Trigger.RemoveProximityTrigger(id)
+			FindMercenaryTrigger = nil
 			return
 		end
 
 		if a.Owner == player and a.Type ~= "qdrone" then
 			Trigger.RemoveProximityTrigger(id)
+			FindMercenaryTrigger = nil
+
 			mound1.Destroy()
 			Media.PlaySound("ssneakat.wav")
 
@@ -890,6 +913,34 @@ WorldLoaded = function()
 	end)
 	-- ##### End of Shopkeeper: Mercenaries
 
+
+	-- ###### If player enters the main base of Nod, Nod will enable AI
+	local alerts = {nodbase_alert1, nodbase_alert2, nodbase_alert3, nodbase_alert4, nodbase_alert5, nodbase_alert6, nodbase_alert7,
+	nodbase_alert8, nodbase_alert9, nodbase_alert10, nodbase_alert11, nodbase_alert12, nodbase_alert13, nodbase_alert14, nodbase_alert15,
+	nodbase_alert16, nodbase_alert17, nodbase_alert18, nodbase_alert19, nodbase_alert20, nodbase_alert21, nodbase_alert22, nodbase_alert23,
+	nodbase_alert24, nodbase_alert25, nodbase_alert26, nodbase_alert27, nodbase_alert28, nodbase_alert29, nodbase_alert30, nodbase_alert31,
+	nodbase_alert32, nodbase_alert33, nodbase_alert34, nodbase_alert35,nodbase_alert36, nodbase_alert37, nodbase_alert38}
+
+	local alert_footprints = {}
+
+	for k,v in ipairs(alerts) do
+		table.insert(alert_footprints, v.Location)
+		v.Destroy()
+	end
+	alerts = nil
+
+	NodBaseAlertTrigger = Trigger.OnEnteredFootprint(alert_footprints, function(a, id)
+		if a.Owner == player then
+			if not AwaredByNod then
+				AwaredByNod = true
+				NodAlertedMessage()
+				nod_ai.GrantCondition("enable-ai-combat")
+			end
+
+			Trigger.RemoveFootprintTrigger(id)
+			NodBaseAlertTrigger = nil
+		end
+	end)
 
 
 	-- ###### Player find the location of alien stuff
