@@ -10,94 +10,94 @@
 Difficulty = Map.LobbyOption("difficulty")
 
 Objectives = function()
-	SecondaryObjectiveCaptureMCV = player.AddSecondaryObjective("Recapture our lost M.C.V.")
-	SecondaryObjectiveHackAllArray = player.AddSecondaryObjective("Hack all the Civilian Array")
-	ObjectiveHackOneArray = player.AddPrimaryObjective("Hack One Civilian Array.")
-	ObjectiveFindAlien = player.AddPrimaryObjective("Identify the source of the unknown signal.")
-	ObjectiveCaptureAlien = player.AddPrimaryObjective("Secure the source of the unknown signal.")
-	ObjectiveProtectHacker = player.AddPrimaryObjective("Hacker Drone must survive.")
+	SecondaryObjectiveCaptureMCV = LocalPlayer.AddSecondaryObjective("Recapture our lost M.C.V.")
+	SecondaryObjectiveHackAllArray = LocalPlayer.AddSecondaryObjective("Hack all the Civilian Array")
+	ObjectiveHackOneArray = LocalPlayer.AddPrimaryObjective("Hack One Civilian Array.")
+	ObjectiveFindAlien = LocalPlayer.AddPrimaryObjective("Identify the source of the unknown signal.")
+	ObjectiveCaptureAlien = LocalPlayer.AddPrimaryObjective("Secure the source of the unknown signal.")
+	ObjectiveProtectHacker = LocalPlayer.AddPrimaryObjective("Hacker Drone must survive.")
 end
 
 -- ####### Mission Map Set up
 MissionMapSetUp = function()
 	SpawnPatrollers()
 	SpawnUpgrade()
-	Camera.Position = startpoint.CenterPosition
-	hacker.Patrol({Actor1662.Location, Actor1742.Location, Actor1743.Location}, false)
+	Camera.Position = MissionStartpoint.CenterPosition
+	CabHacker.Patrol({WayPoint1662.Location, WayPoint1742.Location, WayPoint1743.Location}, false)
 	Trigger.AfterDelay(DateTime.Seconds(12), function()
-		hacker.Owner = player
+		CabHacker.Owner = LocalPlayer
 	end)
 
 	if Difficulty == "hard" then
 
-		for key,unit in ipairs(ally.GetActorsByType("moth")) do
+		for key,unit in ipairs(Cab_AI.GetActorsByType("moth")) do
 			unit.Destroy()
 		end
 
 	elseif Difficulty == "normal" then
 
-		AISell(nodob1)
-		AISell(nodob2)
-		AISell(nodob3)
-		AISell(nodob4)
+		AISell(NodObli1)
+		AISell(NodObli2)
+		AISell(NodObli3)
+		AISell(NodObli4)
 		Engineer4.Destroy()
 		Engineer5.Destroy()
 
-		for key,unit in ipairs(nod_ai2.GetActorsByType("tdadvgtwr")) do
+		for key,unit in ipairs(Nod_AI2.GetActorsByType("tdadvgtwr")) do
 			unit.Destroy()
 		end
 
-		for key,unit in ipairs(nod_ai.GetActorsByType("scrin")) do
+		for key,unit in ipairs(Nod_AI.GetActorsByType("scrin")) do
 			unit.Destroy()
 		end
 
-		nodmcv1.Destroy()
+		NodMcv1.Destroy()
 	end
 end
 
 -- ####### End game check
 CheckObjectivesOnMissionEnd = function(success)
 	-- check the SecondaryObjective first
-	-- 1. check if player has mcv or conyard at the end of the game
-	if not player.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) then
-		player.MarkFailedObjective(SecondaryObjectiveHackAllArray)
+	-- 1. check if LocalPlayer has mcv or conyard at the end of the game
+	if not LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) then
+		LocalPlayer.MarkFailedObjective(SecondaryObjectiveHackAllArray)
 	end
 
-	-- 2. check if player has mcv or conyard at the end of the game
-	if not player.IsObjectiveCompleted(SecondaryObjectiveCaptureMCV) then
-		for key,unit in ipairs(player.GetActorsByType("cabmcv")) do
-			player.MarkCompletedObjective(SecondaryObjectiveCaptureMCV)
+	-- 2. check if LocalPlayer has mcv or conyard at the end of the game
+	if not LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveCaptureMCV) then
+		for key,unit in ipairs(LocalPlayer.GetActorsByType("cabmcv")) do
+			LocalPlayer.MarkCompletedObjective(SecondaryObjectiveCaptureMCV)
 			break
 		end
 
-		for key,unit in ipairs(player.GetActorsByType("cabyard")) do
-			player.MarkCompletedObjective(SecondaryObjectiveCaptureMCV)
+		for key,unit in ipairs(LocalPlayer.GetActorsByType("cabyard")) do
+			LocalPlayer.MarkCompletedObjective(SecondaryObjectiveCaptureMCV)
 			break
 		end
 
-		if not player.IsObjectiveCompleted(SecondaryObjectiveCaptureMCV) then
-			player.MarkFailedObjective(SecondaryObjectiveCaptureMCV)
+		if not LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveCaptureMCV) then
+			LocalPlayer.MarkFailedObjective(SecondaryObjectiveCaptureMCV)
 		end
 	end
 
 	if success then
-		player.MarkCompletedObjective(ObjectiveCaptureAlien)
+		LocalPlayer.MarkCompletedObjective(ObjectiveCaptureAlien)
 	else
-		player.MarkFailedObjective(ObjectiveCaptureAlien)
+		LocalPlayer.MarkFailedObjective(ObjectiveCaptureAlien)
 	end
 
-	if not player.IsObjectiveCompleted(ObjectiveHackOneArray) then
-		player.MarkFailedObjective(ObjectiveHackOneArray)
+	if not LocalPlayer.IsObjectiveCompleted(ObjectiveHackOneArray) then
+		LocalPlayer.MarkFailedObjective(ObjectiveHackOneArray)
 	end
 
-	if not player.IsObjectiveCompleted(ObjectiveFindAlien) then
-		player.MarkFailedObjective(ObjectiveFindAlien)
+	if not LocalPlayer.IsObjectiveCompleted(ObjectiveFindAlien) then
+		LocalPlayer.MarkFailedObjective(ObjectiveFindAlien)
 	end
 	
-	if hacker.IsDead then
-		player.MarkFailedObjective(ObjectiveProtectHacker)
+	if CabHacker.IsDead then
+		LocalPlayer.MarkFailedObjective(ObjectiveProtectHacker)
 	else
-		player.MarkCompletedObjective(ObjectiveProtectHacker)
+		LocalPlayer.MarkCompletedObjective(ObjectiveProtectHacker)
 	end
 
 end
@@ -105,14 +105,14 @@ end
 -- ####### information
 IntroductionInfo = function()
 	CurrentMissionText = "Use the Hacker Drone to hack the Civilian Array."
-	Notification("A cyborg squad and a Hacker Drone will aid you in this mission. We have to use smaller squad to hide our purpose at the beginning.")
+	Notification("A cyborg squad and a Hacker Drone will aid you in this mission. We have to use a small squad to hide our purpose at the beginning.")
 	Trigger.AfterDelay(DateTime.Seconds(7), function()
-			Notification("Use the Hacker Drone to hack the Civilian Array for local intelligence. Hacker Drone is the key to this mission, protect it.")
-			if not hacker.IsDead then
-				hacker.Flash(HSLColor.FromHex("FFFFFF"), 15, DateTime.Seconds(1) / 4)
+			Notification("Use our Hacker Drone to hack this Civilian Array for local intelligence. \nHacker Drone is the key to this mission, protect it.")
+			if not CabHacker.IsDead then
+				CabHacker.Flash(HSLColor.FromHex("FFFFFF"), 15, DateTime.Seconds(1) / 4)
 			end
-			if not cradar3.IsDead then
-				cradar3.Flash(HSLColor.FromHex("FFFFFF"), 15, DateTime.Seconds(1) / 4)
+			if not Cradar3.IsDead then
+				Cradar3.Flash(HSLColor.FromHex("FFFFFF"), 15, DateTime.Seconds(1) / 4)
 			end
 	end)
 	Trigger.AfterDelay(DateTime.Seconds(14), function()
@@ -122,7 +122,7 @@ end
 
 MCVFoundMessage = function()
 	Notification("M.C.V. located, we find our 'Minotaur' and a Nod's mech prototype. We can restart both mech once the M.C.V. is captured.")
-	cabconyard1.Flash(HSLColor.FromHex("FFFFFF"), 20, DateTime.Seconds(1) / 4)
+	CabConyard.Flash(HSLColor.FromHex("FFFFFF"), 20, DateTime.Seconds(1) / 4)
 
 	-- Warning before Nod AI triggered
 	if not AwaredByNod then
@@ -145,26 +145,26 @@ NodWarnedOnMCVMessage = function()
 			Warning("Nod has been awared of the activation of our MCV and our hacking to Civilian Arrays, in the intercepted message.")
 	end)
 	Trigger.AfterDelay(DateTime.Seconds(18), function()
-			Warning("Be prepared for a face to face combat. \nNod plans to destroy unhacked Civilian Arrays to prevent further security codes leaking.")
+			Warning("Be prepared for a face to face combat. \nNod plans to destroy all Civilian Arrays to prevent further cyber attack.")
 	end)
 end
 
 MCVFailedMessage = function()
 	Notification("The M.C.V. is lost again, but it is not over")
 
-	if not player.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) then
+	if not LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) then
 		Trigger.AfterDelay(DateTime.Seconds(15), function()
 				Notification("Nod believes our failure is inevitable and no longer pay attention to us, in the intercepted message.")
 		end)
 		Trigger.AfterDelay(DateTime.Seconds(22), function()
-				Notification("It is an oppotunity, let us hack remaining Civilian Arrays and try a cyber attack.")
+				Notification("It is an oppotunity, let us hack remaining Civilian Arrays and try a cyber attack to cripple their main base.")
 		end)
 	end
 end
 
 
 NodAlertedMessage = function()
-	Warning("Nod has been awared of our attack, be prepared for a face to face combat.")
+	Warning("Nod has been awared of our attack on their main base, be prepared for a face to face combat.")
 end
 
 
@@ -220,18 +220,18 @@ end
 ReplicatorFoundMessage = function()
 	Notification("It seems this alien structure is the source of the unkown signals, capture it.")
 	CurrentMissionText = "Capture the alien artifact."
-	player.MarkCompletedObjective(ObjectiveFindAlien)
+	LocalPlayer.MarkCompletedObjective(ObjectiveFindAlien)
 end
 
 MissionCompleteMessage = function()
 	CurrentMissionText = "Mission Complete."
-	player.MarkCompletedObjective(ObjectiveCaptureAlien)
+	LocalPlayer.MarkCompletedObjective(ObjectiveCaptureAlien)
 end
 
 MercenaryFoundMessage = function()
-	Notification("Interesting, we also intercepted an advertisement from local Mutant Mercenaries. ")
+	Notification("Interesting, we also intercepted an advertisement from a Mutant Mercenaries. ")
 	Trigger.AfterDelay(DateTime.Seconds(7), function()
-		Notification("They are not picky for costumers.")
+		Notification("Their position is located, they can be useful to us.")
 	end)
 end
 
@@ -245,11 +245,11 @@ MeetMercenaryMessage = function()
 		if IsShopAngry then
 			return
 		end
-		if player.IsObjectiveFailed(SecondaryObjectiveCaptureMCV) then
+		if LocalPlayer.IsObjectiveFailed(SecondaryObjectiveCaptureMCV) then
 			ShopSays("Soldier","Yeah, I just saw those idiots \"PERFECTLY\" executed their own MCV, plz allow me LMAO for a second.")
 		elseif MCVlostAgain then
 			ShopSays("Soldier","Yeah, I just saw Brotherhood Of Nerds got that MCV again, the timming was perfect LOL.")
-		elseif  not player.IsObjectiveCompleted(SecondaryObjectiveCaptureMCV) then
+		elseif  not LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveCaptureMCV) then
 			ShopSays("Soldier","Feh, glad that they cannot do s**t here. Brotherhood Of Nerds still has their MCV.")
 		else
 			ShopSays("Soldier","(thumbs safety catch) Feh, I guess they can walk no further if their legs are broken.")
@@ -307,36 +307,36 @@ end
 
 -- ####### Upgrade
 SpawnUpgrade = function()
-	Actor.Create("upgrade.tib_core_missiles", true, { Owner = nod_ai })
+	Actor.Create("upgrade.tib_core_missiles", true, { Owner = Nod_AI })
 
-	Actor.Create("upgrade.lynx_rockets", true, { Owner = mercenary_ai })
-	Actor.Create("upgrade.lynx_rockets", true, { Owner = mercenary_ai2 })
-	Actor.Create("upgrade.lynx_rockets", true, { Owner = player })
-	Actor.Create("upgrade.fortified_upg", true, { Owner = mercenary_ai })
-	Actor.Create("upgrade.fortified_upg", true, { Owner = mercenary_ai2 })
-	Actor.Create("upgrade.fortified_upg", true, { Owner = player })
-	Actor.Create("upgrade.tunnel_repairs", true, { Owner = mercenary_ai })
-	Actor.Create("upgrade.tunnel_repairs", true, { Owner = mercenary_ai2 })
-	Actor.Create("upgrade.tiberium_infusion", true, { Owner = mercenary_ai })
-	Actor.Create("upgrade.tiberium_infusion", true, { Owner = mercenary_ai2 })
-	Actor.Create("upgrade.tiberium_infusion", true, { Owner = player })
-	Actor.Create("upgrade.tiberium_gas_warheads", true, { Owner = mercenary_ai })
-	Actor.Create("upgrade.tiberium_gas_warheads", true, { Owner = mercenary_ai2 })
-	Actor.Create("upgrade.tiberium_gas_warheads", true, { Owner = player })
+	Actor.Create("upgrade.lynx_rockets", true, { Owner = Mut_AI })
+	Actor.Create("upgrade.lynx_rockets", true, { Owner = Mut_AI2 })
+	Actor.Create("upgrade.lynx_rockets", true, { Owner = LocalPlayer })
+	Actor.Create("upgrade.fortified_upg", true, { Owner = Mut_AI })
+	Actor.Create("upgrade.fortified_upg", true, { Owner = Mut_AI2 })
+	Actor.Create("upgrade.fortified_upg", true, { Owner = LocalPlayer })
+	Actor.Create("upgrade.tunnel_repairs", true, { Owner = Mut_AI })
+	Actor.Create("upgrade.tunnel_repairs", true, { Owner = Mut_AI2 })
+	Actor.Create("upgrade.tiberium_infusion", true, { Owner = Mut_AI })
+	Actor.Create("upgrade.tiberium_infusion", true, { Owner = Mut_AI2 })
+	Actor.Create("upgrade.tiberium_infusion", true, { Owner = LocalPlayer })
+	Actor.Create("upgrade.tiberium_gas_warheads", true, { Owner = Mut_AI })
+	Actor.Create("upgrade.tiberium_gas_warheads", true, { Owner = Mut_AI2 })
+	Actor.Create("upgrade.tiberium_gas_warheads", true, { Owner = LocalPlayer })
 end
 
 -- ######## Reinforement Spawn
 PlayerReinforementSpawn = function(units, path, pingwhere, transport)
 	if (transport ~= nil) then
-		Reinforcements.ReinforceWithTransport(player, transport, units, path)
+		Reinforcements.ReinforceWithTransport(LocalPlayer, transport, units, path)
 	else
-		Reinforcements.Reinforce(player, units, path)
+		Reinforcements.Reinforce(LocalPlayer, units, path)
 	end
 
-	Media.PlaySpeechNotification(player, "ReinforcementsArrived")
+	Media.PlaySpeechNotification(LocalPlayer, "ReinforcementsArrived")
 
 	if (pingwhere ~= nil) then
-		Radar.Ping(player, pingwhere, HSLColor.FromHex("00FF00"))
+		Radar.Ping(LocalPlayer, pingwhere, HSLColor.FromHex("00FF00"))
 	end
 end
 
@@ -363,41 +363,41 @@ Patrol2B = function(unit, waypoints, delay)
 	end)
 end
 
-ScanvegerAPath = { Actor1399.Location, Actor1208.Location }
-ScanvegerBPath = { Actor1208.Location, Actor1399.Location }
-ScanvegerCPath = { Actor1544.Location, Actor1404.Location }
-ScanvegerDPath = { Actor1404.Location, Actor1544.Location }
-ScanvegerEPath = { Actor1400.Location, Actor1640.Location }
-ScanvegerFPath = { Actor1640.Location, Actor1400.Location }
+ScanvegerAPath = { WayPoint1399.Location, WayPoint1208.Location }
+ScanvegerBPath = { WayPoint1208.Location, WayPoint1399.Location }
+ScanvegerCPath = { WayPoint1544.Location, WayPoint1404.Location }
+ScanvegerDPath = { WayPoint1404.Location, WayPoint1544.Location }
+ScanvegerEPath = { WayPoint1400.Location, WayPoint1640.Location }
+ScanvegerFPath = { WayPoint1640.Location, WayPoint1400.Location }
 
-TanksPath1 = {Actor1346.Location, Actor1210.Location}
-TanksPath2 = {Actor1346.Location, Actor1396.Location}
-BikePath1 = { Actor1540.Location, Actor1207.Location }
-BikePath2 = { Actor1540.Location, Actor1738.Location }
+TanksPath1 = {WayPoint1346.Location, WayPoint1210.Location}
+TanksPath2 = {WayPoint1346.Location, WayPoint1396.Location}
+BikePath1 = { WayPoint1540.Location, WayPoint1207.Location }
+BikePath2 = { WayPoint1540.Location, WayPoint1738.Location }
 
 SpawnPatrollers = function()
-		local ScanvegerA = Actor.Create("truckb", true, { Owner = nod_ai2, Location = ScanvegerAPath[2]})
-		local ScanvegerB = Actor.Create("truckb", true, { Owner = nod_ai2, Location = ScanvegerBPath[2]})
-		local ScanvegerC = Actor.Create("truckb", true, { Owner = nod_ai2, Location = ScanvegerCPath[2]})
-		local ScanvegerD = Actor.Create("truckb", true, { Owner = nod_ai2, Location = ScanvegerDPath[2]})
-		local ScanvegerE = Actor.Create("truckb", true, { Owner = nod_ai2, Location = ScanvegerEPath[2]})
-		local ScanvegerF = Actor.Create("truckb", true, { Owner = nod_ai2, Location = ScanvegerFPath[2]})
-		Patrol2A(ScanvegerA, ScanvegerAPath, 600)
-		Patrol2A(ScanvegerB, ScanvegerBPath, 600)
-		Patrol2A(ScanvegerC, ScanvegerCPath, 2000)
-		Patrol2A(ScanvegerD, ScanvegerDPath, 2000)
-		Patrol2A(ScanvegerE, ScanvegerEPath, 1900)
-		Patrol2A(ScanvegerF, ScanvegerFPath, 1900)
+		local scanvegerA = Actor.Create("truckb", true, { Owner = Nod_AI2, Location = ScanvegerAPath[2]})
+		local scanvegerB = Actor.Create("truckb", true, { Owner = Nod_AI2, Location = ScanvegerBPath[2]})
+		local scanvegerC = Actor.Create("truckb", true, { Owner = Nod_AI2, Location = ScanvegerCPath[2]})
+		local scanvegerD = Actor.Create("truckb", true, { Owner = Nod_AI2, Location = ScanvegerDPath[2]})
+		local scanvegerE = Actor.Create("truckb", true, { Owner = Nod_AI2, Location = ScanvegerEPath[2]})
+		local scanvegerF = Actor.Create("truckb", true, { Owner = Nod_AI2, Location = ScanvegerFPath[2]})
+		Patrol2A(scanvegerA, ScanvegerAPath, 600)
+		Patrol2A(scanvegerB, ScanvegerBPath, 600)
+		Patrol2A(scanvegerC, ScanvegerCPath, 2000)
+		Patrol2A(scanvegerD, ScanvegerDPath, 2000)
+		Patrol2A(scanvegerE, ScanvegerEPath, 1900)
+		Patrol2A(scanvegerF, ScanvegerFPath, 1900)
 
-		Patrol2A(ctnk1, TanksPath1, 900)
-		Patrol2A(ctnk2, TanksPath1, 900)
-		Patrol2A(ctnk3, TanksPath1, 900)
-		Patrol2A(ctnk4, TanksPath2, 1300)
-		Patrol2A(ctnk5, TanksPath2, 1300)
-		Patrol2A(ctnk6, TanksPath2, 1300)
+		Patrol2A(Ctnk1, TanksPath1, 900)
+		Patrol2A(Ctnk2, TanksPath1, 900)
+		Patrol2A(Ctnk3, TanksPath1, 900)
+		Patrol2A(Ctnk4, TanksPath2, 1300)
+		Patrol2A(Ctnk5, TanksPath2, 1300)
+		Patrol2A(Ctnk6, TanksPath2, 1300)
 
-		Patrol2A(bike1, BikePath1, 600)
-		Patrol2A(bike2, BikePath2, 600)
+		Patrol2A(Bike1, BikePath1, 600)
+		Patrol2A(Bike2, BikePath2, 600)
 end
 
 -- ####### Mech lose control function. Needs actor with "error" condition
@@ -421,18 +421,18 @@ MechError = function(unit)
 
 	unit.Stop()
 
-	if unit.Owner == nod_ai then
-		unit.Owner = creep
+	if unit.Owner == Nod_AI then
+		unit.Owner = Creep_AI
 		Trigger.AfterDelay(200, function()
 			MechError(unit)
 		end)
-	elseif unit.Owner == creep then
-		unit.Owner = player
+	elseif unit.Owner == Creep_AI then
+		unit.Owner = LocalPlayer
 		Trigger.AfterDelay(200, function()
 			MechError(unit)
 		end)
-	elseif unit.Owner == player then
-		unit.Owner = nod_ai
+	elseif unit.Owner == LocalPlayer then
+		unit.Owner = Nod_AI
 		Trigger.AfterDelay(200, function()
 			MechError(unit)
 		end)
@@ -441,32 +441,32 @@ end
 
 -- ####### AI sell actors
 AISell = function(unit)
-	if (not unit.IsDead) and unit.Owner ~= player then
+	if (not unit.IsDead) and unit.Owner ~= LocalPlayer then
 		unit.Sell()
 	end
 end
 
 AISellMCVResearchBases = function()
-	AISell(labpowerplant1)
-	AISell(labpowerplant2)
-	AISell(labpowerplant3)
-	AISell(labpowerplant4)
-	AISell(nodlab)
-	AISell(nodgate2)
-	AISell(nodgate1)
-	AISell(nodgate3)
-	AISell(nodgate4)
-	AISell(nodgate5)
-	AISell(laser1)
-	AISell(laser2)
-	AISell(laser3)
-	AISell(laser4)
-	AISell(laser5)
-	AISell(nodob1)
-	AISell(nodob2)
-	AISell(nodob3)
-	AISell(nodob4)
-	AISell(nodsam)
+	AISell(LabPowerplant1)
+	AISell(LabPowerplant2)
+	AISell(LabPowerplant3)
+	AISell(LabPowerplant4)
+	AISell(NodLab)
+	AISell(NodGate2)
+	AISell(NodGate1)
+	AISell(NodGate3)
+	AISell(NodGate4)
+	AISell(NodGate5)
+	AISell(Laser1)
+	AISell(Laser2)
+	AISell(Laser3)
+	AISell(Laser4)
+	AISell(Laser5)
+	AISell(NodObli1)
+	AISell(NodObli2)
+	AISell(NodObli3)
+	AISell(NodObli4)
+	AISell(NodSam)
 end
 
 -- ####### AI capture actor
@@ -478,101 +478,101 @@ AICapture = function(unit, target)
 end
 
 AICaptureMCV = function()
-	AICapture(Engineer1,cabconyard1)
-	AICapture(Engineer2,cabconyard1)
-	AICapture(Engineer3,cabconyard1)
-	AICapture(Engineer4,cabconyard1)
-	AICapture(Engineer5,cabconyard1)
-	AICapture(Engineer6,cabconyard1)
-	AICapture(Engineer7,cabconyard1)
-	AICapture(Engineer8,cabconyard1)
-	AICapture(Engineer9,cabconyard1)
-	AICapture(Engineer10,cabconyard1)
-	AICapture(Engineer11,cabconyard1)
-	AICapture(Engineer12,cabconyard1)
-	AICapture(Engineer13,cabconyard1)
+	AICapture(Engineer1,CabConyard)
+	AICapture(Engineer2,CabConyard)
+	AICapture(Engineer3,CabConyard)
+	AICapture(Engineer4,CabConyard)
+	AICapture(Engineer5,CabConyard)
+	AICapture(Engineer6,CabConyard)
+	AICapture(Engineer7,CabConyard)
+	AICapture(Engineer8,CabConyard)
+	AICapture(Engineer9,CabConyard)
+	AICapture(Engineer10,CabConyard)
+	AICapture(Engineer11,CabConyard)
+	AICapture(Engineer12,CabConyard)
+	AICapture(Engineer13,CabConyard)
 end
 
 -- ####### Hack Array stroy line
-HackArrayReinforcePath = { reinforcepoint2.Location, Actor1440.Location, Actor1662.Location, Actor1742.Location, Actor1743.Location }
-ArraysHacked = {[cradar1] = false, [cradar2] = false, [cradar3] = false, [cradar4] = false}
+HackArrayReinforcePath = { Reinforcepoint2.Location, WayPoint1440.Location, WayPoint1662.Location, WayPoint1742.Location, WayPoint1743.Location }
+ArraysNeedHacked = {Cradar1, Cradar2, Cradar3, Cradar4}
 
 OnArrayHacked = function(hackedArray)
-
 	NumberOfArrayHacked = NumberOfArrayHacked + 1
+	Trigger.ClearAll(hackedArray)
 
 	if NumberOfArrayHacked == 1 then
 		HackOneArrayMessage()
-		player.MarkCompletedObjective(ObjectiveHackOneArray)
-		nod_ai2.GrantCondition("revealbase")
-		-- Pass the squad control to player
-		for key,actor in ipairs(ally.GetGroundAttackers()) do
-			actor.Owner = player
+		LocalPlayer.MarkCompletedObjective(ObjectiveHackOneArray)
+		Nod_AI2.GrantCondition("revealbase")
+		-- Pass the squad control to LocalPlayer
+		for key,actor in ipairs(Cab_AI.GetGroundAttackers()) do
+			actor.Owner = LocalPlayer
 		end
 
 
 	elseif NumberOfArrayHacked == 2 then
 		HackTwoArrayMessage()
-		hacker.GrantCondition("allow-disable")
-		PlayerReinforementSpawn({"pdrone", "pdrone", "pdrone",  "cyborg", "cyborg", "cyborg", "cborg", "cborg", "cborg"}, HackArrayReinforcePath, Actor1743.CenterPosition, nil)
+		CabHacker.GrantCondition("allow-disable")
+		PlayerReinforementSpawn({"pdrone", "pdrone", "pdrone",  "cyborg", "cyborg", "cyborg", "cborg", "cborg", "cborg"}, HackArrayReinforcePath, WayPoint1743.CenterPosition, nil)
 
 		Trigger.AfterDelay(700, function()
 			MercenaryFoundMessage()
-			if not mound1.IsDead then
-				Radar.Ping(player, mound1.CenterPosition, HSLColor.FromHex("00FF00"))
-				mercenary_ai.GrantCondition("revealbase")
-				mercenary_ai2.GrantCondition("revealbase")
+			Mut_AI.GrantCondition("revealbase")
+			Mut_AI2.GrantCondition("revealbase")
+			if not Mound1.IsDead then
+				Radar.Ping(LocalPlayer, Mound1.CenterPosition, HSLColor.FromHex("00FF00"))
 			end
 		end)
 
 	elseif NumberOfArrayHacked == 3 then
 		HackThreeArrayMessage()
-		nod_ai.GrantCondition("revealbase")
-		nod_ai.GrantCondition("revealunit")
-		nod_ai2.GrantCondition("revealunit")
-		creep.GrantCondition("revealunit")
-		creep.GrantCondition("revealbase")
-		neutral.GrantCondition("revealbase")
-		PlayerReinforementSpawn({"reapercab", "reapercab", "reapercab", "glad", "glad", "glad"}, HackArrayReinforcePath, Actor1743.CenterPosition, nil)
+		Nod_AI.GrantCondition("revealbase")
+		Nod_AI.GrantCondition("revealunit")
+		Nod_AI2.GrantCondition("revealunit")
+		Creep_AI.GrantCondition("revealunit")
+		Creep_AI.GrantCondition("revealbase")
+		Neutral_AI.GrantCondition("revealbase")
+		PlayerReinforementSpawn({"reapercab", "reapercab", "reapercab", "glad", "glad", "glad"}, HackArrayReinforcePath, WayPoint1743.CenterPosition, nil)
 
 	elseif NumberOfArrayHacked == 4 then
-		player.MarkCompletedObjective(SecondaryObjectiveHackAllArray)
+		LocalPlayer.MarkCompletedObjective(SecondaryObjectiveHackAllArray)
 		HackFourArrayMessage()
 		-- All Nod mech error
-		for key,unit in ipairs(nod_ai.GetActorsByType("avatar")) do
+		for key,unit in ipairs(Nod_AI.GetActorsByType("avatar")) do
 			if unit.AcceptsCondition("error") then
-				GoMechError(unit, player)
+				GoMechError(unit, LocalPlayer)
 			end
 		end
-		if (not mechfac.IsDead) and mechfac.Owner == nod_ai then
-			GoMechError(mechfac, player)
+		if (not Mechfac1.IsDead) and Mechfac1.Owner == Nod_AI then
+			GoMechError(Mechfac1, LocalPlayer)
 		end
-		-- Reinforement: give commando if player don't have. Put to different tick for perf
+		-- Reinforement: give commando if LocalPlayer don't have. Put to different tick for perf
 		Trigger.AfterDelay(1, function()
 			local haveCommando = false
-			for key,unit in ipairs(player.GetActorsByType("cyc2")) do
+			for key,unit in ipairs(LocalPlayer.GetActorsByType("cyc2")) do
 				haveCommando = true
 				break
 			end
 
 			if haveCommando then
-				PlayerReinforementSpawn({"moth", "moth", "moth", "moth", "reapercab", "reapercab", "cborg", "cborg", "cborg", "glad", "glad", "glad"}, HackArrayReinforcePath, Actor1743.CenterPosition, nil)
+				PlayerReinforementSpawn({"moth", "moth", "moth", "moth", "reapercab", "reapercab", "cborg", "cborg", "cborg", "glad", "glad", "glad"}, HackArrayReinforcePath, WayPoint1743.CenterPosition, nil)
 			else
-				PlayerReinforementSpawn({"cyc2", "moth", "moth", "moth", "moth", "reapercab", "reapercab", "cborg", "cborg"}, HackArrayReinforcePath, Actor1743.CenterPosition, nil)
+				PlayerReinforementSpawn({"cyc2", "moth", "moth", "moth", "moth", "reapercab", "reapercab", "cborg", "cborg"}, HackArrayReinforcePath, WayPoint1743.CenterPosition, nil)
 			end
 		end)
 
 		-- Power sabotage
 		RemainingSabotogeTime = 4800
-		local poweroff_dummy = Actor.Create("poweroffdummy", true, { Owner = nod_ai})
+		local poweroff_dummy = Actor.Create("poweroffdummy", true, { Owner = Nod_AI})
 		Trigger.AfterDelay(RemainingSabotogeTime, function() poweroff_dummy.Destroy() end)
 
-		 -- Trigger AI if player haven't triggered
+		 -- Trigger AI if LocalPlayer haven't triggered
 		if not AwaredByNod then
 			AwaredByNod = true
 			NodWarnedOnFourHackedMessage()
 			Trigger.AfterDelay(300, function()
-				nod_ai.GrantCondition("enable-ai-combat")
+				Nod_AI.GrantCondition("enable-ai-combat")
 				AICaptureMCV()
 			end)
 
@@ -582,37 +582,34 @@ OnArrayHacked = function(hackedArray)
 			end
 		end
 	end
-	
-	Trigger.ClearAll(hackedArray)
-	ArraysHacked[hackedArray] = hackedArray
 end
 
-AttackArrayTeam = {subtank1, subtank2, subtank3, subtank4}
-AIAttackUnhackedArray = function()
-	local unhacked_arrays = {}
+AttackArrayTeam = {Subtank1, Subtank2, Subtank3, Subtank4}
+AIAttackArrays = function()
+	local arraysNotDead = {}
 
-	for actor,hacked in pairs(ArraysHacked) do
-		if not (actor.IsDead or hacked) then
-			table.insert(unhacked_arrays, actor)
+	for k,actor in ipairs(ArraysNeedHacked) do
+		if not actor.IsDead then
+			table.insert(arraysNotDead, actor)
 		end
 	end
 
-	if #unhacked_arrays == 0 then
+	if #arraysNotDead == 0 then
 		return
 	end
 
 	local index = 1
-	for key, attacker in ipairs(AttackArrayTeam) do
+	for k, attacker in ipairs(AttackArrayTeam) do
 		if not attacker.IsDead then
-			attacker.Attack(unhacked_arrays[index], true, true)
-			index = (index % #unhacked_arrays) + 1
+			attacker.Attack(arraysNotDead[index], true, true)
+			index = (index % #arraysNotDead) + 1
 		end
 	end
 end
 
 --  ####### Mercenaries Angry
-Shopkeepers = {shopkeeper1, shopkeeper2, shopkeeper3, shopkeeper4, shopkeeper5, shopkeeper6, shopkeeper7, shopkeeper8,
-shopkeeper9, shopkeeper10, shopkeeper11, shopkeeper12, shopkeeper13, shopkeeper14, shopkeeper15, shopkeeper16, shopkeeper17}
+Shopkeepers = {Shopkeeper1, Shopkeeper2, Shopkeeper3, Shopkeeper4, Shopkeeper5, Shopkeeper6, Shopkeeper7, Shopkeeper8,
+Shopkeeper9, Shopkeeper10, Shopkeeper11, Shopkeeper12, Shopkeeper13, Shopkeeper14, Shopkeeper15, Shopkeeper16, Shopkeeper17}
 
 EnrageMercenaries = function()
 	if IsShopAngry then
@@ -629,29 +626,29 @@ EnrageMercenaries = function()
 
 	if TunnelShop ~= nil then
 		Trigger.ClearAll(TunnelShop)
-		TunnelShop.Owner = mercenary_ai2
+		TunnelShop.Owner = Mut_AI2
 	end
 
-	if not mound1.IsDead then
-		mound1.Destroy()
-		Actor.Create("mutambushvent", true, {Owner = mercenary_ai2, Location = mound1.Location})
+	if not Mound1.IsDead then
+		Mound1.Destroy()
+		Actor.Create("mutambushvent", true, {Owner = Mut_AI2, Location = Mound1.Location})
 	end
 
 	--Destroy true production dummy and production script
 	Trigger.ClearAll(HireDummy)
-	HireDummy.Owner = neutral -- HACK: Actor.Destroy() calls an activity, if actor 's current activity is not cancelled, the Destroy() will wait
+	HireDummy.Owner = Neutral_AI -- HACK: Actor.Destroy() calls an activity, if actor 's current activity is not cancelled, the Destroy() will wait
 	HireDummy.Destroy()
 
 	--Destroy true production dummy and production script
 	for key,actor in ipairs(Shopkeepers) do
 		if not actor.IsDead then
-			actor.Owner = mercenary_ai2
+			actor.Owner = Mut_AI2
 			Trigger.ClearAll(actor) 
 		end
 	end
 	
 	--Trigger Tunnel Spawning Weapon
-	Actor.Create("mutangry.weapon.dummy", true, {Owner = mercenary_ai2, Location = HireDummy.Location})
+	Actor.Create("mutangry.weapon.dummy", true, {Owner = Mut_AI2, Location = HireDummy.Location})
 end
 
 
@@ -669,20 +666,20 @@ end
 
 --  ####### WorldLoaded and Mission Main
 
-CaptureMCVReinforcePathWater = { reinforcepoint1.Location, Actor1399.Location }
-CaptureMCVReinforcePathGround = { reinforcepoint2.Location, Actor1399.Location }
+CaptureMCVReinforcePathWater = { Reinforcepoint1.Location, WayPoint1399.Location }
+CaptureMCVReinforcePathGround = { Reinforcepoint2.Location, WayPoint1399.Location }
 
 WorldLoaded = function()
-	player = Player.GetPlayer("Cabal")
-	nod_ai = Player.GetPlayer("Nod")
-	nod_ai2 = Player.GetPlayer("Armed Civilians")
-	mercenary_ai = Player.GetPlayer("Mercenaries")
-	mercenary_ai2 = Player.GetPlayer("Angry Mercenaries")
-	creep = Player.GetPlayer("Creeps")
-	ally = Player.GetPlayer("Cyborg Squad")
-	neutral = Player.GetPlayer("Neutral")
+	LocalPlayer = Player.GetPlayer("Cabal")
+	Nod_AI = Player.GetPlayer("Nod")
+	Nod_AI2 = Player.GetPlayer("Armed Civilians")
+	Mut_AI = Player.GetPlayer("Mercenaries")
+	Mut_AI2 = Player.GetPlayer("Angry Mercenaries")
+	Creep_AI = Player.GetPlayer("Creeps")
+	Cab_AI = Player.GetPlayer("Cyborg Squad")
+	Neutral_AI = Player.GetPlayer("Neutral")
 
-	AwaredByNod = false -- Nod will enable AI and attack player when 'true'
+	AwaredByNod = false -- Nod will enable AI and attack LocalPlayer when 'true'
 
 	NumberOfArrayHacked = 0
 	RemainingSabotogeTime = 0
@@ -698,7 +695,7 @@ WorldLoaded = function()
 
 
 	-- ##### Secondary Storyline: Hack Clivian Array
-	for actor,stat in pairs(ArraysHacked) do
+	for k,actor in ipairs(ArraysNeedHacked) do
 		Trigger.OnInfiltrated(actor, function(a, i) OnArrayHacked(a) end)
 	end
 	-- ##### End of Secondary Storyline: Hack Clivian Array
@@ -709,10 +706,10 @@ WorldLoaded = function()
 	--  Player Find the MCV by getting close
 	local isFoundMcv = false
 
-	FindMCVTrigger = Trigger.OnEnteredProximityTrigger(Actor1399.CenterPosition, WDist.New(1024 * 15), function(a, id)
-		if a.Owner == player then
+	FindMCVTrigger = Trigger.OnEnteredProximityTrigger(WayPoint1399.CenterPosition, WDist.New(1024 * 15), function(a, id)
+		if a.Owner == LocalPlayer then
 			MCVFoundMessage()
-			neutral.GrantCondition("revealbase")
+			Neutral_AI.GrantCondition("revealbase")
 			isFoundMcv = true
 
 			Trigger.RemoveProximityTrigger(id)
@@ -721,8 +718,8 @@ WorldLoaded = function()
 	end)
 
 	--  Player threats the MCV research, Nod trying to restart MCV
-	StealMCVTrigger = Trigger.OnEnteredProximityTrigger(Actor1399.CenterPosition, WDist.New(1024 * 6), function(a, id)
-		if isFoundMcv and a.Owner == player and a.Type ~= "qdrone" then
+	StealMCVTrigger = Trigger.OnEnteredProximityTrigger(WayPoint1399.CenterPosition, WDist.New(1024 * 5), function(a, id)
+		if isFoundMcv and a.Owner == LocalPlayer and a.Type ~= "qdrone" then
 			MCVThreatMessage()
 			AICaptureMCV()
 
@@ -732,43 +729,43 @@ WorldLoaded = function()
 	end)
 
 	-- MCV captured.
-	-- 1. if player successfully capture the MCV, goes to face to face storyline
+	-- 1. if LocalPlayer successfully capture the MCV, goes to face to face storyline
 	-- 2. if Nod successfully capture the MCV, goes to sneaky and hack storyline
 	MCVlostAgain = false
 
-	Trigger.OnCapture(cabconyard1, function()
+	Trigger.OnCapture(CabConyard, function()
 		AISellMCVResearchBases()
 
-		-- if player get the MCV, the mech1 will be player's, and mech2 will go error (switch between ally and foe)
-		-- if AI get the MCV, the mech2 will be AI's, and mech1 will go error (switch between ally and foe)
-		if cabconyard1.Owner == player then
-			player.MarkCompletedObjective(SecondaryObjectiveCaptureMCV)
+		-- if LocalPlayer get the MCV, the Mech1 will be LocalPlayer's, and Mech2 will go error (switch between ally and foe)
+		-- if AI get the MCV, the Mech2 will be AI's, and Mech1 will go error (switch between ally and foe)
+		if CabConyard.Owner == LocalPlayer then
+			LocalPlayer.MarkCompletedObjective(SecondaryObjectiveCaptureMCV)
 
-			if not mech1.IsDead then
-				mech1.Owner = player
+			if not Mech1.IsDead then
+				Mech1.Owner = LocalPlayer
 			end
 
 			-- give proper reinforement
-			PlayerReinforementSpawn({"cabharv","cabharv", "repairvehicle", "repairvehicle"}, CaptureMCVReinforcePathWater, Actor1399.CenterPosition, "cabapc")
+			PlayerReinforementSpawn({"cabharv","cabharv", "repairvehicle", "repairvehicle"}, CaptureMCVReinforcePathWater, WayPoint1399.CenterPosition, "cabapc")
 			Trigger.AfterDelay(100, function()
 				PlayerReinforementSpawn({"limped","limped", "limped", "limped", "limped", "basilisk", "basilisk", "basilisk", "wasp", "wasp", "wasp", "wasp"}, CaptureMCVReinforcePathWater, nil, nil)
 			end)
 
 			-- restart mechs
-			if player.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) then
-				mech2.Owner = player -- when player finish hacking all Array, Nod mech can start without error by player
+			if LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) then
+				Mech2.Owner = LocalPlayer -- when LocalPlayer finish hacking all Array, Nod mech can start without error by LocalPlayer
 			else
-				GoMechError(mech2, player)
+				GoMechError(Mech2, LocalPlayer)
 			end
 
-			if not AwaredByNod then -- Trigger AI if player haven't triggered
+			if not AwaredByNod then -- Trigger AI if LocalPlayer haven't triggered
 				AwaredByNod = true
 				NodWarnedOnMCVMessage()
 				Trigger.AfterDelay(400, function()
-					AIAttackUnhackedArray()
+					AIAttackArrays()
 				end)
 				Trigger.AfterDelay(500, function()
-					nod_ai.GrantCondition("enable-ai-combat")
+					Nod_AI.GrantCondition("enable-ai-combat")
 				end)
 
 				if NodBaseAlertTrigger ~= nil then
@@ -778,20 +775,20 @@ WorldLoaded = function()
 			end
 
 
-		elseif cabconyard1.Owner == nod_ai then
-			-- Considering player can take back the MCV later, so we don't mark it fail yet
+		elseif CabConyard.Owner == Nod_AI then
+			-- Considering LocalPlayer can take back the MCV later, so we don't mark it fail yet
 			MCVlostAgain = true
 
-			PlayerReinforementSpawn({"limped","limped", "limped", "limped", "limped"}, HackArrayReinforcePath, Actor1743.CenterPosition, nil)
+			PlayerReinforementSpawn({"limped","limped", "limped", "limped", "limped"}, HackArrayReinforcePath, WayPoint1743.CenterPosition, nil)
 
-			if not mech2.IsDead then
-				if player.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) then
-					GoMechError(mech2, nod_ai) -- when player finish hacking all Array, Nod cannot start their mech normally
+			if not Mech2.IsDead then
+				if LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) then
+					GoMechError(Mech2, Nod_AI) -- when LocalPlayer finish hacking all Array, Nod cannot start their mech normally
 				else
-					mech2.Owner = nod_ai
+					Mech2.Owner = Nod_AI
 				end
 			end
-			GoMechError(mech1, nod_ai)
+			GoMechError(Mech1, Nod_AI)
 
 			MCVFailedMessage()
 		end
@@ -804,11 +801,11 @@ WorldLoaded = function()
 			Trigger.RemoveProximityTrigger(StealMCVTrigger)
 			StealMCVTrigger = nil
 		end
-		Trigger.ClearAll(cabconyard1)
+		Trigger.ClearAll(CabConyard)
 	end)
 
 	-- MCV killed before captured.
-	Trigger.OnKilled(cabconyard1, function(self, killer)
+	Trigger.OnKilled(CabConyard, function(self, killer)
 		if FindMCVTrigger ~= nil then
 			Trigger.RemoveProximityTrigger(FindMCVTrigger)
 			FindMCVTrigger = nil
@@ -817,10 +814,10 @@ WorldLoaded = function()
 			Trigger.RemoveProximityTrigger(StealMCVTrigger)
 			StealMCVTrigger = nil
 		end
-		Trigger.ClearAll(cabconyard1)
+		Trigger.ClearAll(CabConyard)
 
 		AISellMCVResearchBases()
-		player.MarkFailedObjective(SecondaryObjectiveCaptureMCV)
+		LocalPlayer.MarkFailedObjective(SecondaryObjectiveCaptureMCV)
 
 		MCVFailedMessage()
 	end)
@@ -832,7 +829,7 @@ WorldLoaded = function()
 	-- ##### Shopkeeper: Mercenaries
 
 	TunnelShop = nil
-	HireDummy = Actor.Create("hire.production.dummy", true, {Owner = neutral, Location = mound1.Location})
+	HireDummy = Actor.Create("hire.production.dummy", true, {Owner = Neutral_AI, Location = Mound1.Location})
 	IsShopAngry = false
 
 	--- fake produce property:
@@ -852,25 +849,25 @@ WorldLoaded = function()
 	}
 
 	Trigger.AfterDelay(700, function() -- give enough time to load shoopkeepers to initial the tunnel
-		AISell(tunnel1)
-		AISell(tunnel2)
+		AISell(Tunnel1)
+		AISell(Tunnel2)
 	end)
 
-	FindMercenaryTrigger = Trigger.OnEnteredProximityTrigger(mound1.CenterPosition, WDist.New(1024 * 4), function(a, id)
+	FindMercenaryTrigger = Trigger.OnEnteredProximityTrigger(Mound1.CenterPosition, WDist.New(1024 * 4), function(a, id)
 		if (IsShopAngry) then
 			Trigger.RemoveProximityTrigger(id)
 			FindMercenaryTrigger = nil
 			return
 		end
 
-		if a.Owner == player and a.Type ~= "qdrone" then
+		if a.Owner == LocalPlayer and a.Type ~= "qdrone" then
 			Trigger.RemoveProximityTrigger(id)
 			FindMercenaryTrigger = nil
 
-			mound1.Destroy()
+			Mound1.Destroy()
 			Media.PlaySound("ssneakat.wav")
 
-			TunnelShop = Actor.Create("mutventshop", true, {Owner = mercenary_ai, Location = mound1.Location})
+			TunnelShop = Actor.Create("mutventshop", true, {Owner = Mut_AI, Location = Mound1.Location})
 			Trigger.OnKilled(TunnelShop, function(a, k)
 				EnrageMercenaries()
 			end)
@@ -886,7 +883,7 @@ WorldLoaded = function()
 				TunnelShop.Flash(HSLColor.FromHex("FFFFFF"), 15, DateTime.Seconds(1) / 4)
 
 				-- Enable the true production dummy
-				HireDummy.Owner = player
+				HireDummy.Owner = LocalPlayer
 				Trigger.OnProduction(HireDummy, function(producer, product)
 					if producer == nil or producer.IsDead then
 						return
@@ -899,7 +896,7 @@ WorldLoaded = function()
 					if name == nil then
 						return
 					end
-					local unit = Actor.Create(name, true, { Owner = player,Facing = production_facing, Location = producer.Location + production_coffset, CenterPosition = producer.CenterPosition + production_woffset })
+					local unit = Actor.Create(name, true, { Owner = LocalPlayer,Facing = production_facing, Location = producer.Location + production_coffset, CenterPosition = producer.CenterPosition + production_woffset })
 					if unit ~= nil then
 						unit.Patrol({producer.Location + rallypoint1_offset, producer.Location + rallypoint2_offset}, false)
 					end
@@ -914,12 +911,12 @@ WorldLoaded = function()
 	-- ##### End of Shopkeeper: Mercenaries
 
 
-	-- ###### If player enters the main base of Nod, Nod will enable AI
-	local alerts = {nodbase_alert1, nodbase_alert2, nodbase_alert3, nodbase_alert4, nodbase_alert5, nodbase_alert6, nodbase_alert7,
-	nodbase_alert8, nodbase_alert9, nodbase_alert10, nodbase_alert11, nodbase_alert12, nodbase_alert13, nodbase_alert14, nodbase_alert15,
-	nodbase_alert16, nodbase_alert17, nodbase_alert18, nodbase_alert19, nodbase_alert20, nodbase_alert21, nodbase_alert22, nodbase_alert23,
-	nodbase_alert24, nodbase_alert25, nodbase_alert26, nodbase_alert27, nodbase_alert28, nodbase_alert29, nodbase_alert30, nodbase_alert31,
-	nodbase_alert32, nodbase_alert33, nodbase_alert34, nodbase_alert35,nodbase_alert36, nodbase_alert37, nodbase_alert38}
+	-- ###### If LocalPlayer enters the main base of Nod, Nod will enable AI
+	local alerts = {Nodbase_alert1, Nodbase_alert2, Nodbase_alert3, Nodbase_alert4, Nodbase_alert5, Nodbase_alert6, Nodbase_alert7,
+	Nodbase_alert8, Nodbase_alert9, Nodbase_alert10, Nodbase_alert11, Nodbase_alert12, Nodbase_alert13, Nodbase_alert14, Nodbase_alert15,
+	Nodbase_alert16, Nodbase_alert17, Nodbase_alert18, Nodbase_alert19, Nodbase_alert20, Nodbase_alert21, Nodbase_alert22, Nodbase_alert23,
+	Nodbase_alert24, Nodbase_alert25, Nodbase_alert26, Nodbase_alert27, Nodbase_alert28, Nodbase_alert29, Nodbase_alert30, Nodbase_alert31,
+	Nodbase_alert32, Nodbase_alert33, Nodbase_alert34, Nodbase_alert35,Nodbase_alert36, Nodbase_alert37, Nodbase_alert38}
 
 	local alert_footprints = {}
 
@@ -930,11 +927,11 @@ WorldLoaded = function()
 	alerts = nil
 
 	NodBaseAlertTrigger = Trigger.OnEnteredFootprint(alert_footprints, function(a, id)
-		if a.Owner == player then
+		if a.Owner == LocalPlayer then
 			if not AwaredByNod then
 				AwaredByNod = true
 				NodAlertedMessage()
-				nod_ai.GrantCondition("enable-ai-combat")
+				Nod_AI.GrantCondition("enable-ai-combat")
 			end
 
 			Trigger.RemoveFootprintTrigger(id)
@@ -944,27 +941,30 @@ WorldLoaded = function()
 
 
 	-- ###### Player find the location of alien stuff
-	Trigger.OnEnteredProximityTrigger(replicator.CenterPosition, WDist.New(1024 * 15), function(a, id)
-		if a.Owner == player then
+	Trigger.OnEnteredProximityTrigger(ScrinRep.CenterPosition, WDist.New(1024 * 15), function(a, id)
+		if a.Owner == LocalPlayer then
 			Trigger.RemoveProximityTrigger(id)
-			baseCamera = Actor.Create("camera", true, { Owner = player, Location = replicator.Location })
-			replicator.Flash(HSLColor.FromHex("FFFFFF"), 20, DateTime.Seconds(1) / 4)
+			Actor.Create("camera", true, { Owner = LocalPlayer, Location = ScrinRep.Location })
+
+			if not ScrinRep.IsDead then
+				ScrinRep.Flash(HSLColor.FromHex("FFFFFF"), 20, DateTime.Seconds(1) / 4)
+			end
 			ReplicatorFoundMessage()
 		end
 	end)
 
 	-- ###### Player capture the alien stuff, gg
-	Trigger.OnCapture(replicator, function()
+	Trigger.OnCapture(ScrinRep, function()
 		MissionCompleteMessage()
 		CheckObjectivesOnMissionEnd(true)
 	end)
 
 	-- ###### Player fail the mission
-	Trigger.OnKilled(replicator, function(self, killer)
+	Trigger.OnKilled(ScrinRep, function(self, killer)
 		CheckObjectivesOnMissionEnd(false)
 	end)
 
-	Trigger.OnKilled(hacker, function(self, killer)
+	Trigger.OnKilled(CabHacker, function(self, killer)
 		CheckObjectivesOnMissionEnd(false)
 	end)
 end
