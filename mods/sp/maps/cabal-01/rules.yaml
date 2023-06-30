@@ -118,9 +118,22 @@ CAARAY:
 		Condition: hacked-reveal
 	RevealsShroud@Hacked.lv1--revealradar:
 		RequiresCondition: hacked-reveal
-		ValidRelationships: Enemy
+		ValidRelationships: Neutral, Enemy
 		MaxHeightDelta: 3
 		Range: 6c0
+
+RADIOTOWER:
+	RenderSprites:
+		PlayerPalette: player
+		-Palette:
+	GrantConditionOnPrerequisite@Hacked.lv1:
+		Prerequisites: RevealBase
+		Condition: hacked-reveal
+	RevealsShroud@Hacked.lv1--revealradar:
+		RequiresCondition: hacked-reveal
+		ValidRelationships: Neutral ## no longer show when hostile
+		MaxHeightDelta: 3
+		Range: 10c0
 
 CABMCV:
 	## Reveal all Avatar When Hacked 3 times
@@ -166,6 +179,13 @@ TRUCKB:
 		ValidRelationships: Enemy
 		Range: 5c0
 		Type: GroundPosition
+	SpawnActorOnDeath@Money:
+		Actor: moneycrate
+		Probability: 100
+		OwnerType: Killer
+		RequiresLobbyCreeps: false
+
+TRUCKOPENTIB:
 	SpawnActorOnDeath@Money:
 		Actor: moneycrate
 		Probability: 100

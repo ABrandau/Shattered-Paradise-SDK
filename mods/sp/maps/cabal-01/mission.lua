@@ -221,6 +221,13 @@ MissionCompleteMessage = function()
 	player.MarkCompletedObjective(ObjectiveCaptureAlien)
 end
 
+MercenaryFoundMessage = function()
+	Notification("Interesting, we also intercepted an advertisement from local Mutant Mercenaries. ")
+	Trigger.AfterDelay(DateTime.Seconds(7), function()
+		Notification("They are not picky for costumers.")
+	end)
+end
+
 MeetMercenaryMessage = function()
 	if IsShopAngry then
 		return
@@ -494,12 +501,23 @@ OnArrayHacked = function(hackedArray)
 		for key,actor in ipairs(ally.GetGroundAttackers()) do
 			actor.Owner = player
 		end
+		Radar.Ping(player, cradar1.CenterPosition, HSLColor.FromHex("FFFF00"))
+		Radar.Ping(player, cradar2.CenterPosition, HSLColor.FromHex("FFFF00"))
+		Radar.Ping(player, cradar4.CenterPosition, HSLColor.FromHex("FFFF00"))
+
+
 
 	elseif NumberOfArrayHacked == 2 then
 		HackTwoArrayMessage()
 		hacker.GrantCondition("allow-disable")
 		PlayerReinforementSpawn({"pdrone", "pdrone", "pdrone",  "cyborg", "cyborg", "cyborg", "cborg", "cborg", "cborg"}, HackArrayReinforcePath, Actor1743.CenterPosition, nil)
 
+		Trigger.AfterDelay(700, function()
+			MercenaryFoundMessage()
+			Radar.Ping(player, mound1.CenterPosition, HSLColor.FromHex("00FF00"))
+			mercenary_ai.GrantCondition("revealbase")
+			mercenary_ai2.GrantCondition("revealbase")
+		end)
 
 	elseif NumberOfArrayHacked == 3 then
 		HackThreeArrayMessage()
@@ -582,7 +600,7 @@ end
 
 --  ####### Mercenaries Angry
 Shopkeepers = {shopkeeper1, shopkeeper2, shopkeeper3, shopkeeper4, shopkeeper5, shopkeeper6, shopkeeper7, shopkeeper8,
-shopkeeper9, shopkeeper10, shopkeeper11, shopkeeper12, shopkeeper13, shopkeeper14, shopkeeper15, shopkeeper16}
+shopkeeper9, shopkeeper10, shopkeeper11, shopkeeper12, shopkeeper13, shopkeeper14, shopkeeper15, shopkeeper16, shopkeeper17}
 
 EnrageMercenaries = function()
 	if IsShopAngry then
@@ -813,7 +831,7 @@ WorldLoaded = function()
 			["ihire.e3.dummy"] = "e3",
 	}
 
-	Trigger.AfterDelay(700, function() -- give enough time to load shoopkeeper to initial the tunnel
+	Trigger.AfterDelay(700, function() -- give enough time to load shoopkeepers to initial the tunnel
 		AISell(tunnel1)
 		AISell(tunnel2)
 	end)
