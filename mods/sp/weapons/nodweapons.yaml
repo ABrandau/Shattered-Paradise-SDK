@@ -759,6 +759,14 @@ RedEye2Tib:
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplogreen
 
+LaserFence:
+	TargetActorCenter: true
+	Projectile: InstantHit
+	Warhead@1Dam: TargetDamage ## ensure instant kill, spread = 0
+		DebugOverlayColor: FF0000
+		Damage: 99999
+		DamageTypes: FireDeath
+
 ObeliskLaserFire:
 	Inherits: ^FullDamage
 	ReloadDelay: 40

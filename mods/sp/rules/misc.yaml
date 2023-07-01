@@ -285,19 +285,19 @@ BUFFCRATE:
 		SelectionShares: 33
 		Sequence: stealth
 		Condition: cloakgenerator
-		TextNotification: Find a personal stealth generator
+		TextNotification: Find a personal stealth generator (+cloak)
 	GrantExternalConditionCrateAction@armor:
 		SelectionShares: 33
 		Sequence: armor
 		Condition: VanguardShield
 		Notification: UnitArmourUpgraded
-		TextNotification: Find a personal sheild generator
+		TextNotification: Find a personal sheild generator (+sheild)
 	GrantExternalConditionCrateAction@speed:
 		SelectionShares: 33
 		Condition: TyrannyBuff
 		Sound: voltautofire.wav
 		Notification: UnitSpeedUpgraded
-		TextNotification: Find a personal psychic enforcer
+		TextNotification: Find a personal psychic enforcer (+move&fire speed)
 
 UNITCRATE:
 	Inherits: ^PowerupCrate
@@ -305,31 +305,6 @@ UNITCRATE:
 		Name: Unit Crate (Give a unit)
 	WithCrateBody:
 		IdleSequence: unit
-	GiveBaseBuilderCrateAction@gdi:
-		SelectionShares: 0
-		NoBaseSelectionShares: 1000
-		Units: mcv
-		ValidFactions: gdi
-	GiveBaseBuilderCrateAction@nod:
-		SelectionShares: 0
-		NoBaseSelectionShares: 1000
-		Units: nodmcv
-		ValidFactions: nod
-	GiveBaseBuilderCrateAction@mut:
-		SelectionShares: 0
-		NoBaseSelectionShares: 1000
-		Units: mutmcv
-		ValidFactions: mut
-	GiveBaseBuilderCrateAction@cab:
-		SelectionShares: 0
-		NoBaseSelectionShares: 1000
-		Units: cabmcv
-		ValidFactions: cab
-	GiveBaseBuilderCrateAction@scr:
-		SelectionShares: 0
-		NoBaseSelectionShares: 1000
-		Units: drache
-		ValidFactions: scr
 	GiveUnitCrateAction:
 		Units: 4tnk
 		SelectionShares: 100

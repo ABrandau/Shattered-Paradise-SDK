@@ -3,30 +3,74 @@ CloudDamage:
 	ReloadDelay: 17
 	Projectile: InstantExplode
 
-FireballLauncher:
-	Inherits: ^RifleWarhead
-	ReloadDelay: 50
-	Range: 4c256
-	Report: flamtnk1.aud
-	Projectile: BulletAS
-		Speed: 64
-		Image: FLAMEALL
-		Inaccuracy: 384
-	Burst: 5
-	BurstDelays: 5
+Demolish:
 	Warhead@1Dam: SpreadDamage
-		Spread: 341
-		Damage: 2500
+		DamageTypes: ExplosionDeath
+		Damage: 1
+	Warhead@2Eff: CreateEffect
+		Explosions: large_twlt
+		ExplosionPalette: effectalpha75
+		ImpactSounds: expnew09.aud
+
+
+DroneRepair:
+	Inherits: RepairVehicleLasor
+	ReloadDelay: 50
+	Range: 2c0
+	Report: vifvrepa.wav
+	ValidTargets: Vehicle, Air
+	Projectile: LaserZap
+		ZOffset: 4000
+		Color: FFFF70
+		Width: 16
+		Duration: 5
+		HitAnim: explosion
+		HitAnimSequence: repairsparks
+		HitAnimPalette: player
+		SecondaryBeam: false
+	Warhead@1Dam: SpreadDamage
+		Damage: -2000
+		ValidTargets: Vehicle, Air
+		ValidRelationships: Ally
+
+DroneRepairScr:
+	Inherits: DroneRepair
+	Projectile: LaserZap
+		Color: 8080FF
+		HitAnim: explosion
+		HitAnimSequence: repairsparks
+		HitAnimPalette: apblue
+
+ServiceDepotDroneSpawn:
+	ReloadDelay: 25
+	Range: 5c0
+	Projectile: InstantExplode
+	InvalidTargets: FullHealth, NoRepair
+	ValidTargets: Vehicle, Air
+	ValidRelationships: Ally
+
+Pistola:
+	ReloadDelay: 20
+	Range: 3c0
+	Report: gun18.aud
+	Projectile: BulletAS
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 200
 		Versus:
-			Infantry: 600
-			Building: 148
-			Defense: 59
-			Heavy: 59
-			Concrete: 2
-		DamageTypes: Prone100Percent, TriggerProne, FireDeath
-	Warhead@2Smu: LeaveSmudgeSP
-		SmudgeType: Scorch
-		InvalidTargets: Vehicle, Building, Wall
+			Building: 60
+			Defense: 40
+			Heavy: 40
+			Concrete: 10
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: piff
+		InvalidTargets: Water
+	Warhead@3EffWater: CreateEffect
+		Explosions: water_piff
+		ExplosionPalette: pips
+		ValidTargets: Water
 
 GuradTowerVulcan:
 	Inherits: ^RifleWarhead
@@ -92,6 +136,32 @@ CivilianLightCannon:
 	Warhead@1Dam: SpreadDamage
 		Damage: 5000
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+
+FiendShard:
+	ReloadDelay: 30
+	Burst: 3
+	Range: 5c0
+	Report: fiend2.aud
+	Projectile: BulletAS
+		Speed: 213
+		Image: CRYSTAL4
+		Inaccuracy: 512
+		Shadow: true
+		LaunchAngle: 60
+		Palette: greentiberium
+	Warhead@1Dam: SpreadDamage
+		Damage: 3500
+		Versus:
+			Defense: 60
+			Heavy: 60
+			Concrete: 20
+		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_watersplash
+		ExplosionPalette: player
+		ImpactSounds: ssplash3.aud
+		ValidTargets: Water
 
 CrabAcid:
 	Inherits: ^AcidWarhead
@@ -200,46 +270,6 @@ CrabSpawner:
 		FallRate: 5000
 		Range: 3
 
-TibBurst:
-	ReloadDelay: 150
-	Projectile: InstantExplode
-	Warhead@op: FireShrapnel
-		Weapon: TibBurstExplo
-		ImpactActors: false
-		Amount: 1
-
-TibBurstExplo:
-	ReloadDelay: 50
-	Range: 4c0
-	Projectile: BulletAS
-		Speed: 1c682
-		Inaccuracy: 0c512
-	Warhead@2Eff: CreateEffect
-		Explosions: tibexp2
-		ExplosionPalette: apolgreenalpha
-		ImpactSounds: expnew14.aud
-		InvalidTargets: Water
-
-BlueTibBurst:
-	ReloadDelay: 150
-	Projectile: InstantExplode
-	Warhead@op: FireShrapnel
-		Weapon: BlueTibBurstExplo
-		ImpactActors: false
-		Amount: 1
-
-BlueTibBurstExplo:
-	ReloadDelay: 50
-	Range: 3c0
-	Projectile: BulletAS
-		Speed: 1c682
-		Inaccuracy: 0c512
-	Warhead@2Eff: CreateEffect
-		Explosions: tibexp2
-		ExplosionPalette: apolbluealpha
-		ImpactSounds: expnew14.aud
-		InvalidTargets: Water
-
 SonicEmitterProj:
 	ReloadDelay: 100
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry, Wall
@@ -318,67 +348,11 @@ ZombieAttack:
 			Defense: 60
 			Concrete: 20
 
-Repair:
-	ReloadDelay: 80
-	Range: 1c819
-	Report: REPAIR11.AUD
-	ValidTargets: Repair
-	Projectile: BulletAS
-		Speed: 1c682
-	Warhead@1Dam: SpreadDamage
-		DebugOverlayColor: 00FF00
-		Spread: 213
-		Damage: -5000
-		ValidTargets: Repair
-
 RepairNeutralTurret:
 	Inherits: RepairVehicleLasor
 	Range: 5c0
-
-DroneRepair:
-	Inherits: RepairVehicleLasor
-	ReloadDelay: 50
-	Range: 2c0
-	Report: vifvrepa.wav
-	ValidTargets: Vehicle, Air
-	Projectile: LaserZap
-		ZOffset: 4000
-		Color: FFFF70
-		Width: 16
-		Duration: 5
-		HitAnim: explosion
-		HitAnimSequence: repairsparks
-		HitAnimPalette: player
-		SecondaryBeam: false
-	Warhead@1Dam: SpreadDamage
-		Damage: -2000
-		ValidTargets: Vehicle, Air
-		ValidRelationships: Ally
-
-DroneRepairScr:
-	Inherits: DroneRepair
-	Projectile: LaserZap
-		Color: 8080FF
-		HitAnim: explosion
-		HitAnimSequence: repairsparks
-		HitAnimPalette: apblue
-
-ServiceDepotDroneSpawn:
-	ReloadDelay: 25
-	Range: 5c0
-	Projectile: InstantExplode
-	InvalidTargets: FullHealth, NoRepair
-	ValidTargets: Vehicle, Air
-	ValidRelationships: Ally
-
-Demolish:
-	Warhead@1Dam: SpreadDamage
-		DamageTypes: ExplosionDeath
-		Damage: 1
-	Warhead@2Eff: CreateEffect
-		Explosions: large_twlt
-		ExplosionPalette: effectalpha75
-		ImpactSounds: expnew09.aud
+	Burst: 4
+	BurstDelay: 1
 
 BerserkerBlow:
 	Inherits: ^ArtilleryWarhead
@@ -392,7 +366,6 @@ BerserkerBlow:
 		ValidTargets: Ground, Water
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 		NoUnintendedFriendlyFire: All
-
 
 HugeVeinholeCloud:
 	ValidTargets: Ground, Water, Air
@@ -494,46 +467,3 @@ FairyElevator:
 		Duration: 250
 		AirThreshold: 20c0
 		ImpactActors: false
-
-## unused
-VisceLauncher:
-	Inherits: ^BombWarhead
-	ReloadDelay: 150
-	Range: 7c0
-	Burst: 2
-	BurstDelays: 10
-	MinRange: 1c0
-	ValidTargets: Infantry, Vehicle, Building
-	Projectile: BulletAS
-		Speed: 360
-		Image: viscproj
-		Shadow: true
-		Palette: effect
-		LaunchAngle: 50
-	Warhead@1Dam: SpreadDamage
-		Spread: 150
-		Damage: 4000
-		Versus:
-			Infantry: 100
-			Building: 100
-			Defense: 100
-			Heavy: 100
-			Aircraft: 100
-			Concrete: 15
-		ValidTargets: Ground, Water, Air
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
-	Warhead@2Eff: CreateEffect
-		Explosions: viscexplo
-		ExplosionPalette: effect
-		ImpactSounds: expnew14.aud
-		InvalidTargets: : Water
-	Warhead@3EffWater: CreateEffect
-		Explosions: viscexplo
-		ExplosionPalette: effect
-		ImpactSounds: ssplash3.aud
-		ValidTargets: Water
-	Warhead@5Actor: SpawnActor
-		Actors: visc_lrg, visc_lrg
-		FallRate: 5000
-		Range: 3
-		ValidTargets: Ground, Infantry, Vehicle, Building, Structure, Water, Air

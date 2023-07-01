@@ -86,16 +86,6 @@ SentryGun:
 		Explosions: small_grey_explosion, small_grey_explosionf
 		ExplosionPalette: effect
 
-SentinelGun:
-	Inherits: ^RifleWarhead
-	Inherits@1: ^Mediuml_Clsn
-	ReloadDelay: 60
-	Range: 4c0
-	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Damage: 2000
-		DamageTypes: Prone70Percent, TriggerProne, CabalDeath
-
 ReaperWeb:
 	ReloadDelay: 250
 	Range: 7c0
@@ -398,22 +388,6 @@ CenturionVulcanLine:
 	Range: 6c0
 	ValidTargets: Ground, Water
 
-RepairVehicleRep:
-	ReloadDelay: 60
-	Range: 4c0
-	Report: repair11.aud
-	TargetActorCenter: true
-	InvalidTargets: FullHealth, NoRepair
-	ValidTargets: Vehicle
-	ValidRelationships: Ally
-	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Spread: 80
-		Damage: -2499
-		AffectsParent: false
-		ValidTargets: Vehicle
-		InvalidTargets: FullHealth, NoRepair
-
 RepairVehicleLasor:
 	ValidRelationships: Ally
 	ReloadDelay: 70
@@ -658,23 +632,6 @@ BasiliskBomb:
 		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Building, Wall
 
-SentryTurretGun:
-	Inherits@2: ^Mediuml_Clsn
-	ReloadDelay: 25
-	Range: 5c0
-	Report: 120mmf.aud
-	Projectile: BulletAS
-		Speed: 682
-		Image: 120mm
-		Shadow: true
-		Palette: pips
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 500
-		Versus:
-			Concrete: 60
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-
 CTurretCannon:
 	Inherits: ^APWarhead
 	Inherits@2: ^Mediuml_Clsn
@@ -776,14 +733,6 @@ CABRAILAA:
 		Spread: 0c045
 		Damage: 2500
 		NoUnintendedFriendlyFire: All
-
-LaserFence:
-	TargetActorCenter: true
-	Projectile: InstantHit
-	Warhead@1Dam: TargetDamage ## ensure instant kill
-		DebugOverlayColor: FF0000
-		Damage: 99999
-		DamageTypes: FireDeath
 
 BlackCDefLazer1:
 	Inherits: PalaLazor

@@ -1,0 +1,151 @@
+VisceLauncher:
+	Inherits: ^BombWarhead
+	ReloadDelay: 150
+	Range: 7c0
+	Burst: 2
+	BurstDelays: 10
+	MinRange: 1c0
+	ValidTargets: Infantry, Vehicle, Building
+	Projectile: BulletAS
+		Speed: 360
+		Image: viscproj
+		Shadow: true
+		Palette: effect
+		LaunchAngle: 50
+	Warhead@1Dam: SpreadDamage
+		Spread: 150
+		Damage: 4000
+		Versus:
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 15
+		ValidTargets: Ground, Water, Air
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
+	Warhead@2Eff: CreateEffect
+		Explosions: viscexplo
+		ExplosionPalette: effect
+		ImpactSounds: expnew14.aud
+		InvalidTargets: : Water
+	Warhead@3EffWater: CreateEffect
+		Explosions: viscexplo
+		ExplosionPalette: effect
+		ImpactSounds: ssplash3.aud
+		ValidTargets: Water
+	Warhead@5Actor: SpawnActor
+		Actors: visc_lrg, visc_lrg
+		FallRate: 5000
+		Range: 3
+		ValidTargets: Ground, Infantry, Vehicle, Building, Structure, Water, Air
+
+SentinelGun:
+	Inherits: ^RifleWarhead
+	Inherits@1: ^Mediuml_Clsn
+	ReloadDelay: 60
+	Range: 4c0
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
+		DamageTypes: Prone70Percent, TriggerProne, CabalDeath
+
+SentryTurretGun:
+	Inherits@2: ^Mediuml_Clsn
+	ReloadDelay: 25
+	Range: 5c0
+	Report: 120mmf.aud
+	Projectile: BulletAS
+		Speed: 682
+		Image: 120mm
+		Shadow: true
+		Palette: pips
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 500
+		Versus:
+			Concrete: 60
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+
+## Unused
+SonicZap:
+	Inherits: ^WeaponGenericUpgrades
+	ReloadDelay: 60
+	Range: 5c512
+	Report: sonic4.aud
+	TargetActorCenter: false ## HACK: we cannot use 'true' here to avoid AreaBeam projectile cannot spawn on building
+	Projectile: AreaBeamSP
+		Speed: 0c250
+		Duration: 40
+		DamageInterval: 4
+		Width: 300
+		SecondWidth: 600
+		Shape: Cylindrical
+		ZOffset: 3600
+		TrackTarget: true
+		BeyondTargetRange: 0c256
+		Blockable: true
+		Color: 50F5FF30
+		SecondColor: 50F5FF13
+		HitEffectImage: explosion
+		HitEffectSequence: sonic_beam_explof3
+		HitEffectPalette: gensmkexplocyan40
+		HitEffectInterval: 8
+		LaunchEffectImage: explosion
+		LaunchEffectSequence: sonic_explo2
+		LaunchEffectPalette: gensmkexplocyan40
+		LaunchEffectInterval: 8
+	Warhead@1Dam: TargetDamage
+		Spread: 0  ## HACK: Spread=0 of TargetDamage means only deal damage on actor impacted
+		Damage: 2000
+		AffectsParent: false
+		ValidRelationships: Neutral, Enemy
+		Versus:
+			Defense: 80
+			Heavy: 80
+			Disruptor: 30
+			Concrete: 15
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	Warhead@2Dam: TargetDamage
+		Spread: 0
+		Damage: 1000
+		AffectsParent: false
+		InvalidTargets: AllySonicImmune
+		ValidRelationships: Ally
+		Versus:
+			Defense: 80
+			Heavy: 80
+			Disruptor: 30
+			Concrete: 15
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+
+## Unused
+SonicZapTower:
+	Inherits: SonicZap
+	Range: 7c0
+
+
+
+PoisonGlaive:
+	ReloadDelay: 75
+	Range: 2c0
+	Report:
+	Projectile: InstantExplode
+	Warhead@op: FireShrapnel
+		Weapon: FloatGlaive10
+		ImpactActors: false
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Ally, Neutral
+		ValidTargets: Infantry, Vehicle, Ground, Wall
+
+FloatGlaive10:
+	Inherits: FloatGlaive
+	Range: 2c0
+	-Report:
+	-Warhead@op:
+	Warhead@1Dam: SpreadDamage
+		Spread: 64
+		Damage: 2000
