@@ -442,9 +442,14 @@ CABCANNON:
 	AttackTurreted:
 		PauseOnCondition: empdisable
 	Armament:
-		Weapon: CTurretCannon
-		LocalOffset: 750,0,650
+		Weapon: Titan120mm
+		LocalOffset: 750,0,650, 750,0,650
 		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
+		CasingWeapon: ShellCasingDebris
+		CasingSpawnLocalOffset: 700,0,500, 700,0,500
+		CasingTargetOffset: 512, 512, 0, 512, -512, 0
+		PauseOnCondition: Building-Buildup || empdisable
 	AutoTarget:
 		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	RequiresBuildableArea:

@@ -555,6 +555,7 @@ WEASAU3:
 LPST:
 	Inherits: ^Vehicle
 	Inherits@AImicroManagable: ^AImicroManagable
+	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Valued:
 		Cost: 1000
 	Armor:
@@ -636,6 +637,7 @@ SGEN:
 	Inherits: ^Vehicle
 	Inherits@IMPSGEN: ^AffectedByImprovedStealthGenerator
 	Inherits@AImicroManagable: ^AImicroManagable
+	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Valued:
 		Cost: 1000
 	Buildable:
@@ -727,6 +729,7 @@ ICBM:
 	Inherits@AImicroManagable: ^AImicroManagable
 	Inherits@VISION: ^6CellVision
 	Inherits@2: ^HasMisslePower
+	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
 		BuildAtProductionType: Tank
@@ -830,6 +833,7 @@ ICBM:
 
 MWAR: ## AI control it by using McvManagerBotModule
 	Inherits: ^Vehicle
+	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Valued:
 		Cost: 2000
 	Buildable:
