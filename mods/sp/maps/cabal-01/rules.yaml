@@ -49,6 +49,11 @@ Player:
 		CapturableActorTypes: well, neutralradar, cahosp, neutralsonictur, caarmr, machineshop, scrinreinfpad, ntpyra.koth, gacnst, mutyard, cabyard, nodyard, drached, nodref, nodref2, nodref3, nodref4
 	SendUnitToAttackBotModule:
 		RequiresCondition: AIBase && enable-ai-combat
+	MinelayerBotModule:
+		AwayFromCellDistance: 11
+		RecordDelayAfterInitializing: 3000
+		QuickScanTickTimes: 6
+		AwayFromAlliedTargetTypes: AIPrefer ## BUG: -AwayFromAlliedTargetTypes useless here
 	ExternalCondition@enable-ai-combat:
 		Condition: enable-ai-combat
 	### Mission: Hack Civilian Array Related
@@ -258,8 +263,8 @@ CABECM:
 		Condition: allow-disable
 	Armament@2:
 		RequiresCondition: allow-disable
-	Targetable@ConsideredThreatForAI:
-		TargetTypes: ConsideredThreatForAI
+	Targetable@AIPrefer:
+		TargetTypes: AIPrefer
 
 POWEROFFDUMMY:
 	AlwaysVisible:

@@ -218,11 +218,13 @@ HARV:
 		RequiresCondition: !inside-tunnel
 		CarriedCondition: carried
 		LockedCondition: carrylock
+	AddCashCheater@AI:
+		CashCheatType: Harvester
 	ProductionCostMultiplier@AI: ## AI cannot use it well
 		Multiplier: 75
 		Prerequisites: AIOnly
-	AddCashCheater@AI:
-		CashCheatType: Harvester
+	ProvidesPrerequisite@HasHarv: ## For AI Perf.
+		Prerequisite: HasHarv
 
 harv.nod:
 	Inherits: HARV
@@ -1974,7 +1976,7 @@ KING:
 		RemoveInstead: true
 		RequiresCondition: !shortgame-enabled && !suddendeath
 	Targetable:
-		TargetTypes: Ground, Vehicle, ConsideredThreatForAI
+		TargetTypes: Ground, Vehicle, AIPrefer
 
 ^SuperSupportPowerBased:
 	NukePower:

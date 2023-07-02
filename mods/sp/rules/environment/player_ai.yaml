@@ -35,11 +35,6 @@ Player:
 	#################################
 	## BotModule and BotLogic
 	#################################
-	HarvesterBotModule: 
-		RequiresCondition: AIBase || AIEasy
-		HarvesterTypes: harv, scrharv, cabharv, harv.nod, harv.mut
-		RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4
-		ScanForIdleHarvestersInterval: 1009 ## This module is perf-questionable, set it long enough. We only need AI to steal some resource from player's control area
 	GrantConditionAfterDelay@AIantiRush-unit-order:
 		RequiresCondition: AIBase
 		Condition: AIantiRush-unit-order
@@ -574,7 +569,7 @@ Player:
 				MaximumScanTimeInterval: 100
 				Consideration@1:
 					Against: Enemy
-					Types: ConsideredThreatForAI
+					Types: AIPrefer
 					IgnoreVisibility: true
 					Attractiveness: 1000000
 					TargetMetric: None
@@ -615,7 +610,7 @@ Player:
 				MaximumScanTimeInterval: 100
 				Consideration@1:
 					Against: Enemy
-					Types: ConsideredThreatForAI
+					Types: AIPrefer
 					IgnoreVisibility: true
 					Attractiveness: 1000000
 					TargetMetric: None
@@ -639,7 +634,7 @@ Player:
 				MaximumScanTimeInterval: 100
 				Consideration@1:
 					Against: Enemy
-					Types: ConsideredThreatForAI
+					Types: AIPrefer
 					IgnoreVisibility: true
 					Attractiveness: 1000000
 					TargetMetric: None
@@ -663,7 +658,7 @@ Player:
 				MaximumScanTimeInterval: 100
 				Consideration@1:
 					Against: Enemy
-					Types: ConsideredThreatForAI
+					Types: AIPrefer
 					IgnoreVisibility: true
 					Attractiveness: 1000000
 					TargetMetric: None
@@ -704,7 +699,7 @@ Player:
 				MaximumScanTimeInterval: 100
 				Consideration@1:
 					Against: Enemy
-					Types: ConsideredThreatForAI
+					Types: AIPrefer
 					IgnoreVisibility: true
 					Attractiveness: 1000000
 					TargetMetric: None
@@ -734,7 +729,7 @@ Player:
 				MaximumScanTimeInterval: 100
 				Consideration@1:
 					Against: Enemy
-					Types: ConsideredThreatForAI
+					Types: AIPrefer
 					IgnoreVisibility: true
 					Attractiveness: 1000000
 					TargetMetric: None
@@ -782,7 +777,7 @@ Player:
 				MaximumScanTimeInterval: 100
 				Consideration@1:
 					Against: Enemy
-					Types: ConsideredThreatForAI
+					Types: AIPrefer
 					IgnoreVisibility: true
 					Attractiveness: 1000000
 					TargetMetric: None
@@ -885,10 +880,6 @@ Player:
 		RequiresCondition: AIBase || AIEasy
 		Transports: apc, struck, mubunkr, bggy, apc_bot, riflebggy, rocketbggy, flamebggy, struckfull, struckfull_t3, sapc
 		Passengers: gdie1, altnode1, jumpjet, crusader, e3, marauder, cyborg, cborg, legio, grenadier, e2, templar, mutfiend, colossi, seer, eagleguard, bhs, psyker, glad, cyc2, bug, nconf
-	SharedCargoBotModule:
-		RequiresCondition: AIBase || AIEasy
-		Transports: muvent, muventi, mutambushvent
-		Passengers: apc, struck, bggy, apc_bot, riflebggy, rocketbggy, flamebggy, struckfull, struckfull_t3, mmch,smech,attackbike,centurion,scrdronec,corruptor,scrglyder2,hvr,ttnk,lynx,mutquad,wolf,g4tnk,scrmbt,sonic,jug,mrls,deathclaw,spiderarty,paladin,tripod,howtlizer,stnk,scrrecharger,scrmobmine, weasau3
 	SendUnitToAttackBotModule:
 		RequiresCondition: AIBase
 		ActorsAndAttackDesire: 
@@ -896,12 +887,34 @@ Player:
 			sapc: 10
 			nukecarryall_bot: 100
 			hvrtruk3: 100
-		ValidTargets: Building, ConsideredThreatForAI
+		ValidTargets: Building, AIPrefer
 		InvalidTargets: Defence
+
+	GrantConditionOnPrerequisite@HasHarv:
+		Condition: has-harv
+		Prerequisites: HasHarv
+	HarvesterBotModule: 
+		RequiresCondition: AIBase || AIEasy
+		HarvesterTypes: harv, scrharv, cabharv, harv.nod, harv.mut
+		RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4
+		ScanForIdleHarvestersInterval: 1009 ## This module is perf-questionable, set it long enough. We only need AI to steal some resource from player's control area
+
+	GrantConditionOnPrerequisite@HasTunnel:
+		Condition: has-tunnel
+		Prerequisites: HasTunnel
+	SharedCargoBotModule:
+		RequiresCondition: has-tunnel
+		Transports: muvent, muventi, mutambushvent
+		Passengers: apc, struck, bggy, apc_bot, riflebggy, rocketbggy, flamebggy, struckfull, struckfull_t3, mmch,smech,attackbike,centurion,scrdronec,corruptor,scrglyder2,hvr,ttnk,lynx,mutquad,wolf,g4tnk,scrmbt,sonic,jug,mrls,deathclaw,spiderarty,paladin,tripod,howtlizer,stnk,scrrecharger,scrmobmine, weasau3
+
+	GrantConditionOnPrerequisite@HasMinelayer:
+		Condition: has-minelayer
+		Prerequisites: HasMinelayer
 	MinelayerBotModule:
-		RequiresCondition: AIBase
+		RequiresCondition: has-minelayer
 		Minelayers: minelayer
 		UseEnemyLocationTargetTypes: Building, Defence, Air
 		IgnoredEnemyTargetTypes: Mine, Summoned, Wall, NoAutoTarget, IonSpawner, Air, Water, Building, Defence
 		AwayFromAlliedTargetTypes: Building, Defence
 		AwayFromEnemyTargetTypes: Building, Defence
+		InitializingMinefieldActor: minelaypoint

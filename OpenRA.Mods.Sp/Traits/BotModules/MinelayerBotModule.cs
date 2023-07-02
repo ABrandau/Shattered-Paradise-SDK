@@ -60,6 +60,21 @@ namespace OpenRA.Mods.Sp.Traits
 			"If favorite minefield positions is at the max of 5, we always merge it to closest regardless of this")]
 		public readonly int FavoritePositionDistance = 6;
 
+		[Desc("Initialize minefield position if map has those actors by using their location.",
+			"you need this setting on mission to lay mine on specific location.")]
+		public readonly string InitializingMinefieldActor = default;
+
+		[Desc("After initialize favorite minefield position, conflict record will start after this delay.",
+			"you need this setting on mission to prevent location change before specific location done laying mine")]
+		public readonly int RecordDelayAfterInitializing = default;
+
+		[Desc("After initialize favorite minefield position, we quickly give order to minelayers",
+			"you need this setting on mission to give AI minelayer order quickly to deploy the mines")]
+		public readonly int QuickScanTickAfterInitializing = 1;
+
+		[Desc("How many time we give quick order, After initializing?")]
+		public readonly int QuickScanTickTimes = default;
+
 		public override object Create(ActorInitializer init) { return new MinelayerBotModule(init.Self, this); }
 	}
 
@@ -80,10 +95,13 @@ namespace OpenRA.Mods.Sp.Traits
 		readonly CPos?[] favoritePositions;
 
 		int minAssignRoleDelayTicks;
-		int conflictPositionLength;
-		int favoritePositionsLength;
-		int currentFavoritePositionIndex;
+		int quickScanTimes;
+		int conflictPositionLength = 0;
+		int favoritePositionsLength = 0;
+		int currentFavoritePositionIndex = 0;
 		int alertedTicks;
+
+		bool firstTick = true;
 
 		PathFinder pathFinder;
 
@@ -97,27 +115,42 @@ namespace OpenRA.Mods.Sp.Traits
 			unitCannotBeOrderedOrIsIdle = a => unitCannotBeOrdered(a) || a.IsIdle || a.CurrentActivity is FlyIdle;
 			conflictPositionQueue = new CPos?[MaxPositionCacheLength] { null, null, null, null, null };
 			favoritePositions = new CPos?[MaxPositionCacheLength] { null, null, null, null, null };
+			alertedTicks = info.RecordDelayAfterInitializing;
 		}
 
 		protected override void TraitEnabled(Actor self)
 		{
-			// Avoid all AIs reevaluating assignments on the same tick, randomize their initial evaluation delay.
-			minAssignRoleDelayTicks = world.LocalRandom.Next(0, Info.ScanTick);
-			alertedTicks = 0;
-			conflictPositionLength = 0;
-			favoritePositionsLength = 0;
-			currentFavoritePositionIndex = 0;
-			pathFinder = self.World.WorldActor.Trait<PathFinder>();
+			if (pathFinder == null)
+				pathFinder = self.World.WorldActor.Trait<PathFinder>();
 		}
 
 		void IBotTick.BotTick(IBot bot)
 		{
+			if (firstTick)
+			{
+				firstTick = false;
+				foreach (var loc in world.Actors.Where(a => a.Info.Name == Info.InitializingMinefieldActor).Select(a => a.Location))
+					EnqueueConflictPosition(loc);
+
+				// Avoid all AIs reevaluating assignments on the same tick, randomize their initial evaluation delay.
+				if (Info.QuickScanTickTimes > 0)
+				{
+					quickScanTimes = Info.QuickScanTickTimes;
+					minAssignRoleDelayTicks = world.LocalRandom.Next(0, Info.QuickScanTickAfterInitializing);
+				}
+				else
+					minAssignRoleDelayTicks = world.LocalRandom.Next(0, Info.ScanTick);
+			}
+
 			if (alertedTicks > 0)
 				alertedTicks--;
 
-			if (--minAssignRoleDelayTicks <= 0)
+			if (--minAssignRoleDelayTicks < 0)
 			{
-				minAssignRoleDelayTicks = Info.ScanTick;
+				if (quickScanTimes-- > 0)
+					minAssignRoleDelayTicks = Info.QuickScanTickAfterInitializing;
+				else
+					minAssignRoleDelayTicks = Info.ScanTick;
 
 				activeMinelayers.RemoveAll(u => unitCannotBeOrderedOrIsIdle(u.Actor));
 				stuckMinelayers.RemoveAll(a => unitCannotBeOrdered(a));
@@ -152,7 +185,7 @@ namespace OpenRA.Mods.Sp.Traits
 					}
 				}
 
-				TraitPair<Minelayer>[] ats = null;
+				Actor[] minelayers = null;
 
 				if (conflictPositionLength == 0)
 				{
@@ -160,8 +193,8 @@ namespace OpenRA.Mods.Sp.Traits
 					// we will try find a location that at the middle of pathfinding cells
 					if (favoritePositionsLength == 0)
 					{
-						ats = world.ActorsWithTrait<Minelayer>().Where(at => !unitCannotBeOrderedOrIsBusy(at.Actor)).ToArray();
-						if (ats.Length == 0)
+						minelayers = world.ActorsHavingTrait<Minelayer>().Where(a => !unitCannotBeOrderedOrIsBusy(a) && Info.Minelayers.Contains(a.Info.Name)).ToArray();
+						if (minelayers.Length == 0)
 							return;
 
 						var enemies = world.Actors.Where(a => IsPreferredEnemyUnit(a)).ToArray();
@@ -170,9 +203,9 @@ namespace OpenRA.Mods.Sp.Traits
 
 						var enemy = enemies.Random(world.LocalRandom);
 
-						foreach (var at in ats)
+						foreach (var m in minelayers)
 						{
-							var cells = pathFinder.FindPathToTargetCell(at.Actor, new[] { at.Actor.Location }, enemy.Location, BlockedByActor.Immovable, laneBias: false);
+							var cells = pathFinder.FindPathToTargetCell(m, new[] { m.Location }, enemy.Location, BlockedByActor.Immovable, laneBias: false);
 							if (cells != null && !(cells.Count == 0))
 							{
 								AIUtils.BotDebug("AI ({0}): try find a location to lay mine.", player.ClientIndex);
@@ -207,21 +240,21 @@ namespace OpenRA.Mods.Sp.Traits
 					}
 				}
 
-				if (ats == null)
-					ats = world.ActorsWithTrait<Minelayer>().Where(at => !unitCannotBeOrderedOrIsBusy(at.Actor)).ToArray();
+				if (minelayers == null)
+					minelayers = world.ActorsHavingTrait<Minelayer>().Where(a => !unitCannotBeOrderedOrIsBusy(a) && Info.Minelayers.Contains(a.Info.Name)).ToArray();
 
-				if (ats.Length == 0)
+				if (minelayers.Length == 0)
 					return;
 
 				var orderedActors = new List<Actor>();
 
-				foreach (var at in ats)
+				foreach (var m in minelayers)
 				{
-					var cells = pathFinder.FindPathToTargetCell(at.Actor, new[] { at.Actor.Location }, minelayingPosition, BlockedByActor.Immovable, laneBias: false);
+					var cells = pathFinder.FindPathToTargetCell(m, new[] { m.Location }, minelayingPosition, BlockedByActor.Immovable, laneBias: false);
 					if (cells != null && !(cells.Count == 0))
 					{
-						orderedActors.Add(at.Actor);
-						activeMinelayers.Add(new UnitWposWrapper(at.Actor));
+						orderedActors.Add(m);
+						activeMinelayers.Add(new UnitWposWrapper(m));
 
 						// if there is enemy actor nearby, we will try to lay mine on
 						//  3/4 distance to desired position (the path cell is reversed)

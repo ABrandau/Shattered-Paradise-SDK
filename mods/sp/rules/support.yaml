@@ -1168,7 +1168,7 @@ NATMPL:
 		AreaTypes: building
 		Adjacent: 3
 	Targetable:
-		TargetTypes: Building, Ground, C4, DetonateAttack, ConsideredThreatForAI
+		TargetTypes: Building, Ground, C4, DetonateAttack, AIPrefer
 	IsometricSelectable:
 		DecorationHeight: 60
 	NukePower:
@@ -1212,10 +1212,6 @@ MUVENTI:
 		Prerequisites: ~mutyard, muhall, !enoughmuventi, ~techlevel.4
 		BuildDuration: 125
 		BuildDurationModifier: 100
-	ProvidesPrerequisite@buildingname:
-	ProvidesPrerequisite@swlimit:
-		RequiresPrerequisites: global-swlimit
-		Prerequisite: enoughmuventi
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1286,6 +1282,10 @@ MUVENTI:
 	-GrantConditionOnPrerequisite@SUDDENDEATH:
 	-MustBeDestroyed:
 	-GivesBuildableArea:
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@swlimit:
+		RequiresPrerequisites: global-swlimit
+		Prerequisite: enoughmuventi
 	SupportPowerChargeBar:
 	NukePower:
 		-LaunchSpeechNotification:
@@ -1346,6 +1346,8 @@ MUVENTI:
 		ChargeInterval: 5000
 		CameraRange: 0
 		DisplayTimerRelationships: None
+	ProvidesPrerequisite@HasTunnel: ## For AI Perf.
+		Prerequisite: HasTunnel
 	ActorStatValues:
 		Armaments: None
 		Upgrades: upgrade.tunnel_repairs

@@ -7,8 +7,6 @@
    information, see COPYING.
 ]]
 
-Difficulty = Map.LobbyOption("difficulty")
-
 Objectives = function()
 	SecondaryObjectiveCaptureMCV = LocalPlayer.AddSecondaryObjective("Recapture our lost M.C.V.")
 	SecondaryObjectiveHackAllArray = LocalPlayer.AddSecondaryObjective("Hack all the Civilian Array")
@@ -22,20 +20,22 @@ end
 MissionMapSetUp = function()
 	SpawnPatrollers()
 	SpawnUpgrade()
+	DifficultySetUp()
 	Camera.Position = MissionStartpoint.CenterPosition
 	CabHacker.Patrol({WayPoint1662.Location, WayPoint1742.Location, WayPoint1743.Location}, false)
 	Trigger.AfterDelay(DateTime.Seconds(12), function()
 		CabHacker.Owner = LocalPlayer
 	end)
+end
 
-	if Difficulty == "hard" then
-
+DifficultySetUp = function()
+	local difficulty = Map.LobbyOption("difficulty")
+	if difficulty == "hard" then
 		for key,unit in ipairs(Cab_AI.GetActorsByType("moth")) do
 			unit.Destroy()
 		end
-
-	elseif Difficulty == "normal" then
-
+		Nod_AI2.GrantCondition("enable-ai-combat") -- Enable minelayer
+	elseif difficulty == "normal" then
 		AISell(NodObli1)
 		AISell(NodObli2)
 		AISell(NodObli3)
@@ -43,7 +43,7 @@ MissionMapSetUp = function()
 		Engineer4.Destroy()
 		Engineer5.Destroy()
 
-		for key,unit in ipairs(Nod_AI2.GetActorsByType("tdadvgtwr")) do
+		for key,unit in ipairs(Nod_AI2.GetActorsByTypes({"tdadvgtwr", "minelayer"})) do
 			unit.Destroy()
 		end
 
@@ -54,6 +54,7 @@ MissionMapSetUp = function()
 		NodMcv1.Destroy()
 	end
 end
+
 
 -- ####### End game check
 CheckObjectivesOnMissionEnd = function(success)
