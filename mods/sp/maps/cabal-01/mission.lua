@@ -153,7 +153,7 @@ end
 MCVFailedMessage = function()
 	Notification("The M.C.V. is lost again, but it is not over")
 
-	if not LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) then
+	if not (LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) or AwaredByNod) then
 		Trigger.AfterDelay(DateTime.Seconds(15), function()
 				Notification("Nod believes our failure is inevitable and no longer pay attention to us, in the intercepted message.")
 		end)
