@@ -37,6 +37,10 @@ DOGGIE:
 		Damage: 35
 	-SharedPassenger:
 	-Passenger:
+	Encyclopedia:
+		Description: Tiberian Fiends are large, doglike animals that stand about the size of a large horse or a small elephant, and have blackish-brown or red skin, although that is usually completely covered by Tiberium crystals growing on its back.
+		Category: Tiberian Lifeform
+		Order: 5
 
 VISC_SML:
 	Inherits: ^Visceroid
@@ -70,6 +74,10 @@ VISC_SML:
 	-AttackMove:
 	MapEditorData:
 		Categories: Creep
+	Encyclopedia:
+		Description: Visceroids were disturbing creatures that sometimes form when organic life dies to tiberium exposure. As flesh breaks down after death, it may mutate into a Baby Visceroid, a blob-like masses of flesh.
+		Category: Tiberian Lifeform
+		Order: 6
 
 VISC_LRG:
 	Inherits: ^Visceroid
@@ -117,6 +125,10 @@ VISC_LRG:
 		Chance: 100
 	MapEditorData:
 		Categories: Creep
+	Encyclopedia:
+		Description: When Baby Visceroid survive enough, it will grow into a Adult Visceroid. \n\nWhen Adult Visceroid is dead, it splits into 2 Baby Visceroids.
+		Category: Tiberian Lifeform
+		Order: 7
 	ActorStatValues:
 		Damage: 75
 
@@ -176,6 +188,10 @@ ZOMBIE:
 		Damage: 60
 	-SharedPassenger:
 	-Passenger:
+	Encyclopedia:
+		Description: Haunt were disturbing creatures that sometimes form when organic life dies to tiberium exposure. As flesh breaks down after death, it may mutate into a half-corrupted humanoid.
+		Category: Tiberian Lifeform
+		Order: 8
 
 BERSERKER:
 	Inherits: ^Mutant
@@ -233,12 +249,15 @@ BERSERKER:
 		Damage: 40
 	-SharedPassenger:
 	-Passenger:
-
+	Encyclopedia:
+		Description: When Haunt survive enough, it will grow into a strong and durable creature -- Berserker.
+		Category: Tiberian Lifeform
+		Order: 9
 
 EGGS:
 	Inherits: ^NonBuildingStaticActor
 	Tooltip:
-		Name: Crab Eggs (Menacing)
+		Name: Cravicus Eggs
 	Armor:
 		Type: Building
 	Health:
@@ -267,6 +286,10 @@ EGGS:
 		UseDeathTypeSuffix: false
 	MapEditorData:
 		Categories: Creep
+	Encyclopedia:
+		Description: Egg of the Tiberian Cravicus, with durable shell. It will hatch into Tiberian Cravicus within hours.
+		Category: Tiberian Lifeform
+		Order: 10
 
 CRAB:
 	Inherits@1: ^Beast
@@ -277,7 +300,7 @@ CRAB:
 	EditorOnlyTooltip:
 		Name: Tiberian Cravicus
 	Tooltip:
-		Name: Crab
+		Name: Cravicus
 	Valued:
 		Cost: 50
 	Health:
@@ -343,6 +366,10 @@ CRAB:
 		Damage: 58
 	-SharedPassenger:
 	-Passenger:
+	Encyclopedia:
+		Description: Tiberian Cravicus is a kind of mutated arthropod, has a strong adaptability. It can be found everywhere, even in Veinhole.
+		Category: Tiberian Lifeform
+		Order: 11
 
 PERMACRAB:
 	Inherits: CRAB
@@ -360,6 +387,7 @@ PERMACRAB:
 	-KillsSelf@TimedLife:
 	-WithDeathAnimation@Dust:
 	-WithDeathAnimation@Digging:
+	-Encyclopedia:
 
 jfish:
 	Inherits: ^Visceroid
@@ -435,6 +463,11 @@ jfish:
 		EmptyWeapon: JellyExplode
 	ActorStatValues:
 		Damage: 30
+	Encyclopedia:
+		Description: Floater is a mysterious lifeform, it is capable of generating intense electrical charges and toxic Tiberium gas, while using its tentacles tears body and vehicle armors apart.\n\nResearch suggests that it is unlikely mutated from known spieces.
+		Category: Tiberian Lifeform
+		Order: 12
+
 
 MINIVEIN:
 	Inherits: ^NonBuildingStaticActor
@@ -550,117 +583,7 @@ VEINHOLE:
 	WithIdleAnimation:
 		Sequences: active1
 		Interval: 150
-
-GEYE:
-	Inherits@1: ^ExistsInWorld
-	Inherits@2: ^SpriteActor
-	Inherits@3: ^4CellVision
-	Inherits@AUTOTARGET: ^AutoTargetAll
-	Tooltip:
-		Name: Curiosity
-		ShowOwnerRow: false
-	Building:
-		Footprint: x
-		Dimensions: 1,1
-	Turreted:
-		TurnSpeed: 1023
-	Interactable:
-	Armament:
-		Weapon: Eye2LookingDummyWeapon
-		TargetRelationships: Enemy, Neutral, Ally
-	AutoTarget:
-		ScanRadius: 4 #PREF: save trait looks up and scan armaments
-		MinimumScanTimeInterval: 37
-		MaximumScanTimeInterval: 37
-	AutoTargetPriority@DEFAULT:
-		-ValidRelationships: 
-	AutoTargetPriority@ATTACKANYTHING:
-		-ValidRelationships: 
-	AttackPopupTurreted:
-		CloseDelay: 10
-		DefaultFacing: 512
-	WithEmbeddedTurretSpriteBody:
-	RadarColorFromTerrain:
-		Terrain: Rock
-	EditorOnlyTooltip:
-		Name: Curiosity
-	RenderSprites:
-		Palette: player
-		Image: geye
-	FrozenUnderFog:
-	MapEditorData:
-		Categories: Creep
-	ActorStatValues:
-		Armaments: none
-
-WEYE:
-	Inherits: GEYE
-	Inherits@2: ^6CellVision
-	Inherits@3: ^2x2Shape
-	Inherits@AUTOTARGET: ^AutoTargetGround
-	-Tooltip:
-	EditorOnlyTooltip:
-		Name: ...(Normal terrain water only)
-	Building:
-		Footprint: ===== ===== ===== ===== =====
-		Dimensions: 5,5
-	Turreted:
-		TurnSpeed: 16
-	AttackPopupTurreted:
-		CloseDelay: 20
-		DefaultFacing: 0
-	RenderSprites:
-		Palette: apolbluealpha30
-		Image: weye
-	RadarColorFromTerrain:
-		Terrain: Water
-	Armament:
-		Weapon: EyeLookingDummyWeapon
-	AutoTarget:
-		ScanRadius: 6 #PREF: save trait looks up and scan armaments
-		MinimumScanTimeInterval: 37
-		MaximumScanTimeInterval: 37
-	AutoTargetPriority@DEFAULT:
-		-ValidRelationships: 
-	AutoTargetPriority@ATTACKANYTHING:
-		-ValidRelationships: 
-
-SNOWEYE:
-	Inherits: WEYE
-	RenderSprites:
-		Palette: apolcyanbluealpha15
-		Image: weye
-	EditorOnlyTooltip:
-		Name: ...(Snow terrain water only)
-
-TIBFAIRY:
-	Inherits: ^NonBuildingStaticActor
-	Tooltip:
-		Name: Fairy
-		ShowOwnerRow: false
-	EditorOnlyTooltip:
-		Name: Fairy
-	RenderSprites:
-		Palette: apgreen
-		Image: tibfairy
-	Health:
-		HP: 2
-	MapEditorData:
-		Categories: Creep
-	-Interactable:
-	Selectable:
-		Bounds: 514,1809,0,-603
-	Targetable:
-		TargetTypes: Ground
-	Crushable:
-		CrushClasses: crate
-	WithIdleAnimation:
-		Interval: 125, 325
-	WithIdleOverlay:
-		Sequence: shadow
-		Palette: shadow
-	RadarColorFromTerrain:
-		Terrain: Tree
-	Explodes:
-		Weapon: FairyFlyAndBack
-		EmptyWeapon: FairyFlyAndBack
+	Encyclopedia:
+		Description: At the center of the Veins, a "mouth" like structure can react to basic stimulus. There have been many reports of vehicles being torn apart by the veins, and moved to the central "mouth" and consumed.
+		Category: Tiberian Lifeform
+		Order: 13

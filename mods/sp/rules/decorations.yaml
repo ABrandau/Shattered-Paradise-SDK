@@ -519,6 +519,10 @@ TIBTRE03:
 	Inherits@1: ^TibutterflySpawner
 	SpawnSparks@spores:
 		LocalOffset: 0,-128,2164
+	Encyclopedia:
+		Description: Blossom trees were first mutated spiece by Tiberium. Normal tree is mutated and develop a fleshly stalk, with a pulsating bulb periodically releasing Tiberium spores to the surrounding area. When these spores land on the ground, a new Tiberium field will begin forming. Blossom trees could spread Riparius Tiberium (green Tiberium) at an alarming rate, which is important for those who harvest Tiberium.
+		Category: Tiberian Lifeform
+		Order: 0
 
 ^TibMonolithEffect:
 	SmokeParticleEmitter@acarus:
@@ -555,6 +559,10 @@ BIGBLUE3:
 	Inherits: BIGBLUE
 	EditorOnlyTooltip:
 		Name: Duplicated vinifera (It helps avoid map importation issues)
+	Encyclopedia:
+		Description: Vinifera Monolith is a cystal collection consist of many fast growing long crystals, which will fracture periodically. When they fracture, the cystal shards will seed into soil and a new Tiberium field will begin forming. Blue Monolith could spread Vinifera Tiberium (blue Tiberium) at an alarming rate, which is important for those who harvest Tiberium.
+		Category: Tiberian Lifeform
+		Order: 1
 
 BIGGREEN:
 	Inherits: ^BlossomTree
@@ -566,6 +574,10 @@ BIGGREEN:
 		Palette: greentiberium
 	SmokeParticleEmitter@acarus:
 		Palette: greentibpal
+	Encyclopedia:
+		Description: Just like Vinifera Monolith, but they made from long crystals of Riparius Tiberium (green Tiberium).
+		Category: Tiberian Lifeform
+		Order: 2
 
 ^Fona:
 	Inherits: ^Tree
@@ -688,6 +700,10 @@ TREE25:
 
 fona01:
 	Inherits: ^Fona
+	Encyclopedia:
+		Description: Mutated from some kinds of cactus, glowing with blue light.
+		Category: Tiberian Lifeform
+		Order: 3
 
 fona02:
 	Inherits: ^Fona
@@ -706,6 +722,10 @@ fona06:
 
 fona07:
 	Inherits: ^FonaGreen
+	Encyclopedia:
+		Description: Mutated from some kinds of lichen, glowing with green light.
+		Category: Tiberian Lifeform
+		Order: 3
 
 fona08:
 	Inherits: ^FonaGreen
@@ -718,6 +738,10 @@ fona10:
 
 fona11:
 	Inherits: ^FonaGreen
+	Encyclopedia:
+		Description: Mutated from some kinds of palm trees, glowing with green light.
+		Category: Tiberian Lifeform
+		Order: 3
 
 fona12:
 	Inherits: ^FonaGreen
@@ -736,6 +760,10 @@ fona16:
 
 fona17:
 	Inherits: ^FonaWhite
+	Encyclopedia:
+		Description: Mutated from some kinds of fern, glowing with white light.
+		Category: Tiberian Lifeform
+		Order: 3
 
 fona18:
 	Inherits: ^FonaWhite
@@ -748,6 +776,10 @@ fona20:
 
 yellowfona01:
 	Inherits: ^FonaYellow
+	Encyclopedia:
+		Description: Mutated from Amorphophallus titanum, glowing with yellow light.
+		Category: Tiberian Lifeform
+		Order: 3
 
 yellowfona02:
 	Inherits: ^FonaYellow
@@ -1041,3 +1073,126 @@ SCRINY:
 	RenderSprites:
 		Palette: isotem
 		Image: scriny
+
+GEYE:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Inherits@3: ^4CellVision
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	Tooltip:
+		Name: Curiosity
+		ShowOwnerRow: false
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Turreted:
+		TurnSpeed: 1023
+	Interactable:
+	Armament:
+		Weapon: Eye2LookingDummyWeapon
+		TargetRelationships: Enemy, Neutral, Ally
+	AutoTarget:
+		ScanRadius: 4 #PREF: save trait looks up and scan armaments
+		MinimumScanTimeInterval: 37
+		MaximumScanTimeInterval: 37
+	AutoTargetPriority@DEFAULT:
+		-ValidRelationships: 
+	AutoTargetPriority@ATTACKANYTHING:
+		-ValidRelationships: 
+	AttackPopupTurreted:
+		CloseDelay: 10
+		DefaultFacing: 512
+	WithEmbeddedTurretSpriteBody:
+	RadarColorFromTerrain:
+		Terrain: Rock
+	EditorOnlyTooltip:
+		Name: Curiosity
+	RenderSprites:
+		Palette: player
+		Image: geye
+	FrozenUnderFog:
+	MapEditorData:
+		Categories: Creep
+	ActorStatValues:
+		Armaments: none
+	Encyclopedia:
+		Description: Unknown lifeform. Maybe it is creature looks like an eyeball, or just an eye from a greater being.
+		Category: Tiberian Lifeform
+		Order: 4
+
+WEYE:
+	Inherits: GEYE
+	Inherits@2: ^6CellVision
+	Inherits@3: ^2x2Shape
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	-Tooltip:
+	EditorOnlyTooltip:
+		Name: ...(Normal terrain water only)
+	Building:
+		Footprint: ===== ===== ===== ===== =====
+		Dimensions: 5,5
+	Turreted:
+		TurnSpeed: 16
+	AttackPopupTurreted:
+		CloseDelay: 20
+		DefaultFacing: 0
+	RenderSprites:
+		Palette: apolbluealpha30
+		Image: weye
+	RadarColorFromTerrain:
+		Terrain: Water
+	Armament:
+		Weapon: EyeLookingDummyWeapon
+	AutoTarget:
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
+		MinimumScanTimeInterval: 37
+		MaximumScanTimeInterval: 37
+	AutoTargetPriority@DEFAULT:
+		-ValidRelationships: 
+	AutoTargetPriority@ATTACKANYTHING:
+		-ValidRelationships: 
+	-Encyclopedia:
+
+SNOWEYE:
+	Inherits: WEYE
+	RenderSprites:
+		Palette: apolcyanbluealpha15
+		Image: weye
+	EditorOnlyTooltip:
+		Name: ...(Snow terrain water only)
+
+TIBFAIRY:
+	Inherits: ^NonBuildingStaticActor
+	Tooltip:
+		Name: Fairy
+		ShowOwnerRow: false
+	EditorOnlyTooltip:
+		Name: Fairy
+	RenderSprites:
+		Palette: apgreen
+		Image: tibfairy
+	Health:
+		HP: 2
+	MapEditorData:
+		Categories: Creep
+	-Interactable:
+	Selectable:
+		Bounds: 514,1809,0,-603
+	Targetable:
+		TargetTypes: Ground
+	Crushable:
+		CrushClasses: crate
+	WithIdleAnimation:
+		Interval: 125, 325
+	WithIdleOverlay:
+		Sequence: shadow
+		Palette: shadow
+	RadarColorFromTerrain:
+		Terrain: Tree
+	Explodes:
+		Weapon: FairyFlyAndBack
+		EmptyWeapon: FairyFlyAndBack
+	Encyclopedia:
+		Description: Those harmless and glowing creatures feed on the Tiberian particulates in the air, and will flee to the sky above if being threated and frightened. They will try to return to their position after a while, just like some species of jellyfish before Tiberium came to earth.
+		Category: Tiberian Lifeform
+		Order: 3
