@@ -284,13 +284,7 @@ Player:
 		Enabled: False
 		DisplayOrder: 11
 		Prerequisites: global-instantcapture
-	LobbyPrerequisiteCheckbox@FREEMINIMAP:
-		ID: freeradar
-		Label: checkbox-free-minimap.label
-		Description: checkbox-free-minimap.description
-		Enabled: true
-		DisplayOrder: 5
-		Prerequisites: global-freeminimap
+
 	LobbyPrerequisiteCheckbox@GLOBALSWLIMIT:
 		ID: swlimit
 		Label: checkbox-limit-superweapons.label
@@ -340,11 +334,8 @@ Player:
 		Enabled: False
 		DisplayOrder: 15
 		Prerequisites: global-suddendeath
-	ProvidesRadar:
+	ProvidesRadar@FREEMINIMAP:
 		RequiresCondition: freeminimap
-	GrantConditionOnPrerequisite@FREEMINIMAP:
-		Condition: freeminimap
-		Prerequisites: global-freeminimap
 	FrozenActorLayer:
 	BaseAttackNotifier:
 		TextNotification: Base under attack.

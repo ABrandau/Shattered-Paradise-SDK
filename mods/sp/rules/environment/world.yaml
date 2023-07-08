@@ -547,6 +547,22 @@ World:
 		SeparateTeamSpawnsCheckboxDisplayOrder: 6
 	SpawnStartingUnits:
 		DropdownDisplayOrder: 1
+	LobbySystemActorConditionCheckbox@FREEMINIMAP:
+		ID: freeradar
+		Label: checkbox-free-minimap.label
+		Description: checkbox-free-minimap.description
+		Enabled: true
+		DisplayOrder: 5
+		Condition: freeminimap
+		Actors: Player
+	LobbySystemActorConditionCheckbox@CrateSpawner:
+		ID: crates
+		Label: checkbox-crates.label
+		Description: checkbox-crates.description
+		Enabled: false
+		Locked: false
+		DisplayOrder: 16
+		Condition: allow-cratespawn
 	CrateSpawner:
 		Minimum: 10
 		Maximum: 40
@@ -554,8 +570,7 @@ World:
 		WaterChance: 0
 		ValidGround: Clear, Rough, Road, DirtRoad, Tiberium, BlueTiberium
 		InitialSpawnDelay: 750
-		CheckboxEnabled: false
-		CheckboxDisplayOrder: 16
+		RequiresCondition: allow-cratespawn
 	PathFinder:
 	ValidateOrder:
 	DebugPauseState:
