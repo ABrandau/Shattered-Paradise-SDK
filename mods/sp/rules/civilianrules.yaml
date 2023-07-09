@@ -9,8 +9,6 @@ WEEDGUY:
 		Speed: 55
 	Health:
 		HP: 13000
-	Crushable:
-		CrushSound: squishy2.aud
 	Armament:
 		Weapon: CrabAcid
 		LocalOffset: 85,0,384
@@ -33,8 +31,6 @@ CHAMSPY:
 		HP: 12000
 	Mobile:
 		Speed: 95
-	RevealsShroud:
-		Range: 9c0
 	Passenger:
 	#Disguise:
 	#WithDecoration@disguise:
@@ -54,21 +50,28 @@ CHAMSPY:
 MUTANT:
 	Inherits: ^Mutant
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Valued:
+		Cost: 120
 	Tooltip:
 		Name: Mutant
 	Voiced:
 		VoiceSet: Mutant
 	Health:
-		HP: 5000
+		HP: 10000
 	Mobile:
-		Speed: 65
-	RevealsShroud:
-		Range: 4c0
-	Armament:
-		Weapon: MilitantRifle
+		Speed: 70
+	Armament@1:
+		Name: OnFoot
+		Weapon: MarineRifle
+		PauseOnCondition: WebDisable
+	Armament@Garrison:
+		Weapon: GMarineRifle
+		PauseOnCondition: WebDisable
+		MuzzleSequence: garrison-muzzle
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
+		Armaments: OnFoot
 		FacingTolerance: 2
 	AutoTarget:
 		ScanRadius: 5 #PREF: save trait looks up and scan armaments
@@ -80,21 +83,28 @@ MUTANT:
 MWMN:
 	Inherits: ^Mutant
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Valued:
+		Cost: 120
 	Tooltip:
 		Name: Mutant Soldier
 	Voiced:
 		VoiceSet: CivilianFemale
 	Health:
-		HP: 5000
+		HP: 10000
 	Mobile:
-		Speed: 65
-	RevealsShroud:
-		Range: 4c0
-	Armament:
-		Weapon: MilitantRifle
+		Speed: 70
+	Armament@1:
+		Name: OnFoot
+		Weapon: MarineRifle
+		PauseOnCondition: WebDisable
+	Armament@Garrison:
+		Weapon: GMarineRifle
+		PauseOnCondition: WebDisable
+		MuzzleSequence: garrison-muzzle
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
+		Armaments: OnFoot
 		FacingTolerance: 2
 	AutoTarget:
 		ScanRadius: 5 #PREF: save trait looks up and scan armaments
@@ -106,21 +116,28 @@ MWMN:
 MUTANT3:
 	Inherits: ^Mutant
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Valued:
+		Cost: 120
 	Tooltip:
 		Name: Mutant Sergeant
 	Voiced:
 		VoiceSet: Mutant
 	Health:
-		HP: 5000
+		HP: 10000
 	Mobile:
-		Speed: 65
-	RevealsShroud:
-		Range: 4c0
-	Armament:
-		Weapon: MilitantRifle
+		Speed: 70
+	Armament@1AP:
+		Name: OnFoot
+		Weapon: MarineRifleAP
+		PauseOnCondition: WebDisable
+	Armament@GarrisonAP:
+		Weapon: GMarineRifleAP
+		PauseOnCondition: WebDisable
+		MuzzleSequence: garrison-muzzle
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
+		Armaments: OnFoot
 		FacingTolerance: 2
 	AutoTarget:
 		ScanRadius: 5 #PREF: save trait looks up and scan armaments
@@ -136,11 +153,9 @@ TRATOS:
 	Voiced:
 		VoiceSet: Tratos
 	Health:
-		HP: 20000
+		HP: 10000
 	Mobile:
 		Speed: 80
-	RevealsShroud:
-		Range: 4c0
 	WithInfantryBody:
 		AttackSequences: shoot
 
@@ -151,11 +166,9 @@ OXANNA:
 	Voiced:
 		VoiceSet: Oxanna
 	Health:
-		HP: 5000
+		HP: 10000
 	Mobile:
 		Speed: 65
-	RevealsShroud:
-		Range: 4c0
 	WithInfantryBody:
 		AttackSequences: shoot
 
@@ -169,23 +182,25 @@ SLAV:
 		HP: 30000
 	Mobile:
 		Speed: 65
-	RevealsShroud:
-		Range: 4c0
 	WithInfantryBody:
 		AttackSequences: shoot
 
 CIV1:
 	Inherits: ^CivilianInfantry
 	WithInfantryBody:
-		AttackSequences: shoot
+		DefaultAttackSequence: shoot
+	Armament:
+		Weapon: Pistola
+	AttackFrontal:
+		Voice: Attack
+		TargetFrozenActors: true
+		FacingTolerance: 2
+
+CIV3:
+	Inherits: CIV1
 
 CIV2:
 	Inherits: ^CivilianInfantry
-
-CIV3:
-	Inherits: ^CivilianInfantry
-	WithInfantryBody:
-		AttackSequences: shoot
 
 4TNK:
 	Inherits: ^TurretedTank
