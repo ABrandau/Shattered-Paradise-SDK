@@ -1495,7 +1495,10 @@ COREDEFENDER:
 		Armaments: ArmArmament, HeadArmament, ShoulderArmament
 	RevealOnFire:
 		ArmamentNames: ArmArmament, HeadArmament, ShoulderArmament
+	-WithMindControlArc:
+	-MindControllable:
 	-Targetable@MC:
+	-WithDecoration@mindcontrolled:
 	AutoTarget:
 		ScanRadius: 9
 		InitialStanceAI: AttackAnything
@@ -1664,15 +1667,6 @@ DEFD:
 	Building:
 		Footprint: xx_ xx_ xxx
 		Dimensions: 3,3
-	CaptureNotification:
-		Notification: BuildingCaptured
-		LoseNotification: BuildingLostToCapture
-	CaptureManager:
-	Capturable:
-		Types: Building
-		RequiresCondition: !Building-Buildup
-	CapturableProgressBar:
-	CapturableProgressBlink:
 	GivesExperience:
 		PlayerExperienceModifier: 100
 	RevealsShroud:
@@ -1715,7 +1709,10 @@ DEFD:
 		Sequence: flag
 		Palette: playercab
 		IsPlayerPalette: true
+	-WithMindControlArc:
+	-MindControllable:
 	-Targetable@MC:
+	-WithDecoration@mindcontrolled:
 	MapEditorData:
 		Categories: Building
 
@@ -1881,7 +1878,10 @@ HMECTEST:
 	ProvidesPrerequisite@MKIIISuper:
 		Prerequisite: MKIIISuper
 		ResetOnOwnerChange: true
+	-WithMindControlArc:
+	-MindControllable:
 	-Targetable@MC:
+	-WithDecoration@mindcontrolled:
 	Turreted@1:
 		Offset: -500,0,0
 		TurnSpeed: 16
@@ -2011,7 +2011,12 @@ MKIIIDRONE-MINIGUN:
 	-Targetable@FullHealth:
 	Targetable@Ignore:
 		TargetTypes: Summoned, IgnoredByAI
+
+	-WithMindControlArc:
+	-MindControllable:
 	-Targetable@MC:
+	-WithDecoration@mindcontrolled:
+
 	-UpdatesPlayerStatistics:
 	-ActorLostNotification:
 	-AppearsOnRadar:
@@ -2082,7 +2087,10 @@ SCRINCOUNCIL:
 		Bounds: 2709,3135, 0,-1280
 	Targetable@Essence:
 		TargetTypes: ScrinUnit
+	-WithMindControlArc:
+	-MindControllable:
 	-Targetable@MC:
+	-WithDecoration@mindcontrolled:
 	AnnounceOnSeen:
 		PingRadar: true
 		Notification: BattleCruiserDetected
@@ -2263,7 +2271,12 @@ COUNCILOR:
 	-Targetable@FullHealth:
 	Targetable@Ignore:
 		TargetTypes: Summoned, IgnoredByAI
+
+	-WithMindControlArc:
+	-MindControllable:
 	-Targetable@MC:
+	-WithDecoration@mindcontrolled:
+
 	-UpdatesPlayerStatistics:
 	-ActorLostNotification:
 	-AppearsOnRadar:
