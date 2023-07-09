@@ -3581,3 +3581,37 @@
 	OwnerLostAction:
 		Action: Kill
 	WithSpriteBody:
+
+^FirestormWallSP:
+	GrantTimedConditionOnDeploy@FirestormWall:
+		DeployedCondition: FirestormGen
+		CooldownTicks: 1500
+		StartsFullyCharged: false
+		DeployedTicks: 300
+	ProximityExternalCondition@FirestormWall:
+		Condition: FirestormWallCondition
+		Range: 12c0
+		AffectsParent: true
+		RequiresCondition: FirestormGen
+	FirestromSP:
+		RequiresCondition: FirestormGen
+		FirestormEffectImage: explosion
+		FirestormEffectSequences: firestormexplo, fsidle, firestormexplo1, fsidle, firestormexplo2, fsidle
+		FirestormEffectPalette: apblue
+		FirestormEffectRotationAngle: 6
+		Damage: 200000
+		DamageMaxRange: 12544
+		DamageMinRange: 11904
+		Versus:
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 100
+			Boss: 10
+		ValidTargets: Ground, Water, Air
+		InvalidTargets: Building
+		ValidRelationships: Neutral, Enemy
+		DamageTypes: ExplosionDeath
+		LaunchEffectSounds: firstrm1.aud

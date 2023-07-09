@@ -1446,6 +1446,8 @@ COREDEFENDER:
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^9CellVision
 	Inherits@VOICE: ^CabalVehicleVoice
+	Inherits@FirestormWall: ^FirestormWallSP
+	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 15000
 	Tooltip:
@@ -1572,8 +1574,8 @@ COREDEFENDER:
 		Weapon: CoreDefLazerAA
 		LocalOffset: 700,0,4900
 		PauseOnCondition: empdisable
-		MuzzlePalette: apblue
-		MuzzleSequence: muzzle1
+		MuzzlePalette: gensmkexplojFblue
+		MuzzleSequence: muzzle2
 		Name: HeadArmament
 		RequiresCondition: !SuperAttack ##Head AA laser weapon cannot use when superweapon attack
 	Armament@HeadSuper:
@@ -1616,7 +1618,7 @@ COREDEFENDER:
 		Image: explosion
 		Sequence: firestormactived
 		Palette: apolbluealpha
-		RequiresCondition: SuperAttack
+		RequiresCondition: SuperAttack || FirestormGen
 		IsDecoration: true ## so this doesn't affect by cloak palette
 	Explodes@shattered:
 		Weapon: DefenderExplosion
@@ -1629,6 +1631,26 @@ COREDEFENDER:
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
 		Weapons: LargeDebris
+	## Firestorm on Deploy
+	GrantTimedConditionOnDeploy@FirestormWall:
+		StartsFullyCharged: true
+		PauseOnCondition: empdisable && !FirestormGen
+	ProximityExternalCondition@FirestormWall:
+		Range: 7c0
+		RequiresCondition: FirestormGen && !empdisable
+	FirestromSP:
+		RequiresCondition: FirestormGen && !empdisable
+		FirestormEffectRotationAngle: 12
+		FirestormEffectAmounts: 7
+		FirestormEffectRange: 7c0
+		DamageMaxRange: 7c140
+		DamageMinRange: 6c724
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage
+		DeployTrigger: Attack
+		DeployChance: 100
+		DeployTicks: 1810
+		UndeployTicks: 1
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome

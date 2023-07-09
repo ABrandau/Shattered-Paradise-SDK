@@ -860,6 +860,7 @@ GAFIRE:
 	Inherits: ^Building
 	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
 	Inherits@SHAPE: ^3x2Shape
+	Inherits@FirestormWall: ^FirestormWallSP
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Buildable:
 		Queue: Defense.Shared, Defense.GDI
@@ -881,39 +882,12 @@ GAFIRE:
 		Color: 8888FFCC
 		BorderWidth: 0
 		Width: 2
-	GrantTimedConditionOnDeploy:
-		DeployedCondition: FirestormGen
-		CooldownTicks: 1500
-		StartsFullyCharged: false
-		DeployedTicks: 300
-		PauseOnCondition: (empdisable || disabled) && !FirestormGen
-	ProximityExternalCondition:
-		Condition: FirestormWallCondition
-		Range: 12c0
-		AffectsParent: false
-		RequiresCondition: FirestormGen && !Building-Buildup && !empdisable && !disabled
+	GrantTimedConditionOnDeploy@FirestormWall:
+		PauseOnCondition: (empdisable || disabled)  && !FirestormGen
+	ProximityExternalCondition@FirestormWall:
+		RequiresCondition: FirestormGen && !empdisable && !disabled
 	FirestromSP:
 		RequiresCondition: FirestormGen && !empdisable && !disabled
-		FirestormEffectImage: explosion
-		FirestormEffectSequences: firestormexplo, fsidle, firestormexplo1, fsidle, firestormexplo2, fsidle
-		FirestormEffectPalette: apblue
-		FirestormEffectRotationAngle: 6
-		Damage: 200000
-		DamageMaxRange: 12544
-		DamageMinRange: 11904
-		Versus:
-			Infantry: 100
-			Building: 100
-			Defense: 100
-			Heavy: 100
-			Aircraft: 100
-			Concrete: 100
-			Boss: 10
-		ValidTargets: Ground, Water, Air
-		InvalidTargets: Building
-		ValidRelationships: Neutral, Enemy
-		DamageTypes: ExplosionDeath
-		LaunchEffectSounds: firstrm1.aud
 	Health:
 		HP: 100000
 	WithIdleOverlay@lights:
