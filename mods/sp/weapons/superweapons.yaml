@@ -617,24 +617,23 @@ ApocalypseMissileExplosion:
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 25
 		AirThreshold: 8c0
-	Warhead@3Sharpnel: FireRadius
-		Weapon: CrystalizedMushroom
-		ImpactActors: false
-		Amount: 12
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+	Warhead@2Eff: CreateEffect
+		Explosions: spnuke
+		ExplosionPalette: gensmkexplogreen
+		ValidTargets: Ground, Air, Water
 		AirThreshold: 8c0
-		Delay: 10
 	Warhead@4Sharpnel: FireRadius
 		Weapon: CrystalizedSpread2
 		ImpactActors: false
 		Amount: 32
-		#Delay: 10
+		Delay: 7
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		AirThreshold: 8c0
 	Warhead@5Sharpnel: FireRadius
 		Weapon: CrystalizedSpread
 		ImpactActors: false
 		Amount: 32
+		Delay: 7
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		AirThreshold: 8c0
 	Warhead@Shake: ShakeScreen
@@ -658,34 +657,6 @@ ApocalypseMissileExplosion:
 		LayerName: BlueRadiation
 		AirThreshold: 8c0
 		Delay: 15
-
-CrystalizedMushroom:
-	Range: 1c0
-	Projectile: MissileTA
-		Speed: 1c256
-		Blockable: false
-		TrailImage: explosion
-		TrailPalette: gensmkexplogreen
-		TrailSequences: jsbang48b
-		TrailDelay: 0
-		TrailInterval: 1
-		ExplodeUnderThisAltitude: -11c0
-		MinimumLaunchAngle: 246
-		MaximumLaunchAngle: 246
-		HorizontalRateOfTurn: 64
-		HorizontalRateOfTurnAcceleration: 64
-		HorizontalRateOfTurnStart: 64
-		Acceleration: 0
-		RangeLimit: 17c0
-		HomingActivationDelay: 8
-		ActivationDelay: 0
-		TrailWhenDeactivated: true
-		ExplodeWhenEmpty: true
-		TerrainHeightAware: false
-	Warhead@SoundEffect0: CreateEffect
-		Explosions: jbrrlexp1b, jbrrlexp2b, jcrivexpb, jcrivexpc, jtwlt100b
-		ExplosionPalette: gensmkexplogreen
-		AirThreshold: 111c0
 
 CrystalizedSpread:
 	Range: 1c866
@@ -1180,7 +1151,7 @@ IronSaviorShrapnel:
 	Warhead@2Eff: CreateEffect
 		Explosions: cabexplo
 		ExplosionPalette: apolcyanalpha
-		ValidTargets: Ground, Air
+		ValidTargets: Ground, Air, Water
 		ImpactSounds: expnew09.aud, expnew02.aud, expnew03.aud, expnew04.aud
 		AirThreshold: 8c0
 	Warhead@4Smu: LeaveSmudgeSP
