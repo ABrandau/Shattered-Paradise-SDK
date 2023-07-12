@@ -76,33 +76,43 @@ CIV3:
 	Inherits@Protester: ^ProtesterBase
 
 VEINHOLE:
-	-AttackOmni:
-	AttackFollow:
 	ExternalCondition@talking:
 		Condition: talking
 	WithIdleAnimation@talking:
 		Sequences: active1
 		Interval: 11
 		RequiresCondition: talking
-	GrantPeriodicCondition@attack-pause:
-		Condition: attack-pause
-		CooldownDuration: 200, 400
-		ActiveDuration: 200, 400
-	Armament:
-		PauseOnCondition: attack-pause || talking
-	Armament@2:
+	ExternalCondition@MrHole:
+		Condition: MrHole
+	GrantPeriodicCondition@MrHoleVomit:
+		Condition: veinhole-attack
+		CooldownDuration: 300
+		ActiveDuration: 300
+		StartsGranted: true
+		RequiresCondition: MrHole && !talking
+	Armament@Eggs:
 		Weapon: HugeVeinholeEgg
 		LocalOffset: 0, 0, 1200
-		PauseOnCondition: attack-pause || talking
+		RequiresCondition: MrHole
+	ForceFireAtLocation@VeinHoleReturnFire:
+		RequiresCondition: !veinhole-calm || veinhole-attack
+	DamageMultiplier@Unkillable:
+		Modifier: 0
+		RequiresCondition: !veinhole-calm || MrHole
 
 GEYE:
 	AttackPopupTurreted:
-		CloseDelay: 250
+		CloseDelay: 125
 		DefaultFacing: 512
 	Turreted:
 		TurnSpeed: 64
 		InitialFacing: 512
 		RealignDelay: 10
+	ExternalCondition@talking:
+		Condition: talking
+	ForceFireAtLocation@LookAtPlayer:
+		LocalOffset: 0, 1024, 0
+		RequiresCondition: talking
 
 MUTAMBUSH:
 	GrantConditionOnPrerequisite@HardGame:
