@@ -1577,7 +1577,7 @@ COREDEFENDER:
 		MuzzlePalette: gensmkexplojFblue
 		MuzzleSequence: muzzle2
 		Name: HeadArmament
-		RequiresCondition: !SuperAttack ##Head AA laser weapon cannot use when superweapon attack
+		RequiresCondition: !SuperAttack && !FirestormGen ## weapon is disabled when superweapon attack or firestorm
 	Armament@HeadSuper:
 		Weapon: CoreDefSuper
 		LocalOffset: 700,0,4900
@@ -1637,9 +1637,9 @@ COREDEFENDER:
 		PauseOnCondition: empdisable && !FirestormGen
 	ProximityExternalCondition@FirestormWall:
 		Range: 7c0
-		RequiresCondition: FirestormGen && !empdisable
+		RequiresCondition: FirestormGen && !empdisable && !SuperAttack
 	FirestromSP:
-		RequiresCondition: FirestormGen && !empdisable
+		RequiresCondition: FirestormGen && !empdisable && !SuperAttack 
 		FirestormEffectRotationAngle: 12
 		FirestormEffectAmounts: 7
 		FirestormEffectRange: 7c0
@@ -1647,7 +1647,7 @@ COREDEFENDER:
 		DamageMinRange: 6c724
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage
-		DeployTrigger: Attack
+		DeployTrigger: Damage
 		DeployChance: 100
 		DeployTicks: 1810
 		UndeployTicks: 1
