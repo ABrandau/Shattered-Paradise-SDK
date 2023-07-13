@@ -1749,7 +1749,7 @@ HMECTEST:
 	Valued:
 		Cost: 15000
 	Tooltip:
-		Name: Mammoth Mk. III
+		Name: Mammoth Mk.III
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -1794,7 +1794,7 @@ HMECTEST:
 	AnnounceOnSeen:
 		PingRadar: true
 		Notification: MammothDetected
-		TextNotification: Enemy Mammoth Mk. III detected.
+		TextNotification: Enemy Mammoth Mk.III detected.
 	AttackTurreted:
 		Voice: Attack
 		Turrets: primary, secondary, tertiary, quaternary
@@ -1820,14 +1820,14 @@ HMECTEST:
 		Name: secondary
 		Turret: secondary
 		ReloadingCondition: reload-ground
-		PauseOnCondition: empdisable || reload-air || reload-super
+		PauseOnCondition: empdisable || reload-air || super-attack
 	Armament@M1AA:
 		Weapon: MKIIITuskAA
 		LocalOffset: 200,0,2900
 		Name: secondary
 		Turret: secondary
 		ReloadingCondition: reload-air
-		PauseOnCondition: empdisable || reload-ground || reload-super
+		PauseOnCondition: empdisable || reload-ground || super-attack
 	Armament@M2:
 		Weapon: MKIIITusk
 		LocalOffset: 200,0,2900
@@ -1835,7 +1835,7 @@ HMECTEST:
 		Turret: tertiary
 		FireDelay: 5
 		ReloadingCondition: reload-ground
-		PauseOnCondition: empdisable || reload-air || reload-super
+		PauseOnCondition: empdisable || reload-air || super-attack
 	Armament@M2AA:
 		Weapon: MKIIITuskAA
 		LocalOffset: 200,0,2900
@@ -1843,7 +1843,7 @@ HMECTEST:
 		Turret: tertiary
 		FireDelay: 5
 		ReloadingCondition: reload-air
-		PauseOnCondition: empdisable || reload-ground || reload-super
+		PauseOnCondition: empdisable || reload-ground || super-attack
 	Armament@R: ##Hit effect and firedly fire
 		Weapon: MKIIIRailgun
 		LocalOffset: 1200,-250,2650, 1200,250,2650
@@ -1862,7 +1862,6 @@ HMECTEST:
 		LocalOffset: 200,0,2900
 		Name: MKIIISuperWeapon
 		Turret: secondary
-		ReloadingCondition: reload-super
 		PauseOnCondition: empdisable
 	Armament@SuperWeapon2:
 		Weapon: SonicClusterMissile
@@ -1870,8 +1869,10 @@ HMECTEST:
 		Name: MKIIISuperWeapon
 		Turret: tertiary
 		FireDelay: 5
-		ReloadingCondition: reload-super
 		PauseOnCondition: empdisable
+	GrantConditionOnAttack@super:
+		Condition: super-attack
+		ArmamentNames: MKIIISuperWeapon
 	FireArmamentPower:
 		Cursor: emp
 		Icons:
