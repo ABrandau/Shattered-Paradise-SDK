@@ -12,7 +12,7 @@ Objectives = function()
 	SecondaryObjectiveHackAllArray = LocalPlayer.AddSecondaryObjective("Hack all the Civilian Array")
 	ObjectiveHackOneArray = LocalPlayer.AddPrimaryObjective("Hack One Civilian Array.")
 	ObjectiveFindAlien = LocalPlayer.AddPrimaryObjective("Identify the source of the unknown signal.")
-	ObjectiveCaptureAlien = LocalPlayer.AddPrimaryObjective("Secure the source of the unknown signal.")
+	ObjectiveCaptureAlien = LocalPlayer.AddPrimaryObjective("Captrue the source of the unknown signal.")
 	ObjectiveProtectHacker = LocalPlayer.AddPrimaryObjective("Hacker Drone must survive.")
 end
 
@@ -122,7 +122,7 @@ IntroductionInfo = function()
 end
 
 MCVFoundMessage = function()
-	Notification("M.C.V. located, we find our 'Minotaur' and a Nod's mech prototype. We can restart both mech once the M.C.V. is captured.")
+	Notification("M.C.V. located, we find our Defender mech and a Nod's mech prototype. We can restart our Defender mech once the M.C.V. is captured.")
 	CabConyard.Flash(HSLColor.FromHex("FFFFFF"), 20, DateTime.Seconds(1) / 4)
 
 	-- Warning before Nod AI triggered
@@ -131,7 +131,7 @@ MCVFoundMessage = function()
 			Warning("Successfully capture the MCV will start the direct conflict between Nod! Be prepared!")
 		end)
 		Trigger.AfterDelay(DateTime.Seconds(14), function()
-			Tip("Explore the map more before you recapture the MCV. You needs to find somewhere close to resource and easy to defend.")
+			Tip("Explore the map more before recapture the MCV. You may need more resources from civilian, or find a place to relocate this MCV.")
 		end)
 	end
 end
@@ -140,8 +140,15 @@ MCVThreatMessage = function()
 	Notification("Nod has noticed our attempt and tries to restart the MCV!")
 end
 
+MCVSuccessMessage = function()
+	if LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) and not Mech2.IsDead then
+		Notification("Thanks to your efforts on hacking arrays, Nod's mech prototype is now our toy.")
+	elseif not Mech1.IsDead then
+		Notification("Our Defender mech is online. Beware, it cannot be rebuilt in this mission, use it wisely.")
+	end
+end
+
 NodWarnedOnMCVMessage = function()
-	Notification("Nod's mech prototype restart failed. After restart, it will lose control after a while. Destroy it now or move it away from our squad.")
 	Trigger.AfterDelay(DateTime.Seconds(11), function()
 			Warning("Nod has been awared of the activation of our MCV and our hacking to Civilian Arrays, in the intercepted message.")
 	end)
@@ -151,7 +158,7 @@ NodWarnedOnMCVMessage = function()
 end
 
 MCVFailedMessage = function()
-	Notification("The M.C.V. is lost again, but it is not over")
+	Notification("The M.C.V. is lost again, but it is not over.")
 
 	if not (LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) or AwaredByNod) then
 		Trigger.AfterDelay(DateTime.Seconds(15), function()
@@ -494,8 +501,23 @@ AICaptureMCV = function()
 	AICapture(Engineer13,CabConyard)
 end
 
+-- ####### CybrogCommando Reinforcements
+StartPointReinforcePath = { Reinforcepoint2.Location, WayPoint1440.Location, WayPoint1662.Location, WayPoint1742.Location, WayPoint1743.Location }
+SpawnCybrogCommandoReinforcement = function()
+	local haveCommando = false
+	for key,unit in ipairs(LocalPlayer.GetActorsByType("cyc2")) do
+		haveCommando = true
+		break
+	end
+
+	if haveCommando then
+		PlayerReinforementSpawn({"moth", "moth", "moth", "moth", "reapercab", "reapercab", "cborg", "cborg", "cborg", "glad", "glad", "glad"}, StartPointReinforcePath, WayPoint1743.CenterPosition, nil)
+	else
+		PlayerReinforementSpawn({"cyc2", "moth", "moth", "moth", "moth", "reapercab", "reapercab", "cborg", "cborg"}, StartPointReinforcePath, WayPoint1743.CenterPosition, nil)
+	end
+end
+
 -- ####### Hack Array stroy line
-HackArrayReinforcePath = { Reinforcepoint2.Location, WayPoint1440.Location, WayPoint1662.Location, WayPoint1742.Location, WayPoint1743.Location }
 ArraysNeedHacked = {Cradar1, Cradar2, Cradar3, Cradar4}
 
 OnArrayHacked = function(hackedArray)
@@ -515,7 +537,7 @@ OnArrayHacked = function(hackedArray)
 	elseif NumberOfArrayHacked == 2 then
 		HackTwoArrayMessage()
 		CabHacker.GrantCondition("allow-disable")
-		PlayerReinforementSpawn({"pdrone", "pdrone", "pdrone",  "cyborg", "cyborg", "cyborg", "cborg", "cborg", "cborg"}, HackArrayReinforcePath, WayPoint1743.CenterPosition, nil)
+		PlayerReinforementSpawn({"pdrone", "pdrone", "pdrone",  "cyborg", "cyborg", "cyborg", "cborg", "cborg", "cborg"}, StartPointReinforcePath, WayPoint1743.CenterPosition, nil)
 
 		Trigger.AfterDelay(700, function()
 			MercenaryFoundMessage()
@@ -534,7 +556,7 @@ OnArrayHacked = function(hackedArray)
 		Creep_AI.GrantCondition("revealunit")
 		Creep_AI.GrantCondition("revealbase")
 		Neutral_AI.GrantCondition("revealbase")
-		PlayerReinforementSpawn({"reapercab", "reapercab", "reapercab", "glad", "glad", "glad"}, HackArrayReinforcePath, WayPoint1743.CenterPosition, nil)
+		PlayerReinforementSpawn({"reapercab", "reapercab", "reapercab", "glad", "glad", "glad"}, StartPointReinforcePath, WayPoint1743.CenterPosition, nil)
 
 	elseif NumberOfArrayHacked == 4 then
 		LocalPlayer.MarkCompletedObjective(SecondaryObjectiveHackAllArray)
@@ -550,17 +572,7 @@ OnArrayHacked = function(hackedArray)
 		end
 		-- Reinforement: give commando if LocalPlayer don't have. Put to different tick for perf
 		Trigger.AfterDelay(1, function()
-			local haveCommando = false
-			for key,unit in ipairs(LocalPlayer.GetActorsByType("cyc2")) do
-				haveCommando = true
-				break
-			end
-
-			if haveCommando then
-				PlayerReinforementSpawn({"moth", "moth", "moth", "moth", "reapercab", "reapercab", "cborg", "cborg", "cborg", "glad", "glad", "glad"}, HackArrayReinforcePath, WayPoint1743.CenterPosition, nil)
-			else
-				PlayerReinforementSpawn({"cyc2", "moth", "moth", "moth", "moth", "reapercab", "reapercab", "cborg", "cborg"}, HackArrayReinforcePath, WayPoint1743.CenterPosition, nil)
-			end
+			SpawnCybrogCommandoReinforcement()
 		end)
 
 		-- Power sabotage
@@ -719,7 +731,7 @@ WorldLoaded = function()
 	end)
 
 	--  Player threats the MCV research, Nod trying to restart MCV
-	StealMCVTrigger = Trigger.OnEnteredProximityTrigger(WayPoint1399.CenterPosition, WDist.New(1024 * 5), function(a, id)
+	StealMCVTrigger = Trigger.OnEnteredProximityTrigger(WayPoint1399.CenterPosition, WDist.New(1024 * 6), function(a, id)
 		if isFoundMcv and a.Owner == LocalPlayer and a.Type ~= "qdrone" then
 			MCVThreatMessage()
 			AICaptureMCV()
@@ -741,25 +753,29 @@ WorldLoaded = function()
 		-- if AI get the MCV, the Mech2 will be AI's, and Mech1 will go error (switch between ally and foe)
 		if CabConyard.Owner == LocalPlayer then
 			LocalPlayer.MarkCompletedObjective(SecondaryObjectiveCaptureMCV)
+			MCVSuccessMessage()
 
 			if not Mech1.IsDead then
 				Mech1.Owner = LocalPlayer
 			end
 
-			-- give proper reinforement
+			-- give reinforement that help player to protect the MCV
 			PlayerReinforementSpawn({"cabharv","cabharv", "repairvehicle", "repairvehicle"}, CaptureMCVReinforcePathWater, WayPoint1399.CenterPosition, "cabapc")
 			Trigger.AfterDelay(100, function()
 				PlayerReinforementSpawn({"limped","limped", "limped", "limped", "limped", "basilisk", "basilisk", "basilisk", "wasp", "wasp", "wasp", "wasp"}, CaptureMCVReinforcePathWater, nil, nil)
 			end)
 
 			-- restart mechs
-			if LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) then
-				Mech2.Owner = LocalPlayer -- when LocalPlayer finish hacking all Array, Nod mech can start without error by LocalPlayer
-			else
-				GoMechError(Mech2, LocalPlayer)
+			if not Mech2.IsDead then
+				if LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) then
+					Mech2.Owner = LocalPlayer -- when LocalPlayer finish hacking all Array, Nod mech can start without error by LocalPlayer
+				else
+					Mech2.GrantCondition("empdisable")
+				end
 			end
 
-			if not AwaredByNod then -- Trigger AI if LocalPlayer haven't triggered
+			 -- Trigger Nod AI if LocalPlayer haven't triggered
+			if not AwaredByNod then
 				AwaredByNod = true
 				NodWarnedOnMCVMessage()
 				Trigger.AfterDelay(400, function()
@@ -779,19 +795,21 @@ WorldLoaded = function()
 		elseif CabConyard.Owner == Nod_AI then
 			-- Considering LocalPlayer can take back the MCV later, so we don't mark it fail yet
 			MCVlostAgain = true
-
-			PlayerReinforementSpawn({"limped","limped", "limped", "limped", "limped"}, HackArrayReinforcePath, WayPoint1743.CenterPosition, nil)
+			MCVFailedMessage()
+			PlayerReinforementSpawn({"limped","limped", "limped", "limped", "limped"}, StartPointReinforcePath, WayPoint1743.CenterPosition, nil)
 
 			if not Mech2.IsDead then
 				if LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) then
-					GoMechError(Mech2, Nod_AI) -- when LocalPlayer finish hacking all Array, Nod cannot start their mech normally
+					GoMechError(Mech2, Nod_AI) -- when LocalPlayer finish hacking all Array, All of Avatars will be mad
 				else
 					Mech2.Owner = Nod_AI
 				end
 			end
-			GoMechError(Mech1, Nod_AI)
+			if not Mech1.IsDead then
+				Mech1.GrantCondition("empdisable")
+			end
 
-			MCVFailedMessage()
+
 		end
 
 		if FindMCVTrigger ~= nil then
@@ -816,6 +834,13 @@ WorldLoaded = function()
 			StealMCVTrigger = nil
 		end
 		Trigger.ClearAll(CabConyard)
+
+		if not Mech1.IsDead then
+			Mech1.GrantCondition("empdisable")
+		end
+		if not Mech2.IsDead then
+			Mech2.GrantCondition("empdisable")
+		end
 
 		AISellMCVResearchBases()
 		LocalPlayer.MarkFailedObjective(SecondaryObjectiveCaptureMCV)

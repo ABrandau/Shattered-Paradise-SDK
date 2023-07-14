@@ -178,7 +178,24 @@ TRUCKA:
 		Range: 5c0
 		Type: GroundPosition
 
+^SpawnMoneyCrate:
+	SpawnActorOnDeath@Money:
+		Actor: moneycrate
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		RequiresLobbyCreeps: false
+
+TRUCKOPENTIB:
+	Inherits@SpawnMoneyCrate: ^SpawnMoneyCrate
+
+BOXSET1:
+	Inherits@SpawnMoneyCrate: ^SpawnMoneyCrate
+	Targetable: ## Box can be autotargeted
+		TargetTypes: Ground, Creep
+
 TRUCKB:
+	Inherits@SpawnMoneyCrate: ^SpawnMoneyCrate
 	## Reveal all Avatar related personal when Hacked 3 times
 	GrantConditionOnPrerequisite@Hacked.lv3:
 		Prerequisites: RevealUnit
@@ -188,25 +205,6 @@ TRUCKB:
 		ValidRelationships: Enemy
 		Range: 5c0
 		Type: GroundPosition
-	SpawnActorOnDeath@Money:
-		Actor: moneycrate
-		Probability: 100
-		OwnerType: Killer
-		RequiresLobbyCreeps: false
-
-TRUCKOPENTIB:
-	SpawnActorOnDeath@Money:
-		Actor: moneycrate
-		Probability: 100
-		OwnerType: Killer
-		RequiresLobbyCreeps: false
-
-BOXSET1:
-	SpawnActorOnDeath@Money:
-		Actor: moneycrate
-		Probability: 100
-		OwnerType: Killer
-		RequiresLobbyCreeps: false
 	Targetable: ## Box can be autotargeted
 		TargetTypes: Ground, Creep
 		
@@ -220,17 +218,6 @@ BOXSET1:
 		Text: --- Error !!! ---
 		RequiresCondition: error
 
-PALADIN:
-	Inherits@Error: ^ErrorTag
-	## Reveal all Avatar When Hacked 3 times
-	GrantConditionOnPrerequisite@Hacked.lv3:
-		Prerequisites: RevealUnit
-		Condition: hacked-reveal
-	RevealsShroud@Hacked.lv3--reveal:
-		RequiresCondition: hacked-reveal
-		ValidRelationships: Enemy
-		Range: 5c0
-		Type: GroundPosition
 
 AVATAR:
 	Inherits@Error: ^ErrorTag
