@@ -36,10 +36,6 @@ DifficultySetUp = function()
 		end
 		Nod_AI2.GrantCondition("enable-ai-combat") -- Enable minelayer
 	elseif difficulty == "normal" then
-		AISell(NodObli1)
-		AISell(NodObli2)
-		AISell(NodObli3)
-		AISell(NodObli4)
 		Engineer4.Destroy()
 		Engineer5.Destroy()
 
