@@ -52,3 +52,14 @@ options-starting-units =
     .medium-support = Medium Support
     .heavy-support = Heavy Support
     .unholy-alliance = Unholy Alliance
+
+## Armor
+label-armor-class =
+    .Light = Light
+    .Heavy = Heavy
+    .Infantry = Infantry
+    .Building = Building
+    .Defense = Defense
+    .Concrete = Concrete
+    .Aircraft = Aircraft
+    .Shield = Shield
