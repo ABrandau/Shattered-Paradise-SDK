@@ -1409,9 +1409,6 @@ CONTAINMENTUNIT:
 		Cost: 350
 	Tooltip:
 		Name: Containment Unit
-	TooltipDescription:
-		Description: Holds a captive tiberium lifeform
-	AcceptsDeliveredCash:
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
@@ -1420,21 +1417,21 @@ CONTAINMENTUNIT:
 	Armor:
 		Type: Building
 	-WithMakeAnimation:
-	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
 	RenderSprites:
-		PlayerPalette: playersilo
+		Image: containmentunit
 	IsometricSelectable:
 		DecorationHeight: 15
+
+CONTAINMENTUNIT_GREEN:
+	Inherits: CONTAINMENTUNIT
+	Inherits@RENDER: ^MutRenderGreen
+	TooltipDescription:
+		Description: Holds a captive tiberium lifeform
 	Explodes@tib:
 		Weapon: TiberiumExplosion
 		EmptyWeapon: TiberiumExplosion
-	BaseProvider:
-		Range: 3c0
-	SpawnActorOnDeath:
-		Actor: BIGGREEN
-		Offset: 1,1
 
 ########## Boss unit ###############
 COREDEFENDER:
