@@ -494,7 +494,7 @@ GACNST:
 
 ^Barracks:
 	Inherits: ^Building
-	Inherits@PRODUCTION: ^ProducesStuff
+	Inherits@PRODUCTION: ^ProducesUnits
 	Buildable:
 		BuildDuration: 200
 		BuildDurationModifier: 100
@@ -540,8 +540,6 @@ GACNST:
 		ProductionType: Infantry.Shared
 	ProductionBar@Infantry:
 		ProductionType: Infantry
-	FreeActor@Dummy:
-		Actor: QueueUpdaterDummy
 	Power:
 		Amount: -20
 	GrantConditionOnPrerequisite@megawealth:
@@ -719,7 +717,7 @@ GACNST:
 
 ^Factory:
 	Inherits: ^Building
-	Inherits@PRODUCTION: ^ProducesStuff
+	Inherits@PRODUCTION: ^ProducesUnits
 	Inherits@SHAPE: ^4x3FactoryWithBibShape
 	Buildable:
 		BuildDuration: 750
@@ -798,7 +796,7 @@ GACNST:
 
 ^Helipad:
 	Inherits: ^Building
-	Inherits@PRODUCTION: ^ProducesStuff
+	Inherits@PRODUCTION: ^ProducesUnits
 	Inherits@SHAPE: ^2x2Shape
 	Exit@1:
 		SpawnOffset: 0,-256,0
@@ -834,8 +832,6 @@ GACNST:
 		ProductionType: Air.Shared
 	ProductionBar@Air:
 		ProductionType: Air
-	FreeActor@Dummy:
-		Actor: QueueUpdaterDummy
 	RallyPoint:
 		Palette: mouse
 		IsPlayerPalette: false
@@ -847,8 +843,6 @@ GACNST:
 	ProvidesPrerequisite@factoryorair:
 		Prerequisite: factoryorair
 	Reservable:
-	#RepairsUnits:
-	#	Interval: 1
 	Health:
 		HP: 50000
 	Power:
