@@ -287,7 +287,7 @@ Player:
 		IgnoredEnemyTargetTypes: Mine, IgnoredByAI, Wall, NoAutoTarget, IonSpawner
 		SuggestedGroundLeaderLocomotor: Infantry, HeavyInfantry, TibInmuneInfantry, Vehicle, InfantryCrusherVehicle, VehicleCrusher
 		SuggestedNavyLeaderLocomotor: Naval
-		GuerrillaTypes: cerberus, mutqueen, stormrider, scrglyder1, scrdestroyer, scrcarrier, scrbattleship, wasp, basilisk, sonicarryall_bot, apcarryall_bot, jumpjetair, nconf, bhs, mutfiend, pdrone, moth, cyc2, shark, smech, hvr, jug, attackbike, bggy, howtlizer, stnk, mutquad, lynx, wolf, mrls, scrscorpion, deathclaw, scrmbt, scrglyder2, scrmobmine, reapercab, altnode1, crusader, jjcommair, umagon
+		GuerrillaTypes: cerberus, mutqueen, stormrider, scrglyder1, scrdestroyer, scrcarrier, scrbattleship, wasp, basilisk, sonicarryall_bot, apcarryall_bot, jumpjetair, nconf, bhs, mutfiend, pdrone, moth, cyc2, shark, smech, hvr, jug, attackbike, bggy, howtlizer, stnk, mutquad, lynx, wolf, mrls, scrscorpion, deathclaw, scrmbt, scrglyder2, scrmobmine, reapercab, altnode1, crusader, jjcommair, umagon, mujeep
 		#MaxGuerrillaSize: 15
 		AirUnitsTypes: jumpjetair, jjcommair, orca, orcab, apache, scrin, cerberus, mutheli, mutqueen, mutbird, wetp, stormrider, scrglyder1, scrdestroyer, scrcarrier, stormriderspawn, repairwyvern, cabdronejet, repairdrone, scrbattleship, wasp, basilisk, devourer, sonicarryall_bot, apcarryall_bot
 		ProtectionTypes: nodmcv, mutmcv, cabmcv, drache, mcv, harv, harv.nod, harv.mut, cabharv, scrharv, gacnst, gadept, scrdepot, gasilo, napuls, scrshield, gate_a, mutgate_a, scrgate_a, scrgate_b, gapowr, gapile, gdiref, gaweap, garadr, gahpad, gatech, gtdrop, nodyard, napowr, nahand, nodref, naweap, naradr, naapwr, nahpad, natech, namisl, mutyard, mupowr, murax, muproc, muweap, muradr, muair, muhall, mutsw2, drached, scrpowr, scrrax, scrproc, scrproc2, scrproc3, scrproc4, scrweap, scrradr, scrair, scrtech, scradvpowr, cabyard, cabpowr, cabclaw, cabproc, cabweap, cabradr, cabair, cabtech, cabobelisk, gavulc, garock, gasonc, gacsam, nalasr, naobel, nasam, mubunkr, mucannon, muflak, cabpit, cabblast, cabrail, scrneedler, scrdrone, scrtractor, gafire, gaplug, nastlh, natmpl, muventi, mutsw1, scrextractor, scrsw1, cabeye, cabsw1, blackdefd, weed, bloodderrick, colorpicker, mubunkr, defd, mtar, mwar, king
@@ -395,6 +395,7 @@ Player:
 			weasau3: 50
 			ghost: 1
 			umagon: 1
+			mujeep: 1
 			lpst: 1
 			sgen: 1
 			icbm: 2
@@ -476,6 +477,7 @@ Player:
 			hmectest: 1
 			scrincouncil: 1
 			sapc: 2
+			### AI only unit
 			lpst: 1
 			sgen: 1
 			icbm: 3
@@ -496,7 +498,7 @@ Player:
 			#medic: 4000
 			sapc: 10000
 			scorpion: 20000
-			# meme unit: imba unit used by AI
+			### AI only unit only appears at late game
 			hmectest: 99000
 			scrincouncil: 99000
 			ghost: 90000
@@ -505,6 +507,7 @@ Player:
 			weasau3: 90000
 			lpst: 90000
 			sgen: 90000
+			mujeep: 85000
 			icbm: 92000
 			m_emp: 90000
 	McvManagerASBotModule@AINormal:
@@ -869,8 +872,8 @@ Player:
 		RequiresCondition: AIShattered || AICheater
 	LoadCargoBotModule:
 		RequiresCondition: AIBase || AIEasy
-		Transports: apc, struck, mubunkr, bggy, apc_bot, riflebggy, rocketbggy, flamebggy, struckfull, struckfull_t3, sapc
-		Passengers: gdie1, altnode1, jumpjet, crusader, e3, marauder, cyborg, cborg, legio, grenadier, e2, templar, mutfiend, colossi, seer, eagleguard, bhs, psyker, glad, cyc2, bug, nconf
+		Transports: apc, struck, mubunkr, bggy, apc_bot, riflebggy, rocketbggy, flamebggy, struckfull, struckfull_t3, sapc, mujeep
+		Passengers: gdie1, altnode1, jumpjet, crusader, e3, marauder, cyborg, cborg, legio, grenadier, e2, templar, mutfiend, colossi, seer, eagleguard, bhs, psyker, glad, cyc2, bug, nconf, ghost, umagon
 	SendUnitToAttackBotModule:
 		RequiresCondition: AIBase
 		ActorsAndAttackDesire: 
@@ -885,7 +888,7 @@ Player:
 		Condition: has-harv
 		Prerequisites: HasHarv
 	HarvesterBotModule: 
-		RequiresCondition: AIBase || AIEasy
+		RequiresCondition: has-harv
 		HarvesterTypes: harv, scrharv, cabharv, harv.nod, harv.mut
 		RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4
 		ScanForIdleHarvestersInterval: 1009 ## This module is perf-questionable, set it long enough. We only need AI to steal some resource from player's control area

@@ -21,6 +21,7 @@ MissionMapSetUp = function()
 	SpawnPatrollers()
 	SpawnUpgrade()
 	DifficultySetUp()
+	Mut_AI.GrantCondition("disable-ai-load") -- disable load AI for shop keeper
 	Camera.Position = MissionStartpoint.CenterPosition
 	CabHacker.Patrol({WayPoint1662.Location, WayPoint1742.Location, WayPoint1743.Location}, false)
 	Trigger.AfterDelay(DateTime.Seconds(12), function()
@@ -34,7 +35,6 @@ DifficultySetUp = function()
 		for key,unit in ipairs(Cab_AI.GetActorsByType("moth")) do
 			unit.Destroy()
 		end
-		Nod_AI2.GrantCondition("enable-ai-combat") -- Enable minelayer
 	elseif difficulty == "normal" then
 		Engineer4.Destroy()
 		Engineer5.Destroy()
@@ -312,6 +312,7 @@ end
 -- ####### Upgrade
 SpawnUpgrade = function()
 	Actor.Create("upgrade.tib_core_missiles", true, { Owner = Nod_AI })
+	Actor.Create("upgrade.raider_passenger", true, { Owner = Nod_AI2 })
 
 	Actor.Create("upgrade.lynx_rockets", true, { Owner = Mut_AI })
 	Actor.Create("upgrade.lynx_rockets", true, { Owner = Mut_AI2 })

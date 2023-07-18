@@ -32,7 +32,12 @@ Player:
 	Shroud:
 		FogCheckboxLocked: false
 		FogCheckboxVisible: true
-	### AI Related
+	### AI Related: specialised for mission
+	MinelayerBotModule:
+		AwayFromCellDistance: 11
+		RecordDelayAfterInitializing: 3000
+		QuickScanTickTimes: 6
+		AwayFromAlliedTargetTypes: AIPrefer ## BUG: "-AwayFromAlliedTargetTypes useless here
 	SharedCargoBotModule:
 		Transports: muvent, mutventshop
 		PassengersPerScan: 16
@@ -41,6 +46,13 @@ Player:
 		ValidDamageState: Critical
 	McvManagerASBotModule@AINormal:
 		MaxBaseRadius: 15 ## keep mcv at AI base in mission
+	### AI Related: AI togglable
+	ExternalCondition@disableload:
+		Condition: disable-ai-load
+	LoadCargoBotModule:
+		RequiresCondition:  (AIBase || AIEasy) && !disable-ai-load
+	ExternalCondition@enable-ai-combat:
+		Condition: enable-ai-combat
 	UnitBuilderBotModule@AIAll:
 		RequiresCondition: AIBase && enable-ai-combat
 	SquadManagerBotModule@AIBase:
@@ -53,13 +65,6 @@ Player:
 		CapturableActorTypes: well, neutralradar, cahosp, neutralsonictur, caarmr, machineshop, scrinreinfpad, ntpyra.koth, gacnst, mutyard, cabyard, nodyard, drached, nodref, nodref2, nodref3, nodref4
 	SendUnitToAttackBotModule:
 		RequiresCondition: AIBase && enable-ai-combat
-	MinelayerBotModule:
-		AwayFromCellDistance: 11
-		RecordDelayAfterInitializing: 3000
-		QuickScanTickTimes: 6
-		AwayFromAlliedTargetTypes: AIPrefer ## BUG: -AwayFromAlliedTargetTypes useless here
-	ExternalCondition@enable-ai-combat:
-		Condition: enable-ai-combat
 	### Mission: Hack Civilian Array Related
 	ExternalCondition@revealbase:
 		Condition: revealbase
@@ -101,7 +106,6 @@ SCRINREINFPAD:
 		ValidRelationships: Ally, Enemy, Neutral
 		BlinkPattern: On,On,On,Off
 		BlinkInterval: 15
-
 
 ^HackedTag:
 	Inherits: ^TextTag
@@ -218,7 +222,6 @@ TRUCKB:
 		Text: --- Error !!! ---
 		RequiresCondition: error
 
-
 AVATAR:
 	Inherits@Error: ^ErrorTag
 	## Reveal all Avatar When Hacked 3 times
@@ -260,7 +263,7 @@ CABECM:
 POWEROFFDUMMY:
 	AlwaysVisible:
 	Power:
-		Amount: -9999999
+		Amount: -999999
 
 ######## Mercenary Shop Related Actors
 MUTANGRY.WEAPON.DUMMY:
@@ -272,15 +275,12 @@ MUTANGRY.WEAPON.DUMMY:
 	KillsSelf:
 
 HIRE.PRODUCTION.DUMMY:
-	Inherits@3: ^GROUNDDUMMY
-
-	Inherits@4: ^TibMonolithEffect ## For visual and debug
+	Inherits@1: ^GROUNDDUMMY
+	Inherits@2: ^TibMonolithEffect ## For visual and debug
 	SmokeParticleEmitter@acarus:
 		Palette: greentibpal
-
 	AlwaysVisible:
 	ScriptTriggers:
-
 	ProvidesPrerequisite:
 		Prerequisite: mercenary
 		RequiresCondition: player-nearby

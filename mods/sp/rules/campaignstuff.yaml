@@ -386,6 +386,112 @@ UMAGON:
 		IconPalette: chrome
 		Damage: 150
 
+MUJEEP:
+	Inherits: ^Tank
+	Inherits@RENDER: ^MutRenderGreen
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RAIDERE1: ^AffectedByRaiderPassenger
+	Inherits@PIPS: ^CargoPips
+	Inherits@VISION: ^6CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Technical
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Mutant
+		BuildAtProductionType: Tank
+		Description: Infantry transport.\n\nGood vs: Infantry.\n\nSpecial:\n - Can transport 3 infantry units\n - Can attack while moving
+		BuildPaletteOrder: 23
+		Prerequisites: ~muweap, murax, ~techlevel.2, ~AIOnly
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	Mobile:
+		TurnSpeed: 32
+		Speed: 130
+		Locomotor: Vehicle
+	Health:
+		HP: 15000
+	Armor:
+		Type: Light
+	Turreted:
+		TurnSpeed: 1023
+		Offset: -380,0,360
+	AttackTurreted:
+		PauseOnCondition: empdisable
+		Armaments: primary
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
+	Cargo:
+		Types: Infantry
+		MaxWeight: 3
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		UnloadVoice: Move
+		OwnerChangedAffectsPassengers: false
+		LoadedCondition: loaded
+	Passenger:
+		CargoType: Apc
+	Selectable:
+	AttackTurreted:
+		Armaments: primary
+	Armament@primary:
+		Weapon: GMilitantRifle
+		LocalOffset: 350,0,500
+		PauseOnCondition: empdisable
+	GrantConditionOnAttack:
+		Condition: attacking
+		RevokeDelay: 6
+		ArmamentNames: primary
+		RevokeOnNewTarget: true
+	GrantConditionOnFaction@nod:
+		Factions: nod
+		Condition: nodplayer
+	WithSpriteTurret@mut:
+		RequiresCondition: !inside-tunnel && !attacking && !nodplayer
+		Palette: player
+		IsPlayerPalette: true
+		Sequence: turret
+	WithSpriteTurret@mut-attacking:
+		RequiresCondition: !inside-tunnel && attacking && !nodplayer
+		Palette: player
+		IsPlayerPalette: true
+		Sequence: turret-firing
+	WithSpriteTurret@nod:
+		RequiresCondition: !inside-tunnel && !attacking && nodplayer
+		Palette: player
+		IsPlayerPalette: true
+		Sequence: nod-turret
+	WithSpriteTurret@nod-attacking:
+		RequiresCondition: !inside-tunnel && attacking && nodplayer
+		Palette: player
+		IsPlayerPalette: true
+		Sequence: nod-turret-firing
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+	ActorStatValues:
+		Damage: 35
+	AutoDeployer@AI:
+		RequiresCondition: AImicroManage && loaded
+		DeployChance: 100
+		DeployTicks: 40
+		UndeployTicks: 5
+
+	FreePassenger@Nod2:
+		Actor: altnode1
+		RequiresCondition: raidere1
+	FreePassenger@Nod3:
+		Actor: crusader
+		RequiresCondition: raidere1
+
 AVATAR:
 	Inherits: ^Walker
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -411,6 +517,7 @@ AVATAR:
 	Mobile:
 		TurnSpeed: 20
 		Speed: 70
+		Locomotor: InfantryCrusherVehicle
 	AmbientSound@WalkAnim:
 		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
 		Delay: 16
