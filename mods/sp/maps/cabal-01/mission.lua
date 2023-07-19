@@ -29,13 +29,13 @@ MissionMapSetUp = function()
 	end)
 end
 
+Difficulty = Map.LobbyOption("difficulty")
 DifficultySetUp = function()
-	local difficulty = Map.LobbyOption("difficulty")
-	if difficulty == "hard" then
+	if Difficulty == "hard" then
 		for key,unit in ipairs(Cab_AI.GetActorsByType("moth")) do
 			unit.Destroy()
 		end
-	elseif difficulty == "normal" then
+	elseif Difficulty == "normal" then
 		Engineer4.Destroy()
 		Engineer5.Destroy()
 
@@ -141,6 +141,16 @@ MCVSuccessMessage = function()
 		Notification("Thanks to your efforts on hacking arrays, Nod's mech prototype is now our toy.")
 	elseif not Mech1.IsDead then
 		Notification("Our Defender mech is online. Beware, it cannot be rebuilt in this mission, use it wisely.")
+	end
+
+	if Difficulty == "normal" then
+		Trigger.AfterDelay(DateTime.Seconds(21), function()
+			Notification("Our heavy support is on the way.")
+		end)
+	elseif Difficulty == "hard" then
+		Trigger.AfterDelay(DateTime.Seconds(21), function()
+			Notification("Our heavy cyborgs are on the way.")
+		end)
 	end
 end
 
@@ -761,7 +771,21 @@ WorldLoaded = function()
 			Trigger.AfterDelay(100, function()
 				PlayerReinforementSpawn({"limped","limped", "limped", "limped", "limped", "basilisk", "basilisk", "basilisk", "wasp", "wasp", "wasp", "wasp"}, CaptureMCVReinforcePathWater, nil, nil)
 			end)
-
+			if Difficulty == "normal" then
+				Trigger.AfterDelay(1000, function()
+					PlayerReinforementSpawn({"reapercab","reapercab", "reapercab","reapercab", "centurion", "centurion", "centurion", "centurion", "centurion"}, StartPointReinforcePath, MissionStartpoint.CenterPosition, nil)
+				end)
+				Trigger.AfterDelay(2000, function()
+					PlayerReinforementSpawn({"paladin", "paladin", "paladin", "paladin", "paladin", "spiderarty", "spiderarty"}, StartPointReinforcePath, MissionStartpoint.CenterPosition, nil)
+				end)
+			elseif Difficulty == "hard" then
+				Trigger.AfterDelay(1000, function()
+					SpawnCybrogCommandoReinforcement()
+				end)
+				Trigger.AfterDelay(2000, function()
+					PlayerReinforementSpawn({"cborg", "glad", "cborg", "glad", "cborg", "glad", "cborg", "glad", "cborg", "glad", "cborg", "glad", "cborg", "glad", "cborg", "glad"}, StartPointReinforcePath, MissionStartpoint.CenterPosition, nil)
+				end)
+			end
 			-- restart mechs
 			if not Mech2.IsDead then
 				if LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) then
