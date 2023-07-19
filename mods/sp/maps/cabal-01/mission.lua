@@ -106,10 +106,10 @@ IntroductionInfo = function()
 	Trigger.AfterDelay(DateTime.Seconds(7), function()
 			Notification("Use our Hacker Drone to hack this Civilian Array for local intelligence. \nHacker Drone is the key to this mission, protect it.")
 			if not CabHacker.IsDead then
-				CabHacker.Flash(HSLColor.FromHex("FFFFFF"), 15, DateTime.Seconds(1) / 4)
+				CabHacker.Flash(HSLColor.FromHex("FFFFFF"), 20, DateTime.Seconds(1) / 4)
 			end
 			if not Cradar3.IsDead then
-				Cradar3.Flash(HSLColor.FromHex("FFFFFF"), 15, DateTime.Seconds(1) / 4)
+				Cradar3.Flash(HSLColor.FromHex("FFFFFF"), 20, DateTime.Seconds(1) / 4)
 			end
 	end)
 	Trigger.AfterDelay(DateTime.Seconds(14), function()
