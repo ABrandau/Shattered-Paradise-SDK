@@ -170,10 +170,12 @@ GAIONTUR:
 		HP: 400000
 	TooltipDescription:
 		Description: Select this defence and fire manually!
-	ReloadDelayMultiplier@minigame:
-		Modifier: 5
-	RangeMultiplier@minigame:
-		Modifier: 4000
+	## HACK: Makes the turret fire once per click
+	AttackTurreted: 
+		PersistentTargeting: false
+		RequiresCondition: !Reloading 
+	Armament:
+		ReloadingCondition: Reloading
 	-RenderRangeCircle:
 	-Power:
 
