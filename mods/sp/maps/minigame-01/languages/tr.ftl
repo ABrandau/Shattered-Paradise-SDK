@@ -5,4 +5,4 @@ dropdown-difficulty =
 options-difficulty =
     .easy = Casual
     .normal = Normal
-    .hard = Sert
+    .hard = Gizemli

@@ -1269,6 +1269,8 @@ MUTAMBUSH: ###  Mound that hide a tunnel inside
 		PauseOnCondition: no-exit
 	GrantCondition@no-exit:
 		Condition: no-exit
+	Sellable:
+		ShowTicks: false
 	#KillsSelf@tset: ## Use script or something like this to trigger
 	#	Delay: 300
 
@@ -2252,7 +2254,7 @@ SCRINCOUNCIL:
 		Palette: jascpurplealpha
 		RequiresCondition: NormalAttack
 		IsDecoration: true ## so this doesn't affect by cloak palette
-	PeriodicExplosion@NormalWeapon: ## Use ExplodeWeapon for its Reload speed modifier
+	PeriodicExplosion@NormalWeapon: ## Use PeriodicExplosion for its Reload modifier
 		LocalOffset: 0,0,-1128
 		Weapon: CouncilazerElevator
 		RequiresCondition: NormalAttack

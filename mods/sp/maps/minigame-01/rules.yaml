@@ -19,10 +19,12 @@ Player:
 		ExploredMapCheckboxEnabled: true
 	## AI
 	SquadManagerBotModule@AIBase:
-		AssignRolesTicks: 31 ## This map is small and unit is limited
-		ProtectionTypes: mutambushvent, e3, deathclaw, lynx
+		RequiresCondition: easy-game || normal-game || hard-game
+		AssignRolesTicks: 19 ## This map is small and unit is limited
+		ProtectionTypes: mutambushvent, e3, deathclaw, lynx, corruptor, tripod, bug, shark
 		SquadSize: 5
 		SquadSizeRandomBonus: 0
+		MinimumAttackForceDelay: 53
 	SharedCargoBotModule:
 		ScanTick: 217
 		Passengers: e3, deathclaw, lynx
@@ -53,66 +55,6 @@ Player:
 HVRTRUK3:
 	AutoTarget:
 		InitialStanceAI: HoldFire
-
-^ProtesterBase:
-	WithIdleOverlay@talk:
-		Image: talkbubl
-		Sequence: idle2
-		IsDecoration: true
-		Palette: player
-	Tooltip:
-		Name: Protester
-	AttackWander:
-		MinMoveDelay: 24
-		MaxMoveDelay: 48
-
-CIV1:
-	Inherits@Protester: ^ProtesterBase
-
-CIV2:
-	Inherits@Protester: ^ProtesterBase
-
-CIV3:
-	Inherits@Protester: ^ProtesterBase
-
-VEINHOLE:
-	ExternalCondition@talking:
-		Condition: talking
-	WithIdleAnimation@talking:
-		Sequences: active1
-		Interval: 11
-		RequiresCondition: talking
-	ExternalCondition@MrHole:
-		Condition: MrHole
-	GrantPeriodicCondition@MrHoleVomit:
-		Condition: veinhole-attack
-		CooldownDuration: 300
-		ActiveDuration: 400
-		StartsGranted: true
-		RequiresCondition: MrHole && !talking
-	Armament@Eggs:
-		Weapon: HugeVeinholeEgg
-		LocalOffset: 0, 0, 1200
-		RequiresCondition: MrHole
-	ForceFireAtLocation@VeinHoleReturnFire:
-		RequiresCondition: !veinhole-calm || veinhole-attack
-	DamageMultiplier@Unkillable:
-		Modifier: 0
-		RequiresCondition: !veinhole-calm || MrHole
-
-GEYE:
-	AttackPopupTurreted:
-		CloseDelay: 125
-		DefaultFacing: 512
-	Turreted:
-		TurnSpeed: 64
-		InitialFacing: 512
-		RealignDelay: 10
-	ExternalCondition@talking:
-		Condition: talking
-	ForceFireAtLocation@LookAtPlayer:
-		LocalOffset: 0, 1024, 0
-		RequiresCondition: talking
 
 MUTAMBUSH:
 	GrantConditionOnPrerequisite@HardGame:
@@ -200,4 +142,98 @@ ORBIT.DUMMY:
 	Armament@AimKODK:
 		Weapon: BeaconConnectionLine
 	AttackOmni@AimKODK:
+
+## Hard mode: random encounter
+## Cabal's protester
+^ProtesterBase:
+	WithIdleOverlay@talk:
+		Image: talkbubl
+		Sequence: idle2
+		IsDecoration: true
+		Palette: player
+	Tooltip:
+		Name: Protester
+
+CIV1:
+	Inherits@Protester: ^ProtesterBase
+	-AttackWander:
+
+CIV2:
+	Inherits@Protester: ^ProtesterBase
+	-AttackWander:
+
+QDRONE: ## Hacker drone hack quicker than before
+	GatlingReloadDelayMultiplier:
+		HeatUpChange: -2
+	GrantConditionOnAttack@charge:
+		RequiredShotsPerInstance: 8
+
+## Mr. Hole
+VEINHOLE:
+	ExternalCondition@talking:
+		Condition: talking
+	WithIdleAnimation@talking:
+		Sequences: active1
+		Interval: 11
+		RequiresCondition: talking
+	ExternalCondition@MrHole:
+		Condition: MrHole 
+	Armament@Eggs:
+		Weapon: HugeVeinholeEgg
+		LocalOffset: 0, 0, 1200
+		RequiresCondition: MrHole
+	ForceFireAtLocation@VeinHoleReturnFire:
+		RequiresCondition: !veinhole-calm || (MrHole && !talking)
+	DamageMultiplier@Unkillable:
+		RequiresCondition: !veinhole-calm || MrHole
+
+GEYE:
+	AttackPopupTurreted:
+		CloseDelay: 125
+		DefaultFacing: 512
+	Turreted:
+		TurnSpeed: 64
+		InitialFacing: 512
+		RealignDelay: 10
+	ExternalCondition@talking:
+		Condition: talking
+	ForceFireAtLocation@LookAtPlayer:
+		LocalOffset: 0, 1024, 0
+		RequiresCondition: talking
+
+## Scrin invaders
+BUG:
+	Inherits@VanguardShield: ^DisplayVanguardShield
+
+SHARK:
+	Inherits@VanguardShield: ^DisplayVanguardShield
+
+SCRPROTAL.DUMMY:
+	Inherits: ^GROUNDDUMMY
+	GrantExternalConditionToOwner@PreventTooManyTunnel:
+		Condition: tunnel
+		RequiresCondition: teleporting
+	GrantConditionOnPrerequisite@HardGame:
+		Condition: hard-game
+		Prerequisites: HardGame
+	GrantPeriodicCondition@BeginSpawn:
+		Condition: allow-teleport
+		CooldownDuration: 1, 100
+		ActiveDuration: 200
+		RequiresCondition: hard-game
+	GrantPeriodicCondition@SwitchUnits:
+		Condition: spawn-infantry
+		CooldownDuration: 1, 100
+		ActiveDuration: 1, 100
+	Armament@1:
+		Weapon: TeleportScrinTroop1
+		ReloadingCondition: teleporting
+		PauseOnCondition: !spawn-infantry || teleporting
+	Armament@2:
+		Weapon: TeleportScrinTroop2
+		ReloadingCondition: teleporting
+		PauseOnCondition: spawn-infantry || teleporting
+	AttackOmni:
+	ForceFireAtLocation:
+		RequiresCondition: allow-teleport
 

@@ -9,3 +9,25 @@ ThrowEgg:
 IonCannonTurret:
 	ReloadDelay: 1
 	Range: 999c0
+
+OribitBomb:
+	Warhead@1Dam: SpreadDamage
+		ValidRelationships: Enemy
+		Damage: 999999
+
+TeleportScrinTroop1:
+	Inherits: ^TeleportScrinTroop
+	ReloadDelay: 240
+	Warhead@5Actor: SpawnActor
+		Actors: BUG, SHARK, SHARK, BUG, BUG, SHARK
+	Warhead@6Sheild: GrantExternalCondition
+		Condition: VanguardShield
+		Range: 5c0
+		ValidRelationships: Ally
+		Delay: 202
+
+TeleportScrinTroop2:
+	Inherits: TeleportScrinTroop1
+	ReloadDelay: 400
+	Warhead@5Actor: SpawnActor
+		Actors: CORRUPTOR, TRIPOD

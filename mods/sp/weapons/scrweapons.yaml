@@ -1195,14 +1195,13 @@ Councilazer:
 TearingReality:
 	ReloadDelay: 6
 	Range: 999c0
-	ValidTargets: Ground, Water, Air, Vehicle, Building, Infantry, Water
+	ValidTargets: Ground, Water, Air, Vehicle, Building, Infantry
 	Projectile: InstantHit
 		Blockable: false
 	Warhead@Ion: SpawnSmokeParticle
 		Weapon: BlackBlastBoltSpawner
 		ImpactActors: false
 		Duration: 200
-		AirThreshold: 8c0
 		Sequences: muzzle
 		Image: scrincouncil
 		Palette: jascbluealpha
@@ -1244,6 +1243,7 @@ TearingReality:
 		ValidTargets: Water
 	Warhead@2Smu: LeaveSmudgeSP
 		SmudgeType: Scorch
+		InitialSmudgeLevel: 11
 		InvalidTargets: Vehicle, Building, Wall
 
 BlackBlastBoltSpawner:
@@ -1264,7 +1264,7 @@ BlackBlastElevator:
 		ImpactActors: false
 		UseZOffsetAsAbsoluteHeight: true
 		ValidTargets: Ground, Water, Air
-		AirThreshold: 8c0
+		AirThreshold: 18c0
 
 BlackholeBolt:
 	Inherits: ^FullDamage
