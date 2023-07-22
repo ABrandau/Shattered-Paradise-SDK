@@ -85,13 +85,12 @@ DifficultySetUp = function()
 			Bandits_ai.GrantCondition("hard-game")
 			Trigger.AfterDelay(150, function()
 				Media.DisplayMessage("This vile GDI machine brings only war to our home, we must turn it off!", "Protesters", HSLColor.FromHex("66AAFF"))
-				SendHackerLoop()
+				SendHackerLoop(CabHackerPath1)
 			end)
-			Trigger.AfterDelay(160, function()
-				if Hacker == nil or Hacker.IsDead then
-					return
-				end
-				Hacker.Flash(HSLColor.FromHex("FFFFFF"), 25, DateTime.Seconds(1) / 4)
+			Trigger.AfterDelay(165, function()
+				Utils.Do(Cab_ai.GetActorsByType("cabecm"), function(a)
+					a.Flash(HSLColor.FromHex("FFFFFF"), 25, DateTime.Seconds(1) / 4)
+				end)
 			end)
 			Utils.Do(CivSquad, function(a)
 				CivRespawnOnKill(a, Cab_way1.Location)
@@ -137,16 +136,22 @@ SendWaveLoop = function()
 	end)
 end
 
-CabHackerPath = {Cab_way1.Location, Cab_way2.Location}
-SendHackerLoop = function()
-	if (Hacker == nil or Hacker.IsDead) and not IonTur.IsDead then
-		Hacker = Utils.Random(Reinforcements.Reinforce(Cab_ai, {"cabecm"}, CabHackerPath, 60, function(a)
-			a.Attack(IonTur)
-		end))
+CabHackerPath1 = {Cab_way1.Location, Cab_way2.Location}
+SendHackerLoop = function(path)
+	if (path == nil) then
+		return
 	end
 
-	Trigger.AfterDelay(20, function()
-		SendHackerLoop()
+	local hacker = Utils.Random(Reinforcements.Reinforce(Cab_ai, {"cabecm"}, path, 60, function(a)
+		a.Attack(IonTur)
+	end))
+
+	if (hacker ~= nil) then
+		hacker.GrantCondition("TyrannyBuff")
+	end
+
+	Trigger.OnKilled(hacker, function(s,k)
+		SendHackerLoop(path)
 	end)
 end
 
@@ -229,7 +234,6 @@ WorldLoaded = function()
 	Waves = 6
 	RemainingTime = 6800
 	IonTurLocation = IonTur.Location
-	Hacker = nil
 
 	Utils.Do(Bandits_ai.GetActorsByType("mutambush"), function(a)
 		Actor.Create("orbit.dummy", true, {Owner = Gdi_ai, Location = a.Location})
