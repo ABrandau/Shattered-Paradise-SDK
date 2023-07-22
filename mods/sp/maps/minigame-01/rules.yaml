@@ -21,7 +21,7 @@ Player:
 	SquadManagerBotModule@AIBase:
 		RequiresCondition: easy-game || normal-game || hard-game
 		AssignRolesTicks: 19 ## This map is small and unit is limited
-		ProtectionTypes: mutambushvent, e3, deathclaw, lynx, permacrab, jfish, visc_lrg, corruptor, tripod, bug, shark
+		ProtectionTypes: mutambushvent, e3, deathclaw, lynx, permacrab, jfish, visc_lrg, mutfiend, berserker, corruptor, tripod, bug, shark
 		SquadSize: 5
 		SquadSizeRandomBonus: 0
 		MinimumAttackForceDelay: 53
@@ -210,7 +210,7 @@ EGGS:
 	Tooltip:
 		Name: Everything Eggs
 	GrantRandomCondition@tiberium:
-		Conditions: visc, jfish, crab
+		Conditions: visc, jfish, crab, zombie, fiend
 	TransformOnCondition@crab1:
 		RequiresCondition: SpawnCrabs && crab
 		IntoActor: permacrab
@@ -222,7 +222,14 @@ EGGS:
 		RequiresCondition: SpawnCrabs && visc
 		IntoActor: visc_lrg
 		ForceHealthPercentage: 100
-
+	TransformOnCondition@zombie:
+		RequiresCondition: SpawnCrabs && zombie
+		IntoActor: berserker
+		ForceHealthPercentage: 100
+	TransformOnCondition@fiend:
+		RequiresCondition: SpawnCrabs && fiend
+		IntoActor: mutfiend
+		ForceHealthPercentage: 100
 
 ## Scrin invaders
 BUG:
