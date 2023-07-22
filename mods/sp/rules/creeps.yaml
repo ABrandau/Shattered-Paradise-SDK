@@ -550,18 +550,10 @@ VEINHOLE:
 		DamageCooldown: 50
 		Delay: 25
 	WithSpriteBody:
-		RequiresCondition: !attacking
-	WithSpriteBody@2:
-		Name: body2
-		Sequence: active2
-		RequiresCondition: attacking
 	AttackOmni:
 	Armament: ## VeinHole in SP is a decoration for now, cloud has no effect
 		Weapon: HugeVeinholeCloud
 		LocalOffset: 0, 0, 2800
-	GrantConditionOnAttack:
-		Condition: attacking
-		RevokeDelay: 29
 	ForceFireAtLocation@VeinHoleReturnFire: ## We need attack animation
 		RequiresCondition: !veinhole-calm
 	Shielded@VeinHoleReturnFire:
@@ -574,6 +566,12 @@ VEINHOLE:
 	DamageMultiplier@Unkillable: ## VeinHole in SP is a decoration for now
 		Modifier: 0
 		RequiresCondition: !veinhole-calm
+	WithIdleAnimation:
+		Sequences: active1
+		Interval: 150
+		RequiresCondition: veinhole-calm
+	WithAttackAnimation: 
+		Sequence: active2
 	Targetable:
 		TargetTypes: Ground, NoAutoTarget
 	ShakeOnDeath:
@@ -585,9 +583,6 @@ VEINHOLE:
 		AreaTypes: building
 	Interactable:
 	FrozenUnderFog:
-	WithIdleAnimation:
-		Sequences: active1
-		Interval: 150
 	Encyclopedia:
 		Description: At the center of the Veins, a "mouth" like structure can react to basic stimulus. There have been many reports of vehicles being torn apart by the veins, and moved to the central "mouth" and consumed.
 		Category: Tiberian Lifeform

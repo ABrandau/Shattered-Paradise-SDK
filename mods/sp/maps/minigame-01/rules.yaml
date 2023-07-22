@@ -11,7 +11,7 @@ World:
 	LobbySystemActorConditionCheckbox@FREEMINIMAP:
 		Enabled: false
 	MissionData:
-		Briefing: Control an Ion Turret to lay the brigands waste and try to survive. Protects our MCVs if possible! Destroy tunnels first!\n\n Game Duration: 5 minutes\n\n
+		Briefing: Control an Ion Turret to lay the brigands waste and try to survive. Protects our MCVs if possible! Destroy tunnels first!\n\n Game Duration: 5 minutes\n\nTips: Change "Setting" ->"Input" -> "Control Scheme" to "Modern" for better control
 
 Player:
 	Shroud:
@@ -21,7 +21,7 @@ Player:
 	SquadManagerBotModule@AIBase:
 		RequiresCondition: easy-game || normal-game || hard-game
 		AssignRolesTicks: 19 ## This map is small and unit is limited
-		ProtectionTypes: mutambushvent, e3, deathclaw, lynx, corruptor, tripod, bug, shark
+		ProtectionTypes: mutambushvent, e3, deathclaw, lynx, permacrab, jfish, visc_lrg, corruptor, tripod, bug, shark
 		SquadSize: 5
 		SquadSizeRandomBonus: 0
 		MinimumAttackForceDelay: 53
@@ -177,8 +177,11 @@ VEINHOLE:
 		Interval: 11
 		RequiresCondition: talking
 	ExternalCondition@MrHole:
-		Condition: MrHole 
+		Condition: MrHole
+	AttackOmni:
+		Armaments: primary, secondary
 	Armament@Eggs:
+		Name: secondary
 		Weapon: HugeVeinholeEgg
 		LocalOffset: 0, 0, 1200
 		RequiresCondition: MrHole
@@ -186,6 +189,8 @@ VEINHOLE:
 		RequiresCondition: !veinhole-calm || (MrHole && !talking)
 	DamageMultiplier@Unkillable:
 		RequiresCondition: !veinhole-calm || MrHole
+	WithIdleAnimation:
+		RequiresCondition: veinhole-calm && !MrHole
 
 GEYE:
 	AttackPopupTurreted:
@@ -200,6 +205,24 @@ GEYE:
 	ForceFireAtLocation@LookAtPlayer:
 		LocalOffset: 0, 1024, 0
 		RequiresCondition: talking
+
+EGGS:
+	Tooltip:
+		Name: Everything Eggs
+	GrantRandomCondition@tiberium:
+		Conditions: visc, jfish, crab
+	TransformOnCondition@crab1:
+		RequiresCondition: SpawnCrabs && crab
+		IntoActor: permacrab
+	TransformOnCondition@jfish:
+		RequiresCondition: SpawnCrabs && jfish
+		IntoActor: jfish
+		ForceHealthPercentage: 100
+	TransformOnCondition@visc:
+		RequiresCondition: SpawnCrabs && visc
+		IntoActor: visc_lrg
+		ForceHealthPercentage: 100
+
 
 ## Scrin invaders
 BUG:

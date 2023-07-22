@@ -209,7 +209,7 @@ ElectricTentacle:
 	Inherits@wh: ^FullDamage
 	ReloadDelay: 10
 	Report: floatk1.aud
-	SoundVolume: 4
+	SoundVolume: 10
 	ValidTargets: Ground, Water, Vehicle, Infantry, Building
 	Projectile: InstantExplode
 	Warhead@1Dam: SpreadDamage
@@ -221,9 +221,10 @@ ElectricTentacle:
 		ValidRelationships: Enemy, Neutral
 	Warhead@emp1: GrantExternalCondition
 		Range: 2c0
-		Duration: 35
+		Duration: 12
 		Condition: empdisable
 		ValidTargets: Ground, Water
+		InvalidTargets: Building, Defence
 	Warhead@op: FireShrapnel
 		Weapon: JellyBlastTesla
 		ImpactActors: false

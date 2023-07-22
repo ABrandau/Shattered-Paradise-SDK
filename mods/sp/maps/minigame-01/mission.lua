@@ -82,7 +82,7 @@ DifficultySetUp = function()
 				a.Destroy()
 			end)
 		elseif mode  == "HackerMode" then
-			Bandits_ai.GrantCondition("normal-game")
+			Bandits_ai.GrantCondition("hard-game")
 			Trigger.AfterDelay(150, function()
 				Media.DisplayMessage("This vile GDI machine brings only war to our home, we must turn it off!", "Protesters", HSLColor.FromHex("66AAFF"))
 				SendHackerLoop()
