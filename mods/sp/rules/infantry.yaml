@@ -371,12 +371,9 @@ JUMPJETAIR:
 	Armor:
 		Type: Aircraft
 	WithFacingSpriteBody:
-		RequiresCondition: !JJBuff
 		Sequence: run
-	WithFacingSpriteBody@attack:
-		Name: Body1
+	WithAttackAnimation: 
 		Sequence: shoot
-		RequiresCondition: JJBuff
 	-Repairable:
 	WithShadow:
 	Hovers@CRUISING:
@@ -407,9 +404,6 @@ JUMPJETAIR:
 		AttackType: Hover
 	AutoTarget:
 		ScanRadius: 6 #PREF: save trait looks up and scan armaments
-	GrantConditionOnAttack:
-		Condition: JJBuff
-		RevokeDelay: 8
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-SpawnSparks:
 	-FloatingSpriteEmitter@spawnsmoke:
@@ -601,25 +595,32 @@ JJCOMMAIR:
 		Condition: beaconready
 		Delay: 150
 		ShowSelectionBar: false
+	AttackAircraft:
+		FacingTolerance: 20
+		Voice: Attack
+		AttackType: Hover
+		Armaments: primary, secondary
 	Armament@1:
 		Weapon: JJSMGAir
 		LocalOffset: 0,300,300
 		PauseOnCondition: !laserready
 	Armament@2:
+		Name: secondary
 		Weapon: JJBeacon
 		LocalOffset: 0,300,300
 		PauseOnCondition: !beaconready
+	WithAttackAnimation@1:
+		Armament: primary
+		Sequence: shoot
+	WithAttackAnimation@2:
+		Armament: secondary
+		Sequence: shoot
 	Transforms:
 		IntoActor: jjcomm
 	Armor:
 		Type: Aircraft
 	WithFacingSpriteBody:
-		RequiresCondition: !JJBuff
 		Sequence: run
-	WithFacingSpriteBody@attack:
-		Name: Body1
-		Sequence: shoot
-		RequiresCondition: JJBuff
 	-Repairable:
 	WithShadow:
 	Hovers@CRUISING:
@@ -648,15 +649,8 @@ JJCOMMAIR:
 		PingRadar: true
 		Notification: CommandoDetected
 		TextNotification: Enemy commando detected.
-	AttackAircraft:
-		FacingTolerance: 20
-		Voice: Attack
-		AttackType: Hover
 	AutoTarget:
 		ScanRadius: 6 #PREF: save trait looks up and scan armaments
-	GrantConditionOnAttack:
-		Condition: JJBuff
-		RevokeDelay: 5
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-SpawnSparks:
 	-FloatingSpriteEmitter@spawnsmoke:
