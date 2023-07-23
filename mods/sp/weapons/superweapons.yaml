@@ -418,7 +418,7 @@ DroppodElevator:
 	Range: 3c0
 	MinRange: 1c0
 	Projectile: AthenaProjectile
-		Altitude: 12000
+		Altitude: 18000
 	Warhead@op: FireShrapnel
 		Weapon: droppod1
 		ImpactActors: false
@@ -817,76 +817,48 @@ MultiCluster3:
 		Amount: 10
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 
-MeteorSpawner:
-	ReloadDelay: 200
+ScrinMeteorTracker:
+	ReloadDelay: 99999
 	Burst: 6
 	BurstDelays: 25
-	Range: 1c0
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
-	Projectile: BulletAS
-		Speed: 9999
-		Blockable: false
+	Warhead@Ion: SpawnSmokeParticle
+		Weapon: ScrinMeteorSpawner
+		Sequences: idle
+		Image: dot
+		Palette: effectalpha25
+		ImpactActors: false
+		Duration: 183
+		AirThreshold: 8c0
+
+ScrinMeteorSpawner:
+	ReloadDelay: 33
+	Range: 1c0
 	Warhead@op: FireShrapnel
-		Weapon: MeteorElevator
+		Weapon: ScrinMeteorElevator
 		Amount: 2
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		ImpactActors: false
 		AirThreshold: 8c0
 	Warhead@op2: FireShrapnel
-		Weapon: MeteorElevator2
+		Weapon: ScrinMeteorElevator2
 		Amount: 2
-		Delay: 10
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		Delay: 12
 		ImpactActors: false
 		AirThreshold: 8c0
 	Warhead@op3: FireShrapnel
-		Weapon: MeteorElevator3
+		Weapon: ScrinMeteorElevator3
 		Amount: 2
-		Delay: 15
-		AllowDirectHit: false
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-		ImpactActors: false
-		AirThreshold: 8c0
-	Warhead@6: FireShrapnel
-		Weapon: MeteorSpawner2
-		Amount: 1
-		Delay: 35
+		Delay: 24
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		ImpactActors: false
 		AirThreshold: 8c0
 
-MeteorSpawner2:
-	Inherits: MeteorSpawner
-	Warhead@6: FireShrapnel
-		Weapon: MeteorSpawner3
-		ImpactActors: false
-
-MeteorSpawner3:
-	Inherits: MeteorSpawner
-	Warhead@6: FireShrapnel
-		Weapon: MeteorSpawner4
-		ImpactActors: false
-
-MeteorSpawner4:
-	Inherits: MeteorSpawner
-	Warhead@6: FireShrapnel
-		Weapon: MeteorSpawner5
-		ImpactActors: false
-
-MeteorSpawner5:
-	Inherits: MeteorSpawner
-	Warhead@6: FireShrapnel
-		Weapon: MeteorSpawner6
-		ImpactActors: false
-
-MeteorSpawner6:
-	Inherits: MeteorSpawner
-	-Warhead@6:
-
-MeteorAirHit:
+ScrinMeteorAirHit:
 	Inherits@1: ^SWBaseEffects
 	Projectile: InstantHit
 	-Warhead@GetsOneShotedbySuperweapons: ## This for Air only, we cannot expect meteor fall on the ground to hit Air
@@ -902,67 +874,45 @@ MeteorAirHit:
 			Aircraft: 100
 			Concrete: 0
 			Boss: 100
-		Spread: 2c512 
+		Spread: 1c0
 		Damage: 30000
 		AirThreshold: 8c0
 		DebugOverlayColor: 0000FF
 
-MeteorElevator:
+ScrinMeteorElevator:
+	Inherits: ^MeteorElevator
 	ReloadDelay: 6
-	Report: meteor1.aud, meteor2.aud
 	Range: 2c0
 	MinRange: 1c0
-	Projectile: AthenaProjectile
-		Altitude: 12000
 	Warhead@op: FireShrapnel
-		Weapon: MeteorRainSlow
-		ImpactActors: false
-		AimChance: 25
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-		AirThreshold: 8c0
-	Warhead@AirHit: FireShrapnel
-		Weapon: MeteorAirHit
+		Weapon: ScrinMeteorRainSlow
+	Warhead@AirHit: FireFragment
+		Weapon: ScrinMeteorAirHit
 		ImpactActors: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		AirThreshold: 8c0
+		Delay: 50
 
-MeteorElevator2:
-	Inherits: MeteorElevator
+ScrinMeteorElevator2:
+	Inherits: ScrinMeteorElevator
 	Warhead@op: FireShrapnel
-		Weapon: MeteorRainNormal
+		Weapon: ScrinMeteorRainNormal
 		ImpactActors: false
+	Warhead@AirHit: FireFragment
+		Delay: 40
 
-MeteorElevator3:
-	Inherits: MeteorElevator
+ScrinMeteorElevator3:
+	Inherits: ScrinMeteorElevator
 	Warhead@op: FireShrapnel
-		Weapon: MeteorRainFast
+		Weapon: ScrinMeteorRainFast
 		ImpactActors: false
+	Warhead@AirHit: FireFragment
+		Delay: 30
 
-MeteorRainNormal:
-	Inherits@1: ^SWBaseEffects
-	Inherits@2: ^BombWarhead
-	Inherits@3: ^Small_Twlt
-	ReloadDelay: 8
-	Range: 1c0
-	Report: mehit1.aud
-	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
-	Projectile: BulletAS
-		Speed: 350
-		Image: meteor2
-		Palette: effect
-		Shadow: true
-		Inaccuracy: 300
-		TrailImage: meteortrail
-		TrailPalette: effectalpha60
-		TrailInterval: 1
-		Blockable: false
-		ContrailLength: 18
-		ContrailStartColor: FFFF8855
-		ContrailStartColorAlpha: 85
-		ContrailEndColor: 8888FF00
-		ContrailEndColorAlpha: 00
-		ContrailStartWidth: 250
-		ContrailDelay: 10
+ScrinMeteorRainNormal:
+	Inherits: ^MeteorRainNormal
+	Inherits@OnShotDamage: ^SWBaseEffects
+	Inherits@Damage: ^BombWarhead
 	Warhead@1Dam: SpreadDamage
 		Spread: 300
 		Damage: 10000
@@ -972,43 +922,17 @@ MeteorRainNormal:
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		AirThreshold: 8c0
 	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
+		Spread: 0c750
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 	-Warhead@GetsOneShotedbySuperweaponsAA: ## This for Ground only, we cannot expect meteor fall on the ground to hit Air
-	Warhead@2Smu: LeaveSmudgeSP
-		SmudgeType: Crater
-		InvalidTargets: Vehicle, Building, Wall
-	Warhead@op: FireShrapnel
-		Weapon: SmallDebris
-		ImpactActors: false
-		Amount: 3
-		AllowDirectHit: false
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-	Warhead@op: FireShrapnel
-		Weapon: LargeDebris
-		ImpactActors: false
-		Amount: 1
-		AllowDirectHit: false
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-	Warhead@5Sharpnel: FireShrapnel
-		Weapon: MeteorFlame
-		ImpactActors: false
-		Amount: 3
-		AllowDirectHit: false
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-	Warhead@Shake: ShakeScreen
-		Intensity: 10
-		Duration: 7
-		AirThreshold: 8c0
 
-MeteorRainSlow:
-	Inherits: MeteorRainNormal
-	Projectile: BulletAS
-		Speed: 250
+ScrinMeteorRainSlow:
+	Inherits: ScrinMeteorRainNormal
+	Inherits@1: ^MeteorRainSlow
 
-MeteorRainFast:
-	Inherits: MeteorRainNormal
-	Projectile: BulletAS
-		Speed: 450
+ScrinMeteorRainFast:
+	Inherits: ScrinMeteorRainNormal
+	Inherits@1: ^MeteorRainFast
 
 IronSaviorMuzzle: ##HACK: FireArmamentPower
 	ReloadDelay: 200

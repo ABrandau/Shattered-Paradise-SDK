@@ -469,3 +469,132 @@
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		AirThreshold: 8c0
 
+^MeteorElevator:
+	Report: meteor1.aud, meteor2.aud
+	Range: 2c0
+	MinRange: 1c0
+	Projectile: AthenaProjectile
+		Altitude: 18000
+	Warhead@op: FireShrapnel
+		Weapon: ^MeteorRainNormal
+		ImpactActors: false
+		AimChance: 25
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
+
+^MeteorRainNormal:
+	Inherits@3: ^Small_Twlt
+	ReloadDelay: 8
+	Range: 1c0
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
+	Projectile: BulletAS
+		Speed: 350
+		Image: meteor2
+		Palette: effect
+		Shadow: true
+		Inaccuracy: 300
+		TrailImage: meteortrail
+		TrailPalette: effectalpha60
+		TrailInterval: 1
+		Blockable: false
+		ContrailLength: 18
+		ContrailStartColor: FFFF8855
+		ContrailStartColorAlpha: 85
+		ContrailEndColor: 8888FF00
+		ContrailEndColorAlpha: 00
+		ContrailStartWidth: 250
+		ContrailDelay: 10
+	Warhead@2Smu: LeaveSmudgeSP
+		SmudgeType: Crater
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@op1: FireShrapnel
+		Weapon: SmallDebris
+		ImpactActors: false
+		Amount: 3
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+	Warhead@op2: FireShrapnel
+		Weapon: LargeDebris
+		ImpactActors: false
+		Amount: 1
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+	Warhead@Shake: ShakeScreen
+		Intensity: 14
+		Duration: 7
+		AirThreshold: 8c0
+
+^MeteorRainFast:
+	Inherits: ^MeteorRainNormal
+	Projectile: BulletAS
+		Speed: 450
+
+^MeteorRainSlow:
+	Inherits: ^MeteorRainNormal
+	Projectile: BulletAS
+		Speed: 250
+
+^ScrinOpenWormHole:
+	ValidTargets: Ground, Water, Air, Vehicle, Building, Infantry
+	Projectile: InstantHit
+		Blockable: false
+	Warhead@Bolt: FireFragment
+		Weapon: ^ScrinWormHoleBoltElevator
+		ImpactActors: false
+		AirThreshold: 8c0
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+	Warhead@Hole: SpawnSmokeParticle
+		ImpactActors: false
+		Duration: 200
+		Sequences: loop
+		StartSequences: begin
+		EndSequences: end
+		Image: scrintele
+		Palette: jascbluealpha
+		AirThreshold: 8c0
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+	Warhead@2Eff: CreateEffect
+		Explosions: tripodshockwave
+		ExplosionPalette: jascbluealpha
+		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+		Delay: 200
+		AirThreshold: 8c0
+		ImpactSounds: instantrift.wav
+	Warhead@2Smu: LeaveSmudgeSP
+		SmudgeType: Scorch
+		InitialSmudgeLevel: 11
+		InvalidTargets: Vehicle, Building, Wall
+
+^ScrinWormHoleBoltElevator:
+	ValidTargets: Ground, Water, Air, Vehicle, Building, Infantry
+	Range: 12c0
+	Projectile: AthenaProjectile
+		Altitude: 18000
+	Warhead@later: FireFragment
+		Weapon: ^ScrinWormHoleBolt
+		ImpactActors: false
+		UseZOffsetAsAbsoluteHeight: true
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 18c0
+	Warhead@1Eff: SpawnSmokeParticle
+		ImpactActors: false
+		Duration: 197
+		Sequences: muzzle3
+		EndSequences: muzzle3
+		Image: scrbattleship
+		Palette: jascbluealpha
+		AirThreshold: 18c0
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+
+^ScrinWormHoleBolt:
+	ValidTargets: Ground, Water, Air, Vehicle, Building, Infantry
+	Report: laserchaingunfire.wav
+	Projectile: ElectricBolt
+		Width: 80
+		Duration: 200
+		Angle: 230
+		ZOffset: 7000
+		SegmentLength: 768
+		Distortion: 512
+		Colors: 00008888, 0000EEAA, 00003366

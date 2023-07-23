@@ -98,11 +98,7 @@ DifficultySetUp = function()
 			Eye1.Destroy()
 			Eye2.Destroy()
 		elseif mode  == "ScrinMode" then
-			Utils.Do(CivSquad, function(a)
-				a.Destroy()
-			end)
-			Eye1.Destroy()
-			Eye2.Destroy()
+			WorldActor.GrantCondition("meteor-weather")
 			Trigger.AfterDelay(130, function()
 				Utils.Do(Bandits_ai.GetActorsByType("mutambush"), function(a)
 					Actor.Create("scrprotal.dummy", true, {Owner = Scrin_ai, Location = a.Location})
@@ -113,6 +109,12 @@ DifficultySetUp = function()
 			Trigger.AfterDelay(150, function()
 				Scrin_ai.GrantCondition("hard-game")
 			end)
+
+			Utils.Do(CivSquad, function(a)
+				a.Destroy()
+			end)
+			Eye1.Destroy()
+			Eye2.Destroy()
 		end
 	end
 end

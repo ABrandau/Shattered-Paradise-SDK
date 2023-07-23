@@ -173,32 +173,10 @@ BeaconConnectionLine:
 		ZOffset: 7000
 		TrackTarget: true
 
-ScrinReinforceBolt:
-	Inherits: BlackholeBolt
-	-Warhead@1Dam:
-	Projectile: ElectricBolt
-		Duration: 200
-
-ScrinReinforceBoltElevator:
-	Inherits: BlackBlastElevator
-	Warhead@later: FireFragment
-		Weapon: ScrinReinforceBolt
-	Warhead@1Eff: SpawnSmokeParticle
-		ImpactActors: false
-		Duration: 197
-		Sequences: muzzle3
-		EndSequences: muzzle3
-		Image: scrbattleship
-		Palette: jascbluealpha
-		AirThreshold: 18c0
 
 ^TeleportScrinTroop:
-	Inherits: TearingReality
+	Inherits: ^ScrinOpenWormHole
 	ReloadDelay: 400
-	-Warhead@5Actor: SpawnActor
-	-Warhead@6Actor: SpawnActor
-	Warhead@Ion: FireFragment
-		Weapon: ScrinReinforceBoltElevator
 	Warhead@5Actor: SpawnActor
 		Actors: CORRUPTOR, TRIPOD, SCRRECHARGER
 		FallRate: 5000
@@ -208,3 +186,23 @@ ScrinReinforceBoltElevator:
 		AirThreshold: 8c0
 		Delay: 201
 		ValidTargets: Ground
+
+NoDamMeteorElevator:
+	Inherits: ^MeteorElevator
+	Range: 2c0
+	MinRange: 1c0
+	Warhead@op: FireShrapnel
+		Weapon: ^MeteorRainSlow
+
+NoDamMeteorElevator2:
+	Inherits: ^MeteorElevator
+	Range: 3c0
+	MinRange: 1c512
+
+NoDamMeteorElevator3:
+	Inherits: ^MeteorElevator
+	Range: 4c0
+	MinRange: 2c0
+	Warhead@op: FireShrapnel
+		Weapon: ^MeteorRainFast
+

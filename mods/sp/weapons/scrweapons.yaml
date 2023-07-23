@@ -1193,36 +1193,11 @@ Councilazer:
 		ValidTargets: Ground, Water, Air
 
 TearingReality:
+	Inherits: ^ScrinOpenWormHole
 	ReloadDelay: 6
 	Range: 999c0
-	ValidTargets: Ground, Water, Air, Vehicle, Building, Infantry
-	Projectile: InstantHit
-		Blockable: false
-	Warhead@Ion: SpawnSmokeParticle
-		Weapon: BlackBlastBoltSpawner
-		ImpactActors: false
-		Duration: 200
-		Sequences: muzzle
-		Image: scrincouncil
-		Palette: jascbluealpha
-		AirThreshold: 8c0
-	Warhead@3Eff: SpawnSmokeParticle
-		ImpactActors: false
-		Duration: 200
-		Sequences: loop
-		StartSequences: begin
-		EndSequences: end
-		Image: scrintele
-		Palette: jascbluealpha
-		AirThreshold: 8c0
-	Warhead@2Eff: CreateEffect
-		Explosions: tripodshockwave
-		ExplosionPalette: jascbluealpha
-		ImpactActors: false
-		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-		Delay: 200
-		AirThreshold: 8c0
-		ImpactSounds: instantrift.wav
+	Warhead@Hole: SpawnSmokeParticle
+		Weapon: TearingRealityDamage
 	Warhead@5Actor: SpawnActor
 		Actors: CORRUPTOR, SCRGLYDER2, TRIPOD, SCRRECHARGER
 		FallRate: 5000
@@ -1241,48 +1216,10 @@ TearingReality:
 		AirThreshold: 8c0
 		Delay: 201
 		ValidTargets: Water
-	Warhead@2Smu: LeaveSmudgeSP
-		SmudgeType: Scorch
-		InitialSmudgeLevel: 11
-		InvalidTargets: Vehicle, Building, Wall
 
-BlackBlastBoltSpawner:
-	ReloadDelay: 5
-	ValidTargets: Ground, Water, Air, Vehicle, Building, Infantry, Water
-	Warhead@1: FireFragment
-		Weapon: BlackBlastElevator
-		ImpactActors: false
-		Amount: 1
-		AirThreshold: 8c0
-
-BlackBlastElevator:
-	Range: 8c0
-	Projectile: AthenaProjectile
-		Altitude: 18000
-	Warhead@later: FireFragment
-		Weapon: BlackholeBolt
-		ImpactActors: false
-		UseZOffsetAsAbsoluteHeight: true
-		ValidTargets: Ground, Water, Air
-		AirThreshold: 18c0
-
-BlackholeBolt:
+TearingRealityDamage:
 	Inherits: ^FullDamage
-	Range: 18c0
-	ReloadDelay: 80
-	Range: 5c768
-	Report: laserchaingunfire.wav
-	Projectile: ElectricBolt
-		Width: 80
-		Duration: 8
-		Angle: 230
-		ZOffset: 7000
-		SegmentLength: 768
-		Distortion: 512
-		Colors: 00008888, 0000EEAA, 00003366
-		LaunchEffectImage: scrbattleship
-		LaunchEffectSequence: muzzle3
-		LaunchEffectPalette: jascbluealpha
+	ReloadDelay: 5
 	Warhead@1Dam: SpreadDamage
 		Damage: 6000
 		Spread: 1c0
@@ -1292,6 +1229,7 @@ BlackholeBolt:
 			VehicleArmor: 50
 			DefenseArmor: 50
 			ConcreteArmor: 30
+		ValidRelationships: Neutral, Enemy
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 	Warhead@AA: IgnoreHeightDamage ## aircraft
 		ValidTargets: Air
@@ -1307,6 +1245,7 @@ BlackholeBolt:
 		Damage: 3000
 		AirThreshold: 8c0
 		DebugOverlayColor: 0000FF
+		ValidRelationships: Neutral, Enemy
 
 EssenceSmall:
 	ReloadDelay: 45
