@@ -170,6 +170,7 @@ CIV2:
 	-AttackWander:
 
 QDRONE: ## Hacker drone hack quicker than before
+	Inherits@Unkillable: ^Unkillable
 	GatlingReloadDelayMultiplier:
 		HeatUpChange: -2
 	GrantConditionOnAttack@charge:
@@ -274,3 +275,19 @@ SCRPROTAL.DUMMY:
 	ForceFireAtLocation:
 		RequiresCondition: allow-teleport
 
+## Nod
+^Cloakable: ##Mainly used for Nod cloak field effect
+	Cloak@CLOAKGENERATOR:
+		InitialDelay: 10
+		CloakDelay: 10
+		UncloakOn: Attack
+
+CERBERUS:
+	Inherits@Unkillable: ^Unkillable
+	WithRangeCircle@cloakgenerator:
+		ValidRelationships: Ally, Enemy, Neutral
+		Visible: Always
+		Color: FF2222
+		Range: 6c0
+	ProximityExternalCondition@cloakgenerator:
+		Range: 6c0

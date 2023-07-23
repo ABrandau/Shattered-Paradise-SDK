@@ -1256,7 +1256,8 @@ MUTMOUND: ### Mound that may hide a tunnel inside
 
 MUTAMBUSH: ###  Mound that hide a tunnel inside
 	Inherits: MUTMOUND
-	Inherits@Dummy: ^WithDeathEffects
+	Inherits@WithDeathEffects: ^WithDeathEffects
+	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
 	EditorOnlyTooltip:
 		Name: Suspicious Mound (hide a tunnel under it, and keep unit in tunnel living)
 	SpawnActorOnDeath:

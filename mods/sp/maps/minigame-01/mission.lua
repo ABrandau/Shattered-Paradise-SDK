@@ -16,6 +16,8 @@ GDIWays ={
 
 GDIForces = {"hvr", "hvr", "apc", "mmch", "mmch", "sonic", "sonic", "g4tnk", "g4tnk", "mcv" }
 
+NodWay = {Way2.Location, Way2_up_1.Location, Way2_up_2.Location, Way2_up_3.Location, Way2_up_2.Location, Way2_up_1.Location, Way2.Location, Reinforce_1.Location, Way2.Location, Way2_down_1.Location, Way2_down_2.Location, Way2_down_3.Location, Way2_down_4.Location, Way2_down_3.Location, Way2_down_2.Location, Way2_down_1.Location}
+
 MissionText = function()
 	Objective1 = LocalPlayer.AddPrimaryObjective("Survive and protect MCV as many as you can!")
 	SecondaryObjective1 = LocalPlayer.AddSecondaryObjective("Protect at least 4 MCVs.")
@@ -38,7 +40,7 @@ CheckObjectivesOnMissionEnd = function(survived)
 end
 
 CivSquad = {Protester6, Protester5, Protester4, Protester3, Protester2, Protester1}
-RandomHardModes = {"HackerMode", "VeinholeMode", "ScrinMode"}
+RandomHardModes = {"HackerMode", "VeinholeMode", "ScrinMode", "NodMode"}
 
 DifficultySetUp = function()
 	Actor.Create("upgrade.tiberium_gas_warheads", true, { Owner =  Bandits_ai})
@@ -108,6 +110,29 @@ DifficultySetUp = function()
 			end)
 			Trigger.AfterDelay(150, function()
 				Scrin_ai.GrantCondition("hard-game")
+			end)
+
+			Utils.Do(CivSquad, function(a)
+				a.Destroy()
+			end)
+			Eye1.Destroy()
+			Eye2.Destroy()
+		elseif mode  == "NodMode" then
+			Bandits_ai.GrantCondition("hard-game")
+			local stealthShip = nil
+			Trigger.AfterDelay(70, function()
+				stealthShip = Utils.Random(Reinforcements.Reinforce(Nod_ai, {"cerberus"}, {Reinforce_1.Location, Way1.Location, Way2.Location}, 1, function(a)
+					a.Patrol(NodWay)
+				end))
+			end)
+			Trigger.AfterDelay(130, function()
+				if stealthShip ~= nil and not stealthShip.IsDead then
+					stealthShip.Flash(HSLColor.FromHex("FFFFFF"), 10, DateTime.Seconds(1) / 3)
+				end
+				Media.DisplayMessage("Yes, we are allies for now, but I have allied with those mutants, too.", "Kane", HSLColor.FromHex("FF0000"))
+				Trigger.AfterDelay(DateTime.Seconds(7), function()
+					Media.DisplayMessage("I won't fire at you, but I have to provide some helps to mutants.", "Kane", HSLColor.FromHex("FF0000"))
+				end)
 			end)
 
 			Utils.Do(CivSquad, function(a)
@@ -231,6 +256,7 @@ WorldLoaded = function()
 	Cab_ai = Player.GetPlayer("Instigator")
 	Gdi_ai = Player.GetPlayer("GDI")
 	Scrin_ai = Player.GetPlayer("Scrin")
+	Nod_ai = Player.GetPlayer("Nod")
 	LocalPlayer = Player.GetPlayer("You")
 	MCVprotected = 0
 	Waves = 6
