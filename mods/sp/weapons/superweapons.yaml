@@ -886,18 +886,23 @@ ScrinMeteorElevator:
 	MinRange: 1c0
 	Warhead@op: FireShrapnel
 		Weapon: ScrinMeteorRainSlow
+		Amount: 1
+		AllowDirectHit: true
+		AimChance: 100
+		ThrowWithoutTarget: true
+		AimTargetStances: Ally, Neutral, Enemy
+		AirThreshold: 8c0
 	Warhead@AirHit: FireFragment
 		Weapon: ScrinMeteorAirHit
 		ImpactActors: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		AirThreshold: 8c0
-		Delay: 50
+		Delay: 50 ## Meteor should hit aircraft when still at midair
 
 ScrinMeteorElevator2:
 	Inherits: ScrinMeteorElevator
 	Warhead@op: FireShrapnel
 		Weapon: ScrinMeteorRainNormal
-		ImpactActors: false
 	Warhead@AirHit: FireFragment
 		Delay: 40
 
@@ -905,7 +910,6 @@ ScrinMeteorElevator3:
 	Inherits: ScrinMeteorElevator
 	Warhead@op: FireShrapnel
 		Weapon: ScrinMeteorRainFast
-		ImpactActors: false
 	Warhead@AirHit: FireFragment
 		Delay: 30
 
@@ -913,6 +917,9 @@ ScrinMeteorRainNormal:
 	Inherits: ^MeteorRainNormal
 	Inherits@OnShotDamage: ^SWBaseEffects
 	Inherits@Damage: ^BombWarhead
+	Range: 3c0
+	Projectile: BulletAS
+		Inaccuracy: 0
 	Warhead@1Dam: SpreadDamage
 		Spread: 300
 		Damage: 10000
@@ -1136,7 +1143,7 @@ RandomBoltSpawner:
 		ImpactActors: false
 		Amount: 1
 		AllowDirectHit: false
-		AimChance: 75
+		AimChance: 100
 		ThrowWithoutTarget: false
 		AimTargetStances: Ally, Neutral, Enemy
 		AirThreshold: 8c0
