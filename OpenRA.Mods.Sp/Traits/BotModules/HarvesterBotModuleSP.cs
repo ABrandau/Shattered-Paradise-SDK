@@ -129,7 +129,7 @@ namespace OpenRA.Mods.SP.Traits
 			var maxResourceCell = 0;
 			var maxResourcetragetcell = Target.Invalid;
 
-			foreach (var loc in resourseCenters.OrderByDescending(c => (c - harv.Actor.Location).LengthSquared))
+			foreach (var loc in resourseCenters.OrderBy(c => (c - harv.Actor.Location).LengthSquared))
 			{
 				if (world.FindActorsInCircle(world.Map.CenterOfCell(loc), info.HarvesterEnemyAvoidanceRadius).Any(a => !a.IsDead && a.IsInWorld && a.Owner.RelationshipWith(player) == PlayerRelationship.Enemy))
 					continue;
