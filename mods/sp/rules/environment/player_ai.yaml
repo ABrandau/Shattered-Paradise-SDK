@@ -720,8 +720,8 @@ Player:
 				Consideration@3:
 					Against: Enemy
 					Types: Defence
-					Attractiveness: -100
-					TargetMetric: Value
+					Attractiveness: -200000
+					TargetMetric: None
 					CheckRadius: 7c0
 				Consideration@4:
 					Against: Enemy
@@ -734,13 +734,6 @@ Player:
 				MinimumAttractiveness: 3000
 				MinimumScanTimeInterval: 83
 				MaximumScanTimeInterval: 100
-				Consideration@1:
-					Against: Enemy
-					Types: AIPrefer
-					IgnoreVisibility: true
-					Attractiveness: 1000000
-					TargetMetric: None
-					CheckRadius: 4c0
 				Consideration@2:
 					Against: Enemy
 					Types: Building
@@ -749,15 +742,15 @@ Player:
 					CheckRadius: 5c0
 				Consideration@3:
 					Against: Enemy
-					Types: Defence
-					Attractiveness: -100
-					TargetMetric: Value
+					Types: Defence, Veinhole
+					Attractiveness: -200000
+					TargetMetric: None
 					CheckRadius: 7c0
 				Consideration@4:
 					Against: Enemy
 					Types: Ground
 					Attractiveness: 1
-					TargetMetric: Value
+					TargetMetric: None
 					CheckRadius: 5c0
 			nano:
 				OrderName: NanomachineSwarm
@@ -766,13 +759,7 @@ Player:
 				MaximumScanTimeInterval: 100
 				Consideration@1:
 					Against: Ally
-					Types: Vehicle
-					Attractiveness: 2
-					TargetMetric: Value
-					CheckRadius: 7c0
-				Consideration@2:
-					Against: Ally
-					Types: Infantry
+					Types: Vehicle, Infantry
 					Attractiveness: 2
 					TargetMetric: Value
 					CheckRadius: 7c0
@@ -825,14 +812,8 @@ Player:
 				MaximumScanTimeInterval: 100
 				Consideration@1:
 					Against: Enemy
-					Types: Infantry, Vehicle, Defence, Air
+					Types: Ground, Water, Air
 					Attractiveness: 3
-					TargetMetric: Value
-					CheckRadius: 4c0
-				Consideration@2:
-					Against: Enemy
-					Types: Building
-					Attractiveness: 1
 					TargetMetric: Value
 					CheckRadius: 4c0
 				Consideration@3:

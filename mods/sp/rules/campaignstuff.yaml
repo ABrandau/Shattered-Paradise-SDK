@@ -254,7 +254,7 @@ GHOST:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Mutant
 		BuildPaletteOrder: 32
-		Prerequisites: ~murax, muhall, ~techlevel.5, ~AIOnly
+		Prerequisites: ~player.mut, ~murax, muhall, ~techlevel.5, ~AIOnly
 		Description: Gil is the elite commando of Mutants, if not GDI.\nHe is armed with a ion railgun and C4.\n\nGood vs Ground\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes structures with C4\n- Heals on Tiberium\n- Immune to mindcontrol\n- Crush class: crushable
 		BuildLimit: 1
 		BuildDuration: 1250
@@ -334,7 +334,7 @@ UMAGON:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Mutant
 		BuildPaletteOrder: 33
-		Prerequisites: ~murax, muhall, ~techlevel.5, ~AIOnly
+		Prerequisites: ~player.mut, ~murax, muhall, ~techlevel.5, ~AIOnly
 		Description: Umagon was one of the GDI's "good girls", she sure was. \nShe is armed with a sniper with silencer and C4.\n\nGood vs Infantry\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes structures with C4\n- Heals on Tiberium\n- Immune to mindcontrol\n- Crush class: crushable
 		BuildLimit: 1
 		BuildDuration: 1250
@@ -834,7 +834,7 @@ ICBM:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 51
-		Prerequisites: ~naweap, nahfac, ~AIOnly, ~techlevel.6
+		Prerequisites: ~player.nod, ~naweap, nahfac, ~AIOnly, ~techlevel.6
 		Description: Even ICBM is deployed as the tension increased.\n\nUnarmed. \n\nSpecial:\n- Deploy to gain ICBM strike abiility
 		BuildDuration: 2000
 		BuildDurationModifier: 100
@@ -1780,7 +1780,7 @@ DEFD:
 			BottomRight: 1536, 1536
 	Buildable:
 		Queue: Building.Shared, Building.CABAL
-		Prerequisites: ~cabyard, cabtech, ~techlevel.5, ~AIOnly, ~!DefenderExists
+		Prerequisites: ~player.cab, ~cabyard, cabtech, ~techlevel.5, ~AIOnly, ~!DefenderExists
 		Description: C.A.B.A.L.'s final creation armed with crazy weapon.\n\nGood vs: Everything\n\nSpecial:\n- Needs preparing before rising.\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle\n- Immune to mindcontrol
 		BuildPaletteOrder: 54
 		BuildDuration: 7000
@@ -1856,7 +1856,7 @@ HMECTEST:
 		Queue: Vehicle.Shared, Vehicle.MammothMkII
 		BuildAtProductionType: Mammoth
 		BuildPaletteOrder: 49
-		Prerequisites: ~showhmec, gtdrop, ~AIOnly, ~techlevel.6
+		Prerequisites: ~player.gdi, ~showhmec, gtdrop, ~AIOnly, ~techlevel.6
 		Description: GDI's final creation for the war when everything is doomed.\n\nGood vs: Everything\n\nSpecial:\n- Build limit: 1\n- Selfhealing up to 100%\n- Can attack air\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything except other Epics\n- It is deployed via dropship at the Dropship Bay\n- Can attack while moving\n- Can spawn 2 gun drones
 		BuildLimit: 1
 		BuildDuration: 7000
@@ -2200,7 +2200,7 @@ SCRINCOUNCIL:
 		Queue: Air.Shared, Air.Scrin
 		Description: A council debates on the world's corpse.\n\nGood vs: Everything\n\nSpecial:\n- Build limit: 1\n- Selfhealing up to 100%\n- Can attack air\n- Immune to mind control\n- Can shoot over walls\n- Can attack while moving
 		BuildPaletteOrder: 29
-		Prerequisites: ~scrair, scradvpowr, ~techlevel.6, ~AIOnly
+		Prerequisites: ~player.scr, ~scrair, scradvpowr, ~techlevel.6, ~AIOnly
 		BuildLimit: 1
 		BuildDuration: 7000
 		BuildDurationModifier: 100
