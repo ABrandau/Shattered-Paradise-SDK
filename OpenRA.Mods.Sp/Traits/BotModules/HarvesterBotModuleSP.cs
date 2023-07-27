@@ -107,16 +107,27 @@ namespace OpenRA.Mods.SP.Traits
 
 				// Tell the idle harvester to quit slacking:
 				var newSafeResourcePatch = FindNextResource(h);
-				AIUtils.BotDebug($"AI: Harvester {h.Actor} is idle. Ordering to {newSafeResourcePatch} in search for new resources.");
-				bot.QueueOrder(new Order("Harvest", h.Actor, newSafeResourcePatch, false));
+				if (newSafeResourcePatch != Target.Invalid)
+				{
+					AIUtils.BotDebug($"AI: Harvester {h.Actor} is idle. Ordering to {newSafeResourcePatch} in search for new resources.");
+					bot.QueueOrder(new Order("Harvest", h.Actor, newSafeResourcePatch, false));
+				}
+				else
+				{
+					// If no resource, tell harvester to stop scanning by itself
+					AIUtils.BotDebug($"AI: no valid resource for Harvester {h.Actor}.");
+					bot.QueueOrder(new Order("Stop", h.Actor, false));
+				}
+
 				break;
 			}
 		}
 
 		Target FindNextResource(TraitPair<Harvester> harv)
 		{
-			var tragetcell = Target.Invalid;
 			var mobile = harv.Actor.TraitOrDefault<Mobile>();
+			var maxResourceCell = 0;
+			var maxResourcetragetcell = Target.Invalid;
 
 			foreach (var loc in resourseCenters.OrderByDescending(c => (c - harv.Actor.Location).LengthSquared))
 			{
@@ -127,13 +138,20 @@ namespace OpenRA.Mods.SP.Traits
 					continue;
 
 				var harvestable = world.Map.FindTilesInAnnulus(loc, 0, info.ResourseCenterSearchRangeInCells).Where(c => harv.Trait.CanHarvestCell(c) && claimLayer.CanClaimCell(harv.Actor, c)).ToArray();
-				tragetcell = Target.FromCell(world, harvestable.Random(world.LocalRandom));
 
+				// If the resource field is rich enough then we will just stop checking and harvest.
 				if (harvestable.Length >= info.FavoredHarvestableCell)
-					break;
+					return Target.FromCell(world, harvestable.Random(world.LocalRandom));
+
+				// If not, we are going to find a best location by comparing the resource cells around.
+				if (harvestable.Length > maxResourceCell)
+				{
+					maxResourceCell = harvestable.Length;
+					maxResourcetragetcell = Target.FromCell(world, harvestable.Random(world.LocalRandom));
+				}
 			}
 
-			return tragetcell;
+			return maxResourcetragetcell;
 		}
 	}
 }
