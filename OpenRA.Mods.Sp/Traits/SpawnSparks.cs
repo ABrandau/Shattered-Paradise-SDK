@@ -14,7 +14,7 @@ namespace OpenRA.Mods.Sp.Traits
 		public readonly int Interval = 100;
 
 		[Desc("Delay of first spark spawning.")]
-		public readonly int Delay = 0;
+		public readonly int FirstDelay = 0;
 
 		[Desc("Has to be defined in weapons.yaml as well.")]
 		public readonly string SparkWeapon = null;
@@ -80,7 +80,7 @@ namespace OpenRA.Mods.Sp.Traits
 			weapon = info.WeaponInfo;
 			body = self.TraitOrDefault<BodyOrientation>();
 			hasLaunchEffect = !string.IsNullOrEmpty(info.LaunchEffectImage) && info.LaunchEffectSequences?.Length > 0;
-			interval = info.Delay;
+			interval = info.FirstDelay;
 		}
 
 		void ITick.Tick(Actor self)
