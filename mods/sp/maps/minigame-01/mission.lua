@@ -40,7 +40,8 @@ CheckObjectivesOnMissionEnd = function(survived)
 end
 
 CivSquad = {Protester6, Protester5, Protester4, Protester3, Protester2, Protester1}
-RandomHardModes = {"HackerMode", "VeinholeMode", "ScrinMode", "NodMode"}
+RandomHardModes = {"HackerMode", "VeinholeMode", "ScrinMode", "NodMode", "IonStromMode"}
+--RandomHardModes = {"NodMode"} --for test
 
 DifficultySetUp = function()
 	Actor.Create("upgrade.tiberium_gas_warheads", true, { Owner =  Bandits_ai})
@@ -48,14 +49,14 @@ DifficultySetUp = function()
 	Actor.Create("upgrade.tiberium_infusion", true, { Owner =  Bandits_ai})
 	Actor.Create("upgrade.improved_plague_gas", true, { Owner =  Scrin_ai})
 	if Difficulty == "easy" then
-		Bandits_ai.GrantCondition("easy-game")
+		Bandits_ai.GrantCondition("easy-spawner")
 		Utils.Do(CivSquad, function(a)
 			a.Destroy()
 		end)
 		Eye1.Destroy()
 		Eye2.Destroy()
 	elseif Difficulty == "normal" then
-		Bandits_ai.GrantCondition("normal-game")
+		Bandits_ai.GrantCondition("normal-spawner")
 		Trigger.AfterDelay(1000, function()
 			SendNukeLoop()
 		end)
@@ -65,13 +66,9 @@ DifficultySetUp = function()
 		Eye1.Destroy()
 		Eye2.Destroy()
 	else
-		Trigger.AfterDelay(800, function()
-			SendNukeLoop()
-		end)
-
 		local mode = Utils.Random(RandomHardModes)
 		if mode  == "VeinholeMode" then	
-			Bandits_ai.GrantCondition("normal-game")
+			Bandits_ai.GrantCondition("normal-spawner")
 			Veinhole1.GrantCondition("MrHole")
 			Trigger.AfterDelay(200, function()
 				Media.DisplayMessage("Sorry man, I ate too much last night and I really feel sick today.", "Mr.Hole", HSLColor.FromHex("FF5500"))
@@ -80,11 +77,15 @@ DifficultySetUp = function()
 				Eye2.GrantCondition("talking", 130)
 				Veinhole1.Flash(HSLColor.FromHex("FFFFFF"), 10, DateTime.Seconds(1) / 3)
 			end)
+			Trigger.AfterDelay(800, function()
+				SendNukeLoop()
+			end)
+
 			Utils.Do(CivSquad, function(a)
 				a.Destroy()
 			end)
 		elseif mode  == "HackerMode" then
-			Bandits_ai.GrantCondition("hard-game")
+			Bandits_ai.GrantCondition("hard-spawner")
 			Trigger.AfterDelay(150, function()
 				Media.DisplayMessage("This vile GDI machine brings only war to our home, we must turn it off!", "Protesters", HSLColor.FromHex("66AAFF"))
 				SendHackerLoop(CabHackerPath1)
@@ -94,6 +95,10 @@ DifficultySetUp = function()
 					a.Flash(HSLColor.FromHex("FFFFFF"), 25, DateTime.Seconds(1) / 4)
 				end)
 			end)
+			Trigger.AfterDelay(800, function()
+				SendNukeLoop()
+			end)
+
 			Utils.Do(CivSquad, function(a)
 				CivRespawnOnKill(a, Cab_way1.Location)
 			end)
@@ -109,7 +114,10 @@ DifficultySetUp = function()
 				Media.DisplayMessage("Aliens are comming! Retreat!", "Bandits", HSLColor.FromHex("0CBB01"))
 			end)
 			Trigger.AfterDelay(150, function()
-				Scrin_ai.GrantCondition("hard-game")
+				Scrin_ai.GrantCondition("hard-spawner")
+			end)
+			Trigger.AfterDelay(800, function()
+				SendNukeLoop()
 			end)
 
 			Utils.Do(CivSquad, function(a)
@@ -118,7 +126,6 @@ DifficultySetUp = function()
 			Eye1.Destroy()
 			Eye2.Destroy()
 		elseif mode  == "NodMode" then
-			Bandits_ai.GrantCondition("hard-game")
 			local stealthShip = nil
 			Trigger.AfterDelay(70, function()
 				stealthShip = Utils.Random(Reinforcements.Reinforce(Nod_ai, {"cerberus"}, {Reinforce_1.Location, Way1.Location, Way2.Location}, 1, function(a)
@@ -133,6 +140,46 @@ DifficultySetUp = function()
 				Trigger.AfterDelay(DateTime.Seconds(7), function()
 					Media.DisplayMessage("I won't fire at you, but I have to provide some helps to mutants.", "Kane", HSLColor.FromHex("FF0000"))
 				end)
+				Bandits_ai.GrantCondition("easy-spawner")
+			end)
+			Trigger.AfterDelay(800, function()
+				SendNukeLoop()
+			end)
+
+			Utils.Do(CivSquad, function(a)
+				a.Destroy()
+			end)
+			Eye1.Destroy()
+			Eye2.Destroy()
+		elseif mode  == "IonStromMode" then
+			Bandits_ai.GrantCondition("hard-spawner")
+			Trigger.AfterDelay(70, function()
+				Media.PlaySpeechNotification(LocalPlayer, "IonStormApproaching")
+			end)
+
+			-- Weather control
+			Trigger.AfterDelay(100, function()
+				WorldActor.GrantCondition("ionstorm-weather", RemainingTime - KodiakComingDuration)
+				Lighting.Blue = 0.8
+				Trigger.AfterDelay(RemainingTime - KodiakComingDuration - 40, function()
+					Media.PlaySpeechNotification(LocalPlayer, "IonStormAbating")
+				end)
+				Trigger.AfterDelay(RemainingTime - KodiakComingDuration, function()
+					Lighting.Blue = 1
+				end)
+			end)
+
+			Trigger.AfterDelay(110, function()
+				Media.DisplayMessage("Your device is sensitive to Ionstorm and takes damage when firing.", "Eva", HSLColor.FromHex("FFFF00"))
+					Trigger.AfterDelay(DateTime.Seconds(7), function()
+						Media.DisplayMessage("Engineers have been deployed to repair your turret.", "Eva", HSLColor.FromHex("FFFF00"))
+					end)
+				if IonTur ~= nil and not IonTur.IsDead then
+					IonTur.GrantCondition("ionstorm-weather", RemainingTime - KodiakComingDuration)
+				end
+			end)
+			Trigger.AfterDelay(200, function()
+				SendEngineerLoop()
 			end)
 
 			Utils.Do(CivSquad, function(a)
@@ -186,7 +233,6 @@ NukeSpawnPoints = {Mut_nuke1.Location, Mut_nuke2.Location, Mut_nuke3.Location}
 NukeSounds = {"demotruckvoice0006.aud", "demotruckvoice0007.aud", "demotruckvoice0008.aud"}
 NukeSpawnDelay = {700, 800, 1000, 1100, 1200}
 SendNukeLoop = function()
-
 	local nuke = Utils.Random(Reinforcements.Reinforce(Bandits_ai, {"hvrtruk3"}, {Utils.Random(NukeSpawnPoints), IonTurLocation}, 10, function(a)
 		if not IonTur.IsDead then
 			a.Attack(IonTur)
@@ -201,6 +247,27 @@ SendNukeLoop = function()
 	Trigger.AfterDelay(Utils.Random(NukeSpawnDelay), function()
 		SendNukeLoop()
 	end)
+end
+
+EngineerSounds = {"19-i000.aud", "19-i018.aud"}
+EngineerSpawnDelay = 620
+SendEngineerLoop = function()
+	local engineer = Utils.Random(Reinforcements.Reinforce(Gdi_ai, {"engineer"}, {Utils.Random(NukeSpawnPoints), IonTurLocation}, 10, function(a)
+		if not IonTur.IsDead then
+			a.InstantlyRepairs(IonTur)
+		end
+	end))
+
+	Trigger.AfterDelay(1, function()
+		engineer.Flash(HSLColor.FromHex("FFFFFF"), 25, DateTime.Seconds(1) / 4)
+		Media.PlaySound(Utils.Random(EngineerSounds))
+	end)
+	
+	if RemainingTime > KodiakComingDuration then
+		Trigger.AfterDelay(EngineerSpawnDelay, function()
+			SendEngineerLoop()
+		end)
+	end
 end
 
 CivRespawnOnKill = function(actor, spawnLoc, toLoc)
@@ -220,6 +287,7 @@ CivRespawnOnKill = function(actor, spawnLoc, toLoc)
 	end)
 end
 
+KodiakComingDuration = 280;
 Tick = function()
 	if RemainingTime >= 0 then
 		RemainingTime = RemainingTime - 1
@@ -230,7 +298,7 @@ Tick = function()
 	end
 
 	--## Kodiak comes to save you plot
-	if RemainingTime == 280 then
+	if RemainingTime == KodiakComingDuration then
 		Media.DisplayMessage("Hold on, we are going to pick you up!", "GDI Commander", HSLColor.FromHex("EEEE66"))
 
 		local kodiak = Utils.Random(Reinforcements.Reinforce(Gdi_ai, {"kodk"}, {Reinforce_1.Location, IonTurLocation}, 10, function(a)

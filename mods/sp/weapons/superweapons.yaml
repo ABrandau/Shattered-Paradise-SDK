@@ -1157,12 +1157,11 @@ RandomBoltSpawner:
 		Delay: 4
 
 IonRay:
-	Inherits: ^ArtilleryWarhead
-	Inherits@1: ^LightningDefault
-	Inherits@2: ^SWBaseEffects
+	Inherits@1: ^StrongLightningDefault
+	Inherits@2: ^ArtilleryWarhead
+	Inherits@3: ^SWBaseEffects
 	ReloadDelay: 10
 	Range: 7c0
-	Report: expnew09.aud, expnew08.aud, electro1.aud, voltautofire.wav
 	ValidTargets: Ground, Water, Air, Vehicle, Building, Infantry, Water
 	Warhead@1Dam: SpreadDamage
 		Spread: 256
@@ -1189,18 +1188,7 @@ IonRay:
 		Damage: 15000
 		AirThreshold: 8c0
 		DebugOverlayColor: 0000FF
-	-Warhead@3Eff: CreateEffect
-	Warhead@3Effect: SpawnSmokeParticle
-		Image: lightningbolt
-		Duration: 0
-		EndSequences: bolt1, bolt2, bolt3, bolt4, bolt5, bolt6, bolt7, bolt8, bolt9, bolt10
-		Sequences: null
-		StartSequences: bolt11, bolt12, bolt13, bolt14, bolt15, bolt16, bolt17, bolt18, bolt19, bolt20, bolt21
-		Palette: lightningwhite
-		AffectsParent: true
-		ImpactActors: false
-		ValidTargets: Ground, Water, Air
-		AirThreshold: 8c0
+
 
 VeinholeSummonerWeapon:
 	ReloadDelay: 8

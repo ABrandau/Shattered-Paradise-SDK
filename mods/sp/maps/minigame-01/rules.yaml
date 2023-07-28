@@ -19,6 +19,13 @@ World:
 		HasOwner: false
 		Interval: 1, 32
 		RequiresCondition: meteor-weather
+	ExternalCondition@ionstorm:
+		Condition: ionstorm-weather
+	WeaponWeather@ionstorm:
+		Weapons: ^LightningDefault
+		HasOwner: false
+		Interval: 1, 20
+		RequiresCondition: ionstorm-weather
 
 Player:
 	Shroud:
@@ -26,7 +33,7 @@ Player:
 		ExploredMapCheckboxEnabled: true
 	## AI
 	SquadManagerBotModule@AIBase:
-		RequiresCondition: easy-game || normal-game || hard-game
+		RequiresCondition: easy-spawner || normal-spawner || hard-spawner
 		AssignRolesTicks: 19 ## This map is small and unit is limited
 		ProtectionTypes: mutambushvent, e3, deathclaw, lynx, permacrab, jfish, visc_lrg, mutfiend, berserker, corruptor, tripod, bug, shark
 		SquadSize: 2
@@ -43,45 +50,48 @@ Player:
 	-SendUnitToAttackBotModule:
 	-BaseBuilderBotModule@AIBase:
 	-McvManagerASBotModule@AINormal:
-	## Game logic
+	## TunnelSpawner logic
 	ExternalCondition@PreventTooManyTunnel:
 		Condition: tunnel
-	ExternalCondition@EasyGame:
-		Condition: easy-game
-	ProvidesPrerequisite@EasyGame:
-		Prerequisite: EasyGame
-		RequiresCondition: easy-game && tunnel < 3
-	ExternalCondition@NormalGame:
-		Condition: normal-game
-	ProvidesPrerequisite@NormalGame:
-		Prerequisite: NormalGame
-		RequiresCondition: normal-game && tunnel < 4
-	ExternalCondition@HardGame:
-		Condition: hard-game
-	ProvidesPrerequisite@HardGame:
-		Prerequisite: HardGame
-		RequiresCondition: hard-game && tunnel < 5
+	ExternalCondition@EasyTunnelSpawner:
+		Condition: easy-spawner
+	ProvidesPrerequisite@EasyTunnelSpawner:
+		Prerequisite: EasyTunnelSpawner
+		RequiresCondition: easy-spawner && tunnel < 3
+	ExternalCondition@NormalTunnelSpawner:
+		Condition: normal-spawner
+	ProvidesPrerequisite@NormalTunnelSpawner:
+		Prerequisite: NormalTunnelSpawner
+		RequiresCondition: normal-spawner && tunnel < 4
+	ExternalCondition@HardTunnelSpawner:
+		Condition: hard-spawner
+	ProvidesPrerequisite@HardTunnelSpawner:
+		Prerequisite: HardTunnelSpawner
+		RequiresCondition: hard-spawner && tunnel < 5
 
 HVRTRUK3:
 	AutoTarget:
 		InitialStanceAI: HoldFire
 
 MUTAMBUSH:
-	GrantConditionOnPrerequisite@HardGame:
-		Condition: hard-game
-		Prerequisites: HardGame
-	GrantConditionOnPrerequisite@NormalGame:
-		Condition: normal-game
-		Prerequisites: NormalGame
-	GrantConditionOnPrerequisite@EasyGame:
-		Condition: easy-game
-		Prerequisites: EasyGame
-	KillsSelf@EasyGame:
+	GrantConditionOnPrerequisite@HardTunnelSpawner:
+		Condition: hard-spawner
+		Prerequisites: HardTunnelSpawner
+	GrantConditionOnPrerequisite@NormalTunnelSpawner:
+		Condition: normal-spawner
+		Prerequisites: NormalTunnelSpawner
+	GrantConditionOnPrerequisite@EasyTunnelSpawner:
+		Condition: easy-spawner
+		Prerequisites: EasyTunnelSpawner
+	KillsSelf@EasyTunnelSpawner:
 		Delay: 450, 1200
-		RequiresCondition: easy-game
-	KillsSelf@NormalGame:
+		RequiresCondition: easy-spawner
+	KillsSelf@NormalTunnelSpawner:
 		Delay: 350, 800
-		RequiresCondition: normal-game || hard-game
+		RequiresCondition: normal-spawner || hard-spawner
+	KillsSelf@TunnelSpawnerCloak: ## Tunnel more likely spawn in cloak field on Nod Encounter
+		Delay: 50, 150
+		RequiresCondition: (easy-spawner || normal-spawner || hard-spawner) && cloakgenerator
 
 MUTAMBUSHVENT:
 	GrantExternalConditionToOwner@PreventTooManyTunnel:
@@ -128,6 +138,29 @@ GAIONTUR:
 		RequiresCondition: !Reloading 
 	Armament:
 		ReloadingCondition: Reloading
+	## Hard mode: ionstorm
+	ExternalCondition@IonStrom:
+		Condition: ionstorm-weather
+	GrantConditionOnDamageState@FullHealth:
+		Condition: FullHealth
+		ValidDamageStates: Undamaged
+	ChangesHealth@NoFullHealth:
+		Step: -1
+		Delay: 0
+		StartIfBelow: 200
+		DamageCooldown: 0
+		RequiresCondition: FullHealth && ionstorm-weather
+	SpawnSparks@IonStrom:
+		SparkWeapon: ^StrongLightningDefault
+		Amount: 3
+		RequiresCondition: Reloading && ionstorm-weather
+	ChangesHealth@DamagedWhenFire:
+		PercentageStep: -4
+		Step: 0
+		Delay: 0
+		StartIfBelow: 200
+		DamageCooldown: 0
+		RequiresCondition: Reloading && ionstorm-weather
 	-RenderRangeCircle:
 	-Power:
 
@@ -153,7 +186,7 @@ ORBIT.DUMMY:
 		Weapon: BeaconConnectionLine
 	AttackOmni@AimKODK:
 
-## Hard mode: random encounter
+## Hard mode rules: random encounter
 ## Cabal's protester
 ^ProtesterBase:
 	WithIdleOverlay@talk:
@@ -254,14 +287,14 @@ SCRPROTAL.DUMMY:
 	GrantExternalConditionToOwner@PreventTooManyTunnel:
 		Condition: tunnel
 		RequiresCondition: teleporting
-	GrantConditionOnPrerequisite@HardGame:
-		Condition: hard-game
-		Prerequisites: HardGame
+	GrantConditionOnPrerequisite@HardTunnelSpawner:
+		Condition: hard-spawner
+		Prerequisites: HardTunnelSpawner
 	GrantPeriodicCondition@BeginSpawn:
 		Condition: allow-teleport
 		CooldownDuration: 1, 100
 		ActiveDuration: 200
-		RequiresCondition: hard-game
+		RequiresCondition: hard-spawner
 	GrantPeriodicCondition@SwitchUnits:
 		Condition: spawn-infantry
 		CooldownDuration: 1, 100
