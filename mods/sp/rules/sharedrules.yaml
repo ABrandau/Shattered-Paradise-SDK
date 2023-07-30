@@ -27,8 +27,8 @@ E1:
 		Damage: 8
 
 ENGINEER:
-	Inherits: ^Soldier
-	Inherits@1: ^Engineer
+	Inherits: ^TakeCoverInfantry
+	Inherits@1: ^Engineering
 	Tooltip:
 		Name: Engineer
 	Buildable:
@@ -225,6 +225,8 @@ HARV:
 		Prerequisites: AIOnly
 	ProvidesPrerequisite@HasHarv: ## For AI Perf.
 		Prerequisite: HasHarv
+	ActorStatValues:
+		Stats: Armor, Sight, Harvester, Speed
 
 harv.nod:
 	Inherits: HARV
@@ -264,7 +266,7 @@ CABHARV:
 
 SCRHARV:
 	Inherits: HARV
-	Inherits@1: ^ScrinVehicle
+	Inherits@1: ^ScrinVehicleOverride
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -474,7 +476,7 @@ GACNST:
 		UndeployTicks: 2000
 
 ^Powerplant:
-	Inherits: ^Building
+	Inherits: ^AffectPowerBuilding
 	Inherits@SHAPE: ^2x2Shape
 	ProvidesPrerequisite@anypower:
 		Prerequisite: anypower
@@ -493,7 +495,7 @@ GACNST:
 		DecorationHeight: 48
 
 ^Barracks:
-	Inherits: ^Building
+	Inherits: ^AffectPowerBuilding
 	Inherits@PRODUCTION: ^ProducesUnits
 	Buildable:
 		BuildDuration: 200
@@ -554,7 +556,7 @@ GACNST:
 	ProvidesPrerequisite@AIantiRush-building-order:
 		Prerequisite: AIantiRush-building-order ## Hack: AI Building control. AI build refinary only when it has a combat producing line.
 
-^RefineryHP:
+^RefineryOverride:
 	Health:
 		HP: 100000
 	Valued:
@@ -581,8 +583,8 @@ GACNST:
 		CashCheatType: Refinery
 
 ^Refinery:
-	Inherits: ^Building
-	Inherits@1: ^RefineryHP
+	Inherits: ^AffectPowerBuilding
+	Inherits@1: ^RefineryOverride
 	Inherits@SHAPE: ^NormalRefineryHitShape
 	Building:
 		Footprint: xx++ xx++ xx++
@@ -626,8 +628,8 @@ GACNST:
 		Weapons: TLargeDebris
 
 ^FlippedRefinery:
-	Inherits: ^Building
-	Inherits@1: ^RefineryHP
+	Inherits: ^AffectPowerBuilding
+	Inherits@1: ^RefineryOverride
 	Inherits@SHAPE: ^FlippedRefineryHitshape
 	Building:
 		Footprint: ++xx ++xx ++xx
@@ -656,8 +658,8 @@ GACNST:
 		AreaTypes: building
 
 ^FlippedXRefinery:
-	Inherits: ^Building
-	Inherits@1: ^RefineryHP
+	Inherits: ^AffectPowerBuilding
+	Inherits@1: ^RefineryOverride
 	Inherits@SHAPE: ^FlippedRefineryXHitshape
 	Building:
 		Footprint: xxx xxx +++ +++
@@ -686,8 +688,8 @@ GACNST:
 		AreaTypes: building
 
 ^FlippedYRefinery:
-	Inherits: ^Building
-	Inherits@1: ^RefineryHP
+	Inherits: ^AffectPowerBuilding
+	Inherits@1: ^RefineryOverride
 	Inherits@SHAPE: ^FlippedRefineryYHitshape
 	Building:
 		Footprint: +++ +++ xxx xxx
@@ -716,7 +718,7 @@ GACNST:
 		AreaTypes: building
 
 ^Factory:
-	Inherits: ^Building
+	Inherits: ^AffectPowerBuilding
 	Inherits@PRODUCTION: ^ProducesUnits
 	Inherits@SHAPE: ^4x3FactoryWithBibShape
 	Buildable:
@@ -795,7 +797,7 @@ GACNST:
 		DecorationHeight: 48
 
 ^Helipad:
-	Inherits: ^Building
+	Inherits: ^AffectPowerBuilding
 	Inherits@PRODUCTION: ^ProducesUnits
 	Inherits@SHAPE: ^2x2Shape
 	Exit@1:
@@ -852,7 +854,7 @@ GACNST:
 		Prerequisite: AIantiRush-building-order
 
 ^Radar:
-	Inherits: ^Building
+	Inherits: ^AffectPowerBuilding
 	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
 	Inherits@VISION: ^12CellVision
 	Buildable:
@@ -953,7 +955,7 @@ GACNST:
 		TrailCount: 3
 
 GADEPT:
-	Inherits: ^Building
+	Inherits: ^AffectPowerBuilding
 	Inherits@AUTOTARGET: ^AutoTargetHeal
 	Inherits@SHAPE: ^3x3Shape
 	Valued:
@@ -1113,7 +1115,7 @@ SCRDEPOT:
 	-WithDeathAnimation@BIB:
 
 ^TechCenter:
-	Inherits: ^Building
+	Inherits: ^AffectPowerBuilding
 	Buildable:
 		BuildDuration: 1500
 		BuildDurationModifier: 100
@@ -1387,7 +1389,7 @@ SCRWALL:
 		NodeTypes: wall, turret
 
 GASILO:
-	Inherits: ^Building
+	Inherits: ^AffectPowerBuilding
 	Inherits@SHAPE: ^2x2Shape
 	Buildable:
 		Queue: Defense.Shared, Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL

@@ -1794,17 +1794,19 @@
 		Sequence: infantry
 		Palette: player
 		IsPlayerPalette: true
-	ActorStatValues:
-		ArmorsToIgnore: Boss
-		UpgradePrerequisites: global-upgrades
 
-^Soldier:
-	Inherits@1: ^Infantry
 	GrantConditionOnPrerequisite@SUDDENDEATH:
 		Condition: suddendeath
 		Prerequisites: global-suddendeath
 	MustBeDestroyed:
 		RequiresCondition: !suddendeath
+	ActorStatValues:
+		ArmorsToIgnore: Boss
+		Stats: Armor, Sight, Speed
+		UpgradePrerequisites: global-upgrades
+
+^TakeCoverInfantry:
+	Inherits@1: ^Infantry
 	TakeCover:
 		RequiresCondition: !WebDisable
 		DamageModifiers:
@@ -1816,6 +1818,9 @@
 		DamageTriggers: TriggerProne
 		Duration: 50
 		SpeedModifier: 55
+
+^Soldier:
+	Inherits@1: ^TakeCoverInfantry
 	WithInfantryBody:
 		IdleSequences: idle1,idle2
 		DefaultAttackSequence: shoot
@@ -1823,15 +1828,24 @@
 		CrushedSequence: die-crushed
 		CrushedSequencePalette: player
 		CrushedPaletteIsPlayerPalette: true
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 
 ^Mutant:
+	Inherits: ^TakeCoverInfantry
+	Inherits@1: ^HealsOnTiberium
+	-DamagedByTerrain:
+	Mobile:
+		Locomotor: TibInmuneInfantry
+
+^MutantSoldier:
 	Inherits: ^Soldier
 	Inherits@1: ^HealsOnTiberium
 	-DamagedByTerrain:
 	Mobile:
 		Locomotor: TibInmuneInfantry
 
-^Beast:
+^TibBeast:
 	Inherits: ^Soldier
 	Inherits@1: ^HealsOnTiberium
 	SpawnActorOnDeath@conversion:
@@ -1928,7 +1942,7 @@
 			CabalDeathUpg: body1, body2
 		Delay: 10
 
-^Cyborg:
+^CyborgSoldier:
 	Inherits: ^Infantry
 	Inherits@1: ^EmpDisableMobile
 	Crushable:
@@ -1968,9 +1982,11 @@
 		Modifier: 50
 	SpawnActorOnDeath@conversion:
 		Actor: workermech
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 
 ^CabalSoldier:
-	Inherits: ^Infantry
+	Inherits: ^TakeCoverInfantry
 	Inherits@1: ^EmpDisableMobile
 	-DamagedByTerrain:
 	GrantConditionOnPrerequisite@SUDDENDEATH:
@@ -1985,17 +2001,6 @@
 		PauseOnCondition: empdisable || WebDisable
 	SpeedMultiplier@InstantStop:
 		RequiresCondition: empdisable || WebDisable
-	TakeCover:
-		RequiresCondition: !WebDisable
-		DamageModifiers:
-			Prone50Percent: 50
-			Prone60Percent: 60
-			Prone70Percent: 70
-			Prone100Percent: 100
-			Prone350Percent: 350
-		DamageTriggers: TriggerProne
-		Duration: 50
-		SpeedModifier: 55
 	WithInfantryBody:
 		IdleSequences: idle1,idle2
 		DefaultAttackSequence: shoot
@@ -2005,8 +2010,10 @@
 		CrushedPaletteIsPlayerPalette: true
 	SpawnActorOnDeath@conversion:
 		Actor: workermech
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 
-^CabalDroneInfantry:
+^DroneSoldier:
 	Inherits: ^Infantry
 	Inherits@1: ^EmpDisableMobile
 	-WithDeathAnimation@normal:
@@ -2029,6 +2036,8 @@
 		RequiresCondition: empdisable || WebDisable
 	SpawnActorOnDeath@conversion:
 		Actor: workermech
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 
 ^CivilianInfantry:
 	Inherits: ^Infantry
@@ -2049,7 +2058,8 @@
 	-SpawnActorOnDeath@tiberium1:
 	-SpawnActorOnDeath@tiberium2:
 	ActorStatValues:
-		Damage: 2
+		Damage: 5
+		Stats: Armor, Sight, Speed, Damage
 
 ^HologramKillTimer:
 	KillsSelf@TimedLife:
@@ -2127,7 +2137,7 @@
 	-WithDecoration@hospitalheal:
 	-ExternalCondition@hospitalheal:
 
-^Engineer:
+^Engineering:
 	Tooltip:
 		Name: Engineer
 	Passenger:
@@ -2160,21 +2170,6 @@
 	ProductionCostMultiplier@AI: ## AI cannot use it well
 		Multiplier: 30
 		Prerequisites: AIOnly
-	#Captures@InstantDrone:
-	#	CaptureTypes: Drone
-	#	PlayerExperience: 10
-	#	ConsumedByCapture: false
-	#	EnterCursor: powerdown
-	#	EnterBlockedCursor: powerdown-blocked
-	#	RequiresCondition: instantcapture
-	#Captures@HackTechDrone:
-	#	CaptureTypes: Drone
-	#	PlayerExperience: 10
-	#	CaptureDelay: 80
-	#	ConsumedByCapture: false
-	#	EnterCursor: powerdown
-	#	EnterBlockedCursor: powerdown-blocked
-	#	RequiresCondition: !instantcapture
 
 
 ^BasicVehicle:
@@ -2210,24 +2205,6 @@
 		Bounds: 1206,1809, 0, -240
 	SelectionDecorations:
 		MinimumZoom: 0
-	# GrantRandomCondition@tiberium:
-	#	Conditions: visc, zombie
-	# SpawnActorOnDeath@tiberium1:
-	#	RequiresCondition: zombie
-	#	Actor: berserker
-	#	Probability: 25
-	#	OwnerType: InternalName
-	#	InternalOwner: Creeps
-	#	DeathType: TiberiumDeath
-	#	RequiresLobbyCreeps: true
-	# SpawnActorOnDeath@tiberium2:
-	#	RequiresCondition: visc
-	#	Actor: visc_lrg
-	#	Probability: 25
-	#	OwnerType: InternalName
-	#	InternalOwner: Creeps
-	#	DeathType: TiberiumDeath
-	#	RequiresLobbyCreeps: true
 	SpawnActorOnDeath@ScrinEssence:
 		Actor: scrinessencesmall
 	Voiced:
@@ -2238,11 +2215,6 @@
 	Repairable:
 		RepairActors: gadept, scrdepot, tdrepd
 		Voice: Move
-	# CaptureManager:
-	#	BeingCapturedCondition: being-captured
-	# Capturable:
-	#	Types: Vehicle
-	#	CancelActivity: True
 	Carryable:
 	Passenger:
 		CargoType: Vehicle
@@ -2297,6 +2269,7 @@
 		IsPlayerPalette: true
 	ActorStatValues:
 		ArmorsToIgnore: Boss
+		Stats: Armor, Sight, Speed
 		UpgradePrerequisites: global-upgrades
 
 ^Vehicle:
@@ -2316,15 +2289,17 @@
 	SpawnSparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo && !in_tunnel
 
-^Tank:
+^CombatVehicle:
 	Inherits: ^Vehicle
 	Explodes:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode
 		RequiresCondition: !inside-tunnel
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 
-^TurretedTank:
-	Inherits: ^Tank
+^Tank:
+	Inherits: ^CombatVehicle
 	WithSpriteTurret:
 		RequiresCondition: !inside-tunnel
 	AttackTurreted:
@@ -2389,6 +2364,8 @@
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 
 ^SubterraneanVehicle:
 	Inherits: ^Vehicle
@@ -2439,10 +2416,7 @@
 	-SpawnActorOnDeath@nanomachinereanimate:
 
 ^Walker:
-	Inherits: ^Vehicle
-	Explodes:
-		Weapon: UnitExplode
-		EmptyWeapon: UnitExplode
+	Inherits: ^CombatVehicle
 	FloatingSpriteEmitter@spawnsmoke:
 		Offset: 0,0,400
 	HitShape:
@@ -2454,7 +2428,7 @@
 		DefaultAttackSequence: shoot
 		RequiresCondition: !inside-tunnel
 
-^ScrinVehicle:
+^ScrinVehicleOverride:
 	Inherits@0: ^ScrinReaper
 	Inherits@1: ^ScrinRender
 	Explodes:
@@ -2485,7 +2459,7 @@
 		CameraPitch: 85
 
 ^VoxelTank:
-	Inherits: ^Tank
+	Inherits: ^CombatVehicle
 	Mobile:
 		TerrainOrientationAdjustmentMargin: 256
 	RenderVoxels:
@@ -2541,6 +2515,8 @@
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
 	-Carryable:
 	-Passenger:
 	-SharedPassenger:
@@ -2622,6 +2598,7 @@
 		EmptyWeapon: SmalLAircraftShrapnel
 	ActorStatValues:
 		ArmorsToIgnore: Boss
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 		UpgradePrerequisites: global-upgrades
 
 ^AircraftShadow:
@@ -2703,6 +2680,8 @@
 	Explodes@VisceroidDefault:
 		Weapon: VisceroidExplode
 		EmptyWeapon: VisceroidExplode
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 
 ^BasicBuilding:
 	Inherits@1: ^ExistsInWorld
@@ -2789,6 +2768,7 @@
 		Weapons: LargeDebris
 	ActorStatValues:
 		ArmorsToIgnore: Boss
+		Stats: Armor, Sight
 		UpgradePrerequisites: global-upgrades
 
 ^Building:
@@ -2871,8 +2851,14 @@
 		Palette: mouse
 	#Huntable:
 
-^Defence:
+^AffectPowerBuilding:
 	Inherits: ^Building
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Power
+		UpgradePrerequisites: global-upgrades
+
+^Defence:
+	Inherits: ^AffectPowerBuilding
 	Inherits@1: ^DisableOnLowPowerOrPowerDown
 	Inherits@2: ^8CellVision
 	Inherits@3: ^WithTriggerCloakEffect-Defence
@@ -2901,6 +2887,8 @@
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
+	ActorStatValues:
+		Stats: Armor, Sight, Damage, ReloadDelay, MaxRange, Power
 
 ^TurretedDefence:
 	Inherits: ^Defence

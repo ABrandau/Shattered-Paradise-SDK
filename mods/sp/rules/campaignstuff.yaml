@@ -240,7 +240,7 @@ MUBUNKRFULL:
 ### Used in campaign. 
 #### AI can build some of them to make the game more challenging
 GHOST:
-	Inherits: ^Mutant
+	Inherits: ^MutantSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -320,7 +320,7 @@ GHOST:
 		Damage: 200
 
 UMAGON:
-	Inherits: ^Mutant
+	Inherits: ^MutantSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -387,7 +387,7 @@ UMAGON:
 		Damage: 150
 
 MUJEEP:
-	Inherits: ^Tank
+	Inherits: ^CombatVehicle
 	Inherits@RENDER: ^MutRenderGreen
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -479,6 +479,9 @@ MUJEEP:
 		RequiresSelection: true
 	ActorStatValues:
 		Damage: 35
+	ActorStatValues:
+		Damage: 40
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && loaded
 		DeployChance: 100
@@ -541,7 +544,7 @@ AVATAR:
 		Damage: 200
 
 WEASAU3:
-	Inherits: ^Beast
+	Inherits: ^TibBeast
 	Inherits@RENDER: ^MutRender
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
@@ -1096,7 +1099,7 @@ M_EMP:
 
 
 CABECM:
-	Inherits: ^Tank
+	Inherits: ^CombatVehicle
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Inherits@VISION: ^5CellVision
 	Inherits@RENDER: ^CabRender
@@ -1754,7 +1757,9 @@ COREDEFENDER:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
-		TooltipActor: defd
+		Armaments: ArmArmament, HeadArmament
+		SplitRanges: true
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		Damage: 1668
 
 DEFD:
@@ -1839,7 +1844,7 @@ DEFD:
 		Categories: Building
 
 HMECTEST:
-	Inherits: ^Tank
+	Inherits: ^CombatVehicle
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
 	Inherits@COMMANDO: ^BossIcon
@@ -2065,6 +2070,7 @@ HMECTEST:
 		Damage: 720
 		Armaments: primary, secondary
 		SplitRanges: true
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 	MustBeDestroyed:
 		RequiredForShortGame: true
 
@@ -2325,6 +2331,11 @@ SCRINCOUNCIL:
 		VoiceSet: Battlecruiser
 	MustBeDestroyed:
 		RequiredForShortGame: true
+	ActorStatValues:
+		Damage: 720
+		Armaments: primary, secondary
+		SplitRanges: true
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 
 COUNCILOR:
 	Inherits: ^CombatPlane

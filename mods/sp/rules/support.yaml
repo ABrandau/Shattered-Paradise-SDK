@@ -490,6 +490,8 @@ MUBUNKR:
 		DeployTrigger: Periodically
 		DeployTicks: 10
 		UndeployTicks: 10
+	ActorStatValues:
+		Stats: Armor, Sight, Cargo
 
 MUCANNON:
 	Inherits: ^TurretedDefence
@@ -538,6 +540,7 @@ MUCANNON:
 	-PowerMultiplier@POWERDOWN:
 	-Power:
 	ActorStatValues:
+		Stats: Armor, Sight, Damage, ReloadDelay, MaxRange
 		Damage: 70
 
 MUFLAK:
@@ -581,6 +584,7 @@ MUFLAK:
 	-PowerMultiplier@POWERDOWN:
 	-Power:
 	ActorStatValues:
+		Stats: Armor, Sight, Damage, ReloadDelay, MaxRange
 		Damage: 40
 
 CABPIT:
@@ -626,6 +630,7 @@ CABPIT:
 	-WithDecoration@POWERDOWN:
 	-PowerMultiplier@POWERDOWN:
 	ActorStatValues:
+		Stats: Armor, Sight, Carrier, Damage, ReloadDelay, MaxRange
 		Damage: 60
 
 CABBLAST:
@@ -856,7 +861,7 @@ SCRTRACTOR:
 		Damage: 40
 
 GAFIRE:
-	Inherits: ^Building
+	Inherits: ^AffectPowerBuilding
 	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
 	Inherits@SHAPE: ^3x2Shape
 	Inherits@FirestormWall: ^FirestormWallSP
@@ -941,7 +946,7 @@ GAFIRE:
 		Armaments: None
 
 GAPLUG:
-	Inherits: ^Building
+	Inherits: ^AffectPowerBuilding
 	Inherits@1: ^SuperWeapon
 	Inherits@2: ^HasSuperSupportPower
 	Inherits@SHAPE: ^2x3Shape
@@ -1036,7 +1041,7 @@ GAPLUG:
 		Delays: 30
 
 NASTLH:
-	Inherits: ^Building
+	Inherits: ^AffectPowerBuilding
 	Inherits@IMPSGEN: ^AffectedByImprovedStealthGenerator
 	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
 	Inherits@SHAPE: ^3x2Shape
@@ -1101,7 +1106,7 @@ NASTLH:
 	-GivesBuildableArea:
 
 NATMPL:
-	Inherits: ^Building
+	Inherits: ^AffectPowerBuilding
 	Inherits@1: ^SuperWeapon
 	Inherits@2: ^HasMisslePower
 	Inherits@SHAPE: ^3x3Shape
@@ -1370,7 +1375,7 @@ MUVENT:
 	-SpawnActorsOnSell@scr:
 
 MUTSW1:
-	Inherits: ^Building
+	Inherits: ^AffectPowerBuilding
 	Inherits@1: ^SuperWeapon
 	Inherits@2: ^HasSuperSupportPower
 	Inherits@RENDER: ^MutRenderBuilding
@@ -1442,7 +1447,7 @@ MUTSW1:
 		LocalOffset: 1800,-1000,1000
 
 SCREXTRACTOR:
-	Inherits: ^Building
+	Inherits: ^AffectPowerBuilding
 	Inherits@1: ^ScrinDeathExplo
 	Inherits@2: ^ScrinDefenceFire
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
@@ -1499,7 +1504,7 @@ SCREXTRACTOR:
 	-CapturableProgressBlink:
 
 SCRSW1:
-	Inherits: ^Building
+	Inherits: ^AffectPowerBuilding
 	Inherits@1: ^ScrinDeathExplo
 	Inherits@2: ^ScrinBuildingFire
 	Inherits@3: ^SuperWeapon
@@ -1567,7 +1572,7 @@ SCRSW1:
 		Delays: 9
 
 CABEYE:
-	Inherits: ^Building
+	Inherits: ^AffectPowerBuilding
 	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
 	Inherits@RENDER: ^CabRenderBuilding
 	Inherits@SHAPE: ^2x2Shape
@@ -1865,6 +1870,7 @@ BLACKDEFD:
 	-PowerMultiplier@POWERDOWN:
 	-MapEditorData:
 	ActorStatValues:
+		Stats: Armor, Sight, Damage, ReloadDelay, MaxRange
 		Damage: 450
 
 BLACKDEFD2:

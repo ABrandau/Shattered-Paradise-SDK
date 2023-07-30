@@ -322,6 +322,7 @@ APC:
 		RequiresSelection: true
 	ActorStatValues:
 		Damage: 40
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange, Cargo
 		SplitRanges: true
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && loaded
@@ -386,6 +387,7 @@ HVR:
 	Selectable:
 		Bounds: 1206,1750, 0, -600
 	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		Damage: 50
 		SplitRanges: true
 
@@ -443,7 +445,7 @@ JUG:
 		Damage: 120
 
 SONIC:
-	Inherits: ^TurretedTank
+	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
@@ -506,7 +508,7 @@ SONIC:
 		Damage: 200
 
 G4TNK:
-	Inherits: ^TurretedTank
+	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RAILGUNS: ^AffectedByRailguns
@@ -591,10 +593,11 @@ G4TNK:
 	Selectable:
 		Bounds: 1250, 1900, 0, -200
 	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		SplitRanges: true
 
 HMEC:
-	Inherits: ^Tank
+	Inherits: ^CombatVehicle
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@APAMMO: ^AffectedByAPAmmunition
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
@@ -755,6 +758,7 @@ HMEC:
 	ProvidesPrerequisite@ForceProductionUIWhenDeath:
 	ActorStatValues:
 		Armaments: primary, secondary
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		SplitRanges: true
 
 NODMCV:
@@ -779,7 +783,7 @@ NODMCV:
 		LocalOffset: 0,0,763
 
 BGGY:
-	Inherits: ^Tank
+	Inherits: ^CombatVehicle
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@BLUEFLAME: ^AffectedByPurifyingFlame
 	Inherits@DETECTION: ^BasicStealthDetection
@@ -1110,6 +1114,7 @@ BGGY:
 		Position: BottomLeft
 		RequiresSelection: true
 	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo
 		Upgrades: upgrade.raider_passenger
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && loaded && HeavyDamaged
@@ -1119,7 +1124,7 @@ BGGY:
 		UndeployTicks: 10
 
 ATTACKBIKE:
-	Inherits: ^Tank
+	Inherits: ^CombatVehicle
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@TIBCORE: ^AffectedByTibCoreMissiles
@@ -1177,9 +1182,6 @@ ATTACKBIKE:
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 		RequiresCondition: tibcore
-	#AttackFrontal:
-	#	PauseOnCondition: empdisable
-	#	FacingTolerance: 20
 	AttackFollowFrontal:
 		PauseOnCondition: empdisable
 		FacingTolerance: 64
@@ -1188,10 +1190,11 @@ ATTACKBIKE:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	ActorStatValues:
 		Damage: 50
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		SplitRanges: true
 
 TTNK:
-	Inherits: ^Tank
+	Inherits: ^CombatVehicle
 	Inherits@1: ^SpriteActor
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CAPACITORS: ^AffectedByLaserCapacitors
@@ -1341,7 +1344,7 @@ TTNK:
 		Damage: 50
 
 TICKHOLOGRAM:
-	Inherits: ^Tank
+	Inherits: ^CombatVehicle
 	Inherits@1: ^SpriteActor
 	Inherits@CAPACITORS: ^AffectedByLaserCapacitors
 	Inherits@HOLOGRAM: ^HologramKillTimer
@@ -1520,6 +1523,7 @@ BIKE:
 	ActorStatValues:
 		Damage: 900
 		Spread: 3c0
+		Stats: Armor, Sight, Speed, Damage
 		ExplosionWeapon: true
 
 SAPC:
@@ -1582,7 +1586,8 @@ SAPC:
 		DeployTicks: 200
 		UndeployTicks: 0
 	ActorStatValues:
-		Armaments: None
+		Stats: Armor, Sight, Speed, Cargo
+		Damage: 112
 	-RevealOnFire:
 
 SUBTANK:
@@ -1644,10 +1649,11 @@ SUBTANK:
 	WithDecoration@UNDERGROUND:
 		RequiresCondition: inside-tunnel || submerged
 	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 		Damage: 112
 
 HOWTLIZER:
-	Inherits: ^Tank
+	Inherits: ^CombatVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^5CellVision
@@ -1712,7 +1718,7 @@ HOWTLIZER:
 		Damage: 280
 
 STNK:
-	Inherits: ^TurretedTank
+	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@TIBCORE: ^AffectedByTibCoreMissiles
@@ -1799,10 +1805,11 @@ STNK:
 		Volume: 7
 	ActorStatValues:
 		Damage: 240
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		SplitRanges: true
 
 SCORPION:
-	Inherits: ^Tank
+	Inherits: ^CombatVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@BLUEFLAME: ^AffectedByPurifyingFlame
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
@@ -1991,7 +1998,7 @@ MUTMCV:
 		LocalOffset: 0,0,763
 
 MUTQUAD:
-	Inherits: ^TurretedTank
+	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DETECTION: ^BasicStealthDetection
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -2076,11 +2083,12 @@ MUTQUAD:
 		QuantizedFacings: 32
 		CameraPitch: 250
 	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		Damage: 80
 		SplitRanges: true
 
 LYNX:
-	Inherits: ^Tank
+	Inherits: ^CombatVehicle
 	Inherits@1: ^SpriteActor
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -2149,7 +2157,7 @@ LYNX:
 		RequiresCondition: lynx_rockets
 
 STRUCK:
-	Inherits: ^Tank
+	Inherits: ^CombatVehicle
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@PIPS: ^CargoPips
 	Inherits@RENDER: ^MutRenderGreen
@@ -2211,9 +2219,11 @@ STRUCK:
 		DeployTrigger: Periodically
 		DeployTicks: 10
 		UndeployTicks: 10
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Cargo
 
 MINELAYER:
-	Inherits: ^Vehicle
+	Inherits: ^CombatVehicle
 	Inherits@RENDER: ^MutRenderGreen
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Inherits@VISION: ^5CellVision
@@ -2283,9 +2293,11 @@ MINELAYER:
 		Bounds: 1206,1950, 0, -300
 	ProvidesPrerequisite@HasMinelayer: ##For AI Perf.
 		Prerequisite: HasMinelayer
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
 
 WOLF:
-	Inherits: ^Beast
+	Inherits: ^TibBeast
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Vehicle
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -2331,7 +2343,7 @@ WOLF:
 		Damage: 37
 
 MRLS:
-	Inherits: ^Tank
+	Inherits: ^CombatVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RENDER: ^MutRenderGreen
@@ -2394,7 +2406,7 @@ MRLS:
 		Damage: 240
 
 DEATHCLAW:
-	Inherits: ^Beast
+	Inherits: ^TibBeast
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Vehicle
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -2519,9 +2531,10 @@ HVRTRUK3:
 		Damage: 3240
 		Spread: 6c0
 		ExplosionWeapon: true
+		Stats: Armor, Sight, Speed, Damage
 
 WEASAU:
-	Inherits: ^Beast
+	Inherits: ^TibBeast
 	Inherits@RENDER: ^MutRender
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
@@ -2663,7 +2676,7 @@ WEASAU:
 		UndeployTicks: 1
 
 WEASAUSMALL:
-	Inherits: ^Beast
+	Inherits: ^TibBeast
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@MC: ^MindControllableMastermind
 	Inherits@RENDER: ^MutRender
@@ -2917,6 +2930,7 @@ REAPERCAB:
 	DeathSounds:
 	ActorStatValues:
 		Damage: 160
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		Armaments: primary
 		SplitRanges: true
 
@@ -3065,10 +3079,11 @@ LIMPED:
 		Offsets: 0,500,0
 		TrailWhileStationary: false
 	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		Damage: 150
 
 REPAIRVEHICLE:
-	Inherits: ^Tank
+	Inherits: ^CombatVehicle
 	Inherits@AUTOTARGET: ^AutoTargetHeal
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Inherits@VISION: ^5CellVision
@@ -3168,6 +3183,8 @@ CABAPC:
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Cargo
 
 SPIDERARTY:
 	Inherits: ^Walker
@@ -3425,7 +3442,7 @@ BCOREDEF:
 
 CORRUPTOR:
 	Inherits: ^Walker
-	Inherits@1: ^ScrinVehicle
+	Inherits@1: ^ScrinVehicleOverride
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DETECTION: ^BasicStealthDetection
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -3504,7 +3521,7 @@ CORRUPTOR:
 
 SCRMBT:
 	Inherits: ^HoverTank
-	Inherits@1: ^ScrinVehicle
+	Inherits@1: ^ScrinVehicleOverride
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@TIBCONVERSION: ^AffectedByTiberiumConversion
@@ -3575,7 +3592,7 @@ SCRMBT:
 
 SCRGLYDER2:
 	Inherits: ^HoverVehicle
-	Inherits@1: ^ScrinVehicle
+	Inherits@1: ^ScrinVehicleOverride
 	Inherits@AERIALGLIDERS: ^AffectedByAerialGliders
 	Inherits@AUTOTARGET: ^AutoTargetAir
 	Inherits@DETECTION: ^BasicStealthDetection
@@ -3659,7 +3676,7 @@ SCRGLYDER2:
 
 SCRSCORPION:
 	Inherits: ^Walker
-	Inherits@1: ^ScrinVehicle
+	Inherits@1: ^ScrinVehicleOverride
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@IMPPLAGUEGAS: ^AffectedByImprovedPlagueGas
@@ -3712,7 +3729,7 @@ SCRSCORPION:
 
 SCRRECHARGER:
 	Inherits: ^Walker
-	Inherits@1: ^ScrinVehicle
+	Inherits@1: ^ScrinVehicleOverride
 	Inherits@VISION: ^5CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
@@ -3783,7 +3800,7 @@ SCRRECHARGER:
 
 SCRMOBMINE:
 	Inherits@: ^HoverVehicle
-	Inherits@1: ^ScrinVehicle
+	Inherits@1: ^ScrinVehicleOverride
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@MC: ^MindControllableMastermind
 	Inherits@VISION: ^7CellVision
@@ -3858,10 +3875,12 @@ SCRMOBMINE:
 		StartDelay: -1
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, MindControl, ReloadDelay, MaxRange
 
 TRIPOD:
 	Inherits: ^Walker
-	Inherits@1: ^ScrinVehicle
+	Inherits@1: ^ScrinVehicleOverride
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^8CellVision

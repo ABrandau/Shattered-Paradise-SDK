@@ -150,6 +150,7 @@ GRENADIER:
 		RequiresCondition: nanofibers
 	ActorStatValues:
 		Damage: 30
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		SplitRanges: true
 
 MEDIC:
@@ -785,6 +786,7 @@ CRUSADER:
 	RenderSprites:
 	ActorStatValues:
 		Damage: 30
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		SplitRanges: true
 
 TEMPLAR:
@@ -1020,7 +1022,7 @@ FlameHologram:
 		Sight: 12c0
 
 MARAUDER:
-	Inherits: ^Mutant
+	Inherits: ^MutantSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RENDER: ^MutRender
@@ -1162,7 +1164,7 @@ MARAUDER:
 		Damage: 23
 
 MUTFIEND:
-	Inherits: ^Mutant
+	Inherits: ^MutantSoldier
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@BLUESHARDS: ^AffectedByBlueShards
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -1301,11 +1303,12 @@ MUTFIEND:
 		Types: doggie-blue
 	ActorStatValues:
 		Damage: 30
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		SplitRanges: true
 		Upgrades: upgrade.blue_shards, upgrade.tiberium_infusion
 
 CUTMAN:
-	Inherits: ^Mutant
+	Inherits: ^MutantSoldier
 	Inherits@1: ENGINEER
 	Tooltip:
 		Name: Mutant Engineer
@@ -1348,7 +1351,7 @@ CUTMAN:
 		CrushedPaletteIsPlayerPalette: true
 
 E3:
-	Inherits: ^Mutant
+	Inherits: ^MutantSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@TIBGASWH: ^AffectedByTiberiumGasWarheads
@@ -1407,7 +1410,7 @@ E3:
 		Damage: 40
 
 SEER:
-	Inherits: ^Mutant
+	Inherits: ^MutantSoldier
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^7CellVision
@@ -1485,10 +1488,11 @@ SEER:
 		CustomPipType: blue
 	ActorStatValues:
 		Damage: 70
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		SplitRanges: true
 
 PSYKER:
-	Inherits: ^Mutant
+	Inherits: ^MutantSoldier
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -1649,6 +1653,7 @@ LEGIO:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	ActorStatValues:
 		Damage: 30
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		SplitRanges: true
 
 SHAPESHIFTER:
@@ -1995,9 +2000,11 @@ MASTERMIND:
 		Actor: chusk
 	SpawnActorOnDeath@conversionUpg:
 		Actor: chusk
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, MindControl, ReloadDelay, MaxRange, MinRange
 
 CABSENTRY:
-	Inherits: ^CabalDroneInfantry
+	Inherits: ^DroneSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@RENDER: ^CabRender
 	Inherits@VISION: ^3CellVision
@@ -2087,7 +2094,7 @@ CABSENTRY:
 	-ExternalCondition@hospitalheal:
 
 CYBORG:
-	Inherits: ^Cyborg
+	Inherits: ^CyborgSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CYBORGLEGS: ^AffectedByCyberneticLegEnhancements
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -2161,7 +2168,7 @@ CYBORG15:
 		TooltipActor: cyborg
 
 CBORG:
-	Inherits: ^Cyborg
+	Inherits: ^CyborgSoldier
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@CYBORGLEGS: ^AffectedByCyberneticLegEnhancements
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -2218,6 +2225,7 @@ CBORG:
 		CustomPipType: blue
 	ActorStatValues:
 		Damage: 30
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		SplitRanges: true
 		Upgrades: upgrade.cybernetic_leg_enhancements, upgrade.regenerative_materials
 
@@ -2250,8 +2258,6 @@ SWARMLING:
 	SpeedMultiplier@InstantStop:
 		RequiresCondition: empdisable || WebDisable
 	-DamagedByTerrain:
-	WithInfantryBody:
-		-IdleSequences:
 	RenderSprites:
 		Image: swarmling
 		-FactionImages:
@@ -2268,7 +2274,7 @@ SWARMLING:
 	-WithDeathAnimation@blood1:
 
 PDRONE:
-	Inherits: ^CabalDroneInfantry
+	Inherits: ^DroneSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RECYCLE: ^AffectedByReclaimAndRecycle
@@ -2365,7 +2371,7 @@ PDRONE:
 		Upgrades: upgrade.reclaim_and_recycle, upgrade.regenerative_materials
 
 GLAD:
-	Inherits: ^Cyborg
+	Inherits: ^CyborgSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CYBORGLEGS: ^AffectedByCyberneticLegEnhancements
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -2446,7 +2452,7 @@ GLAD:
 		Upgrades: upgrade.cybernetic_leg_enhancements, upgrade.regenerative_materials
 
 MOTH:
-	Inherits: ^CabalDroneInfantry
+	Inherits: ^DroneSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
@@ -2580,7 +2586,7 @@ MOTH:
 		Damage: 110
 
 CYC2:
-	Inherits: ^Cyborg
+	Inherits: ^CyborgSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@CYBORGLEGS: ^AffectedByCyberneticLegEnhancements
@@ -2783,7 +2789,7 @@ CHUSK:
 		Damage: 16
 
 WORKERMECH:
-	Inherits: ^CabalDroneInfantry
+	Inherits: ^DroneSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
@@ -2836,7 +2842,7 @@ WORKERMECH:
 		Damage: 11
 
 NANOS:
-	Inherits: ^CabalDroneInfantry
+	Inherits: ^DroneSoldier
 	Valued:
 		Cost: 100
 	Tooltip:
