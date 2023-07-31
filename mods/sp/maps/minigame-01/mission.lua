@@ -254,7 +254,7 @@ EngineerSpawnDelay = 620
 SendEngineerLoop = function()
 	local engineer = Utils.Random(Reinforcements.Reinforce(Gdi_ai, {"engineer"}, {Utils.Random(NukeSpawnPoints), IonTurLocation}, 10, function(a)
 		if not IonTur.IsDead then
-			a.InstantlyRepairs(IonTur)
+			a.InstantlyRepair(IonTur)
 		end
 	end))
 

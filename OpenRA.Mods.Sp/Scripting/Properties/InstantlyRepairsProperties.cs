@@ -30,9 +30,8 @@ namespace OpenRA.Mods.SP.Scripting
 
 		[ScriptActorPropertyActivity]
 		[Desc("Repair the target actor instantly.")]
-		public void InstantlyRepairs(Actor target)
+		public void InstantlyRepair(Actor target)
 		{
-			// NB: Scripted actions get no visible targetlines.
 			var repair = instantlyRepairs.FirstEnabledConditionalTraitOrDefault();
 			if (repair != null)
 				Self.QueueActivity(new InstantRepair(Self, Target.FromActor(target), repair.Info));
