@@ -22,11 +22,6 @@ namespace OpenRA.Mods.Sp.Warheads
 		[Desc("Text notification to display when a target is infiltrated.")]
 		public readonly string TextNotification = null;
 
-		[Desc("Experience to grant to the infiltrating player.")]
-		public readonly int PlayerExperience = 0;
-
-		PlayerExperience playerExp;
-
 		public override void DoImpact(in Target target, WarheadArgs args)
 		{
 			var firedBy = args.SourceActor;
@@ -55,7 +50,6 @@ namespace OpenRA.Mods.Sp.Warheads
 					if (closestActiveShape == null)
 						return;
 
-					playerExp = firedBy.Owner.PlayerActor.TraitOrDefault<PlayerExperience>();
 					Infiltrate(victim, firedBy);
 				}
 
@@ -63,7 +57,6 @@ namespace OpenRA.Mods.Sp.Warheads
 			}
 
 			var pos = target.CenterPosition;
-			playerExp = firedBy.Owner.PlayerActor.TraitOrDefault<PlayerExperience>();
 			foreach (var victim in firedBy.World.FindActorsInCircle(pos, Spread))
 			{
 				if (!IsValidAgainst(victim, firedBy))
@@ -104,8 +97,6 @@ namespace OpenRA.Mods.Sp.Warheads
 
 			foreach (var t in victim.TraitsImplementing<INotifyInfiltrated>())
 				t.Infiltrated(victim, firedBy, Types);
-
-			playerExp?.GiveExperience(PlayerExperience);
 
 			if (!string.IsNullOrEmpty(Notification))
 				Game.Sound.PlayNotification(firedBy.World.Map.Rules, firedBy.Owner, "Speech",
