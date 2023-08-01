@@ -17,6 +17,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.SP.Scripting
 {
+	[Desc("Deprecated: drop this class after next engine rebase to OpenRA upstream!!!")]
 	[ScriptPropertyGroup("Ability")]
 	public class InstantlyRepairsProperties : ScriptActorProperties, Requires<IMoveInfo>, Requires<InstantlyRepairsInfo>
 	{
