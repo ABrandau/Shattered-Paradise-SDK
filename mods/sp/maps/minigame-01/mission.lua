@@ -16,7 +16,10 @@ GDIWays ={
 
 GDIForces = {"hvr", "hvr", "apc", "mmch", "mmch", "sonic", "sonic", "g4tnk", "g4tnk", "mcv" }
 
-NodWay = {Way2.Location, Way2_up_1.Location, Way2_up_2.Location, Way2_up_3.Location, Way2_up_2.Location, Way2_up_1.Location, Way2.Location, Reinforce_1.Location, Way2.Location, Way2_down_1.Location, Way2_down_2.Location, Way2_down_3.Location, Way2_down_4.Location, Way2_down_3.Location, Way2_down_2.Location, Way2_down_1.Location}
+NodWays = {
+	{Way2.Location, Way2_up_1.Location, Way2_up_2.Location, Way2_up_3.Location, Way2_up_2.Location, Way2_up_1.Location, Way2.Location, Reinforce_1.Location, Way2.Location, Way2_down_1.Location, Way2_down_2.Location, Way2_down_3.Location, Way2_down_4.Location, Way2_down_3.Location, Way2_down_2.Location, Way2_down_1.Location},
+	{Way2.Location, Way2_down_1.Location, Way2_down_2.Location, Way2_down_3.Location, Way2_down_4.Location, Way2_down_3.Location, Way2_down_2.Location, Way2_down_1.Location, Way2.Location, Way2_up_1.Location, Way2_up_2.Location, Way2_up_3.Location, Way2_up_2.Location, Way2_up_1.Location, Way2.Location, Reinforce_1.Location}
+}
 
 MissionText = function()
 	Objective1 = LocalPlayer.AddPrimaryObjective("Survive and protect MCV as many as you can!")
@@ -129,7 +132,7 @@ DifficultySetUp = function()
 			local stealthShip = nil
 			Trigger.AfterDelay(70, function()
 				stealthShip = Utils.Random(Reinforcements.Reinforce(Nod_ai, {"cerberus"}, {Reinforce_1.Location, Way1.Location, Way2.Location}, 1, function(a)
-					a.Patrol(NodWay)
+					a.Patrol(Utils.Random(NodWays))
 				end))
 			end)
 			Trigger.AfterDelay(130, function()
