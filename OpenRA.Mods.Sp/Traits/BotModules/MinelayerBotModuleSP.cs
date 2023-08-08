@@ -24,7 +24,7 @@ namespace OpenRA.Mods.Sp.Traits
 	[Desc("Manages AI minelayer unit related with Minelayer traits.",
 		"When enemy damage AI's actors, the location of conflict will be recorded,",
 		"If a location is confirmed as can lay mine, it will add/merge to favorite location")]
-	public sealed class MinelayerBotModuleInfo : ConditionalTraitInfo
+	public sealed class MinelayerBotModuleSPInfo : ConditionalTraitInfo
 	{
 		[Desc("Enemy target types to ignore when add the minefield location to conflict location.")]
 		public readonly BitSet<TargetableType> IgnoredEnemyTargetTypes = default;
@@ -74,10 +74,10 @@ namespace OpenRA.Mods.Sp.Traits
 		[Desc("How many time we give quick order, After initializing?")]
 		public readonly int QuickScanTickTimes = default;
 
-		public override object Create(ActorInitializer init) { return new MinelayerBotModule(init.Self, this); }
+		public override object Create(ActorInitializer init) { return new MinelayerBotModuleSP(init.Self, this); }
 	}
 
-	public sealed class MinelayerBotModule : ConditionalTrait<MinelayerBotModuleInfo>, IBotTick, IBotRespondToAttack
+	public sealed class MinelayerBotModuleSP : ConditionalTrait<MinelayerBotModuleSPInfo>, IBotTick, IBotRespondToAttack
 	{
 		const int MaxPositionCacheLength = 5;
 		const int RepeatedAltertTicks = 40;
@@ -104,7 +104,7 @@ namespace OpenRA.Mods.Sp.Traits
 
 		PathFinder pathFinder;
 
-		public MinelayerBotModule(Actor self, MinelayerBotModuleInfo info)
+		public MinelayerBotModuleSP(Actor self, MinelayerBotModuleSPInfo info)
 		: base(info)
 		{
 			world = self.World;
