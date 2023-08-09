@@ -21,9 +21,10 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Sp.Traits
 {
-	[Desc("Manages AI minelayer unit related with Minelayer traits.",
+	[Desc("Manages AI minelayer unit related with " + nameof(Minelayer) + " traits.",
 		"When enemy damage AI's actors, the location of conflict will be recorded,",
-		"If a location is confirmed as can lay mine, it will add/merge to favorite location")]
+		"If a location is a valid spot, it will add/merge to favorite location for usage later.",
+		"I add stuck check function and initializing ability in this MinelayerBotModuleSP.")]
 	public sealed class MinelayerBotModuleSPInfo : ConditionalTraitInfo
 	{
 		[Desc("Enemy target types to ignore when add the minefield location to conflict location.")]
@@ -32,16 +33,17 @@ namespace OpenRA.Mods.Sp.Traits
 		[Desc("Victim target types that considering conflict location as enemy location instead of victim location.")]
 		public readonly BitSet<TargetableType> UseEnemyLocationTargetTypes = default;
 
-		[Desc("Actor types that used for mine laying, must have Minelayer.")]
-		public readonly HashSet<string> Minelayers = default;
+		[ActorReference(typeof(MinelayerInfo))]
+		[Desc("Actors with " + nameof(Minelayer) + "trait.")]
+		public readonly HashSet<string> MinelayingActorTypes = default;
 
 		[Desc("Find this amount of suitable actors and lay mine to a location.")]
-		public readonly int MaxMinelayersPerAssign = 1;
+		public readonly int MaxPerAssign = 1;
 
 		[Desc("Scan suitable actors and target in this interval.")]
-		public readonly int ScanTick = 331;
+		public readonly int ScanTick = 320;
 
-		[Desc("Minelayer radius.")]
+		[Desc("Radius per mine laying order.")]
 		public readonly int MineFieldRadius = 1;
 
 		[Desc("Minefield location is cancelled if those whose target type belong to allied nearby.")]
@@ -192,7 +194,7 @@ namespace OpenRA.Mods.Sp.Traits
 					// we will try find a location that at the middle of pathfinding cells
 					if (favoritePositionsLength == 0)
 					{
-						minelayers = world.ActorsHavingTrait<Minelayer>().Where(a => !unitCannotBeOrderedOrIsBusy(a) && Info.Minelayers.Contains(a.Info.Name)).ToArray();
+						minelayers = world.ActorsHavingTrait<Minelayer>().Where(a => !unitCannotBeOrderedOrIsBusy(a) && Info.MinelayingActorTypes.Contains(a.Info.Name)).ToArray();
 						if (minelayers.Length == 0)
 							return;
 
@@ -207,7 +209,7 @@ namespace OpenRA.Mods.Sp.Traits
 							var cells = pathFinder.FindPathToTargetCell(m, new[] { m.Location }, enemy.Location, BlockedByActor.Immovable, laneBias: false);
 							if (cells != null && !(cells.Count == 0))
 							{
-								AIUtils.BotDebug("AI ({0}): try find a location to lay mine.", player.ClientIndex);
+								AIUtils.BotDebug($"{player}: try find a location to lay mine.");
 								EnqueueConflictPosition(cells[cells.Count / 2]);
 
 								// We don't do other things in this tick, just find new location and abort
@@ -240,7 +242,7 @@ namespace OpenRA.Mods.Sp.Traits
 				}
 
 				if (minelayers == null)
-					minelayers = world.ActorsHavingTrait<Minelayer>().Where(a => !unitCannotBeOrderedOrIsBusy(a) && Info.Minelayers.Contains(a.Info.Name)).ToArray();
+					minelayers = world.ActorsHavingTrait<Minelayer>().Where(a => !unitCannotBeOrderedOrIsBusy(a) && Info.MinelayingActorTypes.Contains(a.Info.Name)).ToArray();
 
 				if (minelayers.Length == 0)
 					return;
@@ -263,7 +265,7 @@ namespace OpenRA.Mods.Sp.Traits
 							layMineOnHalfway = false;
 						}
 
-						if (orderedActors.Count >= Info.MaxMinelayersPerAssign)
+						if (orderedActors.Count >= Info.MaxPerAssign)
 							break;
 					}
 				}
@@ -272,14 +274,14 @@ namespace OpenRA.Mods.Sp.Traits
 				{
 					if (useFavoritePosition)
 					{
-						AIUtils.BotDebug("AI ({0}): Use favorite position {1} at index {2}", player.ClientIndex, minelayingPosition, currentFavoritePositionIndex);
+						AIUtils.BotDebug($"{player}: Use favorite position {minelayingPosition} at index {currentFavoritePositionIndex}");
 						NextFavoritePositionIndex();
 					}
 					else
 					{
 						DequeueFirstConflictPosition();
 						AddPositionToFavoritePositions(minelayingPosition);
-						AIUtils.BotDebug("AI ({0}): Use in time conflict position {1}", player.ClientIndex, minelayingPosition);
+						AIUtils.BotDebug($"{player}: Use in time conflict position {minelayingPosition}");
 					}
 
 					var vec = new CVec(Info.MineFieldRadius, Info.MineFieldRadius);
@@ -347,12 +349,12 @@ namespace OpenRA.Mods.Sp.Traits
 			currentFavoritePositionIndex = (currentFavoritePositionIndex + 1) % favoritePositionsLength;
 		}
 
-		bool IsPreferredEnemyUnit(Actor a)
+		bool IsPreferredEnemyUnit(Actor actor)
 		{
-			if (a == null || a.IsDead || player.RelationshipWith(a.Owner) != PlayerRelationship.Enemy || a.Info.HasTraitInfo<HuskInfo>())
+			if (actor == null || actor.IsDead || player.RelationshipWith(actor.Owner) != PlayerRelationship.Enemy || actor.Info.HasTraitInfo<HuskInfo>())
 				return false;
 
-			var targetTypes = a.GetEnabledTargetTypes();
+			var targetTypes = actor.GetEnabledTargetTypes();
 			return !targetTypes.IsEmpty && !targetTypes.Overlaps(Info.IgnoredEnemyTargetTypes);
 		}
 
