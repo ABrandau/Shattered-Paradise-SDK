@@ -470,13 +470,15 @@ GACNST:
 		DecorationHeight: 36
 	AddCashCheater@AI:
 		CashCheatType: BaseBuilder
-	### AI Control
+	### AI Control: AI unpack captured MCV
+	GrantConditionOnCapture@AI:
+		Condition: captured
 	AutoDeployer@AI:
-		RequiresCondition: AIbuildingMicroControl
+		RequiresCondition: AIbuildingMicroControl && captured
 		DeployTrigger: Periodically
-		DeployTicks: 500000
+		DeployTicks: 100
 		DeployChance: 100
-		UndeployTicks: 2000
+		UndeployTicks: 100
 
 ^Powerplant:
 	Inherits: ^AffectPowerBuilding
