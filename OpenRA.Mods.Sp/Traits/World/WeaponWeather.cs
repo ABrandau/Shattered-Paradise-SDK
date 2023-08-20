@@ -16,6 +16,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.SP.Traits
 {
+	[TraitLocation(SystemActors.World)]
 	[Desc("Create a map-wide weather based on weapons.")]
 	class WeaponWeatherInfo : ConditionalTraitInfo, IRulesetLoaded
 	{

@@ -21,6 +21,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Sp.Traits
 {
+	[TraitLocation(SystemActors.Player)]
 	[Desc("Manages AI minelayer unit related with " + nameof(Minelayer) + " traits.",
 		"When enemy damage AI's actors, the location of conflict will be recorded,",
 		"If a location is a valid spot, it will add/merge to favorite location for usage later.",

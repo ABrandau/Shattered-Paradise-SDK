@@ -17,6 +17,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.SP.Traits
 {
+	[TraitLocation(SystemActors.Player)]
 	[Desc("Change the health of SharedPassenger actors when they are in typical SharedCargo.")]
 	public sealed class ChangeSharedPassengerHealthInfo : PausableConditionalTraitInfo, Requires<SharedCargoManagerInfo>
 	{
