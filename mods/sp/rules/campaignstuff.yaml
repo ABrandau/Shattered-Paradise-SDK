@@ -34,8 +34,7 @@ COLOSSI_CHRONO:
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && !deployed
 		DeployChance: 100
-		DeployTicks: 5
-		UndeployTicks: 50
+		DeployTicks: 55
 		DeployTrigger: Attack
 	RenderSprites:
 		Image: colossi
@@ -174,8 +173,7 @@ NUKECARRYALL_BOT:
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && loaded
 		DeployChance: 100
-		DeployTicks: 20
-		UndeployTicks: 20
+		DeployTicks: 40
 	-RevealOnFire:
 
 SONICARRYALL_BOT:
@@ -195,8 +193,7 @@ SONICARRYALL_BOT:
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && loaded
 		DeployChance: 100
-		DeployTicks: 20
-		UndeployTicks: 20
+		DeployTicks: 40
 	-RevealOnFire:
 
 APCARRYALL_BOT:
@@ -216,8 +213,7 @@ APCARRYALL_BOT:
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && loaded
 		DeployChance: 100
-		DeployTicks: 20
-		UndeployTicks: 20
+		DeployTicks: 40
 	-RevealOnFire:
 
 MUBUNKRFULL:
@@ -485,15 +481,9 @@ MUJEEP:
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && loaded
 		DeployChance: 100
-		DeployTicks: 40
-		UndeployTicks: 5
-
-	FreePassenger@Nod2:
-		Actor: altnode1
-		RequiresCondition: raidere1
-	FreePassenger@Nod3:
-		Actor: crusader
-		RequiresCondition: raidere1
+		DeployTicks: 45
+	FreePassenger: # AffectedByRaiderPassenger
+		Actors: altnode1, altnode1, crusader
 
 AVATAR:
 	Inherits: ^Walker
@@ -652,8 +642,7 @@ WEASAU3:
 		RequiresCondition: AImicroManage
 		DeployTrigger: Attack
 		DeployChance: 20
-		DeployTicks: 1005
-		UndeployTicks: 1
+		DeployTicks: 1006
 
 LPST:
 	Inherits: ^Vehicle
@@ -728,8 +717,7 @@ LPST:
 		RequiresCondition: AImicroManage && undeployed
 		DeployChance: 100
 		DeployTrigger: BecomingIdle
-		DeployTicks: 100
-		UndeployTicks: 5
+		DeployTicks: 105
 	Wanders@AI:
 		RequiresCondition: AImicroManage && undeployed
 		WanderMoveRadius: 1
@@ -818,8 +806,7 @@ SGEN:
 		RequiresCondition: AImicroManage && undeployed
 		DeployChance: 100
 		DeployTrigger: BecomingIdle
-		DeployTicks: 100
-		UndeployTicks: 5
+		DeployTicks: 105
 	Wanders@AI:
 		RequiresCondition: AImicroManage && undeployed
 		WanderMoveRadius: 1
@@ -925,8 +912,7 @@ ICBM:
 		RequiresCondition: AImicroManage && undeployed
 		DeployChance: 100
 		DeployTrigger: BecomingIdle
-		DeployTicks: 100
-		UndeployTicks: 5
+		DeployTicks: 105
 	Wanders@AI:
 		RequiresCondition: AImicroManage && undeployed
 		WanderMoveRadius: 1
@@ -1030,8 +1016,7 @@ MTAR:
 	AutoDeployer@AI:
 		RequiresCondition: AIbuildingMicroControl
 		DeployTrigger: Periodically
-		DeployTicks: 3000
-		UndeployTicks: 2000
+		DeployTicks: 5000
 
 M_EMP:
 	Inherits: ^Vehicle
@@ -1091,8 +1076,7 @@ M_EMP:
 		RequiresCondition: AImicroManage
 		DeployTrigger: Attack
 		DeployChance: 100
-		DeployTicks: 1605
-		UndeployTicks: 1
+		DeployTicks: 1606
 	-ExternalCondition@empdisable:
 	-TimedConditionBar@EMPDISABLE:
 	-WithIdleOverlay@EMPDISABLE:
@@ -1752,8 +1736,7 @@ COREDEFENDER:
 		RequiresCondition: AImicroManage
 		DeployTrigger: Damage
 		DeployChance: 100
-		DeployTicks: 1810
-		UndeployTicks: 1
+		DeployTicks: 1811
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
@@ -1818,8 +1801,7 @@ DEFD:
 		RequiresCondition: Rising && AIbuildingMicroControl
 		DeployChance: 100
 		DeployTrigger: Periodically
-		DeployTicks: 20
-		UndeployTicks: 20
+		DeployTicks: 40
 	Tooltip:
 		Name: Core Defender
 	RevealsShroud@revealitself:

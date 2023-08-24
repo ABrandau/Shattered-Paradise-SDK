@@ -327,8 +327,7 @@ APC:
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && loaded
 		DeployChance: 100
-		DeployTicks: 40
-		UndeployTicks: 5
+		DeployTicks: 45
 
 HVR:
 	Inherits: ^HoverTank
@@ -1115,8 +1114,7 @@ BGGY:
 		RequiresCondition: AImicroManage && loaded && HeavyDamaged
 		DeployChance: 100
 		DeployTrigger: Periodically
-		DeployTicks: 10
-		UndeployTicks: 10
+		DeployTicks: 20
 
 ATTACKBIKE:
 	Inherits: ^CombatVehicle
@@ -1333,8 +1331,7 @@ TTNK:
 		RequiresCondition: AImicroManage && undeployed
 		DeployChance: 100
 		DeployTrigger: Attack
-		DeployTicks: 5
-		UndeployTicks: 50
+		DeployTicks: 35
 	ActorStatValues:
 		Damage: 50
 
@@ -1582,7 +1579,6 @@ SAPC:
 		RequiresCondition: AImicroManage && loaded
 		DeployChance: 100
 		DeployTicks: 200
-		UndeployTicks: 0
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Cargo
 		Damage: 112
@@ -1934,8 +1930,7 @@ SCORPION:
 		RequiresCondition: AImicroManage
 		DeployTrigger: Attack
 		DeployChance: 100
-		DeployTicks: 2255
-		UndeployTicks: 1
+		DeployTicks: 2256
 	SpawnSparks@Deployed:
 		SparkWeapon: RageEmitter
 		Amount: 1
@@ -2215,8 +2210,7 @@ STRUCK:
 		RequiresCondition: AImicroManage && loaded && HeavyDamaged
 		DeployChance: 100
 		DeployTrigger: Periodically
-		DeployTicks: 10
-		UndeployTicks: 10
+		DeployTicks: 20
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Cargo
 
@@ -2665,8 +2659,7 @@ WEASAU:
 		RequiresCondition: AImicroManage
 		DeployTrigger: Attack
 		DeployChance: 100
-		DeployTicks: 1005
-		UndeployTicks: 1
+		DeployTicks: 1006
 
 WEASAUSMALL:
 	Inherits: ^TibBeast
@@ -3059,8 +3052,7 @@ LIMPED:
 		RequiresCondition: AImicroManage && !deployed
 		DeployTrigger: Attack
 		DeployChance: 100
-		DeployTicks: 5
-		UndeployTicks: 50
+		DeployTicks: 55
 	-LeavesTrails@land:
 	LeavesTrails@water:
 		Image: wake
@@ -3414,8 +3406,7 @@ BCOREDEF:
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage
 		DeployTrigger: Periodically
-		DeployTicks: 1005
-		UndeployTicks: 30
+		DeployTicks: 1035
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome

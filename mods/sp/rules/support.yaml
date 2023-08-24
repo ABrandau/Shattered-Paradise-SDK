@@ -488,8 +488,7 @@ MUBUNKR:
 		RequiresCondition: AImicroManage && loaded && HeavyDamaged
 		DeployChance: 100
 		DeployTrigger: Periodically
-		DeployTicks: 10
-		UndeployTicks: 10
+		DeployTicks: 20
 	ActorStatValues:
 		Stats: Armor, Sight, Cargo
 
@@ -938,7 +937,6 @@ GAFIRE:
 		RequiresCondition: AIbuildingMicroControl && !Building-Buildup && !empdisable && !disabled
 		DeployChance: 100
 		DeployTicks: 200
-		UndeployTicks: 0
 	-RevealOnFire:
 	-MustBeDestroyed:
 	-GivesBuildableArea:
@@ -1254,8 +1252,7 @@ MUVENTI:
 		RequiresCondition: AIbuildingMicroControl
 		DeployTrigger: Attack
 		DeployChance: 100
-		DeployTicks: 30
-		UndeployTicks: 5
+		DeployTicks: 35
 	-RevealOnFire:
 	-GrantConditionOnPrerequisite@SUDDENDEATH:
 	-MustBeDestroyed:
@@ -1859,8 +1856,7 @@ BLACKDEFD:
 	AutoDeployer@AI:
 		RequiresCondition: AIbuildingMicroControl
 		DeployTrigger: Periodically
-		DeployTicks: 1005
-		UndeployTicks: 30
+		DeployTicks: 1035
 	-Targetable@MC:
 	-WithColoredOverlay@IDISABLE:
 	-GrantConditionOnPowerState@LOWPOWER:
