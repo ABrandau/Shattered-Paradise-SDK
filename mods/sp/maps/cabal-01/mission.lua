@@ -8,12 +8,12 @@
 ]]
 
 Objectives = function()
-	SecondaryObjectiveCaptureMCV = LocalPlayer.AddSecondaryObjective("Recapture our lost M.C.V.")
-	SecondaryObjectiveHackAllArray = LocalPlayer.AddSecondaryObjective("Hack all the Civilian Array")
-	ObjectiveHackOneArray = LocalPlayer.AddPrimaryObjective("Hack One Civilian Array.")
-	ObjectiveFindAlien = LocalPlayer.AddPrimaryObjective("Identify the source of the unknown signal.")
-	ObjectiveCaptureAlien = LocalPlayer.AddPrimaryObjective("Captrue the source of the unknown signal.")
-	ObjectiveProtectHacker = LocalPlayer.AddPrimaryObjective("Hacker Drone must survive.")
+	SecondaryObjectiveCaptureMCV = AddSecondaryObjective(LocalPlayer, "objective-mcv")
+	SecondaryObjectiveHackAllArray = AddSecondaryObjective(LocalPlayer, "objective-hack-array")
+	ObjectiveHackOneArray = AddPrimaryObjective(LocalPlayer, "objective-hack-one-array")
+	ObjectiveFindAlien = AddPrimaryObjective(LocalPlayer, "objective-find-alien")
+	ObjectiveCaptureAlien = AddPrimaryObjective(LocalPlayer, "objective-capture-alien")
+	ObjectiveProtectHacker = AddPrimaryObjective(LocalPlayer, "objective-hacker-survive")
 end
 
 -- ####### Mission Map Set up
@@ -101,10 +101,10 @@ end
 
 -- ####### information
 IntroductionInfo = function()
-	CurrentMissionText = "Use the Hacker Drone to hack the Civilian Array."
-	Notification("A cyborg squad and a Hacker Drone will aid you in this mission. We have to use a small squad to hide our purpose at the beginning.")
+	CurrentMissionText = UserInterface.Translate("mission-lua-begin")
+	Notification("cabal-lua-intro-1")
 	Trigger.AfterDelay(DateTime.Seconds(7), function()
-			Notification("Use our Hacker Drone to hack this Civilian Array for local intelligence. \nHacker Drone is the key to this mission, protect it.")
+			Notification("cabal-lua-intro-2")
 			if not CabHacker.IsDead then
 				CabHacker.Flash(HSLColor.FromHex("FFFFFF"), 20, DateTime.Seconds(1) / 4)
 			end
@@ -113,139 +113,139 @@ IntroductionInfo = function()
 			end
 	end)
 	Trigger.AfterDelay(DateTime.Seconds(14), function()
-			Tip("How to use Hacker Drone:\n1.Target hackable (such as Civilian Array) to send its Quadrotor to hack (Range: 20 cells).\n2.Target capturable building to capture the building by itself.\n3.Force fire at location to send its Quadrotor to recon (Range: 20 cells). Can detect cloaked")
+			Tip("tip-lua-usage-hacker")
 	end)
 end
 
 MCVFoundMessage = function()
-	Notification("M.C.V. located, we find our Defender mech and a Nod's mech prototype. We can restart our Defender mech once the M.C.V. is captured.")
+	Notification("cabal-lua-mcv-located")
 	CabConyard.Flash(HSLColor.FromHex("FFFFFF"), 20, DateTime.Seconds(1) / 4)
 
 	-- Warning before Nod AI triggered
 	if not AwaredByNod then
 		Trigger.AfterDelay(DateTime.Seconds(7), function()
-			Warning("Successfully capture the MCV will start the direct conflict between Nod! Be prepared!")
+			Warning("warning-lua-mcv-located")
 		end)
 		Trigger.AfterDelay(DateTime.Seconds(14), function()
-			Tip("Explore the map more before recapture the MCV. You may need more resources from civilian, or find a place to relocate this MCV.")
+			Tip("tip-lua-mcv-located")
 		end)
 	end
 end
 
 MCVThreatMessage = function()
-	Notification("Nod has noticed our attempt and tries to restart the MCV!")
+	Notification("warning-lua-mcv-being-captured")
 end
 
 MCVSuccessMessage = function()
 	if LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) and not Mech2.IsDead then
-		Notification("Thanks to your efforts on hacking arrays, Nod's mech prototype is now our toy.")
+		Notification("cabal-lua-mcv-captured-success-2")
 	elseif not Mech1.IsDead then
-		Notification("Our Defender mech is online. Beware, it cannot be rebuilt in this mission, use it wisely.")
+		Notification("cabal-lua-mcv-captured-success-1")
 	end
 
 	if Difficulty == "normal" then
 		Trigger.AfterDelay(DateTime.Seconds(21), function()
-			Notification("Our heavy support is on the way.")
+			Notification("cabal-lua-mcv-captured-success-reinforce-1")
 		end)
 	elseif Difficulty == "hard" then
 		Trigger.AfterDelay(DateTime.Seconds(21), function()
-			Notification("Our heavy cyborgs are on the way.")
+			Notification("cabal-lua-mcv-captured-success-reinforce-2")
 		end)
 	end
 end
 
 NodWarnedOnMCVMessage = function()
 	Trigger.AfterDelay(DateTime.Seconds(11), function()
-			Warning("Nod has been awared of the activation of our MCV and our hacking to Civilian Arrays, in the intercepted message.")
+			Warning("warning-lua-mcv-captured-success-1")
 	end)
 	Trigger.AfterDelay(DateTime.Seconds(18), function()
-			Warning("Be prepared for a face to face combat. \nNod plans to destroy all Civilian Arrays to prevent further cyber attack.")
+			Warning("warning-lua-mcv-captured-success-2")
 	end)
 end
 
 MCVFailedMessage = function()
-	Notification("The M.C.V. is lost again, but it is not over.")
+	Notification("cabal-lua-mcv-captured-failed-1")
 
 	if not (LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveHackAllArray) or AwaredByNod) then
 		Trigger.AfterDelay(DateTime.Seconds(15), function()
-				Notification("Nod believes our failure is inevitable and no longer pay attention to us, in the intercepted message.")
+				Notification("cabal-lua-mcv-captured-failed-2")
 		end)
 		Trigger.AfterDelay(DateTime.Seconds(22), function()
-				Notification("It is an oppotunity, let us hack remaining Civilian Arrays and try a cyber attack to cripple their main base.")
+				Notification("cabal-lua-mcv-captured-failed-3")
 		end)
 	end
 end
 
 
 NodAlertedMessage = function()
-	Warning("Nod has been awared of our attack on their main base, be prepared for a face to face combat.")
+	Warning("warning-lua-nod-aware-attack")
 end
 
 
 HackOneArrayMessage = function()
-	Notification("We can now intercept some of their communication and 3 other Civilian Arrays can be located.")
+	Notification("cabal-lua-hack-one-array-1")
 	Trigger.AfterDelay(DateTime.Seconds(7), function()
-		Notification("It is confirmed that the unknow signal is from an alien origin. Use our cyborg squad to find it.")
+		Notification("cabal-lua-hack-one-array-2")
 	end)
 	Trigger.AfterDelay(DateTime.Seconds(14), function()
-		Notification("There are two enemies: Nod and their local Armed Civilians. \nThe Armed Civilians has a rather old armory, should be easier to deal with.")
+		Notification("cabal-lua-hack-one-array-3")
 	end)
 
-	CurrentMissionText = "An artifact of alien origin has been detected nearby, explore the area."
+	CurrentMissionText = UserInterface.Translate("mission-lua-locate-alien")
 end
 
 HackTwoArrayMessage = function()
-	Notification("Hacker Drone can now disable the control system of enemy defence and vehicle by hacking.")
+	Notification("cabal-lua-hack-two-array")
 	Trigger.AfterDelay(DateTime.Seconds(7), function()
-		Tip("Hacker Drone can now use its Quadrotor to disable enemy's defence and vehicle!")
+		Tip("tip-lua-hack-two-array")
 	end)
 end
 
 HackThreeArrayMessage = function()
-	Notification("With more accessibility, we get some information of Nod's research of our MCV. Nod steals our technology for their 'Avatar' project.")
+	Notification("cabal-lua-hack-three-array-1")
 	Trigger.AfterDelay(DateTime.Seconds(7), function()
-		Notification("We have revealed all the 'Avatar' project related by hacking. We will launch a cyber attack when the final Civilian Array is hacked")
+		Notification("cabal-lua-hack-three-array-2")
 	end)
 
 	-- Warning before Nod AI triggered
 	if not AwaredByNod then
 		Trigger.AfterDelay(DateTime.Seconds(14), function()
-			Warning("Successfully hack into the final Civilian Array will start the direct conflict between Nod! Be prepared!")
+			Warning("warning-lua-hack-three-array")
 		end)
 	end
 end
 
 HackFourArrayMessage = function()
-	Notification("Our cyber attack will \n1.Make 'Avatar' project lose control. \n2.Sabotage Nod's power system for a short period.")
+	Notification("cabal-lua-hack-four-array-1")
 	Trigger.AfterDelay(DateTime.Seconds(7), function()
-		Notification("Take the chance to destroy Nod's base and find that alien obejct.")
+		Notification("cabal-lua-hack-four-array-2")
 	end)
 end
 
 NodWarnedOnFourHackedMessage = function()
 	Trigger.AfterDelay(DateTime.Seconds(14), function()
-		Warning("Nod has been awared of our hacking and consider us a major threat, in the intercepted message.")
+		Warning("warning-lua-hack-four-array-1")
 	end)
 	Trigger.AfterDelay(DateTime.Seconds(21), function()
-		Warning("Be prepared for a face to face combat. \nNod are likely to restart our lost MCV to against us.")
+		Warning("warning-lua-hack-four-array-2")
 	end)
 end
 
 ReplicatorFoundMessage = function()
-	Notification("It seems this alien structure is the source of the unkown signals, capture it.")
-	CurrentMissionText = "Capture the alien artifact."
+	Notification("cabal-lua-find-alien")
+	CurrentMissionText = UserInterface.Translate("mission-lua-capture-alien")
 	LocalPlayer.MarkCompletedObjective(ObjectiveFindAlien)
 end
 
 MissionCompleteMessage = function()
-	CurrentMissionText = "Mission Complete."
+	CurrentMissionText = UserInterface.Translate("mission-lua-complete")
 	LocalPlayer.MarkCompletedObjective(ObjectiveCaptureAlien)
 end
 
 MercenaryFoundMessage = function()
-	Notification("Interesting, we also intercepted an advertisement from a Mutant Mercenaries. ")
+	Notification("cabal-lua-find-mercenary-1")
 	Trigger.AfterDelay(DateTime.Seconds(7), function()
-		Notification("Their position is located, they can be useful to us.")
+		Notification("cabal-lua-find-mercenary-2")
 	end)
 end
 
@@ -254,69 +254,66 @@ MeetMercenaryMessage = function()
 		return
 	end
 
-	ShopSays("Warlord","Well well well, bros and gals, look what do we have here! I never expect those cyborgs can walk this far.")
+	ShopSays("warlord-lua-name","warlord-lua-intro-1")
 	Trigger.AfterDelay(DateTime.Seconds(7), function()
 		if IsShopAngry then
 			return
 		end
 		if LocalPlayer.IsObjectiveFailed(SecondaryObjectiveCaptureMCV) then
-			ShopSays("Soldier","Yeah, I just saw those idiots \"PERFECTLY\" executed their own MCV, plz allow me LMAO for a second.")
+			ShopSays("soldier-lua-name","soldier-lua-intro-1")
 		elseif MCVlostAgain then
-			ShopSays("Soldier","Yeah, I just saw Brotherhood Of Nerds got that MCV again, the timming was perfect LOL.")
+			ShopSays("soldier-lua-name","soldier-lua-intro-2")
 		elseif  not LocalPlayer.IsObjectiveCompleted(SecondaryObjectiveCaptureMCV) then
-			ShopSays("Soldier","Feh, glad that they cannot do s**t here. Brotherhood Of Nerds still has their MCV.")
+			ShopSays("soldier-lua-name","soldier-lua-intro-3")
 		else
-			ShopSays("Soldier","(thumbs safety catch) Feh, I guess they can walk no further if their legs are broken.")
+			ShopSays("soldier-lua-name","soldier-lua-intro-4")
 		end
 	end)
 	Trigger.AfterDelay(DateTime.Seconds(14), function()
 		if IsShopAngry then
 			return
 		end
-		ShopSays("Warlord", "Cool it, boys. Anyway, cyborgs, we are businessmen, and I am sure CABAL taught you how to deal.")
+		ShopSays("warlord-lua-name", "warlord-lua-intro-2")
 	end)
 	Trigger.AfterDelay(DateTime.Seconds(21), function()
 		if IsShopAngry then
 			return
 		end
-		ShopSays("Warlord", "If you want, we can help you, for a price, in FULL PAYMENT and no refund.")
+		ShopSays("warlord-lua-name", "warlord-lua-intro-3")
 	end)
 	Trigger.AfterDelay(DateTime.Seconds(28), function()
 		if IsShopAngry then
 			return
 		end
-		ShopSays("Warlord", "And always remember, don't mess up with us, kiddo.")
+		ShopSays("warlord-lua-name", "warlord-lua-intro-4")
 	end)
 	Trigger.AfterDelay(DateTime.Seconds(35), function()
 		if IsShopAngry then
 			return
 		end
-		Tip("You can deal with Mercenaries by moving your unit to the Tunnel Shop, then build unit on the 'Infantry' production tab. \nKill/Destroy their property will make them mad!")
+		Tip("tip-lua-trade-mercenary")
 	end)
 end
 
 MercenaryMessageMadMessage = function()
-	ShopSays("Warlord","Enough! KILL EVERYTHING THAT IS NOT MUTANT!")
+	ShopSays("warlord-lua-name","warlord-lua-mad")
 end
 
 Notification = function(text)
-	Media.DisplayMessage(text, "C.A.B.A.L", HSLColor.FromHex("1E90FF"))
+	TranslatedNotification("cabal-lua-name", text, "1E90FF")
 end
 
 Tip = function(text)
-	Media.DisplayMessage(text, "Tip", HSLColor.FromHex("29F3CF"))
+	TranslatedNotification("tip-lua-name", text, "29F3CF")
 end
 
 Warning = function(text)
-	Media.DisplayMessage(text, "Warning", HSLColor.FromHex("FF1111"))
+	TranslatedNotification("warning-lua-name", text, "FF1111")
 end
 
 ShopSays = function(who, text)
-	Media.DisplayMessage(text, who, HSLColor.FromHex("0CBB01"))
+	TranslatedNotification(who, text, "0CBB01")
 end
-
-
-
 
 
 -- ####### Upgrade
@@ -678,7 +675,7 @@ end
 Tick = function()
 	if RemainingSabotogeTime > 0 then
 		RemainingSabotogeTime = RemainingSabotogeTime - 1
-		UserInterface.SetMissionText(CurrentMissionText .. "\nNod regains power in: " .. Utils.FormatTime(RemainingSabotogeTime))
+		UserInterface.SetMissionText(CurrentMissionText .. "\n" .. UserInterface.Translate("mission-lua-timmer") .. " " .. Utils.FormatTime(RemainingSabotogeTime))
 	else
 		UserInterface.SetMissionText(CurrentMissionText)
 	end

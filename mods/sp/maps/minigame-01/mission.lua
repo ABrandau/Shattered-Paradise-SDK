@@ -22,9 +22,9 @@ NodWays = {
 }
 
 MissionText = function()
-	Objective1 = LocalPlayer.AddPrimaryObjective("Survive and protect MCV as many as you can!")
-	SecondaryObjective1 = LocalPlayer.AddSecondaryObjective("Protect at least 4 MCVs.")
-	Media.DisplayMessage("Select this defence and attack target manually!", "Tip", HSLColor.FromHex("29F3CF"))
+	Objective1 = AddPrimaryObjective(LocalPlayer, "objective-survive")
+	SecondaryObjective1 = AddSecondaryObjective(LocalPlayer, "objective-mcv")
+	TranslatedNotification("tip-lua-name", "tip-lua-intro", "29F3CF")
 	IonTur.Flash(HSLColor.FromHex("FFFFFF"), 15, DateTime.Seconds(1) / 4)
 end
 
@@ -74,7 +74,7 @@ DifficultySetUp = function()
 			Bandits_ai.GrantCondition("normal-spawner")
 			Veinhole1.GrantCondition("MrHole")
 			Trigger.AfterDelay(200, function()
-				Media.DisplayMessage("Sorry man, I ate too much last night and I really feel sick today.", "Mr.Hole", HSLColor.FromHex("FF5500"))
+				TranslatedNotification("mrhole-lua-name", "mrhole-lua-intro", "FF5500")
 				Veinhole1.GrantCondition("talking", 130)
 				Eye1.GrantCondition("talking", 130)
 				Eye2.GrantCondition("talking", 130)
@@ -90,7 +90,7 @@ DifficultySetUp = function()
 		elseif mode  == "HackerMode" then
 			Bandits_ai.GrantCondition("hard-spawner")
 			Trigger.AfterDelay(150, function()
-				Media.DisplayMessage("This vile GDI machine brings only war to our home, we must turn it off!", "Protesters", HSLColor.FromHex("66AAFF"))
+				TranslatedNotification("protester-lua-name", "protester-lua-intro", "66AAFF")
 				SendHackerLoop(CabHackerPath1)
 			end)
 			Trigger.AfterDelay(165, function()
@@ -114,7 +114,8 @@ DifficultySetUp = function()
 					Actor.Create("scrprotal.dummy", true, {Owner = Scrin_ai, Location = a.Location})
 					a.Sell()
 				end)
-				Media.DisplayMessage("Aliens are comming! Retreat!", "Bandits", HSLColor.FromHex("0CBB01"))
+				
+				TranslatedNotification("bandit-lua-name", "bandit-lua-intro", "0CBB01")
 			end)
 			Trigger.AfterDelay(150, function()
 				Scrin_ai.GrantCondition("hard-spawner")
@@ -139,9 +140,10 @@ DifficultySetUp = function()
 				if stealthShip ~= nil and not stealthShip.IsDead then
 					stealthShip.Flash(HSLColor.FromHex("FFFFFF"), 10, DateTime.Seconds(1) / 3)
 				end
-				Media.DisplayMessage("Yes, we are allies for now, but I have allied with those mutants, too.", "Kane", HSLColor.FromHex("FF0000"))
+				
+				TranslatedNotification("kane-lua-name", "kane-lua-intro-1", "FF0000")
 				Trigger.AfterDelay(DateTime.Seconds(7), function()
-					Media.DisplayMessage("I won't fire at you, but I have to provide some helps to mutants.", "Kane", HSLColor.FromHex("FF0000"))
+					TranslatedNotification("kane-lua-name", "kane-lua-intro-2", "FF0000")
 				end)
 				Bandits_ai.GrantCondition("easy-spawner")
 			end)
@@ -173,9 +175,9 @@ DifficultySetUp = function()
 			end)
 
 			Trigger.AfterDelay(110, function()
-				Media.DisplayMessage("Your device is sensitive to Ionstorm and takes damage when firing.", "Eva", HSLColor.FromHex("FFFF00"))
+				TranslatedNotification("eva-lua-name", "eva-lua-intro-1", "FFFF00")
 					Trigger.AfterDelay(DateTime.Seconds(7), function()
-						Media.DisplayMessage("Engineers have been deployed to repair your turret.", "Eva", HSLColor.FromHex("FFFF00"))
+						TranslatedNotification("eva-lua-name", "eva-lua-intro-2", "FFFF00")
 					end)
 				if IonTur ~= nil and not IonTur.IsDead then
 					IonTur.GrantCondition("ionstorm-weather", RemainingTime - KodiakComingDuration)
@@ -198,7 +200,7 @@ SendWaveLoop = function()
 	Reinforcements.Reinforce(Gdi_ai, GDIForces, Utils.Random(GDIWays), 60,  function(a)
 		if a.Type == "mcv" then
 			MCVprotected = MCVprotected + 1
-			Media.DisplayMessage(string.format("A MCV has been secured! You have saved %d.", MCVprotected), "Notification", HSLColor.FromHex("EEEE66"))
+			Media.DisplayMessage(UserInterface.Translate("notification-lua-mcv") .. string.format(" %d.", MCVprotected), UserInterface.Translate("notification-lua-name"), HSLColor.FromHex("EEEE66"))
 		end
 		a.Destroy()
 	end)
@@ -294,16 +296,16 @@ KodiakComingDuration = 280;
 Tick = function()
 	if RemainingTime >= 0 then
 		RemainingTime = RemainingTime - 1
-		UserInterface.SetMissionText( "Remaining Time: " .. Utils.FormatTime(RemainingTime))
+		UserInterface.SetMissionText(UserInterface.Translate("mission-lua-timer") .." " .. Utils.FormatTime(RemainingTime))
 	else
-		UserInterface.SetMissionText("You Survived!")
+		UserInterface.SetMissionText(UserInterface.Translate("mission-lua-complete"))
 		CheckObjectivesOnMissionEnd(true)
 	end
 
 	--## Kodiak comes to save you plot
 	if RemainingTime == KodiakComingDuration then
-		Media.DisplayMessage("Hold on, we are going to pick you up!", "GDI Commander", HSLColor.FromHex("EEEE66"))
-
+		
+		TranslatedNotification("kodk-lua-name", "kodk-lua-bark-1", "EEEE66")
 		local kodiak = Utils.Random(Reinforcements.Reinforce(Gdi_ai, {"kodk"}, {Reinforce_1.Location, IonTurLocation}, 10, function(a)
 			Trigger.AfterDelay(105, function()
 				if not IonTur.IsDead then
@@ -313,7 +315,7 @@ Tick = function()
 		end))
 
 		Trigger.AfterDelay(100, function()
-			Media.DisplayMessage("Orbital strikes! NOW!!!", "GDI Commander", HSLColor.FromHex("EEEE66"))
+			TranslatedNotification("kodk-lua-name", "kodk-lua-bark-2", "EEEE66")
 			kodiak.GrantCondition("can-active")
 			Utils.Do(Gdi_ai.GetActorsByType("orbit.dummy"), function(a)
 				a.Attack(kodiak, true)

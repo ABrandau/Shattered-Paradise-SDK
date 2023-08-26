@@ -23,3 +23,6 @@ options-observer-stats =
 #Todo: find a way to only add those line instead of overwrite the whole options-observer-stats
 #options-observer-stats.minimal = Minimal
 #options-observer-stats.cps-and-upgrades = Upgrades
+
+primary-objective = Primary
+secondary-objective = Secondary
