@@ -19,6 +19,7 @@ namespace OpenRA.Mods.Sp.Warheads
 		[Desc("Notification to play when a target is infiltrated.")]
 		public readonly string Notification = null;
 
+		[TranslationReference(optional: true)]
 		[Desc("Text notification to display when a target is infiltrated.")]
 		public readonly string TextNotification = null;
 
@@ -102,7 +103,7 @@ namespace OpenRA.Mods.Sp.Warheads
 				Game.Sound.PlayNotification(firedBy.World.Map.Rules, firedBy.Owner, "Speech",
 					Notification, firedBy.Owner.Faction.InternalName);
 
-			TextNotificationsManager.AddTransientLine(TextNotification, firedBy.Owner);
+			TextNotificationsManager.AddTransientLine(firedBy.Owner, TextNotification);
 		}
 	}
 }

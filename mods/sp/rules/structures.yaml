@@ -385,9 +385,9 @@ GTDROP:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		ReadyAudio: UnitReady
-		ReadyTextNotification: Unit ready.
+		ReadyTextNotification: notification-unit-ready
 		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
+		LimitedTextNotification: notification-unable-to-comply
 	ProductionBar@Vehicle.Shared:
 		ProductionType: Vehicle.Shared
 	ProductionBar@Vehicle:
@@ -419,7 +419,7 @@ GTDROP:
 		Descriptions:
 			1: Deploys shock troopers at the targetted location.
 		SelectTargetSpeechNotification: SelectTarget
-		SelectTargetTextNotification: Select target.
+		SelectTargetTextNotification: notification-select-target
 		OrderName: Droppod
 		MissileWeapons:
 			1: DroppodSpawner
@@ -925,7 +925,7 @@ NAMISL:
 		Descriptions:
 			1: Launches cluster missile with various warheads.
 		SelectTargetSpeechNotification: SelectTarget
-		SelectTargetTextNotification: Select target.
+		SelectTargetTextNotification: notification-select-target
 		MissileWeapons:
 			1: ClusterMissile
 		MissileImage: multiclustermissle
@@ -1318,7 +1318,7 @@ MUTSW2:
 		Descriptions:
 			1: Spawns a cluster of veinholes\non the targetted location.\nVeinholes spawn gas clouds, radiation, and tiberian crabs.\nThey also provide vision.
 		SelectTargetSpeechNotification: SelectTarget
-		SelectTargetTextNotification: Select target.
+		SelectTargetTextNotification: notification-select-target
 		CameraRange: 7c0
 		CameraSpawnAdvance: 25 #Not working due to this
 		CameraRemoveDelay: 350
@@ -1787,13 +1787,13 @@ SCRADVPOWR:
 		ChargeInterval: 6000
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
-		EndChargeTextNotification: Commander, our superweapon is online.
+		EndChargeTextNotification: notification-superweapon-ready
 		Names:
 			1: Instant Wormhole
 		Descriptions:
 			1: Teleports infantry and vehicles.
 		SelectTargetSpeechNotification: SelectTarget
-		SelectTargetTextNotification: Select target.
+		SelectTargetTextNotification: notification-select-target
 		Durations:
 			1: 500
 		KillCargo: false
@@ -1801,8 +1801,8 @@ SCRADVPOWR:
 		LaunchSpeechNotification: SuperweaponFired
 		IncomingSpeechNotification: SuperweaponFired
 		IncomingSound: SuperweaponFired
-		LaunchTextNotification: Warning: A superweapon has been launched.
-		IncomingTextNotification: Warning: A superweapon has been launched.
+		LaunchTextNotification: notification-superweapon-launched
+		IncomingTextNotification: notification-superweapon-launched
 		LaunchSound: n_swlaunch.aud
 		SelectionCursor: emp
 		TargetCursor: emp
@@ -2221,7 +2221,7 @@ CABOBELISK:
 		Descriptions:
 			1: Fills an area with nanomachines.\n- Heals friendly units up to 40% (Even buildings)\n- Turns fallen units (Friendly and Hostile) remaining into nano swarm.
 		SelectTargetSpeechNotification: SelectTarget
-		SelectTargetTextNotification: Select target.
+		SelectTargetTextNotification: notification-select-target
 		OrderName: NanomachineSwarm
 		Actors:
 			1: NANOBURSTDUMMY
@@ -2230,7 +2230,7 @@ CABOBELISK:
 		BeginChargeSound:
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
-		EndChargeTextNotification: Commander, our superweapon is online.
+		EndChargeTextNotification: notification-superweapon-ready
 		ChargeInterval: 6000
 		DisplayRadarPing: true
 		DisplayTimerRelationships: Ally, Neutral, Enemy
@@ -2238,8 +2238,8 @@ CABOBELISK:
 		LaunchSpeechNotification: SuperweaponFired
 		IncomingSpeechNotification: SuperweaponFired
 		IncomingSound: SuperweaponFired
-		LaunchTextNotification: Warning: A superweapon has been launched.
-		IncomingTextNotification: Warning: A superweapon has been launched.
+		LaunchTextNotification: notification-superweapon-launched
+		IncomingTextNotification: notification-superweapon-launched
 		LaunchSound: n_swlaunch.aud
 		LifeTime: -1
 	Health:

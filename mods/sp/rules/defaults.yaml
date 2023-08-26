@@ -302,7 +302,7 @@
 ^GainsExperience:
 	GainsExperience:
 		LevelUpNotification: LevelUp
-		LevelUpTextNotification: Unit promoted.
+		LevelUpTextNotification: notification-promoted
 		Conditions:
 			200: rank-promotion
 			400: rank-promotion
@@ -631,7 +631,7 @@
 	SupportPowerChargeBar:
 	NotificationAnnouncement:
 		Notification: SuperWeaponDetected
-		TextNotification: Warning: A super weapon has been detected.
+		TextNotification: notification-superweapon-detected
 		ValidRelationships: Neutral, Enemy
 		PlayToOwner: False
 		PingRadar: True
@@ -822,9 +822,9 @@
 		Condition: disabled
 	ToggleConditionOnOrder:
 		DisabledSpeech: DisablePower
-		DisabledTextNotification: Building online.
+		DisabledTextNotification: notification-building-online
 		EnabledSpeech: EnablePower
-		EnabledTextNotification: Building offline.
+		EnabledTextNotification: notification-building-offline
 		Condition: powerdown
 		OrderName: PowerDown
 	WithDecoration@POWERDOWN:
@@ -1561,7 +1561,7 @@
 	PrimaryBuilding:
 		PrimaryCondition: primary
 		SelectionNotification: PrimaryBuildingSelected
-		SelectionTextNotification: Primary building set.
+		SelectionTextNotification: notification-primary-building 
 		RequiresCondition: !multiqueue
 	GrantConditionOnPrerequisite@multiqueue:
 		Condition: multiqueue
@@ -1636,7 +1636,7 @@
 	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	ActorLostNotification:
-		TextNotification: Unit lost.
+		TextNotification: notification-unit-lost
 	SharedPassenger:
 		CargoType: Infantry
 		CargoCondition: in_tunnel
@@ -2147,7 +2147,7 @@
 		RepairSound: urepair.wav
 	RepairsBridges:
 		RepairNotification: BridgeRepaired
-		RepairTextNotification: Bridge repaired.
+		RepairTextNotification: notification-repair-bridge
 	CaptureManager:
 	Captures@NormalBuilding:
 		CaptureTypes: Building
@@ -2178,7 +2178,7 @@
 	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	ActorLostNotification:
-		TextNotification: Unit lost.
+		TextNotification: notification-unit-lost
 	#Huntable:
 	Armor:
 		Type: Heavy
@@ -2228,7 +2228,7 @@
 		SellSounds: cashturn.aud
 		Cursor: sell2
 		Notification: UnitSold
-		TextNotification: Unit sold.
+		TextNotification: notification-unit-sold
 		RequiresCondition: unit.sellable
 	GrantConditionWhenDockClient@Sellable:
 		Condition: unit.sellable
@@ -2401,7 +2401,7 @@
 	AnnounceOnSeen@subterranean:
 		PingRadar: true
 		Notification: SubterraneanUnitDetected
-		TextNotification: Subterranean unit detected.
+		TextNotification: notification-subterranean
 	GrantConditionOnSubterraneanLayer:
 		Condition: submerged
 		ResurfaceCondition: resurfaced
@@ -2565,7 +2565,7 @@
 		SellSounds: cashturn.aud
 		Cursor: sell2
 		Notification: UnitSold
-		TextNotification: Unit sold.
+		TextNotification: notification-unit-sold
 		RequiresCondition: unit.sellable && !airborne
 	GrantConditionWhenDockClient@Sellable:
 		Condition: unit.sellable
@@ -2581,7 +2581,7 @@
 	AttackMove:
 		Voice: Move
 	ActorLostNotification:
-		TextNotification: Unit lost.
+		TextNotification: notification-structure-sold
 	RenderSprites:
 	WithFacingSpriteBody:
 	Guard:
@@ -2784,9 +2784,9 @@
 		AreaTypes: building
 	CaptureNotification:
 		Notification: BuildingCaptured
-		TextNotification: Building captured.
+		TextNotification: notification-building-captured
 		LoseNotification: BuildingLostToCapture
-		LoseTextNotification: Our building has been captured.
+		LoseTextNotification: notification-building-lost-captured
 	CaptureManager:
 	Capturable:
 		Types: Building
@@ -2840,7 +2840,7 @@
 	Sellable:
 		SellSounds: cashturn.aud
 		Notification: StructureSold
-		TextNotification: Structure sold.
+		TextNotification: notification-structure-sold
 		RequiresCondition: !Building-Buildup
 	WithMakeAnimation:
 		Condition: Building-Buildup
@@ -2997,9 +2997,9 @@
 		RequiresCondition: !instantcapture
 	CaptureNotification:
 		Notification: BuildingCaptured
-		TextNotification: Building captured.
+		TextNotification: notification-building-captured
 		LoseNotification: BuildingLostToCapture
-		LoseTextNotification: Our building has been captured.
+		LoseTextNotification: notification-building-lost-captured
 	GrantConditionOnPrerequisite@INSTANTCAPTURE:
 		Condition: instantcapture
 		Prerequisites: global-instantcapture
@@ -3180,7 +3180,7 @@
 	Guardable:
 	HiddenUnderFog:
 	ActorLostNotification:
-		TextNotification: Unit lost.
+		TextNotification: notification-unit-lost
 	MapEditorData:
 		Categories: Deployed Vehicle
 	RequiresBuildableArea:

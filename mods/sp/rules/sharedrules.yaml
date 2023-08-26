@@ -64,7 +64,7 @@ ENGINEER:
 	AnnounceOnSeen:
 		PingRadar: true
 		Notification: EnemyEngineerDetected
-		TextNotification: Enemy engineer detected.
+		TextNotification: notification-engineer
 
 ^SuddenDeathTag: ## TODO: Add visual tag
 	TooltipDescription@Enemy:
@@ -121,7 +121,7 @@ MCV:
 		Voice: Move
 		PauseOnCondition: empdisable
 		NoTransformNotification: BuildingCannotPlaceAudio
-		NoTransformTextNotification: Cannot deploy here.
+		NoTransformTextNotification: notification-cannot-deploy
 	SelectionDecorations:
 	RenderSprites:
 		Image: gdimcv
@@ -357,9 +357,9 @@ GACNST:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		ReadyAudio: ConstructionComplete
-		ReadyTextNotification: Construction complete.
+		ReadyTextNotification: notification-building-ready
 		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
+		LimitedTextNotification: notification-unable-to-comply
 	ProductionQueue@Defense:
 		Type: Defense.GDI
 		Group: Defense
@@ -370,9 +370,9 @@ GACNST:
 		CancelledAudio: Cancelled
 		BuildDurationModifier: 100
 		ReadyAudio: ConstructionComplete
-		ReadyTextNotification: Construction complete.
+		ReadyTextNotification: notification-building-ready
 		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
+		LimitedTextNotification: notification-unable-to-comply
 	ProductionBar@Building.Shared:
 		ProductionType: Building.Shared
 	ProductionBar@Building:
@@ -541,9 +541,9 @@ GACNST:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		ReadyAudio: UnitReady
-		ReadyTextNotification: Unit ready.
+		ReadyTextNotification: notification-unit-ready
 		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
+		LimitedTextNotification: notification-unable-to-comply
 	ProductionBar@Infantry.Shared:
 		ProductionType: Infantry.Shared
 	ProductionBar@Infantry:
@@ -779,9 +779,9 @@ GACNST:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		ReadyAudio: UnitReady
-		ReadyTextNotification: Unit ready.
+		ReadyTextNotification: notification-unit-ready
 		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
+		LimitedTextNotification: notification-unable-to-comply
 	ProductionBar@Vehicle.Shared:
 		ProductionType: Vehicle.Shared
 	ProductionBar@Vehicle:
@@ -833,9 +833,9 @@ GACNST:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		ReadyAudio: UnitReady
-		ReadyTextNotification: Unit ready.
+		ReadyTextNotification: notification-unit-ready
 		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
+		LimitedTextNotification: notification-unable-to-comply
 	ProductionBar@Air.Shared:
 		ProductionType: Air.Shared
 	ProductionBar@Air:
@@ -922,7 +922,7 @@ GACNST:
 		Descriptions:
 			1: Reveals shroud and cloaked units on a radius of 8 cells.
 		SelectTargetSpeechNotification: SelectTarget
-		SelectTargetTextNotification: Select target.
+		SelectTargetTextNotification: notification-select-target
 		EndChargeSound: SpySatelliteReady.aud
 		DeploySound: sspysate.aud
 		TargetCircleRanges:
@@ -946,7 +946,7 @@ GACNST:
 		Descriptions:
 			1: Reveals shroud and cloaked units on a radius of 8 cells.
 		SelectTargetSpeechNotification: SelectTarget
-		SelectTargetTextNotification: Select target.
+		SelectTargetTextNotification: notification-select-target
 		EndChargeSound: SpySatelliteReady.aud
 		DeploySound: sspysate.aud
 		TargetCircleRanges:
@@ -986,9 +986,9 @@ GADEPT:
 		ValuePercentage: 0
 		Interval: 48
 		StartRepairingNotification: Repairing
-		StartRepairingTextNotification: Repairing.
+		StartRepairingTextNotification: notification-repairing
 		FinishRepairingNotification: UnitRepaired
-		FinishRepairingTextNotification: Unit repaired.
+		FinishRepairingTextNotification: notification-unit-repaired
 	AttackOmni:
 		PauseOnCondition: empdisable
 	AutoTarget:
@@ -1737,8 +1737,8 @@ NAPULS:
 			1: Fires a pulse blast which disables\nall mechanical units in the area.
 		EndChargeSpeechNotification: EmPulseCannonReady
 		SelectTargetSpeechNotification: SelectTarget
-		EndChargeTextNotification: EMP cannon ready.
-		SelectTargetTextNotification: Select target.
+		EndChargeTextNotification: notification-empcannon-ready
+		SelectTargetTextNotification: notification-select-target
 		Prerequisites:
 			1: emp.gdi
 		OrderName: Nodemp
@@ -1758,8 +1758,8 @@ NAPULS:
 			1: Fires a pulse blast which disables\nall mechanical units in the area.
 		EndChargeSpeechNotification: EmPulseCannonReady
 		SelectTargetSpeechNotification: SelectTarget
-		EndChargeTextNotification: EMP cannon ready.
-		SelectTargetTextNotification: Select target.
+		EndChargeTextNotification: notification-empcannon-ready
+		SelectTargetTextNotification: notification-select-target
 		Prerequisites:
 			1: emp.gdi
 		OrderName: Nodemp
@@ -1995,7 +1995,7 @@ KING:
 		BeginChargeSound:
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
-		EndChargeTextNotification: Commander, our superweapon is online.
+		EndChargeTextNotification: notification-superweapon-ready
 		SelectTargetSound:
 		InsufficientPowerSound:
 		MissileWeapons:
@@ -2004,8 +2004,8 @@ KING:
 		LaunchSpeechNotification: SuperweaponFired
 		IncomingSpeechNotification: SuperweaponFired
 		IncomingSound: SuperweaponFired
-		LaunchTextNotification: Warning: A superweapon has been launched.
-		IncomingTextNotification: Warning: A superweapon has been launched.
+		LaunchTextNotification: notification-superweapon-launched
+		IncomingTextNotification: notification-superweapon-launched
 		LaunchSound: n_swlaunch.aud
 		SpawnOffset: 0,427,0
 		DisplayTimerRelationships: Ally, Neutral, Enemy

@@ -24,9 +24,9 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		ReadyAudio: ConstructionComplete
-		ReadyTextNotification: Construction complete.
+		ReadyTextNotification: notification-building-ready
 		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
+		LimitedTextNotification: notification-unable-to-comply
 		SpeedUp: true
 		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
 	ClassicProductionQueue@Defense:
@@ -39,9 +39,9 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		ReadyAudio: ConstructionComplete
-		ReadyTextNotification: Construction complete.
+		ReadyTextNotification: notification-building-ready
 		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
+		LimitedTextNotification: notification-unable-to-comply
 		SpeedUp: true
 		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
 	ClassicProductionQueue@Infantry:
@@ -53,9 +53,9 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		ReadyAudio: UnitReady
-		ReadyTextNotification: Unit ready.
+		ReadyTextNotification: notification-unit-ready
 		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
+		LimitedTextNotification: notification-unable-to-comply
 		SpeedUp: true
 		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
 	ClassicProductionQueue@Vehicle:
@@ -68,9 +68,9 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		ReadyAudio: UnitReady
-		ReadyTextNotification: Unit ready.
+		ReadyTextNotification: notification-unit-ready
 		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
+		LimitedTextNotification: notification-unable-to-comply
 		SpeedUp: true
 		BuildTimeSpeedReduction: 100, 80, 65, 50
 	ClassicProductionQueue@Air:
@@ -83,9 +83,9 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		ReadyAudio: UnitReady
-		ReadyTextNotification: Unit ready.
+		ReadyTextNotification: notification-unit-ready
 		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
+		LimitedTextNotification: notification-unable-to-comply
 		SpeedUp: true
 		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
 	ClassicProductionQueue@UpgShared:
@@ -99,9 +99,9 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		ReadyAudio: UpgradeComplete
-		ReadyTextNotification: Upgrade complete.
+		ReadyTextNotification: notification-upgrade-ready
 		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
+		LimitedTextNotification: notification-unable-to-comply
 	ClassicProductionQueue@UpgGDI:
 		Type: Upgrade.GDI
 		Group: Upgrade
@@ -113,9 +113,9 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		ReadyAudio: UpgradeComplete
-		ReadyTextNotification: Upgrade complete.
+		ReadyTextNotification: notification-upgrade-ready
 		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
+		LimitedTextNotification: notification-unable-to-comply
 	ClassicProductionQueue@UpgNod:
 		Type: Upgrade.Nod
 		Group: Upgrade
@@ -127,9 +127,9 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		ReadyAudio: UpgradeComplete
-		ReadyTextNotification: Upgrade complete.
+		ReadyTextNotification: notification-upgrade-ready
 		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
+		LimitedTextNotification: notification-unable-to-comply
 	ClassicProductionQueue@UpgMutant:
 		Type: Upgrade.Mutant
 		Group: Upgrade
@@ -141,9 +141,9 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		ReadyAudio: UpgradeComplete
-		ReadyTextNotification: Upgrade complete.
+		ReadyTextNotification: notification-upgrade-ready
 		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
+		LimitedTextNotification: notification-unable-to-comply
 	ClassicProductionQueue@UpgCABAL:
 		Type: Upgrade.CABAL
 		Group: Upgrade
@@ -155,9 +155,9 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		ReadyAudio: UpgradeComplete
-		ReadyTextNotification: Upgrade complete.
+		ReadyTextNotification: notification-upgrade-ready
 		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
+		LimitedTextNotification: notification-unable-to-comply
 	ClassicProductionQueue@UpgScrin:
 		Type: Upgrade.Scrin
 		Group: Upgrade
@@ -169,9 +169,9 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		ReadyAudio: UpgradeComplete
-		ReadyTextNotification: Upgrade complete.
+		ReadyTextNotification: notification-upgrade-ready
 		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
+		LimitedTextNotification: notification-unable-to-comply
 	Production@Upgrade.Shared:
 		Produces: Upgrade.Shared
 		RequiresCondition: upgrades && !multiqueue
@@ -205,8 +205,8 @@ Player:
 		ToggleVariantKey: ToggleVariant
 		NewOptionsNotification: NewOptions
 		CannotPlaceNotification: BuildingCannotPlaceAudio
-		NewOptionsTextNotification: New construction options.
-		CannotPlaceTextNotification: Cannot deploy here.
+		NewOptionsTextNotification: notification-new-construction-options
+		CannotPlaceTextNotification: notification-cannot-deploy
 	SupportPowerManager:
 	ScriptTriggers:
 	MissionObjectives:
@@ -216,13 +216,13 @@ Player:
 	ConquestVictoryConditions:
 	PowerManager:
 		SpeechNotification: LowPower
-		TextNotification: Low power.
+		TextNotification: notification-low-power
 	AllyRepair:
 	PlayerResources:
 		DefaultCash: 10000
 		SelectableCash: 2500, 5000, 7500, 10000, 20000, 50000, 100000
 		InsufficientFundsNotification: InsufficientFunds
-		InsufficientFundsTextNotification: Insufficient funds.
+		InsufficientFundsTextNotification: notification-low-credits
 		CashTickUpNotification: CashTickUp
 		CashTickDownNotification: CashTickDown
 	DeveloperMode:
@@ -338,8 +338,8 @@ Player:
 		RequiresCondition: freeminimap
 	FrozenActorLayer:
 	BaseAttackNotifier:
-		TextNotification: Base under attack.
-		AllyTextNotification: Our ally is under attack.
+		TextNotification: notification-base-threated
+		AllyTextNotification: notification-base-threated-ally
 		AllyNotification: OurAllyIsUnderAttack
 	BaseAttackNotifier@Warning:
 		NotifyInterval: 10000
@@ -350,7 +350,7 @@ Player:
 		RevertUnitTypes: true
 		Notification:
 	HarvesterAttackNotifier:
-		TextNotification: Harvester under attack.
+		TextNotification: notification-harvester-threated
 	PlayerStatistics:
 	ExternalCondition@HMECBuildTimeHack:
 		Condition: factory
@@ -387,7 +387,7 @@ Player:
 		Sequence: icon-blue
 		Palette: chromescrin
 	ResourceStorageWarning:
-		TextNotification: Silos needed.
+		TextNotification: notification-more-silo
 	PlayerExperience:
 	SharedCargoManager:
 		MaxWeight: 15

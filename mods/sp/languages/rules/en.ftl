@@ -63,3 +63,55 @@ label-armor-class =
     .Concrete = Concrete
     .Aircraft = Aircraft
     .Shield = Shield
+
+## Text Notification
+
+notification-structure-sold = Structure sold.
+notification-unit-sold = Unit sold.
+notification-promoted = Unit promoted.
+notification-select-target = Select target.
+notification-cannot-deploy = Cannot deploy here. 
+notification-building-online = Building online.
+notification-building-offline = Building offline.
+notification-primary-building = Primary building set.
+notification-unit-lost = Unit lost.
+notification-repair-bridge = Bridge repaired.
+notification-building-captured = Building captured.
+notification-building-lost-captured = Our building has been captured.
+notification-building-ready = Construction complete.
+notification-unit-ready = Unit ready.
+notification-upgrade-ready = Upgrade complete.
+notification-unable-to-comply = Unable to comply. Building in progress.
+notification-new-construction-options = New construction options.
+notification-low-power = Low power.
+notification-low-credits = Insufficient funds.
+notification-base-threated = Base under attack.
+notification-base-threated-ally = Our ally is under attack.
+notification-harvester-threated = Harvester under attack.
+notification-more-silo = Silos needed.
+notification-repairing = Repairing.
+notification-unit-repaired = Unit repaired.
+notification-hack-done = Hack Complete.
+
+notification-crate-cloak = Find a personal stealth generator (+cloak)
+notification-crate-shield = Find a personal sheild generator (+sheild)
+notification-crate-speedup = Find a personal psychic enforcer (+move&fire speed)
+
+notification-engineer = Enemy engineer detected.
+notification-subterranean = Subterranean unit detected.
+notification-commando = Enemy commando detected.
+notification-scrin-epic = Enemy Battlecruiser detected.
+notification-gdi-epic = Enemy Mammoth Mk. II detected.
+notification-nod-epic = Enemy Lightbringer detected.
+notification-mutant-epic = Enemy Weasaurus Lord detected.
+notification-cabal-epic = Enemy C.A.B.A.L. Defender detected.
+notification-cabal-boss = Enemy Core Defender detected.
+notification-gdi-boss = Enemy Mammoth Mk.III detected.
+notification-scrin-boss = Enemy Scrin Council detected.
+
+
+notification-superweapon-detected = Warning: A super weapon has been detected.
+notification-empcannon-ready = EMP cannon ready.
+notification-superweapon-ready = Our superweapon is online.
+notification-superweapon-launched = Warning: A superweapon has been launched.
+notification-sneaktunnel-ready = Our SneakAttack is ready.
