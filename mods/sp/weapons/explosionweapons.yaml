@@ -224,10 +224,6 @@ BigScrinAircraftShrapnel:
 
 UnitExplodeSmall:
 	Inherits@2: ^Medium_Brnl
-	Warhead@1Dam: SpreadDamage
-		Spread: 213
-		Damage: 1
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
 		Duration: 100, 200
@@ -242,8 +238,6 @@ ReaperExplode:
 		ExplosionPalette: gensmkexploj
 		ImpactActors: false
 		ValidTargets: Ground, Air
-	Warhead@1Dam: SpreadDamage
-		Delay: 34
 	Warhead@2Eff: CreateEffect
 		Delay: 34
 	Warhead@5Smu: LeaveSmudgeSP
@@ -290,10 +284,6 @@ QueenExplode:
 
 JellyExplode:
 	Inherits: ^LightningDefault
-	Warhead@1Dam: SpreadDamage
-		Spread: 213
-		Damage: 1
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@7Eff: CreateEffect
 		Explosions: QueenExplo
 		ExplosionPalette: gradientyellow
@@ -333,10 +323,7 @@ BigUnitExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^GreyExplo
 	Inherits@3: ^DelayedSmokeEffect
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	-Warhead@1Dam: 
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
 		Duration: 100, 200
@@ -348,9 +335,7 @@ BigUnitExplode:
 ScrinUnitExplode:
 	Inherits: ^ExploDefaults
 	Inherits@3: ^DelayedSmokeEffect
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
+	-Warhead@1Dam:
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinvehicleexplo1, scrinvehicleexplo2
 		ExplosionPalette: apolbluealpha
@@ -368,9 +353,7 @@ ScrinUnitExplode:
 ScrinUnitExplode2:
 	Inherits: ^ExploDefaults
 	Inherits@3: ^DelayedSmokeEffect
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
+	-Warhead@1Dam: 
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
@@ -388,9 +371,7 @@ ScrinUnitExplode2:
 ScrinUnitExplode3:
 	Inherits: ^ExploDefaults
 	Inherits@3: ^DelayedSmokeEffect
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
+	-Warhead@1Dam: 
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
@@ -401,9 +382,7 @@ ScrinUnitExplode3:
 
 ScrinUnitExplode4:
 	Inherits: ^ExploDefaults
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
+	-Warhead@1Dam:
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
