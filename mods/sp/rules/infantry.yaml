@@ -151,7 +151,6 @@ GRENADIER:
 	ActorStatValues:
 		Damage: 30
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
-		SplitRanges: true
 
 MEDIC:
 	Inherits: ^Soldier
@@ -785,7 +784,6 @@ CRUSADER:
 	ActorStatValues:
 		Damage: 30
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
-		SplitRanges: true
 
 TEMPLAR:
 	Inherits: ^Soldier
@@ -883,6 +881,7 @@ NCONF:
 		CloakDelay: 80
 		IsPlayerPalette: true
 		-RequiresCondition:
+	-ExternalCondition@CLOAKGENERATOR:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -1300,7 +1299,6 @@ MUTFIEND:
 	ActorStatValues:
 		Damage: 30
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
-		SplitRanges: true
 		Upgrades: upgrade.blue_shards, upgrade.tiberium_infusion
 
 CUTMAN:
@@ -1484,7 +1482,6 @@ SEER:
 	ActorStatValues:
 		Damage: 70
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
-		SplitRanges: true
 
 PSYKER:
 	Inherits: ^MutantSoldier
@@ -1649,7 +1646,6 @@ LEGIO:
 	ActorStatValues:
 		Damage: 30
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
-		SplitRanges: true
 
 SHAPESHIFTER:
 	Inherits: ENGINEER
@@ -1985,7 +1981,7 @@ MASTERMIND:
 		EndColorUsePlayerColor: true
 		StartWidth: 280
 		TrailLength: 4
-		RequiresCondition: !BeingTeleport
+		RequiresCondition: !BeingTeleport ## This condition is granted by Teleport Superweapon
 	Passenger:
 		CustomPipType: red
 	SharedPassenger:
@@ -2220,7 +2216,6 @@ CBORG:
 	ActorStatValues:
 		Damage: 30
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
-		SplitRanges: true
 		Upgrades: upgrade.cybernetic_leg_enhancements, upgrade.regenerative_materials
 
 SWARMLING:

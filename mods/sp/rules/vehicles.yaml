@@ -323,7 +323,6 @@ APC:
 	ActorStatValues:
 		Damage: 40
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange, Cargo
-		SplitRanges: true
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && loaded
 		DeployChance: 100
@@ -383,7 +382,6 @@ HVR:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		Damage: 50
-		SplitRanges: true
 
 JUG:
 	Inherits: ^Walker
@@ -588,7 +586,6 @@ G4TNK:
 		Bounds: 1250, 1900, 0, -200
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
-		SplitRanges: true
 
 HMEC:
 	Inherits: ^CombatVehicle
@@ -753,7 +750,6 @@ HMEC:
 	ActorStatValues:
 		Armaments: primary, secondary
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
-		SplitRanges: true
 
 NODMCV:
 	Inherits: MCV
@@ -893,7 +889,6 @@ BGGY:
 	Armament@crusaaa:
 		Weapon: CrusaderBazookaAA
 		LocalOffset: 250,0,125
-		EnableSplitRanges: true
 		ReloadingCondition: reload-air-crusader
 		PauseOnCondition: reload-ground-crusader
 		RequiresCondition: ifv.crusader
@@ -978,7 +973,6 @@ BGGY:
 	Armament@seerAA:
 		Weapon: SeerTeslaAA
 		LocalOffset: 250,0,125
-		EnableSplitRanges: true
 		ReloadingCondition: reload-air-seer
 		PauseOnCondition: reload-ground-seer
 		RequiresCondition: ifv.seer
@@ -1059,13 +1053,13 @@ BGGY:
 		RequiresCondition: !inside-tunnel && (ifv.nconf || ifv.bhs)
 	WithSpriteTurret@chainsaw:
 		Sequence: turret-chainsaw
-		RequiresCondition: !inside-tunnel && (ifv.pdrone || ifv.shark)
+		RequiresCondition: !inside-tunnel && ifv.shark
 	WithSpriteTurret@medic:
 		Sequence: turret-medic
 		RequiresCondition: !inside-tunnel && ifv.medic
 	WithSpriteTurret@eagleguard:
 		Sequence: turret-eagleguard
-		RequiresCondition: !inside-tunnel && (ifv.eagleguard || ifv.ghost)
+		RequiresCondition: !inside-tunnel && ifv.eagleguard
 	WithSpriteTurret@abductor:
 		Sequence: turret-abductor
 		RequiresCondition: !inside-tunnel && ifv.moth
@@ -1184,7 +1178,6 @@ ATTACKBIKE:
 	ActorStatValues:
 		Damage: 50
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
-		SplitRanges: true
 
 TTNK:
 	Inherits: ^CombatVehicle
@@ -1507,7 +1500,6 @@ BIKE:
 		Damage: 900
 		Spread: 3c0
 		Stats: Armor, Sight, Speed, Damage
-		ExplosionWeapon: true
 
 SAPC:
 	Inherits: ^SubterraneanVehicle
@@ -1788,7 +1780,6 @@ STNK:
 	ActorStatValues:
 		Damage: 240
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
-		SplitRanges: true
 
 SCORPION:
 	Inherits: ^CombatVehicle
@@ -2066,7 +2057,6 @@ MUTQUAD:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		Damage: 80
-		SplitRanges: true
 
 LYNX:
 	Inherits: ^CombatVehicle
@@ -2186,8 +2176,8 @@ STRUCK:
 		CargoType: Apc
 	AttackGarrisonedSP:
 		PortOffsets: 384,0,768, 224,-341,768, -224,-341,768, -384,0,768, -224,341,768, 224,341,768
-		PortYaws: 0, 176, 341, 512, 682, 853
-		PortCones: 1086, 86, 86, 86, 86, 86
+		#PortYaws: 0, 176, 341, 512, 682, 853
+		#PortCones: 1086, 86, 86, 86, 86, 86
 		TargetFrozenActors: true
 	Selectable:
 		Bounds: 1206,1950, 0, -400
@@ -2456,7 +2446,13 @@ HVRTRUK3:
 		Volume: 3
 	Mobile:
 		Speed: 90
+
 	-SharedPassenger:
+	FloatingSpriteEmitter@spawnsmoke: ## Remove in in_tunnel
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo
+	SpawnSparks:
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo
+
 	Health:
 		HP: 12000
 	Armor:
@@ -2505,7 +2501,6 @@ HVRTRUK3:
 	ActorStatValues:
 		Damage: 3240
 		Spread: 6c0
-		ExplosionWeapon: true
 		Stats: Armor, Sight, Speed, Damage
 
 WEASAU:
@@ -2545,6 +2540,8 @@ WEASAU:
 	-Crushable:
 	-Passenger:
 	-SharedPassenger:
+	DetectCloaked: ## Remove in_tunnel and as cargo
+		RequiresCondition: !inside-tunnel && !Blind
 	-Chronoshiftable:
 	Health:
 		HP: 300000
@@ -2705,8 +2702,12 @@ WEASAUSMALL:
 		Palette: cloakorgatemblueplayer
 	-ActorLostNotification:
 	-UpdatesPlayerStatistics:
+
 	-Passenger:
 	-SharedPassenger:
+	DetectCloaked: ## Remove in_tunnel and as cargo
+		RequiresCondition: !inside-tunnel && !Blind
+
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
@@ -2906,7 +2907,6 @@ REAPERCAB:
 		Damage: 160
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		Armaments: primary
-		SplitRanges: true
 
 LIMPED:
 	Inherits: ^HoverVehicle
@@ -2972,7 +2972,6 @@ LIMPED:
 		PauseOnCondition: empdisable || !deployed || reload-air
 	Armament@2:
 		Weapon: LimpetMissileAA
-		EnableSplitRanges: true
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || !deployed || reload-ground
 		RequiresCondition: limpetaa
@@ -3834,7 +3833,6 @@ TRIPOD:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^8CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 1750
 	Tooltip:

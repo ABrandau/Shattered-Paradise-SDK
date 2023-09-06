@@ -6,16 +6,16 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Sp.Traits
 {
-	[Desc("Support spark weapons spawning or just simply generates an effect after an interval.")]
+	[Desc("Support spark weapons spawning or just simply generates an effect after an interval. Cheapest for Perf.")]
 	sealed class SpawnSparksInfo : ConditionalTraitInfo, IRulesetLoaded
 	{
-		[WeaponReference]
 		[Desc("Interval of each spark spawning.")]
 		public readonly int Interval = 100;
 
 		[Desc("Delay of first spark spawning.")]
 		public readonly int FirstDelay = 0;
 
+		[WeaponReference]
 		[Desc("Has to be defined in weapons.yaml as well.")]
 		public readonly string SparkWeapon = null;
 

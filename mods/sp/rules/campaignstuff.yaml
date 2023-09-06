@@ -126,9 +126,6 @@ STRUCKFULL_T3:
 
 ^BotCarryall:
 	Inherits@2: ^AutoTargetAllAssaultMove
-	AutoCarryall:
-		CarryCondition: loaded
-		AutoCarryCondition: none ## No longer Auto Action
 	Armament@AIunloadingDummyWeapon:
 		Weapon: AITransportAimingDummyWeapon
 		RequiresCondition: AImicroManage && loaded && !StopAndDeploy
@@ -165,6 +162,8 @@ NUKECARRYALL_BOT:
 		Multiplier: 600
 	AutoCarryall:
 		InitialActor: hvrtruk3
+		CarryCondition: loaded
+		-AutoCarryCondition:
 	AmmoPool:
 		AmmoCondition: disableAutoTartget
 	AutoTarget:
@@ -188,6 +187,8 @@ SONICARRYALL_BOT:
 	ProductionTimeMultiplier@Preload:
 		Multiplier: 200
 	AutoCarryall:
+		CarryCondition: loaded
+		-AutoCarryCondition:
 		InitialActor: sonic
 	-AutoDeployer@AI:
 	AutoDeployer@AI:
@@ -208,6 +209,8 @@ APCARRYALL_BOT:
 	ProductionTimeMultiplier@Preload:
 		Multiplier: 180
 	AutoCarryall:
+		CarryCondition: loaded
+		-AutoCarryCondition:
 		InitialActor: apc_bot
 	-AutoDeployer@AI:
 	AutoDeployer@AI:
@@ -667,7 +670,6 @@ LPST:
 	Mobile:
 		TurnSpeed: 32
 		Speed: 45
-		PauseOnCondition: empdisable
 		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
@@ -746,7 +748,6 @@ SGEN:
 	Mobile:
 		TurnSpeed: 32
 		Speed: 45
-		PauseOnCondition: empdisable
 		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
@@ -832,10 +833,6 @@ ICBM:
 		Cost: 4000
 	Tooltip:
 		Name: Ballistic Missile Launcher
-		RequiresCondition: !deployed
-	Tooltip@DEPLOYED:
-		Name: Ballistic Missile Launcher (deployed)
-		RequiresCondition: deployed
 	Health:
 		HP: 50000
 	Armor:
@@ -960,7 +957,8 @@ MTAR:
 	Inherits@1: ^Factory
 	Inherits@AIbuilding: ^AIbuildingMicroControl
 	-Buildable:
-	-MustBeDestroyed:
+	MustBeDestroyed:
+		RequiredForShortGame: false
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -1040,6 +1038,7 @@ M_EMP:
 		TurnSpeed: 32
 		Speed: 80
 		Locomotor: InfantryCrusherVehicle
+		PauseOnCondition: carrylock ## Remove empdisable
 	Health:
 		HP: 34000
 	Armament@AIAim:
@@ -1240,6 +1239,7 @@ MUTMOUND: ### Mound that may hide a tunnel inside
 	MapEditorData:
 		Categories: Defence
 	FrozenUnderFog:
+	-WithDeathAnimation:
 
 MUTAMBUSH: ###  Mound that hide a tunnel inside
 	Inherits: MUTMOUND
@@ -1603,7 +1603,7 @@ COREDEFENDER:
 		Offset: 0,0,2500
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
 	SpawnSparks:
-		Offset: 0,0,2500
+		LocalOffset: 0,0,2500
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
 	WithInfantryBody:
 		-DefaultAttackSequence:
@@ -1741,7 +1741,6 @@ COREDEFENDER:
 		Icon: icon
 		IconPalette: chrome
 		Armaments: ArmArmament, HeadArmament
-		SplitRanges: true
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		Damage: 1668
 
@@ -1868,11 +1867,12 @@ HMECTEST:
 	-Passenger:
 	-SharedPassenger:
 	-Chronoshiftable:
+	-Carryable:
 	FloatingSpriteEmitter@spawnsmoke:
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
 		Offset: 0, 0, 1000
 	SpawnSparks:
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
 		LocalOffset: 0, 0, 900
 	Health:
 		HP: 650000
@@ -2051,7 +2051,6 @@ HMECTEST:
 	ActorStatValues:
 		Damage: 720
 		Armaments: primary, secondary
-		SplitRanges: true
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 	MustBeDestroyed:
 		RequiredForShortGame: true
@@ -2316,7 +2315,6 @@ SCRINCOUNCIL:
 	ActorStatValues:
 		Damage: 720
 		Armaments: primary, secondary
-		SplitRanges: true
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 
 COUNCILOR:

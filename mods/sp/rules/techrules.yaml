@@ -460,7 +460,7 @@ CABCANNON:
 		CasingWeapon: ShellCasingDebris
 		CasingSpawnLocalOffset: 700,0,500, 700,0,500
 		CasingTargetOffset: 512, 512, 0, 512, -512, 0
-		PauseOnCondition: Building-Buildup || empdisable
+		PauseOnCondition: empdisable
 	AutoTarget:
 		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	RequiresBuildableArea:
@@ -580,20 +580,19 @@ FUELTOWER:
 
 CIVHELI:
 	Inherits: ^TechBuilding
-	Inherits@SHAPE: ^Helipad
+	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
 		Name: Civilian Helipad
 	TooltipDescription:
 		Description: Rearms and repairs aircraft.
-		RequiresCondition: multiqueue
-	TooltipDescription@2:
-		Description: Produces, rearms and repairs aircraft.
-		RequiresCondition: !multiqueue
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
+	Exit@1:
+		SpawnOffset: 0,-256,0
 	Health:
 		HP: 50000
+	Reservable:
 	RepairsUnits:
 		HpPerStep: 2000
 		ValuePercentage: 0
@@ -602,12 +601,6 @@ CIVHELI:
 		StartRepairingTextNotification: notification-repairing
 		FinishRepairingNotification: UnitRepaired
 		FinishRepairingTextNotification: notification-unit-repaired
-	-Production:
-	-ProductionQueue@Air:
-	-ProductionBar@Air:
-	-Power:
-	-FreeActor@Dummy:
-	-WithMakeAnimation:
 	-WithDeathAnimation:
 	RenderSprites:
 		PlayerPalette: playerunittem

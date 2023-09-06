@@ -442,14 +442,14 @@ MUBUNKR:
 		InitialUnits: marauder
 		OwnerChangedAffectsPassengers: false
 	WithCargoSounds:
-		EnterSound: ugarris.wav
-		ExitSound: ugarris.wav
+		EnterSounds: ugarris.wav
+		ExitSounds: ugarris.wav
 	DetectCloaked:
 		RequiresCondition: loaded
 	AttackGarrisonedSP:
 		PortOffsets: 384,0,512, 224,-341,512, -224,-341,512, -384,0,512, -224,341,512, 224,341,512
-		PortYaws: 0, 176, 341, 512, 682, 853
-		PortCones: 88, 88, 88, 88, 88, 887
+		#PortYaws: 0, 176, 341, 512, 682, 853
+		#PortCones: 88, 88, 88, 88, 88, 887
 	AutoTarget:
 		ScanRadius: 15 #PREF: save trait looks up and scan armaments
 	WithSpriteBody:
@@ -938,7 +938,8 @@ GAFIRE:
 		DeployChance: 100
 		DeployTicks: 200
 	-RevealOnFire:
-	-MustBeDestroyed:
+	MustBeDestroyed:
+		RequiredForShortGame: false
 	-GivesBuildableArea:
 	ActorStatValues:
 		Armaments: None
@@ -1100,7 +1101,8 @@ NASTLH:
 	ProvidesPrerequisite@AIBuildLimit:
 		RequiresCondition: AIbuildingMicroControl
 		Prerequisite: AINASTLHBuildLimit
-	-MustBeDestroyed:
+	MustBeDestroyed:
+		RequiredForShortGame: false
 	-GivesBuildableArea:
 
 NATMPL:
@@ -1171,8 +1173,6 @@ NATMPL:
 			1: nodtibnukeiconmini
 		SpawnOffset: -1200, 1400, 0
 	WithSupportPowerActivationAnimation:
-		Palette: player
-		IsPlayerPalette: True
 		RequiresCondition: !Building-Buildup
 
 MUVENTI:
@@ -1254,8 +1254,8 @@ MUVENTI:
 		DeployChance: 100
 		DeployTicks: 35
 	-RevealOnFire:
-	-GrantConditionOnPrerequisite@SUDDENDEATH:
-	-MustBeDestroyed:
+	MustBeDestroyed:
+		RequiredForShortGame: false
 	-GivesBuildableArea:
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@swlimit:
@@ -1357,11 +1357,14 @@ MUVENT:
 		Sequence: fire2_higher
 	RenderSprites:
 		Image: musnek
+	-GrantConditionOnPrerequisite@SUDDENDEATH:
+	-MustBeDestroyed:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
 		TooltipActor: muventi
 	-CaptureManager:
+	-GrantConditionOnPrerequisite@INSTANTCAPTURE:
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
@@ -1493,8 +1496,10 @@ SCREXTRACTOR:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
-	-MustBeDestroyed:
+	MustBeDestroyed:
+		RequiredForShortGame: false
 	-GivesBuildableArea:
+	-GrantConditionOnPrerequisite@INSTANTCAPTURE:
 	-CaptureManager:
 	-Capturable:
 	-CapturableProgressBar:
@@ -1612,7 +1617,8 @@ CABEYE:
 		AreaTypes: building
 	IsometricSelectable:
 		DecorationHeight: 96
-	-MustBeDestroyed:
+	MustBeDestroyed:
+		RequiredForShortGame: false
 	-GivesBuildableArea:
 
 CABSW1:

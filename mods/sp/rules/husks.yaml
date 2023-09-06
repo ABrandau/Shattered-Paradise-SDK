@@ -107,6 +107,7 @@ ORCATRAN.Husk:
 	WithVoxelBody@white:
 		Sequence: idle-white
 		RequiresCondition: ceramic_plating
+	-QuantizeFacingsFromSequence:
 	-WithFacingSpriteBody:
 	-WithShadow:
 
@@ -298,21 +299,6 @@ DEVOURER.Husk:
 		Image: devourer
 	FallsToEarth:
 		Explosion: DevourerExplode
-
-FIREFLY.Husk:
-	Inherits: ^AircraftHusk
-	Inherits@RENDER: ^CabRender
-	Tooltip:
-		Name: Firefly
-	WithShadow:
-	WithFacingSpriteBody:
-	BodyOrientation:
-		QuantizedFacings: 32
-	Aircraft:
-		TurnSpeed: 20
-		Speed: 149
-	RenderSprites:
-		Image: firefly
 
 BASILISK.Husk:
 	Inherits: ^BigAircraftHusk
@@ -547,8 +533,8 @@ JUMPJET.Husk:
 		Offset: 0,0,0
 		Image: sgrysmk1
 		Palette: effect
-		LifeTime: 60
-		Duration: -1
+		Lifetime: 60
+		Duration: 1000
 		RandomFacing: True
 
 JJCOMM.Husk:
@@ -580,6 +566,6 @@ JJCOMM.Husk:
 		Offset: 0,0,0
 		Image: sgrysmk1
 		Palette: effect
-		LifeTime: 60
-		Duration: -1
+		Lifetime: 60
+		Duration: 1000
 		RandomFacing: True

@@ -157,19 +157,17 @@ HARV:
 		RequiresCondition: !inside-tunnel
 	DockClientManager:
 		Voice: Move
+		SearchForDockDelay: 200
 	WithDockingAnimation:
 	Harvester:
+		Type: Refinary
 		Capacity: 28
-		DeliveryBuildings: proc, muproc, muproc2, muproc3, muproc4, cabproc, cabproc2, cabproc3, cabproc4, scrproc, scrproc2, scrproc3, scrproc4, gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, tdrefinery
 		Resources: Tiberium, BlueTiberium
 		BaleUnloadDelay: 3
 		BaleLoadDelay: 9
 		FullyLoadedSpeed: 100
-		# SearchFromProcRadius: 36
-		SearchForDeliveryBuildingDelay: 200
 		SearchFromHarvesterRadius: 18
 		HarvestVoice: Attack
-		DeliverVoice: Action
 		EmptyCondition: no-tib
 	Mobile:
 		Speed: 90
@@ -265,9 +263,10 @@ CABHARV:
 		Image: cabharv
 	BodyOrientation:
 		QuantizedFacings: 32
+	DockClientManager:
+		Voice: Action
 	Harvester:
 		HarvestVoice: Action
-		DeliverVoice: Action
 
 SCRHARV:
 	Inherits: HARV
@@ -576,7 +575,7 @@ GACNST:
 	StoresResources:
 		Capacity: 2000
 	DockHost:
-		Type: Unload
+		Type: Refinary
 	Refinery:
 		DiscardExcessResources: false
 	WithResourceStoragePipsDecoration:
@@ -1456,7 +1455,8 @@ GASILO:
 		PipCount: 12
 		Palette: pips
 		ValidRelationships: Ally, Neutral, Enemy
-	-MustBeDestroyed:
+	MustBeDestroyed:
+		RequiredForShortGame: false
 
 ################## Carryall ##############
 ^Carryall:

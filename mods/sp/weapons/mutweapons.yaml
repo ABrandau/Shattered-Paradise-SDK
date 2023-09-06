@@ -110,7 +110,6 @@ SkirmisherMortarGas:
 		TriggerAtLevelMin: 400
 		Level: 120
 		TriggerSetLevel: 0
-		ImpactActors: false
 		ValidTargets: Ground, Air, Water
 		AirThreshold: 8c0
 	Warhead@2Eff: CreateEffect
@@ -481,7 +480,6 @@ MUTMRLSRocketGas:
 		TriggerAtLevelMin: 400
 		Level: 75
 		TriggerSetLevel: 0
-		ImpactActors: false
 		ValidTargets: Ground, Air, Water
 		AirThreshold: 8c0
 	Warhead@2Eff: CreateEffect
@@ -740,13 +738,12 @@ FalconPunchGas:
 		TriggerAtLevelMin: 400
 		Level: 200
 		TriggerSetLevel: 0
-		ImpactActors: false
 		ValidTargets: Ground, Air, Water
 		AirThreshold: 8c0
 	Warhead@2Eff: CreateEffect
 		Explosions: ammoexplode
 		ExplosionPalette: jascgreenalpha
-	-Warhead@smoke: CreateEffect
+	-Warhead@smoke:
 	Warhead@smoke: CreateEffect
 		ExplosionPalette: jascgreen60
 		Explosions: tibgassmoke, tibgassmoke2, tibgassmoke3
@@ -1038,7 +1035,6 @@ Sniper:
 			Defense: 5
 			Heavy: 5
 			Concrete: 5
-		NoUnintendedFriendlyFire: All
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
@@ -1126,11 +1122,11 @@ MutSWLightningCharge:
 	-Warhead@2Eff:
 	Warhead@3Eff: CreateEffect
 		ImpactSounds: electro1.aud, voltautofire.wav
-	-Warhead@4: LeaveSmudgeSP
+	-Warhead@4:
 	Warhead@5op: FireRadius
 		Weapon: LightningSparkDebris
 		ImpactActors: false
 		Amount: 1
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		AirThreshold: 8c0
-	-Warhead@6Eff: CreateEffect
+	-Warhead@6Eff:

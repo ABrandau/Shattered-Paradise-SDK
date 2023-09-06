@@ -579,7 +579,6 @@
 		CloakDelay: 150
 		IsPlayerPalette: true
 		UncloakOn: Attack, Damage, Heal, SupportPower
-		CloakedCondition: cloaking-self
 	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
 
@@ -1470,6 +1469,8 @@
 	Inherits@3: ^SpawnSpark
 	Inherits@4: ^WithTriggerCloakEffect-Building
 	Inherits@5: ^MindControllableBuilding
+	Cloak@CLOAKGENERATOR:
+		CloakedCondition: cloaking-self
 	FloatingSpriteEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self
 	SpawnSparks:
@@ -1504,8 +1505,6 @@
 		Sequence: idle-small
 	DeliversCash:
 		Payload: 50
-	Cloak@CLOAKGENERATOR:
-		-CloakedCondition:
 
 ^VehicleEffects:
 	Inherits: ^GenericEffects
@@ -1532,6 +1531,8 @@
 	Targetable@FullHealth:
 		RequiresCondition: FullHealth || inside-tunnel
 		TargetTypes: FullHealth
+	Cloak@CLOAKGENERATOR:
+		CloakedCondition: cloaking-self
 	FloatingSpriteEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
 	SpawnSparks:
@@ -1546,6 +1547,8 @@
 	Inherits@5: ^FullHealthRepairCondition
 	Inherits@6: ^WithTriggerCloakEffect-Vehicle
 	Inherits@7: ^Berserkable
+	Cloak@CLOAKGENERATOR:
+		CloakedCondition: cloaking-self
 	FloatingSpriteEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self
 	SpawnSparks:
@@ -1637,9 +1640,6 @@
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	ActorLostNotification:
 		TextNotification: notification-unit-lost
-	SharedPassenger:
-		CargoType: Infantry
-		CargoCondition: in_tunnel
 	AttackMove:
 		Voice: Move
 	Armor:
@@ -1696,9 +1696,13 @@
 	Targetable:
 		TargetTypes: Ground, Infantry
 		RequiresCondition: !inside-tunnel
+	SharedPassenger:
+		CargoType: Infantry
+		CargoCondition: in_tunnel
 	Passenger:
 		CargoType: Infantry
 		Voice: Move
+		CargoCondition: ascargo
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	SpawnActorOnDeath@FLAMEGUY:
@@ -2870,8 +2874,8 @@
 		Type: Footprint
 		MaxHeightDelta: 3
 	-GivesBuildableArea:
-	-GrantConditionOnPrerequisite@SUDDENDEATH:
-	-MustBeDestroyed:
+	MustBeDestroyed:
+		RequiredForShortGame: false
 	RenderRangeCircle:
 		Color: FFFF00CC
 		BorderColor: 000000CC
@@ -2887,6 +2891,7 @@
 		Sequence: fire2_higher
 	RequiresBuildableArea:
 		AreaTypes: building
+	-GrantConditionOnPrerequisite@INSTANTCAPTURE:
 	-CaptureManager:
 	-Capturable:
 	-CapturableProgressBar:
@@ -3366,6 +3371,7 @@
 		Adjacent: 6
 	Replacement:
 		ReplaceableTypes: Gate
+	-GrantConditionOnPrerequisite@INSTANTCAPTURE:
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
