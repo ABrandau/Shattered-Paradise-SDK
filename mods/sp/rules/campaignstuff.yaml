@@ -125,36 +125,20 @@ STRUCKFULL_T3:
 		TooltipActor: struck
 
 ^BotCarryall:
-	Inherits@2: ^AutoTargetAllAssaultMove
-	Armament@AIunloadingDummyWeapon:
-		Weapon: AITransportAimingDummyWeapon
-		RequiresCondition: AImicroManage && loaded && !StopAndDeploy
-		ReloadingCondition: StopAndDeploy
-	AttackAircraft:
-		AttackType: Hover
-		FacingTolerance: 512
-		RequiresCondition: AImicroManage && loaded && !StopAndDeploy
-	AutoTarget:
-		ScanRadius: 9
-		InitialStanceAI: AttackAnything
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
 	ProvidesPrerequisite@AIbuildinglimit:
 		RequiresCondition: loaded
-		Prerequisite: LoadedExists
+		Prerequisite: bot-transport-squad
 	KillsSelf@DisappearsIfUnload:
 		Delay: 500
 		RequiresCondition: AImicroManage && !loaded
 		RemoveInstead: true
-	ActorStatValues:
-		Armaments: None
 
 NUKECARRYALL_BOT:
 	Inherits: trnsport.mut
 	Inherits@1: ^BotCarryall
 	Buildable:
 		Description: AI Nuke Transport
-		Prerequisites: ~muair, muhall, ~techlevel.5, ~AIOnly, ~!LoadedExists
+		Prerequisites: ~muair, muhall, ~techlevel.5, ~AIOnly, ~!bot-transport-squad
 	-ProductionCostMultiplier@AI:
 	ProductionCostMultiplier@Preload:
 		Multiplier: 600
@@ -164,10 +148,6 @@ NUKECARRYALL_BOT:
 		InitialActor: hvrtruk3
 		CarryCondition: loaded
 		AutoCarryCondition: loaded ##Disable Auto Action
-	AmmoPool:
-		AmmoCondition: disableAutoTartget
-	AutoTarget:
-		RequiresCondition: AImicroManage && !disableAutoTartget
 	-AutoDeployer@AI:
 	AutoDeployer@AI:
 		RequiresCondition: AImicroManage && loaded
@@ -180,7 +160,7 @@ SONICARRYALL_BOT:
 	Inherits@1: ^BotCarryall
 	Buildable:
 		Description: AI Sonic Transport
-		Prerequisites: ~gahpad, gatech, ~techlevel.5, ~AIOnly, ~!LoadedExists
+		Prerequisites: ~gahpad, gatech, ~techlevel.5, ~AIOnly, ~!bot-transport-squad
 	-ProductionCostMultiplier@AI:
 	ProductionCostMultiplier@Preload:
 		Multiplier: 200
@@ -202,7 +182,7 @@ APCARRYALL_BOT:
 	Inherits@1: ^BotCarryall
 	Buildable:
 		Description: AI APC Transport
-		Prerequisites: ~gahpad, gapile, ~techlevel.2, ~AIOnly, ~!LoadedExists
+		Prerequisites: ~gahpad, gapile, ~techlevel.2, ~AIOnly, ~!bot-transport-squad
 	-ProductionCostMultiplier@AI:
 	ProductionCostMultiplier@Preload:
 		Multiplier: 180

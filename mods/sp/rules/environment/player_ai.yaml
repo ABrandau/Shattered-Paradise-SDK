@@ -124,7 +124,7 @@ Player:
 			scrrax: 2
 			gaweap: 2
 			cabweap: 2
-			naweap: 1
+			naweap: 2
 			muweap: 2
 			scrweap: 2
 			garadr: 1
@@ -271,7 +271,7 @@ Player:
 		RequiresCondition: AIBase
 		SquadSize: 24
 		SquadSizeRandomBonus: 3
-		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.nod, harv.mut, engineer, cutman, swarmling, shapeshifter,mcv, drache, cabmcv, nodmcv, mutmcv, mwar, limped, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern, ionbeammini, mkiiidrone-minigun, councilor, trnsport, trnsport.nod, trnsport.mut, trnsport.cab, trnsport.scr, nukecarryall_bot, hvrtruk3, minelayer, king
+		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.nod, harv.mut, engineer, cutman, swarmling, shapeshifter,mcv, drache, cabmcv, nodmcv, mutmcv, mwar, limped, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern, ionbeammini, mkiiidrone-minigun, councilor, trnsport, trnsport.nod, trnsport.mut, trnsport.cab, trnsport.scr, nukecarryall_bot,sonicarryall_bot, apcarryall_bot, bike, subtank, sapc, hvrtruk3, minelayer, king
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
 		DangerScanRadius: 18
 		AttackForceInterval: 73
@@ -285,16 +285,15 @@ Player:
 		IgnoredEnemyTargetTypes: Mine, IgnoredByAI, Wall, NoAutoTarget, IonSpawner
 		SuggestedGroundLeaderLocomotor: Infantry, HeavyInfantry, TibInmuneInfantry, Vehicle, InfantryCrusherVehicle, VehicleCrusher
 		SuggestedNavyLeaderLocomotor: Naval
-		GuerrillaTypes: cerberus, mutqueen, stormrider, scrglyder1, scrdestroyer, scrcarrier, scrbattleship, wasp, basilisk, sonicarryall_bot, apcarryall_bot, jumpjetair, nconf, bhs, mutfiend, pdrone, moth, cyc2, shark, smech, hvr, jug, attackbike, bggy, howtlizer, stnk, mutquad, lynx, wolf, mrls, scrscorpion, deathclaw, scrmbt, scrglyder2, scrmobmine, reapercab, altnode1, crusader, jjcommair, umagon, mujeep
+		GuerrillaTypes: cerberus, mutqueen, stormrider, scrglyder1, scrdestroyer, scrcarrier, scrbattleship, wasp, basilisk, jumpjetair, nconf, bhs, mutfiend, pdrone, moth, cyc2, shark, smech, hvr, jug, attackbike, bggy, howtlizer, stnk, mutquad, lynx, wolf, mrls, scrscorpion, deathclaw, scrmbt, scrglyder2, scrmobmine, reapercab, altnode1, crusader, jjcommair, umagon, mujeep
 		#Hack: use DozerTypes for unit that needs moving randomly but not get out of the base
-		DozerTypes: lpst, sgen, icbm, subtank, sapc
+		DozerTypes: lpst, sgen, icbm
 		MaxDozerSendingRadius: 14
 		AirUnitsTypes: jumpjetair, jjcommair, orca, orcab, apache, scrin, cerberus, mutheli, mutqueen, wetp, stormrider, scrglyder1, scrdestroyer, scrcarrier, stormriderspawn, repairwyvern, cabdronejet, repairdrone, scrbattleship, wasp, basilisk, devourer, sonicarryall_bot, apcarryall_bot
 		ProtectionTypes: nodmcv, mutmcv, cabmcv, drache, mcv, harv, harv.nod, harv.mut, cabharv, scrharv, gacnst, gadept, scrdepot, gasilo, napuls, scrshield, gate_a, mutgate_a, scrgate_a, scrgate_b, gapowr, gapile, gdiref, gaweap, garadr, gahpad, gatech, gtdrop, nodyard, napowr, nahand, nodref, naweap, naradr, naapwr, nahpad, natech, namisl, mutyard, mupowr, murax, muproc, muweap, muradr, muair, muhall, mutsw2, drached, scrpowr, scrrax, scrproc, scrproc2, scrproc3, scrproc4, scrweap, scrradr, scrair, scrtech, scradvpowr, cabyard, cabpowr, cabclaw, cabproc, cabweap, cabradr, cabair, cabtech, cabobelisk, gavulc, garock, gasonc, gacsam, nalasr, naobel, nasam, mubunkr, mucannon, muflak, cabpit, cabblast, cabrail, scrneedler, scrdrone, scrtractor, gafire, gaplug, nastlh, natmpl, muventi, mutsw1, scrextractor, scrsw1, cabeye, cabsw1, blackdefd, weed, bloodderrick, colorpicker, mubunkr, defd, mtar, mwar, icbm, king
 	UnitBuilderBotModule@AIAll:
 		RequiresCondition: AIEasy || AIBase
 		UnitQueues: Infantry.Shared, Infantry.GDI, Infantry.Nod, Infantry.Mutant, Infantry.CABAL, Infantry.Scrin, Vehicle.Shared, Vehicle.GDI, Vehicle.MammothMkII, Vehicle.Nod, Vehicle.Lightbringer, Vehicle.Mutant, Vehicle.CABAL, Vehicle.Scrin, Air.Shared, Air.GDI, Air.Nod, Air.Mutant, Air.CABAL, Air.Scrin, Upgrade.Shared, Upgrade.GDI, Upgrade.Nod, Upgrade.Mutant, Upgrade.CABAL, Upgrade.Scrin
-		IdleBaseUnitsMaximum: 40
 		UnitsToBuild:
 			harv: 100
 			scrharv: 100
@@ -472,7 +471,6 @@ Player:
 			scrcarrier: 5
 			mutqueen: 5
 			minelayer: 2
-			limped: 1
 			scrscorpion: 2
 			hmectest: 1
 			scrincouncil: 1
@@ -514,6 +512,7 @@ Player:
 			Air.GDI: 2
 			Air.Nod: 2
 			Air.Mutant: 2
+			Vehicle.Nod: 1
 	McvManagerASBotModule@AINormal:
 		RequiresCondition: AINormal || AIEasy
 		McvTypes: mcv, cabmcv, nodmcv, mutmcv, drache
@@ -846,16 +845,54 @@ Player:
 			mujeep: IdleUnit
 		PassengerTypes: gdie1, altnode1, jumpjet, crusader, e3, marauder, cyborg, cborg, legio, grenadier, e2, templar, mutfiend, colossi, seer, eagleguard, bhs, psyker, glad, cyc2, bug, nconf, ghost, umagon
 		ValidTransportOwner: AlliedBot
-	SendUnitToAttackBotModule:
+
+	SendUnitToAttackBotModule@Backlines:
 		RequiresCondition: AIBase
-		ActorTypesAndAttackDesire: 
-			subtank: 10
-			sapc: 10
-			nukecarryall_bot: 100
-			hvrtruk3: 100
+		ActorTypesAndAttackOptions: 
+			subtank: 
+				AttackDesireOfEach: 10
+				MoveToOrderName: Move
+				MoveBackOrderName: AssaultMove
+			sapc: 
+				AttackDesireOfEach: 10
+				MoveToOrderName: Move
+				AttackOrderName: Unload
+				MoveBackOrderName: Move
+				AttackRequires: CargoLoaded
+			nukecarryall_bot: 
+				AttackDesireOfEach: 100
+				AttackOrderName: DeliverUnit ## Hack: DeliverUnit has a bug that ignore the ocuppied cell, we just need that
+				MoveBackOrderName: Move
+			hvrtruk3: 
+				AttackDesireOfEach: 100
+				TryGetHealed: false
 		ValidTargets: Building, AIPrefer
 		InvalidTargets: Defence
-		AttackDistance: Furthest
+		TargetDistances: Furthest, Random
+
+	SendUnitToAttackBotModule@Frontlines:
+		RequiresCondition: AIBase
+		ActorTypesAndAttackOptions:
+			bike:
+				AttackDesireOfEach: 100
+				AttackOrderName: AssaultMove
+				MoveBackOrderName: AssaultMove
+			sonicarryall_bot: 
+				AttackDesireOfEach: 100
+				MoveToOrderName: Move
+				AttackOrderName: Unload
+				MoveBackOrderName: Move
+			apcarryall_bot: 
+				AttackDesireOfEach: 100
+				MoveToOrderName: Move
+				AttackOrderName: Unload
+				MoveBackOrderName: Move
+			limped:
+				AttackDesireOfEach: 100
+				AttackOrderName: AssaultMove
+				MoveBackOrderName: Move
+		ValidTargets: Ground
+		TargetDistances: Closest
 
 	GrantConditionOnPrerequisite@HasHarv:
 		Condition: has-harv

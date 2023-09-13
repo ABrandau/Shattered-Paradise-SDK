@@ -1506,7 +1506,6 @@ SAPC:
 	Inherits@PIPS: ^CargoPips
 	Inherits@VISION: ^6CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1546,19 +1545,11 @@ SAPC:
 		RequiresCondition: !mindcontrolled && !submerged
 	WithDecoration@UNDERGROUND:
 		RequiresCondition: inside-tunnel || submerged
-	Armament@AIunloadingDummyWeapon:
-		Weapon: AITransportAimingDummyWeapon
-		RequiresCondition: AImicroManage && loaded && !StopAndDeploy
-		ReloadingCondition: StopAndDeploy
-	AttackFrontal@AIAimOnly:
-		RequiresCondition: AImicroManage && loaded && !StopAndDeploy
-		FacingTolerance: 512
-	AutoTarget:
-		RequiresCondition: AImicroManage
 	AutoDeployer@AI:
-		RequiresCondition: AImicroManage && loaded
+		RequiresCondition: AImicroManage && loaded && HeavyDamaged
 		DeployChance: 100
-		DeployTicks: 200
+		DeployTrigger: Periodically
+		DeployTicks: 20
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Cargo
 		Damage: 112
@@ -1584,6 +1575,9 @@ SUBTANK:
 		Prerequisites: ~naweap, natech, ~techlevel.5
 		BuildDuration: 500
 		BuildDurationModifier: 100
+	ProductionCostMultiplier@AI: ## AI cannot use it well
+		Multiplier: 50
+		Prerequisites: AIOnly
 	Voiced:
 		VoiceSet: Devil
 		Volume: 2
@@ -1618,6 +1612,7 @@ SUBTANK:
 		FacingTolerance: 2
 	AutoTarget:
 		ScanRadius: 5 #PREF: save trait looks up and scan armaments
+		RequiresCondition: !submerged
 	Targetable@MC:
 		RequiresCondition: !mindcontrolled && !submerged
 	WithDecoration@UNDERGROUND:
@@ -2963,7 +2958,7 @@ LIMPED:
 		RequiresCondition: !inside-tunnel && !empdisable
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
-		RequiresCondition: deployed
+		RequiresCondition: deployed && !AImicroManage
 	RejectsMoveToAttack:
 		RequiresCondition: deployed
 	Armament@1:
@@ -3023,23 +3018,6 @@ LIMPED:
 		RequiresCondition: deployed
 	DamagedByTintedCells@Colossus:
 		RequiresCondition: deployed
-	### AI Control: make limped drone wander randomly and deploy when find enemy
-	Armament@AIAimOnly:
-		RequiresCondition: AImicroManage && !deployed
-		Weapon: LimpedAimDummyWeapon
-		PauseOnCondition: empdisable
-		Name: AIAim
-	AttackWander@AI:
-		RequiresCondition: AImicroManage && undeployed
-		WanderMoveRadius: 8
-		MinMoveDelay: 10
-		MaxMoveDelay: 10
-	### AI Control
-	AutoDeployer@AIDeploy:
-		RequiresCondition: AImicroManage && !deployed
-		DeployTrigger: Attack
-		DeployChance: 100
-		DeployTicks: 55
 	-LeavesTrails@land:
 	LeavesTrails@water:
 		Image: wake
@@ -3051,6 +3029,17 @@ LIMPED:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
 		Damage: 150
+	### AI Control: make limped drone wander randomly and deploy when find enemy
+	Armament@AIAimOnly:
+		RequiresCondition: AImicroManage && !deployed
+		Weapon: LimpedAimDummyWeapon
+		PauseOnCondition: empdisable
+		Name: AIAim
+	AutoDeployer@AIDeploy:
+		RequiresCondition: AImicroManage && !deployed
+		DeployTrigger: Attack
+		DeployChance: 100
+		DeployTicks: 55
 
 REPAIRVEHICLE:
 	Inherits: ^CombatVehicle

@@ -29,7 +29,7 @@ namespace OpenRA.Mods.SP.Traits
 		public int PortIndex;
 	}
 
-	[Desc("Cargo can fire their weapons out of fire ports.")]
+	[Desc("Cargo can fire their weapons out of fire ports. Each passenger a port.")]
 	public sealed class AttackGarrisonedSPInfo : AttackFollowInfo, IRulesetLoaded, Requires<CargoInfo>
 	{
 		[FieldLoader.Require]

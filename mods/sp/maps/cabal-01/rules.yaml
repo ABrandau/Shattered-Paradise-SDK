@@ -63,7 +63,9 @@ Player:
 	CncEngineerBotModule:
 		RequiresCondition: AIBase && enable-ai-combat
 		CapturableActorTypes: well, neutralradar, cahosp, neutralsonictur, caarmr, machineshop, scrinreinfpad, ntpyra.koth, gacnst, mutyard, cabyard, nodyard, drached, nodref, nodref2, nodref3, nodref4
-	SendUnitToAttackBotModule:
+	SendUnitToAttackBotModule@Frontlines:
+		RequiresCondition: AIBase && enable-ai-combat
+	SendUnitToAttackBotModule@Backlines:
 		RequiresCondition: AIBase && enable-ai-combat
 	### Mission: Hack Civilian Array Related
 	ExternalCondition@revealbase:
