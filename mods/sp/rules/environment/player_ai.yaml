@@ -271,7 +271,7 @@ Player:
 		RequiresCondition: AIBase
 		SquadSize: 24
 		SquadSizeRandomBonus: 3
-		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.nod, harv.mut, engineer, cutman, swarmling, shapeshifter,mcv, drache, cabmcv, nodmcv, mutmcv, mwar, limped, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern, ionbeammini, mkiiidrone-minigun, councilor, trnsport, trnsport.nod, trnsport.mut, trnsport.cab, trnsport.scr, nukecarryall_bot,sonicarryall_bot, apcarryall_bot, bike, subtank, sapc, hvrtruk3, minelayer, king
+		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.nod, harv.mut, engineer, cutman, swarmling, shapeshifter,mcv, drache, cabmcv, nodmcv, mutmcv, mwar, limped, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern, ionbeammini, mkiiidrone-minigun, councilor, scrtrans, trnsport, trnsport.nod, trnsport.mut, trnsport.cab, trnsport.scr, nukecarryall_bot,sonicarryall_bot, apcarryall_bot, devourer, bike, subtank, sapc, hvrtruk3, minelayer, king
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
 		DangerScanRadius: 18
 		AttackForceInterval: 73
@@ -289,7 +289,7 @@ Player:
 		#Hack: use DozerTypes for unit that needs moving randomly but not get out of the base
 		DozerTypes: lpst, sgen, icbm
 		MaxDozerSendingRadius: 14
-		AirUnitsTypes: jumpjetair, jjcommair, orca, orcab, apache, scrin, cerberus, mutheli, mutqueen, wetp, stormrider, scrglyder1, scrdestroyer, scrcarrier, stormriderspawn, repairwyvern, cabdronejet, repairdrone, scrbattleship, wasp, basilisk, devourer, sonicarryall_bot, apcarryall_bot
+		AirUnitsTypes: jumpjetair, jjcommair, orca, orcab, apache, scrin, cerberus, mutheli, mutqueen, wetp, stormrider, scrglyder1, scrdestroyer, scrcarrier, stormriderspawn, repairwyvern, cabdronejet, repairdrone, scrbattleship, wasp, basilisk, sonicarryall_bot, apcarryall_bot
 		ProtectionTypes: nodmcv, mutmcv, cabmcv, drache, mcv, harv, harv.nod, harv.mut, cabharv, scrharv, gacnst, gadept, scrdepot, gasilo, napuls, scrshield, gate_a, mutgate_a, scrgate_a, scrgate_b, gapowr, gapile, gdiref, gaweap, garadr, gahpad, gatech, gtdrop, nodyard, napowr, nahand, nodref, naweap, naradr, naapwr, nahpad, natech, namisl, mutyard, mupowr, murax, muproc, muweap, muradr, muair, muhall, mutsw2, drached, scrpowr, scrrax, scrproc, scrproc2, scrproc3, scrproc4, scrweap, scrradr, scrair, scrtech, scradvpowr, cabyard, cabpowr, cabclaw, cabproc, cabweap, cabradr, cabair, cabtech, cabobelisk, gavulc, garock, gasonc, gacsam, nalasr, naobel, nasam, mubunkr, mucannon, muflak, cabpit, cabblast, cabrail, scrneedler, scrdrone, scrtractor, gafire, gaplug, nastlh, natmpl, muventi, mutsw1, scrextractor, scrsw1, cabeye, cabsw1, blackdefd, weed, bloodderrick, colorpicker, mubunkr, defd, mtar, mwar, icbm, king
 	UnitBuilderBotModule@AIAll:
 		RequiresCondition: AIEasy || AIBase
@@ -377,6 +377,7 @@ Player:
 			nukecarryall_bot: 1
 			sonicarryall_bot: 5
 			apcarryall_bot: 1
+			scrtrans: 1
 			repairvehicle: 2
 			engineer: 2
 			cutman: 2
@@ -475,6 +476,7 @@ Player:
 			hmectest: 1
 			scrincouncil: 1
 			sapc: 2
+			scrtrans: 1
 			### AI only unit
 			lpst: 1
 			sgen: 1
@@ -834,15 +836,16 @@ Player:
 			apc: IdleUnit
 			struck: IdleUnit
 			mubunkr: IdleUnit
-			bggy: IdleUnit
+			bggy: All
 			apc_bot: IdleUnit
-			riflebggy: IdleUnit
-			rocketbggy: IdleUnit
-			flamebggy: IdleUnit
-			struckfull: IdleUnit
-			struckfull_t3: IdleUnit
+			riflebggy: All
+			rocketbggy: All
+			flamebggy: All
+			struckfull: All
+			struckfull_t3: All
 			sapc: IdleUnit
 			mujeep: IdleUnit
+			scrtrans: IdleUnit
 		PassengerTypes: gdie1, altnode1, jumpjet, crusader, e3, marauder, cyborg, cborg, legio, grenadier, e2, templar, mutfiend, colossi, seer, eagleguard, bhs, psyker, glad, cyc2, bug, nconf, ghost, umagon
 		ValidTransportOwner: AlliedBot
 
@@ -851,7 +854,6 @@ Player:
 		ActorTypesAndAttackOptions: 
 			subtank: 
 				AttackDesireOfEach: 10
-				MoveToOrderName: Move
 				MoveBackOrderName: AssaultMove
 			sapc: 
 				AttackDesireOfEach: 10
@@ -866,6 +868,10 @@ Player:
 			hvrtruk3: 
 				AttackDesireOfEach: 100
 				TryGetHealed: false
+			devourer:
+				AttackDesireOfEach: 20
+				MoveBackOrderName: AssaultMove
+				MoveToOrderName: AssaultMove
 		ValidTargets: Building, AIPrefer
 		InvalidTargets: Defence
 		TargetDistances: Furthest, Random
@@ -891,8 +897,15 @@ Player:
 				AttackDesireOfEach: 100
 				AttackOrderName: AssaultMove
 				MoveBackOrderName: Move
-		ValidTargets: Ground
-		TargetDistances: Closest
+			scrtrans:
+				AttackDesireOfEach: 80
+				MoveToOrderName: Move
+				AttackOrderName: Unload
+				MoveBackOrderName: Move
+				AttackRequires: CargoLoaded
+		ValidTargets: Infantry, Vehicle, Building
+		InvalidTargets: Defence
+		TargetDistances: Random
 
 	GrantConditionOnPrerequisite@HasHarv:
 		Condition: has-harv
