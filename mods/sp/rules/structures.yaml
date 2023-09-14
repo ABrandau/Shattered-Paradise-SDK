@@ -1756,7 +1756,7 @@ SCRADVPOWR:
 	Inherits@RENDER: ^ScrinRenderBuilding
 	Inherits@SHAPE: ^3x3Shape
 	Inherits@AISupportPower: ^HasSuperSupportPower
-	Inherits@AIbuilding: ^AIbuildingMicroControl
+	Inherits@AIbuilding: ^AImicroManagable
 	Tooltip:
 		Name: Wormhole Generator
 	Buildable:
@@ -1775,7 +1775,7 @@ SCRADVPOWR:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
 	ChronoshiftPower@chronoshift:
-		RequiresCondition: !AIbuildingMicroControl
+		RequiresCondition: !AImicroManage
 		OrderName: Chronoshift
 		PauseOnCondition: empdisable || disabled
 		AllowMultiple: true
@@ -1825,7 +1825,7 @@ SCRADVPOWR:
 		AfterTeleportDelay: 5
 		BeforeTeleportDelay: 1
 	NukePower:
-		RequiresCondition: AIbuildingMicroControl
+		RequiresCondition: AImicroManage
 		Prerequisites:
 			1: scradvpowr
 		MissileWeapons:

@@ -1238,7 +1238,7 @@
 		OrderTrigger: Periodically
 		OrderName: GrantTimedConditionOnDeploy
 		OrderInterval: 220
-		RequiresCondition: AImicroManage && OnTiber && tibconversion
+		RequiresCondition: OnTiber && tibconversion
 
 ^AffectedByAerialGliders:
 	ActorStatValues:
@@ -1444,11 +1444,6 @@
 ^AImicroManagable:
 	GrantConditionOnBotOwner@AImicroManage:
 		Condition: AImicroManage
-		Bots: EasyAI, NormalAI, CheaterAI, ShatteredAI
-
-^AIbuildingMicroControl:
-	GrantConditionOnBotOwner@AIbuildingMicroControl:
-		Condition: AIbuildingMicroControl
 		Bots: EasyAI, NormalAI, CheaterAI, ShatteredAI
 
 ^GenericEffects:

@@ -292,7 +292,7 @@ SCRHARV:
 GACNST:
 	Inherits: ^Building
 	Inherits@SHAPE: ^3x3Shape
-	Inherits@AIbuilding: ^AIbuildingMicroControl
+	Inherits@AIbuilding: ^AImicroManagable
 	Inherits@SuddenDeathRequired: ^SuddenDeathTag
 	Building:
 		Footprint: xxx xxx xxx
@@ -465,7 +465,7 @@ GACNST:
 	RequiresBuildableArea:
 		AreaTypes: building
 	ProvidesPrerequisite@AIantiRush-building-order:
-		RequiresCondition: !AIbuildingMicroControl
+		RequiresCondition: !AImicroManage
 		Prerequisite: AIantiRush-building-order ## Hack: AI Building control. AI build refinary only when it has a combat producing line.
 	IsometricSelectable:
 		DecorationHeight: 36
@@ -475,7 +475,7 @@ GACNST:
 	GrantConditionOnCapture@AI:
 		Condition: captured
 	IssueOrderToBot@AI:
-		RequiresCondition: AIbuildingMicroControl && captured
+		RequiresCondition: captured
 		OrderName: DeployTransform
 		OrderTrigger: Periodically
 		OrderInterval: 200
@@ -1504,7 +1504,7 @@ GASILO:
 		CarryCondition: carring
 		AutoCarryCondition: AImicroManage
 	IssueOrderToBot@AI: ## HACK: prevent carryall stuck and cannot unload
-		RequiresCondition: AImicroManage && carring
+		RequiresCondition: carring
 		OrderName: Unload
 		OrderChance: 100
 		OrderTrigger: Periodically
@@ -1678,7 +1678,7 @@ trnsport.scr:  ## only used for AI
 NAPULS:
 	Inherits: ^Defence
 	Inherits@SHAPE: ^2x2Shape
-	Inherits@AIbuilding: ^AIbuildingMicroControl
+	Inherits@AIbuilding: ^AImicroManagable
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -1745,7 +1745,7 @@ NAPULS:
 			1: emp.gdi
 		OrderName: Nodemp
 		PauseOnCondition: disabled || empdisable
-		RequiresCondition: swlimit && !AIbuildingMicroControl
+		RequiresCondition: swlimit && !AImicroManage
 	FireArmamentPower@unlimited:
 		AllowMultiple: true
 		Cursor: emp
@@ -1766,7 +1766,7 @@ NAPULS:
 			1: emp.gdi
 		OrderName: Nodemp
 		PauseOnCondition: disabled || empdisable
-		RequiresCondition: !swlimit && !AIbuildingMicroControl
+		RequiresCondition: !swlimit && !AImicroManage
 	GrantConditionOnPrerequisite@swlimit:
 		Condition: swlimit
 		Prerequisites: global-swlimit
@@ -1786,11 +1786,11 @@ NAPULS:
 		Weapon: EMPulseCannon
 		LocalOffset: 200,0,1900
 		LocalYaw: 0,100
-		RequiresCondition: AIbuildingMicroControl
+		RequiresCondition: AImicroManage
 		PauseOnCondition: !ammo || disabled || empdisable
 	ReloadAmmoPool@AIonly:
 		AmmoPool: primary
-		RequiresCondition: AIbuildingMicroControl
+		RequiresCondition: AImicroManage
 		Count: 1
 		Delay: 4500
 		PauseOnCondition: disabled || empdisable
@@ -1799,16 +1799,16 @@ NAPULS:
 		InitialAmmo: 0
 		AmmoCondition: ammo
 	ProvidesPrerequisite@AIBuildLimit:
-		RequiresCondition: AIbuildingMicroControl
+		RequiresCondition: AImicroManage
 		Prerequisite: AIEmpBuildLimit
 	AutoTarget@AIonly:
-		RequiresCondition: AIbuildingMicroControl && ammo
+		RequiresCondition: AImicroManage && ammo
 		InitialStanceAI: Defend
 		MinimumScanTimeInterval: 250
 		MaximumScanTimeInterval: 262
 		ScanRadius: 25
 	AutoTargetPriority@AIonly:
-		RequiresCondition: AIbuildingMicroControl
+		RequiresCondition: AImicroManage
 		ValidTargets: Vehicle
 		InvalidTargets: OrganicVehicle
 		ValidRelationships: Enemy

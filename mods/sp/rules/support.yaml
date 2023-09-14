@@ -413,7 +413,6 @@ MUBUNKR:
 	Inherits@PIPS: ^CargoPips
 	Inherits@RENDER: ^MutRenderBuilding
 	Inherits@SHAPE: ^2x2Shape
-	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 500
 	CustomSellValue:
@@ -485,7 +484,7 @@ MUBUNKR:
 			blue: pip-blue-building
 			gray: pip-gray-building
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && loaded && HeavyDamaged
+		RequiresCondition: loaded && HeavyDamaged
 		OrderName: Unload
 		OrderChance: 100
 		OrderTrigger: Periodically
@@ -865,7 +864,7 @@ GAFIRE:
 	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
 	Inherits@SHAPE: ^3x2Shape
 	Inherits@FirestormWall: ^FirestormWallSP
-	Inherits@AIbuilding: ^AIbuildingMicroControl
+	Inherits@AIbuilding: ^AImicroManagable
 	Buildable:
 		Queue: Defense.Shared, Defense.GDI
 		BuildPaletteOrder: 41
@@ -919,13 +918,13 @@ GAFIRE:
 	RequiresBuildableArea:
 		AreaTypes: building
 	Armament@AIAimOnly:
-		RequiresCondition: AIbuildingMicroControl && !FirestormGen && !empdisable && !disabled && !Building-Buildup
+		RequiresCondition: AImicroManage && !FirestormGen && !empdisable && !disabled && !Building-Buildup
 		Weapon: FirestormAIAimingDummyWeapon
 	AttackOmni@AIAimOnly:
-		RequiresCondition: AIbuildingMicroControl && !Building-Buildup && !empdisable && !disabled
+		RequiresCondition: AImicroManage && !Building-Buildup && !empdisable && !disabled
 		PauseOnCondition: empdisable
 	AutoTarget@AIonly:
-		RequiresCondition: AIbuildingMicroControl
+		RequiresCondition: AImicroManage
 		InitialStanceAI: Defend
 		MinimumScanTimeInterval: 41
 		MaximumScanTimeInterval: 50
@@ -935,7 +934,7 @@ GAFIRE:
 		ValidTargets: Ground, Air, Water
 		Priority: 2
 	IssueOrderToBot@AI:
-		RequiresCondition: AIbuildingMicroControl && !Building-Buildup && !empdisable && !disabled
+		RequiresCondition: !Building-Buildup && !empdisable && !disabled
 		OrderName: GrantTimedConditionOnDeploy
 		OrderChance: 100
 		OrderInterval: 200
@@ -1046,7 +1045,7 @@ NASTLH:
 	Inherits@IMPSGEN: ^AffectedByImprovedStealthGenerator
 	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
 	Inherits@SHAPE: ^3x2Shape
-	Inherits@AIbuilding: ^AIbuildingMicroControl
+	Inherits@AIbuilding: ^AImicroManagable
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -1101,7 +1100,7 @@ NASTLH:
 	RequiresBuildableArea:
 		AreaTypes: building
 	ProvidesPrerequisite@AIBuildLimit:
-		RequiresCondition: AIbuildingMicroControl
+		RequiresCondition: AImicroManage
 		Prerequisite: AINASTLHBuildLimit
 	MustBeDestroyed:
 		RequiredForShortGame: false
@@ -1182,7 +1181,7 @@ MUVENTI:
 	Inherits@2: ^HasSuperSupportPower
 	Inherits@RENDER: ^MutRenderBuilding
 	Inherits@SHAPE: ^3x3Shape
-	Inherits@AIbuilding: ^AIbuildingMicroControl
+	Inherits@AIbuilding: ^AImicroManagable
 	Buildable:
 		Queue: Defense.Shared, Defense.Mutant
 		BuildPaletteOrder: 44
@@ -1235,13 +1234,13 @@ MUVENTI:
 			blue: pip-blue-building
 			gray: pip-gray-building
 	Armament@AIAimOnly:
-		RequiresCondition: AIbuildingMicroControl && !Building-Buildup && !StopAndDeploy
+		RequiresCondition: AImicroManage && !Building-Buildup && !StopAndDeploy
 		Weapon: MutTunnelAIAimingDummyWeapon
 		ReloadingCondition: StopAndDeploy ## HACK: SharedCargo can only deploy when not firing
 	AttackOmni@AIAimOnly:
-		RequiresCondition: AIbuildingMicroControl && !Building-Buildup && !StopAndDeploy
+		RequiresCondition: AImicroManage && !Building-Buildup && !StopAndDeploy
 	AutoTarget@AIonly:
-		RequiresCondition: AIbuildingMicroControl && !StopAndDeploy
+		RequiresCondition: AImicroManage && !StopAndDeploy
 		InitialStanceAI: Defend
 		MinimumScanTimeInterval: 30
 		MaximumScanTimeInterval: 30
@@ -1251,7 +1250,6 @@ MUVENTI:
 		ValidTargets: Ground, Air, Water
 		Priority: 2
 	IssueOrderToBot@AI:
-		RequiresCondition: AIbuildingMicroControl
 		OrderName: UnloadShared
 		OrderTrigger: Attack
 		OrderChance: 100
@@ -1274,7 +1272,7 @@ MUVENTI:
 		-LaunchSound:
 		-EndChargeSound:
 		-EndChargeSpeechNotification:
-		RequiresCondition: !AIbuildingMicroControl
+		RequiresCondition: !AImicroManage
 		EndChargeTextNotification: notification-sneaktunnel-ready
 		Cost: 500
 		Prerequisites:
@@ -1294,7 +1292,7 @@ MUVENTI:
 		CameraRange: 0
 		DisplayTimerRelationships: None
 	NukePower@AI: ### AI will use it less, and have the ability to build tunnel instead
-		RequiresCondition: AIbuildingMicroControl
+		RequiresCondition: AImicroManage
 		AllowMultiple: false
 		Cursor: nuke
 		EndChargeTextNotification: notification-sneaktunnel-ready
@@ -1765,7 +1763,6 @@ BLACKDEFD:
 	Inherits@RENDER: ^CabRenderBuilding
 	Inherits@SHAPE: ^2x3Shape
 	Inherits@VISION: ^8CellVision
-	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Valued:
 		Cost: 5000
 	Health:
@@ -1863,7 +1860,6 @@ BLACKDEFD:
 		Image: blackdefd
 	### AI Control
 	IssueOrderToBot@AI:
-		RequiresCondition: AIbuildingMicroControl
 		OrderName: DeployTransform
 		OrderTrigger: Periodically
 		OrderInterval: 1035

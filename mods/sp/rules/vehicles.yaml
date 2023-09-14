@@ -165,7 +165,6 @@ APC:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@PIPS: ^CargoPips
 	Inherits@VISION: ^6CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -324,7 +323,7 @@ APC:
 		Damage: 40
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange, Cargo
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && loaded
+		RequiresCondition: loaded
 		OrderName: Unload
 		OrderChance: 100
 		OrderInterval: 45
@@ -784,7 +783,6 @@ BGGY:
 	Inherits@RAIDERE1: ^AffectedByRaiderPassenger
 	Inherits@TIBGASWH: ^AffectedByTiberiumGasWarheads
 	Inherits@VISION: ^8CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
 	-FirepowerMultiplier@BLUEFLAME:
 	Valued:
 		Cost: 300
@@ -1106,7 +1104,7 @@ BGGY:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo
 		Upgrades: upgrade.raider_passenger
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && loaded && HeavyDamaged
+		RequiresCondition: loaded && HeavyDamaged
 		OrderName: Unload
 		OrderChance: 100
 		OrderTrigger: Periodically
@@ -1323,7 +1321,7 @@ TTNK:
 	AutoTarget:
 		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && undeployed
+		RequiresCondition: undeployed
 		OrderName: GrantConditionOnDeploy
 		OrderChance: 100
 		OrderTrigger: Attack
@@ -1508,7 +1506,6 @@ SAPC:
 	Inherits: ^SubterraneanVehicle
 	Inherits@PIPS: ^CargoPips
 	Inherits@VISION: ^6CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1550,7 +1547,7 @@ SAPC:
 	WithDecoration@UNDERGROUND:
 		RequiresCondition: inside-tunnel || submerged
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && loaded && HeavyDamaged
+		RequiresCondition: loaded && HeavyDamaged
 		OrderName: Unload
 		OrderChance: 100
 		OrderTrigger: Periodically
@@ -1790,7 +1787,6 @@ SCORPION:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^8CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 5000
 	Tooltip:
@@ -1906,7 +1902,6 @@ SCORPION:
 		StartsFullyCharged: true
 		PauseOnCondition: empdisable
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage
 		OrderName: GrantTimedConditionOnDeploy
 		OrderTrigger: Attack
 		OrderChance: 100
@@ -2134,7 +2129,6 @@ STRUCK:
 	Inherits@PIPS: ^CargoPips
 	Inherits@RENDER: ^MutRenderGreen
 	Inherits@VISION: ^6CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -2186,7 +2180,7 @@ STRUCK:
 		Position: BottomLeft
 		RequiresSelection: true
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && loaded && HeavyDamaged
+		RequiresCondition: loaded && HeavyDamaged
 		OrderName: Unload
 		OrderChance: 100
 		OrderTrigger: Periodically
@@ -2514,7 +2508,6 @@ WEASAU:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^8CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 5000
 	Tooltip:
@@ -2643,7 +2636,6 @@ WEASAU:
 		RequiresCondition: produced
 		Voice: Build
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage
 		OrderName: GrantTimedConditionOnDeploy
 		OrderTrigger: Attack
 		OrderChance: 100
@@ -3044,7 +3036,7 @@ LIMPED:
 		PauseOnCondition: empdisable
 		Name: AIAim
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && !deployed
+		RequiresCondition: !deployed
 		OrderName: GrantConditionOnDeploy
 		OrderTrigger: Attack
 		OrderChance: 100
@@ -3278,7 +3270,6 @@ BCOREDEF:
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^8CellVision
 	Inherits@VOICE: ^CabalVehicleVoice
-	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 5000
 	Tooltip:
@@ -3389,7 +3380,6 @@ BCOREDEF:
 	ProvidesPrerequisite@buildinglimit:
 		Prerequisite: DarkDefenderExists
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage
 		OrderName: DeployTransform
 		OrderTrigger: Periodically
 		OrderInterval: 1035

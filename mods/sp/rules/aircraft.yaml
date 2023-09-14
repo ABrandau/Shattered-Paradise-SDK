@@ -1326,7 +1326,6 @@ SCRTRANS:
 	Inherits@HYPERFLIGHT: ^AffectedByHyperFlightRotors
 	Inherits@PIPS: ^CargoPips
 	Inherits@VISION: ^9CellVisionAir
-	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -1392,7 +1391,7 @@ SCRTRANS:
 		TrailLength: 6
 		StartWidth: 40
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && loaded
+		RequiresCondition: loaded
 		OrderName: Unload
 		OrderChance: 100
 		OrderInterval: 40

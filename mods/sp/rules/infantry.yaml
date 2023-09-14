@@ -272,7 +272,6 @@ JUMPJET:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -313,7 +312,6 @@ JUMPJET:
 	AutoTarget:
 		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage
 		OrderName: DeployTransform
 		OrderTrigger: Damage
 		OrderInterval: 550
@@ -486,7 +484,6 @@ JJCOMM:
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^8CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
 	-Targetable@MC:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.GDI
@@ -549,7 +546,6 @@ JJCOMM:
 	AutoTarget:
 		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage
 		OrderName: DeployTransform
 		OrderTrigger: Damage
 		OrderInterval: 550
@@ -850,7 +846,6 @@ NCONF:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Nod
 		BuildPaletteOrder: 26
@@ -905,7 +900,6 @@ NCONF:
 		Interval: 999999
 		RequiresCondition: HologramSpawn
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage
 		OrderName: GrantTimedConditionOnDeploy
 		OrderTrigger: Attack
 		OrderChance: 100
@@ -1153,7 +1147,7 @@ MARAUDER:
 		Modifier: 75
 		RequiresCondition: deployed
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && !deployed
+		RequiresCondition: !deployed
 		OrderName: GrantConditionOnDeploy
 		OrderTrigger: Attack
 		OrderInterval: 55
@@ -1416,7 +1410,6 @@ SEER:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^7CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Mutant
 		BuildPaletteOrder: 28
@@ -1481,7 +1474,6 @@ SEER:
 		Interval: 10
 		RequiresCondition: deployed
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage
 		OrderName: GrantTimedConditionOnDeploy
 		OrderChance: 50
 		OrderInterval: 2006
@@ -2569,7 +2561,7 @@ MOTH:
 		Width: 2
 	-Crushable:
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && !deployed
+		RequiresCondition: !deployed
 		OrderName: GrantConditionOnDeploy
 		OrderTrigger: Attack
 		OrderChance: 100

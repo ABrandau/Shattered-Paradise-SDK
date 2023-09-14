@@ -32,7 +32,7 @@ COLOSSI_CHRONO:
 		PauseOnCondition: WebDisable
 		Name: OnFoot
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && !deployed
+		RequiresCondition: !deployed
 		OrderName: GrantConditionOnDeploy
 		OrderChance: 100
 		OrderInterval: 55
@@ -151,7 +151,7 @@ NUKECARRYALL_BOT:
 		AutoCarryCondition: loaded ##Disable Auto Action
 	-IssueOrderToBot@AI:
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && loaded
+		RequiresCondition: loaded
 		OrderName: Unload
 		OrderChance: 100
 		OrderInterval: 40
@@ -174,7 +174,7 @@ SONICARRYALL_BOT:
 		InitialActor: sonic
 	-IssueOrderToBot@AI:
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && loaded
+		RequiresCondition: loaded
 		OrderName: Unload
 		OrderChance: 100
 		OrderInterval: 40
@@ -197,7 +197,7 @@ APCARRYALL_BOT:
 		InitialActor: apc_bot
 	-IssueOrderToBot@AI:
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && loaded
+		RequiresCondition: loaded
 		OrderName: Unload
 		OrderChance: 100
 		OrderInterval: 40
@@ -381,7 +381,6 @@ MUJEEP:
 	Inherits@RAIDERE1: ^AffectedByRaiderPassenger
 	Inherits@PIPS: ^CargoPips
 	Inherits@VISION: ^6CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 350
 	Tooltip:
@@ -470,7 +469,7 @@ MUJEEP:
 		Damage: 40
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && loaded
+		RequiresCondition: loaded
 		OrderName: Unload
 		OrderChance: 100
 		OrderInterval: 45
@@ -534,7 +533,6 @@ WEASAU3:
 	Inherits@MC: ^MindControllableMastermind
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^8CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 1750
 	Tooltip:
@@ -631,7 +629,6 @@ WEASAU3:
 	SharedPassenger:
 		CustomPipType: red
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage
 		OrderName: GrantTimedConditionOnDeploy
 		OrderTrigger: Attack
 		OrderChance: 20
@@ -705,17 +702,17 @@ LPST:
 		Range: 15c0
 		MaxHeightDelta: 3
 	### AI Control
-	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && undeployed
-		OrderName: GrantConditionOnDeploy
-		OrderChance: 100
-		OrderTrigger: BecomingIdle
-		OrderInterval: 105
 	Wanders@AI:
 		RequiresCondition: AImicroManage && undeployed
 		WanderMoveRadius: 1
 		MinMoveDelay: 30
 		MaxMoveDelay: 30
+	IssueOrderToBot@AI:
+		RequiresCondition: undeployed
+		OrderName: GrantConditionOnDeploy
+		OrderChance: 100
+		OrderTrigger: BecomingIdle
+		OrderInterval: 105
 
 SGEN:
 	Inherits: ^Vehicle
@@ -794,25 +791,24 @@ SGEN:
 		Palette: effect
 		IsDecoration: true ## so this doesn't have shadow
 	### AI Control
-	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && undeployed
-		OrderName: GrantConditionOnDeploy
-		OrderChance: 100
-		OrderTrigger: BecomingIdle
-		OrderInterval: 105
 	Wanders@AI:
 		RequiresCondition: AImicroManage && undeployed
 		WanderMoveRadius: 1
 		MinMoveDelay: 30
 		MaxMoveDelay: 30
-
+	IssueOrderToBot@AI:
+		RequiresCondition: undeployed
+		OrderName: GrantConditionOnDeploy
+		OrderChance: 100
+		OrderTrigger: BecomingIdle
+		OrderInterval: 105
 
 ICBM:
 	Inherits: ^Vehicle
-	Inherits@AImicroManagable: ^AImicroManagable
 	Inherits@VISION: ^6CellVision
-	Inherits@2: ^HasMisslePower
+	Inherits@SUPER: ^HasMisslePower
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
+	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
 		BuildAtProductionType: Tank
@@ -897,18 +893,17 @@ ICBM:
 	WithSupportPowerActivationAnimation:
 		RequiresCondition: !inside-tunnel && deployed
 		Sequence: launched-idle
-	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage && undeployed
-		OrderName: GrantConditionOnDeploy
-		OrderChance: 100
-		OrderTrigger: BecomingIdle
-		OrderInterval: 105
 	Wanders@AI:
 		RequiresCondition: AImicroManage && undeployed
 		WanderMoveRadius: 1
 		MinMoveDelay: 30
 		MaxMoveDelay: 30
-
+	IssueOrderToBot@AI:
+		RequiresCondition: undeployed
+		OrderName: GrantConditionOnDeploy
+		OrderChance: 100
+		OrderTrigger: BecomingIdle
+		OrderInterval: 105
 
 MWAR: ## AI control it by using McvManagerBotModule
 	Inherits: ^Vehicle
@@ -948,7 +943,6 @@ MWAR: ## AI control it by using McvManagerBotModule
 
 MTAR:
 	Inherits@1: ^Factory
-	Inherits@AIbuilding: ^AIbuildingMicroControl
 	-Buildable:
 	MustBeDestroyed:
 		RequiredForShortGame: false
@@ -1005,7 +999,6 @@ MTAR:
 		TooltipActor: mtar
 	### AI Control
 	IssueOrderToBot@AI:
-		RequiresCondition: AIbuildingMicroControl
 		OrderName: DeployTransform
 		OrderTrigger: Periodically
 		OrderInterval: 5000
@@ -1066,7 +1059,6 @@ M_EMP:
 		Amount: 1
 		RequiresCondition: empSpawn
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage
 		OrderName: GrantTimedConditionOnDeploy
 		OrderTrigger: Attack
 		OrderChance: 100
@@ -1728,7 +1720,6 @@ COREDEFENDER:
 		DamageMaxRange: 7c140
 		DamageMinRange: 6c724
 	IssueOrderToBot@AI:
-		RequiresCondition: AImicroManage
 		OrderName: GrantTimedConditionOnDeploy
 		OrderTrigger: Damage
 		OrderChance: 100
@@ -1746,7 +1737,6 @@ DEFD:
 	Inherits@2: ^6CellVision
 	Inherits@3: ^SelectableBuilding
 	Inherits@SHAPE: ^2x3Shape
-	Inherits@AIbuilding: ^AIbuildingMicroControl
 	Valued:
 		Cost: 15000
 	Health:
@@ -1792,12 +1782,6 @@ DEFD:
 		Facing: 384
 		TransformSounds: coreup1.aud
 		NoTransformSounds:
-	IssueOrderToBot@AI:
-		RequiresCondition: Rising && AIbuildingMicroControl
-		OrderName: DeployTransform
-		OrderChance: 100
-		OrderTrigger: Periodically
-		OrderInterval: 40
 	Tooltip:
 		Name: Core Defender
 	RevealsShroud@revealitself:
@@ -1818,6 +1802,12 @@ DEFD:
 	-MindControllable:
 	-Targetable@MC:
 	-WithDecoration@mindcontrolled:
+	IssueOrderToBot@AI:
+		RequiresCondition: Rising
+		OrderName: DeployTransform
+		OrderChance: 100
+		OrderTrigger: Periodically
+		OrderInterval: 40
 	MapEditorData:
 		Categories: Building
 
