@@ -921,6 +921,7 @@ BHS:
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^10CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Nod
 		BuildPaletteOrder: 27
@@ -965,6 +966,9 @@ BHS:
 	Demolition:
 		DetonationDelay: 45
 		Voice: Attack
+	AutoDemolisher:
+		ScanRadius: 6c0
+		RequiresCondition: AImicroManage
 	Cloak@CLOAKGENERATOR:
 		CloakedCondition: bettercloak
 	Cloak@personalskill:
