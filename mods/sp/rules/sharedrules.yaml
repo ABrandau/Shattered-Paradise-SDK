@@ -474,11 +474,12 @@ GACNST:
 	### AI Control: AI unpack captured MCV
 	GrantConditionOnCapture@AI:
 		Condition: captured
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AIbuildingMicroControl && captured
-		DeployTrigger: Periodically
-		DeployTicks: 200
-		DeployChance: 100
+		OrderName: DeployTransform
+		OrderTrigger: Periodically
+		OrderInterval: 200
+		OrderChance: 100
 
 ^Powerplant:
 	Inherits: ^AffectPowerBuilding
@@ -1502,11 +1503,12 @@ GASILO:
 			bcoredef: darkdefender
 		CarryCondition: carring
 		AutoCarryCondition: AImicroManage
-	AutoDeployer@AI: ## HACK: prevent carryall stuck and cannot unload
+	IssueOrderToBot@AI: ## HACK: prevent carryall stuck and cannot unload
 		RequiresCondition: AImicroManage && carring
-		DeployChance: 100
-		DeployTrigger: Periodically
-		DeployTicks: 2066
+		OrderName: Unload
+		OrderChance: 100
+		OrderTrigger: Periodically
+		OrderInterval: 2066
 	SpawnActorOnDeath:
 		RequiresCondition: airborne
 	ProvidesPrerequisite@darkdefender:

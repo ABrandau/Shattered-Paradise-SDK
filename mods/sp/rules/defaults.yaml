@@ -1234,9 +1234,10 @@
 	GrantConditionOnTerrain@TIBCONVERSIONAI:
 		Condition: OnTiber
 		TerrainTypes: Tiberium, BlueTiberium
-	AutoDeployer@TIBCONVERSIONAI:
-		DeployTrigger: Periodically
-		DeployTicks: 220
+	IssueOrderToBot@TIBCONVERSION:
+		OrderTrigger: Periodically
+		OrderName: GrantTimedConditionOnDeploy
+		OrderInterval: 220
 		RequiresCondition: AImicroManage && OnTiber && tibconversion
 
 ^AffectedByAerialGliders:

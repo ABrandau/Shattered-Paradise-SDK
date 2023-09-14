@@ -323,10 +323,11 @@ APC:
 	ActorStatValues:
 		Damage: 40
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange, Cargo
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage && loaded
-		DeployChance: 100
-		DeployTicks: 45
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 45
 
 HVR:
 	Inherits: ^HoverTank
@@ -1104,11 +1105,12 @@ BGGY:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo
 		Upgrades: upgrade.raider_passenger
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage && loaded && HeavyDamaged
-		DeployChance: 100
-		DeployTrigger: Periodically
-		DeployTicks: 20
+		OrderName: Unload
+		OrderChance: 100
+		OrderTrigger: Periodically
+		OrderInterval: 20
 
 ATTACKBIKE:
 	Inherits: ^CombatVehicle
@@ -1320,11 +1322,12 @@ TTNK:
 		ArmamentNames: primary, DeployedArm
 	AutoTarget:
 		ScanRadius: 8 #PREF: save trait looks up and scan armaments
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage && undeployed
-		DeployChance: 100
-		DeployTrigger: Attack
-		DeployTicks: 35
+		OrderName: GrantConditionOnDeploy
+		OrderChance: 100
+		OrderTrigger: Attack
+		OrderInterval: 35
 	ActorStatValues:
 		Damage: 50
 
@@ -1546,11 +1549,12 @@ SAPC:
 		RequiresCondition: !mindcontrolled && !submerged
 	WithDecoration@UNDERGROUND:
 		RequiresCondition: inside-tunnel || submerged
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage && loaded && HeavyDamaged
-		DeployChance: 100
-		DeployTrigger: Periodically
-		DeployTicks: 20
+		OrderName: Unload
+		OrderChance: 100
+		OrderTrigger: Periodically
+		OrderInterval: 20
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Cargo
 		Damage: 112
@@ -1901,11 +1905,12 @@ SCORPION:
 		DeployedTicks: 25
 		StartsFullyCharged: true
 		PauseOnCondition: empdisable
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage
-		DeployTrigger: Attack
-		DeployChance: 100
-		DeployTicks: 2256
+		OrderName: GrantTimedConditionOnDeploy
+		OrderTrigger: Attack
+		OrderChance: 100
+		OrderInterval: 2256
 	SpawnSparks@Deployed:
 		SparkWeapon: RageEmitter
 		Amount: 1
@@ -2180,11 +2185,12 @@ STRUCK:
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage && loaded && HeavyDamaged
-		DeployChance: 100
-		DeployTrigger: Periodically
-		DeployTicks: 20
+		OrderName: Unload
+		OrderChance: 100
+		OrderTrigger: Periodically
+		OrderInterval: 20
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Cargo
 
@@ -2636,11 +2642,12 @@ WEASAU:
 	VoiceAnnouncement:
 		RequiresCondition: produced
 		Voice: Build
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage
-		DeployTrigger: Attack
-		DeployChance: 100
-		DeployTicks: 1006
+		OrderName: GrantTimedConditionOnDeploy
+		OrderTrigger: Attack
+		OrderChance: 100
+		OrderInterval: 1006
 
 WEASAUSMALL:
 	Inherits: ^TibBeast
@@ -3036,11 +3043,12 @@ LIMPED:
 		Weapon: LimpedAimDummyWeapon
 		PauseOnCondition: empdisable
 		Name: AIAim
-	AutoDeployer@AIDeploy:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage && !deployed
-		DeployTrigger: Attack
-		DeployChance: 100
-		DeployTicks: 55
+		OrderName: GrantConditionOnDeploy
+		OrderTrigger: Attack
+		OrderChance: 100
+		OrderInterval: 55
 
 REPAIRVEHICLE:
 	Inherits: ^CombatVehicle
@@ -3380,10 +3388,11 @@ BCOREDEF:
 		Voice: Build
 	ProvidesPrerequisite@buildinglimit:
 		Prerequisite: DarkDefenderExists
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage
-		DeployTrigger: Periodically
-		DeployTicks: 1035
+		OrderName: DeployTransform
+		OrderTrigger: Periodically
+		OrderInterval: 1035
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome

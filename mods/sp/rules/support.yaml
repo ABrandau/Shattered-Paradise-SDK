@@ -484,11 +484,12 @@ MUBUNKR:
 			yellow: pip-yellow-building
 			blue: pip-blue-building
 			gray: pip-gray-building
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage && loaded && HeavyDamaged
-		DeployChance: 100
-		DeployTrigger: Periodically
-		DeployTicks: 20
+		OrderName: Unload
+		OrderChance: 100
+		OrderTrigger: Periodically
+		OrderInterval: 20
 	ActorStatValues:
 		Stats: Armor, Sight, Cargo
 
@@ -933,10 +934,11 @@ GAFIRE:
 		ValidRelationships: Enemy
 		ValidTargets: Ground, Air, Water
 		Priority: 2
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AIbuildingMicroControl && !Building-Buildup && !empdisable && !disabled
-		DeployChance: 100
-		DeployTicks: 200
+		OrderName: GrantTimedConditionOnDeploy
+		OrderChance: 100
+		OrderInterval: 200
 	-RevealOnFire:
 	MustBeDestroyed:
 		RequiredForShortGame: false
@@ -1248,11 +1250,12 @@ MUVENTI:
 		ValidRelationships: Enemy
 		ValidTargets: Ground, Air, Water
 		Priority: 2
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AIbuildingMicroControl
-		DeployTrigger: Attack
-		DeployChance: 100
-		DeployTicks: 35
+		OrderName: UnloadShared
+		OrderTrigger: Attack
+		OrderChance: 100
+		OrderInterval: 35
 	-RevealOnFire:
 	MustBeDestroyed:
 		RequiredForShortGame: false
@@ -1859,10 +1862,11 @@ BLACKDEFD:
 	RenderSprites:
 		Image: blackdefd
 	### AI Control
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AIbuildingMicroControl
-		DeployTrigger: Periodically
-		DeployTicks: 1035
+		OrderName: DeployTransform
+		OrderTrigger: Periodically
+		OrderInterval: 1035
 	-Targetable@MC:
 	-WithColoredOverlay@IDISABLE:
 	-GrantConditionOnPowerState@LOWPOWER:

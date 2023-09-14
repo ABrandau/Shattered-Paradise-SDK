@@ -31,11 +31,12 @@ COLOSSI_CHRONO:
 		Weapon: SharkJump
 		PauseOnCondition: WebDisable
 		Name: OnFoot
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage && !deployed
-		DeployChance: 100
-		DeployTicks: 55
-		DeployTrigger: Attack
+		OrderName: GrantConditionOnDeploy
+		OrderChance: 100
+		OrderInterval: 55
+		OrderTrigger: Attack
 	RenderSprites:
 		Image: colossi
 	RejectsOrders@deployment:
@@ -148,11 +149,12 @@ NUKECARRYALL_BOT:
 		InitialActor: hvrtruk3
 		CarryCondition: loaded
 		AutoCarryCondition: loaded ##Disable Auto Action
-	-AutoDeployer@AI:
-	AutoDeployer@AI:
+	-IssueOrderToBot@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage && loaded
-		DeployChance: 100
-		DeployTicks: 40
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 40
 	-RevealOnFire:
 
 SONICARRYALL_BOT:
@@ -170,11 +172,12 @@ SONICARRYALL_BOT:
 		CarryCondition: loaded
 		AutoCarryCondition: loaded ##Disable Auto Action
 		InitialActor: sonic
-	-AutoDeployer@AI:
-	AutoDeployer@AI:
+	-IssueOrderToBot@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage && loaded
-		DeployChance: 100
-		DeployTicks: 40
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 40
 	-RevealOnFire:
 
 APCARRYALL_BOT:
@@ -192,11 +195,12 @@ APCARRYALL_BOT:
 		CarryCondition: loaded
 		AutoCarryCondition: loaded ##Disable Auto Action
 		InitialActor: apc_bot
-	-AutoDeployer@AI:
-	AutoDeployer@AI:
+	-IssueOrderToBot@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage && loaded
-		DeployChance: 100
-		DeployTicks: 40
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 40
 	-RevealOnFire:
 
 MUBUNKRFULL:
@@ -465,10 +469,11 @@ MUJEEP:
 	ActorStatValues:
 		Damage: 40
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage && loaded
-		DeployChance: 100
-		DeployTicks: 45
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 45
 	FreePassenger: # AffectedByRaiderPassenger
 		Actors: altnode1, altnode1, crusader
 
@@ -625,11 +630,12 @@ WEASAU3:
 		Bounds: 1800, 3200, 0, -1600
 	SharedPassenger:
 		CustomPipType: red
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage
-		DeployTrigger: Attack
-		DeployChance: 20
-		DeployTicks: 1006
+		OrderName: GrantTimedConditionOnDeploy
+		OrderTrigger: Attack
+		OrderChance: 20
+		OrderInterval: 1006
 
 LPST:
 	Inherits: ^Vehicle
@@ -699,11 +705,12 @@ LPST:
 		Range: 15c0
 		MaxHeightDelta: 3
 	### AI Control
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage && undeployed
-		DeployChance: 100
-		DeployTrigger: BecomingIdle
-		DeployTicks: 105
+		OrderName: GrantConditionOnDeploy
+		OrderChance: 100
+		OrderTrigger: BecomingIdle
+		OrderInterval: 105
 	Wanders@AI:
 		RequiresCondition: AImicroManage && undeployed
 		WanderMoveRadius: 1
@@ -787,11 +794,12 @@ SGEN:
 		Palette: effect
 		IsDecoration: true ## so this doesn't have shadow
 	### AI Control
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage && undeployed
-		DeployChance: 100
-		DeployTrigger: BecomingIdle
-		DeployTicks: 105
+		OrderName: GrantConditionOnDeploy
+		OrderChance: 100
+		OrderTrigger: BecomingIdle
+		OrderInterval: 105
 	Wanders@AI:
 		RequiresCondition: AImicroManage && undeployed
 		WanderMoveRadius: 1
@@ -889,11 +897,12 @@ ICBM:
 	WithSupportPowerActivationAnimation:
 		RequiresCondition: !inside-tunnel && deployed
 		Sequence: launched-idle
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage && undeployed
-		DeployChance: 100
-		DeployTrigger: BecomingIdle
-		DeployTicks: 105
+		OrderName: GrantConditionOnDeploy
+		OrderChance: 100
+		OrderTrigger: BecomingIdle
+		OrderInterval: 105
 	Wanders@AI:
 		RequiresCondition: AImicroManage && undeployed
 		WanderMoveRadius: 1
@@ -995,10 +1004,11 @@ MTAR:
 		IconPalette: chrome
 		TooltipActor: mtar
 	### AI Control
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AIbuildingMicroControl
-		DeployTrigger: Periodically
-		DeployTicks: 5000
+		OrderName: DeployTransform
+		OrderTrigger: Periodically
+		OrderInterval: 5000
 
 M_EMP:
 	Inherits: ^Vehicle
@@ -1055,11 +1065,12 @@ M_EMP:
 		SparkWeapon: MEMPulse
 		Amount: 1
 		RequiresCondition: empSpawn
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage
-		DeployTrigger: Attack
-		DeployChance: 100
-		DeployTicks: 1606
+		OrderName: GrantTimedConditionOnDeploy
+		OrderTrigger: Attack
+		OrderChance: 100
+		OrderInterval: 1606
 	-ExternalCondition@empdisable:
 	-TimedConditionBar@EMPDISABLE:
 	-WithIdleOverlay@EMPDISABLE:
@@ -1716,11 +1727,12 @@ COREDEFENDER:
 		FirestormEffectRange: 7c0
 		DamageMaxRange: 7c140
 		DamageMinRange: 6c724
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage
-		DeployTrigger: Damage
-		DeployChance: 100
-		DeployTicks: 1811
+		OrderName: GrantTimedConditionOnDeploy
+		OrderTrigger: Damage
+		OrderChance: 100
+		OrderInterval: 1811
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
@@ -1780,11 +1792,12 @@ DEFD:
 		Facing: 384
 		TransformSounds: coreup1.aud
 		NoTransformSounds:
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: Rising && AIbuildingMicroControl
-		DeployChance: 100
-		DeployTrigger: Periodically
-		DeployTicks: 40
+		OrderName: DeployTransform
+		OrderChance: 100
+		OrderTrigger: Periodically
+		OrderInterval: 40
 	Tooltip:
 		Name: Core Defender
 	RevealsShroud@revealitself:

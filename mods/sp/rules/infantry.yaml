@@ -312,11 +312,12 @@ JUMPJET:
 		FacingTolerance: 2
 	AutoTarget:
 		ScanRadius: 6 #PREF: save trait looks up and scan armaments
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage
-		DeployTrigger: Damage
-		DeployTicks: 550
-		DeployChance: 100
+		OrderName: DeployTransform
+		OrderTrigger: Damage
+		OrderInterval: 550
+		OrderChance: 100
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
@@ -547,11 +548,12 @@ JJCOMM:
 		FacingTolerance: 2
 	AutoTarget:
 		ScanRadius: 6 #PREF: save trait looks up and scan armaments
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage
-		DeployTrigger: Damage
-		DeployTicks: 550
-		DeployChance: 100
+		OrderName: DeployTransform
+		OrderTrigger: Damage
+		OrderInterval: 550
+		OrderChance: 100
 	ProvidesPrerequisite@jjcomm:
 	ActorStatValues:
 		Damage: 200
@@ -902,11 +904,12 @@ NCONF:
 		Amount: 1
 		Interval: 999999
 		RequiresCondition: HologramSpawn
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage
-		DeployTrigger: Attack
-		DeployChance: 100
-		DeployTicks: 4006
+		OrderName: GrantTimedConditionOnDeploy
+		OrderTrigger: Attack
+		OrderChance: 100
+		OrderInterval: 4006
 	TakeCover:
 		ProneOffset: 778, 0, -778
 	Passenger:
@@ -1149,11 +1152,12 @@ MARAUDER:
 	DamageMultiplier@MarauderBuff:
 		Modifier: 75
 		RequiresCondition: deployed
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage && !deployed
-		DeployTrigger: Attack
-		DeployTicks: 55
-		DeployChance: 100
+		OrderName: GrantConditionOnDeploy
+		OrderTrigger: Attack
+		OrderInterval: 55
+		OrderChance: 100
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
@@ -1476,11 +1480,12 @@ SEER:
 		Amount: 1
 		Interval: 10
 		RequiresCondition: deployed
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage
-		DeployChance: 50
-		DeployTicks: 2006
-		DeployTrigger: Attack
+		OrderName: GrantTimedConditionOnDeploy
+		OrderChance: 50
+		OrderInterval: 2006
+		OrderTrigger: Attack
 	Passenger:
 		CustomPipType: blue
 	ActorStatValues:
@@ -1881,7 +1886,6 @@ MASTERMIND:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@VISION: ^8CellVision
-	Inherits@AImicroManagable: ^AImicroManagable
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything && !assault-move && !controlling
 	AutoTargetPriority@ATTACKANYTHING:
@@ -1971,11 +1975,6 @@ MASTERMIND:
 		Voice: Move
 		ChargeDelay: 500
 		TargetCursor: emp
-	AutoDeployer@AI:
-		RequiresCondition: AImicroManage
-		DeployChance: 100
-		DeployTicks: 506
-		DeployTrigger: Periodically
 	Contrail@Teleport: ##HACK: add a trace for teleport. 
 		Offset: 0, 0, 700
 		StartColor: a362a5AA
@@ -2569,11 +2568,12 @@ MOTH:
 		BorderWidth: 0
 		Width: 2
 	-Crushable:
-	AutoDeployer@AI:
+	IssueOrderToBot@AI:
 		RequiresCondition: AImicroManage && !deployed
-		DeployTrigger: Attack
-		DeployChance: 100
-		DeployTicks: 55
+		OrderName: GrantConditionOnDeploy
+		OrderTrigger: Attack
+		OrderChance: 100
+		OrderInterval: 55
 	ActorStatValues:
 		Damage: 110
 
