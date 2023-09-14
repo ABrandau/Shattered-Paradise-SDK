@@ -527,6 +527,19 @@
 	Targetable@MC:
 		TargetTypes: MindControllableBuilding
 
+^AISellOnMindControl:
+	IssueOrderToBot@AISell:
+		RequiresCondition: mindcontrolled
+		OrderName: Sell
+		OrderTrigger: Periodically
+		OrderChance: 100
+		OrderInterval: 45
+
+^AISellOnMindControlWhenDock:
+	Inherits: ^AISellOnMindControl
+	IssueOrderToBot@AISell:
+		RequiresCondition: mindcontrolled && unit.sellable
+
 ^Berserkable:
 	Berserkable@CHAOS:
 		RequiresCondition: chaos
@@ -2275,6 +2288,7 @@
 	Inherits@0: ^BasicVehicle
 	Inherits@2: ^VehicleEffects
 	Inherits@3: ^ExistsInWorld
+	Inherits@AISell: ^AISellOnMindControlWhenDock
 	Carryable:
 		RequiresCondition: !inside-tunnel
 		CarriedCondition: carried
@@ -2536,6 +2550,7 @@
 	Inherits@5: ^10CellVisionAir
 	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
+	Inherits@AISell: ^AISellOnMindControlWhenDock
 	DrawLineToTarget:
 	WithTextControlGroupDecoration:
 	AppearsOnRadar:
@@ -2783,6 +2798,7 @@
 	Inherits@1: ^StructureEffects
 	Inherits@2: ^6CellVision
 	Inherits@3: ^SelectableBuilding
+	Inherits@AISell: ^AISellOnMindControl
 	GivesBuildableArea:
 		AreaTypes: building
 	CaptureNotification:
