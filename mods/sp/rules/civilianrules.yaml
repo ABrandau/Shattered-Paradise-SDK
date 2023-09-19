@@ -46,6 +46,7 @@ CHAMSPY:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
+		Stats: Armor, Sight, Speed
 
 MUTANT:
 	Inherits: ^MutantSoldier
@@ -178,6 +179,8 @@ OXANNA:
 		Speed: 65
 	WithInfantryBody:
 		AttackSequences: shoot
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
 
 SLAV:
 	Inherits: ^Soldier
@@ -191,6 +194,8 @@ SLAV:
 		Speed: 65
 	WithInfantryBody:
 		AttackSequences: shoot
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
 
 CIV1:
 	Inherits: ^CivilianInfantry
@@ -208,6 +213,8 @@ CIV3:
 
 CIV2:
 	Inherits: ^CivilianInfantry
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
 
 4TNK:
 	Inherits: ^Tank
@@ -278,7 +285,6 @@ TRUCKA:
 
 TRUCKB:
 	Inherits: ^TRUCK
-
 
 WEED:
 	Inherits: ^Vehicle
@@ -2828,6 +2834,8 @@ TDADVGTWR:
 	-WithDecoration@mindcontrolled:
 	MapEditorData:
 		Categories: TD Building
+	Power:
+		Amount: -80
 	IsometricSelectable:
 		DecorationHeight: 72
 	-Sellable:
@@ -2838,10 +2846,8 @@ TDADVGTWR:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
 	ActorStatValues:
-		Stats: Armor, Sight, Damage, ReloadDelay, MaxRange, MinRange, Power
+		Stats: Armor, Sight, Power, Damage, ReloadDelay, MinRange, None, MaxRange
 		Damage: 50
-	Power:
-		Amount: -80
 
 ADVHQ:
 	Inherits: ^Radar
@@ -3093,7 +3099,7 @@ TDGTWR:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
 	ActorStatValues:
-		Stats: Armor, Sight, Damage, ReloadDelay, MaxRange
+		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
 		Damage: 40
 
 TDNHAND:

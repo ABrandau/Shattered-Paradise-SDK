@@ -226,7 +226,7 @@ HARV:
 	ProvidesPrerequisite@HasHarv: ## For AI Perf.
 		Prerequisite: HasHarv
 	ActorStatValues:
-		Stats: Armor, Sight, Harvester, Speed
+		Stats: Armor, Sight, Speed, None, None, None, Harvester
 
 harv.nod:
 	Inherits: HARV
@@ -1261,6 +1261,8 @@ NAPOST:
 		RequiresCondition: !disabled && !empdisable
 		Condition: active-posts
 	-RenderRangeCircle:
+	ActorStatValues:
+		Stats: Armor, Sight, Power
 
 NAFNCE:
 	Inherits: ^Wall
@@ -1514,6 +1516,8 @@ GASILO:
 	ProvidesPrerequisite@darkdefender:
 		Prerequisite: DarkDefenderExists
 		RequiresCondition: darkdefender
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
 
 TRNSPORT:
 	Inherits: ^Carryall

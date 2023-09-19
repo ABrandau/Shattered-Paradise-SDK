@@ -59,6 +59,8 @@ APC_BOT:
 	AutoTarget:
 		ScanRadius: 7
 	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 		TooltipActor: apc
 
 RIFLEBGGY:
@@ -73,6 +75,8 @@ RIFLEBGGY:
 	Cargo:
 		InitialUnits: altnode1
 	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 		TooltipActor: bggy
 
 ROCKETBGGY:
@@ -112,8 +116,10 @@ STRUCKFULL:
 	RenderSprites:
 		Image: struck
 	EditorOnlyTooltip:
-		Name: Filled Battle bus
+		Name: Filled Battle Bus
 	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 		TooltipActor: struck
 
 STRUCKFULL_T3:
@@ -217,6 +223,8 @@ MUBUNKRFULL:
 	Cargo:
 		InitialUnits: marauder, marauder, marauder, marauder, marauder
 	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
 		TooltipActor: mubunkr
 
 ######## Campaign unit ##################
@@ -369,8 +377,6 @@ UMAGON:
 		EffectOffset: 0, 0, 800
 	-RevealOnFire:
 	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 		Damage: 150
 
 MUJEEP:
@@ -464,9 +470,7 @@ MUJEEP:
 		Position: BottomLeft
 		RequiresSelection: true
 	ActorStatValues:
-		Damage: 35
-	ActorStatValues:
-		Damage: 40
+		Damage: 16
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo
 	IssueOrderToBot@AI:
 		RequiresCondition: loaded
@@ -1067,7 +1071,6 @@ M_EMP:
 	-TimedConditionBar@EMPDISABLE:
 	-WithIdleOverlay@EMPDISABLE:
 
-
 CABECM:
 	Inherits: ^CombatVehicle
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
@@ -1133,7 +1136,7 @@ CABECM:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
-		Stats: Armor, Sight, Speed, ReloadDelay, MaxRange, Drones
+		Stats: Armor, Sight, Speed, Drones, ReloadDelay, MaxRange
 		
 QDRONE:
 	Inherits: CABDRONEJET
@@ -1367,6 +1370,7 @@ KODK:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
+		Stats: Armor, Sight, Speed
 
 KODK.Husk:
 	Inherits: ^AircraftHusk
@@ -1729,7 +1733,7 @@ COREDEFENDER:
 		Icon: icon
 		IconPalette: chrome
 		Armaments: ArmArmament, HeadArmament
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange None, MaxRange
 		Damage: 1668
 
 DEFD:
@@ -2040,7 +2044,7 @@ HMECTEST:
 	ActorStatValues:
 		Damage: 720
 		Armaments: primary, secondary
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange, Drones
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Drones, MaxRange
 	MustBeDestroyed:
 		RequiredForShortGame: true
 
@@ -2306,7 +2310,7 @@ SCRINCOUNCIL:
 	ActorStatValues:
 		Damage: 720
 		Armaments: primary, secondary
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 
 COUNCILOR:
 	Inherits: ^CombatPlane

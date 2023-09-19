@@ -321,7 +321,7 @@ APC:
 		RequiresSelection: true
 	ActorStatValues:
 		Damage: 40
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange, Cargo
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
 	IssueOrderToBot@AI:
 		RequiresCondition: loaded
 		OrderName: Unload
@@ -380,7 +380,7 @@ HVR:
 	Selectable:
 		Bounds: 1206,1750, 0, -600
 	ActorStatValues:
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 		Damage: 50
 
 JUG:
@@ -585,7 +585,7 @@ G4TNK:
 	Selectable:
 		Bounds: 1250, 1900, 0, -200
 	ActorStatValues:
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 
 HMEC:
 	Inherits: ^CombatVehicle
@@ -750,7 +750,7 @@ HMEC:
 	ProvidesPrerequisite@ForceProductionUIWhenDeath:
 	ActorStatValues:
 		Armaments: primary, secondary
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 
 NODMCV:
 	Inherits: MCV
@@ -1104,6 +1104,9 @@ BGGY:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo
 		Upgrades: upgrade.raider_passenger
+	ActorStatOverride@AA:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
+		RequiresCondition: ifv.crusader || ifv.seer
 	IssueOrderToBot@AI:
 		RequiresCondition: loaded && HeavyDamaged
 		OrderName: Unload
@@ -1178,7 +1181,7 @@ ATTACKBIKE:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	ActorStatValues:
 		Damage: 50
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 
 TTNK:
 	Inherits: ^CombatVehicle
@@ -1501,7 +1504,7 @@ BIKE:
 	ActorStatValues:
 		Damage: 900
 		Spread: 3c0
-		Stats: Armor, Sight, Speed, Damage
+		Stats: Armor, Sight, Speed, Damage, Spread
 
 SAPC:
 	Inherits: ^SubterraneanVehicle
@@ -1554,7 +1557,7 @@ SAPC:
 		OrderTrigger: Periodically
 		OrderInterval: 20
 	ActorStatValues:
-		Stats: Armor, Sight, Speed, Cargo
+		Stats: Armor, Sight, Speed, None, None, None, Cargo
 		Damage: 112
 	-RevealOnFire:
 
@@ -1777,7 +1780,7 @@ STNK:
 		Volume: 7
 	ActorStatValues:
 		Damage: 240
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 
 SCORPION:
 	Inherits: ^CombatVehicle
@@ -2053,7 +2056,7 @@ MUTQUAD:
 		QuantizedFacings: 32
 		CameraPitch: 250
 	ActorStatValues:
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 		Damage: 80
 
 LYNX:
@@ -2188,7 +2191,7 @@ STRUCK:
 		OrderTrigger: Periodically
 		OrderInterval: 20
 	ActorStatValues:
-		Stats: Armor, Sight, Speed, Cargo
+		Stats: Armor, Sight, Speed, None, None, None, Cargo
 
 MINELAYER:
 	Inherits: ^CombatVehicle
@@ -2499,7 +2502,7 @@ HVRTRUK3:
 	ActorStatValues:
 		Damage: 3240
 		Spread: 6c0
-		Stats: Armor, Sight, Speed, Damage
+		Stats: Armor, Sight, Speed, Damage, Spread
 
 WEASAU:
 	Inherits: ^TibBeast
@@ -2902,7 +2905,7 @@ REAPERCAB:
 	DeathSounds:
 	ActorStatValues:
 		Damage: 160
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 		Armaments: primary
 
 LIMPED:
@@ -3029,8 +3032,11 @@ LIMPED:
 		Offsets: 0,500,0
 		TrailWhileStationary: false
 	ActorStatValues:
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, MinRange
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 		Damage: 150
+	ActorStatOverride@AA:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
+		RequiresCondition: limpetaa
 	### AI Control: make limped drone wander randomly and deploy when find enemy
 	Armament@AIAimOnly:
 		RequiresCondition: AImicroManage && !deployed
@@ -3141,7 +3147,7 @@ CABAPC:
 		Position: BottomLeft
 		RequiresSelection: true
 	ActorStatValues:
-		Stats: Armor, Sight, Speed, Cargo
+		Stats: Armor, Sight, Speed, None, None, None, Cargo
 
 SPIDERARTY:
 	Inherits: ^Walker
@@ -3618,6 +3624,7 @@ SCRGLYDER2:
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
 	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 		Damage: 90
 
 SCRSCORPION:
@@ -3742,6 +3749,7 @@ SCRRECHARGER:
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
 	ActorStatValues:
+		Stats: Armor, Sight, Speed
 		Armaments: None
 
 SCRMOBMINE:
