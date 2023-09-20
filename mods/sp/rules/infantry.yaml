@@ -1048,6 +1048,7 @@ MARAUDER:
 		HP: 10000
 	Mobile:
 		PauseOnCondition: WebDisable
+		ImmovableCondition: !undeployed
 		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
@@ -1811,7 +1812,7 @@ COLOSSI:
 		HP: 40000
 	Mobile:
 		Locomotor: HeavyInfantry
-		PauseOnCondition: WebDisable
+		ImmovableCondition: !undeployed
 		RequireForceMoveCondition: !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
@@ -2468,7 +2469,8 @@ MOTH:
 	Mobile:
 		Speed: 105
 		Locomotor: HoverInfantry
-		PauseOnCondition: WebDisable
+		ImmovableCondition: !undeployed
+		PauseOnCondition: WebDisable || empdisable
 		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
