@@ -74,6 +74,9 @@ GDIE1:
 	ActorStatValues:
 		Damage: 25
 		Upgrades: upgrade.ap_ammunition, upgrade.nanofiber_vests
+	ActorStatOverride@Nanofiber:
+		Health: 18000
+		RequiresCondition: nanofibers
 
 GRENADIER:
 	Inherits: ^Soldier
@@ -151,6 +154,9 @@ GRENADIER:
 	ActorStatValues:
 		Damage: 30
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
+	ActorStatOverride@Nanofiber:
+		Health: 18000
+		RequiresCondition: nanofibers
 
 MEDIC:
 	Inherits: ^Soldier
@@ -266,6 +272,9 @@ E2:
 		Image: e2
 	ActorStatValues:
 		Damage: 50
+	ActorStatOverride@Nanofiber:
+		Health: 24000
+		RequiresCondition: nanofibers
 
 JUMPJET:
 	Inherits: ^Soldier
@@ -1305,6 +1314,9 @@ MUTFIEND:
 		Damage: 30
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 		Upgrades: upgrade.blue_shards, upgrade.tiberium_infusion
+	ActorStatOverride@Tibinfusion:
+		Health: 14400
+		RequiresCondition: tibinfusion
 
 CUTMAN:
 	Inherits: ^MutantSoldier

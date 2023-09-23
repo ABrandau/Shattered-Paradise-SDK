@@ -91,6 +91,9 @@ ORCA:
 	ActorStatValues:
 		Damage: 40
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
+	ActorStatOverride@CeramicPlating:
+		Health: 18000
+		RequiresCondition: ceramic_plating
 
 ORCAB:
 	Inherits: ^CombatPlane
@@ -178,6 +181,9 @@ ORCAB:
 		Palette: pips
 	ActorStatValues:
 		Damage: 100
+	ActorStatOverride@CeramicPlating:
+		Health: 30000
+		RequiresCondition: ceramic_plating
 
 DSHP:
 	Inherits: ^CombatHelicopter
@@ -292,6 +298,9 @@ ORCATRAN:
 		CameraPitch: 85
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, None, None, None, Cargo
+	ActorStatOverride@CeramicPlating:
+		Health: 24000
+		RequiresCondition: ceramic_plating
 
 APACHE:
 	Inherits: ^CombatHelicopter
@@ -813,6 +822,9 @@ MUTQUEEN:
 		EmptyWeapon: SpawnEggShrapnelE
 	ActorStatValues:
 		Damage: 90
+	ActorStatOverride@Tibinfusion:
+		Health: 18000
+		RequiresCondition: tibinfusion
 	-Sellable:
 	-GrantConditionWhenDockClient@Sellable:
 	-IssueOrderToBot@AISell:
