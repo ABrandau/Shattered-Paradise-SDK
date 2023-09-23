@@ -38,7 +38,7 @@ namespace OpenRA.Mods.Sp.Traits
 
 		void INotifyDockHost.Docked(Actor self, Actor client)
 		{
-			if ((info.Condition != null && info.DockClientNames == null) || info.DockClientNames.Contains(client.Info.Name))
+			if (info.Condition != null && (info.DockClientNames == null || info.DockClientNames.Contains(client.Info.Name)))
 			{
 				if (token == Actor.InvalidConditionToken)
 					token = self.GrantCondition(info.Condition);

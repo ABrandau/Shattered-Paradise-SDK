@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Traits;
 
@@ -24,7 +22,7 @@ namespace OpenRA.Mods.Sp.Traits
 
 	public sealed class GrantConditionWhenDockClient : INotifyDockClient, ITick, ISync
 	{
-		GrantConditionWhenDockClientInfo info;
+		readonly GrantConditionWhenDockClientInfo info;
 		int token;
 		int delayedtoken;
 
@@ -40,7 +38,7 @@ namespace OpenRA.Mods.Sp.Traits
 
 		void INotifyDockClient.Docked(Actor self, Actor host)
 		{
-			if (info.Condition != null && info.DockHostNames == null ? true : info.DockHostNames.Contains(host.Info.Name))
+			if (info.Condition != null && (info.DockHostNames == null || info.DockHostNames.Contains(host.Info.Name)))
 			{
 				if (token == Actor.InvalidConditionToken)
 					token = self.GrantCondition(info.Condition);
