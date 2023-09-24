@@ -161,7 +161,6 @@ HARV:
 	WithDockingAnimation:
 	Harvester:
 		Type: Refinary
-		Capacity: 28
 		Resources: Tiberium, BlueTiberium
 		BaleUnloadDelay: 3
 		BaleLoadDelay: 9
@@ -169,6 +168,9 @@ HARV:
 		SearchFromHarvesterRadius: 18
 		HarvestVoice: Attack
 		EmptyCondition: no-tib
+	StoresResources:
+		Capacity: 28
+		Resources: Tiberium, BlueTiberium
 	Mobile:
 		Speed: 90
 		Locomotor: InfantryCrusherVehicle
@@ -202,7 +204,7 @@ HARV:
 	-GrantConditionOnTerrain@VEINS:
 	WithDecoration@UNDERGROUND:
 		Sequence: harvester
-	WithHarvesterPipsDecoration:
+	WithStoresResourcesPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
 		Margin: 5, 2
@@ -573,7 +575,7 @@ GACNST:
 		Name: Tiberium Refinery
 	Power:
 		Amount: -30
-	StoresResources:
+	StoresPlayerResources:
 		Capacity: 2000
 	DockHost:
 		Type: Refinary
@@ -1433,7 +1435,7 @@ GASILO:
 		RequiresCondition: !Building-Buildup
 		Sequence: idle-lights-bright
 		Palette: bright
-	StoresResources:
+	StoresPlayerResources:
 		Capacity: 3000
 	Power:
 		Amount: -10
