@@ -694,6 +694,8 @@ FalconPunch:
 	ValidTargets: Ground, Water
 	Report: orca_fire.wav
 	ReloadDelay: 50
+	Burst: 4
+	BurstDelays: 0, 0, 0
 	MinRange: 0c100
 	Range: 5c0
 	Projectile: MissileTA
@@ -719,11 +721,6 @@ FalconPunch:
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 		Versus:
 			Heavy: 100
-
-FalconPunchMute:
-	Inherits: FalconPunch
-	-Report:
-
 
 FalconPunchGas:
 	Inherits: FalconPunch
@@ -755,11 +752,6 @@ FalconPunchGas:
 		Spread: 768
 	Warhead@1Dam: SpreadDamage
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
-
-FalconPunchGasMute:
-	Inherits: FalconPunchGas
-	-Report:
-
 
 ForgottenCannonWeapon:
 	Inherits: ^APWarhead

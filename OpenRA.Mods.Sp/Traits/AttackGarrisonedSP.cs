@@ -52,19 +52,12 @@ namespace OpenRA.Mods.SP.Traits
 		readonly Lazy<BodyOrientation> coords;
 		readonly Dictionary<Actor, FirePortSP> ports = new();
 		readonly Dictionary<AnimationWithOffset, string> muzzles = new();
-		INotifyAttack[] notifyAttacks;
 
 		public AttackGarrisonedSP(Actor self, AttackGarrisonedSPInfo info)
 			: base(self, info)
 		{
 			Info = info;
 			coords = Exts.Lazy(() => self.Trait<BodyOrientation>());
-		}
-
-		protected override void Created(Actor self)
-		{
-			notifyAttacks = self.TraitsImplementing<INotifyAttack>().ToArray();
-			base.Created(self);
 		}
 
 		protected override Func<IEnumerable<Armament>> InitializeGetArmaments(Actor self)
@@ -135,8 +128,7 @@ namespace OpenRA.Mods.SP.Traits
 					port.PaxFacing.Facing = targetYaw;
 					port.PaxPos.SetCenterPosition(pass, pos + PortOffset(self, port));
 
-					var barrel = arm.CheckFire(pass, facing, target);
-					if (barrel == null)
+					if (!arm.CheckFire(pass, facing, target, true))
 						continue;
 
 					if (arm.Info.MuzzleSequence != null)
@@ -152,9 +144,6 @@ namespace OpenRA.Mods.SP.Traits
 						muzzles[muzzleFlash] = arm.Info.MuzzlePalette;
 						muzzleAnim.PlayThen(sequence, () => muzzles.Remove(muzzleFlash));
 					}
-
-					foreach (var npa in notifyAttacks)
-						npa.Attacking(self, target, arm, barrel);
 				}
 			}
 		}
