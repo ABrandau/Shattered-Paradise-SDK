@@ -52,25 +52,29 @@ namespace OpenRA.Mods.Sp.Traits
 			if (info.Condition != null && (info.DockClientNames == null || info.DockClientNames.Contains(client.Info.Name)))
 			{
 				if (token == Actor.InvalidConditionToken)
-					token = self.GrantCondition(info.Condition);
+				{
+					if (delayedtoken == Actor.InvalidConditionToken)
+						token = self.GrantCondition(info.Condition);
+					else
+					{
+						token = delayedtoken;
+						delayedtoken = Actor.InvalidConditionToken;
+					}
+				}
 			}
 		}
 
 		void INotifyDockHost.Undocked(Actor self, Actor client)
 		{
-			if (token != Actor.InvalidConditionToken)
+			if (token == Actor.InvalidConditionToken || info.AfterDockDuration < 0)
+				return;
+			if (info.AfterDockDuration == 0)
+				token = self.RevokeCondition(token);
+			else
 			{
-				if (info.AfterDockDuration >= 0)
-				{
-					if (info.AfterDockDuration == 0)
-						token = self.RevokeCondition(token);
-					else
-					{
-						delayedtoken = token;
-						token = Actor.InvalidConditionToken;
-						Duration = info.AfterDockDuration;
-					}
-				}
+				delayedtoken = token;
+				token = Actor.InvalidConditionToken;
+				Duration = info.AfterDockDuration;
 			}
 		}
 
