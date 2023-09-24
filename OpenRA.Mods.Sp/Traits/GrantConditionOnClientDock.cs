@@ -15,7 +15,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Sp.Traits
 {
-	public sealed class GrantConditionWhenDockHostInfo : TraitInfo
+	public sealed class GrantConditionOnClientDockInfo : TraitInfo
 	{
 		[FieldLoader.Require]
 		[GrantedConditionReference]
@@ -25,31 +25,31 @@ namespace OpenRA.Mods.Sp.Traits
 		[Desc("How long condition is applid even after undock. Use -1 for infinite.")]
 		public readonly int AfterDockDuration = 0;
 
-		[Desc("Client actor leading to the condition being granted. Enable for all at default.")]
-		public readonly HashSet<string> DockClientNames = null;
+		[Desc("Host actor leading to the condition being granted. Enable for all at default.")]
+		public readonly HashSet<string> DockHostNames = null;
 
-		public override object Create(ActorInitializer init) { return new GrantConditionWhenDockHost(this); }
+		public override object Create(ActorInitializer init) { return new GrantConditionOnClientDock(this); }
 	}
 
-	public sealed class GrantConditionWhenDockHost : INotifyDockHost, ITick, ISync
+	public sealed class GrantConditionOnClientDock : INotifyDockClient, ITick, ISync
 	{
-		readonly GrantConditionWhenDockHostInfo info;
+		readonly GrantConditionOnClientDockInfo info;
 		int token;
 		int delayedtoken;
 
 		[Sync]
 		public int Duration { get; private set; }
 
-		public GrantConditionWhenDockHost(GrantConditionWhenDockHostInfo info)
+		public GrantConditionOnClientDock(GrantConditionOnClientDockInfo info)
 		{
 			this.info = info;
 			token = Actor.InvalidConditionToken;
 			delayedtoken = Actor.InvalidConditionToken;
 		}
 
-		void INotifyDockHost.Docked(Actor self, Actor client)
+		void INotifyDockClient.Docked(Actor self, Actor host)
 		{
-			if (info.Condition != null && (info.DockClientNames == null || info.DockClientNames.Contains(client.Info.Name)))
+			if (info.Condition != null && (info.DockHostNames == null || info.DockHostNames.Contains(host.Info.Name)))
 			{
 				if (token == Actor.InvalidConditionToken)
 				{
@@ -64,7 +64,7 @@ namespace OpenRA.Mods.Sp.Traits
 			}
 		}
 
-		void INotifyDockHost.Undocked(Actor self, Actor client)
+		void INotifyDockClient.Undocked(Actor self, Actor host)
 		{
 			if (token == Actor.InvalidConditionToken || info.AfterDockDuration < 0)
 				return;
