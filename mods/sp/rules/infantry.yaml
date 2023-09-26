@@ -1892,10 +1892,11 @@ MASTERMIND:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@VISION: ^8CellVision
+	Inherits@AImicroManagable: ^AImicroManagable
 	AutoTargetPriority@DEFAULT:
-		RequiresCondition: !stance-attackanything && !assault-move && !controlling
+		RequiresCondition: !stance-attackanything && !assault-move && (!controlling || AImicroManage)
 	AutoTargetPriority@ATTACKANYTHING:
-		RequiresCondition: (stance-attackanything || assault-move) && !controlling
+		RequiresCondition: (stance-attackanything || assault-move) && (!controlling || AImicroManage)
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Scrin
 		BuildPaletteOrder: 36
