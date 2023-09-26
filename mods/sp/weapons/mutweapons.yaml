@@ -60,6 +60,7 @@ MarauderShotgunInnacurate:
 SkirmisherMortar:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Clsn
+	Inherits@3: ^FlameScorch
 	ReloadDelay: 75
 	Range: 10c0
 	MinRange: 1c0
@@ -67,7 +68,7 @@ SkirmisherMortar:
 	Projectile: BulletAS
 		Speed: 180
 		LaunchAngle: 165
-		Shadow: true
+		Shadow: false
 		Inaccuracy: 0c064
 		Blockable: false
 		ContrailLength: 8
@@ -77,17 +78,21 @@ SkirmisherMortar:
 		ContrailStartWidth: 0c66
 		ContrailEndColor: FF0000
 		ContrailEndWidth: 0
-		Image: 120mm
-		Palette: pips
+		Image: explosion
+		Sequences: fire3_higher
+		Palette: effect
 	Warhead@1Dam: SpreadDamage
 		Spread: 300
 		Damage: 4000
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+		DamageTypes: Prone70Percent, TriggerProne, FireDeath
 	Warhead@2Eff: CreateEffect
-		Explosions: dustexplode, dustexplode2
+		Explosions: grenadexplode, grenadexplode2
+	Warhead@5Smu: LeaveSmudgeSP
+		SmudgeType: Scorch
 
 SkirmisherMortarGas:
 	Inherits: SkirmisherMortar
+	Inherits@2: ^Small_Clsn
 	Inherits@3: ^SpawnsIrradiation
 	Projectile: BulletAS
 		ContrailLength: 8
@@ -97,6 +102,7 @@ SkirmisherMortarGas:
 		ContrailStartWidth: 0c66
 		ContrailEndColor: FF0000
 		ContrailEndWidth: 0
+		Sequences: bluefire3_higher
 		Palette: jascgreen
 	Warhead@smoke: CreateEffect
 		ExplosionPalette: jascgreen60
@@ -115,6 +121,7 @@ SkirmisherMortarGas:
 	Warhead@2Eff: CreateEffect
 		Explosions: dustexplode, dustexplode2
 		ExplosionPalette: jascgreenalpha
+	-Warhead@3Eff:
 	Warhead@1Dam: SpreadDamage
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
 	Warhead@3Radio: CreateTintedCells
