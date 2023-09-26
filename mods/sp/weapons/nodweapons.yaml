@@ -198,43 +198,66 @@ BuggyGLAD:
 	Burst: 4
 	BurstDelays: 1
 
-BuggyDisc:
-	Inherits: Grenade
-	ReloadDelay: 90
-	Projectile: Bullet
-		LaunchAngle: 165
+BuggyMortar:
+	Inherits: SkirmisherMortar
+	Burst: 3
+	BurstDelays: 4
+	ReloadDelay: 100
+	Projectile: BulletAS
+		ContrailLength: 5
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
+
+BuggyMortarE:
+	Inherits: BuggyMortar
+	Inherits: ^FlameScorchBlue
+	Projectile: BulletAS
+
+		ContrailStartColor: 6633FF
+		ContrailEndColor: 0022FF
+		Sequences: bluefire3_higher
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@1Dam: SpreadDamage
+		Damage: 3000
+
+BuggyGlaive:
+	Inherits: FloatGlaive
+	ReloadDelay: 40
+	Range: 6c0
+	Projectile: MissileTA
+		Palette: apred
+		ContrailStartColor: ff20203E
+		ContrailEndColor: ff2020cc
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: ExplosionDeath
+		NoUnintendedFriendlyFire: Actor
 	Warhead@op: FireShrapnel
-		Weapon: BuggyGrenade
-		ImpactActors: false
-		Amount: 3
-		AirThreshold: 8c0
-		ValidTargets: Infantry, Vehicle, Building, Ground, Wall, Water
+		Weapon: BuggyGlaive2
+	-Warhead@Acid: GrantExternalCondition
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: apred
 
-BuggyGrenade:
-	Inherits: JJGroundGrenade
-	Range: 2c0
-	Projectile: BulletAS
-		Inaccuracy: 0c256
-		LaunchAngle: 210
-		Speed: 100
+BuggyGlaive2:
+	Inherits: BuggyGlaive
+	-Report:
+	-Warhead@op:
 
-BuggyJJBeacon:
-	Inherits: JJBeacon
-	Projectile: BulletAS
-		LaunchAngle: 165
-	ValidTargets: Ground, Water, Vehicle, Building, Infantry
-
-BuggyVoidField:
-	ReloadDelay: 5
-	Range: 1c256
-	ValidTargets: Ground, Water
-	InvalidTargets: Building
-	Projectile: InstantExplode
-	Warhead@8Radio: CreateTintedCells
-		Spread: 1c128
-		Level: 30
-		Falloff: 100, 85, 60, 45, 30, 15
-		LayerName: ColossusRadiation
+BuggyMindRage:
+	ReloadDelay: 100
+	Range: 9c0
+	TargetActorCenter: true
+		ValidTargets: Infantry, Vehicle
+	Projectile: TeslaZap
+		Image: scrlitning
+		Palette: apred
+		Duration: 5
+	Warhead@debuff1: GrantExternalCondition
+		Range: 0c100
+		Duration: 110
+		Condition: chaos
+		ValidTargets: Infantry, Vehicle, Ground, Water, Defence, Air
+		ValidRelationships: Neutral, Enemy
 
 BikeMissile:
 	Inherits: ^RocketWarhead
@@ -911,6 +934,7 @@ RageEmitter:
 		ExplosionPalette: jascredalpha
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
 		ImpactActors: false
+		AirThreshold: 8c0
 	Warhead@debuff1: GrantExternalCondition
 		Range: 10c0
 		Duration: 125

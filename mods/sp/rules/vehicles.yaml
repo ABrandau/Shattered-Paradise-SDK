@@ -779,10 +779,8 @@ BGGY:
 	Inherits@BLUEFLAME: ^AffectedByPurifyingFlame
 	Inherits@DETECTION: ^BasicStealthDetection
 	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@IMPPLAGUEGAS: ^AffectedByImprovedPlagueGas
 	Inherits@PIPS: ^CargoPips
 	Inherits@RAIDERE1: ^AffectedByRaiderPassenger
-	Inherits@TIBGASWH: ^AffectedByTiberiumGasWarheads
 	Inherits@VISION: ^8CellVision
 	-FirepowerMultiplier@BLUEFLAME:
 	Valued:
@@ -833,36 +831,36 @@ BGGY:
 			cyborg: ifv.militant
 			worker: ifv.militant
 			cybdog: ifv.militant
-			umagon: ifv.militant
-			crusader: ifv.crusader
-			grenadier: ifv.crusader
-			mutfiend: ifv.crusader
-			cborg: ifv.crusader
-			legio: ifv.crusader
+			crusader: ifv.rocket
+			grenadier: ifv.rocket
+			mutfiend: ifv.rocket
+			cborg: ifv.rocket
+			legio: ifv.rocket
 			engineer: ifv.engineer
 			cutman: ifv.engineer
 			swarmling: ifv.engineer
 			shapeshifter: ifv.engineer
-			templar: ifv.templar
+			templar: ifv.flame
 			nconf: ifv.nconf
-			bhs: ifv.bhs
+			bhs: ifv.sniper
+			umagon: ifv.sniper
 			medic: ifv.medic
-			float: ifv.medic #ifv.float
-			e2: ifv.disc
-			jumpjet: ifv.disc #ifv.jumpjet
-			jjcomm: ifv.jjcomm
-			eagleguard: ifv.eagleguard
-			e3: ifv.skirmisher
-			seer: ifv.seer
-			ghost: ifv.eagleguard
-			psyker: ifv.psyker
+			float: ifv.medic
+			jjcomm: ifv.railgun
+			eagleguard: ifv.railgun
+			e3: ifv.mortar
+			e2: ifv.mortar
+			jumpjet: ifv.mortar
+			seer: ifv.tesla
+			ghost: ifv.railgun
+			psyker: ifv.tesla
 			glad: ifv.glad
 			cyc2: ifv.cyc2
 			moth: ifv.moth
-			pdrone: ifv.shark #ifv.pdrone
-			shark: ifv.shark
-			bug: ifv.bug
-			colossi: ifv.colossi
+			pdrone: ifv.saw
+			shark: ifv.saw
+			bug: ifv.scrin
+			colossi: ifv.scrin
 			mastermind: ifv.mastermind
 	############################################
 	# Armaments
@@ -872,7 +870,7 @@ BGGY:
 		Damage: 40
 		LocalOffset: 250,0,125
 		MuzzleSequence: muzzle
-		RequiresCondition: !loaded || ifv.mastermind
+		RequiresCondition: !loaded
 	Armament@militant1:
 		Weapon: BuggyCannonLoaded
 		Damage: 50
@@ -885,25 +883,25 @@ BGGY:
 		LocalOffset: 250,0,125
 		ReloadingCondition: reload-ground-crusader
 		PauseOnCondition: reload-air-crusader
-		RequiresCondition: ifv.crusader
+		RequiresCondition: ifv.rocket
 	Armament@crusaaa:
 		Weapon: CrusaderBazookaAA
 		LocalOffset: 250,0,125
 		ReloadingCondition: reload-air-crusader
 		PauseOnCondition: reload-ground-crusader
-		RequiresCondition: ifv.crusader
+		RequiresCondition: ifv.rocket
 	Armament@templar:
 		Weapon: TemplarFlame
 		Damage: 40
 		LocalOffset: 400,0,75
-		RequiresCondition: ifv.templar && !blueflame
+		RequiresCondition: ifv.flame && !blueflame
 		MuzzleSequence: muzzle-flame
 		MuzzlePalette: gensmkexploj
 	Armament@templar-elite:
 		Weapon: BuggyTemplarFlameE
 		Damage: 60
 		LocalOffset: 400,0,75
-		RequiresCondition: ifv.templar && blueflame
+		RequiresCondition: ifv.flame && blueflame
 		MuzzleSequence: muzzle-flame
 		MuzzlePalette: gensmkexplojFblue
 	Armament@nconf:
@@ -916,22 +914,18 @@ BGGY:
 		Damage: 75
 		LocalOffset: 250,0,125
 		MuzzleSequence: muzzle
-		RequiresCondition: ifv.bhs
-	Armament@discthrower:
-		Weapon: BuggyDisc
-		Damage: 50
-		LocalOffset: 500,0,800
-		MuzzleSequence: muzzle
-		RequiresCondition: ifv.disc
-	Armament@medic:
-		Weapon: Heal
-		Damage: -75
-		LocalOffset: 250,0,125
+		RequiresCondition: ifv.sniper
+	ProximityExternalCondition@hospitalheal:
+		Condition: hospitalheal
+		Range: 4c0
 		RequiresCondition: ifv.medic
-		Cursor: heal
-		OutsideRangeCursor: heal
-		TargetRelationships: Ally
-		ForceTargetRelationships: Ally
+	WithRangeCircle@heal:
+		Range: 4c0
+		Type: hospitalheal
+		Color: FF0000CC
+		BorderWidth: 0
+		Width: 2
+		RequiresCondition: ifv.medic
 	Armament@engineer:
 		Weapon: BuggyRepair
 		Damage: -40
@@ -947,60 +941,45 @@ BGGY:
 		Weapon: TitanRailgun
 		Damage: 60
 		LocalOffset: 500,0,150
-		RequiresCondition: ifv.eagleguard
-	Armament@jumpjetcommando:
-		Weapon: BuggyJJBeacon
-		Damage: 200
-		LocalOffset: 500,0,800
-		RequiresCondition: ifv.jjcomm
-	Armament@skirmisher:
-		Weapon: SkirmisherMortar
+		RequiresCondition: ifv.railgun
+	Armament@Mortar:
+		Weapon: BuggyMortar
 		Damage: 40
 		LocalOffset: 500,0,800
-		RequiresCondition: ifv.skirmisher && !tibgaswh
-	Armament@skirmisherGas:
-		Weapon: SkirmisherMortarGas
+		RequiresCondition: ifv.mortar && !blueflame
+	Armament@MortarE:
+		Weapon: BuggyMortarE
 		Damage: 40
 		LocalOffset: 500,0,800
-		RequiresCondition: ifv.skirmisher && tibgaswh
-	Armament@seer:
+		RequiresCondition: ifv.mortar && blueflame
+	Armament@Tesla:
 		Weapon: SeerTesla
 		Damage: 70
 		LocalOffset: 250,0,125
 		ReloadingCondition: reload-ground-seer
 		PauseOnCondition: reload-air-seer
-		RequiresCondition: ifv.seer
-	Armament@seerAA:
+		RequiresCondition: ifv.tesla
+	Armament@TeslaAA:
 		Weapon: SeerTeslaAA
 		LocalOffset: 250,0,125
 		ReloadingCondition: reload-air-seer
 		PauseOnCondition: reload-ground-seer
-		RequiresCondition: ifv.seer
-	Armament@psyker:
-		Weapon: PsykerRay
-		Damage: 400
-		LocalOffset: 250,0,125
-		RequiresCondition: ifv.psyker
+		RequiresCondition: ifv.tesla
 	Armament@Saw:
 		Weapon: BuggySaw
 		Damage: 60
 		LocalOffset: 250,0,125
-		RequiresCondition: ifv.shark
-	Armament@bug:
-		Weapon: FloatGlaive
+		RequiresCondition: ifv.saw
+	Armament@Scrin:
+		Weapon: BuggyGlaive
 		Damage: 20
 		LocalOffset: 250,0,125
-		RequiresCondition: ifv.bug && !impplaguegas
-	Armament@bugUpg:
-		Weapon: FloatGlaiveUpg
-		Damage: 20
-		LocalOffset: 250,0,125
-		RequiresCondition: ifv.bug && impplaguegas
-	Armament@colossi:
-		Weapon: BuggyVoidField
+		RequiresCondition: ifv.scrin
+	Armament@MasterMind:
+		Weapon: BuggyMindRage
 		Damage: 0
 		LocalOffset: 250,0,125
-		RequiresCondition: ifv.colossi
+		RequiresCondition: ifv.mastermind
 	Armament@glad:
 		Weapon: buggyGLAD
 		Damage: 100
@@ -1044,22 +1023,22 @@ BGGY:
 		RequiresCondition: !inside-tunnel && ifv.militant
 	WithSpriteTurret@rocket:
 		Sequence: turret-rocket
-		RequiresCondition: !inside-tunnel && ifv.crusader
+		RequiresCondition: !inside-tunnel && ifv.rocket
 	WithSpriteTurret@flame:
 		Sequence: turret-flame
-		RequiresCondition: !inside-tunnel && ifv.templar
+		RequiresCondition: !inside-tunnel && ifv.flame
 	WithSpriteTurret@laser:
 		Sequence: turret-laser
-		RequiresCondition: !inside-tunnel && (ifv.nconf || ifv.bhs)
+		RequiresCondition: !inside-tunnel && (ifv.nconf || ifv.sniper)
 	WithSpriteTurret@chainsaw:
 		Sequence: turret-chainsaw
-		RequiresCondition: !inside-tunnel && ifv.shark
+		RequiresCondition: !inside-tunnel && ifv.saw
 	WithSpriteTurret@medic:
 		Sequence: turret-medic
 		RequiresCondition: !inside-tunnel && ifv.medic
 	WithSpriteTurret@eagleguard:
 		Sequence: turret-eagleguard
-		RequiresCondition: !inside-tunnel && ifv.eagleguard
+		RequiresCondition: !inside-tunnel && ifv.railgun
 	WithSpriteTurret@abductor:
 		Sequence: turret-abductor
 		RequiresCondition: !inside-tunnel && ifv.moth
@@ -1074,30 +1053,21 @@ BGGY:
 		RequiresCondition: !inside-tunnel && ifv.cyc2
 	WithSpriteTurret@mortar:
 		Sequence: turret-mortar
-		RequiresCondition: !inside-tunnel && (ifv.disc || ifv.skirmisher || ifv.jjcomm)
+		RequiresCondition: !inside-tunnel && ifv.mortar
 	WithSpriteTurret@tesla:
 		Sequence: turret-tesla
-		RequiresCondition: !inside-tunnel && (ifv.seer || ifv.psyker)
+		RequiresCondition: !inside-tunnel && ifv.tesla
 	WithSpriteTurret@bug:
 		Sequence: turret-float
-		RequiresCondition: !inside-tunnel && ifv.bug
-	WithSpriteTurret@colossi:
+		RequiresCondition: !inside-tunnel && ifv.scrin
+	WithSpriteTurret@mastermind:
 		Sequence: turret-colossi
-		RequiresCondition: !inside-tunnel && ifv.colossi
+		RequiresCondition: !inside-tunnel && ifv.mastermind
 	############################################
 	# Names
 	############################################
 	Tooltip:
 		Name: Raider Buggy
-	PortableChrono@MasterMind:
-		RequiresCondition: ifv.mastermind
-		ChronoshiftSound: instantrift.wav
-		Voice: Move
-		ChargeDelay: 500
-		TargetCursor: emp
-		KillCargo: false
-	DamagedByTintedCells@Colossus:
-		RequiresCondition: !ifv.colossi
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1106,7 +1076,10 @@ BGGY:
 		Upgrades: upgrade.raider_passenger
 	ActorStatOverride@AA:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, Cargo, MaxRange
-		RequiresCondition: ifv.crusader || ifv.seer
+		RequiresCondition: ifv.rocket || ifv.tesla
+	ActorStatOverride@Flame:
+		RequiresCondition: ifv.flame || ifv.mortar
+		Upgrades: upgrade.raider_passenger, upgrade.purifying_flame
 	IssueOrderToBot@AI:
 		RequiresCondition: loaded && HeavyDamaged
 		OrderName: Unload
