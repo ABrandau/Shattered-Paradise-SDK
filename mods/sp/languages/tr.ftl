@@ -142,7 +142,7 @@ label-mute-player = Bu oyuncuyu sustur
 label-unmute-player = Bu oyuncunun sesini aç
 
 dialog-kick =
-    .title = adlı oyuncuyu at { $player }?
+    .title = { $player } adlı oyuncuyu at?
     .prompt = Oyuna geri katılamayacaklar.
     .confirm = At
 
