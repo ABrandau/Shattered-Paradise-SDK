@@ -55,9 +55,9 @@ Player:
 		Condition: enable-ai-combat
 	UnitBuilderBotModule@AIAll:
 		RequiresCondition: AIBase && enable-ai-combat
+		-UnitDelays:
 	SquadManagerBotModule@AIBase:
 		RequiresCondition: AIBase && enable-ai-combat
-		-UnitDelays:
 	BaseBuilderBotModule@AIBase:
 		RequiresCondition: AIBase && enable-ai-combat
 	CncEngineerBotModule:
@@ -281,7 +281,6 @@ HIRE.PRODUCTION.DUMMY:
 	Inherits@2: ^TibMonolithEffect ## For visual and debug
 	SmokeParticleEmitter@acarus:
 		Palette: greentibpal
-	AlwaysVisible:
 	ScriptTriggers:
 	ProvidesPrerequisite:
 		Prerequisite: mercenary
@@ -336,9 +335,9 @@ MUTVENTSHOP:
 	IssueOrderToBot@AI2:
 		RequiresCondition: Building-Buildup
 		OrderName: UnloadShared
-		DeployTrigger: Periodically
-		DeployChance: 100
-		DeployTicks: 4
+		OrderTrigger: Periodically
+		OrderChance: 100
+		OrderInterval: 4
 
 ^HireMercenaryDUMMY:
 	Buildable:

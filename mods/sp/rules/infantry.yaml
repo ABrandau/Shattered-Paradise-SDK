@@ -1992,6 +1992,8 @@ MASTERMIND:
 		StartWidth: 280
 		TrailLength: 4
 		RequiresCondition: !BeingTeleport ## This condition is granted by Teleport Superweapon
+	HasCondition@BeingTeleport: ## Avoid error when check yaml
+		Condition: BeingTeleport
 	Passenger:
 		CustomPipType: red
 	SharedPassenger:
@@ -2022,6 +2024,7 @@ CABSENTRY:
 	-SpawnActorOnDeath@conversionUpg:
 	-SpawnActorOnDeath@ScrinEssence:
 	-Passenger:
+	-SharedPassenger:
 	-Targetable@MC:
 	Targetable:
 		TargetTypes: Ground, Infantry, Summoned, IgnoredByAI

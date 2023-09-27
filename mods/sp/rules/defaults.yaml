@@ -1200,7 +1200,6 @@
 		Prerequisites: upgrade.vinifera_catalysts
 
 ^AffectedByTiberiumConversion:
-	Inherits@AI: ^AImicroManagable
 	GrantConditionOnPrerequisite@megawealth:
 		Condition: megawealth
 		Prerequisites: global-megawealth
@@ -2101,6 +2100,7 @@
 		Experience: 50
 	-UpdatesPlayerStatistics:
 	-Passenger:
+	-SharedPassenger:
 	-DamagedByTerrain:
 	-ActorLostNotification:
 	AttackFrontal:
@@ -2408,7 +2408,9 @@
 		RequiresCondition: submerged
 		Except: Stop
 	Mobile:
-		PauseOnCondition: empdisable || resurfaced
+		PauseOnCondition: empdisable || resurfaced || carrylock
+	Carryable:
+		RequiresCondition: !inside-tunnel && !submerged
 	Targetable:
 		RequiresCondition: !inside-tunnel && !submerged
 	Targetable@NoAutoTarget:
@@ -3009,6 +3011,9 @@
 	RevealsShroud:
 		Type: Footprint
 		MaxHeightDelta: 3
+	CaptureManager:
+	Capturable:
+		Types: TechBuilding
 	CapturableProgressBar:
 		RequiresCondition: !instantcapture
 	CapturableProgressBlink:
@@ -3027,12 +3032,9 @@
 		RepairStep: 700
 	OwnerLostAction:
 		Action: ChangeOwner
-	Capturable:
-		Types: TechBuilding
 	RenderSprites:
 	MapEditorData:
 		Categories: Tech Structure
-	CaptureManager:
 	WithDeathAnimation:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
@@ -3041,6 +3043,10 @@
 		Sequence: repair
 		Position: Center
 		Palette: mouse
+	Cloak@CLOAKGENERATOR:
+		CloakedCondition: cloaking-self
+	WithIdleOverlay@SpawnFire:
+		RequiresCondition: HeavyDamaged && !cloaking-self
 
 ^Decoration:
 	Inherits@1: ^SpriteActor

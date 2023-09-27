@@ -1074,12 +1074,6 @@ NASTLH:
 	Cloak@CLOAKGENERATOR:
 		RequiresCondition: improvedsgen && !disabled && !Building-Buildup && !empdisable
 	-ExternalCondition@CLOAKGENERATOR:
-	FloatingSpriteEmitter@spawnsmoke:
-		RequiresCondition: HeavyDamaged && (!improvedsgen || (improvedsgen && (disabled || Building-Buildup || empdisable)))
-	SpawnSparks:
-		RequiresCondition: HeavyDamaged && (!improvedsgen || (improvedsgen && (disabled || Building-Buildup || empdisable)))
-	WithIdleOverlay@SpawnFire:
-		RequiresCondition: HeavyDamaged && (!improvedsgen || (improvedsgen && (disabled || Building-Buildup || empdisable)))
 	Power:
 		Amount: -100
 	RequiresBuildableArea:
@@ -1249,6 +1243,8 @@ MUVENTI:
 		Prerequisite: enoughmuventi
 	SupportPowerChargeBar:
 	NukePower:
+		RequiresCondition: !AImicroManage
+		PauseOnCondition: empdisable
 		-LaunchSpeechNotification:
 		-IncomingSpeechNotification:
 		-IncomingSound:
@@ -1257,7 +1253,6 @@ MUVENTI:
 		-LaunchSound:
 		-EndChargeSound:
 		-EndChargeSpeechNotification:
-		RequiresCondition: !AImicroManage
 		EndChargeTextNotification: notification-sneaktunnel-ready
 		Cost: 500
 		Prerequisites:
@@ -1278,6 +1273,7 @@ MUVENTI:
 		DisplayTimerRelationships: None
 	NukePower@AI: ### AI will use it less, and have the ability to build tunnel instead
 		RequiresCondition: AImicroManage
+		PauseOnCondition: empdisable
 		AllowMultiple: false
 		Cursor: nuke
 		EndChargeTextNotification: notification-sneaktunnel-ready
@@ -1285,7 +1281,6 @@ MUVENTI:
 		SelectTargetSound:
 		InsufficientPowerSound:
 		DisplayRadarPing: true
-		PauseOnCondition: empdisable || disabled
 
 		FlightDelay: 1
 		FlightVelocity: 1c0

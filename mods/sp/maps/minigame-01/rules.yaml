@@ -34,7 +34,6 @@ Player:
 	## AI
 	SquadManagerBotModule@AIBase:
 		RequiresCondition: easy-spawner || normal-spawner || hard-spawner
-		AssignRolesTicks: 19 ## This map is small and unit is limited
 		ProtectionTypes: mutambushvent, e3, deathclaw, lynx, permacrab, jfish, visc_lrg, mutfiend, berserker, corruptor, tripod, bug, shark
 		SquadSize: 2
 		SquadSizeRandomBonus: 0
@@ -279,9 +278,13 @@ EGGS:
 ## Scrin invaders
 BUG:
 	Inherits@VanguardShield: ^DisplayVanguardShield
+	Shielded@Shield:
+		-PauseOnCondition:
 
 SHARK:
 	Inherits@VanguardShield: ^DisplayVanguardShield
+	Shielded@Shield:
+		-PauseOnCondition:
 
 SCRPROTAL.DUMMY:
 	Inherits: ^GROUNDDUMMY

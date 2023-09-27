@@ -854,8 +854,6 @@ ICBM:
 		RequireForceMoveCondition: !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
-	GrantCondition@PREVIEWWORKAROUND:
-		Condition: real-actor
 	WithFacingSpriteBody:
 		Name: undeploy-body
 		RequiresCondition: !inside-tunnel && undeployed
@@ -1074,6 +1072,10 @@ M_EMP:
 	-ExternalCondition@empdisable:
 	-TimedConditionBar@EMPDISABLE:
 	-WithIdleOverlay@EMPDISABLE:
+	-WithColoredOverlay@EMPDISABLE:
+	-SpeedMultiplier@InstantStop:
+	Shielded@Shield:
+		-PauseOnCondition:
 
 CABECM:
 	Inherits: ^CombatVehicle
@@ -1182,7 +1184,7 @@ QDRONE:
 		Range: 6c0
 	Armament@hack:
 		Weapon: DroneHackWeapon
-		PauseOnCondition: hackcooldown || empcooldown
+		PauseOnCondition: hackcooldown
 	Armament@hack2:
 		Weapon: DroneHackWeaponFinal
 		PauseOnCondition: !charged
@@ -1529,7 +1531,6 @@ COREDEFENDER:
 	Inherits@VISION: ^9CellVision
 	Inherits@VOICE: ^CabalVehicleVoice
 	Inherits@FirestormWall: ^FirestormWallSP
-	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 15000
 	Tooltip:
@@ -1540,6 +1541,7 @@ COREDEFENDER:
 		TurnSpeed: 30
 		Speed: 60
 		Locomotor: VehicleCrusher
+		PauseOnCondition: empdisable
 	Voiced:
 		VoiceSet: CoreDefender
 		Volume: 0.75
@@ -1859,6 +1861,7 @@ HMECTEST:
 		TurnSpeed: 12
 		Speed: 60
 		Locomotor: VehicleCrusher
+		PauseOnCondition: empdisable
 	-Crushable:
 	-Passenger:
 	-SharedPassenger:
@@ -2008,7 +2011,7 @@ HMECTEST:
 		SpawnOffset: 0,0,1024, 0,0,1024
 		RespawnTicks: 128
 		FollowAfterAttackDelay: 35
-		PauseOnCondition: inside-tunnel || carried
+		PauseOnCondition: inside-tunnel
 	Carryable:
 		LocalOffset: 0, 0, 1536
 	WithMuzzleOverlay:
@@ -2113,6 +2116,7 @@ MKIIIDRONE-MINIGUN:
 		HP: 10000
 	DroneSpawnerSlave:
 		AttackCallBackDistance: 12c0
+	-GrantConditionOnDamageState@FullHealth:
 	-Targetable@FullHealth:
 	Targetable@Ignore:
 		TargetTypes: Summoned, IgnoredByAI
@@ -2128,6 +2132,8 @@ MKIIIDRONE-MINIGUN:
 	-Selectable:
 	-SelectionDecorations:
 	-Explodes@Shrapnel:
+	Cloak@CLOAKGENERATOR:
+		-CloakedCondition: 
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-SpawnSparks:
 	-FloatingSpriteEmitter@spawnsmoke:
@@ -2332,7 +2338,7 @@ COUNCILOR:
 		RepulsionSpeed: 128
 		CanSlide: true
 		VTOL: true
-		AirborneCondition: airborne
+		-AirborneCondition:
 		MoveIntoShroud: true
 		CruiseAltitude: 5c256
 		IdleTurnSpeed: 64
@@ -2379,6 +2385,7 @@ COUNCILOR:
 		AttackCallBackDistance: 0
 	-Targetable@GROUND:
 	-Targetable@AIRBORNE:
+	-GrantConditionOnDamageState@FullHealth:
 	-Targetable@FullHealth:
 	Targetable@Ignore:
 		TargetTypes: Summoned, IgnoredByAI
@@ -2394,6 +2401,8 @@ COUNCILOR:
 	-Selectable:
 	-SelectionDecorations:
 	-Explodes@Shrapnel:
+	Cloak@CLOAKGENERATOR:
+		-CloakedCondition: 
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-SpawnSparks:
 	-FloatingSpriteEmitter@spawnsmoke:

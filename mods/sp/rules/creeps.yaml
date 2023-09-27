@@ -35,8 +35,6 @@ DOGGIE:
 		Icon: icon
 		IconPalette: chrome
 		Damage: 35
-	-SharedPassenger:
-	-Passenger:
 	Encyclopedia:
 		Description: Tiberian Fiends are large, doglike animals that stand about the size of a large horse or a small elephant, and have blackish-brown or red skin, although that is usually completely covered by Tiberium crystals growing on its back.
 		Category: Tiberian Lifeform
@@ -182,12 +180,11 @@ ZOMBIE:
 	GrantPeriodicCondition:
 		Condition: Transform
 		CooldownDuration: 1000
+		RequiresCondition: !ascargo && !in_tunnel
 	MapEditorData:
 		Categories: Creep
 	ActorStatValues:
 		Damage: 60
-	-SharedPassenger:
-	-Passenger:
 	Encyclopedia:
 		Description: Haunt were disturbing creatures that sometimes form when organic life dies to tiberium exposure. As corpse being taken over by cystals after death, it may mutate into a wandering, half-corrupted humanoid.
 		Category: Tiberian Lifeform
@@ -247,8 +244,6 @@ BERSERKER:
 		Categories: Creep
 	ActorStatValues:
 		Damage: 40
-	-SharedPassenger:
-	-Passenger:
 	Encyclopedia:
 		Description: If a Haunt survives long enough, it will grow into a strong and durable creature -- Berserker.
 		Category: Tiberian Lifeform
@@ -364,8 +359,6 @@ CRAB:
 		DecorationBounds: 903,1415,0,-607
 	ActorStatValues:
 		Damage: 58
-	-SharedPassenger:
-	-Passenger:
 	Encyclopedia:
 		Description: Tiberian Cravicus is a kind of mutated arthropod, has a strong adaptability. It can be found everywhere, even in Veinhole.
 		Category: Tiberian Lifeform

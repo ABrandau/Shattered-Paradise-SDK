@@ -297,7 +297,6 @@ WEED:
 		SearchForDockDelay: 200
 	Harvester:
 		Type: WeedRefinary
-		Capacity: 7
 		Resources: Veins
 		BaleUnloadDelay: 20
 		BaleLoadDelay: 40
@@ -2164,8 +2163,9 @@ GASAND:
 	-BlocksProjectiles:
 
 GASPOT:
-	Inherits: ^TechBuilding
+	Inherits: ^CivBuilding
 	Inherits@1: ^AutoTargetGround
+	Inherits@emp: ^EmpDisable
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -2200,11 +2200,6 @@ GASPOT:
 	RenderSprites:
 	IsometricSelectable:
 		DecorationHeight: 60
-	-GrantConditionOnPrerequisite@INSTANTCAPTURE:
-	-Capturable:
-	-CapturableProgressBar:
-	-CapturableProgressBlink:
-	-CaptureManager:
 
 RADIOTOWER:
 	Inherits: ^CivBuilding
@@ -2565,7 +2560,6 @@ CTDAM:
 		Dimensions: 2, 5
 	Power:
 		Amount: 200
-		RequiresCondition: !empdisable
 	PowerTooltip:
 	Armor:
 		Type: Building
@@ -2679,7 +2673,6 @@ NTPYRA:
 
 NTPYRA.koth:
 	Inherits: ^TechBuilding
-	Inherits@shape: ^4x4Shape
 	Tooltip:
 		Name: Nod Pyramid
 	TooltipDescription:
@@ -2695,14 +2688,16 @@ NTPYRA.koth:
 		Condition: koth
 		Prerequisites: global-koth
 	-Buildable:
-	-Targetable:
 	-WithColoredOverlay@EMPDISABLE:
 	-TimedConditionBar@EMPDISABLE:
 	-WithIdleOverlay@EMPDISABLE:
 	-ExternalCondition@empdisable:
 	-WithDeathAnimation:
-	DamageMultiplier@koth:
-		Modifier: 0
+	-Targetable:
+	-Health:
+	-Armor:
+	-ThrowsShrapnel@SMALL:
+	-ThrowsShrapnel@LARGE:
 	KillsSelf:
 		RemoveInstead: true
 		RequiresCondition: !koth
@@ -2715,10 +2710,6 @@ NTPYRA.koth:
 		PlayerPalette: player
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
-	ThrowsShrapnel@SMALL:
-		Pieces: 7, 9
-	ThrowsShrapnel@LARGE:
-		Pieces: 3, 5
 	IsometricSelectable:
 		DecorationHeight: 60
 	ActorStatValues:
@@ -2770,7 +2761,7 @@ C_KODIAK:
 	Interactable:
 
 MUSTABLE:
-	Inherits: ^Building
+	Inherits: ^CivBuilding
 	Inherits@1: ^MutRender
 	Inherits@2: ^2x3Shape
 	Valued:
@@ -2791,14 +2782,6 @@ MUSTABLE:
 	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
-	-GrantConditionOnPrerequisite@INSTANTCAPTURE:
-	-Capturable:
-	-CapturableProgressBar:
-	-CapturableProgressBlink:
-	-WithMindControlArc:
-	-MindControllable:
-	-Targetable@MC:
-	-WithDecoration@mindcontrolled:
 
 ###################################################
 # MILK'S TIBERIAN DAWN BUILDINGS: cannot be captured
@@ -3433,6 +3416,7 @@ TDREPD:
 	-WithRepairOverlay@CRANE-BRIGHT:
 	-WithDeathAnimation@BIB:
 	-Sellable:
+	-GrantConditionOnHostDock:
 	-IssueOrderToBot@AISell:
 	-SpawnActorsOnSell@gdi:
 	-SpawnActorsOnSell@nod:

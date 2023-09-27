@@ -1331,6 +1331,7 @@ TICKHOLOGRAM:
 		TurnSpeed: 64
 		Speed: 90
 		Locomotor: Vehicle
+		PauseOnCondition: empdisable
 	Targetable:
 		TargetTypes: Ground, Vehicle, Summoned
 	AutoTarget:
@@ -1367,6 +1368,12 @@ TICKHOLOGRAM:
 	-Explodes:
 	-ActorLostNotification:
 	-ThrowsShrapnel:
+	-Carryable:
+	-SharedPassenger:
+	-Passenger:
+	-GrantConditionOnDamageState@HeavyDamaged:
+	-FloatingSpriteEmitter@spawnsmoke:
+	-SpawnSparks:
 	#-GrantRandomCondition@tiberium:
 	#-SpawnActorOnDeath@tiberium1:
 	#-SpawnActorOnDeath@tiberium2:
@@ -2436,6 +2443,10 @@ HVRTRUK3:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo
 	SpawnSparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo
+	LeavesTrails@water:
+		RequiresCondition: hoverunitonwater && !carried && !ascargo && !inside-tunnel
+	LeavesTrails@land:
+		RequiresCondition: !hoverunitonwater && !carried && !ascargo && !inside-tunnel
 
 	Health:
 		HP: 12000

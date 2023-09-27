@@ -336,6 +336,8 @@ Player:
 		Prerequisites: global-suddendeath
 	ProvidesRadar@FREEMINIMAP:
 		RequiresCondition: freeminimap
+	HasCondition@FREEMINIMAP: ## Avoid error when check yaml
+		Condition: freeminimap
 	FrozenActorLayer:
 	BaseAttackNotifier:
 		TextNotification: notification-base-threated
