@@ -49,15 +49,10 @@ SMECH:
 		PauseOnCondition: empdisable
 		LocalOffset: 0,0,600
 		RequiresCondition: apammo
-	GrantConditionOnAttack:
-		Condition: Attacking
-		RevokeDelay: 4
-		ArmamentNames: primary
-		RevokeOnNewTarget: true
 	Armament@2Bullet:
 		Name: decoration
 		Weapon: WolverineVulcanLine
-		PauseOnCondition: empdisable || !Attacking
+		PauseOnCondition: empdisable
 		LocalOffset: 0,280,600, 0,-280,600
 		CasingWeapon: CasingDebris
 		CasingSpawnLocalOffset: 0,275,600, 0,-275,600
@@ -66,7 +61,7 @@ SMECH:
 	Armament@2BulletAP:
 		Name: decoration
 		Weapon: WolverineVulcanLineAP
-		PauseOnCondition: empdisable || !Attacking
+		PauseOnCondition: empdisable
 		LocalOffset: 0,280,600, 0,-280,600
 		CasingWeapon: CasingDebris
 		CasingSpawnLocalOffset: 0,275,600, 0,-275,600
@@ -2784,18 +2779,17 @@ CENTURION:
 	WithMuzzleOverlay:
 	Armament:
 		Weapon: CenturionVulcan
-		Recoil: 50
-		RecoilRecovery: 26
 		LocalOffset: 900,550,1200, 900,-550,1200
 		PauseOnCondition: empdisable
 	Armament@4:
 		Weapon: CenturionVulcanLine
 		RecoilRecovery: 26
-		LocalOffset: 1250,550,1200, 900,-550,1200
+		LocalOffset: 900,550,1200, 900,-550,1200
 		CasingWeapon: CasingDebris
 		CasingSpawnLocalOffset: 900,550,1200, 900,-550,1200
 		CasingTargetOffset: 900,1280,1200, 900,-1280,1200
 		PauseOnCondition: empdisable
+		MuzzleSequence: muzzle
 	AutoTarget:
 		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	Selectable:

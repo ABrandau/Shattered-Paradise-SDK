@@ -50,20 +50,13 @@ GAVULC:
 	Armament@1:
 		Weapon: VulcanTower
 		LocalOffset: 588,120,1358, 588,-120,1358
-		MuzzleSequence: muzzle
 		PauseOnCondition: Building-Buildup
 		RequiresCondition: !apammo
 	Armament@1AP:
 		Weapon: VulcanTowerAP
 		LocalOffset: 588,120,1358, 588,-120,1358
-		MuzzleSequence: muzzle
 		PauseOnCondition: Building-Buildup
 		RequiresCondition: apammo
-	GrantConditionOnAttack:
-		Condition: Attacking
-		RevokeDelay: 2
-		ArmamentNames: primary
-		RevokeOnNewTarget: true
 	Armament@3:
 		Name: decoration
 		Weapon: VulcanTowerLine
@@ -71,8 +64,9 @@ GAVULC:
 		CasingWeapon: CasingDebris
 		CasingSpawnLocalOffset: 600,-120,1358, 600,120,1358
 		CasingTargetOffset: 600,-768,1358, 600,768,1358
-		PauseOnCondition: Building-Buildup || !Attacking
+		PauseOnCondition: Building-Buildup
 		RequiresCondition: !apammo
+		MuzzleSequence: muzzle
 	Armament@4AP:
 		Name: decoration
 		Weapon: VulcanTowerLineAP
@@ -80,8 +74,9 @@ GAVULC:
 		CasingWeapon: CasingDebris
 		CasingSpawnLocalOffset: 600,-120,1358, 600,120,1358
 		CasingTargetOffset: 600,-768,1358, 600,768,1358
-		PauseOnCondition: Building-Buildup || !Attacking
+		PauseOnCondition: Building-Buildup
 		RequiresCondition: apammo
+		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
 	WithIdleOverlay@LIGHTS:
 		RequiresCondition: !Building-Buildup && !disabled

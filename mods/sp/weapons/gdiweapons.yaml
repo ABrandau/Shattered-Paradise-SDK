@@ -311,17 +311,17 @@ WolverineVulcanAP:
 
 WolverineVulcanLine:
 	Inherits: ^BulletProjectile
-	ReloadDelay: 20
-	Burst: 4
-	BurstDelays: 1
+	ReloadDelay: 30
+	Burst: 2
+	BurstDelays: 0
 	Range: 6c0
 	ValidTargets: Ground, Water
 
 WolverineVulcanLineAP:
 	Inherits: ^BulletProjectileCyan
-	ReloadDelay: 20
-	Burst: 4
-	BurstDelays: 1
+	ReloadDelay: 30
+	Burst: 2
+	BurstDelays: 0
 	Range: 6c0
 	ValidTargets: Ground, Water
 
@@ -819,6 +819,7 @@ VulcanTower:
 	Inherits@2: ^Piffs
 	ReloadDelay: 25
 	Burst: 2
+	BurstDelays: 5
 	Range: 7c0
 	StartBurstReport: chaingn1.aud
 	Projectile: InstantHit
@@ -833,9 +834,9 @@ VulcanTowerAP:
 
 VulcanTowerLine:
 	Inherits: ^LineProjectile
-	ReloadDelay: 10
+	ReloadDelay: 25
 	Burst: 4
-	BurstDelays: 1
+	BurstDelays: 0, 5, 0
 	Range: 7c0
 	Projectile: BulletAS
 		Blockable: false
@@ -843,9 +844,9 @@ VulcanTowerLine:
 
 VulcanTowerLineAP:
 	Inherits: ^LineProjectileCyan
-	ReloadDelay: 10
+	ReloadDelay: 25
 	Burst: 4
-	BurstDelays: 1
+	BurstDelays: 0, 5, 0
 	Range: 7c0
 	Projectile: BulletAS
 		Blockable: false
