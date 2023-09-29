@@ -1474,36 +1474,12 @@ FLAGGDI:
 		Palette: player
 
 FLAGNEUTRAL:
-	Inherits: ^TechBuilding
+	Inherits: FLAGNOD
 	RenderSprites:
 		Image: flagneutral
 		PlayerPalette: unittemremapplayer
 	Tooltip:
 		Name: Flag
-	-Buildable:
-	-WithColoredOverlay@EMPDISABLE:
-	-TimedConditionBar@EMPDISABLE:
-	-WithIdleOverlay@EMPDISABLE:
-	-ExternalCondition@empdisable:
-	-IsometricSelectable:
-	-IsometricSelectionDecorations:
-	Interactable:
-
-FLAGDOM:
-	Inherits: FLAGNEUTRAL
-	GrantConditionOnPrerequisite@domination:
-		Condition: domination
-		Prerequisites: global-domination
-	EditorOnlyTooltip:
-		Name: Domination Mode Only Flag
-	Targetable@NoAutoTarget:
-		TargetTypes: NoAutoTarget
-	-Targetable:
-	DamageMultiplier@domination:
-		Modifier: 0
-	KillsSelf:
-		RemoveInstead: true
-		RequiresCondition: !domination
 
 CAPYR01:
 	Inherits: ^CivBuilding
@@ -2162,45 +2138,6 @@ GASAND:
 		CrushClasses: infantry
 	-BlocksProjectiles:
 
-GASPOT:
-	Inherits: ^CivBuilding
-	Inherits@1: ^AutoTargetGround
-	Inherits@emp: ^EmpDisable
-	Valued:
-		Cost: 300
-	Tooltip:
-		Name: Light Tower
-	Building:
-		Footprint: x
-		Dimensions: 1, 1
-	Armor:
-		Type: Building
-	Health:
-		HP: 40000
-	RevealsShroud:
-		Range: 6c0
-		MaxHeightDelta: 3
-	WithIdleOverlay@LIGHTS-BRIGHT:
-		RequiresCondition: !Building-Buildup
-		Sequence: idle-lights-bright
-		Palette: bright
-	WithMakeAnimation:
-		Condition: Building-Buildup
-	Armament:
-		Weapon: LightTowerClaxon
-		PauseOnCondition: empdisable
-	Targetable:
-		TargetTypes: Building, Ground, C4, DetonateAttack, Defence
-	Sellable:
-		SellSounds: cashturn.aud
-		Notification: StructureSold
-		TextNotification: notification-structure-sold
-		RequiresCondition: !Building-Buildup
-	AttackOmni:
-	RenderSprites:
-	IsometricSelectable:
-		DecorationHeight: 60
-
 RADIOTOWER:
 	Inherits: ^CivBuilding
 	Buildable:
@@ -2670,51 +2607,6 @@ NTPYRA:
 		Modifier: 0
 	IsometricSelectable:
 		DecorationHeight: 60
-
-NTPYRA.koth:
-	Inherits: ^TechBuilding
-	Tooltip:
-		Name: Nod Pyramid
-	TooltipDescription:
-		Description: Capture and hold for 6 minutes to win.
-	EditorOnlyTooltip:
-		Name: KOTH Mode Only Pyramid
-	Targetable@NoAutoTarget:
-		TargetTypes: NoAutoTarget
-	Building:
-		Footprint: xxxx xxxx xxxx xxxx
-		Dimensions: 4, 4
-	GrantConditionOnPrerequisite@koth:
-		Condition: koth
-		Prerequisites: global-koth
-	-Buildable:
-	-WithColoredOverlay@EMPDISABLE:
-	-TimedConditionBar@EMPDISABLE:
-	-WithIdleOverlay@EMPDISABLE:
-	-ExternalCondition@empdisable:
-	-WithDeathAnimation:
-	-Targetable:
-	-Health:
-	-Armor:
-	-ThrowsShrapnel@SMALL:
-	-ThrowsShrapnel@LARGE:
-	KillsSelf:
-		RemoveInstead: true
-		RequiresCondition: !koth
-	Armor:
-		Type: Building
-	Health:
-		HP: 150000
-	RenderSprites:
-		Image: ntpyra
-		PlayerPalette: player
-	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
-	IsometricSelectable:
-		DecorationHeight: 60
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
 
 UFO:
 	Inherits: ^CivBuilding
