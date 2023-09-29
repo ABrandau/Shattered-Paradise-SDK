@@ -446,13 +446,13 @@ HoverMissileAA:
 JuggCannon:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Clsn
-	FirstBurstTargetOffset: 0,-120,0
-	FollowingBurstTargetOffset: 0,240,0
+	FirstBurstTargetOffset: 0,-150,0
+	FollowingBurstTargetOffset: 0,300,0
 	ReloadDelay: 60
 	Range: 12c0
 	MinRange: 3c0
 	Burst: 2
-	BurstDelays: 3
+	BurstDelays: 0
 	StartBurstReport: jugger2.wav
 	Projectile: BulletAS
 		Speed: 400
@@ -480,6 +480,8 @@ JuggCannon:
 		Versus:
 			Infantry: 150
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: dustexplode, dustexplode2
 
 SonicCharge:
 	ReloadDelay: 7
