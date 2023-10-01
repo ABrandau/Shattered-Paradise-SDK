@@ -724,23 +724,23 @@ WorldLoaded = function()
 	local isFoundMcv = false
 
 	FindMCVTrigger = Trigger.OnEnteredProximityTrigger(WayPoint1399.CenterPosition, WDist.New(1024 * 15), function(a, id)
-		if a.Owner == LocalPlayer then
+		if a.Owner == LocalPlayer and FindMCVTrigger ~= nil then
 			MCVFoundMessage()
 			Neutral_AI.GrantCondition("revealbase")
 			isFoundMcv = true
 
-			Trigger.RemoveProximityTrigger(id)
+			Trigger.RemoveProximityTrigger(FindMCVTrigger)
 			FindMCVTrigger = nil
 		end
 	end)
 
 	--  Player threats the MCV research, Nod trying to restart MCV
 	StealMCVTrigger = Trigger.OnEnteredProximityTrigger(WayPoint1399.CenterPosition, WDist.New(1024 * 6), function(a, id)
-		if isFoundMcv and a.Owner == LocalPlayer and a.Type ~= "qdrone" then
+		if isFoundMcv and a.Owner == LocalPlayer and a.Type ~= "qdrone" and StealMCVTrigger ~= nil then
 			MCVThreatMessage()
 			AICaptureMCV()
 
-			Trigger.RemoveProximityTrigger(id)
+			Trigger.RemoveProximityTrigger(StealMCVTrigger)
 			StealMCVTrigger = nil
 		end
 	end)
@@ -898,14 +898,16 @@ WorldLoaded = function()
 	end)
 
 	FindMercenaryTrigger = Trigger.OnEnteredProximityTrigger(Mound1.CenterPosition, WDist.New(1024 * 4), function(a, id)
-		if (IsShopAngry) then
-			Trigger.RemoveProximityTrigger(id)
-			FindMercenaryTrigger = nil
+		if IsShopAngry then
+			if FindMercenaryTrigger ~= nil then
+				Trigger.RemoveProximityTrigger(FindMercenaryTrigger)
+				FindMercenaryTrigger = nil
+			end
 			return
 		end
 
-		if a.Owner == LocalPlayer and a.Type ~= "qdrone" then
-			Trigger.RemoveProximityTrigger(id)
+		if a.Owner == LocalPlayer and a.Type ~= "qdrone" and FindMercenaryTrigger ~= nil then
+			Trigger.RemoveProximityTrigger(FindMercenaryTrigger)
 			FindMercenaryTrigger = nil
 
 			Mound1.Destroy()
@@ -978,16 +980,18 @@ WorldLoaded = function()
 				Nod_AI.GrantCondition("enable-ai-combat")
 			end
 
-			Trigger.RemoveFootprintTrigger(id)
+			Trigger.RemoveFootprintTrigger(NodBaseAlertTrigger)
 			NodBaseAlertTrigger = nil
 		end
 	end)
 
 
 	-- ###### Player find the location of alien stuff
-	Trigger.OnEnteredProximityTrigger(ScrinRep.CenterPosition, WDist.New(1024 * 15), function(a, id)
-		if a.Owner == LocalPlayer then
-			Trigger.RemoveProximityTrigger(id)
+	ScrinRepFoundTrigger = Trigger.OnEnteredProximityTrigger(ScrinRep.CenterPosition, WDist.New(1024 * 15), function(a, id)
+		if a.Owner == LocalPlayer and ScrinRepFoundTrigger ~= nil then
+			Trigger.RemoveProximityTrigger(ScrinRepFoundTrigger)
+			ScrinRepFoundTrigger = nil
+
 			Actor.Create("camera", true, { Owner = LocalPlayer, Location = ScrinRep.Location })
 
 			if not ScrinRep.IsDead then
