@@ -334,7 +334,6 @@ SpawnUpgrade = function()
 	Actor.Create("upgrade.tiberium_infusion", true, { Owner = LocalPlayer })
 	Actor.Create("upgrade.tiberium_gas_warheads", true, { Owner = Mut_AI })
 	Actor.Create("upgrade.tiberium_gas_warheads", true, { Owner = Mut_AI2 })
-	Actor.Create("upgrade.tiberium_gas_warheads", true, { Owner = LocalPlayer })
 end
 
 -- ######## Reinforement Spawn
