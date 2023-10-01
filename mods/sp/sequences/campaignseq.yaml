@@ -68,6 +68,51 @@ neutralfabricator:
 	vehicleicon: 
 		Filename: neutralfabricatoricon.shp
 
+gbeacon:
+	Defaults:
+		Filename: gbeacon.shp
+		Offset: 0,-11
+	idle-close:
+		Start: 0
+	closed-idle:
+		Filename: gbeacon.shp
+		Start: 0
+	dead:
+		Start: 4
+		ShadowStart: 15
+	opening:
+		Start: 0
+		Length: 11
+		Tick: 60
+	closing:
+		Length: *
+		Frames: 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0
+		Tick: 60
+	idle:
+		Start: 0
+		Filename: gbeacon_tur.shp
+		Length: *
+	idle-open:
+		Start: 4
+		ShadowStart: 15
+	make:
+		Start: 0
+	place:
+		Start: 0
+	wifi:
+		Filename: wifi.shp
+		Frames: 0, 1, 2, 3, 4,1, 2, 3, 4, 0, 1, 2, 3, 4,1, 2, 3, 4
+		Length: *
+		Offset: 0, 0, 25
+		ZOffset: 512
+		Reverses: true
+		IgnoreWorldTint: True
+	emp-overlay:
+		Filename: emp_fx01.shp
+		Length: *
+		ZOffset: 512
+		IgnoreWorldTint: True
+
 gaiontur:
 	Defaults:
 		TilesetFilenames:

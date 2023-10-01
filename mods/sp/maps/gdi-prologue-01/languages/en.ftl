@@ -34,7 +34,8 @@ tip-lua-usage-deliver = [Deliver Vehicle]: when Carryall move to destination, se
 
 eva-lua-finish = All flags is activated, you are qualified.
 
-objective-finish-train = Use your infantry to activate all flags.
+objective-finish-train = Use your infantry to activate all red flags.
 
-mission-lua-begin = Move your infantry to the next red flag.
-
+mission-lua-begin = Follow instructions to finish the training.
+    Press `Enter` key to see instruction history, Press again to hide.
+    Press `ESC` key to see training objective, Press again to hide.

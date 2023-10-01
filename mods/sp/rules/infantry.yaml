@@ -2150,16 +2150,8 @@ CYBORG:
 CYBORG15:
 	Inherits: CYBORG
 	-Buildable:
-	ChangesHealth:
+	DamageOnCreation:
 		PercentageStep: -85
-		Step: 0
-		Delay: 1
-		StartIfBelow: 101
-		RequiresCondition: !damaged
-	GrantConditionAfterDelay@1:
-		Delay: 1
-		Condition: damaged
-		ShowSelectionBar: false
 	SpawnActorOnDeath@conversionUpg:
 		Actor: workermech
 	Selectable:

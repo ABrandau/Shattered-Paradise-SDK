@@ -1,0 +1,69 @@
+World:
+	ElevatedBridgeLayer:
+	ElevatedBridgePlaceholder@a:
+		Location: 75, 10
+		Height: 6
+		Orientation: X
+		Length: 18
+	ElevatedBridgePlaceholder@b:
+		Location: 62, -6
+		Height: 6
+		Orientation: Y
+		Length: 14
+	MapOptions:
+		TechLevel: infantryonly
+	MapBuildRadius:
+		BuildRadiusCheckboxLocked: false
+		BuildRadiusCheckboxVisible: true
+	MissionData:
+		Briefing: Lesson 2: Logistics Training.\n\nWelcome back, commander, I am E.V.A. You need to rebuild and resupply an abandoned base to finish this training. Hologram devices are applied as virtual enemy during training.\n\nTechlevel: Barrack Only.\n\nOverall Difficulty: Educational\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<<You have an unread message>>\n\nTITLE: Phoenix Down As He Lives\n\nCONTENT: [ParseException: Unparseable Data]
+
+Player:
+	### Player custom settings
+	LobbyPrerequisiteCheckbox@GLOBALMULTIQUEUE:
+		Locked: false
+		Visible: true
+	LobbyPrerequisiteCheckbox@GLOBALUPGRADES:
+		Locked: false
+		Visible: true
+	### Nod AI Control
+	SquadManagerBotModule@AIBase:
+		RequiresCondition: AIBase
+		## allow AI attack wall
+		IgnoredEnemyTargetTypes: Mine, IgnoredByAI, NoAutoTarget, IonSpawner
+		SquadSize: 5
+		MinimumAttackForceDelay: 300
+	SendUnitToAttackBotModule@Frontlines:
+		-InvalidTargets:
+		TargetDistances: Closest
+
+FlameHologram:
+	-KillsSelf@TimedLife:
+
+TICKHOLOGRAM:
+	-KillsSelf@TimedLife:
+
+GBEACON:
+	-Targetable:
+	GrantConditionAfterDelay@activate:
+		PauseOnCondition: !FullHealth
+	DamageOnCreation:
+		PercentageStep: -85
+	GrantConditionOnDamageState@FullHealth:
+		Condition: FullHealth
+		ValidDamageStates: Undamaged
+	RepairableBuilding:
+		RepairingNotification: Repairing
+		RepairStep: 1000
+	WithBuildingRepairDecoration:
+		Image: allyrepair
+		Sequence: repair
+		Position: Center
+		Palette: mouse
+	KillsSelf@TimedLife:
+		Delay: 200
+		RequiresCondition: active
+
+GAWALL:
+	DamageOnCreation:
+		PercentageStep: -45
