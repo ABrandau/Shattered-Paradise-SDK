@@ -877,7 +877,7 @@ WorldLoaded = function()
 
 	--- fake produce property:
 	local production_facing = Angle.New(640)
-	local production_woffset = WVec.New(256, 256, 0)
+	local production_woffset = WVec.New(0, 768, 0)
 	local production_coffset = CVec.New(2,1)
 	local rallypoint1_offset = CVec.New(4,1)
 	local rallypoint2_offset = CVec.New(4,4)
@@ -943,7 +943,8 @@ WorldLoaded = function()
 					end
 					local unit = Actor.Create(name, true, { Owner = LocalPlayer,Facing = production_facing, Location = producer.Location + production_coffset, CenterPosition = producer.CenterPosition + production_woffset })
 					if unit ~= nil then
-						unit.Patrol({producer.Location + rallypoint1_offset, producer.Location + rallypoint2_offset}, false)
+						unit.MoveIntoWorld(producer.Location + rallypoint1_offset)
+						unit.Move(producer.Location + rallypoint2_offset)
 					end
 				end)
 			end)
