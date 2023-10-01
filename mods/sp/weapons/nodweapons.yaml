@@ -12,9 +12,9 @@ MilitantRifle:
 
 HologramMilitantRifle:
 	Inherits: MilitantRifle
-	Warhead@1Dam: SpreadDamage
+	Warhead@1Dam: TargetDamage
 		Damage: 1
-		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+		DamageTypes: TriggerProne, Prone100Percent, BulletDeath
 
 CrusaderBazooka:
 	Inherits: ^RocketWarhead
@@ -375,8 +375,9 @@ Tick90mmDeployed:
 
 HologramTick90mm:
 	Inherits: Tick90mm
-	Warhead@1Dam: SpreadDamage
+	Warhead@1Dam: TargetDamage
 		Damage: 1
+		DamageTypes: TriggerProne, Prone100Percent, ExplosionDeath
 
 TickLaser:
 	Inherits: ^FullDamage
@@ -414,8 +415,9 @@ TickLaserDeployed:
 
 HologramTickLaser:
 	Inherits: TickLaser
-	Warhead@1Dam: SpreadDamage
+	Warhead@1Dam: TargetDamage
 		Damage: 1
+		DamageTypes: TriggerProne, Prone100Percent, EnergyDeath
 
 DevilsFlame:
 	Inherits: ^FlameWarhead
