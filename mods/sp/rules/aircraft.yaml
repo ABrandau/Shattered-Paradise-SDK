@@ -186,7 +186,7 @@ ORCAB:
 		RequiresCondition: ceramic_plating
 
 DSHP:
-	Inherits: ^CombatHelicopter
+	Inherits: ^Helicopter
 	Inherits@PIPS: ^CargoPips
 	Valued:
 		Cost: 1000
@@ -195,28 +195,15 @@ DSHP:
 	Aircraft:
 		CruiseAltitude: 8c0
 		TurnSpeed: 40
-		Speed: 400
+		Speed: 150
 		InitialFacing: 0
 		Repulsable: false
-		AltitudeVelocity: 500
-		IdleBehavior: LeaveMap
+		AltitudeVelocity: 200
 		VTOL: false
 		TakeoffSounds: dropup1.aud
 		LandingSounds: dropdwn1.aud
-	-Rearmable:
-	-Targetable@AIRBORNE:
-	-Targetable@GROUND:
-	-Targetable@MC:
-	-GrantConditionOnDamageState@FullHealth:
-	-Targetable@FullHealth:
-	-IssueOrderToBot@AISell:
 	Health:
 		HP: 20000
-	RejectsOrders:
-	-RevealsShroud@Landed:
-	-RevealOnDeath@Landed:
-	-RevealsShroud@Airborne:
-	-RevealOnDeath@Airborne:
 	Cargo:
 		MaxWeight: 5
 		AfterLoadDelay: 0
@@ -232,19 +219,48 @@ DSHP:
 	RenderVoxels:
 		Scale: 20
 	-WithFacingSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
+	-MapEditorData:
+	-Selectable:
+	-SelectionDecorations:
+	Interactable:
+
+DSHP.HIGH:
+	Inherits: DSHP
+	Aircraft:
+		CruiseAltitude: 18c0
+		TurnSpeed: 256
+		Speed: 20480 ## fast enough to make map size affect little to production
+		IdleBehavior: LeaveMap
+		VTOL: true
+	RejectsOrders:
+	GrantConditionAboveAltitude:
+		MinAltitude: 13312 #13c0
+		Condition: outofsight
+	RenderSprites:
+		Image: dshp
+	RenderVoxels:
+		Image: dshp
+	WithVoxelBody:
+		RequiresCondition: !outofsight
+	-Targetable@AIRBORNE:
+	-Targetable@GROUND:
+	-Targetable@MC:
+	-GrantConditionOnDamageState@FullHealth:
+	-Targetable@FullHealth:
+	-IssueOrderToBot@AISell:
+	-RevealsShroud@Landed:
+	-RevealOnDeath@Landed:
+	-RevealsShroud@Airborne:
+	-RevealOnDeath@Airborne:
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 	FloatingSpriteEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged
 	SpawnSparks:
 		RequiresCondition: HeavyDamaged
-	Interactable:
-	-Selectable:
-	-SelectionDecorations:
-	-MapEditorData:
-	BodyOrientation:
-		QuantizedFacings: 0
-		CameraPitch: 85
 
 ORCATRAN:
 	Inherits: ^Helicopter
