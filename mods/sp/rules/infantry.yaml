@@ -900,18 +900,17 @@ NCONF:
 	Voiced:
 		VoiceSet: BlackHand
 		Volume: 8
-	GrantTimedConditionOnDeploy:
+	GrantConditionOnDeployWithCharge:
 		DeployedCondition: HologramSpawn
-		CooldownTicks: 4000
-		DeployedTicks: 10
-		StartsFullyCharged: true
+		ChargeDuration: 4000
+		ConditionDuration: 10
 	SpawnSparks@Deployed:
 		SparkWeapon: FlameHoloShrapnel
 		Amount: 1
 		Interval: 999999
 		RequiresCondition: HologramSpawn
 	IssueOrderToBot@AI:
-		OrderName: GrantTimedConditionOnDeploy
+		OrderName: DeployWithCharge
 		OrderTrigger: Attack
 		OrderChance: 100
 		OrderInterval: 4006
@@ -1472,11 +1471,10 @@ SEER:
 		FacingTolerance: 2
 	AutoTarget:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
-	GrantTimedConditionOnDeploy:
+	GrantConditionOnDeployWithCharge:
 		DeployedCondition: deployed
-		CooldownTicks: 2000
-		DeployedTicks: 60
-		StartsFullyCharged: true
+		ChargeDuration: 2000
+		ConditionDuration: 60
 		PauseOnCondition: WebDisable
 	SpawnSparks@buff:
 		SparkWeapon: SeerTyranyBuff
@@ -1486,10 +1484,10 @@ SEER:
 	SpawnSparks@dec:
 		SparkWeapon: SparkExplo
 		Amount: 1
-		Interval: 10
+		Interval: 11
 		RequiresCondition: deployed
 	IssueOrderToBot@AI:
-		OrderName: GrantTimedConditionOnDeploy
+		OrderName: DeployWithCharge
 		OrderChance: 50
 		OrderInterval: 2006
 		OrderTrigger: Attack

@@ -865,7 +865,7 @@ GAFIRE:
 		Color: 8888FFCC
 		BorderWidth: 0
 		Width: 2
-	GrantTimedConditionOnDeploy@FirestormWall:
+	GrantConditionOnDeployWithCharge@FirestormWall:
 		PauseOnCondition: (empdisable || disabled)  && !FirestormGen
 	ProximityExternalCondition@FirestormWall:
 		RequiresCondition: FirestormGen && !empdisable && !disabled
@@ -915,7 +915,7 @@ GAFIRE:
 		Priority: 2
 	IssueOrderToBot@AI:
 		RequiresCondition: !Building-Buildup && !empdisable && !disabled
-		OrderName: GrantTimedConditionOnDeploy
+		OrderName: DeployWithCharge
 		OrderChance: 100
 		OrderInterval: 200
 	-RevealOnFire:

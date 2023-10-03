@@ -1874,14 +1874,13 @@ SCORPION:
 		Delay: 10
 		ShowSelectionBar: false
 		RequiresCondition: chargingLaser
-	GrantTimedConditionOnDeploy:
+	GrantConditionOnDeployWithCharge:
 		DeployedCondition: rage
-		CooldownTicks: 2250
-		DeployedTicks: 25
-		StartsFullyCharged: true
+		ChargeDuration: 2250
+		ConditionDuration: 25
 		PauseOnCondition: empdisable
 	IssueOrderToBot@AI:
-		OrderName: GrantTimedConditionOnDeploy
+		OrderName: DeployWithCharge
 		OrderTrigger: Attack
 		OrderChance: 100
 		OrderInterval: 2256
@@ -2570,12 +2569,11 @@ WEASAU:
 		Weapon: WeasaurusStrike
 		LocalOffset: 1100,0,1350
 		RequiresCondition: deployed
-	GrantTimedConditionOnDeploy:
+	GrantConditionOnDeployWithCharge:
 		DeployedCondition: deployed
-		CooldownTicks: 1500
-		DeployedTicks: 500
-		StartsFullyCharged: true
-		DischargingColor: FF0000
+		ChargeDuration: 1500
+		ConditionDuration: 500
+		DeployedColor: FF0000
 	SpawnSparks@Deployed:
 		SparkWeapon: WeasaurusCall
 		Amount: 1
@@ -2629,7 +2627,7 @@ WEASAU:
 		RequiresCondition: produced
 		Voice: Build
 	IssueOrderToBot@AI:
-		OrderName: GrantTimedConditionOnDeploy
+		OrderName: DeployWithCharge
 		OrderTrigger: Attack
 		OrderChance: 100
 		OrderInterval: 1006

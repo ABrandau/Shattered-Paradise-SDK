@@ -582,12 +582,11 @@ WEASAU3:
 		Weapon: WeasaurusStrikeGreen
 		LocalOffset: 990,0,1210
 		RequiresCondition: deployed
-	GrantTimedConditionOnDeploy:
+	GrantConditionOnDeployWithCharge:
 		DeployedCondition: deployed
-		CooldownTicks: 1500
-		DeployedTicks: 500
-		StartsFullyCharged: true
-		DischargingColor: FF0000
+		ChargeDuration: 1500
+		ConditionDuration: 500
+		DeployedColor: FF0000
 	SpawnSparks@Deployed:
 		Interval: 9999999
 		LocalOffset: 0,0,1800
@@ -630,7 +629,7 @@ WEASAU3:
 	SharedPassenger:
 		CustomPipType: red
 	IssueOrderToBot@AI:
-		OrderName: GrantTimedConditionOnDeploy
+		OrderName: DeployWithCharge
 		OrderTrigger: Attack
 		OrderChance: 20
 		OrderInterval: 1006
@@ -1051,18 +1050,17 @@ M_EMP:
 		ScanRadius: 6
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
-	GrantTimedConditionOnDeploy:
+	GrantConditionOnDeployWithCharge:
 		DeployedCondition: empSpawn
-		CooldownTicks: 1600
-		DeployedTicks: 1
-		StartsFullyCharged: true
+		ChargeDuration: 1600
+		ConditionDuration: 1
 	SpawnSparks@Deployed:
 		Interval: 9999999
 		SparkWeapon: MEMPulse
 		Amount: 1
 		RequiresCondition: empSpawn
 	IssueOrderToBot@AI:
-		OrderName: GrantTimedConditionOnDeploy
+		OrderName: DeployWithCharge
 		OrderTrigger: Attack
 		OrderChance: 100
 		OrderInterval: 1606
@@ -1757,8 +1755,7 @@ COREDEFENDER:
 		Pieces: 2, 4
 		Weapons: LargeDebris
 	## Firestorm on Deploy
-	GrantTimedConditionOnDeploy@FirestormWall:
-		StartsFullyCharged: true
+	GrantConditionOnDeployWithCharge@FirestormWall:
 		PauseOnCondition: empdisable && !FirestormGen
 	ProximityExternalCondition@FirestormWall:
 		Range: 7c0
@@ -1771,7 +1768,7 @@ COREDEFENDER:
 		DamageMaxRange: 7c140
 		DamageMinRange: 6c724
 	IssueOrderToBot@AI:
-		OrderName: GrantTimedConditionOnDeploy
+		OrderName: DeployWithCharge
 		OrderTrigger: Damage
 		OrderChance: 100
 		OrderInterval: 1811

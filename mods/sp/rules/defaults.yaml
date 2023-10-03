@@ -1195,11 +1195,10 @@
 	GrantConditionOnPrerequisite@megawealth:
 		Condition: megawealth
 		Prerequisites: global-megawealth
-	GrantTimedConditionOnDeploy@TIBCONVERSION:
+	GrantConditionOnDeployWithCharge@TIBCONVERSION:
 		DeployedCondition: absorbTib
-		CooldownTicks: 2000
-		DeployedTicks: 50
-		StartsFullyCharged: true
+		ChargeDuration: 2000
+		ConditionDuration: 50
 		PauseOnCondition: empdisable
 		RequiresCondition: tibconversion && !megawealth
 	SpawnSparks@TIBCONVERSION:
@@ -1240,7 +1239,7 @@
 		TerrainTypes: Tiberium, BlueTiberium
 	IssueOrderToBot@TIBCONVERSION:
 		OrderTrigger: Periodically
-		OrderName: GrantTimedConditionOnDeploy
+		OrderName: DeployWithCharge
 		OrderInterval: 220
 		RequiresCondition: OnTiber && tibconversion
 
@@ -3506,11 +3505,11 @@
 	WithSpriteBody:
 
 ^FirestormWallSP:
-	GrantTimedConditionOnDeploy@FirestormWall:
+	GrantConditionOnDeployWithCharge@FirestormWall:
 		DeployedCondition: FirestormGen
-		CooldownTicks: 1500
-		StartsFullyCharged: false
-		DeployedTicks: 300
+		ChargeDuration: 1500
+		InitialCharge: 0
+		ConditionDuration: 300
 	ProximityExternalCondition@FirestormWall:
 		Condition: FirestormWallCondition
 		Range: 12c0
