@@ -1713,9 +1713,13 @@
 		CargoCondition: ascargo
 	QuantizeFacingsFromSequence:
 		Sequence: stand
-	SpawnActorOnDeath@FLAMEGUY:
-		Actor: FLAMEGUY
-		DeathType: FireDeath
+	SpawnSmokeParticleOnDeath@FLAMEGUY:
+		Image: flameguy
+		Sequences: run-all
+		EndSequences: die
+		Duration: 19
+		Palette: player
+		DeathTypes: FireDeath
 	GrantRandomCondition@tiberium:
 		Conditions: visc, zombie
 	SpawnActorOnDeath@tiberium1:
@@ -1887,7 +1891,7 @@
 		-PauseOnCondition:
 	-TakeCover:
 	-WithDeathAnimation@tib:
-	-SpawnActorOnDeath@FLAMEGUY:
+	-SpawnSmokeParticleOnDeath@FLAMEGUY:
 	Armor:
 		Type: Heavy
 	Targetable:
@@ -1940,7 +1944,7 @@
 		CrushedSequencePalette: playerscrin
 		CrushedPaletteIsPlayerPalette: true
 	-DamagedByTerrain:
-	-SpawnActorOnDeath@FLAMEGUY:
+	-SpawnSmokeParticleOnDeath@FLAMEGUY:
 	Mobile:
 		Locomotor: TibInmuneInfantry
 	WithDeathAnimation@body:
@@ -2032,7 +2036,7 @@
 	-WithDeathAnimation@explosion:
 	-WithDeathAnimation@energy:
 	-WithDeathAnimation@body:
-	-SpawnActorOnDeath@FLAMEGUY:
+	-SpawnSmokeParticleOnDeath@FLAMEGUY:
 	-GrantRandomCondition@tiberium:
 	-SpawnActorOnDeath@tiberium1:
 	-SpawnActorOnDeath@tiberium2:
@@ -2110,7 +2114,7 @@
 	-WithDeathAnimation@tib:
 	-WithDeathAnimation@explosion:
 	-WithDeathAnimation@energy:
-	-SpawnActorOnDeath@FLAMEGUY:
+	-SpawnSmokeParticleOnDeath@FLAMEGUY:
 	-GrantRandomCondition@tiberium:
 	-SpawnActorOnDeath@tiberium1:
 	-SpawnActorOnDeath@tiberium2:

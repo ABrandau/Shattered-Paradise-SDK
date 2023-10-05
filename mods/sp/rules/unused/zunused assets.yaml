@@ -1228,6 +1228,26 @@ WEASAUBLUE2:
 	RenderSprites:
 		Image: weasaublue2
 
+
+FLAMEGUY:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Inherits@3: ^WithDeathEffects
+	Mobile:
+		Speed: 80
+		Locomotor: Infantry
+	HiddenUnderFog:
+	WithFacingSpriteBody:
+		Sequence: run
+	KillsSelf@TimedLife:
+		Delay: 19
+	Wanders:
+	WithDeathAnimation:
+		FallbackSequence: die
+		UseDeathTypeSuffix: false
+
+
+
 FIREFLY.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@RENDER: ^CabRender
