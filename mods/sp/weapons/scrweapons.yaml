@@ -1263,6 +1263,20 @@ EssenceSmall:
 		ValidTargets: Ground, Water, Air
 		AirThreshold: 8c0
 
+SpawnEssence:
+	Inherits: EssenceSmall
+	Warhead@visual: SpawnSmokeParticle
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+		Image: scrinessencesmall
+		Sequences: idle
+		Duration: 50
+		Palette: apolra2ialpha
+	Warhead@op: FireShrapnel
+		Delay: 50
+		AimTargetStances: Ally
+
 EssenceMissile:
 	Inherits: ^FullDamage
 	ReloadDelay: 45

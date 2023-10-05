@@ -559,12 +559,11 @@
 		Condition: chaos
 
 ^ScrinEssence:
-	SpawnActorOnDeath@ScrinEssence:
-		Actor: scrinessencesmall
-		Probability: 100
-		OwnerType: Killer
-		DeathType: ScrinEssenceKill
-		RequiresLobbyCreeps: false
+	Explodes@EssenceDeath:
+		DamageSource: Killer
+		Weapon: SpawnEssence
+		EmptyWeapon: SpawnEssence
+		DeathTypes: ScrinEssenceKill
 
 ^Chronoshiftable:
 	Chronoshiftable:
@@ -1643,7 +1642,7 @@
 	Inherits@3: ^SpriteActor
 	Inherits@4: ^InfantryShape
 	Inherits@5: ^5CellVision
-	Inherits@6: ^Blind
+	Inherits@BLIND: ^Blind
 	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	ActorLostNotification:
@@ -2120,7 +2119,7 @@
 	-SpawnActorOnDeath@tiberium2:
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@conversionUpg:
-	-SpawnActorOnDeath@ScrinEssence:
+	-Explodes@EssenceDeath:
 	-WithDeathAnimation@blood1:
 	-RevealsShroud:
 	-DetectCloaked:
@@ -2191,7 +2190,8 @@
 ^BasicVehicle:
 	Inherits@1: ^VehicleShape
 	Inherits@2: ^5CellVision
-	Inherits@3: ^Blind
+	Inherits@BLIND: ^Blind
+	Inherits@SCRIN_KILL: ^ScrinEssence
 	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	ActorLostNotification:
@@ -2221,8 +2221,6 @@
 		Bounds: 1206,1809, 0, -240
 	SelectionDecorations:
 		MinimumZoom: 0
-	SpawnActorOnDeath@ScrinEssence:
-		Actor: scrinessencesmall
 	Voiced:
 		VoiceSet: Vehicle
 	WithTextControlGroupDecoration:
