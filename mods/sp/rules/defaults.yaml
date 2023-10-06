@@ -880,16 +880,9 @@
 		Palette: jascgrey60
 		RequiresCondition: nanomachinerecovery
 		IsDecoration: true ## so this doesn't affect by cloak palette
-	SpawnActorOnDeath@nanomachinereanimate:
-		RequiresCondition: nanomachinereanimate
-		Actor: KILLEDACTOR
-		Probability: 100
-		OwnerType: InternalName #Netrual
-		RequiresLobbyCreeps: false
 	ExternalCondition@nanomachinerecovery:
 		Condition: nanomachinerecovery
-	ExternalCondition@nanomachinereanimate:
-		Condition: nanomachinereanimate
+	SpawnCorpseOnDeath@nanomachinereanimate:
 
 ^tractorstop:
 	SpeedMultiplier@tractorstop:
@@ -2129,9 +2122,8 @@
 
 	-ChangesHealth@nanomachinerecovery:
 	-WithIdleOverlay@nanomachinerecovery:
-	-SpawnActorOnDeath@nanomachinereanimate:
+	-SpawnCorpseOnDeath@nanomachinereanimate:
 	-ExternalCondition@nanomachinerecovery:
-	-ExternalCondition@nanomachinereanimate:
 
 	-DamageMultiplier@firestorm:
 	-ExternalCondition@FirestormWallCondition:
@@ -2437,8 +2429,7 @@
 	#-GrantRandomCondition@tiberium:
 	#-SpawnActorOnDeath@tiberium1:
 	#-SpawnActorOnDeath@tiberium2:
-	-ExternalCondition@nanomachinereanimate:
-	-SpawnActorOnDeath@nanomachinereanimate:
+	-SpawnCorpseOnDeath@nanomachinereanimate:
 
 ^Walker:
 	Inherits: ^CombatVehicle
@@ -2581,6 +2572,7 @@
 		AltitudeVelocity: 300
 		MaximumPitch: 90
 		TakeOffOnResupply: true
+	-SpawnCorpseOnDeath@nanomachinereanimate:
 	Passenger:
 		CargoType: Aircraft
 	Sellable:

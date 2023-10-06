@@ -240,8 +240,16 @@ NANOBURSTDUMMY:
 	Inherits@2: ^WithDeathEffects
 	Aircraft:
 		CruiseAltitude: 1
+	GrantConditionAfterDelay@CollectCorpse:
+		Delay: 474
+		Condition: reanimate
+	SpawnActorsOnCorpseInRadius@nanomachinereanimate:
+		Range: 7c0
+		ActorType: nanos
+		PauseOnCondition: !reanimate
 	KillsSelf@TimedLife:
-		Delay: 475
+		Delay: 1
+		RequiresCondition: reanimate
 	RenderSprites:
 		Image: nanomachineswarmdummy
 		Palette: apgrey
@@ -253,33 +261,16 @@ NANOBURSTDUMMY:
 		Condition: nanomachinerecovery
 		Range: 7c0
 		EnableSound: nanomachine0000.wav, nanomachine0001.wav, nanomachine0002.wav, nanomachine0003.wav, nanomachine0004.wav
-	ProximityExternalCondition@2:
-		Condition: nanomachinereanimate
-		Range: 7c0
-		ValidRelationships: Ally, Enemy, Neutral
+
 	WithMakeAnimation:
 		Condition: spreading
 	WithSpriteBody:
 		Sequence: stand
-	Explodes:
-		Weapon: nanomachineswarmdeath
-
-KILLEDACTOR:
-	Inherits: ^GROUNDDUMMY
-	Inherits@2: ^WithDeathEffects
-	ExternalCondition@nanomachinereanimate:
-		Condition: nanomachinereanimate
-	KillsSelf@TimedLife:
-		Delay: 10
-		RemoveInstead: true
-		RequiresCondition: !nanomachinereanimate
-	SpawnActorOnDeath@workerspawn:
-		Actor: nanos
-		Probability: 100
-		OwnerType: Killer
-		RequiresLobbyCreeps: true
-	Targetable@remaining:
-		TargetTypes: remaining
+	WithDeathAnimation:
+		DeathSequencePalette: apgrey
+		DeathPaletteIsPlayerPalette: false
+		UseDeathTypeSuffix: false
+		FallbackSequence: die
 
 VEINHOLESPAWNERDUMMY:
 	Inherits: ^GROUNDDUMMY
@@ -318,17 +309,3 @@ FOGCAMERADUMMY:
 		SparkWeapon: VeinholeEggElevator
 		Amount: 1
 
-SCRINESSENCESMALL:
-	Inherits: ^GROUNDDUMMY
-	Inherits@2: ^WithDeathEffects
-	KillsSelf@TimedLife:
-		Delay: 50
-	RenderSprites:
-		Image: scrinessencesmall
-		Palette: apolra2ialpha
-	WithSpriteBody:
-	Explodes@EssenceDeath:
-		Weapon: EssenceSmall
-		EmptyWeapon: EssenceSmall
-		LoadedChance: 100
-		Chance: 100
