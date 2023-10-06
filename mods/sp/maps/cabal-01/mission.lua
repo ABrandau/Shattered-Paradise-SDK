@@ -319,7 +319,6 @@ end
 -- ####### Upgrade
 SpawnUpgrade = function()
 	Actor.Create("upgrade.tib_core_missiles", true, { Owner = Nod_AI })
-	Actor.Create("upgrade.raider_passenger", true, { Owner = Nod_AI2 })
 
 	Actor.Create("upgrade.lynx_rockets", true, { Owner = Mut_AI })
 	Actor.Create("upgrade.lynx_rockets", true, { Owner = Mut_AI2 })

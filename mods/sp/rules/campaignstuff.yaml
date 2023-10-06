@@ -386,7 +386,6 @@ MUJEEP:
 	Inherits@RENDER: ^MutRenderGreen
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@RAIDERE1: ^AffectedByRaiderPassenger
 	Inherits@PIPS: ^CargoPips
 	Inherits@VISION: ^6CellVision
 	Valued:
@@ -431,8 +430,6 @@ MUJEEP:
 	Passenger:
 		CargoType: Apc
 	Selectable:
-	AttackTurreted:
-		Armaments: primary
 	Armament@primary:
 		Weapon: GMilitantRifle
 		LocalOffset: 350,0,500
@@ -479,8 +476,6 @@ MUJEEP:
 		OrderName: Unload
 		OrderChance: 100
 		OrderInterval: 45
-	FreePassenger: # AffectedByRaiderPassenger
-		Actors: altnode1, altnode1, crusader
 
 AVATAR:
 	Inherits: ^Walker
