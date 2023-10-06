@@ -14,7 +14,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.SP.Traits
 {
-	[Desc("Attach this to actors which should regenerate or lose health points over time.")]
+	[Desc("Attach this to actors which should regenerate or lose health points just after creation.")]
 	sealed class DamageOnCreationInfo : TraitInfo, Requires<IHealthInfo>
 	{
 		[Desc("Absolute amount of health points added in each step.",
