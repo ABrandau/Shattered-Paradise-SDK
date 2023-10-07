@@ -40,6 +40,9 @@ namespace OpenRA.Mods.Sp.Traits
 
 		void INotifyKilled.Killed(Actor self, AttackInfo e)
 		{
+			if (!self.IsInWorld)
+				return;
+
 			var used = 0;
 
 			foreach (var t in self.World.ActorsWithTrait<ICorpseConsumer>())
