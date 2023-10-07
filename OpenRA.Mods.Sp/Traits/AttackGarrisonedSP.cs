@@ -52,12 +52,22 @@ namespace OpenRA.Mods.SP.Traits
 		readonly Lazy<BodyOrientation> coords;
 		readonly Dictionary<Actor, FirePortSP> ports = new();
 		readonly Dictionary<AnimationWithOffset, string> muzzles = new();
+		INotifyAttack[] notifyAttacksForUncloak;
 
 		public AttackGarrisonedSP(Actor self, AttackGarrisonedSPInfo info)
 			: base(self, info)
 		{
 			Info = info;
 			coords = Exts.Lazy(() => self.Trait<BodyOrientation>());
+		}
+
+		protected override void Created(Actor self)
+		{
+			// HACK: we only reveal cloak at AttackGarrisonedSP, because we cannot really
+			// apply other actors' Armament to all the INotifyAttack belongs to transport, which
+			// will leads to crash or bug.
+			notifyAttacksForUncloak = self.TraitsImplementing<INotifyAttack>().Where(t => t is Cloak).ToArray();
+			base.Created(self);
 		}
 
 		protected override Func<IEnumerable<Armament>> InitializeGetArmaments(Actor self)
@@ -114,11 +124,11 @@ namespace OpenRA.Mods.SP.Traits
 			var pos = self.CenterPosition;
 			var targetedPosition = GetTargetPosition(pos, target);
 			var targetYaw = (targetedPosition - pos).Yaw;
+			var hasNotifiedAttack = false;
 
-			var passengers = ports.Keys;
-			foreach (var pass in passengers)
+			foreach (var seat in ports.Keys)
 			{
-				var port = ports[pass];
+				var port = ports[seat];
 
 				foreach (var arm in port.Armaments)
 				{
@@ -126,15 +136,15 @@ namespace OpenRA.Mods.SP.Traits
 						continue;
 
 					port.PaxFacing.Facing = targetYaw;
-					port.PaxPos.SetCenterPosition(pass, pos + PortOffset(self, port));
+					port.PaxPos.SetCenterPosition(seat, pos + PortOffset(self, port));
 
-					if (!arm.CheckFire(pass, facing, target, true))
+					if (!arm.CheckFire(seat, facing, target, true))
 						continue;
 
 					if (arm.Info.MuzzleSequence != null)
 					{
 						// Muzzle facing is fixed once the firing starts
-						var muzzleAnim = new Animation(self.World, port.PaxRender.GetImage(pass), () => targetYaw);
+						var muzzleAnim = new Animation(self.World, port.PaxRender.GetImage(seat), () => targetYaw);
 						var sequence = arm.Info.MuzzleSequence;
 						var muzzleFlash = new AnimationWithOffset(muzzleAnim,
 							() => PortOffset(self, port),
@@ -143,6 +153,13 @@ namespace OpenRA.Mods.SP.Traits
 
 						muzzles[muzzleFlash] = arm.Info.MuzzlePalette;
 						muzzleAnim.PlayThen(sequence, () => muzzles.Remove(muzzleFlash));
+					}
+
+					if (!hasNotifiedAttack)
+					{
+						hasNotifiedAttack = true;
+						foreach (var npa in notifyAttacksForUncloak)
+							npa.Attacking(self, target, arm, null);
 					}
 				}
 			}
