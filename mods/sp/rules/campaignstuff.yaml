@@ -1824,6 +1824,8 @@ DEFD:
 		Dimensions: 3,3
 	GivesExperience:
 		PlayerExperienceModifier: 100
+	GivesExperienceToMasterOrTransport:
+		ActorExperienceModifierOnTransport: 0
 	RevealsShroud:
 		Type: Footprint
 		MaxHeightDelta: 3
@@ -1890,7 +1892,7 @@ HMECTEST:
 		BuildAtProductionType: Mammoth
 		BuildPaletteOrder: 49
 		Prerequisites: ~player.gdi, ~showhmec, gtdrop, ~AIOnly, ~techlevel.6
-		Description: GDI's final creation for the war when everything is doomed.\n\nGood vs: Everything\n\nSpecial:\n- Build limit: 1\n- Selfhealing up to 100%\n- Can attack air\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything except other Epics\n- It is deployed via dropship at the Dropship Bay\n- Can attack while moving\n- Can spawn 2 gun drones
+		Description: GDI's final creation for the war when everything is doomed.\n\nGood vs: Everything\n\nSpecial:\n- Build limit: 1\n- Selfhealing up to 100%\n- Can attack air\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything except other Epics\n- It is deployed via dropship at the Dropship Bay\n- Can attack while moving\n- Can spawn 2 gun drones\n - Gain 100% EXP from enemy killed by spawned gun drones.
 		BuildLimit: 1
 		BuildDuration: 7000
 		BuildDurationModifier: 100
@@ -2057,6 +2059,7 @@ HMECTEST:
 	DroneSpawnerMaster:
 		Actors: MKIIIDRONE-MINIGUN, MKIIIDRONE-MINIGUN
 		SpawnOffset: 0,0,1024, 0,0,1024
+		LinkToParent: true
 		RespawnTicks: 128
 		FollowAfterAttackDelay: 35
 		PauseOnCondition: inside-tunnel
@@ -2108,6 +2111,7 @@ MKIIIDRONE-MINIGUN:
 	Tooltip:
 		Name: Minigun drone
 	Interactable:
+	HasParent:
 	Aircraft:
 		MaximumPitch: 90
 		Repulsable: true
@@ -2265,6 +2269,7 @@ SCRINCOUNCIL:
 		Actors: COUNCILOR, COUNCILOR, COUNCILOR, COUNCILOR
 		SpawnOffset: 0,0,0,0,0,0,0,0,0,0,0,0
 		GatherCell: 0,0,0,0,0,0,0,0 #-1, 1, -1,-1, 1,1, 1, -1
+		LinkToParent: true
 	## AA Target Weapon
 	Armament@AA:
 		Weapon: AIGlyder1AimingDummyWeapon
@@ -2368,6 +2373,7 @@ COUNCILOR:
 	Tooltip:
 		Name: Councilor
 	Interactable:
+	HasParent:
 	Aircraft:
 		Repulsable: true
 		TurnSpeed: 1023

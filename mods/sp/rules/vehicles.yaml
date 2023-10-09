@@ -1297,6 +1297,9 @@ TICKHOLOGRAM:
 	Inherits@VISION: ^7CellVision
 	GivesExperience:
 		Experience: 50
+	GivesExperienceToMasterOrTransport:
+		Experience: 50
+		ActorExperienceModifierOnTransport: 0
 	Health:
 		HP: 35000
 	EditorOnlyTooltip:
@@ -1429,13 +1432,18 @@ BIKE:
 		BorderWidth: 0
 		Width: 2
 	RenderSprites:
+	## Only Enabled when as cargo
 	ExplodesAlsoTransported:
+		Weapon: BigUnitExplode
+		RequiresCondition: carried || ascargo
+ 	## Use ExplodesForMaster to transfer the XP if being mindcontrolled
+	ExplodesForMaster@ATTACK:
 		Weapon: BikeExplo
-		WeaponWhenTransport: BigUnitExplode
+		EmptyWeapon: BikeExplo
 		RequiresCondition: !explosive_mixtures
-	ExplodesAlsoTransported@EXPLOSIVEMIX:
+	ExplodesForMaster@EXPLOSIVEMIX:
 		Weapon: BikeExploEX
-		WeaponWhenTransport: BigUnitExplode
+		EmptyWeapon: BikeExploEX
 		RequiresCondition: explosive_mixtures
 	GrantConditionOnDeploy@DemoTruck:
 		DeployedCondition: DetonateDemoTruck
@@ -2097,7 +2105,7 @@ STRUCK:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
-		Description: Combat transport.\n\nGood vs: Depending on occupants\n\nSpecial:\n - Cargo for 5 soldiers\n - Transported infantry can fire out of its windows\n - Infantry inside has increased weapon range\n - Can attack while moving
+		Description: Combat transport.\n\nGood vs: Depending on occupants\n\nSpecial:\n - Cargo for 5 soldiers\n - Passengers can fire out of its windows\n - Basic infantry inside has increased weapon range\n - Can attack while moving
 		BuildPaletteOrder: 24
 		Prerequisites: ~muweap, murax, ~techlevel.2
 		BuildDuration: 500
@@ -2156,6 +2164,7 @@ MINELAYER:
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Inherits@VISION: ^5CellVision
 	Inherits@DETECTION: ^BasicStealthDetection
+	Inherits@EXPERIENCE: ^GainsExperienceNonCombat
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -2165,7 +2174,7 @@ MINELAYER:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
-		Description: Mines...mines everywhere!\n\nSpecial:\n - Provides stealth detection \n - Can remove enemy mines \n - Can place up to 5 mines on the battlefield\n - Reloads on service depot\n - Mines are cloaked\n - Can crush Infantry
+		Description: Mines...mines everywhere!\n\nSpecial:\n - Provides stealth detection \n - Can remove enemy mines \n - Can place up to 5 mines on the battlefield\n - Gain 100% EXP from enemy killed by mines\n - Reloads on service depot\n - Mines are cloaked\n - Can crush Infantry
 		BuildPaletteOrder: 25
 		Prerequisites: ~muweap, gadept, ~techlevel.3
 		BuildDuration: 500
@@ -2409,7 +2418,6 @@ HVRTRUK3:
 	Inherits@: ^HoverVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@RENDER: ^MutRenderGreen
-	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
 		Cost: 4000
 	Tooltip:
@@ -2454,10 +2462,15 @@ HVRTRUK3:
 		Weapon: DemoTruckDummyWeapon
 		ReloadingCondition: DetonateDemoTruck
 		RequiresCondition: !empdisable
-	ExplodesAlsoTransported:
+	## Use ExplodesForMaster to transfer the XP if being mindcontrolled
+	ExplodesForMaster:
 		Weapon: BombTruckExplo
-		WeaponWhenTransport: NukeLeak
-	RevealOnDeath: ## Nuke explosion will give more visual
+		EmptyWeapon: BombTruckExplo
+	## Only Enabled when as cargo
+	ExplodesAlsoTransported:
+		RequiresCondition: carried
+		Weapon: NukeLeak
+	RevealOnDeath: ## Nuke explosion will give more vision
 		Duration: 150
 		Radius: 9c0
 	WithRangeCircle:
@@ -2482,11 +2495,6 @@ HVRTRUK3:
 		ScanRadius: 6
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
-	GrantConditionOnMovement:
-		Condition: walking
-	RejectsOrders@AI-noreturn:
-		RequiresCondition: walking && AImicroManage
-		Except: Attack
 	ActorStatValues:
 		Damage: 3240
 		Spread: 6c0
@@ -2512,7 +2520,7 @@ WEASAU:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 52
 		Prerequisites: ~muweap, mutsw2, ~techlevel.6
-		Description: A long forgotten creature that has emerged again\nto defend its territory.\n\nGood vs: Ground\n\nSpecial:\n - Build limit: 1\n - Selfhealing up to 100%\n - Immune to mind control\n - Can shoot over walls\n - Can crush everything execept other Epics\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - E.M.P. Immune\n - Deployability: Summons a massive brood of Tiberium Creatures
+		Description: A long forgotten creature that has emerged again\nto defend its territory.\n\nGood vs: Ground\n\nSpecial:\n - Build limit: 1\n - Selfhealing up to 100%\n - Immune to mind control\n - Can shoot over walls\n - Can crush everything execept other Epics\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - E.M.P. Immune\n - Deployability: Summons a brood of Weasaurus \n - Gain 100% EXP from enemy killed by summoned Weasaurus
 		BuildLimit: 1
 		BuildDuration: 1500
 		BuildDurationModifier: 100
@@ -2652,6 +2660,10 @@ WEASAUSMALL:
 	-Valued:
 	GivesExperience:
 		Experience: 100
+	GivesExperienceToMasterOrTransport:
+		Experience: 100
+		ActorExperienceModifierOnTransport: 0
+	HasParent:
 	Tooltip:
 		Name: Small Weasaurus
 	UpdatesPlayerStatistics:
@@ -3174,7 +3186,7 @@ SPIDERARTY:
 		Queue: Vehicle.Shared, Vehicle.CABAL
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 43
-		Description: Heavy artillery that deploys drones at the targetted area.\n\nGood vs: Ground targets\n\nSpecial:\n - Deals AOE damage\n - Minimum attack distance\n - Converts killed units into workers\n - Can shoot over walls\n - Can crush infantry\n - Selfrepair
+		Description: Heavy artillery that deploys drones at the targetted area.\n\nGood vs: Ground targets\n\nSpecial:\n - Minimum attack distance\n - Spawns drones at target\n - Gain 100% EXP from enemy killed by spawned drones\n - Converts killed units into workers\n - Can shoot over walls\n - Can crush infantry\n - Selfrepair
 		Prerequisites: ~cabweap, cabtech, ~techlevel.5
 		BuildDuration: 1000
 		BuildDurationModifier: 100
@@ -3755,7 +3767,7 @@ SCRRECHARGER:
 SCRMOBMINE:
 	Inherits@: ^HoverVehicle
 	Inherits@1: ^ScrinVehicleOverride
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceNonCombat
 	Inherits@MC: ^MindControllableMastermind
 	Inherits@VISION: ^7CellVision
 	AutoTarget:
@@ -3769,7 +3781,7 @@ SCRMOBMINE:
 		Queue: Vehicle.Shared, Vehicle.Scrin
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 46
-		Description: Mind Control unit.\n\nSpecial:\n - Can take over regular ground units\n - Can control up to three units\n - Absorbs essence from killed units to heal\n - Cannot mind control heroics, flying units, beasts, structures\n - Can shoot over walls\n - Can mind control units while moving
+		Description: Mind Control unit.\n\nSpecial:\n - Can take over regular ground units\n - Can control up to three units\n - Gain 50% EXP from enemy killed by controlled unit.\n - Absorbs essence from killed units to heal\n - Cannot mind control heroics, flying units, beasts, structures\n - Can shoot over walls\n - Can mind control units while moving
 		Prerequisites: ~scrweap, scrtech, ~techlevel.5
 		BuildDuration: 1125
 		BuildDurationModifier: 100

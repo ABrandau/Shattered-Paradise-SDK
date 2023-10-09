@@ -774,7 +774,7 @@ MUTQUEEN:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.Mutant
-		Description: Flying tiberium beast dealing high amount of damage and\nable to spread their brood accross the world.\n\nGood vs: Vehicles, Buildings\n\nSpecial:\n - Can mutate killed enemy units\n - Lays eggs via deploy which later hatch as crabs that are hostile to anyone\n - Can attack enemies ahead while moving
+		Description: Flying tiberium beast dealing high amount of damage and\nable to spread their brood accross the world.\n\nGood vs: Vehicles, Buildings\n\nSpecial:\n - Lays eggs via deploy which later hatch as crabs that are hostile to anyone\n - Gain 100% EXP from enemy killed by spawned crabs\n - Can attack enemies ahead while moving
 		BuildPaletteOrder: 18
 		Prerequisites: ~muair, ~techlevel.4
 		BuildDuration: 625
@@ -1399,6 +1399,7 @@ SCRCARRIER:
 	Inherits@DETECTION: ^BasicStealthDetectionAir
 	Inherits@HYPERFLIGHT: ^AffectedByHyperFlightRotors
 	Inherits@VISION: ^10CellVisionAir
+	Inherits@EXPERIENCE: ^GainsExperienceNonCombat
 	Valued:
 		Cost: 3000
 	Tooltip:
@@ -1407,7 +1408,7 @@ SCRCARRIER:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.Scrin
-		Description: Scrin frigate.\n\nStrong vs Vehicles, Aircraft\n\nSpecial:\n - Sends fighters at enemies\n- Can attack Air\n - Provides stealth detection when at air\n - Can absorb essence from killed enemies to heal\n - Can attack enemies while moving
+		Description: Scrin frigate.\n\nStrong vs Vehicles, Aircraft\n\nSpecial:\n - Sends fighters at enemies \n - Gain 100% EXP from enemy killed by spawned fighters\n - Can attack Air\n - Provides stealth detection when at air\n - Can absorb essence from killed enemies to heal\n - Can attack enemies while moving
 		BuildPaletteOrder: 28
 		Prerequisites: ~scrair, scrtech, ~techlevel.5
 		BuildDuration: 1375
@@ -1441,6 +1442,7 @@ SCRCARRIER:
 		RespawnTicks: 150
 		RearmTicks: 10
 		InstantRepair: true
+		LinkToParent: true
 	AttackAircraft:
 		FacingTolerance: 512
 	AutoTarget:
@@ -1847,6 +1849,10 @@ STORMRIDERSPAWN:
 		TrailLength: 8
 	GivesExperience:
 		Experience: 50
+	GivesExperienceToMasterOrTransport:
+		Experience: 50
+		ActorExperienceModifierOnTransport: 0
+	HasParent:
 	Aircraft:
 		MaximumPitch: 90
 		Repulsable: false
@@ -1940,6 +1946,7 @@ REPAIRWYVERN:
 	-GrantConditionOnDamageState@FullHealth:
 	-Targetable@FullHealth:
 	-CarrierSlave:
+	-HasParent:
 	DroneSpawnerSlave:
 	Targetable@Ignore:
 		TargetTypes: Summoned, IgnoredByAI
@@ -2037,6 +2044,7 @@ REPAIRDRONE:
 	-GrantConditionOnDamageState@FullHealth:
 	-Targetable@FullHealth:
 	-CarrierSlave:
+	-HasParent:
 	DroneSpawnerSlave:
 	Targetable@Ignore:
 		TargetTypes: Summoned, IgnoredByAI

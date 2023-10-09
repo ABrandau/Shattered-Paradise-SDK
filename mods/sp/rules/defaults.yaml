@@ -299,7 +299,7 @@
 		VoiceSet: CabalVehicle
 		Volume: 2
 
-^GainsExperience:
+^GainsExperienceNonCombat:
 	GainsExperience:
 		LevelUpNotification: LevelUp
 		LevelUpTextNotification: notification-promoted
@@ -326,33 +326,6 @@
 	DamageMultiplier@rank-heroic:
 		RequiresCondition: rank-heroic
 		Modifier: 70
-	FirepowerMultiplier@rank-veteran:
-		RequiresCondition: rank-veteran
-		Modifier: 110
-	FirepowerMultiplier@rank-elite:
-		RequiresCondition: rank-elite
-		Modifier: 120
-	FirepowerMultiplier@rank-heroic:
-		RequiresCondition: rank-heroic
-		Modifier: 130
-	ReloadDelayMultiplier@rank-veteran:
-		RequiresCondition: rank-veteran
-		Modifier: 90
-	ReloadDelayMultiplier@rank-elite:
-		RequiresCondition: rank-elite
-		Modifier: 80
-	ReloadDelayMultiplier@rank-heroic:
-		RequiresCondition: rank-heroic
-		Modifier: 70
-	ReloadAmmoDelayMultiplier@rank-veteran:
-		RequiresCondition: rank-veteran
-		Modifier: 90
-	ReloadAmmoDelayMultiplier@rank-elite:
-		RequiresCondition: rank-elite
-		Modifier: 80
-	ReloadAmmoDelayMultiplier@rank-heroic:
-		RequiresCondition: rank-heroic
-		Modifier: 70
 	SpeedMultiplier@rank-heroic:
 		RequiresCondition: rank-heroic
 		Modifier: 130
@@ -363,9 +336,6 @@
 		DamageCooldown: 0
 		RequiresCondition: rank-heroic
 	RevealsShroudMultiplier@rank-heroic:
-		RequiresCondition: rank-heroic
-		Modifier: 130
-	RangeMultiplier@rank-heroic:
 		RequiresCondition: rank-heroic
 		Modifier: 130
 	WithDecoration@rank-veteran:
@@ -410,6 +380,39 @@
 	GrantConditionOnPrerequisite@ArmoryBuff:
 		Condition: ArmoryBuff
 		Prerequisites: ArmoryExpBuff
+
+^GainsExperience:
+	Inherits: ^GainsExperienceNonCombat
+	FirepowerMultiplier@rank-veteran:
+		RequiresCondition: rank-veteran
+		Modifier: 110
+	FirepowerMultiplier@rank-elite:
+		RequiresCondition: rank-elite
+		Modifier: 120
+	FirepowerMultiplier@rank-heroic:
+		RequiresCondition: rank-heroic
+		Modifier: 130
+	ReloadDelayMultiplier@rank-veteran:
+		RequiresCondition: rank-veteran
+		Modifier: 90
+	ReloadDelayMultiplier@rank-elite:
+		RequiresCondition: rank-elite
+		Modifier: 80
+	ReloadDelayMultiplier@rank-heroic:
+		RequiresCondition: rank-heroic
+		Modifier: 70
+	ReloadAmmoDelayMultiplier@rank-veteran:
+		RequiresCondition: rank-veteran
+		Modifier: 90
+	ReloadAmmoDelayMultiplier@rank-elite:
+		RequiresCondition: rank-elite
+		Modifier: 80
+	ReloadAmmoDelayMultiplier@rank-heroic:
+		RequiresCondition: rank-heroic
+		Modifier: 70
+	RangeMultiplier@rank-heroic:
+		RequiresCondition: rank-heroic
+		Modifier: 130
 
 ^TyrannyBuff:
 	SpeedMultiplier@TyrannyBuff:
@@ -1665,6 +1668,8 @@
 		Categories: Infantry
 	GivesExperience:
 		PlayerExperienceModifier: 100
+	GivesExperienceToMasterOrTransport:
+		ActorExperienceModifierOnTransport: 0
 	Guard:
 		Voice: Move
 	Guardable:
@@ -2092,6 +2097,9 @@
 	Inherits@2: ^HologramKillTimer
 	GivesExperience:
 		Experience: 50
+	GivesExperienceToMasterOrTransport:
+		Experience: 50
+		ActorExperienceModifierOnTransport: 0
 	-UpdatesPlayerStatistics:
 	-Passenger:
 	-SharedPassenger:
@@ -2197,6 +2205,8 @@
 	DrawLineToTarget:
 	GivesExperience:
 		PlayerExperienceModifier: 100
+	GivesExperienceToMasterOrTransport:
+		ActorExperienceModifierOnTransport: 0
 	RevealsShroud:
 		Type: CenterPosition
 		MaxHeightDelta: 3
@@ -2517,6 +2527,8 @@
 		Type: Aircraft
 	GivesExperience:
 		PlayerExperienceModifier: 100
+	GivesExperienceToMasterOrTransport:
+		ActorExperienceModifierOnTransport: 0
 	Aircraft:
 		AirborneCondition: airborne
 		CruisingCondition: cruising
@@ -2766,6 +2778,8 @@
 		Prerequisites: global-instantcapture
 	GivesExperience:
 		PlayerExperienceModifier: 100
+	GivesExperienceToMasterOrTransport:
+		ActorExperienceModifierOnTransport: 0
 	RevealsShroud:
 		Type: Footprint
 		MaxHeightDelta: 3

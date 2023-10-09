@@ -1882,6 +1882,7 @@ MASTERMIND:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@VISION: ^8CellVision
+	Inherits@EXPERIENCE: ^GainsExperienceNonCombat
 	Inherits@AImicroManagable: ^AImicroManagable
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything && !assault-move && (!controlling || AImicroManage)
@@ -1890,7 +1891,7 @@ MASTERMIND:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Scrin
 		BuildPaletteOrder: 36
-		Description: The commando unit of Scrin born with the ability\nto mind control everyone and everything.\n\nSpecial:\n - Can mind control everything but Commandos and Epics\n - Takes some time to mind control Structures\n - Absorbs essence from killed units to heal\n - Can teleport over a short distance\n - Can mind control over walls\n - Immune to mind control\n - Does not receive damage from tiberium fields\n - Build limit: 1\n - Crush class: uncrushable
+		Description: The commando unit of Scrin born with the ability\nto mind control everyone and everything.\n\nSpecial:\n - Can mind control everything but Commandos and Epics\n - Gain 50% EXP from enemy killed by controlled unit/defence\n - Takes some time to mind control Structures\n - Absorbs essence from killed units to heal\n - Can teleport over a short distance\n - Can mind control over walls\n - Immune to mind control\n - Does not receive damage from tiberium fields\n - Build limit: 1\n - Crush class: uncrushable
 		Prerequisites: ~scrrax, scrtech, ~techlevel.5
 		BuildLimit: 1
 		BuildDuration: 1250
@@ -2003,6 +2004,10 @@ CABSENTRY:
 	-Valued:
 	GivesExperience:
 		Experience: 50
+	GivesExperienceToMasterOrTransport:
+		Experience: 50
+		ActorExperienceModifierOnTransport: 0
+	HasParent:
 	Tooltip:
 		Name: Sentry Drone
 	Voiced:
