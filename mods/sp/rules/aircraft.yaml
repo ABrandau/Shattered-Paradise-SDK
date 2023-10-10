@@ -225,12 +225,16 @@ DSHP:
 
 DSHP.HIGH:
 	Inherits: DSHP
+	-MapEditorData:
 	Aircraft:
 		CruiseAltitude: 18c0
 		TurnSpeed: 256
 		Speed: 20480 ## fast enough to make map size affect little to production
 		IdleBehavior: LeaveMap
 	RejectsOrders:
+	-Selectable:
+	-SelectionDecorations:
+	Interactable:
 	GrantConditionAboveAltitude:
 		MinAltitude: 13312 #13c0
 		Condition: outofsight
