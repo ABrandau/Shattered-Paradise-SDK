@@ -90,16 +90,12 @@ ORCATRAN.Husk:
 		Speed: 84
 	RenderSprites:
 		Image: orcatran
-	RenderVoxels:
-		Image: orcatran
-	WithVoxelBody:
+	WithFacingSpriteBody:
 		RequiresCondition: !ceramic_plating
-	WithVoxelBody@white:
+	WithFacingSpriteBody@white:
+		Name: white
 		Sequence: idle-white
 		RequiresCondition: ceramic_plating
-	-QuantizeFacingsFromSequence:
-	-WithFacingSpriteBody:
-	-WithShadow:
 
 ^CarryallHusk:
 	Inherits: ^AircraftHusk

@@ -265,6 +265,7 @@ ORCATRAN:
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
 	Inherits@PIPS: ^CargoPips
 	Inherits@VISION: ^8CellVisionAir
+	Inherits@SHADOW: ^AircraftShadow
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -274,14 +275,12 @@ ORCATRAN:
 		BuildPaletteOrder: 6
 		Prerequisites: ~disabled
 	RenderSprites:
-	WithVoxelBody:
+	WithFacingSpriteBody:
 		RequiresCondition: !ceramic_plating
-	WithVoxelBody@white:
+	WithFacingSpriteBody@white:
+		Name: white
 		Sequence: idle-white
 		RequiresCondition: ceramic_plating
-	RenderVoxels:
-	-QuantizeFacingsFromSequence:
-	-WithFacingSpriteBody:
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 90
@@ -1221,7 +1220,7 @@ SCRDESTROYER:
 		BuildDurationModifier: 100
 	-Rearmable:
 	Selectable:
-		Bounds: 2564,3015,0,-723
+		Bounds: 809,1600,0,-723
 	AutoTarget:
 		ScanRadius: 15
 	Aircraft:
