@@ -188,18 +188,19 @@ ORCAB:
 DSHP:
 	Inherits: ^Helicopter
 	Inherits@PIPS: ^CargoPips
+	Inherits@SHADOW: ^AircraftShadow
 	Valued:
 		Cost: 1000
 	Tooltip:
 		Name: Dropship
 	Aircraft:
 		CruiseAltitude: 8c0
-		TurnSpeed: 40
+		TurnSpeed: 32
 		Speed: 150
 		InitialFacing: 0
 		Repulsable: false
+		VTOL: true
 		AltitudeVelocity: 200
-		VTOL: false
 		TakeoffSounds: dropup1.aud
 		LandingSounds: dropdwn1.aud
 	Health:
@@ -212,21 +213,15 @@ DSHP:
 		AfterUnloadDelay: 0
 		UnloadVoice: Move
 		OwnerChangedAffectsPassengers: false
-	#SpawnActorOnDeath:
-	#	Actor: DSHP.Husk
-	#	RequiresCondition: airborne
+	Selectable:
+		Bounds: 2709,3135,0,-1423
+	SpawnActorOnDeath:
+		Actor: DSHP.Husk
+		RequiresCondition: airborne
 	RenderSprites:
-	WithVoxelBody:
-	RenderVoxels:
-		Scale: 20
-	-WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 0
 		CameraPitch: 85
-	-MapEditorData:
-	-Selectable:
-	-SelectionDecorations:
-	Interactable:
 
 DSHP.HIGH:
 	Inherits: DSHP
@@ -235,16 +230,13 @@ DSHP.HIGH:
 		TurnSpeed: 256
 		Speed: 20480 ## fast enough to make map size affect little to production
 		IdleBehavior: LeaveMap
-		VTOL: true
 	RejectsOrders:
 	GrantConditionAboveAltitude:
 		MinAltitude: 13312 #13c0
 		Condition: outofsight
 	RenderSprites:
 		Image: dshp
-	RenderVoxels:
-		Image: dshp
-	WithVoxelBody:
+	WithFacingSpriteBody:
 		RequiresCondition: !outofsight
 	-Targetable@AIRBORNE:
 	-Targetable@GROUND:
