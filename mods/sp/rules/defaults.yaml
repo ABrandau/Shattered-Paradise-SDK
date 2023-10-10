@@ -2462,49 +2462,6 @@
 		Image: scrsmoke
 		Palette: jascblue
 
-^VoxelVehicle:
-	Inherits: ^Vehicle
-	Mobile:
-		TerrainOrientationAdjustmentMargin: 256
-	RenderVoxels:
-	WithVoxelBody:
-		RequiresCondition: !inside-tunnel
-	-WithFacingSpriteBody:
-	BodyOrientation:
-		QuantizedFacings: 0
-		CameraPitch: 85
-
-^VoxelTank:
-	Inherits: ^CombatVehicle
-	Mobile:
-		TerrainOrientationAdjustmentMargin: 256
-	RenderVoxels:
-	BodyOrientation:
-		QuantizedFacings: 0
-		CameraPitch: 85
-	WithVoxelBody:
-		RequiresCondition: !inside-tunnel
-	-WithFacingSpriteBody:
-
-^SubterraneanVoxelVehicle:
-	Inherits@1: ^VoxelVehicle
-	Inherits@2: ^SubterraneanVehicle
-	-WithFacingSpriteBody:
-	BodyOrientation:
-		QuantizedFacings: 0
-		CameraPitch: 85
-	WithVoxelBody:
-		RequiresCondition: !inside-tunnel && !submerged
-
-^CivilianVoxelVehicle:
-	Inherits: ^VoxelVehicle
-	Valued:
-		Cost: 100
-	-GrantConditionOnPrerequisite@SUDDENDEATH:
-	-MustBeDestroyed:
-	MapEditorData:
-		Categories: Civilian Vehicle
-
 ^CivilianSpriteVehicle:
 	Inherits: ^Vehicle
 	Valued:
@@ -3207,59 +3164,6 @@
 		Categories: Deployed Vehicle
 	RequiresBuildableArea:
 		AreaTypes: building
-
-^Train:
-	Inherits@1: ^EmpDisableMobile
-	Inherits@2: ^ExistsInWorld
-	Inherits@3: ^1x1Shape
-	Inherits@4: ^6CellVision
-	Inherits@SELECTION_MODE: ^FlatSelectionMode
-	RenderVoxels: #consider track terrain may have slope and ramp, it is better to be vxl for now
-	RenderSprites:
-	WithVoxelBody: 
-	DrawLineToTarget:
-	Mobile:
-		Locomotor: Vehicle
-		TurnSpeed: 20
-		Voice: Move
-		Speed: 40
-	Cargo:
-		Types: Vehicle
-		AfterLoadDelay: 0
-		BeforeUnloadDelay: 0
-		AfterUnloadDelay: 0
-		UnloadVoice: Unload
-		OwnerChangedAffectsPassengers: false
-	Health:
-		HP: 10000
-	Armor:
-		Type: Heavy
-	Selectable:
-		Bounds: 1206,1447
-	SelectionDecorations:
-		MinimumZoom: 0
-	Voiced:
-		VoiceSet: Vehicle
-	Targetable:
-		TargetTypes: Ground, Vehicle
-	Passenger:
-		CargoType: Infantry
-		Voice: Move
-	HiddenUnderFog:
-	BodyOrientation:
-		CameraPitch: 90
-		QuantizedFacings: 0
-	Explodes:
-		Weapon: UnitExplodeSmall
-		EmptyWeapon: UnitExplodeSmall
-	#ExternalCondition@CLOAKGENERATOR:
-	#	Condition: cloakgenerator
-	ThrowsShrapnel:
-		Weapons: SmallDebris
-		Pieces: 3, 7
-		Range: 2c0, 5c0
-	MapEditorData:
-		Categories: Trains
 
 ^TerrainOverlay:
 	AlwaysVisible:
