@@ -32,7 +32,7 @@ namespace OpenRA.Mods.SP.Traits
 		public override object Create(ActorInitializer init) { return new DamageOnCreation(init.Self, this); }
 	}
 
-	sealed class DamageOnCreation : ISync, ITick
+	sealed class DamageOnCreation : ITick
 	{
 		readonly IHealth health;
 		readonly DamageOnCreationInfo info;
