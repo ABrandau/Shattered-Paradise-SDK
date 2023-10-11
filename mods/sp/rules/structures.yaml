@@ -367,16 +367,20 @@ GTDROP:
 		Produces: Vehicle.Shared, Mammoth
 		ActorType: dshp.high
 		ReadyAudio: UnitReady
-		BaselineSpawn: true
-		Facing: 128
+		WaitTickBeforeProduce: 10
+		WaitTickAfterProduce: 15
+		LandOffset: 0, 768,0
+		Facing: 640
 		PauseOnCondition: disabled || empdisable
 		RequiresCondition: !multiqueue
 	ProductionAirdrop:
 		Produces: Vehicle.MammothMkII, Mammoth
 		ActorType: dshp.high
 		ReadyAudio: UnitReady
-		BaselineSpawn: true
-		Facing: 128
+		WaitTickBeforeProduce: 10
+		WaitTickAfterProduce: 15
+		LandOffset: 0, 768,0
+		Facing: 640
 		PauseOnCondition: disabled || empdisable
 		RequiresCondition: multiqueue
 	ProductionQueue@Vehicle:
