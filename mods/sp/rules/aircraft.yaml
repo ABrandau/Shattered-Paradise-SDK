@@ -58,9 +58,12 @@ ORCA:
 		ReloadCount: 2
 		ReloadDelay: 50
 		AmmoCondition: ammo
-	SpawnActorOnDeath:
-		Actor: ORCA.Husk
-		RequiresCondition: airborne
+	SpawnHuskEffectOnDeath:
+		Weapon: orca.husk
+		RequiresCondition: airborne && !ceramic_plating
+	SpawnHuskEffectOnDeath@white:
+		Weapon: orcaw.husk
+		RequiresCondition: airborne && ceramic_plating
 	WithFacingSpriteBody:
 		RequiresCondition: !ceramic_plating
 	WithFacingSpriteBody@white:
@@ -124,7 +127,7 @@ ORCAB:
 		TurnSpeed: 20
 		Speed: 180
 		IdleTurnSpeed: 10
-		IdleSpeed: 65
+		IdleSpeed: 72
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 		VTOL: true
@@ -149,9 +152,12 @@ ORCAB:
 		AmmoCondition: ammo
 	Hovers@CRUISING:
 		RequiresCondition: cruising
-	SpawnActorOnDeath:
-		Actor: ORCAB.Husk
-		RequiresCondition: airborne
+	SpawnHuskEffectOnDeath:
+		Weapon: orcab.husk
+		RequiresCondition: airborne && !ceramic_plating
+	SpawnHuskEffectOnDeath@white:
+		Weapon: orcabw.husk
+		RequiresCondition: airborne && ceramic_plating
 	WithFacingSpriteBody:
 		RequiresCondition: !ceramic_plating
 	WithFacingSpriteBody@white:
@@ -215,8 +221,8 @@ DSHP:
 		OwnerChangedAffectsPassengers: false
 	Selectable:
 		Bounds: 3009,3335,0,-923
-	SpawnActorOnDeath:
-		Actor: DSHP.Husk
+	SpawnHuskEffectOnDeath:
+		Weapon: dshp.husk
 		RequiresCondition: airborne
 	RenderSprites:
 	BodyOrientation:
@@ -242,6 +248,8 @@ DSHP.HIGH:
 		Image: dshp
 	WithFacingSpriteBody:
 		RequiresCondition: !outofsight
+	SpawnHuskEffectOnDeath:
+		Weapon: dshp.high.husk
 	-Targetable@AIRBORNE:
 	-Targetable@GROUND:
 	-Targetable@MC:
@@ -300,9 +308,12 @@ ORCATRAN:
 		OwnerChangedAffectsPassengers: false
 	Selectable:
 		Bounds: 2709,3015
-	SpawnActorOnDeath:
-		Actor: ORCATRAN.Husk
-		RequiresCondition: airborne
+	SpawnHuskEffectOnDeath:
+		Weapon: orcatran.husk
+		RequiresCondition: airborne && !ceramic_plating
+	SpawnHuskEffectOnDeath@white:
+		Weapon: orcatranw.husk
+		RequiresCondition: airborne && ceramic_plating
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -390,8 +401,13 @@ APACHE:
 		Offset: 150,0,200
 		Sequence: slow-rotor
 		RequiresCondition: !airborne
-	SpawnActorOnDeath:
-		Actor: APACHE.Husk
+	SpawnHuskEffectOnDeath:
+		Weapon: apache.husk
+		RequiresCondition: airborne
+	SpawnHuskEffectOnDeath@ROTOR:
+		Weapon: big.rotor.husk
+		RandomFacing: true
+		LocalOffset: 150,0,200
 		RequiresCondition: airborne
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
@@ -473,8 +489,8 @@ SCRIN:
 		InitialStanceAI: AttackAnything
 	DeathSounds:
 		VolumeMultiplier: 25
-	SpawnActorOnDeath:
-		Actor: SCRIN.Husk
+	SpawnHuskEffectOnDeath:
+		Weapon: banshee.husk
 		RequiresCondition: airborne
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
@@ -582,8 +598,8 @@ CERBERUS:
 		RequiresCondition: HeavyDamaged
 	SpawnSparks:
 		RequiresCondition: HeavyDamaged
-	SpawnActorOnDeath:
-		Actor: CERBERUS.Husk
+	SpawnHuskEffectOnDeath:
+		Weapon: CERBERUS.Husk
 		RequiresCondition: airborne
 	ReloadArmamentsBar:
 	WithRangeCircle@cloakgenerator:
@@ -722,8 +738,13 @@ MUTHELI:
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
-	SpawnActorOnDeath:
-		Actor: MUTHELI.Husk
+	SpawnHuskEffectOnDeath:
+		Weapon: mutheli.husk
+		RequiresCondition: airborne
+	SpawnHuskEffectOnDeath@ROTOR:
+		Weapon: big.rotor.husk
+		RandomFacing: true
+		LocalOffset: 150,0,200
 		RequiresCondition: airborne
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
@@ -890,8 +911,8 @@ WETP:
 	RenderSprites:
 	Hovers@CRUISING:
 		RequiresCondition: cruising
-	SpawnActorOnDeath:
-		Actor: WETP.Husk
+	SpawnHuskEffectOnDeath:
+		Weapon: wetp.husk
 		RequiresCondition: airborne
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
@@ -1023,15 +1044,15 @@ STORMRIDER:
 		FacingTolerance: 512
 	AutoTarget:
 		ScanRadius: 7 #PREF: save trait looks up and scan armaments
-	SpawnActorOnDeath:
-		Actor: STORMRIDER.Husk
-		RequiresCondition: airborne
 	FloatingSpriteEmitter@spawnsmoke:
 		Image: scrsmoke
 		Palette: jascblue
 	Explodes@Shrapnel:
 		Weapon: SmalLScrinAircraftShrapnel
 		EmptyWeapon: SmalLScrinAircraftShrapnel
+	SpawnHuskEffectOnDeath:
+		Weapon: stormrider.husk
+		RequiresCondition: airborne
 	Contrail@1:
 		RequiresCondition: airborne
 		Offset: -550,-150,-50
@@ -1108,8 +1129,8 @@ DRACHE:
 	WithFacingSpriteBody:
 		Sequence: stand
 	Hovers:
-	SpawnActorOnDeath:
-		Actor: DRACHE.Husk
+	SpawnHuskEffectOnDeath:
+		Weapon: drache.husk
 		RequiresCondition: airborne
 	FloatingSpriteEmitter@spawnsmoke:
 		Offset: 0,0,1000
@@ -1174,8 +1195,8 @@ SCRGLYDER1:
 		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
 		QuantizedFacings: 32
-	SpawnActorOnDeath:
-		Actor: GLYDER1.Husk
+	SpawnHuskEffectOnDeath:
+		Weapon: scrglyder1.husk
 		RequiresCondition: airborne
 	Armament@AITransformDummyWeapon:
 		Weapon: AIGlyder1AimingDummyWeapon
@@ -1273,8 +1294,8 @@ SCRDESTROYER:
 		TargetFrozenActors: true
 	BodyOrientation:
 		QuantizedFacings: 32
-	SpawnActorOnDeath:
-		Actor: SCRDESTROYER.Husk
+	SpawnHuskEffectOnDeath:
+		Weapon: scrdestroyer.husk
 		RequiresCondition: airborne
 	Contrail@1:
 		RequiresCondition: airborne && hyperflight
@@ -1344,8 +1365,8 @@ SCRTRANS:
 		TargetTypes: ScrinUnit
 	BodyOrientation:
 		QuantizedFacings: 32
-	SpawnActorOnDeath:
-		Actor: SCRTRANS.Husk
+	SpawnHuskEffectOnDeath:
+		Weapon: scrtrans.husk
 		RequiresCondition: airborne
 	WithCargoPipsDecoration:
 		Position: BottomLeft
@@ -1432,8 +1453,8 @@ SCRCARRIER:
 		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
 		QuantizedFacings: 32
-	SpawnActorOnDeath:
-		Actor: SCRCARRIER.Husk
+	SpawnHuskEffectOnDeath:
+		Weapon: scrcarrier.husk
 		RequiresCondition: airborne
 	WithSpawnerMasterPipsDecoration:
 		Margin: 4, 3
@@ -1534,9 +1555,9 @@ SCRBATTLESHIP:
 		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
 		QuantizedFacings: 32
-	SpawnActorOnDeath:
+	SpawnHuskEffectOnDeath:
+		Weapon: scrbattleship.husk
 		RequiresCondition: airborne
-		Actor: SCRBATTLESHIP.Husk
 	ExternalCondition@PRODUCED:
 		Condition: produced
 	VoiceAnnouncement:
@@ -1629,9 +1650,9 @@ WASP:
 	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
-	SpawnActorOnDeath:
+	SpawnHuskEffectOnDeath:
+		Weapon: wasp.husk
 		RequiresCondition: airborne
-		Actor: WASP.Husk
 	WithIdleOverlay@Wind:
 		Image: flywave
 		Sequence: idle
@@ -1689,9 +1710,9 @@ BASILISK:
 		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	RenderSprites:
 	WithFacingSpriteBody:
-	SpawnActorOnDeath:
+	SpawnHuskEffectOnDeath:
+		Weapon: basilisk.husk
 		RequiresCondition: airborne
-		Actor: BASILISK.Husk
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel
@@ -1800,9 +1821,9 @@ DEVOURER:
 		RequiresCondition: airborne
 		Palette: apcybl
 		IsDecoration: true ## so this doesn't have shadow
-	SpawnActorOnDeath:
+	SpawnHuskEffectOnDeath:
+		Weapon: devourer.husk
 		RequiresCondition: airborne
-		Actor: DEVOURER.Husk
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
 		EmptyWeapon: BigAircraftShrapnel

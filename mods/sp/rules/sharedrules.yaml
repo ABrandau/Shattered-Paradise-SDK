@@ -1513,7 +1513,7 @@ GASILO:
 		OrderChance: 100
 		OrderTrigger: Periodically
 		OrderInterval: 2066
-	SpawnActorOnDeath:
+	SpawnHuskEffectOnDeath:
 		RequiresCondition: airborne
 	ProvidesPrerequisite@darkdefender:
 		Prerequisite: DarkDefenderExists
@@ -1532,8 +1532,12 @@ TRNSPORT:
 		Prerequisites: ~gahpad, gadept, ~techlevel.4
 	RenderSprites:
 		Image: trnsport
-	SpawnActorOnDeath:
-		Actor: TRNSPORT.Husk
+	SpawnHuskEffectOnDeath:
+		Weapon: trnsport.husk
+		RequiresCondition: airborne && !ceramic_plating
+	SpawnHuskEffectOnDeath@white:
+		Weapon: trnsportw.husk
+		RequiresCondition: airborne && ceramic_plating
 	WithFacingSpriteBody:
 		RequiresCondition: !ceramic_plating
 	WithFacingSpriteBody@white:
@@ -1582,8 +1586,8 @@ trnsport.nod:
 		Prerequisites: ~nahpad, gadept, ~techlevel.4
 	RenderSprites:
 		Image: nodcarryall
-	SpawnActorOnDeath:
-		Actor: TRNSPORT.nod.Husk
+	SpawnHuskEffectOnDeath:
+		Weapon: nodcarryall.husk
 	Contrail@1:
 		Offset: -850,-190,340
 		StartColor: FFEA0080
@@ -1611,8 +1615,18 @@ trnsport.mut:
 		Prerequisites: ~muair, gadept, ~techlevel.4
 	RenderSprites:
 		Image: forgcarryall
-	SpawnActorOnDeath:
-		Actor: TRNSPORT.mut.Husk
+	SpawnHuskEffectOnDeath:
+		Weapon: forgcarryall.husk
+	SpawnHuskEffectOnDeath@1:
+		Weapon: small.rotor.husk
+		RandomFacing: true
+		LocalOffset: 500,0,650
+		RequiresCondition: airborne
+	SpawnHuskEffectOnDeath@2:
+		Weapon: small.rotor.husk
+		RandomFacing: true
+		LocalOffset: -700,0,900
+		RequiresCondition: airborne
 	WithIdleOverlay@1Air:
 		Offset: 500,0,650
 		Sequence: rotor
@@ -1643,8 +1657,8 @@ trnsport.cab:
 	Voiced:
 		VoiceSet: CabalAirDrone
 		Volume: 1.25
-	SpawnActorOnDeath:
-		Actor: TRNSPORT.cab.Husk
+	SpawnHuskEffectOnDeath:
+		Weapon: cabcarryall.husk
 	Contrail@1:
 		Offset: -1200,-175, 40
 		StartColor: FFEA0080
@@ -1673,8 +1687,8 @@ trnsport.scr:  ## only used for AI
 		Prerequisites: ~scrair, scrdepot, ~techlevel.4, ~AIOnly
 	RenderSprites:
 		Image: scrpod
-	SpawnActorOnDeath:
-		Actor: TRNSPORT.scr.Husk
+	SpawnHuskEffectOnDeath:
+		Weapon: scrpod.husk
 	FloatingSpriteEmitter@spawnsmoke:
 		Image: scrsmoke
 		Palette: jascblue

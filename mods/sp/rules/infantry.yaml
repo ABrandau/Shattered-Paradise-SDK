@@ -427,9 +427,11 @@ JUMPJETAIR:
 		DeathTypes: EnergyDeath
 	QuantizeFacingsFromSequence:
 		Sequence: stand
-	SpawnActorOnDeath:
-		Actor: JUMPJET.Husk ### TheHusk cannot fall properly if at ground level
-		RequiresCondition: airborne
+	SpawnHuskEffectOnDeath:
+		Weapon: jumpjetair.husk
+	SpawnHuskEffectOnDeath@fire:
+		Weapon: jumpjetair-fire.husk
+		LocalOffset: 0,0,700
 	Explodes:
 		Weapon: JumjetFall
 		EmptyWeapon: JumjetFall
@@ -673,9 +675,11 @@ JJCOMMAIR:
 		DeathTypes: EnergyDeath
 	QuantizeFacingsFromSequence:
 		Sequence: stand
-	SpawnActorOnDeath:
-		Actor: JJCOMM.Husk
-		RequiresCondition: airborne
+	SpawnHuskEffectOnDeath:
+		Weapon: jjcommair.husk
+	SpawnHuskEffectOnDeath@fire:
+		Weapon: jumpjetair-fire.husk
+		LocalOffset: 0,0,700
 	Explodes:
 		Weapon: CJumjetFall
 		EmptyWeapon: CJumjetFall

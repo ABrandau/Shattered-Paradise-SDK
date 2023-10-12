@@ -46,133 +46,6 @@ CyborgExplode:
 	Inherits@2: ^Medium_Bang
 	-Warhead@op:
 
-StormriderExplode:
-	Inherits: ^ExploDefaults
-	Inherits@2: ^Mediuml_Clsn
-	Inherits@3: ^DelayedSmokeEffect
-	Warhead@1Dam: SpreadDamage
-		Spread: 0c080
-		Damage: 2500
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath
-		InvalidTargets: Air
-	Warhead@2Eff: CreateEffect
-		ExplosionPalette: gensmkexplojFblue
-	Warhead@op: FireRadius
-		Weapon: SmallDebrisScrin
-
-SmallPlaneExplode:
-	Inherits: ^ExploDefaults
-	Inherits@2: ^Mediuml_Clsn
-	Inherits@3: ^DelayedSmokeEffect
-	Warhead@1Dam: SpreadDamage
-		Spread: 0c350
-		Damage: 5000
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath
-		InvalidTargets: Air
-	Warhead@1: FireRadius
-		Amount: 3
-		Weapon: SmallPlaneExplosion
-		ImpactActors: false
-		ValidTargets: Ground, Air, Water
-
-SmallPlaneExplosion:
-	Inherits: ^ExploDefaults
-	Inherits@3: ^DelayedSmokeEffect
-	Inherits@2: ^Mediuml_Clsn
-	Range: 0c512
-	Projectile: InstantHit
-
-ScrinSmallPlaneExplode:
-	Inherits: SmallPlaneExplode
-	Warhead@2Eff: CreateEffect
-		ExplosionPalette: gensmkexplojFblue
-	Warhead@1: FireRadius
-		Weapon: ScrinSmallPlaneExplosion
-
-ScrinSmallPlaneExplosion:
-	Inherits: SmallPlaneExplosion
-	Warhead@2Eff: CreateEffect
-		ExplosionPalette: gensmkexplojFblue
-	Warhead@op: FireRadius
-		Weapon: SmallDebrisScrin
-
-BigAircraftExplode:
-	Inherits: ^ExploDefaults
-	Inherits@2: ^Large_Explosion
-	Inherits@3: ^DelayedSmokeEffect
-	Warhead@1Dam: SpreadDamage
-		Spread: 0c400
-		Damage: 5000
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath
-		InvalidTargets: Air
-	Warhead@1: FireRadius
-		Amount: 5
-		Weapon: BigAircraftExplosion
-		ImpactActors: false
-		ValidTargets: Ground, Air, Water
-
-DevourerExplode:
-	Inherits: BigAircraftExplode
-	Warhead@1Dam: SpreadDamage
-		Spread: 0c512
-		Damage: 8000
-
-BigAircraftExplosion:
-	Inherits: ^ExploDefaults
-	Inherits@2: ^Large_Explosion
-	Inherits@3: ^DelayedSmokeEffect
-	Range: 1c0
-	Projectile: InstantHit
-
-DestroyerExplode:
-	Inherits: BigAircraftExplode
-	Warhead@2Eff: CreateEffect
-		ExplosionPalette: gensmkexplojFblue
-	Warhead@1: FireRadius
-		Weapon: DestroyerExplosion
-
-DestroyerExplosion:
-	Inherits: BigAircraftExplosion
-	Warhead@2Eff: CreateEffect
-		ExplosionPalette: gensmkexplojFblue
-	Warhead@op: FireRadius
-		Weapon: SmallDebrisScrin
-
-BattleshipExplode:
-	Inherits: ^ExploDefaults
-	Inherits@2: ^GreyExplo
-	Inherits@3: ^DelayedSmokeEffect
-	Warhead@1Dam: SpreadDamage
-		Spread: 0c800
-		Damage: 10000
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath
-		InvalidTargets: Air
-	Warhead@1: FireRadius
-		Amount: 8
-		Weapon: BattleshipExplosion
-		ImpactActors: false
-		ValidTargets: Ground, Air, Water
-	Warhead@2Eff: CreateEffect
-		ExplosionPalette: gensmkexplojFblue
-	Warhead@op: FireRadius
-		Weapon: SmallDebrisScrin
-
-BattleshipExplosion:
-	Inherits: ^ExploDefaults
-	Inherits@2: ^GreyExplo
-	Inherits@3: ^DelayedSmokeEffect
-	Range: 1c0
-	Projectile: InstantHit
-	Warhead@2Eff: CreateEffect
-		ExplosionPalette: gensmkexplojFblue
-	Warhead@op: FireRadius
-		Weapon: SmallDebrisScrin
-
-DracheExplode:
-	Inherits: BattleshipExplosion
-	Warhead@1Dam: SpreadDamage
-		Damage: 8000
-
 SimpleDroneExplode: ## save performance, used for spamming summoned actor
 	Warhead@2Eff: CreateEffect
 		Explosions: infdeathexplo1, infdeathexplo2, infdeathexplo3
@@ -790,34 +663,6 @@ DefenderExplosion:
 		ValidTargets: Ground, Air, Water
 		ExplosionPalette: effect
 
-JumjetFall:
-	Inherits: ^DelayedSmokeEffect
-	Warhead@1: CreateEffect
-		Image: jumpjetair
-		Explosions: die-onground
-		ValidTargets: Ground, Air, Water
-		ExplosionPalette: player
-		UsePlayerPalette: true
-	Warhead@2: CreateEffect
-		Image: jumpjetair
-		Explosions: dieblood1, dieblood2, dieblood3, dieblood4, dieblood5, dieblood6
-		ValidTargets: Ground, Air, Water
-		ExplosionPalette: gradientred
-
-CJumjetFall:
-	Inherits: ^DelayedSmokeEffect
-	Warhead@1: CreateEffect
-		Image: jjcommair
-		Explosions: die-onground
-		ValidTargets: Ground, Air, Water
-		ExplosionPalette: player
-		UsePlayerPalette: true
-	Warhead@2: CreateEffect
-		Image: jjcommair
-		Explosions: dieblood1, dieblood2, dieblood3, dieblood4, dieblood5, dieblood6
-		ValidTargets: Ground, Air, Water
-		ExplosionPalette: gradientred
-
 BloodTiny:
 	Warhead@2: CreateEffect
 		Image: jumpjetair
@@ -1023,3 +868,451 @@ ChemicalFlame2:
 		Sequences: idle
 	Warhead@3Eff: CreateEffect
 		ExplosionPalette: jascgreen
+
+## Aircraft HUSK
+StormriderExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Mediuml_Clsn
+	Inherits@3: ^DelayedSmokeEffect
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c080
+		Damage: 2500
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		InvalidTargets: Air
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
+
+SmallPlaneExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Mediuml_Clsn
+	Inherits@3: ^DelayedSmokeEffect
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c350
+		Damage: 5000
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		InvalidTargets: Air
+	Warhead@1: FireRadius
+		Amount: 3
+		Weapon: SmallPlaneExplosion
+		ImpactActors: false
+		ValidTargets: Ground, Air, Water
+
+SmallPlaneExplosion:
+	Inherits: ^ExploDefaults
+	Inherits@3: ^DelayedSmokeEffect
+	Inherits@2: ^Mediuml_Clsn
+	Range: 0c512
+	Projectile: InstantHit
+
+ScrinSmallPlaneExplode:
+	Inherits: SmallPlaneExplode
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@1: FireRadius
+		Weapon: ScrinSmallPlaneExplosion
+
+ScrinSmallPlaneExplosion:
+	Inherits: SmallPlaneExplosion
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
+
+BigAircraftExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Large_Explosion
+	Inherits@3: ^DelayedSmokeEffect
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c400
+		Damage: 5000
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		InvalidTargets: Air
+	Warhead@1: FireRadius
+		Amount: 5
+		Weapon: BigAircraftExplosion
+		ImpactActors: false
+		ValidTargets: Ground, Air, Water
+
+DevourerExplode:
+	Inherits: BigAircraftExplode
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 8000
+
+BigAircraftExplosion:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Large_Explosion
+	Inherits@3: ^DelayedSmokeEffect
+	Range: 1c0
+	Projectile: InstantHit
+
+ScrinCarrierExplode:
+	Inherits: BigAircraftExplode
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@1: FireRadius
+		Weapon: ScrinCarrierExplosion
+
+ScrinCarrierExplosion:
+	Inherits: BigAircraftExplosion
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
+
+BattleshipExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^GreyExplo
+	Inherits@3: ^DelayedSmokeEffect
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c800
+		Damage: 10000
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		InvalidTargets: Air
+	Warhead@1: FireRadius
+		Amount: 8
+		Weapon: BattleshipExplosion
+		ImpactActors: false
+		ValidTargets: Ground, Air, Water
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
+
+BattleshipExplosion:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^GreyExplo
+	Inherits@3: ^DelayedSmokeEffect
+	Range: 1c0
+	Projectile: InstantHit
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
+
+DracheExplode:
+	Inherits: BattleshipExplosion
+	Warhead@1Dam: SpreadDamage
+		Damage: 8000
+
+JumjetFall:
+	Inherits: ^DelayedSmokeEffect
+	Warhead@1: CreateEffect
+		Image: jumpjetair
+		Explosions: die-onground
+		ValidTargets: Ground, Air, Water
+		ExplosionPalette: player
+		UsePlayerPalette: true
+	Warhead@2: CreateEffect
+		Image: jumpjetair
+		Explosions: dieblood1, dieblood2, dieblood3, dieblood4, dieblood5, dieblood6
+		ValidTargets: Ground, Air, Water
+		ExplosionPalette: gradientred
+
+CJumjetFall:
+	Inherits: ^DelayedSmokeEffect
+	Warhead@1: CreateEffect
+		Image: jjcommair
+		Explosions: die-onground
+		ValidTargets: Ground, Air, Water
+		ExplosionPalette: player
+		UsePlayerPalette: true
+	Warhead@2: CreateEffect
+		Image: jjcommair
+		Explosions: dieblood1, dieblood2, dieblood3, dieblood4, dieblood5, dieblood6
+		ValidTargets: Ground, Air, Water
+		ExplosionPalette: gradientred
+
+^plane.husk:
+	ValidTargets: Air, Ground, Water, Vehicle, Infantry, Building
+	Projectile: ProjetcileHusk
+		Velocity: 0, 0, -8
+		Acceleration: 0, 0, -8
+		AccelerationWhenSpin: 1, -3, -8
+		UseRangeModifierAsVelocityX: true
+		Shadow: true
+		Palette: player
+		Sequences: idle
+		IsPlayerPalette: true
+		TrailImage: sgrysmk1
+		TrailPalette: effect
+		TrailDelay: 0
+		TrailInterval: 6
+		SpinAcc: 2
+		Spin: 16
+		MaximumSpinSpeed: 40
+		HorizontalRevert: true
+
+^rotor.husk:
+	Inherits@explo: SmallDebris
+	ValidTargets: Air, Ground, Water, Vehicle, Infantry, Building
+	Projectile: ProjetcileHusk
+		Velocity: 40, 0, 20
+		AccelerationWhenSpin: 6, -12, -8
+		SpinAcc: 2
+		Spin: 16
+		MaximumSpinSpeed: 40
+		UseRangeModifierAsVelocityX: true
+
+		Shadow: true
+		IsPlayerPalette: true
+		Image: apache
+		Palette: player
+		Sequences: slow-rotor
+		TrailImage: sgrysmk1
+		TrailPalette: effect
+		TrailDelay: 0
+		TrailInterval: 6
+
+trnsport.husk:
+	Inherits@explo: SmallPlaneExplode
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		Image: trnsport
+
+trnsportw.husk:
+	Inherits: trnsport.husk
+	Projectile: ProjetcileHusk
+		Sequences: idle-white
+
+orca.husk:
+	Inherits@explo: SmallPlaneExplode
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		Image: orca
+
+orcaw.husk:
+	Inherits: orca.husk
+	Projectile: ProjetcileHusk
+		Sequences: idle-white
+
+orcab.husk:
+	Inherits@explo: SmallPlaneExplode
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		Image: orcab
+		SpinChance: 50
+
+orcabw.husk:
+	Inherits: orcab.husk
+	Projectile: ProjetcileHusk
+		Sequences: idle-white
+
+dshp.husk:
+	Inherits@explo: BigAircraftExplode
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		Image: dshp
+		SpinChance: 50
+		
+kodk.husk:
+	Inherits@explo: BigAircraftExplode
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		Image: kodk
+		SpinChance: 50
+
+dshp.high.husk:
+	Inherits: dshp.husk
+	Projectile: ProjetcileHusk
+		UseRangeModifierAsVelocityX: false
+
+orcatran.husk:
+	Inherits@explo: SmallPlaneExplode
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		Image: orcatran
+		SpinChance: 50
+
+orcatranw.husk:
+	Inherits: orcatran.husk
+	Projectile: ProjetcileHusk
+		Sequences: idle-white
+
+jumpjetair.husk:
+	Inherits@explo: JumjetFall
+	Inherits: ^plane.husk
+	Projectile: GravityBomb
+		Image: jumpjetair
+		Sequences: die-fall
+		OpenSequence: die-make
+
+jjcommair.husk:
+	Inherits@explo: CJumjetFall
+	Inherits: ^plane.husk
+	Projectile: GravityBomb
+		Image: jjcommair
+		Sequences: die-fall
+		OpenSequence: die-make
+
+jumpjetair-fire.husk:
+	Inherits: ^plane.husk
+	Projectile: GravityBomb
+		Image: explosion
+		Sequences: fire1
+		OpenSequence: fire2
+		Palette: effectalpha50
+		IsPlayerPalette: false
+
+nodcarryall.husk:
+	Inherits@explo: SmallPlaneExplode
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		Image: nodcarryall
+
+big.rotor.husk:
+	Inherits: ^rotor.husk
+
+apache.husk:
+	Inherits@explo: SmallPlaneExplode
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		Image: apache
+		SpinAcc: 8
+
+banshee.husk:
+	Inherits@explo: SmallPlaneExplode
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		Image: scrin
+		SpinChance: 50
+		Spin: 0
+
+cerberus.husk:
+	Inherits@explo: BigAircraftExplode
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		Image: cerberus
+		SpinChance: 50
+small.rotor.husk:
+	Inherits: ^rotor.husk
+	Projectile: ProjetcileHusk
+		Image: forgcarryall
+		Palette: playermut
+
+forgcarryall.husk:
+	Inherits@explo: SmallPlaneExplode
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		Image: forgcarryall
+		Palette: playermut
+
+mutheli.husk:
+	Inherits@explo: SmallPlaneExplode
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		Image: mutheli
+		Palette: playermut
+		SpinAcc: 8
+
+wetp.husk:
+	Inherits@explo: SmallPlaneExplode
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		Image: wetp
+		Palette: playermut
+		MaximumSpinSpeed: 0
+
+cabcarryall.husk:
+	Inherits@explo: SmallPlaneExplode
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		Image: cabcarryall
+		Palette: playercab
+
+wasp.Husk:
+	Inherits@explo: SmallPlaneExplode
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		Image: wasp
+		Palette: playercab
+
+basilisk.husk:
+	Inherits@explo: BigAircraftExplode
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		Image: basilisk
+		Palette: playercab
+		SpinChance: 50
+
+devourer.husk:
+	Inherits@explo: DevourerExplode
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		Image: devourer
+		Palette: playercab
+		MaximumSpinSpeed: 0
+		Acceleration: 0, 0, -4
+
+^scrplane.husk:
+	Inherits: ^plane.husk
+	Projectile: ProjetcileHusk
+		TrailImage: scrsmoke
+		TrailPalette: jascblue
+		Palette: playerscrin
+
+scrpod.husk:
+	Inherits@explo: ScrinSmallPlaneExplode
+	Inherits: ^scrplane.husk
+	Projectile: ProjetcileHusk
+		Image: scrpod
+
+stormrider.husk:
+	Inherits@explo: StormriderExplode
+	Inherits: ^scrplane.husk
+	Projectile: ProjetcileHusk
+		Image: stormrider
+		SpinChance: 50
+
+drache.husk:
+	Inherits@explo: DracheExplode
+	Inherits: ^scrplane.husk
+	Projectile: ProjetcileHusk
+		Image: drache
+		Sequences: stand
+		MaximumSpinSpeed: 0
+
+scrglyder1.husk:
+	Inherits@explo: ScrinUnitExplode
+	Inherits: ^scrplane.husk
+	Projectile: ProjetcileHusk
+		Image: scrglyder1
+
+scrtrans.husk:
+	Inherits@explo: ScrinSmallPlaneExplode
+	Inherits: ^scrplane.husk
+	Projectile: ProjetcileHusk
+		Image: scrtrans
+		SpinChance: 50
+		
+scrdestroyer.husk:
+	Inherits@explo: ScrinCarrierExplode
+	Inherits: ^scrplane.husk
+	Projectile: ProjetcileHusk
+		Image: scrdestroyer
+		SpinChance: 50
+
+scrcarrier.husk:
+	Inherits@explo: ScrinCarrierExplode
+	Inherits: ^scrplane.husk
+	Projectile: ProjetcileHusk
+		Image: scrcarrier
+		SpinChance: 50
+
+scrbattleship.husk:
+	Inherits@explo: BattleshipExplode
+	Inherits: ^scrplane.husk
+	Projectile: ProjetcileHusk
+		Image: scrbattleship
+		SpinChance: 50
+
+scrincouncil.husk:
+	Inherits@explo: BattleshipExplode
+	Inherits: ^scrplane.husk
+	Projectile: ProjetcileHusk
+		Image: scrincouncil
+		MaximumSpinSpeed: 0
+		Acceleration: 0, 0, -4
+

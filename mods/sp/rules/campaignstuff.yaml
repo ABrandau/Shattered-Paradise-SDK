@@ -1369,8 +1369,8 @@ KODK:
 	-Rearmable:
 	Health:
 		HP: 45000
-	SpawnActorOnDeath:
-		Actor: KODK.Husk
+	SpawnHuskEffectOnDeath:
+		Weapon: kodk.husk
 		RequiresCondition: airborne
 	Explodes@Shrapnel:
 		Weapon: BigAircraftShrapnel
@@ -1415,22 +1415,6 @@ KODK:
 		Icon: icon
 		IconPalette: chrome
 		Stats: Armor, Sight, Speed
-
-KODK.Husk:
-	Inherits: ^AircraftHusk
-	Tooltip:
-		Name: Kodiak Command Ship
-	Aircraft:
-		TurnSpeed: 20
-		Speed: 149
-	WithShadow:
-	WithFacingSpriteBody:
-	BodyOrientation:
-		QuantizedFacings: 32
-	RenderSprites:
-		Image: kodk
-	FallsToEarth:
-		Explosion: DevourerExplode
 
 CABGRINDER:
 	Inherits: ^TechBuilding
@@ -2338,9 +2322,9 @@ SCRINCOUNCIL:
 		ScanRadius: 9
 	BodyOrientation:
 		QuantizedFacings: 32
-	SpawnActorOnDeath:
+	SpawnHuskEffectOnDeath:
+		Weapon: scrincouncil.husk
 		RequiresCondition: airborne
-		Actor: SCRCOUNCIL.Husk
 	ExternalCondition@PRODUCED:
 		Condition: produced
 	VoiceAnnouncement:
