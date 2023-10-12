@@ -9,6 +9,7 @@
  */
 #endregion
 
+using System;
 using System.Linq;
 using OpenRA.GameRules;
 using OpenRA.Mods.Common.Effects;
@@ -131,11 +132,11 @@ namespace OpenRA.Mods.Sp.Traits
 						Facing = default,
 						CurrentMuzzleFacing = () => default,
 
-						DamageModifiers = new int[] { 100 },
+						DamageModifiers = Array.Empty<int>(),
 
-						InaccuracyModifiers = new int[] { 100 },
+						InaccuracyModifiers = Array.Empty<int>(),
 
-						RangeModifiers = new int[] { 100 },
+						RangeModifiers = Array.Empty<int>(),
 						Source = epicenter,
 						CurrentSource = () => epicenter,
 						SourceActor = self,
