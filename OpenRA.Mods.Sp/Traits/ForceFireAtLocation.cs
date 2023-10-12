@@ -26,14 +26,10 @@ namespace OpenRA.Mods.Sp.Traits
 
 	sealed class ForceFireAtLocation : ConditionalTrait<ForceFireAtLocationInfo>, INotifyCreated
 	{
-		readonly ForceFireAtLocationInfo info;
 		AttackBase[] attackBases;
 
 		public ForceFireAtLocation(ForceFireAtLocationInfo info)
-			: base(info)
-		{
-			this.info = info;
-		}
+			: base(info) { }
 
 		protected override void Created(Actor self)
 		{
@@ -48,7 +44,7 @@ namespace OpenRA.Mods.Sp.Traits
 				if (ab.IsTraitDisabled)
 					continue;
 
-				ab.AttackTarget(Target.FromPos(self.CenterPosition + info.LocalOffset), AttackSource.Default, false, true, true);
+				ab.AttackTarget(Target.FromPos(self.CenterPosition + Info.LocalOffset), AttackSource.Default, false, true, true);
 			}
 
 			base.TraitEnabled(self);

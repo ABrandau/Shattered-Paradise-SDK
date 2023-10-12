@@ -82,7 +82,6 @@ namespace OpenRA.Mods.Sp.Traits
 	public sealed class FirestromSP : ConditionalTrait<FirestromSPInfo>, ITick
 	{
 		readonly int[] effectsOffet;
-		readonly FirestromSPInfo info;
 		readonly World world;
 		readonly Actor self;
 		int damageTicks;
@@ -91,8 +90,6 @@ namespace OpenRA.Mods.Sp.Traits
 		public FirestromSP(Actor self, FirestromSPInfo info)
 			: base(info)
 		{
-			this.info = info;
-
 			effectsOffet = new int[info.FirestormEffectAmounts];
 			var offset = 1024 / info.FirestormEffectAmounts;
 
@@ -105,24 +102,24 @@ namespace OpenRA.Mods.Sp.Traits
 
 		void SpawnEffects()
 		{
-			for (var i = 0; i < info.FirestormEffectAmounts; i++)
+			for (var i = 0; i < Info.FirestormEffectAmounts; i++)
 			{
-				var sequence = info.FirestormEffectSequences.RandomOrDefault(world.LocalRandom);
+				var sequence = Info.FirestormEffectSequences.RandomOrDefault(world.LocalRandom);
 				if (sequence == null)
 					break;
 				var rotation = WRot.FromYaw(new WAngle(effectsOffet[i]));
-				var targetpos = self.CenterPosition + new WVec(info.FirestormEffectRange.Length, 0, 0).Rotate(rotation);
-				world.AddFrameEndTask(w => w.Add(new SpriteEffect(new WPos(targetpos.X, targetpos.Y, world.Map.CenterOfCell(world.Map.CellContaining(targetpos)).Z), w, info.FirestormEffectImage, sequence, info.FirestormEffectPalette)));
+				var targetpos = self.CenterPosition + new WVec(Info.FirestormEffectRange.Length, 0, 0).Rotate(rotation);
+				world.AddFrameEndTask(w => w.Add(new SpriteEffect(new WPos(targetpos.X, targetpos.Y, world.Map.CenterOfCell(world.Map.CellContaining(targetpos)).Z), w, Info.FirestormEffectImage, sequence, Info.FirestormEffectPalette)));
 
-				effectsOffet[i] = effectsOffet[i] + info.FirestormEffectRotationAngle < 1024 ? effectsOffet[i] + info.FirestormEffectRotationAngle : (effectsOffet[i] + info.FirestormEffectRotationAngle) % 1024;
+				effectsOffet[i] = effectsOffet[i] + Info.FirestormEffectRotationAngle < 1024 ? effectsOffet[i] + Info.FirestormEffectRotationAngle : (effectsOffet[i] + Info.FirestormEffectRotationAngle) % 1024;
 			}
 		}
 
 		void DealDamage()
 		{
-			var victims = world.FindActorsInCircle(self.CenterPosition, info.DamageMaxRange).Where(
-				a => info.ValidRelationships.HasRelationship(self.Owner.RelationshipWith(a.Owner))
-				&& (self.CenterPosition - a.CenterPosition).HorizontalLengthSquared >= info.DamageMinRange.LengthSquared); // this line has bug
+			var victims = world.FindActorsInCircle(self.CenterPosition, Info.DamageMaxRange).Where(
+				a => Info.ValidRelationships.HasRelationship(self.Owner.RelationshipWith(a.Owner))
+				&& (self.CenterPosition - a.CenterPosition).HorizontalLengthSquared >= Info.DamageMinRange.LengthSquared); // this line has bug
 
 			foreach (var v in victims)
 			{
@@ -132,9 +129,9 @@ namespace OpenRA.Mods.Sp.Traits
 
 				var targetTypes = v.GetEnabledTargetTypes();
 
-				if (info.ValidTargets.Overlaps(targetTypes) && !info.InvalidTargets.Overlaps(targetTypes))
+				if (Info.ValidTargets.Overlaps(targetTypes) && !Info.InvalidTargets.Overlaps(targetTypes))
 				{
-					if (info.Versus.Count == 0)
+					if (Info.Versus.Count == 0)
 						continue;
 
 					var closestActiveShape = v.TraitsImplementing<HitShape>().Where(Exts.IsTraitEnabled).MinByOrDefault(t => t.DistanceFromEdge(v, v.CenterPosition));
@@ -144,12 +141,12 @@ namespace OpenRA.Mods.Sp.Traits
 						continue;
 
 					var armor = v.TraitsImplementing<Armor>()
-						.Where(a => !a.IsTraitDisabled && a.Info.Type != null && info.Versus.ContainsKey(a.Info.Type) &&
+						.Where(a => !a.IsTraitDisabled && a.Info.Type != null && Info.Versus.ContainsKey(a.Info.Type) &&
 							(closestActiveShape.Info.ArmorTypes.IsEmpty || closestActiveShape.Info.ArmorTypes.Contains(a.Info.Type)))
-						.Select(a => info.Versus[a.Info.Type]);
+						.Select(a => Info.Versus[a.Info.Type]);
 
-					var damage = Common.Util.ApplyPercentageModifiers(info.Damage, armor);
-					v.InflictDamage(self, new Damage(damage, info.DamageTypes));
+					var damage = Common.Util.ApplyPercentageModifiers(Info.Damage, armor);
+					v.InflictDamage(self, new Damage(damage, Info.DamageTypes));
 				}
 			}
 		}
@@ -165,21 +162,21 @@ namespace OpenRA.Mods.Sp.Traits
 			if (IsTraitDisabled)
 				return;
 
-			if (info.FirestormEffectImage != null)
+			if (Info.FirestormEffectImage != null)
 				SpawnEffects();
 
 			if (damageTicks-- <= 0)
 			{
 				DealDamage();
-				damageTicks = info.Damageinterval;
+				damageTicks = Info.Damageinterval;
 			}
 
 			if (soundTicks-- <= 0)
 			{
-				var launchSound = info.LaunchEffectSounds.RandomOrDefault(world.LocalRandom);
+				var launchSound = Info.LaunchEffectSounds.RandomOrDefault(world.LocalRandom);
 				if (launchSound != null && !world.ShroudObscures(self.CenterPosition) && !world.FogObscures(self.CenterPosition))
-					Game.Sound.Play(SoundType.World, launchSound, self.CenterPosition, info.LaunchEffectSoundVolume);
-				soundTicks = info.LaunchEffectSoundInterval;
+					Game.Sound.Play(SoundType.World, launchSound, self.CenterPosition, Info.LaunchEffectSoundVolume);
+				soundTicks = Info.LaunchEffectSoundInterval;
 			}
 		}
 	}

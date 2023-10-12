@@ -53,7 +53,6 @@ namespace OpenRA.Mods.SP.Traits
 		readonly World world;
 		readonly Player player;
 		readonly Func<Actor, bool> unitCannotBeOrdered;
-		readonly HarvesterBotModuleSPInfo info;
 
 		IResourceLayer resourceLayer;
 		ResourceClaimLayer claimLayer;
@@ -64,7 +63,6 @@ namespace OpenRA.Mods.SP.Traits
 		public HarvesterBotModuleSP(Actor self, HarvesterBotModuleSPInfo info)
 			: base(info)
 		{
-			this.info = info;
 			world = self.World;
 			player = self.Owner;
 			unitCannotBeOrdered = a => a.Owner != self.Owner || a.IsDead || !a.IsInWorld;
@@ -76,7 +74,7 @@ namespace OpenRA.Mods.SP.Traits
 			{
 				resourceLayer = world.WorldActor.TraitOrDefault<IResourceLayer>();
 				claimLayer = world.WorldActor.TraitOrDefault<ResourceClaimLayer>();
-				resourseCenters = self.World.Actors.Where(a => info.ResourseCenterType.Contains(a.Info.Name)).Select(a => a.Location).OrderByDescending(c => (c - player.HomeLocation).LengthSquared).ToArray();
+				resourseCenters = self.World.Actors.Where(a => Info.ResourseCenterType.Contains(a.Info.Name)).Select(a => a.Location).OrderByDescending(c => (c - player.HomeLocation).LengthSquared).ToArray();
 
 				initialized = true;
 			}
@@ -132,16 +130,16 @@ namespace OpenRA.Mods.SP.Traits
 
 			foreach (var loc in resourseCenters.OrderBy(c => (c - harv.Actor.Location).LengthSquared))
 			{
-				if (world.FindActorsInCircle(world.Map.CenterOfCell(loc), info.HarvesterEnemyAvoidanceRadius).Any(a => !a.IsDead && a.IsInWorld && a.Owner.RelationshipWith(player) == PlayerRelationship.Enemy))
+				if (world.FindActorsInCircle(world.Map.CenterOfCell(loc), Info.HarvesterEnemyAvoidanceRadius).Any(a => !a.IsDead && a.IsInWorld && a.Owner.RelationshipWith(player) == PlayerRelationship.Enemy))
 					continue;
 
 				if (mobile != null && !mobile.PathFinder.PathExistsForLocomotor(mobile.Locomotor, harv.Actor.Location, loc))
 					continue;
 
-				var harvestable = world.Map.FindTilesInAnnulus(loc, 0, info.ResourseCenterSearchRangeInCells).Where(c => harv.Trait.CanHarvestCell(c) && claimLayer.CanClaimCell(harv.Actor, c)).ToArray();
+				var harvestable = world.Map.FindTilesInAnnulus(loc, 0, Info.ResourseCenterSearchRangeInCells).Where(c => harv.Trait.CanHarvestCell(c) && claimLayer.CanClaimCell(harv.Actor, c)).ToArray();
 
 				// If the resource field is rich enough then we will just stop checking and harvest.
-				if (harvestable.Length >= info.FavoredHarvestableCell)
+				if (harvestable.Length >= Info.FavoredHarvestableCell)
 					return Target.FromCell(world, harvestable.Random(world.LocalRandom));
 
 				// If not, we are going to find a best location by comparing the resource cells around.

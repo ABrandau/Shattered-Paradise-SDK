@@ -55,7 +55,6 @@ namespace OpenRA.Mods.SP.Traits
 
 	public sealed class WithSupportPowerActivationExplodeWeapon : PausableConditionalTrait<WithSupportPowerActivationExplodeWeaponInfo>, INotifySupportPower, ITick
 	{
-		readonly WithSupportPowerActivationExplodeWeaponInfo info;
 		readonly WeaponInfo weapon;
 		readonly BodyOrientation body;
 		bool shouldAcitate;
@@ -67,8 +66,6 @@ namespace OpenRA.Mods.SP.Traits
 		public WithSupportPowerActivationExplodeWeapon(Actor self, WithSupportPowerActivationExplodeWeaponInfo info)
 			: base(info)
 		{
-			this.info = info;
-
 			weapon = info.WeaponInfo;
 			burst = weapon.Burst;
 			body = self.TraitOrDefault<BodyOrientation>();
@@ -101,12 +98,12 @@ namespace OpenRA.Mods.SP.Traits
 			if (--fireDelay < 0)
 			{
 				var localoffset = body != null
-					? body.LocalToWorld(info.LocalOffset.Rotate(body.QuantizeOrientation(self.Orientation)))
-					: info.LocalOffset;
+					? body.LocalToWorld(Info.LocalOffset.Rotate(body.QuantizeOrientation(self.Orientation)))
+					: Info.LocalOffset;
 
 				var hitOffset = body != null
-					? body.LocalToWorld(info.HitOffset.Rotate(body.QuantizeOrientation(self.Orientation)))
-					: info.HitOffset;
+					? body.LocalToWorld(Info.HitOffset.Rotate(body.QuantizeOrientation(self.Orientation)))
+					: Info.HitOffset;
 
 				var args = new ProjectileArgs
 				{

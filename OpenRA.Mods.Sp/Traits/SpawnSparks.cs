@@ -75,7 +75,6 @@ namespace OpenRA.Mods.Sp.Traits
 
 	sealed class SpawnSparks : ConditionalTrait<SpawnSparksInfo>, ITick
 	{
-		readonly SpawnSparksInfo info;
 		readonly WeaponInfo weapon;
 		readonly BodyOrientation body;
 		readonly bool hasWeapon;
@@ -86,7 +85,6 @@ namespace OpenRA.Mods.Sp.Traits
 		public SpawnSparks(SpawnSparksInfo info, Actor self)
 			: base(info)
 		{
-			this.info = info;
 			hasWeapon = info.SparkWeapon != null && info.Amount > 0;
 			weapon = info.WeaponInfo;
 			body = self.TraitOrDefault<BodyOrientation>();
@@ -102,30 +100,30 @@ namespace OpenRA.Mods.Sp.Traits
 			if (--interval <= 0)
 			{
 				var epicenter = self.CenterPosition + (body != null
-					? body.LocalToWorld(info.LocalOffset.Rotate(body.QuantizeOrientation(self.Orientation)))
-					: info.LocalOffset);
+					? body.LocalToWorld(Info.LocalOffset.Rotate(body.QuantizeOrientation(self.Orientation)))
+					: Info.LocalOffset);
 				var world = self.World;
 
 				if (hasLaunchEffect)
 				{
 					self.World.AddFrameEndTask(w => w.Add(new SpriteEffect(epicenter, self.World,
-						info.LaunchEffectImage, info.LaunchEffectSequences.Random(world.LocalRandom), info.LaunchEffectPalette)));
+						Info.LaunchEffectImage, Info.LaunchEffectSequences.Random(world.LocalRandom), Info.LaunchEffectPalette)));
 				}
 
 				if (!hasWeapon)
 				{
-					interval = info.Interval;
+					interval = Info.Interval;
 					return;
 				}
 
 				var map = world.Map;
-				var amount = info.Amount;
+				var amount = Info.Amount;
 				var offset = 1024 / amount;
 				for (var i = 0; i < amount; i++)
 				{
 					var rotation = WRot.FromYaw(new WAngle(i * offset));
 					var targetpos = epicenter + new WVec(weapon.Range.Length, 0, 0).Rotate(rotation);
-					var radiusTarget = Target.FromPos(new WPos(targetpos.X, targetpos.Y, info.ForceToGround ? map.CenterOfCell(map.CellContaining(targetpos)).Z : targetpos.Z));
+					var radiusTarget = Target.FromPos(new WPos(targetpos.X, targetpos.Y, Info.ForceToGround ? map.CenterOfCell(map.CellContaining(targetpos)).Z : targetpos.Z));
 
 					var projectileArgs = new ProjectileArgs
 					{
@@ -159,13 +157,13 @@ namespace OpenRA.Mods.Sp.Traits
 						Game.Sound.Play(SoundType.World, weapon.Report, world, epicenter, null, weapon.SoundVolume);
 				}
 
-				interval = info.Interval;
+				interval = Info.Interval;
 			}
 		}
 
 		protected override void TraitEnabled(Actor self)
 		{
-			if (info.ResetReloadWhenEnabled)
+			if (Info.ResetReloadWhenEnabled)
 				interval = 0;
 		}
 	}

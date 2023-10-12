@@ -57,8 +57,6 @@ namespace OpenRA.Mods.SP.Traits
 
 	class WeaponWeather : ConditionalTrait<WeaponWeatherInfo>, ITick
 	{
-		readonly WeaponWeatherInfo info;
-
 		World world;
 		bool firstTick = true;
 		Actor firer;
@@ -70,42 +68,39 @@ namespace OpenRA.Mods.SP.Traits
 		public int Amount { get; private set; }
 
 		public WeaponWeather(WeaponWeatherInfo info)
-			: base(info)
-		{
-			this.info = info;
-		}
+			: base(info) { }
 
 		void ITick.Tick(Actor self)
 		{
 			if (firstTick)
 			{
 				world = self.World;
-				firer = info.HasOwner ? self.Owner.PlayerActor : world.WorldActor;
+				firer = Info.HasOwner ? self.Owner.PlayerActor : world.WorldActor;
 
 				firstTick = false;
-				Interval = info.Interval.Length == 2
-					? world.SharedRandom.Next(info.Interval[0], info.Interval[1])
-					: info.Interval[0];
+				Interval = Info.Interval.Length == 2
+					? world.SharedRandom.Next(Info.Interval[0], Info.Interval[1])
+					: Info.Interval[0];
 			}
 
 			if (IsTraitDisabled || --Interval > 0)
 				return;
 
-			Interval = info.Interval.Length == 2
-				? world.SharedRandom.Next(info.Interval[0], info.Interval[1])
-				: info.Interval[0];
+			Interval = Info.Interval.Length == 2
+				? world.SharedRandom.Next(Info.Interval[0], Info.Interval[1])
+				: Info.Interval[0];
 
-			Amount = info.Amount.Length == 2
-				? world.SharedRandom.Next(info.Amount[0], info.Amount[1])
-				: info.Amount[0];
+			Amount = Info.Amount.Length == 2
+				? world.SharedRandom.Next(Info.Amount[0], Info.Amount[1])
+				: Info.Amount[0];
 
 			for (var i = 0; i < Amount; i++)
 			{
 				var tpos = world.Map.CenterOfCell(world.Map.ChooseRandomCell(world.SharedRandom))
-					+ new WVec(WDist.Zero, WDist.Zero, info.Altitude);
+					+ new WVec(WDist.Zero, WDist.Zero, Info.Altitude);
 				var target = Target.FromPos(tpos);
 
-				var weapon = info.WeaponInfos.Random(world.SharedRandom);
+				var weapon = Info.WeaponInfos.Random(world.SharedRandom);
 
 				var projectileArgs = new ProjectileArgs
 				{
