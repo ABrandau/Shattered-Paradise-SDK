@@ -489,6 +489,8 @@ AVATAR:
 		Name: Avatar
 	Selectable:
 		Bounds: 1550, 5000, 0, -1500
+	Carryable:
+		LocalOffset: 0, 0, 1800
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Lightbringer
 		BuildAtProductionType: Lightbringer
@@ -598,7 +600,12 @@ WEASAU3:
 		Modifier: 200
 		RequiresCondition: deployed
 	Carryable:
-		LocalOffset: 0, 0, 1536
+		LocalOffset: 0, 0, 1415
+		RequiresCondition: !inside-tunnel
+		CarriedCondition: carried
+	ExplodesAlsoTransported:
+		Weapon: BigBeastExplode
+		RequiresCondition: carried
 	Passenger:
 		CustomPipType: red
 	RenderSprites:
@@ -1286,9 +1293,8 @@ GBEACON:
 	WithSpriteBody:
 		Name: base
 		Sequence: idle-open
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: Grenade
-		EmptyWeapon: Grenade
 	-WithIdleOverlay@SpawnFire:
 	-ThrowsShrapnel@SMALL:
 	-ThrowsShrapnel@LARGE:
@@ -1372,9 +1378,8 @@ KODK:
 	SpawnHuskEffectOnDeath:
 		Weapon: kodk.husk
 		RequiresCondition: airborne
-	Explodes@Shrapnel:
+	ExplodesAlsoTransported@Shrapnel:
 		Weapon: BigAircraftShrapnel
-		EmptyWeapon: BigAircraftShrapnel
 	Contrail@1:
 		RequiresCondition: airborne
 		Offset: -1600, 800, 50
@@ -1538,9 +1543,8 @@ CONTAINMENTUNIT_GREEN:
 	Inherits@RENDER: ^MutRenderGreen
 	TooltipDescription:
 		Description: Holds a captive tiberium lifeform
-	Explodes@tib:
+	ExplodesAlsoTransported@tib:
 		Weapon: TiberiumExplosion
-		EmptyWeapon: TiberiumExplosion
 
 ########## Boss unit ###############
 COREDEFENDER:
@@ -1727,12 +1731,10 @@ COREDEFENDER:
 		Palette: apolbluealpha
 		RequiresCondition: SuperAttack || FirestormGen
 		IsDecoration: true ## so this doesn't affect by cloak palette
-	Explodes@shattered:
+	ExplodesAlsoTransported@shattered:
 		Weapon: DefenderExplosion
-		EmptyWeapon: DefenderExplosion
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: BuildingExplode
-		EmptyWeapon: BuildingExplode
 	ThrowsShrapnel:
 		Pieces: 5, 9
 	ThrowsShrapnel@LARGE:
@@ -2054,9 +2056,8 @@ HMECTEST:
 		Bounds: 2413, 4041, 0, -1508
 	SharedPassenger:
 		CustomPipType: red
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: BuildingExplode
-		EmptyWeapon: BuildingExplode
 	ThrowsShrapnel:
 		Pieces: 5, 9
 	ThrowsShrapnel@LARGE:
@@ -2152,13 +2153,13 @@ MKIIIDRONE-MINIGUN:
 	-AppearsOnRadar:
 	-Selectable:
 	-SelectionDecorations:
-	-Explodes@Shrapnel:
+	-ExplodesAlsoTransported@Shrapnel:
 	Cloak@CLOAKGENERATOR:
 		-CloakedCondition: 
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-SpawnSparks:
 	-FloatingSpriteEmitter@spawnsmoke:
-	-Explodes@EssenceDeath:
+	-ExplodesAlsoTransported@EssenceDeath:
 	-MapEditorData:
 	-RevealsShroud@Landed:
 	-RevealOnDeath@Landed:
@@ -2418,26 +2419,23 @@ COUNCILOR:
 	-AppearsOnRadar:
 	-Selectable:
 	-SelectionDecorations:
-	-Explodes@Shrapnel:
+	-ExplodesAlsoTransported@Shrapnel:
 	Cloak@CLOAKGENERATOR:
 		-CloakedCondition: 
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-SpawnSparks:
 	-FloatingSpriteEmitter@spawnsmoke:
-	-Explodes@EssenceDeath:
+	-ExplodesAlsoTransported@EssenceDeath:
 	-MapEditorData:
 	-RevealsShroud@Landed:
 	-RevealOnDeath@Landed:
 	-RevealsShroud@Airborne:
 	-RevealOnDeath@Airborne:
-	WithDeathAnimation:
-		FallbackSequence: die
-		DeathSequence: die
-		DeathSequencePalette: effect
-		DeathPaletteIsPlayerPalette: false
-		UseDeathTypeSuffix: false
-		CrushedSequence: die
-		CrushedSequencePalette: appurp
+	SpawnHuskEffectOnDeath:
+		Weapon: CouncilorPlasma
+		RandomFacing: true
+		UnitSpeedAsRangeModifier: false
+		RequiresCondition: !reloading
 	-Sellable:
 	-GrantConditionOnClientDock@Sellable:
 	-IssueOrderToBot@AISell:

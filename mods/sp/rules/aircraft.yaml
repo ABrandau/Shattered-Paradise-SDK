@@ -624,9 +624,8 @@ CERBERUS:
 		Image: explosion
 		Palette: effect
 		IsDecoration: true ## so this doesn't have shadow
-	Explodes@Shrapnel:
+	ExplodesAlsoTransported@Shrapnel:
 		Weapon: BigAircraftShrapnel
-		EmptyWeapon: BigAircraftShrapnel
 	Contrail@1:
 		RequiresCondition: airborne
 		Offset: -1500, 336, -50
@@ -831,14 +830,12 @@ MUTQUEEN:
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-SpawnSparks:
 	-FloatingSpriteEmitter@spawnsmoke:
-	-Explodes@Shrapnel:
-	Explodes:
+	-ExplodesAlsoTransported@Shrapnel:
+	ExplodesAlsoTransported:
 		Weapon: QueenExplode
-		EmptyWeapon: QueenExplode
-	Explodes@AImicroManage:
+	ExplodesAlsoTransported@AImicroManage:
 		RequiresCondition: AImicroManage
 		Weapon: SpawnEggShrapnelE
-		EmptyWeapon: SpawnEggShrapnelE
 	ActorStatValues:
 		Damage: 90
 	ActorStatOverride@Tibinfusion:
@@ -987,9 +984,8 @@ WETP:
 	FloatingSpriteEmitter@spawnsmoke:
 		Image: scrsmoke
 		Palette: jascblue
-	Explodes@Shrapnel:
+	ExplodesAlsoTransported@Shrapnel:
 		Weapon: BigScrinAircraftShrapnel
-		EmptyWeapon: BigScrinAircraftShrapnel
 
 STORMRIDER:
 	Inherits: ^CombatPlane
@@ -1047,9 +1043,8 @@ STORMRIDER:
 	FloatingSpriteEmitter@spawnsmoke:
 		Image: scrsmoke
 		Palette: jascblue
-	Explodes@Shrapnel:
+	ExplodesAlsoTransported@Shrapnel:
 		Weapon: SmalLScrinAircraftShrapnel
-		EmptyWeapon: SmalLScrinAircraftShrapnel
 	SpawnHuskEffectOnDeath:
 		Weapon: stormrider.husk
 		RequiresCondition: airborne
@@ -1207,9 +1202,8 @@ SCRGLYDER1:
 		IntoActor: scrglyder2
 	FloatingSpriteEmitter@spawnsmoke:
 		Offset: 0,0,500
-	Explodes@Shrapnel:
+	ExplodesAlsoTransported@Shrapnel:
 		Weapon: SmalLScrinAircraftShrapnel
-		EmptyWeapon: SmalLScrinAircraftShrapnel
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chromesilver
@@ -1713,9 +1707,8 @@ BASILISK:
 	SpawnHuskEffectOnDeath:
 		Weapon: basilisk.husk
 		RequiresCondition: airborne
-	Explodes@Shrapnel:
+	ExplodesAlsoTransported@Shrapnel:
 		Weapon: BigAircraftShrapnel
-		EmptyWeapon: BigAircraftShrapnel
 	Contrail@1:
 		RequiresCondition: airborne
 		Offset: -1000,-330,40
@@ -1824,9 +1817,8 @@ DEVOURER:
 	SpawnHuskEffectOnDeath:
 		Weapon: devourer.husk
 		RequiresCondition: airborne
-	Explodes@Shrapnel:
+	ExplodesAlsoTransported@Shrapnel:
 		Weapon: BigAircraftShrapnel
-		EmptyWeapon: BigAircraftShrapnel
 	ActorStatValues:
 		Damage: 200
 
@@ -1900,13 +1892,13 @@ STORMRIDERSPAWN:
 	-AppearsOnRadar:
 	-Selectable:
 	-SelectionDecorations:
-	-Explodes@Shrapnel:
+	-ExplodesAlsoTransported@Shrapnel:
 	Cloak@CLOAKGENERATOR:
 		-CloakedCondition:
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-SpawnSparks:
 	-FloatingSpriteEmitter@spawnsmoke:
-	-Explodes@EssenceDeath:
+	-ExplodesAlsoTransported@EssenceDeath:
 	-MapEditorData:
 	WithDeathAnimation:
 		FallbackSequence: die

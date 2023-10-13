@@ -242,10 +242,10 @@ BOXSET1:
 	ThrowsShrapnel@SMALL:
 		Pieces: 1,3
 		Weapons: SmallDebris
-	-Explodes:
+	-ExplodesAlsoTransported:
 	-ShakeOnDeath:
-	-Explodes@BuildingFireSmallParticleSpawner:
-	-Explodes@BuildingFireBigSpawn:
+	-ExplodesAlsoTransported@BuildingFireSmallParticleSpawner:
+	-ExplodesAlsoTransported@BuildingFireBigSpawn:
 
 
 GRAVE:
@@ -258,10 +258,10 @@ GRAVE:
 		Palette: unittem
 	-ThrowsShrapnel@LARGE:
 	-ThrowsShrapnel@SMALL:
-	-Explodes:
+	-ExplodesAlsoTransported:
 	-ShakeOnDeath:
-	-Explodes@BuildingFireSmallParticleSpawner:
-	-Explodes@BuildingFireBigSpawn:
+	-ExplodesAlsoTransported@BuildingFireSmallParticleSpawner:
+	-ExplodesAlsoTransported@BuildingFireBigSpawn:
 
 TANKBARRIER:
 	Inherits: ^CivBuilding
@@ -279,10 +279,10 @@ TANKBARRIER:
 	ThrowsShrapnel@SMALL:
 		Pieces: 1,3
 		Weapons: SmallDebris
-	-Explodes:
+	-ExplodesAlsoTransported:
 	-ShakeOnDeath:
-	-Explodes@BuildingFireSmallParticleSpawner:
-	-Explodes@BuildingFireBigSpawn:
+	-ExplodesAlsoTransported@BuildingFireSmallParticleSpawner:
+	-ExplodesAlsoTransported@BuildingFireBigSpawn:
 
 TANKBARRIER2:
 	Inherits: TANKBARRIER
@@ -299,10 +299,10 @@ CONCRETEBARRIER:
 		Palette: player
 	-ThrowsShrapnel@LARGE:
 	-ThrowsShrapnel@SMALL:
-	-Explodes:
+	-ExplodesAlsoTransported:
 	-ShakeOnDeath:
-	-Explodes@BuildingFireSmallParticleSpawner:
-	-Explodes@BuildingFireBigSpawn:
+	-ExplodesAlsoTransported@BuildingFireSmallParticleSpawner:
+	-ExplodesAlsoTransported@BuildingFireBigSpawn:
 	IsometricSelectable:
 		DecorationHeight: 12
 
@@ -397,12 +397,10 @@ POWERLINE:
 		RequiresCondition: powerlineexploding && !powerlinepost
 	ExternalCondition@powerlineexploding:
 		Condition: powerlineexploding
-	Explodes@powerlinepost:
-		EmptyWeapon: PowerlineExplosionBase
+	ExplodesAlsoTransported@powerlinepost:
 		Weapon: PowerlineExplosionBase
 		RequiresCondition: powerlinepost
-	Explodes@powerline:
-		EmptyWeapon: PowerlineExplosion
+	ExplodesAlsoTransported@powerline:
 		Weapon: PowerlineExplosion
 		RequiresCondition: !powerlinepost
 	RenderSprites:
@@ -434,10 +432,10 @@ TRASHDUMP:
 	ThrowsShrapnel@SMALL:
 		Pieces: 1,3
 		Weapons: SmallDebris
-	-Explodes:
+	-ExplodesAlsoTransported:
 	-ShakeOnDeath:
-	-Explodes@BuildingFireSmallParticleSpawner:
-	-Explodes@BuildingFireBigSpawn:
+	-ExplodesAlsoTransported@BuildingFireSmallParticleSpawner:
+	-ExplodesAlsoTransported@BuildingFireBigSpawn:
 
 SC_TUBES:
 	Inherits@1: ^1x1TurretedCivBuilding
@@ -456,10 +454,10 @@ SC_TUBES:
 	ThrowsShrapnel@SMALL:
 		Pieces: 1,3
 		Weapons: SmallDebris
-	-Explodes:
+	-ExplodesAlsoTransported:
 	-ShakeOnDeath:
-	-Explodes@BuildingFireSmallParticleSpawner:
-	-Explodes@BuildingFireBigSpawn:
+	-ExplodesAlsoTransported@BuildingFireSmallParticleSpawner:
+	-ExplodesAlsoTransported@BuildingFireBigSpawn:
 
 SC_BOXES:
 	Inherits@1: ^1x1TurretedCivBuilding
@@ -478,10 +476,10 @@ SC_BOXES:
 		Weapons: SmallDebris
 	Targetable:
 		TargetTypes: Ground
-	-Explodes:
+	-ExplodesAlsoTransported:
 	-ShakeOnDeath:
-	-Explodes@BuildingFireSmallParticleSpawner:
-	-Explodes@BuildingFireBigSpawn:
+	-ExplodesAlsoTransported@BuildingFireSmallParticleSpawner:
+	-ExplodesAlsoTransported@BuildingFireBigSpawn:
 
 ^TibutterflySpawner:
 	SmokeParticleEmitter@butterfly:
@@ -899,10 +897,10 @@ STREETSIGNS:
 	ThrowsShrapnel@SMALL:
 		Pieces: 1,3
 		Weapons: SmallDebris
-	-Explodes:
+	-ExplodesAlsoTransported:
 	-ShakeOnDeath:
-	-Explodes@BuildingFireSmallParticleSpawner:
-	-Explodes@BuildingFireBigSpawn:
+	-ExplodesAlsoTransported@BuildingFireSmallParticleSpawner:
+	-ExplodesAlsoTransported@BuildingFireBigSpawn:
 
 STREETSIGNS2:
 	Inherits@1: ^1x1TurretedCivBuilding
@@ -916,10 +914,10 @@ STREETSIGNS2:
 	ThrowsShrapnel@SMALL:
 		Pieces: 1,3
 		Weapons: SmallDebris
-	-Explodes:
+	-ExplodesAlsoTransported:
 	-ShakeOnDeath:
-	-Explodes@BuildingFireSmallParticleSpawner:
-	-Explodes@BuildingFireBigSpawn:
+	-ExplodesAlsoTransported@BuildingFireSmallParticleSpawner:
+	-ExplodesAlsoTransported@BuildingFireBigSpawn:
 
 TRAFFICLIGHTS:
 	Inherits@1: ^1x1TurretedCivBuilding
@@ -933,9 +931,9 @@ TRAFFICLIGHTS:
 	ThrowsShrapnel@SMALL:
 		Pieces: 1,3
 		Weapons: SmallDebris
-	-Explodes:
+	-ExplodesAlsoTransported:
 	-ShakeOnDeath:
-	-Explodes@BuildingFireBigSpawn:
+	-ExplodesAlsoTransported@BuildingFireBigSpawn:
 
 BENCH:
 	Inherits@1: ^1x1TurretedCivBuilding
@@ -951,10 +949,10 @@ BENCH:
 	ThrowsShrapnel@SMALL:
 		Pieces: 1,3
 		Weapons: SmallDebris
-	-Explodes:
+	-ExplodesAlsoTransported:
 	-ShakeOnDeath:
-	-Explodes@BuildingFireSmallParticleSpawner:
-	-Explodes@BuildingFireBigSpawn:
+	-ExplodesAlsoTransported@BuildingFireSmallParticleSpawner:
+	-ExplodesAlsoTransported@BuildingFireBigSpawn:
 
 BUSSTOP:
 	Inherits: ^1x1TurretedCivBuilding
@@ -968,10 +966,10 @@ BUSSTOP:
 	ThrowsShrapnel@SMALL:
 		Pieces: 1,3
 		Weapons: SmallDebris
-	-Explodes:
+	-ExplodesAlsoTransported:
 	-ShakeOnDeath:
-	-Explodes@BuildingFireSmallParticleSpawner:
-	-Explodes@BuildingFireBigSpawn:
+	-ExplodesAlsoTransported@BuildingFireSmallParticleSpawner:
+	-ExplodesAlsoTransported@BuildingFireBigSpawn:
 
 LIGHTPOST4x4:
 	Inherits: ^CivBuilding
@@ -990,9 +988,9 @@ LIGHTPOST4x4:
 	ThrowsShrapnel@SMALL:
 		Pieces: 1,3
 		Weapons: SmallDebris
-	-Explodes:
+	-ExplodesAlsoTransported:
 	-ShakeOnDeath:
-	-Explodes@BuildingFireBigSpawn:
+	-ExplodesAlsoTransported@BuildingFireBigSpawn:
 
 TSTLAMP:
 	Inherits: GALITE
@@ -1018,10 +1016,10 @@ CONSTRUCTIONBARRIER:
 	ThrowsShrapnel@SMALL:
 		Pieces: 1,3
 		Weapons: SmallDebris
-	-Explodes:
+	-ExplodesAlsoTransported:
 	-ShakeOnDeath:
-	-Explodes@BuildingFireSmallParticleSpawner:
-	-Explodes@BuildingFireBigSpawn:
+	-ExplodesAlsoTransported@BuildingFireSmallParticleSpawner:
+	-ExplodesAlsoTransported@BuildingFireBigSpawn:
 
 CONSTRUCTIONBARRIER2:
 	Inherits: CONSTRUCTIONBARRIER
@@ -1188,9 +1186,8 @@ TIBFAIRY:
 		Palette: shadow
 	RadarColorFromTerrain:
 		Terrain: Tree
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: FairyFlyAndBack
-		EmptyWeapon: FairyFlyAndBack
 	Encyclopedia:
 		Description: Those harmless and glowing creatures feed on the Tiberian particulates in the air, and will flee to the sky above if being threated and frightened. They will try to return to their position after a while, just like some species of jellyfish before Tiberium came to earth.
 		Category: Tiberian Lifeform

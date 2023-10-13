@@ -729,9 +729,8 @@ HMEC:
 	WithMuzzleOverlay:
 	Selectable:
 		Bounds: 2413, 4041, 0, -1508
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: BuildingExplode
-		EmptyWeapon: BuildingExplode
 	ThrowsShrapnel:
 		Pieces: 5, 9
 	ThrowsShrapnel@LARGE:
@@ -1360,7 +1359,7 @@ TICKHOLOGRAM:
 		Voice: Attack
 		PauseOnCondition: empdisable
 		FacingTolerance: 2
-	-Explodes:
+	-ExplodesAlsoTransported:
 	-ActorLostNotification:
 	-ThrowsShrapnel:
 	-Carryable:
@@ -1372,7 +1371,7 @@ TICKHOLOGRAM:
 	#-GrantRandomCondition@tiberium:
 	#-SpawnActorOnDeath@tiberium1:
 	#-SpawnActorOnDeath@tiberium2:
-	-Explodes@EssenceDeath:
+	-ExplodesAlsoTransported@EssenceDeath:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
@@ -1443,13 +1442,13 @@ BIKE:
 		BorderWidth: 0
 		Width: 2
 	RenderSprites:
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: BikeExplo
-		EmptyWeapon: BikeExplo
+		WeaponWhenTransport: BigUnitExplode
 		RequiresCondition: !explosive_mixtures
-	Explodes@EXPLOSIVEMIX:
+	ExplodesAlsoTransported@EXPLOSIVEMIX:
 		Weapon: BikeExploEX
-		EmptyWeapon: BikeExploEX
+		WeaponWhenTransport: BigUnitExplode
 		RequiresCondition: explosive_mixtures
 	GrantConditionOnDeploy@DemoTruck:
 		DeployedCondition: DetonateDemoTruck
@@ -1896,9 +1895,8 @@ SCORPION:
 	WithMuzzleOverlay:
 	Selectable:
 		Bounds: 2413, 4041, 0, -1508
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: BuildingExplode
-		EmptyWeapon: BuildingExplode
 	ThrowsShrapnel:
 		Pieces: 5, 9
 	ThrowsShrapnel@LARGE:
@@ -2456,9 +2454,9 @@ HVRTRUK3:
 		Weapon: DemoTruckDummyWeapon
 		ReloadingCondition: DetonateDemoTruck
 		RequiresCondition: !empdisable
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: BombTruckExplo
-		EmptyWeapon: BombTruckExplo
+		WeaponWhenTransport: NukeLeak
 	WithRangeCircle:
 		Range: 6c0
 		Type: ExplosionRange
@@ -2595,6 +2593,11 @@ WEASAU:
 		ValidRelationships: Ally, Enemy, Neutral
 	Carryable:
 		LocalOffset: 0, 0, 1536
+		RequiresCondition: !inside-tunnel
+		CarriedCondition: carried
+	ExplodesAlsoTransported:
+		Weapon: BigBeastExplode
+		RequiresCondition: carried
 	RenderSprites:
 		PlayerPalette: orgatemblueplayer
 		Image: weasaublue2
@@ -2869,9 +2872,9 @@ REAPERCAB:
 		UseDeathTypeSuffix: false
 	ThrowsShrapnel:
 		Pieces: 2, 4
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: ReaperExplode
-		EmptyWeapon: ReaperExplode
+		WeaponWhenTransport: UnitExplodeSmall
 	#AttackFrontal:
 	#	Voice: Attack
 	#	PauseOnCondition: empdisable
@@ -3185,9 +3188,8 @@ SPIDERARTY:
 	AutoTarget:
 	Selectable:
 		Bounds: 1810, 3920, 0, -844
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: BigUnitExplode
-		EmptyWeapon: BigUnitExplode
 	Carryable:
 		LocalOffset: 0,0,763
 	ActorStatValues:
@@ -3250,9 +3252,8 @@ PALADIN:
 		LocalOffset: 0,0,1200
 	FloatingSpriteEmitter@spawnsmoke:
 		Offset: 0,0,1000
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: BigUnitExplode
-		EmptyWeapon: BigUnitExplode
 	ActorStatValues:
 		Damage: 200
 
@@ -3352,9 +3353,8 @@ BCOREDEF:
 	SpawnSparks:
 		LocalOffset: 0,0,3000
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: BuildingExplode
-		EmptyWeapon: BuildingExplode
 	ThrowsShrapnel:
 		Pieces: 5, 9
 	ThrowsShrapnel@LARGE:
@@ -3886,8 +3886,7 @@ TRIPOD:
 		Weapons: SmallDebrisScrin
 	WithInfantryBody:
 		DefaultAttackSequence: shoot2
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: TripodExplode
-		EmptyWeapon: TripodExplode
 	ActorStatValues:
 		Damage: 200

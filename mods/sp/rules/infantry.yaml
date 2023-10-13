@@ -353,9 +353,6 @@ JUMPJETAIR:
 	Voiced:
 		VoiceSet: Jumpjet
 		Volume: 8
-	Explodes:
-		Weapon: UnitExplodeSmall
-		EmptyWeapon: UnitExplodeSmall
 	Selectable:
 		Bounds: 664,1809,0,-603
 	HitShape:
@@ -414,7 +411,7 @@ JUMPJETAIR:
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-SpawnSparks:
 	-FloatingSpriteEmitter@spawnsmoke:
-	-Explodes@Shrapnel:
+	-ExplodesAlsoTransported@Shrapnel:
 	Cloak@CLOAKGENERATOR:
 		-CloakedCondition:
 	DeathSounds@NORMAL:
@@ -432,10 +429,6 @@ JUMPJETAIR:
 	SpawnHuskEffectOnDeath@fire:
 		Weapon: jumpjetair-fire.husk
 		LocalOffset: 0,0,700
-	Explodes:
-		Weapon: JumjetFall
-		EmptyWeapon: JumjetFall
-		RequiresCondition: !airborne
 	ActorStatValues:
 		Damage: 50
 	-Sellable:
@@ -583,9 +576,6 @@ JJCOMMAIR:
 	Voiced:
 		VoiceSet: Jumpjet
 		Volume: 8
-	Explodes:
-		Weapon: UnitExplodeSmall
-		EmptyWeapon: UnitExplodeSmall
 	Selectable:
 		Bounds: 664,1809,0,-603
 	HitShape:
@@ -662,7 +652,7 @@ JJCOMMAIR:
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-SpawnSparks:
 	-FloatingSpriteEmitter@spawnsmoke:
-	-Explodes@Shrapnel:
+	-ExplodesAlsoTransported@Shrapnel:
 	Cloak@CLOAKGENERATOR:
 		-CloakedCondition:
 	DeathSounds@NORMAL:
@@ -680,10 +670,6 @@ JJCOMMAIR:
 	SpawnHuskEffectOnDeath@fire:
 		Weapon: jumpjetair-fire.husk
 		LocalOffset: 0,0,700
-	Explodes:
-		Weapon: CJumjetFall
-		EmptyWeapon: CJumjetFall
-		RequiresCondition: !airborne
 	ProvidesPrerequisite@jjcomm:
 		Prerequisite: jjcomm
 	ActorStatValues:
@@ -2025,7 +2011,7 @@ CABSENTRY:
 	-UpdatesPlayerStatistics:
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@conversionUpg:
-	-Explodes@EssenceDeath:
+	-ExplodesAlsoTransported@EssenceDeath:
 	-Passenger:
 	-SharedPassenger:
 	-Targetable@MC:
@@ -2237,9 +2223,8 @@ SWARMLING:
 		BuildPaletteOrder: 13
 		Prerequisites: ~cabclaw, ~techlevel.1
 		Description: Support infantry.\n\nGood vs: Buildings\n\nSpecial:\n - Can capture neutral and enemy structures\n - Can repair structures and bridges\n - Crush class: crushable\n - Does not receive damage from tiberium fields
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: DroneExplode
-		EmptyWeapon: DroneExplode
 	Passenger:
 		Voice: Action
 	SharedPassenger:
@@ -2353,9 +2338,8 @@ PDRONE:
 		StationaryInterval: 18
 		MovingInterval: 12
 		Sequences: idle2
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: SimpleDroneExplode
-		EmptyWeapon: SimpleDroneExplode
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@conversionUpg:
 	-DamagedByTintedCells@Default:
@@ -2468,9 +2452,8 @@ MOTH:
 		Prerequisites: ~cabclaw, cabtech, ~techlevel.5
 		BuildDuration: 750
 		BuildDurationModifier: 100
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: DroneExplode
-		EmptyWeapon: DroneExplode
 	Voiced:
 		VoiceSet: Limpet
 	Hovers:
@@ -2826,9 +2809,8 @@ WORKERMECH:
 	-SpawnCorpseOnDeath@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@conversionUpg:
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: SimpleDroneExplode
-		EmptyWeapon: SimpleDroneExplode
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
@@ -2876,9 +2858,8 @@ NANOS:
 	WithSpriteBody:
 		Sequence: idle
 		RequiresCondition: !inside-tunnel && !WebDisable
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: NanoDroneExplode
-		EmptyWeapon: NanoDroneExplode
 	-SpawnCorpseOnDeath@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@conversionUpg:

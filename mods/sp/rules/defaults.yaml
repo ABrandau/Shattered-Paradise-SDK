@@ -559,10 +559,9 @@
 		Condition: chaos
 
 ^ScrinEssence:
-	Explodes@EssenceDeath:
+	ExplodesAlsoTransported@EssenceDeath:
 		DamageSource: Killer
 		Weapon: SpawnEssence
-		EmptyWeapon: SpawnEssence
 		DeathTypes: ScrinEssenceKill
 
 ^Chronoshiftable:
@@ -1958,9 +1957,8 @@
 		Weapon: DroneExplode
 		DamageState: Critical
 		TriggerOnlyOnce: true
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: DroneExplode
-		EmptyWeapon: DroneExplode
 	Mobile:
 		Locomotor: TibInmuneInfantry
 		PauseOnCondition: empdisable || WebDisable
@@ -2111,7 +2109,7 @@
 	-SpawnActorOnDeath@tiberium2:
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@conversionUpg:
-	-Explodes@EssenceDeath:
+	-ExplodesAlsoTransported@EssenceDeath:
 	-WithDeathAnimation@blood1:
 	-RevealsShroud:
 	-DetectCloaked:
@@ -2207,6 +2205,7 @@
 		Locomotor: Vehicle
 		TurnSpeed: 28
 		Voice: Move
+		PauseOnCondition: carrylock
 	TeleportNetworkTransportable:
 	Selectable:
 		Bounds: 1206,1809, 0, -240
@@ -2221,6 +2220,9 @@
 		RepairActors: gadept, scrdepot, tdrepd
 		Voice: Move
 	Carryable:
+		RequiresCondition: !inside-tunnel
+		CarriedCondition: carried
+		LockedCondition: carrylock
 	Passenger:
 		CargoType: Vehicle
 		CustomPipType: blue
@@ -2244,9 +2246,8 @@
 	Guard:
 		Voice: Move
 	Guardable:
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: UnitExplodeSmall
-		EmptyWeapon: UnitExplodeSmall
 	GrantConditionOnPrerequisite@SUDDENDEATH:
 		Condition: suddendeath
 		Prerequisites: global-suddendeath
@@ -2283,8 +2284,6 @@
 	Inherits@3: ^ExistsInWorld
 	Inherits@AISell: ^AISellOnMindControlWhenDock
 	Carryable:
-		RequiresCondition: !inside-tunnel
-		CarriedCondition: carried
 		LockedCondition: carrylock
 	Mobile:
 		PauseOnCondition: empdisable || carrylock
@@ -2297,9 +2296,8 @@
 
 ^CombatVehicle:
 	Inherits: ^Vehicle
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: UnitExplode
-		EmptyWeapon: UnitExplode
 		RequiresCondition: !inside-tunnel
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
@@ -2354,7 +2352,7 @@
 		TerrainTypes: Water
 	ExternalCondition@hoverunitonwater:
 		Condition: hoverunitonwater
-	Explodes:
+	ExplodesAlsoTransported:
 		RequiresCondition: !hoverunitonwater || !empdisable
 	-ChangesHealth@veinholedrain:
 	-ExternalCondition@veinholedrain:
@@ -2446,9 +2444,8 @@
 ^ScrinVehicleOverride:
 	Inherits@0: ^ScrinReaper
 	Inherits@1: ^ScrinRender
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: ScrinUnitExplode
-		EmptyWeapon: ScrinUnitExplode
 	Buildable:
 		IconPalette: chromesilver
 	RenderSprites:
@@ -2567,9 +2564,8 @@
 	Hovers@CRUISING:
 		RequiresCondition: cruising
 	#Huntable:
-	Explodes@Shrapnel:
+	ExplodesAlsoTransported@Shrapnel:
 		Weapon: SmalLAircraftShrapnel
-		EmptyWeapon: SmalLAircraftShrapnel
 	ActorStatValues:
 		ArmorsToIgnore: Boss
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
@@ -2651,9 +2647,8 @@
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget, Wall
 	AutoTargetPriority@ATTACKANYTHING:
 		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air, NoAutoTarget, Wall
-	Explodes@VisceroidDefault:
+	ExplodesAlsoTransported@VisceroidDefault:
 		Weapon: VisceroidExplode
-		EmptyWeapon: VisceroidExplode
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 
@@ -2686,17 +2681,14 @@
 		DamagedSounds: expnew01.aud
 		DestroyedSounds: crmble2.aud
 	WithSpriteBody:
-	Explodes@BuildingFireSmallParticleSpawner:
+	ExplodesAlsoTransported@BuildingFireSmallParticleSpawner:
 		Weapon: BuildingFireBigShrapnel
-		EmptyWeapon: BuildingFireBigShrapnel
 		Type: Footprint
-	Explodes@BuildingFireBigSpawn:
+	ExplodesAlsoTransported@BuildingFireBigSpawn:
 		Weapon: BuildingFireSmallShrapnel
-		EmptyWeapon: BuildingFireSmallShrapnel
 		Type: Footprint
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: BuildingExplode
-		EmptyWeapon: BuildingExplode
 		Type: Footprint
 	InstantlyRepairable:
 	ShakeOnDeath:
@@ -3240,10 +3232,9 @@
 	Sellable:
 		SellSounds: cashturn.aud
 	Demolishable:
-	Explodes@Demolish:
+	ExplodesAlsoTransported@Demolish:
 		DeathTypes: Demolish
 		Weapon: UnitExplodeSmall
-		EmptyWeapon: UnitExplodeSmall
 	ScriptTriggers:
 	MapEditorData:
 		Categories: Wall
@@ -3325,16 +3316,13 @@
 
 ^ScrinDeathExplo:
 	Inherits: ^SpawnSmoke
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: ScrinBuildingExplode
-		EmptyWeapon: ScrinBuildingExplode
 		Type: Footprint
-	Explodes@BuildingFireSmallParticleSpawner:
+	ExplodesAlsoTransported@BuildingFireSmallParticleSpawner:
 		Weapon: ScrinBuildingFireSmallShrapnel
-		EmptyWeapon: ScrinBuildingFireSmallShrapnel
-	Explodes@BuildingFireBigSpawn:
+	ExplodesAlsoTransported@BuildingFireBigSpawn:
 		Weapon: ScrinBuildingFireBigShrapnel
-		EmptyWeapon: ScrinBuildingFireBigShrapnel
 	FloatingSpriteEmitter@spawnsmoke:
 		Image: scrsmoke
 		Palette: jascblue

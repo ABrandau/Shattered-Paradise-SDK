@@ -502,7 +502,7 @@ MUTMRLSRocketGas:
 
 BombTruckExplo:
 	Inherits: NuclearMissile
-	ValidTargets: Ground, Water, Water, Air
+	ValidTargets: Ground, Water, Air
 	Warhead@ImpactDamage0: SpreadDamage
 		Spread: 1c0
 		Damage: 12800
@@ -527,22 +527,37 @@ BombTruckExplo:
 		ValidTargets: Ground, Water, Air
 	Warhead@op: FireRadius
 		Amount: 5
-	Warhead@4Sharpnel: FireRadius
-		Weapon: NukeFlame1mini
+
+NukeLeak:
+	Inherits@1: BigUnitExplode
+	ValidTargets: Ground, Water, Air
 	Warhead@5Sharpnel: FireRadius
-		Weapon: NukeFlame2mini
+		Weapon: NukeFuelDrop
+		ImpactActors: false
+		Amount: 12
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
+		Weapon: NukeFuelDrop
 
-NukeFlame1mini:
-	Inherits: NukeFlame
+NukeFuelDrop:
+	Inherits@1: ^LiquidProjectile
+	Inherits@2: ^AcidWarhead
+	Inherits@3: ^SpawnsIrradiation
+	ValidTargets: Ground, Water, Air
+	Range: 3c0
 	Projectile: BulletAS
-		Sequences: idle
-	Range: 5c0
-
-NukeFlame2mini:
-	Inherits: NukeFlame
-	Projectile: BulletAS
-		Sequences: idle
-	Range: 4c512
+		Speed: 400
+		Inaccuracy: 4c0
+		ContrailStartColor: 989800BB
+		ContrailStartWidth: 0c156
+		ContrailEndColor: ee9800BB
+		LaunchAngle: 155
+	Warhead@2Eff: CreateEffect
+		Explosions: tibexp2
+		ExplosionPalette: gensmkexploj
+	Warhead@3Radio: CreateTintedCells
+		LayerName: OrangeRadiation
+		Level: 750
 
 QueenTooth:
 	Inherits: ^APWarhead

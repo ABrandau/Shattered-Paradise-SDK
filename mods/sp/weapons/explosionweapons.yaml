@@ -1,12 +1,7 @@
 BuildingSmokeExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_twlt
-	Warhead@1Dam: SpreadDamage
-		Spread: 380
-		Damage: 1
-		AffectsParent: true
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-		InvalidTargets: Air
+	-Warhead@1Dam:
 	Warhead@2Eff: CreateEffect
 		Explosions: jdurasmoke, jgcmuzzle, japocexp, jvtexplod, jvtexplodb, jsmkblast
 		ExplosionPalette: jascgraywhitetoalpha
@@ -18,12 +13,7 @@ BuildingExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_twlt
 	Inherits@3: ^DelayedSmokeEffect
-	Warhead@1Dam: SpreadDamage
-		Spread: 380
-		Damage: 1
-		AffectsParent: true
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-		InvalidTargets: Air
+	-Warhead@1Dam:
 	Warhead@4EffAir: CreateEffect
 		Explosions: jtwlt100, jtwlt100b, jtwlt070, jtwlt070b, jstumu42, jstumu42b ,jstumu60, jstumu60b, jbrrlexp1, jsbang34, jsbang34b, jsbang48, jsbang48b, jbrrlexp1b
 		ExplosionPalette: gensmkexploj
@@ -152,8 +142,14 @@ QueenExplode:
 		Explosions: QueenExplo
 		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
 		ExplosionPalette: apolgreenalpha
-		InvalidTargets: Water
-		ValidTargets: Ground, Air
+		ValidTargets: Ground, Water, Air
+
+BigBeastExplode:
+	Warhead@2Eff: CreateEffect
+		Explosions: QueenExplo
+		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
+		ExplosionPalette: apolredalpha
+		ValidTargets: Ground, Water, Air
 
 JellyExplode:
 	Inherits: ^LightningDefault
@@ -794,80 +790,6 @@ NukeFlame:
 NukeFlame2:
 	Inherits: NukeFlame
 	Range: 6c0
-
-ToxinMissile:
-	Inherits: ^Large_Explosion
-	Inherits@1: ^SpawnsIrradiation
-	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
-	Warhead@ImpactDamage0: SpreadDamage
-		Spread: 1c128
-		Damage: 6000
-		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
-		Versus:
-			Infantry: 200
-			Concrete: 25
-		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
-		AirThreshold: 8c0
-	Warhead@ClusterSmudges0: LeaveSmudgeSP
-		SmudgeType: Crater
-		InitialSmudgeLevel: 10, 11
-		Size: 1
-		InvalidTargets: Vehicle, Building, Wall
-		AirThreshold: 8c0
-	Warhead@5cloud: SpawnSmokeParticle
-		Count: 14
-		Weapon: CloudDamage
-		Duration: 179
-		Speed: 30
-		TurnRate: 16
-		Image: tibcloud
-		StartSequences: cloud1start
-		Sequences: cloud1
-		EndSequences: cloud1end
-		Palette: effectalpha50
-		AirThreshold: 8c0
-		ImpactActors: false
-	Warhead@3Radio: CreateTintedCells
-		Level: 500
-		Spread: 1c512
-		Falloff: 100, 60, 30, 15
-		AirThreshold: 8c0
-	Warhead@4Sharpnel: FireRadius
-		Weapon: ChemicalFlame
-		ImpactActors: false
-		Amount: 60
-		Delay: 10
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-		AirThreshold: 8c0
-	Warhead@5Sharpnel: FireRadius
-		Weapon: ChemicalFlame2
-		ImpactActors: false
-		Amount: 45
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-		AirThreshold: 8c0
-	Warhead@2Eff: CreateEffect
-		ExplosionPalette: gensmkexplogreen
-
-ChemicalFlame:
-	Inherits: NukeFlame
-	Range: 3c0
-	Projectile: BulletAS
-		Palette: apolgreenalpha
-		Image: FLAMEALLREMAP
-		Sequences: idle
-	Warhead@3Eff: CreateEffect
-		ExplosionPalette: jascgreen
-
-ChemicalFlame2:
-	Inherits: NukeFlame2
-	Range: 2c0
-	Projectile: BulletAS
-		Palette: apolgreenalpha
-		Image: FLAMEALLREMAP
-		Sequences: idle
-	Warhead@3Eff: CreateEffect
-		ExplosionPalette: jascgreen
 
 ## Aircraft HUSK
 StormriderExplode:

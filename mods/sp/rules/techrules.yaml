@@ -42,7 +42,7 @@ WELL:
 		Sequence: anim
 		Palette: effect
 		PauseOnCondition: empdisable
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: TiberiumExplosion
 	FloatingSpriteEmitter@spawnsmoke:
 		Image: scrsmoke
@@ -157,7 +157,7 @@ BLOODDERRICK:
 		Dimensions: 3, 3
 	Health:
 		HP: 40000
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: TiberiumExplosion
 	RenderSprites:
 		-Palette: playerscrin
@@ -277,9 +277,8 @@ NEUTRALPOWERPLANT:
 		PauseOnCondition: empdisable
 	RequiresBuildableArea:
 		AreaTypes: building
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: PowerplantNuke
-		EmptyWeapon: PowerplantNuke
 		-Type:
 	IsometricSelectable:
 		DecorationHeight: 72
@@ -525,16 +524,15 @@ BLUETIBBARREL:
 		Type: Building
 	RenderSprites:
 		Palette: player
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: BlueTibBarrelExplo
-		EmptyWeapon: BlueTibBarrelExplo
 	-ThrowsShrapnel@LARGE:
 	ThrowsShrapnel@SMALL:
 		Pieces: 1,3
 		Weapons: SmallDebris
 	-ShakeOnDeath:
-	-Explodes@BuildingFireSmallParticleSpawner:
-	-Explodes@BuildingFireBigSpawn:
+	-ExplodesAlsoTransported@BuildingFireSmallParticleSpawner:
+	-ExplodesAlsoTransported@BuildingFireBigSpawn:
 	IsometricSelectable:
 		DecorationHeight: 12
 
@@ -571,9 +569,8 @@ FUELTOWER:
 		Type: Building
 	RenderSprites:
 		Palette: player
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: FuelBarrelExplo
-		EmptyWeapon: FuelBarrelExplo
 	-ThrowsShrapnel@LARGE:
 	IsometricSelectable:
 		DecorationHeight: 36

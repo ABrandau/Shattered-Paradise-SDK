@@ -125,9 +125,8 @@ MCV:
 	SelectionDecorations:
 	RenderSprites:
 		Image: gdimcv
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: BuildingExplode
-		EmptyWeapon: BuildingExplode
 	ProductionCostMultiplier@AI: ## AI cannot use it well
 		Multiplier: 30
 		Prerequisites: AIOnly
@@ -184,9 +183,9 @@ HARV:
 		StartIfBelow: 100
 	Armor:
 		Type: Heavy
-	Explodes:
+	ExplodesAlsoTransported:
 		RequiresCondition: no-tib
-	Explodes@tib:
+	ExplodesAlsoTransported@tib:
 		Weapon: TiberiumExplosion
 		RequiresCondition: !no-tib
 	WithHarvestOverlay:
@@ -1286,9 +1285,8 @@ NAFNCE:
 	-Sellable:
 	-Targetable:
 	-Building:
-	Explodes:
+	ExplodesAlsoTransported:
 		Weapon: UnitExplodeSmall
-		EmptyWeapon: UnitExplodeSmall
 	EnergyWall:
 		ActiveCondition: active-posts == 2
 		Weapon: LaserFence
@@ -1443,10 +1441,9 @@ GASILO:
 		AreaTypes: building
 	GrantConditionOnPlayerResources:
 		Condition: contains-tiberium
-	Explodes:
+	ExplodesAlsoTransported:
 		RequiresCondition: contains-tiberium
 		Weapon: TiberiumExplosion
-		EmptyWeapon: TiberiumExplosion
 	WithResourceLevelOverlay@FILLSTAGE:
 		RequiresCondition: !Building-Buildup
 		Sequence: stages
@@ -1692,9 +1689,8 @@ trnsport.scr:  ## only used for AI
 	FloatingSpriteEmitter@spawnsmoke:
 		Image: scrsmoke
 		Palette: jascblue
-	Explodes@Shrapnel:
+	ExplodesAlsoTransported@Shrapnel:
 		Weapon: BigScrinAircraftShrapnel
-		EmptyWeapon: BigScrinAircraftShrapnel
 
 ################## Carryall ##############
 
