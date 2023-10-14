@@ -14,6 +14,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Sp.Traits
 {
+	[Desc("Hack: used for short game is disabled and no-base mod.")]
 	sealed class GrantConditionWhenEnableShortGameInfo : TraitInfo
 	{
 		[FieldLoader.Require]

@@ -18,8 +18,8 @@ namespace OpenRA.Mods.Sp.Traits
 	[Desc("Hack: used for veinhole.")]
 	sealed class ForceFireAtLocationInfo : ConditionalTraitInfo, Requires<AttackBaseInfo>
 	{
-		[Desc("Fire offset relative to actor's position. No rotation.")]
-		public readonly WVec LocalOffset = WVec.Zero;
+		[Desc("Target offset relative to actor's position. Ignore actor's facing.")]
+		public readonly WVec TargetOffset = WVec.Zero;
 
 		public override object Create(ActorInitializer init) { return new ForceFireAtLocation(this); }
 	}
@@ -44,7 +44,7 @@ namespace OpenRA.Mods.Sp.Traits
 				if (ab.IsTraitDisabled)
 					continue;
 
-				ab.AttackTarget(Target.FromPos(self.CenterPosition + Info.LocalOffset), AttackSource.Default, false, true, true);
+				ab.AttackTarget(Target.FromPos(self.CenterPosition + Info.TargetOffset), AttackSource.Default, false, true, true);
 			}
 
 			base.TraitEnabled(self);

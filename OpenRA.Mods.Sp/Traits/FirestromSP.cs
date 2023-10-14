@@ -18,6 +18,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Sp.Traits
 {
+	[Desc("SP style Firestrom, generate a circle of effect and deal damage in a ring area.")]
 	public sealed class FirestromSPInfo : ConditionalTraitInfo
 	{
 		[Desc("List of sounds that can be played on launching.")]

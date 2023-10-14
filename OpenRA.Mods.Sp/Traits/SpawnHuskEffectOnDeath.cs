@@ -30,13 +30,13 @@ namespace OpenRA.Mods.SP.Traits
 		[Desc("DeathType(s) that trigger the effect. Leave empty to always trigger an effect.")]
 		public readonly BitSet<DamageType> DeathTypes = default;
 
-		[Desc("Offset to fire husk weapon from on death.")]
+		[Desc("Offset relative to actor's position to fire husk weapon from on death.")]
 		public readonly WVec LocalOffset = WVec.Zero;
 
 		[Desc("Give random facing instead of actor facing to husk weapon.")]
 		public readonly bool RandomFacing = false;
 
-		[Desc("Offset to fire husk weapon to on death.")]
+		[Desc("Target offset relative to actor's position to fire husk weapon to on death.")]
 		public readonly WVec TargetOffset = new(200, 0, 0);
 
 		[Desc("Always target ground level when fire at TargetOffset.")]

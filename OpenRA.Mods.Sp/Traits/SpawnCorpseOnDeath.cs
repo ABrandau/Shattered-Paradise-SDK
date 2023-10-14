@@ -15,6 +15,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Sp.Traits
 {
+	[Desc("When killed, this actor notify nearby place who use corpse for some effects, such as " + nameof(SpawnActorsOnCorpseInRadius) + ".")]
 	class SpawnCorpseOnDeathInfo : TraitInfo
 	{
 		[Desc("Corpse type.")]

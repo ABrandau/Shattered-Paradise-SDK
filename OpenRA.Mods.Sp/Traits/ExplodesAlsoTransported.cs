@@ -16,7 +16,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.SP.Traits
 {
-	[Desc("This actor explodes when killed, also inside transport.")]
+	[Desc("This actor explodes when killed, also when inside transport/carryall and explode at where it should be.")]
 	public class ExplodesAlsoTransportedInfo : ConditionalTraitInfo
 	{
 		[WeaponReference]

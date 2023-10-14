@@ -16,6 +16,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.SP.Traits
 {
+	[Desc("Allow unit auto demolish the target.")]
 	sealed class AutoDemolisherInfo : PausableConditionalTraitInfo, Requires<DemolitionInfo>
 	{
 		[Desc("Maximum range to scan for targets.")]

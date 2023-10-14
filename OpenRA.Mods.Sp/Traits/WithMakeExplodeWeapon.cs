@@ -16,7 +16,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Sp.Traits
 {
-	[Desc("Launch weapon or/and generate sprite effect when created or deploying.")]
+	[Desc("Launch weapon or/and generate sprite effect when created or deploying. Can be affected by " + nameof(SkipMakeAnimsInit))]
 	sealed class WithMakeExplodeWeaponInfo : TraitInfo, IRulesetLoaded
 	{
 		[WeaponReference]

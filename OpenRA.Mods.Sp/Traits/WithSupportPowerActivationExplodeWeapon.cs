@@ -30,13 +30,13 @@ namespace OpenRA.Mods.SP.Traits
 		[Desc("Weapon offset relative to actor's position.")]
 		public readonly WVec LocalOffset = WVec.Zero;
 
-		[Desc("Weapon Yaw relative to actor's position.")]
+		[Desc("Weapon Yaw relative to actor's position. Becuase building don't have facing so we have to set yaw here.")]
 		public readonly WAngle FireYaw = WAngle.Zero;
 
 		[Desc("Weapon hit offset relative to actor's position.")]
 		public readonly WVec HitOffset = WVec.Zero;
 
-		[Desc("Delay the weapon when activate")]
+		[Desc("Delay of firing the weapon when activate")]
 		public readonly int Delays = 0;
 
 		public override object Create(ActorInitializer init) { return new WithSupportPowerActivationExplodeWeapon(init.Self, this); }
