@@ -2418,7 +2418,7 @@ HVRTRUK3:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
-		Description: A hovering demolition truck with a oneway ticket.\n\nGood vs: Everything\n\nSpecial:\n - Demolishes almost everything nearby upon detonation\n - Hovers (it ignores terrain like Veins and Water)\n - Cannot enter Tunnel Networks
+		Description: A hovering demolition truck with a oneway ticket.\n\nGood vs: Everything\n\nSpecial:\n - Demolishes almost everything nearby upon detonation\n - Hovers (it ignores terrain like Veins and Water)\n - Cannot enter Tunnel Networks or transport, can be carried by carryall
 		BuildPaletteOrder: 42
 		Prerequisites: ~muweap, muhall, ~techlevel.5
 		BuildDuration: 2000
@@ -2429,15 +2429,16 @@ HVRTRUK3:
 	Mobile:
 		Speed: 90
 
+	-Passenger:
 	-SharedPassenger:
 	FloatingSpriteEmitter@spawnsmoke: ## Remove in in_tunnel
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	SpawnSparks:
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	LeavesTrails@water:
-		RequiresCondition: hoverunitonwater && !carried && !ascargo && !inside-tunnel
+		RequiresCondition: hoverunitonwater && !carried && !inside-tunnel
 	LeavesTrails@land:
-		RequiresCondition: !hoverunitonwater && !carried && !ascargo && !inside-tunnel
+		RequiresCondition: !hoverunitonwater && !carried && !inside-tunnel
 
 	Health:
 		HP: 12000
@@ -3106,7 +3107,7 @@ CABAPC:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.CABAL
 		BuildAtProductionType: Tank
-		Description: Light Armored transport.\n\nSpecial:\n - Can transport up to 12 infantry or 4 vehicles\n - Hovers (it ignores terrain like Veins and Water)
+		Description: Light Armored transport.\n\nSpecial:\n - Can transport up to 12 infantry or 4 vehicles\n - Hovers (it ignores terrain like Veins and Water)\n - Cannot enter Tunnel Networks or transport, can be carried by carryall
 		BuildPaletteOrder: 31
 		Prerequisites: ~cabweap, cabradr, ~techlevel.4
 		BuildDuration: 250
@@ -3127,9 +3128,16 @@ CABAPC:
 		AfterUnloadDelay: 0
 		UnloadVoice: Move
 		OwnerChangedAffectsPassengers: false
-	Passenger:
-		CargoType: Transport
-		Weight: 12
+	-Passenger:
+	-SharedPassenger:
+	FloatingSpriteEmitter@spawnsmoke: ## Remove in in_tunnel
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
+	SpawnSparks:
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
+	LeavesTrails@water:
+		RequiresCondition: hoverunitonwater && !carried && !inside-tunnel
+	LeavesTrails@land:
+		RequiresCondition: !hoverunitonwater && !carried && !inside-tunnel
 	SelectionDecorations:
 	Selectable:
 		Bounds: 2111, 3016, 0, -603
