@@ -146,18 +146,24 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 	ReloadDelay: 6
 	Range: 12c0
 	ValidTargets: Ground, Vehicle, Infantry, Building, Water, Air, IonSpawner
-	Warhead@op: FireRadius
+	Warhead@4BeamEff: FireReverseRadius
 		ValidTargets: Vehicle, Infantry, Building, Ground, Water, Air
-		Weapon: IonBeamCreator
+		Weapon: IonBeamMini
 		ImpactActors: false
-		Amount: 12
+		Amount: 10
 		AirThreshold: 8c0
-	Warhead@Spawn: SpawnActor
-		ValidTargets: Vehicle, Infantry, Building, Ground, Water, Air
-		Actors: ionbeamtarget
-		ForceGround: true
-		AirThreshold: 8c0
+	Warhead@5BeamEff: FireFragment
+		Delay: 100
 		ImpactActors: false
+		Weapon: IonBeam
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+	Warhead@6BeamEff: FireFragment
+		Delay: 147
+		ImpactActors: false
+		Weapon: IonBeamMini
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
 	### THIS IS THE MAIN ION CANON WEAPON, after Delay=110
 	Warhead@1Dam_area: SpreadDamage
 		Delay: 110
@@ -217,90 +223,6 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
 		AirThreshold: 8c0
 
-	Warhead@4Effect: SpawnSmokeParticle
-		Delay: 90
-		Image: explosion
-		Duration: 40
-		Sequences: ionbeam
-		EndSequences: ionbeamstart
-		StartSequences: ionbeamstart
-		Palette: effect
-		AffectsParent: true
-		ImpactActors: false
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
-		AirThreshold: 8c0
-	Warhead@5Effect: SpawnSmokeParticle
-		Delay: 90
-		Image: explosion
-		Duration: 40
-		Sequences: ionbeam2
-		EndSequences: ionbeamstart2
-		StartSequences: ionbeamstart2
-		Palette: effect
-		AffectsParent: true
-		ImpactActors: false
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
-		AirThreshold: 8c0
-	Warhead@6Effect: SpawnSmokeParticle
-		Delay: 90
-		Image: explosion
-		Duration: 40
-		Sequences: ionbeam3
-		EndSequences: ionbeamstart3
-		StartSequences: ionbeamstart3
-		Palette: effect
-		AffectsParent: true
-		ImpactActors: false
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
-		AirThreshold: 8c0
-	Warhead@7Effect: SpawnSmokeParticle
-		Delay: 90
-		Image: explosion
-		Duration: 40
-		Sequences: ionbeam4
-		EndSequences: ionbeamstart4
-		StartSequences: ionbeamstart4
-		Palette: effect
-		AffectsParent: true
-		ImpactActors: false
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
-		AirThreshold: 8c0
-	Warhead@8Effect: SpawnSmokeParticle
-		Delay: 90
-		Image: explosion
-		Duration: 40
-		Sequences: ionbeam5
-		EndSequences: ionbeamstart5
-		StartSequences: ionbeamstart5
-		Palette: effect
-		AffectsParent: true
-		ImpactActors: false
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
-		AirThreshold: 8c0
-	Warhead@9Effect: SpawnSmokeParticle
-		Delay: 90
-		Image: explosion
-		Duration: 40
-		Sequences: ionbeam6
-		EndSequences: ionbeamstart6
-		StartSequences: ionbeamstart6
-		Palette: effect
-		AffectsParent: true
-		ImpactActors: false
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
-		AirThreshold: 8c0
-	Warhead@10Effect: SpawnSmokeParticle
-		Delay: 90
-		Image: explosion
-		Duration: 46
-		Sequences: ringmini
-		EndSequences: ringmini
-		StartSequences: ringmini
-		Palette: effect
-		AffectsParent: true
-		ImpactActors: false
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
-		AirThreshold: 8c0
 	Warhead@Shake: ShakeScreen
 		Duration: 15
 		Intensity: 8
@@ -308,28 +230,37 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 		AirThreshold: 8c0
 		Delay: 114
 
-IonBeamCreator: ### THIS ONE GENERATES THE MINI BEAMS
-	ReloadDelay: 6
-	Range: 5c0
-	MinRange: 4c99
-	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
-	Projectile: InstantHit
-	Warhead@Spawn: SpawnActor
-		Actors: ionbeammini
-		Range: 15
-		AirThreshold: 8c0
+IonBeam:
+	ReloadDelay: 9999
+	ValidTargets: Ground, Water, Air
+	Projectile: SpriteAthenaLaser
+		Image: explosion
+		Sequence: ionbeam
+		RingImage: explosion
+		RingSequence: ringmini
+		SpriteNumber: 6
+		HeightOffset: 6146
+		StayTicks: 50
+		Speed: 0
+		ExplosionInterval: 9999
 
-IonScorch: ### THESE ARE THE WEAPONS OF THE MINI BEAMS ON THE SIDES
-	ReloadDelay: 2
-	Projectile: InstantExplode
-	ValidTargets: Ground, Water, Air, IonSpawner
+IonBeamMini:
+	Inherits: IonBeam
+	Range: 5c512
+	Projectile: SpriteAthenaLaser
+		Sequence: ionbeamstart
+		RingSequence: ringmini
+		StayTicks: 10
+		ExplosionInterval: 3
+		Speed: 52
+		RotSpeed: 12
 	Warhead@1Eff_impact: CreateEffect
 		Explosions: ionscorch
 		ExplosionPalette: jascgrey
 		AirThreshold: 8c0
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1c0
-		Damage: 600
+		Damage: 500
 		InvalidTargets: IonBeam
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
@@ -350,15 +281,10 @@ IonScorch: ### THESE ARE THE WEAPONS OF THE MINI BEAMS ON THE SIDES
 			Concrete: 0
 			Boss: 100
 		Spread: 1c768
-		Damage: 800
+		Damage: 700
 		AirThreshold: 8c0
 		DebugOverlayColor: 0000FF
 
-IonDrag:
-	ReloadDelay: 900
-	Range: 1
-	ValidTargets: IonSpawner
-	Projectile: InstantExplode
 
 DroppodSpawner:
 	ReloadDelay: 6
