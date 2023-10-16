@@ -26,7 +26,7 @@ namespace OpenRA.Mods.SP.Traits
 	}
 
 	[TraitLocation(SystemActors.World)]
-	[Desc("Attach this to the world actor.", "Order of the layers defines the Z sorting.")]
+	[Desc("Spawn cell based Smudge, will disappear after duration", "Order of the layers defines the Z sorting.")]
 	public sealed class SmudgeLayerSPInfo : TraitInfo
 	{
 		[Desc("Smudge and their sprites set name")]
