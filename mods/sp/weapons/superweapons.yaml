@@ -246,7 +246,7 @@ IonBeam:
 
 IonBeamMini:
 	Inherits: IonBeam
-	Range: 5c512
+	Range: 5c256
 	Projectile: SpriteAthenaLaser
 		Sequence: ionbeamstart
 		RingSequence: ringmini2
@@ -258,10 +258,10 @@ IonBeamMini:
 		Explosions: ionscorch
 		ExplosionPalette: jascgrey
 		AirThreshold: 8c0
+		ImpactActors: false
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1c0
 		Damage: 500
-		InvalidTargets: IonBeam
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 			Infantry: 500
