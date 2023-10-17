@@ -2382,43 +2382,25 @@ GLAD:
 		Locomotor: HeavyInfantry
 	Health:
 		HP: 50000
-	Armament@1:
+	Armament:
 		RequiresCondition: !CriticalDamaged
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		MuzzlePalette: gensmkexploj
-		LocalOffset: 200,250,550
+		LocalOffset: 200,250,550, 200,-250,550
 		ReloadingCondition: reload-undamaged
 		PauseOnCondition: WebDisable || empdisable || reload-damaged
 		Name: OnFoot
-	Armament@2:
-		RequiresCondition: !CriticalDamaged
-		Weapon: GLAD120mm
-		MuzzleSequence: muzzle
-		MuzzlePalette: gensmkexploj
-		LocalOffset: 200,-250,550
-		ReloadingCondition: reload-undamaged
-		PauseOnCondition: WebDisable || empdisable || reload-damaged
-		Name: OnFoot
-	Armament@1Cripple:
+	Armament@Cripple:
 		RequiresCondition: CriticalDamaged
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		MuzzlePalette: gensmkexploj
-		LocalOffset: 300,250,-150
+		LocalOffset: 300,250,-150, 300,-250,-150
 		ReloadingCondition: reload-damaged
 		PauseOnCondition: WebDisable || empdisable || reload-undamaged
 		Name: OnFoot
-	Armament@2Cripple:
-		RequiresCondition: CriticalDamaged
-		Weapon: GLAD120mm
-		MuzzleSequence: muzzle
-		MuzzlePalette: gensmkexploj
-		LocalOffset: 300,-250,-150
-		ReloadingCondition: reload-damaged
-		PauseOnCondition: WebDisable || empdisable || reload-undamaged
-		Name: OnFoot
-	Armament@Garrison1:
+	Armament@Garrison:
 		Weapon: GGLAD120mm
 		MuzzleSequence: muzzle
 		MuzzlePalette: gensmkexploj
