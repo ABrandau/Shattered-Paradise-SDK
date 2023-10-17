@@ -2277,12 +2277,21 @@ WOLF:
 	Mobile:
 		Speed: 120
 		Locomotor: HeavyInfantry
+		PauseOnCondition: carrylock
 	SpeedMultiplier@TIBERIUMINFUSION:
 		Modifier: 113
 	AttackFollowFrontal:
 		Voice: Attack
 		FacingTolerance: 64
 		MustFaceTarget: true
+	Carryable:
+		LocalOffset: 0, 0, 300
+		RequiresCondition: !inside-tunnel
+		CarriedCondition: carried
+		LockedCondition: carrylock
+	ExplodesAlsoTransported:
+		Weapon: BigBeastExplode
+		RequiresCondition: carried || ascargo
 	AutoTarget:
 		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	-AttackFrontal:
@@ -2388,6 +2397,7 @@ DEATHCLAW:
 	Mobile:
 		Speed: 105
 		Locomotor: HeavyInfantry
+		PauseOnCondition: carrylock
 	SpeedMultiplier@TIBERIUMINFUSION:
 		Modifier: 115
 	Armament:
@@ -2397,6 +2407,14 @@ DEATHCLAW:
 	Voiced:
 		VoiceSet: LargeBeast
 		Volume: 1.5
+	Carryable:
+		LocalOffset: 0, 0, 1000
+		RequiresCondition: !inside-tunnel
+		CarriedCondition: carried
+		LockedCondition: carrylock
+	ExplodesAlsoTransported:
+		Weapon: BigBeastExplode
+		RequiresCondition: carried || ascargo
 	AttackFrontal:
 		FacingTolerance: 2
 	ActorStatValues:
@@ -2527,6 +2545,7 @@ WEASAU:
 		TurnSpeed: 64
 		Speed: 60
 		Locomotor: VehicleCrusher
+		PauseOnCondition: carrylock
 	-Crushable:
 	-Passenger:
 	-SharedPassenger:
@@ -2600,8 +2619,14 @@ WEASAU:
 		LocalOffset: 0, 0, 1536
 		RequiresCondition: !inside-tunnel
 		CarriedCondition: carried
-	ExplodesAlsoTransported:
+		LockedCondition: carrylock
+	ExplodesAlsoTransported@1:
 		Weapon: BigBeastExplode
+		Offset: -400, 0, 0
+		RequiresCondition: carried
+	ExplodesAlsoTransported@2:
+		Weapon: BigBeastExplode
+		Offset: 400, 0, 0
 		RequiresCondition: carried
 	RenderSprites:
 		PlayerPalette: orgatemblueplayer
