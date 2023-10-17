@@ -1257,17 +1257,16 @@ TTNK:
 		RequiresCondition: !AImicroManage && deployed
 	Carryable:
 		RequiresCondition: undeployed
-	-WithFacingSpriteBody:
+	GrantCondition@showDeployBody: ## HACK: Make carryall show undeploy body
+		RequiresCondition: !undeployed
+		Condition: show-deploybody
 	WithInfantryBody: ## support tracks motion animation
-		RequiresCondition: undeployed && !inside-tunnel
+		RequiresCondition: !show-deploybody && !inside-tunnel
 	WithFacingSpriteBody@deployed:
 		Sequence: deployed
 		Name: deployed
-		RequiresCondition: !undeployed && !inside-tunnel
-	#AttackFrontal:
-	#	Voice: Attack
-	#	RequiresCondition: undeployed
-	#	PauseOnCondition: empdisable
+		RequiresCondition: show-deploybody && !inside-tunnel
+	-WithFacingSpriteBody:
 	AttackFollowFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable

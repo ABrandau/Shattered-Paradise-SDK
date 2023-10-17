@@ -1087,20 +1087,19 @@ MARAUDER:
 		UndeploySounds: marauderundeploy.wav
 		UndeployOnMove: true
 		RequiresCondition: !inside-tunnel && !WebDisable
-	GrantCondition:
-		Condition: editorhack
-	WithInfantryBody@Editor: # HACK: negative conditions don't count in EnabledByDefault, we can use this duplicate WIB to render it on map editor
-		RequiresCondition: !editorhack
+	GrantCondition@showDeployBody: ## HACK: Make editor show undeploy body
+		RequiresCondition: !undeployed
+		Condition: show-deploybody
 	WithInfantryBody:
-		RequiresCondition: !WebDisable && undeployed && !inside-tunnel
+		RequiresCondition: !WebDisable && !show-deploybody && !inside-tunnel
 	WithSpriteBody:
 		Sequence: dot
 		Name: dot
-		RequiresCondition: !undeployed && !fortified_upg
+		RequiresCondition: show-deploybody && !fortified_upg
 	WithSpriteBody@fortifications:
 		Sequence: dot
 		Name: dot-fortifications
-		RequiresCondition:  !undeployed && fortified_upg
+		RequiresCondition:  show-deploybody && fortified_upg
 	WithMakeAnimation:
 		Sequence: make
 		BodyNames: dot

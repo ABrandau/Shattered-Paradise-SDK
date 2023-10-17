@@ -676,8 +676,6 @@ LPST:
 		HP: 25000
 	Armor:
 		Type: Light
-	WithMakeAnimation:
-		BodyNames: deployed
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
@@ -692,12 +690,17 @@ LPST:
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
+	GrantCondition@showDeployBody: ## HACK: Make carryall show undeploy body
+		RequiresCondition: !undeployed
+		Condition: show-deploybody
+	WithMakeAnimation:
+		BodyNames: deployed
 	WithSpriteBody@deployed:
 		Sequence: deployed
 		Name: deployed
-		RequiresCondition: !undeployed
+		RequiresCondition: !inside-tunnel && show-deploybody
 	WithFacingSpriteBody:
-		RequiresCondition: !inside-tunnel && undeployed
+		RequiresCondition: !inside-tunnel && !show-deploybody
 	RenderDetectionCircle:
 		TrailCount: 3
 	DetectCloaked:
@@ -756,8 +759,6 @@ SGEN:
 		HP: 25000
 	Armor:
 		Type: Light
-	WithMakeAnimation:
-		BodyNames: deployed
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
@@ -772,12 +773,17 @@ SGEN:
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
 		RequiresCondition: !AImicroManage && deployed
+	GrantCondition@showDeployBody: ## HACK: Make carryall show undeploy body
+		RequiresCondition: !inside-tunnel && !undeployed
+		Condition: show-deploybody
+	WithMakeAnimation:
+		BodyNames: deployed
 	WithSpriteBody@deployed:
 		Sequence: deployed
 		Name: deployed
-		RequiresCondition: !undeployed
+		RequiresCondition: !inside-tunnel && show-deploybody
 	WithFacingSpriteBody:
-		RequiresCondition: !inside-tunnel && undeployed
+		RequiresCondition: !inside-tunnel && !show-deploybody
 	ProximityExternalCondition:
 		Condition: cloakgenerator
 		RequiresCondition: deployed && !empdisable
@@ -858,19 +864,25 @@ ICBM:
 		DeploySounds: place2.aud
 		UndeploySounds: clicky1.aud
 		Voice: Move
-	WithMakeAnimation:
 	EntersTunnels:
 		RequireForceMoveCondition: !undeployed
 	Repairable:
 		RequireForceMoveCondition: !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
+	Carryable:
+		RequiresCondition: undeployed
+	GrantCondition@showDeployBody: ## HACK: Make carryall show undeploy body
+		RequiresCondition: !undeployed
+		Condition: show-deploybody
+	WithMakeAnimation:
+		BodyNames: deployed
 	WithFacingSpriteBody:
-		Name: undeploy-body
-		RequiresCondition: !inside-tunnel && undeployed
+		RequiresCondition: !inside-tunnel && !show-deploybody
 	WithSpriteBody@deployedloaded:
-		RequiresCondition: !inside-tunnel && !undeployed
 		Sequence: unlaunched-idle
+		Name: deployed
+		RequiresCondition: !inside-tunnel && show-deploybody
 	ProvidesPrerequisite@icbm:
 		Prerequisite: icbm
 		ResetOnOwnerChange: true
@@ -910,6 +922,7 @@ ICBM:
 	WithSupportPowerActivationAnimation:
 		RequiresCondition: !inside-tunnel && deployed
 		Sequence: launched-idle
+		Body: deployed
 	Wanders@AI:
 		RequiresCondition: AImicroManage && undeployed
 		WanderMoveRadius: 1
