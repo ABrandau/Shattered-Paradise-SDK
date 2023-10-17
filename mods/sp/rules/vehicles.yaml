@@ -2960,6 +2960,8 @@ LIMPED:
 		Bounds: 483, 2111, 0, -448
 	Hovers:
 		RequiresCondition: undeployed
+	Carryable:
+		LocalOffset: 0, 0, 500
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
@@ -3016,15 +3018,18 @@ LIMPED:
 		EffectPalette: effect
 		CloakEffectSequence: smallidleoffset
 		EffectTracksActor: false
-	WithSpriteBody@UndeloyedBody:
-		Sequence: idle
-		RequiresCondition: undeployed && !inside-tunnel
+	GrantCondition@showDeployBody: ## HACK: Make carryall show undeploy body
+		RequiresCondition: !undeployed
+		Condition: show-deploybody
 	WithMakeAnimation:
 		BodyNames: deployed
+	WithSpriteBody@UndeloyedBody:
+		Sequence: idle
+		RequiresCondition: !show-deploybody && !inside-tunnel
 	WithSpriteBody@DeloyedBody:
-		Name: deployed
 		Sequence: deployed
-		RequiresCondition: !undeployed
+		Name: deployed
+		RequiresCondition: show-deploybody && !inside-tunnel
 	DamagedByTintedCells@Default:
 		RequiresCondition: deployed
 	DamagedByTintedCells@BlueRadiation:
