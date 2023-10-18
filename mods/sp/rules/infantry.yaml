@@ -2057,6 +2057,7 @@ CABSENTRY:
 		Icon: icon
 		IconPalette: chrome
 		Damage: 12
+	-ExplodesAlsoTransported:
 	WithDeathAnimation:
 		FallbackSequence: die
 		DeathSequence: die
@@ -2218,7 +2219,8 @@ CBORG:
 		Upgrades: upgrade.cybernetic_leg_enhancements, upgrade.regenerative_materials
 
 SWARMLING:
-	Inherits: ENGINEER
+	Inherits@1: ^DroneSoldier
+	Inherits@2: ENGINEER
 	Inherits@EMP: ^EmpDisableMobile
 	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
 	Inherits@RENDER: ^CabRender
@@ -2229,8 +2231,6 @@ SWARMLING:
 		BuildPaletteOrder: 13
 		Prerequisites: ~cabclaw, ~techlevel.1
 		Description: Support infantry.\n\nGood vs: Buildings\n\nSpecial:\n - Can capture neutral and enemy structures\n - Can repair structures and bridges\n - Crush class: crushable\n - Does not receive damage from tiberium fields
-	ExplodesAlsoTransported:
-		Weapon: DroneExplode
 	Passenger:
 		Voice: Action
 	SharedPassenger:
@@ -2346,7 +2346,6 @@ PDRONE:
 		Sequences: idle2
 	ExplodesAlsoTransported:
 		Weapon: SimpleDroneExplode
-		RequiresCondition: !ascargo
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@conversionUpg:
 	-DamagedByTintedCells@Default:
@@ -2469,8 +2468,6 @@ MOTH:
 	GrantConditionOnTerrain:
 		Condition: hoverunitonwater
 		TerrainTypes: Water
-	ExternalCondition@hoverunitonwater:
-		Condition: hoverunitonwater
 	Health:
 		HP: 40000
 	Selectable:

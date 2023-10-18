@@ -627,7 +627,6 @@ HMEC:
 	-SharedPassenger:
 	-Chronoshiftable:
 	FloatingSpriteEmitter@spawnsmoke:
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 		Offset: 0, 0, 1000
 	SpawnSparks:
 		LocalOffset: 0, 0, 900
@@ -1433,6 +1432,10 @@ BIKE:
 		Width: 2
 	RenderSprites:
 	## Only Enabled when as cargo
+	Carryable:
+		CarriedCondition: carried
+	Passenger:
+		CargoCondition: ascargo
 	ExplodesAlsoTransported:
 		Weapon: BigUnitExplode
 		RequiresCondition: carried || ascargo
@@ -1796,8 +1799,6 @@ SCORPION:
 	-SharedPassenger:
 	-Chronoshiftable:
 	-FirepowerMultiplier@BLUEFLAME:
-	FloatingSpriteEmitter@spawnsmoke:
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	Health:
 		HP: 300000
 	AnnounceOnSeen:
@@ -2280,6 +2281,8 @@ WOLF:
 		RequiresCondition: !inside-tunnel
 		CarriedCondition: carried
 		LockedCondition: carrylock
+	Passenger:
+		CargoCondition: ascargo
 	ExplodesAlsoTransported:
 		Weapon: BigBeastExplode
 		RequiresCondition: carried || ascargo
@@ -2403,6 +2406,8 @@ DEATHCLAW:
 		RequiresCondition: !inside-tunnel
 		CarriedCondition: carried
 		LockedCondition: carrylock
+	Passenger:
+		CargoCondition: ascargo
 	ExplodesAlsoTransported:
 		Weapon: BigBeastExplode
 		RequiresCondition: carried || ascargo
@@ -2437,16 +2442,8 @@ HVRTRUK3:
 		Volume: 3
 	Mobile:
 		Speed: 90
-
 	-Passenger:
 	-SharedPassenger:
-	FloatingSpriteEmitter@spawnsmoke: ## Remove in in_tunnel
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
-	LeavesTrails@water:
-		RequiresCondition: hoverunitonwater && !carried && !inside-tunnel
-	LeavesTrails@land:
-		RequiresCondition: !hoverunitonwater && !carried && !inside-tunnel
-
 	Health:
 		HP: 12000
 	Armor:
@@ -2470,6 +2467,8 @@ HVRTRUK3:
 	ExplodesAlsoTransported:
 		RequiresCondition: carried
 		Weapon: NukeLeak
+	Carryable:
+		CarriedCondition: carried
 	RevealOnDeath: ## Nuke explosion will give more vision
 		Duration: 150
 		Radius: 9c0
@@ -3153,12 +3152,6 @@ CABAPC:
 		OwnerChangedAffectsPassengers: false
 	-Passenger:
 	-SharedPassenger:
-	FloatingSpriteEmitter@spawnsmoke: ## Remove in in_tunnel
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
-	LeavesTrails@water:
-		RequiresCondition: hoverunitonwater && !carried && !inside-tunnel
-	LeavesTrails@land:
-		RequiresCondition: !hoverunitonwater && !carried && !inside-tunnel
 	SelectionDecorations:
 	Selectable:
 		Bounds: 2111, 3016, 0, -603
@@ -3378,7 +3371,6 @@ BCOREDEF:
 		LocalOffset: 0,0,2600
 	FloatingSpriteEmitter@spawnsmoke:
 		Offset: 0,0,2500
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	SpawnSparks:
 		LocalOffset: 0,0,3000
 	ExplodesAlsoTransported:
@@ -3544,7 +3536,7 @@ SCRMBT:
 	-LeavesTrails@land:
 	-LeavesTrails@water:
 	LeavesTrails@gravity:
-		RequiresCondition: !carried && !ascargo && !in_tunnel && !inside-tunnel
+		RequiresCondition: !inside-tunnel
 		Image: wake
 		Sequences: idlescr
 		Palette: scrinenergystuffs
@@ -3623,7 +3615,7 @@ SCRGLYDER2:
 	-LeavesTrails@land:
 	-LeavesTrails@water:
 	LeavesTrails@gravity:
-		RequiresCondition: !carried && !ascargo && !in_tunnel && !inside-tunnel
+		RequiresCondition: !inside-tunnel
 		Image: wake
 		Sequences: idlescr
 		Palette: scrinenergystuffs
@@ -3824,7 +3816,7 @@ SCRMOBMINE:
 	-LeavesTrails@land:
 	-LeavesTrails@water:
 	LeavesTrails@gravity:
-		RequiresCondition: !carried && !ascargo && !in_tunnel && !inside-tunnel
+		RequiresCondition: !inside-tunnel
 		Image: wake
 		Sequences: idlescr
 		Palette: scrinenergystuffs

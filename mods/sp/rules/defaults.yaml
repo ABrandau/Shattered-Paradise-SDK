@@ -1701,11 +1701,9 @@
 		RequiresCondition: !inside-tunnel
 	SharedPassenger:
 		CargoType: Infantry
-		CargoCondition: in_tunnel
 	Passenger:
 		CargoType: Infantry
 		Voice: Move
-		CargoCondition: ascargo
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	SpawnSmokeParticleOnDeath@FLAMEGUY:
@@ -1958,10 +1956,13 @@
 	Crushable:
 		CrushClasses: HeavyInfantry
 	-DamagedByTerrain:
+	Passenger:
+		CargoCondition: ascargo
 	ExplosionOnDamageTransition:
 		Weapon: DroneExplode
 		DamageState: Critical
 		CoolDown: 100
+		RequiresCondition: !ascargo
 	ExplodesAlsoTransported:
 		Weapon: DroneExplode
 		RequiresCondition: !ascargo
@@ -2042,6 +2043,11 @@
 	Mobile:
 		Locomotor: TibInmuneInfantry
 		PauseOnCondition: empdisable || WebDisable
+	Passenger:
+		CargoCondition: ascargo
+	ExplodesAlsoTransported:
+		Weapon: DroneExplode
+		RequiresCondition: !ascargo
 	SpeedMultiplier@InstantStop:
 		RequiresCondition: empdisable || WebDisable
 	SpawnActorOnDeath@conversion:
@@ -2232,7 +2238,6 @@
 		Voice: Move
 	Carryable:
 		RequiresCondition: !inside-tunnel
-		CarriedCondition: carried
 		LockedCondition: carrylock
 	Passenger:
 		CargoType: Vehicle
@@ -2242,7 +2247,6 @@
 	SharedPassenger:
 		CargoType: Vehicle
 		CustomPipType: blue
-		CargoCondition: in_tunnel
 	Sellable:
 		SellSounds: cashturn.aud
 		Cursor: sell2
@@ -2298,10 +2302,8 @@
 		LockedCondition: carrylock
 	Mobile:
 		PauseOnCondition: empdisable || carrylock
-	Passenger:
-		CargoCondition: ascargo
 	FloatingSpriteEmitter@spawnsmoke:
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried && !ascargo && !in_tunnel
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
 	SpawnSparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
 
@@ -2333,7 +2335,7 @@
 		BackwardDuration: 5
 		MaxBackwardCells: -1
 	LeavesTrails@water:
-		RequiresCondition: hoverunitonwater && !carried && !ascargo && !in_tunnel && !inside-tunnel
+		RequiresCondition: hoverunitonwater && !inside-tunnel
 		Image: hoverwind
 		Sequences: water
 		Palette: effect
@@ -2345,7 +2347,7 @@
 		SpawnAtLastPosition: false
 		StartDelay: -1
 	LeavesTrails@land:
-		RequiresCondition: !hoverunitonwater && !carried && !ascargo && !in_tunnel && !inside-tunnel
+		RequiresCondition: !hoverunitonwater && !inside-tunnel
 		Image: hoverwind
 		Sequences: non-water
 		Palette: effect
@@ -2361,8 +2363,6 @@
 	GrantConditionOnTerrain:
 		Condition: hoverunitonwater
 		TerrainTypes: Water
-	ExternalCondition@hoverunitonwater:
-		Condition: hoverunitonwater
 	ExplodesAlsoTransported:
 		RequiresCondition: !hoverunitonwater || !empdisable
 	-ChangesHealth@veinholedrain:
@@ -2418,7 +2418,10 @@
 	Targetable@NoAutoTarget:
 		TargetTypes: NoAutoTarget
 		RequiresCondition: submerged
-	-FloatingSpriteEmitter@spawnsmoke:
+	FloatingSpriteEmitter@spawnsmoke:
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !submerged
+	SpawnSparks:
+		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !submerged
 	AnnounceOnSeen@subterranean:
 		PingRadar: true
 		Notification: SubterraneanUnitDetected
@@ -2821,8 +2824,6 @@
 		TextNotification: notification-structure-sold
 		RequiresCondition: !Building-Buildup
 	WithMakeAnimation:
-		Condition: Building-Buildup
-	ExternalCondition@Building-Buildup:
 		Condition: Building-Buildup
 	MapEditorData:
 		Categories: Buildable Structure
@@ -3292,7 +3293,7 @@
 	MapEditorData:
 		Categories: Defence
 	Gate:
-		PauseOnCondition: empdisable || Building-Buildup
+		PauseOnCondition: empdisable
 		OpeningSound: gatedwn1.aud
 		ClosingSound: gateup1.aud
 		BlocksProjectilesHeight: 640
@@ -3301,6 +3302,8 @@
 		Adjacent: 6
 	Replacement:
 		ReplaceableTypes: Gate
+	Sellable:
+		-RequiresCondition:
 	-GrantConditionOnPrerequisite@INSTANTCAPTURE:
 	-Capturable:
 	-CapturableProgressBar:
@@ -3437,12 +3440,12 @@
 ^InfantryStealthDetection:
 	DetectCloaked:
 		Range: 1c0
-		RequiresCondition: !ascargo && !in_tunnel && !inside-tunnel && !Blind
+		RequiresCondition: !inside-tunnel && !Blind
 
 ^BasicStealthDetection:
 	DetectCloaked:
 		Range: 5c0
-		RequiresCondition: !carried && !ascargo && !in_tunnel && !inside-tunnel && !empdisable && !Blind
+		RequiresCondition: !inside-tunnel && !empdisable && !Blind
 	RenderDetectionCircle:
 		BorderWidth: 0
 		Width: 2

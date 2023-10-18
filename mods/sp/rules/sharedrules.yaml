@@ -217,7 +217,6 @@ HARV:
 	-Carryable:
 	AutoCarryable:
 		RequiresCondition: !inside-tunnel
-		CarriedCondition: carried
 		LockedCondition: carrylock
 	AddCashCheater@AI:
 		CashCheatType: Harvester
@@ -1934,10 +1933,8 @@ SCRGATE_A:
 	Tooltip:
 		Name: Energy Gate
 	Gate:
-		PauseOnCondition: empdisable || Building-Buildup
 		OpeningSound: scrinplacebuilding.wav
 		ClosingSound: scrinplacebuilding.wav
-		BlocksProjectilesHeight: 640
 	PlaceBuildingVariants:
 		Actors: scrgate_b
 
@@ -1950,10 +1947,8 @@ SCRGATE_B:
 		Name: Energy Gate
 	Buildable:
 	Gate:
-		PauseOnCondition: empdisable || Building-Buildup
 		OpeningSound: scrinplacebuilding.wav
 		ClosingSound: scrinplacebuilding.wav
-		BlocksProjectilesHeight: 640
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chromescrin

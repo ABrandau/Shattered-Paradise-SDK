@@ -1129,7 +1129,7 @@ CABECM:
 		SpawnOffset: 0,0,512
 		RespawnTicks: 256
 		FollowAfterAttackDelay: 21 ## bigger than reload time
-		PauseOnCondition: carried || empdisable || in_tunnel || inside-tunnel || ascargo
+		PauseOnCondition: empdisable
 	Armament:
 		Weapon: HackerReconDummyWeapon
 		PauseOnCondition: empdisable
@@ -1540,7 +1540,7 @@ NEUTRALFABRICATORDEP:
 		PlayerPalette: playerunittem
 
 CONTAINMENTUNIT:
-	Inherits: ^Building
+	Inherits: ^BasicBuilding
 	Inherits@2: ^3x3Shape
 	Valued:
 		Cost: 350
@@ -1553,9 +1553,6 @@ CONTAINMENTUNIT:
 		HP: 15000
 	Armor:
 		Type: Building
-	-WithMakeAnimation:
-	RequiresBuildableArea:
-		AreaTypes: building
 	RenderSprites:
 		Image: containmentunit
 	IsometricSelectable:
@@ -1648,7 +1645,6 @@ COREDEFENDER:
 	-Carryable:
 	FloatingSpriteEmitter@spawnsmoke:
 		Offset: 0,0,2500
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
 	SpawnSparks:
 		LocalOffset: 0,0,2500
 	WithInfantryBody:
@@ -1919,7 +1915,6 @@ HMECTEST:
 	-Chronoshiftable:
 	-Carryable:
 	FloatingSpriteEmitter@spawnsmoke:
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
 		Offset: 0, 0, 1000
 	SpawnSparks:
 		LocalOffset: 0, 0, 900
