@@ -363,21 +363,23 @@ AmmoCrateExplo:
 SparkDebris:
 	Range: 1c00
 	ReloadDelay: 100
-	Projectile: Bullet
-		Speed: 50, 125
-		Inaccuracy: 256
-		InaccuracyType: PerCellIncrement
-		LaunchAngle: 200, 250
+	Projectile: ProjetcileHusk
 		Image: sparkprojectile
+		Velocity: 30, 0, 200
+		VelocityRandomFactor: 50, 50, 200
+		Acceleration: 0, 0, -30
+		HorizontalRevert: true
+		UseRangeModifierAsVelocityX: false
 
 LightningSparkDebris:
 	Range: 1c00
-	Projectile: Bullet
-		Speed: 55, 90
-		Inaccuracy: 4c0
-		InaccuracyType: PerCellIncrement
-		LaunchAngle: 150, 250
+	Projectile: ProjetcileHusk
 		Image: sparkprojectile
+		Velocity: 30, 0, 300
+		VelocityRandomFactor: 50, 50, 400
+		Acceleration: 0, 0, -30
+		HorizontalRevert: true
+		UseRangeModifierAsVelocityX: false
 	Warhead@2Eff: CreateEffect
 		Explosions: marnflash7
 		ExplosionPalette: MarnAlphaAlpha
@@ -386,14 +388,14 @@ CasingDebris:
 	ReloadDelay: 60
 	Range: 0c1
 	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-	Projectile: Bullet
-		Speed: 150
-		Inaccuracy: 0c256
-		InaccuracyType: Absolute
-		LaunchAngle: 164
+	Projectile: ProjetcileHusk
+		Velocity: 50, 0, 100
+		VelocityRandomFactor: 0, 15, 30
+		Acceleration: 0, 0, -30
+		HorizontalRevert: true
 		Image: casing
 		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
-		Shadow: true
+		UseRangeModifierAsVelocityX: false
 	Warhead@: CreateEffect
 		Explosions: casingscorch, casingscorch2, casingscorch3, casingscorch4, casingscorch5, casingscorch6, casingscorch7
 		ExplosionPalette: effect
@@ -409,40 +411,47 @@ CasingDebris:
 		AirThreshold: 8c0
 		ImpactActors: false
 
+CasingDebrisLong:
+	Inherits: CasingDebris
+	Projectile: ProjetcileHusk
+		Velocity: 100, 0, 100
+		VelocityRandomFactor: 0, 25, 30
+
 ShellCasingDebris:
 	Inherits: CasingDebris
 	MinRange: 0c512
 	Range: 1c764
-	Projectile: Bullet
-		Speed: 100
-		Inaccuracy: 128
-		LaunchAngle: 164
+	Projectile: ProjetcileHusk
+		Velocity: 90, 0, 100
+		VelocityRandomFactor: 0, 30, 30
 		Image: shellcasing
+		Shadow: true
 	Warhead@: CreateEffect
 		Explosions: shellcasingscorch, shellcasingscorch2, shellcasingscorch3, shellcasingscorch4, shellcasingscorch5, shellcasingscorch6, shellcasingscorch7
 
 WoodDebris:
-	Inherits: CasingDebris
 	ReloadDelay: 60
 	Range: 1c0
-	Projectile: Bullet
-		Speed: 50, 125
-		Inaccuracy: 256
-		LaunchAngle: 91, 255
-		Image: wooddebris
+	Projectile: ProjetcileHusk
+		Velocity: 25, 0, 80
+		VelocityRandomFactor: 0, 25, 150
+		Acceleration: 0, 0, -15
+		HorizontalRevert: true
 		Shadow: true
+		UseRangeModifierAsVelocityX: false
+		Image: wooddebris
+		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
 	Warhead@: CreateEffect
 		Explosions: woodbits, woodbits2, woodbits3, woodbits4, woodbits5, woodbits6, woodbits7
 
 WoodDebrisBig:
+	Inherits: WoodDebris
 	ReloadDelay: 60
 	Range: 2c0
-	Projectile: Bullet
-		Speed: 25, 60
-		Inaccuracy: 256
-		LaunchAngle: 180, 255
+	Projectile: ProjetcileHusk
+		Velocity: 15, 0, 20
+		VelocityRandomFactor: 0, 15, 90
 		Image: wooddebrisbig
-		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
 		Shadow: true
 	Warhead@: CreateEffect
 		Explosions: woodbitsbig, woodbitsbig2, woodbitsbig3, woodbitsbig4, woodbitsbig5, woodbitsbig6, woodbitsbig7
@@ -453,11 +462,12 @@ SmallDebris:
 	ReloadDelay: 60
 	Range: 4c0
 	Report:
-	Projectile: Bullet
-		Speed: 50, 125
-		Inaccuracy: 4c0
-		InaccuracyType: PerCellIncrement
-		LaunchAngle: 91, 255
+	Projectile: ProjetcileHusk
+		Velocity: 30, 0, 300
+		VelocityRandomFactor: 50, 50, 400
+		Acceleration: 0, 0, -15
+		HorizontalRevert: true
+		UseRangeModifierAsVelocityX: false
 		Image: dbrissm
 		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 		Shadow: true
@@ -470,9 +480,12 @@ LargeDebris:
 	ReloadDelay: 60
 	Range: 4c0
 	Report:
-	Projectile: BulletAS
-		Speed: 50, 125
-		LaunchAngle: 91, 255
+	Projectile: ProjetcileHusk
+		Velocity: 20, 0, 300
+		VelocityRandomFactor: 40, 40, 300
+		Acceleration: 0, 0, -15
+		HorizontalRevert: true
+		UseRangeModifierAsVelocityX: false
 		Image: dbrislg
 		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
 		Shadow: true
@@ -484,7 +497,7 @@ LargeDebris:
 
 SmallDebrisScrin:
 	Inherits: SmallDebris
-	Projectile: BulletAS
+	Projectile: ProjetcileHusk
 		Palette: jascblue
 	Warhead@2: SpawnSmokeParticle
 		Sequences: scrinfire3, scrinfire4
@@ -493,7 +506,7 @@ SmallDebrisScrin:
 
 LargeDebrisScrin:
 	Inherits: LargeDebris
-	Projectile: BulletAS
+	Projectile: ProjetcileHusk
 		Palette: jascblue
 	Warhead@2: SpawnSmokeParticle
 		Sequences: scrinfire2, scrinfire3
@@ -504,7 +517,7 @@ LargeDebrisScrin:
 
 TSmallDebris:
 	Inherits: SmallDebris
-	Projectile: BulletAS
+	Projectile: ProjetcileHusk
 		Palette: greentibpal
 	-Warhead@2:
 	Warhead@2Eff: CreateEffect
@@ -516,7 +529,7 @@ TSmallDebris:
 
 TLargeDebris:
 	Inherits: LargeDebris
-	Projectile: BulletAS
+	Projectile: ProjetcileHusk
 		Palette: greentibpal
 	-Warhead@2:
 	Warhead@2Eff: CreateEffect
@@ -533,7 +546,6 @@ QuickSmoke:
 	Warhead@smoke: CreateEffect
 		Delay: 0
 	
-
 QuickTibSmoke:
 	Inherits: ^DelayedSmokeEffect
 	Range: 2c0

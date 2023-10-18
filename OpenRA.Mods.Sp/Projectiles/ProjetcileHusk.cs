@@ -46,14 +46,17 @@ namespace OpenRA.Mods.SP.Projectiles
 		[Desc("Projectile movement vector per tick (forward, right, up), use negative values for opposite directions.")]
 		public readonly WVec Velocity = WVec.Zero;
 
+		[Desc("The X of the speed becomes dead actor speed by using range modifier, coop with " + nameof(SpawnHuskEffectOnDeath) + ".")]
+		public readonly bool UseRangeModifierAsVelocityX = true;
+
+		[Desc("Movement random factor on Velocity.")]
+		public readonly WVec? VelocityRandomFactor = null;
+
 		[Desc("Value added to Velocity every tick when spin is activated.")]
 		public readonly WVec AccelerationWhenSpin = new(0, 0, -10);
 
 		[Desc("Value added to Velocity every tickwhen spin is NOT activated.")]
 		public readonly WVec Acceleration = new(0, 0, -10);
-
-		[Desc("The X of the speed becomes dead actor speed by using range modifier, coop with " + nameof(SpawnHuskEffectOnDeath) + ".")]
-		public readonly bool UseRangeModifierAsVelocityX = true;
 
 		[Desc("Chance of Spin. Activate Spin.")]
 		public readonly int SpinChance = 100;
@@ -68,7 +71,7 @@ namespace OpenRA.Mods.SP.Projectiles
 		[Desc("begin spin speed.")]
 		public readonly int Spin = 0;
 
-		[Desc("Revert the Y of the speed, spin and horizongtal acceleration at 50% randomness.")]
+		[Desc("Revert the Y of the speed, and X, Y of acceleration at 50% randomness.")]
 		public readonly bool HorizontalRevert = false;
 
 		[Desc("Trail animation.")]
@@ -124,10 +127,11 @@ namespace OpenRA.Mods.SP.Projectiles
 			var world = args.SourceActor.World;
 
 			var vx = info.UseRangeModifierAsVelocityX && args.RangeModifiers.Length > 0 ? args.RangeModifiers[0] : info.Velocity.X;
+			var vec = info.VelocityRandomFactor != null ? new WVec(vx + world.SharedRandom.Next(info.VelocityRandomFactor.Value.X), info.Velocity.Y + world.SharedRandom.Next(info.VelocityRandomFactor.Value.Y), info.Velocity.Z + world.SharedRandom.Next(info.VelocityRandomFactor.Value.Z)) : new WVec(vx, info.Velocity.Y, info.Velocity.Z);
 
 			if (info.HorizontalRevert && world.SharedRandom.Next(2) == 0)
 			{
-				velocity = new WVec(-info.Velocity.Y, -vx, info.Velocity.Z);
+				velocity = new WVec(-vec.Y, -vec.X, vec.Z);
 				if (info.MaximumSpinSpeed > 0 && world.SharedRandom.Next(1, 101) <= info.SpinChance)
 				{
 					acceleration = new WVec(-info.AccelerationWhenSpin.Y, info.AccelerationWhenSpin.X, info.AccelerationWhenSpin.Z);
@@ -140,7 +144,7 @@ namespace OpenRA.Mods.SP.Projectiles
 			}
 			else
 			{
-				velocity = new WVec(info.Velocity.Y, -vx, info.Velocity.Z);
+				velocity = new WVec(vec.Y, -vec.X, vec.Z);
 				if (info.MaximumSpinSpeed > 0 && world.SharedRandom.Next(1, 101) <= info.SpinChance)
 				{
 					acceleration = new WVec(info.AccelerationWhenSpin.Y, -info.AccelerationWhenSpin.X, info.AccelerationWhenSpin.Z);
@@ -174,13 +178,18 @@ namespace OpenRA.Mods.SP.Projectiles
 		{
 			lastPos = pos;
 			pos += velocity;
-			var spinAngle = new WAngle(spin);
-			facing += spinAngle;
-			acceleration = acceleration.Rotate(WRot.FromYaw(spinAngle));
+
+			if (maxSpin != 0)
+			{
+				var spinAngle = new WAngle(spin);
+				facing += spinAngle;
+				acceleration = acceleration.Rotate(WRot.FromYaw(spinAngle));
+				spin = Math.Abs(spin) < Math.Abs(maxSpin) ? spin + spinAcc : maxSpin;
+			}
+
 			velocity += acceleration;
 
-			spin = Math.Abs(spin) < Math.Abs(maxSpin) ? spin + spinAcc : maxSpin;
-
+			// Explodes
 			if (pos.Z <= args.PassiveTarget.Z)
 			{
 				pos += new WVec(0, 0, args.PassiveTarget.Z - pos.Z);

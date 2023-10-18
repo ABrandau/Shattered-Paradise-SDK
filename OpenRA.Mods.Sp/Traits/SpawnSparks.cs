@@ -120,15 +120,16 @@ namespace OpenRA.Mods.Sp.Traits
 			var offset = 1024 / amount;
 			for (var i = 0; i < amount; i++)
 			{
-				var rotation = WRot.FromYaw(new WAngle(i * offset));
+				var facing = new WAngle(i * offset);
+				var rotation = WRot.FromYaw(facing);
 				var targetpos = epicenter + new WVec(weapon.Range.Length, 0, 0).Rotate(rotation);
 				var radiusTarget = Target.FromPos(new WPos(targetpos.X, targetpos.Y, Info.ForceToGround ? map.CenterOfCell(map.CellContaining(targetpos)).Z : targetpos.Z));
 
 				var projectileArgs = new ProjectileArgs
 				{
 					Weapon = weapon,
-					Facing = default,
-					CurrentMuzzleFacing = () => default,
+					Facing = facing,
+					CurrentMuzzleFacing = () => facing,
 
 					DamageModifiers = Array.Empty<int>(),
 
