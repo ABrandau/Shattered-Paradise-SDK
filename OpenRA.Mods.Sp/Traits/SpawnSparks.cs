@@ -95,71 +95,68 @@ namespace OpenRA.Mods.Sp.Traits
 
 		void ITick.Tick(Actor self)
 		{
-			if (IsTraitDisabled)
+			if (!self.IsInWorld || IsTraitDisabled || --interval > 0)
 				return;
 
-			if (--interval <= 0)
+			var epicenter = self.CenterPosition + (body != null
+				? body.LocalToWorld(Info.LocalOffset.Rotate(body.QuantizeOrientation(self.Orientation)))
+				: Info.LocalOffset);
+			var world = self.World;
+
+			if (hasLaunchEffect)
 			{
-				var epicenter = self.CenterPosition + (body != null
-					? body.LocalToWorld(Info.LocalOffset.Rotate(body.QuantizeOrientation(self.Orientation)))
-					: Info.LocalOffset);
-				var world = self.World;
-
-				if (hasLaunchEffect)
-				{
-					self.World.AddFrameEndTask(w => w.Add(new SpriteEffect(epicenter, self.World,
-						Info.LaunchEffectImage, Info.LaunchEffectSequences.Random(world.LocalRandom), Info.LaunchEffectPalette)));
-				}
-
-				if (!hasWeapon)
-				{
-					interval = Info.Interval;
-					return;
-				}
-
-				var map = world.Map;
-				var amount = Info.Amount;
-				var offset = 1024 / amount;
-				for (var i = 0; i < amount; i++)
-				{
-					var rotation = WRot.FromYaw(new WAngle(i * offset));
-					var targetpos = epicenter + new WVec(weapon.Range.Length, 0, 0).Rotate(rotation);
-					var radiusTarget = Target.FromPos(new WPos(targetpos.X, targetpos.Y, Info.ForceToGround ? map.CenterOfCell(map.CellContaining(targetpos)).Z : targetpos.Z));
-
-					var projectileArgs = new ProjectileArgs
-					{
-						Weapon = weapon,
-						Facing = default,
-						CurrentMuzzleFacing = () => default,
-
-						DamageModifiers = Array.Empty<int>(),
-
-						InaccuracyModifiers = Array.Empty<int>(),
-
-						RangeModifiers = Array.Empty<int>(),
-						Source = epicenter,
-						CurrentSource = () => epicenter,
-						SourceActor = self,
-						GuidedTarget = radiusTarget,
-						PassiveTarget = radiusTarget.CenterPosition
-					};
-
-					if (projectileArgs.Weapon.Projectile != null)
-					{
-						var projectile = projectileArgs.Weapon.Projectile.Create(projectileArgs);
-						if (projectile != null)
-							world.AddFrameEndTask(w => w.Add(projectile));
-					}
-				}
-
-				if (weapon.Report != null && weapon.Report.Any())
-				{
-					if (weapon.AudibleThroughFog || (!self.World.ShroudObscures(epicenter) && !self.World.FogObscures(epicenter)))
-						Game.Sound.Play(SoundType.World, weapon.Report, world, epicenter, null, weapon.SoundVolume);
-				}
-
-				interval = Info.Interval;
+				self.World.AddFrameEndTask(w => w.Add(new SpriteEffect(epicenter, self.World,
+					Info.LaunchEffectImage, Info.LaunchEffectSequences.Random(world.LocalRandom), Info.LaunchEffectPalette)));
 			}
+
+			if (!hasWeapon)
+			{
+				interval = Info.Interval;
+				return;
+			}
+
+			var map = world.Map;
+			var amount = Info.Amount;
+			var offset = 1024 / amount;
+			for (var i = 0; i < amount; i++)
+			{
+				var rotation = WRot.FromYaw(new WAngle(i * offset));
+				var targetpos = epicenter + new WVec(weapon.Range.Length, 0, 0).Rotate(rotation);
+				var radiusTarget = Target.FromPos(new WPos(targetpos.X, targetpos.Y, Info.ForceToGround ? map.CenterOfCell(map.CellContaining(targetpos)).Z : targetpos.Z));
+
+				var projectileArgs = new ProjectileArgs
+				{
+					Weapon = weapon,
+					Facing = default,
+					CurrentMuzzleFacing = () => default,
+
+					DamageModifiers = Array.Empty<int>(),
+
+					InaccuracyModifiers = Array.Empty<int>(),
+
+					RangeModifiers = Array.Empty<int>(),
+					Source = epicenter,
+					CurrentSource = () => epicenter,
+					SourceActor = self,
+					GuidedTarget = radiusTarget,
+					PassiveTarget = radiusTarget.CenterPosition
+				};
+
+				if (projectileArgs.Weapon.Projectile != null)
+				{
+					var projectile = projectileArgs.Weapon.Projectile.Create(projectileArgs);
+					if (projectile != null)
+						world.AddFrameEndTask(w => w.Add(projectile));
+				}
+			}
+
+			if (weapon.Report != null && weapon.Report.Any())
+			{
+				if (weapon.AudibleThroughFog || (!self.World.ShroudObscures(epicenter) && !self.World.FogObscures(epicenter)))
+					Game.Sound.Play(SoundType.World, weapon.Report, world, epicenter, null, weapon.SoundVolume);
+			}
+
+			interval = Info.Interval;
 		}
 
 		protected override void TraitEnabled(Actor self)

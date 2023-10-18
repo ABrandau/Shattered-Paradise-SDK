@@ -630,7 +630,6 @@ HMEC:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 		Offset: 0, 0, 1000
 	SpawnSparks:
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 		LocalOffset: 0, 0, 900
 	Health:
 		HP: 300000
@@ -1794,8 +1793,6 @@ SCORPION:
 	-FirepowerMultiplier@BLUEFLAME:
 	FloatingSpriteEmitter@spawnsmoke:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
-	SpawnSparks:
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	Health:
 		HP: 300000
 	AnnounceOnSeen:
@@ -2442,8 +2439,6 @@ HVRTRUK3:
 	-Passenger:
 	-SharedPassenger:
 	FloatingSpriteEmitter@spawnsmoke: ## Remove in in_tunnel
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
-	SpawnSparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	LeavesTrails@water:
 		RequiresCondition: hoverunitonwater && !carried && !inside-tunnel
@@ -3157,8 +3152,6 @@ CABAPC:
 	-SharedPassenger:
 	FloatingSpriteEmitter@spawnsmoke: ## Remove in in_tunnel
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
-	SpawnSparks:
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	LeavesTrails@water:
 		RequiresCondition: hoverunitonwater && !carried && !inside-tunnel
 	LeavesTrails@land:
@@ -3385,7 +3378,6 @@ BCOREDEF:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	SpawnSparks:
 		LocalOffset: 0,0,3000
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !carried
 	ExplodesAlsoTransported:
 		Weapon: BuildingExplode
 	ThrowsShrapnel:
