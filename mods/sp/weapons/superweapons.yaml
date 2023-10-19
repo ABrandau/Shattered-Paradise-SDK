@@ -125,7 +125,15 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 	Inherits: ^SWBaseEffects
 	ReloadDelay: 6
 	Range: 12c0
-	ValidTargets: Ground, Vehicle, Infantry, Building, Water, Air, IonSpawner
+	ValidTargets: Ground, Vehicle, Infantry, Building, Water, Air
+	Warhead@beacon: CreateEffect
+		ImpactSounds: sparlo.wav
+		Image: explosion
+		ImpactActors: false
+		Explosions: beaconflash
+		ExplosionPalette: gensmkexplocyan70
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
 	Warhead@4BeamEff: FireReverseRadius
 		ValidTargets: Vehicle, Infantry, Building, Ground, Water, Air
 		Weapon: IonBeamMini
@@ -151,7 +159,7 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 		Damage: 200000
 		Falloff: 100, 60, 30
 		AffectsParent: true
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
 		Versus:
 			Boss: 200
@@ -192,7 +200,7 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 		ExplosionPalette: gensmkexplocyan70
 		AffectsParent: true
 		ImpactActors: false
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 		AirThreshold: 8c0
 	Warhead@3Effect: CreateEffect
 		Delay: 110
@@ -200,7 +208,7 @@ IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 		ImpactSounds: ion1.aud
 		AffectsParent: true
 		ImpactActors: false
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 		AirThreshold: 8c0
 
 	Warhead@Shake: ShakeScreen
