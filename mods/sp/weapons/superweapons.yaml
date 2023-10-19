@@ -1108,9 +1108,11 @@ VeinholeSummonerWeapon:
 	ReloadDelay: 8
 	Range: 3c0
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
-	Warhead@5Actor: SpawnActor
-		Actors: veinholespawnerdummy
-		ForceGround: true
+	Warhead@5Actor: SpawnBuilding
+		Buildings: minivein
+		LinkToParent: true
+		OwnerType: InternalName
+		InternalOwner: Creeps
 		Range: 15
 		AirThreshold: 8c0
 		ValidTargets: Ground, Water, Air
@@ -1124,9 +1126,11 @@ VeinholeSummonerWeapon:
 VeinholeShrapnel:
 	Range: 4c512
 	Projectile: InstantHit
-	Warhead@5Actor: SpawnActor
-		Actors: veinholespawnerdummy
-		ForceGround: true
+	Warhead@5Actor: SpawnBuilding
+		Buildings: minivein
+		LinkToParent: true
+		OwnerType: InternalName
+		InternalOwner: Creeps
 		Range: 15
 		AirThreshold: 8c0
 		ValidTargets: Ground, Water, Air

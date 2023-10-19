@@ -3135,43 +3135,6 @@
 	Tooltip:
 		Name: Palette
 
-^DeployedVehicle:
-	Inherits: ^GenericEffects
-	Inherits@0: ^ExistsInWorld
-	Inherits@1: ^SpriteActor
-	Inherits@3: ^1x1Shape
-	Inherits@SELECTION_MODE: ^FlatSelectionMode
-	Voiced:
-		VoiceSet: Vehicle
-	AttackTurreted:
-		Voice: Attack
-		TargetFrozenActors: true
-	RenderRangeCircle:
-		BorderWidth: 0
-		Width: 2
-	DrawLineToTarget:
-	Armor:
-		Type: Heavy
-	Building:
-		Dimensions: 1,1
-		Footprint: x
-		TerrainTypes: Clear, Road, DirtRoad, Rough
-	WithSpriteBody:
-	WithMakeAnimation:
-	SelectionDecorations:
-		MinimumZoom: 0
-	Selectable:
-	Targetable:
-		TargetTypes: Ground, Repair
-	Guardable:
-	HiddenUnderFog:
-	ActorLostNotification:
-		TextNotification: notification-unit-lost
-	MapEditorData:
-		Categories: Deployed Vehicle
-	RequiresBuildableArea:
-		AreaTypes: building
-
 ^TerrainOverlay:
 	AlwaysVisible:
 	Immobile:

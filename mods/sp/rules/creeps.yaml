@@ -460,27 +460,30 @@ jfish:
 		Category: Tiberian Lifeform
 		Order: 12
 
-
 MINIVEIN:
-	Inherits: ^NonBuildingStaticActor
+	Inherits: ^1x1Shape
+	Inherits@3: ^SpriteActor
+	Inherits@2: ^ExistsInWorld
 	RadarColorFromTerrain:
 		Terrain: Veins
 	Tooltip:
 		Name: Baby Veinhole
 		ShowOwnerRow: false
-	-Interactable:
+	HasParent:
+	RevealsShroudToParentOwner:
+		Type: CenterPosition
+		MaxHeightDelta: 3
+		Range: 4c0
 	Selectable:
 		Bounds: 1206,1809
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+		TerrainTypes: Clear, Road, Bridge, Rail, DirtRoad, Rough, Cliff, Tiberium, BlueTiberium, Veins, Tree, Rock, CivilianBuilding, CivilianProp
 	SelectionDecorations:
-	WithIdleOverlay@sushi:
-		Sequence: sushi1
-		RequiresCondition: !growing
-	WithDeathAnimation:
-		DeathSequence: dead
-		UseDeathTypeSuffix: false
 	AmbientSound:
 		SoundFiles: tentaclem0001.wav, tentaclem0002.wav, tentaclem0003.wav
-		Delay: 0, 100
+		Delay: 0
 		Interval: 150, 300
 	Health:
 		HP: 70000
@@ -493,18 +496,25 @@ MINIVEIN:
 		Range: 4c0
 		AffectsParent: false
 		ValidRelationships: Ally, Enemy, Neutral
-	ProximityExternalCondition@sustaincamera:
-		Condition: sustaincamera
-		Range: 1c0
-		AffectsParent: false
-		ValidRelationships: Ally, Enemy, Neutral
+	SpawnSparks@Deployed:
+		Interval: 800
+		SparkWeapon: VeinholeEggElevator
+		Amount: 1
+	WithSpriteBody:
 	WithMakeAnimation:
 		Condition: growing
+	WithIdleOverlay@sushi:
+		Sequence: sushi1
+		RequiresCondition: !growing
+	WithDeathAnimation:
+		DeathSequence: dead
+		UseDeathTypeSuffix: false
 	ChangesHealth:
 		PercentageStep: 2
 		StartIfBelow: 200
 		DamageCooldown: 50
 		Delay: 25
+	FrozenUnderFog:
 	SmokeParticleEmitter@cloud:
 		SpawnFrequency: 180
 		Weapon: CloudDamage
