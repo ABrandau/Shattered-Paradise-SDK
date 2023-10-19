@@ -735,10 +735,7 @@ HMEC:
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
 		Weapons: LargeDebris
-	ExternalCondition@PRODUCED: ## Use this to prevent map-preplaced MK2 announces itself
-		Condition: produced
-	VoiceAnnouncement:
-		RequiresCondition: produced
+	VoiceAnnouncementOnProductionExit:
 		Voice: Build
 	ProvidesPrerequisite@ForceProductionUIWhenDeath:
 	ActorStatValues:
@@ -1891,10 +1888,7 @@ SCORPION:
 		Pieces: 2, 4
 		Weapons: LargeDebris
 	-WithFacingSpriteBody:
-	ExternalCondition@PRODUCED:
-		Condition: produced
-	VoiceAnnouncement:
-		RequiresCondition: produced
+	VoiceAnnouncementOnProductionExit:
 		Voice: Build
 	ActorStatValues:
 		Armaments: laserFire, fireArmament
@@ -2640,10 +2634,7 @@ WEASAU:
 	Selectable:
 		Bounds: 2413, 4041, 0, -1508
 	-Targetable@MC:
-	ExternalCondition@PRODUCED:
-		Condition: produced
-	VoiceAnnouncement:
-		RequiresCondition: produced
+	VoiceAnnouncementOnProductionExit:
 		Voice: Build
 	IssueOrderToBot@AI:
 		OrderName: DeployWithCharge
@@ -3393,10 +3384,7 @@ BCOREDEF:
 		PingRadar: true
 		Notification: CommandoDetected
 		TextNotification: notification-cabal-epic
-	ExternalCondition@PRODUCED:
-		Condition: produced
-	VoiceAnnouncement:
-		RequiresCondition: produced
+	VoiceAnnouncementOnProductionExit:
 		Voice: Build
 	ProvidesPrerequisite@buildinglimit:
 		Prerequisite: DarkDefenderExists

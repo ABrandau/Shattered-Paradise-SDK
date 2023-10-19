@@ -2082,10 +2082,7 @@ HMECTEST:
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
 		Weapons: LargeDebris
-	ExternalCondition@PRODUCED: ## Use this to prevent map-preplaced MK2 announces itself
-		Condition: produced
-	VoiceAnnouncement:
-		RequiresCondition: produced
+	VoiceAnnouncementOnProductionExit:
 		Voice: Build
 	RenderSprites:
 		Image: mammothtest
@@ -2345,10 +2342,7 @@ SCRINCOUNCIL:
 	SpawnHuskEffectOnDeath:
 		Weapon: scrincouncil.husk
 		RequiresCondition: airborne
-	ExternalCondition@PRODUCED:
-		Condition: produced
-	VoiceAnnouncement:
-		RequiresCondition: produced
+	VoiceAnnouncementOnProductionExit:
 		Voice: Build
 	DeathSounds:
 	Voiced:

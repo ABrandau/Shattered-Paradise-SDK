@@ -558,8 +558,6 @@ GACNST:
 		Prerequisite: proc
 		RequiresCondition: megawealth
 	ProvidesPrerequisite@buildingname:
-	GrantExternalConditionToProduced:
-		Condition: produced
 	ProvidesPrerequisite@AIantiRush-building-order:
 		Prerequisite: AIantiRush-building-order ## Hack: AI Building control. AI build refinary only when it has a combat producing line.
 
@@ -796,8 +794,6 @@ GACNST:
 		Factions: gdi, nod, cab, mut
 		Prerequisite: humanstuff
 		ResetOnOwnerChange: true
-	GrantExternalConditionToProduced:
-		Condition: produced
 	ProvidesPrerequisite@AIantiRush-building-order:
 		Prerequisite: AIantiRush-building-order
 	IsometricSelectable:
@@ -809,8 +805,6 @@ GACNST:
 	Inherits@SHAPE: ^2x2Shape
 	Exit@1:
 		SpawnOffset: 0,-256,0
-	GrantExternalConditionToProduced:
-		Condition: produced
 	Buildable:
 		BuildDuration: 375
 		BuildDurationModifier: 100
