@@ -225,3 +225,22 @@ ChemicalFlame2:
 	Warhead@3Eff: CreateEffect
 		ExplosionPalette: jascgreen
 
+
+VeterancyWeapon:
+	ReloadDelay: 25
+	Range: 999c0
+	Warhead@1Eff: Promotion
+		Range: 1c512
+		ValidRelationships: Ally, Neutral
+
+RadarScanWeapon:
+	ReloadDelay: 6
+	Projectile: InstantExplode
+	Warhead@Spawn: SpawnActor
+		Actors: radarscandummy
+		Range: 3
+		AirThreshold: 8c0
+	Warhead@1Eff: CreateEffect
+		ImpactSounds: sspysate.aud
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0

@@ -121,26 +121,6 @@ EMPulseCannonShrapnel:
 		ValidTargets: Ground, Air, Water
 		AirThreshold: 8c0
 
-VeterancyWeapon:
-	ReloadDelay: 25
-	Range: 999c0
-	Warhead@1Eff: Promotion
-		Range: 1c512
-		ValidRelationships: Ally, Neutral
-
-RadarScanWeapon:
-	ReloadDelay: 6
-	Projectile: InstantExplode
-	Warhead@Spawn: SpawnActor
-		Actors: radarscandummy
-		Range: 3
-		AirThreshold: 8c0
-	Warhead@1Eff: CreateEffect
-		ImpactSounds: sspysate.aud
-		ValidTargets: Ground, Water, Air
-		AirThreshold: 8c0
-
-
 IonCannonSpawner: ### THIS ONE GENERATES THE MAIN ION BEAM DUMMY
 	Inherits: ^SWBaseEffects
 	ReloadDelay: 6
