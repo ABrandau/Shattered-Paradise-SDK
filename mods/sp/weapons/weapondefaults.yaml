@@ -29,7 +29,6 @@
 		MaximumLaunchAngle: 255
 		Speed: 400
 		Acceleration: 0 ##Avoid missile stuck on the cliff and ramp
-		Blockable: false
 		Shadow: false
 		TrailInterval: 1
 		Inaccuracy: 0c181
@@ -40,6 +39,7 @@
 		HorizontalRateOfTurnStart: 13
 		VerticalRateOfTurn: 128
 		RangeLimit: 15c0
+		ExplodeWhenEmpty: true
 		TrailImage: small_smoke_trail
 		TrailPalette: effect
 		Palette: player
@@ -49,8 +49,8 @@
 		JetImage: explosion
 		JetSequences: marnflash8
 		JetPalette: MarnAlphaAlpha
+		Blockable: false
 		Jammable: false ## help to save a little bit performance
-		ExplodeWhenEmpty: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c181
 		Versus:
@@ -69,7 +69,7 @@
 		Speed: 400
 		Acceleration: 0
 		Inaccuracy: 0 ## Make sure it can hit the drone properly 
-		RangeLimit: 12c0
+		RangeLimit: 17c0 ## Make sure can hit unmoving aircraft at height of 6 cells in max AA range. 
 		Jammable: false ## help to save a little bit performance
 
 ^APWarhead:
