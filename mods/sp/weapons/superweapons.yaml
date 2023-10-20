@@ -106,6 +106,13 @@ EMPulseCannon:
 		Amount: 12
 		Delay: 20
 		AirThreshold: 8c0
+	Warhead@Reveal: RevealShroud
+		Duration: 100
+		Radius: 4c0
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+		RevealGeneratedShroud: true
 
 
 EMPulseCannonShrapnel:
@@ -882,19 +889,23 @@ IronSavior:
 		TrailPalette: gensmkexplocyan70
 		TrailInterval: 0
 		TrailDelay: 0
-	Warhead@6Spawn: SpawnActor ##In doing so, AI protection squad won't rush iron savior when get hit by this superweapon
-		ValidTargets: Vehicle, Infantry, Building, Ground, Water, Air
-		Actors: ironsaviordummy
-		ForceGround: true
-		AirThreshold: 8c0
+	Warhead@Reveal: RevealShroud
+		Duration: 200
+		Radius: 6c0
 		ImpactActors: false
-		Image: explosion
-		Sequence: cabexplo
-		Palette: apcyan
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+		RevealGeneratedShroud: true
+	Warhead@6Weapon : FireFragment
+		ImpactActors: false
+		Weapon: IronSaviorExplode
+		ValidTargets: Vehicle, Infantry, Building, Ground, Water, Air
+		AirThreshold: 8c0
 
 IronSaviorExplode:
 	Inherits: ^FullDamage
 	Inherits@2: ^SWBaseEffects
+	Projectile: SupportPowerInstantExplode
 	Warhead@1Dam: SpreadDamage
 		Spread: 700
 		Damage: 18000
@@ -908,9 +919,15 @@ IronSaviorExplode:
 	Warhead@2Eff: CreateEffect
 		Explosions: cabexplo
 		ExplosionPalette: apcyan
-		ValidTargets: Ground, Air
+		ValidTargets: Vehicle, Infantry, Building, Ground, Water, Air
 		ImpactSounds: expnew09.aud, expnew02.aud, expnew03.aud, expnew04.aud
 		AirThreshold: 8c0
+	Warhead@2Eff: CreateEffect
+		Explosions: cabexplo
+		ExplosionPalette: apcyan
+		ValidTargets: Vehicle, Infantry, Building, Ground, Water, Air
+		AirThreshold: 8c0
+		Delay: 8
 	Warhead@4Smu: LeaveSmudgeSP
 		SmudgeType: Crater
 		InitialSmudgeLevel: 10, 11

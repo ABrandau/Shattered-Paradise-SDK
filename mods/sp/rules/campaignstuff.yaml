@@ -1709,9 +1709,12 @@ COREDEFENDER:
 		MuzzleSequence: muzzle2
 		Name: HeadArmament
 		RequiresCondition: !SuperAttack && !FirestormGen ## weapon is disabled when superweapon attack or firestorm
-	Armament@HeadSuper:
+	Armament@HeadSuper1:
 		Weapon: CoreDefSuper
 		LocalOffset: 700,0,4900
+		Name: HeadSuperWeapon
+	Armament@HeadSuper2:
+		Weapon: CoreDefSuperReveal
 		Name: HeadSuperWeapon
 	ProvidesPrerequisite@HeadSuperAIbuildinglimit:
 		Prerequisite: DefenderExists
@@ -1762,6 +1765,7 @@ COREDEFENDER:
 		Weapons: LargeDebris
 	## Firestorm on Deploy
 	GrantConditionOnDeployWithCharge@FirestormWall:
+		InitialCharge: -1
 		PauseOnCondition: empdisable && !FirestormGen
 	ProximityExternalCondition@FirestormWall:
 		Range: 7c0
