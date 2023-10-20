@@ -259,13 +259,19 @@ NAHFAC:
 		RequiresCondition: !error
 
 CABECM:
+	Targetable@AIPrefer:
+		TargetTypes: AIPrefer
 	## Allow to use emp when Hacked 2 times
 	ExternalCondition@Hacked.lv2:
 		Condition: allow-disable
 	Armament@2:
 		RequiresCondition: allow-disable
-	Targetable@AIPrefer:
-		TargetTypes: AIPrefer
+	WithDecoration@Hacked.lv2:
+		Image: rank
+		Sequence: rank-elite
+		Palette: gensmkexplogreen
+		Position: BottomRight
+		RequiresCondition: allow-disable
 
 POWEROFFDUMMY:
 	AlwaysVisible:
