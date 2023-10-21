@@ -14,23 +14,24 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Sp.Traits
 {
-	[Desc("Hack: used for short game is disabled and no-base mod.")]
-	sealed class GrantConditionWhenEnableShortGameInfo : TraitInfo
+	[Desc("Grant condition when short game is enabled.",
+		"Used for short game is enable on no-base mod.")]
+	sealed class GrantConditionOnShortGameInfo : TraitInfo
 	{
 		[FieldLoader.Require]
 		[GrantedConditionReference]
 		[Desc("The condition to grant to self")]
 		public readonly string Condition = null;
 
-		public override object Create(ActorInitializer init) { return new GrantConditionWhenEnableShortGame(this); }
+		public override object Create(ActorInitializer init) { return new GrantConditionOnShortGame(this); }
 	}
 
-	sealed class GrantConditionWhenEnableShortGame : INotifyCreated
+	sealed class GrantConditionOnShortGame : INotifyCreated
 	{
-		readonly GrantConditionWhenEnableShortGameInfo info;
+		readonly GrantConditionOnShortGameInfo info;
 		int token;
 
-		public GrantConditionWhenEnableShortGame(GrantConditionWhenEnableShortGameInfo info)
+		public GrantConditionOnShortGame(GrantConditionOnShortGameInfo info)
 		{
 			this.info = info;
 			token = Actor.InvalidConditionToken;
