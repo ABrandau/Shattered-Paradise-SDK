@@ -190,10 +190,17 @@ CrabAcid:
 		NoUnintendedFriendlyFire: All
 
 JellyAttackPrepare:
+	Inherits@wh: ^FullDamage
 	ValidTargets: Ground, Water, Vehicle, Infantry, Building
 	Projectile: InstantHit
 	ReloadDelay: 60
 	Range: 1c512
+	Warhead@1Dam: TargetDamage ## Can attack ally when intended
+		Spread: 42
+		Damage: 2000
+		DamageTypes: TriggerProne, EnergyDeath
+		ValidTargets: Ground, Water, Vehicle, Infantry, Building
+		ValidRelationships: Ally
 
 ElectricTentacle:
 	Inherits@wh: ^FullDamage
