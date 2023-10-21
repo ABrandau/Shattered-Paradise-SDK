@@ -244,3 +244,18 @@ RadarScanWeapon:
 		ImpactSounds: sspysate.aud
 		ValidTargets: Ground, Water, Air
 		AirThreshold: 8c0
+
+SuicideBomb:
+	ReloadDelay: 1
+	Range: 0c512
+	Report: HUNTER2.AUD
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 11000
+		Falloff: 10000, 3680, 1350, 500, 180, 70, 0
+		Versus:
+			Infantry: 90
+			Heavy: 60
+			Defense: 60
+			Concrete: 50
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath

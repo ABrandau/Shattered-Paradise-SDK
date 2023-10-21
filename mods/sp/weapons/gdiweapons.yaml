@@ -661,7 +661,6 @@ MechRailgun2: ##For line damage
 	Burst: 2
 	BurstDelays: 10
 	TargetActorCenter: true
-	Report: railuse5.aud
 	Projectile: Railgun
 		DamageActorsInLine: true
 		BeamColor: 00BBBB00 ## Hack make this beam invisible
@@ -934,7 +933,6 @@ MKIIIRailgun2: ##For line damage
 	Burst: 2
 	BurstDelays: 8
 	TargetActorCenter: true
-	Report: railuse5.aud
 	Projectile: Railgun
 		DamageActorsInLine: true
 		BeamColor: 00BBBB00
@@ -1141,11 +1139,12 @@ MEMPulse:
 		Range: 3c0
 	Warhead@4: GrantExternalCondition
 		Range: 3c0
-	Warhead@5: SpreadDamage
+	Warhead@5: TargetDamage
 		Spread: 2c512
 	Warhead@7: FireRadius
 		Amount: 6
 		Delay: 20
+	-Warhead@Reveal:
 
 IonCannonConnectionWave:
 	ValidTargets: Ground, Water, Air

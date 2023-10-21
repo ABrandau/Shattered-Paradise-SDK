@@ -27,21 +27,6 @@
 		Damage: 9000000
 		AirThreshold: 8c0
 		DebugOverlayColor: 0000FF
-		
-SuicideBomb:
-	ReloadDelay: 1
-	Range: 0c512
-	Report: HUNTER2.AUD
-	Warhead@1Dam: SpreadDamage
-		Spread: 256
-		Damage: 11000
-		Falloff: 10000, 3680, 1350, 500, 180, 70, 0
-		Versus:
-			Infantry: 90
-			Heavy: 60
-			Defense: 60
-			Concrete: 50
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 
 EMPulseCannon:
 	ReloadDelay: 25
@@ -92,10 +77,9 @@ EMPulseCannon:
 		InvalidTargets: Shielded
 		Delay: 10
 		AirThreshold: 8c0
-	Warhead@5: SpreadDamage
+	Warhead@5: TargetDamage
 		Spread: 4c0
 		Damage: 10000
-		Falloff: 100, 100
 		ValidTargets: Shielded
 		DamageTypes: EnergyDeath
 		Delay: 10
