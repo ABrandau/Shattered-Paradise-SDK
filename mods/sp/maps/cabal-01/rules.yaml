@@ -10,7 +10,7 @@ World:
 	MapBuildRadius:
 		BuildRadiusCheckboxLocked: false
 		BuildRadiusCheckboxVisible: true
-	ScriptLobbyDropdown@difficulty: 
+	ScriptLobbyDropdown@difficulty:
 		ID: difficulty
 		Label: dropdown-difficulty.label
 		Description: dropdown-difficulty.description
@@ -50,7 +50,7 @@ Player:
 	ExternalCondition@disableload:
 		Condition: disable-ai-load
 	LoadCargoBotModule:
-		RequiresCondition:  (AIBase || AIEasy) && !disable-ai-load
+		RequiresCondition: (AIBase || AIEasy) && !disable-ai-load
 	ExternalCondition@enable-ai-combat:
 		Condition: enable-ai-combat
 	UnitBuilderBotModule@AIAll:
@@ -300,11 +300,11 @@ HIRE.PRODUCTION.DUMMY:
 		Condition: multiqueue
 		Prerequisites: global-multiqueue
 	## 1. Use "Infantry.Shared" on single queue production
-	Production@Shared: 
+	Production@Shared:
 		Produces: Infantry.Shared, Hire
 		RequiresCondition: player-nearby && !multiqueue
 	## 2. Use "Infantry.Mercenary" on multi-queue production
-	Production@Multiqueue: 
+	Production@Multiqueue:
 		Produces: Infantry.Mercenary, Hire
 		RequiresCondition: player-nearby && multiqueue
 	FreeActor@EnableDummy:

@@ -1769,7 +1769,7 @@ COREDEFENDER:
 		Range: 7c0
 		RequiresCondition: FirestormGen && !empdisable && !SuperAttack
 	FirestromSP:
-		RequiresCondition: FirestormGen && !empdisable && !SuperAttack 
+		RequiresCondition: FirestormGen && !empdisable && !SuperAttack
 		FirestormEffectRotationAngle: 12
 		FirestormEffectAmounts: 7
 		FirestormEffectRange: 7c0
@@ -2176,7 +2176,7 @@ MKIIIDRONE-MINIGUN:
 	-SelectionDecorations:
 	-ExplodesAlsoTransported@Shrapnel:
 	Cloak@CLOAKGENERATOR:
-		-CloakedCondition: 
+		-CloakedCondition:
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-SpawnSparks:
 	-FloatingSpriteEmitter@spawnsmoke:
@@ -2211,7 +2211,7 @@ MKIIIDRONE-MINIGUN:
 	-TimedConditionBar@CHAOS:
 	-ExternalCondition@CHAOS:
 
-SCRINCOUNCIL: 
+SCRINCOUNCIL:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^ScrinAircraftGeneric
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -2271,19 +2271,19 @@ SCRINCOUNCIL:
 		Name: secondary
 	## Main Target Weapon. This will make Scrin Council fire its weapon and try get closer when firing
 	Armament@PRIMARY1:
-		Weapon:  CouncilazerAimingDummyWeaponFar
+		Weapon: CouncilazerAimingDummyWeaponFar
 		Name: primary
 		ReloadingCondition: moveclose
 		RequiresCondition: !moveclose
 	Armament@PRIMARY2:
-		Weapon:  CouncilazerAimingDummyWeaponClose
+		Weapon: CouncilazerAimingDummyWeaponClose
 		Name: primary
 	GrantConditionOnAttack@NormalWeapon:
 		Condition: NormalAttack
 		ArmamentNames: primary
 		RevokeDelay: 51
 	WithIdleOverlay@NormalWeaponMuzzle:
-		Offset:  0,0,-1128
+		Offset: 0,0,-1128
 		Sequence: muzzle
 		Palette: jascpurplealpha
 		RequiresCondition: NormalAttack
@@ -2385,7 +2385,7 @@ COUNCILOR:
 		IdealSeparation: 512
 		TakeUpCellWhenLand: false
 	Armament@PRIMARY:
-		Weapon:  CouncilorPlasma
+		Weapon: CouncilorPlasma
 		LocalOffset: 0,0,0, 0,0,0
 		LocalYaw: -168, 168
 		ReloadingCondition: reloading
@@ -2441,7 +2441,7 @@ COUNCILOR:
 	-SelectionDecorations:
 	-ExplodesAlsoTransported@Shrapnel:
 	Cloak@CLOAKGENERATOR:
-		-CloakedCondition: 
+		-CloakedCondition:
 	-GrantConditionOnDamageState@HeavyDamaged:
 	-SpawnSparks:
 	-FloatingSpriteEmitter@spawnsmoke:

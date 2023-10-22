@@ -39,13 +39,13 @@ Player:
 	GrantConditionOnPrerequisite@megawealth:
 		Condition: megawealth
 		Prerequisites: global-megawealth
-	CashTrickler@MegawealthCashCheat:  ## enough cash to build engineer
+	CashTrickler@MegawealthCashCheat: ## enough cash to build engineer
 		Interval: 300
 		Amount: 500
 		ShowTicks: false
 		RequiresCondition: AIBase && megawealth
 
-	CashCheater@AIShattered: 
+	CashCheater@AIShattered:
 		RequiresCondition: AIShattered
 		CashAmountForEachHarvester: 2
 		MaxCashAmountForHarvester: 8
@@ -832,7 +832,7 @@ Player:
 		RequiresCondition: AIShattered || AICheater
 	LoadCargoBotModule:
 		RequiresCondition: AIBase || AIEasy
-		TransportTypesAndLoadRequirement: 
+		TransportTypesAndLoadRequirement:
 			apc: IdleUnit
 			struck: IdleUnit
 			mubunkr: IdleUnit
@@ -851,21 +851,21 @@ Player:
 
 	SendUnitToAttackBotModule@Backlines:
 		RequiresCondition: AIBase
-		ActorTypesAndAttackOptions: 
-			subtank: 
+		ActorTypesAndAttackOptions:
+			subtank:
 				AttackDesireOfEach: 10
 				MoveBackOrderName: AssaultMove
-			sapc: 
+			sapc:
 				AttackDesireOfEach: 10
 				MoveToOrderName: Move
 				AttackOrderName: Unload
 				MoveBackOrderName: Move
 				AttackRequires: CargoLoaded
-			nukecarryall_bot: 
+			nukecarryall_bot:
 				AttackDesireOfEach: 100
 				AttackOrderName: DeliverUnit ## Hack: DeliverUnit has a bug that ignore the ocuppied cell, we just need that
 				MoveBackOrderName: Move
-			hvrtruk3: 
+			hvrtruk3:
 				AttackDesireOfEach: 100
 				TryGetHealed: false
 			devourer:
@@ -883,12 +883,12 @@ Player:
 				AttackDesireOfEach: 100
 				AttackOrderName: AssaultMove
 				MoveBackOrderName: AssaultMove
-			sonicarryall_bot: 
+			sonicarryall_bot:
 				AttackDesireOfEach: 100
 				MoveToOrderName: Move
 				AttackOrderName: Unload
 				MoveBackOrderName: Move
-			apcarryall_bot: 
+			apcarryall_bot:
 				AttackDesireOfEach: 100
 				MoveToOrderName: Move
 				AttackOrderName: Unload
@@ -910,7 +910,7 @@ Player:
 	GrantConditionOnPrerequisite@HasHarv:
 		Condition: has-harv
 		Prerequisites: HasHarv
-	HarvesterBotModuleSP: 
+	HarvesterBotModuleSP:
 		RequiresCondition: has-harv && (AIBase || AIEasy)
 		HarvesterTypes: harv, scrharv, cabharv, harv.nod, harv.mut
 		RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4

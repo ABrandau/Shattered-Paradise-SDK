@@ -1,5 +1,5 @@
 World:
-	ScriptLobbyDropdown@difficulty: 
+	ScriptLobbyDropdown@difficulty:
 		ID: difficulty
 		Label: dropdown-difficulty.label
 		Description: dropdown-difficulty.description
@@ -29,7 +29,7 @@ World:
 
 Player:
 	Shroud:
-		FogCheckboxEnabled:  false
+		FogCheckboxEnabled: false
 		ExploredMapCheckboxEnabled: true
 	## AI
 	SquadManagerBotModule@AIBase:
@@ -46,7 +46,7 @@ Player:
 		ValidDamageState: Critical
 	-LoadCargoBotModule:
 	-CncEngineerBotModule:
-	-SendUnitToAttackBotModule@Frontlines
+	-SendUnitToAttackBotModule@Frontlines:
 	-SendUnitToAttackBotModule@Backlines:
 	-BaseBuilderBotModule@AIBase:
 	-McvManagerASBotModule@AINormal:
@@ -133,9 +133,9 @@ GAIONTUR:
 	TooltipDescription:
 		Description: Select this defence and fire manually!
 	## HACK: Makes the turret fire once per click
-	AttackTurreted: 
+	AttackTurreted:
 		PersistentTargeting: false
-		RequiresCondition: !Reloading 
+		RequiresCondition: !Reloading
 	Armament:
 		ReloadingCondition: Reloading
 	## Hard mode: ionstorm

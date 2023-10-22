@@ -282,7 +282,7 @@ APC:
 		Name: dec
 		Weapon: ApcVulcanLineAP
 		PauseOnCondition: empdisable || !Attacking || attack-air
-		LocalOffset: 350,0,700 
+		LocalOffset: 350,0,700
 		CasingWeapon: CasingDebrisLong
 		CasingSpawnLocalOffset: 350,0,700
 		CasingTargetOffset: -1024,0, 0
@@ -293,7 +293,7 @@ APC:
 		PauseOnCondition: empdisable || !Attacking || attack-ground
 		LocalOffset: 290,0,1020
 		CasingWeapon: CasingDebrisLong
-		CasingSpawnLocalOffset:  290,0,1020
+		CasingSpawnLocalOffset: 290,0,1020
 		CasingTargetOffset: -1024,0, 0
 		RequiresCondition: !apammo
 	Armament@4BulletAPAA:
@@ -343,7 +343,7 @@ HVR:
 		BuildDuration: 625
 		BuildDurationModifier: 100
 	Mobile:
-		Speed: 120		
+		Speed: 120
 	Health:
 		HP: 25000
 	Armor:
@@ -416,7 +416,7 @@ JUG:
 		Weapon: JuggCannon
 		LocalOffset: 768, -120, 2650, 768, 120, 2650
 		MuzzleSequence: muzzle
-		CasingWeapon: ShellCasingDebris 
+		CasingWeapon: ShellCasingDebris
 		CasingSpawnLocalOffset: 0, -200, 1800, 0, 200, 1800
 		CasingTargetOffset: -200, -256, 0, -200, 256, 0
 		PauseOnCondition: empdisable
@@ -989,7 +989,7 @@ BGGY:
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything && !assault-move && !ifv.engineer && !ifv.medic
 	AutoTargetPriority@ATTACKANYTHING:
-		RequiresCondition:  (stance-attackanything || assault-move) && !ifv.engineer && !ifv.medic
+		RequiresCondition: (stance-attackanything || assault-move) && !ifv.engineer && !ifv.medic
 	AutoTargetPriority@HEAL:
 		RequiresCondition: ifv.engineer || ifv.medic
 		ValidTargets: Vehicle, Infantry
@@ -1439,7 +1439,7 @@ BIKE:
 	ExplodesAlsoTransported:
 		Weapon: BigUnitExplode
 		RequiresCondition: carried || ascargo
- 	## Use ExplodesForMaster to transfer the XP if being mindcontrolled
+	## Use ExplodesForMaster to transfer the XP if being mindcontrolled
 	ExplodesForMaster@ATTACK:
 		Weapon: BikeExplo
 		EmptyWeapon: BikeExplo
