@@ -109,10 +109,15 @@ BERSERKER:
 
 NAPULS:
 	-FireArmamentPower:
+	## HACK: Makes the turret fire once per order
+	AttackTurreted:
+		PersistentTargeting: false
+		RequiresCondition: !Reloading
 	Armament@trueweapon:
 		Name: primary
 		TargetRelationships: Enemy, Neutral
 		PauseOnCondition: disabled || empdisable
+		ReloadingCondition: Reloading
 
 EMPDUMMY:
 	Inherits: ^GROUNDDUMMY
