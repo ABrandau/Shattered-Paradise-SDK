@@ -1,7 +1,7 @@
 GDIAttackForce = { "gdie1", "gdie1", "gdie1", "gdie1", "grenadier", "grenadier", "grenadier", "e2", "smech", "mmch", "mmch", "apc" }
 GDIAirForce = { "orca", "orca", "orca" }
 NodTemplarRush = { "templar", "templar", "templar", "templar", "templar" }
-NodStealthTeam = { "stnk", "stnk" }
+NodStealthTeam = { "stnk", "stnk", "bike" }
 NodAirForce = { "scrin", "scrin" }
 MutantBusGuys = { "marauder", "marauder", "marauder", "marauder", "mutfiend" }
 MutantDemoTruck = { "hvrtruk3" }
@@ -10,7 +10,7 @@ ScrinAttackForce = { "shark", "shark", "shark", "shark", "legio", "legio", "floa
 ScrinAirForce = { "stormrider", "stormrider", "stormrider", "stormrider" }
 CABALInfantry = { "cyborg", "cyborg", "cyborg", "cyborg", "cyborg" }
 CABALToBeEMPed = { "centurion", "centurion", "reapercab", "paladin" }
-CABALAirForce = { "basilisk" }
+CABALAirForce = { "basilisk", "basilisk" }
 
 NodLaserFencePoints = { NodLaserFencePoint1, NodLaserFencePoint2, NodLaserFencePoint3, NodLaserFencePoint4, NodLaserFencePoint5, NodLaserFencePoint6, NodLaserFencePoint7, NodLaserFencePoint8, NodLaserFencePoint9, NodLaserFencePoint10, NodLaserFencePoint11, NodLaserFencePoint12, NodLaserFencePoint13, NodLaserFencePoint14 }
 
@@ -204,6 +204,7 @@ GDIAttack = function()
 			end)
 
 			Trigger.OnAllRemovedFromWorld(actors, function()
+				SetCash()
 				Trigger.AfterDelay(DateTime.Seconds(15), function()
 					GDIAttack()
 				end)
@@ -220,6 +221,7 @@ GDIAirAttack = function()
 			end)
 
 			Trigger.OnAllRemovedFromWorld(actors, function()
+				SetCash()
 				Trigger.AfterDelay(DateTime.Seconds(18), function()
 					GDIAirAttack()
 				end)
@@ -236,6 +238,7 @@ NodTemplarAttack = function()
 			end)
 
 			Trigger.OnAllRemovedFromWorld(actors, function()
+				SetCash()
 				Trigger.AfterDelay(DateTime.Seconds(5), function()
 					NodTemplarAttack()
 				end)
@@ -245,14 +248,15 @@ NodTemplarAttack = function()
 end
 
 NodStealthAttack = function()
-	Trigger.AfterDelay(DateTime.Seconds(5), function()
+	Trigger.AfterDelay(DateTime.Seconds(1), function()
 		nod.Build(NodStealthTeam, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Attack(GDISam)
 			end)
 
 			Trigger.OnAllRemovedFromWorld(actors, function()
-				Trigger.AfterDelay(DateTime.Seconds(15), function()
+				SetCash()
+				Trigger.AfterDelay(DateTime.Seconds(1), function()
 					NodStealthAttack()
 				end)
 			end)
@@ -268,6 +272,7 @@ NodAirAttack = function()
 			end)
 
 			Trigger.OnAllRemovedFromWorld(actors, function()
+				SetCash()
 				Trigger.AfterDelay(DateTime.Seconds(15), function()
 					NodAirAttack()
 				end)
@@ -284,6 +289,7 @@ MutantAirAttack = function()
 			end)
 
 			Trigger.OnAllRemovedFromWorld(actors, function()
+				SetCash()
 				Trigger.AfterDelay(DateTime.Seconds(10), function()
 					MutantAirAttack()
 				end)
@@ -302,6 +308,7 @@ ScrinAttack = function()
 			end)
 
 			Trigger.OnAllRemovedFromWorld(actors, function()
+				SetCash()
 				Trigger.AfterDelay(DateTime.Seconds(15), function()
 					ScrinAttack()
 				end)
@@ -318,6 +325,7 @@ ScrinAirAttack = function()
 			end)
 
 			Trigger.OnAllRemovedFromWorld(actors, function()
+				SetCash()
 				Trigger.AfterDelay(DateTime.Seconds(14), function()
 					ScrinAirAttack()
 				end)
@@ -334,6 +342,7 @@ CABALInfantryAttack = function()
 			end)
 
 			Trigger.OnAllRemovedFromWorld(actors, function()
+				SetCash()
 				Trigger.AfterDelay(DateTime.Seconds(15), function()
 					CABALInfantryAttack()
 				end)
@@ -388,6 +397,7 @@ CABALVehicleAttack = function()
 			end)
 
 			Trigger.OnAllRemovedFromWorld(actors, function()
+				SetCash()
 				Trigger.AfterDelay(DateTime.Seconds(7), function()
 					CABALVehicleAttack()
 				end)
@@ -397,15 +407,16 @@ CABALVehicleAttack = function()
 end
 
 CABALAirAttack = function()
-	Trigger.AfterDelay(DateTime.Seconds(4), function()
-		CABALHPad.Build(CABALAirForce, function(actors)
+	Trigger.AfterDelay(DateTime.Seconds(1), function()
+		cab.Build(CABALAirForce, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Attack(GDIDestructablePower)
 				actor.Attack(phlanx2)
 			end)
 
 			Trigger.OnAllRemovedFromWorld(actors, function()
-				Trigger.AfterDelay(DateTime.Seconds(36), function()
+				SetCash()
+				Trigger.AfterDelay(DateTime.Seconds(1), function()
 					CABALAirAttack()
 				end)
 			end)
