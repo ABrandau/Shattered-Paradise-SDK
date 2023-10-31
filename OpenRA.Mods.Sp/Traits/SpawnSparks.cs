@@ -10,7 +10,6 @@
 #endregion
 
 using System;
-using System.Linq;
 using OpenRA.GameRules;
 using OpenRA.Mods.Common.Effects;
 using OpenRA.Mods.Common.Traits;
@@ -151,7 +150,7 @@ namespace OpenRA.Mods.Sp.Traits
 				}
 			}
 
-			if (weapon.Report != null && weapon.Report.Any())
+			if (weapon.Report != null && weapon.Report.Length > 0)
 			{
 				if (weapon.AudibleThroughFog || (!self.World.ShroudObscures(epicenter) && !self.World.FogObscures(epicenter)))
 					Game.Sound.Play(SoundType.World, weapon.Report, world, epicenter, null, weapon.SoundVolume);

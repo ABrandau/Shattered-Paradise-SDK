@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Eluant;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Scripting;
@@ -21,8 +22,7 @@ namespace OpenRA.Mods.SP.Scripting
 			"If duration > 0 the condition will be automatically revoked after the defined number of ticks.")]
 		public int GrantCondition(string condition, int duration = 0)
 		{
-			var external = externalConditions
-				.FirstOrDefault(t => t.Info.Condition == condition && t.CanGrantCondition(this));
+			var external = Array.Find(externalConditions, t => t.Info.Condition == condition && t.CanGrantCondition(this));
 
 			if (external == null)
 				throw new LuaException($"Condition `{condition}` has not been listed on an enabled ExternalCondition trait");
@@ -41,8 +41,7 @@ namespace OpenRA.Mods.SP.Scripting
 		[Desc("Check whether world actor accepts a specific external condition.")]
 		public bool AcceptsCondition(string condition)
 		{
-			return externalConditions
-				.Any(t => t.Info.Condition == condition && t.CanGrantCondition(this));
+			return Array.Exists(externalConditions, t => t.Info.Condition == condition && t.CanGrantCondition(this));
 		}
 	}
 }

@@ -129,7 +129,7 @@ namespace OpenRA.Mods.SP.Traits
 					world.AddFrameEndTask(w => w.Add(projectile));
 			}
 
-			if (weapon.Report != null && weapon.Report.Any())
+			if (weapon.Report != null && weapon.Report.Length > 0)
 			{
 				if (weapon.AudibleThroughFog || (!self.World.ShroudObscures(epicenter) && !self.World.FogObscures(epicenter)))
 					Game.Sound.Play(SoundType.World, weapon.Report, world, epicenter, null, weapon.SoundVolume);

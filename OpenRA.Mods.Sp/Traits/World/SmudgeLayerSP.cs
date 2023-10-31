@@ -131,7 +131,7 @@ namespace OpenRA.Mods.SP.Traits
 
 			foreach (var sprites in spritesSet)
 			{
-				if (sprites.Any(s => s.BlendMode != blendMode))
+				if (Array.Exists(sprites, s => s.BlendMode != blendMode))
 					throw new InvalidDataException("Smudges specify different blend modes. "
 						+ "Try using different smudge types for smudges that use different blend modes.");
 			}
