@@ -5,13 +5,6 @@ Player:
 	LobbyPrerequisiteCheckbox@GLOBALMULTIQUEUE:
 		Enabled: false
 
-^BaseWorld:
-	TerrainLighting:
-		RedTint: 0.8
-		GreenTint: 0.8
-		BlueTint: 0.9
-		Intensity: 0.7
-
 World:
 	LuaScript:
 		Scripts: luascript.lua
@@ -21,7 +14,10 @@ World:
 		BackgroundMusic: intro
 		DisableWorldSounds: true
 	-StartGameNotification:
+	ExternalCondition@@rain:
+		Condition: rain
 	WeatherOverlay:
+		RequiresCondition: rain
 		ParticleDensityFactor: 10
 		WindLevels: 5,5,0,0,0,0,0
 		WindTick: 150, 350
@@ -30,6 +26,7 @@ World:
 		ChangingWindLevel: false
 		ParticleColors: 4287f5, 0062ff, 0d2e63, b1cefc, 4f6d9c, 0063ff, 002a6b
 		ParticleSize: 0, 1
+		InitialParticlePercentage: 0
 
 ^GenericEffects:
 	ExternalCondition@PRODUCED:

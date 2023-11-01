@@ -461,14 +461,63 @@ SetUpGDIDestructablePP = function()
 	end)
 end
 
+IsRaining = false
+RainWeatherLoop = function()
+	IsRaining = true
+	Trigger.AfterDelay(200, function()
+		WorldActor.GrantCondition("rain", 1190)
+	end)
+
+	Trigger.AfterDelay(2540, function()
+		IsRaining = false
+	end)
+
+	Trigger.AfterDelay(5080, function()
+		RainWeatherLoop()
+	end)
+end
+
+rain_RedTint = 0.9
+rain_GreenTint = 0.9
+rain_Intensity = 0.7
+DarkeningSky = function()
+	if Lighting.Red > rain_RedTint then
+		Lighting.Red = Lighting.Red - 0.001
+	end
+	if Lighting.Green > rain_GreenTint then
+		Lighting.Green = Lighting.Green - 0.001
+	end
+	if Lighting.Ambient > rain_Intensity then
+		Lighting.Ambient = Lighting.Ambient - 0.003
+	end
+end
+
+
+LightningSky = function()
+	if Lighting.Red < 1 then
+		Lighting.Red = Lighting.Red + 0.001
+	end
+	if Lighting.Green < 1 then
+		Lighting.Green = Lighting.Green + 0.001
+	end
+	if Lighting.Ambient < 1 then
+		Lighting.Ambient = Lighting.Ambient + 0.003
+	end
+end
+
 ticks = 1250
 speed = 7
-
 Tick = function()
 	ticks = ticks + 1
 
 	local t = (ticks + 45) % (360 * speed) * (math.pi / 180) / speed;
 	Camera.Position = viewportOrigin + WVec.New(46080 * math.sin(t), 35840 * math.cos(t), 0)
+
+	if IsRaining then
+		DarkeningSky()
+	else
+		LightningSky()
+	end
 end
 
 WorldLoaded = function()
@@ -497,4 +546,6 @@ WorldLoaded = function()
 	CABALInfantryAttack()
 	Trigger.AfterDelay(DateTime.Seconds(48), CABALVehicleAttack)
 	CABALAirAttack()
+
+	Trigger.AfterDelay(2850, RainWeatherLoop)
 end
