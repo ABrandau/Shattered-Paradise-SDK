@@ -113,6 +113,7 @@ namespace OpenRA.Mods.SP.Projectiles
 		WVec acceleration;
 		WAngle facing;
 		int spin;
+		WDist dat;
 
 		[Sync]
 		WPos pos, lastPos;
@@ -125,6 +126,7 @@ namespace OpenRA.Mods.SP.Projectiles
 			pos = args.Source;
 			facing = args.Facing;
 			var world = args.SourceActor.World;
+			dat = world.Map.DistanceAboveTerrain(pos);
 
 			var vx = info.UseRangeModifierAsVelocityX && args.RangeModifiers.Length > 0 ? args.RangeModifiers[0] : info.Velocity.X;
 			var vec = info.VelocityRandomFactor != null ? new WVec(vx + world.SharedRandom.Next(info.VelocityRandomFactor.Value.X), info.Velocity.Y + world.SharedRandom.Next(info.VelocityRandomFactor.Value.Y), info.Velocity.Z + world.SharedRandom.Next(info.VelocityRandomFactor.Value.Z)) : new WVec(vx, info.Velocity.Y, info.Velocity.Z);
@@ -178,6 +180,7 @@ namespace OpenRA.Mods.SP.Projectiles
 		{
 			lastPos = pos;
 			pos += velocity;
+			dat = world.Map.DistanceAboveTerrain(pos);
 
 			if (maxSpin != 0)
 			{
@@ -190,9 +193,9 @@ namespace OpenRA.Mods.SP.Projectiles
 			velocity += acceleration;
 
 			// Explodes
-			if (pos.Z <= args.PassiveTarget.Z)
+			if (dat.Length <= 0)
 			{
-				pos += new WVec(0, 0, args.PassiveTarget.Z - pos.Z);
+				pos -= new WVec(0, 0, dat.Length);
 				world.AddFrameEndTask(w => w.Remove(this));
 
 				var warheadArgs = new WarheadArgs(args)
@@ -236,7 +239,6 @@ namespace OpenRA.Mods.SP.Projectiles
 
 				if (info.Shadow)
 				{
-					var dat = world.Map.DistanceAboveTerrain(pos);
 					var shadowPos = pos - new WVec(0, 0, dat.Length);
 					foreach (var r in anim.Render(shadowPos, palette))
 						yield return ((IModifyableRenderable)r)
