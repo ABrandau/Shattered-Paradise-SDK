@@ -5,11 +5,103 @@ QueueUpdaterDummy:
 	KillsSelf:
 		RemoveInstead: true
 
+## Used for clear ore for megawealth
+oreclearer:
+	AlwaysVisible:
+	ClearsResources:
+		ResourceTypes: Tiberium, BlueTiberium
+	KillsSelf:
+		RemoveInstead: true
+
 ## Used for no base game mode
 hack.no_bases:
 	Interactable:
 	AlwaysVisible:
 	ProvidesPrerequisite@upgradename:
+	GrantConditionOnPrerequisite@upgrades:
+		Condition: upgrades
+		Prerequisites: global-upgrades
+	FreeActor@1:
+		Actor: upgrade.ap_ammunition
+		RequiresCondition: upgrades
+	FreeActor@2:
+		Actor: upgrade.nanofiber_vests
+		RequiresCondition: upgrades
+	FreeActor@3:
+		Actor: upgrade.railguns
+		RequiresCondition: upgrades
+	FreeActor@4:
+		Actor: upgrade.ceramic_plating
+		RequiresCondition: upgrades
+	FreeActor@5:
+		Actor: upgrade.purifying_flame
+		RequiresCondition: upgrades
+	FreeActor@6:
+		Actor: upgrade.raider_passenger
+		RequiresCondition: upgrades
+	FreeActor@7:
+		Actor: upgrade.explosive_mixtures
+		RequiresCondition: upgrades
+	FreeActor@8:
+		Actor: upgrade.improved_stealth_generator
+		RequiresCondition: upgrades
+	FreeActor@9:
+		Actor: upgrade.tib_core_missiles
+		RequiresCondition: upgrades
+	FreeActor@10:
+		Actor: upgrade.laser_capacitors
+		RequiresCondition: upgrades
+	FreeActor@11:
+		Actor: upgrade.fortified_upg
+		RequiresCondition: upgrades
+	FreeActor@12:
+		Actor: upgrade.blue_shards
+		RequiresCondition: upgrades
+	FreeActor@13:
+		Actor: upgrade.lynx_rockets
+		RequiresCondition: upgrades
+	FreeActor@14:
+		Actor: upgrade.tiberium_infusion
+		RequiresCondition: upgrades
+	FreeActor@15:
+		Actor: upgrade.tiberium_gas_warheads
+		RequiresCondition: upgrades
+	FreeActor@16:
+		Actor: upgrade.cybernetic_leg_enhancements
+		RequiresCondition: upgrades
+	FreeActor@17:
+		Actor: upgrade.improved_reaper_nets
+		RequiresCondition: upgrades
+	FreeActor@18:
+		Actor: upgrade.limpet_aa_targeting
+		RequiresCondition: upgrades
+	FreeActor@19:
+		Actor: upgrade.reclaim_and_recycle
+		RequiresCondition: upgrades
+	FreeActor@20:
+		Actor: upgrade.regenerative_materials
+		RequiresCondition: upgrades
+	FreeActor@21:
+		Actor: upgrade.gatling_cannons
+		RequiresCondition: upgrades
+	FreeActor@22:
+		Actor: upgrade.vinifera_catalysts
+		RequiresCondition: upgrades
+	FreeActor@23:
+		Actor: upgrade.tiberium_conversion
+		RequiresCondition: upgrades
+	FreeActor@24:
+		Actor: upgrade.aerial_gliders
+		RequiresCondition: upgrades
+	FreeActor@25:
+		Actor: upgrade.improved_plague_gas
+		RequiresCondition: upgrades
+	FreeActor@26:
+		Actor: upgrade.disc_barrage
+		RequiresCondition: upgrades
+	FreeActor@27:
+		Actor: upgrade.hyper_flight_rotors
+		RequiresCondition: upgrades
 
 ## Used for flying dummy ignore terrain type while moving
 ^DUMMYAIRCRAFT:
