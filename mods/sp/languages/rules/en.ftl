@@ -26,7 +26,13 @@ checkbox-multiqueue =
 
 checkbox-upgrades =
     .label = Upgrades
-    .description = Enables researching upgrades that improve existing units
+    .description = Enables researching upgrades that improve units
+        When disabled, several units will change:
+        - Mammoth Tank will have railgun but price increased
+        - Demo Bike will have +50% damage
+        - Blighter MLRS will have tib-gas warhead
+        - Glider can transform into aircraft but price increased
+        - Limped Drone can target air unit.
 
 checkbox-domination =
     .label = Domination

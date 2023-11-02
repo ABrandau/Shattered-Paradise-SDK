@@ -527,6 +527,12 @@ G4TNK:
 	Turreted:
 		TurnSpeed: 20
 		Offset: -64,0,760 ##new turret
+	GrantConditionOnPrerequisite@enable-upgrade:
+		Condition: enable-upgrade
+		Prerequisites: global-upgrades
+	ProductionCostMultiplier@disable-upgrade:
+		Multiplier: 114
+		Prerequisites: !global-upgrades
 	Armament@PRIMARY:
 		Weapon: 4TNKGUN
 		Damage: 140
@@ -539,17 +545,17 @@ G4TNK:
 		CasingSpawnLocalOffset: 1000,120,550, 1000,-120,550
 		CasingTargetOffset: 256, 1024, 0, 256, -1024, 0
 		PauseOnCondition: empdisable
-		RequiresCondition: !railguns
+		RequiresCondition: !railguns && enable-upgrade
 	Armament@Railgun:
 		Weapon: 4TNKRAILGUN
 		Damage: 210
 		LocalOffset: 1280,180,-200, 1280,-180,-200
 		MuzzleSequence: muzzle2
+		MuzzlePalette: gensmkexplocyan
 		Recoil: 127
 		RecoilRecovery: 26
 		PauseOnCondition: empdisable
-		RequiresCondition: railguns
-		MuzzlePalette: gensmkexplocyan
+		RequiresCondition: railguns || !enable-upgrade
 	Armament@SECONDARY:
 		Weapon: MammothTusk
 		Damage: 60
@@ -567,10 +573,10 @@ G4TNK:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	WithSpriteTurret:
-		RequiresCondition: !inside-tunnel && !railguns
+		RequiresCondition: !inside-tunnel && !railguns && enable-upgrade
 	WithSpriteTurret@2:
 		Sequence: turret2
-		RequiresCondition: !inside-tunnel && railguns
+		RequiresCondition: !inside-tunnel && (railguns || !enable-upgrade)
 	AutoTarget:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
@@ -1439,15 +1445,18 @@ BIKE:
 	ExplodesAlsoTransported:
 		Weapon: BikeExploInCargo
 		RequiresCondition: carried || ascargo
+	GrantConditionOnPrerequisite@enable-upgrade:
+		Condition: enable-upgrade
+		Prerequisites: global-upgrades
 	## Use ExplodesForMaster to transfer the XP if being mindcontrolled
 	ExplodesForMaster@ATTACK:
 		Weapon: BikeExplo
 		EmptyWeapon: BikeExplo
-		RequiresCondition: !explosive_mixtures
+		RequiresCondition: !explosive_mixtures && enable-upgrade
 	ExplodesForMaster@EXPLOSIVEMIX:
 		Weapon: BikeExploEX
 		EmptyWeapon: BikeExploEX
-		RequiresCondition: explosive_mixtures
+		RequiresCondition: explosive_mixtures || !enable-upgrade
 	GrantConditionOnDeploy@DemoTruck:
 		DeployedCondition: DetonateDemoTruck
 		CanDeployOnRamps: true
@@ -2332,16 +2341,19 @@ MRLS:
 		Volume: 3
 	AutoTarget:
 		ScanRadius: 13
+	GrantConditionOnPrerequisite@enable-upgrade:
+		Condition: enable-upgrade
+		Prerequisites: global-upgrades
 	Armament:
 		Weapon: MUTMRLSRocket
 		LocalOffset: 400,100,900, 400,-100,900
 		PauseOnCondition: empdisable
-		RequiresCondition: !tibgaswh
+		RequiresCondition: !tibgaswh && enable-upgrade
 	Armament@gas:
 		Weapon: MUTMRLSRocketGas
 		LocalOffset: 400,100,900, 400,-100,900
 		PauseOnCondition: empdisable
-		RequiresCondition: tibgaswh
+		RequiresCondition: tibgaswh || !enable-upgrade
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -2975,6 +2987,9 @@ LIMPED:
 		RequiresCondition: deployed && !AImicroManage
 	RejectsMoveToAttack:
 		RequiresCondition: deployed
+	GrantConditionOnPrerequisite@enable-upgrade:
+		Condition: enable-upgrade
+		Prerequisites: global-upgrades
 	Armament@1:
 		Weapon: LimpetMissile
 		ReloadingCondition: reload-ground
@@ -2983,7 +2998,7 @@ LIMPED:
 		Weapon: LimpetMissileAA
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || !deployed || reload-ground
-		RequiresCondition: limpetaa
+		RequiresCondition: limpetaa || !enable-upgrade
 	AttackFrontal:
 		FacingTolerance: 512
 		RequiresCondition: AImicroManage || deployed
@@ -3580,8 +3595,14 @@ SCRGLYDER2:
 		Type: Light
 	Mobile:
 		Speed: 120
+	GrantConditionOnPrerequisite@enable-upgrade:
+		Condition: enable-upgrade
+		Prerequisites: global-upgrades
+	ProductionCostMultiplier@disable-upgrade:
+		Multiplier: 150
+		Prerequisites: !global-upgrades
 	Transforms:
-		RequiresCondition: aerial_gliders
+		RequiresCondition: aerial_gliders || !enable-upgrade
 		PauseOnCondition: inside-tunnel
 		IntoActor: scrglyder1
 	GrantConditionAfterDelay: ## Prevent player switch between modes to refresh reload
@@ -3608,10 +3629,13 @@ SCRGLYDER2:
 		Weapon: AIGlyder2AimingDummyWeapon
 		ReloadingCondition: AIattackAir
 		PauseOnCondition: empdisable
-		RequiresCondition: AImicroManage && aerial_gliders
-	TransformOnCondition@AITransform:
-		RequiresCondition: AIattackAir && !inside-tunnel
-		IntoActor: scrglyder1
+		RequiresCondition: AImicroManage && (aerial_gliders || !enable-upgrade)
+	IssueOrderToBot@AI:
+		RequiresCondition: AIattackAir
+		OrderName: DeployTransform
+		OrderChance: 100
+		OrderTrigger: Attack
+		OrderInterval: 35
 	-LeavesTrails@land:
 	-LeavesTrails@water:
 	LeavesTrails@gravity:

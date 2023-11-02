@@ -1141,7 +1141,7 @@ SCRGLYDER1:
 	Inherits: ^CombatHelicopter
 	Inherits@1: ^ScrinAircraftGeneric
 	Inherits@AERIALGLIDERS: ^AffectedByAerialGliders
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@DETECTION: ^BasicStealthDetectionAir
 	Inherits@SHADOW: ^AircraftShadow
@@ -1159,9 +1159,12 @@ SCRGLYDER1:
 		AddToArmyValue: true
 	Selectable:
 		Bounds: 1206,1809,0,-603
+	GrantConditionOnPrerequisite@enable-upgrade:
+		Condition: enable-upgrade
+		Prerequisites: global-upgrades
 	Transforms:
 		IntoActor: scrglyder2
-		RequiresCondition: aerial_gliders
+		RequiresCondition: aerial_gliders || !enable-upgrade
 	Targetable@Essence:
 		TargetTypes: ScrinUnit
 	Aircraft:
@@ -1196,14 +1199,17 @@ SCRGLYDER1:
 	Armament@AITransformDummyWeapon:
 		Weapon: AIGlyder1AimingDummyWeapon
 		ReloadingCondition: AIattackGround
-		RequiresCondition: AImicroManage && aerial_gliders
-	TransformOnCondition@AITransform:
-		RequiresCondition: AIattackGround
-		IntoActor: scrglyder2
+		RequiresCondition: AImicroManage && (aerial_gliders || !enable-upgrade)
 	FloatingSpriteEmitter@spawnsmoke:
 		Offset: 0,0,500
 	ExplodesAlsoTransported@Shrapnel:
 		Weapon: SmalLScrinAircraftShrapnel
+	IssueOrderToBot@AI:
+		RequiresCondition: AIattackGround
+		OrderName: DeployTransform
+		OrderChance: 100
+		OrderTrigger: Attack
+		OrderInterval: 35
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chromesilver
