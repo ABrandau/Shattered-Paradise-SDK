@@ -114,14 +114,11 @@ FloatTesla:
 	Warhead@1Dam: SpreadDamage
 		Damage: 0
 		InvalidTargets: Summoned
-	Warhead@op: FireShrapnel
+	Warhead@op: ScrinEssenceHit
 		Weapon: EssenceMissile
-		ImpactActors: false
 		Amount: 2
-		AimChance: 100
-		AllowDirectHit: true
 		AimTargetStances: Ally
-		ThrowWithoutTarget: false
+		SecondaryTargets: FullHealth
 		ValidTargets: Ground, Water, Air
 		InvalidTargets: Summoned
 		AffectsParent: true
@@ -1073,15 +1070,12 @@ CouncilorPlasma:
 		ImpactSounds: expnew14.aud
 		AirThreshold: 8c0
 		ValidTargets: Ground, Water
-	Warhead@op: FireShrapnel
+	Warhead@op: ScrinEssenceHit
 		Weapon: EssenceMissile
-		ImpactActors: true
+		ValidTargets: Ground, Water, Air
 		Amount: 1
-		AimChance: 100
-		AllowDirectHit: true
 		AimTargetStances: Ally
-		ThrowWithoutTarget: false
-		ValidTargets: Ground, Water
+		SecondaryTargets: FullHealth
 		AffectsParent: true
 		AirThreshold: 8c0
 
@@ -1232,15 +1226,12 @@ EssenceSmall:
 	Range: 10c0
 	MinRange: 1c0
 	Projectile: InstantExplode
-	Warhead@op: FireShrapnel
-		Weapon: EssenceMissile
-		ImpactActors: false
-		Amount: 1
-		AimChance: 100
-		ThrowWithoutTarget: false
-		AllowDirectHit: true
-		AimTargetStances: Ally
+	Warhead@op: ScrinEssenceHit
 		ValidTargets: Ground, Water, Air
+		Weapon: EssenceMissile
+		Amount: 1
+		AimTargetStances: Ally
+		SecondaryTargets: FullHealth
 		AirThreshold: 8c0
 		AffectsParent: true
 
@@ -1254,7 +1245,7 @@ SpawnEssence:
 		Sequences: idle
 		Duration: 50
 		Palette: apolra2ialpha
-	Warhead@op: FireShrapnel
+	Warhead@op: ScrinEssenceHit
 		Delay: 50
 		AimTargetStances: Ally
 		AffectsParent: true
