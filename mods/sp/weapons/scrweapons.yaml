@@ -1242,6 +1242,7 @@ EssenceSmall:
 		AimTargetStances: Ally
 		ValidTargets: Ground, Water, Air
 		AirThreshold: 8c0
+		AffectsParent: true
 
 SpawnEssence:
 	Inherits: EssenceSmall
@@ -1256,6 +1257,7 @@ SpawnEssence:
 	Warhead@op: FireShrapnel
 		Delay: 50
 		AimTargetStances: Ally
+		AffectsParent: true
 
 EssenceMissile:
 	Inherits: ^FullDamage
@@ -1263,6 +1265,7 @@ EssenceMissile:
 	Range: 10c0
 	ValidTargets: ScrinUnit
 	TargetActorCenter: true
+	CanTargetSelf: true
 	Projectile: MissileTA
 		Image: essencetrail
 		TrailImage: essencetrailmini
