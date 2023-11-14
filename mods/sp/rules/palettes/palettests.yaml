@@ -8,10 +8,14 @@
 		Name: terrain
 		Tileset: TEMPERATE
 		Filename: isotem.pal
-	PaletteFromFile@terrainsno:
+	LoadPaletteWithLightModified@terrainsno:
 		Name: terrain
 		Tileset: SNOW
 		Filename: isosno.pal
+		Intensity: 0.85
+		RedTint: 0.85
+		GreenTint: 0.85
+		BlueTint: 0.85
 	PaletteFromFile@terraindectem:
 		Name: terraindecoration
 		Tileset: TEMPERATE
@@ -149,7 +153,7 @@
 		BasePalette: pips
 		Alpha: 0.7
 	PaletteFromPaletteWithAlpha@terrainalpha:
-		BasePalette: terraindecoration
+		BasePalette: terrain
 		Name: terrainalpha
 		Alpha: 0.55
 	MenuPostProcessEffect:
