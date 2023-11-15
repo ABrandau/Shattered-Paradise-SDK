@@ -455,9 +455,9 @@ DroneHostShell:
 	ReloadDelay: 150
 	Range: 1c512
 	ValidTargets: Ground, Water, Vehicle, Infantry, water
-	Projectile: BulletAS
-		Speed: 200
-		Blockable: false
+	Projectile: GravityBomb
+		Velocity: 1, 0, -20
+		Acceleration: 0, 0, -20
 		Shadow: true
 		Palette: effect
 		Image: clusterbomb
@@ -472,10 +472,13 @@ DroneHostShell:
 		ExplosionPalette: effect
 
 DroneHostShellSpawner:
-	Inherits: DroneHostShell
+	Inherits@2: ^Small_Clsn
 	Range: 4c0
 	MinRange: 2c0
 	Projectile: BulletAS
+		Speed: 200
+		Blockable: false
+		Shadow: true
 		Palette: pips
 		Image: dronemissilemini
 		TrailImage: small_smoke_trail
@@ -485,11 +488,9 @@ DroneHostShellSpawner:
 		Range: 3
 		LinkToParent: true
 		ValidTargets: Ground, Vehicle, Infantry, Air
-	-Warhead@1Dam:
 	Warhead@2Eff: CreateEffect
 		Explosions: infdeathexplo1
 		ExplosionPalette: gensmkexploj
-	-Warhead@5Smu:
 
 PalaLazor:
 	Inherits: ^FullDamage
