@@ -191,25 +191,21 @@ FiendShardAA:
 		ValidTargets: Air
 		Damage: 2250
 		NoUnintendedFriendlyFire: All
-	Warhead@op: FireRadius
-		Weapon: FiendShardAAEffect
-		ImpactActors: false
-		Amount: 2
-		ValidTargets: Ground, Air, Water
-		AirThreshold: 8c0
-	-Warhead@2Eff:
-	-Warhead@3EffWater:
-
-FiendShardAAEffect:
-	ValidTargets: Ground, Air, Water
-	Range: 0c150
-	Projectile: Missile
 	Warhead@2Eff: CreateEffect
 		Explosions: juccons, jsmokey, jucflash, jsmkblastmini
 		ExplosionPalette: jascgreenalpha
 		ValidTargets: Ground, Air, Water
 		ImpactActors: false
+		Inaccuracy: 0c512
 		AirThreshold: 8c0
+	Warhead@3Eff: CreateEffect
+		Explosions: juccons, jsmokey, jucflash, jsmkblastmini
+		ExplosionPalette: jascgreenalpha
+		ValidTargets: Ground, Air, Water
+		Inaccuracy: 0c512
+		ImpactActors: false
+		AirThreshold: 8c0
+	-Warhead@3EffWater:
 
 FiendShard2Blue:
 	Inherits: FiendShard2
@@ -231,12 +227,9 @@ FiendShardBlueAA:
 		ContrailStartColor: 5980FF
 		ContrailStartWidth: 0c64
 		ContrailEndWidth: 0
-	Warhead@op: FireRadius
-		Weapon: FiendShardBlueAAEffect
-
-FiendShardBlueAAEffect:
-	Inherits: FiendShardAAEffect
 	Warhead@2Eff: CreateEffect
+		ExplosionPalette: jascbluealpha
+	Warhead@3Eff: CreateEffect
 		ExplosionPalette: jascbluealpha
 
 SeerTesla:
