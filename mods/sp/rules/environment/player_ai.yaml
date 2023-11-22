@@ -271,7 +271,7 @@ Player:
 		RequiresCondition: AIBase
 		SquadSize: 24
 		SquadSizeRandomBonus: 3
-		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.nod, harv.mut, engineer, cutman, swarmling, shapeshifter,mcv, drache, cabmcv, nodmcv, mutmcv, mwar, limped, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern, dshp, dshp.high, mkiiidrone-minigun, councilor, scrtrans, trnsport, trnsport.nod, trnsport.mut, trnsport.cab, trnsport.scr, nukecarryall_bot,sonicarryall_bot, apcarryall_bot, devourer, bike, subtank, sapc, hvrtruk3, minelayer, king
+		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.nod, harv.mut, engineer, cutman, swarmling, shapeshifter,mcv, drache, cabmcv, nodmcv, mutmcv, limped, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern, dshp, dshp.high, mkiiidrone-minigun, councilor, scrtrans, trnsport, trnsport.nod, trnsport.mut, trnsport.cab, trnsport.scr, nukecarryall_bot,sonicarryall_bot, apcarryall_bot, devourer, bike, subtank, sapc, hvrtruk3, minelayer, king
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
 		DangerScanRadius: 18
 		AttackForceInterval: 73
@@ -290,7 +290,7 @@ Player:
 		DozerTypes: lpst, sgen, icbm
 		MaxDozerSendingRadius: 14
 		AirUnitsTypes: jumpjetair, jjcommair, orca, orcab, apache, scrin, cerberus, mutheli, mutqueen, wetp, stormrider, scrglyder1, scrdestroyer, scrcarrier, stormriderspawn, repairwyvern, cabdronejet, repairdrone, scrbattleship, wasp, basilisk, sonicarryall_bot, apcarryall_bot
-		ProtectionTypes: nodmcv, mutmcv, cabmcv, drache, mcv, harv, harv.nod, harv.mut, cabharv, scrharv, gacnst, gadept, scrdepot, gasilo, napuls, scrshield, gate_a, mutgate_a, scrgate_a, scrgate_b, gapowr, gapile, gdiref, gaweap, garadr, gahpad, gatech, gtdrop, nodyard, napowr, nahand, nodref, naweap, naradr, naapwr, nahpad, natech, namisl, mutyard, mupowr, murax, muproc, muweap, muradr, muair, muhall, mutsw2, drached, scrpowr, scrrax, scrproc, scrproc2, scrproc3, scrproc4, scrweap, scrradr, scrair, scrtech, scradvpowr, cabyard, cabpowr, cabclaw, cabproc, cabweap, cabradr, cabair, cabtech, cabobelisk, gavulc, garock, gasonc, gacsam, nalasr, naobel, nasam, mubunkr, mucannon, muflak, cabpit, cabblast, cabrail, scrneedler, scrdrone, scrtractor, gafire, gaplug, nastlh, natmpl, muventi, mutsw1, scrextractor, scrsw1, cabeye, cabsw1, blackdefd, weed, bloodderrick, colorpicker, mubunkr, defd, mtar, mwar, icbm, king
+		ProtectionTypes: nodmcv, mutmcv, cabmcv, drache, mcv, harv, harv.nod, harv.mut, cabharv, scrharv, gacnst, gadept, scrdepot, gasilo, napuls, scrshield, gate_a, mutgate_a, scrgate_a, scrgate_b, gapowr, gapile, gdiref, gaweap, garadr, gahpad, gatech, gtdrop, nodyard, napowr, nahand, nodref, naweap, naradr, naapwr, nahpad, natech, namisl, mutyard, mupowr, murax, muproc, muweap, muradr, muair, muhall, mutsw2, drached, scrpowr, scrrax, scrproc, scrproc2, scrproc3, scrproc4, scrweap, scrradr, scrair, scrtech, scradvpowr, cabyard, cabpowr, cabclaw, cabproc, cabweap, cabradr, cabair, cabtech, cabobelisk, gavulc, garock, gasonc, gacsam, nalasr, naobel, nasam, mubunkr, mucannon, muflak, cabpit, cabblast, cabrail, scrneedler, scrdrone, scrtractor, gafire, gaplug, nastlh, natmpl, muventi, mutsw1, scrextractor, scrsw1, cabeye, cabsw1, blackdefd, weed, bloodderrick, colorpicker, mubunkr, defd, icbm, king
 	UnitBuilderBotModule@AIAll:
 		RequiresCondition: AIEasy || AIBase
 		UnitQueues: Infantry.Shared, Infantry.GDI, Infantry.Nod, Infantry.Mutant, Infantry.CABAL, Infantry.Scrin, Vehicle.Shared, Vehicle.GDI, Vehicle.MammothMkII, Vehicle.Nod, Vehicle.Lightbringer, Vehicle.Mutant, Vehicle.CABAL, Vehicle.Scrin, Air.Shared, Air.GDI, Air.Nod, Air.Mutant, Air.CABAL, Air.Scrin, Upgrade.Shared, Upgrade.GDI, Upgrade.Nod, Upgrade.Mutant, Upgrade.CABAL, Upgrade.Scrin
@@ -538,16 +538,6 @@ Player:
 		MaxmiumConstructionYardCount: 5
 		AddtionalConstructionYardInterval: 6000
 		ScanForNewMcvInterval: 31
-	## Mcv Manager also control some tech vehicle's depoyment
-	McvManagerASBotModule@mobilewarfactory-control:
-		RequiresCondition: AIBase || AIEasy
-		McvTypes: mwar
-		ConstructionYardTypes: mtar
-		McvFactoryTypes: nahfac
-		MinimumConstructionYardCount: 0
-		MaxmiumConstructionYardCount: 1
-		AddtionalConstructionYardInterval: 90000
-		ScanForNewMcvInterval: 101
 	SupportPowerBotASModule:
 		RequiresCondition: AIBase
 		Decisions:

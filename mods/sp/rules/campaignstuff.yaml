@@ -971,6 +971,7 @@ MWAR: ## AI control it by using McvManagerBotModule
 		FactionImages:
 			gdi: mwar
 
+## TODO: make it can produce correct vehicle
 MTAR:
 	Inherits@1: ^Factory
 	-Buildable:
@@ -1027,11 +1028,6 @@ MTAR:
 		Icon: icon
 		IconPalette: chrome
 		TooltipActor: mtar
-	### AI Control
-	IssueOrderToBot@AI:
-		OrderName: DeployTransform
-		OrderTrigger: Periodically
-		OrderInterval: 5000
 
 M_EMP:
 	Inherits: ^Vehicle
