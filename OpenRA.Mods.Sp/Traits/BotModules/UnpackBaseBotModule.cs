@@ -26,11 +26,8 @@ namespace OpenRA.Mods.SP.Traits
 		[Desc("Actor types that are able to produce MCVs.")]
 		public readonly HashSet<string> McvFactoryTypes = new();
 
-		[Desc("Actor types that are able to produce MCVs.")]
-		public readonly int MinDeployedExpandVehicleRequired = 3;
-
 		[Desc("Delay (in ticks) between unpacking unit at first, if there is no actor in McvFactoryTypes.")]
-		public readonly int InitialUndeployTick = 8500;
+		public readonly int InitialUndeployTick = 8000;
 
 		[Desc("Delay (in ticks) between unpacking unit.")]
 		public readonly int UndeployTick = 10000;
@@ -41,7 +38,6 @@ namespace OpenRA.Mods.SP.Traits
 	public class UnpackBaseBotModule : ConditionalTrait<UnpackBaseBotModuleInfo>, IBotTick, IGameSaveTraitData
 	{
 		int undeployInterval;
-		bool initialUnpacked;
 		readonly World world;
 		readonly Player player;
 
@@ -61,22 +57,11 @@ namespace OpenRA.Mods.SP.Traits
 			if (--undeployInterval <= 0)
 			{
 				undeployInterval = Info.UndeployTick;
-				if (!initialUnpacked)
+				if (!world.ActorsHavingTrait<Production>().Where(a => validUnit(a) && Info.McvFactoryTypes.Contains(a.Info.Name)).Any())
 				{
-					if (world.ActorsHavingTrait<Production>().Where(a => validUnit(a) && Info.McvFactoryTypes.Contains(a.Info.Name)).Any())
-						initialUnpacked = true;
-					else
-					{
-						var expand = world.ActorsHavingTrait<Transforms>().Where(a => validUnit(a) && Info.DeployedExpandVehicleTypes.Contains(a.Info.Name)).RandomOrDefault(world.LocalRandom);
-						if (expand != null)
-							bot.QueueOrder(new Order("DeployTransform", expand, true));
-					}
-				}
-				else
-				{
-					var expands = world.ActorsHavingTrait<Transforms>().Where(a => validUnit(a) && Info.DeployedExpandVehicleTypes.Contains(a.Info.Name)).ToList();
-					if (expands.Count >= Info.MinDeployedExpandVehicleRequired)
-						bot.QueueOrder(new Order("DeployTransform", expands.RandomOrDefault(world.LocalRandom), true));
+					var expand = world.ActorsHavingTrait<Transforms>().Where(a => validUnit(a) && Info.DeployedExpandVehicleTypes.Contains(a.Info.Name)).RandomOrDefault(world.LocalRandom);
+					if (expand != null)
+						bot.QueueOrder(new Order("DeployTransform", expand, true));
 				}
 			}
 		}
