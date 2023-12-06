@@ -3,9 +3,9 @@ CAHOSP:
 	Inherits@SHAPE: ^3x4Shape
 	Inherits@VISION: ^6CellVision
 	Tooltip:
-		Name: Civilian Hospital
+		Name: cahosp-name
 	TooltipDescription:
-		Description: Provides global healing for infantry.
+		Description: cahosp-desc
 	Building:
 		Footprint: XxX xxx xxx xxx
 		Dimensions: 3, 4
@@ -25,9 +25,9 @@ WELL:
 	Inherits@SHAPE: ^3x3Shape
 	Inherits@VISION: ^6CellVision
 	Tooltip:
-		Name: Tiberium Extractor
+		Name: well-name
 	TooltipDescription:
-		Description: Provides additional funds.
+		Description: well-desc
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3, 3
@@ -81,7 +81,7 @@ WELL.mwspawner:
 	Inherits@shape: ^3x3Shape
 	Interactable:
 	EditorOnlyTooltip:
-		Name: Megawealth Only Tiberium Extractor
+		Name: well-mw-name
 	FrozenUnderFog:
 	RenderSpritesEditorOnly:
 		Image: well
@@ -113,7 +113,7 @@ WELL.mwspawner:
 WELL.nonmwspawner:
 	Inherits: WELL.mwspawner
 	EditorOnlyTooltip:
-		Name: Non-Megawealth Only Tiberium Extractor
+		Name: well-nomw-name
 	RenderSpritesEditorOnly:
 		Image: well
 		Palette: gensmkexplojFblue
@@ -127,9 +127,9 @@ MACHINESHOP:
 	Inherits@SHAPE: ^2x2Shape
 	Inherits@VISION: ^6CellVision
 	Tooltip:
-		Name: Machine Shop
+		Name: machineshop-name
 	TooltipDescription:
-		Description: Provides global repairs for vehicles.
+		Description: machineshop-desc
 	Building:
 		Footprint: xx xx
 		Dimensions: 2, 2
@@ -149,9 +149,9 @@ BLOODDERRICK:
 		Queue: Building.Tech
 		BuildPaletteOrder: 20
 	Tooltip:
-		Name: Cravicus Containment
+		Name: bloodderrick-name
 	TooltipDescription:
-		Description: Spawns hostile crabs when destroyed.
+		Description: bloodderrick-desc
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3, 3
@@ -225,7 +225,7 @@ BLOODDERRICK:
 	IsometricSelectable:
 		DecorationHeight: 12
 	Encyclopedia:
-		Description: Containment of Tiberian Cravicus, designed by Scrin.
+		Description: bloodderrick-ency
 		Category: Tiberian Lifeform
 		Order: 12
 
@@ -233,9 +233,9 @@ NEUTRALRADAR:
 	Inherits: ^TechBuilding
 	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
-		Name: Spy Satellite
+		Name: neutralradar-name
 	TooltipDescription:
-		Description: Provides vision.
+		Description: neutralradar-desc
 	Building:
 		Footprint: xx xx
 		Dimensions: 2, 2
@@ -258,9 +258,9 @@ NEUTRALPOWERPLANT:
 	Inherits@SHAPE: ^3x3Shape
 	Inherits@VISION: ^6CellVision
 	Tooltip:
-		Name: Nuclear Power Plant
+		Name: neutralpowerplant-name
 	TooltipDescription:
-		Description: Provides build radius & explodes violently when destroyed.
+		Description: neutralpowerplant-desc
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3, 3
@@ -270,13 +270,6 @@ NEUTRALPOWERPLANT:
 		Amount: 200
 		RequiresCondition: !empdisable
 	RenderSprites:
-	GivesBuildableArea:
-		AreaTypes: building
-	BaseProvider:
-		Range: 10c0
-		PauseOnCondition: empdisable
-	RequiresBuildableArea:
-		AreaTypes: building
 	ExplodesAlsoTransported:
 		Weapon: PowerplantNuke
 		-Type:
@@ -292,9 +285,9 @@ SCRINREINFPAD:
 	Inherits@SHAPE: ^3x3Shape
 	Inherits@VISION: ^6CellVision
 	Tooltip:
-		Name: Scrin Replicator
+		Name: scrinreinfpad-name
 	TooltipDescription:
-		Description: Builds a main battle tank periodically.
+		Description: scrinreinfpad-desc
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3, 3
@@ -398,9 +391,9 @@ NEUTRALSONICTUR:
 	Buildable:
 		Queue: Defense.Tech
 	Tooltip:
-		Name: Shockwave Turret
+		Name: neutralsonictur-name
 	TooltipDescription:
-		Description: Damages units in a straight line.
+		Description: neutralsonictur-desc
 	Building:
 		Footprint: x
 		Dimensions: 1, 1
@@ -436,9 +429,7 @@ CABCANNON:
 	Valued:
 		Cost: 500
 	Tooltip:
-		Name: Cannon Turret
-	TooltipDescription:
-		Description: Defensive turret.
+		Name: cabcannon-name
 	Building:
 	Health:
 		HP: 45000
@@ -477,7 +468,7 @@ REPAIRTUR:
 	Valued:
 		Cost: 1400
 	Tooltip:
-		Name: Maintenance Turret
+		Name: repairtur-name
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -517,7 +508,7 @@ BLUETIBBARREL:
 		Footprint: x
 		Dimensions: 1,1
 	Tooltip:
-		Name: Blue Tiberium Barrel
+		Name: bluetibbarrel-name
 	Health:
 		HP: 500
 	Armor:
@@ -560,9 +551,9 @@ FUELTOWER:
 		Footprint: x
 		Dimensions: 1,1
 	Tooltip:
-		Name: Fuel Tower
+		Name: fueltower-name
 	TooltipDescription:
-		Description: Causes huge explosion when destroyed.
+		Description: fueltower-desc
 	Health:
 		HP: 500
 	Armor:
@@ -579,9 +570,9 @@ CIVHELI:
 	Inherits: ^TechBuilding
 	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
-		Name: Civilian Helipad
+		Name: civheli-name
 	TooltipDescription:
-		Description: Rearms and repairs aircraft.
+		Description: civheli-desc
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -590,14 +581,6 @@ CIVHELI:
 	Health:
 		HP: 50000
 	Reservable:
-	RepairsUnits:
-		HpPerStep: 2000
-		ValuePercentage: 0
-		Interval: 48
-		StartRepairingNotification: Repairing
-		StartRepairingTextNotification: notification-repairing
-		FinishRepairingNotification: UnitRepaired
-		FinishRepairingTextNotification: notification-unit-repaired
 	-WithDeathAnimation:
 	RenderSprites:
 		PlayerPalette: player
@@ -608,9 +591,9 @@ CAARMR:
 	Inherits: ^TechBuilding
 	Inherits@shape: ^4x4Shape
 	Tooltip:
-		Name: Civilian Armory
+		Name: caarmr-name
 	TooltipDescription:
-		Description: Increases experience gain.
+		Description: caarmr-desc
 	Building:
 		Footprint: xxxx xxxx xxxx xxxx
 		Dimensions: 4, 4
@@ -633,7 +616,7 @@ GASPOT:
 	Valued:
 		Cost: 300
 	Tooltip:
-		Name: Light Tower
+		Name: gaspot-name
 	Building:
 		Footprint: x
 		Dimensions: 1, 1
@@ -672,12 +655,14 @@ FLAGDOM:
 		Image: flagneutral
 		PlayerPalette: unittemremapplayer
 	Tooltip:
-		Name: Domination Flag
+		Name: flagdom-name
+	TooltipDescription:
+		Description: flagdom-desc
 	GrantConditionOnPrerequisite@domination:
 		Condition: domination
 		Prerequisites: global-domination
 	EditorOnlyTooltip:
-		Name: Domination Mode Only Flag
+		Name: flagdom-name2
 	Targetable@NoAutoTarget:
 		TargetTypes: NoAutoTarget
 	Interactable:
@@ -698,11 +683,11 @@ FLAGDOM:
 NTPYRA.koth:
 	Inherits: ^TechBuilding
 	Tooltip:
-		Name: Nod Pyramid
+		Name: ntpyra-koth
 	TooltipDescription:
-		Description: Capture and hold for 6 minutes to win.
+		Description: ntpyra-koth-desc
 	EditorOnlyTooltip:
-		Name: KOTH Mode Only Pyramid
+		Name: ntpyra-koth-name2
 	Targetable@NoAutoTarget:
 		TargetTypes: NoAutoTarget
 	Building:
@@ -744,10 +729,10 @@ NTPYRA.koth:
 TACNST:
 	Inherits: GACNST
 	Tooltip:
-		Name: Tech Construction Yard
+		Name: tacnst-name
 	Buildable:
 		BuildPaletteOrder: 1001
-		Description: Builds tech structures.
+		Description: tacnst-desc
 	-Transforms:
 	-TransformsIntoMobile:
 	-TransformsIntoRepairable:

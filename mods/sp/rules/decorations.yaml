@@ -56,7 +56,7 @@ ROCKS1:
 	Inherits@1: ^Rock
 	-Tooltip:
 	EditorOnlyTooltip:
-		Name: Rock set (Supports facings)
+		Name: rocks-name
 	RenderSprites:
 		Palette: player
 	-WithSpriteBody:
@@ -218,9 +218,9 @@ CORPSEDECO5:
 PALLET:
 	Inherits: ^1x1TurretedCivBuilding
 	Tooltip:
-		Name: Pallet
+		Name: pallet-name
 	EditorOnlyTooltip:
-		Name: Pallet (Supports facings)
+		Name: pallet-name2
 	RenderSprites:
 		Palette: player
 	Targetable:
@@ -229,9 +229,9 @@ PALLET:
 BOXSET1:
 	Inherits: ^1x1TurretedCivBuilding
 	Tooltip:
-		Name: Boxes
+		Name: boxes-name
 	EditorOnlyTooltip:
-		Name: Boxes (Supports facings)
+		Name: boxes-name2
 	RenderSprites:
 		Palette: unittem
 	Targetable:
@@ -251,9 +251,9 @@ BOXSET1:
 GRAVE:
 	Inherits@1: ^1x1TurretedCivBuilding
 	Tooltip:
-		Name: Grave
+		Name: grave-name
 	EditorOnlyTooltip:
-		Name: Grave (Supports facings)
+		Name: grave-name2
 	RenderSprites:
 		Palette: unittem
 	-ThrowsShrapnel@LARGE:
@@ -268,7 +268,7 @@ TANKBARRIER:
 	Buildable:
 		Queue: Defense.Tech
 	Tooltip:
-		Name: Tank Barrier
+		Name: tankbarrier-name
 	Health:
 		HP: 50000
 	Armor:
@@ -290,7 +290,7 @@ TANKBARRIER2:
 CONCRETEBARRIER:
 	Inherits: ^CivBuilding
 	Tooltip:
-		Name: Civilian Barrier
+		Name: concretebarrier-name
 	Health:
 		HP: 25000
 	Armor:
@@ -330,7 +330,7 @@ CONCRETEBARRIER8:
 FENCE:
 	Inherits: ^Wall
 	Tooltip:
-		Name: Fence
+		Name: fence-name
 	Crushable:
 		CrushClasses: infantry
 	-BlocksProjectiles:
@@ -345,33 +345,33 @@ FENCE:
 CERMWALL:
 	Inherits: FENCE
 	Tooltip:
-		Name: Wall
+		Name: fence-name
 
 FENCE2:
 	Inherits: FENCE
 	Tooltip:
-		Name: Fence
+		Name: fence-name
 	Health:
 		HP: 5000
 
 FENCE3:
 	Inherits: FENCE
 	Tooltip:
-		Name: Fence
+		Name: fence-name
 	Health:
 		HP: 5000
 
 FENCE4:
 	Inherits: FENCE
 	Tooltip:
-		Name: Fence
+		Name: fence-name
 	Health:
 		HP: 5000
 
 POWERLINE:
 	Inherits: ^Wall
 	Tooltip:
-		Name: Power Line
+		Name: powerline-name
 	Pluggable:
 		Conditions:
 			powerlinepost: powerlinepost
@@ -423,7 +423,7 @@ TRASHDUMP:
 		Footprint: x
 		Dimensions: 1,1
 	Tooltip:
-		Name: Trash Dump
+		Name: trashdump-name
 	Health:
 		HP: 15000
 	RenderSprites:
@@ -440,9 +440,9 @@ TRASHDUMP:
 SC_TUBES:
 	Inherits@1: ^1x1TurretedCivBuilding
 	Tooltip:
-		Name: Pipes
+		Name: pipes-name
 	EditorOnlyTooltip:
-		Name: Pipes (Supports facings)
+		Name: pipes-name2
 	Health:
 		HP: 15000
 	Targetable:
@@ -462,9 +462,9 @@ SC_TUBES:
 SC_BOXES:
 	Inherits@1: ^1x1TurretedCivBuilding
 	Tooltip:
-		Name: Boxes
+		Name: boxes-name
 	EditorOnlyTooltip:
-		Name: Boxes (Supports facings)
+		Name: boxes-name2
 	Health:
 		HP: 15000
 	RenderSprites:
@@ -517,7 +517,7 @@ TIBTRE03:
 	SpawnSparks@spores:
 		LocalOffset: 0,-128,2164
 	Encyclopedia:
-		Description: Blossom trees were one of the earliest mutated spieces by Tiberium. Normal tree is mutated and develop a fleshly stalk, with a pulsating bulb periodically releasing Tiberium spores to the surrounding area. When these spores land on the ground, a new Tiberium field will begin forming.\n\nBlossom trees could spread Riparius Tiberium (green Tiberium) at an alarming rate, which is important for those who harvest Tiberium.
+		Description: blossomtree-ency
 		Category: Tiberian Lifeform
 		Order: 0
 
@@ -543,7 +543,7 @@ BIGBLUE:
 	RadarColorFromTerrain:
 		Terrain: BlueTiberium
 	Tooltip:
-		Name: Vinifera Monolith
+		Name: bigblue-name
 	WithIdleAnimation:
 		Interval: 200
 	SeedsResource:
@@ -553,21 +553,20 @@ BIGBLUE:
 		RedTint: 0
 		GreenTint: 0
 		BlueTint: 0.4
+	Encyclopedia:
+		Description: bigblue-ency
+		Category: Tiberian Lifeform
+		Order: 1
 
 BIGBLUE3:
 	Inherits: BIGBLUE
-	EditorOnlyTooltip:
-		Name: Duplicated vinifera (It helps avoid map importation issues)
-	Encyclopedia:
-		Description: Vinifera Monolith is a cystal collection consist of many fast growing long crystals, which will fracture periodically. When they fracture, the cystal shards will seed into soil and a new Tiberium field will begin forming.\n\nVinifera Monolith could spread Vinifera Tiberium (blue Tiberium) at an alarming rate, which is important for those who harvest Tiberium.
-		Category: Tiberian Lifeform
-		Order: 1
+	-Encyclopedia:
 
 BIGGREEN:
 	Inherits: ^BlossomTree
 	Inherits@1: ^TibMonolithEffect
 	Tooltip:
-		Name: Riparius Monolith
+		Name: biggreen-name
 	RenderSprites:
 		Image: BIGBLUE
 		Palette: greentibpal
@@ -576,14 +575,14 @@ BIGGREEN:
 	WithIdleAnimation:
 		Interval: 100
 	Encyclopedia:
-		Description: Just like Vinifera Monolith, but they spread and made from long crystals of Riparius Tiberium (green Tiberium).
+		Description: biggreen-ency
 		Category: Tiberian Lifeform
 		Order: 2
 
 ^Fona:
 	Inherits: ^Tree
 	Tooltip:
-		Name: Fona
+		Name: fona-name
 	TerrainLightSource@1:
 		Range: 2c640
 		Intensity: 0.0005
@@ -702,7 +701,7 @@ TREE25:
 fona01:
 	Inherits: ^Fona
 	Encyclopedia:
-		Description: Mutated from some kinds of cactus, glows with blue light.
+		Description: fona01-ency
 		Category: Tiberian Lifeform
 		Order: 3
 
@@ -724,7 +723,7 @@ fona06:
 fona07:
 	Inherits: ^FonaGreen
 	Encyclopedia:
-		Description: Mutated from some kinds of lichen, glows with green light.
+		Description: fona07-ency
 		Category: Tiberian Lifeform
 		Order: 3
 
@@ -740,7 +739,7 @@ fona10:
 fona11:
 	Inherits: ^FonaGreen
 	Encyclopedia:
-		Description: Mutated from some kinds of palm trees, glows with green light.
+		Description: fona11-ency
 		Category: Tiberian Lifeform
 		Order: 3
 
@@ -762,7 +761,7 @@ fona16:
 fona17:
 	Inherits: ^FonaWhite
 	Encyclopedia:
-		Description: Mutated from some kinds of fern, glows with white light.
+		Description: fona17-ency
 		Category: Tiberian Lifeform
 		Order: 3
 
@@ -778,7 +777,7 @@ fona20:
 yellowfona01:
 	Inherits: ^FonaYellow
 	Encyclopedia:
-		Description: Mutated from Amorphophallus titanum, glows with yellow light.
+		Description: yellowfona01-ency
 		Category: Tiberian Lifeform
 		Order: 3
 
@@ -843,12 +842,12 @@ treegeneric6:
 ^Box:
 	Inherits: ^Decoration
 	Tooltip:
-		Name: Box
+		Name: box-name
 
 ^Drum:
 	Inherits: ^Decoration
 	Tooltip:
-		Name: Drum
+		Name: drum-name
 
 CRAT01:
 	Inherits: ^Box
@@ -892,9 +891,9 @@ PALET04:
 STREETSIGNS:
 	Inherits@1: ^1x1TurretedCivBuilding
 	Tooltip:
-		Name: Street Sign
+		Name: streetsign-name
 	EditorOnlyTooltip:
-		Name: Street Sign set (Supports facings)
+		Name: streetsign-name2
 	RenderSprites:
 		Palette: unittemred
 	-ThrowsShrapnel@LARGE:
@@ -909,9 +908,9 @@ STREETSIGNS:
 STREETSIGNS2:
 	Inherits@1: ^1x1TurretedCivBuilding
 	Tooltip:
-		Name: Street Sign
+		Name: streetsign-name
 	EditorOnlyTooltip:
-		Name: Street Sign set (Supports facings)
+		Name: streetsign-name2
 	RenderSprites:
 		Palette: unittemred
 	-ThrowsShrapnel@LARGE:
@@ -926,9 +925,9 @@ STREETSIGNS2:
 TRAFFICLIGHTS:
 	Inherits@1: ^1x1TurretedCivBuilding
 	Tooltip:
-		Name: Traffic Light
+		Name: trafficlights-name
 	EditorOnlyTooltip:
-		Name: Traffic Light set (Supports facings)
+		Name: trafficlights-name2
 	RenderSprites:
 		Palette: unittemred
 	-ThrowsShrapnel@LARGE:
@@ -942,9 +941,9 @@ TRAFFICLIGHTS:
 BENCH:
 	Inherits@1: ^1x1TurretedCivBuilding
 	Tooltip:
-		Name: Bench
+		Name: bench-name
 	EditorOnlyTooltip:
-		Name: Bench set (Supports facings)
+		Name: bench-name2
 	Health:
 		HP: 2500
 	RenderSprites:
@@ -961,9 +960,9 @@ BENCH:
 BUSSTOP:
 	Inherits: ^1x1TurretedCivBuilding
 	Tooltip:
-		Name: Bus Stop
+		Name: busstop-name
 	EditorOnlyTooltip:
-		Name: Bus Stop (Supports facings)
+		Name: busstop-name2
 	RenderSprites:
 		Palette: unittem
 	-ThrowsShrapnel@LARGE:
@@ -979,7 +978,7 @@ LIGHTPOST4x4:
 	Inherits: ^CivBuilding
 	Inherits@2: ^1x1Shape
 	Tooltip:
-		Name: Light Post
+		Name: lightpost-name
 	Health:
 		HP: 15000
 	Armor:
@@ -1009,7 +1008,7 @@ CONSTRUCTIONBARRIER:
 		Footprint: x
 		Dimensions: 1,1
 	Tooltip:
-		Name: Construction Barrier
+		Name: constructionbarrier-name
 	Health:
 		HP: 5000
 	Armor:
@@ -1034,7 +1033,7 @@ CAMPFIRE:
 		Footprint: x
 		Dimensions: 1,1
 	Tooltip:
-		Name: Campfire
+		Name: campfire-name
 	RenderSprites:
 		Palette: isotem
 	WithIdleOverlay:
@@ -1044,7 +1043,7 @@ CAMPFIRE:
 CACRSH01:
 	Inherits: ^Decoration
 	Tooltip:
-		Name: Crash Site
+		Name: cacrsh01-name
 
 CACRSH02:
 	Inherits: CACRSH01
@@ -1061,16 +1060,16 @@ CACRSH05:
 TANKWRECK1:
 	Inherits@1: ^1x1TurretedDecoration
 	Tooltip:
-		Name: Scrap
+		Name: scrap-name
 	EditorOnlyTooltip:
-		Name: Scrap set (Supports facings)
+		Name: scrap-name2
 	RenderSprites:
 		Palette: isotem
 
 SCRINY:
 	Inherits: ^Box
 	Tooltip:
-		Name: Crash
+		Name: cacrsh01-name
 	RenderSprites:
 		Palette: isotem
 		Image: scriny
@@ -1081,7 +1080,7 @@ GEYE:
 	Inherits@3: ^4CellVision
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Tooltip:
-		Name: Curiosity
+		Name: geye-name
 		ShowOwnerRow: false
 	Building:
 		Footprint: x
@@ -1106,8 +1105,6 @@ GEYE:
 	WithEmbeddedTurretSpriteBody:
 	RadarColorFromTerrain:
 		Terrain: Rock
-	EditorOnlyTooltip:
-		Name: Curiosity
 	RenderSprites:
 		Palette: player
 		Image: geye
@@ -1117,7 +1114,7 @@ GEYE:
 	ActorStatValues:
 		Armaments: none
 	Encyclopedia:
-		Description: Unknown lifeform. Maybe it is creature looks like an eyeball, or just an eye from a greater being.
+		Description: geye-ency
 		Category: Tiberian Lifeform
 		Order: 4
 
@@ -1128,7 +1125,7 @@ WEYE:
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	-Tooltip:
 	EditorOnlyTooltip:
-		Name: ...(Normal terrain water only)
+		Name: weye-name2
 	Building:
 		Footprint: ===== ===== ===== ===== =====
 		Dimensions: 5,5
@@ -1160,15 +1157,13 @@ SNOWEYE:
 		Palette: apolcyanbluealpha15
 		Image: weye
 	EditorOnlyTooltip:
-		Name: ...(Snow terrain water only)
+		Name: snoweye-name2
 
 TIBFAIRY:
 	Inherits: ^NonBuildingStaticActor
 	Tooltip:
-		Name: Fairy
+		Name: fairy-name
 		ShowOwnerRow: false
-	EditorOnlyTooltip:
-		Name: Fairy
 	RenderSprites:
 		Palette: apgreen
 		Image: tibfairy
@@ -1193,6 +1188,6 @@ TIBFAIRY:
 	ExplodesAlsoTransported:
 		Weapon: FairyFlyAndBack
 	Encyclopedia:
-		Description: Those harmless and glowing creatures feed on the Tiberian particulates in the air, and will flee to the sky above if being threated and frightened. They will try to return to their position after a while, just like some species of jellyfish before Tiberium came to earth.
+		Description: fairy-ency
 		Category: Tiberian Lifeform
 		Order: 3

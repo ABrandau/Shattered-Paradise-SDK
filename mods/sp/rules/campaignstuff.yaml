@@ -68,7 +68,7 @@ RIFLEBGGY:
 	Selectable:
 		Class: bggy
 	EditorOnlyTooltip:
-		Name: Anti Infantry Buggy
+		Name: buggy-e1-name
 	RenderSprites:
 		Image: bggy
 	-Buildable:
@@ -82,7 +82,7 @@ RIFLEBGGY:
 ROCKETBGGY:
 	Inherits: RIFLEBGGY
 	EditorOnlyTooltip:
-		Name: Rocket Buggy
+		Name: buggy-rocket-name
 	Cargo:
 		InitialUnits: crusader
 	ActorStatValues:
@@ -93,7 +93,7 @@ FLAMEBGGY:
 	Cargo:
 		InitialUnits: templar
 	EditorOnlyTooltip:
-		Name: Flame Buggy
+		Name: buggy-flame-name
 	ActorStatValues:
 		TooltipActor: bggy
 
@@ -102,7 +102,7 @@ LAZORBGGY:
 	Cargo:
 		InitialUnits: nconf
 	EditorOnlyTooltip:
-		Name: Laser Buggy
+		Name: buggy-laser-name
 	ActorStatValues:
 		TooltipActor: bggy
 
@@ -116,7 +116,7 @@ STRUCKFULL:
 	RenderSprites:
 		Image: struck
 	EditorOnlyTooltip:
-		Name: Filled Battle Bus
+		Name: struckfull-name
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
@@ -144,7 +144,7 @@ NUKECARRYALL_BOT:
 	Inherits: trnsport.mut
 	Inherits@1: ^BotCarryall
 	Buildable:
-		Description: AI Nuke Transport
+		Description: nukecarryall-desc
 		Prerequisites: ~muair, muhall, ~techlevel.5, ~AIOnly, ~!bot-transport-squad
 	-ProductionCostMultiplier@AI:
 	ProductionCostMultiplier@Preload:
@@ -167,7 +167,7 @@ SONICARRYALL_BOT:
 	Inherits: TRNSPORT
 	Inherits@1: ^BotCarryall
 	Buildable:
-		Description: AI Sonic Transport
+		Description: sonicarryall-desc
 		Prerequisites: ~gahpad, gatech, ~techlevel.5, ~AIOnly, ~!bot-transport-squad
 	-ProductionCostMultiplier@AI:
 	ProductionCostMultiplier@Preload:
@@ -190,7 +190,7 @@ APCARRYALL_BOT:
 	Inherits: TRNSPORT
 	Inherits@1: ^BotCarryall
 	Buildable:
-		Description: AI APC Transport
+		Description: apcarryall-desc
 		Prerequisites: ~gahpad, gapile, ~techlevel.2, ~AIOnly, ~!bot-transport-squad
 	-ProductionCostMultiplier@AI:
 	ProductionCostMultiplier@Preload:
@@ -219,7 +219,7 @@ MUBUNKRFULL:
 	RenderSprites:
 		Image: mubunkr
 	EditorOnlyTooltip:
-		Name: Filled Bunker
+		Name: mubunkrfull-desc
 	Cargo:
 		InitialUnits: marauder, marauder, marauder, marauder, marauder
 	ActorStatValues:
@@ -239,14 +239,14 @@ GHOST:
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: Gil the Ghost Stalker
+		Name: ghost-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Mutant
 		BuildPaletteOrder: 32
 		Prerequisites: ~player.mut, ~murax, muhall, ~techlevel.5, ~AIOnly
-		Description: Gil is the elite commando of Mutants, if not GDI.\nHe is armed with a ion railgun and C4.\n\nGood vs Ground\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes structures with C4\n- Heals on Tiberium\n- Immune to mindcontrol\n- Crush class: crushable
+		Description: ghost-desc
 		BuildLimit: 1
 		BuildDuration: 1250
 		BuildDurationModifier: 100
@@ -319,7 +319,7 @@ UMAGON:
 	Inherits@VISION: ^10CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Tooltip:
-		Name: Umagon
+		Name: umagon-name
 	Valued:
 		Cost: 2000
 	Voiced:
@@ -328,7 +328,7 @@ UMAGON:
 		Queue: Infantry.Shared, Infantry.Mutant
 		BuildPaletteOrder: 33
 		Prerequisites: ~player.mut, ~murax, muhall, ~techlevel.5, ~AIOnly
-		Description: Umagon was one of the GDI's "good girls", she sure was. \nShe is armed with a sniper with silencer and C4.\n\nGood vs Infantry\n\nSpecial:\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields\n- Demolishes structures with C4\n- Heals on Tiberium\n- Immune to mindcontrol\n- Crush class: crushable
+		Description: umagon-desc
 		BuildLimit: 1
 		BuildDuration: 1250
 		BuildDurationModifier: 100
@@ -391,13 +391,13 @@ MUJEEP:
 	Valued:
 		Cost: 350
 	Tooltip:
-		Name: Technical
+		Name: mujeep-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
-		Description: Infantry transport.\n\nGood vs: Infantry.\n\nSpecial:\n - Can transport 3 infantry units\n - Can attack while moving
+		Description: mujeep-desc
 		BuildPaletteOrder: 23
 		Prerequisites: ~muweap, murax, ~techlevel.2, ~AIOnly
 		BuildDuration: 250
@@ -486,7 +486,7 @@ AVATAR:
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: Avatar
+		Name: avatar-name
 	Selectable:
 		Bounds: 1550, 5000, 0, -1500
 	Carryable:
@@ -496,7 +496,7 @@ AVATAR:
 		BuildAtProductionType: Lightbringer
 		BuildPaletteOrder: 51
 		Prerequisites: ~naweap, nahfac, ~AIOnly, ~techlevel.5
-		Description: Heavy Walker armed with a strong laser and enhances nearby Units.\n\nGood vs: Ground\n\nSpecial:\n- Can crush infantry
+		Description: avatar-desc
 		BuildDuration: 1125
 		BuildDurationModifier: 100
 	Voiced:
@@ -539,7 +539,7 @@ WEASAU3:
 	Valued:
 		Cost: 1750
 	Tooltip:
-		Name: Green Weasaurus
+		Name: weasau3-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -547,7 +547,7 @@ WEASAU3:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 52
 		Prerequisites: ~muweap, mutsw2, ~AIOnly, ~techlevel.6
-		Description: Some long forgotten creature trained by mutant.\n\nGood vs: Ground\n\nSpecial:\n - Selfhealing up to 100%\n - Wild mind: Mind only controllable by MasterMind\n - Can shoot over walls\n - Can crush Infantry \n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - E.M.P. Immune\n - Deployability: use melee attack for a short period
+		Description: weasau3-desc
 		BuildDuration: 1125
 		BuildDurationModifier: 100
 	Voiced:
@@ -650,13 +650,13 @@ LPST:
 	Armor:
 		Type: Light
 	Tooltip:
-		Name: Sensor Array
+		Name: lpst-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
-		Description: Support unit for large stealth detection.\n\nUnarmed.\n\nSpecial:\n - Deploy to reveal stealth unit in a large area
+		Description: 
 		BuildPaletteOrder: 51
 		Prerequisites: ~gaweap, gatech, ~AIOnly, ~techlevel.5
 		BuildDuration: 625
@@ -737,11 +737,11 @@ SGEN:
 		BuildAtProductionType: Tank
 		Prerequisites: ~naweap, natech, ~AIOnly, ~techlevel.5
 		BuildPaletteOrder: 51
-		Description: Support unit that projects a cloaking field.\n\nUnarmed\n\nSpecial:\n - Cloak nearby unit when deploy
+		Description: sgen-desc
 		BuildDuration: 875
 		BuildDurationModifier: 100
 	Tooltip:
-		Name: Mobile Stealth Generator
+		Name: sgen-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Mobile:
@@ -835,13 +835,13 @@ ICBM:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 51
 		Prerequisites: ~player.nod, ~naweap, nahfac, ~AIOnly, ~techlevel.6
-		Description: Even ICBM is deployed as the tension increased.\n\nUnarmed. \n\nSpecial:\n- Deploy to gain ICBM strike abiility
+		Description: icbm-desc
 		BuildDuration: 2000
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 4000
 	Tooltip:
-		Name: Ballistic Missile Launcher
+		Name: icbm-name
 	Health:
 		HP: 50000
 	Armor:
@@ -943,11 +943,11 @@ MWAR: ## AI control it by using McvManagerBotModule
 		BuildAtProductionType: Lightbringer
 		Prerequisites: ~naweap, nahfac, ~AIOnly, ~techlevel.6
 		BuildPaletteOrder: 51
-		Description: Support unit can deploy into warfactory.\n\nUnarmed\n\nSpecial:\n - Can deploy into a factory to produce vehicle. \n - Needs Nod's War Factory to unlock basic vehicle. \n - Can crush infantry
+		Description: mwar-desc
 		BuildDuration: 1150
 		BuildDurationModifier: 100
 	Tooltip:
-		Name: Mobile War Factory
+		Name: mwar-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Mobile:
@@ -978,7 +978,7 @@ MTAR:
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: Mobile War Factory
+		Name: mwar-name
 	Production:
 		Produces: Vehicle.Nod
 	ProductionQueue@Vehicle:
@@ -1034,13 +1034,13 @@ M_EMP:
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Mobile EMP
+		Name: memp-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
-		Description: Support unit can generate emp pulse.\n\nUnarmed.\n\nSpecial:\n - Deploy to generate emp pulse to disable building, cyborg and vehicle \n - Immumes to EMP \n - Can crush Infantry
+		Description: memp-desc
 		BuildPaletteOrder: 51
 		Prerequisites: ~gaweap, gatech, ~AIOnly, ~techlevel.5
 		BuildDuration: 625
@@ -1102,7 +1102,7 @@ CABECM:
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Hacker Drone
+		Name: cabecm-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Selectable:
@@ -1168,7 +1168,7 @@ QDRONE:
 	Inherits@VISION: ^6CellVision
 	Inherits@DETECTION: ^BasicStealthDetectionAir
 	Tooltip:
-		Name: Quadrotor
+		Name: qdrone-name
 	Health:
 		HP: 5000
 	-CarrierSlave:
@@ -1237,7 +1237,7 @@ MUTMOUND: ### Mound that may hide a tunnel inside
 	Inherits@RENDER: ^MutRenderBuilding
 	Interactable:
 	EditorOnlyTooltip:
-		Name: Suspicious Mound
+		Name: mutmound-name
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1260,7 +1260,7 @@ MUTAMBUSH: ###  Mound that hide a tunnel inside
 	Inherits@WithDeathEffects: ^WithDeathEffects
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
 	EditorOnlyTooltip:
-		Name: Suspicious Mound (hide a tunnel under it, and keep unit in tunnel living)
+		Name: mutambush-name
 	SpawnActorOnDeath:
 		Actor: mutambushvent
 		SkipMakeAnimations: false
@@ -1282,7 +1282,7 @@ MUTAMBUSHVENT:
 	WithMakeAnimation:
 		Sequence: ambush-make
 	EditorOnlyTooltip:
-		Name: Tunnel (generated by Suspicious Mound)
+		Name: mutambushvent-name
 
 GBEACON:
 	Inherits: ^BasicBuilding
@@ -1290,7 +1290,7 @@ GBEACON:
 	Inherits@2: ^6CellVision
 	Inherits@3: ^SelectableBuilding
 	Tooltip:
-		Name: DropShip Beacon
+		Name: gbeacon-name
 	Building:
 		Footprint: x
 		Dimensions: 1,1
@@ -1333,7 +1333,7 @@ GAIONTUR:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Tooltip:
-		Name: Ion Turret
+		Name: gaiontur-name
 	Health:
 		HP: 200000
 	Armament:
@@ -1368,7 +1368,7 @@ KODK:
 	Valued:
 		Cost: 5000
 	Tooltip:
-		Name: Kodiak Command Ship
+		Name: kodk-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Selectable:
@@ -1445,9 +1445,9 @@ CABGRINDER:
 	Valued:
 		Cost: 350
 	Tooltip:
-		Name: Stasis Chamber
+		Name: cabgrinder-name
 	TooltipDescription:
-		Description: Allows to process units into credits.
+		Description: cabgrinder-desc
 	AcceptsDeliveredCash:
 	Building:
 		Footprint: xx xx xx
@@ -1466,7 +1466,7 @@ NEUTRALFABRICATOR:
 	Inherits@3: ^7CellVision
 	#Inherits@4: ^EngineerCapturableVehicle
 	Tooltip:
-		Name: Packed Up Fabricator
+		Name: fabricator-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Mobile:
@@ -1497,7 +1497,7 @@ NEUTRALFABRICATORDEP:
 	Health:
 		HP: 15000
 	Tooltip:
-		Name: Civilian Fabricator
+		Name: fabricator-name
 	BaseProvider:
 		Range: 8c0
 	Targetable:
@@ -1536,7 +1536,7 @@ CONTAINMENTUNIT:
 	Valued:
 		Cost: 350
 	Tooltip:
-		Name: Containment Unit
+		Name: containmentunit-name
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
@@ -1552,8 +1552,6 @@ CONTAINMENTUNIT:
 CONTAINMENTUNIT_GREEN:
 	Inherits: CONTAINMENTUNIT
 	Inherits@RENDER: ^MutRenderGreen
-	TooltipDescription:
-		Description: Holds a captive tiberium lifeform
 	ExplodesAlsoTransported@tib:
 		Weapon: TiberiumExplosion
 
@@ -1571,7 +1569,7 @@ COREDEFENDER:
 	Valued:
 		Cost: 15000
 	Tooltip:
-		Name: Core Defender
+		Name: coredefender-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Mobile:
@@ -1801,7 +1799,7 @@ DEFD:
 	Buildable:
 		Queue: Building.Shared, Building.CABAL
 		Prerequisites: ~player.cab, ~cabyard, cabtech, ~techlevel.5, ~AIOnly, ~!DefenderExists
-		Description: C.A.B.A.L.'s final creation armed with crazy weapon.\n\nGood vs: Everything\n\nSpecial:\n- Needs preparing before rising.\n- Selfrepair\n- Can shoot over walls\n- Can crush vehicle\n- Immune to mindcontrol
+		Description: coredefender-desc
 		BuildPaletteOrder: 54
 		BuildDuration: 7000
 		BuildDurationModifier: 100
@@ -1832,7 +1830,7 @@ DEFD:
 		TransformSounds: coreup1.aud
 		NoTransformSounds:
 	Tooltip:
-		Name: Core Defender
+		Name: coredefender-name
 	RevealsShroud@revealitself:
 		ValidRelationships: Neutral, Enemy
 		MaxHeightDelta: 3
@@ -1871,7 +1869,7 @@ HMECTEST:
 	Valued:
 		Cost: 15000
 	Tooltip:
-		Name: Mammoth Mk.III
+		Name: hmectest-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -1879,7 +1877,7 @@ HMECTEST:
 		BuildAtProductionType: Mammoth
 		BuildPaletteOrder: 49
 		Prerequisites: ~player.gdi, ~showhmec, gtdrop, ~AIOnly, ~techlevel.6
-		Description: GDI's final creation for the war when everything is doomed.\n\nGood vs: Everything\n\nSpecial:\n- Build limit: 1\n- Selfhealing up to 100%\n- Can attack air\n- Immune to mind control\n- Can shoot over walls\n- Can crush everything except other Epics\n- It is deployed via dropship at the Dropship Bay\n- Can attack while moving\n- Can spawn 2 gun drones\n - Gain 100% EXP from enemy killed by spawned gun drones.
+		Description: hmectest-desc
 		BuildLimit: 1
 		BuildDuration: 7000
 		BuildDurationModifier: 100
@@ -2095,7 +2093,7 @@ MKIIIDRONE-MINIGUN:
 	Inherits@SHADOW: ^AircraftShadow
 	Inherits@VISION: ^3CellVision
 	Tooltip:
-		Name: Minigun drone
+		Name: mkiiidrone-name
 	Interactable:
 	HasParent:
 	Aircraft:
@@ -2215,12 +2213,12 @@ SCRINCOUNCIL:
 	Valued:
 		Cost: 15000
 	Tooltip:
-		Name: Scrin Council
+		Name: scrincouncil-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Air.Shared, Air.Scrin
-		Description: A council debates on the world's corpse.\n\nGood vs: Everything\n\nSpecial:\n- Build limit: 1\n- Selfhealing up to 100%\n- Can attack air\n- Immune to mind control\n- Can shoot over walls\n- Can attack while moving
+		Description: scrincouncil-desc
 		BuildPaletteOrder: 29
 		Prerequisites: ~player.scr, ~scrair, scradvpowr, ~techlevel.6, ~AIOnly
 		BuildLimit: 1
@@ -2357,7 +2355,7 @@ COUNCILOR:
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Infantry
 	Inherits@VISION: ^3CellVision
 	Tooltip:
-		Name: Councilor
+		Name: councilor-name
 	Interactable:
 	HasParent:
 	Aircraft:

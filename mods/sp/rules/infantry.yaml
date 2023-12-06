@@ -8,14 +8,14 @@ GDIE1:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.GDI
 		BuildPaletteOrder: 1
-		Description: Basic combat infantry.\n\nGood vs: Infantry\n\nSpecial:\n - Crush class: crushable
+		Description: gdie1-desc
 		Prerequisites: ~gapile, ~techlevel.1
 		BuildDuration: 125
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 150
 	Tooltip:
-		Name: Marine
+		Name: gdie1-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -88,13 +88,13 @@ GRENADIER:
 		Queue: Infantry.Shared, Infantry.GDI
 		BuildPaletteOrder: 2
 		Prerequisites: ~gapile, ~techlevel.1
-		Description: Basic anti armor infantry.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n - Can attack Air\n - Can shoot over walls\n - Crush class: crushable
+		Description: grenadier-desc
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 300
 	Tooltip:
-		Name: Phalanx
+		Name: grenadier-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -164,13 +164,13 @@ MEDIC:
 	Inherits@VISION: ^5CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
 	Tooltip:
-		Name: Medic
+		Name: medic-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry.Shared, Infantry.GDI
 		BuildPaletteOrder: 15
-		Description: Support infantry capable of healing other infantry.\n\nSpecial:\n - Unarmed\n - Crush class: crushable
+		Description: medic-desc
 		Prerequisites: ~gapile, ~techlevel.1
 		BuildDuration: 175
 		BuildDurationModifier: 100
@@ -214,13 +214,13 @@ E2:
 		Queue: Infantry.Shared, Infantry.GDI
 		BuildPaletteOrder: 17
 		Prerequisites: ~gapile, garadr, ~techlevel.4
-		Description: Infantry armed with special explosive discs.\n\nGood vs: Infantry, Structures.\n\nSpecial:\n - Can throw grenades over walls\n - Crush class: crushable
+		Description: e2-desc
 		BuildDuration: 175
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 200
 	Tooltip:
-		Name: Disc Thrower
+		Name: e2-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -284,7 +284,7 @@ JUMPJET:
 	Valued:
 		Cost: 400
 	Tooltip:
-		Name: Jumpjet Infantry
+		Name: jumpjet-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	-TakeCover:
@@ -340,14 +340,14 @@ JUMPJETAIR:
 	Valued:
 		Cost: 400
 	Tooltip:
-		Name: Jumpjet Infantry
+		Name: jumpjet-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry.Shared, Infantry.GDI
 		BuildPaletteOrder: 18
 		Prerequisites: ~gapile, garadr, ~techlevel.4
-		Description: Soldiers with jetpacks armed with a grenade launcher.\n\nGood vs: Infantry, Structures.\n\nSpecial:\n - Can fly\n - Will land when ordered to deploy\n - Can shoot over walls\n - Crush class: crushable
+		Description: jumpjet-desc
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Voiced:
@@ -444,12 +444,12 @@ EAGLEGUARD:
 	Valued:
 		Cost: 900
 	Tooltip:
-		Name: Eagle Guard
+		Name: eagleguard-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry.Shared, Infantry.GDI
-		Description: Elite Soldier armed with an EMP rifle.\n\nGood vs: Vehicles\n\nSpecial:\n - Immune to Tiberium fields, -radition and gas\n - Disables vehicles and buildings for a short time\n - Crush class: uncrushable
+		Description: eagleguard-desc
 		BuildPaletteOrder: 24
 		Prerequisites: ~gapile, gatech, ~techlevel.5
 		BuildDuration: 625
@@ -495,14 +495,14 @@ JJCOMM:
 		Queue: Infantry.Shared, Infantry.GDI
 		BuildPaletteOrder: 25
 		Prerequisites: ~gapile, gatech, ~techlevel.5, !jjcomm
-		Description: GDI's commando unit equipped with a jetpack.\nArmed with a Personal Ion Cannon and orbital bombardment beacon.\n\nGood vs: Land Units\nWeak vs: Aircraft\n\nSpecial:\n - Can fly\n - Will land when ordered to deploy\n - Immune to mind control\n - Build limit: 1\n - Crush class: crushable
+		Description: jjcomm-desc
 		BuildLimit: 1
 		BuildDuration: 1250
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: Jumpjet Commando
+		Name: jjcomm-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	-TakeCover:
@@ -570,7 +570,7 @@ JJCOMMAIR:
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: Jumpjet Commando
+		Name: jjcomm-name
 	-Targetable@MC:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
@@ -691,14 +691,14 @@ ALTNODE1:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Nod
 		BuildPaletteOrder: 3
-		Description: Nod's light infantry variant.\n\nGood vs: Infantry\n\nSpecial:\n - Does not go prone after taking fire\n - Crush class: crushable
+		Description: altnode1-desc
 		Prerequisites: ~nahand, ~techlevel.1
 		BuildDuration: 100
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 100
 	Tooltip:
-		Name: Militant
+		Name: altnode1-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -734,14 +734,14 @@ CRUSADER:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Nod
 		BuildPaletteOrder: 4
-		Description: Anti-Armor infantry.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n - Can attack Air\n - Can shoot while moving\n - Does not go prone after taking fire\n - Can shoot over walls\n - Crush class: crushable
+		Description: crusader-desc
 		Prerequisites: ~nahand, ~techlevel.1
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 300
 	Tooltip:
-		Name: Crusader
+		Name: crusader-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -795,14 +795,14 @@ TEMPLAR:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Nod
 		BuildPaletteOrder: 19
-		Description: Warrior resurrected regenesis prototype armed with a flamethrower.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n - Immune to Tiberium fields, -radition and gas\n - Crush class: crushable
+		Description: templar-desc
 		Prerequisites: ~nahand, naradr, ~techlevel.4
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 300
 	Tooltip:
-		Name: Templar
+		Name: templar-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -852,14 +852,14 @@ NCONF:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Nod
 		BuildPaletteOrder: 26
-		Description: Nod's Special Forces armed with firefly laser rifles and a personal cloaking device.\n\nGood vs: Ground targets\n\nSpecial:\n - Spawns holograms when ordered to deploy\n - Cloaked\n - Crush class: crushable
+		Description: nconf-desc
 		Prerequisites: ~nahand, natech, ~techlevel.5
 		BuildDuration: 625
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Black Hand Trooper
+		Name: nconf-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -924,7 +924,7 @@ BHS:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Nod
 		BuildPaletteOrder: 27
-		Description: Kane’s Elite Commando armed with a toxin sniper rifle\nand a personal cloaking device.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n - Build limit: 1\n - Immune to Tiberium fields, -radition and gas\n - Demolishes structures with C4\n - Bullets release toxins which slow down groups of enemies\n - Cloaks when stationary and not firing\n - Immune to mind control\n - Crush class: crushable
+		Description: bhs-desc
 		Prerequisites: ~nahand, natech, ~techlevel.5
 		BuildLimit: 1
 		BuildDuration: 1250
@@ -932,7 +932,7 @@ BHS:
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: Toxin Commando
+		Name: bhs-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	-Targetable@MC:
@@ -1003,7 +1003,7 @@ FlameHologram:
 	RenderSprites:
 		Image: altnode1
 	EditorOnlyTooltip:
-		Name: Militant Hollogram
+		Name: flamehologram-name2
 	AutoTarget:
 		ScanRadius: 7
 		InitialStance: AttackAnything
@@ -1032,14 +1032,14 @@ MARAUDER:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Mutant
 		BuildPaletteOrder: 5
-		Description: Wasteland soldiers armed with shotguns.\n\nGood vs: Infantry\n\nSpecial:\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - Can deploy to increase health and attackrange\n - Crush class: crushable
+		Description: marauder-desc
 		Prerequisites: ~murax, ~techlevel.1
 		BuildDuration: 100
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 100
 	Tooltip:
-		Name: Marauder
+		Name: marauder-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Voiced:
@@ -1172,13 +1172,13 @@ MUTFIEND:
 	Inherits@TIBINFUSION: ^AffectedByTiberiumInfusion
 	Inherits@VISION: ^6CellVision
 	Tooltip:
-		Name: Tiberian Fiend
+		Name: mutfiend-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Mutant
 		BuildPaletteOrder: 6
-		Description: Tiberium beasts trained to take out enemies with tiberium shards.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - Can attack Air\n - Crush class: crushable\n - Wild mind: Mind only controllable by MasterMind
+		Description: mutfiend-desc
 		Prerequisites: ~murax, ~techlevel.1
 		BuildDuration: 250
 		BuildDurationModifier: 100
@@ -1313,12 +1313,12 @@ CUTMAN:
 	Inherits: ^MutantSoldier
 	Inherits@1: ENGINEER
 	Tooltip:
-		Name: Mutant Engineer
+		Name: cutman-name
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Mutant
 		BuildPaletteOrder: 12
 		Prerequisites: ~murax, ~techlevel.1
-		Description: Support infantry.\n\nGood vs: Buildings\n\nSpecial:\n - Can capture neutral and enemy buildings\n - Can repair buildings and bridges\n - Crush class: crushable\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas
+		Description: cutman-desc
 		BuildDuration: 375
 		BuildDurationModifier: 100
 	Valued:
@@ -1358,14 +1358,14 @@ E3:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Mutant
 		BuildPaletteOrder: 20
-		Description: Siege militia armed with molotov mortars.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - High attack range\n - Has a minimum attack distance\n - Can shoot over walls\n - Crush class: crushable
+		Description: e3-desc
 		Prerequisites: ~murax, muradr, ~techlevel.4
 		BuildDuration: 175
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 200
 	Tooltip:
-		Name: Skirmisher
+		Name: e3-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Voiced:
@@ -1415,14 +1415,14 @@ SEER:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Mutant
 		BuildPaletteOrder: 28
-		Description: Mutant infantry capable of channeling psychic energy waves and\nincreasing the efficiency of nearby friendly units.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - Can persuade friendly units to fight harder when deployed\n - Affected units will gain 20% extra attack and movement speed but receive 20% more damage\n - Effect lasts 15 seconds\n- Can attack air\n- Can shoot over walls\n - Crush class: crushable
+		Description: seer-desc
 		Prerequisites: ~murax, muhall, ~techlevel.5
 		BuildDuration: 500
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 600
 	Tooltip:
-		Name: Tyrant
+		Name: seer-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Voiced:
@@ -1496,14 +1496,14 @@ PSYKER:
 		Queue: Infantry.Shared, Infantry.Mutant
 		BuildPaletteOrder: 31
 		Prerequisites: ~murax, muhall, ~techlevel.5
-		Description: Forgotten Commando born with high level psychic powers.\nShe is capable of manipulating the presence of tiberium based gas\nin the atmosphere triggering an Ion Storm.\n\nGood vs: Ground targets\n\nSpecial:\n - Build limit: 1\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - Strong AoE\n - Can shoot over walls\n - Immune to mind control\n - Crush class: crushable
+		Description: psyker-desc
 		BuildLimit: 1
 		BuildDuration: 1250
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: Lyra the Storm Caller
+		Name: psyker-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Voiced:
@@ -1547,14 +1547,14 @@ SHARK:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Scrin
 		BuildPaletteOrder: 9
-		Description: Melee creature that shreds enemies.\n\nGood vs Infantry\n\nSpecial:\n - Absorbs essence from killed units to heal\n - Crush class: crushable\n - Does not receive damage from tiberium fields
+		Description: shark-desc
 		Prerequisites: ~scrrax, ~techlevel.1
 		BuildDuration: 50
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 50
 	Tooltip:
-		Name: Razorshark
+		Name: shark-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Selectable:
@@ -1599,14 +1599,14 @@ LEGIO:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Scrin
 		BuildPaletteOrder: 10
-		Description: Frontline anti-vehicle trooper.\n\nGood vs Vehicles, Buildings, Aircraft\n\nSpecial:\n - Absorbs essence from killed units to heal\n - Can shoot over walls\n - Crush class: crushable\n - Does not receive damage from tiberium fields
+		Description: legion-desc
 		Prerequisites: ~scrrax, ~techlevel.1
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 300
 	Tooltip:
-		Name: Legionnaire
+		Name: legion-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -1653,12 +1653,12 @@ SHAPESHIFTER:
 	Inherits: ENGINEER
 	Inherits@1: ^ScrinReaper
 	Tooltip:
-		Name: Shapeshifter
+		Name: shapeshifter-name
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Scrin
 		BuildPaletteOrder: 14
 		Prerequisites: ~scrrax, ~techlevel.1
-		Description: Support infantry.\n\nGood vs: Buildings\n\nSpecial:\n - Can capture neutral and enemy structures\n - Can repair structures and bridges\n - Crush class: crushable\n - Does not receive damage from tiberium fields
+		Description: shapeshifter-desc
 		BuildDuration: 375
 		BuildDurationModifier: 100
 	Passenger:
@@ -1686,14 +1686,14 @@ FLOAT:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Scrin
 		BuildPaletteOrder: 22
-		Description: Support unit that steals essence from enemy units.\n\nSpecial:\n - Hovers (it ignores terrain like Water)\n - Attacks steal essence to heal friendly units but deal no damage\n - Crush class: uncrushable\n - Does not receive damage from tiberium fields and all radiation when hovers
+		Description: float-desc
 		Prerequisites: ~scrrax, scrradr, ~techlevel.4
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 250
 	Tooltip:
-		Name: Essence Collector
+		Name: float-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -1739,14 +1739,14 @@ BUG:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Scrin
 		BuildPaletteOrder: 23
-		Description: Alien breed that poisons enemies.\n\nGood vs Ground targets\n\nSpecial\n - Units hit will become poisoned\n - Poisoned units take damage over time\n - Projectile bouncea a second time\n - Can shoot over walls\n - Absorbs essence from killed enemies to heal\n - Crush class: uncrushable\n - Does not receive damage from tiberium fields
+		Description: bug-desc
 		Prerequisites: ~scrrax, scrradr, ~techlevel.4
 		BuildDuration: 375
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 400
 	Tooltip:
-		Name: Plague Trooper
+		Name: bug-name
 	Voiced:
 		VoiceSet: PlaugeTrooper
 	UpdatesPlayerStatistics:
@@ -1802,14 +1802,14 @@ COLOSSI:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Scrin
 		BuildPaletteOrder: 35
-		Description: Heavy duty alien.\n\nGood vs Infantry\n\nSpecial:\n - Can irradiate its surroundings when deployed\n - Radiation harms all units regardless of owner\n - Can absorb essence from killed units to heal\n - Can shoot over walls\n - Crush class: uncrushable\n - Immune to Tiberium fields, -radition and gas
+		Description: colossus-desc
 		Prerequisites: ~scrrax, scrtech, ~techlevel.5
 		BuildDuration: 625
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Colossus
+		Name: colossus-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Selectable:
@@ -1896,7 +1896,7 @@ MASTERMIND:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Scrin
 		BuildPaletteOrder: 36
-		Description: The commando unit of Scrin born with the ability\nto mind control everyone and everything.\n\nSpecial:\n - Can mind control everything but Commandos and Epics\n - Gain 50% EXP from enemy killed by controlled unit/defence\n - Takes some time to mind control Structures\n - Absorbs essence from killed units to heal\n - Can teleport over a short distance\n - Can mind control over walls\n - Immune to mind control\n - Does not receive damage from tiberium fields\n - Build limit: 1\n - Crush class: uncrushable
+		Description: mastermind-desc
 		Prerequisites: ~scrrax, scrtech, ~techlevel.5
 		BuildLimit: 1
 		BuildDuration: 1250
@@ -1904,7 +1904,7 @@ MASTERMIND:
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: Mastermind
+		Name: mastermind-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	MindController:
@@ -2014,7 +2014,7 @@ CABSENTRY:
 		ActorExperienceModifierOnTransport: 0
 	HasParent:
 	Tooltip:
-		Name: Sentry Drone
+		Name: cabsentry-name
 	Voiced:
 		VoiceSet: Limpet
 	-DetectCloaked:
@@ -2106,13 +2106,13 @@ CYBORG:
 	Valued:
 		Cost: 250
 	Tooltip:
-		Name: Cyborg Infantry
+		Name: cyborg-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry.Shared, Infantry.CABAL
 		BuildPaletteOrder: 7
-		Description: Durable cyborg construct.\n\nGood vs: Infantry\n\nSpecial:\n - Can be deactivated with E.M.P.\n - Does not receive damage from tiberium fields\n - Loses its legs on critical health\n - Crush class: uncrushable
+		Description: cyborg-desc
 		Prerequisites: ~cabclaw, ~techlevel.1
 		BuildDuration: 200
 		BuildDurationModifier: 100
@@ -2173,13 +2173,13 @@ CBORG:
 	Valued:
 		Cost: 400
 	Tooltip:
-		Name: Missile Cyborg
+		Name: cborg-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry.Shared, Infantry.CABAL
 		BuildPaletteOrder: 8
-		Description: Anti-Armor cyborg.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n - Can be deactivated with E.M.P.\n - Can attack Air\n- Does not receive damage from tiberium fields\n - Loses its legs on critical health\n - Can shoot over walls\n - Crush class: uncrushable
+		Description: cborg-desc
 		Prerequisites: ~cabclaw, ~techlevel.1
 		BuildDuration: 250
 		BuildDurationModifier: 100
@@ -2230,12 +2230,12 @@ SWARMLING:
 	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
 	Inherits@RENDER: ^CabRender
 	Tooltip:
-		Name: Swarmling
+		Name: swarmling-name
 	Buildable:
 		Queue: Infantry.Shared, Infantry.CABAL
 		BuildPaletteOrder: 13
 		Prerequisites: ~cabclaw, ~techlevel.1
-		Description: Support infantry.\n\nGood vs: Buildings\n\nSpecial:\n - Can capture neutral and enemy structures\n - Can repair structures and bridges\n - Crush class: crushable\n - Does not receive damage from tiberium fields
+		Description: swarmling-desc
 	Passenger:
 		Voice: Action
 	SharedPassenger:
@@ -2275,14 +2275,14 @@ PDRONE:
 	Valued:
 		Cost: 100
 	Tooltip:
-		Name: Reclaimer
+		Name: pdrone-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry.Shared, Infantry.CABAL
 		BuildPaletteOrder: 16
 		Prerequisites: ~cabclaw, ~techlevel.1
-		Description: Hovered melee drone programmed to kill enemy infantry.\n\nSpecial:\n - Can only attack infantry\n - Turns killed infantry into worker cyborgs \n - Hovers (it ignores terrain like Water)- \n - Does not receive damage from tiberium fields and all radiation when hovers\n - Crush class: uncrushable
+		Description: pdrone-desc
 		BuildDuration: 75
 		BuildDurationModifier: 100
 	Selectable:
@@ -2371,14 +2371,14 @@ GLAD:
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Gladiator
+		Name: glad-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry.Shared, Infantry.CABAL
 		BuildPaletteOrder: 21
 		Prerequisites: ~cabclaw, cabradr, ~techlevel.4
-		Description: Advanced cyborg construct, extremely resilient.\n\nGood vs: Vehicles\n\nSpecial:\n - Can be deactivated with E.M.P.\n - Does not receive damage from tiberium fields\n - Loses its legs on critical health\n - Crush class: uncrushable
+		Description: glad-desc
 		BuildDuration: 625
 		BuildDurationModifier: 100
 	Selectable:
@@ -2435,13 +2435,13 @@ MOTH:
 	Valued:
 		Cost: 1100
 	Tooltip:
-		Name: Abductor
+		Name: moth-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry.Shared, Infantry.CABAL
 		BuildPaletteOrder: 33
-		Description: High tech ambusher drone.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n - Needs to deploy to attack\n - Cloaked when deployed\n - Turns enemy units into worker cyborgs\n - Does not receive damage from tiberium fields and all radiation when hovers\n - Attacks travel beneath walls\n - Crush class: uncrushable\n - Hovers (it ignores terrain like Water)
+		Description: moth-desc
 		Prerequisites: ~cabclaw, cabtech, ~techlevel.5
 		BuildDuration: 750
 		BuildDurationModifier: 100
@@ -2566,12 +2566,12 @@ CYC2:
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: Cyborg Commando
+		Name: cyc-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry.Shared, Infantry.CABAL
-		Description: Elite cyborg armed with a plasma cannon.\n\nGood vs: Ground targets\n\nSpecial:\n - Can be deactivated with E.M.P.\n - Does not receive damage from tiberium fields\n - Loses its legs when at critical health\n - Build limit: 1\n - Crush class: uncrushable\n - Immune to mind control
+		Description: cyc-desc
 		BuildPaletteOrder: 34
 		Prerequisites: ~cabclaw, cabtech, ~techlevel.5
 		BuildLimit: 1
@@ -2624,7 +2624,7 @@ WORKER:
 	Valued:
 		Cost: 100
 	Tooltip:
-		Name: Worker Unit
+		Name: worker-name
 	Health:
 		HP: 7000
 	Mobile:
@@ -2662,7 +2662,7 @@ CYBDOG:
 	Valued:
 		Cost: 150
 	Tooltip:
-		Name: Cyberdog
+		Name: cybdog-name
 	Selectable:
 		Bounds: 664,1568,-30,-723
 		DecorationBounds: 664,1568,-30,-723
@@ -2711,7 +2711,7 @@ CHUSK:
 	Valued:
 		Cost: 50
 	Tooltip:
-		Name: Shark Husk
+		Name: chusk-name
 	Selectable:
 		Bounds: 664,1568,-30,-723
 		DecorationBounds: 664,1568,-30,-723
@@ -2764,7 +2764,7 @@ WORKERMECH:
 	Valued:
 		Cost: 150
 	Tooltip:
-		Name: Worker Drone
+		Name: workermech-name
 	Health:
 		HP: 15000
 	Mobile:
@@ -2813,7 +2813,7 @@ NANOS:
 	Valued:
 		Cost: 100
 	Tooltip:
-		Name: Small Nano Swarm
+		Name: nanos-name
 	Health:
 		HP: 7000
 	Mobile:

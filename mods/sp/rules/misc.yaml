@@ -14,7 +14,7 @@
 mpspawn:
 	Inherits: ^EditorNotifier
 	EditorOnlyTooltip:
-		Name: (multiplayer player starting point)
+		Name: mpspawn-name2
 	GrantConditionOnPrerequisite@megawealth:
 		Condition: megawealth
 		Prerequisites: global-megawealth
@@ -25,7 +25,7 @@ mpspawn:
 waypoint:
 	Inherits: ^EditorNotifier
 	EditorOnlyTooltip:
-		Name: (waypoint for scripted behavior)
+		Name: waypoint-name2
 
 
 ## Used for initialize MinelayerBotModule
@@ -35,12 +35,12 @@ minelaypoint:
 		Palette: apblue
 		Image: waypoint
 	EditorOnlyTooltip:
-		Name: (Used for initialize MinelayerBotModule, when you need minelayer to lay mine more precisely)
+		Name: minelaypoint-name2
 
 flarenotifier:
 	Inherits: ^EditorNotifier
 	EditorOnlyTooltip:
-		Name: Red Flare
+		Name: flarenotifier-name2
 	RenderSpritesEditorOnly:
 		Palette: apred
 	FloatingSpriteEmitter@spawnsmoke:
@@ -58,7 +58,7 @@ flarenotifier:
 tibambientsounddummy:
 	Inherits: ^EditorNotifier
 	EditorOnlyTooltip:
-		Name: (waypoint for scripted behavior)
+		Name: tibambientsounddummy-name2
 	AmbientSound@TibSound:
 		SoundFiles: floatmov.wav, flotmov2.wav, flotmov3.wav, flotmov4.wav
 		Delay: 300, 600
@@ -70,12 +70,7 @@ tibambientsounddummy:
 cashnotifier:
 	Inherits: ^EditorNotifier
 	EditorOnlyTooltip:
-		Name: (waypoint for scripted behavior)
-	AmbientSound@TibSound:
-		SoundFiles: floatmov.wav, flotmov2.wav, flotmov3.wav, flotmov4.wav
-		Delay: 300, 600
-		Interval: 300, 600
-		AudibleThroughFog: true
+		Name: cashnotifier-name2
 	RenderSpritesEditorOnly:
 	CashTrickler@InfiniteCash:
 		Interval: 1000
@@ -86,7 +81,7 @@ CAMERA:
 	Inherits: ^EditorNotifier
 	Inherits@1: ^1x1Shape
 	EditorOnlyTooltip:
-		Name: (reveals area to owner)
+		Name: camera-name2
 	Health:
 		HP: 1000
 	RevealsShroud:
@@ -96,7 +91,7 @@ CAMERA:
 SCAMERA:
 	Inherits: CAMERA
 	EditorOnlyTooltip:
-		Name: (reveals area to owner and detect stealth unit)
+		Name: scamera-name2
 	DetectCloaked:
 		Range: 10c0
 	RenderSpritesEditorOnly:
@@ -105,7 +100,7 @@ SCAMERA:
 INGALITE:
 	Interactable:
 	EditorOnlyTooltip:
-		Name: (Invisible Light Post)
+		Name: ingalite-name2
 	AlwaysVisible:
 	Immobile:
 		OccupiesSpace: false
@@ -129,7 +124,7 @@ INGALITE:
 INPURPLAMP:
 	Inherits: INGALITE
 	EditorOnlyTooltip:
-		Name: (Invisible Purple Light Post)
+		Name: inpurplamp-name2
 	TerrainLightSource:
 		Intensity: 0.01
 		RedTint: 0.4
@@ -141,7 +136,7 @@ INPURPLAMP:
 NEGLAMP:
 	Inherits: INGALITE
 	EditorOnlyTooltip:
-		Name: (Invisible Negative Light Post)
+		Name: neglamp-name2
 	RenderSpritesEditorOnly:
 		Image: lightnotifier
 		Palette: apgrey
@@ -154,7 +149,7 @@ NEGLAMP:
 INORANLAMP:
 	Inherits: INGALITE
 	EditorOnlyTooltip:
-		Name: (Invisible Orange Light Post)
+		Name: inoranlamp-name2
 	RenderSpritesEditorOnly:
 		Palette: effect
 	TerrainLightSource:
@@ -166,7 +161,7 @@ INORANLAMP:
 INGRNLMP:
 	Inherits: INGALITE
 	EditorOnlyTooltip:
-		Name: (Invisible Green Light Post)
+		Name: ingrnlmp-name2
 	RenderSpritesEditorOnly:
 		Palette: apgreen
 	TerrainLightSource:
@@ -178,7 +173,7 @@ INGRNLMP:
 INDGRNLMP:
 	Inherits: INGALITE
 	EditorOnlyTooltip:
-		Name: (Invisible Green Light Post)
+		Name: indgrnlmp-name2
 	RenderSpritesEditorOnly:
 		Palette: jascgreen
 	TerrainLightSource:
@@ -190,7 +185,7 @@ INDGRNLMP:
 INREDLMP:
 	Inherits: INGALITE
 	EditorOnlyTooltip:
-		Name: (Invisible Red Light Post)
+		Name: inredlmp-name2
 	RenderSpritesEditorOnly:
 		Palette: apred
 	TerrainLightSource:
@@ -202,7 +197,7 @@ INREDLMP:
 INBLULMP:
 	Inherits: INGALITE
 	EditorOnlyTooltip:
-		Name: (Invisible Blue Light Post)
+		Name: inblulmp-name2
 	RenderSpritesEditorOnly:
 		Palette: apblue
 	TerrainLightSource:
@@ -214,7 +209,7 @@ INBLULMP:
 INYELWLAMP:
 	Inherits: INGALITE
 	EditorOnlyTooltip:
-		Name: (Invisible Yellow Light Post)
+		Name: inyelwlamp-name2
 	RenderSpritesEditorOnly:
 		Palette: apyel
 	TerrainLightSource:
@@ -226,7 +221,7 @@ INYELWLAMP:
 colorpicker:
 	Inherits: MUTMCV
 	EditorOnlyTooltip:
-		Name: Color picker unit (Do not place in editor)
+		Name: colorpicker-name2
 	Mobile:
 		InitialFacing: 640
 	-Buildable:
@@ -246,7 +241,7 @@ colorpicker:
 MONEYCRATE:
 	Inherits: ^PowerupCrate
 	Tooltip:
-		Name: Cash Crate (Provides $2000)
+		Name: moneycrate-name
 	WithCrateBody:
 		IdleSequence: money
 	GiveCashCrateAction:
@@ -258,7 +253,7 @@ MONEYCRATE:
 VETERANCYCRATE:
 	Inherits: ^PowerupCrate
 	Tooltip:
-		Name: Veterancy Crate (Increase a unit's rank by 1)
+		Name: veterancycrate-name
 	WithCrateBody:
 		IdleSequence: veterancy
 	LevelUpCrateAction:
@@ -269,7 +264,7 @@ VETERANCYCRATE:
 HEALCRATE:
 	Inherits: ^PowerupCrate
 	Tooltip:
-		Name: Supplies Of Healing (Heals all units)
+		Name: healcrate-name
 	WithCrateBody:
 		IdleSequence: healing
 	HealActorsCrateAction:
@@ -281,7 +276,7 @@ HEALCRATE:
 BUFFCRATE:
 	Inherits: ^PowerupCrate
 	Tooltip:
-		Name: Upgrade Kit (Give a random buff to a unit)
+		Name: buffcrate-name
 	WithCrateBody:
 		IdleSequence: upgrade
 	GrantExternalConditionCrateAction@cloak:
@@ -305,7 +300,7 @@ BUFFCRATE:
 UNITCRATE:
 	Inherits: ^PowerupCrate
 	Tooltip:
-		Name: Unit Crate (Give a unit)
+		Name: unitcrate-name
 	WithCrateBody:
 		IdleSequence: unit
 	GiveUnitCrateAction:
@@ -405,7 +400,7 @@ GALITE:
 	Valued:
 		Cost: 200
 	Tooltip:
-		Name: Light Post
+		Name: galite-name
 	RenderSprites:
 		Image: galite
 		Palette: terraindecoration
@@ -431,7 +426,7 @@ GALITE:
 REDLAMP:
 	Inherits: GALITE
 	Tooltip:
-		Name: Red Light Post
+		Name: redlamp-name
 	TerrainLightSource:
 		Range: 15c640
 		Intensity: 0.01
@@ -442,7 +437,7 @@ REDLAMP:
 NEGRED:
 	Inherits: GALITE
 	Tooltip:
-		Name: Negative Red Light Post
+		Name: negred-name
 	TerrainLightSource:
 		Range: 15c640
 		Intensity: -0.05
@@ -453,7 +448,7 @@ NEGRED:
 GRENLAMP:
 	Inherits: GALITE
 	Tooltip:
-		Name: Green Light Post
+		Name: grenlamp-name
 	TerrainLightSource:
 		Range: 15c640
 		Intensity: 0.01
@@ -464,7 +459,7 @@ GRENLAMP:
 BLUELAMP:
 	Inherits: GALITE
 	Tooltip:
-		Name: Blue Light Post
+		Name: bluelamp-name
 	TerrainLightSource:
 		Range: 15c640
 		Intensity: 0.01
@@ -475,7 +470,7 @@ BLUELAMP:
 YELWLAMP:
 	Inherits: GALITE
 	Tooltip:
-		Name: Yellow Light Post
+		Name: yelwlamp-name
 	TerrainLightSource:
 		Range: 15c640
 		Intensity: 0.01
@@ -486,7 +481,7 @@ YELWLAMP:
 PURPLAMP:
 	Inherits: GALITE
 	Tooltip:
-		Name: Purple Light Post
+		Name: purplamp-name
 	TerrainLightSource:
 		Range: 11c736
 		Intensity: 0.01

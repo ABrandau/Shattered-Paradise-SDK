@@ -100,3 +100,64 @@ soldier-lua-intro-4 = Well, I'll bet with you for 500 credits. Those mech boys c
 tip-lua-trade-mercenary =
     You can deal with Mercenaries by moving your units to the Tunnel Shop, then buy units on the 'Infantry' production tab.
     Kill/Destroy any of their assets will make them mad!
+
+## Unit
+capture-mission-desc = Use Hacker Drone to Captrue!
+hack-mission-desc = Use Hacker Drone to Hack!
+
+mutventshop-name = Tunnel Shop
+mutventshop-mission-desc = Get close to hire mercenary!
+mutventshop-name2 = Black Market (not the actual producer, see .lua)
+
+dhiremercenary-name = Hire a guy
+
+ihire-mar-name = Hire a drunk
+ihire-mar-desc = "Pay his bills and get f**king out of my pub!"
+    Good vs: Infantry
+    Special:
+     - Heals on Tiberium fields
+     - Can deploy to increase health and attackrange
+     - Crush class: crushable
+
+ihire-fiend-name = Adopt a "cute doggie"
+ihire-fiend-desc = Pet abandonment was a global issue, when Tiberium is a global issue.
+    Good vs: Vehicles, Aircraft
+    Special:
+     - Heals on Tiberium fields
+     - Can attack Air
+     - Crush class: crushable
+     - Wild mind: Mind only controllable by MasterMind
+
+ihire-e3-name = Ask a "professional bartender"
+ihire-e3-desc = He has the long shot can burn your throat, as well as distant nerds.
+    Good vs: Infantry, Buildings
+    Special:
+     - Heals on Tiberium fields
+     - High attack range
+     - Has a minimum attack distance
+     - Can shoot over walls
+     - Crush class: crushable
+
+vhire-lynx-name = Bail an "unlicensed driver"
+vhire-lynx-desc = "Finally, Some uncrushable teammates!".
+    Good vs: Vehicles
+    Special:
+     - Can crush infantry
+     - Can attack while moving
+     
+vhire-quad-name = Buy drinks for an "impatient old man"
+vhire-quad-desc = Midlife is uneasy for him, which reminds you of your "old man" -- C.A.B.A.L.
+    Good vs: Infantry, Aircraft
+    Special:
+     - Provides stealth detection
+     - Can crush infantry
+     - Can attack while moving
+
+vhire-struck-name = Call a pick up
+vhire-struck-desc = "I say, keep your arms and head INSIDE THE BUS!".
+    Good vs: Depending on occupants
+    Special:
+     - Cargo for 5 soldiers
+     - Transported infantry can fire out of its windows
+     - Infantry inside has increased weapon range
+     - Can attack while moving

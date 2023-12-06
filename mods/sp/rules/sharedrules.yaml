@@ -4,7 +4,7 @@ E1:
 	Valued:
 		Cost: 120
 	Tooltip:
-		Name: Light Infantry
+		Name: e1-name
 	Health:
 		HP: 12500
 	Mobile:
@@ -30,12 +30,12 @@ ENGINEER:
 	Inherits: ^TakeCoverInfantry
 	Inherits@1: ^Engineering
 	Tooltip:
-		Name: Engineer
+		Name: engineer-name
 	Buildable:
 		Queue: Infantry.Shared, Infantry.GDI, Infantry.Nod
 		BuildPaletteOrder: 11
 		Prerequisites: ~barracks.humanengi, ~techlevel.1
-		Description: Support infantry.\n\nGood vs: Buildings\n\nSpecial:\n - Can capture neutral and enemy buildings\n - Can repair buildings and bridges\n - Crush class: crushable
+		Description: engineer-desc
 		BuildDuration: 375
 		BuildDurationModifier: 100
 	Valued:
@@ -68,11 +68,11 @@ ENGINEER:
 
 ^SuddenDeathTag: ## TODO: Add visual tag
 	TooltipDescription@Enemy:
-		Description: Destroy it to checkmate!
+		Description: suddendeath-foe
 		ValidRelationships: Enemy
 		RequiresCondition: suddendeath
 	TooltipDescription@Ally:
-		Description: Protect it at all cost!
+		Description: suddendeath-ally
 		ValidRelationships: Ally
 		RequiresCondition: suddendeath
 
@@ -86,13 +86,13 @@ MCV:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 8
 		Prerequisites: ~player.gdi, ~gaweap, ~techlevel.3, ~!global-suddendeath
-		Description: Deploys into a Construction Yard.\n\nSpecial:\n - Can crush infantry\n - Provides a build radius for structures when deployed\n - Has increased HP when deployed
+		Description: mcv-desc
 		BuildDuration: 1500
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 4000
 	Tooltip:
-		Name: GDI MCV
+		Name: gdimcv-name
 	Selectable:
 		DecorationBounds: 1536,2533, 0, -485
 	Health:
@@ -136,13 +136,13 @@ HARV:
 	Valued:
 		Cost: 1400
 	Tooltip:
-		Name: GDI Harvester
+		Name: gdiharv-name
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 1
 		Prerequisites: ~gaweap, proc, ~techlevel.1, ~!global-megawealth
-		Description: Collects Tiberium for processing.\n\nSpecial:\n- Harvests Tiberium\n - Immune to Veins\n - Can crush infantry\n - Selfheal
+		Description: harv-desc
 		BuildDuration: 750
 		BuildDurationModifier: 100
 	Selectable:
@@ -231,7 +231,7 @@ HARV:
 harv.nod:
 	Inherits: HARV
 	Tooltip:
-		Name: Nod Harvester
+		Name: nodharv-name
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
 		BuildPaletteOrder: 2
@@ -242,7 +242,7 @@ harv.nod:
 harv.mut:
 	Inherits: HARV
 	Tooltip:
-		Name: Mutant Harvester
+		Name: mutharv-name
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildPaletteOrder: 3
@@ -254,7 +254,7 @@ CABHARV:
 	Inherits: HARV
 	Inherits@VOICE: ^CabalVehicleVoice
 	Tooltip:
-		Name: C.A.B.A.L. Harvester
+		Name: cabharv-name
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.CABAL
 		BuildPaletteOrder: 4
@@ -274,7 +274,7 @@ SCRHARV:
 	Valued:
 		Cost: 1400
 	Tooltip:
-		Name: Scrin Harvester
+		Name: scrharv-name
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Scrin
 		BuildPaletteOrder: 5
@@ -302,7 +302,7 @@ GACNST:
 		Queue: Building.Shared, Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
 		BuildPaletteOrder: 996
 		Prerequisites: ~disabled
-		Description: Builds base structures.
+		Description: gacnst-desc
 		BuildDuration: 1500
 		BuildDurationModifier: 100
 	Health:
@@ -310,7 +310,7 @@ GACNST:
 	Valued:
 		Cost: 4000
 	Tooltip:
-		Name: GDI Construction Yard
+		Name: gacnst-name
 	BaseProvider:
 		Range: 14c0
 	Targetable:
@@ -568,7 +568,7 @@ GACNST:
 	CustomSellValue:
 		Value: 600
 	Tooltip:
-		Name: Tiberium Refinery
+		Name: drefinery-name
 	Power:
 		Amount: -30
 	StoresPlayerResources:
@@ -748,7 +748,7 @@ GACNST:
 		ExitDelay: 5
 		RequiresCondition: multiqueue
 	Tooltip:
-		Name: War Factory
+		Name: dwarfactory-name
 	ProvidesPrerequisite@factoryhelipad:
 		Prerequisite: factoryorair
 	Production@Shared:
@@ -832,7 +832,7 @@ GACNST:
 		ForceSetType: Air
 		-Path: ## Aircraft that still go to former target location after resupply, we hide it by using default value
 	Tooltip:
-		Name: Helipad
+		Name: dhelipad-name
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@factoryorair:
 		Prerequisite: factoryorair
@@ -953,12 +953,12 @@ GADEPT:
 	Valued:
 		Cost: 500
 	Tooltip:
-		Name: Service Depot
+		Name: gadept-name
 	Buildable:
 		Queue: Building.Shared, Building.GDI, Building.Nod, Building.Mutant, Building.CABAL
 		BuildPaletteOrder: 21
 		Prerequisites: ~structures.human, factoryorair, ~techlevel.3
-		Description: Provides 3 Repair Drones to repair nearby damaged vehicles.\n\nSpecial:\n - Vehicles standing at the center of the building can be sold
+		Description: gadept-desc
 		BuildDuration: 375
 		BuildDurationModifier: 100
 	Building:
@@ -1076,11 +1076,11 @@ SCRDEPOT:
 		Queue: Building.Shared, Building.Scrin
 		BuildPaletteOrder: 25
 		Prerequisites: ~drached, factoryorair, ~techlevel.3
-		Description: Provides 3 Repair drone to repair nearby damaged vehicles.\n\nSpecial:\n - Vehicles standing at the center of the building can be sold
+		Description: gadept-desc
 		BuildDuration: 375
 		BuildDurationModifier: 100
 	Tooltip:
-		Name: Scrin Maintenance Depot
+		Name: scrdepot-name
 	Building:
 		Footprint: =+= ==+ +==
 	DroneSpawnerMaster:
@@ -1131,43 +1131,43 @@ ANYPOWER:
 	AlwaysVisible:
 	Interactable:
 	Tooltip:
-		Name: Power Plant
+		Name: dpowerplant-name
 
 BARRACKS:
 	AlwaysVisible:
 	Interactable:
 	Tooltip:
-		Name: Infantry Production
+		Name: pbarracks-name
 
 PROC:
 	AlwaysVisible:
 	Interactable:
 	Tooltip:
-		Name: Tiberium Refinery
+		Name: drefinery-name
 
 FACTORY:
 	AlwaysVisible:
 	Interactable:
 	Tooltip:
-		Name: Vehicle Production
+		Name: pwarfactory-name
 
 RADAR:
 	AlwaysVisible:
 	Interactable:
 	Tooltip:
-		Name: Radar
+		Name: pradar-name
 
 FACTORYORAIR:
 	AlwaysVisible:
 	Interactable:
 	Tooltip:
-		Name: Vehicle or Aircraft Production
+		Name: pfactoryorair-name
 
 TECH:
 	AlwaysVisible:
 	Interactable:
 	Tooltip:
-		Name: Tech Center
+		Name: ptech-name
 
 SHAWALL:
 	Inherits: ^Wall
@@ -1175,7 +1175,7 @@ SHAWALL:
 		Queue: Defense.Shared, Defense.GDI, Defense.CABAL
 		BuildPaletteOrder: 1
 		Prerequisites: ~structures.wall, ~techlevel.1
-		Description: Stops infantry, Vehicles and blocks enemy fire.
+		Description: sharedwall-desc
 		BuildDuration: 50
 		BuildDurationModifier: 100
 	SoundOnDamageTransition:
@@ -1185,7 +1185,7 @@ SHAWALL:
 	CustomSellValue:
 		Value: 0
 	Tooltip:
-		Name: Wall
+		Name: sharedwall-name
 	LineBuild:
 		NodeTypes: wall, turret
 	RenderSprites:
@@ -1202,13 +1202,13 @@ NAPOST:
 		Queue: Defense.Shared, Defense.Nod
 		BuildPaletteOrder: 2
 		Prerequisites: ~nodyard, napowr, ~techlevel.1
-		Description: Stops infantry and blocks enemy fire\n - Can NOT be crushed\n - Requires power to operate
+		Description: napost-desc
 		BuildDuration: 50
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 100
 	Tooltip:
-		Name: Laser Fence Section
+		Name: napost-name
 	Health:
 		HP: 35000
 	BlocksProjectiles:
@@ -1259,9 +1259,7 @@ NAFNCE:
 	CustomSellValue:
 		Value: 0
 	Tooltip:
-		Name: Laser Fence
-	Tooltip:
-		Name: Laser Fence
+		Name: nafnce-name
 	LineBuild:
 		NodeTypes: laserfence
 	LineBuildNode:
@@ -1341,7 +1339,7 @@ MUTWALL:
 	Buildable:
 		Queue: Defense.Shared, Defense.Mutant
 		BuildPaletteOrder: 3
-		Description: Stops infantry, Vehicles and blocks enemy fire.
+		Description: sharedwall-desc
 		Prerequisites: ~mutyard, ~techlevel.1
 		BuildDuration: 50
 		BuildDurationModifier: 100
@@ -1351,7 +1349,7 @@ MUTWALL:
 	CustomSellValue:
 		Value: 0
 	Tooltip:
-		Name: Mutant Wall
+		Name: sharedwall-name
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 	RenderSprites:
@@ -1365,7 +1363,7 @@ SCRWALL:
 	Buildable:
 		Queue: Defense.Shared, Defense.Scrin
 		BuildPaletteOrder: 5
-		Description: Stops infantry, Vehicles and blocks enemy fire.
+		Description: sharedwall-desc
 		Prerequisites: ~drached, ~techlevel.1
 		BuildDuration: 50
 		BuildDurationModifier: 100
@@ -1377,7 +1375,7 @@ SCRWALL:
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 	Tooltip:
-		Name: Energy Wall
+		Name: sharedwall-name
 	LineBuild:
 		NodeTypes: wall, turret
 
@@ -1388,13 +1386,13 @@ GASILO:
 		Queue: Defense.Shared, Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL
 		BuildPaletteOrder: 31
 		Prerequisites: ~structures.human, proc, ~techlevel.1, ~!global-megawealth
-		Description: Stores excess Tiberium.\n\nSpecial:\n - Stores 3000$\n - Power loss does not affect storage capacity
+		Description: gasilo-desc
 		BuildDuration: 75
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 200
 	Tooltip:
-		Name: Silo
+		Name: gasilo-name
 	Building:
 		Footprint: xx xx
 		Dimensions: 2, 2
@@ -1455,10 +1453,10 @@ GASILO:
 	Valued:
 		Cost: 600
 	Tooltip:
-		Name: Carryall
+		Name: dcarryall-name
 	Buildable:
 		Queue: Air.Shared, Air
-		Description: VTOL aircraft for transporting vehicles.\n\nSpecial:\n - Can transport one vehicle
+		Description: carryall-desc
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	ProductionCostMultiplier@AI: ## AI cannot use it well
@@ -1507,7 +1505,7 @@ TRNSPORT:
 	Inherits: ^Carryall
 	Inherits@CERAMICS: ^AffectedByCeramicPlating
 	Tooltip:
-		Name: Orca Carryall
+		Name: trnsport-name
 	Buildable:
 		Queue: Air.Shared, Air.GDI
 		BuildPaletteOrder: 11
@@ -1561,7 +1559,7 @@ TRNSPORT:
 trnsport.nod:
 	Inherits: ^Carryall
 	Tooltip:
-		Name: Nod Carryall
+		Name: nodtrnsport-name
 	Buildable:
 		Queue: Air.Shared, Air.Nod
 		BuildPaletteOrder: 12
@@ -1590,7 +1588,7 @@ trnsport.nod:
 trnsport.mut:
 	Inherits: ^Carryall
 	Tooltip:
-		Name: Chinook Carryall
+		Name: mutrnsport-name
 	Buildable:
 		Queue: Air.Shared, Air.Mutant
 		BuildPaletteOrder: 13
@@ -1629,7 +1627,7 @@ trnsport.mut:
 trnsport.cab:
 	Inherits: ^Carryall
 	Tooltip:
-		Name: C.A.B.A.L. Carryall
+		Name: cabtrnsport-name
 	Buildable:
 		Queue: Air.Shared, Air.CABAL
 		BuildPaletteOrder: 14
@@ -1662,7 +1660,7 @@ trnsport.scr: ## only used for AI
 	Inherits: ^Carryall
 	Inherits@1: ^ScrinAircraftGeneric
 	Tooltip:
-		Name: Scrin Carryall
+		Name: scrtrnsport-name
 	Buildable:
 		Queue: Air.Shared, Air.Scrin
 		BuildPaletteOrder: 15
@@ -1686,12 +1684,12 @@ NAPULS:
 	Valued:
 		Cost: 1500
 	Tooltip:
-		Name: EMP Cannon
+		Name: napuls-name
 	Buildable:
 		Queue: Defense.Shared, Defense.GDI, Defense.Nod, Defense.Mutant, Defense.CABAL
 		BuildPaletteOrder: 11
 		Prerequisites: ~structures.human, radar, ~techlevel.4, ~!AIEmpBuildLimit
-		Description: Cannon that uses EMP projectiles to disable vehicles.\n\nSpecial:\n - Fires a pulse blast which disables all vehicles and buildings in the area\n - Hover units disabled staying over water will be destroyed instantly\n - Requires power to operate
+		Description: napuls-desc
 		BuildDuration: 625
 		BuildDurationModifier: 100
 	Building:
@@ -1824,7 +1822,7 @@ SCRSHIELD:
 	Inherits@2: ^ScrinBuildingFire
 	Inherits@RENDER: ^ScrinRenderBuilding
 	Tooltip:
-		Name: Stasis Field Generator
+		Name: scrshield-name
 	Buildable:
 		Queue: Defense.Shared, Defense.Scrin
 		BuildPaletteOrder: 15
@@ -1848,13 +1846,13 @@ GATE_A:
 		Queue: Defense.Shared, Defense.GDI, Defense.Nod, Defense.CABAL
 		BuildPaletteOrder: 6
 		Prerequisites: ~structures.gate, ~techlevel.1
-		Description: Automated barrier that opens for allied units.\nCan be rotated.
+		Description: gate-desc
 		BuildDuration: 125
 		BuildDurationModifier: 100
 	-AppearsOnRadar:
 	-UpdatesPlayerStatistics:
 	Tooltip:
-		Name: Gate
+		Name: gate-name
 	RenderSprites:
 		Image: gate_a.gdi
 		FactionImages:
@@ -1870,7 +1868,7 @@ GATE_B:
 	-AppearsOnRadar:
 	-UpdatesPlayerStatistics:
 	Tooltip:
-		Name: Gate
+		Name: gate-name
 	Buildable:
 	RenderSprites:
 		Image: gate_b.gdi
@@ -1891,11 +1889,11 @@ MUTGATE_A:
 		Queue: Defense.Shared, Defense.Mutant
 		BuildPaletteOrder: 7
 		Prerequisites: ~mutyard, ~techlevel.1
-		Description: Automated barrier that opens for allied units.\nCan be rotated.
+		Description: gate-desc
 		BuildDuration: 125
 		BuildDurationModifier: 100
 	Tooltip:
-		Name: Mutant Gate
+		Name: gate-name
 	PlaceBuildingVariants:
 		Actors: mutgate_b
 
@@ -1903,7 +1901,7 @@ MUTGATE_B:
 	Inherits: ^Gate_B
 	Inherits@RENDER: ^MutRender
 	Tooltip:
-		Name: Mutant Gate
+		Name: gate-name
 	Buildable:
 	ActorStatValues:
 		Icon: icon
@@ -1919,11 +1917,11 @@ SCRGATE_A:
 		Queue: Defense.Shared, Defense.Scrin
 		BuildPaletteOrder: 10
 		Prerequisites: ~drached, ~techlevel.1
-		Description: Automated barrier that opens for allied units.\nCan be rotated.
+		Description: gate-desc
 		BuildDuration: 125
 		BuildDurationModifier: 100
 	Tooltip:
-		Name: Energy Gate
+		Name: gate-name
 	Gate:
 		OpeningSound: scrinplacebuilding.wav
 		ClosingSound: scrinplacebuilding.wav
@@ -1936,7 +1934,7 @@ SCRGATE_B:
 	Inherits@2: ^ScrinDefenceFire
 	Inherits@RENDER: ^ScrinRender
 	Tooltip:
-		Name: Energy Gate
+		Name: gate-name
 	Buildable:
 	Gate:
 		OpeningSound: scrinplacebuilding.wav
@@ -1956,7 +1954,7 @@ KING:
 		QuantizedFacings: 8
 		CameraPitch: 250
 	Tooltip:
-		Name: King Drone
+		Name: king-name
 	TooltipDescription@Enemy:
 		-RequiresCondition:
 	TooltipDescription@Ally:

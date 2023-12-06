@@ -4,7 +4,7 @@ DOGGIE:
 	Inherits@3: ^MindControllableMastermind
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Tooltip:
-		Name: Tiberian Fiend
+		Name: doggie-name
 	Health:
 		HP: 12000
 	Armor:
@@ -36,7 +36,7 @@ DOGGIE:
 		IconPalette: chrome
 		Damage: 35
 	Encyclopedia:
-		Description: Tiberian Fiends are large, doglike animals that stand about the size of a large horse or a small elephant, and have blackish-brown or red skin, although that is usually completely covered by Tiberium crystals growing on its back.
+		Description: doggie-ency
 		Category: Tiberian Lifeform
 		Order: 5
 
@@ -44,7 +44,7 @@ VISC_SML:
 	Inherits: ^Visceroid
 	Inherits@3: ^MindControllableMastermind
 	Tooltip:
-		Name: Baby Visceroid
+		Name: visc_sml-name
 	Health:
 		HP: 10000
 	Armor:
@@ -73,7 +73,7 @@ VISC_SML:
 	MapEditorData:
 		Categories: Creep
 	Encyclopedia:
-		Description: Visceroids were disturbing creatures that sometimes form when organic life dies to tiberium exposure. As flesh breaks down after death, it may mutate into a Baby Visceroid, a blob-like masses of flesh.
+		Description: visc_sml-ency
 		Category: Tiberian Lifeform
 		Order: 6
 
@@ -81,7 +81,7 @@ VISC_LRG:
 	Inherits: ^Visceroid
 	Inherits@3: ^MindControllableMastermind
 	Tooltip:
-		Name: Adult Visceroid
+		Name: visc_lrg-name
 	Health:
 		HP: 20000
 	Armor:
@@ -122,7 +122,7 @@ VISC_LRG:
 	MapEditorData:
 		Categories: Creep
 	Encyclopedia:
-		Description: When Baby Visceroid survive enough, it will grow into a Adult Visceroid. \n\nWhen Adult Visceroid is dead, it splits into 2 Baby Visceroids.
+		Description: visc_lrg-ency
 		Category: Tiberian Lifeform
 		Order: 7
 	ActorStatValues:
@@ -133,7 +133,7 @@ ZOMBIE:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@3: ^MindControllableMastermind
 	Tooltip:
-		Name: Haunt
+		Name: zombie-name
 	Valued:
 		Cost: 50
 	Health:
@@ -181,7 +181,7 @@ ZOMBIE:
 	ActorStatValues:
 		Damage: 60
 	Encyclopedia:
-		Description: Haunt were disturbing creatures that sometimes form when organic life dies to tiberium exposure. As corpse being taken over by cystals after death, it may mutate into a wandering, half-corrupted humanoid.
+		Description: zombie-ency
 		Category: Tiberian Lifeform
 		Order: 8
 
@@ -191,7 +191,7 @@ BERSERKER:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@3: ^MindControllableMastermind
 	Tooltip:
-		Name: Berserker
+		Name: berserker-name
 	Valued:
 		Cost: 100
 	Health:
@@ -240,14 +240,14 @@ BERSERKER:
 	ActorStatValues:
 		Damage: 40
 	Encyclopedia:
-		Description: If a Haunt survives long enough, it will grow into a strong and durable creature -- Berserker.
+		Description: berserker-ency
 		Category: Tiberian Lifeform
 		Order: 9
 
 EGGS:
 	Inherits: ^NonBuildingStaticActor
 	Tooltip:
-		Name: Cravicus Eggs
+		Name: eggs-name
 	Armor:
 		Type: Building
 	Health:
@@ -281,7 +281,7 @@ EGGS:
 	MapEditorData:
 		Categories: Creep
 	Encyclopedia:
-		Description: Egg of the Tiberian Cravicus, with durable shell. It will hatch into Tiberian Cravicus within hours.
+		Description: eggs-ency
 		Category: Tiberian Lifeform
 		Order: 10
 
@@ -291,10 +291,8 @@ CRAB:
 	Inherits@3: ^MutRender
 	Inherits@4: ^MindControllableMastermind
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	EditorOnlyTooltip:
-		Name: Tiberian Cravicus
 	Tooltip:
-		Name: Cravicus
+		Name: crab-name
 	Valued:
 		Cost: 50
 	HasParent:
@@ -360,14 +358,14 @@ CRAB:
 	ActorStatValues:
 		Damage: 58
 	Encyclopedia:
-		Description: Tiberian Cravicus is a kind of mutated arthropod, has a strong adaptability. It can be found everywhere, even in Veinhole.
+		Description: crab-ency
 		Category: Tiberian Lifeform
 		Order: 11
 
 PERMACRAB:
 	Inherits: CRAB
 	EditorOnlyTooltip:
-		Name: Permanent Crab
+		Name: pcrab-name
 	RenderSprites:
 		Image: crab
 	ChangesHealth@ELITE:
@@ -387,7 +385,7 @@ jfish:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@3: ^MindControllableMastermind
 	Tooltip:
-		Name: Floater
+		Name: jfish-name
 	Health:
 		HP: 90000
 	Valued:
@@ -456,7 +454,7 @@ jfish:
 	ActorStatValues:
 		Damage: 30
 	Encyclopedia:
-		Description: Floater is a mysterious lifeform, it is capable of generating intense electrical charges and toxic Tiberium gas, while using its tentacles tears body and vehicle armors apart.\n\nResearch suggests that it is unlikely mutated from known spieces.
+		Description: jfish-ency
 		Category: Tiberian Lifeform
 		Order: 12
 
@@ -467,7 +465,7 @@ MINIVEIN:
 	RadarColorFromTerrain:
 		Terrain: Veins
 	Tooltip:
-		Name: Baby Veinhole
+		Name: minivein-name
 		ShowOwnerRow: false
 	HasParent:
 	RevealsShroudToParentOwner:
@@ -541,7 +539,7 @@ VEINHOLE:
 	BodyOrientation:
 		QuantizedFacings: 1
 	Tooltip:
-		Name: Veinhole Monster
+		Name: veinhole-name
 		ShowOwnerRow: false
 	RenderSprites:
 		Palette: player
@@ -585,7 +583,7 @@ VEINHOLE:
 	Interactable:
 	FrozenUnderFog:
 	Encyclopedia:
-		Description: At the center of the Veins, a "mouth" like structure can react to basic stimulus. There have been many reports of vehicles being torn apart by the veins, and moved to the central "mouth" and consumed.
+		Description: veinhole-ency
 		Category: Tiberian Lifeform
 		Order: 13
 	#SeedsResource: ## The image of the slope vein layer is absent

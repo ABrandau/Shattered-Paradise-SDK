@@ -99,6 +99,9 @@ SCRINREINFPAD:
 	-PeriodicProducer@scr:
 	Targetable@NoAutoTarget:
 		TargetTypes: NoAutoTarget
+	TooltipDescription@mission:
+		Description: capture-mission-desc
+		ValidRelationships: Neutral, Enemy
 
 ^TextTag:
 	WithTextDecoration@textflash:
@@ -136,6 +139,9 @@ CAARAY:
 		ValidRelationships: Neutral, Enemy
 		MaxHeightDelta: 3
 		Range: 6c0
+	TooltipDescription@mission:
+		Description: hack-mission-desc
+		ValidRelationships: Neutral, Enemy
 
 RADIOTOWER:
 	RenderSprites:
@@ -172,6 +178,9 @@ CABYARD:
 		MaxHeightDelta: 3
 		Range: 10c0
 		Type: CenterPosition
+	TooltipDescription@mission:
+		Description: capture-mission-desc
+		ValidRelationships: Neutral, Enemy
 
 TRUCKA:
 	## Reveal all Avatar related personal when Hacked 3 times
@@ -335,14 +344,14 @@ HIRE.PRODUCTION.DUMMY:
 MUTVENTSHOP:
 	Inherits: MUTAMBUSHVENT
 	Tooltip:
-		Name: Tunnel Shop
+		Name: mutventshop-name
 	TooltipDescription:
-		Description: Get close to hire mercenary!
+		Description: mutventshop-mission-desc
 		ValidRelationships: Ally, Neutral
 	Health:
 		HP: 150000
 	EditorOnlyTooltip:
-		Name: Black Market (not the actual producer, see .lua)
+		Name: mutventshop-name2
 	IssueOrderToBot@AI2:
 		RequiresCondition: Building-Buildup
 		OrderName: UnloadShared
@@ -362,7 +371,7 @@ MUTVENTSHOP:
 		Cost: 1000
 	Interactable:
 	Tooltip:
-		Name: Hire a guy
+		Name: dhiremercenary-name
 	AlwaysVisible:
 	KillsSelf:
 		RemoveInstead: true
@@ -371,70 +380,70 @@ IHIRE.MAR.DUMMY:
 	Inherits@Mercenary: ^HireMercenaryDUMMY
 	Buildable:
 		BuildPaletteOrder: 990
-		Description: "Pay his bills and get f**king out of my pub!" \n\nGood vs: Infantry\n\nSpecial:\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - Can deploy to increase health and attackrange\n - Crush class: crushable
+		Description: ihire-mar-desc
 	RenderSprites:
 		Image: marauder
 	Valued:
 		Cost: 250
 	Tooltip:
-		Name: Hire a drunk
+		Name: ihire-mar-name
 
 IHIRE.FIEND.DUMMY:
 	Inherits@Mercenary: ^HireMercenaryDUMMY
 	Buildable:
 		BuildPaletteOrder: 991
-		Description: Pet abandonment was a global issue, when Tiberium is a global issue.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - Can attack Air\n - Crush class: crushable\n - Wild mind: Mind only controllable by MasterMind
+		Description: ihire-fiend-desc
 	RenderSprites:
 		Image: doggie
 	Valued:
 		Cost: 500
 	Tooltip:
-		Name: Adopt a "cute doggie"
+		Name: ihire-fiend-name
 
 IHIRE.E3.DUMMY:
 	Inherits@Mercenary: ^HireMercenaryDUMMY
 	Buildable:
 		BuildPaletteOrder: 992
-		Description: He has the long shot can burn your throat, as well as distant nerds.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - High attack range\n - Has a minimum attack distance\n - Can shoot over walls\n - Crush class: crushable
+		Description: ihire-e3-desc
 	RenderSprites:
 		Image: e3
 	Valued:
 		Cost: 500
 	Tooltip:
-		Name: Ask a "professional bartender"
+		Name: ihire-e3-name
 
 VHIRE.LYNX.DUMMY:
 	Inherits@Mercenary: ^HireMercenaryDUMMY
 	Buildable:
-		Description: "Finally, Some uncrushable teammates!".\n\nGood vs: Vehicles\n\nSpecial:\n - Can crush infantry\n - Can attack while moving
+		Description: vhire-lynx-desc
 		BuildPaletteOrder: 993
 	RenderSprites:
 		Image: lynx
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: Bail an "unlicensed driver"
+		Name: vhire-lynx-name
 
 VHIRE.QUAD.DUMMY:
 	Inherits@Mercenary: ^HireMercenaryDUMMY
 	Buildable:
 		BuildPaletteOrder: 994
-		Description: Midlife is uneasy for him, which reminds you of your "old man" -- C.A.B.A.L. \n\nGood vs: Infantry, Aircraft\n\nSpecial:\n - Provides stealth detection\n - Can crush infantry\n - Can attack while moving
+		Description: vhire-quad-desc
 	RenderSprites:
 		Image: mutquad
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: Buy drinks for an "impatient old man"
+		Name: vhire-quad-name
 
 VHIRE.STRUCK.DUMMY:
 	Inherits@Mercenary: ^HireMercenaryDUMMY
 	Buildable:
 		BuildPaletteOrder: 995
-		Description: "I say, keep your arms and head INSIDE THE BUS!".\n\nGood vs: Depending on occupants\n\nSpecial:\n - Cargo for 5 soldiers\n - Transported infantry can fire out of its windows\n - Infantry inside has increased weapon range\n - Can attack while moving
+		Description: vhire-struck-desc
 	RenderSprites:
 		Image: struck
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: Call a pick up
+		Name: vhire-struck-name

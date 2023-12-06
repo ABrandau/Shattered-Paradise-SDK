@@ -8,13 +8,13 @@ SMECH:
 	Valued:
 		Cost: 400
 	Tooltip:
-		Name: Wolverine
+		Name: smech-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
-		Description: Small but fast anti-infantry walker.\n\nGood vs: Infantry\n\nSpecial:\n - Provides stealth detection\n - Can attack enemies ahead while moving
+		Description: smech-desc
 		BuildPaletteOrder: 6
 		Prerequisites: ~gaweap, ~techlevel.2
 		BuildDuration: 250
@@ -79,14 +79,14 @@ MMCH:
 	Valued:
 		Cost: 900
 	Tooltip:
-		Name: Titan
+		Name: mmch-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 7
-		Description: GDI's main battle walker armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n - Can shoot over walls\n - Can crush infantry\n - Can attack while moving
+		Description: mmch-desc
 		Prerequisites: ~gaweap, ~techlevel.2
 		BuildDuration: 625
 		BuildDurationModifier: 100
@@ -163,13 +163,13 @@ APC:
 	Valued:
 		Cost: 700
 	Tooltip:
-		Name: Amphibious APC
+		Name: apc-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
-		Description: Armored infantry transport.\n\nGood vs: Infantry.\n\nSpecial:\n - Can transport 5 infantry units\n - Can travel over water\n - Can crush infantry\n - Can attack while moving
+		Description: apc-desc
 		BuildPaletteOrder: 23
 		Prerequisites: ~gaweap, gapile, ~techlevel.2
 		BuildDuration: 375
@@ -331,13 +331,13 @@ HVR:
 	Valued:
 		Cost: 1100
 	Tooltip:
-		Name: Hover MLRS
+		Name: hvr-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
-		Description: Hovering vehicle, armed with long range missiles.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n - Can attack Air\n - Can shoot over walls\n - Hovers (it ignores terrain like Veins and Water)\n - Can attack while moving
+		Description: hvr-desc
 		BuildPaletteOrder: 27
 		Prerequisites: ~gaweap, garadr, ~techlevel.4
 		BuildDuration: 625
@@ -386,13 +386,13 @@ JUG:
 	Valued:
 		Cost: 1400
 	Tooltip:
-		Name: Juggernaut
+		Name: jug-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
-		Description: Heavy mechanized artillery walker.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n - Deals AoE damage\n - Minimum attack distance\n - Can shoot over walls\n - Can crush infantry
+		Description: jug-desc
 		BuildPaletteOrder: 33
 		Prerequisites: ~gaweap, gatech, ~techlevel.5
 		BuildDuration: 875
@@ -439,13 +439,13 @@ SONIC:
 	Valued:
 		Cost: 1200
 	Tooltip:
-		Name: Disruptor
+		Name: sonic-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
-		Description: Armored high-tech vehicle with a powerful harmonic resonance cannon.\n\nGood vs: Ground targets\n\nSpecial:\n - Deals heavy damage over time to any unit in the line of fire\n - Can crush infantry\n - Can attack while moving
+		Description: sonic-desc
 		BuildPaletteOrder: 34
 		Prerequisites: ~gaweap, gatech, ~techlevel.5
 		BuildDuration: 750
@@ -504,13 +504,13 @@ G4TNK:
 	Valued:
 		Cost: 1750
 	Tooltip:
-		Name: Mammoth Tank
+		Name: g4tnk-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
-		Description: Heavy assault tank.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n - Selfheal to 50%\n - Can attack air\n - Only the Missiles can pass over walls\n - Can crush infantry\n - Can attack while moving
+		Description: g4tnk-desc
 		BuildPaletteOrder: 35
 		Prerequisites: ~gaweap, gatech, ~techlevel.5
 		BuildDuration: 1125
@@ -600,7 +600,7 @@ HMEC:
 	Valued:
 		Cost: 5000
 	Tooltip:
-		Name: Mammoth Mk. II
+		Name: hmec-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -608,7 +608,7 @@ HMEC:
 		BuildAtProductionType: Mammoth
 		BuildPaletteOrder: 49
 		Prerequisites: ~showhmec, gtdrop, ~techlevel.6
-		Description: GDI's super-heavy walker and the pride of their army.\n\nGood vs: Everything\n\nSpecial:\n - Build limit: 1\n - Selfhealing up to 100%\n - Can attack air\n - Immune to mind control\n - Can shoot over walls\n - Can crush everything except other Epics
+		Description: hmec-desc
 		BuildLimit: 1
 		BuildDuration: 1500
 		BuildDurationModifier: 100
@@ -755,7 +755,7 @@ NODMCV:
 		BuildPaletteOrder: 11
 		Prerequisites: ~player.nod, ~naweap, ~techlevel.3, ~!global-suddendeath
 	Tooltip:
-		Name: Nod MCV
+		Name: nodmcv-name
 	RenderSprites:
 		-Image:
 	WithFacingSpriteBody:
@@ -785,7 +785,7 @@ BGGY:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
 		BuildAtProductionType: Tank
-		Description: Fast vehicle armed with a machine gun and\nhas room for one passenger that modifies the weapon of the vehicle.\n\nGood vs: Changes depending on the passenger\n\nSpecial:\n - The weapon of the vehicle changes with the passenger\n - Provides stealth detection\n - Can attack while moving
+		Description: bggy-desc
 		BuildPaletteOrder: 9
 		Prerequisites: ~naweap, ~techlevel.2
 		BuildDuration: 250
@@ -1054,7 +1054,7 @@ BGGY:
 	# Names
 	############################################
 	Tooltip:
-		Name: Raider Buggy
+		Name: bggy-name
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1083,7 +1083,7 @@ ATTACKBIKE:
 	Valued:
 		Cost: 500
 	Tooltip:
-		Name: Attack Bike
+		Name: attackbike-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -1091,7 +1091,7 @@ ATTACKBIKE:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 10
 		Prerequisites: ~naweap, ~techlevel.2
-		Description: Fast scout vehicle armed with\nrockets.\n\nGood vs: vs Vehicles, Aircraft\n\nSpecial:\n - Can attack air\n - Can attack enemies ahead while moving
+		Description: attackbike-desc
 		BuildDuration: 375
 		BuildDurationModifier: 100
 	Voiced:
@@ -1154,14 +1154,14 @@ TTNK:
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Tick Tank
+		Name: ttnk-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 12
-		Description: Nod's main battle tank armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n - Can deploy to gain extra protection\n - Can crush infantry\n - Can attack enemies ahead while moving
+		Description: ttnk-desc
 		Prerequisites: ~naweap, ~techlevel.2
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -1405,7 +1405,7 @@ BIKE:
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Demo Bike
+		Name: bike-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	ProductionCostMultiplier@AI: ## AI cannot use it well
@@ -1415,7 +1415,7 @@ BIKE:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 28
-		Description: Fast moving suicide vehicle.\n\nGood vs: Ground targets\n\nSpecial:\n - Can deploy to explode
+		Description: bike-desc
 		Prerequisites: ~naweap, naradr, ~techlevel.4
 		BuildDuration: 625
 		BuildDurationModifier: 100
@@ -1494,7 +1494,7 @@ SAPC:
 	Valued:
 		Cost: 500
 	Tooltip:
-		Name: Subterranean APC
+		Name: sapc-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -1502,7 +1502,7 @@ SAPC:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 29
 		Prerequisites: ~naweap, naradr, ~techlevel.4
-		Description: Troop transport that can move underground.\n\nSpecial:\n - Can move underground\n - Can transport up to 5 infantry units\n - Can crush infantry\n - Cannot move or burrow back for 3 seconds after resufacing
+		Description: sapc-desc
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	ProductionCostMultiplier@AI: ## AI cannot use it well
@@ -1551,13 +1551,13 @@ SUBTANK:
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Devil's Tongue
+		Name: subtnk-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
 		BuildAtProductionType: Tank
-		Description: Subterranean flame tank able to move underground.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n - Can move underground\n - Can crush infantry\n - Cannot move or burrow back for 3 seconds after resufacing
+		Description: subtnk-desc
 		BuildPaletteOrder: 37
 		Prerequisites: ~naweap, natech, ~techlevel.5
 		BuildDuration: 500
@@ -1616,13 +1616,13 @@ HOWTLIZER:
 	Valued:
 		Cost: 1400
 	Tooltip:
-		Name: Specter
+		Name: howtlizer-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
 		BuildAtProductionType: Tank
-		Description: High tech artillery armed with a self-propelled howitzer and a cloaking device.\n\nGood vs: Ground targets\n\nSpecial:\n - Can shoot over walls\n - Can crush infantry\n- Cloaked\n - Cloaking malfunctions when at red hp
+		Description: howtlizer-desc
 		BuildPaletteOrder: 38
 		Prerequisites: ~naweap, natech, ~techlevel.5
 		BuildDuration: 875
@@ -1678,7 +1678,7 @@ STNK:
 	Valued:
 		Cost: 1400
 	Tooltip:
-		Name: Stealth Tank
+		Name: stnk-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -1686,7 +1686,7 @@ STNK:
 		BuildAtProductionType: Tank
 		Prerequisites: ~naweap, natech, ~techlevel.5
 		BuildPaletteOrder: 39
-		Description: Hit-and-run tank armed with twin dragon TOW missiles and a cloaking device.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n - Stealthed\n - Can attack air\n - Can shoot over walls\n - Can crush infantry\n - Cloaking malfunctions when at red hp\n - Can attack while moving
+		Description: stnk-desc
 		BuildDuration: 875
 		BuildDurationModifier: 100
 	Mobile:
@@ -1767,7 +1767,7 @@ SCORPION:
 	Valued:
 		Cost: 5000
 	Tooltip:
-		Name: Lightbringer
+		Name: scorpion-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -1775,7 +1775,7 @@ SCORPION:
 		BuildAtProductionType: Lightbringer
 		BuildPaletteOrder: 50
 		Prerequisites: ~naweap, nahfac, ~techlevel.6
-		Description: Nod's super-heavy walker. One vision one purpose.\n\nGood vs: Ground\n\nSpecial:\n - Build limit: 1\n - Selfhealing up to 100%\n - Immune to mind control\n - Can shoot over walls\n - Can crush everything except other Epics\n - Deployability: Enemy units get out of control for 5 seconds
+		Description: scorpion-desc
 		BuildLimit: 1
 		BuildDuration: 1500
 		BuildDurationModifier: 100
@@ -1917,7 +1917,7 @@ MUTMCV:
 		BuildPaletteOrder: 15
 		Prerequisites: ~player.mut, ~muweap, ~techlevel.3, ~!global-suddendeath
 	Tooltip:
-		Name: Mutant MCV
+		Name: mutmcv-name
 	RenderSprites:
 		-Image:
 	WithFacingSpriteBody:
@@ -1944,14 +1944,14 @@ MUTQUAD:
 	Valued:
 		Cost: 700
 	Tooltip:
-		Name: Quad Cannon
+		Name: mutquad-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 13
-		Description: Armored truck armed with a quad cannon.\n\nGood vs: Infantry, Aircraft\n\nSpecial:\n - Provides stealth detection\n - Can crush infantry\n - Can attack while moving
+		Description: mutquad-desc
 		Prerequisites: ~muweap, ~techlevel.2
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -2034,7 +2034,7 @@ LYNX:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
-		Description: Light tank armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n - Can crush infantry\n - Can attack while moving
+		Description: lynx-desc
 		BuildPaletteOrder: 14
 		Prerequisites: ~muweap, ~techlevel.2
 		BuildDuration: 500
@@ -2042,7 +2042,7 @@ LYNX:
 	Valued:
 		Cost: 700
 	Tooltip:
-		Name: Lynx Tank
+		Name: lynx-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Mobile:
@@ -2101,13 +2101,13 @@ STRUCK:
 	Valued:
 		Cost: 700
 	Tooltip:
-		Name: Battle Bus
+		Name: struck-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
-		Description: Combat transport.\n\nGood vs: Depending on occupants\n\nSpecial:\n - Cargo for 5 soldiers\n - Passengers can fire out of its windows\n - Basic infantry inside has increased weapon range\n - Can attack while moving
+		Description: struck-desc
 		BuildPaletteOrder: 24
 		Prerequisites: ~muweap, murax, ~techlevel.2
 		BuildDuration: 500
@@ -2170,13 +2170,13 @@ MINELAYER:
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Minelayer
+		Name: minelayer-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
-		Description: Mines...mines everywhere!\n\nSpecial:\n - Provides stealth detection \n - Can remove enemy mines \n - Can place up to 5 mines on the battlefield\n - Gain 100% EXP from enemy killed by mines\n - Reloads on service depot\n - Mines are cloaked\n - Can crush Infantry
+		Description: minelayer-desc
 		BuildPaletteOrder: 25
 		Prerequisites: ~muweap, gadept, ~techlevel.3
 		BuildDuration: 500
@@ -2248,14 +2248,14 @@ WOLF:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 30
-		Description: Tiberium beast that uses tiberium acid to harm nearby units.\n\nGood vs: Ground targets\n\nSpecial:\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - Attacks reduce target's attack and movement speed by 35%\n - Can attack enemies ahead while moving\n - Can mutate killed units\n - E.M.P. Immune\n - Wild mind: Mind only controllable by MasterMind
+		Description: wolf-desc
 		Prerequisites: ~muweap, muradr, ~techlevel.4
 		BuildDuration: 375
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 500
 	Tooltip:
-		Name: Carnotaurus
+		Name: wolf-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Targetable:
@@ -2306,14 +2306,14 @@ MRLS:
 	Valued:
 		Cost: 1100
 	Tooltip:
-		Name: Blighter MLRS
+		Name: mrls-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 40
-		Description: Light artillery armed with unguided rockets.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n - Deals AoE damage\n - Minimum attack distance\n - Can shoot over walls\n - Can crush infantry\n - Can attack while moving
+		Description: mrls-desc
 		Prerequisites: ~muweap, muhall, ~techlevel.5
 		BuildDuration: 625
 		BuildDurationModifier: 100
@@ -2375,14 +2375,14 @@ DEATHCLAW:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 41
-		Description: Melee beast from the outer redzones that brings death with its claws.\n\nGood vs: Ground targets\n\nSpecial:\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - E.M.P. Immune\n - Slows enemy units with it's attack\n - Wild mind: Mind only controllable by MasterMind
+		Description: deathclaw-desc
 		Prerequisites: ~muweap, muhall, ~techlevel.5
 		BuildDuration: 875
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 1400
 	Tooltip:
-		Name: Ravager
+		Name: deathclaw-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Targetable:
@@ -2430,13 +2430,13 @@ HVRTRUK3:
 	Valued:
 		Cost: 4000
 	Tooltip:
-		Name: Demo Truck
+		Name: hvrtruk3-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
-		Description: A hovering demolition truck with a oneway ticket.\n\nGood vs: Everything\n\nSpecial:\n - Demolishes almost everything nearby upon detonation\n - Hovers (it ignores terrain like Veins and Water)\n - Cannot enter Tunnel Networks or transport, can be carried by carryall
+		Description: hvrtruk3-desc
 		BuildPaletteOrder: 42
 		Prerequisites: ~muweap, muhall, ~techlevel.5
 		BuildDuration: 2000
@@ -2515,7 +2515,7 @@ WEASAU:
 	Valued:
 		Cost: 5000
 	Tooltip:
-		Name: Weasaurus Lord
+		Name: weasau-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -2523,7 +2523,7 @@ WEASAU:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 52
 		Prerequisites: ~muweap, mutsw2, ~techlevel.6
-		Description: A long forgotten creature that has emerged again\nto defend its territory.\n\nGood vs: Ground\n\nSpecial:\n - Build limit: 1\n - Selfhealing up to 100%\n - Immune to mind control\n - Can shoot over walls\n - Can crush everything execept other Epics\n - Heals on Tiberium\n - Immune to Tiberium fields, -radition and gas\n - E.M.P. Immune\n - Deployability: Summons a brood of Weasaurus \n - Gain 100% EXP from enemy killed by summoned Weasaurus
+		Description: weasau-desc
 		BuildLimit: 1
 		BuildDuration: 1500
 		BuildDurationModifier: 100
@@ -2666,7 +2666,7 @@ WEASAUSMALL:
 		ActorExperienceModifierOnTransport: 0
 	HasParent:
 	Tooltip:
-		Name: Small Weasaurus
+		Name: weasausmall-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	BodyOrientation:
@@ -2735,7 +2735,7 @@ CABMCV:
 		BuildPaletteOrder: 18
 		Prerequisites: ~player.cab, ~cabweap, ~techlevel.3, ~!global-suddendeath
 	Tooltip:
-		Name: C.A.B.A.L. MCV
+		Name: cabmcv-name
 	RenderSprites:
 		-Image:
 	WithFacingSpriteBody:
@@ -2763,14 +2763,14 @@ CENTURION:
 	Valued:
 		Cost: 900
 	Tooltip:
-		Name: Centurion
+		Name: centurion-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.CABAL
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 16
-		Description: Heavy walker equipped with chain guns.\n\nGood vs: Infantry\n\nSpecial:\n - Provides stealth detection\n - Can shoot over walls\n - Can crush infantry\n - Can attack while moving
+		Description: centurion-desc
 		Prerequisites: ~cabweap, ~techlevel.2
 		BuildDuration: 625
 		BuildDurationModifier: 100
@@ -2827,14 +2827,14 @@ REAPERCAB:
 	Valued:
 		Cost: 1100
 	Tooltip:
-		Name: Cyborg Reaper
+		Name: reapercab-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.CABAL
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 17
-		Description: Fast raiding walker armed with cluster missiles and web launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n - Can attack enemies ahead while moving\n - Can target air\n - Can ensnare infantry with webs\n - Can shoot over walls
+		Description: reapercab-desc
 		Prerequisites: ~cabweap, ~techlevel.2
 		BuildDuration: 625
 		BuildDurationModifier: 100
@@ -2927,12 +2927,12 @@ LIMPED:
 		Multiplier: 10
 		Prerequisites: AIOnly
 	Tooltip:
-		Name: Limpet Drone
+		Name: limped-name
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.CABAL
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 19
-		Description: Small drone armed with explosives.\n\nGood vs: Infantry, Vehicles\n\nSpecial:\n - Needs to be deployed to be armed\n - Invisible when deployed\n - Launches explosives towards a target after small delay
+		Description: limped-desc
 		Prerequisites: ~cabweap, ~techlevel.2
 		BuildDuration: 250
 		BuildDurationModifier: 100
@@ -3070,7 +3070,7 @@ REPAIRVEHICLE:
 	Valued:
 		Cost: 500
 	Tooltip:
-		Name: Mobile Repair Vehicle
+		Name: repairvehicle-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -3078,7 +3078,7 @@ REPAIRVEHICLE:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 26
 		Prerequisites: ~cabweap, gadept, ~techlevel.3
-		Description: Repairs nearby vehicles.\n\nSpecial:\n - Unarmed\n - Can repair vehicles ahead while moving\n - Can crush infantry
+		Description: repairvehicle-desc
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Health:
@@ -3123,13 +3123,13 @@ CABAPC:
 	Valued:
 		Cost: 500
 	Tooltip:
-		Name: Hover Transport
+		Name: cabapc-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.CABAL
 		BuildAtProductionType: Tank
-		Description: Light Armored transport.\n\nSpecial:\n - Can transport up to 12 infantry or 4 vehicles\n - Hovers (it ignores terrain like Veins and Water)\n - Cannot enter Tunnel Networks or transport, can be carried by carryall
+		Description: cabapc-desc
 		BuildPaletteOrder: 31
 		Prerequisites: ~cabweap, cabradr, ~techlevel.4
 		BuildDuration: 250
@@ -3172,14 +3172,14 @@ SPIDERARTY:
 	Valued:
 		Cost: 1750
 	Tooltip:
-		Name: Drone Host
+		Name: spiderarty-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.CABAL
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 43
-		Description: Heavy artillery that deploys drones at the targetted area.\n\nGood vs: Ground targets\n\nSpecial:\n - Minimum attack distance\n - Spawns drones at target\n - Gain 100% EXP from enemy killed by spawned drones\n - Converts killed units into workers\n - Can shoot over walls\n - Can crush infantry\n - Selfrepair
+		Description: spiderarty-desc
 		Prerequisites: ~cabweap, cabtech, ~techlevel.5
 		BuildDuration: 1000
 		BuildDurationModifier: 100
@@ -3228,14 +3228,14 @@ PALADIN:
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: Minotaur
+		Name: paladin-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.CABAL
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 44
-		Description: Advanced walker armed with a twin laser cannon.\n\nGood vs: Ground targets\n\nSpecial:\n - Selfrepair\n - Can shoot over walls\n - Can crush infantry
+		Description: paladin-desc
 		Prerequisites: ~cabweap, cabtech, ~techlevel.5
 		BuildDuration: 1125
 		BuildDurationModifier: 100
@@ -3291,7 +3291,7 @@ BCOREDEF:
 	Valued:
 		Cost: 5000
 	Tooltip:
-		Name: C.A.B.A.L. Defender
+		Name: blackdefd-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Mobile:
@@ -3417,14 +3417,14 @@ CORRUPTOR:
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Corruptor
+		Name: corruptor-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Scrin
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 20
-		Description: Anti-personnel walker.\n\n Good vs Infantry\n\nSpecial:\n - Can attack enemies ahead while moving\n - Provides stealth detection\n - Can mutate enemies killed\n - Absorbs essence from killed enemies to heal\n - Attacks emit radiation that harms ground units in the area\n - Immune to Tiberium radiation\n - Can crush infantry
+		Description: corruptor-desc
 		Prerequisites: ~scrweap, ~techlevel.2
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -3496,14 +3496,14 @@ SCRMBT:
 		Queue: Vehicle.Shared, Vehicle.Scrin
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 21
-		Description: Advanced hover tank armed with a laser cannon.\n\nGood vs Ground targets\n\nSpecial:\n - Hovers (it ignores terrain like Veins and Water)\n - Absorbs essence from killed units to heal\n - Cannot crush infantry\n - Can attack while moving
+		Description: scrmbt-desc
 		Prerequisites: ~scrweap, ~techlevel.2
 		BuildDuration: 500
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Hover Tank
+		Name: scrmbt-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -3564,14 +3564,14 @@ SCRGLYDER2:
 		Queue: Vehicle.Shared, Vehicle.Scrin
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 22
-		Description: Anti-air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n - Can attack enemies ahead while moving\n - Can be upgraded to transform into an aerial version that can only engage ground units\n - Aerial Version weapon performs good vs infantry\n - Absorbs essence from killed units to heal\n - Hovers (it ignores terrain like Veins and Water)
+		Description: glider-desc
 		Prerequisites: ~scrweap, ~techlevel.3
 		BuildDuration: 500
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Glider
+		Name: glider-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -3650,14 +3650,14 @@ SCRSCORPION:
 	Valued:
 		Cost: 900
 	Tooltip:
-		Name: Plague Walker
+		Name: scrscorpion-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Scrin
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 32
-		Description: Long range assault walker.\n\n Good vs: Infantry, Vehicle\n\nSpecial:\n - Absorbs essence from killed enemies to heal\n - Fog inflicts blinding and poison effect in the area\n - Can crush infantry
+		Description: scrscorpion-desc
 		Prerequisites: ~scrweap, scrradr, ~techlevel.4
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -3702,14 +3702,14 @@ SCRRECHARGER:
 	Valued:
 		Cost: 1200
 	Tooltip:
-		Name: Guardian
+		Name: scrrecharger-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Scrin
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 45
-		Description: Mobile shield generator.\n\nSpecial:\n - Generates shields around nearby friendly land vehicles\n - Shields provide additional 150 health points\n - Does not protect against super weapons\n - Absorbs essence from killed enemies to heal\n - Can crush infantry
+		Description: scrrecharger-desc
 		Prerequisites: ~scrweap, scrtech, ~techlevel.5
 		BuildDuration: 875
 		BuildDurationModifier: 100
@@ -3782,14 +3782,14 @@ SCRMOBMINE:
 		Queue: Vehicle.Shared, Vehicle.Scrin
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 46
-		Description: Mind Control unit.\n\nSpecial:\n - Can take over regular ground units\n - Can control up to three units\n - Gain 50% EXP from enemy killed by controlled unit.\n - Absorbs essence from killed units to heal\n - Cannot mind control heroics, flying units, beasts, structures\n - Can shoot over walls\n - Can mind control units while moving
+		Description: scrmobmine-desc
 		Prerequisites: ~scrweap, scrtech, ~techlevel.5
 		BuildDuration: 1125
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 1750
 	Tooltip:
-		Name: Subjugator
+		Name: scrmobmine-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	MindController:
@@ -3849,7 +3849,7 @@ TRIPOD:
 	Valued:
 		Cost: 1750
 	Tooltip:
-		Name: Annihilator Tripod
+		Name: tripod-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Selectable:
@@ -3859,7 +3859,7 @@ TRIPOD:
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 47
 		Prerequisites: ~scrweap, scrtech, ~techlevel.5
-		Description: Advanced walker.\n\nGood vs Ground\n\nSpecial:\n - Absorbs essence from killed units to heal\n - Can shoot over walls\n - Can crush infantry
+		Description: tripod-desc
 		IconPalette: chromescrin
 		BuildDuration: 1125
 		BuildDurationModifier: 100
