@@ -1647,7 +1647,7 @@ HOWTLIZER:
 	WithIdleOverlay@shield:
 		Sequence: shield
 		IsPlayerPalette: true
-		Palette: cloakscrinshield
+		Palette: scrinshield
 	WithMuzzleOverlay:
 	Armament:
 		Weapon: SpectreCannon
@@ -1704,7 +1704,7 @@ STNK:
 	WithIdleOverlay@shield:
 		Sequence: shield
 		IsPlayerPalette: true
-		Palette: cloakscrinshield
+		Palette: scrinshield
 	Cloak@CLOAKGENERATOR:
 		InitialDelay: 80
 		CloakDelay: 80
@@ -2648,8 +2648,6 @@ WEASAU:
 			breath: shoot
 			melee: melee
 		-DefaultAttackSequence:
-	Cloak@CLOAKGENERATOR:
-		Palette: cloakorgatemblueplayer
 	Selectable:
 		Bounds: 2413, 4041, 0, -1508
 	-Targetable@MC:
@@ -2717,8 +2715,6 @@ WEASAUSMALL:
 			TimeOutDeath: 1, 2
 	DeathSounds@NORMAL:
 		DeathTypes: BulletDeath, ExplosionDeath, CabalDeath, CabalDeathUpg, TiberiumDeath, TimeOutDeath
-	Cloak@CLOAKGENERATOR:
-		Palette: cloakorgatemblueplayer
 	-ActorLostNotification:
 	-UpdatesPlayerStatistics:
 
@@ -3020,8 +3016,6 @@ LIMPED:
 		RequiresCondition: deployed && !empdisable
 		InitialDelay: 0
 		CloakDelay: 40
-		Palette: cloakcab
-		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Demolish
 		CloakedCondition: cloaking-self
 		EffectOffset: 0, 0, -300

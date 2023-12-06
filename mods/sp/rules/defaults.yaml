@@ -753,7 +753,7 @@
 	WithIdleOverlay@BugPoison:
 		Sequence: cloud
 		IsPlayerPalette: true
-		Palette: cloakscrin
+		Palette: scrinshield
 		RequiresCondition: BugPoison
 		IsDecoration: true ## so this doesn't affect by cloak palette
 	ChangesHealth@BugPoison:
@@ -897,7 +897,7 @@
 	WithIdleOverlay@shield:
 		Sequence: shield
 		IsPlayerPalette: true
-		Palette: cloakscrinshield
+		Palette: scrinshield
 		RequiresCondition: shields-up && !inside-tunnel
 		IsDecoration: true ## so this doesn't affect by cloak palette
 	ExternalCondition@VanguardShield:
@@ -2464,8 +2464,6 @@
 		IconPalette: chromesilver
 	RenderSprites:
 		PlayerPalette: playerscrinblue
-	Cloak@CLOAKGENERATOR:
-		Palette: cloakscrinblue
 	Voiced:
 		VoiceSet: Seeker
 	FloatingSpriteEmitter@spawnsmoke:
@@ -3334,8 +3332,6 @@
 		IconPalette: chromescrin
 	RenderSprites:
 		PlayerPalette: playerscrin
-	Cloak@CLOAKGENERATOR:
-		Palette: cloakscrin
 	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
 
@@ -3350,9 +3346,6 @@
 	Inherits: ^Cloakable
 	RenderSprites:
 		PlayerPalette: playermut
-	Cloak@CLOAKGENERATOR:
-		Palette: cloakmut
-		IsPlayerPalette: true
 	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
 
@@ -3360,9 +3353,6 @@
 	Inherits: ^Cloakable
 	RenderSprites:
 		PlayerPalette: playerunittemgreen
-	Cloak@CLOAKGENERATOR:
-		Palette: cloakplayerunittemgreen
-		IsPlayerPalette: true
 	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
 
@@ -3377,9 +3367,6 @@
 	Inherits: ^Cloakable
 	RenderSprites:
 		PlayerPalette: playercab
-	Cloak@CLOAKGENERATOR:
-		Palette: cloakcab
-		IsPlayerPalette: true
 	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
 
