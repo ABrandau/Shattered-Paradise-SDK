@@ -151,7 +151,6 @@ bridgeramp-name = Bridge Ramp
 ## Shared
 e1-name = Light Infantry
 
-engineer-name = Engineer
 engineer-desc = Support infantry.
     Good vs: Buildings
     Special:
@@ -264,12 +263,6 @@ gdiref-desc = Processes raw Tiberium into useable resources.
 
 nodref-name = Nod Refinery
 nodref-desc = Processes raw Tiberium into useable resources.
-    Special:
-     - Stores 2000$
-     - Can be rotated
-
-gdiref-name = GDI Refinery
-gdiref-desc = Processes raw Tiberium into useable resources.
     Special:
      - Stores 2000$
      - Can be rotated
@@ -1473,7 +1466,11 @@ gaoldcc3-name = Old Weapons Factory
 gaoldcc4-name = Old Refinery
 gaoldcc5-name = Old Advanced Power Plant
 gaoldcc6-name = Old Silos
+
 gasand-name = Sandbags
+gasand-desc = Stops infantry and light vehicles.
+    Can be crushed by tanks.
+
 radiotower-name = Radio Tower
 signaltower-name = Communications Tower
 container-name = Container
