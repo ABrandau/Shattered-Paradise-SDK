@@ -37,7 +37,7 @@ tip-lua-usage-hacker =
     2. Target capturable building, eg. A Power Plant. Hack Drone will act like a normal engineer without consumed after capturing.
     3. Force fire any location. The Quadrotor will be sent to the position as a recon drone within a 20-cell range. The Quadrotor can detect cloaked units.
 
-cabal-lua-mcv-located = M.C.V. located. You have found our Defender. And there is also a mech prototype of Nod. You can reboot the Defender once the M.C.V. is captured.
+cabal-lua-mcv-located = M.C.V. located, with one of our Defenders. And there is also a mech prototype of Nod. You can reboot our Defender once the M.C.V. is captured.
 warning-lua-mcv-located = Once you have successfully capture the MCV, the war with Nod will instantly be declared on! Get yourself prepared!
 tip-lua-mcv-located = Explore the map more before recapture the MCV. You may need more resources from local people or find another place to deploy the MCV.
 warning-lua-mcv-being-captured = You have been spotted by Nod! They are trying to capture the MCV!
@@ -75,7 +75,7 @@ cabal-lua-hack-four-array-1 =
     My cyber attack will:
     1. Make Nod lose the control of Avatars frequently.
     2. Sabotage Nod's power system for a short period.
-cabal-lua-hack-four-array-2 = Take the opportunity. Destroy Nod's base and find that signal source.
+cabal-lua-hack-four-array-2 = Take the opportunity. Break through Nod's base and find that signal source.
 warning-lua-hack-four-array-1 = Nod has noticed our hacking and now considers us a major threat, according to the intercepted message.
 warning-lua-hack-four-array-2 =
     Preparing for a face-to-face combat right now.
