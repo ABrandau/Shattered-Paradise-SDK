@@ -67,6 +67,8 @@ SMECH:
 		CasingSpawnLocalOffset: 0,275,600, 0,-275,600
 		CasingTargetOffset: 0, 600, 0, 0, -600, 0
 		RequiresCondition: apammo
+	ExplodesAlsoTransported:
+		Weapon: UnitExplodeSmall
 	ActorStatValues:
 		Damage: 40
 
@@ -1067,6 +1069,8 @@ BGGY:
 	ActorStatOverride@Flame:
 		RequiresCondition: ifv.flame || ifv.mortar
 		Upgrades: upgrade.raider_passenger, upgrade.purifying_flame
+	ExplodesAlsoTransported:
+		Weapon: UnitExplodeSmall
 	IssueOrderToBot@AI:
 		RequiresCondition: loaded && HeavyDamaged
 		OrderName: Unload
@@ -1139,6 +1143,8 @@ ATTACKBIKE:
 		MustFaceTarget: true
 	AutoTarget:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
+	ExplodesAlsoTransported:
+		Weapon: UnitExplodeSmall
 	ActorStatValues:
 		Damage: 50
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
@@ -1604,6 +1610,8 @@ SUBTANK:
 		RequiresCondition: !mindcontrolled && !submerged
 	WithDecoration@UNDERGROUND:
 		RequiresCondition: inside-tunnel || submerged
+	ExplodesAlsoTransported:
+		Weapon: UnitExplode
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 		Damage: 112
@@ -3112,6 +3120,8 @@ REPAIRVEHICLE:
 	Voiced:
 		VoiceSet: Limpet
 	WithFacingSpriteBody:
+	ExplodesAlsoTransported:
+		Weapon: UnitExplodeSmall
 	ActorStatValues:
 		Damage: -40
 
@@ -3158,6 +3168,8 @@ CABAPC:
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
+	ExplodesAlsoTransported:
+		Weapon: BigUnitExplode
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, None, None, None, Cargo
 

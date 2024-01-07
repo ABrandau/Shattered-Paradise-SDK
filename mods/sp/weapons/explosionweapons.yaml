@@ -87,6 +87,8 @@ BigScrinAircraftShrapnel:
 
 UnitExplodeSmall:
 	Inherits@2: ^Medium_Brnl
+	Warhead@2Eff: CreateEffect
+		ValidTargets: Ground, Air, Water
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
 		Duration: 100, 200
@@ -172,33 +174,43 @@ JellyExplode:
 		ImpactActors: false
 
 UnitExplode:
-	Inherits: ^ExploDefaults
 	Inherits@2: ^Medium_Brnl
 	Inherits@3: ^DelayedSmokeEffect
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: jsbang16
+		ValidTargets: Ground, Air, Water
+	Warhead@4Eff: CreateEffect
+		ExplosionPalette: gensmkexploj
+		Explosions: jsbrnl30, jsbrnl30b, jsbrnl40
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
+		Delay: 5
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
 		Duration: 100, 200
 		Image: explosion
 		Sequences: fire2
 		Palette: effect
-	-Warhead@op:
 
 BigUnitExplode:
-	Inherits: ^ExploDefaults
 	Inherits@2: ^GreyExplo
 	Inherits@3: ^DelayedSmokeEffect
-	-Warhead@1Dam:
+	Warhead@2Eff: CreateEffect
+		Delay: 5
+		ValidTargets: Ground, Air, Water
+		-ImpactSounds:
+	Warhead@4Eff: CreateEffect
+		ExplosionPalette: gensmkexploj
+		ImpactSounds: expnew14.aud, expnew19.aud, expnew18.aud
+		Explosions: jsbang16
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
 	Warhead@2: SpawnSmokeParticle
 		ImpactActors: false
 		Duration: 100, 200
 		Image: explosion
 		Sequences: fire1
 		Palette: effect
-	-Warhead@op:
 
 ScrinUnitExplode:
 	Inherits: ^ExploDefaults

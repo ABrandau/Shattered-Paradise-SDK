@@ -468,6 +468,8 @@ MUJEEP:
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
+	ExplodesAlsoTransported:
+		Weapon: UnitExplodeSmall
 	ActorStatValues:
 		Damage: 16
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo
@@ -921,6 +923,8 @@ ICBM:
 		RequiresCondition: !inside-tunnel && deployed
 		Sequence: launched-idle
 		Body: deployed
+	ExplodesAlsoTransported:
+		Weapon: UnitExplode
 	Wanders@AI:
 		RequiresCondition: AImicroManage && undeployed
 		WanderMoveRadius: 1
@@ -964,6 +968,8 @@ MWAR: ## AI control it by using McvManagerBotModule
 		PauseOnCondition: mindcontrolled || empdisable
 		Voice: Move
 		Offset: -1,-1
+	ExplodesAlsoTransported:
+		Weapon: UnitExplode
 	RenderSprites:
 		Image: mwar.nod
 		FactionImages:
@@ -1081,6 +1087,8 @@ M_EMP:
 		SparkWeapon: MEMPulse
 		Amount: 1
 		RequiresCondition: empSpawn
+	ExplodesAlsoTransported:
+		Weapon: UnitExplode
 	IssueOrderToBot@AI:
 		OrderName: DeployWithCharge
 		OrderTrigger: Attack

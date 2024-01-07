@@ -305,28 +305,6 @@ WorkerDroneMinigun:
 			Light: 30
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
-^WorkerWarhead:
-	Inherits: ^ArtilleryWarhead
-	Inherits@2: ^Small_Bang
-	ReloadDelay: 50
-	Range: 4c512
-	ValidTargets: Ground, Water
-	Warhead@1Dam: SpreadDamage
-		Damage: 1600
-		Spread: 300
-		Versus:
-			Infantry: 100
-			Building: 20
-			Defense: 5
-			Light: 30
-			Heavy: 15
-			Aircraft: 100
-			Concrete: 3
-			Shield: 0
-		ValidTargets: Ground, Water
-		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
-	-Warhead@5Smu:
-
 DogBomb:
 	Inherits: ^APWarhead
 	Inherits@2: ^Small_Bang
@@ -352,19 +330,35 @@ DogBomb:
 		ExplosionPalette: gensmkexploj
 
 NanoNeedle:
-	Inherits: ^WorkerWarhead
-	Report: photon1.wav
+	Inherits: ^ArtilleryWarhead
+	Inherits@2: ^Small_Bang
+	ReloadDelay: 50
+	Range: 4c512
+	ValidTargets: Ground, Water
 	Projectile: BulletAS
 		Speed: 200
 		Image: naswarm
 		Palette: effect
 	Warhead@1Dam: SpreadDamage
+		Damage: 1600
+		Spread: 300
+		Versus:
+			Infantry: 100
+			Building: 20
+			Defense: 5
+			Light: 30
+			Heavy: 15
+			Aircraft: 100
+			Concrete: 3
+			Shield: 0
+		ValidTargets: Ground, Water
 		DamageTypes: Prone100Percent, TriggerProne
 	Warhead@2Eff: CreateEffect
 		Explosions: nanoexp
 		-InvalidTargets:
 		ExplosionPalette: effect
 		-ImpactSounds:
+	-Warhead@5Smu:
 
 CenturionVulcan:
 	Inherits: ^RifleWarhead
