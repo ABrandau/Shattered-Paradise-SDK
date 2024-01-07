@@ -2365,6 +2365,11 @@
 		TerrainTypes: Water
 	ExplodesAlsoTransported:
 		RequiresCondition: !hoverunitonwater || !empdisable
+	ExplodesAlsoTransported@DisabledOnWater:
+		RequiresCondition: hoverunitonwater && empdisable
+		Weapon: UnitDrowned
+	ThrowsShrapnel:
+		RequiresCondition: !hoverunitonwater || !empdisable
 	-ChangesHealth@veinholedrain:
 	-ExternalCondition@veinholedrain:
 	-WithIdleOverlay@veinholedrain:

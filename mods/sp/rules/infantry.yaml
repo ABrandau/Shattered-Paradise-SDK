@@ -1723,6 +1723,14 @@ FLOAT:
 	AutoTarget:
 		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	-TakeCover:
+	KillsSelf@hoverunitonwater:
+		RequiresCondition: hoverunitonwater && WebDisable
+	GrantConditionOnTerrain:
+		Condition: hoverunitonwater
+		TerrainTypes: Water
+	ExplodesAlsoTransported@DisabledOnWater:
+		RequiresCondition: hoverunitonwater && WebDisable
+		Weapon: UnitDrownedSmall
 	ActorStatValues:
 		Damage: -40
 	-DamagedByTintedCells@Default:
@@ -2351,6 +2359,10 @@ PDRONE:
 		Sequences: idle2
 	ExplodesAlsoTransported:
 		Weapon: SimpleDroneExplode
+		RequiresCondition: (!ascargo && !hoverunitonwater) || (!empdisable && !WebDisable)
+	ExplodesAlsoTransported@DisabledOnWater:
+		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
+		Weapon: UnitDrownedSmall
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@conversionUpg:
 	-DamagedByTintedCells@Default:
@@ -2473,6 +2485,11 @@ MOTH:
 	GrantConditionOnTerrain:
 		Condition: hoverunitonwater
 		TerrainTypes: Water
+	ExplodesAlsoTransported:
+		RequiresCondition: (!ascargo && !hoverunitonwater) || (!empdisable && !WebDisable)
+	ExplodesAlsoTransported@DisabledOnWater:
+		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
+		Weapon: UnitDrownedSmall
 	Health:
 		HP: 40000
 	Selectable:
@@ -2848,9 +2865,17 @@ NANOS:
 	WithSpriteBody:
 		Sequence: idle
 		RequiresCondition: !inside-tunnel && !WebDisable
+	KillsSelf@hoverunitonwater:
+		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
+	GrantConditionOnTerrain:
+		Condition: hoverunitonwater
+		TerrainTypes: Water
 	ExplodesAlsoTransported:
 		Weapon: NanoDroneExplode
-		RequiresCondition: !ascargo
+		RequiresCondition: (!ascargo && !hoverunitonwater) || (!empdisable && !WebDisable)
+	ExplodesAlsoTransported@DisabledOnWater:
+		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
+		Weapon: UnitDrownedSmall
 	-SpawnCorpseOnDeath@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@conversionUpg:
