@@ -1723,7 +1723,7 @@ FLOAT:
 	AutoTarget:
 		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	-TakeCover:
-	KillsSelf@hoverunitonwater:
+	KillsSelf@DisabledOnWater:
 		RequiresCondition: hoverunitonwater && WebDisable
 	GrantConditionOnTerrain:
 		Condition: hoverunitonwater
@@ -2274,7 +2274,7 @@ SWARMLING:
 	-WithDeathAnimation@blood1:
 
 PDRONE:
-	Inherits: ^DroneSoldier
+	Inherits: ^HoverDroneSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RECYCLE: ^AffectedByReclaimAndRecycle
@@ -2344,31 +2344,8 @@ PDRONE:
 			FireDeath: 1, 2
 			ExplosionDeath: 1,2
 			EnergyDeath: 1,2
-	KillsSelf@hoverunitonwater:
-		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
-	GrantConditionOnTerrain:
-		Condition: hoverunitonwater
-		TerrainTypes: Water
-	LeavesTrails:
-		RequiresCondition: hoverunitonwater
-		Image: wake
-		Palette: effect
-		TerrainTypes: Water
-		StationaryInterval: 18
-		MovingInterval: 12
-		Sequences: idle2
 	ExplodesAlsoTransported:
 		Weapon: SimpleDroneExplode
-		RequiresCondition: (!ascargo && !hoverunitonwater) || (!empdisable && !WebDisable)
-	ExplodesAlsoTransported@DisabledOnWater:
-		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
-		Weapon: UnitDrownedSmall
-	-SpawnActorOnDeath@conversion:
-	-SpawnActorOnDeath@conversionUpg:
-	-DamagedByTintedCells@Default:
-	-DamagedByTintedCells@BlueRadiation:
-	-DamagedByTintedCells@OrangeRadiation:
-	-DamagedByTintedCells@Colossus:
 	ActorStatValues:
 		Damage: 63
 		Upgrades: upgrade.reclaim_and_recycle, upgrade.regenerative_materials
@@ -2437,7 +2414,8 @@ GLAD:
 		Upgrades: upgrade.cybernetic_leg_enhancements, upgrade.regenerative_materials
 
 MOTH:
-	Inherits: ^DroneSoldier
+	Inherits: ^HoverDroneSoldier
+	Inherits@TINTEDCELLS: ^DamagedByTintedCells
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
@@ -2466,30 +2444,11 @@ MOTH:
 		RequiresCondition: !deployed && !WebDisable && !empdisable
 	Mobile:
 		Speed: 105
-		Locomotor: HoverInfantry
 		ImmovableCondition: !undeployed
 		PauseOnCondition: WebDisable || empdisable
 		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
-	LeavesTrails:
-		RequiresCondition: hoverunitonwater
-		Image: wake
-		Palette: effect
-		TerrainTypes: Water
-		StationaryInterval: 18
-		MovingInterval: 12
-		Sequences: idle2
-	KillsSelf@hoverunitonwater:
-		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
-	GrantConditionOnTerrain:
-		Condition: hoverunitonwater
-		TerrainTypes: Water
-	ExplodesAlsoTransported:
-		RequiresCondition: (!ascargo && !hoverunitonwater) || (!empdisable && !WebDisable)
-	ExplodesAlsoTransported@DisabledOnWater:
-		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
-		Weapon: UnitDrownedSmall
 	Health:
 		HP: 40000
 	Selectable:
@@ -2546,7 +2505,7 @@ MOTH:
 		Weapon: GLurkerProj
 		PauseOnCondition: WebDisable || empdisable
 	Armament@AIAimOnly:
-		RequiresCondition: AImicroManage && !deployed
+		RequiresCondition: AImicroManage && !deployed && !hoverunitonwater
 		Weapon: LurkerAimDummyWeapon
 		Name: AIAim
 		PauseOnCondition: WebDisable || empdisable
@@ -2824,7 +2783,7 @@ WORKERMECH:
 		Damage: 11
 
 NANOS:
-	Inherits: ^DroneSoldier
+	Inherits: ^HoverDroneSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
 		Cost: 100
@@ -2834,8 +2793,6 @@ NANOS:
 		HP: 7000
 	Mobile:
 		Speed: 60
-		Locomotor: HoverInfantry
-		PauseOnCondition: WebDisable
 	Hovers:
 	Voiced:
 		VoiceSet: Limpet
@@ -2865,17 +2822,8 @@ NANOS:
 	WithSpriteBody:
 		Sequence: idle
 		RequiresCondition: !inside-tunnel && !WebDisable
-	KillsSelf@hoverunitonwater:
-		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
-	GrantConditionOnTerrain:
-		Condition: hoverunitonwater
-		TerrainTypes: Water
 	ExplodesAlsoTransported:
 		Weapon: NanoDroneExplode
-		RequiresCondition: (!ascargo && !hoverunitonwater) || (!empdisable && !WebDisable)
-	ExplodesAlsoTransported@DisabledOnWater:
-		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
-		Weapon: UnitDrownedSmall
 	-SpawnCorpseOnDeath@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@conversionUpg:

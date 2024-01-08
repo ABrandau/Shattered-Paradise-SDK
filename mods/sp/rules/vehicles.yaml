@@ -2475,6 +2475,7 @@ HVRTRUK3:
 	ExplodesForMaster:
 		Weapon: BombTruckExplo
 		EmptyWeapon: BombTruckExplo
+		RequiresCondition: !hoverunitonwater || !empdisable
 	## Only Enabled when as cargo
 	ExplodesAlsoTransported:
 		RequiresCondition: carried
@@ -3061,7 +3062,7 @@ LIMPED:
 		RequiresCondition: limpetaa
 	### AI Control: make limped drone wander randomly and deploy when find enemy
 	Armament@AIAimOnly:
-		RequiresCondition: AImicroManage && !deployed
+		RequiresCondition: AImicroManage && !deployed && !hoverunitonwater
 		Weapon: LimpedAimDummyWeapon
 		PauseOnCondition: empdisable
 		Name: AIAim

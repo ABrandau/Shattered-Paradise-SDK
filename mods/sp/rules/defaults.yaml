@@ -2055,6 +2055,38 @@
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 
+^HoverDroneSoldier:
+	Inherits: ^DroneSoldier
+	Mobile:
+		Locomotor: HoverInfantry
+	KillsSelf@DisabledOnWater:
+		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
+	GrantConditionOnTerrain:
+		Condition: hoverunitonwater
+		TerrainTypes: Water
+	LeavesTrails:
+		RequiresCondition: hoverunitonwater
+		Image: wake
+		Palette: effect
+		TerrainTypes: Water
+		StationaryInterval: 18
+		MovingInterval: 12
+		Sequences: idle2
+	ExplodesAlsoTransported:
+		Weapon: DroneExplode
+		RequiresCondition: (!ascargo && !hoverunitonwater) || (!empdisable && !WebDisable)
+	ExplodesAlsoTransported@DisabledOnWater:
+		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
+		Weapon: UnitDrownedSmall
+	SpawnActorOnDeath@conversion:
+		RequiresCondition: !hoverunitonwater
+	SpawnActorOnDeath@conversionUpg:
+		RequiresCondition: !hoverunitonwater
+	-DamagedByTintedCells@Default:
+	-DamagedByTintedCells@BlueRadiation:
+	-DamagedByTintedCells@OrangeRadiation:
+	-DamagedByTintedCells@Colossus:
+
 ^CivilianInfantry:
 	Inherits: ^Infantry
 	Voiced:
@@ -2358,13 +2390,13 @@
 		SpawnAtLastPosition: false
 		TrailWhileStationary: true
 		StartDelay: -1
-	KillsSelf@hoverunitonwater:
-		RequiresCondition: hoverunitonwater && empdisable
 	GrantConditionOnTerrain:
 		Condition: hoverunitonwater
 		TerrainTypes: Water
 	ExplodesAlsoTransported:
 		RequiresCondition: !hoverunitonwater || !empdisable
+	KillsSelf@DisabledOnWater:
+		RequiresCondition: hoverunitonwater && empdisable
 	ExplodesAlsoTransported@DisabledOnWater:
 		RequiresCondition: hoverunitonwater && empdisable
 		Weapon: UnitDrowned
