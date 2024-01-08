@@ -1701,6 +1701,8 @@ FLOAT:
 	Mobile:
 		Locomotor: HoverInfantry
 	Hovers:
+		FallTicks: 5
+		RiseTicks: 10
 		RequiresCondition: !WebDisable
 	Crushable:
 		WarnProbability: 0
@@ -2446,7 +2448,7 @@ MOTH:
 	Voiced:
 		VoiceSet: Limpet
 	Hovers:
-		RequiresCondition: !deployed && !WebDisable && !empdisable
+		RequiresCondition: undeployed && !WebDisable && !empdisable
 	Mobile:
 		Speed: 105
 		ImmovableCondition: !undeployed

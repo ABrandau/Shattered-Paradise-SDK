@@ -2063,6 +2063,8 @@
 		Condition: hoverunitonwater
 		TerrainTypes: Water
 	Hovers:
+		FallTicks: 5
+		RiseTicks: 10
 		RequiresCondition: !WebDisable && !empdisable
 	KillsSelf@DisabledOnWater:
 		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
@@ -2365,6 +2367,8 @@
 ^HoverVehicle:
 	Inherits: ^Vehicle
 	Hovers:
+		FallTicks: 5
+		RiseTicks: 10
 		RequiresCondition: !empdisable
 	GrantConditionOnTerrain:
 		Condition: hoverunitonwater
