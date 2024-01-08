@@ -1700,6 +1700,8 @@ FLOAT:
 		HP: 17500
 	Mobile:
 		Locomotor: HoverInfantry
+	Hovers:
+		RequiresCondition: !WebDisable
 	Crushable:
 		WarnProbability: 0
 		CrushSound: squish6.aud
@@ -1733,10 +1735,14 @@ FLOAT:
 		Weapon: UnitDrownedSmall
 	ActorStatValues:
 		Damage: -40
-	-DamagedByTintedCells@Default:
-	-DamagedByTintedCells@BlueRadiation:
-	-DamagedByTintedCells@OrangeRadiation:
-	-DamagedByTintedCells@Colossus:
+	DamagedByTintedCells@Default:
+		RequiresCondition: WebDisable
+	DamagedByTintedCells@BlueRadiation:
+		RequiresCondition: WebDisable
+	DamagedByTintedCells@OrangeRadiation:
+		RequiresCondition: WebDisable
+	DamagedByTintedCells@Colossus:
+		RequiresCondition: WebDisable
 
 BUG:
 	Inherits: ^ScrinSoldier
@@ -2415,7 +2421,6 @@ GLAD:
 
 MOTH:
 	Inherits: ^HoverDroneSoldier
-	Inherits@TINTEDCELLS: ^DamagedByTintedCells
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
@@ -2490,13 +2495,13 @@ MOTH:
 		RequiresCondition: !undeployed && !inside-tunnel && !WebDisable
 	-WithInfantryBody:
 	DamagedByTintedCells@Default:
-		RequiresCondition: deployed
+		RequiresCondition: deployed || WebDisable || empdisable
 	DamagedByTintedCells@BlueRadiation:
-		RequiresCondition: deployed
+		RequiresCondition: deployed || WebDisable || empdisable
 	DamagedByTintedCells@OrangeRadiation:
-		RequiresCondition: deployed
+		RequiresCondition: deployed || WebDisable || empdisable
 	DamagedByTintedCells@Colossus:
-		RequiresCondition: deployed
+		RequiresCondition: deployed || WebDisable || empdisable
 	Armament@1:
 		Weapon: LurkerProj
 		PauseOnCondition: WebDisable || empdisable || !deployed

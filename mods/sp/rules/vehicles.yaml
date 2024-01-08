@@ -3037,13 +3037,17 @@ LIMPED:
 		Name: deployed
 		RequiresCondition: show-deploybody && !inside-tunnel
 	DamagedByTintedCells@Default:
-		RequiresCondition: deployed
+		RequiresCondition: deployed || empdisable
 	DamagedByTintedCells@BlueRadiation:
-		RequiresCondition: deployed
+		RequiresCondition: deployed || empdisable
 	DamagedByTintedCells@OrangeRadiation:
-		RequiresCondition: deployed
+		RequiresCondition: deployed || empdisable
 	DamagedByTintedCells@Colossus:
-		RequiresCondition: deployed
+		RequiresCondition: deployed || empdisable
+	-ChangesHealth@veinholedrain:
+	-ExternalCondition@veinholedrain:
+	-WithIdleOverlay@veinholedrain:
+	-GrantConditionOnTerrain@VEINS:
 	-LeavesTrails@land:
 	LeavesTrails@water:
 		Image: wake
@@ -3551,7 +3555,7 @@ SCRMBT:
 	-LeavesTrails@land:
 	-LeavesTrails@water:
 	LeavesTrails@gravity:
-		RequiresCondition: !inside-tunnel
+		RequiresCondition: !inside-tunnel && !empdisable
 		Image: wake
 		Sequences: idlescr
 		Palette: scrinenergystuffs
@@ -3639,7 +3643,7 @@ SCRGLYDER2:
 	-LeavesTrails@land:
 	-LeavesTrails@water:
 	LeavesTrails@gravity:
-		RequiresCondition: !inside-tunnel
+		RequiresCondition: !inside-tunnel && !empdisable
 		Image: wake
 		Sequences: idlescr
 		Palette: scrinenergystuffs
@@ -3840,7 +3844,7 @@ SCRMOBMINE:
 	-LeavesTrails@land:
 	-LeavesTrails@water:
 	LeavesTrails@gravity:
-		RequiresCondition: !inside-tunnel
+		RequiresCondition: !inside-tunnel && !empdisable
 		Image: wake
 		Sequences: idlescr
 		Palette: scrinenergystuffs

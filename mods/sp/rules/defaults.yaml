@@ -2059,11 +2059,13 @@
 	Inherits: ^DroneSoldier
 	Mobile:
 		Locomotor: HoverInfantry
-	KillsSelf@DisabledOnWater:
-		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
 	GrantConditionOnTerrain:
 		Condition: hoverunitonwater
 		TerrainTypes: Water
+	Hovers:
+		RequiresCondition: !WebDisable && !empdisable
+	KillsSelf@DisabledOnWater:
+		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
 	LeavesTrails:
 		RequiresCondition: hoverunitonwater
 		Image: wake
@@ -2082,10 +2084,14 @@
 		RequiresCondition: !hoverunitonwater
 	SpawnActorOnDeath@conversionUpg:
 		RequiresCondition: !hoverunitonwater
-	-DamagedByTintedCells@Default:
-	-DamagedByTintedCells@BlueRadiation:
-	-DamagedByTintedCells@OrangeRadiation:
-	-DamagedByTintedCells@Colossus:
+	DamagedByTintedCells@Default:
+		RequiresCondition: WebDisable || empdisable
+	DamagedByTintedCells@BlueRadiation:
+		RequiresCondition: WebDisable || empdisable
+	DamagedByTintedCells@OrangeRadiation:
+		RequiresCondition: WebDisable || empdisable
+	DamagedByTintedCells@Colossus:
+		RequiresCondition: WebDisable || empdisable
 
 ^CivilianInfantry:
 	Inherits: ^Infantry
@@ -2359,6 +2365,10 @@
 ^HoverVehicle:
 	Inherits: ^Vehicle
 	Hovers:
+		RequiresCondition: !empdisable
+	GrantConditionOnTerrain:
+		Condition: hoverunitonwater
+		TerrainTypes: Water
 	Mobile:
 		Locomotor: Hover
 		TurnsWhileMoving: true
@@ -2367,7 +2377,7 @@
 		BackwardDuration: 5
 		MaxBackwardCells: -1
 	LeavesTrails@water:
-		RequiresCondition: hoverunitonwater && !inside-tunnel
+		RequiresCondition: hoverunitonwater && !inside-tunnel && !empdisable
 		Image: hoverwind
 		Sequences: water
 		Palette: effect
@@ -2379,7 +2389,7 @@
 		SpawnAtLastPosition: false
 		StartDelay: -1
 	LeavesTrails@land:
-		RequiresCondition: !hoverunitonwater && !inside-tunnel
+		RequiresCondition: !hoverunitonwater && !inside-tunnel && !empdisable
 		Image: hoverwind
 		Sequences: non-water
 		Palette: effect
@@ -2390,9 +2400,6 @@
 		SpawnAtLastPosition: false
 		TrailWhileStationary: true
 		StartDelay: -1
-	GrantConditionOnTerrain:
-		Condition: hoverunitonwater
-		TerrainTypes: Water
 	ExplodesAlsoTransported:
 		RequiresCondition: !hoverunitonwater || !empdisable
 	KillsSelf@DisabledOnWater:
@@ -2402,14 +2409,18 @@
 		Weapon: UnitDrowned
 	ThrowsShrapnel:
 		RequiresCondition: !hoverunitonwater || !empdisable
-	-ChangesHealth@veinholedrain:
-	-ExternalCondition@veinholedrain:
-	-WithIdleOverlay@veinholedrain:
-	-GrantConditionOnTerrain@VEINS:
-	-DamagedByTintedCells@Default:
-	-DamagedByTintedCells@BlueRadiation:
-	-DamagedByTintedCells@OrangeRadiation:
-	-DamagedByTintedCells@Colossus:
+	ChangesHealth@veinholedrain:
+		RequiresCondition: empdisable && veinholedrain
+	WithIdleOverlay@veinholedrain:
+		RequiresCondition: empdisable && veinholedrain
+	DamagedByTintedCells@Default:
+		RequiresCondition: empdisable
+	DamagedByTintedCells@BlueRadiation:
+		RequiresCondition: empdisable
+	DamagedByTintedCells@OrangeRadiation:
+		RequiresCondition: empdisable
+	DamagedByTintedCells@Colossus:
+		RequiresCondition: empdisable
 
 ^HoverTank:
 	Inherits: ^HoverVehicle
