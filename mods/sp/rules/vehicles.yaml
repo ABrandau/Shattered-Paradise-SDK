@@ -150,6 +150,8 @@ MMCH:
 		RequiresCondition: !inside-tunnel && railguns
 		Sequence: barrel2
 	WithMuzzleOverlay:
+	ExplodesAlsoTransported:
+		Offset: 0, 0, 512
 	Selectable:
 		Bounds: 903, 2533, 0, -1024
 	Carryable:
@@ -430,6 +432,8 @@ JUG:
 		CameraPitch: 250
 	Carryable:
 		LocalOffset: 0,0,763
+	ExplodesAlsoTransported:
+		Offset: 0, 0, 512
 	ActorStatValues:
 		Damage: 120
 
@@ -478,6 +482,8 @@ SONIC:
 		MuzzleSequence: muzzle
 		MuzzlePalette: gensmkexplocyan70
 	WithMuzzleOverlay:
+	ExplodesAlsoTransported:
+		Weapon: UnitExplodeBig
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -588,7 +594,7 @@ G4TNK:
 	Selectable:
 		Bounds: 1250, 1900, 0, -200
 	ExplodesAlsoTransported:
-		Weapon: BigUnitExplode
+		Weapon: UnitExplodeBig
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 
@@ -2827,7 +2833,8 @@ CENTURION:
 	Carryable:
 		LocalOffset: 0,0,512
 	ExplodesAlsoTransported:
-		Weapon: BigUnitExplode
+		Weapon: UnitExplodeBigger
+		Offset: 0, 0, 512
 	ActorStatValues:
 		Damage: 15
 
@@ -3180,7 +3187,7 @@ CABAPC:
 		Position: BottomLeft
 		RequiresSelection: true
 	ExplodesAlsoTransported:
-		Weapon: BigUnitExplode
+		Weapon: UnitExplodeLarge
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, None, None, None, Cargo
 
@@ -3234,7 +3241,8 @@ SPIDERARTY:
 	Selectable:
 		Bounds: 1810, 3920, 0, -844
 	ExplodesAlsoTransported:
-		Weapon: BigUnitExplode
+		Weapon: UnitExplodeLarge
+		Offset: 0, 0, 512
 	Carryable:
 		LocalOffset: 0,0,763
 	ActorStatValues:
@@ -3298,7 +3306,8 @@ PALADIN:
 	FloatingSpriteEmitter@spawnsmoke:
 		Offset: 0,0,1000
 	ExplodesAlsoTransported:
-		Weapon: BigUnitExplode
+		Weapon: UnitExplodeBigger
+		Offset: 0, 0, 768
 	ActorStatValues:
 		Damage: 200
 
