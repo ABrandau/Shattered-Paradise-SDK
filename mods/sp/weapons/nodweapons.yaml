@@ -329,8 +329,8 @@ BikeExplo:
 			Heavy: 35
 			Concrete: 15
 	Warhead@5Eff: CreateEffect
-		Explosions: large_twlt
-		ExplosionPalette: effect
+		Explosions: jnuketobig
+		ExplosionPalette: gensmkexploj
 		ValidTargets: Ground, Air, Water
 		ImpactActors: false
 	Warhead@5Sharpnel: FireRadius
@@ -345,9 +345,11 @@ BikeExploEX:
 		Damage: 120000 # not 135000, consider the additional fire in "Warhead@5Sharpnel" which also cause some damage (<15000)
 	Warhead@5Sharpnel: FireRadius
 		Amount: 60
-	Warhead@5Eff: CreateEffect
+	Warhead@2Eff: CreateEffect
 		Explosions: jmininuke, jmininukeb
 		ExplosionPalette: gensmkexploj
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
 
 NukeFlame3:
 	Inherits: NukeFlame
@@ -357,10 +359,9 @@ NukeFlame3:
 		Blockable: false
 
 BikeExploInCargo:
-	Inherits@1: BigUnitExplode
+	Inherits@1: ^GreyExplo
 	Warhead@2Eff: CreateEffect
-		Explosions: large_twlt
-		ExplosionPalette: effect
+		Explosions: jnuketobig
 
 Tick90mm:
 	Inherits: ^APWarhead
