@@ -3554,6 +3554,12 @@ SCRMBT:
 		ReloadingCondition: reload2
 		PauseOnCondition: empdisable || !charged || reload1
 	WithMuzzleOverlay:
+	WithFacingSpriteBody@light:
+		RequiresCondition: !inside-tunnel && !empdisable
+		Name: light
+		Sequence: light
+		Palette: playerlightalpha
+		IsPlayerPalette: true
 	AttackTurreted:
 		PauseOnCondition: empdisable
 	AutoTarget:
@@ -3569,7 +3575,6 @@ SCRMBT:
 		StationaryInterval: 20
 		MovingInterval: 12
 		SpawnAtLastPosition: false
-		TrailWhileStationary: true
 		StartDelay: -1
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
@@ -3659,8 +3664,13 @@ SCRGLYDER2:
 		StationaryInterval: 20
 		MovingInterval: 12
 		SpawnAtLastPosition: false
-		TrailWhileStationary: true
 		StartDelay: -1
+	WithFacingSpriteBody@light:
+		RequiresCondition: !inside-tunnel && !empdisable
+		Name: light
+		Sequence: light
+		Palette: playerlightalpha
+		IsPlayerPalette: true
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
 	ActorStatValues:
@@ -3860,8 +3870,13 @@ SCRMOBMINE:
 		StationaryInterval: 20
 		MovingInterval: 12
 		SpawnAtLastPosition: false
-		TrailWhileStationary: true
 		StartDelay: -1
+	WithFacingSpriteBody@light:
+		RequiresCondition: !inside-tunnel && !empdisable
+		Name: light
+		Sequence: light
+		Palette: playerlightalpha
+		IsPlayerPalette: true
 	ThrowsShrapnel:
 		Weapons: SmallDebrisScrin
 	ActorStatValues:
