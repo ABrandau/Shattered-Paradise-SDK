@@ -480,10 +480,10 @@ machineshop:
 		Offset: 0, 0
 
 bggy:
-	Defaults:
-		Filename: bggy.shp
 	Inherits@1: ^SpriteVehicleWithShadow
 	Inherits@2: ^BuggyMuzzle
+	Defaults:
+		Filename: bggy.shp
 	dieevaporate:
 		Filename: infgas.shp
 		Length: *
@@ -500,15 +500,18 @@ bggy:
 		Filename: buggyturret.shp
 		Start: 32
 		Facings: -32
-		Scale: 0.7
+		Scale: 0.8
+		Offset: 0,-1, 1
 	turret-flame:
 		Filename: buggyturret.shp
 		Start: 64
 		Facings: -32
+		Offset: 0,-1, 1
 	turret-laser:
-		Filename: buggyturret.shp
-		Start: 96
-		Facings: -32
+		Filename: lasertursprite.shp
+		Start: 0
+		Facings: 32
+		Offset: 0,-5, 5
 	turret-abductor:
 		Filename: buggyturret.shp
 		Start: 160
@@ -517,24 +520,29 @@ bggy:
 		Filename: buggyturret.shp
 		Start: 192
 		Facings: -32
+		Offset: 0,-2, 2
 	turret-engineer:
 		Filename: buggyrepairtur.shp
 		Facings: 32
 	turret-eagleguard:
 		Filename: buggyturret2.shp
 		Facings: -32
+		Offset: 0,-2, 2
 	turret-mortar:
 		Filename: buggyturret2.shp
 		Start: 32
 		Facings: -32
+		Offset: 0,-1, 1
 	turret-tesla:
 		Filename: buggyturret2.shp
 		Start: 64
 		Facings: -32
+		Offset: 0,-1, 1
 	turret-bug:
 		Filename: buggyturret2.shp
 		Start: 96
 		Facings: -32
+		Offset: 0,-1, 1
 	turret-colossi:
 		Filename: buggyturret2.shp
 		Start: 128
@@ -543,6 +551,7 @@ bggy:
 		Filename: buggyturret2.shp
 		Start: 160
 		Facings: -32
+		Offset: 0,-1, 1
 	turret-float:
 		Filename: buggyturret2.shp
 		Start: 192
@@ -553,6 +562,9 @@ bggy:
 	turret-medic:
 		Filename: buggyturret3.shp
 		Start: 32
+		Facings: -32
+	turret-sniper:
+		Filename: buggyturret4.shp
 		Facings: -32
 	muzzle-repair:
 		Filename: repairsparks.shp

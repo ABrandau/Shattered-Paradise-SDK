@@ -912,7 +912,7 @@ BGGY:
 	Armament@nconf:
 		Weapon: BlackHandLasorBuggy
 		Damage: 96
-		LocalOffset: 250,0,125
+		LocalOffset: 500,0,350
 		RequiresCondition: ifv.nconf
 	Armament@bhs:
 		Weapon: ToxinCommandoRifle
@@ -1029,7 +1029,13 @@ BGGY:
 		RequiresCondition: !inside-tunnel && ifv.flame
 	WithSpriteTurret@laser:
 		Sequence: turret-laser
-		RequiresCondition: !inside-tunnel && (ifv.nconf || ifv.sniper)
+		IsPlayerPalette: true
+		RequiresCondition: !inside-tunnel && ifv.nconf
+	WithSpriteTurret@turret-sniper:
+		Sequence: turret-sniper
+		Palette: playerunittemgreen
+		IsPlayerPalette: true
+		RequiresCondition: !inside-tunnel && ifv.sniper
 	WithSpriteTurret@chainsaw:
 		Sequence: turret-chainsaw
 		RequiresCondition: !inside-tunnel && ifv.saw
