@@ -40,3 +40,7 @@ kodk-lua-bark-2 = Orbital strike! NOW!!!
 
 mission-lua-timer = Remaining Time:
 mission-lua-complete = Mission Accomplished! You have survived from enemy attacks!
+
+### Unit
+gaiontur-mission-desc = Select this defence and fire manually!
+protester-name = Protester
