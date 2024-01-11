@@ -7,39 +7,36 @@ options-difficulty =
     .normal = Normal
     .hard = Mysterious
 
-objective-survive = Survive and protect MCV as many as you can!
-objective-mcv = Protect at least 4 MCVs.
+objective-survive = Do not let the Ion Turret being destoryed!
+objective-mcv = Save at least 4 MCVs from enemy attacks.
 
-tip-lua-name = Tip
-tip-lua-intro = Select this defence and attack target manually!
+tip-lua-name = Hint
+tip-lua-intro = Select this Turret and attack manually!
 
 mrhole-lua-name = Mr.Hole
-mrhole-lua-intro = Sorry man, I ate too much last night and I really feel sick today.
+mrhole-lua-intro = I'm sorry.I have eaten too much and I'm not feeling so well.
 
 protester-lua-name = Protesters
-protester-lua-intro = This vile GDI machine brings only war to our home, we must turn it off!
+protester-lua-intro = This vile machine brings nothing but war to our homeland. We will turn it off no matter the cost!
+    (Turret will be disabled when hacked!)
 
-bandit-lua-name = Bandits
-bandit-lua-intro = Aliens are comming! Retreat!
+bandit-lua-name = Mutant Bandits
+bandit-lua-intro = What the ... The aliens are comming! FALL BACK!!
 
 kane-lua-name = Kane
-kane-lua-intro-1 = Yes, we are allies for now, but I have allied with those mutants, too.
-kane-lua-intro-2 = I won't fire at you, but I have to provide some helps to mutants.
+kane-lua-intro-1 = Yes, dear commander, we are friends, for now. But unfortunately, I'm also one of the friends, of your enemy's.
+kane-lua-intro-2 = Nod won't launch any direct attacks to you today, I promise. However, Nod has to honor the contract with Mutants as well.
 
-eva-lua-name = E.V.A
-eva-lua-intro-1 = Your device is sensitive to ion storm and takes damage when firing.
-eva-lua-intro-2 = Engineers have been deployed to repair your turret.
+eva-lua-name = E.V.A.
+eva-lua-intro-1 = Commander, the Ion Turret is sensitive to the ion storm. The turret will be damaged by the storm everytime it fires.
+eva-lua-intro-2 = GDI Engineers have been deployed to repair your Turret.
 
 notification-lua-name = Notification
-notification-lua-mcv = A MCV has been secured! You have saved
+notification-lua-mcv = MCV secured! You have saved
 
 kodk-lua-name = GDI Commander
-kodk-lua-bark-1 = Hold on, we are going to pick you up!
-kodk-lua-bark-2 = Orbital strikes! NOW!!!
+kodk-lua-bark-1 = Hold on! Space cover's on the way!
+kodk-lua-bark-2 = Orbital strike! NOW!!!
 
 mission-lua-timer = Remaining Time:
-mission-lua-complete = You Survived!
-
-### Unit
-gaiontur-mission-desc = Select this defence and fire manually!
-protester-name = Protester
+mission-lua-complete = Mission Accomplished! You have survived from enemy attacks!

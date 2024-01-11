@@ -1,41 +1,41 @@
-eva-lua-name = E.V.A
-tip-lua-name = Tip
+eva-lua-name = E.V.A.
+tip-lua-name = Tips
 
-eva-lua-intro-1 = Move your infantry to the red flag to activate the flag.
-tip-lua-usage-select = [Select]: use cursor hovers on one of your units and click to SELECT single unit, or click and drag to draw a box to SELECT all your units within the box.
-tip-lua-usage-move = [Move]: when you have any units selected and your cursor is green on certain location, you can click to MOVE the units to this location.
+eva-lua-intro-1 = Move your infantry to the red flag to activate it.
+tip-lua-usage-select = [Select]: Move the cursor to one of your units and left-click to SELECT a single unit, or left-click and then drag to draw a select-box to SELECT all of your combat units in this box.
+tip-lua-usage-move = [Move]: You can move your selected units to the target location, by right-clicking in modern mode, or left-clicking in classic mode, after moving the cursor to the location you want.
 
-eva-lua-repair-bridge = An Engineer have been deployed to repair the bridge.
-tip-lua-usage-engineer = [Repair Bridge]: Select engineer and click the highlight Repair Hut to REPAIR.
+eva-lua-repair-bridge = An Engineer has been deployed for you to repair the bridge.
+tip-lua-usage-engineer = [Repair Bridge]: Select engineer and right-click the highlightened Repair Hut to REPAIR. If you are using classic mode, then left-click.
 
-eva-lua-enemy = Enemy detected in the way to the next flag. 
-tip-lua-usage-attack = [Attack]: when you have enemy in your view, select your unit and click on the enemy to Attack directly.
-tip-lua-usage-attackmove = [AttackMove]: besides attack directly, You can also select your units and press `A` key can click a location to perform an AttackMove. Your units will attack enemy they encountered while moving to location during AttackMove.
+eva-lua-enemy = Enemy units have blocked way to the next flag.
+tip-lua-usage-attack = [Attack]: You can order your selected unit to launch an attack on the specific enemy unit in your vision range, by right-clicking that enemy unit. Use left-click if you're in classic mode.
+tip-lua-usage-attackmove = [AttackMove]:  After selecting units, press "A" on your keyboard, and then use the "Move" order, your selected units will "Attack Move" to the target location. By giving Attack Move order, your selected units will automatically stop and then attack any visible enemy units in their weapon range while moving to the target location.
 
-eva-lua-tiberium1 = Tiberium field detected in the way to the next flag. Medic is deployed for medical care.
-tip-lua-aware-tiberium = Tiberium field is terrain covered with green or blue cystals, harmful to regular infantry but unharmful to vehicle.
+eva-lua-tiberium1 = Tiberium field detected on the way to the next flag. GDI Medic is deployed for infantry healing.
+tip-lua-aware-tiberium = Tiberium field is a kind of terrain covered with green or blue Tiberium cystals. It's dangerous for most infantries to travel across, or even just stand on Tiberium fields. If they spend too much time on Tiberium fields, they will be killed by Tiberium.
 
-eva-lua-tiberium2 = Tiberium field detected in the way to the next flag. Medical care is provided from Barrack.
-tip-lua-usage-barrack-heal = Move near Barrack to get heal.
+eva-lua-tiberium2 = Tiberium field detected on the way to the next flag. Medical support from Barrack is deployed for infantry healing.
+tip-lua-usage-barrack-heal = Move to the Barrack to heal your infantries.
 
-eva-lua-vein = Vein field detected in the way to the next flag, our heavy support reinforcement will be damaged.
-tip-lua-aware-vein = Vein field is terrain covered with orange veins, harmful to vehicle that cannot hover but unharmful to infantry.
+eva-lua-vein = Vein field detected on the way to the next flag, most of our vehicle reinforcements will be damaged.
+tip-lua-aware-vein = Vein field is a kind of terrain covered with tiberium veins, which is orange. It's harmful to most vehicles, except those ones with hover system, such as our Hover MLRS.
 
-eva-lua-sd = I have restart an abandoned Service Depot, use it to repair our vehicle.
-tip-lua-usage-sd = [Repair Vehicle]: select your damaged vehicles and click on Service Depot to send them to REPAIR.
+eva-lua-sd = Abandoned Service Depot reactivated for patching your vehicles.
+tip-lua-usage-sd = [Repair Vehicles]: By right-clicking the Service Depot, your damaged selected vehicles will automatically move to the it and repair themselves. Left-click if you're using classic mode.
 
-eva-lua-cargo = The next flag is blocked by river, Amphibious APC is deployed to transport your infantry.
-tip-lua-usage-load = [Load Passengers]: select your infantry and click on APC to LOAD your infantry to APC.
-tip-lua-usage-unload = [Unload Passengers]: when APC move to destination, select your APC and click on it or press `F` to UNLOAD your infantry.
+eva-lua-cargo = The next flag locates at the opposite side of the river. An Amphibious APC is deployed for you to transport your infantries.
+tip-lua-usage-load = [Load Passengers]: After selecting you infantries, right-click your APC to give the Load order. Left-click if you're using classic mode.
+tip-lua-usage-unload = [Unload Passengers]: Select your APC and right-click it. Or press `F`, the default hotkey of "Deploy" order, to UNLOAD your infantries from a transport unit, such as an APC. Left-click if you're using classic mode.
 
-eva-lua-carryall = The next flag is enclosed by cliff, Carryall is deployed to carry your APC.
-tip-lua-usage-carry = [Carry Vehicle]: select your Carryall and click on vehicle to CARRY the vehicle.
-tip-lua-usage-deliver = [Deliver Vehicle]: when Carryall move to destination, select your Carryall and click on it or press `F` to DELIVER your vehicle.
+eva-lua-carryall = The next flag is on the top of a hill. Carryall is deployed for you to carry your APC.
+tip-lua-usage-carry = [Load Vehicle]: Select your Carryall and right-click on the target vehicle to give a load order to the carryall. Left-click if you're using classic mode.
+tip-lua-usage-deliver = [Unload Vehicle]: Select your Carryall and right-click it. Or press `F`, the default hotkey of "Deploy" order, to UNLOAD your vehicle from a carryall. Left-click if you're using classic mode.
 
-eva-lua-finish = All flags is activated, you are qualified.
+eva-lua-finish = Congratulation, Commander! You have successfully finished your Training Mission!
 
-objective-finish-train = Use your infantry to activate all red flags.
+objective-finish-train = Order your infantry to activate all red flags.
 
-mission-lua-begin = Follow instructions to finish the training.
-    Press `Enter` key to see instruction history, Press again to hide.
-    Press `ESC` key to see training objective, Press again to hide.
+mission-lua-begin = Follow EVA's instructions to finish the training mission.
+    Press `Enter` key to check the history instructions. Press `Enter` again to close.
+    Press `ESC` key to check the training objectives, Press `ESC` again to close.
