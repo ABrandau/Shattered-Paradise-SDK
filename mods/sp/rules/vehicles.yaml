@@ -1663,7 +1663,6 @@ HOWTLIZER:
 	Cloak@CLOAKGENERATOR:
 		InitialDelay: 170
 		CloakDelay: 170
-		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Demolish, Damage
 		RequiresCondition: cloakgenerator || ( !CriticalDamaged && !empdisable )
 	WithMuzzleOverlay:
@@ -1722,7 +1721,6 @@ STNK:
 	Cloak@CLOAKGENERATOR:
 		InitialDelay: 80
 		CloakDelay: 80
-		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Demolish, Damage
 		RequiresCondition: cloakgenerator || ( !CriticalDamaged && !empdisable )
 	Armament:
@@ -3034,6 +3032,8 @@ LIMPED:
 		RequiresCondition: deployed && !empdisable
 		InitialDelay: 0
 		CloakDelay: 40
+		MinCloakedAlpha: 0.4
+		MaxCloakedAlpha: 0.7
 		UncloakOn: Attack, Unload, Demolish
 		CloakedCondition: cloaking-self
 		EffectOffset: 0, 0, -300
@@ -3646,7 +3646,7 @@ SCRGLYDER2:
 		Weapon: Glyder2Cannon
 		Recoil: 85
 		RecoilRecovery: 25
-		LocalOffset: -250,0,1300
+		LocalOffset: -250,0,1100
 		PauseOnCondition: empdisable || !cannonready
 	#AttackFrontal:
 	#	PauseOnCondition: empdisable

@@ -546,6 +546,7 @@
 ^Berserkable:
 	Berserkable@CHAOS:
 		RequiresCondition: chaos
+		TargetTypesToIgnore: Mine
 	RejectsOrders@CHAOS:
 		RequiresCondition: chaos
 	WithDecoration@CHAOS:
@@ -591,7 +592,8 @@
 		RequiresCondition: cloakgenerator
 		InitialDelay: 75
 		CloakDelay: 150
-		IsPlayerPalette: true
+		MinCloakedAlpha: 0.4
+		MaxCloakedAlpha: 0.7
 		UncloakOn: Attack, Damage, Heal, SupportPower
 	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
@@ -2659,6 +2661,7 @@
 	Targetable@AIRBORNE:
 		TargetTypes: Air #, Helicopter
 		RequiresCondition: airborne
+	-Hovers@CRUISING:
 	Hovers:
 		RequiresCondition: airborne
 
