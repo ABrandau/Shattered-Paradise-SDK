@@ -192,7 +192,7 @@ ORCAB:
 		RequiresCondition: ceramic_plating
 
 DSHP:
-	Inherits: ^Helicopter
+	Inherits: ^AirTransport
 	Inherits@PIPS: ^CargoPips
 	Inherits@SHADOW: ^AircraftShadow
 	Valued:
@@ -268,7 +268,7 @@ DSHP.HIGH:
 		RequiresCondition: HeavyDamaged
 
 ORCATRAN:
-	Inherits: ^Helicopter
+	Inherits: ^AirTransport
 	Inherits@CERAMICS: ^AffectedByCeramicPlating
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
 	Inherits@PIPS: ^CargoPips
@@ -526,7 +526,7 @@ SCRIN:
 		Damage: 50
 
 CERBERUS:
-	Inherits: ^CombatHelicopter
+	Inherits: ^CombatAirCruiser
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SHADOW: ^AircraftShadow
@@ -556,7 +556,6 @@ CERBERUS:
 		Repulsable: true
 		MoveIntoShroud: true
 		IdealSeparation: 1706
-	-Rearmable:
 	Health:
 		HP: 45000
 	Armament@sweep1:
@@ -1072,7 +1071,7 @@ STORMRIDER:
 		Damage: 20
 
 DRACHE:
-	Inherits: ^CombatHelicopter
+	Inherits: ^CombatAirCruiser
 	Inherits@1: ^ScrinAircraftGeneric
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
@@ -1102,7 +1101,6 @@ DRACHE:
 		MoveIntoShroud: true
 		IdealSeparation: 1706
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
-	-Rearmable:
 	Targetable@MC:
 		RequiresCondition: !mindcontrolled && !suddendeath
 	MustBeDestroyed:
@@ -1213,7 +1211,7 @@ SCRGLYDER1:
 		Damage: 90
 
 SCRDESTROYER:
-	Inherits: ^CombatHelicopter
+	Inherits: ^CombatAirCruiser
 	Inherits@1: ^ScrinAircraftGeneric
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
@@ -1234,7 +1232,6 @@ SCRDESTROYER:
 		Prerequisites: ~scrair, scrradr, ~techlevel.4
 		BuildDuration: 1000
 		BuildDurationModifier: 100
-	-Rearmable:
 	Selectable:
 		Bounds: 1460,1800,0,-723
 	AutoTarget:
@@ -1315,7 +1312,7 @@ SCRDESTROYER:
 		Upgrades: upgrade.disc_barrage, upgrade.hyper_flight_rotors
 
 SCRTRANS:
-	Inherits: ^Helicopter
+	Inherits: ^AirTransport
 	Inherits@1: ^ScrinAircraftGeneric
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
 	Inherits@HYPERFLIGHT: ^AffectedByHyperFlightRotors
@@ -1394,7 +1391,7 @@ SCRTRANS:
 		Stats: Armor, Sight, Speed, None, None, None, Cargo
 
 SCRCARRIER:
-	Inherits: ^CombatHelicopter
+	Inherits: ^CombatAirCruiser
 	Inherits@1: ^ScrinAircraftGeneric
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
@@ -1428,7 +1425,6 @@ SCRCARRIER:
 		MoveIntoShroud: true
 	SpeedMultiplier@HYPERFLIGHTROTORS:
 		Modifier: 150
-	-Rearmable:
 	Health:
 		HP: 60000
 	Armament:
@@ -1487,7 +1483,7 @@ SCRCARRIER:
 		Damage: 20
 
 SCRBATTLESHIP:
-	Inherits: ^CombatHelicopter
+	Inherits: ^CombatAirCruiser
 	Inherits@1: ^ScrinAircraftGeneric
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
@@ -1527,7 +1523,6 @@ SCRBATTLESHIP:
 		Repulsable: true
 		IdealSeparation: 1920
 		MoveIntoShroud: true
-	-Rearmable:
 	Health:
 		HP: 200000
 	Armament@1:
@@ -1660,7 +1655,7 @@ WASP:
 		Damage: 60
 
 BASILISK:
-	Inherits: ^CombatHelicopter
+	Inherits: ^CombatAirCruiser
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -1691,7 +1686,6 @@ BASILISK:
 		Speed: 90
 		MoveIntoShroud: true
 		IdealSeparation: 1706
-	-Rearmable:
 	Health:
 		HP: 45000
 	Armament:
@@ -1730,7 +1724,7 @@ BASILISK:
 		Damage: 400
 
 DEVOURER:
-	Inherits: ^CombatHelicopter
+	Inherits: ^CombatAirCruiser
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -1761,7 +1755,6 @@ DEVOURER:
 		Repulsable: true
 		IdealSeparation: 1706
 		MoveIntoShroud: true
-	-Rearmable:
 	Health:
 		HP: 150000
 	Voiced:

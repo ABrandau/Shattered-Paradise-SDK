@@ -332,7 +332,7 @@ JUMPJET:
 		Damage: 50
 
 JUMPJETAIR:
-	Inherits: ^Aircraft
+	Inherits: ^AirInfantry
 	Inherits@1: ^FullHealthRepairCondition
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -353,13 +353,6 @@ JUMPJETAIR:
 	Voiced:
 		VoiceSet: Jumpjet
 		Volume: 8
-	Selectable:
-		Bounds: 664,1809,0,-603
-	HitShape:
-		UseTargetableCellsOffsets: true
-		Type: Rectangle
-			TopLeft: -250, -250
-			BottomRight: 250, 250
 	Health:
 		HP: 15000
 	GrantConditionAfterDelay@1: ## Prevent player switch between modes to refresh reload
@@ -376,45 +369,15 @@ JUMPJETAIR:
 		Type: Aircraft
 	WithFacingSpriteBody:
 		Sequence: run
+	WithShadow:
 	WithAttackAnimation:
 		Sequence: shoot
-	-Repairable:
-	WithShadow:
-	Hovers@CRUISING:
-		RequiresCondition: cruising
-	Aircraft:
-		TurnSpeed: 40
-		Speed: 150
-		AirborneCondition: airborne
-		CruisingCondition: cruising
-		CruiseAltitude: 3c1021
-		IdealSeparation: 1c0
-		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
-		CanHover: true
-		Repulsable: true
-		MoveIntoShroud: true
-		TakeOffOnResupply: true
-		VTOL: true
-		CanSlide: true
-	TakeOffOnMake:
-	Targetable@GROUND:
-		TargetTypes: Infantry, Ground
-		RequiresCondition: !airborne
-	Targetable@AIRBORNE:
-		TargetTypes: Air, OrganicVehicle, NoRepair
-		RequiresCondition: airborne
 	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
 		AttackType: Hover
 	AutoTarget:
 		ScanRadius: 6 #PREF: save trait looks up and scan armaments
-	-GrantConditionOnDamageState@HeavyDamaged:
-	-SpawnSparks:
-	-FloatingSpriteEmitter@spawnsmoke:
-	-ExplodesAlsoTransported@Shrapnel:
-	Cloak@CLOAKGENERATOR:
-		-CloakedCondition:
 	DeathSounds@NORMAL:
 		DeathTypes: BulletDeath, ExplosionDeath, CabalDeath, CabalDeathUpg, TiberiumDeath
 	DeathSounds@BURNED:
@@ -432,9 +395,6 @@ JUMPJETAIR:
 		LocalOffset: 0,0,700
 	ActorStatValues:
 		Damage: 50
-	-Sellable:
-	-GrantConditionOnClientDock@Sellable:
-	-IssueOrderToBot@AISell:
 
 EAGLEGUARD:
 	Inherits: ^Soldier
@@ -561,7 +521,7 @@ JJCOMM:
 		Damage: 200
 
 JJCOMMAIR:
-	Inherits: ^Aircraft
+	Inherits: ^AirInfantry
 	Inherits@1: ^FullHealthRepairCondition
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@COMMANDO: ^CommandoIcon
@@ -577,13 +537,6 @@ JJCOMMAIR:
 	Voiced:
 		VoiceSet: Jumpjet
 		Volume: 8
-	Selectable:
-		Bounds: 664,1809,0,-603
-	HitShape:
-		UseTargetableCellsOffsets: true
-		Type: Rectangle
-			TopLeft: -250, -250
-			BottomRight: 250, 250
 	Health:
 		HP: 25000
 	GrantConditionAfterDelay@1: ## Prevent player switch between modes to refresh reload
@@ -620,43 +573,13 @@ JJCOMMAIR:
 		Type: Aircraft
 	WithFacingSpriteBody:
 		Sequence: run
-	-Repairable:
 	WithShadow:
-	Hovers@CRUISING:
-		RequiresCondition: cruising
-	Aircraft:
-		TurnSpeed: 40
-		Speed: 150
-		AirborneCondition: airborne
-		CruisingCondition: cruising
-		CruiseAltitude: 3c1021
-		IdealSeparation: 1c0
-		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
-		CanHover: true
-		Repulsable: true
-		MoveIntoShroud: true
-		TakeOffOnResupply: true
-		VTOL: true
-		CanSlide: true
-	TakeOffOnMake:
-	Targetable@GROUND:
-		TargetTypes: Infantry, Ground
-		RequiresCondition: !airborne
-	Targetable@AIRBORNE:
-		TargetTypes: Air, OrganicVehicle, NoRepair
-		RequiresCondition: airborne
 	AnnounceOnSeen:
 		PingRadar: true
 		Notification: CommandoDetected
 		TextNotification: notification-commando
 	AutoTarget:
 		ScanRadius: 6 #PREF: save trait looks up and scan armaments
-	-GrantConditionOnDamageState@HeavyDamaged:
-	-SpawnSparks:
-	-FloatingSpriteEmitter@spawnsmoke:
-	-ExplodesAlsoTransported@Shrapnel:
-	Cloak@CLOAKGENERATOR:
-		-CloakedCondition:
 	DeathSounds@NORMAL:
 		DeathTypes: BulletDeath, ExplosionDeath, CabalDeath, CabalDeathUpg, TiberiumDeath
 	DeathSounds@BURNED:
@@ -679,9 +602,6 @@ JJCOMMAIR:
 		IconPalette: chrome
 		TooltipActor: jjcomm
 		Damage: 200
-	-Sellable:
-	-GrantConditionOnClientDock@Sellable:
-	-IssueOrderToBot@AISell:
 
 ALTNODE1:
 	Inherits: ^Soldier

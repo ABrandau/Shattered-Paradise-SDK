@@ -2590,7 +2590,7 @@
 		AirborneCondition: airborne
 		CruisingCondition: cruising
 		Voice: Move
-		CruiseAltitude: 4c0
+		CruiseAltitude: 4c050
 		IdealSeparation: 1c0
 		AltitudeVelocity: 300
 		MaximumPitch: 90
@@ -2649,15 +2649,18 @@
 		RequiresCondition: !airborne
 		ZOffset: -1000
 
+### Different type of air unit use different set of "CruiseAltitude"
+## so big aircraft won't block the way of small aircraft.
 ^Helicopter:
 	Inherits: ^Aircraft
 	Aircraft:
-		CruiseAltitude: 3c1023
+		CruiseAltitude: 4c0
 		Crushes: crate, mine, minetrigger
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 		VTOL: true
 		CanHover: true
 		CanSlide: true
+		-CruisingCondition:
 	Targetable@AIRBORNE:
 		TargetTypes: Air #, Helicopter
 		RequiresCondition: airborne
@@ -2669,6 +2672,54 @@
 	Inherits: ^Helicopter
 	Rearmable:
 		RearmActors: nahpad, gahpad, muair, cabair, civheli, tdhelipad
+
+^CombatAirCruiser:
+	Inherits: ^CombatHelicopter
+	-Rearmable:
+	Aircraft:
+		CruiseAltitude: 3c930
+		
+^AirTransport:
+	Inherits: ^Helicopter
+	Aircraft:
+		CruiseAltitude: 3c930
+
+^AirInfantry:
+	Inherits: ^Aircraft
+	Aircraft:
+		CruiseAltitude: 3c980
+		TurnSpeed: 40
+		Speed: 150
+		IdealSeparation: 1c0
+		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+		CanHover: true
+		Repulsable: true
+		MoveIntoShroud: true
+		TakeOffOnResupply: true
+		VTOL: true
+		CanSlide: true
+	Selectable:
+		Bounds: 664,1809,0,-603
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -250, -250
+			BottomRight: 250, 250
+	TakeOffOnMake:
+	Targetable@GROUND:
+		TargetTypes: Infantry, Ground
+	Targetable@AIRBORNE:
+		TargetTypes: Air, OrganicVehicle, NoRepair
+	-Repairable:
+	-GrantConditionOnDamageState@HeavyDamaged:
+	-SpawnSparks:
+	-FloatingSpriteEmitter@spawnsmoke:
+	-ExplodesAlsoTransported@Shrapnel:
+	Cloak@CLOAKGENERATOR:
+		-CloakedCondition:
+	-Sellable:
+	-GrantConditionOnClientDock@Sellable:
+	-IssueOrderToBot@AISell:
 
 ^Plane:
 	Inherits: ^Aircraft
