@@ -1012,6 +1012,17 @@ BGGY:
 		InvalidTargets: FullHealth, Summoned
 		ValidRelationships: Ally
 		Priority: 2
+	GuardsSelection@REPAIR:
+		ValidTargetsToGuard: Vehicle
+		RequiresCondition: ifv.engineer
+		TargetRelationships: Enemy
+		ForceTargetRelationships: Enemy, Neutral
+	GuardsSelection@MEDIC:
+		ValidTargetsToGuard: Infantry, OrganicVehicle
+		InvalidTargetsToGuard: Air
+		RequiresCondition: ifv.medic
+		TargetRelationships: Enemy
+		ForceTargetRelationships: Enemy, Neutral
 	###################################
 	# Turret Graphics
 	###################################
@@ -3097,7 +3108,6 @@ LIMPED:
 REPAIRVEHICLE:
 	Inherits: ^CombatVehicle
 	Inherits@AUTOTARGET: ^AutoTargetHeal
-	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Inherits@VISION: ^5CellVision
 	Valued:
 		Cost: 500
@@ -3132,8 +3142,10 @@ REPAIRVEHICLE:
 		LocalOffset: 200,0,950
 		MuzzleSequence: muzzle
 		MuzzlePalette: player
-	#AttackFrontal:
-	#	Voice: Attack
+	GuardsSelection:
+		ValidTargetsToGuard: Vehicle
+		TargetRelationships: Enemy
+		ForceTargetRelationships: Enemy, Neutral
 	AttackFollowFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -3658,6 +3670,8 @@ SCRGLYDER2:
 		MustFaceTarget: true
 	AutoTarget:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
+	GuardsSelection:
+		ValidTargetsToGuard: Vehicle, Infantry
 	Armament@AITransformDummyWeapon:
 		Weapon: AIGlyder2AimingDummyWeapon
 		ReloadingCondition: AIattackAir
@@ -3750,7 +3764,6 @@ SCRRECHARGER:
 	Inherits@1: ^ScrinVehicleOverride
 	Inherits@VISION: ^5CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
-	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -3777,6 +3790,8 @@ SCRRECHARGER:
 		Weapon: VanguardFollow
 		TargetRelationships: Ally
 		ForceTargetRelationships: None
+		Cursor: guard
+		OutsideRangeCursor: guard
 		RequiresCondition: !AImicroManage
 	ProximityExternalCondition@VanguardShield:
 		RequiresCondition: !empdisable
@@ -3793,15 +3808,21 @@ SCRRECHARGER:
 		TargetTypes: Ground, Vehicle, ShieldGenerator
 	AttackFrontal:
 		PauseOnCondition: empdisable
+		TargetLineColor: FFFF00
+		FacingTolerance: 512
 	-RevealOnFire:
 	AutoTarget:
 		ScanRadius: 4
-		MinimumScanTimeInterval: 47
-		MaximumScanTimeInterval: 47
-		InitialStance: AttackAnything
+		MinimumScanTimeInterval: 149
+		MaximumScanTimeInterval: 149
+		InitialStance: HoldFire
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: Vehicle
 		ValidRelationships: Ally
+	GuardsSelection:
+		ValidTargetsToGuard: Vehicle
+		TargetRelationships: Enemy
+		ForceTargetRelationships: Enemy, Neutral
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	WithIdleOverlay@shieldpower:
