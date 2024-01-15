@@ -36,7 +36,7 @@ namespace OpenRA.Mods.SP.Traits
 		public readonly int MaxGuardingTargets = 8;
 
 		[Desc("Orders to override to guard ally unit in selection. Use AttackGuards if you need override Attack/ForceAttack order.")]
-		public readonly HashSet<string> AttackMoveOrders = new() { "AttackMove", "AssaultMove", "AttackGuards" };
+		public readonly HashSet<string> OverrideOrders = new() { "AttackMove", "AssaultMove", "AttackGuards" };
 
 		public override object Create(ActorInitializer init) { return new GuardsSelection(this, init.Self); }
 	}
@@ -55,7 +55,7 @@ namespace OpenRA.Mods.SP.Traits
 		{
 			get
 			{
-				if (IsTraitDisabled || !Info.AttackMoveOrders.Contains("AttackGuards"))
+				if (IsTraitDisabled || !Info.OverrideOrders.Contains("AttackGuards"))
 					yield break;
 
 				yield return new AttackGuardOrderTargeter(this, 6);
@@ -72,7 +72,7 @@ namespace OpenRA.Mods.SP.Traits
 
 		void IResolveOrder.ResolveOrder(Actor self, Order order)
 		{
-			if (IsTraitDisabled || order.Target.Type == TargetType.Invalid || order.Queued || self.Owner.IsBot || !Info.AttackMoveOrders.Contains(order.OrderString))
+			if (IsTraitDisabled || order.Target.Type == TargetType.Invalid || order.Queued || self.Owner.IsBot || !Info.OverrideOrders.Contains(order.OrderString))
 				return;
 
 			var world = self.World;
