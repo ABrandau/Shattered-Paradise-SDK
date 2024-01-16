@@ -38,6 +38,9 @@ namespace OpenRA.Mods.SP.Traits
 		[Desc("Orders to override to guard ally unit in selection. Use AttackGuards if you need override Attack/ForceAttack order.")]
 		public readonly HashSet<string> OverrideOrders = new() { "AttackMove", "AssaultMove", "AttackGuards" };
 
+		[Desc("Guard ally closest to target when distance between smaller than this value, otherwise choose ally closest to this actor.")]
+		public readonly int ChooseClosestAllyRangeCells = 7;
+
 		public override object Create(ActorInitializer init) { return new GuardsSelection(this, init.Self); }
 	}
 
@@ -80,35 +83,49 @@ namespace OpenRA.Mods.SP.Traits
 			if (order.Target.Type == TargetType.Actor && (order.Target.Actor.Disposed || order.Target.Actor.Owner == self.Owner || !order.Target.Actor.IsInWorld || order.Target.Actor.IsDead))
 				return;
 
-			var guardActors = world.Selection.Actors
+			var guardableActors = world.Selection.Actors
 				.Where(a => a.Owner == self.Owner
 					&& !a.Disposed
 					&& !a.IsDead
 					&& a.IsInWorld
 					&& a != self
 					&& IsValidGuardableTarget(a))
+				.OrderBy(a => (a.Location - self.Location).LengthSquared)
 				.ToArray();
 
-			if (guardActors.Length == 0)
+			if (guardableActors.Length == 0)
 				return;
 
-			var mainGuardActor = guardActors.ClosestToIgnoringPath(order.Target.CenterPosition);
+			// We find candidates that within "ChooseClosestAllyRangeCells" to guard at highest priority.
+			var minDest = long.MaxValue;
+			var candidate = 0;
+			for (var i = 0; i < guardableActors.Length; i++)
+			{
+				if ((guardableActors[i].Location - self.Location).LengthSquared <= Info.ChooseClosestAllyRangeCells * Info.ChooseClosestAllyRangeCells)
+				{
+					var dist = (guardableActors[i].CenterPosition - order.Target.CenterPosition).HorizontalLengthSquared;
+					if (dist < minDest)
+					{
+						minDest = dist;
+						var a = guardableActors[i];
+						guardableActors[i] = guardableActors[candidate];
+						guardableActors[candidate] = a;
+						candidate++;
+					}
+				}
+			}
+
+			var mainGuardActor = guardableActors[--candidate > 0 ? candidate : candidate = 0];
 			if (mainGuardActor == null)
 				return;
 
-			var mainGuardTarget = Target.FromActor(mainGuardActor);
-			world.IssueOrder(new Order("Guard", self, mainGuardTarget, false, null, null));
+			world.IssueOrder(new Order("Guard", self, Target.FromActor(mainGuardActor), false, null, null));
 
-			var guardTargets = 0;
+			for (var i = 0; i < candidate && i < Info.MaxGuardingTargets; i++)
+				world.IssueOrder(new Order("Guard", self, Target.FromActor(guardableActors[candidate - i - 1]), true, null, null));
 
-			foreach (var guardActor in guardActors)
-			{
-				guardTargets++;
-				world.IssueOrder(new Order("Guard", self, Target.FromActor(guardActor), true, null, null));
-
-				if (guardTargets >= Info.MaxGuardingTargets)
-					break;
-			}
+			for (var i = candidate + 1; i < guardableActors.Length && i < Info.MaxGuardingTargets; i++)
+				world.IssueOrder(new Order("Guard", self, Target.FromActor(guardableActors[i]), true, null, null));
 		}
 
 		bool IsValidGuardableTarget(Actor targetActor)
@@ -130,7 +147,7 @@ namespace OpenRA.Mods.SP.Traits
 		public bool CanAttackGuard(Actor self, Target t, bool forceAttack)
 		{
 			// If force-fire is not used, and the target requires force-firing or the target is
-			// terrain or invalid, no armaments can be used
+			// terrain or invalid, we will just ignore it.
 			if (t.Type == TargetType.Invalid || (!forceAttack && (t.Type == TargetType.Terrain || t.RequiresForceFire)))
 				return false;
 
