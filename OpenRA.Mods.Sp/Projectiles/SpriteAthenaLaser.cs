@@ -186,8 +186,11 @@ namespace OpenRA.Mods.Sp.Projectiles
 
 			if (ringAnim != null)
 			{
-				foreach (var r in ringAnim.Render(renderpos, palette))
-					yield return r;
+				if (!world.FogObscures(renderpos))
+				{
+					foreach (var r in ringAnim.Render(renderpos, palette))
+						yield return r;
+				}
 			}
 
 			for (var i = 0; i < animations.Length; i++)
