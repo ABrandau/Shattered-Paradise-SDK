@@ -184,22 +184,19 @@ namespace OpenRA.Mods.Sp.Projectiles
 			var renderpos = projectilepos;
 			var palette = wr.Palette(paletteName);
 
+			if (world.FogObscures(projectilepos))
+				yield break;
+
 			if (ringAnim != null)
 			{
-				if (!world.FogObscures(renderpos))
-				{
-					foreach (var r in ringAnim.Render(renderpos, palette))
-						yield return r;
-				}
+				foreach (var r in ringAnim.Render(renderpos, palette))
+					yield return r;
 			}
 
 			for (var i = 0; i < animations.Length; i++)
 			{
-				if (!world.FogObscures(renderpos))
-				{
-					foreach (var r in animations[i].Render(renderpos, palette))
-						yield return r;
-				}
+				foreach (var r in animations[i].Render(renderpos, palette))
+					yield return r;
 
 				renderpos += new WVec(0, 0, heightoffset);
 			}
