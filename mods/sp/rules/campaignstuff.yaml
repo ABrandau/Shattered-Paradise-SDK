@@ -1621,7 +1621,7 @@ COREDEFENDER:
 	-WithIdleOverlay@shield:
 	-ExternalCondition@VanguardShield:
 	-Shielded@Shield:
-	-Targetable@Shield:
+	-Armor@Shield:
 	BodyOrientation:
 		QuantizedFacings: 8
 		CameraPitch: 250
@@ -1919,6 +1919,10 @@ HMECTEST:
 	-SharedPassenger:
 	-Chronoshiftable:
 	-Carryable:
+	-WithIdleOverlay@shield:
+	-ExternalCondition@VanguardShield:
+	-Shielded@Shield:
+	-Armor@Shield:
 	FloatingSpriteEmitter@spawnsmoke:
 		Offset: 0, 0, 1000
 	SpawnSparks:
@@ -1927,6 +1931,8 @@ HMECTEST:
 		HP: 650000
 	Armor@Boss:
 		Type: Boss
+	Armor:
+		-RequiresCondition:
 	AnnounceOnSeen:
 		PingRadar: true
 		Notification: MammothDetected

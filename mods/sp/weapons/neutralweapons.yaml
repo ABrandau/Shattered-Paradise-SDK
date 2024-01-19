@@ -195,12 +195,21 @@ JellyAttackPrepare:
 	Projectile: InstantHit
 	ReloadDelay: 60
 	Range: 1c512
-	Warhead@1Dam: TargetDamage ## Can attack ally when intended
-		Spread: 42
-		Damage: 2000
-		DamageTypes: TriggerProne, EnergyDeath
+	Warhead@1Dam: SpreadDamageWithCondition
 		ValidTargets: Ground, Water, Vehicle, Infantry, Building
 		ValidRelationships: Ally
+		Falloff: 100, 100
+		Spread: 42
+		Damage: 2000
+		Versus:
+			Shield: 167
+		DamageTypes: TriggerProne, EnergyDeath
+		Condition: empdisable
+		ConditionDuration: 12
+		ConditionVersus:
+			Infantry: 50
+			Shield: 0
+		AirThreshold: 8c0
 
 ElectricTentacle:
 	Inherits@wh: ^FullDamage
@@ -209,19 +218,21 @@ ElectricTentacle:
 	SoundVolume: 10
 	ValidTargets: Ground, Water, Vehicle, Infantry, Building
 	Projectile: InstantExplode
-	Warhead@1Dam: SpreadDamage
+	Warhead@1Dam: SpreadDamageWithCondition
+		ValidTargets: Ground, Water, Vehicle, Infantry, Building
+		ValidRelationships: Enemy, Neutral
 		Falloff: 100, 75, 50
 		Spread: 996
 		Damage: 3000
+		Versus:
+			Shield: 167
 		DamageTypes: TriggerProne, EnergyDeath
-		ValidTargets: Ground, Water, Vehicle, Infantry, Building
-		ValidRelationships: Enemy, Neutral
-	Warhead@emp1: GrantExternalCondition
-		Range: 2c0
-		Duration: 12
 		Condition: empdisable
-		ValidTargets: Ground, Water
-		InvalidTargets: Building, Defence
+		ConditionDuration: 12
+		ConditionVersus:
+			Infantry: 50
+			Shield: 0
+		AirThreshold: 8c0
 	Warhead@op: FireShrapnel
 		Weapon: JellyBlastTesla
 		ImpactActors: false

@@ -79,6 +79,173 @@ DroneEMPWeaponFinal:
 		Condition: empdisable
 		Duration: 400
 
+WeasaurusStrikeGreen:
+	Inherits: WeasaurusStrike
+	Range: 1c800
+	ReloadDelay: 20
+	Warhead@1Dam: SpreadDamageWithCondition
+		Damage: 5000
+	Warhead@2Eff: CreateEffect
+		Explosions: chompmiddle
+		ExplosionPalette: apgreen
+
+WeasaurusSpitGreen:
+	Inherits: ^FullDamage
+	ReloadDelay: 40
+	Range: 7c0
+	Report: flamtnk1.aud
+	SoundVolume: 2
+	Projectile: BulletAS
+		Speed: 400
+		TrailImage: explosion
+		TrailPalette: gensmkexplogreen
+		TrailSequences: jsbrnl30fireball, jsbrnl20fireball
+		TrailInterval: 0
+		TrailDelay: 0
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 75, 75
+		Spread: 0c512
+		Damage: 5000
+		Versus:
+			Light: 90
+			Heavy: 80
+			Defense: 80
+			Concrete: 35
+		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
+		ValidTargets: Vehicle, Infantry, Building, Ground, Water
+	Warhead@2Eff: CreateEffect
+		Explosions: MilkFire1,MilkFire2, MilkFire3
+		ExplosionPalette: gensmkexplogreen
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+		Delay: 7
+	Warhead@3Eff: CreateEffect
+		ImpactSounds: flamethrower_fire.wav
+		Explosions: smallacidfire
+		ExplosionPalette: gensmkexplogreen
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+
+
+MEMPulse:
+	Inherits: EMPulseCannon
+	Report: voltautofire.wav
+	Projectile: InstantExplode
+	Warhead@1Eff: CreateEffect
+		Explosions: mempfx
+		ImpactActors: false
+		AirThreshold: 8c0
+	Warhead@1DamCon: SpreadDamageWithCondition
+		Spread: 1c0
+	Warhead@2DamCon: SpreadDamageWithCondition
+		Spread: 3c0
+	Warhead@7: FireRadius
+		Amount: 6
+		Delay: 20
+	-Warhead@Reveal:
+
+Sniper:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	ReloadDelay: 60
+	Range: 10c0
+	Report: silencer.aud
+	ValidTargets: Infantry, Ground, Water
+	InvalidTargets: Vehicle, Building, Defence, Air
+	Projectile: LaserZap
+		Duration: 3
+		Width: 25
+		Color: EE9900
+	Warhead@1Dam: TargetDamage
+		Spread: 42
+		Damage: 7500
+		Versus:
+			Infantry: 600
+			Building: 5
+			Defense: 5
+			Heavy: 5
+			Concrete: 5
+		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: piff
+		Delay: 0
+	Warhead@3EffWater: CreateEffect
+		Explosions: water_piff
+		Delay: 0
+	Warhead@MarnFlash: CreateEffect
+		Explosions: marnflash8
+		Delay: 0
+
+LtRail: ##For line damage
+	Inherits: ^FullDamage
+	ReloadDelay: 60
+	Range: 7c0
+	Report: bigggun1.aud
+	TargetActorCenter: true
+	Projectile: Railgun
+		Duration: 20
+		Blockable: true
+		BeamWidth: 256
+		BeamColor: 00DDEE00
+		BeamAlphaDeltaPerTick: 0
+		HelixColor: 44FFFF
+		HelixThickness: 48
+		DamageActorsInLine: true
+		HitAnim: explosion
+		HitAnimSequence: tib_expsmall
+		HitAnimPalette: gensmkexplocyan
+	Warhead@1Dam: TargetDamage
+		Spread: 0
+		Damage: 15000
+		AffectsParent: false
+		ValidRelationships: Neutral, Enemy
+		Versus:
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Concrete: 25
+			Shield: 0
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+
+LtRailSmudge: ##For hit effect
+	Inherits: ^FullDamage
+	Inherits: ^Large_Clsn
+	ReloadDelay: 60
+	Range: 7c0
+	TargetActorCenter: true
+	Projectile: SpriteRailgun
+		BeamColor: 00DDEE
+		Duration: 13
+		BeamWidth: 64
+		QuantizationCount: 1
+		HelixRadius: 0
+		HelixPitch: 512
+		HelixAnim: railgunsparks
+		HelixAnimSequence: idle2
+		HelixAnimPalette: gensmkexplocyan
+		HitAnim: explosion
+		HitAnimSequence: railgunexp
+		HitAnimPalette: effect
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 15000
+		AffectsParent: false
+		ValidRelationships: Ally
+		Versus:
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Concrete: 25
+			Shield: 0
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	-Warhead@2Eff:
+
+### Tunnel Shop common
 ShowBuyerDummyWeapon:
 	ReloadDelay: 9
 	Range: 5c0
@@ -114,7 +281,7 @@ Tunnel8RangeScatter:
 		AirThreshold: 12c0
 		ImpactActors: false
 
-###### minigame
+###### Minigame common
 IonCannonTurret:
 	Inherits: ^FullDamage
 	ReloadDelay: 200
@@ -172,7 +339,6 @@ BeaconConnectionLine:
 		ZOffset: 7000
 		TrackTarget: true
 
-
 ^TeleportScrinTroop:
 	Inherits: ^ScrinOpenWormHole
 	ReloadDelay: 400
@@ -204,3 +370,686 @@ NoDamMeteorElevator3:
 	MinRange: 2c0
 	Warhead@op: FireShrapnel
 		Weapon: ^MeteorRainFast
+
+
+### Boss
+^CoreDefLazerProjectile:
+	Inherits: ^FullDamage
+	TargetActorCenter: true
+	Projectile: LaserZap
+		TrackTarget: false
+		Width: 250
+		Duration: 2
+		ZOffset: 4000
+		Color: 0011FF88
+		SecondaryBeam: true
+		SecondaryBeamWidth: 30
+		SecondaryBeamZOffset: 4000
+		SecondaryBeamColor: 55fffff0
+		HitAnim: explosion
+		HitAnimSequence: lazerflare
+		HitAnimPalette: apblue
+
+CoreDefLazer1R:
+	Inherits: ^CoreDefLazerProjectile
+	FirstBurstTargetOffset: 0,-500,0
+	FollowingBurstTargetOffset: 0,62,0
+	StartBurstReport: avatarlaser0000.wav, avatarlaser0001.wav, avatarlaser0002.wav
+	ReloadDelay: 17
+	Range: 8c0
+	Burst: 16
+	BurstDelays: 1
+	ValidTargets: Ground, Water
+	InvalidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 75, 50
+		Spread: 526
+		Damage: 1200
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building
+		InvalidTargets: Air
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+		NoUnintendedFriendlyFire: All
+	Warhead@1Eff_impact: CreateEffect
+		Explosions: laserscorch
+		ExplosionPalette: jascgrey
+
+CoreDefLazer1L:
+	Inherits: CoreDefLazer1R
+	-StartBurstReport:
+	Projectile: LaserZap
+		HitAnimSequence: dimlaserflare
+		HitAnimPalette: jascbluealpha
+
+CoreDefLazer2R:
+	Inherits: CoreDefLazer1R
+	-StartBurstReport:
+	FirstBurstTargetOffset: 0,500,0
+	FollowingBurstTargetOffset: 0,-62,0
+
+CoreDefLazer2L:
+	Inherits: CoreDefLazer2R
+	Projectile: LaserZap
+		HitAnimSequence: dimlaserflare
+		HitAnimPalette: gensmkexplojFblue
+
+CoreDefLazerAA:
+	Inherits: ^CoreDefLazerProjectile
+	Report: avatarlaser0000.wav, avatarlaser0001.wav, avatarlaser0002.wav
+	ReloadDelay: 50
+	Range: 8c0
+	Projectile: LaserZap
+		-Duration: 2
+		SecondaryBeamWidth: 45
+		HitAnimSequence: bigdimlaserflare
+		HitAnimPalette: gensmkexplojFblue
+	ValidTargets: Air
+	InvalidTargets: Ground, Water
+	Warhead@1Dam: SpreadDamage
+		Damage: 20000
+		ValidTargets: Air
+		InvalidTargets: Ground, Water, Infantry, Vehicle, Building
+
+CoreDefenderCannon:
+	Inherits: ^APWarhead
+	Inherits@2: ^GreenPlasmaExplosion
+	Inherits@3: ^MarnFlash6
+	ReloadDelay: 100
+	Burst: 6
+	Range: 8c0
+	Report: scrin5b.aud
+	ValidTargets: Ground, Water, Vehicle, Infantry
+	Projectile: BulletAS
+		Speed: 300
+		Blockable: false
+		Shadow: false
+		Inaccuracy: 2c0
+		LaunchAngle: 90
+		Palette: jascbluealpha
+		Image: greenplasma2
+		ContrailLength: 5
+		ContrailStartColor: 2255AB55
+		ContrailStartColorAlpha: 85
+		ContrailStartWidth: 0c133
+		ContrailEndColor: 2255AB30
+		ContrailEndColorAlpha: 48
+		ContrailEndWidth: 0
+		-TrailImage:
+	Warhead@1Dam: SpreadDamageWithCondition
+		Falloff: 100, 75, 50
+		Spread: 256
+		Damage: 10000
+		ValidTargets: Ground, Water
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+		Versus:
+			Aircraft: 0
+			Shield: 167
+		Condition: empdisable
+		ConditionDuration: 50
+		ConditionVersus:
+			Infantry: 50
+			Shield: 0
+		AirThreshold: 8c0
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@3Eff: CreateEffect
+		ExplosionPalette: jascbluealpha
+		Explosions: sparks2
+		ImpactActors: false
+
+CoreDefenderCannonAA:
+	Inherits: ^RocketWarhead
+	Inherits@2: ^GreenPlasmaExplosion
+	Inherits@3: ^MarnFlash6
+	ReloadDelay: 15
+	Range: 8c0
+	Report: scrin5b.aud
+	ValidTargets: Air
+	Projectile: MissileTA
+		MaximumLaunchAngle: 0
+		MinimumLaunchAngle: 0
+		Blockable: false
+		Shadow: false
+		Palette: jascbluealpha
+		Image: greenplasma2
+		Sequences: idle
+		IsPlayerPalette: false
+		ContrailLength: 5
+		ContrailStartColor: 2255AB55
+		ContrailStartColorAlpha: 85
+		ContrailStartWidth: 0c133
+		ContrailEndColor: 2255AB30
+		ContrailEndColorAlpha: 48
+		ContrailEndWidth: 0
+		-TrailImage:
+		-JetImage:
+	Warhead@1Dam: SpreadDamage
+		Spread: 90
+		Damage: 5300
+		ValidTargets: Air
+		NoUnintendedFriendlyFire: All
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+	Warhead@3Eff: CreateEffect
+		ExplosionPalette: jascbluealpha
+		Explosions: sparks2
+		ImpactActors: false
+
+CoreDefSuper:
+	Inherits: CoreDefLazer1R
+	Inherits@1: ^SWBaseEffects
+	ReloadDelay: 200
+	Range: 999c0
+	FirstBurstTargetOffset: 0,-4000,0
+	FollowingBurstTargetOffset: 0,200,0
+	ReloadDelay: 60
+	Burst: 40
+	ValidTargets: Vehicle, Infantry, Building, Ground, Water
+	Projectile: LaserZap
+		Width: 400
+		Color: 6969f480
+		ZOffset: 3047
+		SecondaryBeamWidth: 90
+		HitAnim: coredefender
+		HitAnimSequence: muzzle3
+		HitAnimPalette: apblue
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: ffffff
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 75, 50
+		Spread: 526
+		Damage: 10000
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building
+		InvalidTargets: Air
+		Versus:
+			Boss: 300
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+		NoUnintendedFriendlyFire: All
+	Warhead@GetsOneShotedbySuperweapons: SpreadDamage
+		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
+		NoUnintendedFriendlyFire: All
+	Warhead@GetsOneShotedbySuperweaponsAA: IgnoreHeightDamage
+		Spread: 1c768
+	Warhead@AA: IgnoreHeightDamage ## aircraft boss armor
+		ValidTargets: Air
+		Versus:
+			Infantry: 100
+			Building: 0
+			Defense: 0
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 0
+			Boss: 100
+		Spread: 1c768
+		Damage: 11000
+		AirThreshold: 8c0
+		DebugOverlayColor: 0000FF
+	Warhead@1Eff_impact: CreateEffect
+		Explosions: ionscorch
+		ExplosionPalette: jascgrey
+	Warhead@2Eff: CreateEffect
+		Explosions: firestormexplo, firestormexplo1, firestormexplo2, fsidle
+		ExplosionPalette: apblue
+		ImpactSounds: firstrm1.aud
+		Volume: 3
+		Delay: 2
+	Warhead@2Smu: LeaveSmudgeSP
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Building, Wall
+
+CoreDefSuperReveal:
+	ReloadDelay: 200
+	Range: 999c0
+	Projectile: InstantHit
+	Warhead@Reveal: RevealShroud
+		Duration: 100
+		Radius: 7c0
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+		RevealGeneratedShroud: true
+
+MKIIIRailgun: ##For hit effect
+	Inherits: ^Large_Clsn
+	Inherits@2: ^FullDamage
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry, Wall
+	FirstBurstTargetOffset: 0,-150,0
+	FollowingBurstTargetOffset: 0,300,0
+	ReloadDelay: 75
+	Burst: 2
+	BurstDelays: 8
+	TargetActorCenter: true
+	Range: 8c0
+	Report: railuse5.aud
+	Projectile: SpriteRailgun
+		BeamColor: 00DDEE
+		Duration: 13
+		BeamWidth: 81
+		QuantizationCount: 1
+		HelixRadius: 0
+		HelixPitch: 512
+		HelixAnim: railgunsparks
+		HelixAnimSequence: idle1
+		HelixAnimPalette: gensmkexplocyan
+		HitAnim: explosion
+		HitAnimSequence: railgunexp
+		HitAnimPalette: effect
+	Warhead@1Dam: SpreadDamage
+		Spread: 50
+		Damage: 15000
+		Versus:
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Concrete: 35
+			Shield: 0
+		ValidRelationships: Ally
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Image: explosion
+		ImpactActors: false
+		Explosions: beaconflash
+		ExplosionPalette: gensmkexplocyan70
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+	Warhead@later: FireFragment
+		Delay: 60
+		ImpactActors: false
+		Weapon: OribitBombElevator
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+
+MKIIIRailgun2: ##For line damage
+	Inherits: ^FullDamage
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry, Wall
+	FirstBurstTargetOffset: 0,-150,0
+	FollowingBurstTargetOffset: 0,300,0
+	ReloadDelay: 75
+	Range: 8c0
+	Burst: 2
+	BurstDelays: 8
+	TargetActorCenter: true
+	Projectile: Railgun
+		DamageActorsInLine: true
+		BeamColor: 00BBBB00
+		BeamAlphaDeltaPerTick: 0
+		Duration: 20
+		BeamWidth: 302
+		HelixThickness: 48
+		HelixRadiusDeltaPerTick: 16
+		HelixColor: 44FFFF
+		HitAnim: explosion
+		HitAnimSequence: tib_expsmall
+		HitAnimPalette: gensmkexplocyan
+	Warhead@1Dam: TargetDamage
+		Spread: 0 ## HACK: Spread=0 of TargetDamage means only deal damage on actor impacted
+		Damage: 15000
+		AffectsParent: false
+		Versus:
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Concrete: 35
+			Shield: 0
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+		ValidRelationships: Neutral, Enemy
+
+MKIIITusk:
+	Inherits: MammothTusk
+	Range: 8c0
+	BurstDelays: 15
+	Burst: 3
+	ReloadDelay: 55
+	Projectile: MissileTA
+		Speed: 600
+		Blockable: false
+		TrailImage: explosion
+		TrailSequences: jsmokey2
+		TrailPalette: gensmkexploj
+		TrailInterval: 0
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+
+MKIIITuskAA:
+	Inherits: MammothTuskAA
+	Inherits@1: ^AARocketWarhead
+	Range: 8c0
+	BurstDelays: 15
+	Burst: 3
+	ReloadDelay: 55
+	Projectile: MissileTA
+		Speed: 600
+		Blockable: false
+		TrailImage: explosion
+		TrailSequences: jsmokey2
+		TrailPalette: gensmkexploj
+		TrailInterval: 0
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+		NoUnintendedFriendlyFire: All
+
+MKIIIDroneTargeter:
+	ReloadDelay: 10
+	Range: 8c0
+	Projectile: InstantExplode
+	ValidTargets: Ground, Water
+
+SonicClusterMissile:
+	Inherits: ^RocketWarhead
+	Inherits: ^SWBaseEffects
+	ReloadDelay: 120
+	Range: 999c0
+	Burst: 3
+	BurstDelays: 15
+	Report: samshot1.aud, icbm1.aud
+	ValidTargets: Ground, Water
+	Projectile: MissileTA
+		Blockable: false
+		Speed: 600
+		Shadow: true
+		Image: patriot
+		Sequences: idle
+		LockOnInaccuracy: 4c0
+		InaccuracyType: Absolute
+		Palette: apcybl #effect
+		IsPlayerPalette: false
+		CruiseAltitude: 8000
+		AirburstAltitude: 4144
+		TrailImage: explosion
+		TrailSequences: jsmokey2
+		TrailPalette: gensmkexplocyan
+		TrailInterval: 0
+		-JetImage:
+		-JetSequences:
+		-JetPalette:
+		-RangeLimit:
+	-Warhead@GetsOneShotedbySuperweapons: ## This for Air only
+	Warhead@GetsOneShotedbySuperweaponsAA: IgnoreHeightDamage
+		Spread: 2c256
+	Warhead@AA: IgnoreHeightDamage ## aircraft boss armor
+		ValidTargets: Air
+		Versus:
+			Infantry: 100
+			Building: 0
+			Defense: 0
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 0
+			Boss: 100
+		Spread: 2c256
+		Damage: 45000
+		AirThreshold: 8c0
+		DebugOverlayColor: 0000FF
+	Warhead@op: FireRadius
+		Weapon: SonicClusterMissileShell
+		ImpactActors: false
+		Amount: 8
+		ValidTargets: Ground, Water, Infantry, Vehicle, Air
+	Warhead@2Eff: CreateEffect
+		Explosions: SonicShockwave
+		ExplosionPalette: gensmkexplocyan70
+		AirThreshold: 14c0
+		ValidTargets: Ground, Water, Air
+		ImpactSounds: firstrm1.aud
+	Warhead@3Eff: CreateEffect
+		Explosions: SonicMissleExplosion
+		ExplosionPalette: gensmkexplocyan70
+		AirThreshold: 14c0
+		ValidTargets: Ground, Water, Air
+	Warhead@Reveal: RevealShroud
+		Duration: 150
+		Radius: 5c0
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+		RevealGeneratedShroud: true
+
+SonicClusterMissileShell:
+	Inherits: JJBeacon
+	Range: 1c512
+	-Report:
+	ValidTargets: Ground, Water, Vehicle, Infantry, water
+	Projectile: BulletAS
+		Speed: 200
+		Inaccuracy: 2c512
+		LaunchAngle: 196
+		Blockable: false
+
+MKIIIDroneVulcan:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^PiffsCyan
+	ValidRelationships: Enemy, Neutral
+	StartBurstReport: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
+	ReloadDelay: 5
+	Range: 5c0
+	Projectile: InstantHit
+		Inaccuracy: 0c512
+	Warhead@1Dam: SpreadDamage
+		Damage: 3000
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Delay: 5
+		ExplosionPalette: apcyan
+	Warhead@3EffWater: CreateEffect
+		Delay: 5
+
+MKIIIDroneVulcanLine:
+	Inherits: ^LineProjectileCyan
+	ValidRelationships: Enemy, Neutral
+	ReloadDelay: 5
+	Range: 5c0
+	ValidTargets: Ground, Water
+	Projectile: BulletAS
+		Speed: 0c928
+
+MKIIIDroneRepair:
+	Inherits: RepairVehicleLasor
+	ReloadDelay: 50
+	Range: 2c0
+	Report: vifvrepa.wav
+	ValidTargets: Vehicle
+	Projectile: LaserZap
+		ZOffset: 4000
+		Color: FFFF70
+		Width: 16
+		Duration: 5
+		HitAnim: explosion
+		HitAnimSequence: repairsparks
+		HitAnimPalette: player
+		SecondaryBeam: false
+	Warhead@1Dam: SpreadDamage
+		Damage: -2000
+		ValidTargets: Vehicle
+		ValidRelationships: Ally
+
+CouncilorPlasma:
+	Inherits: ^FullDamage
+	ReloadDelay: 50
+	Range: 8c0
+	MinRange: 0c100
+	ValidTargets: Ground, Water
+	Projectile: MissileTA
+		Image: essencetrail
+		TrailImage: essencetrailmini
+		TrailPalette: gensmkexplopurple
+		Speed: 300
+		TrailInterval: 2
+		Palette: gensmkexplopurple
+		Acceleration: 0
+		Blockable: false
+		AllowSnapping: true
+		CloseEnough: 127
+		TerrainHeightAware: true
+		MinimumLaunchAngle: 255 # 90 degrees
+		MaximumLaunchAngle: 255
+		HorizontalRateOfTurn: 120
+		VerticalRateOfTurn: 32
+		HorizontalRateOfTurnAcceleration: 15
+		HorizontalRateOfTurnStart: 40
+		ExplodeUnderThisAltitude: -5c0
+		Jammable: false ## help to save a little bit performance
+		ExplodeWhenEmpty: true
+		TerrainHeightAware: false
+		RangeLimit: 40c0
+		Gravity: 200
+	Warhead@1Dam: SpreadDamage
+		Damage: 9000
+		ValidTargets: Ground, Water
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: sparks
+		ExplosionPalette: gensmkexplopurple
+		ImpactSounds: expnew14.aud
+		AirThreshold: 8c0
+		ValidTargets: Ground, Water
+	Warhead@op: ScrinEssenceHit
+		Weapon: EssenceMissile
+		ValidTargets: Ground, Water, Air
+		Amount: 1
+		AimTargetStances: Ally
+		SecondaryTargets: FullHealth
+		AffectsParent: true
+		AirThreshold: 8c0
+
+CouncilorZap:
+	Inherits: ^FullDamage
+	ReloadDelay: 50
+	Range: 8c0
+	ValidTargets: Air
+	Report: laserchaingunfire.wav
+	Projectile: ElectricBolt
+		ZOffset: 7000
+		Distortion: 384
+		Width: 81
+		Angle: 10
+		Colors: ff88ffA8
+		SegmentLength: 326
+		Duration: 10
+		LaunchEffectImage: explosion
+		LaunchEffectSequence: sparks
+		LaunchEffectPalette: gensmkexplopurple
+	Warhead@1Dam: SpreadDamage
+		Damage: 9000
+		ValidTargets: Air
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
+		NoUnintendedFriendlyFire: All
+	Warhead@2Eff: CreateEffect
+		Explosions: sparks
+		ExplosionPalette: gensmkexplopurple
+		ImpactSounds: expnew14.aud
+		AirThreshold: 8c0
+		ValidTargets: Air
+
+CouncilazerElevator:
+	ReloadDelay: 0
+	Projectile: AthenaProjectile
+		Altitude: 256
+	Warhead@later: FireFragment
+		Weapon: Councilazer
+		ImpactActors: false
+		UseZOffsetAsAbsoluteHeight: true
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+
+Councilazer:
+	Inherits: ^FullDamage
+	Range: 5c768
+	Report: laserchaingunfire.wav
+	Projectile: KKNDLaser
+		Duration: 4
+		Color: f422f4
+		Radius: 2
+		Distortion: 320
+		DistortionAnimation: 256
+		InnerLightness: 0xEE
+		SegmentLength: 512
+		ZOffset: 9000
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 80
+			VehicleArmor: 50
+			DefenseArmor: 50
+			ConcreteArmor: 30
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
+	Warhead@2Eff: CreateEffect
+		Explosions: lightpulse
+		ExplosionPalette: appurp
+		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+	Warhead@2Smu: LeaveSmudgeSP
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@op: FireShrapnel
+		Weapon: OrbZaps
+		ImpactActors: false
+		Amount: 1
+		AimChance: 100
+		ThrowWithoutTarget: true
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+		ValidTargets: Ground, Water, Air
+
+TearingReality:
+	Inherits: ^ScrinOpenWormHole
+	ReloadDelay: 6
+	Range: 999c0
+	Warhead@Hole: SpawnSmokeParticle
+		Weapon: TearingRealityDamage
+	Warhead@Reveal: RevealShroud
+		Duration: 202
+		Radius: 5c0
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+		RevealGeneratedShroud: true
+	Warhead@5Actor: SpawnActor
+		Actors: CORRUPTOR, SCRGLYDER2, TRIPOD, SCRRECHARGER
+		FallRate: 5000
+		ForceGround: true
+		ImpactActors: false
+		Range: 4
+		AirThreshold: 8c0
+		Delay: 201
+		ValidTargets: Ground
+	Warhead@6Actor: SpawnActor
+		Actors: SCRMBT, SCRMBT, SCRMOBMINE, SCRGLYDER2
+		FallRate: 5000
+		ForceGround: true
+		ImpactActors: false
+		Range: 4
+		AirThreshold: 8c0
+		Delay: 201
+		ValidTargets: Water
+
+TearingRealityDamage:
+	Inherits: ^FullDamage
+	ReloadDelay: 5
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
+		Spread: 1c0
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 80
+			VehicleArmor: 50
+			DefenseArmor: 50
+			ConcreteArmor: 30
+		ValidRelationships: Neutral, Enemy
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
+	Warhead@AA: IgnoreHeightDamage ## aircraft
+		ValidTargets: Air
+		Versus:
+			Infantry: 100
+			Building: 0
+			Defense: 0
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 0
+			Boss: 100
+		Spread: 1c768 ### It can just hit the CruiseAltitude: 4c0 aircraft.
+		Damage: 3000
+		AirThreshold: 8c0
+		DebugOverlayColor: 0000FF
+		ValidRelationships: Neutral, Enemy

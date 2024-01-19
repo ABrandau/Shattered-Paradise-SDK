@@ -322,7 +322,7 @@ BullAcid:
 		Speed: 500
 		Image: acidall32mini
 		Palette: jascgreen
-	Warhead@1Dam: SpreadDamage
+	Warhead@1Dam: SpreadDamageWithCondition
 		Falloff: 100, 75, 75
 		Spread: 526
 		Damage: 1250
@@ -331,14 +331,13 @@ BullAcid:
 			Heavy: 20
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
 		ValidTargets: Vehicle, Infantry, Building, Ground, Water
+		Condition: WolfDebuff
+		ConditionDuration: 125
+		NoUnintendedFriendlyFire: Actor
 	Warhead@2Eff: CreateEffect
 		Explosions: tib_expsmall
 		ExplosionPalette: apolgreenalpha
 		InvalidTargets: Water
-	Warhead@Acid: GrantExternalCondition
-		Range: 1c0
-		Duration: 125
-		Condition: WolfDebuff
 
 RavagerStrike:
 	Inherits: ^FullDamage
@@ -347,20 +346,15 @@ RavagerStrike:
 	Range: 1c650
 	Report: SSUSBLargeMonster0000.aud, SSUSBLargeMonster0001.aud, SSUSBLargeMonster0002.aud, SSUSBLargeMonster0003.aud, SSUSBLargeMonster0004.aud
 	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
+	Warhead@1Dam: SpreadDamageWithCondition
 		Spread: 0c090
 		Damage: 5000
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 		Versus:
 			Infantry: 150
 		NoUnintendedFriendlyFire: All
-	Warhead@emp: GrantExternalCondition
-		Range: 1c0
-		Duration: 45
+		ConditionDuration: 45
 		Condition: Slowdown50pp
-		ValidRelationships: Enemy, Neutral
-		ValidTargets: Infantry, Vehicle
-		InvalidTargets: Building, Defence
 
 LynxCannon:
 	Inherits: ^APWarhead
@@ -857,18 +851,13 @@ WeasaurusStrike:
 	Range: 2c0
 	Report: SSUSBLargeMonster0000.aud, SSUSBLargeMonster0001.aud, SSUSBLargeMonster0002.aud, SSUSBLargeMonster0003.aud, SSUSBLargeMonster0004.aud
 	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
+	Warhead@1Dam: SpreadDamageWithCondition
 		Spread: 0c090
 		Damage: 7500
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 		NoUnintendedFriendlyFire: All
-	Warhead@emp: GrantExternalCondition
-		Range: 1c0
-		Duration: 45
+		ConditionDuration: 45
 		Condition: Slowdown50pp
-		ValidRelationships: Enemy, Neutral
-		ValidTargets: Infantry, Vehicle
-		InvalidTargets: Building, Defence
 	Warhead@2Eff: CreateEffect
 		Explosions: chomp
 		ExplosionPalette: apcybl
@@ -880,11 +869,9 @@ WeasaurusStrikeSmall:
 	ReloadDelay: 40
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
-		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
 		Explosions: chompsmall
 		ExplosionPalette: effect
-	-Warhead@emp:
 
 WeasaurusCall:
 	ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
@@ -905,55 +892,6 @@ WeasaurusCall:
 		Image: explosion
 		Sequence: wood_vfx_11
 		Palette: orgatemblue
-
-WeasaurusStrikeGreen:
-	Inherits: WeasaurusStrike
-	Range: 1c800
-	ReloadDelay: 20
-	Warhead@1Dam: SpreadDamage
-		Damage: 5000
-	Warhead@2Eff: CreateEffect
-		Explosions: chompmiddle
-		ExplosionPalette: apgreen
-
-WeasaurusSpitGreen:
-	Inherits: ^FullDamage
-	ReloadDelay: 40
-	Range: 7c0
-	Report: flamtnk1.aud
-	SoundVolume: 2
-	Projectile: BulletAS
-		Speed: 400
-		TrailImage: explosion
-		TrailPalette: gensmkexplogreen
-		TrailSequences: jsbrnl30fireball, jsbrnl20fireball
-		TrailInterval: 0
-		TrailDelay: 0
-	Warhead@1Dam: SpreadDamage
-		Falloff: 100, 75, 75
-		Spread: 0c512
-		Damage: 5000
-		Versus:
-			Light: 90
-			Heavy: 80
-			Defense: 80
-			Concrete: 35
-		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
-		ValidTargets: Vehicle, Infantry, Building, Ground, Water
-	Warhead@2Eff: CreateEffect
-		Explosions: MilkFire1,MilkFire2, MilkFire3
-		ExplosionPalette: gensmkexplogreen
-		ImpactActors: false
-		ValidTargets: Ground, Water, Air
-		AirThreshold: 8c0
-		Delay: 7
-	Warhead@3Eff: CreateEffect
-		ImpactSounds: flamethrower_fire.wav
-		Explosions: smallacidfire
-		ExplosionPalette: gensmkexplogreen
-		ImpactActors: false
-		ValidTargets: Ground, Water, Air
-		AirThreshold: 8c0
 
 MineTrigger:
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
@@ -1015,105 +953,6 @@ AnimateMinelayer-clear:
 	Inherits: AnimateMinelayer-lay
 	Warhead@anim: GrantExternalCondition
 		ValidRelationships: Enemy, Neutral
-
-Sniper:
-	Inherits: ^RifleWarhead
-	Inherits@2: ^Piffs
-	ReloadDelay: 60
-	Range: 10c0
-	Report: silencer.aud
-	ValidTargets: Infantry, Ground, Water
-	InvalidTargets: Vehicle, Building, Defence, Air
-	Projectile: LaserZap
-		Duration: 3
-		Width: 25
-		Color: EE9900
-	Warhead@1Dam: TargetDamage
-		Spread: 42
-		Damage: 7500
-		Versus:
-			Infantry: 600
-			Building: 5
-			Defense: 5
-			Heavy: 5
-			Concrete: 5
-		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
-	Warhead@2Eff: CreateEffect
-		Explosions: piff
-		Delay: 0
-	Warhead@3EffWater: CreateEffect
-		Explosions: water_piff
-		Delay: 0
-	Warhead@MarnFlash: CreateEffect
-		Explosions: marnflash8
-		Delay: 0
-
-LtRail: ##For line damage
-	Inherits: ^FullDamage
-	ReloadDelay: 60
-	Range: 7c0
-	Report: bigggun1.aud
-	TargetActorCenter: true
-	Projectile: Railgun
-		Duration: 20
-		Blockable: true
-		BeamWidth: 256
-		BeamColor: 00DDEE00
-		BeamAlphaDeltaPerTick: 0
-		HelixColor: 44FFFF
-		HelixThickness: 48
-		DamageActorsInLine: true
-		HitAnim: explosion
-		HitAnimSequence: tib_expsmall
-		HitAnimPalette: gensmkexplocyan
-	Warhead@1Dam: TargetDamage
-		Spread: 0
-		Damage: 15000
-		AffectsParent: false
-		ValidRelationships: Neutral, Enemy
-		Versus:
-			Infantry: 100
-			Building: 100
-			Defense: 100
-			Heavy: 100
-			Concrete: 25
-			Shield: 0
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
-
-LtRailSmudge: ##For hit effect
-	Inherits: ^FullDamage
-	Inherits: ^Large_Clsn
-	ReloadDelay: 60
-	Range: 7c0
-	TargetActorCenter: true
-	Projectile: SpriteRailgun
-		BeamColor: 00DDEE
-		Duration: 13
-		BeamWidth: 64
-		QuantizationCount: 1
-		HelixRadius: 0
-		HelixPitch: 512
-		HelixAnim: railgunsparks
-		HelixAnimSequence: idle2
-		HelixAnimPalette: gensmkexplocyan
-		HitAnim: explosion
-		HitAnimSequence: railgunexp
-		HitAnimPalette: effect
-	Warhead@1Dam: SpreadDamage
-		Range: 0, 32
-		Falloff: 100, 100
-		Damage: 15000
-		AffectsParent: false
-		ValidRelationships: Ally
-		Versus:
-			Infantry: 100
-			Building: 100
-			Defense: 100
-			Heavy: 100
-			Concrete: 25
-			Shield: 0
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
-	-Warhead@2Eff:
 
 MutSWLightningCharge:
 	Inherits@3: ^LightningDefault

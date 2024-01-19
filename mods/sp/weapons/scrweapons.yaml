@@ -157,11 +157,15 @@ FloatGlaive:
 		HorizontalRateOfTurnStart: 100
 		Jammable: false ## help to save a little bit performance
 		ExplodeWhenEmpty: true
-	Warhead@1Dam: SpreadDamage
+	Warhead@1Dam: SpreadDamageWithCondition
+		Spread: 0c045
 		Damage: 2000
 		ValidTargets: Ground, Water
 		DamageTypes: ExplosionDeath, ScrinEssenceKill
 		NoUnintendedFriendlyFire: Actor
+		Condition: BugPoison
+		ConditionDuration: 300
+		AirThreshold: 8c0
 	Warhead@op: FireShrapnel
 		Weapon: FloatGlaive2
 		ImpactActors: false
@@ -171,10 +175,6 @@ FloatGlaive:
 		AimTargetStances: Enemy
 		AirThreshold: 4c0
 		ValidTargets: Infantry, Vehicle, Building, Ground, Wall, Water
-	Warhead@Acid: GrantExternalCondition
-		Range: 128
-		Duration: 300
-		Condition: BugPoison
 	Warhead@2Eff: CreateEffect
 		-ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
 
@@ -187,10 +187,8 @@ FloatGlaiveUpg:
 	Inherits: FloatGlaive
 	Warhead@op: FireShrapnel
 		Weapon: FloatGlaiveUpg2
-	Warhead@2Acid: GrantExternalCondition
-		Range: 128
-		Duration: 300
-		Condition: BugSlowdown
+	Warhead@1Dam: SpreadDamageWithCondition
+		Condition: BugSlowPoison
 
 FloatGlaiveUpg2:
 	Inherits: FloatGlaiveUpg
@@ -217,7 +215,7 @@ CorruptorAcid:
 			Defense: 25
 			Heavy: 25
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
-		NoUnintendedFriendlyFire: All
+		NoUnintendedFriendlyFire: Actor
 
 CorruptorAcidBlue:
 	Inherits: CorruptorAcid
@@ -350,26 +348,8 @@ ScorpGas:
 
 ScorpGasUpg:
 	Inherits: ScorpGas
-	Warhead@5Con: GrantExternalCondition
-		Range: 4c0
-		Duration: 300
-		Condition: BugSlowdown
-		ValidTargets: Infantry, Vehicle, Ground, Water
-		ValidRelationships: Enemy, Neutral
-
-foggydebuff:
-	Warhead@Acid: GrantExternalCondition
-		Range: 4c0
-		Duration: 250
-		Condition: BugPoison
-		ValidTargets: Infantry, Vehicle, Ground, Water
-		ValidRelationships: Enemy, Neutral
-	Warhead@Acid2: GrantExternalCondition
-		Range: 4c0
-		Duration: 100
-		Condition: Blind
-		ValidTargets: Infantry, Vehicle, Ground, Water
-
+	Warhead@2Con: GrantExternalCondition
+		Condition: BugSlowPoison
 
 AnhTripodLaser:
 	FirstBurstTargetOffset: -700,-328,0
@@ -896,7 +876,7 @@ WasteTurretWeapon:
 			Heavy: 75
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		ValidTargets: Building, Structure, Infantry, Vehicle, Ground
-		NoUnintendedFriendlyFire: All
+		NoUnintendedFriendlyFire: Actor
 	Warhead@3Radio: CreateTintedCells
 		Spread: 512
 		Level: 24
@@ -926,19 +906,15 @@ TractorBeam:
 		HitAnimPalette: scrinenergystuffs
 		HitAnimSequence: wakescr
 		TrackTarget: false
-	Warhead@1Dam: SpreadDamage
-		Damage: 4000
-		Falloff: 100, 100
+	Warhead@1Dam: SpreadDamageWithCondition
+		ValidTargets: Air
 		Spread: 0c20
-		ValidTargets: Air
-		DamageTypes: ExplosionDeath
-		NoUnintendedFriendlyFire: All
-		Delay: 1 ##Killed Aircraft's husk will have no forward speed
-	Warhead@TractorStop: GrantExternalCondition
-		Range: 0c512
-		Duration: 10
+		Falloff: 100, 100
+		Damage: 4000
+		DamageTypes: ExplosionDeath, ScrinEssenceKill
 		Condition: tractorstop
-		ValidTargets: Air
+		ConditionDuration: 10
+		NoUnintendedFriendlyFire: All
 
 TractorBeam2:
 	Inherits: TractorBeam
@@ -949,7 +925,6 @@ TractorBeam2:
 		-HitAnimPalette:
 		-HitAnimSequence:
 	-Report:
-	-Warhead@TractorStop:
 	-Warhead@1Dam:
 
 SrcinOrb:
@@ -991,13 +966,6 @@ SrcinOrb:
 
 OrbZapsShrapnel:
 	ReloadDelay: 2
-	Warhead@Slowdown: GrantExternalCondition
-		Range: 2c0
-		Duration: 10
-		Condition: Slowdown50pp
-		ValidRelationships: Enemy, Neutral, Ally
-		ValidTargets: Infantry, Vehicle
-		InvalidTargets: Building, Defence
 	Warhead@op: FireShrapnel
 		Weapon: OrbZaps
 		ImpactActors: false
@@ -1020,206 +988,19 @@ OrbZaps:
 		Colors: ff44ff99
 		SegmentLength: 326
 		Duration: 4
-	Warhead@1Dam: TargetDamage
-		Spread: 0c20 ## HACK: Spread=0c20 of TargetDamage works not correct on "FireShrapnel"
+	Warhead@1Dam: SpreadDamageWithCondition
+		Spread: 0c20
+		Falloff: 100, 100
 		Damage: 2000
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
+		Condition: Slowdown50pp
+		ConditionDuration: 10
+		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
 		Explosions: lightpulsetiny
 		ExplosionPalette: appurp
 		ImpactActors: false
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-
-CouncilorPlasma:
-	Inherits: ^FullDamage
-	ReloadDelay: 50
-	Range: 8c0
-	MinRange: 0c100
-	ValidTargets: Ground, Water
-	Projectile: MissileTA
-		Image: essencetrail
-		TrailImage: essencetrailmini
-		TrailPalette: gensmkexplopurple
-		Speed: 300
-		TrailInterval: 2
-		Palette: gensmkexplopurple
-		Acceleration: 0
-		Blockable: false
-		AllowSnapping: true
-		CloseEnough: 127
-		TerrainHeightAware: true
-		MinimumLaunchAngle: 255 # 90 degrees
-		MaximumLaunchAngle: 255
-		HorizontalRateOfTurn: 120
-		VerticalRateOfTurn: 32
-		HorizontalRateOfTurnAcceleration: 15
-		HorizontalRateOfTurnStart: 40
-		ExplodeUnderThisAltitude: -5c0
-		Jammable: false ## help to save a little bit performance
-		ExplodeWhenEmpty: true
-		TerrainHeightAware: false
-		RangeLimit: 40c0
-		Gravity: 200
-	Warhead@1Dam: SpreadDamage
-		Damage: 9000
-		ValidTargets: Ground, Water
-		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
-	Warhead@2Eff: CreateEffect
-		Explosions: sparks
-		ExplosionPalette: gensmkexplopurple
-		ImpactSounds: expnew14.aud
-		AirThreshold: 8c0
-		ValidTargets: Ground, Water
-	Warhead@op: ScrinEssenceHit
-		Weapon: EssenceMissile
-		ValidTargets: Ground, Water, Air
-		Amount: 1
-		AimTargetStances: Ally
-		SecondaryTargets: FullHealth
-		AffectsParent: true
-		AirThreshold: 8c0
-
-CouncilorZap:
-	Inherits: ^FullDamage
-	ReloadDelay: 50
-	Range: 8c0
-	ValidTargets: Air
-	Report: laserchaingunfire.wav
-	Projectile: ElectricBolt
-		ZOffset: 7000
-		Distortion: 384
-		Width: 81
-		Angle: 10
-		Colors: ff88ffA8
-		SegmentLength: 326
-		Duration: 10
-		LaunchEffectImage: explosion
-		LaunchEffectSequence: sparks
-		LaunchEffectPalette: gensmkexplopurple
-	Warhead@1Dam: SpreadDamage
-		Damage: 9000
-		ValidTargets: Air
-		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
-		NoUnintendedFriendlyFire: All
-	Warhead@2Eff: CreateEffect
-		Explosions: sparks
-		ExplosionPalette: gensmkexplopurple
-		ImpactSounds: expnew14.aud
-		AirThreshold: 8c0
-		ValidTargets: Air
-
-CouncilazerElevator:
-	ReloadDelay: 0
-	Projectile: AthenaProjectile
-		Altitude: 256
-	Warhead@later: FireFragment
-		Weapon: Councilazer
-		ImpactActors: false
-		UseZOffsetAsAbsoluteHeight: true
-		ValidTargets: Ground, Water, Air
-		AirThreshold: 8c0
-
-Councilazer:
-	Inherits: ^FullDamage
-	Range: 5c768
-	Report: laserchaingunfire.wav
-	Projectile: KKNDLaser
-		Duration: 4
-		Color: f422f4
-		Radius: 2
-		Distortion: 320
-		DistortionAnimation: 256
-		InnerLightness: 0xEE
-		SegmentLength: 512
-		ZOffset: 9000
-	Warhead@1Dam: SpreadDamage
-		Damage: 4000
-		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 80
-			VehicleArmor: 50
-			DefenseArmor: 50
-			ConcreteArmor: 30
-		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
-	Warhead@2Eff: CreateEffect
-		Explosions: lightpulse
-		ExplosionPalette: appurp
-		ImpactActors: false
-		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-	Warhead@2Smu: LeaveSmudgeSP
-		SmudgeType: Scorch
-		InvalidTargets: Vehicle, Building, Wall
-	Warhead@op: FireShrapnel
-		Weapon: OrbZaps
-		ImpactActors: false
-		Amount: 1
-		AimChance: 100
-		ThrowWithoutTarget: true
-		AllowDirectHit: true
-		AimTargetStances: Enemy, Neutral
-		ValidTargets: Ground, Water, Air
-
-TearingReality:
-	Inherits: ^ScrinOpenWormHole
-	ReloadDelay: 6
-	Range: 999c0
-	Warhead@Hole: SpawnSmokeParticle
-		Weapon: TearingRealityDamage
-	Warhead@Reveal: RevealShroud
-		Duration: 202
-		Radius: 5c0
-		ImpactActors: false
-		ValidTargets: Ground, Water, Air
-		AirThreshold: 8c0
-		RevealGeneratedShroud: true
-	Warhead@5Actor: SpawnActor
-		Actors: CORRUPTOR, SCRGLYDER2, TRIPOD, SCRRECHARGER
-		FallRate: 5000
-		ForceGround: true
-		ImpactActors: false
-		Range: 4
-		AirThreshold: 8c0
-		Delay: 201
-		ValidTargets: Ground
-	Warhead@6Actor: SpawnActor
-		Actors: SCRMBT, SCRMBT, SCRMOBMINE, SCRGLYDER2
-		FallRate: 5000
-		ForceGround: true
-		ImpactActors: false
-		Range: 4
-		AirThreshold: 8c0
-		Delay: 201
-		ValidTargets: Water
-
-TearingRealityDamage:
-	Inherits: ^FullDamage
-	ReloadDelay: 5
-	Warhead@1Dam: SpreadDamage
-		Damage: 6000
-		Spread: 1c0
-		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 80
-			VehicleArmor: 50
-			DefenseArmor: 50
-			ConcreteArmor: 30
-		ValidRelationships: Neutral, Enemy
-		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
-	Warhead@AA: IgnoreHeightDamage ## aircraft
-		ValidTargets: Air
-		Versus:
-			Infantry: 100
-			Building: 0
-			Defense: 0
-			Heavy: 100
-			Aircraft: 100
-			Concrete: 0
-			Boss: 100
-		Spread: 1c768 ### It can just hit the CruiseAltitude: 4c0 aircraft.
-		Damage: 3000
-		AirThreshold: 8c0
-		DebugOverlayColor: 0000FF
-		ValidRelationships: Neutral, Enemy
 
 EssenceSmall:
 	ReloadDelay: 45

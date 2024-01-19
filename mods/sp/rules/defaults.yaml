@@ -756,21 +756,21 @@
 		Sequence: cloud
 		IsPlayerPalette: true
 		Palette: playerscrin
-		RequiresCondition: BugPoison
+		RequiresCondition: BugPoison || BugSlowPoison
 		IsDecoration: true ## so this doesn't affect by cloak palette
 	ChangesHealth@BugPoison:
 		PercentageStep: -1
 		Step: 0
 		Delay: 20
 		StartIfBelow: 200
-		RequiresCondition: BugPoison && !CriticalDamaged
-	SpeedMultiplier@BugSlowdown:
+		RequiresCondition: (BugPoison || BugSlowPoison) && !CriticalDamaged
+	SpeedMultiplier@BugSlowPoison:
 		Modifier: 50
-		RequiresCondition: BugSlowdown
+		RequiresCondition: BugSlowPoison
 	ExternalCondition@BugPoison:
 		Condition: BugPoison
-	ExternalCondition@BugSlowdown:
-		Condition: BugSlowdown
+	ExternalCondition@BugSlowPoison:
+		Condition: BugSlowPoison
 	GrantConditionOnDamageState@Critical:
 		Condition: CriticalDamaged
 		ValidDamageStates: Critical
@@ -917,8 +917,8 @@
 		RequiresCondition: VanguardShield
 	Armor:
 		RequiresCondition: !shields-up
-	Targetable@Shield:
-		TargetTypes: Shielded
+	Armor@Shield:
+		Type: Shield
 		RequiresCondition: shields-up
 
 ^Unkillable:
