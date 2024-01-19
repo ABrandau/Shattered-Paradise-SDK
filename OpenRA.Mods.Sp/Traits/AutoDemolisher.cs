@@ -64,15 +64,11 @@ namespace OpenRA.Mods.SP.Traits
 					return !hasModifier;
 				}).ClosestToWithPathFrom(self);
 
-			if (demolished != null)
-				demolished = null;
-			else
-				demolished = targetActor;
-
 			if (targetActor == null)
 				return;
 
 			self.QueueActivity(demolish.GetDemolishActivity(self, Target.FromActor(targetActor), demolish.Info.TargetLineColor));
+			demolished = targetActor;
 		}
 	}
 }
