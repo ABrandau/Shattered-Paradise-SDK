@@ -48,10 +48,13 @@ VISC_SML:
 	Health:
 		HP: 10000
 	Armor:
-		Type: Light
+		Type: Infantry
 	Mobile:
 		Speed: 90
+	GrantConditionOnCombatantOwner:
+		Condition: CombatantOwner
 	Wanders:
+		RequiresCondition: !CombatantOwner
 		WanderMoveRadius: 3
 		MinMoveDelay: 30
 		MaxMoveDelay: 60
@@ -100,7 +103,10 @@ VISC_LRG:
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 2
+	GrantConditionOnCombatantOwner:
+		Condition: CombatantOwner
 	AttackWander:
+		RequiresCondition: !CombatantOwner
 		WanderMoveRadius: 3
 		MinMoveDelay: 30
 		MaxMoveDelay: 100
@@ -161,7 +167,10 @@ ZOMBIE:
 		Voice: Attack
 		PauseOnCondition: WebDisable
 		FacingTolerance: 2
+	GrantConditionOnCombatantOwner:
+		Condition: CombatantOwner
 	AttackWander:
+		RequiresCondition: !CombatantOwner
 		WanderMoveRadius: 2
 		MinMoveDelay: 25
 		MaxMoveDelay: 45
@@ -225,7 +234,10 @@ BERSERKER:
 		Voice: Attack
 		PauseOnCondition: WebDisable
 		FacingTolerance: 2
+	GrantConditionOnCombatantOwner:
+		Condition: CombatantOwner
 	AttackWander:
+		RequiresCondition: !CombatantOwner
 		WanderMoveRadius: 1
 		ReduceMoveRadiusDelay: 5
 		MinMoveDelay: 100
@@ -322,7 +334,10 @@ CRAB:
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 2
+	GrantConditionOnCombatantOwner:
+		Condition: CombatantOwner
 	AttackWander:
+		RequiresCondition: !CombatantOwner
 		WanderMoveRadius: 5
 		ReduceMoveRadiusDelay: 1
 		MinMoveDelay: 25
@@ -382,7 +397,8 @@ PERMACRAB:
 	-Encyclopedia:
 
 jfish:
-	Inherits: ^Visceroid
+	Inherits: ^TibBeast
+	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Vehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@3: ^MindControllableMastermind
 	Tooltip:
@@ -390,15 +406,17 @@ jfish:
 	Health:
 		HP: 90000
 	Valued:
-		Cost: 100
+		Cost: 1200
 	Armor:
-		Type: Heavy
+		Type: Light
 	Voiced:
 		VoiceSet: TibFloater
+	Selectable:
+		Bounds: 900,1809,0,-603
 	RevealsShroud:
 		Range: 5c0
 	SmokeParticleEmitter@cloud:
-		SpawnFrequency: 150
+		SpawnFrequency: 230
 		Weapon: CloudDamage
 		Duration: 95
 		Speed: 30
@@ -410,14 +428,14 @@ jfish:
 		Palette: effectalpha50
 	QuantizeFacingsFromSequence:
 		Sequence: stand
-	-WithFacingSpriteBody:
+	-WithInfantryBody:
 	WithSpriteBody:
 	Hovers:
 	Mobile:
 		Locomotor: Hover
 		Speed: 105
 	Targetable:
-		TargetTypes: Ground, Vehicle, NoRepair
+		TargetTypes: Ground, Vehicle, OrganicVehicle, NoRepair
 	Armament:
 		Weapon: JellyAttackPrepare
 	GrantConditionOnAttack@JellyAttackPrepare:
@@ -435,11 +453,6 @@ jfish:
 		Sequence: attack
 	AttackFollow:
 		Voice: Attack
-	AttackWander:
-		WanderMoveRadius: 1
-		ReduceMoveRadiusDelay: 5
-		MinMoveDelay: 100
-		MaxMoveDelay: 200
 	MapEditorData:
 		Categories: Creep
 	RenderSprites:
@@ -447,11 +460,38 @@ jfish:
 	LeavesTrails:
 		Image: wake
 		Palette: effect
+		Sequences: idle2
 		TerrainTypes: Water
 		StationaryInterval: 18
-		MovingInterval: 6
+		MovingInterval: 12
+	-WithDeathAnimation@normal:
+	-WithDeathAnimation@explosion:
+	-WithDeathAnimation@blood1:
+	-WithDeathAnimation@body:
+	-WithDeathAnimation@energy:
+	-DeathSounds@BURNED:
+	-DeathSounds@NORMAL:
+	-DeathSounds@ZAPPED:
+	-GrantRandomCondition@tiberium:
+	-SpawnActorOnDeath@tiberium1:
+	-SpawnActorOnDeath@tiberium2:
+	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@conversionUpg:
+	-TurnOnIdle:
+	-DamagedByTintedCells@BlueRadiation:
+	-DamagedByTintedCells@Colossus:
+	DamagedByTintedCells@Default:
+		Damage: -30
 	ExplodesAlsoTransported@VisceroidDefault:
 		Weapon: JellyExplode
+	GrantConditionOnCombatantOwner:
+		Condition: CombatantOwner
+	AttackWander:
+		RequiresCondition: !CombatantOwner
+		WanderMoveRadius: 1
+		ReduceMoveRadiusDelay: 5
+		MinMoveDelay: 100
+		MaxMoveDelay: 200
 	ActorStatValues:
 		Damage: 30
 	Encyclopedia:
