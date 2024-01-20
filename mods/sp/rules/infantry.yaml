@@ -1657,11 +1657,19 @@ FLOAT:
 	GuardsSelection:
 		ValidTargetsToGuard: ScrinUnit
 		InvalidTargetsToGuard: Air
-	KillsSelf@DisabledOnWater:
-		RequiresCondition: hoverunitonwater && WebDisable
 	GrantConditionOnTerrain:
 		Condition: hoverunitonwater
 		TerrainTypes: Water
+	KillsSelf@DisabledOnWater:
+		RequiresCondition: hoverunitonwater && WebDisable
+	LeavesTrails:
+		RequiresCondition: hoverunitonwater
+		Image: wake
+		Palette: effect
+		TerrainTypes: Water
+		StationaryInterval: 18
+		MovingInterval: 12
+		Sequences: idle2
 	ExplodesAlsoTransported@DisabledOnWater:
 		RequiresCondition: hoverunitonwater && WebDisable
 		Weapon: UnitDrownedSmall
