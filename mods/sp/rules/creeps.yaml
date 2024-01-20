@@ -291,7 +291,6 @@ EGGS:
 
 CRAB:
 	Inherits@1: ^TibBeast
-	Inherits@2: ^WebDisable
 	Inherits@3: ^MutRender
 	Inherits@4: ^MindControllableMastermind
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -311,19 +310,17 @@ CRAB:
 		InitialStance: AttackAnything
 	Mobile:
 		Speed: 75
+		Locomotor: HeavyInfantry
 	-Voiced:
 	Targetable:
-		TargetTypes: Infantry, Ground
+		TargetTypes: Ground, Vehicle, OrganicVehicle, NoRepair
 	Armament:
 		Weapon: CrabAcid
-		RequiresCondition: !WebDisable
 	WithInfantryBody:
 		AttackSequences: shoot
 		IdleSequences: idle1, idle2
-		RequiresCondition: !WebDisable
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 		FacingTolerance: 2
 	AttackWander:
 		WanderMoveRadius: 5
