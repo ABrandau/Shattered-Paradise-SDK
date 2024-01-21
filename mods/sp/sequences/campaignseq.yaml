@@ -42,32 +42,6 @@ cabecm:
 	icon:
 		Filename: cabecmicon.shp
 
-neutralfabricator:
-	Inherits: ^EmpOverlay
-	Defaults:
-		Filename: neutralfabricator.shp
-	vehicle:
-		Facings: 32
-		ShadowStart: 156
-	make:
-		Start: 32
-		Length: 34
-		ShadowStart: 188
-		Tick: 75
-	idle:
-		Start: 66
-		Length: 89
-		ShadowStart: 222
-		Tick: 75
-	dead:
-		Facings: 32
-		ShadowStart: 156
-	icon:
-		Filename: neutralfabricatoricon.shp
-		Start: 1
-	vehicleicon:
-		Filename: neutralfabricatoricon.shp
-
 gbeacon:
 	Defaults:
 		Filename: gbeacon.shp
@@ -189,6 +163,291 @@ containmentunit:
 	idle:
 	dead:
 
-#######################################################
-# CREEPS
-#######################################################
+mujfish:
+	Inherits: jfish
+	Defaults:
+		Filename: mutfloater.shp
+
+weasaugreen2:
+	Inherits: weasau
+	Defaults:
+		Filename: weasaugreen2.shp
+	run:
+		Tick: 100
+	die1:
+		Offset: 0, 13, 0
+	angry:
+		Filename: angry.shp
+		Offset: 0, 0, 0
+	icon:
+		Filename: weasaurusgreenicon.shp
+
+tratos:
+	Inherits: ^InfantryDeathAnims
+	Defaults:
+		Filename: tratos.shp
+		Tick: 80
+	stand:
+		Facings: 8
+		ShadowStart: 292
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 300
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 348
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 363
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 378
+	prone-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 378
+	die1:
+		Start: 134
+		Length: 15
+		ShadowStart: 426
+	die2:
+		Start: 149
+		Length: 15
+		ShadowStart: 441
+		Tick: 80
+	die-crushed:
+		Start: 159
+		Length: 5
+		ShadowStart: 451
+		Tick: 800
+		ZOffset: -511
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		ShadowStart: 456
+	prone-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 504
+	standup-0:
+		Start: 260
+		Length: 2
+		Facings: 8
+		ShadowStart: 552
+	icon:
+		Filename: tratos1icon.shp
+
+
+ghost:
+	Inherits: ^InfantryDeathAnims
+	Defaults:
+		Filename: ghost.shp
+		Tick: 80
+	stand:
+		Facings: 8
+		ShadowStart: 292
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 300
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 348
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 363
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 378
+	prone-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 378
+	die1:
+		Start: 134
+		Length: 15
+		ShadowStart: 426
+	die2:
+		Start: 149
+		Length: 15
+		ShadowStart: 441
+	die-crushed:
+		Start: 159
+		Length: 5
+		ShadowStart: 451
+		Tick: 800
+		ZOffset: -511
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		ShadowStart: 456
+		Tick: 30
+	prone-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 504
+	standup-0:
+		Start: 260
+		Length: 2
+		Facings: 8
+		ShadowStart: 552
+	icon:
+		Filename: gosticon.shp
+
+
+umagon:
+	Inherits: ^InfantryDeathAnims
+	Defaults:
+		Filename: umagon.shp
+		Tick: 80
+	stand:
+		Facings: 8
+		ShadowStart: 292
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 300
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 348
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 363
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 378
+	prone-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 378
+	die1:
+		Start: 134
+		Length: 15
+		ShadowStart: 426
+	die2:
+		Start: 149
+		Length: 15
+		ShadowStart: 441
+	die-crushed:
+		Start: 159
+		Length: 5
+		ShadowStart: 451
+		Tick: 800
+		ZOffset: -511
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		ShadowStart: 456
+	prone-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 504
+	standup-0:
+		Start: 260
+		Length: 2
+		Facings: 8
+		ShadowStart: 552
+	icon:
+		Filename: umagicon.shp
+		
+scrincouncil:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: scrincouncil.shp
+		Tick: 80
+		Offset: 0,-10,0
+		ZRamp: 1
+	stand:
+		Facings: 1
+	idle:
+		Start: 1
+		Length: 7
+		Facings: 1
+		Tick: 40
+	run:
+		Start: 1
+		Length: 7
+		Facings: 1
+		Tick: 40
+	muzzle:
+		Filename: beaconflash.shp
+		Frames: 0, 1, 2, 1
+		Length: *
+		ZOffset: 9000
+		Tick: 30
+	icon:
+		Filename: councilicon.shp
+		Offset: 0, 0
+
+councilor:
+	Defaults:
+		Filename: essencetrail.shp
+		IgnoreWorldTint: True
+		ZOffset: 512
+	idle:
+		Facings: 1
+		Length: *
+		ZOffset: 200
+	stand:
+		Facings: 1
+		Length: *
+		ZOffset: 200
+	run:
+		Facings: 1
+		Length: *
+		ZOffset: 200
+	die:
+		Filename: explosml.shp
+		Length: *
+
+neutralfabricator:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Filename: neutralfabricator.shp
+	vehicle:
+		Facings: 32
+		ShadowStart: 156
+	make:
+		Start: 32
+		Length: 34
+		ShadowStart: 188
+		Tick: 75
+	idle:
+		Start: 66
+		Length: 89
+		ShadowStart: 222
+		Tick: 75
+	dead:
+		Facings: 32
+		ShadowStart: 156
+	icon:
+		Filename: neutralfabricatoricon.shp
+		Start: 1
+	vehicleicon:
+		Filename: neutralfabricatoricon.shp
+

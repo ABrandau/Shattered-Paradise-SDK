@@ -193,7 +193,7 @@ JellyAttackPrepare:
 	Inherits@wh: ^FullDamage
 	ValidTargets: Ground, Water, Vehicle, Infantry, Building
 	Projectile: InstantHit
-	ReloadDelay: 60
+	ReloadDelay: 70
 	Range: 1c512
 	Warhead@1Dam: SpreadDamageWithCondition
 		ValidTargets: Ground, Water, Vehicle, Infantry, Building
@@ -233,11 +233,20 @@ ElectricTentacle:
 			Infantry: 50
 			Shield: 0
 		AirThreshold: 8c0
+	Warhead@3EffWater: CreateEffect
+		Image: wake
+		Explosions: idle
+		ExplosionPalette: effect
+		ImpactSounds: ssplash1.aud, ssplash2.aud, ssplash3.aud
+		ValidTargets: Water
+		ImpactActors: false
+		AirThreshold: 8c0
 	Warhead@op: FireShrapnel
 		Weapon: JellyBlastTesla
 		ImpactActors: false
 		Amount: 4
-		AllowDirectHit: false
+		AllowDirectHit: true
+		AirThreshold: 8c0
 
 JellyBlastTesla:
 	ReloadDelay: 80
@@ -248,7 +257,6 @@ JellyBlastTesla:
 		BrightZaps: 1
 		DimZaps: 1
 		Palette: apblue
-	ValidTargets: Ground, Water, Vehicle, Infantry, Building
 
 CrabSpawnerPrior:
 	ReloadDelay: 250

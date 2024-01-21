@@ -674,7 +674,8 @@ hvr-desc = Hovering vehicle, armed with long range missiles.
     Special:
      - Can attack Air
      - Can shoot over walls
-     - Hovers (it ignores terrain like Veins and Water)
+     - Hovers (ignores terrain like Veins, Water and Radiations)
+     - No longer hovers when disabled by EMP
      - Can attack while moving
 
 jug-name = Juggernaut
@@ -868,7 +869,8 @@ hvrtruk3-desc = A hovering nuclear demolition truck with a oneway ticket.
     Good vs: Everything
     Special:
      - Demolishes almost everything nearby upon detonation
-     - Hovers (it ignores terrain like Veins and Water)
+     - Hovers (ignores terrain like Veins, Water and Radiations)
+     - No longer hovers when disabled by EMP
      - Cannot enter Tunnel Networks or transport, can be carried by carryall
 
 weasau-name = Weasaurus Lord
@@ -926,7 +928,8 @@ cabapc-name = Hover Transport
 cabapc-desc = Light Armored transport.
     Special:
      - Can transport up to 12 infantry or 4 vehicles
-     - Hovers (it ignores terrain like Veins and Water)
+     - Hovers (ignores terrain like Veins, Water and Radiations)
+     - No longer hovers when disabled by EMP
      - Cannot enter Tunnel Networks or transport, can be carried by carryall
 
 spiderarty-name = Drone Host 
@@ -965,7 +968,8 @@ scrmbt-name = Hover Tank
 scrmbt-desc = Advanced hover tank armed with a laser cannon.
     Good vs Ground targets
     Special:
-     - Hovers (it ignores terrain like Veins and Water)
+     - Hovers (ignores terrain like Veins, Water and Radiations)
+     - No longer hovers when disabled by EMP
      - Absorbs essence from killed units to heal
      - Cannot crush infantry
      - Can attack while moving
@@ -1093,7 +1097,8 @@ glider-desc = Anti-air hover vehicle.
      - Can be upgraded to transform into an aerial version that can only engage ground units
      - Aerial Version weapon performs good vs infantry
      - Absorbs essence from killed units to heal
-     - Hovers (it ignores terrain like Veins and Water)
+     - Hovers (ignores terrain like Veins, Water and Radiations)
+     - No longer hovers when disabled by EMP
 
 scrdestroyer-name = Destroyer
 scrdestroyer-desc = Scrin light frigate designed for long range combat.
@@ -1514,6 +1519,14 @@ eggs-name = Cravicus Eggs
 crab-name = Tiberian Cravicus
 pcrab-name = Permanent Crab
 jfish-name = Floater
+jfish-desc  = mysterious lifeform attack with electrical charge and tentacles.
+    Good vs Ground targets
+    Special:
+     - Hovers (ignores terrain like Veins, Water and Radiations)
+     - Heals on Tiberium fields and Green Tiberium Radiation
+     - Melee Attack
+     - Wild mind: Mind only controllable by MasterMind
+
 minivein-name = Baby Veinhole
 veinhole-name = Veinhole Monster
 
@@ -1753,10 +1766,10 @@ float-name = Essence Collector
 float-desc = Support unit that steals essence from enemy units.
     Special:
      - Absorbs essence from killed enemies to heal
-     - Hovers (it ignores terrain like Water
+     - Hovers (ignores terrain like Veins, Water and Radiations)
+     - No longer hovers when disabled by web
      - Attacks steal essence to heal friendly units but deal no damage
      - Crush class: uncrushable
-     - Does not receive damage from tiberium fields and all radiation when hovers
 
 bug-name = Plague Trooper
 bug-desc =  Alien breed that poisons enemies.
@@ -1832,8 +1845,8 @@ pdrone-desc = Hovered melee drone programmed to kill enemy infantry.
     Special:
      - Can only attack infantry
      - Turns killed infantry into worker cyborgs
-     - Hovers (it ignores terrain like Water)
-     - Does not receive damage from tiberium fields and all radiation when hovers
+     - Hovers (ignores terrain like Veins, Water and Radiations)
+     - No longer hovers when disabled by EMP and web
      - Crush class: uncrushable
 
 glad-name = Gladiator
@@ -1852,8 +1865,8 @@ moth-desc = High tech ambusher drone.
      - Needs to Deploy to attack
      - Cloaked when deployed
      - Turns enemy units into worker cyborgs
-     - Hovers (it ignores terrain like Water)
-     - Does not receive damage from tiberium fields and all radiation when hovers
+     - Hovers (ignores terrain like Veins, Water and Radiations)
+     - No longer hovers when disabled by EMP and web
      - Attacks travel beneath walls
      - Crush class: uncrushable
 

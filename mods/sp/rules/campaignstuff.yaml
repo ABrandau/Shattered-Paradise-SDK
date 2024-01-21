@@ -534,6 +534,21 @@ AVATAR:
 	ActorStatValues:
 		Damage: 200
 
+MUJFISH:
+	Inherits: JFISH
+	Inherits@EXPERIENCE: ^GainsExperience
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Mutant
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 52
+		Prerequisites: ~muweap, muhall, ~AIOnly, ~techlevel.6
+		Description: jfish-desc
+		BuildDuration: 875
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 1000
+	-Encyclopedia:
+
 WEASAU3:
 	Inherits: ^TibBeast
 	Inherits@RENDER: ^MutRender
