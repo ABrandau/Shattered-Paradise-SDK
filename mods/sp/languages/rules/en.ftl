@@ -224,10 +224,10 @@ cabtrnsport-name = C.A.B.A.L. Carryall
 scrtrnsport-name = Scrin Carryall
 
 napuls-name = EMP Cannon
-napuls-desc = Cannon that uses EMP projectiles to disable vehicles.
+napuls-desc = Cannon that uses EMP projectiles.
     Special:
-     - Fires a pulse blast which disables all vehicles and buildings in the area
-     - Hover units disabled staying over water will be destroyed instantly
+     - Fires a pulse blast which disables all ground machines in the area
+         - For example: Buildings, Defences, Vehicles and Cyborgs
      - Requires power to operate
 
 scrshield-name = EMP Field Generator
@@ -902,12 +902,13 @@ centurion-desc = Heavy walker equipped with chain guns.
      - Can attack while moving
 
 reapercab-name = Cyborg Reaper
-reapercab-desc = Fast raiding walker armed with missiles and web launchers.
+reapercab-desc = Fast raiding walker armed with missiles and Web launchers.
     Good vs: Vehicles, Aircraft
     Special:
      - Can attack enemies ahead while moving
      - Can target air
-     - Can ensnare infantry with webs
+     - Can ensnare infantry with Webs
+         - For example: Infantry, smaller Beast and Cyborgs.
      - Can shoot over walls
 
 limped-name = Limpet Drone
@@ -1244,7 +1245,8 @@ mwar-desc = Support unit can deploy into warfactory.
 memp-name = Mobile EMP
 memp-desc = Support unit can generate emp pulse.
     Special:
-     - Deploy to generate emp pulse to disable building, cyborg and vehicle
+     - Deploy to generate emp pulse to disable all ground machines in the area
+         - For example: Buildings, Defences, Vehicles and Cyborgs
      - Immumes to EMP
      - Can crush Infantry
 
@@ -1519,12 +1521,14 @@ eggs-name = Cravicus Eggs
 crab-name = Tiberian Cravicus
 pcrab-name = Permanent Crab
 jfish-name = Floater
-jfish-desc  = mysterious lifeform attack with electrical charge and tentacles.
+jfish-desc  = mysterious lifeform attack with electrical tentacles.
     Good vs Ground targets
     Special:
      - Hovers (ignores terrain like Veins, Water and Radiations)
      - Heals on Tiberium fields and Green Tiberium Radiation
-     - Melee Attack
+     - Melee AOE Attack.
+     - Attack with EMP : Disable ground machines for a short time
+         - For example: Buildings, Defences, Vehicles and Cyborgs
      - Wild mind: Mind only controllable by MasterMind
 
 minivein-name = Baby Veinhole
@@ -1612,7 +1616,8 @@ eagleguard-desc = Elite Soldier armed with an EMP rifle.
     Good vs: Vehicles
     Special:
      - Immune to Tiberium fields
-     - Disables vehicles and buildings for a short time
+     - Attack with EMP : Disable ground machines for a short time
+         - For example: Buildings, Defences, Vehicles and Cyborgs
      - Crush class: uncrushable
 
 jjcomm-name = Jumpjet Commando
@@ -1846,7 +1851,7 @@ pdrone-desc = Hovered melee drone programmed to kill enemy infantry.
      - Can only attack infantry
      - Turns killed infantry into worker cyborgs
      - Hovers (ignores terrain like Veins, Water and Radiations)
-     - No longer hovers when disabled by EMP and web
+     - No longer hovers when disabled by EMP and Web
      - Crush class: uncrushable
 
 glad-name = Gladiator
@@ -1866,7 +1871,7 @@ moth-desc = High tech ambusher drone.
      - Cloaked when deployed
      - Turns enemy units into worker cyborgs
      - Hovers (ignores terrain like Veins, Water and Radiations)
-     - No longer hovers when disabled by EMP and web
+     - No longer hovers when disabled by EMP and Web
      - Attacks travel beneath walls
      - Crush class: uncrushable
 
