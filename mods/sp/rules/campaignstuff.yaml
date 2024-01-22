@@ -547,6 +547,9 @@ MUJFISH:
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 1000
+	SmokeParticleEmitter@cloud:
+		RequiresCondition: attack || !FullHealth
+		SpawnFrequency: 200
 	-Encyclopedia:
 	-RangeMultiplier@rank-heroic:
 
@@ -2316,7 +2319,7 @@ SCRINCOUNCIL:
 		Palette: jascpurplealpha
 		RequiresCondition: NormalAttack
 		IsDecoration: true ## so this doesn't affect by cloak palette
-	PeriodicExplosion@NormalWeapon: ## Use PeriodicExplosion for its Reload modifier
+	PeriodicExplosion@NormalWeapon: ## Use PeriodicExplosion for Reload modifier
 		LocalOffset: 0,0,-1128
 		Weapon: CouncilazerElevator
 		RequiresCondition: NormalAttack

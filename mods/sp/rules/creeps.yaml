@@ -441,10 +441,8 @@ JFISH:
 	GrantConditionOnAttack@JellyAttackPrepare:
 		Condition: attack
 		ArmamentNames: primary
-	SpawnSparks@ElectricTentacle:
-		Interval: 10
-		SparkWeapon: ElectricTentacle
-		Amount: 1
+	PeriodicExplosion@NormalWeapon: ## Use PeriodicExplosion for FirepowerModifier modifier
+		Weapon: ElectricTentacle ## ReloadDelay: 10
 		RequiresCondition: attack
 	AutoTarget:
 		ScanRadius: 6

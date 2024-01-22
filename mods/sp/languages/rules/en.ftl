@@ -1521,7 +1521,7 @@ eggs-name = Cravicus Eggs
 crab-name = Tiberian Cravicus
 pcrab-name = Permanent Crab
 jfish-name = Floater
-jfish-desc  = mysterious lifeform attack with electrical tentacles.
+jfish-desc  = Hovering lifeform attacks with electrical tentacles.
     Good vs Ground targets
     Special:
      - Hovers (ignores terrain like Veins, Water and Radiations)
