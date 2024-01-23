@@ -47,6 +47,11 @@
 	AttackMove:
 		AssaultMoveCondition: assault-move
 
+^AutoTargetGroundAssaultMoveWithBerserkable:
+	Inherits: ^AutoTargetGroundAssaultMove
+	AutoTarget:
+		RequiresCondition: !chaos
+
 ^AutoTargetAir:
 	AutoTarget:
 		MinimumScanTimeInterval: 19
@@ -79,6 +84,11 @@
 		RequiresCondition: stance-attackanything || assault-move
 	AttackMove:
 		AssaultMoveCondition: assault-move
+
+^AutoTargetAllAssaultMoveWithBerserkable:
+	Inherits: ^AutoTargetAllAssaultMove
+	AutoTarget:
+		RequiresCondition: !chaos
 
 ^AutoTargetHeal:
 	AutoTarget:
