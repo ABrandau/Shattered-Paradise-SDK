@@ -431,6 +431,7 @@ JFISH:
 	-WithInfantryBody:
 	WithSpriteBody:
 	Hovers:
+		RequiresCondition: !attack
 	Mobile:
 		Locomotor: Hover
 		Speed: 105
@@ -478,7 +479,10 @@ JFISH:
 	-SpawnActorOnDeath@conversionUpg:
 	-TurnOnIdle:
 	-DamagedByTintedCells@BlueRadiation:
-	-DamagedByTintedCells@Colossus:
+	DamagedByTintedCells@OrangeRadiation:
+		RequiresCondition: attack
+	DamagedByTintedCells@Colossus:
+		RequiresCondition: attack
 	DamagedByTintedCells@Default:
 		Damage: -30
 	ExplodesAlsoTransported@VisceroidDefault:
