@@ -1772,7 +1772,7 @@ float-desc = Support unit that steals essence from enemy units.
     Special:
      - Absorbs essence from killed enemies to heal
      - Hovers (ignores terrain like Veins, Water and Radiations)
-     - No longer hovers when disabled by web
+     - No longer hovers when disabled by Web
      - Attacks steal essence to heal friendly units but deal no damage
      - Crush class: uncrushable
 
@@ -1851,7 +1851,7 @@ pdrone-desc = Hovered melee drone programmed to kill enemy infantry.
      - Can only attack infantry
      - Turns killed infantry into worker cyborgs
      - Hovers (ignores terrain like Veins, Water and Radiations)
-     - No longer hovers when disabled by EMP and Web
+     - No longer hovers when disabled by EMP or Web
      - Crush class: uncrushable
 
 glad-name = Gladiator
@@ -1871,7 +1871,7 @@ moth-desc = High tech ambusher drone.
      - Cloaked when deployed
      - Turns enemy units into worker cyborgs
      - Hovers (ignores terrain like Veins, Water and Radiations)
-     - No longer hovers when disabled by EMP and Web
+     - No longer hovers when disabled by EMP or Web
      - Attacks travel beneath walls
      - Crush class: uncrushable
 
