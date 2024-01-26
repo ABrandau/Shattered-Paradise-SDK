@@ -1,7 +1,7 @@
 GDIAttackForce = { "gdie1", "gdie1", "gdie1", "gdie1", "grenadier", "grenadier", "grenadier", "e2", "smech", "mmch", "mmch", "apc" }
 GDIAirForce = { "orca", "orca", "orca" }
 NodTemplarRush = { "templar", "templar", "templar", "templar", "templar" }
-NodStealthTeam = { "stnk", "stnk", "bike" }
+NodStealthTeam = { "bike", "stnk", "stnk"}
 NodAirForce = { "scrin", "scrin" }
 MutantBusGuys = { "marauder", "marauder", "marauder", "marauder", "mutfiend" }
 MutantDemoTruck = { "hvrtruk3" }
@@ -197,7 +197,7 @@ MutantBusService = function()
 end
 
 GDIAttack = function()
-	Trigger.AfterDelay(DateTime.Seconds(7), function()
+	Trigger.AfterDelay(DateTime.Seconds(1), function()
 		gdi.Build(GDIAttackForce, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Attack(ScrinTripod)
@@ -518,6 +518,8 @@ Tick = function()
 	else
 		LightningSky()
 	end
+
+	DamagedJug.Health = 100
 end
 
 WorldLoaded = function()
