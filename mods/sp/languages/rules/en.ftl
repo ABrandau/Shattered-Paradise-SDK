@@ -1521,12 +1521,12 @@ eggs-name = Cravicus Eggs
 crab-name = Tiberian Cravicus
 pcrab-name = Permanent Crab
 jfish-name = Floater
-jfish-desc  = Hovering lifeform attacks with electrical tentacles.
+jfish-desc  = Hovering amphibious lifeform attacks with electrical tentacles.
     Good vs Ground targets
     Special:
      - Hovers (ignores terrain like Veins, Water and Radiations)
      - Heals on Tiberium fields and Green Tiberium Radiation
-     - Melee AOE Attack.
+     - Can't hover when Attack.
      - Attack with EMP : Disable ground machines for a short time
          - For example: Buildings, Defences, Vehicles and Cyborgs
      - Wild mind: Mind only controllable by MasterMind
