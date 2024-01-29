@@ -13,7 +13,7 @@ HackerHackDummyWeapon:
 
 HackerEMPDummyWeapon:
 	ValidTargets: Defence, Vehicle
-	InvalidTargets: OrganicVehicle
+	InvalidTargets: OrganicVehicle, LandedCraft
 	Range: 20c0
 	ReloadDelay: 5
 	Projectile: InstantExplode
@@ -36,9 +36,10 @@ DroneHackWeapon:
 		HitAnim: explosion
 		HitAnimSequence: hack-tiny
 		HitAnimPalette: jascgreenalpha
-	Warhead@1: FlashTarget
+	Warhead@Flash1: FlashTarget
 		FlashColor: 00ff0088
 		UsePlayerColor: false
+		ValidTargets: Hackable
 
 DroneHackWeaponFinal:
 	ValidTargets: Hackable
@@ -68,14 +69,17 @@ DroneHackWeaponFinal:
 DroneEMPWeapon:
 	Inherits: DroneHackWeapon
 	ValidTargets: Defence, Vehicle
-	InvalidTargets: OrganicVehicle
+	InvalidTargets: OrganicVehicle, LandedCraft
+	Warhead@Flash1: FlashTarget
+		ValidTargets: Defence, Vehicle
+		InvalidTargets: OrganicVehicle, LandedCraft
 
 DroneEMPWeaponFinal:
 	Inherits: DroneHackWeaponFinal
 	ValidTargets: Defence, Vehicle
-	InvalidTargets: OrganicVehicle
+	InvalidTargets: OrganicVehicle, LandedCraft
 	-Warhead@LuaTrigger:
-	Warhead@1: GrantExternalCondition
+	Warhead@Condition: GrantExternalCondition
 		Condition: empdisable
 		Duration: 400
 

@@ -40,33 +40,6 @@ VisceLauncher:
 		Range: 3
 		ValidTargets: Ground, Infantry, Vehicle, Building, Structure, Water, Air
 
-SentinelGun:
-	Inherits: ^RifleWarhead
-	Inherits@1: ^Mediuml_Clsn
-	ReloadDelay: 60
-	Range: 4c0
-	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Damage: 2000
-		DamageTypes: Prone70Percent, TriggerProne, CabalDeath
-
-SentryTurretGun:
-	Inherits@2: ^Mediuml_Clsn
-	ReloadDelay: 25
-	Range: 5c0
-	Report: 120mmf.aud
-	Projectile: BulletAS
-		Speed: 682
-		Image: 120mm
-		Shadow: true
-		Palette: pips
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 500
-		Versus:
-			Concrete: 60
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-
 
 ## Unused
 SonicZap:
@@ -124,32 +97,6 @@ SonicZap:
 SonicZapTower:
 	Inherits: SonicZap
 	Range: 7c0
-
-
-
-PoisonGlaive:
-	ReloadDelay: 75
-	Range: 2c0
-	Report:
-	Projectile: InstantExplode
-	Warhead@op: FireShrapnel
-		Weapon: FloatGlaive10
-		ImpactActors: false
-		Amount: 1
-		AimChance: 100
-		AllowDirectHit: true
-		AimTargetStances: Ally, Neutral
-		ValidTargets: Infantry, Vehicle, Ground, Wall
-
-FloatGlaive10:
-	Inherits: FloatGlaive
-	Range: 2c0
-	-Report:
-	-Warhead@op:
-	Warhead@1Dam: SpreadDamage
-		Spread: 64
-		Damage: 2000
-
 
 ToxinMissile:
 	Inherits: ^Large_Explosion
@@ -233,50 +180,39 @@ VeterancyWeapon:
 		Range: 1c512
 		ValidRelationships: Ally, Neutral
 
-RadarScanWeapon:
-	ReloadDelay: 6
-	Projectile: InstantExplode
-	Warhead@Spawn: SpawnActor
-		Actors: radarscandummy
-		Range: 3
+DroneEMPWeaponUnlimited:
+	Inherits: DroneEMPWeaponFinal
+	Warhead@op: FireShrapnel
+		ImpactActors: true
+		Amount: 1
+		AimChance: 100
+		ThrowWithoutTarget: false
+		AllowDirectHit: false
+		AimTargetStances: Enemy, Neutral
+		ValidTargets: Defence, Vehicle
+		InvalidTargets: OrganicVehicle, LandedCraft
+		Weapon: DroneEMPWeaponFinalBounce
 		AirThreshold: 8c0
-	Warhead@1Eff: CreateEffect
-		ImpactSounds: sspysate.aud
-		ValidTargets: Ground, Water, Air
-		AirThreshold: 8c0
+		Delay: 392
+	Warhead@Flash1: FlashTarget
+		FlashColor: 00ff00BB
+		UsePlayerColor: false
+		ValidTargets: Defence, Vehicle
+		InvalidTargets: OrganicVehicle, LandedCraft
+	Warhead@Flash2: FlashTarget
+		ValidTargets: Defence, Vehicle
+		InvalidTargets: OrganicVehicle, LandedCraft
+		FlashColor: 00ff00BB
+		UsePlayerColor: false
+		Delay: 392
 
-SuicideBomb:
-	ReloadDelay: 1
-	Range: 0c512
-	Report: HUNTER2.AUD
-	Warhead@1Dam: SpreadDamage
-		Spread: 256
-		Damage: 11000
-		Falloff: 10000, 3680, 1350, 500, 180, 70, 0
-		Versus:
-			Infantry: 90
-			Heavy: 60
-			Defense: 60
-			Concrete: 50
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath
-
-
-GrenadeExplode:
-	Inherits: ^ExploDefaults
-	Inherits@2: ^Small_Brnl
-	Warhead@1Dam: SpreadDamage
-		Falloff: 100, 85, 65, 45, 35, 15, 0
-		Spread: 0c256
-		Damage: 2500
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
-	Warhead@2Eff: CreateEffect
-		Explosions: jtwlt026
-		ImpactSounds: expnew13.aud
-	Warhead@2: SpawnSmokeParticle
-		ImpactActors: false
-		Duration: 100, 200
-		Image: explosion
-		Sequences: fire3
-		Palette: effect
-	-Warhead@op:
-	-Warhead@smoke:
+DroneEMPWeaponUnlimitedBounce:
+	Inherits: DroneEMPWeaponUnlimited
+	Range: 4c0
+	Projectile: ArcLaserZap
+		Color: 00ff0099
+		Duration: 40
+		Angle: 128
+		QuantizedSegments: 24
+		TrackTarget: false
+		TrackSource: false
