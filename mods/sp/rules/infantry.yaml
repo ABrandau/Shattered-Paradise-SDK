@@ -1365,6 +1365,8 @@ SEER:
 		LocalOffset: 100,0,400
 		ReloadingCondition: reload-ground
 		PauseOnCondition: WebDisable || reload-air
+		MuzzleSequence: muzzle
+		MuzzlePalette: apblue
 	Armament@2:
 		Weapon: SeerTeslaAA
 		Name: OnFoot
@@ -1372,14 +1374,21 @@ SEER:
 		LocalOffset: 100,0,400
 		ReloadingCondition: reload-air
 		PauseOnCondition: WebDisable || reload-ground
+		MuzzleSequence: muzzle
+		MuzzlePalette: apblue
 	Armament@Garrison1:
 		Weapon: SeerTesla
 		ReloadingCondition: reload-ground
 		PauseOnCondition: reload-air
+		MuzzleSequence: garrison-muzzle
+		MuzzlePalette: apblue
 	Armament@Garrison2:
 		Weapon: SeerTeslaAA
 		ReloadingCondition: reload-air
 		PauseOnCondition: reload-ground
+		MuzzleSequence: garrison-muzzle
+		MuzzlePalette: apblue
+	WithMuzzleOverlay:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -1447,12 +1456,16 @@ PSYKER:
 	Armament@1:
 		Weapon: PsykerRay
 		Name: OnFoot
+		FireDelay: 5
 		LocalOffset: 128,0,640
+		MuzzleSequence: garrison-muzzle
+		MuzzlePalette: highlight
 		PauseOnCondition: WebDisable
 	Armament@Garrison:
 		Weapon: GPsykerRay
 		MuzzleSequence: garrison-muzzle
 		MuzzlePalette: highlight
+	WithMuzzleOverlay:
 	Passenger:
 		CustomPipType: red
 	SharedPassenger:
