@@ -42,14 +42,12 @@ ORCA:
 		Weapon: FighterHellfire
 		LocalOffset: 500,150,70, 500,-150,70
 		LocalYaw: -90, 90
-		ReloadingCondition: reload-ground
-		PauseOnCondition: !ammo || reload-air
+		PauseOnCondition: !ammo
 	Armament@AA:
 		Weapon: FighterHellfireAA
 		LocalOffset: 500,150,70, 500,-150,70
 		LocalYaw: -90, 90
-		ReloadingCondition: reload-air
-		PauseOnCondition: !ammo || reload-ground
+		PauseOnCondition: !ammo
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 40
@@ -357,7 +355,7 @@ APACHE:
 		HP: 15000
 	Armament@Fakebullet:
 		Weapon: HarpyClawBullet
-		PauseOnCondition: !ammo || reload-air
+		PauseOnCondition: !ammo
 		Name: decoration
 		LocalOffset: 900,-100,0, 900,0,0, 900,100,0
 		CasingWeapon: CasingDebris
@@ -365,7 +363,7 @@ APACHE:
 		CasingTargetOffset: 400,512,0, 400,0,0, 400,-512,0
 	Armament@FakebulletAA:
 		Weapon: HarpyClawBulletAA
-		PauseOnCondition: !ammo || reload-ground
+		PauseOnCondition: !ammo
 		Name: decoration
 		LocalOffset: 900,-100,0, 900,0,0, 900,100,0
 		CasingWeapon: CasingDebris
@@ -373,12 +371,10 @@ APACHE:
 		CasingTargetOffset: 400,512,0, 400,0,0, 400,-512,0
 	Armament:
 		Weapon: HarpyClaw
-		ReloadingCondition: reload-ground
-		PauseOnCondition: !ammo || reload-air
+		PauseOnCondition: !ammo
 	Armament@AA:
 		Weapon: HarpyClawAA
-		ReloadingCondition: reload-air
-		PauseOnCondition: !ammo || reload-ground
+		PauseOnCondition: !ammo
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 512
@@ -466,15 +462,13 @@ SCRIN:
 		MuzzleSequence: muzzle
 		LocalOffset: 450,0,0
 		MuzzlePalette: apgreen
-		ReloadingCondition: reload-ground
-		PauseOnCondition: !ammo || reload-air
+		PauseOnCondition: !ammo
 	Armament@2:
 		Weapon: ProtonAA
 		MuzzleSequence: muzzle
 		LocalOffset: 450,0,0
 		MuzzlePalette: apgreen
-		ReloadingCondition: reload-air
-		PauseOnCondition: !ammo || reload-ground
+		PauseOnCondition: !ammo
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 40
@@ -711,8 +705,7 @@ MUTHELI:
 		CasingWeapon: ShellCasingDebris
 		CasingSpawnLocalOffset: 600,0,-300, 600,0,-300
 		CasingTargetOffset: 300,512,0, 300,-512,0
-		ReloadingCondition: reload-ground
-		PauseOnCondition: !ammo || reload-air
+		PauseOnCondition: !ammo
 	Armament@AA:
 		Weapon: GargoylACannonAA
 		MuzzleSequence: muzzle
@@ -720,8 +713,7 @@ MUTHELI:
 		CasingWeapon: ShellCasingDebris
 		CasingSpawnLocalOffset: 600,0,-300, 600,0,-300
 		CasingTargetOffset: 300,512,0, 300,-512,0
-		ReloadingCondition: reload-air
-		PauseOnCondition: !ammo || reload-ground
+		PauseOnCondition: !ammo
 	WithMuzzleOverlay:
 	AttackAircraft:
 		AttackType: Hover
@@ -1429,12 +1421,8 @@ SCRCARRIER:
 		HP: 60000
 	Armament:
 		Weapon: FighterSpawn
-		ReloadingCondition: reload-ground
-		PauseOnCondition: reload-air
 	Armament@2:
 		Weapon: FighterSpawnAA
-		ReloadingCondition: reload-air
-		PauseOnCondition: reload-ground
 	CarrierMaster:
 		Actors: STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN
 		RespawnTicks: 150
@@ -1881,7 +1869,7 @@ STORMRIDERSPAWN:
 	CarrierSlave:
 		LandingDistance: 1c0
 	Targetable@GROUND:
-		TargetTypes: Vehicle, Ground, Summoned, IgnoredByAI, LandedCraft
+		TargetTypes: Vehicle, Ground, LandedCraft, Summoned, IgnoredByAI
 	Targetable@AIRBORNE:
 		TargetTypes: Air, Summoned, IgnoredByAI
 	-Targetable@MC:
