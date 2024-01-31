@@ -299,7 +299,7 @@ MutantAirAttack = function()
 end
 
 ScrinAttack = function()
-	Trigger.AfterDelay(DateTime.Seconds(5), function()
+	Trigger.AfterDelay(DateTime.Seconds(12), function()
 		scr.Build(ScrinAttackForce, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Move(ScrinAttackPoint.Location)
@@ -335,7 +335,7 @@ ScrinAirAttack = function()
 end
 
 CABALInfantryAttack = function()
-	Trigger.AfterDelay(DateTime.Seconds(8), function()
+	Trigger.AfterDelay(DateTime.Seconds(1), function()
 		cab.Build(CABALInfantry, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Attack(MutantBunker1)
@@ -352,7 +352,7 @@ CABALInfantryAttack = function()
 end
 
 CABALVehicleAttack = function()
-	Trigger.AfterDelay(DateTime.Seconds(5), function()
+	Trigger.AfterDelay(DateTime.Seconds(1), function()
 		Trigger.AfterDelay(DateTime.Seconds(25), function()
 			carryall = Actor.Create("trnsport.mut", true, { Owner = mut, Location = MutantCarryallEntry.Location })
 			carryall.Move(MutantCarryallRally.Location)
