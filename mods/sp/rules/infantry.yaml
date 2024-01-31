@@ -1358,11 +1358,13 @@ SEER:
 		HP: 15000
 	AutoTarget:
 	RenderSprites:
+	TakeCover:
+		ProneOffset: 150,0,-250
 	Armament@1:
 		Weapon: SeerTesla
 		Name: OnFoot
 		FireDelay: 5
-		LocalOffset: 100,0,400
+		LocalOffset: 80,0,400
 		ReloadingCondition: reload-ground
 		PauseOnCondition: WebDisable || reload-air
 		MuzzleSequence: muzzle
@@ -1371,7 +1373,7 @@ SEER:
 		Weapon: SeerTeslaAA
 		Name: OnFoot
 		FireDelay: 5
-		LocalOffset: 100,0,400
+		LocalOffset: 80,0,400
 		ReloadingCondition: reload-air
 		PauseOnCondition: WebDisable || reload-ground
 		MuzzleSequence: muzzle
@@ -1409,6 +1411,7 @@ SEER:
 		SparkWeapon: SparkExplo
 		Amount: 1
 		Interval: 11
+		LocalOffset: 0, 0, 200
 		RequiresCondition: deployed
 	IssueOrderToBot@AI:
 		OrderName: DeployWithCharge
@@ -1457,7 +1460,7 @@ PSYKER:
 		Weapon: PsykerRay
 		Name: OnFoot
 		FireDelay: 5
-		LocalOffset: 128,0,640
+		LocalOffset: 0,0,640
 		MuzzleSequence: garrison-muzzle
 		MuzzlePalette: highlight
 		PauseOnCondition: WebDisable
@@ -1465,6 +1468,8 @@ PSYKER:
 		Weapon: GPsykerRay
 		MuzzleSequence: garrison-muzzle
 		MuzzlePalette: highlight
+	TakeCover:
+		ProneOffset: 0,0,-300
 	WithMuzzleOverlay:
 	Passenger:
 		CustomPipType: red

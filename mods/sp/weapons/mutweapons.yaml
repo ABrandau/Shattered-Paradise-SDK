@@ -242,6 +242,7 @@ SeerTesla:
 	Projectile: TeslaZap
 		Palette: apblue
 		Duration: 10
+		ZOffset: 4000
 	Warhead@1Dam: SpreadDamage
 		Damage: 7000
 		ValidTargets: Ground, Water
@@ -273,11 +274,15 @@ SeerTyranyBuff:
 	ReloadDelay: 50
 	Projectile: InstantExplode
 	ValidTargets: Ground, Water
-	Warhead@Acid: GrantExternalCondition
-		Range: 3c0
-		Duration: 375
+	Warhead@Acid: SpreadDamageWithCondition
+		Spread: 3c0
+		Falloff: 100, 100
+		Damage: 0
+		DamageTypes: EnergyDeath
+		ConditionDuration: 375
 		Condition: TyrannyBuff
 		ValidRelationships: Ally
+		AirThreshold: 8c0
 
 SparkExplo:
 	ReloadDelay: 10
@@ -298,10 +303,12 @@ SparkExplo:
 SeerTeslaSpark:
 	Inherits: SeerTesla
 	ValidTargets: Infantry, Vehicle
-	Range: 5c0
+	Range: 3c0
 	Projectile: TeslaZap
 		Palette: apgreen
+		Duration: 8
 	-Warhead@1Dam:
+	-Warhead@2Eff:
 
 PsykerRay:
 	Inherits: ^FullDamage
