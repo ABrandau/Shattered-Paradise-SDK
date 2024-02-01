@@ -1025,6 +1025,7 @@ BGGY:
 	GuardsSelection@SNIPER:
 		ValidTargetsToGuard: Infantry, Vehicle
 		InvalidTargetsToGuard: Air, Water, LandedCraft, Summoned
+		OverrideOrders: AttackGuards
 		RequiresCondition: ifv.sniper || ifv.mastermind
 	###################################
 	# Turret Graphics
@@ -3764,6 +3765,7 @@ SCRSCORPION:
 	GuardsSelection:
 		ValidTargetsToGuard: Infantry, Vehicle
 		InvalidTargetsToGuard: Air, Water, LandedCraft, Summoned
+		OverrideOrders: AttackGuards
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	WithInfantryBody:
@@ -3893,6 +3895,10 @@ SCRMOBMINE:
 		CasingTargetOffset: 0,0,2000
 		CasingHitGroundLevel: false
 		PauseOnCondition: empdisable
+	GuardsSelection:
+		ValidTargetsToGuard: Infantry, Vehicle
+		InvalidTargetsToGuard: Air, LandedCraft, Summoned
+		OverrideOrders: AttackGuards
 	Health:
 		HP: 20000
 	Armor:
