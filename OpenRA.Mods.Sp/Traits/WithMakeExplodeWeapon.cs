@@ -77,21 +77,22 @@ namespace OpenRA.Mods.Sp.Traits
 	{
 		readonly WithMakeExplodeWeaponInfo info;
 		readonly bool skipMakeAnimation;
-		readonly BodyOrientation body;
 		readonly bool hasWeapon;
 		readonly bool hasLaunchEffect;
+		BodyOrientation body;
 
 		public WithMakeExplodeWeapon(ActorInitializer init, WithMakeExplodeWeaponInfo info)
 		{
 			this.info = info;
 			skipMakeAnimation = init.Contains<SkipMakeAnimsInit>(info);
-			body = init.Self.TraitOrDefault<BodyOrientation>();
 			hasWeapon = info.Weapon != null;
 			hasLaunchEffect = !string.IsNullOrEmpty(info.LaunchEffectImage) && !string.IsNullOrEmpty(info.LaunchEffectSequence);
 		}
 
 		public void Created(Actor self)
 		{
+			body = self.TraitOrDefault<BodyOrientation>();
+
 			if (!info.ExplodesWhenCreated || (skipMakeAnimation && !info.ExplodesEvenWhenSkipMakeAnimation))
 				return;
 

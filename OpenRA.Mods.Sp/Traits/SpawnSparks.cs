@@ -73,13 +73,13 @@ namespace OpenRA.Mods.Sp.Traits
 		}
 	}
 
-	sealed class SpawnSparks : ConditionalTrait<SpawnSparksInfo>, ITick
+	sealed class SpawnSparks : ConditionalTrait<SpawnSparksInfo>, ITick, INotifyCreated
 	{
 		readonly WeaponInfo weapon;
-		readonly BodyOrientation body;
 		readonly bool hasWeapon;
 		readonly bool hasLaunchEffect;
 
+		BodyOrientation body;
 		int interval;
 
 		public SpawnSparks(SpawnSparksInfo info, Actor self)
@@ -90,6 +90,12 @@ namespace OpenRA.Mods.Sp.Traits
 			body = self.TraitOrDefault<BodyOrientation>();
 			hasLaunchEffect = !string.IsNullOrEmpty(info.LaunchEffectImage) && info.LaunchEffectSequences?.Length > 0;
 			interval = info.FirstDelay;
+		}
+
+		protected override void Created(Actor self)
+		{
+			body = self.TraitOrDefault<BodyOrientation>();
+			base.Created(self);
 		}
 
 		void ITick.Tick(Actor self)

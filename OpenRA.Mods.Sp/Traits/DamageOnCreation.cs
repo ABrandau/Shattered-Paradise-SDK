@@ -29,18 +29,22 @@ namespace OpenRA.Mods.SP.Traits
 		[Desc("Apply the health change when encountering these damage types.")]
 		public readonly BitSet<DamageType> DamageTypes = default;
 
-		public override object Create(ActorInitializer init) { return new DamageOnCreation(init.Self, this); }
+		public override object Create(ActorInitializer init) { return new DamageOnCreation(this); }
 	}
 
-	sealed class DamageOnCreation : ITick
+	sealed class DamageOnCreation : ITick, INotifyCreated
 	{
-		readonly IHealth health;
 		readonly DamageOnCreationInfo info;
+		IHealth health;
 		bool damaged;
 
-		public DamageOnCreation(Actor self, DamageOnCreationInfo info)
+		public DamageOnCreation(DamageOnCreationInfo info)
 		{
 			this.info = info;
+		}
+
+		void INotifyCreated.Created(Actor self)
+		{
 			health = self.Trait<IHealth>();
 		}
 

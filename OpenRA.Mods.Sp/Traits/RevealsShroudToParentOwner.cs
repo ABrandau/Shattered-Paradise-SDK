@@ -9,7 +9,6 @@
  */
 #endregion
 
-using OpenRA.Mods.AS.Traits;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Traits;
 
@@ -21,11 +20,11 @@ namespace OpenRA.Mods.SP.Traits
 		public override object Create(ActorInitializer init) { return new RevealsShroudToParentOwner(init.Self, this); }
 	}
 
-	public class RevealsShroudToParentOwner : RevealsShroud, ITick
+	public class RevealsShroudToParentOwner : RevealsShroud, ITick, INotifyCreated
 	{
 		readonly RevealsShroudToParentOwnerInfo info;
 		readonly Shroud.SourceType type;
-		readonly HasParent parent;
+		HasParent parent;
 		Player validOwner;
 
 		public RevealsShroudToParentOwner(Actor self, RevealsShroudToParentOwnerInfo info)
@@ -34,7 +33,12 @@ namespace OpenRA.Mods.SP.Traits
 			this.info = info;
 			type = info.RevealGeneratedShroud ? Shroud.SourceType.Visibility
 				: Shroud.SourceType.PassiveVisibility;
+		}
+
+		protected override void Created(Actor self)
+		{
 			parent = self.Trait<HasParent>();
+			base.Created(self);
 		}
 
 		protected override void AddCellsToPlayerShroud(Actor self, Player p, PPos[] uv)

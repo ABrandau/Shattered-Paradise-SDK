@@ -25,18 +25,21 @@ namespace OpenRA.Mods.SP.Traits
 		[Desc("Player relationships the owner of the actor needs to get targeted.")]
 		public readonly PlayerRelationship TargetRelationships = PlayerRelationship.Enemy;
 
-		public override object Create(ActorInitializer init) { return new AutoDemolisher(init.Self, this); }
+		public override object Create(ActorInitializer init) { return new AutoDemolisher(this); }
 	}
 
-	sealed class AutoDemolisher : PausableConditionalTrait<AutoDemolisherInfo>, INotifyBecomingIdle
+	sealed class AutoDemolisher : PausableConditionalTrait<AutoDemolisherInfo>, INotifyBecomingIdle, INotifyCreated
 	{
-		readonly Demolition demolish;
+		Demolition demolish;
 		Actor demolished;
 
-		public AutoDemolisher(Actor self, AutoDemolisherInfo info)
-			: base(info)
+		public AutoDemolisher(AutoDemolisherInfo info)
+			: base(info) {	}
+
+		protected override void Created(Actor self)
 		{
 			demolish = self.TraitsImplementing<Demolition>().First();
+			base.Created(self);
 		}
 
 		void INotifyBecomingIdle.OnBecomingIdle(Actor self)

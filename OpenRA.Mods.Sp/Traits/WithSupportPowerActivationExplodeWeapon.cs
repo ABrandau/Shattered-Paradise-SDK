@@ -53,10 +53,10 @@ namespace OpenRA.Mods.SP.Traits
 		}
 	}
 
-	public sealed class WithSupportPowerActivationExplodeWeapon : PausableConditionalTrait<WithSupportPowerActivationExplodeWeaponInfo>, INotifySupportPower, ITick
+	public sealed class WithSupportPowerActivationExplodeWeapon : PausableConditionalTrait<WithSupportPowerActivationExplodeWeaponInfo>, INotifySupportPower, ITick, INotifyCreated
 	{
 		readonly WeaponInfo weapon;
-		readonly BodyOrientation body;
+		BodyOrientation body;
 		bool shouldAcitate;
 		int fireDelay;
 		int burst;
@@ -68,8 +68,13 @@ namespace OpenRA.Mods.SP.Traits
 		{
 			weapon = info.WeaponInfo;
 			burst = weapon.Burst;
-			body = self.TraitOrDefault<BodyOrientation>();
 			fireDelay = info.Delays;
+		}
+
+		protected override void Created(Actor self)
+		{
+			body = self.TraitOrDefault<BodyOrientation>();
+			base.Created(self);
 		}
 
 		void INotifySupportPower.Charged(Actor self) { }
