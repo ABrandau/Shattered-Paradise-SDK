@@ -41,17 +41,23 @@ namespace OpenRA.Mods.SP.Traits
 		[Desc("Guard ally closest to target when distance between smaller than this value, otherwise choose ally closest to this actor.")]
 		public readonly int ChooseClosestAllyRangeCells = 7;
 
-		public override object Create(ActorInitializer init) { return new GuardsSelection(this, init.Self); }
+		[Desc("When there are units with " + nameof(GuardsSelection) + " in player's selection, the one with higher level will guards the one with lower level.")]
+		public readonly int GuardsSelectionLevel = 1;
+
+		public override object Create(ActorInitializer init) { return new GuardsSelection(this); }
 	}
 
 	class GuardsSelection : ConditionalTrait<GuardsSelectionInfo>, IResolveOrder, INotifyCreated, IIssueOrder
 	{
-		readonly AttackBase[] attackBases;
+		AttackBase[] attackBases;
 
-		public GuardsSelection(GuardsSelectionInfo info, Actor self)
-			: base(info)
+		public GuardsSelection(GuardsSelectionInfo info)
+			: base(info) { }
+
+		protected override void Created(Actor self)
 		{
 			attackBases = self.TraitsImplementing<AttackBase>().ToArray();
+			base.Created(self);
 		}
 
 		IEnumerable<IOrderTargeter> IIssueOrder.Orders
@@ -138,7 +144,7 @@ namespace OpenRA.Mods.SP.Traits
 				return false;
 
 			var guardsSelection = targetActor.TraitsImplementing<GuardsSelection>();
-			if (guardsSelection.Any(t => !t.IsTraitDisabled))
+			if (guardsSelection.Any(t => !t.IsTraitDisabled && Info.GuardsSelectionLevel <= t.Info.GuardsSelectionLevel))
 				return false;
 
 			return true;

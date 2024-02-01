@@ -194,9 +194,10 @@ MEDIC:
 		Name: OnFoot
 	GuardsSelection:
 		ValidTargetsToGuard: Infantry, OrganicVehicle
-		InvalidTargetsToGuard: Air
+		InvalidTargetsToGuard: Air, Water
 		TargetRelationships: Enemy
 		ForceTargetRelationships: Enemy, Neutral
+		GuardsSelectionLevel: 2
 	AttackFrontal:
 		FacingTolerance: 2
 		Armaments: OnFoot
@@ -1678,7 +1679,8 @@ FLOAT:
 	-TakeCover:
 	GuardsSelection:
 		ValidTargetsToGuard: ScrinUnit
-		InvalidTargetsToGuard: Air
+		InvalidTargetsToGuard: Air, LandedCraft
+		GuardsSelectionLevel: 2
 	GrantConditionOnTerrain:
 		Condition: hoverunitonwater
 		TerrainTypes: Water

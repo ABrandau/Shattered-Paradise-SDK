@@ -1010,15 +1010,22 @@ BGGY:
 		Priority: 2
 	GuardsSelection@REPAIR:
 		ValidTargetsToGuard: Vehicle
+		InvalidTargetsToGuard: Air, Water, LandedCraft
 		RequiresCondition: ifv.engineer
 		TargetRelationships: Enemy
 		ForceTargetRelationships: Enemy, Neutral
+		GuardsSelectionLevel: 2
 	GuardsSelection@MEDIC:
 		ValidTargetsToGuard: Infantry, OrganicVehicle
-		InvalidTargetsToGuard: Air
+		InvalidTargetsToGuard: Air, Water
 		RequiresCondition: ifv.medic
 		TargetRelationships: Enemy
 		ForceTargetRelationships: Enemy, Neutral
+		GuardsSelectionLevel: 2
+	GuardsSelection@SNIPER:
+		ValidTargetsToGuard: Infantry, Vehicle
+		InvalidTargetsToGuard: Air, Water, LandedCraft
+		RequiresCondition: ifv.sniper || ifv.mastermind
 	###################################
 	# Turret Graphics
 	###################################
@@ -3142,8 +3149,10 @@ REPAIRVEHICLE:
 		MuzzlePalette: player
 	GuardsSelection:
 		ValidTargetsToGuard: Vehicle
+		InvalidTargetsToGuard: Air, Water, LandedCraft
 		TargetRelationships: Enemy
 		ForceTargetRelationships: Enemy, Neutral
+		GuardsSelectionLevel: 2
 	AttackFollowFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -3671,6 +3680,7 @@ SCRGLYDER2:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	GuardsSelection:
 		ValidTargetsToGuard: Vehicle, Infantry
+		InvalidTargetsToGuard: Air, LandedCraft
 	Armament@AITransformDummyWeapon:
 		Weapon: AIGlyder2AimingDummyWeapon
 		ReloadingCondition: AIattackAir
@@ -3820,8 +3830,10 @@ SCRRECHARGER:
 		ValidRelationships: Ally
 	GuardsSelection:
 		ValidTargetsToGuard: Vehicle
+		InvalidTargetsToGuard: Air, Water, LandedCraft
 		TargetRelationships: Enemy
 		ForceTargetRelationships: Enemy, Neutral
+		GuardsSelectionLevel: 2
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	WithIdleOverlay@shieldpower:
