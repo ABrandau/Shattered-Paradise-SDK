@@ -1010,21 +1010,21 @@ BGGY:
 		Priority: 2
 	GuardsSelection@REPAIR:
 		ValidTargetsToGuard: Vehicle
-		InvalidTargetsToGuard: Air, Water, LandedCraft
+		InvalidTargetsToGuard: Air, Water, LandedCraft, Summoned
 		RequiresCondition: ifv.engineer
 		TargetRelationships: Enemy
 		ForceTargetRelationships: Enemy, Neutral
 		GuardsSelectionLevel: 2
 	GuardsSelection@MEDIC:
 		ValidTargetsToGuard: Infantry, OrganicVehicle
-		InvalidTargetsToGuard: Air, Water
+		InvalidTargetsToGuard: Air, Water, Summoned
 		RequiresCondition: ifv.medic
 		TargetRelationships: Enemy
 		ForceTargetRelationships: Enemy, Neutral
 		GuardsSelectionLevel: 2
 	GuardsSelection@SNIPER:
 		ValidTargetsToGuard: Infantry, Vehicle
-		InvalidTargetsToGuard: Air, Water, LandedCraft
+		InvalidTargetsToGuard: Air, Water, LandedCraft, Summoned
 		RequiresCondition: ifv.sniper || ifv.mastermind
 	###################################
 	# Turret Graphics
@@ -3149,7 +3149,7 @@ REPAIRVEHICLE:
 		MuzzlePalette: player
 	GuardsSelection:
 		ValidTargetsToGuard: Vehicle
-		InvalidTargetsToGuard: Air, Water, LandedCraft
+		InvalidTargetsToGuard: Air, Water, LandedCraft, Summoned
 		TargetRelationships: Enemy
 		ForceTargetRelationships: Enemy, Neutral
 		GuardsSelectionLevel: 2
@@ -3681,7 +3681,7 @@ SCRGLYDER2:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
 	GuardsSelection:
 		ValidTargetsToGuard: Vehicle, Infantry
-		InvalidTargetsToGuard: Air, LandedCraft
+		InvalidTargetsToGuard: Air, LandedCraft, Summoned
 	Armament@AITransformDummyWeapon:
 		Weapon: AIGlyder2AimingDummyWeapon
 		ReloadingCondition: AIattackAir
@@ -3763,7 +3763,7 @@ SCRSCORPION:
 		RequiresCondition: impplaguegas
 	GuardsSelection:
 		ValidTargetsToGuard: Infantry, Vehicle
-		InvalidTargetsToGuard: Air, Water, LandedCraft
+		InvalidTargetsToGuard: Air, Water, LandedCraft, Summoned
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	WithInfantryBody:
@@ -3834,7 +3834,7 @@ SCRRECHARGER:
 		ValidRelationships: Ally
 	GuardsSelection:
 		ValidTargetsToGuard: Vehicle
-		InvalidTargetsToGuard: Air, Water, LandedCraft
+		InvalidTargetsToGuard: Air, Water, LandedCraft, Summoned
 		TargetRelationships: Enemy
 		ForceTargetRelationships: Enemy, Neutral
 		GuardsSelectionLevel: 2

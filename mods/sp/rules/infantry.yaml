@@ -194,7 +194,7 @@ MEDIC:
 		Name: OnFoot
 	GuardsSelection:
 		ValidTargetsToGuard: Infantry, OrganicVehicle
-		InvalidTargetsToGuard: Air, Water
+		InvalidTargetsToGuard: Air, Water, Summoned
 		TargetRelationships: Enemy
 		ForceTargetRelationships: Enemy, Neutral
 		GuardsSelectionLevel: 2
@@ -881,7 +881,7 @@ BHS:
 		MuzzleSequence: garrison-muzzle
 	GuardsSelection:
 		ValidTargetsToGuard: Infantry, Vehicle
-		InvalidTargetsToGuard: Air, Water, LandedCraft
+		InvalidTargetsToGuard: Air, Water, LandedCraft, Summoned
 		OverrideOrders: AttackMove, AssaultMove
 	AnnounceOnSeen:
 		PingRadar: true
@@ -1683,7 +1683,7 @@ FLOAT:
 	-TakeCover:
 	GuardsSelection:
 		ValidTargetsToGuard: ScrinUnit
-		InvalidTargetsToGuard: Air, LandedCraft
+		InvalidTargetsToGuard: Air, LandedCraft, Summoned
 		GuardsSelectionLevel: 2
 	GrantConditionOnTerrain:
 		Condition: hoverunitonwater
