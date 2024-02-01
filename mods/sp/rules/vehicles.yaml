@@ -3174,6 +3174,7 @@ CABAPC:
 	Inherits@PIPS: ^CargoPips
 	Inherits@RENDER: ^CabRender
 	Inherits@VISION: ^6CellVision
+	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -3760,6 +3761,9 @@ SCRSCORPION:
 		LocalOffset: -100,0,700
 		PauseOnCondition: empdisable
 		RequiresCondition: impplaguegas
+	GuardsSelection:
+		ValidTargetsToGuard: Infantry, Vehicle
+		InvalidTargetsToGuard: Air, Water, LandedCraft
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	WithInfantryBody:
