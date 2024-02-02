@@ -217,7 +217,7 @@ GDIAirAttack = function()
 	Trigger.AfterDelay(DateTime.Seconds(2), function()
 		gdi.Build(GDIAirForce, function(actors)
 			Utils.Do(actors, function(actor)
-				actor.Attack(CABALRefinery)
+				actor.Move(CABALHPad.Location)
 			end)
 
 			Trigger.OnAllRemovedFromWorld(actors, function()
