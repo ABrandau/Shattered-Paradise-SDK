@@ -1519,7 +1519,7 @@ zombie-name = Haunt
 berserker-name = Berserker
 eggs-name = Cravicus Eggs
 crab-name = Tiberian Cravicus
-pcrab-name = Permanent Crab
+pcrab-name = Tiberian Cravicus
 jfish-name = Floater
 jfish-desc  = Hovering amphibious lifeform attacks with electrical tentacles.
     Good vs Ground targets
