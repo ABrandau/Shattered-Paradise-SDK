@@ -3,7 +3,7 @@ GDIAirForce = { "orca", "orca", "orca" }
 NodTemplarRush = { "templar", "templar", "templar", "templar", "templar" }
 NodStealthTeam = { "bike", "stnk", "stnk"}
 NodAirForce = { "scrin", "scrin" }
-MutantBusGuys = { "marauder", "marauder", "marauder", "marauder", "mutfiend" }
+MutantBusGuys = { "marauder", "marauder", "marauder", "mutfiend" }
 MutantDemoTruck = { "hvrtruk3" }
 MutantFalcon = { "wetp" }
 ScrinAttackForce = { "shark", "shark", "shark", "shark", "legio", "legio", "float", "corruptor", "corruptor", "corruptor" }
@@ -175,9 +175,10 @@ Patrol4D = function(unit, waypoints, delay)
 end
 
 MutantBusService = function()
-	Trigger.AfterDelay(DateTime.Seconds(10), function()
+	Trigger.AfterDelay(DateTime.Seconds(1), function()
 		mut.Build(MutantBusGuys, function(actors)
 			local bus = Actor.Create("struck", true, { Owner = mut, Location = MutantBusEntry.Location })
+			bus.GrantCondition("produced")
 			bus.Move(MutantBusStop.Location)
 
 			Trigger.AfterDelay(DateTime.Seconds(7), function()
@@ -186,7 +187,7 @@ MutantBusService = function()
 				end)
 
 				Trigger.AfterDelay(DateTime.Seconds(4), function()
-					bus.Move(MutantBusEntry.Location)
+					bus.Move(MutantBusExit.Location)
 					bus.Destroy()
 
 					MutantBusService()
@@ -338,7 +339,7 @@ CABALInfantryAttack = function()
 	Trigger.AfterDelay(DateTime.Seconds(1), function()
 		cab.Build(CABALInfantry, function(actors)
 			Utils.Do(actors, function(actor)
-				actor.Attack(MutantBunker1)
+				actor.AttackMove(MutantRaxRally.Location)
 			end)
 
 			Trigger.OnAllRemovedFromWorld(actors, function()
