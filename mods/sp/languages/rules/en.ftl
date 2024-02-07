@@ -40,7 +40,11 @@ checkbox-domination =
 
 checkbox-megawealth =
     .label = Megawealth
-    .description = Removes all the Tiberium on the map and makes the economy dependent on Tiberium Extractors
+    .description =  Makes the economy only dependent on Tiberium Extractors
+        When enabled, several units will change:
+        - Removes all the Tiberium and Tiberium spawner on the map
+        - Tiberium Extractors immune to damage
+        - Tiberium Extractors gains +200% income
 
 checkbox-king-of-the-hill =
     .label = King of the Hill

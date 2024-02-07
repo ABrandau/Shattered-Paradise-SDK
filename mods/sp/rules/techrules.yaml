@@ -71,6 +71,9 @@ WELL:
 	DamageMultiplier@megawealth:
 		RequiresCondition: megawealth
 		Modifier: 0
+	CashTricklerMultiplier@megawealth:
+		Modifier: 300
+		RequiresCondition: megawealth
 	UpdatesDerrickCount:
 	IsometricSelectable:
 		DecorationHeight: 144
@@ -109,6 +112,11 @@ WELL.mwspawner:
 		Dimensions: 3, 3
 	MapEditorData:
 		Categories: Tech Structure
+	RevealOnDeath@ShowOnExploredMap:
+		Duration: 1
+		Radius: 300
+		RevealGeneratedShroud: false
+		RevealForRelationships: Ally, Enemy, Neutral
 
 WELL.nonmwspawner:
 	Inherits: WELL.mwspawner
@@ -674,8 +682,15 @@ FLAGDOM:
 	-IsometricSelectable:
 	-IsometricSelectionDecorations:
 	-Targetable:
+	-FrozenUnderFog:
+	AlwaysVisible:
 	DamageMultiplier@domination:
 		Modifier: 0
+	RevealsShroud@revealhimself:
+		RequiresCondition: domination
+		ValidRelationships: Ally, Neutral, Enemy
+		MaxHeightDelta: 3
+		Range: 1c513
 	KillsSelf:
 		RemoveInstead: true
 		RequiresCondition: !domination
@@ -707,11 +722,11 @@ NTPYRA.koth:
 	-Armor:
 	-ThrowsShrapnel@SMALL:
 	-ThrowsShrapnel@LARGE:
+	-FrozenUnderFog:
+	AlwaysVisible:
 	KillsSelf:
 		RemoveInstead: true
 		RequiresCondition: !koth
-	Armor:
-		Type: Building
 	Health:
 		HP: 150000
 	RenderSprites:
@@ -721,6 +736,11 @@ NTPYRA.koth:
 		Sequence: idle-lights
 	IsometricSelectable:
 		DecorationHeight: 60
+	RevealsShroud@revealhimself:
+		RequiresCondition: koth
+		ValidRelationships: Ally, Neutral, Enemy
+		MaxHeightDelta: 3
+		Range: 2c0
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
