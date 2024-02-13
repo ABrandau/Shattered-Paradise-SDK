@@ -60,7 +60,7 @@ label-disclaimer-sp-line6 = Responsibility of the OpenRA developers.
 button-disclaimer-sp-known = I Understand
 
 ## mainmenu.yaml
-label-main-menu-mainmenu-title = Shattered Paradise
+label-shatteredparadise = Shattered Paradise
 button-singleplayer-menu-encys = Encys
 
 #Todo: find a way to only add those line instead of overwrite the whole options-observer-stats

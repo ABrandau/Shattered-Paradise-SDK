@@ -138,7 +138,7 @@ namespace OpenRA.Mods.SP.Traits
 					port.PaxFacing.Facing = targetYaw;
 					port.PaxPos.SetCenterPosition(seat, pos + PortOffset(self, port));
 
-					if (!arm.CheckFire(seat, facing, target, true))
+					if (!arm.CheckFire(seat, facing, target))
 						continue;
 
 					if (arm.Info.MuzzleSequence != null)
