@@ -3638,6 +3638,15 @@ SCRGLYDER2:
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 800
+	GrantConditionOnPrerequisite@enable-upgrade:
+		Condition: enable-upgrade
+		Prerequisites: global-upgrades
+	ProductionCostMultiplier@disable-upgrade:
+		Multiplier: 150
+		Prerequisites: !global-upgrades
+	ProductionTimeMultiplier@disable-upgrade:
+		Multiplier: 125
+		Prerequisites: !global-upgrades
 	Tooltip:
 		Name: glider-name
 	UpdatesPlayerStatistics:
@@ -3650,12 +3659,6 @@ SCRGLYDER2:
 		Speed: 120
 	Selectable:
 		Bounds: 1206,1809, 0, -740
-	GrantConditionOnPrerequisite@enable-upgrade:
-		Condition: enable-upgrade
-		Prerequisites: global-upgrades
-	ProductionCostMultiplier@disable-upgrade:
-		Multiplier: 150
-		Prerequisites: !global-upgrades
 	Transforms:
 		RequiresCondition: aerial_gliders || !enable-upgrade
 		PauseOnCondition: inside-tunnel
