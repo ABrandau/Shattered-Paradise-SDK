@@ -1838,8 +1838,12 @@ DEFD:
 	RevealsShroud:
 		Type: Footprint
 		MaxHeightDelta: 3
+	GrantConditionOnPrerequisite@SUDDENDEATH:
+		Condition: suddendeath
+		Prerequisites: global-suddendeath
 	MustBeDestroyed:
 		RequiredForShortGame: true
+		RequiresCondition: !suddendeath
 	WithMakeAnimation:
 		Condition: Building-Buildup
 	GrantConditionAfterDelay:
