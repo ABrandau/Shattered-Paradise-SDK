@@ -245,7 +245,7 @@ GHOST:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Mutant
 		BuildPaletteOrder: 32
-		Prerequisites: ~player.mut, ~murax, muhall, ~techlevel.5, ~AIOnly
+		Prerequisites: ~player.mut, ~murax, muhall, ~techlevel.5, ~campaignunit
 		Description: ghost-desc
 		BuildLimit: 1
 		BuildDuration: 1250
@@ -328,7 +328,7 @@ UMAGON:
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Mutant
 		BuildPaletteOrder: 33
-		Prerequisites: ~player.mut, ~murax, muhall, ~techlevel.5, ~AIOnly
+		Prerequisites: ~player.mut, ~murax, muhall, ~techlevel.5, ~campaignunit
 		Description: umagon-desc
 		BuildLimit: 1
 		BuildDuration: 1250
@@ -405,7 +405,7 @@ MUJEEP:
 		BuildAtProductionType: Tank
 		Description: mujeep-desc
 		BuildPaletteOrder: 23
-		Prerequisites: ~muweap, murax, ~techlevel.2, ~AIOnly
+		Prerequisites: ~muweap, murax, ~techlevel.2, ~campaignunit
 		BuildDuration: 250
 		BuildDurationModifier: 100
 	Mobile:
@@ -503,7 +503,7 @@ AVATAR:
 		Queue: Vehicle.Shared, Vehicle.Lightbringer
 		BuildAtProductionType: Lightbringer
 		BuildPaletteOrder: 51
-		Prerequisites: ~naweap, nahfac, ~AIOnly, ~techlevel.5
+		Prerequisites: ~naweap, nahfac, ~campaignunit, ~techlevel.5
 		Description: avatar-desc
 		BuildDuration: 1125
 		BuildDurationModifier: 100
@@ -545,7 +545,7 @@ MUJFISH:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 52
-		Prerequisites: ~muweap, muhall, ~AIOnly, ~techlevel.6
+		Prerequisites: ~muweap, muhall, ~campaignunit, ~techlevel.6
 		Description: jfish-desc
 		BuildDuration: 875
 		BuildDurationModifier: 100
@@ -575,7 +575,7 @@ WEASAU3:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 52
-		Prerequisites: ~muweap, mutsw2, ~AIOnly, ~techlevel.6
+		Prerequisites: ~muweap, mutsw2, ~campaignunit, ~techlevel.6
 		Description: weasau3-desc
 		BuildDuration: 1125
 		BuildDurationModifier: 100
@@ -687,7 +687,7 @@ LPST:
 		BuildAtProductionType: Tank
 		Description: 
 		BuildPaletteOrder: 51
-		Prerequisites: ~gaweap, gatech, ~AIOnly, ~techlevel.5
+		Prerequisites: ~gaweap, gatech, ~campaignunit, ~techlevel.5
 		BuildDuration: 625
 		BuildDurationModifier: 100
 	Mobile:
@@ -766,7 +766,7 @@ SGEN:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
 		BuildAtProductionType: Tank
-		Prerequisites: ~naweap, natech, ~AIOnly, ~techlevel.5
+		Prerequisites: ~naweap, natech, ~campaignunit, ~techlevel.5
 		BuildPaletteOrder: 51
 		Description: sgen-desc
 		BuildDuration: 875
@@ -867,7 +867,7 @@ ICBM:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 51
-		Prerequisites: ~player.nod, ~naweap, nahfac, ~AIOnly, ~techlevel.6
+		Prerequisites: ~player.nod, ~naweap, nahfac, ~campaignunit, ~techlevel.6
 		Description: icbm-desc
 		BuildDuration: 2000
 		BuildDurationModifier: 100
@@ -1079,7 +1079,7 @@ M_EMP:
 		BuildAtProductionType: Tank
 		Description: memp-desc
 		BuildPaletteOrder: 51
-		Prerequisites: ~gaweap, gatech, ~AIOnly, ~techlevel.5
+		Prerequisites: ~gaweap, gatech, ~campaignunit, ~techlevel.5
 		BuildDuration: 625
 		BuildDurationModifier: 100
 	Mobile:
@@ -1144,6 +1144,14 @@ CABECM:
 		Name: cabecm-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.CABAL
+		BuildAtProductionType: Tank
+		Description: cabecm-desc
+		BuildPaletteOrder: 31
+		Prerequisites: ~cabweap, cabtech, ~techlevel.5, ~campaignunit
+		BuildDuration: 625
+		BuildDurationModifier: 100
 	Selectable:
 		Bounds: 1206,1809, 0, -480
 	Health:
@@ -1796,7 +1804,7 @@ DEFD:
 	Inherits@3: ^SelectableBuilding
 	Inherits@SHAPE: ^2x3Shape
 	Valued:
-		Cost: 15000
+		Cost: 75000
 	Health:
 		HP: 1100000
 	HitShape:
@@ -1811,12 +1819,15 @@ DEFD:
 			BottomRight: 1536, 1536
 	Buildable:
 		Queue: Building.Shared, Building.CABAL
-		Prerequisites: ~player.cab, ~cabyard, cabtech, ~techlevel.5, ~AIOnly, ~!DefenderExists
+		Prerequisites: ~player.cab, ~cabyard, cabtech, ~techlevel.5, ~campaignunit, ~!DefenderExists
 		Description: coredefender-desc
 		BuildPaletteOrder: 54
 		BuildDuration: 7000
 		BuildDurationModifier: 100
 		BuildLimit: 1
+	ProductionCostMultiplier@AI: ## AI cheat
+		Multiplier: 20
+		Prerequisites: AIOnly
 	Building:
 		Footprint: xx_ xx_ xxx
 		Dimensions: 3,3
@@ -1880,7 +1891,7 @@ HMECTEST:
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@VISION: ^9CellVision
 	Valued:
-		Cost: 15000
+		Cost: 75000
 	Tooltip:
 		Name: hmectest-name
 	UpdatesPlayerStatistics:
@@ -1889,11 +1900,14 @@ HMECTEST:
 		Queue: Vehicle.Shared, Vehicle.MammothMkII
 		BuildAtProductionType: Mammoth
 		BuildPaletteOrder: 49
-		Prerequisites: ~player.gdi, ~showhmec, gtdrop, ~AIOnly, ~techlevel.6
+		Prerequisites: ~player.gdi, ~showhmec, gtdrop, ~campaignunit, ~techlevel.6
 		Description: hmectest-desc
 		BuildLimit: 1
 		BuildDuration: 7000
 		BuildDurationModifier: 100
+	ProductionCostMultiplier@AI: ## AI cheat
+		Multiplier: 20
+		Prerequisites: AIOnly
 	ProductionTimeMultiplier@2_FACTORY:
 		Multiplier: 80
 		Prerequisites: prerequisite.two_factory, !global-multiqueue
@@ -2230,7 +2244,7 @@ SCRINCOUNCIL:
 	Inherits@SHADOW: ^AircraftShadow
 	Inherits@VISION: ^11CellVision
 	Valued:
-		Cost: 15000
+		Cost: 75000
 	Tooltip:
 		Name: scrincouncil-name
 	UpdatesPlayerStatistics:
@@ -2239,10 +2253,13 @@ SCRINCOUNCIL:
 		Queue: Air.Shared, Air.Scrin
 		Description: scrincouncil-desc
 		BuildPaletteOrder: 29
-		Prerequisites: ~player.scr, ~scrair, scradvpowr, ~techlevel.6, ~AIOnly
+		Prerequisites: ~player.scr, ~scrair, scradvpowr, ~techlevel.6, ~campaignunit
 		BuildLimit: 1
 		BuildDuration: 7000
 		BuildDurationModifier: 100
+	ProductionCostMultiplier@AI: ## AI cheat
+		Multiplier: 20
+		Prerequisites: AIOnly
 	Selectable:
 		Bounds: 2709,3135, 0,-1280
 	Targetable@Essence:

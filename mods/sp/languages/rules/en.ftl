@@ -54,6 +54,10 @@ checkbox-sudden-death =
     .label = Sudden Death
     .description = Players can't build another MCV and get defeated when they lose it
 
+checkbox-campaignunit =
+    .label = Campaign Unit
+    .description = Allow player to build units in campaign
+
 ## World
 options-starting-units =
     .no-bases = No Bases
@@ -1255,6 +1259,12 @@ memp-desc = Support unit can generate emp pulse.
      - Can crush Infantry
 
 cabecm-name = Hacker Drone
+cabecm-desc = Support unit can recon and infiltrate.
+    Special:
+     - Force fire any location: Send the Quadrotor to recon
+     - Send the Quadrotor to hack hackable.
+     - Capture building without consumed.
+     - Can crush Infantry
 qdrone-name = Quadrotor
 
 mutmound-name = Suspicious Mound

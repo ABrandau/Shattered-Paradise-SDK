@@ -227,7 +227,7 @@ Player:
 		CashTickDownNotification: CashTickDown
 	DeveloperMode:
 		CheckboxEnabled: false
-		CheckboxDisplayOrder: 17
+		CheckboxDisplayOrder: 18
 	ProvidesTechPrerequisite@1:
 		Name: options-tech-level.tech-level1
 		Prerequisites: techlevel.1
@@ -334,6 +334,14 @@ Player:
 		Enabled: False
 		DisplayOrder: 15
 		Prerequisites: global-suddendeath
+	LobbyPrerequisiteCheckbox@CAMPAIGNUNIT:
+		ID: campaignunit
+		Label: checkbox-campaignunit.label
+		Description: checkbox-campaignunit.description
+		Enabled: false
+		Locked: false
+		DisplayOrder: 16
+		Prerequisites: campaignunit
 	ProvidesRadar@FREEMINIMAP:
 		RequiresCondition: freeminimap
 	HasCondition@FREEMINIMAP: ## Avoid error when check yaml
