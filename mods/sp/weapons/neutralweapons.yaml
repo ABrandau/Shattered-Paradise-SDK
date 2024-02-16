@@ -456,8 +456,9 @@ FairyFlyAndBack:
 		ValidTargets: Ground, Water, Air
 		AirThreshold: 4c0
 		Delay: 400 ## Landing effect: After 400 ticks
-	Warhead@RespawnActor: SpawnActor
-		InvalidTargets: Infantry, Vehicle, Building, Defence, Wall, remaining, IonSpawner
+	Warhead@01RespawnActor: SpawnActor
+		ValidTargets: Ground, Water, Air
+		InvalidTargets: Infantry, Vehicle, Building, Defence, Wall
 		Actors: tibfairy
 		ForceGround: true
 		FallRate: 5000
@@ -465,8 +466,8 @@ FairyFlyAndBack:
 		AirThreshold: 4c0
 		ImpactActors: true
 		Delay: 650 ## Landed effect: After 400+250 ticks
-	Warhead@FlyWhenCannotRespawn: FireFragment
-		ValidTargets: Infantry, Vehicle, Building, Defence, Wall, remaining, IonSpawner
+	Warhead@02FlyWhenCannotRespawn: FireFragment
+		ValidTargets: Infantry, Vehicle, Building, Defence, Wall
 		ImpactActors: true
 		Weapon: FairyFlyAndBack
 		AirThreshold: 4c0
