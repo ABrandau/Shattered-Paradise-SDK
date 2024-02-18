@@ -85,7 +85,7 @@ MCV:
 		Queue: Vehicle.Shared, Vehicle.GDI
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 8
-		Prerequisites: ~player.gdi, ~gaweap, ~techlevel.3, ~!global-suddendeath
+		Prerequisites: ~gaweap, mcvgdi,~techlevel.3, ~!global-suddendeath
 		Description: mcv-desc
 		BuildDuration: 1500
 		BuildDurationModifier: 100
@@ -464,6 +464,8 @@ GACNST:
 		-RequiresCondition:
 	RequiresBuildableArea:
 		AreaTypes: building
+	ProvidesPrerequisite@FactionMCV:
+		Prerequisite: mcvgdi
 	ProvidesPrerequisite@AIantiRush-building-order:
 		RequiresCondition: !AImicroManage
 		Prerequisite: AIantiRush-building-order ## Hack: AI Building control. AI build refinary only when it has a combat producing line.
@@ -1126,48 +1128,6 @@ SCRDEPOT:
 	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
-
-ANYPOWER:
-	AlwaysVisible:
-	Interactable:
-	Tooltip:
-		Name: dpowerplant-name
-
-BARRACKS:
-	AlwaysVisible:
-	Interactable:
-	Tooltip:
-		Name: pbarracks-name
-
-PROC:
-	AlwaysVisible:
-	Interactable:
-	Tooltip:
-		Name: drefinery-name
-
-FACTORY:
-	AlwaysVisible:
-	Interactable:
-	Tooltip:
-		Name: pwarfactory-name
-
-RADAR:
-	AlwaysVisible:
-	Interactable:
-	Tooltip:
-		Name: pradar-name
-
-FACTORYORAIR:
-	AlwaysVisible:
-	Interactable:
-	Tooltip:
-		Name: pfactoryorair-name
-
-TECH:
-	AlwaysVisible:
-	Interactable:
-	Tooltip:
-		Name: ptech-name
 
 SHAWALL:
 	Inherits: ^Wall

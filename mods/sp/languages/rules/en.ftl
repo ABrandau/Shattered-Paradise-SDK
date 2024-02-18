@@ -150,6 +150,18 @@ gate-desc = Automated barrier that opens for allied units.
 sharedwall-name = Wall
 sharedwall-desc = Stops infantry, Vehicles and blocks enemy fire.
 
+## Complex prerequisite
+pwarfactory-name = Vehicle Production
+pbarracks-name = Infantry Production
+pradar-name = Radar
+pfactoryorair-name = Vehicle or Aircraft Production
+ptech-name = Tech Center
+mcvgdi-name = Play as GDI or has GDI Conyard
+mcvnod-name = Play as Nod or has Nod Conyard
+mcvmut-name = Play as Mutant or has Mutant Conyard
+mcvcab-name = Play as Cabal or has Cabal Conyard
+mcvscr-name = Play as Scrin or has Scrin Conyard
+
 ## Bridge
 cabhut-name = Bridge Repair Hut
 lowbridge-name = Bridge
@@ -193,13 +205,6 @@ drefinery-name = Tiberium Refinery
 dwarfactory-name = War Factory
 dhelipad-name = Helipad
 dpowerplant-name = Power Plant
-
-pwarfactory-name = Vehicle Production
-pbarracks-name = Infantry Production
-pradar-name = Radar
-pfactoryorair-name = Vehicle or Aircraft Production
-ptech-name = Tech Center
-
 gadept-name = Service Depot
 gadept-desc = Provides 3 Repair Drones to repair nearby damaged vehicles.
     Special:

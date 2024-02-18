@@ -508,6 +508,8 @@ NODYARD:
 		Sequence: idle-fans
 	WithIdleOverlay@SIDE:
 		Sequence: idle-pit
+	ProvidesPrerequisite@FactionMCV:
+		Prerequisite: mcvnod
 	-WithIdleOverlay@TOP-BRIGHT:
 	-WithIdleOverlay@FRONT:
 	-WithIdleOverlay@FRONT-BRIGHT:
@@ -1056,6 +1058,8 @@ MUTYARD:
 		Sequence: idle-lights
 		Palette: playermut
 		IsPlayerPalette: True
+	ProvidesPrerequisite@FactionMCV:
+		Prerequisite: mcvmut
 	-WithIdleOverlay@TOP-BRIGHT:
 	-WithIdleOverlay@FRONT:
 	-WithIdleOverlay@FRONT-BRIGHT:
@@ -1420,6 +1424,12 @@ DRACHED:
 	WithBuildingPlacedOverlay:
 		Sequence: ball
 		Palette: playerscrin
+	ProvidesPrerequisite@FactionMCV:
+		Prerequisite: mcvscr
+	ThrowsShrapnel@SMALL:
+		Weapons: SmallDebrisScrin
+	ThrowsShrapnel@LARGE:
+		Weapons: LargeDebrisScrin
 	-WithIdleOverlay@TOP:
 	-WithIdleOverlay@TOP-BRIGHT:
 	-WithIdleOverlay@SIDE:
@@ -1429,10 +1439,6 @@ DRACHED:
 	-ProvidesPrerequisite@structureshuman:
 	-ProvidesPrerequisite@structureswall:
 	-ProvidesPrerequisite@structuresgate:
-	ThrowsShrapnel@SMALL:
-		Weapons: SmallDebrisScrin
-	ThrowsShrapnel@LARGE:
-		Weapons: LargeDebrisScrin
 
 SCRPOWR:
 	Inherits: ^Powerplant
@@ -1949,6 +1955,8 @@ CABYARD:
 	WithBuildingPlacedOverlay:
 		Sequence: circus
 		Palette: playercab
+	ProvidesPrerequisite@FactionMCV:
+		Prerequisite: mcvcab
 	-WithIdleOverlay@TOP:
 	-WithIdleOverlay@TOP-BRIGHT:
 	-WithIdleOverlay@SIDE:
