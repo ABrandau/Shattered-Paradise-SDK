@@ -42,10 +42,10 @@ GAPOWR:
 		RequiresCondition: power_turbines && !empdisable
 		Amount: 100
 	WithIdleOverlay@pluga:
-		RequiresCondition: powrup.a || power_turbines
+		RequiresCondition: !Building-Buildup && (powrup.a || power_turbines)
 		Sequence: idle-powrupa
 	WithIdleOverlay@plugb:
-		RequiresCondition: powrup.a || power_turbines
+		RequiresCondition: !Building-Buildup && (powrup.a || power_turbines)
 		Sequence: idle-powrupb
 	GrantConditionOnPrerequisite@PowerTurbines:
 		Prerequisites: upgrade.power_turbines
