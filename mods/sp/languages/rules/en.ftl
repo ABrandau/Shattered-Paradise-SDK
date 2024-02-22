@@ -2019,7 +2019,9 @@ vinifera_catalysts-desc = Increates range of Ichor Waste Turrets and Corruptors 
 
 tiberium_conversion-name = Tiberium Conversion
 tiberium_conversion-desc = Enables Hover Tanks to absorb Tiberium to increase damage for the next 3 attacks by 50%.
-
+    - If not MegaWealth: deploy the Hover Tank to absorb from nearby Tiberium, Tiberium will be destroyed after absorb. 
+    - If MegaWealth: use Hover Tank target Tiberium Extractors to absorb, Extractors will be shutdown for a short time.
+    
 aerial_gliders-name = Aerial Gliders
 aerial_gliders-desc = Enables Gliders to be deployed to take flight.
     While in air, they can attack ground targets.

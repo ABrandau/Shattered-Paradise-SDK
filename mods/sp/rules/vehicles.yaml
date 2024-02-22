@@ -3593,6 +3593,25 @@ SCRMBT:
 		ReloadingCondition: reload2
 		PauseOnCondition: empdisable || !charged || reload1
 	WithMuzzleOverlay:
+	Armament@MWcharger:
+		Name: secondary
+		Weapon: AbsorbTibWell
+		LocalOffset: 250,0,900
+		PauseOnCondition: empdisable
+		TargetRelationships: Enemy, Neutral, Ally
+		Cursor: emp
+		OutsideRangeCursor: emp
+		RequiresCondition: megawealth && tibconversion && charged < 3 && !MWchargerReload
+	ArmamentsChargeBar@MWcharger:
+		ArmamentName: secondary
+		Condition: MWchargerReload
+		Duration: 2000
+		RequiresCondition: megawealth && tibconversion
+	AutoTargetPriority@AIinMW:
+		RequiresCondition: AImicroManage
+		ValidTargets: TibChargeable
+		ValidRelationships: Enemy
+		Priority: 2
 	WithIdleFacingOverlay@light:
 		RequiresCondition: !inside-tunnel && !empdisable
 		IsDecoration: true

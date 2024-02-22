@@ -404,18 +404,72 @@ AnhTripodLaser3: # This one with true damage and sound
 		NoUnintendedFriendlyFire: All
 		Delay: 1
 
-AnhTripodAbsorb:
+AbsorbTibField:
 	Range: 8c0
 	ValidTargets: Ground, Air, Water
 	ReloadDelay: 3
 	Projectile: InstantExplode
 	Warhead@op: FireRadius
-		Weapon: AbsorbShrapnel
+		Weapon: TibFieldShrapnel
 		ValidTargets: Ground, Air, Water
 		ImpactActors: false
 		Amount: 3
 
-AbsorbShrapnel:
+AbsorbTibWell: 
+	Range: 4c0
+	ValidTargets: TibChargeable
+	TargetActorCenter: true
+	Projectile: InstantHit
+	Warhead@op1: FireRadius
+		Weapon: TibWellShrapnel
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
+		Amount: 3
+	Warhead@op2: FireRadius
+		Weapon: TibWellShrapnel
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
+		Amount: 3
+		Delay: 8
+	Warhead@op3: FireRadius
+		Weapon: TibWellShrapnel
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
+		Amount: 3
+		Delay: 16
+	Warhead@op4: FireRadius
+		Weapon: TibWellShrapnel
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
+		Amount: 3
+		Delay: 24
+	Warhead@op5: FireRadius
+		Weapon: TibWellShrapnel
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
+		Amount: 3
+		Delay: 32
+	Warhead@1Dam: SpreadDamageWithCondition
+		ValidTargets: TibChargeable
+		Spread: 0c045
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+		Condition: empdisable
+		ConditionDuration: 200
+		AirThreshold: 8c0
+
+TibWellShrapnel:
+	Range: 0c100
+	ValidTargets: Ground, Air, Water
+	Projectile: InstantHit
+		Inaccuracy: 2c0
+		InaccuracyType: Absolute
+	Warhead@greenback: BackFireShrapnel
+		ValidTargets: TibChargeable
+		Weapon: ShardGreenBack
+		ImpactActors: true
+		AirThreshold: 8c0
+
+TibFieldShrapnel:
 	Range: 1c756
 	ValidTargets: Ground, Air, Water
 	Projectile: InstantHit
@@ -423,17 +477,19 @@ AbsorbShrapnel:
 	Warhead@greenback: BackFireShrapnel
 		ValidTargets: Tiberium
 		Weapon: ShardGreenBack
+		AirThreshold: 8c0
 		ImpactActors: false
 	Warhead@blueback: BackFireShrapnel
 		ValidTargets: BlueTiberium
 		Weapon: ShardBlueBack
+		AirThreshold: 8c0
 		ImpactActors: false
 	Warhead@2DR: DestroyResource
 		Size: 0
 		ResourceAmount: 1
 		ResourceTypes: BlueTiberium, Tiberium
 		ValidTargets: BlueTiberium, Tiberium
-
+		AirThreshold: 8c0
 
 ShardGreenBack:
 	TargetActorCenter: true
@@ -457,20 +513,23 @@ ShardGreenBack:
 		Gravity: 0
 		Jammable: false ## help to save a little bit performance
 		ExplodeWhenEmpty: true
-	Warhead@charge: GrantExternalCondition
-		Range: 0c256
-		Duration: 1
+	Warhead@charge: SpreadDamageWithCondition
+		Spread: 0c256
+		Falloff: 100, 100
 		Condition: charge
+		ConditionDuration: 1
 		ValidRelationships: Ally
+		DamageTypes: EnergyDeath
 		AffectsParent: true
 		ValidTargets: Ground, Air, Water
+		AirThreshold: 8c0
 
 ShardBlueBack:
 	Inherits: ShardGreenBack
 	Projectile: MissileTA
 		Palette: apblue
-	Warhead@charge: GrantExternalCondition
-		Duration: 2
+	Warhead@charge: SpreadDamageWithCondition
+		ConditionDuration: 2
 
 StormRiderBlast:
 	Inherits: ^FullDamage

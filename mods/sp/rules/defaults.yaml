@@ -1217,7 +1217,7 @@
 		RequiresCondition: tibconversion && !megawealth
 	SpawnSparks@TIBCONVERSION:
 		Interval: 3
-		SparkWeapon: AnhTripodAbsorb
+		SparkWeapon: AbsorbTibField
 		Amount: 1
 		RequiresCondition: !empdisable && absorbTib
 	ExternalCondition@TIBCONVERSION:
@@ -1226,12 +1226,10 @@
 		InitialAmmo: 0
 		Ammo: 3
 		AmmoCondition: charged
+		Armaments: primary
 	ReloadAmmoPool@TIBCONVERSION:
 		Delay: 2
 		PauseOnCondition: !charge
-	ReloadAmmoPool@TIBCONVERSIONmegawealth:
-		Delay: 700
-		RequiresCondition: megawealth
 	WithAmmoPipsDecoration@TIBCONVERSION:
 		Margin: 4, 3
 		FullSequence: pip-cannon
