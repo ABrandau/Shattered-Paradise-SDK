@@ -307,11 +307,11 @@ World:
 	SpawnMapActors:
 	MapBuildRadius:
 		AllyBuildRadiusCheckboxDisplayOrder: 8
-		BuildRadiusCheckboxDisplayOrder: 9
+		BuildRadiusCheckboxDisplayOrder: 11
 	LuaScript:
 		Scripts: main.lua, koth.lua, domination.lua
 	MapOptions:
-		ShortGameCheckboxDisplayOrder: 2
+		ShortGameCheckboxDisplayOrder: 3
 		TechLevelDropdownDisplayOrder: 2
 		GameSpeedDropdownDisplayOrder: 3
 	CreateMapPlayers:
@@ -546,7 +546,7 @@ World:
 		InnerSupportRadius: 4
 		OuterSupportRadius: 5
 	MapStartingLocations:
-		SeparateTeamSpawnsCheckboxDisplayOrder: 6
+		SeparateTeamSpawnsCheckboxDisplayOrder: 7
 	SpawnStartingUnits:
 		DropdownDisplayOrder: 1
 	LobbySystemActorConditionCheckbox@FREEMINIMAP:
@@ -554,7 +554,7 @@ World:
 		Label: checkbox-free-minimap.label
 		Description: checkbox-free-minimap.description
 		Enabled: true
-		DisplayOrder: 5
+		DisplayOrder: 2
 		Condition: freeminimap
 		Actors: Player
 	HasCondition@FREEMINIMAP: ## Avoid warning when check yaml
@@ -566,7 +566,7 @@ World:
 		Description: checkbox-crates.description
 		Enabled: false
 		Locked: false
-		DisplayOrder: 17
+		DisplayOrder: 15
 		Condition: allow-cratespawn
 	CrateSpawner:
 		Minimum: 10
