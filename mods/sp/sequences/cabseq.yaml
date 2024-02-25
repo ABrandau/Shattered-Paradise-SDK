@@ -63,10 +63,9 @@ worker:
 		Filename: workericon.shp
 
 workermech:
+	Inherits@1: ^InfantryDeathAnims
 	Defaults:
 		Filename: workermech.shp
-	Inherits@1: ^InfantryDeathAnims
-	Inherits@2: ^EmpOverlay
 	stand:
 		Facings: 8
 		ShadowStart: 41
@@ -85,7 +84,6 @@ workermech:
 
 cybdog:
 	Inherits@1: ^InfantryDeathAnims
-	Inherits: ^EmpOverlay
 	Defaults:
 		Filename: cybdog.shp
 		Tick: 80
@@ -174,7 +172,6 @@ chusk:
 cabsentry:
 	Defaults:
 		Filename: cabsentry.shp
-	Inherits@1: ^InfantryDeathAnims
 	stand:
 		Facings: -32
 		ShadowStart: 40
@@ -316,11 +313,6 @@ cyborg:
 		Length: 6
 		Facings: 8
 		ShadowStart: 582
-	emp-overlay:
-		Filename: emp_fx01.shp
-		Length: *
-		ZOffset: 512
-		IgnoreWorldTint: True
 	webguy:
 		Filename: webguySPmid.shp
 		Length: 6
@@ -397,12 +389,6 @@ pdrone:
 		Length: 1
 		Tick: 800
 		ZOffset: -511
-	emp-overlay:
-		Filename: emp_fx01.shp
-		Length: *
-		Offset: 0, 0
-		ZOffset: 512
-		IgnoreWorldTint: True
 	webguy:
 		Filename: droneweb.shp
 		Length: 1
@@ -472,11 +458,6 @@ moth:
 	muzzle:
 		Filename: gunfire.shp
 		Length: *
-	emp-overlay:
-		Filename: emp_fx01.shp
-		Length: *
-		ZOffset: 512
-		IgnoreWorldTint: True
 	webguy:
 		Filename: droneweb.shp
 		Length: 1
@@ -527,12 +508,6 @@ glad:
 		Start: 389
 		Length: 7
 		Facings: 8
-	emp-overlay:
-		Filename: emp_fx01.shp
-		Length: *
-		Offset: 0, 0
-		ZOffset: 512
-		IgnoreWorldTint: True
 	webguy:
 		Filename: webguySPbig.shp
 		Length: 6
@@ -592,11 +567,6 @@ cyc2:
 		Length: 6
 		Facings: 8
 		ShadowStart: 568
-	emp-overlay:
-		Filename: emp_fx01.shp
-		Length: *
-		ZOffset: 512
-		IgnoreWorldTint: True
 	webguy:
 		Filename: webguySPmid.shp
 		Length: 6
@@ -687,6 +657,8 @@ reapercab:
 	dieblood6:
 		Filename: infblood6.shp
 		Scale: 1
+	emp-overlay:
+		Filename: emp_fx01.shp
 	icon:
 		Filename: reapercabicon.shp
 
@@ -715,6 +687,8 @@ limped:
 		Facings: 1
 		ShadowStart: 3
 		Offset: 0, -12
+	emp-overlay:
+		Filename: emp_fx01.shp
 	icon:
 		Filename: cablimpicon.shp
 
@@ -951,7 +925,7 @@ cabpowr:
 		Start: 40
 		Tick: 400
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
@@ -977,7 +951,7 @@ cabclaw:
 		Start: 40
 		Tick: 400
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
@@ -1037,7 +1011,7 @@ cabproc:
 		ZRamp: 1
 		-DepthSprite:
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0, 21
 		ZOffset: 512
@@ -1089,7 +1063,7 @@ cabproc2:
 		ZRamp: 1
 		-DepthSprite:
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0, 21
 		ZOffset: 512
@@ -1141,7 +1115,7 @@ cabproc3:
 		ZRamp: 1
 		-DepthSprite:
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0, 21
 		ZOffset: 512
@@ -1193,7 +1167,7 @@ cabproc4:
 		ZRamp: 1
 		-DepthSprite:
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0, 21
 		ZOffset: 512
@@ -1221,7 +1195,7 @@ cabobelisk:
 		Length: 6
 		Tick: 400
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
@@ -1254,7 +1228,7 @@ cabradr:
 		Start: 45
 		Tick: 400
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
@@ -1303,7 +1277,7 @@ cabweap:
 		Start: 3
 		ZOffset: -2048
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
@@ -1341,7 +1315,7 @@ cabair:
 		ZOffset: -1c511
 		Tick: 100
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
@@ -1369,7 +1343,7 @@ cabtech:
 		Start: 51
 		Tick: 400
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
@@ -1399,7 +1373,7 @@ cabsentryturret:
 		Facings: -32
 		ZOffset: -512
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
@@ -1428,7 +1402,7 @@ cabcannon:
 		Facings: 32
 		Offset: 0,-12
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
@@ -1454,7 +1428,7 @@ cabpit:
 	dead:
 		Start: 31
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
@@ -1477,7 +1451,7 @@ cabnexus:
 	dead:
 		Start: 31
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
@@ -1507,7 +1481,7 @@ cabblast:
 		Start: 62
 		Facings: 32
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
@@ -1541,7 +1515,7 @@ cabrail:
 		Start: 26
 		Facings: 32
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
@@ -1568,7 +1542,7 @@ cabeye:
 	make:
 		Length: 29
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
@@ -1594,7 +1568,7 @@ cabsw1:
 		Start: 63
 		Facings: 32
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0
 		ZOffset: 512
@@ -1790,7 +1764,7 @@ defd:
 	dead:
 		ShadowStart: 3
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0, 21
 		ZOffset: 512
@@ -1877,7 +1851,7 @@ blackdefd:
 		Start: 23
 		ShadowStart: 47
 	emp-overlay:
-		Filename: emp_fx01.shp
+		Filename: emp_fx02.shp
 		Length: *
 		Offset: 0, 0, 21
 		ZOffset: 512
