@@ -45,6 +45,7 @@ checkbox-megawealth =
         - Removes all the Tiberium and Tiberium spawner on the map
         - Tiberium Extractors immune to damage
         - Tiberium Extractors gains +200% income
+        - Units with Tiberium Conversion upgrade drain from Extractors.
 
 checkbox-king-of-the-hill =
     .label = King of the Hill
@@ -55,7 +56,7 @@ checkbox-sudden-death =
     .description = Players can't build another MCV and get defeated when they lose it
 
 checkbox-campaignunit =
-    .label = Campaign Unit
+    .label = Campaign-Only Unit
     .description = Allow player to build units in campaign
 
 ## World
