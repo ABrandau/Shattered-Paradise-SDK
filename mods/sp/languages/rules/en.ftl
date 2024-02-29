@@ -855,7 +855,7 @@ wolf-desc = Tiberium beast that uses tiberium acid to harm nearby units.
      - Heals on Tiberium fields
      - Attacks reduce target's attack and movement speed by 35%
      - Can attack enemies ahead while moving
-     - Can mutate killed units
+     - Can mutate killed Infantry
      - E.M.P. Immune
      - Wild mind: Mind only controllable by MasterMind
 
@@ -954,7 +954,7 @@ spiderarty-desc = Heavy artillery that deploys drones at the targetted area.
      - Minimum attack distance
      - Spawns drones at target
      - Gain 100% EXP from enemy killed by spawned drones
-     - Converts killed units into workers
+     - Converts killed Infantry/Beast into worker cyborgs
      - Can shoot over walls
      - Can crush infantry
      - Selfrepair
@@ -1082,6 +1082,7 @@ mutqueen-desc = Flying tiberium beast dealing high amount of damage and
      - Lays eggs via deploy which later hatch as crabs that are hostile to anyone
      - Gain 100% EXP from enemy killed by spawned crabs
      - Can attack enemies ahead while moving
+     - Can mutate killed Infantry
 
 falcon-name = Falcon
 falcon-desc = Fast jet that fires 4 high-exlosive rockets.
