@@ -208,13 +208,16 @@ dhelipad-name = Helipad
 dpowerplant-name = Power Plant
 gadept-name = Service Depot
 gadept-desc = Provides 3 Repair Drones to repair nearby damaged vehicles.
+
     Special:
-     - Vehicles standing at the center of the building can be sold
+     - Vehicles standing in the center of the building can be sold
 
 scrdepot-name = Scrin Maintenance Depot
 
 napost-name = Laser Fence Section
-napost-desc = Stops infantry and blocks enemy fire
+napost-desc = Stops infantry, vehicles and blocks enemy fire
+
+    Special:
      - Can NOT be crushed
      - Requires power to operate
 
@@ -222,12 +225,14 @@ nafnce-name = Laser Fence
 
 gasilo-name = Silo
 gasilo-desc = Stores excess Tiberium.
+
     Special:
      - Stores 3000$
      - Power loss does not affect storage capacity
 
 dcarryall-name = Carryall
 carryall-desc = VTOL aircraft for transporting vehicles.
+
     Special:
      - Can transport one vehicle
 
@@ -239,6 +244,7 @@ scrtrnsport-name = Scrin Carryall
 
 napuls-name = EMP Cannon
 napuls-desc = Cannon that uses EMP projectiles.
+
     Special:
      - Fires a pulse blast which disables all ground machines in the area
          - For example: Buildings, Defences, Vehicles and Cyborgs
@@ -266,35 +272,41 @@ naapwr-desc = Provides more power than the standard powerplant
 
 gapile-name = GDI Barracks
 gapile-desc = Arms Infantry.
+
     Special:
      - Heals infantry in an area around it.
 
 gdiref-name = GDI Refinery
 gdiref-desc = Processes raw Tiberium into useable resources.
+
     Special:
      - Stores 2000$
      - Can be rotated
 
 nodref-name = Nod Refinery
 nodref-desc = Processes raw Tiberium into useable resources.
+
     Special:
      - Stores 2000$
      - Can be rotated
 
 muproc-name = Mutant Refinery
 muproc-desc = Processes raw Tiberium into useable resources.
+
     Special:
      - Stores 2000$
      - Can be rotated
 
 scrproc-name = Scrin Refinery
 scrproc-desc = Processes raw Tiberium into useable resources.
+
     Special:
      - Stores 4000$
      - Can be rotated
 
 cabref-name = C.A.B.A.L Refinery
 cabref-desc = Processes raw Tiberium into useable resources.
+
     Special:
      - Stores 2000$
      - Can be rotated
@@ -316,6 +328,7 @@ srcweap-desc = Produces vehicles.
 
 garadr-name = GDI Radar
 garadr-desc = Provides an overview of the battlefield and provides the Spy Satellite ability.
+
     Special:
      - Provides minimap
      - Stealth detection
@@ -324,6 +337,7 @@ garadr-desc = Provides an overview of the battlefield and provides the Spy Satel
 
 naradr-name = Nod Radar
 naradr-desc = Provides an overview of the battlefield and provides the Spy Satellite ability.
+
     Special:
      - Provides minimap
      - Stealth detection
@@ -332,6 +346,7 @@ naradr-desc = Provides an overview of the battlefield and provides the Spy Satel
 
 muradr-name = Mutant Radar
 muradr-desc = Provides an overview of the battlefield and provides the Spy Satellite ability.
+
     Special:
      - Provides minimap
      - Stealth detection
@@ -340,6 +355,7 @@ muradr-desc = Provides an overview of the battlefield and provides the Spy Satel
 
 cabradr-name = C.A.B.A.L. Radar
 cabradr-desc = Provides an overview of the battlefield and provides the Spy Satellite ability.
+
     Special:
      - Provides minimap
      - Stealth detection
@@ -348,6 +364,7 @@ cabradr-desc = Provides an overview of the battlefield and provides the Spy Sate
 
 scrradr-name = Signal Transmitter
 scrradr-desc = Provides an overview of the battlefield and provides the Spy Satellite ability.
+
     Special:
      - Provides minimap
      - Stealth detection
@@ -386,12 +403,14 @@ cabtech-desc = Provides access to advanced C.A.B.A.L. technologies.
 
 nahfac-name = Lightbringer's Altar
 nahfac-desc = Produces vehicles, including the Lightbringer.
+
     Special:
     - Maximum 1 can be built
     - Spawns Templar when sold
 
 gtdrop-name = Dropship Bay
 gtdrop-desc = Staging area for drop pod assault.
+
     Special:
      - Provides access to Helldiver Drop support
      - Produces the Mammoth Mk. II
@@ -403,22 +422,26 @@ cabyard-name = C.A.B.A.L. Construction Yard
 
 nahand-name = Hand of Nod
 nahand-desc = Arms Infantry.
+
     Special:
      - Heals infantry in an area around it
 
 namisl-name = Cluster Missile Silo
 namisl-desc = Provides access to Nod Chemical Missiles.
+
     Special:
      - Provides access to the Chemical Missile
      - Requires power to operate
 
 murax-name = Mutant Armory
 murax-desc = Arms Infantry.
+
     Special:
      - Heals infantry in an area around it
 
 mutsw2-name = Mother Veinhole
 mutsw2-desc = With this structure Mutant commanders are able to summon veinhole monster.
+
     Special:
      - Provides access to Veinhole Monsters
      - Requires power to operate
@@ -430,11 +453,13 @@ scrpowr-desc = Provides power for other structures.
 
 scrrax-name = Landing Zone
 scrrax-desc = Calls down Infantry.
+
     Special:
      - Heals infantry in an area around it
 
 scradvpowr-name = Wormhole Generator
 scradvpowr-desc = Teleports infantry and vehicles to a selected area.
+
     Special:
      - Provides access to the Instant Wormhole support power
      - Requires power to operate
@@ -444,11 +469,13 @@ cabpowr-desc = Provides more power than the standard powerplant
 
 cabclaw-name = C.A.B.A.L. Claw
 cabclaw-desc = Processes Infantry.
+
     Special:
      - Heals infantry in an area around it
 
 cabobelisk-name = Nanomachine Core
 cabobelisk-desc = C.A.B.A.L.'s Support Superweapon.
+
     Special:
      - Provides access to Nanomachine Swarms
      - Requires power to operate
@@ -460,56 +487,78 @@ gapowrup-desc = Provides extra power generation, place them on the smokestack of
 
 gavulc-name = Vulcan Tower
 gavulc-desc = Anti-infantry base defense.
-    Good vs: Infantry.
+
+    Good vs: Infantry
+
     Special:
      - Provides stealth detection
      - Requires power to operate
 
+    Upgrades:
+     - AP Ammunition
+
 garock-name = RPG Tower
 garock-desc = Anti-Armor base defense.
-    Good vs: Vehicles, Structures.
+
+    Good vs: Vehicles, Structures
+
     Special:
      - Provides stealth detection
      - Requires power to operate
 
 gacsam-name = SAM Tower
 gacsam-desc = Anti-Air base defense.
+
     Good vs: Aircraft
+
     Special
      - Can attack Air
      - Requires power to operate
 
 gasonc-name = Sonic Emitter
 gasonc-desc = High-tech base defense with a powerful harmonic resonance turret.
+
     Good vs: Ground targets
+
     Special:
      - Deals heavy damage over time to enemy units in the line of fire
      - Requires power to operate
 
 nalasr-name = Laser Turret
 nalasr-desc = Basic laser defense.
+
     Good vs: Ground targets
+
     Special:
      - Provides stealth detection
      - Requires power to operate
 
 naobel-name = Obelisk of Light
 naobel-desc = High tech laser defense.
+
     Good vs: Ground targets
+
     Special:
      - Provides stealth detection
      - Requires power to operate
 
 nasam-name = SAM Site
 nasam-desc = Anti-Air base defense.
-    Good vs: Aircraft.
+
+    Good vs: Aircraft
+
     Special
      - Can attack Air
      - Requires power to operate
 
+    Upgrades:
+     - Tiberium Core Missiles
+
 mubunkr-name = Bunker
 mubunkr-desc = Fortified position where infantry can fire from within.
+
     Good vs: Depends what has been garrisoned
+
     Special:
      - Provides stealth detection when garrisoned
      - Infantry garrisoned inside gain extra range
@@ -517,25 +566,33 @@ mubunkr-desc = Fortified position where infantry can fire from within.
 
 mucannon-name = Guardian Cannon
 mucannon-desc = Anti-Armor base defense.
+
     Good vs: Vehicles
+
     Special:
      - Provides stealth detection
 
 muflak-name = Flak Station
 muflak-desc = Anti-Air base defense.
+
     Good vs: Aircraft.
+
     Special:
      - Can attack Air
 
 cabpit-name = Drone Pit
 cabpit-desc = Drone Hangar that launches small bomber drones.
+
     Good vs: Infantry
+
     Special:
      - Provides stealth detection
 
 cabblast-name = Blaster Turret
 cabblast-desc = Artillery defense turret.
+
     Good vs: Ground targets
+
     Special:
      - Provides stealth detection
      - Has minimum range of fire
@@ -543,29 +600,40 @@ cabblast-desc = Artillery defense turret.
 
 cabrail-name = Railgun Turret
 cabrail-desc = Anti-Air base defense.
+
     Good vs: Aircraft
+
     Special
      - Can attack Air
      - Requires power to operate
 
 scrneedler-name = Ichor Waste Turret
 scrneedler-desc = Base defense that atacks with tiberium based chemicals.
+
     Good vs Ground targets
+
     Special:
      - Requires power to operate
      - Can mutate killed enemies
      - Attacks emit radiation that harm units in the area
 
+    Upgrades:
+     - Vinfera Catalysts
+
 scrdrone-name = Pulsar Tower
 scrdrone-desc = Advanced base defense.
+
     Good vs Ground targets
+
     Special:
      - Impulse deals damage over time and slows enemy units
      - Requires power to operate
 
 scrtractor-name = Tractor Beam
 scrtractor-desc = Anti-Air base defense.
+
     Good vs Aircraft
+
     Special:
      - Can attack air
      - Freezes the targetted aircraft momentarily
@@ -573,49 +641,67 @@ scrtractor-desc = Anti-Air base defense.
 
 gafire-name = Firestorm Generator
 gafire-desc = Generates a firestorm barrier in a circle around the building.
+
     Special:
      - When activated it increases the durability of friendly units inside the barrier by 30%
      - Kills enemy units that try to cross the firestorm
 
 gaplug-name = Ion Cannon Control Center
 gaplug-desc = Communication facility for the Ion Cannon Array.
+
     Special:
      - Provides access to the Ion Cannon Array
      - Requires power to operate
 
 nastlh-name = Stealth Generator
 nastlh-desc = Support structure that cloaks friendly units and buildings.
+
     Special:
      - Cloaks friendly assets around it
      - Generator itself is not cloaked
      - Requires power to operate
 
+    Upgrades:
+     - Improved Stealth Generator
+
 natmpl-name = Temple of Nod
 natmpl-desc = The religious center of the Brotherhood of Nod.
+
     Special:
      - Provides access to the Apocalypse Missile
      - Requires power to operate
 
 muventi-name = Tunnel Network
 muventi-desc = Allows mutants to quickly transport their units across the battlefield.
+
     Special:
      - Transports units between tunnels (except Epics and Demotrucks)
      - Cannot be repaired by engineers
+
+    Upgrades:
+     - Tunnel Repairs
 
 muvent-name = Tunnel
 muvent-desc = Allows mutants to quickly transport their units across the battlefield.
+
     Special:
      - Transports units between tunnels (except Epics and Demotrucks)
      - Cannot be repaired by engineers
+     - Cannot be sold
+
+    Upgrades:
+     - Tunnel Repairs
 
 mutsw1-name = Meditation Hall
 mutsw1-desc = Generates powerful Ion Storms.
+
     Special:
      - Provides access to the Ion Storm
      - Requires power to operate
 
 scrextractor-name = Shield Generator
 scrextractor-desc = Scrin support structure shielding their troops.
+
     Special:
      - Generates shields around nearby friendly ground vehicles
      - Shields provide additional 150 health points
@@ -624,12 +710,14 @@ scrextractor-desc = Scrin support structure shielding their troops.
 
 scrsw1-name = Meteor Tractor
 scrsw1-desc = Allows the Scrin to track a meteor shower.
+
     Special:
      - Provides access to the Wrath of the Creator
      - Requires power to operate
 
 cabeye-name = Eye of C.A.B.A.L.
 cabeye-desc = High tech detection system.
+
     Special:
      - Provides huge vision range
      - Shrouds the enemy vision range in a certain area
@@ -637,6 +725,7 @@ cabeye-desc = High tech detection system.
 
 cabsw1-name = Iron Savior
 cabsw1-desc = Energy cannon based off Scrin technology.
+
     Special:
      - Provides access to the Iron Savior
      - Requires power to operate
@@ -647,10 +736,13 @@ blackdefd-name = C.A.B.A.L. Defender
 blackdefd-desc = C.A.B.A.L.'s ultimate weapon. Defense structure with
     long range plasma artillery. Can transform into
     the mobile Epic walker version.
+
     Good vs: Ground targets
+
     Special when deployed:
      - Armed with a plasma artillery launcher
      - Maximum Supply of 1
+
     Special when mobile:
      - Selfhealing up to 100%
      - Can shoot over walls
@@ -661,30 +753,47 @@ blackdefd-desc = C.A.B.A.L.'s ultimate weapon. Defense structure with
 ## Vehicle
 smech-name = Wolverine
 smech-desc = Small but fast anti-infantry walker.
+
     Good vs: Infantry
+
     Special:
      - Provides stealth detection
      - Can attack enemies ahead while moving
 
+    Upgrades:
+     - AP Ammunition
+
 mmch-name = Titan
 mmch-desc = GDI's main battle walker armed with an anti-tank cannon.
+
     Good vs: Vehicles
+
     Special:
      - Can shoot over walls
      - Can crush infantry
      - Can attack while moving
 
+    Upgrades:
+     - Railgun Barrels
+
 apc-name = Amphibious APC
 apc-desc = Armored infantry transport.
+
     Good vs: Infantry.
+
     Special:
      - Can transport 5 infantry units
      - Can travel over water
      - Can crush infantry\n - Can attack while moving
 
+    Upgrades:
+     - AP Ammunition
+
 hvr-name = Hover MLRS
 hvr-desc = Hovering vehicle, armed with long range missiles.
+
     Good vs: Vehicles, Aircraft
+
     Special:
      - Can attack Air
      - Can shoot over walls
@@ -694,7 +803,9 @@ hvr-desc = Hovering vehicle, armed with long range missiles.
 
 jug-name = Juggernaut
 jug-desc = Heavy mechanized artillery walker.
+
     Good vs: Infantry, Buildings
+
     Special:
      - Deals AoE damage
      - Minimum attack distance
@@ -703,7 +814,9 @@ jug-desc = Heavy mechanized artillery walker.
 
 sonic-name = Disruptor
 sonic-desc = Armored high-tech vehicle with a powerful harmonic resonance cannon.
+
     Good vs: Ground targets
+
     Special:
      - Deals heavy damage over time to any unit in the line of fire
      - Can crush infantry
@@ -711,7 +824,9 @@ sonic-desc = Armored high-tech vehicle with a powerful harmonic resonance cannon
 
 g4tnk-name = Mammoth Tank
 g4tnk-desc = Heavy assault tank.
+
     Good vs: Vehicles, Aircraft
+
     Special:
      - Selfheal to 50%
      - Can attack air
@@ -719,9 +834,14 @@ g4tnk-desc = Heavy assault tank.
      - Can crush infantry
      - Can attack while moving
 
+    Upgrades:
+     - Railgun Barrels
+
 hmec-name = Mammoth Mk. II
 hmec-desc = GDI's super-heavy walker and the pride of their army.
+
     Good vs: Everything
+
     Special:
      - Build limit: 1
      - Selfhealing up to 100%
@@ -730,42 +850,66 @@ hmec-desc = GDI's super-heavy walker and the pride of their army.
      - Can shoot over walls
      - Can crush everything except other Epics
 
+    Upgrades:
+     - AP Ammunition
+
 nodmcv-name = Nod MCV
 
 bggy-name = Raider Buggy
 bggy-desc = Fast vehicle armed with a machine gun and
     has room for one passenger that modifies the weapon of the vehicle.
+
     Good vs: Changes depending on the passenger
+
     Special:
      - The weapon of the vehicle changes with the passenger
      - Provides stealth detection
      - Can attack while moving
 
+    Upgrades:
+     - Raider Passenger
+
 attackbike-name = Attack Bike
 attackbike-desc = Fast scout vehicle armed with rockets.
+
     Good vs: vs Vehicles, Aircraft
+
     Special:
      - Can attack air
      - Can attack enemies ahead while moving
 
+    Upgrades:
+     - Tiberium Core Missiles
+
 ttnk-name = Tick Tank
 ttnk-desc = Nod's main battle tank armed with an anti-tank cannon.
+
     Good vs: Vehicles
+
     Special:
      - Can deploy to gain extra protection
      - Can crush infantry
      - Can attack enemies ahead while moving
 
+    Upgrades:
+     - Laser Capacitors
+
 tickhologram-name = Tick Tank Hologram
 
 bike-name = Demo Bike
 bike-desc = Fast moving suicide vehicle.
+
     Good vs: Ground targets
+
     Special:
      - Can deploy to explode
 
+    Upgrades:
+     - Deadly Mixtures
+
 sapc-name = Subterranean APC
 sapc-desc = Troop transport that can move underground.
+
     Special:
      - Can move underground
      - Can transport up to 5 infantry units
@@ -774,15 +918,22 @@ sapc-desc = Troop transport that can move underground.
 
 subtnk-name = Devil's Tongue
 subtnk-desc = Subterranean flame tank able to move underground.
+
     Good vs: Infantry, Buildings
+
     Special:
      - Can move underground
      - Can crush infantry
      - Cannot move or burrow back for 3 seconds after resufacing
 
+    Upgrades:
+     - Purifying Flame
+
 howtlizer-name = Specter
 howtlizer-desc = High tech artillery armed with a self-propelled howitzer and a cloaking device.
+
     Good vs: Ground targets
+
     Special:
      - Can shoot over walls
      - Can crush infantry
@@ -791,7 +942,9 @@ howtlizer-desc = High tech artillery armed with a self-propelled howitzer and a 
 
 stnk-name = Stealth Tank
 stnk-desc = Hit-and-run tank armed with twin dragon TOW missiles and a cloaking device.
+
     Good vs: Vehicles, Aircraft
+
     Special:
      - Stealthed
      - Can attack air
@@ -800,9 +953,14 @@ stnk-desc = Hit-and-run tank armed with twin dragon TOW missiles and a cloaking 
      - Cloaking malfunctions when at red hp
      - Can attack while moving
 
+    Upgrades:
+     - Tiberium Core Missiles
+
 scorpion-name = Lightbringer
 scorpion-desc = Nod's super-heavy walker. One vision one purpose.
+
     Good vs: Ground
+
     Special:
      - Build limit: 1
      - Selfhealing up to 100%
@@ -811,11 +969,16 @@ scorpion-desc = Nod's super-heavy walker. One vision one purpose.
      - Can crush everything except other Epics
      - Deployability: Enemy units get out of control for 5 seconds
 
+    Upgrades:
+     - Purifying Flame
+
 mutmcv-name = Mutant MCV
 
 mutquad-name = Quad Cannon
 mutquad-desc = Armored truck armed with a quad cannon.
+
     Good vs: Infantry, Aircraft
+
     Special:
      - Provides stealth detection
      - Can crush infantry
@@ -823,14 +986,21 @@ mutquad-desc = Armored truck armed with a quad cannon.
 
 lynx-name = Lynx Tank
 lynx-desc = Light tank armed with an anti-tank cannon.
+
     Good vs: Vehicles
+
     Special:
      - Can crush infantry
      - Can attack while moving
 
+    Upgrades:
+     - Lynx Rockets
+
 struck-name = Battle Bus
 struck-desc = Combat transport.
+
     Good vs: Depending on occupants
+
     Special:
      - Cargo for 5 soldiers
      - Passengers can fire out of its windows
@@ -839,6 +1009,7 @@ struck-desc = Combat transport.
 
 minelayer-name = Minelayer
 minelayer-desc = Mines...mines everywhere!
+
     Special:
      - Provides stealth detection
      - Can remove enemy mines
@@ -850,7 +1021,9 @@ minelayer-desc = Mines...mines everywhere!
 
 wolf-name = Carnotaurus
 wolf-desc = Tiberium beast that uses tiberium acid to harm nearby units.
+
     Good vs: Ground targets
+
     Special:
      - Heals on Tiberium fields
      - Attacks reduce target's attack and movement speed by 35%
@@ -859,9 +1032,14 @@ wolf-desc = Tiberium beast that uses tiberium acid to harm nearby units.
      - E.M.P. Immune
      - Wild mind: Mind only controllable by MasterMind
 
+    Upgrades:
+     - Stimulant Infusion
+
 mrls-name = Blighter MLRS
 mrls-desc = Light artillery armed with unguided rockets.
+
     Good vs: Infantry, Buildings.
+
     Special:
      - Deals AoE damage
      - Minimum attack distance
@@ -869,18 +1047,28 @@ mrls-desc = Light artillery armed with unguided rockets.
      - Can crush infantry
      - Can attack while moving
 
+    Upgrades:
+     - Tiberium Gas Warhead
+
 deathclaw-name = Ravager
 deathclaw-desc = Melee beast from the outer redzones that brings death with its claws.
+
     Good vs: Ground targets
+
     Special:
      - Heals on Tiberium fields
      - E.M.P. Immune
      - Slows enemy units with it's attack
      - Wild mind: Mind only controllable by MasterMind
 
+    Upgrades:
+     - Stimulant Infusion
+
 hvrtruk3-name = Demo Truck
 hvrtruk3-desc = A hovering nuclear demolition truck with a oneway ticket.
+
     Good vs: Everything
+
     Special:
      - Demolishes almost everything nearby upon detonation
      - Hovers (ignores terrain like Veins, Water and Radiations)
@@ -889,7 +1077,9 @@ hvrtruk3-desc = A hovering nuclear demolition truck with a oneway ticket.
 
 weasau-name = Weasaurus Lord
 weasau-desc = A long forgotten creature that has emerged again.
+
     Good vs: Ground
+
     Special:
      - Build limit: 1
      - Selfhealing up to 100%
@@ -898,9 +1088,9 @@ weasau-desc = A long forgotten creature that has emerged again.
      - Can crush everything execept other Epics
      - Heals on Tiberium fields
      - E.M.P. Immune
-     - Deployability: Swtich to melee attack, +50 speed,
+     - Deployability: Switch to melee attack gains +50 movement speed
        and Summons a brood of Weasaurus
-     - Gain 100% EXP from enemy killed by summoned Weasaurus
+     - Gains 100% EXP from enemies killed by the summoned brood
 
 weasausmall-name = Small Weasaurus
 
@@ -908,16 +1098,23 @@ cabmcv-name = C.A.B.A.L. MCV
 
 centurion-name = Centurion
 centurion-desc = Heavy walker equipped with chain guns.
+
     Good vs: Infantry
+
     Special:
      - Provides stealth detection
      - Can shoot over walls
      - Can crush infantry
      - Can attack while moving
 
+    Upgrades:
+     - Gatling Cannons
+
 reapercab-name = Cyborg Reaper
 reapercab-desc = Fast raiding walker armed with missiles and Web launchers.
+
     Good vs: Vehicles, Aircraft
+
     Special:
      - Can attack enemies ahead while moving
      - Can target air
@@ -925,15 +1122,23 @@ reapercab-desc = Fast raiding walker armed with missiles and Web launchers.
          - For example: Infantry, smaller Beast and Cyborgs.
      - Can shoot over walls
 
+    Upgrades:
+     - Paralyzing Reaper Nets
+
 limped-name = Limpet Drone
 limped-desc = Small drone armed with explosives. Good vs: Infantry, Vehicles
+
     Special:
      - Needs to be deployed to be armed
      - Invisible when deployed
      - Launches explosives towards a target after small delay
 
+    Upgrades:
+     - Limpet AA Missile
+
 repairvehicle-name = Mobile Repair Vehicle
 repairvehicle-desc = Repairs nearby vehicles.
+
     Special:
      - Unarmed
      - Can repair vehicles ahead while moving
@@ -941,6 +1146,7 @@ repairvehicle-desc = Repairs nearby vehicles.
 
 cabapc-name = Hover Transport
 cabapc-desc = Light Armored transport.
+
     Special:
      - Can transport up to 12 infantry or 4 vehicles
      - Hovers (ignores terrain like Veins, Water and Radiations)
@@ -949,7 +1155,9 @@ cabapc-desc = Light Armored transport.
 
 spiderarty-name = Drone Host 
 spiderarty-desc = Heavy artillery that deploys drones at the targetted area.
+
     Good vs: Ground targets
+
     Special:
      - Minimum attack distance
      - Spawns drones at target
@@ -961,7 +1169,9 @@ spiderarty-desc = Heavy artillery that deploys drones at the targetted area.
 
 paladin-name = Minotaur
 paladin-desc = Advanced walker armed with a twin laser cannon.
+
     Good vs: Ground targets
+
     Special:
      - Selfrepair
      - Can shoot over walls
@@ -969,7 +1179,9 @@ paladin-desc = Advanced walker armed with a twin laser cannon.
 
 corruptor-name = Corruptor
 corruptor-desc = Anti-personnel walker.
+
     Good vs Infantry
+
     Special:
      - Can attack enemies ahead while moving
      - Provides stealth detection
@@ -979,9 +1191,14 @@ corruptor-desc = Anti-personnel walker.
      - Immune to Tiberium radiation
      - Can crush infantry
 
+    Upgrades:
+     - Vinifera Catalysts
+
 scrmbt-name = Hover Tank
 scrmbt-desc = Advanced hover tank armed with a laser cannon.
+
     Good vs Ground targets
+
     Special:
      - Hovers (ignores terrain like Veins, Water and Radiations)
      - No longer hovers when disabled by EMP
@@ -989,16 +1206,25 @@ scrmbt-desc = Advanced hover tank armed with a laser cannon.
      - Cannot crush infantry
      - Can attack while moving
 
+    Upgrades:
+     - Tiberium Conversion
+
 scrscorpion-name = Plague Walker
 scrscorpion-desc = Long range assault walker.
+
     Good vs: Infantry, Vehicle
+
     Special:
      - Absorbs essence from killed enemies to heal
      - Fog inflicts blinding and poison effect in the area
      - Can crush infantry
 
+    Upgrades:
+     - Wasting Disease
+
 scrrecharger-name = Guardian
 scrrecharger-desc = Mobile shield generator.
+
     Special:
      - Generates shields around nearby friendly land vehicles
      - Shields provide additional 150 health points
@@ -1008,6 +1234,7 @@ scrrecharger-desc = Mobile shield generator.
 
 scrmobmine-name = Subjugator
 scrmobmine-desc = Mind Control unit.
+
     Special:
      - Can take over regular ground units
      - Can control up to three units
@@ -1019,7 +1246,9 @@ scrmobmine-desc = Mind Control unit.
 
 tripod-name = Annihilator Tripod
 tripod-desc = Advanced walker.
+
     Good vs Ground
+
     Special:
      - Absorbs essence from killed units to heal
      - Can shoot over walls
@@ -1028,24 +1257,36 @@ tripod-desc = Advanced walker.
 ## Aircraft
 orcaf-name = Orca Fighter
 orcaf-desc = Fast assault gunship with dual missile launchers.
+
     Good vs: Vehicles, Aircraft
+
     Special:
      - Can attack air
      - Provides stealth detection when at air
      - Can attack enemies ahead while moving
 
+    Upgrades:
+     - Ceramic Plating
+
 orcab-name = Orca Bomber
 orcab-desc = Heavy carpet bomber.
+
     Good vs: Ground targets
+
     Special:
      - Can attack enemies ahead while moving
+
+    Upgrades:
+     - Ceramic Plating
 
 dshp-name = Dropship
 orcatran-name = Orca Transport
 
 harpy-name = Harpy
 harpy-desc = Scout Helicopter armed with chain guns.
+
     Good vs: Infantry, Aircraft
+
     Special:
      - Can attack air
      - Provides stealth detection when at air
@@ -1053,14 +1294,18 @@ harpy-desc = Scout Helicopter armed with chain guns.
 
 banshee-name = Banshee Fighter
 banshee-desc = Advanced fighter-bomber craft armed with twin plasma cannons.
+
     Good vs: Vehicles, Aircraft
+
     Special:
      - Can attack air
      - Can attack enemies ahead while moving
 
 cerberus-name = Paladin Cruiser
 cerberus-desc = High tech frigate armed with a mobile stealth generator.
+
     Good vs: Ground targets
+
     Special:
      - Cloaks friendly units next to it 
      - Stealth generator can't be used with weapon at the same time
@@ -1068,7 +1313,9 @@ cerberus-desc = High tech frigate armed with a mobile stealth generator.
 
 mutheli-name = Gargoyle
 mutheli-desc =  Heavy assault gunship with an auto-cannon.
+
     Good vs: Vehicles, Aircraft
+
     Special:
      - Can attack air
      - Provides stealth detection when at air
@@ -1077,23 +1324,35 @@ mutheli-desc =  Heavy assault gunship with an auto-cannon.
 mutqueen-name = Queen
 mutqueen-desc = Flying tiberium beast dealing high amount of damage and
     able to spread their brood accross the world.
+
     Good vs: Vehicles, Buildings
+
     Special:
      - Lays eggs via deploy which later hatch as crabs that are hostile to anyone
      - Gain 100% EXP from enemy killed by spawned crabs
      - Can attack enemies ahead while moving
      - Can mutate killed Infantry
 
+    Upgrades:
+     - Stimulant Infusion
+
 falcon-name = Falcon
 falcon-desc = Fast jet that fires 4 high-exlosive rockets.
+
     Good vs: Ground targets
+
     Special:
      - Moves at super-sonic speed able to dodge all attacks (except mind control)
      - Moves at half speed for 5 seconds after attacking
 
+    Upgrades:
+     - Tiberium Gas Warhead
+
 stormrider-name = Stormrider
 stormrider-desc = Scrin scout aircraft.
+
     Good vs: Vehicles, Aircraft
+
     Special:
      - Can absorb essence from killed units to heal
      - Can attack enemies from all directions
@@ -1101,13 +1360,16 @@ stormrider-desc = Scrin scout aircraft.
 
 drache-name = Scrin Host Station
 drache-desc = Deploys into a Host Station.
+
     Special:
      - Provides build radius for structures when deployed
      - Has increased HP when deployed
 
 glider-name = Glider
 glider-desc = Anti-air hover vehicle.
+
     Good vs Aircraft
+
     Special:
      - Can attack enemies ahead while moving
      - Can be upgraded to transform into an aerial version that can only engage ground units
@@ -1116,21 +1378,36 @@ glider-desc = Anti-air hover vehicle.
      - Hovers (ignores terrain like Veins, Water and Radiations)
      - No longer hovers when disabled by EMP
 
+    Upgrades:
+     - Aerial Gliders
+
 scrdestroyer-name = Destroyer
 scrdestroyer-desc = Scrin light frigate designed for long range combat.
+
     Good vs Ground targets
+
     Special:
      - Can absorb essence from killed units to heal
      - Can attack enemies ahead while moving
 
+    Upgrades:
+     - Disc Barrage
+     - Hyper-Flight Rotors
+
 scrtrans-name = Scrin Transport
 scrtrans-desc = Scrin transport.
+
     Special:
      - Can carry up to 3 vehicles or ten soldiers (no epics or nuke truck)
 
+    Upgrades:
+     - Hyper-Flight Rotors
+
 scrcarrier-name = Assault Carrier
 scrcarrier-desc = Scrin frigate.
+
     Strong vs Vehicles, Aircraft
+
     Special:
      - Sends fighters at enemies 
      - Gain 100% EXP from enemy killed by spawned fighters
@@ -1139,9 +1416,14 @@ scrcarrier-desc = Scrin frigate.
      - Can absorb essence from killed enemies to heal
      - Can attack enemies while moving
 
+    Upgrades:
+     - Hyper-Flight Rotors
+
 scrbattleship-name = Battlecruiser
 scrbattleship-desc = The main battleship of Scrin and the pride of their fleet.
+
     Strong vs Ground targets
+
     Special:
      - Build limit: 1
      - Auto repairs
@@ -1151,7 +1433,9 @@ scrbattleship-desc = The main battleship of Scrin and the pride of their fleet.
 
 wasp-name = Wasp
 wasp-desc = Aerial drone armed with dual railgun cannons.
+
     Good vs: Vehicles, Aircraft
+
     Special:
      - Can attack air
      - Provides stealth detection when at air
@@ -1159,14 +1443,18 @@ wasp-desc = Aerial drone armed with dual railgun cannons.
 
 basilisk-name = Basilisk
 basilisk-desc = Light frigate armed with firestorm rockets.
+
     Good vs: Infantry
+
     Special:
      - Deals AoE damage
      - Can attack enemies ahead while moving
 
 devourer-name = Devourer
 devourer-desc = Heavy and slow siege frigate.
+
     Good vs: Buildings
+
     Special:
      - Selfrepairs
      - Slows enemy units with it's attack
@@ -1190,7 +1478,9 @@ mubunkrfull-desc = Filled Bunker
 ghost-name = Gil the Ghost Stalker
 ghost-desc =  Gil is the elite commando of Mutants, if not GDI.
     He is armed with a ion railgun and C4.
+
     Good vs Ground
+
     Special:
      - Maximum Supply of 1
      - Demolishes structures with C4
@@ -1201,7 +1491,9 @@ ghost-desc =  Gil is the elite commando of Mutants, if not GDI.
 umagon-name = Umagon
 umagon-desc = Umagon was one of the GDI's "good girls", she sure was. 
     She is armed with a sniper with silencer and C4.
+
     Good vs Infantry
+
     Special:
      - Maximum Supply of 1
      - Demolishes structures with C4
@@ -1211,21 +1503,27 @@ umagon-desc = Umagon was one of the GDI's "good girls", she sure was.
 
 mujeep-name = Technical
 mujeep-desc = Infantry transport.
+
     Good vs: Infantry.
+
     Special:
      - Can transport 3 infantry units
      - Can attack while moving
 
 avatar-name = Avatar
 avatar-desc = Heavy Walker armed with a strong laser and enhances nearby Units.
+
     Good vs: Ground
+
     Special:
      - Can crush infantry
      - Can shoot over wall
 
 weasau3-name = Green Weasaurus
 weasau3-desc = Some long forgotten creature trained by mutant.
+
     Good vs: Ground
+
     Special:
      - Selfhealing up to 100%
      - Wild mind: Mind only controllable by MasterMind
@@ -1237,21 +1535,25 @@ weasau3-desc = Some long forgotten creature trained by mutant.
 
 lpst-name = Sensor Array
 lpst-desc = Support unit for large stealth detection.
+
     Special:
      - Deploy to reveal stealth unit in a large area
 
 sgen-name = Mobile Stealth Generator
 sgen-desc = Support unit that projects a cloaking field.
+
     Special:
      - Cloak nearby unit when deploy
 
 icbm-name = Ballistic Missile Launcher
 icbm-desc = Even ICBM is deployed as the tension increased.
+
     Special:
      - Deploy to gain ICBM strike abiility
 
 mwar-name = Mobile War Factory
 mwar-desc = Support unit can deploy into warfactory.
+
     Special:
      - Can deploy into a factory to produce vehicle.
      - Needs Nod's War Factory to unlock basic vehicle.
@@ -1259,6 +1561,7 @@ mwar-desc = Support unit can deploy into warfactory.
 
 memp-name = Mobile EMP
 memp-desc = Support unit can generate emp pulse.
+
     Special:
      - Deploy to generate emp pulse to disable all ground machines in the area
          - For example: Buildings, Defences, Vehicles and Cyborgs
@@ -1267,6 +1570,7 @@ memp-desc = Support unit can generate emp pulse.
 
 cabecm-name = Hacker Drone
 cabecm-desc = Support unit can recon and infiltrate.
+
     Special:
      - Force fire any location: Send the Quadrotor to recon
      - Send the Quadrotor to hack hackable.
@@ -1290,7 +1594,9 @@ containmentunit-name = Containment Unit
 
 coredefender-name = Core Defender
 coredefender-desc = C.A.B.A.L.'s final creation armed with crazy weapon.
+
     Good vs: Everything
+
     Special:
      - Needs preparing before rising.
      - Selfrepair
@@ -1300,7 +1606,9 @@ coredefender-desc = C.A.B.A.L.'s final creation armed with crazy weapon.
 
 hmectest-name = Mammoth Mk.III
 hmectest-desc =  GDI's final creation for the war when everything is doomed.
+
     Good vs: Everything
+
     Special:
      - Build limit: 1
      - Selfhealing up to 100%
@@ -1317,7 +1625,9 @@ mkiiidrone-name = Minigun Drone
 
 scrincouncil-name = Scrin Council
 scrincouncil-desc = A council debates on the world's corpse.
+
     Good vs: Everything
+
     Special:
      - Build limit: 1
      - Selfhealing up to 100%
@@ -1543,7 +1853,9 @@ crab-name = Tiberian Cravicus
 pcrab-name = Tiberian Cravicus
 jfish-name = Floater
 jfish-desc  = Hovering amphibious lifeform attacks with electrical tentacles.
+
     Good vs Ground targets
+
     Special:
      - Hovers (ignores terrain like Veins, Water and Radiations)
      - Heals on Tiberium fields and Green Tiberium Radiation
@@ -1598,34 +1910,53 @@ fairy-name = Fairy
 ## Infantry
 gdie1-name = Marine
 gdie1-desc = Basic combat infantry.
+
     Good vs: Infantry
+
     Special:
      - Crush class: crushable
 
+    Upgrades:
+     - AP Ammunition
+     - Nanofiber Vests
+
 grenadier-name = Phalanx
 grenadier-desc = Basic anti armor infantry.
+
     Good vs: Vehicles, Aircraft
+
     Special:
      - Can attack Air
      - Can shoot over walls
      - Crush class: crushable
 
+    Upgrades:
+     - Nanofiber Vests
+
 medic-name = Medic
 medic-desc = Support infantry capable of healing other infantry.
+
     Special:
      - Unarmed
      - Crush class: crushable
 
 e2-name = Disc Thrower
 e2-desc = Infantry armed with special explosive discs.
+
     Good vs: Infantry, Structures.
+
     Special:
      - Can throw grenades over walls
      - Crush class: crushable
 
+    Upgrades:
+     - Nanofiber Vests
+
 jumpjet-name = Jumpjet Infantry
 jumpjet-desc = Soldiers with jetpacks armed with a grenade launcher.
+
     Good vs: Infantry, Structures.
+
     Special
      - Can fly
      - Will land when ordered to deploy
@@ -1634,7 +1965,9 @@ jumpjet-desc = Soldiers with jetpacks armed with a grenade launcher.
 
 eagleguard-name = Eagle Guard
 eagleguard-desc = Elite Soldier armed with an EMP rifle.
+
     Good vs: Vehicles
+
     Special:
      - Immune to Tiberium fields
      - Attack with EMP : Disable ground machines for a short time
@@ -1644,7 +1977,9 @@ eagleguard-desc = Elite Soldier armed with an EMP rifle.
 jjcomm-name = Jumpjet Commando
 jjcomm-desc = GDI's commando unit equipped with a jetpack.
     Armed with a Personal Ion Cannon and orbital bombardment beacon.
+
     Good vs: Ground
+
     Special:
      - Will fly when ordered to deploy
      - Immune to mind control
@@ -1653,14 +1988,18 @@ jjcomm-desc = GDI's commando unit equipped with a jetpack.
 
 altnode1-name = Militant
 altnode1-desc = Nod's light infantry variant.
+
     Good vs: Infantry
+
     Special
      - Does not go prone after taking fire
      - Crush class: crushable
 
 crusader-name = Crusader
 crusader-desc = Anti-Armor infantry.
+
     Good vs: Vehicles, Aircraft
+
     Special:
      - Can attack Air
      - Can shoot while moving
@@ -1670,25 +2009,33 @@ crusader-desc = Anti-Armor infantry.
 
 templar-name = Templar
 templar-desc = Warrior resurrected regenesis prototype armed with a flamethrower.
+
     Good vs: Infantry, Buildings
-    Weak vs: Defence, Aircraft
+
     Special:
      - Does not go prone after taking fire
      - Immune to Tiberium fields
      - Crush class: crushable
 
+    Upgrades:
+     - Purifying Flame
+
 nconf-name = Black Hand Trooper
 nconf-desc = Nod's Special Forces armed with firefly laser rifles and a personal cloaking device.
+
     Good vs: Ground targets
+
     Special:
      - Spawns holograms when ordered to deploy
      - Cloaked
      - Crush class: crushable
 
 bhs-name = Toxin Commando
-bhs-desc = Kane¡¯s Elite Commando armed with a toxin sniper rifle
+bhs-desc = Kaneï¿½ï¿½s Elite Commando armed with a toxin sniper rifle
     and a personal cloaking device.
+
     Good vs: Infantry, Buildings.
+
     Special:
      - Build limit: 1
      - Immune to Tiberium fields
@@ -1702,24 +2049,37 @@ flamehologram-name2 = Militant Hollogram
 
 marauder-name = Marauder
 marauder-desc = Wasteland soldiers armed with shotguns.
+
     Good vs: Infantry
+
     Special:
      - Heals on Tiberium fields
      - Can deploy to increase health and attackrange
      - Crush class: crushable
 
+    Upgrades:
+     - Fortified Barricades
+
 mutfiend-name = Tiberian Fiend
 mutfiend-desc = Tiberium beasts trained to take out enemies with tiberium shards.
+
     Good vs: Vehicles, Aircraft
+
     Special:
      - Heals on Tiberium fields
      - Can attack Air
      - Crush class: crushable
      - Wild mind: Mind only controllable by MasterMind
 
+    Upgrades:
+     - Blue Shards
+     - Stimulant Infusion
+
 cutman-name = Mutant Engineer
 cutman-desc =  Support infantry.
+
     Good vs: Buildings
+
     Special:
      - Can capture neutral and enemy buildings
      - Can repair buildings and bridges
@@ -1728,7 +2088,9 @@ cutman-desc =  Support infantry.
 
 e3-name = Skirmisher
 e3-desc =  Siege militia armed with molotov mortars.
+
     Good vs: Infantry, Buildings
+
     Special:
      - Heals on Tiberium fields
      - High attack range
@@ -1736,10 +2098,15 @@ e3-desc =  Siege militia armed with molotov mortars.
      - Can shoot over walls
      - Crush class: crushable
 
+    Upgrades:
+     - Tiberium Gas Warhead
+
 seer-name = Tyrant
 seer-desc = Mutant infantry capable of channeling psychic energy waves and
     increasing the efficiency of nearby friendly units.
+
     Good vs: Vehicles, Aircraft
+
     Special:
      - Heals on Tiberium fields
      - Can persuade friendly units to fight harder when deployed
@@ -1753,7 +2120,9 @@ psyker-name = Lyra the Storm Caller
 psyker-desc = Forgotten Commando born with high level psychic powers.
     She is capable of manipulating the presence of tiberium based gas
     in the atmosphere triggering an Ion Storm.
+
     Good vs: Ground targets
+
     Special:
      - Build limit: 1
      - Heals on Tiberium fields
@@ -1764,7 +2133,9 @@ psyker-desc = Forgotten Commando born with high level psychic powers.
 
 shark-name = Razorshark
 shark-desc = Melee creature that shreds enemies.
+
     Good vs Infantry
+
     Special:
      - Absorbs essence from killed units to heal
      - Crush class: crushable
@@ -1772,7 +2143,9 @@ shark-desc = Melee creature that shreds enemies.
 
 legion-name = Legionnaire
 legion-desc = Frontline anti-vehicle trooper.
+
     Good vs Vehicles, Buildings, Aircraft
+
     Special:
      - Absorbs essence from killed units to heal
      - Can shoot over walls
@@ -1781,7 +2154,9 @@ legion-desc = Frontline anti-vehicle trooper.
 
 shapeshifter-name = Shapeshifter
 shapeshifter-desc = Support infantry.
+
     Good vs: Buildings
+
     Special:
      - Can capture neutral and enemy structures
      - Can repair structures and bridges
@@ -1790,6 +2165,7 @@ shapeshifter-desc = Support infantry.
 
 float-name = Essence Collector
 float-desc = Support unit that steals essence from enemy units.
+
     Special:
      - Absorbs essence from killed enemies to heal
      - Hovers (ignores terrain like Veins, Water and Radiations)
@@ -1799,7 +2175,9 @@ float-desc = Support unit that steals essence from enemy units.
 
 bug-name = Plague Trooper
 bug-desc =  Alien breed that poisons enemies.
+
     Good vs Ground targets
+
     Special:
      - Units hit will become poisoned
      - Poisoned units take damage over time
@@ -1809,9 +2187,14 @@ bug-desc =  Alien breed that poisons enemies.
      - Does not receive damage from tiberium fields
      - Absorbs essence from killed enemies to heal
 
+    Upgrades:
+     - Wasting Disease
+
 colossus-name = Colossus
 colossus-desc = Heavy duty alien.
+
     Good vs Infantry
+
     Special:
      - Can irradiate its surroundings when deployed
      - Radiation harms all units regardless of owner
@@ -1822,7 +2205,8 @@ colossus-desc = Heavy duty alien.
 
 mastermind-name = Mastermind
 mastermind-desc = The commando unit of Scrin born with the ability
-    nto mind control everyone and everything.
+    to mind control everyone and everything.
+
     Special:
      - Can mind control everything but Commandos and Epics
      - Gain 50% EXP from enemy killed by controlled unit/defence
@@ -1839,16 +2223,24 @@ cabsentry-name = Sentry Drone
 
 cyborg-name = Cyborg Infantry
 cyborg-desc = Durable cyborg construct.
+
     Good vs: Infantry
+
     Special:
      - Can be deactivated with E.M.P.
      - Does not receive damage from tiberium fields
      - Loses its legs on critical health
      - Crush class: uncrushable
 
+    Upgrades:
+     - Cybernetic Leg Enhancements
+     - Regenerative Materials
+
 cborg-name = Missile Cyborg
 cborg-desc = Anti-Armor cyborg.
+
     Good vs: Vehicles, Aircraft
+
     Special:
      - Can be deactivated with E.M.P.
      - Can attack Air
@@ -1857,36 +2249,59 @@ cborg-desc = Anti-Armor cyborg.
      - Can shoot over walls
      - Crush class: uncrushable
 
+    Upgrades:
+     - Cybernetic Leg Enhancements
+     - Regenerative Materials
+
 swarmling-name = Swarmling
 swarmling-desc = Support infantry.
+
     Good vs: Buildings
+
     Special:
      - Can capture neutral and enemy structures
      - Can repair structures and bridges
      - Crush class: crushable
      - Does not receive damage from tiberium fields
 
+    Upgrades:
+     - Regenerative Materials
+
 pdrone-name = Reclaimer
 pdrone-desc = Hovered melee drone programmed to kill enemy infantry.
+
     Special:
+
      - Can only attack infantry
      - Turns killed infantry into worker cyborgs
      - Hovers (ignores terrain like Veins, Water and Radiations)
      - No longer hovers when disabled by EMP or Web
      - Crush class: uncrushable
 
+    Upgrades:
+     - Reclaim and Recycle
+     - Regenerative Materials
+
 glad-name = Gladiator
 glad-desc = Advanced cyborg construct, extremely resilient.
+
     Good vs: Vehicles
+
     Special:
      - Can be deactivated with E.M.P.
      - Does not receive damage from tiberium fields
      - Loses its legs on critical health
      - Crush class: uncrushable
 
+    Upgrades:
+     - Cybernetic Leg Enhancements
+     - Regenerative Materials
+
 moth-name = Abductor
 moth-desc = High tech ambusher drone.
+
     Good vs: Infantry, Buildings
+
     Special:
      - Needs to Deploy to attack
      - Cloaked when deployed
@@ -1896,9 +2311,14 @@ moth-desc = High tech ambusher drone.
      - Attacks travel beneath walls
      - Crush class: uncrushable
 
+    Upgrades:
+     - Regenerative Materials
+
 cyc-name = Cyborg Commando
 cyc-desc =  Elite cyborg armed with a plasma cannon.
+
     Good vs: Ground targets
+
     Special:
      - Can be deactivated with E.M.P.
      - Does not receive damage from tiberium fields
@@ -1906,6 +2326,10 @@ cyc-desc =  Elite cyborg armed with a plasma cannon.
      - Build limit: 1
      - Crush class: uncrushable
      - Immune to mind control
+
+    Upgrades:
+     - Cybernetic Leg Enhancements
+     - Regenerative Materials
 
 worker-name = Worker Unit
 cybdog-name = Cyberdog
@@ -1920,7 +2344,7 @@ ap_ammunition-desc = Increases the damage of the following assets by 50%:
     - Marine
     - Wolverine
     - Amphibious APC
-    Note: Units inside Battle Bus or Bunker need to get outside to recieve this upgrade!
+    Note: Garrisoned infantry needs to redeploy to recieve this upgrade!
 
 nanofiber_vests-name = Nanofiber Vests
 nanofiber_vests-desc = Increases the durability of following units by 20%:
@@ -1942,7 +2366,7 @@ ceramic_plating-desc = Increases the durability of GDI Aircraft by 20%.
 
 purifying_flame-name = Purifying Flame
 purifying_flame-desc = Increases the damage of flamethrower weapons by 50%.
-    Note: Units inside Battle Bus or Bunker need to get outside to recieve this upgrade!
+    Note: Garrisoned infantry needs to redeploy to recieve this upgrade!
 
 raider_passenger-name = Raider Passenger
 raider_passenger-desc = Raider Buggies start with a Militant in them.
@@ -1961,19 +2385,20 @@ tib_core_missiles-desc = Increases damage and projectile speed of the following 
     - Stealth Tank
 
 laser_capacitors-name = Laser Capacitors
-laser_capacitors-desc = Gives Tick Tanks a Laser Cannon that deals full damage against Infantry and hits targets instantly.
+laser_capacitors-desc = Provides Tick Tanks with a Laser Cannon that deals full damage against Infantry and hits targets instantly.
 
 fortified_upg-name = Fortified Barricades
 fortified_upg-desc = Depoloyed Marauders become uncrushable by anything.
 
 blue_shards-name = Blue Shards
-blue_shards-desc = Increases damage of Mutant Fiends by 25%. \nNote: Units inside Battle Bus or Bunker need to get outside to recieve this upgrade!
+blue_shards-desc = Increases damage of Mutant Fiends by 25%.
+    Note: Garrisoned infantry needs to redeploy to recieve this upgrade!
 
 lynx_rockets-name = Lynx Rockets
-lynx_rockets-desc = Gives Lynx Tanks a secondary rocket launcher for additional firepower.
+lynx_rockets-desc = Provides Lynx Tanks with a secondary rocket launcher for additional firepower.
 
 tunnel_repairs-name = Tunnel Repairs
-tunnel_repairs-desc = Enables Tunnel Networks to heal infantry and repair vehicles in them.
+tunnel_repairs-desc = Enables Tunnel Networks to heal infantry and repair vehicles inside them.
 
 tiberium_infusion-name = Stimulant Infusion
 tiberium_infusion-desc = Increases the durability and speed of following units by 20% and 15 respectively and gives them self-healing:
@@ -1981,14 +2406,14 @@ tiberium_infusion-desc = Increases the durability and speed of following units b
     - Carnotaurus
     - Queen
     - Ravager
-    Note: Units inside transport need to get outside to recieve this upgrade!
+    Note: Garrisoned infantry needs to redeploy to recieve this upgrade!
 
 tiberium_gas_warheads-name = Tiberium Gas Warhead
 tiberium_gas_warheads-desc = The weapons of following units generate radiation and generate large explosion upon several hits at the same place in a short time:
     - Skirmisher (5 to ensure explosion)
     - Blighter MLRS (2 to ensure explosion)
     - Falcon (1 can ensure explosion)
-    Note: Units inside Battle Bus or Bunker need to get outside to recieve this upgrade!
+    Note: Garrisoned infantry needs to redeploy to recieve this upgrade!
 
 cybernetic_leg_enhancements-name = Cybernetic Leg Enhancements
 cybernetic_leg_enhancements-desc = Increases the speed of following units by 30:
@@ -2008,34 +2433,34 @@ reclaim_and_recycle-name = Reclaim and Recycle
 reclaim_and_recycle-desc = Infantry killed by Reclaimers turn into Cyborgs with 15% health.
     Increases durability of Reclaimers by 50%.
 
-regenerative_materials-name = Regenerative Materialss
+regenerative_materials-name = Regenerative Materials
 regenerative_materials-desc = Enables all C.A.B.A.L Infantry units to repair themselves, even during combat.
-    Note: Units inside transport need to get outside to recieve this upgrade!
+    Note: Garrisoned infantry needs to redeploy to recieve this upgrade!
 
 gatling_cannons-name = Gatling Cannons
 gatling_cannons-desc = Centurions fire faster as they continue firing.
 
 vinifera_catalysts-name = Vinifera Catalysts
 vinifera_catalysts-desc = Increates range of Ichor Waste Turrets and Corruptors by 1 cell.
-    Doubles the damage from tib-radiation left by those units.
+    Doubles the damage of the tib-radiation left by those assets.
 
 tiberium_conversion-name = Tiberium Conversion
-tiberium_conversion-desc = Enables Hover Tanks to absorb Tiberium to increase damage for the next 3 attacks by 50%.
-    - If not MegaWealth: deploy the Hover Tank to absorb from nearby Tiberium, Tiberium will be destroyed after absorb. 
-    - If MegaWealth: use Hover Tank target Tiberium Extractors to absorb, Extractors will be shutdown for a short time.
+tiberium_conversion-desc = Enables Hover Tanks to absorb Tiberium to increase their damage for the next 3 attacks by 50%.
+    - If not MegaWealth: Deploy the Hover Tank to absorb nearby Tiberium.
+    - If MegaWealth: Target Tiberium Extractors with Hover Tanks to gain the effect, Extractors will shutdown for a short time.
     
 aerial_gliders-name = Aerial Gliders
 aerial_gliders-desc = Enables Gliders to be deployed to take flight.
-    While in air, they can attack ground targets.
+    While in air they are able to attack ground targets.
 
 improved_plague_gas-name = Wasting Disease
 improved_plague_gas-desc = Enables Plague Troopers and Plague Walkers to slow down affected enemy units by 50%.
 
 disc_barrage-name = Disc Barrage
-disc_barrage-desc = Changes Destroyer weapon to fire 4 bursts of smaller projectiles, effectively doubling its damage output.
+disc_barrage-desc = Changes the weapon of the Destroyer to fire a burst of 4 smaller projectiles effectively doubling its damage output.
 
 hyper_flight_rotors-name = Hyper-Flight Rotors
-hyper_flight_rotors-desc = Increases the speed of following units by 30:
+hyper_flight_rotors-desc = Increases the speed of the following units by 30:
     - Destroyer
     - Scrin Transport
     - Assault Carrier

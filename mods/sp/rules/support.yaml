@@ -1167,17 +1167,17 @@ MUVENTI:
 		BuildPaletteOrder: 44
 		Description: muventi-desc
 		Prerequisites: ~mutyard, muhall, !enoughmuventi, ~techlevel.4
-		BuildDuration: 125
+		BuildDuration: 750
 		BuildDurationModifier: 100
 	Valued:
-		Cost: 500
+		Cost: 1500
 	Tooltip:
 		Name: muventi-name
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
 	Health:
-		HP: 50000
+		HP: 100000
 	-InstantlyRepairable:
 	SharedCargo:
 		Types: Infantry, Vehicle
@@ -1269,7 +1269,7 @@ MUVENTI:
 		OrderName: SneakAttackPowerInfoOrder
 		MissileWeapons:
 			1: MutTunnelSpawnerDummyWeapon
-		ChargeInterval: 1500
+		ChargeInterval: 3000
 		CameraRange: 0
 		DisplayTimerRelationships: None
 	NukePower@AI: ### AI will use it less, and have the ability to build tunnel instead
@@ -1324,6 +1324,8 @@ MUVENT:
 		Footprint: xx xx
 		Dimensions: 2,2
 		BuildSounds: ssneakat.wav
+	Health:
+		HP: 50000
 	-ProvidesPrerequisite@swlimit:
 	-ProvidesPrerequisite@buildingname:
 	-NukePower:
@@ -1353,6 +1355,8 @@ MUVENT:
 	-SpawnActorsOnSell@cab:
 	-SpawnActorsOnSell@mut:
 	-SpawnActorsOnSell@scr:
+	-Sellable:
+	-IssueOrderToBot@AISell:
 
 MUTSW1:
 	Inherits: ^AffectPowerBuilding
