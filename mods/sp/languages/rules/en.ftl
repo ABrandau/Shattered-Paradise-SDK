@@ -56,8 +56,8 @@ checkbox-sudden-death =
     .description = Players can't build another MCV and get defeated when they lose it
 
 checkbox-campaignunit =
-    .label = Campaign-Only Unit
-    .description = Allow player to build units in campaign
+    .label = Campaign-Only Units
+    .description = Allow player to build units that appear in the campaign
 
 ## World
 options-starting-units =
@@ -129,7 +129,7 @@ notification-superweapon-detected = Warning: A super weapon has been detected.
 notification-empcannon-ready = EMP cannon ready.
 notification-superweapon-ready = Our superweapon is online.
 notification-superweapon-launched = Warning: A superweapon has been launched.
-notification-sneaktunnel-ready = Our SneakAttack is ready.
+notification-sneaktunnel-ready = Our Sneak Attack is ready.
 
 
 #### Unit name and desc
@@ -173,7 +173,9 @@ bridgeramp-name = Bridge Ramp
 e1-name = Light Infantry
 
 engineer-desc = Support infantry.
+
     Good vs: Buildings
+
     Special:
      - Can capture neutral and enemy buildings
      - Can repair buildings and bridges
@@ -181,6 +183,7 @@ engineer-desc = Support infantry.
 
 gdimcv-name = GDI MCV
 mcv-desc = Deploys into a Construction Yard.
+
     Special:
      - Can crush infantry
      - Provides a build radius for structures when deployed
@@ -188,6 +191,7 @@ mcv-desc = Deploys into a Construction Yard.
 
 gdiharv-name = GDI Harvester
 harv-desc = Collects Tiberium for processing.
+
     Special:
      - Harvests Tiberium
      - Immune to Veins
@@ -547,7 +551,7 @@ nasam-desc = Anti-Air base defense.
 
     Good vs: Aircraft
 
-    Special
+    Special:
      - Can attack Air
      - Requires power to operate
 
@@ -1957,7 +1961,7 @@ jumpjet-desc = Soldiers with jetpacks armed with a grenade launcher.
 
     Good vs: Infantry, Structures.
 
-    Special
+    Special:
      - Can fly
      - Will land when ordered to deploy
      - Can shoot over walls
@@ -1991,7 +1995,7 @@ altnode1-desc = Nod's light infantry variant.
 
     Good vs: Infantry
 
-    Special
+    Special:
      - Does not go prone after taking fire
      - Crush class: crushable
 
@@ -2271,7 +2275,6 @@ pdrone-name = Reclaimer
 pdrone-desc = Hovered melee drone programmed to kill enemy infantry.
 
     Special:
-
      - Can only attack infantry
      - Turns killed infantry into worker cyborgs
      - Hovers (ignores terrain like Veins, Water and Radiations)
