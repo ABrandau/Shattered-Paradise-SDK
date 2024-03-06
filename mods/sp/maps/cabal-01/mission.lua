@@ -891,8 +891,8 @@ WorldLoaded = function()
 	}
 
 	Trigger.AfterDelay(700, function() -- give enough time to load shoopkeepers to initial the tunnel
-		AISell(Tunnel1)
-		AISell(Tunnel2)
+		Tunnel1.Destroy()
+		Tunnel2.Destroy()
 	end)
 
 	FindMercenaryTrigger = Trigger.OnEnteredProximityTrigger(Mound1.CenterPosition, WDist.New(1024 * 4), function(a, id)
