@@ -38,35 +38,41 @@ SMECH:
 	Voiced:
 		VoiceSet: Mech
 	Selectable:
-		Bounds: 603, 1568, 0, -482
+		Bounds: 1006,1409, 0, -500
 	Armament:
 		Weapon: WolverineVulcan
 		PauseOnCondition: empdisable
-		LocalOffset: 0,0,600
+		LocalOffset: 0,0,620
 		RequiresCondition: !apammo
 	Armament@AP:
 		Weapon: WolverineVulcanAP
 		PauseOnCondition: empdisable
-		LocalOffset: 0,0,600
+		LocalOffset: 0,0,620
 		RequiresCondition: apammo
 	Armament@2Bullet:
 		Name: decoration
 		Weapon: WolverineVulcanLine
 		PauseOnCondition: empdisable
-		LocalOffset: 0,280,600, 0,-280,600
+		MuzzleSequence: muzzle
+		LocalOffset: 500,400,620, 500,-400,620
 		CasingWeapon: CasingDebris
-		CasingSpawnLocalOffset: 0,275,600, 0,-275,600
+		CasingSpawnLocalOffset: 100,400,620, 100,-400,620
 		CasingTargetOffset: 0, 600, 0, 0, -600, 0
 		RequiresCondition: !apammo
 	Armament@2BulletAP:
 		Name: decoration
 		Weapon: WolverineVulcanLineAP
 		PauseOnCondition: empdisable
-		LocalOffset: 0,280,600, 0,-280,600
+		MuzzleSequence: muzzle
+		LocalOffset: 500,400,620, 500,-400,620
 		CasingWeapon: CasingDebris
-		CasingSpawnLocalOffset: 0,275,600, 0,-275,600
+		CasingSpawnLocalOffset: 100,400,620, 100,-400,620
 		CasingTargetOffset: 0, 600, 0, 0, -600, 0
 		RequiresCondition: apammo
+	WithMuzzleOverlay:
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
 	ExplodesAlsoTransported:
 		Weapon: UnitExplodeSmall
 	ActorStatValues:
