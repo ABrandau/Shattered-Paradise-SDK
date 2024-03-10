@@ -1,4 +1,4 @@
-GDIAttackForce = { "gdie1", "gdie1", "gdie1", "gdie1", "grenadier", "grenadier", "grenadier", "e2", "smech", "mmch", "mmch", "apc" }
+GDIAttackForce = { "gdie1", "gdie1", "gdie1", "gdie1", "grenadier", "grenadier", "grenadier", "e2","mmch", "mmch", "apc", "smech"}
 GDIAirForce = { "orca", "orca", "orca" }
 NodTemplarRush = { "templar", "templar", "templar", "templar", "templar" }
 NodStealthTeam = { "bike", "stnk", "stnk"}
