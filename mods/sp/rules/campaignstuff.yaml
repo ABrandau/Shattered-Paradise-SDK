@@ -15,22 +15,9 @@ COLOSSI_CHRONO:
 		Class: colossi
 	Mobile:
 		RequireForceMoveCondition: !AImicroManage && !undeployed
-	Armament@1:
-		Weapon: ColossiShard
-		LocalOffset: 400,0,1300
-		RequiresCondition: !AImicroManage && undeployed
-		PauseOnCondition: WebDisable
-		Name: OnFoot
-	Armament@2:
-		Weapon: GColossiShard
-		LocalOffset: 300,0,1000
-		RequiresCondition: !AImicroManage && undeployed
-		PauseOnCondition: WebDisable
-	Armament@AI:
-		RequiresCondition: AImicroManage && undeployed
-		Weapon: SharkJump
-		PauseOnCondition: WebDisable
-		Name: OnFoot
+	RangeMultiplier@AI:
+		Modifier: 31
+		RequiresCondition: AImicroManage
 	IssueOrderToBot@AI:
 		RequiresCondition: !deployed
 		OrderName: GrantConditionOnDeploy
@@ -44,7 +31,6 @@ COLOSSI_CHRONO:
 		RequiresCondition: !AImicroManage && deployed
 	ActorStatValues:
 		Icon: icon
-		IconPalette: chrome
 		TooltipActor: colossi
 
 APC_BOT:
