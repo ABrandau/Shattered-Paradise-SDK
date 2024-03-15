@@ -26,7 +26,7 @@ namespace OpenRA.Mods.SP.Projectiles
 	public sealed class AreaBeamSPInfo : IProjectileInfo
 	{
 		[Desc("Projectile speed in WDist / tick, two values indicate a randomly picked velocity per beam.")]
-		public readonly WDist[] Speed = { new WDist(128) };
+		public readonly WDist[] Speed = { new(128) };
 
 		[Desc("The maximum duration (in ticks) of each beam burst.")]
 		public readonly int Duration = 10;

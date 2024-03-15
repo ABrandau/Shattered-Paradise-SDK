@@ -290,8 +290,8 @@ namespace OpenRA.Mods.SP.Traits
 
 			return new List<MiniYamlNode>()
 			{
-				new MiniYamlNode("BaseShouldHave", FieldSaver.FormatValue(baseShouldHave)),
-				new MiniYamlNode("Countdown", FieldSaver.FormatValue(countdown)),
+				new("BaseShouldHave", FieldSaver.FormatValue(baseShouldHave)),
+				new("Countdown", FieldSaver.FormatValue(countdown)),
 			};
 		}
 

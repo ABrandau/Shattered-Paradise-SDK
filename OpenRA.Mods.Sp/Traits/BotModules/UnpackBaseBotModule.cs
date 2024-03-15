@@ -73,7 +73,7 @@ namespace OpenRA.Mods.SP.Traits
 
 			return new List<MiniYamlNode>()
 			{
-				new MiniYamlNode("UndeployInterval", FieldSaver.FormatValue(undeployInterval))
+				new("UndeployInterval", FieldSaver.FormatValue(undeployInterval))
 			};
 		}
 
