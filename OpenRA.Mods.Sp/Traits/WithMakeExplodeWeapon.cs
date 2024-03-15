@@ -89,7 +89,7 @@ namespace OpenRA.Mods.Sp.Traits
 			hasLaunchEffect = !string.IsNullOrEmpty(info.LaunchEffectImage) && !string.IsNullOrEmpty(info.LaunchEffectSequence);
 		}
 
-		public void Created(Actor self)
+		void INotifyCreated.Created(Actor self)
 		{
 			body = self.TraitOrDefault<BodyOrientation>();
 

@@ -158,7 +158,7 @@ namespace OpenRA.Mods.Sp.Traits
 			soundTicks = 0;
 		}
 
-		public void Tick(Actor self)
+		void ITick.Tick(Actor self)
 		{
 			if (IsTraitDisabled)
 				return;

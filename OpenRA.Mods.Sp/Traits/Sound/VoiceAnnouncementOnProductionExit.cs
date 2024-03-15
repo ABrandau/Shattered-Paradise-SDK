@@ -41,7 +41,7 @@ namespace OpenRA.Mods.SP.Traits.Sound
 			this.info = info;
 		}
 
-		public void Created(Actor self)
+		void INotifyCreated.Created(Actor self)
 		{
 			if (hasNoCreationActivityDelay)
 				return;

@@ -75,14 +75,11 @@ namespace OpenRA.Mods.SP.Traits
 			return () =>
 			{
 				var passengers = ports.Keys;
-
 				List<Armament> arms = new();
 				foreach (var pass in passengers)
 				{
 					var port = ports[pass];
-
-					foreach (var arm in port.Armaments)
-						arms.Add(arm);
+					arms.AddRange(port.Armaments);
 				}
 
 				return arms;

@@ -85,7 +85,7 @@ namespace OpenRA.Mods.SP.Traits
 			burst = weapon.Burst;
 		}
 
-		public void Tick(Actor self)
+		void ITick.Tick(Actor self)
 		{
 			if (!shouldAcitate || IsTraitDisabled || IsTraitPaused)
 				return;

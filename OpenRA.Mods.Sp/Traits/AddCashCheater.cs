@@ -39,7 +39,7 @@ namespace OpenRA.Mods.Sp.Traits
 			type = info.CashCheatType;
 		}
 
-		public void Created(Actor self)
+		void INotifyCreated.Created(Actor self)
 		{
 			cashCheaters = self.Owner.PlayerActor.TraitsImplementing<CashCheater>().ToArray();
 			AddCashCheat();
@@ -79,7 +79,7 @@ namespace OpenRA.Mods.Sp.Traits
 			}
 		}
 
-		public void Killed(Actor self, AttackInfo e)
+		void INotifyKilled.Killed(Actor self, AttackInfo e)
 		{
 			if (!removedFromWorld)
 			{
@@ -107,7 +107,7 @@ namespace OpenRA.Mods.Sp.Traits
 			}
 		}
 
-		public void Disposing(Actor self)
+		void INotifyActorDisposing.Disposing(Actor self)
 		{
 			if (!removedFromWorld)
 			{

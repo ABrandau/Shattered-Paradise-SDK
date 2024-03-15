@@ -64,7 +64,7 @@ namespace OpenRA.Mods.Sp.Traits
 			this.self = self;
 		}
 
-		public void Tick(Actor self)
+		void ITick.Tick(Actor self)
 		{
 			if (IsTraitDisabled || IsTraitPaused)
 				return;
@@ -99,7 +99,7 @@ namespace OpenRA.Mods.Sp.Traits
 			recordedSpawn.Clear();
 		}
 
-		public bool TryAddCorpse(string type, CPos loc, WPos pos, Player owner)
+		bool ICorpseConsumer.TryAddCorpse(string type, CPos loc, WPos pos, Player owner)
 		{
 			if (!Info.Types.Contains(type) || IsTraitDisabled || !Info.ValidRelationships.HasRelationship(owner.RelationshipWith(self.Owner)) || (pos - self.CenterPosition).HorizontalLengthSquared > Info.Range.LengthSquared)
 				return false;

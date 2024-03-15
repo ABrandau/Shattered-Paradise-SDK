@@ -48,7 +48,7 @@ namespace OpenRA.Mods.SP.Traits
 			health = self.Trait<IHealth>();
 		}
 
-		public void Tick(Actor self)
+		void ITick.Tick(Actor self)
 		{
 			// Cast to long to avoid overflow when multiplying by the health
 			if (!damaged)

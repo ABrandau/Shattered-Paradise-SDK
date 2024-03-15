@@ -37,13 +37,10 @@ namespace OpenRA.Mods.Sp.Traits
 			token = Actor.InvalidConditionToken;
 		}
 
-		public void Created(Actor self)
+		void INotifyCreated.Created(Actor self)
 		{
-			if (self.Owner.World.WorldActor.Trait<MapOptions>().ShortGame)
-			{
-				if (token == Actor.InvalidConditionToken)
-					token = self.GrantCondition(info.Condition);
-			}
+			if (self.Owner.World.WorldActor.Trait<MapOptions>().ShortGame && token == Actor.InvalidConditionToken)
+				token = self.GrantCondition(info.Condition);
 		}
 	}
 }

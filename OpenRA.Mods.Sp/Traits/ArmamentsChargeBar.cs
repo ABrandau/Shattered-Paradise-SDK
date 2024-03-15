@@ -61,7 +61,7 @@ namespace OpenRA.Mods.SP.Traits.Render
 
 		void INotifyAttack.PreparingAttack(Actor self, in Target target, Armament a, Barrel barrel) { }
 
-		public void Tick(Actor self)
+		void ITick.Tick(Actor self)
 		{
 			if (Countdown >= Info.Duration)
 			{
