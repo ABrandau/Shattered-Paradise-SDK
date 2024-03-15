@@ -93,12 +93,10 @@ namespace OpenRA.Mods.SP.Traits
 
 			scanForIdleHarvestersTicks = Info.AssignRoleInterval;
 
-			var harvesters = world.ActorsWithTrait<Harvester>().Where(at => !unitCannotBeOrdered(at.Actor));
-
 			// Find idle harvesters and give them orders:
-			foreach (var h in harvesters)
+			foreach (var h in world.ActorsWithTrait<Harvester>().Where(at => !unitCannotBeOrdered(at.Actor)))
 			{
-				if (!h.Actor.IsIdle && !(h.Actor.CurrentActivity is FlyIdle))
+				if (!h.Actor.IsIdle && h.Actor.CurrentActivity is not FlyIdle)
 				{
 					if (h.Actor.CurrentActivity is not FindAndDeliverResources act || !act.LastSearchFailed)
 						continue;

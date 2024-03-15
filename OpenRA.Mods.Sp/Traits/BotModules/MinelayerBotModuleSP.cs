@@ -113,7 +113,7 @@ namespace OpenRA.Mods.Sp.Traits
 			world = self.World;
 			player = self.Owner;
 			unitCannotBeOrdered = a => a == null || a.IsDead || !a.IsInWorld || a.Owner != player;
-			unitCannotBeOrderedOrIsBusy = a => unitCannotBeOrdered(a) || (!a.IsIdle && !(a.CurrentActivity is FlyIdle));
+			unitCannotBeOrderedOrIsBusy = a => unitCannotBeOrdered(a) || (!a.IsIdle && a.CurrentActivity is not FlyIdle);
 			unitCannotBeOrderedOrIsIdle = a => unitCannotBeOrdered(a) || a.IsIdle || a.CurrentActivity is FlyIdle;
 			conflictPositionQueue = new CPos?[MaxPositionCacheLength] { null, null, null, null, null };
 			favoritePositions = new CPos?[MaxPositionCacheLength] { null, null, null, null, null };
@@ -122,8 +122,7 @@ namespace OpenRA.Mods.Sp.Traits
 
 		protected override void TraitEnabled(Actor self)
 		{
-			if (pathFinder == null)
-				pathFinder = self.World.WorldActor.Trait<PathFinder>();
+			pathFinder ??= self.World.WorldActor.Trait<PathFinder>();
 		}
 
 		void IBotTick.BotTick(IBot bot)
@@ -242,8 +241,7 @@ namespace OpenRA.Mods.Sp.Traits
 					}
 				}
 
-				if (minelayers == null)
-					minelayers = world.ActorsHavingTrait<Minelayer>().Where(a => !unitCannotBeOrderedOrIsBusy(a) && Info.MinelayingActorTypes.Contains(a.Info.Name)).ToArray();
+				minelayers ??= world.ActorsHavingTrait<Minelayer>().Where(a => !unitCannotBeOrderedOrIsBusy(a) && Info.MinelayingActorTypes.Contains(a.Info.Name)).ToArray();
 
 				if (minelayers.Length == 0)
 					return;

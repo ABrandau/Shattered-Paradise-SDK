@@ -113,9 +113,7 @@ namespace OpenRA.Mods.SP.Traits
 					if (dist < minDest)
 					{
 						minDest = dist;
-						var a = guardableActors[i];
-						guardableActors[i] = guardableActors[candidate];
-						guardableActors[candidate] = a;
+						(guardableActors[candidate], guardableActors[i]) = (guardableActors[i], guardableActors[candidate]);
 						candidate++;
 					}
 				}
@@ -182,7 +180,7 @@ namespace OpenRA.Mods.SP.Traits
 			OrderPriority = priority;
 		}
 
-		public string OrderID { get; private set; }
+		public string OrderID { get; }
 		public int OrderPriority { get; }
 		public bool TargetOverridesSelection(Actor self, in Target target, List<Actor> actorsAt, CPos xy, TargetModifiers modifiers) { return true; }
 
