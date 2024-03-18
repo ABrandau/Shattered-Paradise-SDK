@@ -364,14 +364,19 @@ HVR:
 		Weapon: HoverMissile
 		LocalOffset: 100,150,384, 100,-150,384
 		LocalYaw: -100, 100
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 	Armament@AA:
 		Weapon: HoverMissileAA
 		LocalOffset: 100,150,384, 100,-150,384
 		LocalYaw: -100, 100
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
+	WithMuzzleOverlay:
 	Turreted:
 		TurnSpeed: 36
 		Offset: -210,0,290
@@ -577,12 +582,16 @@ G4TNK:
 		Damage: 60
 		LocalOffset: 100,400,0, 100,-400,0
 		LocalYaw: -168, 168
+		MuzzleSequence: muzzle3
+		MuzzlePalette: gensmkexploj
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 	Armament@SECONDARYSECONDARY:
 		Weapon: MammothTuskAA
 		LocalOffset: 100,400,0, 100,-400,0
 		LocalYaw: -168, 168
+		MuzzleSequence: muzzle3
+		MuzzlePalette: gensmkexploj
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 	AttackTurreted:
@@ -684,6 +693,8 @@ HMEC:
 		Weapon: MKIITusk
 		Damage: 160
 		Name: secondary
+		MuzzleSequence: muzzle3
+		MuzzlePalette: gensmkexploj
 		LocalOffset: -440,600,1920, -440,-600,1920
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
@@ -691,6 +702,8 @@ HMEC:
 		Weapon: MKIITuskAA
 		LocalOffset: -440,600,1920, -440,-600,1920
 		Name: secondary
+		MuzzleSequence: muzzle3
+		MuzzlePalette: gensmkexploj
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 	Armament@R: ##Hit effect and firedly fire
@@ -894,12 +907,16 @@ BGGY:
 		Weapon: CrusaderBazooka
 		Damage: 30
 		LocalOffset: 250,0,125
+		MuzzleSequence: muzzle-missile
+		MuzzlePalette: gensmkexploj
 		ReloadingCondition: reload-ground-crusader
 		PauseOnCondition: reload-air-crusader
 		RequiresCondition: ifv.rocket
 	Armament@crusaaa:
 		Weapon: CrusaderBazookaAA
 		LocalOffset: 250,0,125
+		MuzzleSequence: muzzle-missile
+		MuzzlePalette: gensmkexploj
 		ReloadingCondition: reload-air-crusader
 		PauseOnCondition: reload-ground-crusader
 		RequiresCondition: ifv.rocket
@@ -1150,6 +1167,8 @@ ATTACKBIKE:
 		Weapon: BikeMissile
 		LocalOffset: -120,-204,400, -120,204,400
 		LocalYaw: 160, -160
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 		RequiresCondition: !tibcore
@@ -1157,6 +1176,8 @@ ATTACKBIKE:
 		Weapon: BikeMissileAA
 		LocalOffset: -120,-204,400, -120,204,400
 		LocalYaw: 160, -160
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 		RequiresCondition: !tibcore
@@ -1164,6 +1185,8 @@ ATTACKBIKE:
 		Weapon: BikeMissileTib
 		LocalOffset: -120,-204,400, -120,204,400
 		LocalYaw: 120, -120
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplogreen
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 		RequiresCondition: tibcore
@@ -1171,9 +1194,12 @@ ATTACKBIKE:
 		Weapon: BikeMissileTibAA
 		LocalOffset: -120,-204,400, -120,204,400
 		LocalYaw: 120, -120
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplogreen
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 		RequiresCondition: tibcore
+	WithMuzzleOverlay:
 	AttackFollowFrontal:
 		PauseOnCondition: empdisable
 		FacingTolerance: 64
@@ -1750,6 +1776,8 @@ STNK:
 		Weapon: StealthRocket
 		LocalOffset: 100,320,250, 100,-320,250, 100,270,300, 100,-270,300, 100,220,350, 100,-220,350
 		LocalYaw: -120, 120,-120, 120,-120, 120
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 		RequiresCondition: !tibcore
@@ -1757,23 +1785,30 @@ STNK:
 		Weapon: StealthRocketAA
 		LocalOffset: 100,320,250, 100,-320,250, 100,270,300, 100,-270,300, 100,220,350, 100,-220,350
 		LocalYaw: -120, 120,-120, 120,-120, 120
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 		RequiresCondition: !tibcore
 	Armament@Tib:
 		Weapon: StealthRocketTib
-		LocalOffset: 100,320,250, 100,-320,250, 100,270,300, 100,-270,300, 100,220,350, 100,-220,350
+		LocalOffset: 100,320,150, 100,-320,150, 100,270,200, 100,-270,200, 100,220,250, 100,-220,250
 		LocalYaw: -90, 90, -90, 90,-90, 90
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplogreen
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 		RequiresCondition: tibcore
 	Armament@TibAA:
 		Weapon: StealthRocketTibAA
-		LocalOffset: 100,320,250, 100,-320,250, 100,270,300, 100,-270,300, 100,220,350, 100,-220,350
+		LocalOffset: 100,320,150, 100,-320,150, 100,270,200, 100,-270,200, 100,220,250, 100,-220,250
 		LocalYaw: -90, 90, -90, 90, -90, 90
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplogreen
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 		RequiresCondition: tibcore
+	WithMuzzleOverlay:
 	Turreted:
 		Offset: 64,0,480
 		TurnSpeed: 24
@@ -2131,6 +2166,8 @@ LYNX:
 		Weapon: LynxRocket
 		Damage: 20
 		LocalOffset: 0,0,200, 0,0,200
+		MuzzleSequence: muzzle2
+		MuzzlePalette: gensmkexploj
 		ReloadingCondition: rocketout
 		PauseOnCondition: empdisable
 		RequiresCondition: lynx_rockets
@@ -2384,13 +2421,18 @@ MRLS:
 	Armament:
 		Weapon: MUTMRLSRocket
 		LocalOffset: 400,100,900, 400,-100,900
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
 		PauseOnCondition: empdisable
 		RequiresCondition: !tibgaswh && enable-upgrade
 	Armament@gas:
 		Weapon: MUTMRLSRocketGas
 		LocalOffset: 400,100,900, 400,-100,900
+		MuzzleSequence: muzzle
+		MuzzlePalette: jascgreenalpha
 		PauseOnCondition: empdisable
 		RequiresCondition: tibgaswh || !enable-upgrade
+	WithMuzzleOverlay:
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -2903,11 +2945,16 @@ REAPERCAB:
 		Weapon: ReaperScythe
 		LocalOffset: 300,-400,950, 300,400,950
 		LocalYaw: 168, -168
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplojFblue
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 	Armament@AA:
 		Weapon: ReaperScytheAA
 		LocalOffset: 300,-400,950, 300,400,950
+		LocalYaw: 168, -168
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplojFblue
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
 	Armament@secondary:
@@ -2922,6 +2969,7 @@ REAPERCAB:
 		LocalOffset: 0,0,1800
 		ForceTargetRelationships: Enemy, Neutral
 		RequiresCondition: improvednets
+	WithMuzzleOverlay:
 	ReloadArmamentsBar:
 		Armaments: secondary
 	WithDeathAnimation@die:
@@ -3030,13 +3078,18 @@ LIMPED:
 		Prerequisites: global-upgrades
 	Armament@1:
 		Weapon: LimpetMissile
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplojFblue
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || !deployed || reload-air
 	Armament@2:
 		Weapon: LimpetMissileAA
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplojFblue
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || !deployed || reload-ground
 		RequiresCondition: limpetaa || !enable-upgrade
+	WithMuzzleOverlay:
 	AttackFrontal:
 		FacingTolerance: 512
 		RequiresCondition: AImicroManage || deployed

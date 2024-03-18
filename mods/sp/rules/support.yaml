@@ -130,8 +130,11 @@ GAROCK:
 		HP: 60000
 	Armament@ROCKET:
 		Weapon: RPGTower
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
 		LocalOffset: 325,-128,1900, 425,-128,1700
 		PauseOnCondition: Building-Buildup
+	WithMuzzleOverlay:
 	WithIdleOverlay@LIGHTS:
 		RequiresCondition: !Building-Buildup && !disabled
 		Sequence: idle-lights
@@ -182,7 +185,10 @@ GACSAM:
 	Armament:
 		Weapon: GdiRedEye
 		LocalOffset: 400,0,1800
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
 		PauseOnCondition: Building-Buildup
+	WithMuzzleOverlay:
 	AutoTarget:
 		ScanRadius: 12 #PREF: save trait looks up and scan armaments
 	WithIdleOverlay@LIGHTS:
@@ -393,12 +399,17 @@ NASAM:
 		Offset: 20, 20, 0
 	Armament:
 		Weapon: RedEye2
-		LocalOffset: 300,300,850, 300,0,850, 300,-300,850
+		LocalOffset: 300,300,580, 300,0,580, 300,-300,580
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
 		RequiresCondition: !tibcore
 	Armament@TIB:
 		Weapon: RedEye2Tib
-		LocalOffset: 220,300,768, 200,0,768, 220,-300,768
+		LocalOffset: 220,300,538, 200,0,538, 220,-300,538
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplogreen
 		RequiresCondition: tibcore
+	WithMuzzleOverlay:
 	AutoTarget:
 		ScanRadius: 12 #PREF: save trait looks up and scan armaments
 	ActorStatValues:

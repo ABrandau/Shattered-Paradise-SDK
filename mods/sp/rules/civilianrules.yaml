@@ -2695,11 +2695,16 @@ TDADVGTWR:
 	Armament:
 		Weapon: ADVTowerMissile
 		LocalOffset: 500,200,2800, 500,-200,2800
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
 		PauseOnCondition: Building-Buildup || empdisable
 	Armament@AA:
 		Weapon: ADVTowerMissileAA
 		LocalOffset: 500,200,2800, 500,-200,2800
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
 		PauseOnCondition: Building-Buildup || empdisable
+	WithMuzzleOverlay:
 	AutoTarget:
 		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	RevealsShroud:
@@ -3338,8 +3343,11 @@ TDSAMSITE:
 		Dimensions: 2,2
 	Armament@AA:
 		Weapon: HoverMissileAA
-		LocalOffset: 1200,200,2000, 1200,-200,2000
+		LocalOffset: 600,200,1300, 600,-200,1300
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
 		PauseOnCondition: Building-Buildup || empdisable
+	WithMuzzleOverlay:
 	AutoTarget:
 		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	-AttackTurreted:
