@@ -23,14 +23,15 @@
 		Sequences: fire3, fire4
 		Palette: effect
 		AirThreshold: 8c0
-
-^MarnFlash5:
+		
+^MarnFlash7:
 	Warhead@MarnFlash: CreateEffect
-		Explosions: marnflash5
+		Explosions: marnflash7
 		ExplosionPalette: MarnAlphaAlpha
 		ValidTargets: Water
 		InvalidTargets: Ground
 		ImpactActors: false
+		Delay: 5
 
 ^MarnFlash6:
 	Warhead@MarnFlash: CreateEffect
@@ -40,14 +41,13 @@
 		InvalidTargets: Ground
 		ImpactActors: false
 
-^MarnFlash7:
+^MarnFlash2:
 	Warhead@MarnFlash: CreateEffect
-		Explosions: marnflash7
+		Explosions: marnflash2
 		ExplosionPalette: MarnAlphaAlpha
 		ValidTargets: Water
 		InvalidTargets: Ground
 		ImpactActors: false
-		Delay: 5
 
 ^Piffs:
 	Inherits: ^MarnFlash7
@@ -158,6 +158,7 @@
 		ImpactActors: false
 
 ^Small_Brnl:
+	Inherits: ^MarnFlash6
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexploj
 		Explosions: jsbrnl20, jsbrnl20b, jsbrnl30
@@ -175,6 +176,7 @@
 		InvalidTargets: Vehicle, Building, Wall
 
 ^Medium_Brnl:
+	Inherits: ^MarnFlash6
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexploj
 		Explosions: jsbrnl30, jsbrnl30b, jsbrnl40
@@ -192,6 +194,7 @@
 		InvalidTargets: Vehicle, Building, Wall
 
 ^Small_Bang:
+	Inherits: ^MarnFlash6
 	Warhead@2Eff: CreateEffect
 		Explosions: jsbang16b, jsbang24
 		ExplosionPalette: gensmkexploj
@@ -210,6 +213,7 @@
 		InvalidTargets: Vehicle, Building, Wall
 
 ^Medium_Bang:
+	Inherits: ^MarnFlash6
 	Warhead@1Eff: CreateEffect
 		Explosions: jsbang34b, jsbang34b, jsbang48, jsbang48b
 		ExplosionPalette: gensmkexploj
@@ -247,6 +251,7 @@
 		InvalidTargets: Vehicle, Building, Wall
 
 ^Large_Explosion:
+	Inherits: ^MarnFlash2
 	Warhead@2Eff: CreateEffect
 		Explosions: jtwlt036, jtwlt036b, jtwlt050
 		ExplosionPalette: gensmkexploj
@@ -255,7 +260,7 @@
 		ImpactActors: false
 		ValidTargets: Ground, Air
 	Warhead@3EffWater: CreateEffect
-		Explosions: small_watersplash
+		Explosions: large_watersplash
 		ExplosionPalette: player
 		ImpactSounds: ssplash1.aud, ssplash2.aud, ssplash3.aud
 		ValidTargets: Water
@@ -264,8 +269,15 @@
 		SmudgeType: Crater
 		InitialSmudgeLevel: 5, 9
 		InvalidTargets: Vehicle, Building, Wall
+	Warhead@smoke: CreateEffect
+		Explosions: wrecksmoke, wrecksmoke2
+		ExplosionPalette: jascgrayblacktoalpha
+		InvalidTargets: Water
+		ValidTargets: Ground
+		ImpactActors: false
 
 ^Small_Twlt:
+	Inherits: ^MarnFlash6
 	Warhead@4EffAir: CreateEffect
 		Explosions: jsbrnl20, jsbrnl20b, jsbrnl30, jsbrnl30b
 		ExplosionPalette: gensmkexploj
@@ -288,6 +300,7 @@
 		InvalidTargets: Vehicle, Building, Wall
 
 ^Mediumtwlt:
+	Inherits: ^MarnFlash6
 	Warhead@2Eff: CreateEffect
 		Explosions: jstumu22, jstumu22b, jstumu30, jstumu30b
 		ExplosionPalette: gensmkexploj
@@ -302,6 +315,7 @@
 		ValidTargets: Water
 
 ^Large_twlt:
+	Inherits: ^MarnFlash6
 	Warhead@2Eff: CreateEffect
 		Explosions: jtwlt070, jtwlt070b, jtwlt100, jtwlt100b, jcrivexpc
 		ExplosionPalette: gensmkexploj
