@@ -1185,7 +1185,7 @@ ATTACKBIKE:
 		Weapon: BikeMissileTib
 		LocalOffset: -120,-204,400, -120,204,400
 		LocalYaw: 120, -120
-		MuzzleSequence: muzzle
+		MuzzleSequence: muzzle2
 		MuzzlePalette: gensmkexplogreen
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
@@ -1194,7 +1194,7 @@ ATTACKBIKE:
 		Weapon: BikeMissileTibAA
 		LocalOffset: -120,-204,400, -120,204,400
 		LocalYaw: 120, -120
-		MuzzleSequence: muzzle
+		MuzzleSequence: muzzle2
 		MuzzlePalette: gensmkexplogreen
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
@@ -1794,7 +1794,7 @@ STNK:
 		Weapon: StealthRocketTib
 		LocalOffset: 100,320,150, 100,-320,150, 100,270,200, 100,-270,200, 100,220,250, 100,-220,250
 		LocalYaw: -90, 90, -90, 90,-90, 90
-		MuzzleSequence: muzzle
+		MuzzleSequence: muzzle2
 		MuzzlePalette: gensmkexplogreen
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
@@ -1803,7 +1803,7 @@ STNK:
 		Weapon: StealthRocketTibAA
 		LocalOffset: 100,320,150, 100,-320,150, 100,270,200, 100,-270,200, 100,220,250, 100,-220,250
 		LocalYaw: -90, 90, -90, 90, -90, 90
-		MuzzleSequence: muzzle
+		MuzzleSequence: muzzle2
 		MuzzlePalette: gensmkexplogreen
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
@@ -1812,8 +1812,6 @@ STNK:
 	Turreted:
 		Offset: 64,0,480
 		TurnSpeed: 24
-	WithSpriteTurret:
-		Sequence: turretloaded
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -3313,7 +3311,7 @@ SPIDERARTY:
 	Health:
 		HP: 60000
 	BodyOrientation:
-		QuantizedFacings: 32
+		QuantizedFacings: 8
 		CameraPitch: 250
 	WithMuzzleOverlay:
 	WithInfantryBody:
@@ -3327,8 +3325,9 @@ SPIDERARTY:
 		FacingTolerance: 2
 	Armament:
 		Weapon: DroneHostMissile
-		LocalOffset: -500,-150,900, -500,150,900
+		LocalOffset: -400,-300,1500, -400,300,1500
 		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
 		PauseOnCondition: empdisable
 	AutoTarget:
 	Selectable:

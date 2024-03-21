@@ -648,7 +648,7 @@ reapercab:
 		ShadowStart: 221
 		Tick: 108
 	muzzle:
-		Scale: 0.4
+		AlphaFade: true
 	dieblood1:
 		Filename: infblood1.shp
 		Scale: 1
@@ -687,6 +687,9 @@ limped:
 	idle:
 		Facings: 1
 		ShadowStart: 10
+	muzzle:
+		Scale: 0.7
+		AlphaFade: true
 	make:
 		Filename: dlimpmk.shp
 		Length: 41
@@ -728,6 +731,7 @@ repairvehicle:
 
 spiderarty:
 	Inherits: ^EmpOverlay
+	Inherits@2: ^MissileMuzzle
 	Defaults:
 		Filename: spiderarty.shp
 	idle:
@@ -752,6 +756,8 @@ spiderarty:
 		Facings: 8
 		Tick: 110
 		ShadowStart: 136
+	muzzle:
+		Scale: 1
 	shield:
 		Filename: shieldlarge.shp
 		Length: *
