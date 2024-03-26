@@ -103,7 +103,7 @@ WeasaurusSpitGreen:
 	Projectile: BulletAS
 		Speed: 400
 		TrailImage: explosion
-		TrailPalette: gensmkexplogreen
+		TrailPalette: gensmkexploFgreen
 		TrailSequences: jsbrnl30fireball, jsbrnl20fireball
 		TrailInterval: 0
 		TrailDelay: 0
@@ -120,7 +120,7 @@ WeasaurusSpitGreen:
 		ValidTargets: Vehicle, Infantry, Building, Ground, Water
 	Warhead@2Eff: CreateEffect
 		Explosions: MilkFire1,MilkFire2, MilkFire3
-		ExplosionPalette: gensmkexplogreen
+		ExplosionPalette: gensmkexploFgreen
 		ImpactActors: false
 		ValidTargets: Ground, Water, Air
 		AirThreshold: 8c0
@@ -128,7 +128,7 @@ WeasaurusSpitGreen:
 	Warhead@3Eff: CreateEffect
 		ImpactSounds: flamethrower_fire.wav
 		Explosions: smallacidfire
-		ExplosionPalette: gensmkexplogreen
+		ExplosionPalette: gensmkexploFgreen
 		ImpactActors: false
 		ValidTargets: Ground, Water, Air
 		AirThreshold: 8c0
@@ -200,7 +200,7 @@ LtRail: ##For line damage
 		DamageActorsInLine: true
 		HitAnim: explosion
 		HitAnimSequence: tib_expsmall
-		HitAnimPalette: gensmkexplocyan
+		HitAnimPalette: gensmkexploFcyan
 	Warhead@1Dam: TargetDamage
 		Spread: 0
 		Damage: 15000
@@ -230,7 +230,7 @@ LtRailSmudge: ##For hit effect
 		HelixPitch: 512
 		HelixAnim: railgunsparks
 		HelixAnimSequence: idle2
-		HelixAnimPalette: gensmkexplocyan
+		HelixAnimPalette: gensmkexploFcyan
 		HitAnim: explosion
 		HitAnimSequence: railgunexp
 		HitAnimPalette: effect
@@ -301,10 +301,10 @@ IonCannonTurret:
 		HelixPitch: 512
 		HelixAnim: explosion
 		HelixAnimSequence: jionball
-		HelixAnimPalette: gensmkexplocyan
+		HelixAnimPalette: gensmkexploFcyan
 		HitAnim: explosion
 		HitAnimSequence: jionball
-		HitAnimPalette: gensmkexplocyan
+		HitAnimPalette: gensmkexploFcyan
 	Warhead@1Dam: SpreadDamage
 		Falloff: 100, 75, 75
 		Spread: 526
@@ -314,7 +314,7 @@ IonCannonTurret:
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
 	Warhead@2Effect: CreateEffect
 		Explosions: ioncannon_sparks
-		ExplosionPalette: gensmkexplocyan70
+		ExplosionPalette: gensmkexploFcyan70
 		AffectsParent: true
 		ImpactActors: false
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, IonSpawner
@@ -634,7 +634,7 @@ MKIIIRailgun: ##For hit effect
 		HelixPitch: 512
 		HelixAnim: railgunsparks
 		HelixAnimSequence: idle1
-		HelixAnimPalette: gensmkexplocyan
+		HelixAnimPalette: gensmkexploFcyan
 		HitAnim: explosion
 		HitAnimSequence: railgunexp
 		HitAnimPalette: effect
@@ -654,7 +654,7 @@ MKIIIRailgun: ##For hit effect
 		Image: explosion
 		ImpactActors: false
 		Explosions: beaconflash
-		ExplosionPalette: gensmkexplocyan70
+		ExplosionPalette: gensmkexploFcyan70
 		ValidTargets: Ground, Water, Air
 		AirThreshold: 8c0
 	Warhead@later: FireFragment
@@ -685,7 +685,7 @@ MKIIIRailgun2: ##For line damage
 		HelixColor: 44FFFF
 		HitAnim: explosion
 		HitAnimSequence: tib_expsmall
-		HitAnimPalette: gensmkexplocyan
+		HitAnimPalette: gensmkexploFcyan
 	Warhead@1Dam: TargetDamage
 		Spread: 0 ## HACK: Spread=0 of TargetDamage means only deal damage on actor impacted
 		Damage: 15000
@@ -763,7 +763,7 @@ SonicClusterMissile:
 		AirburstAltitude: 4144
 		TrailImage: explosion
 		TrailSequences: jsmokey2
-		TrailPalette: gensmkexplocyan
+		TrailPalette: gensmkexploFcyan
 		TrailInterval: 0
 		-JetImage:
 		-JetSequences:
@@ -793,13 +793,13 @@ SonicClusterMissile:
 		ValidTargets: Ground, Water, Infantry, Vehicle, Air
 	Warhead@2Eff: CreateEffect
 		Explosions: SonicShockwave
-		ExplosionPalette: gensmkexplocyan70
+		ExplosionPalette: gensmkexploFcyan70
 		AirThreshold: 14c0
 		ValidTargets: Ground, Water, Air
 		ImpactSounds: firstrm1.aud
 	Warhead@3Eff: CreateEffect
 		Explosions: SonicMissleExplosion
-		ExplosionPalette: gensmkexplocyan70
+		ExplosionPalette: gensmkexploFcyan70
 		AirThreshold: 14c0
 		ValidTargets: Ground, Water, Air
 	Warhead@Reveal: RevealShroud
@@ -877,10 +877,10 @@ CouncilorPlasma:
 	Projectile: MissileTA
 		Image: essencetrail
 		TrailImage: essencetrailmini
-		TrailPalette: gensmkexplopurple
+		TrailPalette: gensmkexploFpurple
 		Speed: 300
 		TrailInterval: 2
-		Palette: gensmkexplopurple
+		Palette: gensmkexploFpurple
 		Acceleration: 0
 		Blockable: false
 		AllowSnapping: true
@@ -904,7 +904,7 @@ CouncilorPlasma:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: sparks
-		ExplosionPalette: gensmkexplopurple
+		ExplosionPalette: gensmkexploFpurple
 		ImpactSounds: expnew14.aud
 		AirThreshold: 8c0
 		ValidTargets: Ground, Water
@@ -933,7 +933,7 @@ CouncilorZap:
 		Duration: 10
 		LaunchEffectImage: explosion
 		LaunchEffectSequence: sparks
-		LaunchEffectPalette: gensmkexplopurple
+		LaunchEffectPalette: gensmkexploFpurple
 	Warhead@1Dam: SpreadDamage
 		Damage: 9000
 		ValidTargets: Air
@@ -941,7 +941,7 @@ CouncilorZap:
 		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
 		Explosions: sparks
-		ExplosionPalette: gensmkexplopurple
+		ExplosionPalette: gensmkexploFpurple
 		ImpactSounds: expnew14.aud
 		AirThreshold: 8c0
 		ValidTargets: Air
