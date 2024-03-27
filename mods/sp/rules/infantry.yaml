@@ -1566,6 +1566,8 @@ LEGIO:
 		LocalOffset: 350,200,800
 		FireDelay: 5
 		ReloadingCondition: reload-ground
+		MuzzleSequence: muzzle
+		MuzzlePalette: apblue
 		PauseOnCondition: WebDisable || reload-air
 		Name: OnFoot
 	Armament@2:
@@ -1573,18 +1575,25 @@ LEGIO:
 		LocalOffset: 350,200,800
 		FireDelay: 5
 		ReloadingCondition: reload-air
+		MuzzleSequence: muzzle
+		MuzzlePalette: apblue
 		PauseOnCondition: WebDisable || reload-ground
 		Name: OnFoot
 	Armament@Garrison1:
 		Weapon: GLegioNeedler
 		FireDelay: 5
 		ReloadingCondition: reload-ground
+		MuzzleSequence: muzzle
+		MuzzlePalette: apblue
 		PauseOnCondition: WebDisable || reload-air
 	Armament@Garrison2:
 		Weapon: GLegioNeedlerAA
 		FireDelay: 5
 		ReloadingCondition: reload-air
+		MuzzleSequence: muzzle
+		MuzzlePalette: apblue
 		PauseOnCondition: WebDisable || reload-ground
+	WithMuzzleOverlay:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -1744,22 +1753,31 @@ BUG:
 		Weapon: FloatGlaive
 		LocalOffset: 300,0,500
 		Name: OnFoot
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplojFblue
 		PauseOnCondition: WebDisable
 		RequiresCondition: !impplaguegas
 	Armament@Garrison:
 		Weapon: GFloatGlaive
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplojFblue
 		PauseOnCondition: WebDisable
 		RequiresCondition: !impplaguegas
 	Armament@1Upg:
 		Weapon: FloatGlaiveUpg
 		LocalOffset: 300,0,500
 		Name: OnFoot
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplojFblue
 		PauseOnCondition: WebDisable
 		RequiresCondition: impplaguegas
 	Armament@GarrisonUpg:
 		Weapon: GFloatGlaiveUpg
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplojFblue
 		PauseOnCondition: WebDisable
 		RequiresCondition: impplaguegas
+	WithMuzzleOverlay:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
