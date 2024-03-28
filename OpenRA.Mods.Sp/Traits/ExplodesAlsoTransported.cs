@@ -30,6 +30,9 @@ namespace OpenRA.Mods.SP.Traits
 		[Desc("DeathType(s) that trigger the explosion. Leave empty to always trigger an explosion.")]
 		public readonly BitSet<DamageType> DeathTypes = default;
 
+		[Desc("DeathType(s) that CANNOT trigger the explosion. Leave empty to disable it.")]
+		public readonly BitSet<DamageType> InvalidDeathTypes = default;
+
 		[Desc("Who is counted as source of damage for explosion.",
 			"Possible values are Self and Killer.")]
 		public readonly DamageSource DamageSource = DamageSource.Self;
@@ -85,7 +88,7 @@ namespace OpenRA.Mods.SP.Traits
 			if (IsTraitDisabled)
 				return;
 
-			if (!Info.DeathTypes.IsEmpty && !e.Damage.DamageTypes.Overlaps(Info.DeathTypes))
+			if ((!Info.DeathTypes.IsEmpty && !e.Damage.DamageTypes.Overlaps(Info.DeathTypes)) || e.Damage.DamageTypes.Overlaps(Info.InvalidDeathTypes))
 				return;
 
 			WPos? impactPos = null;

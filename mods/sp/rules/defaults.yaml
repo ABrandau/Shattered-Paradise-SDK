@@ -579,9 +579,9 @@
 		DeathTypes: ScrinEssenceKill
 
 ^Chronoshiftable:
-	Chronoshiftable:
-		ReturnToOrigin: false
-		ChronoshiftSound: instantrift.wav
+	ChronoshiftableSP:
+		TerrainsAndDamageTypes:
+			Water: DrownedDeath, ScrinEssenceKill
 
 ^PlayerHandicaps:
 	HandicapFirepowerMultiplier:
@@ -1753,6 +1753,9 @@
 		OwnerType: Killer
 		DeathType: CabalDeathUpg
 		RequiresLobbyCreeps: false
+	ExplodesAlsoTransported@DrownedDeath:
+		Weapon: UnitDrownedSmall
+		DeathTypes: DrownedDeath
 	WithInfantryBody:
 		MinIdleDelay: 75
 		MaxIdleDelay: 250
@@ -1889,6 +1892,8 @@
 		Delay: 20
 		DeathTypes:
 			FireDeath: body1, body2, body3, body4, body5
+	ExplodesAlsoTransported@DrownedDeath:
+		Weapon: UnitDrowned
 	Mobile:
 		Locomotor: HeavyInfantry
 		-PauseOnCondition:
@@ -1976,6 +1981,7 @@
 	ExplodesAlsoTransported:
 		Weapon: DroneExplode
 		RequiresCondition: !ascargo
+		InvalidDeathTypes: DrownedDeath
 	Mobile:
 		Locomotor: TibInmuneInfantry
 		PauseOnCondition: empdisable || WebDisable
@@ -2058,6 +2064,7 @@
 	ExplodesAlsoTransported:
 		Weapon: DroneExplode
 		RequiresCondition: !ascargo
+		InvalidDeathTypes: DrownedDeath
 	SpeedMultiplier@InstantStop:
 		RequiresCondition: empdisable || WebDisable
 	SpawnActorOnDeath@conversion:
@@ -2078,6 +2085,7 @@
 		RequiresCondition: !WebDisable && !empdisable
 	KillsSelf@DisabledOnWater:
 		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
+		DamageTypes: DrownedDeath
 	LeavesTrails:
 		RequiresCondition: hoverunitonwater
 		Image: wake
@@ -2088,10 +2096,7 @@
 		Sequences: idle2
 	ExplodesAlsoTransported:
 		Weapon: DroneExplode
-		RequiresCondition: (!ascargo && !hoverunitonwater) || (!empdisable && !WebDisable)
-	ExplodesAlsoTransported@DisabledOnWater:
-		RequiresCondition: hoverunitonwater && (WebDisable || empdisable)
-		Weapon: UnitDrownedSmall
+		InvalidDeathTypes: DrownedDeath
 	SpawnActorOnDeath@conversion:
 		RequiresCondition: !hoverunitonwater
 	SpawnActorOnDeath@conversionUpg:
@@ -2202,7 +2207,7 @@
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 
-	-Chronoshiftable:
+	-ChronoshiftableSP:
 
 	-ChangesHealth@HOSPITAL:
 	-GrantConditionOnPrerequisite@hospitalheal:
@@ -2316,16 +2321,16 @@
 	Guardable:
 	ExplodesAlsoTransported:
 		Weapon: UnitExplodeSmall
+		InvalidDeathTypes: DrownedDeath
+	ExplodesAlsoTransported@DrownedDeath:
+		Weapon: UnitDrowned
+		DeathTypes: DrownedDeath
 	GrantConditionOnPrerequisite@SUDDENDEATH:
 		Condition: suddendeath
 		Prerequisites: global-suddendeath
 	MustBeDestroyed:
 		RequiresCondition: !suddendeath
 	RenderSprites:
-	ThrowsShrapnel:
-		Weapons: SmallDebris
-		Pieces: 3, 7
-		Range: 2c0, 5c0
 	MapEditorData:
 		Categories: Vehicle
 	BodyOrientation:
@@ -2417,15 +2422,9 @@
 		SpawnAtLastPosition: false
 		TrailWhileStationary: true
 		StartDelay: -1
-	ExplodesAlsoTransported:
-		RequiresCondition: !hoverunitonwater || !empdisable
 	KillsSelf@DisabledOnWater:
 		RequiresCondition: hoverunitonwater && empdisable
-	ExplodesAlsoTransported@DisabledOnWater:
-		RequiresCondition: hoverunitonwater && empdisable
-		Weapon: UnitDrowned
-	ThrowsShrapnel:
-		RequiresCondition: !hoverunitonwater || !empdisable
+		DamageTypes: DrownedDeath
 	ChangesHealth@veinholedrain:
 		RequiresCondition: empdisable && veinholedrain
 	WithIdleOverlay@veinholedrain:
@@ -2451,6 +2450,7 @@
 		CameraPitch: 250
 	ExplodesAlsoTransported:
 		Weapon: UnitExplode
+		InvalidDeathTypes: DrownedDeath
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 
@@ -2527,6 +2527,7 @@
 	Inherits@1: ^ScrinRender
 	ExplodesAlsoTransported:
 		Weapon: ScrinUnitExplode
+		InvalidDeathTypes: DrownedDeath
 	Buildable:
 		IconPalette: chromesilver
 	RenderSprites:
@@ -2565,6 +2566,9 @@
 		CameraPitch: 250
 	ActorStatValues:
 		Stats: Armor, Sight, Speed
+	ChronoshiftableSP:
+		TerrainsAndDamageTypes:
+			Clear, Ice, Rough, Road, DirtRoad, Ground, Green: BulletDeath, ScrinEssenceKill
 	-Carryable:
 	-Passenger:
 	-SharedPassenger:

@@ -1842,7 +1842,7 @@ SCRADVPOWR:
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
-	ChronoshiftPower@chronoshift:
+	ChronoshiftPowerSP@chronoshift:
 		RequiresCondition: !AImicroManage
 		OrderName: Chronoshift
 		PauseOnCondition: empdisable || disabled
@@ -1862,9 +1862,6 @@ SCRADVPOWR:
 			1: Teleports infantry and vehicles.
 		SelectTargetSpeechNotification: SelectTarget
 		SelectTargetTextNotification: notification-select-target
-		Durations:
-			1: 500
-		KillCargo: false
 		DisplayRadarPing: true
 		LaunchSpeechNotification: SuperweaponFired
 		IncomingSpeechNotification: SuperweaponFired
@@ -1874,7 +1871,6 @@ SCRADVPOWR:
 		LaunchSound: n_swlaunch.aud
 		SelectionCursor: emp
 		TargetCursor: emp
-		AllowImpassable: true
 		ValidFootprintSequence: build-valid
 		InvalidFootprintSequence: build-invalid-
 		SourceFootprintSequence: build-valid-
@@ -1889,9 +1885,6 @@ SCRADVPOWR:
 		SelectionEndSequence: end
 		TeleportTargetSequence: end
 		EffectPalette: jascbluealpha #scrinenergystuffs
-		TeleportingCondition: BeingTeleport ## HACK: disable the teleport trail from Mastermind
-		AfterTeleportDelay: 5
-		BeforeTeleportDelay: 1
 	NukePower:
 		RequiresCondition: AImicroManage
 		Prerequisites:

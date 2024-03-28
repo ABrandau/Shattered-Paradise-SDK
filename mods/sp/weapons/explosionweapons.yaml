@@ -128,6 +128,11 @@ UnitExplodeSmall:
 		Image: explosion
 		Sequences: fire3
 		Palette: effect
+	Warhead@op: FireRadius
+		Amount: 2
+		Weapon: SmallDebris
+		ImpactActors: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 
 ReaperExplode:
 	Inherits@2: ^Medium_Brnl
@@ -138,6 +143,21 @@ ReaperExplode:
 		ExplosionPalette: gensmkexploj
 		ImpactActors: false
 		ValidTargets: Ground, Air
+	Warhead@2Body: CreateEffect
+		Image: reapercab
+		Explosions: die1
+		ExplosionPalette: player
+		UsePlayerPalette: true
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+	Warhead@2Blood: CreateEffect
+		Image: reapercab
+		Explosions: dieblood1
+		ExplosionPalette: gradientred
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
 	Warhead@2Eff: CreateEffect
 		Delay: 34
 	Warhead@5Smu: LeaveSmudgeSP
@@ -201,6 +221,11 @@ UnitExplode:
 		Explosions: big_twlt
 		ValidTargets: Ground, Air, Water
 		ImpactActors: false
+	Warhead@op: FireRadius
+		Amount: 3
+		Weapon: SmallDebris
+		ImpactActors: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 	-Warhead@3EffWater:
 	-Warhead@MarnFlash: 
 	Warhead@2: SpawnSmokeParticle
@@ -214,8 +239,11 @@ UnitExplodeBig:
 	Inherits@2: UnitExplode
 	Warhead@4Eff: CreateEffect
 		Explosions: bigger_twlt
+	Warhead@op: FireRadius
+		Amount: 3
 
 UnitExplodeBigger:
+	Inherits@1: UnitExplode
 	Inherits@2: ^GreyExplo
 	Inherits@3: ^DelayedSmokeEffect
 	Warhead@2Eff: CreateEffect
@@ -235,16 +263,20 @@ UnitExplodeBigger:
 		Image: explosion
 		Sequences: fire1
 		Palette: effect
+	Warhead@op: FireRadius
+		Amount: 4
 
 UnitExplodeLarge:
 	Inherits@2: UnitExplodeBigger
 	Warhead@4Eff: CreateEffect
 		Explosions: verylarge_twlt
+	Warhead@op: FireRadius
+		Amount: 4
 
 ScrinUnitExplode:
-	Inherits: ^ExploDefaults
+	Inherits: UnitExplode
 	Inherits@3: ^DelayedSmokeEffect
-	-Warhead@1Dam:
+	-Warhead@4Eff: 
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinvehicleexplo1, scrinvehicleexplo2
 		ExplosionPalette: apolbluealpha
@@ -257,12 +289,12 @@ ScrinUnitExplode:
 		Image: explosion
 		Sequences: scrinfire2
 		Palette: effect
-	-Warhead@op:
+	Warhead@op: FireRadius
+		Weapon: SmallDebrisScrin
+		Amount: 3
 
 ScrinUnitExplode2:
-	Inherits: ^ExploDefaults
-	Inherits@3: ^DelayedSmokeEffect
-	-Warhead@1Dam:
+	Inherits: ScrinUnitExplode
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
@@ -275,35 +307,37 @@ ScrinUnitExplode2:
 		Image: explosion
 		Sequences: scrinfire2
 		Palette: effect
-	-Warhead@op:
+	Warhead@op: FireRadius
+		Amount: 3
 
 ScrinUnitExplode3:
-	Inherits: ^ExploDefaults
-	Inherits@3: ^DelayedSmokeEffect
-	-Warhead@1Dam:
+	Inherits: ScrinUnitExplode
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
 		ImpactSounds: expnew09.aud
 		ValidTargets: Ground, Air, Water
 		ImpactActors: false
-	-Warhead@op:
+	Warhead@op: FireRadius
+		Amount: 3
 
 ScrinUnitExplode4:
-	Inherits: ^ExploDefaults
-	-Warhead@1Dam:
+	Inherits: ScrinUnitExplode
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
 		ImpactSounds: expnew09.aud
 		ValidTargets: Ground, Air, Water
 		ImpactActors: false
-	-Warhead@op:
+	Warhead@op: FireRadius
+		Amount: 3
 
 TripodExplode:
 	Inherits: ScrinUnitExplode
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinvehicleexplo1tall, scrinvehicleexplo2tall
+	Warhead@op: FireRadius
+		Amount: 5
 
 TiberiumExplosion:
 	Warhead@1Dam: SpreadDamage

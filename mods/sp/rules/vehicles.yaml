@@ -658,7 +658,7 @@ HMEC:
 	-Crushable:
 	-Passenger:
 	-SharedPassenger:
-	-Chronoshiftable:
+	-ChronoshiftableSP:
 	FloatingSpriteEmitter@spawnsmoke:
 		Offset: 0, 0, 1000
 	SpawnSparks:
@@ -767,6 +767,7 @@ HMEC:
 	ExplodesAlsoTransported:
 		Weapon: BuildingExplode
 	ThrowsShrapnel:
+		Weapons: SmallDebris
 		Pieces: 5, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
@@ -1244,6 +1245,8 @@ TTNK:
 		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
+	ChronoshiftableSP:
+		RequiresCondition: undeployed
 	Health:
 		HP: 35000
 	Armor:
@@ -1425,7 +1428,6 @@ TICKHOLOGRAM:
 		FacingTolerance: 2
 	-ExplodesAlsoTransported:
 	-ActorLostNotification:
-	-ThrowsShrapnel:
 	-Carryable:
 	-SharedPassenger:
 	-Passenger:
@@ -1460,7 +1462,7 @@ TICKHOLOGRAM:
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 
-	-Chronoshiftable:
+	-ChronoshiftableSP:
 
 	-ChangesHealth@MachineShopHeal:
 	-GrantConditionOnPrerequisite@MachineShopHeal:
@@ -1874,7 +1876,7 @@ SCORPION:
 	-Crushable:
 	-Passenger:
 	-SharedPassenger:
-	-Chronoshiftable:
+	-ChronoshiftableSP:
 	-FirepowerMultiplier@BLUEFLAME:
 	Health:
 		HP: 300000
@@ -1969,6 +1971,7 @@ SCORPION:
 	ExplodesAlsoTransported:
 		Weapon: BuildingExplode
 	ThrowsShrapnel:
+		Weapons: SmallDebris
 		Pieces: 5, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
@@ -2628,7 +2631,7 @@ WEASAU:
 	-SharedPassenger:
 	DetectCloaked: ## Remove in_tunnel and as cargo
 		RequiresCondition: !inside-tunnel && !Blind
-	-Chronoshiftable:
+	-ChronoshiftableSP:
 	Health:
 		HP: 300000
 	AnnounceOnSeen:
@@ -2970,22 +2973,6 @@ REAPERCAB:
 	WithMuzzleOverlay:
 	ReloadArmamentsBar:
 		Armaments: secondary
-	WithDeathAnimation@die:
-		DeathSequence: die1
-		FallbackSequence: die1
-		DeathSequencePalette: player
-		DeathPaletteIsPlayerPalette: true
-		UseDeathTypeSuffix: false
-	WithDeathAnimation@blood1:
-		DeathSequence: dieblood1
-		FallbackSequence: dieblood1
-		DeathSequencePalette: gradientred
-		DeathPaletteIsPlayerPalette: false
-		CrushedSequence: dieblood1
-		CrushedSequencePalette: gradientred
-		UseDeathTypeSuffix: false
-	ThrowsShrapnel:
-		Pieces: 2, 4
 	ExplodesAlsoTransported:
 		Weapon: ReaperExplode
 		WeaponWhenTransport: UnitExplodeSmall
@@ -3042,6 +3029,8 @@ LIMPED:
 		TurnSpeed: 1023
 		ImmovableCondition: !undeployed
 		RequireForceMoveCondition: !AImicroManage && !undeployed
+	ChronoshiftableSP:
+		RequiresCondition: undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
 	Carryable:
@@ -3151,7 +3140,7 @@ LIMPED:
 		Sequences: idle2
 		Offsets: 0,500,0
 		TrailWhileStationary: false
-	ExplodesAlsoTransported@DisabledOnWater:
+	ExplodesAlsoTransported@DrownedDeath:
 		Weapon: UnitDrownedSmall
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
@@ -3500,6 +3489,7 @@ BCOREDEF:
 	ExplodesAlsoTransported:
 		Weapon: BuildingExplode
 	ThrowsShrapnel:
+		Weapons: SmallDebris
 		Pieces: 5, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 2, 4
@@ -3507,7 +3497,7 @@ BCOREDEF:
 	-Crushable:
 	-Passenger:
 	-SharedPassenger:
-	-Chronoshiftable:
+	-ChronoshiftableSP:
 	AnnounceOnSeen:
 		PingRadar: true
 		Notification: CommandoDetected
@@ -3596,8 +3586,6 @@ CORRUPTOR:
 		Bounds: 1508, 1568, 0, -482
 	-DamagedByTintedCells@Default:
 	-DamagedByTintedCells@BlueRadiation:
-	ThrowsShrapnel:
-		Weapons: SmallDebrisScrin
 	WithStatIconOverlay@VINIFERA:
 		Image: corruptor
 		Sequence: icon-blue
@@ -3696,8 +3684,6 @@ SCRMBT:
 		MovingInterval: 12
 		SpawnAtLastPosition: false
 		StartDelay: -1
-	ThrowsShrapnel:
-		Weapons: SmallDebrisScrin
 	ActorStatValues:
 		Damage: 90
 
@@ -3796,8 +3782,6 @@ SCRGLYDER2:
 		IsDecoration: true
 		Sequence: light
 		Palette: jascpurplealpha
-	ThrowsShrapnel:
-		Weapons: SmallDebrisScrin
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 		Damage: 90
@@ -3856,8 +3840,6 @@ SCRSCORPION:
 	WithInfantryBody:
 	Selectable:
 		Bounds: 1508, 1568, 0, -482
-	ThrowsShrapnel:
-		Weapons: SmallDebrisScrin
 
 SCRRECHARGER:
 	Inherits: ^Walker
@@ -3934,8 +3916,6 @@ SCRRECHARGER:
 		Palette: scrinenergystuffs
 		Offset: 0, 0, 1800
 		IsDecoration: true ## so this doesn't affect by cloak palette
-	ThrowsShrapnel:
-		Weapons: SmallDebrisScrin
 	ActorStatValues:
 		Stats: Armor, Sight, Speed
 		Armaments: None
@@ -4020,8 +4000,6 @@ SCRMOBMINE:
 		IsDecoration: true
 		Sequence: light
 		Palette: jascpurplealpha
-	ThrowsShrapnel:
-		Weapons: SmallDebrisScrin
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, MindControl, ReloadDelay, MaxRange
 
@@ -4093,8 +4071,6 @@ TRIPOD:
 		Image: anhltrpd
 	SpawnSparks:
 		LocalOffset: 0,0,2700
-	ThrowsShrapnel:
-		Weapons: SmallDebrisScrin
 	WithInfantryBody:
 		DefaultAttackSequence: shoot2
 	ExplodesAlsoTransported:

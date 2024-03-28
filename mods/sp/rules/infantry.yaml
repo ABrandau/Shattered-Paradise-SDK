@@ -1695,6 +1695,7 @@ FLOAT:
 		TerrainTypes: Water
 	KillsSelf@DisabledOnWater:
 		RequiresCondition: hoverunitonwater && WebDisable
+		DamageTypes: DrownedDeath
 	LeavesTrails:
 		RequiresCondition: hoverunitonwater
 		Image: wake
@@ -1703,9 +1704,6 @@ FLOAT:
 		StationaryInterval: 18
 		MovingInterval: 12
 		Sequences: idle2
-	ExplodesAlsoTransported@DisabledOnWater:
-		RequiresCondition: hoverunitonwater && WebDisable
-		Weapon: UnitDrownedSmall
 	ActorStatValues:
 		Damage: -40
 	DamagedByTintedCells@Default:
@@ -2085,7 +2083,7 @@ CABSENTRY:
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 
-	-Chronoshiftable:
+	-ChronoshiftableSP:
 
 	-ChangesHealth@HOSPITAL:
 	-GrantConditionOnPrerequisite@hospitalheal:
@@ -2479,6 +2477,8 @@ MOTH:
 		Name: deployed
 		Sequence: deployed
 		RequiresCondition: !undeployed && !inside-tunnel && !WebDisable
+	ChronoshiftableSP:
+		RequiresCondition: undeployed
 	-WithInfantryBody:
 	DamagedByTintedCells@Default:
 		RequiresCondition: deployed || WebDisable || empdisable
