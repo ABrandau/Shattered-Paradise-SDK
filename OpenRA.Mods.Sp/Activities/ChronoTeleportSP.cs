@@ -20,23 +20,23 @@ namespace OpenRA.Mods.SP.Activities
 {
 	public class ChronoTeleportSP : Activity
 	{
-		readonly Actor teleporter;
+		readonly Actor chronoProvider;
 		readonly int? maximumDistance;
 		readonly Dictionary<HashSet<string>, BitSet<DamageType>> terrainsAndDamageTypes = new();
 		readonly List<CPos> teleportCells;
 		readonly ActorMap actorMap;
 		CPos destination;
 
-		public ChronoTeleportSP(Actor teleporter, CPos destination, List<CPos> teleportCells, int? maximumDistance,
+		public ChronoTeleportSP(Actor chronoProvider, CPos destination, List<CPos> teleportCells, int? maximumDistance,
 			bool interruptable = true, Dictionary<HashSet<string>, BitSet<DamageType>> terrainsAndDamageTypes = default)
 		{
 			ActivityType = ActivityType.Move;
-			actorMap = teleporter.World.WorldActor.TraitOrDefault<ActorMap>();
-			var max = teleporter.World.Map.Grid.MaximumTileSearchRange;
+			actorMap = chronoProvider.World.WorldActor.TraitOrDefault<ActorMap>();
+			var max = chronoProvider.World.Map.Grid.MaximumTileSearchRange;
 			if (maximumDistance > max)
 				throw new InvalidOperationException($"Teleport distance cannot exceed the value of MaximumTileSearchRange ({max}).");
 
-			this.teleporter = teleporter;
+			this.chronoProvider = chronoProvider;
 			this.destination = destination;
 			this.maximumDistance = maximumDistance;
 			this.terrainsAndDamageTypes = terrainsAndDamageTypes;
@@ -58,29 +58,29 @@ namespace OpenRA.Mods.SP.Activities
 			self.Generation++;
 
 			if (damage != null)
-				self.Kill(teleporter, damage.Value);
+				self.Kill(chronoProvider.Owner.PlayerActor, damage.Value);
 
 			return true;
 		}
 
 		(CPos? Dest, BitSet<DamageType>? Damage) ChooseBestDestinationCell(Actor self, CPos destination)
 		{
-			if (teleporter == null)
+			if (chronoProvider == null)
 				return (null, null);
 
 			var pos = self.Trait<IPositionable>();
-			var map = teleporter.World.Map;
-			var max = maximumDistance ?? teleporter.World.Map.Grid.MaximumTileSearchRange;
+			var map = chronoProvider.World.Map;
+			var max = maximumDistance ?? chronoProvider.World.Map.Grid.MaximumTileSearchRange;
 
 			// If we teleport a hostile unit, we are going to make it killed if possible within teleport cells
-			if (self.Owner.RelationshipWith(teleporter.Owner).HasRelationship(PlayerRelationship.Enemy))
+			if (self.Owner.RelationshipWith(chronoProvider.Owner).HasRelationship(PlayerRelationship.Enemy))
 			{
-				if (!pos.CanEnterCell(destination) && !actorMap.AnyActorsAt(destination) && teleporter.Owner.Shroud.IsExplored(destination) && TryGetDamage(map.GetTerrainInfo(destination).Type, out var damage))
+				if (!pos.CanEnterCell(destination) && !actorMap.AnyActorsAt(destination) && chronoProvider.Owner.Shroud.IsExplored(destination) && TryGetDamage(map.GetTerrainInfo(destination).Type, out var damage))
 					return (destination, damage);
 
 				foreach (var tile in teleportCells)
 				{
-					if (teleporter.Owner.Shroud.IsExplored(tile)
+					if (chronoProvider.Owner.Shroud.IsExplored(tile)
 						&& !pos.CanEnterCell(tile) && !actorMap.AnyActorsAt(tile)
 						&& TryGetDamage(map.GetTerrainInfo(tile).Type, out var damage2))
 						return (tile, damage2);
@@ -88,12 +88,12 @@ namespace OpenRA.Mods.SP.Activities
 			}
 
 			// When we cannot find a place to kill it or this is an ally, we make it into somewhere can enter.
-			if (pos.CanEnterCell(destination) && teleporter.Owner.Shroud.IsExplored(destination))
+			if (pos.CanEnterCell(destination) && chronoProvider.Owner.Shroud.IsExplored(destination))
 				return (destination, null);
 
 			foreach (var tile in self.World.Map.FindTilesInCircle(destination, max))
 			{
-				if (teleporter.Owner.Shroud.IsExplored(tile)
+				if (chronoProvider.Owner.Shroud.IsExplored(tile)
 					&& pos.CanEnterCell(tile))
 					return (tile, null);
 			}
