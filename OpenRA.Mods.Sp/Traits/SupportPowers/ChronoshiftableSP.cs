@@ -29,20 +29,12 @@ namespace OpenRA.Mods.SP.Traits
 		public override object Create(ActorInitializer init) { return new ChronoshiftableSP(this); }
 	}
 
-	public class ChronoshiftableSP : ConditionalTrait<ChronoshiftableSPInfo>, ITick, ISync
+	public class ChronoshiftableSP : ConditionalTrait<ChronoshiftableSPInfo>, ISync
 	{
 		IPositionable iPositionable;
 
 		public ChronoshiftableSP(ChronoshiftableSPInfo info)
-			: base(info)
-		{
-		}
-
-		void ITick.Tick(Actor self)
-		{
-			if (IsTraitDisabled)
-				return;
-		}
+			: base(info) { }
 
 		protected override void Created(Actor self)
 		{
