@@ -29,25 +29,10 @@ namespace OpenRA.Mods.SP.Traits
 		public override object Create(ActorInitializer init) { return new ChronoshiftableSP(this); }
 	}
 
-	public class ChronoshiftableSP : ConditionalTrait<ChronoshiftableSPInfo>, ISync
+	public class ChronoshiftableSP : ConditionalTrait<ChronoshiftableSPInfo>
 	{
-		IPositionable iPositionable;
-
 		public ChronoshiftableSP(ChronoshiftableSPInfo info)
 			: base(info) { }
-
-		protected override void Created(Actor self)
-		{
-			iPositionable = self.OccupiesSpace as IPositionable;
-			base.Created(self);
-		}
-
-		// Can't be used in synced code, except with ignoreVis.
-		public virtual bool CanChronoshiftTo(Actor self, CPos targetLocation)
-		{
-			// TODO: Allow enemy units to be chronoshifted into bad terrain to kill them
-			return !IsTraitDisabled && iPositionable != null && iPositionable.CanEnterCell(targetLocation);
-		}
 
 		public virtual bool Teleport(Actor self, CPos targetLocation, List<CPos> teleportCells, Actor chronoProvider)
 		{

@@ -70,7 +70,7 @@ namespace OpenRA.Mods.SP.Activities
 
 			var pos = self.Trait<IPositionable>();
 			var map = chronoProvider.World.Map;
-			var max = maximumDistance ?? chronoProvider.World.Map.Grid.MaximumTileSearchRange;
+			var max = maximumDistance ?? map.Grid.MaximumTileSearchRange;
 
 			// If we teleport a hostile unit, we are going to make it killed if possible within teleport cells
 			if (self.Owner.RelationshipWith(chronoProvider.Owner).HasRelationship(PlayerRelationship.Enemy))
