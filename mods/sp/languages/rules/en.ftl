@@ -462,11 +462,13 @@ scrrax-desc = Calls down Infantry.
      - Heals infantry in an area around it
 
 scradvpowr-name = Wormhole Generator
-scradvpowr-desc = Teleports infantry and vehicles to a selected area.
+scradvpowr-desc = Teleports Infantry and Vehicles to a selected area.
 
     Special:
      - Provides access to the Instant Wormhole support power
      - Requires power to operate
+     - Ally units won't be harmed no matter the destination.
+     - Enemies will be put into deadly cells in teleport cells.
 
 cabpowr-name = Firestorm Power Plant
 cabpowr-desc = Provides more power than the standard powerplant
@@ -853,6 +855,7 @@ hmec-desc = GDI's super-heavy walker and the pride of their army.
      - Immune to mind control
      - Can shoot over walls
      - Can crush everything except other Epics
+     - Cannot be teleported by wormhole
 
     Upgrades:
      - AP Ammunition
@@ -971,7 +974,8 @@ scorpion-desc = Nod's super-heavy walker. One vision one purpose.
      - Immune to mind control
      - Can shoot over walls
      - Can crush everything except other Epics
-     - Deployability: Enemy units get out of control for 5 seconds
+     - Deployability: Enemy units fire at each other for 5 seconds
+     - Cannot be teleported by wormhole
 
     Upgrades:
      - Purifying Flame
@@ -1089,12 +1093,13 @@ weasau-desc = A long forgotten creature that has emerged again.
      - Selfhealing up to 100%
      - Immune to mind control
      - Can shoot over walls
-     - Can crush everything execept other Epics
      - Heals on Tiberium fields
      - E.M.P. Immune
      - Deployability: Switch to melee attack gains +50 movement speed
        and Summons a brood of Weasaurus
      - Gains 100% EXP from enemies killed by the summoned brood
+     - Can crush everything except other Epics
+     - Cannot be teleported by wormhole
 
 weasausmall-name = Small Weasaurus
 
@@ -1136,6 +1141,7 @@ limped-desc = Small drone armed with explosives. Good vs: Infantry, Vehicles
      - Needs to be deployed to be armed
      - Invisible when deployed
      - Launches explosives towards a target after small delay
+     - Cannot be teleported by wormhole when deployed
 
     Upgrades:
      - Limpet AA Missile
@@ -1607,6 +1613,7 @@ coredefender-desc = C.A.B.A.L.'s final creation armed with crazy weapon.
      - Can shoot over walls
      - Can crush vehicle
      - Immune to mindcontrol
+     - Cannot be teleported by wormhole
 
 hmectest-name = Mammoth Mk.III
 hmectest-desc =  GDI's final creation for the war when everything is doomed.
@@ -1624,6 +1631,7 @@ hmectest-desc =  GDI's final creation for the war when everything is doomed.
      - Can attack while moving
      - Can spawn 2 gun drones
      - Gain 100% EXP from enemy killed by spawned gun drones.
+     - Cannot be teleported by wormhole
 
 mkiiidrone-name = Minigun Drone
 
@@ -2313,6 +2321,7 @@ moth-desc = High tech ambusher drone.
      - No longer hovers when disabled by EMP or Web
      - Attacks travel beneath walls
      - Crush class: uncrushable
+     - Cannot be teleported by wormhole when deployed
 
     Upgrades:
      - Regenerative Materials
