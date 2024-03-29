@@ -11,8 +11,8 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using OpenRA.GameRules;
 using OpenRA.Graphics;
-using OpenRA.Mods.Common.Effects;
 using OpenRA.Mods.Common.Orders;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Primitives;
@@ -52,14 +52,18 @@ namespace OpenRA.Mods.SP.Traits
 		[SequenceReference(nameof(EffectImage))]
 		public readonly string SelectionLoopSequence = null;
 
-		[SequenceReference(nameof(EffectImage))]
-		public readonly string SelectionEndSequence = null;
-
-		[SequenceReference(nameof(EffectImage))]
-		public readonly string TeleportTargetSequence = null;
-
 		[PaletteReference]
 		public readonly string EffectPalette = null;
+
+		[WeaponReference]
+		[FieldLoader.Require]
+		[Desc("Default weapon to use for explosion.")]
+		public readonly string ImpactWeapon = null;
+
+		[WeaponReference]
+		[FieldLoader.Require]
+		[Desc("Default weapon to use for explosion. Use Weapon if not set.")]
+		public readonly string TeleportWeapon = null;
 
 		[CursorReference]
 		[Desc("Cursor to display when selecting targets for the chronoshift.")]
@@ -73,7 +77,30 @@ namespace OpenRA.Mods.SP.Traits
 		[Desc("Cursor to display when the targeted area is blocked.")]
 		public readonly string TargetBlockedCursor = "move-blocked";
 
+		public WeaponInfo ImpactWeaponInfo { get; private set; }
+		public WeaponInfo TeleportWeaponInfo { get; private set; }
+
 		public override object Create(ActorInitializer init) { return new ChronoshiftPowerSP(init.Self, this); }
+		public override void RulesetLoaded(Ruleset rules, ActorInfo ai)
+		{
+			if (!string.IsNullOrEmpty(ImpactWeapon))
+			{
+				var weaponToLower = ImpactWeapon.ToLowerInvariant();
+				if (!rules.Weapons.TryGetValue(weaponToLower, out var weapon))
+					throw new YamlException($"Weapons Ruleset does not contain an entry '{weaponToLower}'");
+				ImpactWeaponInfo = weapon;
+			}
+
+			if (!string.IsNullOrEmpty(TeleportWeapon))
+			{
+				var weaponToLower = TeleportWeapon.ToLowerInvariant();
+				if (!rules.Weapons.TryGetValue(weaponToLower, out var weapon))
+					throw new YamlException($"Weapons Ruleset does not contain an entry '{weaponToLower}'");
+				TeleportWeaponInfo = weapon;
+			}
+
+			base.RulesetLoaded(rules, ai);
+		}
 	}
 
 	sealed class ChronoshiftPowerSP : SupportPower
@@ -98,11 +125,35 @@ namespace OpenRA.Mods.SP.Traits
 		public override void Activate(Actor self, Order order, SupportPowerManager manager)
 		{
 			base.Activate(self, order, manager);
-			PlayLaunchSounds();
 
 			var info = (ChronoshiftPowerSPInfo)Info;
-			if (!string.IsNullOrEmpty(info.TeleportTargetSequence) && !string.IsNullOrEmpty(info.EffectPalette))
-				self.World.Add(new SpriteEffect(order.Target.CenterPosition, self.World, info.EffectImage, info.TeleportTargetSequence, info.EffectPalette));
+
+			// Generate a weapon on the place of impact, Generate a weapon on the place of teleport
+			var weapon = info.TeleportWeaponInfo;
+			var pos = order.Target.CenterPosition;
+			var weapon2 = info.ImpactWeaponInfo;
+			var pos2 = self.World.Map.CenterOfCell(order.ExtraLocation);
+			var firer = self.Owner.PlayerActor;
+
+			self.World.AddFrameEndTask(w =>
+			{
+				PlayLaunchSounds();
+				if (weapon.Report != null && weapon.Report.Length > 0)
+				{
+					if (weapon.AudibleThroughFog || (!self.World.ShroudObscures(pos) && !self.World.FogObscures(pos)))
+						Game.Sound.Play(SoundType.World, weapon.Report, self.World, pos, null, weapon.SoundVolume);
+				}
+
+				weapon.Impact(Target.FromPos(pos), firer);
+
+				if (weapon2.Report != null && weapon2.Report.Length > 0)
+				{
+					if (weapon2.AudibleThroughFog || (!self.World.ShroudObscures(pos2) && !self.World.FogObscures(pos2)))
+						Game.Sound.Play(SoundType.World, weapon2.Report, self.World, pos2, null, weapon2.SoundVolume);
+				}
+
+				weapon2.Impact(Target.FromPos(pos2), firer);
+			});
 
 			var targetDelta = self.World.Map.CellContaining(order.Target.CenterPosition) - order.ExtraLocation;
 
@@ -306,17 +357,8 @@ namespace OpenRA.Mods.SP.Traits
 				sourceAlpha = sourceSequence.GetAlpha(0);
 			}
 
-			void PlayCancelAnim(World world)
-			{
-				var info = (ChronoshiftPowerSPInfo)power.Info;
-				if (!string.IsNullOrEmpty(info.SelectionEndSequence) && !string.IsNullOrEmpty(info.EffectPalette))
-					world.Add(new SpriteEffect(world.Map.CenterOfCell(sourceLocation), world, info.EffectImage, info.SelectionEndSequence, info.EffectPalette));
-			}
-
 			protected override IEnumerable<Order> OrderInner(World world, CPos cell, int2 worldPixel, MouseInput mi)
 			{
-				PlayCancelAnim(world);
-
 				if (mi.Button == MouseButton.Right)
 				{
 					world.CancelInputMode();
@@ -346,11 +388,7 @@ namespace OpenRA.Mods.SP.Traits
 			{
 				// Cancel the OG if we can't use the power
 				if (!manager.Powers.TryGetValue(order, out var p) || !p.Active || !p.Ready)
-				{
-					PlayCancelAnim(world);
-
 					world.CancelInputMode();
-				}
 
 				overlay?.Tick();
 			}

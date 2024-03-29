@@ -1138,8 +1138,43 @@ VeinholeShrapnel:
 		AirThreshold: 8c0
 		ValidTargets: Ground, Water, Air
 
+## Spawner Dummy weapon, spawns an actor when triggered
+MutTunnelSpawnerDummyWeapon:
+	Range: 1c0
+	ReloadDelay: 10000
+	Report: ssneakat.wav
+	Projectile: InstantExplode
+	Warhead@2Spawner: SpawnBuilding
+		Buildings: muvent
+		AirThreshold: 12c0
+
+ScrinChronoTeleportImpact:
+	Inherits@1: ^ScrinOpenWormHole
+	Warhead@Bolt: FireFragment
+		Weapon: ScrinChronoTeleportBoltElevator
+		ImpactActors: false
+		AirThreshold: 8c0
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+	Warhead@Hole: SpawnSmokeParticle
+		Duration: 6
+	Warhead@2Eff: CreateEffect
+		Delay: 3
+
+ScrinChronoTeleportBoltElevator:
+	Inherits@1: ^ScrinWormHoleBoltElevator
+	Warhead@later: FireFragment
+		Weapon: ScrinChronoTeleportBolt
+	Warhead@1Eff: SpawnSmokeParticle
+		Duration: 9
+		
+ScrinChronoTeleportBolt:
+	Inherits@1: ^ScrinWormHoleBolt
+	Projectile: ElectricBolt
+		Duration: 9
+
+
 ColossiSummonerWeapon:
-	ReloadDelay: 8
+	Inherits@1: ScrinChronoTeleportImpact
 	Range: 3c0
 	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
 	Warhead@5Actor: SpawnActor
@@ -1154,17 +1189,9 @@ ColossiSummonerWeapon:
 		AllowDirectHit: false
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air
 		InvalidTargets: Infantry, Vehicle, Building, Wall
-	Warhead@5Sound: CreateEffect
-		ImpactSounds: instantrift.wav
-		Image: scrintele
-		Explosions: end
-		ExplosionPalette: jascbluealpha
-		ImpactActors: false
-		AirThreshold: 4c0
-		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
 
 ColossiShrapnel:
-	Range: 3c0
+	Range: 2c0
 	MinRange: 1c0
 	Projectile: InstantHit
 	Warhead@5Actor: SpawnActor
@@ -1175,12 +1202,3 @@ ColossiShrapnel:
 	Warhead@5Sound: CreateEffect
 		ImpactSounds: instantrift.wav
 
-## Spawner Dummy weapon, spawns an actor when triggered
-MutTunnelSpawnerDummyWeapon:
-	Range: 1c0
-	ReloadDelay: 10000
-	Report: ssneakat.wav
-	Projectile: InstantExplode
-	Warhead@2Spawner: SpawnBuilding
-		Buildings: muvent
-		AirThreshold: 12c0
