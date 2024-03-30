@@ -424,7 +424,10 @@ namespace OpenRA.Mods.SP.Traits
 					var offset = world.Map.CenterOfCell(xy) - world.Map.CenterOfCell(sourceLocation);
 					if (unit.CanBeViewedByPlayer(manager.Self.Owner))
 						foreach (var r in unit.Render(wr))
-							yield return r.OffsetBy(offset);
+						{
+							if (!r.IsDecoration)
+								yield return r.OffsetBy(offset);
+						}
 				}
 			}
 
