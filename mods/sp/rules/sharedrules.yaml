@@ -100,7 +100,7 @@ MCV:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 60
+		Speed: 75
 		TurnSpeed: 20
 		Locomotor: InfantryCrusherVehicle
 	Targetable@MC:
@@ -425,38 +425,16 @@ GACNST:
 		Prerequisite: structures.wall
 	ProvidesPrerequisite@structuresgate:
 		Prerequisite: structures.gate
-	SpawnActorsOnSell@humanengie:
-		ActorTypes: engineer
-		Factions: gdi, nod
-	SpawnActorsOnSell@mutengie:
-		ActorTypes: cutman
-		Factions: mut
-	SpawnActorsOnSell@cabengie:
-		ActorTypes: swarmling
-		Factions: cab
-	SpawnActorsOnSell@screngie:
-		ActorTypes: shapeshifter
-		Factions: scr
 	SpawnActorsOnSell@gdi:
-		ValuePercent: 15
-		ActorTypes: gdie1
-		Factions: gdi
+		GuaranteedActorTypes: engineer
 	SpawnActorsOnSell@nod:
-		ValuePercent: 15
-		ActorTypes: altnode1
-		Factions: nod
-	SpawnActorsOnSell@cab:
-		ValuePercent: 15
-		ActorTypes: worker
-		Factions: cab
+		GuaranteedActorTypes: engineer
 	SpawnActorsOnSell@mut:
-		ValuePercent: 15
-		ActorTypes: marauder
-		Factions: mut
+		GuaranteedActorTypes: cutman
+	SpawnActorsOnSell@cab:
+		GuaranteedActorTypes: swarmling
 	SpawnActorsOnSell@scr:
-		ValuePercent: 15
-		ActorTypes: shark
-		Factions: scr
+		GuaranteedActorTypes: shapeshifter
 	Capturable:
 		RequiresCondition: !Building-Buildup && !suddendeath
 	Targetable@MC:

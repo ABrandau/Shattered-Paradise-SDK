@@ -44,7 +44,7 @@ GrenadierBazookaAA:
 		NoUnintendedFriendlyFire: All
 
 Grenade:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^BombWarhead
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 60
 	Range: 5c0
@@ -63,17 +63,14 @@ Grenade:
 		Spread: 0c256
 		Damage: 5000
 		Versus:
-			Building: 100
 			Defense: 50
-			Heavy: 35
-			Concrete: 15
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: jtwlt026b
 		ImpactSounds: expnew13.aud
 
 JJGrenade:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^BombWarhead
 	Inherits@2: ^Small_Bang
 	ReloadDelay: 70
 	Range: 5c0
@@ -89,7 +86,6 @@ JJGrenade:
 		Spread: 300
 		Damage: 5000
 		Versus:
-			Building: 80
 			Defense: 25
 			Heavy: 25
 			Concrete: 5
@@ -129,11 +125,12 @@ JJSMG:
 		Spread: 300
 		Damage: 20000
 		Versus:
-			Building: 10
-			Defense: 10
-			Heavy: 80
-			Aircraft: 50
-			Concrete: 5
+			Building: 100
+			Defense: 100
+			Light: 100
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 35
 		ValidTargets: Ground, Water
 		InvalidTargets: Building, Defence, Wall, Air
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath
@@ -804,9 +801,6 @@ OBBombFrontal:
 		Falloff: 100, 65, 45, 25, 5
 		Spread: 0c512
 		Damage: 10000
-		Versus:
-			Light: 80
-			Heavy: 60
 		ValidTargets: Ground, Water, Building, Infantry, Vehicle
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
