@@ -21,7 +21,7 @@ namespace OpenRA.Mods.SP.Traits
 	public class ChronoshiftableSPInfo : ConditionalTraitInfo
 	{
 		[Desc("Types of damage that this trait causes when teleported to following terrain while unit cannot stand on it.")]
-		public readonly Dictionary<HashSet<string>, BitSet<DamageType>> TerrainsAndDamageTypes = default;
+		public readonly Dictionary<HashSet<string>, BitSet<DamageType>> TerrainsAndDeathTypes = new();
 
 		[Desc("Max distance when destination is unavaliable for allies")]
 		public readonly int MaxSearchCellDistance = 5;
@@ -39,7 +39,7 @@ namespace OpenRA.Mods.SP.Traits
 			if (IsTraitDisabled)
 				return false;
 
-			self.QueueActivity(false, new ChronoTeleportSP(chronoProvider, targetLocation, teleportCells, Info.MaxSearchCellDistance, true, Info.TerrainsAndDamageTypes));
+			self.QueueActivity(false, new ChronoTeleportSP(chronoProvider, targetLocation, teleportCells, Info.MaxSearchCellDistance, true, Info.TerrainsAndDeathTypes));
 			return true;
 		}
 	}

@@ -22,13 +22,13 @@ namespace OpenRA.Mods.SP.Activities
 	{
 		readonly Actor chronoProvider;
 		readonly int? maximumDistance;
-		readonly Dictionary<HashSet<string>, BitSet<DamageType>> terrainsAndDamageTypes = new();
+		readonly Dictionary<HashSet<string>, BitSet<DamageType>> terrainsAndDeathTypes = new();
 		readonly List<CPos> teleportCells;
 		readonly ActorMap actorMap;
 		CPos destination;
 
 		public ChronoTeleportSP(Actor chronoProvider, CPos destination, List<CPos> teleportCells, int? maximumDistance,
-			bool interruptable = true, Dictionary<HashSet<string>, BitSet<DamageType>> terrainsAndDamageTypes = default)
+			bool interruptable = true, Dictionary<HashSet<string>, BitSet<DamageType>> terrainsAndDeathTypes = default)
 		{
 			ActivityType = ActivityType.Move;
 			actorMap = chronoProvider.World.WorldActor.TraitOrDefault<ActorMap>();
@@ -39,7 +39,7 @@ namespace OpenRA.Mods.SP.Activities
 			this.chronoProvider = chronoProvider;
 			this.destination = destination;
 			this.maximumDistance = maximumDistance;
-			this.terrainsAndDamageTypes = terrainsAndDamageTypes;
+			this.terrainsAndDeathTypes = terrainsAndDeathTypes;
 			this.teleportCells = teleportCells;
 
 			if (!interruptable)
@@ -103,10 +103,10 @@ namespace OpenRA.Mods.SP.Activities
 
 		bool TryGetDamage(string terrainType, out BitSet<DamageType>? damage)
 		{
-			foreach (var terrains in terrainsAndDamageTypes.Keys)
+			foreach (var terrains in terrainsAndDeathTypes.Keys)
 				if (terrains.Contains(terrainType))
 				{
-					damage = terrainsAndDamageTypes[terrains];
+					damage = terrainsAndDeathTypes[terrains];
 					return true;
 				}
 
