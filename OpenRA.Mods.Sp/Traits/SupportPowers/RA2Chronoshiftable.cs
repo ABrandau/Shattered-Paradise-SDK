@@ -18,28 +18,33 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.SP.Traits
 {
 	[Desc("Can be teleported via Chronoshift power.")]
-	public class ChronoshiftableSPInfo : ConditionalTraitInfo
+	public class RA2ChronoshiftableInfo : ConditionalTraitInfo
 	{
+		[Desc("This trait only support this type of Chronoshift power, ",
+			"block the teleport use this teleport type when not enabled,",
+			"and only trigger teleport effect of this teleport type")]
+		public readonly string TeleportType = "RA2ChronoPower";
+
 		[Desc("Types of damage that this trait causes when teleported to following terrain while unit cannot stand on it.")]
 		public readonly Dictionary<HashSet<string>, BitSet<DamageType>> TerrainsAndDeathTypes = new();
 
 		[Desc("Max distance when destination is unavaliable for allies")]
 		public readonly int MaxSearchCellDistance = 5;
 
-		public override object Create(ActorInitializer init) { return new ChronoshiftableSP(this); }
+		public override object Create(ActorInitializer init) { return new RA2Chronoshiftable(this); }
 	}
 
-	public class ChronoshiftableSP : ConditionalTrait<ChronoshiftableSPInfo>
+	public class RA2Chronoshiftable : ConditionalTrait<RA2ChronoshiftableInfo>
 	{
-		public ChronoshiftableSP(ChronoshiftableSPInfo info)
+		public RA2Chronoshiftable(RA2ChronoshiftableInfo info)
 			: base(info) { }
 
-		public virtual bool Teleport(Actor self, CPos targetLocation, List<CPos> teleportCells, Actor chronoProvider)
+		public virtual bool ChronoPowerTeleport(Actor self, CPos targetLocation, List<CPos> teleportCells, Actor chronoProvider)
 		{
 			if (IsTraitDisabled)
 				return false;
 
-			self.QueueActivity(false, new ChronoTeleportSP(chronoProvider, targetLocation, teleportCells, Info.MaxSearchCellDistance, true, Info.TerrainsAndDeathTypes));
+			self.QueueActivity(false, new RA2teleport(chronoProvider, Info.TeleportType, targetLocation, teleportCells, Info.MaxSearchCellDistance, null, true, Info.TerrainsAndDeathTypes));
 			return true;
 		}
 	}

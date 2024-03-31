@@ -1187,3 +1187,49 @@ TeleportLazer:
 		Image: scrintele
 		Palette: jascbluealpha
 		AirThreshold: 8c0
+
+MasterMindTeleTo:
+	ValidTargets: Vehicle, Infantry, Building, Ground, Water
+	InstantExplode:
+	Warhead@2Eff: CreateEffect
+		Explosions: blackhole
+		ExplosionPalette: jascbluealpha
+		Volume: 0.5
+		ImpactSounds: instantrift.wav
+		ImpactActors: false
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+		AirThreshold: 8c0
+	Warhead@3Blood: CreateEffect
+		ImpactActors: false
+		Explosions: dieblood6
+		Image: mastermind
+		ExplosionPalette: jascblue
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+		AirThreshold: 8c0
+	Warhead@4Eff: CreateEffect
+		ImpactActors: false
+		Explosions: large_watersplash
+		ExplosionPalette: jascbluealpha
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+		AirThreshold: 8c0
+
+MasterMindTeleFrom:
+	ValidTargets: Vehicle, Infantry, Building, Ground, Water
+	InstantExplode:
+	Warhead@2Eff: CreateEffect
+		ImpactActors: false
+		Explosions: die1, die2
+		ImpactSounds: desintegrator0004.aud, desintegrator0005.aud, desintegrator0006.aud
+		Image: mastermind
+		ExplosionPalette: playerscrin
+		UsePlayerPalette: true
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+		AirThreshold: 8c0
+	Warhead@3Blood: CreateEffect
+		ImpactActors: false
+		Explosions: dieblood6
+		Image: mastermind
+		ExplosionPalette: jascblue
+		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+		AirThreshold: 8c0
+

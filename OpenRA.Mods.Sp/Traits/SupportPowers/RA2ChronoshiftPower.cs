@@ -20,8 +20,11 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.SP.Traits
 {
-	sealed class ChronoshiftPowerSPInfo : SupportPowerInfo
+	sealed class RA2ChronoshiftPowerInfo : SupportPowerInfo
 	{
+		[Desc("This power only affect this teleport type.")]
+		public readonly string TeleportType = "RA2ChronoPower";
+
 		[FieldLoader.Require]
 		[Desc("Size of the footprint of the affected area.")]
 		public readonly Dictionary<int, CVec> Dimensions = new();
@@ -80,7 +83,7 @@ namespace OpenRA.Mods.SP.Traits
 		public WeaponInfo ImpactWeaponInfo { get; private set; }
 		public WeaponInfo TeleportWeaponInfo { get; private set; }
 
-		public override object Create(ActorInitializer init) { return new ChronoshiftPowerSP(init.Self, this); }
+		public override object Create(ActorInitializer init) { return new RA2ChronoshiftPower(init.Self, this); }
 		public override void RulesetLoaded(Ruleset rules, ActorInfo ai)
 		{
 			if (!string.IsNullOrEmpty(ImpactWeapon))
@@ -103,18 +106,20 @@ namespace OpenRA.Mods.SP.Traits
 		}
 	}
 
-	sealed class ChronoshiftPowerSP : SupportPower
+	sealed class RA2ChronoshiftPower : SupportPower
 	{
 		readonly Dictionary<int, char[]> footprints = new();
 		readonly Dictionary<int, CVec> dimensions;
+		readonly string teleportType;
 
-		public ChronoshiftPowerSP(Actor self, ChronoshiftPowerSPInfo info)
+		public RA2ChronoshiftPower(Actor self, RA2ChronoshiftPowerInfo info)
 			: base(self, info)
 		{
 			foreach (var pair in info.Footprints)
 				footprints.Add(pair.Key, pair.Value.Where(c => !char.IsWhiteSpace(c)).ToArray());
 
 			dimensions = info.Dimensions;
+			teleportType = info.TeleportType;
 		}
 
 		public override void SelectTarget(Actor self, string order, SupportPowerManager manager)
@@ -126,7 +131,7 @@ namespace OpenRA.Mods.SP.Traits
 		{
 			base.Activate(self, order, manager);
 
-			var info = (ChronoshiftPowerSPInfo)Info;
+			var info = (RA2ChronoshiftPowerInfo)Info;
 
 			// Generate a weapon on the place of impact, Generate a weapon on the place of teleport
 			var weapon = info.TeleportWeaponInfo;
@@ -162,15 +167,14 @@ namespace OpenRA.Mods.SP.Traits
 
 			foreach (var target in UnitsInRange(order.ExtraLocation))
 			{
-				var cs = target.TraitsImplementing<ChronoshiftableSP>()
-					.FirstEnabledConditionalTraitOrDefault();
+				var cs = target.TraitsImplementing<RA2Chronoshiftable>().FirstOrDefault(t => teleportType == t.Info.TeleportType && !t.IsTraitDisabled);
 
 				if (cs == null)
 					continue;
 
 				var targetCell = target.Location + targetDelta;
 
-				cs.Teleport(target, targetCell, teleportCells, self);
+				cs.ChronoPowerTeleport(target, targetCell, teleportCells, self);
 			}
 		}
 
@@ -182,7 +186,7 @@ namespace OpenRA.Mods.SP.Traits
 			foreach (var t in tiles)
 				units.UnionWith(Self.World.ActorMap.GetActorsAt(t));
 
-			return units.Where(a => a.TraitsImplementing<ChronoshiftableSP>().Any(cs => !cs.IsTraitDisabled));
+			return units.Where(a => a.TraitsImplementing<RA2Chronoshiftable>().Any(t => teleportType == t.Info.TeleportType && !t.IsTraitDisabled));
 		}
 
 		public bool SimilarTerrain(CPos xy, CPos sourceLocation)
@@ -217,7 +221,7 @@ namespace OpenRA.Mods.SP.Traits
 
 		sealed class SelectChronoshiftTarget : OrderGenerator
 		{
-			readonly ChronoshiftPowerSP power;
+			readonly RA2ChronoshiftPower power;
 			readonly Dictionary<int, char[]> footprints = new();
 			readonly Dictionary<int, CVec> dimensions;
 			readonly Sprite tile;
@@ -225,7 +229,7 @@ namespace OpenRA.Mods.SP.Traits
 			readonly SupportPowerManager manager;
 			readonly string order;
 
-			public SelectChronoshiftTarget(World world, string order, SupportPowerManager manager, ChronoshiftPowerSP power)
+			public SelectChronoshiftTarget(World world, string order, SupportPowerManager manager, RA2ChronoshiftPower power)
 			{
 				// Clear selection if using Left-Click Orders
 				if (Game.Settings.Game.UseClassicMouseStyle)
@@ -235,7 +239,7 @@ namespace OpenRA.Mods.SP.Traits
 				this.order = order;
 				this.power = power;
 
-				var info = (ChronoshiftPowerSPInfo)power.Info;
+				var info = (RA2ChronoshiftPowerInfo)power.Info;
 				var s = world.Map.Sequences.GetSequence(info.FootprintImage, info.SourceFootprintSequence);
 				foreach (var pair in info.Footprints)
 					footprints.Add(pair.Key, pair.Value.Where(c => !char.IsWhiteSpace(c)).ToArray());
@@ -285,20 +289,20 @@ namespace OpenRA.Mods.SP.Traits
 				var xy = wr.Viewport.ViewToWorld(Viewport.LastMousePos);
 				var level = power.GetLevel();
 				var tiles = power.CellsMatching(xy, footprints.First(f => f.Key == level).Value, dimensions.First(d => d.Key == level).Value);
-				var palette = wr.Palette(((ChronoshiftPowerSPInfo)power.Info).TargetOverlayPalette);
+				var palette = wr.Palette(((RA2ChronoshiftPowerInfo)power.Info).TargetOverlayPalette);
 				foreach (var t in tiles)
 					yield return new SpriteRenderable(tile, wr.World.Map.CenterOfCell(t), WVec.Zero, -511, palette, 1f, alpha, float3.Ones, TintModifiers.IgnoreWorldTint, true);
 			}
 
 			protected override string GetCursor(World world, CPos cell, int2 worldPixel, MouseInput mi)
 			{
-				return ((ChronoshiftPowerSPInfo)power.Info).SelectionCursor;
+				return ((RA2ChronoshiftPowerInfo)power.Info).SelectionCursor;
 			}
 		}
 
 		sealed class SelectDestination : OrderGenerator
 		{
-			readonly ChronoshiftPowerSP power;
+			readonly RA2ChronoshiftPower power;
 			readonly CPos sourceLocation;
 			readonly Dictionary<int, char[]> footprints = new();
 			readonly Dictionary<int, CVec> dimensions;
@@ -308,19 +312,19 @@ namespace OpenRA.Mods.SP.Traits
 			readonly Animation overlay;
 			readonly string order;
 
-			public SelectDestination(World world, string order, SupportPowerManager manager, ChronoshiftPowerSP power, CPos sourceLocation)
+			public SelectDestination(World world, string order, SupportPowerManager manager, RA2ChronoshiftPower power, CPos sourceLocation)
 			{
 				this.manager = manager;
 				this.order = order;
 				this.power = power;
 				this.sourceLocation = sourceLocation;
 
-				var info = (ChronoshiftPowerSPInfo)power.Info;
+				var info = (RA2ChronoshiftPowerInfo)power.Info;
 				if (info.EffectImage != null)
 				{
 					overlay = new Animation(world, info.EffectImage);
 
-					var powerInfo = (ChronoshiftPowerSPInfo)power.Info;
+					var powerInfo = (RA2ChronoshiftPowerInfo)power.Info;
 					if (powerInfo.SelectionStartSequence != null)
 						overlay.PlayThen(powerInfo.SelectionStartSequence,
 							() => overlay.PlayRepeating(powerInfo.SelectionLoopSequence));
@@ -449,7 +453,7 @@ namespace OpenRA.Mods.SP.Traits
 			{
 				if (overlay != null)
 				{
-					var powerInfo = (ChronoshiftPowerSPInfo)power.Info;
+					var powerInfo = (RA2ChronoshiftPowerInfo)power.Info;
 					foreach (var r in overlay.Render(world.Map.CenterOfCell(sourceLocation), wr.Palette(powerInfo.EffectPalette)))
 						yield return r;
 				}
@@ -493,7 +497,7 @@ namespace OpenRA.Mods.SP.Traits
 
 			protected override string GetCursor(World world, CPos cell, int2 worldPixel, MouseInput mi)
 			{
-				var powerInfo = (ChronoshiftPowerSPInfo)power.Info;
+				var powerInfo = (RA2ChronoshiftPowerInfo)power.Info;
 				return IsValidTarget(cell) ? powerInfo.TargetCursor : powerInfo.TargetBlockedCursor;
 			}
 		}

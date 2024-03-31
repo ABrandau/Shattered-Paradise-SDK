@@ -1968,11 +1968,15 @@ MASTERMIND:
 		Position: BottomLeft
 		RequiresSelection: true
 		ValidRelationships: Ally, Neutral, Enemy
-	PortableChrono:
-		ChronoshiftSound: instantrift.wav
+	RA2PortableChrono:
+		TeleportType: MasterMindTele
 		Voice: Move
 		ChargeDelay: 500
 		TargetCursor: emp
+	ExplodeWeaponOnTeleportRA2:
+		TeleportType: MasterMindTele
+		ImpactWeapon: MasterMindTeleFrom
+		TeleportWeapon: MasterMindTeleTo
 	Passenger:
 		CustomPipType: red
 	SharedPassenger:
@@ -2072,7 +2076,7 @@ CABSENTRY:
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 
-	-ChronoshiftableSP:
+	-RA2Chronoshiftable:
 
 	-ChangesHealth@HOSPITAL:
 	-GrantConditionOnPrerequisite@hospitalheal:
@@ -2466,7 +2470,7 @@ MOTH:
 		Name: deployed
 		Sequence: deployed
 		RequiresCondition: !undeployed && !inside-tunnel && !WebDisable
-	ChronoshiftableSP:
+	RA2Chronoshiftable:
 		RequiresCondition: undeployed
 	-WithInfantryBody:
 	DamagedByTintedCells@Default:

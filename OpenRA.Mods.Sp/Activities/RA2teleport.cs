@@ -11,23 +11,27 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using OpenRA.Activities;
 using OpenRA.Mods.Common.Traits;
+using OpenRA.Mods.SP.Traits;
 using OpenRA.Primitives;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.SP.Activities
 {
-	public class ChronoTeleportSP : Activity
+	public class RA2teleport : Activity
 	{
 		readonly Actor chronoProvider;
 		readonly int? maximumDistance;
+		readonly int? chronoProviderRangeLimit;
 		readonly Dictionary<HashSet<string>, BitSet<DamageType>> terrainsAndDeathTypes = new();
-		readonly List<CPos> teleportCells;
+		readonly List<CPos> chronoCellsOfProvider;
 		readonly ActorMap actorMap;
-		CPos destination;
+		readonly string teleportType;
+		CPos directDestination;
 
-		public ChronoTeleportSP(Actor chronoProvider, CPos destination, List<CPos> teleportCells, int? maximumDistance,
+		public RA2teleport(Actor chronoProvider, string teleportType, CPos directDestination, List<CPos> chronoCellsOfProvider, int? maximumDistance, int? chronoProviderRangeLimit,
 			bool interruptable = true, Dictionary<HashSet<string>, BitSet<DamageType>> terrainsAndDeathTypes = default)
 		{
 			ActivityType = ActivityType.Move;
@@ -37,10 +41,12 @@ namespace OpenRA.Mods.SP.Activities
 				throw new InvalidOperationException($"Teleport distance cannot exceed the value of MaximumTileSearchRange ({max}).");
 
 			this.chronoProvider = chronoProvider;
-			this.destination = destination;
+			this.teleportType = teleportType;
+			this.directDestination = directDestination;
 			this.maximumDistance = maximumDistance;
+			this.chronoProviderRangeLimit = chronoProviderRangeLimit;
 			this.terrainsAndDeathTypes = terrainsAndDeathTypes;
-			this.teleportCells = teleportCells;
+			this.chronoCellsOfProvider = chronoCellsOfProvider;
 
 			if (!interruptable)
 				IsInterruptible = false;
@@ -48,15 +54,22 @@ namespace OpenRA.Mods.SP.Activities
 
 		public override bool Tick(Actor self)
 		{
-			(var bestCell, var damage) = ChooseBestDestinationCell(self, destination);
+			// 1. Check if we can teleport, and has a cell to teleport.
+			(var bestCell, var damage) = ChooseBestDestinationCell(self, directDestination);
 			if (bestCell == null)
 				return true;
 
-			destination = bestCell.Value;
+			// 2. Teleport and trigger teleport effect.
+			directDestination = bestCell.Value;
+			var oldPos = self.CenterPosition;
 
-			self.Trait<IPositionable>().SetPosition(self, destination);
+			self.Trait<IPositionable>().SetPosition(self, directDestination);
 			self.Generation++;
 
+			foreach (var ost in self.TraitsImplementing<IOnSuccessfulTeleportRA2>())
+				ost.OnSuccessfulTeleport(teleportType, oldPos, self.World.Map.CenterOfCell(directDestination));
+
+			// 3. Kill the unit being put on a deadly cell intendedly.
 			if (damage != null)
 				self.Kill(chronoProvider.Owner.PlayerActor, damage.Value);
 
@@ -78,7 +91,7 @@ namespace OpenRA.Mods.SP.Activities
 				if (!pos.CanEnterCell(destination) && !actorMap.AnyActorsAt(destination) && chronoProvider.Owner.Shroud.IsExplored(destination) && TryGetDamage(map.GetTerrainInfo(destination).Type, out var damage))
 					return (destination, damage);
 
-				foreach (var tile in teleportCells)
+				foreach (var tile in chronoCellsOfProvider)
 				{
 					if (chronoProvider.Owner.Shroud.IsExplored(tile)
 						&& !pos.CanEnterCell(tile) && !actorMap.AnyActorsAt(tile)
@@ -91,7 +104,7 @@ namespace OpenRA.Mods.SP.Activities
 			if (pos.CanEnterCell(destination) && chronoProvider.Owner.Shroud.IsExplored(destination))
 				return (destination, null);
 
-			foreach (var tile in self.World.Map.FindTilesInCircle(destination, max))
+			foreach (var tile in self.World.Map.FindTilesInCircle(destination, max).Where(c => (c - chronoProvider.Location).LengthSquared < chronoProviderRangeLimit * chronoProviderRangeLimit))
 			{
 				if (chronoProvider.Owner.Shroud.IsExplored(tile)
 					&& pos.CanEnterCell(tile))
