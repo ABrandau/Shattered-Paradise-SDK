@@ -144,9 +144,9 @@ namespace OpenRA.Mods.SP.Traits
 					var unitBuilder = Array.Find(requestUnitProduction, Exts.IsTraitEnabled);
 					if (unitBuilder != null)
 					{
-						var mcvInfo = AIUtils.GetInfoByCommonName(Info.McvTypes, player);
-						if (unitBuilder.RequestedProductionCount(bot, mcvInfo.Name) == 0)
-							unitBuilder.RequestUnitProduction(bot, mcvInfo.Name);
+						var mcvType = Info.McvTypes.Random(world.LocalRandom);
+						if (unitBuilder.RequestedProductionCount(bot, mcvType) == 0)
+							unitBuilder.RequestUnitProduction(bot, mcvType);
 					}
 				}
 			}
