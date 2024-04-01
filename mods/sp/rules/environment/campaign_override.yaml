@@ -103,3 +103,54 @@ Player:
 	McvManagerSPBotModule@AINormal:
 		RequiresCondition: AIBase
 	-UnpackBaseBotModule:
+
+## Special Unit Rules For Campaign
+MCVGDI:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: mcvgdi-name
+
+MCVNOD:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: mcvnod-name
+
+MCVMUT:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: mcvmut-name
+
+MCVCAB:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: mcvcab-name
+
+MCVSCR:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: mcvscr-name
+
+MCV:
+	Buildable:
+		Prerequisites: ~gaweap, mcvgdi,~techlevel.3, ~!global-suddendeath
+
+NODMCV:
+	Buildable:
+		Prerequisites: ~naweap, mcvnod, ~techlevel.3, ~!global-suddendeath
+
+MUTMCV:
+	Buildable:
+		Prerequisites: ~muweap,  mcvmut, ~techlevel.3, ~!global-suddendeath
+
+CABMCV:
+	Buildable:
+		Prerequisites: ~cabweap, mcvcab, ~techlevel.3, ~!global-suddendeath
+
+DRACHE:
+	Buildable:
+		Prerequisites: ~scrair, mcvscr, ~techlevel.3, ~!global-suddendeath
