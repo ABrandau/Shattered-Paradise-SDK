@@ -17,10 +17,4 @@ namespace OpenRA.Mods.SP.Traits
 	{
 		public bool TryAddCorpse(string type, CPos loc, WPos pos, Player owner);
 	}
-
-	[RequireExplicitImplementation]
-	public interface IOnSuccessfulTeleportRA2
-	{
-		public void OnSuccessfulTeleport(string type, WPos oldPos, WPos newPos);
-	}
 }
