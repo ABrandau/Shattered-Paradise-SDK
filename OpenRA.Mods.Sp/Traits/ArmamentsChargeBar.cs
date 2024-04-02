@@ -15,7 +15,8 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.SP.Traits.Render
 {
-	[Desc("Grants condition after weapon fire and show the duration as the weapon is charging.")]
+	[Desc("Grants condition after weapon fire and show the condition duration.",
+		"You can use it to disable reloading armnament, because reloading armnament cannot disable itself.")]
 	sealed class ArmamentsChargeBarInfo : ConditionalTraitInfo
 	{
 		[Desc("Armament name")]
@@ -25,7 +26,7 @@ namespace OpenRA.Mods.SP.Traits.Render
 		[Desc("The condition to grant after fire.")]
 		public readonly string Condition = null;
 
-		[Desc("Armament name")]
+		[Desc("The duration of condition")]
 		public readonly int Duration = 100;
 
 		public readonly Color Color = Color.Magenta;
