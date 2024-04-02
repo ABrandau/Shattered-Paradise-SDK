@@ -105,6 +105,7 @@ Player:
 	-UnpackBaseBotModule:
 
 ## Special Unit Rules For Campaign
+## 1. You need to be faction player or have conyard of related faction to build MCV.
 MCVGDI:
 	AlwaysVisible:
 	Interactable:
@@ -154,3 +155,23 @@ CABMCV:
 DRACHE:
 	Buildable:
 		Prerequisites: ~scrair, mcvscr, ~techlevel.3, ~!global-suddendeath
+
+GACNST:
+	ProvidesPrerequisite@FactionMCV:
+		Prerequisite: mcvgdi
+
+NODYARD:
+	ProvidesPrerequisite@FactionMCV:
+		Prerequisite: mcvnod
+
+MUTYARD:
+	ProvidesPrerequisite@FactionMCV:
+		Prerequisite: mcvmut
+
+DRACHED:
+	ProvidesPrerequisite@FactionMCV:
+		Prerequisite: mcvscr
+
+CABYARD:
+	ProvidesPrerequisite@FactionMCV:
+		Prerequisite: mcvcab
