@@ -271,13 +271,14 @@ GAWEAP:
 GARADR:
 	Inherits: ^Radar
 	Inherits@SHAPE: ^2x2Shape
+	Inherits@AIbuilding: ^AImicroManagable
 	Tooltip:
 		Name: garadr-name
 	Buildable:
 		Queue: Building.Shared, Building.GDI
 		BuildPaletteOrder: 26
 		Description: garadr-desc
-		Prerequisites: ~gacnst, proc, ~techlevel.4
+		Prerequisites: ~gacnst, proc, ~techlevel.4, ~!hasTech.gdiT2
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
@@ -294,6 +295,9 @@ GARADR:
 			1: GDIradarscan
 	IsometricSelectable:
 		DecorationHeight: 72
+	ProvidesPrerequisite@AI-Limit:
+		RequiresCondition: AImicroManage
+		Prerequisite: hasTech.gdiT2
 
 GAHPAD:
 	Inherits: ^Helipad
@@ -339,13 +343,14 @@ GAHPAD:
 GATECH:
 	Inherits: ^TechCenter
 	Inherits@SHAPE: ^3x2Shape
+	Inherits@AIbuilding: ^AImicroManagable
 	Tooltip:
 		Name: gatech-name
 	Buildable:
 		Queue: Building.Shared, Building.GDI
 		BuildPaletteOrder: 41
 		Description: gatech-desc
-		Prerequisites: ~gacnst, garadr, ~techlevel.5
+		Prerequisites: ~gacnst, garadr, ~techlevel.5, ~!hasTech.gdiT3
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -358,6 +363,9 @@ GATECH:
 		AreaTypes: building
 	IsometricSelectable:
 		DecorationHeight: 36
+	ProvidesPrerequisite@AI-Limit:
+		RequiresCondition: AImicroManage
+		Prerequisite: hasTech.gdiT3
 
 GTDROP:
 	Inherits: ^AffectPowerBuilding
@@ -735,13 +743,14 @@ NAWEAP:
 NARADR:
 	Inherits: ^Radar
 	Inherits@SHAPE: ^2x2Shape
+	Inherits@AIbuilding: ^AImicroManagable
 	Tooltip:
 		Name: naradr-name
 	Buildable:
 		Queue: Building.Shared, Building.Nod
 		BuildPaletteOrder: 27
 		Description: naradr-desc
-		Prerequisites: ~nodyard, proc, ~techlevel.4
+		Prerequisites: ~nodyard, proc, ~techlevel.4, ~!hasTech.nodT2
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
@@ -758,6 +767,9 @@ NARADR:
 			1: NODradarscan
 	IsometricSelectable:
 		DecorationHeight: 48
+	ProvidesPrerequisite@AI-Limit:
+		RequiresCondition: AImicroManage
+		Prerequisite: hasTech.nodT2
 
 NAAPWR:
 	Inherits: ^Powerplant
@@ -838,13 +850,14 @@ NAHPAD:
 NATECH:
 	Inherits: ^TechCenter
 	Inherits@SHAPE: ^2x2Shape
+	Inherits@AIbuilding: ^AImicroManagable
 	Tooltip:
 		Name: natech-name
 	Buildable:
 		Queue: Building.Shared, Building.Nod
 		BuildPaletteOrder: 42
 		Description: natech-desc
-		Prerequisites: ~nodyard, naradr, ~techlevel.5
+		Prerequisites: ~nodyard, naradr, ~techlevel.5, ~!hasTech.nodT3
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -861,6 +874,9 @@ NATECH:
 		Prerequisite: upgrade.nod
 	RequiresBuildableArea:
 		AreaTypes: building
+	ProvidesPrerequisite@AI-Limit:
+		RequiresCondition: AImicroManage
+		Prerequisite: hasTech.nodT3
 
 NAHFAC:
 	Inherits: ^Factory
@@ -1265,13 +1281,14 @@ MURADR:
 	Inherits: ^Radar
 	Inherits@RENDER: ^MutRenderBuilding
 	Inherits@SHAPE: ^2x2Shape
+	Inherits@AIbuilding: ^AImicroManagable
 	Tooltip:
 		Name: muradr-name
 	Buildable:
 		Queue: Building.Shared, Building.Mutant
 		Description: muradr-desc
 		BuildPaletteOrder: 28
-		Prerequisites: ~mutyard, proc, ~techlevel.4
+		Prerequisites: ~mutyard, proc, ~techlevel.4, ~!hasTech.mutT2
 	ProvidesPrerequisite@upgrade.mut:
 		Prerequisite: upgrade.mut
 	SpawnActorPower:
@@ -1284,6 +1301,9 @@ MURADR:
 			1: MUTradarscan
 	IsometricSelectable:
 		DecorationHeight: 48
+	ProvidesPrerequisite@AI-Limit:
+		RequiresCondition: AImicroManage
+		Prerequisite: hasTech.mutT2
 
 MUAIR:
 	Inherits: ^Helipad
@@ -1316,13 +1336,14 @@ MUHALL:
 	Inherits: ^TechCenter
 	Inherits@RENDER: ^MutRenderBuilding
 	Inherits@SHAPE: ^3x4Shape
+	Inherits@AIbuilding: ^AImicroManagable
 	Tooltip:
 		Name: muhall-name
 	Buildable:
 		Queue: Building.Shared, Building.Mutant
 		BuildPaletteOrder: 43
 		Description: muhall-desc
-		Prerequisites: ~mutyard, muradr, ~techlevel.5
+		Prerequisites: ~mutyard, muradr, ~techlevel.5, ~!hasTech.mutT3
 	Building:
 		Footprint: xxx xxx xxx xxx
 		Dimensions: 3,4
@@ -1330,6 +1351,9 @@ MUHALL:
 		Prerequisite: upgrade.mut
 	RequiresBuildableArea:
 		AreaTypes: building
+	ProvidesPrerequisite@AI-Limit:
+		RequiresCondition: AImicroManage
+		Prerequisite: hasTech.mutT3
 
 MUTSW2:
 	Inherits: ^AffectPowerBuilding
@@ -1703,13 +1727,14 @@ SCRRADR:
 	Inherits@2: ^ScrinBuildingFire
 	Inherits@RENDER: ^ScrinRenderBuilding
 	Inherits@SHAPE: ^3x3Shape
+	Inherits@AIbuilding: ^AImicroManagable
 	Tooltip:
 		Name: scrradr-name
 	Buildable:
 		Queue: Building.Shared, Building.Scrin
 		BuildPaletteOrder: 30
 		Description: scrradr-desc
-		Prerequisites: ~drached, proc, ~techlevel.4
+		Prerequisites: ~drached, proc, ~techlevel.4, ~!hasTech.scrT2
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
@@ -1735,6 +1760,9 @@ SCRRADR:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	ProvidesPrerequisite@AI-Limit:
+		RequiresCondition: AImicroManage
+		Prerequisite: hasTech.scrT2
 
 SCRAIR:
 	Inherits: ^Helipad
@@ -1790,13 +1818,14 @@ SCRTECH:
 	Inherits@2: ^ScrinBuildingFire
 	Inherits@RENDER: ^ScrinRenderBuilding
 	Inherits@SHAPE: ^2x3Shape
+	Inherits@AIbuilding: ^AImicroManagable
 	Tooltip:
 		Name: scrtech-name
 	Buildable:
 		Queue: Building.Shared, Building.Scrin
 		BuildPaletteOrder: 45
 		Description: scrtech-desc
-		Prerequisites: ~drached, scrradr, ~techlevel.5
+		Prerequisites: ~drached, scrradr, ~techlevel.5, ~!hasTech.scrT3
 	Building:
 		Footprint: xx xx xx
 		Dimensions: 2,3
@@ -1809,6 +1838,9 @@ SCRTECH:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	ProvidesPrerequisite@AI-Limit:
+		RequiresCondition: AImicroManage
+		Prerequisite: hasTech.scrT3
 
 SCRADVPOWR:
 	Inherits: ^AffectPowerBuilding
@@ -2174,13 +2206,14 @@ CABRADR:
 	Inherits: ^Radar
 	Inherits@RENDER: ^CabRenderBuilding
 	Inherits@SHAPE: ^3x3Shape
+	Inherits@AIbuilding: ^AImicroManagable
 	Tooltip:
 		Name: cabradr-name
 	Buildable:
 		Queue: Building.Shared, Building.CABAL
 		BuildPaletteOrder: 29
 		Description: cabradr-desc
-		Prerequisites: ~cabyard, proc, ~techlevel.4
+		Prerequisites: ~cabyard, proc, ~techlevel.4, ~!hasTech.cabT2
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
@@ -2198,6 +2231,9 @@ CABRADR:
 			1: CABradarscan
 	IsometricSelectable:
 		DecorationHeight: 96
+	ProvidesPrerequisite@AI-Limit:
+		RequiresCondition: AImicroManage
+		Prerequisite: hasTech.cabT2
 
 CABAIR:
 	Inherits: ^Helipad
@@ -2239,13 +2275,14 @@ CABTECH:
 	Inherits: ^TechCenter
 	Inherits@RENDER: ^CabRenderBuilding
 	Inherits@SHAPE: ^3x2Shape
+	Inherits@AIbuilding: ^AImicroManagable
 	Tooltip:
 		Name: cabtech-name
 	Buildable:
 		Queue: Building.Shared, Building.CABAL
 		BuildPaletteOrder: 44
 		Description: cabtech-desc
-		Prerequisites: ~cabyard, cabradr, ~techlevel.5
+		Prerequisites: ~cabyard, cabradr, ~techlevel.5, ~!hasTech.cabT3
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -2253,6 +2290,9 @@ CABTECH:
 		Prerequisite: upgrade.cab
 	RequiresBuildableArea:
 		AreaTypes: building
+	ProvidesPrerequisite@AI-Limit:
+		RequiresCondition: AImicroManage
+		Prerequisite: hasTech.cabT3
 
 CABOBELISK:
 	Inherits: ^AffectPowerBuilding

@@ -32,6 +32,20 @@ Player:
 	GrantConditionOnBotOwner@AIShattered:
 		Condition: AIShattered
 		Bots: ShatteredAI
+
+	#################################
+	## Adjust bot's techtree: 
+	## 1. Enable some units that only bot can build
+	## 2. Provide discount to unit that bot cannot use well
+	#################################
+
+	ProvidesPrerequisite@AISpecialProduce:
+		RequiresCondition: AICheater || AIShattered
+		Prerequisite: AIOnly
+	ProvidesPrerequisite@AICampaignUnit:
+		Prerequisite: AIShattered
+		RequiresCondition: AIBase
+
 	#################################
 	## BotModule and BotLogic
 	#################################
@@ -45,9 +59,6 @@ Player:
 		ShowTicks: false
 		RequiresCondition: AIBase && megawealth
 
-	ProvidesPrerequisite@AICampaignUnit:
-		Prerequisite: campaignunit
-		RequiresCondition: AIBase
 
 	CashCheater@AIShattered:
 		RequiresCondition: AIShattered
@@ -89,9 +100,6 @@ Player:
 		Pluggables: gapowr
 		Interval: 750
 		RequiresCondition: powerplug && AIBase
-	ProvidesPrerequisite@AISpecialProduce:
-		RequiresCondition: AICheater || AIShattered
-		Prerequisite: AIOnly
 	BaseBuilderBotModule@AIBase:
 		RequiresCondition: AIBase || AIEasy
 		BuildingQueues: Building.Shared, Building.GDI, Building.Nod, Building.Mutant, Building.CABAL, Building.Scrin
