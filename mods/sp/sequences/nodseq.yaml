@@ -1,5 +1,21 @@
+nodicon:
+	idle:
+		Filename: nodicon.shp
+		Length: *
+		ZOffset: 512
+		Tick: 80
+		IgnoreWorldTint: true
+
+^ZealousBuff:
+	zealous:
+		Filename: nodicon.shp
+		ZOffset: -512
+		Alpha: 0.8
+		IgnoreWorldTint: true
+
 altnode1:
 	Inherits@1: ^InfantryDeathAnims
+	Inherits@2: ^ZealousBuff
 	Defaults:
 		Filename: altnode1.shp
 		Tick: 80
@@ -56,6 +72,7 @@ altnode1:
 
 crusader:
 	Inherits@1: ^InfantryDeathAnims
+	Inherits@2: ^ZealousBuff
 	Defaults:
 		Filename: crusader.shp
 		Tick: 80
@@ -109,6 +126,7 @@ crusader:
 
 templar:
 	Inherits@1: ^InfantryDeathAnims
+	Inherits@2: ^ZealousBuff
 	Defaults:
 		Filename: templar.shp
 		Tick: 60
@@ -138,6 +156,16 @@ templar:
 		Facings: 8
 		Stride: 13
 		ShadowStart: 551
+	garrison-muzzle:
+		-Combine:
+		Facings: 1
+		Filename: jsbrnl20b.shp
+		Length: *
+		Offset: 0, 0, 12
+		Scale: 0.3
+		Tick: 15
+		ZOffset: 4001
+		IgnoreWorldTint: true
 	die1:
 		Start: 258
 		Length: 15
@@ -180,8 +208,68 @@ templar:
 	icon:
 		Filename: templaricon.shp
 
+exemplar:
+	Inherits@1: ^InfantryDeathAnims
+	Defaults:
+		Filename: exemplar.shp
+		Tick: 80
+	stand:
+		Facings: 8
+		ShadowStart: 173
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 181
+	idle1:
+		Start: 56
+		Length: 20
+		ShadowStart: 229
+	idle2:
+		Start: 164
+		Length: 9
+		ShadowStart: 337
+	die1:
+		Start: 86
+		Length: 15
+		ShadowStart: 259
+	die2:
+		Start: 101
+		Length: 15
+		ShadowStart: 274
+	die-crushed:
+		Start: 101
+		Length: 15
+		ShadowStart: 274
+		ZOffset: -511
+	shoot:
+		Start: 116
+		Length: 6
+		Facings: 8
+		ShadowStart: 289
+		IgnoreWorldTint: true
+		Tick: 50
+	garrison-muzzle:
+		-Combine:
+		Facings: 1
+		Filename: japmuzzleb.shp
+		Length: *
+		Scale: 0.3
+		Tick: 10
+		Reverses: true
+		FlipY: true
+		ZOffset: 4001
+		IgnoreWorldTint: true
+	webguy:
+		Filename: webguySPmid.shp
+		Length: 6
+		ShadowStart: 6
+	icon:
+		Filename: exemplaricon.shp
+
 nconf:
 	Inherits@1: ^InfantryDeathAnims
+	Inherits@2: ^ZealousBuff
 	Defaults:
 		Filename: nconf.shp
 		Tick: 80
@@ -253,11 +341,22 @@ nconf:
 		Length: 1
 		Facings: 8
 		ShadowStart: 646
+	garrison-muzzle:
+		-Combine:
+		Facings: 1
+		Filename: jxgrysml2b.shp
+		Length: *
+		Offset: 0, 0, 12
+		Scale: 0.2
+		Tick: 12
+		ZOffset: 4001
+		IgnoreWorldTint: true
 	icon:
 		Filename: nconficon.shp
 
 bhs:
 	Inherits@1: ^InfantryDeathAnims
+	Inherits@2: ^ZealousBuff
 	Defaults:
 		Filename: bhs.shp
 		Tick: 80
@@ -320,7 +419,7 @@ bhs:
 		Facings: 8
 		ShadowStart: 552
 	icon:
-		Filename: weaticon.shp
+		Filename: bhsicon.shp
 
 chamspy:
 	Inherits@1: ^InfantryDeathAnims
@@ -2174,3 +2273,34 @@ sgen:
 		Offset: -6, -6, 9
 		Reverses: true
 		Tick: 60
+
+drillpod:
+	Defaults: 
+		Filename: drillpod.shp
+	idle:
+		Filename: null.shp
+	make:
+		Length: 40
+		Tick: 20
+	open:
+		Start: 40
+		Length: 7
+	unload_close:
+		Combine:
+			0:
+				Filename: drillpod.shp
+				Start: 47
+				Length: 8
+			1:
+				Filename: drillpodre.shp
+				Start: 0
+				Length: 14
+		Length: 22
+		ZOffset: -512
+	die-1frame:
+		Start: 39
+	gone:
+		Filename: drillpodre.shp
+		Start:  14
+		Length: *
+		Tick: 20

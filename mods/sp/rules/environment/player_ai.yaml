@@ -283,7 +283,7 @@ Player:
 		RequiresCondition: AIBase
 		SquadSize: 24
 		SquadSizeRandomBonus: 3
-		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.nod, harv.mut, engineer, cutman, swarmling, shapeshifter,mcv, drache, cabmcv, nodmcv, mutmcv, limped, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern, dshp, dshp.high, mkiiidrone-minigun, councilor, scrtrans, trnsport, trnsport.nod, trnsport.mut, trnsport.cab, trnsport.scr, nukecarryall_bot,sonicarryall_bot, apcarryall_bot, devourer, bike, subtank, sapc, hvrtruk3, minelayer, king
+		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.nod, harv.mut, engineer, cutman, swarmling, shapeshifter,mcv, drache, cabmcv, nodmcv, mutmcv, limped, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern, dshp, dshp.high, mkiiidrone-minigun, councilor, scrtrans, trnsport, trnsport.nod, trnsport.mut, trnsport.cab, trnsport.scr, nukecarryall_bot,sonicarryall_bot, apcarryall_bot, devourer, bike, subtank, sapc, hvrtruk3, minelayer, king, drillpod
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
 		DangerScanRadius: 18
 		AttackForceInterval: 73
@@ -327,6 +327,7 @@ Player:
 			medic: 50
 			e2: 2
 			templar: 10
+			exemplar: 1
 			mutfiend: 10
 			reapercab: 20
 			colossi: 1
@@ -430,7 +431,7 @@ Player:
 			upgrade.purifying_flame: 8
 			upgrade.improved_stealth_generator: 5
 			upgrade.tib_core_missiles: 10
-			upgrade.explosive_mixtures: 1
+			upgrade.unlock_exemplar: 1
 			upgrade.laser_capacitors: 1
 			upgrade.fortified_upg: 8
 			upgrade.blue_shards: 10
@@ -465,6 +466,7 @@ Player:
 			scrmobmine: 2
 			bike: 1
 			colossi: 3
+			exemplar: 1
 			repairvehicle: 2
 			scorpion: 1
 			engineer: 2
@@ -718,6 +720,17 @@ Player:
 					Attractiveness: 1
 					TargetMetric: Value
 					CheckRadius: 5c0
+			exemplars:
+				OrderName: ExemplarsSummon
+				MinimumAttractiveness: 700
+				Against: Ally
+				Types: Infantry
+				Consideration@1:
+					Against: Enemy
+					Types: Ground
+					Attractiveness: 1
+					TargetMetric: Value
+					CheckRadius: 6c0
 			tunnel:
 				OrderName: SneakAttackPowerInfoOrder
 				MinimumAttractiveness: 3000

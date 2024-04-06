@@ -132,7 +132,7 @@ GAPILE:
 	ProvidesPrerequisite@playerhumanengi:
 		Prerequisite: barracks.humanengi
 	RequiresBuildableArea:
-		AreaTypes: building
+		AreaTypes: building	
 
 GDIREF:
 	Inherits: ^Refinery
@@ -551,6 +551,7 @@ NAPOWR:
 NAHAND:
 	Inherits: ^Barracks
 	Inherits@SHAPE: ^3x2Shape
+	Inherits@SupportPower: ^HasSuperSupportPower
 	Tooltip:
 		Name: nahand-name
 	Buildable:
@@ -624,6 +625,35 @@ NAHAND:
 		Prerequisite: barracks.humanengi
 	RequiresBuildableArea:
 		AreaTypes: building
+	ActorStatValues:
+		Upgrades: upgrade.unlock_exemplar
+	NukePower:
+		-PauseOnCondition:
+		AllowMultiple: false
+		StartFullyChargedForTheFirstTime: true
+		Cost: 1000
+		Prerequisites:
+			1: upgrade.unlock_exemplar
+		MissileWeapons:
+			1: DrillpodSummonerWeapon
+		Icons:
+			1: exemplaricon
+		IconPalette: chrome
+		ChargeInterval: 6000
+		OrderName: ExemplarsSummon
+		CircleRanges:
+			1: 3c0
+		Names:
+			1: Exemplars of Nod
+		DisplayTimerRelationships: Ally
+		Descriptions:
+			1: support-exemplars-desc
+		-LaunchTextNotification:
+		-LaunchSpeechNotification:
+		-LaunchSound:
+		-IncomingSpeechNotification:
+		-IncomingSound:
+		-IncomingTextNotification:
 
 NODREF:
 	Inherits: ^Refinery

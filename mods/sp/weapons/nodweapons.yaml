@@ -71,6 +71,31 @@ TemplarFlameE:
 	Projectile: BulletAS
 		Image: FLAMEALLBLUE
 
+ExemplarVulcan:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	StartBurstReport: cygun1.aud
+	ReloadDelay: 32
+	Burst: 4
+	BurstDelays: 3
+	Range: 5c512
+	Projectile: LaserZap
+		Width: 0
+		Duration: 1
+		TrackTarget: false
+		Blockable: true
+		HitAnim: explosion
+		HitAnimSequence: alienpiff1
+		HitAnimPalette: gensmkexplojFred
+	Warhead@1Dam: SpreadDamage
+		Damage: 2200
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		ExplosionPalette: apred
+		Delay: 1
+	Warhead@3EffWater: CreateEffect
+		Delay: 1
+
 BuggyTemplarFlameE:
 	Inherits: TemplarFlameE
 	Warhead@1Dam: SpreadDamage
@@ -86,11 +111,11 @@ BlackHandLasor:
 		TrackTarget: false
 		Blockable: true
 		Color: FF000088
-		Width: 98
+		Width: 100
 		Duration: 10
 		ZOffset: 4000
 		SecondaryBeam: true
-		SecondaryBeamWidth: 26
+		SecondaryBeamWidth: 27
 		SecondaryBeamZOffset: 4000
 		SecondaryBeamColor: FFEECC
 		HitAnim: explosion
@@ -342,20 +367,8 @@ BikeExplo:
 	Warhead@5Sharpnel: FireRadius
 		Weapon: NukeFlame3
 		ImpactActors: false
-		Amount: 10
+		Amount: 25
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-
-BikeExploEX:
-	Inherits: BikeExplo
-	Warhead@1Dam: SpreadDamage
-		Damage: 120000 # not 135000, consider the additional fire in "Warhead@5Sharpnel" which also cause some damage (<15000)
-	Warhead@5Sharpnel: FireRadius
-		Amount: 60
-	Warhead@2Eff: CreateEffect
-		Explosions: jmininuke, jmininukeb
-		ExplosionPalette: gensmkexploj
-		ValidTargets: Ground, Air, Water
-		ImpactActors: false
 
 NukeFlame3:
 	Inherits: NukeFlame
@@ -992,3 +1005,26 @@ LightbringerFlameE:
 		Image: FLAMEALLBLUE
 	Warhead@1Dam: SpreadDamage
 		Damage: 600
+
+DrillpodAnim:
+	Warhead@5dig: SpawnSmokeParticle
+		Count: 1
+		Duration: 22 ## StartSequences
+		Speed: 0
+		TurnRate: 0
+		Image: drillpod
+		StartSequences: unload_close
+		Sequences: gone
+		EndSequences: gone
+		Palette: player
+		IsPlayerPalette: true
+		AirThreshold: 8c0
+		ImpactActors: false
+	Warhead@2Eff: CreateEffect
+		Image: dig
+		Explosions: mine-dig
+		ExplosionPalette: effect
+		ValidTargets: Ground, Air, Water
+		ImpactSounds: subdril1.aud
+		AirThreshold: 8c0
+		Delay: 22

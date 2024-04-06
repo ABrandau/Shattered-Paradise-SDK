@@ -29,7 +29,7 @@ checkbox-upgrades =
     .description = Enables researching upgrades that improve units
         When disabled, several units will change:
         - Mammoth Tank will have railgun but price increased
-        - Demo Bike will have +50% damage
+        - Demo Bike will have +50% damage ##TODO
         - Blighter MLRS will have tib-gas warhead
         - Glider can transform into aircraft but price increased
         - Limped Drone can target air unit.
@@ -1989,7 +1989,7 @@ eagleguard-desc = Elite Soldier armed with an EMP rifle.
      - Immune to Tiberium fields
      - Attack with EMP : Disable ground machines for a short time
          - For example: Buildings, Defences, Vehicles and Cyborgs
-     - Crush class: uncrushable
+     - Crush class: crushable only by Epics.
 
 jjcomm-name = Jumpjet Commando
 jjcomm-desc = GDI's commando unit equipped with a jetpack.
@@ -2047,8 +2047,21 @@ nconf-desc = Nod's Special Forces armed with firefly laser rifles and a personal
      - Cloaked
      - Crush class: crushable
 
+exemplar-name = Exemplar
+exemplar-desc = Elite cadre in exosuit armed with energy minigun.
+
+    Good vs: Infantry, Light vehicle
+
+    Special:
+     - Buff nearby Nod infantry with 30% firepower.
+     - Does not go prone after taking fire
+     - Immune to Tiberium fields
+     - Crush class: crushable only by Epics
+
+drillpod-name = Drill Pod
+
 bhs-name = Toxin Commando
-bhs-desc = Kane��s Elite Commando armed with a toxin sniper rifle
+bhs-desc = Kane's Elite Commando armed with a toxin sniper rifle
     and a personal cloaking device.
 
     Good vs: Infantry, Buildings.
@@ -2188,7 +2201,7 @@ float-desc = Support unit that steals essence from enemy units.
      - Hovers (ignores terrain like Veins, Water and Radiations)
      - No longer hovers when disabled by Web
      - Attacks steal essence to heal friendly units but deal no damage
-     - Crush class: uncrushable
+     - Crush class: crushable only by Epics
 
 bug-name = Plague Trooper
 bug-desc =  Alien breed that poisons enemies.
@@ -2200,7 +2213,7 @@ bug-desc =  Alien breed that poisons enemies.
      - Poisoned units take damage over time
      - Projectile bouncea a second time
      - Can shoot over walls
-     - Crush class: uncrushable
+     - Crush class: crushable only by Epics
      - Does not receive damage from tiberium fields
      - Absorbs essence from killed enemies to heal
 
@@ -2217,7 +2230,7 @@ colossus-desc = Heavy duty alien.
      - Radiation harms all units regardless of owner
      - Can absorb essence from killed units to heal
      - Can shoot over walls
-     - Crush class: uncrushable
+     - Crush class: crushable only by Epics
      - Does not receive damage from tiberium fields and all radiations
 
 mastermind-name = Mastermind
@@ -2234,7 +2247,7 @@ mastermind-desc = The commando unit of Scrin born with the ability
      - Immune to mind control
      - Does not receive damage from tiberium fields
      - Build limit: 1
-     - Crush class: uncrushable
+     - Crush class: crushable only by Epics
 
 cabsentry-name = Sentry Drone
 
@@ -2247,7 +2260,7 @@ cyborg-desc = Durable cyborg construct.
      - Can be deactivated with E.M.P.
      - Does not receive damage from tiberium fields
      - Loses its legs on critical health
-     - Crush class: uncrushable
+     - Crush class: crushable only by Epics
 
     Upgrades:
      - Cybernetic Leg Enhancements
@@ -2264,7 +2277,7 @@ cborg-desc = Anti-Armor cyborg.
      - Does not receive damage from tiberium fields
      - Loses its legs on critical health
      - Can shoot over walls
-     - Crush class: uncrushable
+     - Crush class: crushable only by Epics
 
     Upgrades:
      - Cybernetic Leg Enhancements
@@ -2292,7 +2305,7 @@ pdrone-desc = Hovered melee drone programmed to kill enemy infantry.
      - Turns killed infantry into worker cyborgs
      - Hovers (ignores terrain like Veins, Water and Radiations)
      - No longer hovers when disabled by EMP or Web
-     - Crush class: uncrushable
+     - Crush class: crushable only by Epics
 
     Upgrades:
      - Reclaim and Recycle
@@ -2307,7 +2320,7 @@ glad-desc = Advanced cyborg construct, extremely resilient.
      - Can be deactivated with E.M.P.
      - Does not receive damage from tiberium fields
      - Loses its legs on critical health
-     - Crush class: uncrushable
+     - Crush class: crushable only by Epics
 
     Upgrades:
      - Cybernetic Leg Enhancements
@@ -2325,7 +2338,7 @@ moth-desc = High tech ambusher drone.
      - Hovers (ignores terrain like Veins, Water and Radiations)
      - No longer hovers when disabled by EMP or Web
      - Attacks travel beneath walls
-     - Crush class: uncrushable
+     - Crush class: crushable only by Epics
      - Cannot be teleported by wormhole when deployed
 
     Upgrades:
@@ -2341,7 +2354,7 @@ cyc-desc =  Elite cyborg armed with a plasma cannon.
      - Does not receive damage from tiberium fields
      - Loses its legs when at critical health
      - Build limit: 1
-     - Crush class: uncrushable
+     - Crush class: crushable only by Epics
      - Immune to mind control
 
     Upgrades:
@@ -2389,8 +2402,12 @@ raider_passenger-name = Raider Passenger
 raider_passenger-desc = Raider Buggies start with a Militant in them.
     Existing empty Raider Buggies gain a Militant.
 
-explosive_mixtures-name = Deadly Mixtures
-explosive_mixtures-desc = Increases the damage of Demo Bikes by 50%.
+unlock_exemplar-name = Exemplars of Nod
+unlock_exemplar-desc = Allow deployment of Exemplars from Hand Of Nod.
+    - Exemplars buff nearby Nod infantry with 30% firepower.
+    - Deployment of 3 Exemplars cost 1000 via destructible Drill Pods.
+    - Deployment can be used as soon as upgrading finishes.
+
 
 improved_stealth_generator-name = Improved Stealth Generator
 improved_stealth_generator-desc = Enables Stealth Generators to cloak themselves.

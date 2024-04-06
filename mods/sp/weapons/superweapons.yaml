@@ -696,7 +696,7 @@ MultiCluster3:
 	Inherits@1: ^BombWarhead
 	Inherits@2: ^Large_Explosion
 	Report: gexpbara, gexpbarb, gexpbarc
-	Range: 1c0
+	Range: 1c100
 	Projectile: MissileTA
 		Speed: 500
 		TrailImage: explosion
@@ -718,6 +718,8 @@ MultiCluster3:
 			Building: 75
 			Heavy: 100
 			Concrete: 15
+	Warhead@2Eff: CreateEffect
+		Explosions: jmininuke, jmininukeb
 	Warhead@5Sharpnel: FireRadius
 		Weapon: NukeFlame3
 		ImpactActors: false
@@ -1179,7 +1181,6 @@ ScrinChronoTeleportBolt:
 	Projectile: ElectricBolt
 		Duration: 9
 
-
 ColossiSummonerWeapon:
 	Inherits@1: ScrinChronoTeleportImpact
 	Range: 3c0
@@ -1209,3 +1210,11 @@ ColossiShrapnel:
 	Warhead@5Sound: CreateEffect
 		ImpactSounds: instantrift.wav
 
+DrillpodSummonerWeapon:
+	Range: 3c0
+	ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
+	Warhead@5Actor: SpawnActor
+		Actors: drillpod, drillpod, drillpod
+		FallRate: 5000
+		ForceGround: true
+		Range: 5

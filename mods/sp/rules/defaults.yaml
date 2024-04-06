@@ -447,6 +447,18 @@
 	ExternalCondition@TyrannyBuff:
 		Condition: TyrannyBuff
 
+^NodZealousBuff:
+	FirepowerMultiplier@ZealousBuff:
+		RequiresCondition: ZealousBuff
+		Modifier: 130
+	ExternalCondition@ZealousBuff:
+		Condition: ZealousBuff
+	WithIdleOverlayOnGround@ZealousBuff:
+		Sequence: zealous
+		Palette: apred
+		RequiresCondition: ZealousBuff
+		IsDecoration: true ## so this doesn't affect by cloak palette
+
 ^CommandoIcon:
 	WithDecoration@CommandoIcon:
 		Image: skullicon
@@ -1063,7 +1075,7 @@
 		Condition: raidere1
 		Prerequisites: upgrade.raider_passenger
 
-^AffectedByExplosiveMixtures:
+^AffectedByExplosiveMixtures: ##TODO
 	ActorStatValues:
 		Upgrades: upgrade.explosive_mixtures
 	GrantConditionOnPrerequisite@EXPLOSIVEMIXTURES:

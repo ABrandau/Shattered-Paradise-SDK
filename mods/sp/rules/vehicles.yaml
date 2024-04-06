@@ -856,7 +856,11 @@ BGGY:
 			altnode1: ifv.militant
 			gdie1: ifv.militant
 			marauder: ifv.militant
+			exemplar: ifv.militant
 			cyborg: ifv.militant
+			cyborg15-hum: ifv.militant
+			cyborg15-beast: ifv.militant
+			cyborg15-scr: ifv.militant
 			worker: ifv.militant
 			cybdog: ifv.militant
 			crusader: ifv.rocket
@@ -941,6 +945,8 @@ BGGY:
 		Damage: 96
 		LocalOffset: 500,0,350
 		RequiresCondition: ifv.nconf
+		MuzzleSequence: muzzle-laser
+		MuzzlePalette: gensmkexplojFred
 	Armament@bhs:
 		Weapon: ToxinCommandoRifle
 		Damage: 75
@@ -1470,7 +1476,6 @@ TICKHOLOGRAM:
 BIKE:
 	Inherits: ^Vehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@EXPLOSIVEMIX: ^AffectedByExplosiveMixtures
 	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 800
@@ -1515,18 +1520,10 @@ BIKE:
 	ExplodesAlsoTransported:
 		Weapon: BikeExploInCargo
 		RequiresCondition: carried || ascargo
-	GrantConditionOnPrerequisite@enable-upgrade:
-		Condition: enable-upgrade
-		Prerequisites: global-upgrades
 	## Use ExplodesForMaster to transfer the XP if being mindcontrolled
 	ExplodesForMaster@ATTACK:
 		Weapon: BikeExplo
 		EmptyWeapon: BikeExplo
-		RequiresCondition: !explosive_mixtures && enable-upgrade
-	ExplodesForMaster@EXPLOSIVEMIX:
-		Weapon: BikeExploEX
-		EmptyWeapon: BikeExploEX
-		RequiresCondition: explosive_mixtures || !enable-upgrade
 	GrantConditionOnDeploy@DemoTruck:
 		DeployedCondition: DetonateDemoTruck
 		CanDeployOnRamps: true
@@ -2991,6 +2988,10 @@ REAPERCAB:
 	BodyOrientation:
 		QuantizedFacings: 8
 	DeathSounds:
+	WithDeathAnimation@HACK: ## HACK: there is 1 tick delay before true explode weapon
+		DeathSequence: die-1frame
+		FallbackSequence: die-1frame
+		UseDeathTypeSuffix: false
 	ActorStatValues:
 		Damage: 160
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange

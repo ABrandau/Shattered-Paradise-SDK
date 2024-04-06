@@ -615,6 +615,7 @@ ALTNODE1:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveWithBerserkable
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
+	Inherits@ZEALOUS: ^NodZealousBuff
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Nod
 		BuildPaletteOrder: 3
@@ -624,6 +625,9 @@ ALTNODE1:
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 100
+	ProductionCostMultiplier@AI: ## AI cannot use it well
+		Multiplier: 50
+		Prerequisites: AIOnly
 	Tooltip:
 		Name: altnode1-name
 	UpdatesPlayerStatistics:
@@ -658,6 +662,7 @@ CRUSADER:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMoveWithBerserkable
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
+	Inherits@ZEALOUS: ^NodZealousBuff
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Nod
 		BuildPaletteOrder: 4
@@ -667,6 +672,9 @@ CRUSADER:
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 300
+	ProductionCostMultiplier@AI: ## AI cannot use it well
+		Multiplier: 80
+		Prerequisites: AIOnly
 	Tooltip:
 		Name: crusader-name
 	UpdatesPlayerStatistics:
@@ -719,6 +727,7 @@ TEMPLAR:
 	Inherits@BLUEFLAME: ^AffectedByPurifyingFlame
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
+	Inherits@ZEALOUS: ^NodZealousBuff
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Nod
 		BuildPaletteOrder: 19
@@ -742,23 +751,32 @@ TEMPLAR:
 	Armament@1:
 		Weapon: TemplarFlame
 		LocalOffset: 200,50,320
+		MuzzleSequence: garrison-muzzle
+		MuzzlePalette: gensmkexploj
 		PauseOnCondition: WebDisable
 		RequiresCondition: !blueflame
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GTemplarFlame
+		MuzzleSequence: garrison-muzzle
+		MuzzlePalette: gensmkexploj
 		PauseOnCondition: WebDisable
 		RequiresCondition: !blueflame
 	Armament@1Elite:
 		Weapon: TemplarFlameE
 		LocalOffset: 200,50,320
+		MuzzleSequence: garrison-muzzle
+		MuzzlePalette: gensmkexplojFblue
 		PauseOnCondition: WebDisable
 		RequiresCondition: blueflame
 		Name: OnFoot
 	Armament@GarrisonElite:
 		Weapon: GTemplarFlameE
+		MuzzleSequence: garrison-muzzle
+		MuzzlePalette: gensmkexplojFblue
 		PauseOnCondition: WebDisable
 		RequiresCondition: blueflame
+	WithMuzzleOverlay:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -771,11 +789,142 @@ TEMPLAR:
 	ActorStatValues:
 		Damage: 40
 
+EXEMPLAR:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveWithBerserkable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VISION: ^6CellVision
+	Buildable:
+		Queue: Infantry.Shared, Infantry.Nod
+		BuildPaletteOrder: 19
+		Description: exemplar-desc
+		Prerequisites: ~nahand, naradr, upgrade.unlock_exemplar, ~techlevel.4, ~AIOnly
+		BuildDuration: 625
+		BuildDurationModifier: 100
+	ProductionCostMultiplier@AI: ## AI cannot use it well
+		Multiplier: 20
+		Prerequisites: AIOnly
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: exemplar-name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 40000
+	Voiced:
+		VoiceSet: Slavick
+		Volume: 2
+	Mobile:
+		Speed: 75
+	Armament@1:
+		Weapon: ExemplarVulcan
+		LocalOffset: 500,200,520
+		PauseOnCondition: WebDisable
+		MuzzleSequence: garrison-muzzle
+		MuzzlePalette: gensmkexplojFred
+		Name: OnFoot
+	Armament@Garrison:
+		Weapon: ExemplarVulcan
+		PauseOnCondition: WebDisable
+		MuzzleSequence: garrison-muzzle
+		MuzzlePalette: gensmkexplojFred
+	WithMuzzleOverlay:
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+		FacingTolerance: 2
+	Crushable:
+		CrushClasses: HeavyInfantry
+	AutoTarget:
+		ScanRadius: 6 #PREF: save trait looks up and scan armaments
+	BodyOrientation:
+		CameraPitch: 250
+	RenderSprites:
+	WithRangeCircle@zealous:
+		Range: 5c0
+		Type: zealousbuff
+		RenderOnGround: true
+		Color: FF7777
+		BorderWidth: 0
+		Width: 2
+	ProximityExternalCondition@zealous:
+		Condition: ZealousBuff
+		Range: 5c0
+		AffectsParent: false
+	WithDecoration@ZealousNod:
+		Image: nodicon
+		Sequence: idle
+		Palette: apred
+		ValidRelationships: Enemy, Neutral, Ally
+	WithDeathAnimation@explosion:
+		DeathSequence: die5
+		FallbackSequence: die5
+		UseDeathTypeSuffix: false
+		-DeathTypes:
+	-DamagedByTerrain:
+	-TakeCover:
+	ActorStatValues:
+		Damage: 50
+
+DRILLPOD:
+	Inherits: ^NonBuildingStaticActor
+	Tooltip:
+		Name: drillpod-name
+	-Immobile:
+	Mobile:
+		Locomotor: HeavyInfantry
+		Speed: 1
+	Health:
+		HP: 15000
+	GivesExperience: ## the same as Exemplar
+		Experience: 700
+	GivesExperienceToMasterOrTransport:
+		Experience: 700
+		ActorExperienceModifierOnTransport: 0
+	Armor:
+		Type: Light
+	Targetable:
+		TargetTypes: Ground, Vehicle, NoRepair
+	Interactable:
+		Bounds: 1006,1409, 0, -500
+	ExplodesAlsoTransported@TimeOutDeath:
+		Weapon: DrillpodAnim
+		DeathTypes: TimeOutDeath
+	ExplodesAlsoTransported@NOTimeOutDeath:
+		Weapon: UnitExplodeSmall
+		InvalidDeathTypes: TimeOutDeath
+	WithDeathAnimation@HACK: ## HACK: there is 1 tick delay before true explode weapon
+		DeathSequence: die-1frame
+		FallbackSequence: die-1frame
+		UseDeathTypeSuffix: false
+	WithIdleOverlay@mainbody:
+		StartSequence: make
+		Sequence: open
+	KillsSelf@TimedLife:
+		Delay: 27
+		DamageTypes: TimeOutDeath
+	WithMakeExplodeWeapon:
+		LaunchEffectImage: dig
+		LaunchEffectSequence: mine-dig
+		ExplodesWhenCreated: true
+	AmbientSound@OnCreate:
+		SoundFiles: subdril1.aud
+		Delay: 0
+		Interval: 99999
+	SpawnActorOnDeath@exemplar:
+		Actor: exemplar
+		Probability: 100
+		DeathType: TimeOutDeath
+	Crushable:
+		CrushClasses: Vehicle
+
 NCONF:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveWithBerserkable
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
+	Inherits@ZEALOUS: ^NodZealousBuff
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Nod
 		BuildPaletteOrder: 26
@@ -796,13 +945,16 @@ NCONF:
 	Armament@1:
 		Weapon: BlackHandLasor
 		LocalOffset: 400,100,778
+		MuzzleSequence: garrison-muzzle
+		MuzzlePalette: gensmkexplojFred
 		PauseOnCondition: WebDisable
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GBlackHandLasor
-		PauseOnCondition: WebDisable
 		MuzzleSequence: garrison-muzzle
-		MuzzlePalette: apred
+		MuzzlePalette: gensmkexplojFred
+		PauseOnCondition: WebDisable
+	WithMuzzleOverlay:
 	Cloak@CLOAKGENERATOR:
 		InitialDelay: 80
 		CloakDelay: 80
@@ -847,6 +999,7 @@ BHS:
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^10CellVision
+	Inherits@ZEALOUS: ^NodZealousBuff
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Nod
@@ -923,6 +1076,7 @@ FlameHologram:
 	Inherits: ^HologramSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@VISION: ^6CellVision
+	Inherits@ZEALOUS: ^NodZealousBuff
 	Health:
 		HP: 10000
 	Armament:
@@ -942,6 +1096,7 @@ FlameHologram:
 	-DeathSounds@NORMAL:
 	-DeathSounds@BURNED:
 	-DeathSounds@ZAPPED:
+	-FirepowerMultiplier@ZealousBuff:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
@@ -1499,6 +1654,9 @@ SHARK:
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 50
+	ProductionCostMultiplier@AI: ## AI cannot use it well
+		Multiplier: 20
+		Prerequisites: AIOnly
 	Tooltip:
 		Name: shark-name
 	UpdatesPlayerStatistics:
@@ -1566,7 +1724,7 @@ LEGIO:
 		LocalOffset: 350,200,800
 		FireDelay: 5
 		ReloadingCondition: reload-ground
-		MuzzleSequence: muzzle
+		MuzzleSequence: garrison-muzzle
 		MuzzlePalette: apblue
 		PauseOnCondition: WebDisable || reload-air
 		Name: OnFoot
@@ -1575,7 +1733,7 @@ LEGIO:
 		LocalOffset: 350,200,800
 		FireDelay: 5
 		ReloadingCondition: reload-air
-		MuzzleSequence: muzzle
+		MuzzleSequence: garrison-muzzle
 		MuzzlePalette: apblue
 		PauseOnCondition: WebDisable || reload-ground
 		Name: OnFoot
@@ -1583,14 +1741,14 @@ LEGIO:
 		Weapon: GLegioNeedler
 		FireDelay: 5
 		ReloadingCondition: reload-ground
-		MuzzleSequence: muzzle
+		MuzzleSequence: garrison-muzzle
 		MuzzlePalette: apblue
 		PauseOnCondition: WebDisable || reload-air
 	Armament@Garrison2:
 		Weapon: GLegioNeedlerAA
 		FireDelay: 5
 		ReloadingCondition: reload-air
-		MuzzleSequence: muzzle
+		MuzzleSequence: garrison-muzzle
 		MuzzlePalette: apblue
 		PauseOnCondition: WebDisable || reload-ground
 	WithMuzzleOverlay:
@@ -1668,8 +1826,6 @@ FLOAT:
 		RiseTicks: 10
 		RequiresCondition: !WebDisable
 	Crushable:
-		WarnProbability: 0
-		CrushSound: squish6.aud
 		CrushClasses: HeavyInfantry
 	Armament@1:
 		Weapon: FloatTesla
@@ -1767,13 +1923,13 @@ BUG:
 		Weapon: FloatGlaive
 		LocalOffset: 300,0,500
 		Name: OnFoot
-		MuzzleSequence: muzzle
+		MuzzleSequence: garrison-muzzle
 		MuzzlePalette: gensmkexplojFblue
 		PauseOnCondition: WebDisable
 		RequiresCondition: !impplaguegas
 	Armament@Garrison:
 		Weapon: GFloatGlaive
-		MuzzleSequence: muzzle
+		MuzzleSequence: garrison-muzzle
 		MuzzlePalette: gensmkexplojFblue
 		PauseOnCondition: WebDisable
 		RequiresCondition: !impplaguegas
@@ -1781,13 +1937,13 @@ BUG:
 		Weapon: FloatGlaiveUpg
 		LocalOffset: 300,0,500
 		Name: OnFoot
-		MuzzleSequence: muzzle
+		MuzzleSequence: garrison-muzzle
 		MuzzlePalette: gensmkexplojFblue
 		PauseOnCondition: WebDisable
 		RequiresCondition: impplaguegas
 	Armament@GarrisonUpg:
 		Weapon: GFloatGlaiveUpg
-		MuzzleSequence: muzzle
+		MuzzleSequence: garrison-muzzle
 		MuzzlePalette: gensmkexplojFblue
 		PauseOnCondition: WebDisable
 		RequiresCondition: impplaguegas
@@ -2319,8 +2475,6 @@ PDRONE:
 	Selectable:
 		Bounds: 664,1568,0,0
 	Crushable:
-		WarnProbability: 0
-		CrushSound: squish6.aud
 		CrushClasses: HeavyInfantry
 	Hovers:
 		RequiresCondition: !WebDisable && !empdisable
@@ -2551,7 +2705,8 @@ MOTH:
 		BorderColor: 000000CC
 		BorderWidth: 0
 		Width: 2
-	-Crushable:
+	Crushable:
+		CrushClasses: HeavyInfantry
 	IssueOrderToBot@AI:
 		RequiresCondition: !deployed
 		OrderName: GrantConditionOnDeploy
@@ -2859,6 +3014,7 @@ NANOS:
 	-SpawnCorpseOnDeath@nanomachinereanimate:
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@conversionUpg:
-	-Crushable:
+	Crushable:
+		CrushClasses: HeavyInfantry
 	ActorStatValues:
 		Damage: 16
