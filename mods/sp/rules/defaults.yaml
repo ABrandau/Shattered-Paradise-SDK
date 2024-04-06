@@ -1748,7 +1748,7 @@
 		DeathType: CabalDeath
 		RequiresLobbyCreeps: false
 	SpawnActorOnDeath@conversionUpg:
-		Actor: cyborg15
+		Actor: cyborg15-hum
 		Probability: 100
 		OwnerType: Killer
 		DeathType: CabalDeathUpg
@@ -1872,7 +1872,7 @@
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
 	SpawnActorOnDeath@conversionUpg:
-		Actor: cybdog
+		Actor: cyborg15-beast
 	-DamagedByTerrain:
 	WithDeathAnimation@normal:
 		DeathTypes:
@@ -2109,6 +2109,8 @@
 		RequiresCondition: WebDisable || empdisable
 	DamagedByTintedCells@Colossus:
 		RequiresCondition: WebDisable || empdisable
+	RA2Chronoshiftable:
+		-TerrainsAndDeathTypes:
 
 ^CivilianInfantry:
 	Inherits: ^Infantry
@@ -2437,6 +2439,8 @@
 		RequiresCondition: empdisable
 	DamagedByTintedCells@Colossus:
 		RequiresCondition: empdisable
+	RA2Chronoshiftable:
+		-TerrainsAndDeathTypes:
 
 ^HoverTank:
 	Inherits: ^HoverVehicle

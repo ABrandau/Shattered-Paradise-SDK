@@ -1187,7 +1187,7 @@ MUTFIEND:
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
 	SpawnActorOnDeath@conversionUpg:
-		Actor: cybdog
+		Actor: cyborg15-beast
 	WithInfantryBody:
 		IdleSequences: idle1
 		RequiresCondition: !blue_shards && !inside-tunnel && !WebDisable
@@ -1513,7 +1513,7 @@ SHARK:
 	SpawnActorOnDeath@conversion:
 		Actor: chusk
 	SpawnActorOnDeath@conversionUpg:
-		Actor: chusk
+		Actor: cyborg15-scr
 	Armament@1:
 		Weapon: SharkJump
 		Name: OnFoot
@@ -1600,6 +1600,10 @@ LEGIO:
 		FacingTolerance: 2
 	AutoTarget:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
+	SpawnActorOnDeath@conversion:
+		Actor: chusk
+	SpawnActorOnDeath@conversionUpg:
+		Actor: cyborg15-scr
 	ActorStatValues:
 		Damage: 30
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
@@ -1629,6 +1633,10 @@ SHAPESHIFTER:
 	-DamagedByTerrain:
 	WithInfantryBody:
 		IdleSequences: idle1, idle2, idle3, idle4
+	SpawnActorOnDeath@conversion:
+		Actor: chusk
+	SpawnActorOnDeath@conversionUpg:
+		Actor: cyborg15-scr
 	RenderSprites:
 		Image: shapeshifter
 		-FactionImages:
@@ -1706,6 +1714,12 @@ FLOAT:
 		Sequences: idle2
 	ActorStatValues:
 		Damage: -40
+	SpawnActorOnDeath@conversion:
+		Actor: chusk
+		RequiresCondition: !hoverunitonwater
+	SpawnActorOnDeath@conversionUpg:
+		Actor: cyborg15-scr
+		RequiresCondition: !hoverunitonwater
 	DamagedByTintedCells@Default:
 		RequiresCondition: WebDisable
 	DamagedByTintedCells@BlueRadiation:
@@ -1714,6 +1728,8 @@ FLOAT:
 		RequiresCondition: WebDisable
 	DamagedByTintedCells@Colossus:
 		RequiresCondition: WebDisable
+	RA2Chronoshiftable:
+		-TerrainsAndDeathTypes:
 
 BUG:
 	Inherits: ^ScrinSoldier
@@ -1746,7 +1762,7 @@ BUG:
 	SpawnActorOnDeath@conversion:
 		Actor: chusk
 	SpawnActorOnDeath@conversionUpg:
-		Actor: chusk
+		Actor: cyborg15-scr
 	Armament@1:
 		Weapon: FloatGlaive
 		LocalOffset: 300,0,500
@@ -1820,7 +1836,7 @@ COLOSSI:
 	SpawnActorOnDeath@conversion:
 		Actor: chusk
 	SpawnActorOnDeath@conversionUpg:
-		Actor: chusk
+		Actor: cyborg15-scr
 	Armament@1:
 		Weapon: ColossiShard
 		LocalOffset: 400,0,1300
@@ -1984,7 +2000,7 @@ MASTERMIND:
 	SpawnActorOnDeath@conversion:
 		Actor: chusk
 	SpawnActorOnDeath@conversionUpg:
-		Actor: chusk
+		Actor: cyborg15-scr
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, MindControl, ReloadDelay, MinRange, None, MaxRange
 
@@ -2124,8 +2140,6 @@ CYBORG:
 		Voice: Attack
 		Armaments: OnFoot
 		FacingTolerance: 2
-	RenderSprites:
-		Image: altcyborg
 	AutoTarget:
 		ScanRadius: 5 #PREF: save trait looks up and scan armaments
 	SelectionDecorations:
@@ -2135,7 +2149,7 @@ CYBORG:
 		Damage: 66
 		Upgrades: upgrade.cybernetic_leg_enhancements, upgrade.regenerative_materials
 
-CYBORG15:
+CYBORG15-HUM:
 	Inherits: CYBORG
 	-Buildable:
 	DamageOnCreation:
@@ -2145,11 +2159,39 @@ CYBORG15:
 	Selectable:
 		Class: cyborg
 	RenderSprites:
-		Image: cyborg
+		Image: cyborg-hum
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
 		TooltipActor: cyborg
+
+CYBORG15-BEAST:
+	Inherits: CYBORG15-HUM
+	Inherits@RENDER: ^MutRender
+	Voiced:
+		VoiceSet: Fiend
+	RenderSprites:
+		Image: cyborg
+	WithDeathAnimation@normal:
+		CrushedSequencePalette: playermut
+		DeathSequencePalette: playermut
+	WithDeathAnimation@blood1:
+		DeathSequencePalette: jascgreen
+		CrushedSequencePalette: jascgreen
+		
+CYBORG15-SCR:
+	Inherits: CYBORG15-HUM
+	Inherits@RENDER: ^ScrinRender
+	Voiced:
+		VoiceSet: Desintegrator
+	RenderSprites:
+		Image: cyborg-scr
+	WithDeathAnimation@normal:
+		CrushedSequencePalette: playerscrin
+		DeathSequencePalette: playerscrin
+	WithDeathAnimation@blood1:
+		DeathSequencePalette: jascblue
+		CrushedSequencePalette: jascblue
 
 CBORG:
 	Inherits: ^CyborgSoldier
@@ -2252,8 +2294,6 @@ SWARMLING:
 	-WithDeathAnimation@energy:
 	-WithDeathAnimation@body:
 	-SpawnSmokeParticleOnDeath@FLAMEGUY:
-	-SpawnActorOnDeath@conversion:
-	-SpawnActorOnDeath@conversionUpg:
 	-WithDeathAnimation@blood1:
 
 PDRONE:
@@ -2634,7 +2674,7 @@ CYBDOG:
 		Bounds: 664,1568,-30,-723
 		DecorationBounds: 664,1568,-30,-723
 	Voiced:
-		VoiceSet: Limpet
+		VoiceSet: Fiend
 	Mobile:
 		Speed: 90
 	Health:
@@ -2683,7 +2723,7 @@ CHUSK:
 		Bounds: 664,1568,-30,-723
 		DecorationBounds: 664,1568,-30,-723
 	Voiced:
-		VoiceSet: Limpet
+		VoiceSet: Desintegrator
 	Mobile:
 		Speed: 90
 		PauseOnCondition: empdisable || WebDisable
