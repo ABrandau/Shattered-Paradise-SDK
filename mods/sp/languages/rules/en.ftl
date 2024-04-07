@@ -1028,7 +1028,7 @@ minelayer-desc = Mines...mines everywhere!
      - Can crush Infantry
 
 wolf-name = Carnotaurus
-wolf-desc = Tiberium beast that uses tiberium acid to harm nearby units.
+wolf-desc = Tiberium beast that uses tiberium acid to melt its prey.
 
     Good vs: Ground targets
 
@@ -1039,6 +1039,7 @@ wolf-desc = Tiberium beast that uses tiberium acid to harm nearby units.
      - Can mutate killed Infantry
      - E.M.P. Immune
      - Wild mind: Mind only controllable by MasterMind
+     - Does not slow down on critical HP
 
     Upgrades:
      - Stimulant Infusion
@@ -1068,6 +1069,7 @@ deathclaw-desc = Melee beast from the outer redzones that brings death with its 
      - E.M.P. Immune
      - Slows enemy units with it's attack
      - Wild mind: Mind only controllable by MasterMind
+     - Does not slow down on critical HP
 
     Upgrades:
      - Stimulant Infusion
@@ -1100,6 +1102,7 @@ weasau-desc = A long forgotten creature that has emerged again.
      - Gains 100% EXP from enemies killed by the summoned brood
      - Can crush everything except other Epics
      - Cannot be teleported by wormhole
+     - Does not slow down on critical HP
 
 weasausmall-name = Small Weasaurus
 
@@ -1530,7 +1533,7 @@ avatar-desc = Heavy Walker armed with a strong laser and enhances nearby Units.
      - Can shoot over wall
 
 weasau3-name = Green Weasaurus
-weasau3-desc = Some long forgotten creature trained by mutant.
+weasau3-desc = A long forgotten creature trained by the mutants.
 
     Good vs: Ground
 
@@ -1542,6 +1545,7 @@ weasau3-desc = Some long forgotten creature trained by mutant.
      - Heals on Tiberium 
      - E.M.P. Immune
      - Deployability: use melee attack for a short period
+     - Does not slow down on critical HP
 
 lpst-name = Sensor Array
 lpst-desc = Support unit for large stealth detection.
@@ -1875,6 +1879,7 @@ jfish-desc  = Hovering amphibious lifeform attacks with electrical tentacles.
      - Attack with EMP : Disable ground machines for a short time
          - For example: Buildings, Defences, Vehicles and Cyborgs
      - Wild mind: Mind only controllable by MasterMind
+     - Does not slow down on critical HP
 
 minivein-name = Baby Veinhole
 veinhole-name = Veinhole Monster

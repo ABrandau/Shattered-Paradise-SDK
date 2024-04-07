@@ -340,8 +340,8 @@
 		RequiresCondition: rank-heroic
 		Modifier: 130
 	ChangesHealth@rank-heroic:
-		PercentageStep: 2
-		Delay: 75
+		PercentageStep: 3
+		Delay: 50
 		StartIfBelow: 100
 		DamageCooldown: 0
 		RequiresCondition: rank-heroic
@@ -572,6 +572,14 @@
 	ExternalCondition@CHAOS:
 		Condition: chaos
 
+^LowHealthSpeedPenalty:
+	SpeedMultiplier@CRITICAL:
+		Modifier: 75
+		RequiresCondition: critical
+	GrantConditionOnDamageState@CRITICAL:
+		Condition: critical
+		ValidDamageStates: Critical
+
 ^ScrinEssence:
 	ExplodesAlsoTransported@EssenceDeath:
 		DamageSource: Killer
@@ -667,7 +675,7 @@
 	ChangesHealth@Incomplete:
 		PercentageStep: 1
 		Step: 0
-		Delay: 100
+		Delay: 50
 		StartIfBelow: 50
 		DamageCooldown: 100
 
@@ -675,7 +683,7 @@
 	ChangesHealth@Permanent:
 		PercentageStep: 1
 		Step: 0
-		Delay: 100
+		Delay: 50
 		StartIfBelow: 100
 		DamageCooldown: 100
 
@@ -683,7 +691,7 @@
 	ChangesHealth@Permanent:
 		PercentageStep: 1
 		Step: 0
-		Delay: 150
+		Delay: 50
 		StartIfBelow: 100
 		DamageCooldown: 0
 
@@ -693,16 +701,16 @@
 		TerrainTypes: Tiberium, BlueTiberium
 	ChangesHealth@Tib:
 		PercentageStep: 1
-		Delay: 100
+		Delay: 50
 		StartIfBelow: 100
 		DamageCooldown: 0
 		RequiresCondition: TiberiumHealing
 
 ^HopspitalHeal:
 	ChangesHealth@HOSPITAL:
-		PercentageStep: 1
+		PercentageStep: 3
 		Step: 0
-		Delay: 100
+		Delay: 50
 		StartIfBelow: 100
 		DamageCooldown: 0
 		RequiresCondition: hospitalheal
@@ -725,7 +733,7 @@
 	ChangesHealth@MachineShopHeal:
 		PercentageStep: 1
 		Step: 0
-		Delay: 100
+		Delay: 50
 		StartIfBelow: 100
 		DamageCooldown: 0
 		RequiresCondition: MachineShopHeal
@@ -1123,7 +1131,7 @@
 	ChangesHealth@TIBERIUMINFUSION:
 		PercentageStep: 1
 		Step: 0
-		Delay: 100
+		Delay: 50
 		StartIfBelow: 100
 		DamageCooldown: 100
 		RequiresCondition: tibinfusion
@@ -1537,6 +1545,7 @@
 	Inherits@17: ^Slowdown50pp
 	Inherits@18: ^WithTriggerCloakEffect-Vehicle
 	Inherits@19: ^Berserkable
+	Inherits@20: ^LowHealthSpeedPenalty
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
 	Targetable@FullHealth:
