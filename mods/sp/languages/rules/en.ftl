@@ -131,6 +131,105 @@ notification-superweapon-ready = Our superweapon is online.
 notification-superweapon-launched = Warning: A superweapon has been launched.
 notification-sneaktunnel-ready = Our Sneak Attack is ready.
 
+support-radarscan-name = Spy Satellite
+support-radarscan-desc = Reveals shroud and cloaked units on a radius of 8 cells.
+
+support-empcannon-name = E.M. Pulse
+support-empcannon-desc = Fires a pulse blast which disables
+    all ground mechanical units (vehicles, cyborgs and drones) in the area.
+
+support-exemplars-name = Exemplars Emerge
+support-exemplars-desc = Deploy 3 Exemplars via DrillPods
+    Exemplars buff nearby Nod infantry with 30% firepower
+
+support-tunnel-name = Sneak Attack
+support-tunnel-desc = Spawns a Tunnel that is connected to the Tunnel Network at the target location.
+
+superweapon-nuke-name = Atomic Bomb
+superweapon-nuke-desc = Launches a conventional warhead at a target location.
+    Special:
+     - Deals huge damage and leaves nuke radiation
+
+superweapon-poddrop-name = Helldiver Drop
+superweapon-poddrop-desc = Deploys shock troopers at the targetted location.
+    Special:
+     - Shock troopers consist all kinds of GDI infantry (exclude commando)
+
+superweapon-clustermissile-name = Cluster Missile
+superweapon-clustermissile-desc = Launches cluster missile with various warheads.
+
+superweapon-veinhole-name = Veinhole Spawn
+superweapon-veinhole-desc = Spawns 5 baby veinholes on the targetted location.
+    Special:
+     - Veinholes damage nearby vehicle, spawn radiation and tiberian crabs.
+     - Veinholes provide vision to you as long as they live.
+
+superweapon-wormhole-name = Instant Wormhole
+superweapon-wormhole-desc = Teleports infantry and vehicles.
+    Special:
+     - Friendly units will always be teleported to the safe cell.
+     - Enemy units will be teleported to the fatal cell of the teleporting cells
+     if possible.
+
+superweapon-wormhole2-desc = Instant Wormhole for AI.
+
+superweapon-nanomachine-name = Nanomachine Swarm
+superweapon-nanomachine-desc = Fills an area with nanomachines.
+    Special:
+     - Heals all friendly units and buildings for a short while
+     - Turns fallen units (Friendly and Enemy) remaining into NanoSwarm
+
+superweapon-ioncannon-name = Ion Cannon Array
+superweapon-ioncannon-desc = Fires an array of ion cannons on the targetted area.
+    Special:
+     - Rotation side beams damage all targets moderately.
+     - The main beam deals large damage and instantly kill Air and Ground units
+
+superweapon-apocalypse-name = Apocalypse Missile
+superweapon-apocalypse-desc = Launches a liquid-tiberium warhead at a target location.
+    Special:
+     - Deals large damage and instantly kill Air and Ground units
+     - Very large damage radius.
+
+superweapon-ionstorm-name = Ion Storm
+superweapon-ionstorm-desc = Allows the player to generate Ion Storms, dealing damage over a wide area.
+    Special:
+     - Bolts instantly kill ground units and aircraft.
+     - Quickly actived.
+
+superweapon-meteor-name = Wrath of the Creator
+superweapon-meteor-desc = Drags meteors from orbit dealing moderate damage over a wide area.
+    Special:
+     - Meteors instantly kills ground units on impacted
+     and aircraft when in the mid air.
+     - Almost instantly actived.
+
+superweapon-ironsavior-name = Iron Savior
+superweapon-ironsavior-desc = Fires a volley of energy volleys at the target location.
+    Special:
+     - Deals large damage and instantly kill Air and Ground units
+
+superweapon-icbm-name = ICBM Strike
+superweapon-icbm-desc = Launches an ICBM with nuclear warhead.
+    Special:
+     - Deals huge damage and leaves nuke radiation
+
+superweapon-coredef-name = Rage Of The Core
+superweapon-coredef-desc = Fires Firestorm laser sweep through target location.
+    Special:
+     - Instantly kills ground units and aircraft
+     - Instantly actived.
+
+superweapon-mk3misl-name = Sonic Missile Storm
+superweapon-mk3misl-desc = Fires missile using sonic wave bombard target location.
+    Special:
+     - Missile instantly kills aircraft when explodes
+     - Missile leaves beacon for GDI orbital bombard, which removes buildings.
+     
+superweapon-tearreal-name = Tearing Reality
+superweapon-tearreal-desc = Tearing the time and space on target location.
+    Special:
+     - Teleport troops after dealing damage.
 
 #### Unit name and desc
 
