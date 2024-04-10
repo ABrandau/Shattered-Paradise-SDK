@@ -138,9 +138,9 @@ support-empcannon-name = E.M. Pulse
 support-empcannon-desc = Fires a pulse blast which disables
     all ground mechanical units (vehicles, cyborgs and drones) in the area.
 
-support-exemplars-name = Exemplars Emerge
-support-exemplars-desc = Deploy 3 Exemplars via DrillPods
-    Exemplars buff nearby Nod infantry with 30% firepower
+support-exemplars-name = Cardinals Emerge
+support-exemplars-desc = Deploy 3 Cardinals via DrillPods
+    Cardinals buff nearby Nod infantry with 30% firepower
 
 support-tunnel-name = Sneak Attack
 support-tunnel-desc = Spawns a Tunnel that is connected to the Tunnel Network at the target location.
@@ -2146,7 +2146,7 @@ nconf-desc = Nod's Special Forces armed with firefly laser rifles and a personal
      - Cloaked
      - Crush class: crushable
 
-exemplar-name = Exemplar
+exemplar-name = Cardinal
 exemplar-desc = Elite cadre in exosuit armed with energy minigun.
 
     Good vs: Infantry, Light vehicle
@@ -2501,10 +2501,10 @@ raider_passenger-name = Raider Passenger
 raider_passenger-desc = Raider Buggies start with a Militant in them.
     Existing empty Raider Buggies gain a Militant.
 
-unlock_exemplar-name = Exemplars of Nod
-unlock_exemplar-desc = Allow deployment of Exemplars from Hand Of Nod.
-    - Exemplars buff nearby Nod infantry with 30% firepower.
-    - Deployment of 3 Exemplars cost 1000 via destructible Drill Pods.
+unlock_exemplar-name = Cardinals Emerge
+unlock_exemplar-desc = Allow deployment of Cardinals from Nod Radar.
+    - Cardinals buff nearby Nod infantry with 30% firepower.
+    - Deployment of 3 Cardinals cost 1000 via destructible Drill Pods.
     - Deployment can be used as soon as upgrading finishes.
 
 
