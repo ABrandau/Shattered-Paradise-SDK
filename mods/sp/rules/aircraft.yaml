@@ -560,11 +560,14 @@ CERBERUS:
 	Armament@sweep1:
 		Weapon: CerberusSublazor1
 		LocalOffset: 1400, 225, 0
-		ReloadingCondition: reloading
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplojFred
 	Armament@sweep2:
 		Weapon: CerberusSublazor2
 		LocalOffset: 1400, -225, 0
 		ReloadingCondition: reloading
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplojFred
 	AmbientSound:
 		SoundFiles: NUBeamC_wea1Loopa.wav, NUBeamC_wea1Loopb.wav, NUBeamC_wea1Loopc.wav, NUBeamC_wea1Loopd.wav, NUBeamC_wea1Loope.wav
 		Interval: 2
@@ -572,18 +575,7 @@ CERBERUS:
 	GrantConditionOnAttack:
 		Condition: Attacking
 		RevokeDelay: 3
-	WithIdleOverlay@WeaponMuzzle1:
-		Offset: 1400, 225, 0
-		Sequence: muzzle
-		Palette: apred
-		RequiresCondition: Attacking
-		IsDecoration: true ## so this doesn't affect by cloak palette
-	WithIdleOverlay@WeaponMuzzle2:
-		Offset: 1400, -225, 0
-		Sequence: muzzle
-		Palette: apred
-		RequiresCondition: Attacking
-		IsDecoration: true ## so this doesn't affect by cloak palette
+	WithMuzzleOverlay:
 	AttackAircraft:
 		AttackType: Hover
 		FacingTolerance: 20
