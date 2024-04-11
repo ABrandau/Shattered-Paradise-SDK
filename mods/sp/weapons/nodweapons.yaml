@@ -75,10 +75,10 @@ ExemplarVulcan:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
 	StartBurstReport: cygun1.aud
-	ReloadDelay: 32
+	ReloadDelay: 40
 	Burst: 4
 	BurstDelays: 3
-	Range: 5c512
+	Range: 4c512
 	Projectile: LaserZap
 		Width: 0
 		Duration: 1
@@ -88,7 +88,7 @@ ExemplarVulcan:
 		HitAnimSequence: alienpiff1
 		HitAnimPalette: gensmkexplojFred
 	Warhead@1Dam: SpreadDamage
-		Damage: 2200
+		Damage: 2000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: apred
@@ -123,13 +123,14 @@ BlackHandLasor:
 		HitAnimPalette: gensmkexplojFred
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
-		Damage: 2400
+		Damage: 2500
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 		NoUnintendedFriendlyFire: All
 
 BlackHandLasorBuggy:
 	Inherits: BlackHandLasor
-	Burst: 4
+	Burst: 5
+	BurstDelays: 3
 
 ToxinCommandoRifle:
 	Inherits: ^RifleWarhead
@@ -295,7 +296,7 @@ BuggyTesla:
 BikeMissile:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn
-	ReloadDelay: 70
+	ReloadDelay: 60
 	Burst: 2
 	Range: 6c0
 	Report: misl1.aud

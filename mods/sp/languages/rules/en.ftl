@@ -139,8 +139,8 @@ support-empcannon-desc = Fires a pulse blast which disables
     all ground mechanical units (vehicles, cyborgs and drones) in the area.
 
 support-exemplars-name = Cardinals Emerge
-support-exemplars-desc = Deploy 3 Cardinals via DrillPods
-    Cardinals buff nearby Nod infantry with 30% firepower
+support-exemplars-desc = Deploys 3 Cardinals via DrillPods.
+    Friendly infantry near Cardinals receive a firepower bonus of 30%.
 
 support-tunnel-name = Sneak Attack
 support-tunnel-desc = Spawns a Tunnel that is connected to the Tunnel Network at the target location.
@@ -2147,12 +2147,12 @@ nconf-desc = Nod's Special Forces armed with firefly laser rifles and a personal
      - Crush class: crushable
 
 exemplar-name = Cardinal
-exemplar-desc = Elite cadre in exosuit armed with energy minigun.
+exemplar-desc = Elite Cadre in an exosuit armed with an energy minigun.
 
-    Good vs: Infantry, Light vehicle
+    Good vs: Infantry, Light Vehicles
 
     Special:
-     - Buff nearby Nod infantry with 30% firepower.
+     - Grant nearby friendly infantry a 30% firepower bonus
      - Does not go prone after taking fire
      - Immune to Tiberium fields
      - Crush class: crushable only by Epics

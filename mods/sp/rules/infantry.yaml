@@ -615,7 +615,6 @@ ALTNODE1:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveWithBerserkable
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
-	Inherits@ZEALOUS: ^NodZealousBuff
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Nod
 		BuildPaletteOrder: 3
@@ -662,7 +661,6 @@ CRUSADER:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMoveWithBerserkable
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
-	Inherits@ZEALOUS: ^NodZealousBuff
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Nod
 		BuildPaletteOrder: 4
@@ -727,7 +725,6 @@ TEMPLAR:
 	Inherits@BLUEFLAME: ^AffectedByPurifyingFlame
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
-	Inherits@ZEALOUS: ^NodZealousBuff
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Nod
 		BuildPaletteOrder: 19
@@ -799,19 +796,19 @@ EXEMPLAR:
 		BuildPaletteOrder: 19
 		Description: exemplar-desc
 		Prerequisites: ~nahand, naradr, upgrade.unlock_exemplar, ~techlevel.4, ~AIOnly
-		BuildDuration: 625
+		BuildDuration: 375
 		BuildDurationModifier: 100
 	ProductionCostMultiplier@AI: ## AI cannot use it well
 		Multiplier: 20
 		Prerequisites: AIOnly
 	Valued:
-		Cost: 700
+		Cost: 400
 	Tooltip:
 		Name: exemplar-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 40000
+		HP: 25000
 	Voiced:
 		VoiceSet: Slavick
 		Volume: 2
@@ -865,7 +862,7 @@ EXEMPLAR:
 	-DamagedByTerrain:
 	-TakeCover:
 	ActorStatValues:
-		Damage: 50
+		Damage: 80
 
 DRILLPOD:
 	Inherits: ^NonBuildingStaticActor
@@ -924,7 +921,6 @@ NCONF:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveWithBerserkable
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^6CellVision
-	Inherits@ZEALOUS: ^NodZealousBuff
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Nod
 		BuildPaletteOrder: 26
@@ -991,7 +987,7 @@ NCONF:
 		CustomPipType: blue
 	-TakeCover:
 	ActorStatValues:
-		Damage: 72
+		Damage: 75
 
 BHS:
 	Inherits: ^Soldier
@@ -999,7 +995,6 @@ BHS:
 	Inherits@COMMANDO: ^CommandoIcon
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^10CellVision
-	Inherits@ZEALOUS: ^NodZealousBuff
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Nod
@@ -1076,7 +1071,6 @@ FlameHologram:
 	Inherits: ^HologramSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@VISION: ^6CellVision
-	Inherits@ZEALOUS: ^NodZealousBuff
 	Health:
 		HP: 10000
 	Armament:

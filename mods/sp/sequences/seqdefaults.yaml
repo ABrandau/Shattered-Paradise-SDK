@@ -135,8 +135,16 @@
 		Length: *
 		IgnoreWorldTint: true
 
+^ZealousBuff:
+	zealous:
+		Filename: nodicon.shp
+		ZOffset: -512
+		Alpha: 0.8
+		IgnoreWorldTint: true
+
 ^InfantryDeathAnims:
 	Inherits: ^BleedWhenDeath
+	Inherits@2: ^ZealousBuff
 	Defaults:
 		Offset: 0, 0, 16
 	die3:

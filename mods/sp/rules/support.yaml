@@ -1169,6 +1169,7 @@ NATMPL:
 
 MUVENTI:
 	Inherits: ^Building
+	Inherits@1: ^SuperWeapon
 	Inherits@2: ^HasSuperSupportPower
 	Inherits@RENDER: ^MutRenderBuilding
 	Inherits@SHAPE: ^3x3Shape
@@ -1189,6 +1190,7 @@ MUVENTI:
 		Dimensions: 3,3
 	Health:
 		HP: 100000
+	-Power:
 	-InstantlyRepairable:
 	SharedCargo:
 		Types: Infantry, Vehicle
@@ -1266,7 +1268,7 @@ MUVENTI:
 		-EndChargeSound:
 		-EndChargeSpeechNotification:
 		EndChargeTextNotification: notification-sneaktunnel-ready
-		Cost: 500
+		Cost: 0
 		Prerequisites:
 			1: muventi
 		Icons:
@@ -1282,7 +1284,7 @@ MUVENTI:
 			1: MutTunnelSpawnerDummyWeapon
 		ChargeInterval: 3000
 		CameraRange: 0
-		DisplayTimerRelationships: None
+		DisplayTimerRelationships: Ally, Neutral, Enemy
 	NukePower@AI: ### AI will use it less, and have the ability to build tunnel instead
 		RequiresCondition: AImicroManage
 		PauseOnCondition: empdisable
@@ -1311,7 +1313,7 @@ MUVENTI:
 			1: MutTunnelSpawnerDummyWeapon
 		ChargeInterval: 5000
 		CameraRange: 0
-		DisplayTimerRelationships: None
+		DisplayTimerRelationships: Ally, Neutral, Enemy
 	ProvidesPrerequisite@HasTunnel: ## For AI Perf.
 		Prerequisite: HasTunnel
 	ActorStatValues:

@@ -456,6 +456,7 @@
 	WithIdleOverlayOnGround@ZealousBuff:
 		Sequence: zealous
 		Palette: apred
+		ValidRelationships: Enemy, Neutral, Ally
 		RequiresCondition: ZealousBuff
 		IsDecoration: true ## so this doesn't affect by cloak palette
 
@@ -1526,6 +1527,7 @@
 	Inherits@15: ^WithTriggerCloakEffect-Infantry
 	Inherits@16: ^MindControllable
 	Inherits@19: ^Berserkable
+	Inherits@20: ^NodZealousBuff
 	GrantConditionOnTunnelLayer:
 		Condition: inside-tunnel
 	Targetable@FullHealth:
