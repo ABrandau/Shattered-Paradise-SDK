@@ -2369,6 +2369,9 @@ WOLF:
 	AutoTarget:
 		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	-AttackFrontal:
+	-FirepowerMultiplier@ZealousBuff:
+	-ExternalCondition@ZealousBuff:
+	-WithIdleOverlayOnGround@ZealousBuff:
 	ActorStatValues:
 		Damage: 37
 	ActorStatOverride@Tibinfusion:
@@ -2501,6 +2504,9 @@ DEATHCLAW:
 		RequiresCondition: carried || ascargo
 	AttackFrontal:
 		FacingTolerance: 2
+	-FirepowerMultiplier@ZealousBuff:
+	-ExternalCondition@ZealousBuff:
+	-WithIdleOverlayOnGround@ZealousBuff:
 	ActorStatValues:
 		Damage: 50
 	ActorStatOverride@Tibinfusion:
@@ -2735,6 +2741,9 @@ WEASAU:
 		OrderTrigger: Attack
 		OrderChance: 100
 		OrderInterval: 1006
+	-FirepowerMultiplier@ZealousBuff:
+	-ExternalCondition@ZealousBuff:
+	-WithIdleOverlayOnGround@ZealousBuff:
 
 WEASAUSMALL:
 	Inherits: ^TibBeast
@@ -2799,7 +2808,9 @@ WEASAUSMALL:
 	-SharedPassenger:
 	DetectCloaked: ## Remove in_tunnel and as cargo
 		RequiresCondition: !inside-tunnel && !Blind
-
+	-FirepowerMultiplier@ZealousBuff:
+	-ExternalCondition@ZealousBuff:
+	-WithIdleOverlayOnGround@ZealousBuff:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome

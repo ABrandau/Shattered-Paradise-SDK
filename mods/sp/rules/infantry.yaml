@@ -208,6 +208,9 @@ MEDIC:
 		CustomPipType: red
 	DamagedByTerrain:
 		RequiresCondition: !AImicroManage
+	-FirepowerMultiplier@ZealousBuff:
+	-ExternalCondition@ZealousBuff:
+	-WithIdleOverlayOnGround@ZealousBuff:
 	ActorStatValues:
 		Damage: -75
 
@@ -1428,6 +1431,9 @@ CUTMAN:
 		DeathSequencePalette: playerunittemgreen
 		CrushedSequencePalette: playerunittemgreen
 		CrushedPaletteIsPlayerPalette: true
+	-FirepowerMultiplier@ZealousBuff:
+	-ExternalCondition@ZealousBuff:
+	-WithIdleOverlayOnGround@ZealousBuff:
 
 E3:
 	Inherits: ^MutantSoldier
@@ -1883,6 +1889,9 @@ FLOAT:
 		RequiresCondition: WebDisable
 	RA2Chronoshiftable:
 		-TerrainsAndDeathTypes:
+	-FirepowerMultiplier@ZealousBuff:
+	-ExternalCondition@ZealousBuff:
+	-WithIdleOverlayOnGround@ZealousBuff:
 
 BUG:
 	Inherits: ^ScrinSoldier
@@ -2154,6 +2163,9 @@ MASTERMIND:
 		Actor: chusk
 	SpawnActorOnDeath@conversionUpg:
 		Actor: cyborg15-scr
+	-FirepowerMultiplier@ZealousBuff:
+	-ExternalCondition@ZealousBuff:
+	-WithIdleOverlayOnGround@ZealousBuff:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, MindControl, ReloadDelay, MinRange, None, MaxRange
 
@@ -2251,6 +2263,10 @@ CABSENTRY:
 	-GrantConditionOnPrerequisite@hospitalheal:
 	-WithDecoration@hospitalheal:
 	-ExternalCondition@hospitalheal:
+
+	-FirepowerMultiplier@ZealousBuff:
+	-ExternalCondition@ZealousBuff:
+	-WithIdleOverlayOnGround@ZealousBuff:
 
 CYBORG:
 	Inherits: ^CyborgSoldier
@@ -2448,6 +2464,9 @@ SWARMLING:
 	-WithDeathAnimation@body:
 	-SpawnSmokeParticleOnDeath@FLAMEGUY:
 	-WithDeathAnimation@blood1:
+	-FirepowerMultiplier@ZealousBuff:
+	-ExternalCondition@ZealousBuff:
+	-WithIdleOverlayOnGround@ZealousBuff:
 
 PDRONE:
 	Inherits: ^HoverDroneSoldier
