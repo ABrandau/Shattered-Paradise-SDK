@@ -32,15 +32,9 @@ CHAMSPY:
 	Mobile:
 		Speed: 95
 	Passenger:
-	#Disguise:
-	#WithDecoration@disguise:
-	#	Image: pips
-	#	Sequence: pip-disguise
-	#	Palette: pips
-	#	Position: TopRight
-	#	RequiresCondition: disguise
-	#Infiltrates:
-	#	Types: SpyInfiltrate
+	-FirepowerMultiplier@ZealousBuff:
+	-ExternalCondition@ZealousBuff:
+	-WithIdleOverlayOnGround@ZealousBuff:
 	WithInfantryBody:
 		AttackSequences: shoot
 	ActorStatValues:
@@ -163,10 +157,12 @@ TRATOS:
 		HP: 10000
 	Mobile:
 		Speed: 80
+	-FirepowerMultiplier@ZealousBuff:
+	-ExternalCondition@ZealousBuff:
+	-WithIdleOverlayOnGround@ZealousBuff:
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
-
 OXANNA:
 	Inherits: ^Soldier
 	Tooltip:
@@ -179,6 +175,9 @@ OXANNA:
 		Speed: 65
 	WithInfantryBody:
 		AttackSequences: shoot
+	-FirepowerMultiplier@ZealousBuff:
+	-ExternalCondition@ZealousBuff:
+	-WithIdleOverlayOnGround@ZealousBuff:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed
 
