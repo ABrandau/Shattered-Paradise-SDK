@@ -1667,7 +1667,7 @@
 	Inherits@2: ^ExistsInWorld
 	Inherits@3: ^SpriteActor
 	Inherits@4: ^InfantryShape
-	Inherits@5: ^5CellVision
+	Inherits@5: ^6CellVision
 	Inherits@BLIND: ^Blind
 	Inherits@HANDICAPS: ^PlayerHandicaps
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
@@ -1864,6 +1864,7 @@
 
 ^Soldier:
 	Inherits@1: ^TakeCoverInfantry
+	Inherits@VISION: ^6CellVision
 	WithInfantryBody:
 		IdleSequences: idle1,idle2
 		DefaultAttackSequence: shoot
@@ -1891,6 +1892,7 @@
 ^TibBeast:
 	Inherits: ^Soldier
 	Inherits@1: ^HealsOnTiberium
+	Inherits@VISION: ^8CellVision
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
 	SpawnActorOnDeath@conversionUpg:
@@ -2278,7 +2280,7 @@
 
 ^BasicVehicle:
 	Inherits@1: ^VehicleShape
-	Inherits@2: ^5CellVision
+	Inherits@VISION: ^8CellVision
 	Inherits@BLIND: ^Blind
 	Inherits@SCRIN_KILL: ^ScrinEssence
 	Inherits@HANDICAPS: ^PlayerHandicaps
@@ -2485,13 +2487,17 @@
 
 ^SubterraneanVehicle:
 	Inherits: ^Vehicle
+	Inherits@VISION: ^8CellVision
 	Mobile:
 		TurnSpeed: 24
 		Speed: 90
 		Locomotor: subterranean
 	RevealsShroud:
-		Range: 3c0
 		RequiresCondition: !inside-tunnel && !submerged
+	RevealsShroud@UNDERGROUND:
+		Range: 3c0
+		Type: GroundPosition
+		RequiresCondition: !inside-tunnel && submerged
 	ChangesHealth@veinholedrain:
 		RequiresCondition: veinholedrain && !submerged
 	WithIdleOverlay@veinholedrain:

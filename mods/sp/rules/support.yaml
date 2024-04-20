@@ -218,6 +218,7 @@ GASONC:
 	Inherits: ^TurretedDefence
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@DETECTION: ^TowerStealthDetection
+	Inherits@VISION: ^10CellVision
 	WithMakeAnimation:
 		BodyNames: make
 	WithSpriteBody:
@@ -330,7 +331,7 @@ NAOBEL:
 	Inherits: ^Defence
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@DETECTION: ^TowerStealthDetection
-	Inherits@VISION: ^9CellVision
+	Inherits@VISION: ^10CellVision
 	Inherits@SHAPE: ^2x2Shape
 	Inherits@TIER: ^Tier2
 	Valued:
@@ -568,7 +569,7 @@ MUFLAK:
 	Valued:
 		Cost: 600
 	Health:
-		HP: 40000
+		HP: 60000
 	Turreted:
 		InitialFacing: 368
 	AttackTurreted:
@@ -757,6 +758,7 @@ SCRDRONE:
 	Inherits@2: ^ScrinDefenceFire
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@DETECTION: ^TowerStealthDetection
+	Inherits@VISION: ^10CellVision
 	Inherits@RENDER: ^ScrinRenderBuilding
 	Inherits@TIER: ^Tier2
 	Inherits@SHAPE: ^2x2Shape
@@ -864,10 +866,10 @@ GAFIRE:
 		BuildPaletteOrder: 41
 		Description: gafire-desc
 		Prerequisites: ~gacnst, gatech, ~techlevel.5
-		BuildDuration: 500
+		BuildDuration: 750
 		BuildDurationModifier: 100
 	Valued:
-		Cost: 1000
+		Cost: 1500
 	Tooltip:
 		Name: gafire-name
 	Building:
@@ -1465,7 +1467,7 @@ SCREXTRACTOR:
 		Footprint: x
 		Dimensions: 1,1
 	Health:
-		HP: 40000
+		HP: 60000
 	Power:
 		Amount: -50
 	ProximityExternalCondition@VanguardShield:
@@ -1592,7 +1594,7 @@ CABEYE:
 	WithSpriteBody:
 		PauseOnCondition: empdisable || disabled
 	Health:
-		HP: 75000
+		HP: 50000
 	WithRangeCircle:
 		Range: 12c0
 		Type: cabeye
@@ -1624,6 +1626,7 @@ CABSW1:
 	Inherits@4: ^WithTriggerCloakEffect-Building
 	Inherits@RENDER: ^CabRenderBuilding
 	Inherits@SHAPE: ^3x3Shape
+	Inherits@VISION: ^6CellVision
 	Valued:
 		Cost: 5000
 	Tooltip:
@@ -1762,7 +1765,7 @@ BLACKDEFD:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RENDER: ^CabRenderBuilding
 	Inherits@SHAPE: ^2x3Shape
-	Inherits@VISION: ^8CellVision
+	Inherits@VISION: ^10CellVision
 	Tooltip:
 		Name: blackdefd-name
 	Valued:
