@@ -173,24 +173,39 @@ ToxinCommandoRifle:
 		ValidTargets: Water
 
 BuggyCannon:
-	Inherits: ^RifleWarhead
+	Inherits@1: ^VulcanWarhead
 	Inherits@2: ^Piffs
 	ReloadDelay: 40
 	Range: 5c0
 	Report: tsgun4.aud
 	SoundVolume: 1.5
-	Projectile: LaserZap
-		Duration: 3
-		Width: 25
-		Color: EE9900
-		Blockable: true
-		TrackTarget: false
+	Projectile: InstantHitWIthFakeBullets
+		FakeBulletNumber: 2
+		FakeBulletInaccuracy: 0c400
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
+BuggyBullet2Spawner:
+	Projectile: InstantHit
+	Warhead@4Shrapnel: FireFragment
+		ValidTargets: Vehicle, Infantry, Building, Ground, Water, Air
+		Weapon: CasingDebris
+		ImpactActors: false
+		Offsets: -1024,0, 0, 1024,0, 0
+		Rotate: true
+		AirThreshold: 8c0
+
+BuggyBullet3Spawner:
+	Inherits@1: BuggyBullet2Spawner
+	Warhead@4Shrapnel: FireFragment
+		Offsets: -1024,0, 0, 1024,0, 0, 0, -1024, 0
+
 BuggyCannonLoaded:
 	Inherits: BuggyCannon
+	Projectile: InstantHitWIthFakeBullets
+		FakeBulletNumber: 3
+		FakeBulletSpawnInterval: 2
 	Warhead@1Dam: SpreadDamage
 		Damage: 5000
 
@@ -605,7 +620,7 @@ StealthRocketTibAA:
 		ExplosionPalette: gensmkexploFgreen
 
 HarpyClaw:
-	Inherits: ^RifleWarhead
+	Inherits: ^VulcanWarhead
 	Inherits@2: ^Piffs
 	ReloadDelay: 20
 	Range: 5c0
@@ -614,8 +629,12 @@ HarpyClaw:
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	InvalidTargets: Air
 	Report: VenomGun0000.wav, VenomGun0001.wav, VenomGun0002.wav
-	Projectile: InstantHit
+	Projectile: InstantHitWIthFakeBullets
+		FakeBulletNumber: 4
+		ContrailStartWidth: 30
+		FakeBulletSpawnInterval: 2
 		Blockable: false
+		FakeBulletInaccuracy: 0c512
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
@@ -627,15 +646,21 @@ HarpyClaw:
 			Light: 50
 
 HarpyClawAA:
-	Inherits: ^FullDamage
+	Inherits: ^VulcanWarhead
+	Inherits@1: ^FullDamage
 	Inherits@2: ^Piffs
 	ReloadDelay: 20
 	Range: 6c0
 	MinRange: 0c100
-	Projectile: InstantHit
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 	StartBurstReport: VenomGun0000.wav, VenomGun0001.wav, VenomGun0002.wav
+	Projectile: InstantHitWIthFakeBullets
+		FakeBulletNumber: 4
+		ContrailStartWidth: 30
+		FakeBulletSpawnInterval: 2
+		FakeBulletInaccuracy: 0c400
+		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		ValidTargets: Air
@@ -643,27 +668,10 @@ HarpyClawAA:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		NoUnintendedFriendlyFire: All
 
-HarpyClawBullet:
-	Inherits: ^BulletProjectile
-	ReloadDelay: 20 ## Must be the same as HarpyClaw
-	Range: 5c0
-	MinRange: 0c100
-	Burst: 3
-	BurstDelays: 0, 0
-	ValidTargets: Ground, Water, Vehicle, Building, Infantry
-	InvalidTargets: Air
-	Projectile: BulletAS
-		Blockable: false
-
-HarpyClawBulletAA:
-	Inherits: HarpyClawBullet
-	ReloadDelay: 20 ## Must be the same as HarpyClawAA
-	Range: 6c0
-	MinRange: 0c100
-	Burst: 3
-	BurstDelays: 0, 0
-	ValidTargets: Air
-	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+HarpyBulletSpawner:
+	Inherits@1: BuggyBullet2Spawner
+	Warhead@4Shrapnel: FireFragment
+		Offsets: -1024,0, 0, 1024,0, 0, 1024, -1024, 0, -1024, -1024, 0
 
 Proton:
 	Inherits: ^APWarhead
@@ -1006,26 +1014,3 @@ LightbringerFlameE:
 		Image: FLAMEALLBLUE
 	Warhead@1Dam: SpreadDamage
 		Damage: 600
-
-DrillpodAnim:
-	Warhead@5dig: SpawnSmokeParticle
-		Count: 1
-		Duration: 22 ## StartSequences
-		Speed: 0
-		TurnRate: 0
-		Image: drillpod
-		StartSequences: unload_close
-		Sequences: gone
-		EndSequences: gone
-		Palette: player
-		IsPlayerPalette: true
-		AirThreshold: 8c0
-		ImpactActors: false
-	Warhead@2Eff: CreateEffect
-		Image: dig
-		Explosions: mine-dig
-		ExplosionPalette: effect
-		ValidTargets: Ground, Air, Water
-		ImpactSounds: subdril1.aud
-		AirThreshold: 8c0
-		Delay: 22

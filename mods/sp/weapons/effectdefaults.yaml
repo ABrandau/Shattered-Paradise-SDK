@@ -403,40 +403,6 @@
 		InitialSmudgeLevel: 5, 9
 		InvalidTargets: Vehicle, Building, Wall
 
-^LineProjectile:
-	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
-	Projectile: BulletAS
-		Speed: 1c0
-		Inaccuracy: 0c762
-		Palette: effect
-		Blockable: true
-		ContrailDelay: 0
-		ContrailStartColor: EE9900
-		ContrailStartColorAlpha: 255
-		ContrailEndColor: BBBB00
-		ContrailEndColorAlpha: 255
-		ContrailLength: 2
-		ContrailStartWidth: 30
-		ContrailZOffset: 3000
-
-^LineProjectileCyan:
-	Inherits: ^LineProjectile
-	Projectile: BulletAS
-		ContrailStartColor: 44FFFF
-		ContrailEndColor: EE9900
-
-^BulletProjectile:
-	Inherits: ^LineProjectile
-	Projectile: BulletAS
-		Blockable: true
-		ContrailStartWidth: 26
-
-^BulletProjectileCyan:
-	Inherits: ^BulletProjectile
-	Projectile: BulletAS
-		ContrailStartColor: 44FFFF
-		ContrailEndColor: EE9900
-
 ^LightningDefault:
 	Report: expnew09.aud, expnew08.aud, expnew16.aud
 	Projectile: InstantHit
@@ -662,3 +628,26 @@
 		ExplosionPalette: apolgreenalpha
 		ImpactActors: false
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+
+DrillpodAnim:
+	Warhead@5dig: SpawnSmokeParticle
+		Count: 1
+		Duration: 22 ## StartSequences
+		Speed: 0
+		TurnRate: 0
+		Image: drillpod
+		StartSequences: unload_close
+		Sequences: gone
+		EndSequences: gone
+		Palette: player
+		IsPlayerPalette: true
+		AirThreshold: 8c0
+		ImpactActors: false
+	Warhead@2Eff: CreateEffect
+		Image: dig
+		Explosions: mine-dig
+		ExplosionPalette: effect
+		ValidTargets: Ground, Air, Water
+		ImpactSounds: subdril1.aud
+		AirThreshold: 8c0
+		Delay: 22

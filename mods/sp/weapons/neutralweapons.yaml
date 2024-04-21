@@ -73,27 +73,20 @@ Pistola:
 		ValidTargets: Water
 
 GuradTowerVulcan:
-	Inherits: ^RifleWarhead
+	Inherits: ^VulcanWarhead
 	Inherits@2: ^Piffs
 	ReloadDelay: 10
 	Range: 7c0
+	Burst: 2
+	BurstDelays: 1
 	Report: tsgun4.aud
 	SoundVolume: 1.5
-	Projectile: InstantHit
+	Projectile: InstantHitWIthFakeBullets
+		FakeBulletNumber: 1
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
-		Damage: 3000
+		Damage: 1500
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
-
-GuradTowerVulcanLine:
-	Inherits: ^BulletProjectile
-	ReloadDelay: 10
-	Burst: 2
-	BurstDelays: 0
-	Range: 7c0
-	Projectile: BulletAS
-		Blockable: false
-	ValidTargets: Ground, Water
 
 ADVTowerMissile:
 	Inherits: ^RocketWarhead

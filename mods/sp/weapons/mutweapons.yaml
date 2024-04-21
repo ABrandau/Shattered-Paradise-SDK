@@ -401,7 +401,7 @@ LynxRocket:
 		Damage: 5000
 
 QuadFire:
-	Inherits: ^RifleWarhead
+	Inherits: ^VulcanWarhead
 	Inherits@2: ^Piffs
 	ReloadDelay: 30
 	SoundVolume: 0.5
@@ -411,6 +411,10 @@ QuadFire:
 	StartBurstReport: VenomGun0000.wav, VenomGun0001.wav, VenomGun0002.wav
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	InvalidTargets: Air
+	Projectile: InstantHitWIthFakeBullets
+		FakeBulletNumber: 1
+		ContrailStartWidth: 30
+		FakeBulletInaccuracy: 0c400
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		InvalidTargets: Air
@@ -421,9 +425,8 @@ QuadFireAA:
 	Inherits: QuadFire
 	Range: 8c0
 	ValidTargets: Air
-	Projectile: InstantHit
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
-	Projectile: InstantHit
+	Projectile: InstantHitWIthFakeBullets
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
@@ -431,23 +434,6 @@ QuadFireAA:
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		NoUnintendedFriendlyFire: All
-
-QuadFireLine:
-	Inherits: ^LineProjectile
-	ReloadDelay: 30
-	Burst: 4
-	BurstDelays: 3
-	Range: 6c0
-	ValidTargets: Ground, Water, Vehicle, Building, Infantry
-	InvalidTargets: Air
-
-QuadFireLineAA:
-	Inherits: QuadFireLine
-	Range: 8c0
-	ValidTargets: Air
-	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
-	Projectile: BulletAS
-		Blockable: false
 
 MUTMRLSRocket:
 	Inherits: ^ArtilleryWarhead

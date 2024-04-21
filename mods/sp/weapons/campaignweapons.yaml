@@ -822,31 +822,25 @@ SonicClusterMissileShell:
 		Blockable: false
 
 MKIIIDroneVulcan:
-	Inherits: ^RifleWarhead
+	Inherits: ^VulcanWarhead
 	Inherits@2: ^PiffsCyan
 	ValidRelationships: Enemy, Neutral
 	StartBurstReport: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
 	ReloadDelay: 5
 	Range: 5c0
-	Projectile: InstantHit
+	Projectile: InstantHitWIthFakeBullets
 		Inaccuracy: 0c512
+		ContrailStartWidth: 30
+		ContrailStartColor: 44FFFF
+		ContrailEndColor: EE9900
 	Warhead@1Dam: SpreadDamage
-		Damage: 3000
+		Damage: 1875
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Delay: 5
 		ExplosionPalette: apcyan
 	Warhead@3EffWater: CreateEffect
 		Delay: 5
-
-MKIIIDroneVulcanLine:
-	Inherits: ^LineProjectileCyan
-	ValidRelationships: Enemy, Neutral
-	ReloadDelay: 5
-	Range: 5c0
-	ValidTargets: Ground, Water
-	Projectile: BulletAS
-		Speed: 0c928
 
 MKIIIDroneRepair:
 	Inherits: RepairVehicleLasor

@@ -50,33 +50,23 @@ GAVULC:
 	Armament@1:
 		Weapon: VulcanTower
 		LocalOffset: 588,120,1358, 588,-120,1358
+		CasingWeapon: BuggyBullet2Spawner
+		CasingSpawnLocalOffset: 500,-120,1358, 500,120,1358
+		CasingTargetOffset: 600,-120,1358, 600,120,1358
+		CasingHitGroundLevel: false
+		MuzzleSequence: muzzle
 		PauseOnCondition: Building-Buildup
 		RequiresCondition: !apammo
 	Armament@1AP:
 		Weapon: VulcanTowerAP
 		LocalOffset: 588,120,1358, 588,-120,1358
+		CasingWeapon: BuggyBullet2Spawner
+		CasingSpawnLocalOffset: 500,-120,1358, 500,120,1358
+		CasingTargetOffset: 600,-120,1358, 600,120,1358
+		CasingHitGroundLevel: false
+		MuzzleSequence: muzzle
 		PauseOnCondition: Building-Buildup
 		RequiresCondition: apammo
-	Armament@3:
-		Name: decoration
-		Weapon: VulcanTowerLine
-		LocalOffset: 588,-120,1358, 588,120,1358
-		CasingWeapon: CasingDebris
-		CasingSpawnLocalOffset: 600,-120,1358, 600,120,1358
-		CasingTargetOffset: 600,-768,1358, 600,768,1358
-		PauseOnCondition: Building-Buildup
-		RequiresCondition: !apammo
-		MuzzleSequence: muzzle
-	Armament@4AP:
-		Name: decoration
-		Weapon: VulcanTowerLineAP
-		LocalOffset: 588,-120,1358, 588,120,1358
-		CasingWeapon: CasingDebris
-		CasingSpawnLocalOffset: 600,-120,1358, 600,120,1358
-		CasingTargetOffset: 600,-768,1358, 600,768,1358
-		PauseOnCondition: Building-Buildup
-		RequiresCondition: apammo
-		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
 	WithIdleOverlay@LIGHTS:
 		RequiresCondition: !Building-Buildup && !disabled

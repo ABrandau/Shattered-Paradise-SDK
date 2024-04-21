@@ -301,28 +301,31 @@ WolverineVulcanAP:
 
 
 WolverineVulcanLine:
-	Inherits: ^BulletProjectile
+	Inherits: ^VulcanWarhead
 	ReloadDelay: 30
 	Burst: 2
 	BurstDelays: 0
 	Range: 6c0
+	Projectile: InstantHitWIthFakeBullets
+		FakeBulletInaccuracy: 0c400
 	ValidTargets: Ground, Water
 
 WolverineVulcanLineAP:
-	Inherits: ^BulletProjectileCyan
-	ReloadDelay: 30
-	Burst: 2
-	BurstDelays: 0
-	Range: 6c0
-	ValidTargets: Ground, Water
+	Inherits: WolverineVulcanLine
+	Projectile: InstantHitWIthFakeBullets
+		ContrailStartColor: 44FFFF
+		ContrailEndColor: EE9900
 
 ApcVulcan:
-	Inherits: ^RifleWarhead
+	Inherits: ^VulcanWarhead
 	Inherits@2: ^Piffs
 	ReloadDelay: 30
 	Range: 6c0
 	Report: tsgun4.aud
 	SoundVolume: 1.5
+	Projectile: InstantHitWIthFakeBullets
+		FakeBulletNumber: 2
+		FakeBulletInaccuracy: 0c400
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
@@ -332,7 +335,7 @@ ApcVulcanAA:
 	Range: 7c0
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
-	Projectile: InstantHit
+	Projectile: InstantHitWIthFakeBullets
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
@@ -344,42 +347,26 @@ ApcVulcanAA:
 ApcVulcanAP:
 	Inherits: ApcVulcan
 	Inherits@2: ^PiffsCyan
+	Projectile: InstantHitWIthFakeBullets
+		ContrailStartColor: 44FFFF
+		ContrailEndColor: EE9900
 
 ApcVulcanAPAA:
 	Inherits: ApcVulcanAA
 	Inherits@2: ^PiffsCyan
+	Projectile: InstantHitWIthFakeBullets
+		ContrailStartColor: 44FFFF
+		ContrailEndColor: EE9900
 
-ApcVulcanLine:
-	Inherits: ^BulletProjectile
-	ReloadDelay: 30
-	Burst: 2
-	BurstDelays: 1
-	Range: 6c0
-	ValidTargets: Ground, Water
-
-ApcVulcanLineAA:
-	Inherits: ApcVulcanLine
-	Range: 7c0
-	ValidTargets: Air
-	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
-	Projectile: BulletAS
-		Blockable: false
-
-ApcVulcanLineAP:
-	Inherits: ^BulletProjectileCyan
-	ReloadDelay: 30
-	Burst: 2
-	BurstDelays: 1
-	Range: 6c0
-	ValidTargets: Ground, Water
-
-ApcVulcanLineAPAA:
-	Inherits: ApcVulcanLineAP
-	Range: 7c0
-	ValidTargets: Air
-	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
-	Projectile: BulletAS
-		Blockable: false
+ApcBulletSpawner:
+	Projectile: InstantHit
+	Warhead@4Shrapnel: FireFragment
+		ValidTargets: Vehicle, Infantry, Building, Ground, Water, Air
+		Weapon: CasingDebrisLong
+		ImpactActors: false
+		Offsets: -1024,0, 0, 1024,0, 0
+		Rotate: true
+		AirThreshold: 8c0
 
 Titan120mm:
 	Inherits: ^APWarhead
@@ -702,13 +689,14 @@ MKIITuskAA:
 		NoUnintendedFriendlyFire: All
 
 MKIIVulcan:
-	Inherits: ^RifleWarhead
+	Inherits: ^VulcanWarhead
 	Inherits@2: ^Piffs
 	StartBurstReport: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
 	ReloadDelay: 5
 	Range: 7c0
-	Projectile: InstantHit
+	Projectile: InstantHitWIthFakeBullets
 		Inaccuracy: 0c512
+		ContrailStartWidth: 30
 	Warhead@1Dam: SpreadDamage
 		Damage: 1500
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
@@ -719,26 +707,11 @@ MKIIVulcan:
 
 MKIIVulcanAP:
 	Inherits: MKIIVulcan
-	Inherits@2: ^PiffsCyan
+	Projectile: InstantHitWIthFakeBullets
+		ContrailStartColor: 44FFFF
+		ContrailEndColor: EE9900
 	Warhead@1Dam: SpreadDamage
 		Damage: 1875
-
-
-MKIIVulcanLine:
-	Inherits: ^LineProjectile
-	ReloadDelay: 5
-	Range: 7c0
-	ValidTargets: Ground, Water
-	Projectile: BulletAS
-		Speed: 0c928
-
-MKIIVulcanLineAP:
-	Inherits: ^LineProjectileCyan
-	ReloadDelay: 5
-	Range: 7c0
-	ValidTargets: Ground, Water
-	Projectile: BulletAS
-		Speed: 0c928
 
 FighterHellfire:
 	Inherits: ^RocketWarhead
@@ -807,15 +780,18 @@ OBBombFrontal:
 		ImpactSounds: expnew09.aud
 
 VulcanTower:
-	Inherits: ^RifleWarhead
+	Inherits: ^VulcanWarhead
 	Inherits@2: ^Piffs
 	ReloadDelay: 25
 	Burst: 2
 	BurstDelays: 5
 	Range: 7c0
 	StartBurstReport: chaingn1.aud
-	Projectile: InstantHit
+	Projectile: InstantHitWIthFakeBullets
+		FakeBulletNumber: 2
+		ContrailStartWidth: 30
 		Blockable: false
+		FakeBulletInaccuracy: 0c400
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
@@ -823,26 +799,9 @@ VulcanTower:
 VulcanTowerAP:
 	Inherits: VulcanTower
 	Inherits@2: ^PiffsCyan
-
-VulcanTowerLine:
-	Inherits: ^LineProjectile
-	ReloadDelay: 25
-	Burst: 4
-	BurstDelays: 0, 5, 0
-	Range: 7c0
-	Projectile: BulletAS
-		Blockable: false
-	ValidTargets: Ground, Water
-
-VulcanTowerLineAP:
-	Inherits: ^LineProjectileCyan
-	ReloadDelay: 25
-	Burst: 4
-	BurstDelays: 0, 5, 0
-	Range: 7c0
-	Projectile: BulletAS
-		Blockable: false
-	ValidTargets: Ground, Water
+	Projectile: InstantHitWIthFakeBullets
+		ContrailStartColor: 44FFFF
+		ContrailEndColor: EE9900
 
 GdiRedEye:
 	Inherits: ^RocketWarhead

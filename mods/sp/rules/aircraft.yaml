@@ -356,27 +356,21 @@ APACHE:
 		MoveIntoShroud: true
 	Health:
 		HP: 15000
-	Armament@Fakebullet:
-		Weapon: HarpyClawBullet
-		PauseOnCondition: !ammo
-		Name: decoration
-		LocalOffset: 900,-100,0, 900,0,0, 900,100,0
-		CasingWeapon: CasingDebris
-		CasingSpawnLocalOffset: 900,-100,0, 900,0,0, 900,100,0
-		CasingTargetOffset: 400,512,0, 400,0,0, 400,-512,0
-	Armament@FakebulletAA:
-		Weapon: HarpyClawBulletAA
-		PauseOnCondition: !ammo
-		Name: decoration
-		LocalOffset: 900,-100,0, 900,0,0, 900,100,0
-		CasingWeapon: CasingDebris
-		CasingSpawnLocalOffset: 900,-100,0, 900,0,0, 900,100,0
-		CasingTargetOffset: 400,512,0, 400,0,0, 400,-512,0
 	Armament:
 		Weapon: HarpyClaw
+		LocalOffset: 900,0,0
+		CasingWeapon: HarpyBulletSpawner
+		CasingSpawnLocalOffset: 800,0,0
+		CasingTargetOffset: 900,0,0
+		CasingHitGroundLevel: false
 		PauseOnCondition: !ammo
 	Armament@AA:
 		Weapon: HarpyClawAA
+		LocalOffset: 900,0,0
+		CasingWeapon: HarpyBulletSpawner
+		CasingSpawnLocalOffset: 800,0,0
+		CasingTargetOffset: 900,0,0
+		CasingHitGroundLevel: false
 		PauseOnCondition: !ammo
 	AttackAircraft:
 		AttackType: Hover

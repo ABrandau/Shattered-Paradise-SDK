@@ -243,12 +243,20 @@ APC:
 		Weapon: ApcVulcan
 		LocalOffset: 350,0,700
 		MuzzleSequence: muzzle
+		CasingWeapon: ApcBulletSpawner
+		CasingSpawnLocalOffset: 340,0,700
+		CasingTargetOffset: 350,0,700
+		CasingHitGroundLevel: false
 		PauseOnCondition: empdisable || attack-air
 		RequiresCondition: !apammo
 	Armament@primaryAP:
 		Weapon: ApcVulcanAP
 		LocalOffset: 350,0,700
 		MuzzleSequence: muzzle
+		CasingWeapon: ApcBulletSpawner
+		CasingSpawnLocalOffset: 340,0,700
+		CasingTargetOffset: 350,0,700
+		CasingHitGroundLevel: false
 		PauseOnCondition: empdisable || attack-air
 		RequiresCondition: apammo
 	Armament@AA:
@@ -256,6 +264,10 @@ APC:
 		Weapon: ApcVulcanAA
 		LocalOffset: 290,0,1020
 		MuzzleSequence: muzzle
+		CasingWeapon: ApcBulletSpawner
+		CasingSpawnLocalOffset: 280,0,1020
+		CasingTargetOffset: 290,0,1020
+		CasingHitGroundLevel: false
 		PauseOnCondition: empdisable || attack-ground
 		RequiresCondition: !apammo
 	Armament@AAAP:
@@ -263,6 +275,10 @@ APC:
 		Weapon: ApcVulcanAPAA
 		LocalOffset: 290,0,1020
 		MuzzleSequence: muzzle
+		CasingWeapon: ApcBulletSpawner
+		CasingSpawnLocalOffset: 280,0,1020
+		CasingTargetOffset: 290,0,1020
+		CasingHitGroundLevel: false
 		PauseOnCondition: empdisable || attack-ground
 		RequiresCondition: apammo
 	GrantConditionOnAttack@attack-air:
@@ -273,47 +289,6 @@ APC:
 		Condition: attack-ground
 		RevokeDelay: 40
 		ArmamentNames: primary
-	GrantConditionOnAttack:
-		Condition: Attacking
-		RevokeDelay: 2
-		ArmamentNames: primary,secondary
-		RevokeOnNewTarget: true
-	Armament@2Bullet:
-		Name: dec
-		Weapon: ApcVulcanLine
-		PauseOnCondition: empdisable || !Attacking || attack-air
-		LocalOffset: 350,0,700
-		CasingWeapon: CasingDebrisLong
-		CasingSpawnLocalOffset: 350,0,700
-		CasingTargetOffset: -1024,0, 0
-		RequiresCondition: !apammo
-	Armament@4BulletAP:
-		Name: dec
-		Weapon: ApcVulcanLineAP
-		PauseOnCondition: empdisable || !Attacking || attack-air
-		LocalOffset: 350,0,700
-		CasingWeapon: CasingDebrisLong
-		CasingSpawnLocalOffset: 350,0,700
-		CasingTargetOffset: -1024,0, 0
-		RequiresCondition: apammo
-	Armament@2BulletAA:
-		Name: dec
-		Weapon: ApcVulcanLineAA
-		PauseOnCondition: empdisable || !Attacking || attack-ground
-		LocalOffset: 290,0,1020
-		CasingWeapon: CasingDebrisLong
-		CasingSpawnLocalOffset: 290,0,1020
-		CasingTargetOffset: -1024,0, 0
-		RequiresCondition: !apammo
-	Armament@4BulletAPAA:
-		Name: dec
-		Weapon: ApcVulcanLineAPAA
-		PauseOnCondition: empdisable || !Attacking || attack-ground
-		LocalOffset: 290,0,1020
-		CasingWeapon: CasingDebrisLong
-		CasingSpawnLocalOffset: 290,0,1020
-		CasingTargetOffset: -1024,0, 0
-		RequiresCondition: apammo
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
@@ -717,19 +692,6 @@ HMEC:
 	Armament@gun:
 		Weapon: MKIIVulcan
 		Damage: 300
-		LocalOffset: 1638,0,800
-		Name: tertiary
-		PauseOnCondition: empdisable
-		RequiresCondition: !apammo
-	Armament@gunAP:
-		Weapon: MKIIVulcanAP
-		Damage: 375
-		LocalOffset: 1638,0,800
-		Name: tertiary
-		PauseOnCondition: empdisable
-		RequiresCondition: apammo
-	Armament@gunLine:
-		Weapon: MKIIVulcanLine
 		LocalOffset: 1638,0,800, 1638,0,800
 		Name: tertiary
 		CasingWeapon: CasingDebrisLong
@@ -737,8 +699,9 @@ HMEC:
 		CasingTargetOffset: 620, 512, 0, 620, -512, 0
 		PauseOnCondition: empdisable
 		RequiresCondition: !apammo
-	Armament@gunLineAP:
-		Weapon: MKIIVulcanLineAP
+	Armament@gunAP:
+		Weapon: MKIIVulcanAP
+		Damage: 375
 		LocalOffset: 1638,0,800, 1638,0,800
 		Name: tertiary
 		CasingWeapon: CasingDebrisLong
@@ -895,11 +858,19 @@ BGGY:
 		Damage: 40
 		LocalOffset: 250,0,125
 		MuzzleSequence: muzzle
+		CasingWeapon: BuggyBullet2Spawner
+		CasingSpawnLocalOffset: 140,0,125
+		CasingTargetOffset: 150,0,125
+		CasingHitGroundLevel: false
 		RequiresCondition: !loaded
 	Armament@militant1:
 		Weapon: BuggyCannonLoaded
 		Damage: 50
 		LocalOffset: 250,0,125
+		CasingWeapon: BuggyBullet3Spawner
+		CasingSpawnLocalOffset: 140,0,125
+		CasingTargetOffset: 150,0,125
+		CasingHitGroundLevel: false
 		MuzzleSequence: muzzle
 		RequiresCondition: ifv.militant
 	Armament@crusa:
@@ -2030,8 +2001,8 @@ MUTQUAD:
 	Voiced:
 		VoiceSet: QuadCannonVoice
 	WithMuzzleOverlay:
-	Armament@Fakebullet:
-		Weapon: QuadFireLine
+	Armament@1:
+		Weapon: QuadFire
 		LocalOffset: 800,90,370, 800,-90,370
 		CasingWeapon: CasingDebrisLong
 		CasingSpawnLocalOffset: 100,20,400, 100,-20,400
@@ -2039,8 +2010,8 @@ MUTQUAD:
 		PauseOnCondition: empdisable || attack-air
 		MuzzleSequence: muzzle
 		MuzzlePalette: effect
-	Armament@FakebulletAA:
-		Weapon: QuadFireLineAA
+	Armament@AA1:
+		Weapon: QuadFireAA
 		Name: secondary
 		LocalOffset: 500,90,1000, 500,-90,1000
 		CasingWeapon: CasingDebrisLong
@@ -2049,15 +2020,6 @@ MUTQUAD:
 		PauseOnCondition: empdisable || attack-ground
 		MuzzleSequence: muzzle
 		MuzzlePalette: effect
-	Armament@1:
-		Weapon: QuadFire
-		LocalOffset: 800,0,370
-		PauseOnCondition: empdisable || attack-air
-	Armament@AA1:
-		Weapon: QuadFireAA
-		LocalOffset: 800,0,370
-		Name: secondary
-		PauseOnCondition: empdisable || attack-ground
 	GrantConditionOnAttack@attackair: ## HACK: ReloadingCondition cannot control well when Burst > 1
 		Condition: attack-air
 		RevokeDelay: 30
@@ -2875,10 +2837,6 @@ CENTURION:
 	WithMuzzleOverlay:
 	Armament:
 		Weapon: CenturionVulcan
-		LocalOffset: 900,550,1200, 900,-550,1200
-		PauseOnCondition: empdisable
-	Armament@4:
-		Weapon: CenturionVulcanLine
 		LocalOffset: 900,550,1200, 900,-550,1200
 		CasingWeapon: CasingDebris
 		CasingSpawnLocalOffset: 900,550,1200, 900,-550,1200
