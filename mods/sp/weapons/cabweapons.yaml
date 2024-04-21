@@ -166,13 +166,13 @@ ReclaimerHit:
 	Warhead@1Dam: SpreadDamage
 		Damage: 6300
 		ValidTargets: Infantry
-		DamageTypes: Prone100Percent, TriggerProne, CabalDeath
+		DamageTypes: Prone70Percent, TriggerProne, CabalDeath
 		NoUnintendedFriendlyFire: All
 
 ReclaimerHitUpg:
 	Inherits: ReclaimerHit
 	Warhead@1Dam: SpreadDamage
-		DamageTypes: Prone100Percent, TriggerProne, CabalDeathUpg
+		DamageTypes: Prone70Percent, TriggerProne, CabalDeathUpg
 
 GLAD120mm:
 	Inherits: ^APWarhead
@@ -227,7 +227,7 @@ LurkerHit:
 			Aircraft: 100
 			Concrete: 5
 		NoUnintendedFriendlyFire: All
-		DamageTypes: Prone100Percent, TriggerProne, CabalDeath
+		DamageTypes: Prone70Percent, TriggerProne, CabalDeath
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: playercab
 		Explosions: lurkertentacle
@@ -276,7 +276,7 @@ CyCannon:
 			Defense: 100
 			Heavy: 100
 			Concrete: 35
-		DamageTypes: Prone350Percent, TriggerProne, EnergyDeath
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 	Warhead@3Eff: CreateEffect
 		ExplosionPalette: gensmkexploFgreen
 		Explosions: sparks
@@ -355,7 +355,7 @@ NanoNeedle:
 			Concrete: 3
 			Shield: 0
 		ValidTargets: Ground, Water
-		DamageTypes: Prone100Percent, TriggerProne
+		DamageTypes: Prone70Percent, TriggerProne
 	Warhead@2Eff: CreateEffect
 		Explosions: nanoexp
 		-InvalidTargets:
@@ -536,7 +536,7 @@ WaspBullet:
 		Damage: 3000
 		Versus:
 			Defense: 75
-		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		InvalidTargets: Air
 	Warhead@2Eff: CreateEffect
@@ -570,7 +570,7 @@ DevourerGrinder:
 	Warhead@1Dam: SpreadDamageWithCondition
 		Spread: 0c090
 		Damage: 20000
-		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		NoUnintendedFriendlyFire: All
 		ConditionDuration: 45
 		Condition: Slowdown50pp
