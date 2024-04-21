@@ -60,7 +60,7 @@ namespace OpenRA.Mods.Sp.Effects
 			}
 
 			var forward = speed.Length == 2
-					? world.SharedRandom.Next(speed[0].Length, speed[1].Length)
+					? Game.CosmeticRandom.Next(speed[0].Length, speed[1].Length)
 					: speed[0].Length;
 
 			// Needs to be defined the same way delta is defined in CloudSpawner.SpawnCloud to ensure facing consistency.

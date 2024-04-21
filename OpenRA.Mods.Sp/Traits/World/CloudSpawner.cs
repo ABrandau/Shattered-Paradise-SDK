@@ -101,7 +101,7 @@ namespace OpenRA.Mods.Sp.Traits
 
 		void SpawnCloud(Actor self)
 		{
-			var position = self.World.Map.ChooseRandomCell(self.World.SharedRandom);
+			var position = self.World.Map.ChooseRandomCell(Game.CosmeticRandom);
 
 			var facing = 256 * info.WindDirection / 32;
 			var delta = new WVec(0, -1024, 0).Rotate(WRot.FromFacing(facing));
@@ -111,7 +111,7 @@ namespace OpenRA.Mods.Sp.Traits
 			var finishEdge = target + (self.World.Map.DistanceToEdge(target, delta) + info.Cordon).Length * delta / 1024;
 
 			var animation = new Animation(self.World, info.Image, () => WAngle.FromFacing(facing));
-			animation.PlayRepeating(info.Sequences.Random(self.World.SharedRandom));
+			animation.PlayRepeating(info.Sequences.Random(Game.CosmeticRandom));
 
 			self.World.AddFrameEndTask(w => w.Add(new Cloud(self.World, animation, startEdge, finishEdge, facing, info)));
 		}
@@ -166,7 +166,7 @@ namespace OpenRA.Mods.Sp.Traits
 			var offset = WVec.Zero;
 			while (longestCloudDistance > 0)
 			{
-				var position = world.Map.ChooseRandomCell(world.SharedRandom);
+				var position = world.Map.ChooseRandomCell(Game.CosmeticRandom);
 				var target = world.Map.CenterOfCell(position) + new WVec(0, 0, info.CruiseAltitude.Length);
 
 				var startEdge = target - (world.Map.DistanceToEdge(target, -delta) + info.Cordon).Length * delta / 1024;
@@ -174,7 +174,7 @@ namespace OpenRA.Mods.Sp.Traits
 				var finishEdge = target + (world.Map.DistanceToEdge(target, delta) + info.Cordon).Length * delta / 1024;
 
 				var animation = new Animation(world, info.Image, () => WAngle.FromFacing(facing));
-				animation.PlayRepeating(info.Sequences.Random(world.SharedRandom));
+				animation.PlayRepeating(info.Sequences.Random(Game.CosmeticRandom));
 
 				world.AddFrameEndTask(w => w.Add(new Cloud(world, animation, startEdge, finishEdge, facing, info)));
 
