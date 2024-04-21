@@ -1,13 +1,13 @@
-:: example launch script, see https://github.com/OpenRA/OpenRA/wiki/Dedicated-Server for details
+:: example launch script, see https://github.com/OpenRA/OpenRA/wiki/Dedicated for details
 
 @echo on
 
 set Name="Dedicated Server"
+set Map=""
 set ListenPort=1234
 set AdvertiseOnline=True
 set Password=""
 set RecordReplays=False
-set Map=""
 
 set RequireAuthentication=False
 set ProfileIDBlacklist=""
