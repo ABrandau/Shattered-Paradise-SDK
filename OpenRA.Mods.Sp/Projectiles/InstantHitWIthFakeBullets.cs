@@ -54,7 +54,37 @@ namespace OpenRA.Mods.SP.Projectiles
 		[Desc("Fake bullet inaccuracy, use set value regardless of range")]
 		public readonly WDist FakeBulletInaccuracy = WDist.Zero;
 
-		[Desc("When set, display a line behind the actor. Length is measured in ticks after appearing.")]
+		[Desc("Image to display.")]
+		public readonly string Image = null;
+
+		[SequenceReference(nameof(Image), allowNullImage: true)]
+		[Desc("Loop sequence of Image from this list while this projectile is moving.")]
+		public readonly string Sequence = "idle";
+
+		[Desc("The palette used to draw this projectile.")]
+		[PaletteReference(nameof(IsPlayerPalette))]
+		public readonly string Palette = "effect";
+
+		public readonly bool IsPlayerPalette = false;
+
+		[Desc("Trail animation.")]
+		public readonly string TrailImage = null;
+
+		[Desc("Loop sequence of TrailImage from this list while this projectile is moving.")]
+		[SequenceReference(nameof(TrailImage), allowNullImage: true)]
+		public readonly string TrailSequence = "idle";
+
+		[Desc("Interval in ticks between each spawned Trail animation.")]
+		public readonly int TrailInterval = 2;
+
+		[Desc("Palette used to render the trail sequence.")]
+		[PaletteReference(nameof(TrailUsePlayerPalette))]
+		public readonly string TrailPalette = "effect";
+
+		[Desc("Use the Player Palette to render the trail sequence.")]
+		public readonly bool TrailUsePlayerPalette = false;
+
+		[Desc("When set, display a line behind the fake bullet. Length is measured in ticks after appearing.")]
 		public readonly int ContrailLength = 0;
 
 		[Desc("Time (in ticks) after which the line should appear. Controls the distance to the actor.")]
@@ -96,6 +126,8 @@ namespace OpenRA.Mods.SP.Projectiles
 		readonly InstantHitWIthFakeBulletsInfo info;
 		readonly FakeBulletWrapper[] contrails;
 		readonly World world;
+		readonly string animPalette;
+		readonly string trailPalette;
 
 		Target target;
 		bool notImpacted = true;
@@ -107,8 +139,11 @@ namespace OpenRA.Mods.SP.Projectiles
 			public int Time;
 			public int OverallTime;
 			public ContrailRenderable Contrail;
+			public Animation Anim;
 			public WPos EndPos;
+			public WPos Pos;
 			public WPos SourcePos;
+			public WAngle Facing;
 		}
 
 		public InstantHitWIthFakeBullets(InstantHitWIthFakeBulletsInfo info, ProjectileArgs args)
@@ -116,6 +151,14 @@ namespace OpenRA.Mods.SP.Projectiles
 			this.args = args;
 			this.info = info;
 			world = args.SourceActor.World;
+
+			animPalette = info.Palette;
+			if (info.IsPlayerPalette)
+				animPalette += args.SourceActor.Owner.InternalName;
+
+			trailPalette = info.TrailPalette;
+			if (info.TrailUsePlayerPalette)
+				trailPalette += args.SourceActor.Owner.InternalName;
 
 			if (info.FakeBulletNumber > 0 && info.ContrailLength > 0)
 			{
@@ -125,6 +168,7 @@ namespace OpenRA.Mods.SP.Projectiles
 				for (var i = 0; i < contrails.Length; i++)
 				{
 					var contrail = new ContrailRenderable(world, startcolor, endcolor, info.ContrailStartWidth, info.ContrailEndWidth ?? info.ContrailStartWidth, info.ContrailLength, info.ContrailDelay, info.ContrailZOffset);
+
 					contrails[i] = new FakeBulletWrapper
 					{
 						Time = -1,
@@ -188,22 +232,44 @@ namespace OpenRA.Mods.SP.Projectiles
 
 						// Contrail render won't affect network sync so we DON'T use SharedRandom here.
 						var fakeInaccOffset = WVec.FromPDF(Game.CosmeticRandom, 2) * info.FakeBulletInaccuracy.Length / 1024;
-						var time = Math.Max((fakeBulletEndBasePos + fakeInaccOffset - contrails[i].SourcePos).Length / info.FakeBulletSpeed, 1);
+						var vec = fakeBulletEndBasePos + fakeInaccOffset - contrails[i].SourcePos;
+						var time = Math.Max(vec.Length / info.FakeBulletSpeed, 1);
 						contrails[i].Time = time;
 						contrails[i].OverallTime = time;
+						contrails[i].Pos = contrails[i].SourcePos;
 						contrails[i].EndPos = fakeBulletEndBasePos + fakeInaccOffset;
+						contrails[i].Facing = vec.Pitch;
+
+						if (!string.IsNullOrEmpty(info.Image))
+						{
+							var facing = contrails[i].Facing;
+							contrails[i].Anim = new Animation(world, info.Image, () => facing);
+							contrails[i].Anim.PlayRepeating(info.Sequence);
+						}
+
 						allContrailDone = false;
 					}
 
 					if (contrails[i].Time > 0 && contrails[i].OverallTime != 0)
 					{
-						contrails[i].Contrail.Update(WPos.Lerp(contrails[i].SourcePos, contrails[i].EndPos, contrails[i].OverallTime - contrails[i].Time, contrails[i].OverallTime));
+						var currentPos = WPos.Lerp(contrails[i].SourcePos, contrails[i].EndPos, contrails[i].OverallTime - contrails[i].Time, contrails[i].OverallTime);
+						contrails[i].Contrail.Update(currentPos);
+						contrails[i].Pos = currentPos;
+						contrails[i].Anim?.Tick();
 						allContrailDone = false;
 						if (--contrails[i].Time <= 0)
 						{
 							var contrail = contrails[i].Contrail;
 							var pos = contrails[i].EndPos;
 							world.AddFrameEndTask(w => w.Add(new ContrailFader(pos, contrail)));
+						}
+
+						if (!string.IsNullOrEmpty(info.TrailImage) && (info.TrailInterval == 0 || ((contrails[i].OverallTime - contrails[i].Time) % info.TrailInterval == 0)))
+						{
+							var pos = contrails[i].Pos;
+							var facing = contrails[i].Facing;
+							world.AddFrameEndTask(w => w.Add(new SpriteEffect(pos, facing, world,
+								info.TrailImage, info.TrailSequence, trailPalette)));
 						}
 					}
 				}
@@ -222,7 +288,18 @@ namespace OpenRA.Mods.SP.Projectiles
 			{
 				foreach (var c in contrails)
 					if (c.Time > 0)
+					{
 						yield return c.Contrail;
+						if (c.Anim != null)
+						{
+							if (!world.FogObscures(c.Pos))
+							{
+								var palette = wr.Palette(animPalette);
+								foreach (var r in c.Anim.Render(c.Pos, palette))
+									yield return r;
+							}
+						}
+					}
 			}
 		}
 	}
