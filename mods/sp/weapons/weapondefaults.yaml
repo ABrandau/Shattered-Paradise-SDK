@@ -1,13 +1,23 @@
-^WeaponGenericUpgrades:
+^WeaponGenericDamage:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c090
 		Damage: 1
 		DamageTypes: Prone60Percent, TriggerProne
 
-^RifleWarhead:
-	Inherits: ^WeaponGenericUpgrades
-	Projectile: InstantHit
-		Blockable: true
+^FullDamage:
+	Inherits: ^WeaponGenericDamage
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c181
+		Versus:
+			Infantry: 100
+			Building: 100
+			Light: 100
+			Heavy: 100
+			Defense: 100
+			Concrete: 35
+
+^RifleDamage:
+	Inherits: ^WeaponGenericDamage
 	Warhead@1Dam: SpreadDamage
 		Versus:
 			Infantry: 100
@@ -18,9 +28,116 @@
 			Aircraft: 100
 			Concrete: 5
 
-^VulcanWarhead:
-	Inherits: ^RifleWarhead
+^RocketDamage:
+	Inherits: ^WeaponGenericDamage
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c181
+		Versus:
+			Infantry: 30
+			Building: 100
+			Defense: 100
+			Light: 100
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 35
+
+^ArmorPierceDamage:
+	Inherits: ^WeaponGenericDamage
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c181
+		Versus:
+			Infantry: 30
+			Building: 100
+			Defense: 100
+			Light: 100
+			Heavy: 100
+			Aircraft: 100
+			Concrete: 35
+
+^FlameDamage:
+	Inherits: ^WeaponGenericDamage
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 100, 100, 100, 100
+		Versus:
+			Infantry: 100
+			Building: 200
+			Defense: 25
+			Light: 65
+			Heavy: 25
+			Aircraft: 100
+			Concrete: 1
+
+^ArtilleryDamage:
+	Inherits: ^WeaponGenericDamage
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			Infantry: 100
+			Building: 150
+			Defense: 100
+			Light: 75
+			Heavy: 50
+			Concrete: 50
+
+^BombDamage:
+	Inherits: ^WeaponGenericDamage
+	Warhead@1Dam: SpreadDamage
+		# Falloff: 300, 150, 100, 50, 0
+		Versus:
+			Infantry: 100
+			Building: 100
+			Defense: 100
+			Light: 75
+			Heavy: 50
+			Aircraft: 100
+			Concrete: 35
+
+^AcidDamage:
+	Inherits: ^WeaponGenericDamage
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			Infantry: 150
+			Building: 75
+			Defense: 50
+			Light: 75
+			Heavy: 50
+			Aircraft: 100
+			Concrete: 35
+
+^SpawnsIrradiation:
+	Warhead@3Radio: CreateTintedCells
+		Spread: 512
+		Level: 6
+
+^RifleWeapon:
+	Inherits: ^RifleDamage
+	Projectile: InstantHit
+		Blockable: true
+
+^ArmorPierceAmmoWeapon:
+	Inherits: ^ArmorPierceDamage
+	Projectile: BulletAS
+		Speed: 800
+		Blockable: true
+		Image: cannonball
+		Palette: gensmkexploj
+		ContrailDelay: 0
+		ContrailLength: 4
+		ContrailStartColor: BBC366
+		ContrailStartColorAlpha: 255
+		ContrailStartWidth: 0c80
+		ContrailEndColor: FF3311
+		ContrailEndColorAlpha: 200
+		ContrailEndWidth: 0
+		ContrailZOffset: 3000
+		TrailImage: cannonsmokecircle
+		TrailPalette: gradientyellow
+		TrailDelay: 0
+		TrailInterval: 1
+
+^VulcanWeapon:
+	Inherits: ^RifleDamage
 	Projectile: InstantHitWIthFakeBullets
+		Blockable: true
 		FakeBulletNumber: 1
 		FakeBulletSpawnInterval: 3
 		ContrailDelay: 0
@@ -32,8 +149,8 @@
 		ContrailStartWidth: 26
 		ContrailZOffset: 3000
 
-^RocketWarhead:
-	Inherits: ^WeaponGenericUpgrades
+^RocketWeapon:
+	Inherits: ^RocketDamage
 	TargetActorCenter: true
 	Projectile: MissileTA
 		TerrainHeightAware: true
@@ -64,18 +181,8 @@
 		JetPalette: MarnAlphaAlpha
 		Blockable: false
 		Jammable: false ## help to save a little bit performance
-	Warhead@1Dam: SpreadDamage
-		Spread: 0c181
-		Versus:
-			Infantry: 30
-			Building: 100
-			Defense: 100
-			Light: 100
-			Heavy: 100
-			Aircraft: 100
-			Concrete: 35
 
-^AARocketWarhead:
+^AARocketWeaponOverride:
 	TargetActorCenter: true
 	Projectile: MissileTA
 		Speed: 400
@@ -84,109 +191,7 @@
 		RangeLimit: 17c0 ## Make sure can hit unmoving aircraft at height of 6 cells in max AA range. 
 		Jammable: false ## help to save a little bit performance
 
-^APWarhead:
-	Inherits: ^WeaponGenericUpgrades
-	Projectile: BulletAS
-		Speed: 800
-		Blockable: true
-		Image: cannonball
-		Palette: gensmkexploj
-		ContrailDelay: 0
-		ContrailLength: 4
-		ContrailStartColor: BBC366
-		ContrailStartColorAlpha: 255
-		ContrailStartWidth: 0c80
-		ContrailEndColor: FF3311
-		ContrailEndColorAlpha: 200
-		ContrailEndWidth: 0
-		ContrailZOffset: 3000
-		TrailImage: cannonsmokecircle
-		TrailPalette: gradientyellow
-		TrailDelay: 0
-		TrailInterval: 1
-	Warhead@1Dam: SpreadDamage
-		Spread: 0c181
-		Versus:
-			Infantry: 30
-			Building: 100
-			Defense: 100
-			Light: 100
-			Heavy: 100
-			Aircraft: 100
-			Concrete: 35
-
-^FlameWarhead:
-	Inherits: ^WeaponGenericUpgrades
-	Warhead@1Dam: SpreadDamage
-		Falloff: 100, 100, 100, 100, 100
-		Versus:
-			Infantry: 100
-			Building: 200
-			Defense: 25
-			Light: 65
-			Heavy: 25
-			Aircraft: 100
-			Concrete: 1
-
-^ArtilleryWarhead:
-	Inherits: ^WeaponGenericUpgrades
-	Warhead@1Dam: SpreadDamage
-		Versus:
-			Infantry: 100
-			Building: 150
-			Defense: 100
-			Light: 75
-			Heavy: 50
-			Concrete: 50
-
-^BombWarhead:
-	Inherits: ^WeaponGenericUpgrades
-	Warhead@1Dam: SpreadDamage
-		# Falloff: 300, 150, 100, 50, 0
-		Versus:
-			Infantry: 100
-			Building: 100
-			Defense: 100
-			Light: 75
-			Heavy: 50
-			Aircraft: 100
-			Concrete: 35
-
-^AcidWarhead:
-	Inherits: ^WeaponGenericUpgrades
-	Warhead@1Dam: SpreadDamage
-		Versus:
-			Infantry: 150
-			Building: 75
-			Defense: 50
-			Light: 75
-			Heavy: 50
-			Aircraft: 100
-			Concrete: 35
-
-^SpawnsIrradiation:
-	Warhead@3Radio: CreateTintedCells
-		Spread: 512
-		Level: 6
-
-^DecentFalloff:
-	Inherits: ^WeaponGenericUpgrades
-	Warhead@1Dam: SpreadDamage
-		Falloff: 100, 50, 25, 12, 0
-
-^FullDamage:
-	Inherits: ^WeaponGenericUpgrades
-	Warhead@1Dam: SpreadDamage
-		Spread: 0c181
-		Versus:
-			Infantry: 100
-			Building: 100
-			Light: 100
-			Heavy: 100
-			Defense: 100
-			Concrete: 35
-
-^AntiAirTurretWeapon:
+^AntiAirDefenceOverride:
 	Inherits: ^FullDamage
 	ValidTargets: Air
 	ReloadDelay: 25
@@ -201,14 +206,8 @@
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 		ValidTargets: Air
 
-^NoDamage:
-	ValidTargets: Ground, Infantry, Vehicle, Building
-	Warhead@1Dam: SpreadDamage
-		Spread: 42
-		Damage: 1
-
-^ExploDefaults:
-	Inherits: ^WeaponGenericUpgrades
+^ExploWarheadDefaults:
+	Inherits: ^WeaponGenericDamage
 	Inherits@1: ^ShortFireEffect
 	Warhead@op: FireRadius
 		Weapon: SmallDebris

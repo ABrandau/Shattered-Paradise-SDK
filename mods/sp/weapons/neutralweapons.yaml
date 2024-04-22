@@ -73,7 +73,7 @@ Pistola:
 		ValidTargets: Water
 
 GuradTowerVulcan:
-	Inherits: ^VulcanWarhead
+	Inherits: ^VulcanWeapon
 	Inherits@2: ^Piffs
 	ReloadDelay: 10
 	Range: 7c0
@@ -89,7 +89,7 @@ GuradTowerVulcan:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 ADVTowerMissile:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 10
 	Burst: 1
@@ -107,7 +107,7 @@ ADVTowerMissile:
 
 ADVTowerMissileAA:
 	Inherits: ADVTowerMissile
-	Inherits@1: ^AARocketWarhead
+	Inherits@1: ^AARocketWeaponOverride
 	Range: 8c0
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
@@ -119,7 +119,7 @@ ADVTowerMissileAA:
 		NoUnintendedFriendlyFire: All
 
 CivilianLightCannon:
-	Inherits: ^APWarhead
+	Inherits: ^ArmorPierceAmmoWeapon
 	Inherits@2: ^Mediuml_Clsn
 	ReloadDelay: 70
 	Range: 6c0
@@ -160,7 +160,7 @@ FiendShard:
 
 CrabAcid:
 	Inherits@1: ^LiquidProjectile
-	Inherits@2: ^AcidWarhead
+	Inherits@2: ^AcidDamage
 	Inherits@3: ^SpawnsIrradiation
 	ReloadDelay: 70
 	Range: 5c0
@@ -338,7 +338,7 @@ LightTowerClaxon:
 	Projectile: InstantExplode
 
 SlimeAttack:
-	Inherits: ^RifleWarhead
+	Inherits: ^RifleWeapon
 	ReloadDelay: 80
 	Range: 1c512
 	Report: vicer1.aud
@@ -367,7 +367,7 @@ RepairNeutralTurret:
 	BurstDelays: 1
 
 BerserkerBlow:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^ArtilleryDamage
 	Inherits@1: ^MeleeClaw
 	ReloadDelay: 50
 	Range: 1c512

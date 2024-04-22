@@ -1,5 +1,5 @@
 BuildingSmokeExplode:
-	Inherits: ^ExploDefaults
+	Inherits: ^ExploWarheadDefaults
 	Inherits@2: ^Large_twlt
 	-Warhead@1Dam:
 	Warhead@2Eff: CreateEffect
@@ -12,7 +12,7 @@ BuildingSmokeExplode:
 	-Warhead@MarnFlash: 
 
 BuildingExplode:
-	Inherits: ^ExploDefaults
+	Inherits: ^ExploWarheadDefaults
 	Inherits@2: ^Large_twlt
 	Inherits@3: ^DelayedSmokeEffect
 	-Warhead@1Dam:
@@ -37,7 +37,7 @@ ScrinBuildingExplode:
 	-Warhead@op:
 
 CyborgExplode:
-	Inherits: ^ExploDefaults
+	Inherits: ^ExploWarheadDefaults
 	Inherits@2: ^Medium_Bang
 	-Warhead@op:
 
@@ -55,11 +55,11 @@ NanoDroneExplode: ## save performance, used for spamming summoned actor
 		ImpactActors: false
 
 DroneExplode:
-	Inherits: ^ExploDefaults
+	Inherits: ^ExploWarheadDefaults
 	Inherits@2: ^Tiny_Explo
 
 SmalLAircraftShrapnel:
-	Inherits: ^ExploDefaults
+	Inherits: ^ExploWarheadDefaults
 	Inherits@2: ^Tiny_Explo
 	Warhead@op: FireRadius
 		Weapon: SmallDebris
@@ -75,7 +75,7 @@ SmalLScrinAircraftShrapnel:
 		Weapon: SmallDebrisScrin
 
 BigAircraftShrapnel:
-	Inherits: ^ExploDefaults
+	Inherits: ^ExploWarheadDefaults
 	Inherits@2: ^Large_Clsn
 	Warhead@op: FireRadius
 		Weapon: SmallDebris
@@ -377,7 +377,7 @@ ZombieExplosion:
 		ImpactActors: false
 
 BlueTibBarrelExplo:
-	Inherits: ^ExploDefaults
+	Inherits: ^ExploWarheadDefaults
 	Inherits@3: ^DelayedSmokeEffect
 	Warhead@2Eff: CreateEffect
 		Explosions: tib_expsmall
@@ -389,7 +389,7 @@ BlueTibBarrelExplo:
 	#	Size: 1,1
 
 FuelBarrelExplo:
-	Inherits: ^ExploDefaults
+	Inherits: ^ExploWarheadDefaults
 	Inherits@2: ^Large_Explosion
 	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
@@ -409,7 +409,7 @@ FuelBarrelExplo:
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 
 AmmoCrateExplo:
-	Inherits: ^ExploDefaults
+	Inherits: ^ExploWarheadDefaults
 	Inherits@2: ^Large_Explosion
 	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
@@ -859,7 +859,7 @@ NuclearMissile:
 		AirThreshold: 8c0
 
 NukeFlame:
-	Inherits: ^FlameWarhead
+	Inherits: ^FlameDamage
 	Inherits@2: ^FlameScorch
 	Range: 7c0
 	Projectile: BulletAS
@@ -881,7 +881,7 @@ NukeFlame2:
 
 ## Aircraft HUSK
 StormriderExplode:
-	Inherits: ^ExploDefaults
+	Inherits: ^ExploWarheadDefaults
 	Inherits@2: ^Mediuml_Clsn
 	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
@@ -895,7 +895,7 @@ StormriderExplode:
 		Weapon: SmallDebrisScrin
 
 SmallPlaneExplode:
-	Inherits: ^ExploDefaults
+	Inherits: ^ExploWarheadDefaults
 	Inherits@2: ^Mediuml_Clsn
 	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
@@ -910,7 +910,7 @@ SmallPlaneExplode:
 		ValidTargets: Ground, Air, Water
 
 SmallPlaneExplosion:
-	Inherits: ^ExploDefaults
+	Inherits: ^ExploWarheadDefaults
 	Inherits@3: ^DelayedSmokeEffect
 	Inherits@2: ^Mediuml_Clsn
 	Range: 0c512
@@ -931,7 +931,7 @@ ScrinSmallPlaneExplosion:
 		Weapon: SmallDebrisScrin
 
 BigAircraftExplode:
-	Inherits: ^ExploDefaults
+	Inherits: ^ExploWarheadDefaults
 	Inherits@2: ^Large_Explosion
 	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
@@ -952,7 +952,7 @@ DevourerExplode:
 		Damage: 8000
 
 BigAircraftExplosion:
-	Inherits: ^ExploDefaults
+	Inherits: ^ExploWarheadDefaults
 	Inherits@2: ^Large_Explosion
 	Inherits@3: ^DelayedSmokeEffect
 	Range: 1c0
@@ -973,7 +973,7 @@ ScrinCarrierExplosion:
 		Weapon: SmallDebrisScrin
 
 BattleshipExplode:
-	Inherits: ^ExploDefaults
+	Inherits: ^ExploWarheadDefaults
 	Inherits@2: ^GreyExplo
 	Inherits@3: ^DelayedSmokeEffect
 	Warhead@1Dam: SpreadDamage
@@ -992,7 +992,7 @@ BattleshipExplode:
 		Weapon: SmallDebrisScrin
 
 BattleshipExplosion:
-	Inherits: ^ExploDefaults
+	Inherits: ^ExploWarheadDefaults
 	Inherits@2: ^GreyExplo
 	Inherits@3: ^DelayedSmokeEffect
 	Range: 1c0

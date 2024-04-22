@@ -1,4 +1,4 @@
-^APWarheadRailGunUpgraded:
+^GDIRailgunOverride:
 	Projectile: Railgun
 		BeamWidth: 48
 		ZOffset: 2047
@@ -6,7 +6,7 @@
 		HelixColor: 44FFFF
 
 MarineRifle:
-	Inherits: ^RifleWarhead
+	Inherits: ^RifleWeapon
 	Inherits@2: ^Piffs
 	ReloadDelay: 35
 	Range: 4c512
@@ -22,7 +22,7 @@ MarineRifleAP:
 	Inherits@2: ^PiffsCyan
 
 GrenadierBazooka:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 60
 	Range: 6c0
@@ -36,7 +36,7 @@ GrenadierBazooka:
 
 GrenadierBazookaAA:
 	Inherits: GrenadierBazooka
-	Inherits@1: ^AARocketWarhead
+	Inherits@1: ^AARocketWeaponOverride
 	Range: 8c0
 	ValidTargets: Air
 	Warhead@1Dam: SpreadDamage
@@ -44,7 +44,7 @@ GrenadierBazookaAA:
 		NoUnintendedFriendlyFire: All
 
 Grenade:
-	Inherits: ^BombWarhead
+	Inherits: ^BombDamage
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 60
 	Range: 5c0
@@ -70,7 +70,7 @@ Grenade:
 		ImpactSounds: expnew13.aud
 
 JJGrenade:
-	Inherits: ^BombWarhead
+	Inherits: ^BombDamage
 	Inherits@2: ^Small_Bang
 	ReloadDelay: 70
 	Range: 5c0
@@ -101,7 +101,7 @@ JJGroundGrenade:
 		LaunchAngle: 96
 
 JJSMG:
-	Inherits: ^WeaponGenericUpgrades
+	Inherits: ^WeaponGenericDamage
 	Range: 5c0
 	ReloadDelay: 80
 	ValidTargets: Ground, Water
@@ -239,7 +239,7 @@ Heal:
 		AffectsParent: false
 
 TrooperRail:
-	Inherits: ^APWarhead
+	Inherits: ^ArmorPierceAmmoWeapon
 	ReloadDelay: 90
 	Range: 6c0
 	Report: railgunfire.wav
@@ -285,7 +285,7 @@ TrooperRail:
 		ImpactActors: false
 
 WolverineVulcan:
-	Inherits: ^RifleWarhead
+	Inherits: ^RifleWeapon
 	Inherits@2: ^Piffs
 	ReloadDelay: 30
 	Range: 6c0
@@ -301,7 +301,7 @@ WolverineVulcanAP:
 
 
 WolverineVulcanLine:
-	Inherits: ^VulcanWarhead
+	Inherits: ^VulcanWeapon
 	ReloadDelay: 30
 	Burst: 2
 	BurstDelays: 0
@@ -317,7 +317,7 @@ WolverineVulcanLineAP:
 		ContrailEndColor: EE9900
 
 ApcVulcan:
-	Inherits: ^VulcanWarhead
+	Inherits: ^VulcanWeapon
 	Inherits@2: ^Piffs
 	ReloadDelay: 30
 	Range: 6c0
@@ -369,7 +369,7 @@ ApcBulletSpawner:
 		AirThreshold: 8c0
 
 Titan120mm:
-	Inherits: ^APWarhead
+	Inherits: ^ArmorPierceAmmoWeapon
 	Inherits@2: ^Mediuml_Clsn
 	ReloadDelay: 80
 	Range: 6c0
@@ -384,7 +384,7 @@ Titan120mm:
 
 TitanRailgun:
 	Inherits: Titan120mm
-	Inherits: ^APWarheadRailGunUpgraded
+	Inherits: ^GDIRailgunOverride
 	SoundVolume: 1
 	Report: vtitwe2a.wav, vtitwe2b.wav, vtitwe2c.wav, vtitwe2d.wav, vtitwe2e.wav, vtitwe2f.wav, vtitwe2g.wav, vtitwe2h.wav, vtitwe2i.wav
 	Warhead@1Dam: SpreadDamage
@@ -394,7 +394,7 @@ TitanRailgun:
 		ExplosionPalette: gensmkexploFcyan
 
 HoverMissile:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 40
 	Burst: 2
@@ -412,7 +412,7 @@ HoverMissile:
 
 HoverMissileAA:
 	Inherits: HoverMissile
-	Inherits@1: ^AARocketWarhead
+	Inherits@1: ^AARocketWeaponOverride
 	Range: 8c0
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
@@ -424,7 +424,7 @@ HoverMissileAA:
 		NoUnintendedFriendlyFire: All
 
 JuggCannon:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^ArtilleryDamage
 	Inherits@2: ^Small_Clsn
 	FirstBurstTargetOffset: 0,-150,0
 	FollowingBurstTargetOffset: 0,300,0
@@ -537,7 +537,7 @@ SonicEmitterHitGDITank:
 		ExplosionPalette: gensmkexploFcyan70
 
 4TNKGUN:
-	Inherits: ^APWarhead
+	Inherits: ^ArmorPierceAmmoWeapon
 	Inherits@2: ^Mediuml_Clsn
 	FirstBurstTargetOffset: 0,50,0
 	FollowingBurstTargetOffset: 0,-100,0
@@ -555,7 +555,7 @@ SonicEmitterHitGDITank:
 
 4TNKRAILGUN:
 	Inherits: 4TNKGUN
-	Inherits: ^APWarheadRailGunUpgraded
+	Inherits: ^GDIRailgunOverride
 	BurstDelays: 12
 	Report: vtitwe2a.wav, vtitwe2b.wav, vtitwe2c.wav, vtitwe2d.wav, vtitwe2e.wav, vtitwe2f.wav, vtitwe2g.wav, vtitwe2h.wav, vtitwe2i.wav
 	Warhead@1Dam: SpreadDamage
@@ -565,7 +565,7 @@ SonicEmitterHitGDITank:
 		ExplosionPalette: gensmkexploFcyan
 
 MammothTusk:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	Inherits@2: ^Mediumtwlt
 	ReloadDelay: 90
 	Range: 6c0
@@ -586,7 +586,7 @@ MammothTusk:
 
 MammothTuskAA:
 	Inherits: MammothTusk
-	Inherits@1: ^AARocketWarhead
+	Inherits@1: ^AARocketWeaponOverride
 	ValidTargets: Air
 	Range: 8c0
 	Warhead@1Dam: SpreadDamage
@@ -679,7 +679,7 @@ MKIITusk:
 
 MKIITuskAA:
 	Inherits: MammothTuskAA
-	Inherits@1: ^AARocketWarhead
+	Inherits@1: ^AARocketWeaponOverride
 	Range: 9c0
 	BurstDelays: 5
 	Burst: 4
@@ -689,7 +689,7 @@ MKIITuskAA:
 		NoUnintendedFriendlyFire: All
 
 MKIIVulcan:
-	Inherits: ^VulcanWarhead
+	Inherits: ^VulcanWeapon
 	Inherits@2: ^Piffs
 	StartBurstReport: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
 	ReloadDelay: 5
@@ -714,7 +714,7 @@ MKIIVulcanAP:
 		Damage: 1875
 
 FighterHellfire:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 35
 	Range: 5c0
@@ -740,7 +740,7 @@ FighterHellfire:
 
 FighterHellfireAA:
 	Inherits: FighterHellfire
-	Inherits@1: ^AARocketWarhead
+	Inherits@1: ^AARocketWeaponOverride
 	ValidTargets: Air
 	Burst: 2
 	ReloadDelay: 35
@@ -754,7 +754,7 @@ FighterHellfireAA:
 		NoUnintendedFriendlyFire: All
 
 OBBombFrontal:
-	Inherits: ^BombWarhead
+	Inherits: ^BombDamage
 	Inherits@2: ^Large_Explosion
 	ReloadDelay: 60
 	Range: 3c0
@@ -780,7 +780,7 @@ OBBombFrontal:
 		ImpactSounds: expnew09.aud
 
 VulcanTower:
-	Inherits: ^VulcanWarhead
+	Inherits: ^VulcanWeapon
 	Inherits@2: ^Piffs
 	ReloadDelay: 25
 	Burst: 2
@@ -804,9 +804,9 @@ VulcanTowerAP:
 		ContrailEndColor: EE9900
 
 GdiRedEye:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	Inherits@2: ^Small_Twlt
-	Inherits@3: ^AntiAirTurretWeapon
+	Inherits@3: ^AntiAirDefenceOverride
 	Report: samshot1.aud
 	Projectile: MissileTA
 		Sequences: idle3
@@ -814,7 +814,7 @@ GdiRedEye:
 		NoUnintendedFriendlyFire: All
 
 RPGTower:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	Inherits@2: ^Large_Clsn
 	ReloadDelay: 70
 	Range: 7c0

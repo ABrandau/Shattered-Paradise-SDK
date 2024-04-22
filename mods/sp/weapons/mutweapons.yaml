@@ -26,7 +26,7 @@ ExplosionGas:
 	-Warhead@smoke:
 
 MarauderShotgun:
-	Inherits: ^RifleWarhead
+	Inherits: ^RifleWeapon
 	Inherits@2: ^Piffs
 	ReloadDelay: 40
 	Range: 4c0
@@ -59,7 +59,7 @@ MarauderShotgunInnacurate:
 	-Warhead@MarnFlash:
 
 SkirmisherMortar:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^ArtilleryDamage
 	Inherits@2: ^Small_Clsn
 	Inherits@3: ^FlameScorch
 	ReloadDelay: 75
@@ -128,7 +128,7 @@ SkirmisherMortarGas:
 		Level: 10
 
 FiendShard2:
-	Inherits: ^APWarhead
+	Inherits: ^ArmorPierceAmmoWeapon
 	ReloadDelay: 60
 	Burst: 2
 	Range: 5c0
@@ -166,8 +166,8 @@ FiendShard2:
 
 FiendShardAA:
 	Inherits: FiendShard2
-	Inherits: ^RocketWarhead
-	Inherits@1: ^AARocketWarhead
+	Inherits: ^RocketWeapon
+	Inherits@1: ^AARocketWeaponOverride
 	ValidTargets: Air
 	Burst: 2
 	Range: 7c0
@@ -329,7 +329,7 @@ PsykerRay:
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
 BullAcid:
-	Inherits: ^AcidWarhead
+	Inherits: ^AcidDamage
 	ReloadDelay: 60
 	Range: 5c0
 	Burst: 3
@@ -373,7 +373,7 @@ RavagerStrike:
 		Condition: Slowdown50pp
 
 LynxCannon:
-	Inherits: ^APWarhead
+	Inherits: ^ArmorPierceAmmoWeapon
 	Inherits@2: ^Mediuml_Clsn
 	ReloadDelay: 70
 	Range: 6c0
@@ -387,7 +387,7 @@ LynxCannon:
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
 LynxRocket:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	Inherits@2: ^Large_Clsn
 	ReloadDelay: 250
 	Range: 6c0
@@ -401,7 +401,7 @@ LynxRocket:
 		Damage: 5000
 
 QuadFire:
-	Inherits: ^VulcanWarhead
+	Inherits: ^VulcanWeapon
 	Inherits@2: ^Piffs
 	ReloadDelay: 30
 	SoundVolume: 0.5
@@ -436,7 +436,7 @@ QuadFireAA:
 		NoUnintendedFriendlyFire: All
 
 MUTMRLSRocket:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^ArtilleryDamage
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 110
 	Range: 14c0
@@ -528,7 +528,7 @@ NukeLeak:
 
 NukeFuelDrop:
 	Inherits@1: ^LiquidProjectile
-	Inherits@2: ^AcidWarhead
+	Inherits@2: ^AcidDamage
 	Inherits@3: ^SpawnsIrradiation
 	ValidTargets: Ground, Water, Air
 	Range: 3c0
@@ -547,7 +547,7 @@ NukeFuelDrop:
 		Level: 750
 
 QueenTooth:
-	Inherits: ^APWarhead
+	Inherits: ^ArmorPierceAmmoWeapon
 	ReloadDelay: 70
 	Burst: 1
 	Range: 5c0
@@ -715,8 +715,8 @@ GargoylACannonAA:
 		NoUnintendedFriendlyFire: All
 
 FalconPunch:
-	Inherits: ^RocketWarhead
-	Inherits@1: ^BombWarhead
+	Inherits: ^RocketWeapon
+	Inherits@1: ^BombDamage
 	Inherits@2: ^Large_Explosion
 	ValidTargets: Ground, Water
 	StartBurstReport: orca_fire.wav
@@ -783,7 +783,7 @@ FalconPunchGas:
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
 
 ForgottenCannonWeapon:
-	Inherits: ^APWarhead
+	Inherits: ^ArmorPierceAmmoWeapon
 	Inherits@2: ^Large_Clsn
 	ReloadDelay: 70
 	Range: 7c0
@@ -795,7 +795,7 @@ ForgottenCannonWeapon:
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
 FlakFire:
-	Inherits: ^AntiAirTurretWeapon
+	Inherits: ^AntiAirDefenceOverride
 	Inherits@1: ^MutFlakEffectBase
 	Burst: 2
 	BurstDelays: 5
@@ -934,7 +934,7 @@ MineTrigger:
 		ValidRelationships: Enemy, Neutral
 
 MineExplode:
-	Inherits: ^ExploDefaults
+	Inherits: ^ExploWarheadDefaults
 	Inherits@2: ^Large_twlt
 	Projectile: InstantExplode
 	Warhead@2Eff: CreateEffect

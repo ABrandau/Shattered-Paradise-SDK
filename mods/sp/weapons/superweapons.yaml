@@ -356,7 +356,7 @@ DroppodElevator6:
 		ImpactActors: false
 
 droppod1:
-	Inherits: ^BombWarhead
+	Inherits: ^BombDamage
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 3
 	Range: 3c0
@@ -404,35 +404,35 @@ droppod1:
 
 droppod2:
 	Inherits: droppod1
-	Inherits: ^BombWarhead
+	Inherits: ^BombDamage
 	Warhead@5Actor: SpawnActor
 		Actors: jumpjet
 		Range: 3
 
 droppod3:
 	Inherits: droppod1
-	Inherits: ^BombWarhead
+	Inherits: ^BombDamage
 	Warhead@5Actor: SpawnActor
 		Actors: medic
 		Range: 3
 
 droppod4:
 	Inherits: droppod1
-	Inherits: ^BombWarhead
+	Inherits: ^BombDamage
 	Warhead@5Actor: SpawnActor
 		Actors: grenadier
 		Range: 3
 
 droppod5:
 	Inherits: droppod1
-	Inherits: ^BombWarhead
+	Inherits: ^BombDamage
 	Warhead@5Actor: SpawnActor
 		Actors: eagleguard
 		Range: 3
 
 droppod6:
 	Inherits: droppod1
-	Inherits: ^BombWarhead
+	Inherits: ^BombDamage
 	Warhead@5Actor: SpawnActor
 		Actors: e2
 		Range: 3
@@ -630,7 +630,7 @@ ClusterMissile:
 		AirThreshold: 8c0
 
 MultiCluster1:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	Inherits: ^FullDamage
 	Inherits@2: ^Large_Clsn
 	ValidTargets: Ground, Water, Air, Trees
@@ -693,7 +693,7 @@ MultiCluster2light: ## HACK: projectile's params need to be the same as MultiClu
 
 MultiCluster3:
 	Inherits: MultiCluster1
-	Inherits@1: ^BombWarhead
+	Inherits@1: ^BombDamage
 	Inherits@2: ^Large_Explosion
 	Report: gexpbara, gexpbarb, gexpbarc
 	Range: 1c100
@@ -825,7 +825,7 @@ ScrinMeteorElevator3:
 ScrinMeteorRainNormal:
 	Inherits: ^MeteorRainNormal
 	Inherits@OnShotDamage: ^SWBaseEffects
-	Inherits@Damage: ^BombWarhead
+	Inherits@Damage: ^BombDamage
 	Range: 3c0
 	Projectile: BulletAS
 		Inaccuracy: 0
@@ -1077,7 +1077,7 @@ RandomBoltSpawner:
 
 IonRay:
 	Inherits@1: ^StrongLightningDefault
-	Inherits@2: ^ArtilleryWarhead
+	Inherits@2: ^ArtilleryDamage
 	Inherits@3: ^SWBaseEffects
 	ReloadDelay: 10
 	Range: 7c0

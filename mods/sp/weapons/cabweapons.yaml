@@ -1,5 +1,5 @@
 CyborgVulcan:
-	Inherits: ^RifleWarhead
+	Inherits: ^RifleWeapon
 	Inherits@1: ^Piffs
 	ReloadDelay: 55
 	Burst: 3
@@ -12,7 +12,7 @@ CyborgVulcan:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 CyborgRocket:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 60
 	Range: 6c0
@@ -28,7 +28,7 @@ CyborgRocket:
 
 CyborgRocketAA:
 	Inherits: CyborgRocket
-	Inherits@1: ^AARocketWarhead
+	Inherits@1: ^AARocketWeaponOverride
 	ValidTargets: Air
 	Range: 8c0
 	Warhead@1Dam: SpreadDamage
@@ -36,7 +36,7 @@ CyborgRocketAA:
 		NoUnintendedFriendlyFire: All
 
 LimpetMissile:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	Inherits@2: ^Large_Clsn
 	ReloadDelay: 250
 	Range: 5c0
@@ -63,7 +63,7 @@ LimpetMissile:
 
 LimpetMissileAA:
 	Inherits: LimpetMissile
-	Inherits@1: ^AARocketWarhead
+	Inherits@1: ^AARocketWeaponOverride
 	ValidTargets: Air
 	Range: 6c0
 	Warhead@1Dam: SpreadDamage
@@ -127,7 +127,7 @@ ImprovedReaperWeb:
 		Duration: 300
 
 ReaperScythe:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 90
 	Range: 7c0
@@ -146,7 +146,7 @@ ReaperScythe:
 
 ReaperScytheAA:
 	Inherits: ReaperScythe
-	Inherits@1: ^AARocketWarhead
+	Inherits@1: ^AARocketWeaponOverride
 	ReloadDelay: 90
 	Range: 8c0
 	ValidTargets: Air
@@ -158,7 +158,7 @@ ReaperScytheAA:
 		ValidTargets: Air
 
 ReclaimerHit:
-	Inherits: ^RifleWarhead
+	Inherits: ^RifleWeapon
 	ReloadDelay: 60
 	Range: 1c512
 	Report: piston1.wav, piston2.wav
@@ -175,7 +175,7 @@ ReclaimerHitUpg:
 		DamageTypes: Prone70Percent, TriggerProne, CabalDeathUpg
 
 GLAD120mm:
-	Inherits: ^APWarhead
+	Inherits: ^ArmorPierceAmmoWeapon
 	Inherits@2: ^Mediuml_Clsn
 	ReloadDelay: 140
 	Range: 5c0
@@ -235,7 +235,7 @@ LurkerHit:
 		ValidTargets: Ground
 
 CyCannon:
-	Inherits: ^APWarhead
+	Inherits: ^ArmorPierceDamage
 	Inherits@2: ^GreenPlasmaExplosion
 	Inherits@3: ^MarnFlash6
 	ReloadDelay: 75
@@ -257,7 +257,6 @@ CyCannon:
 		ContrailStartWidth: 0c172
 		ContrailDelay: 0
 		ExplodeUnderThisAltitude: -2c0
-		-TrailImage:
 		ContrailEndColor: 0CD95710
 		ContrailEndColorAlpha: 16
 		ContrailEndWidth: 0
@@ -283,7 +282,7 @@ CyCannon:
 		ImpactActors: false
 
 WorkerMinigun:
-	Inherits: ^RifleWarhead
+	Inherits: ^RifleWeapon
 	Inherits@2: ^Piffs
 	ReloadDelay: 25
 	Range: 4c512
@@ -295,7 +294,7 @@ WorkerMinigun:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 WorkerDroneMinigun:
-	Inherits: ^RifleWarhead
+	Inherits: ^RifleWeapon
 	Inherits@2: ^Piffs
 	ReloadDelay: 55
 	Burst: 3
@@ -308,7 +307,7 @@ WorkerDroneMinigun:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 DogBomb:
-	Inherits: ^APWarhead
+	Inherits: ^ArmorPierceAmmoWeapon
 	Inherits@2: ^Small_Bang
 	ReloadDelay: 60
 	Burst: 2
@@ -332,7 +331,7 @@ DogBomb:
 		ExplosionPalette: gensmkexploj
 
 NanoNeedle:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^ArtilleryDamage
 	Inherits@2: ^Small_Bang
 	ReloadDelay: 50
 	Range: 4c512
@@ -364,7 +363,7 @@ NanoNeedle:
 	-Warhead@5Smu:
 
 CenturionVulcan:
-	Inherits: ^VulcanWarhead
+	Inherits: ^VulcanWeapon
 	Inherits@2: ^Piffs
 	StartBurstReport: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
 	ReloadDelay: 5
@@ -405,7 +404,7 @@ RepairVehicleLasor:
 		InvalidTargets: FullHealth, NoRepair
 
 DroneHostMissile:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	ReloadDelay: 120
 	Range: 15c0
 	Burst: 3
@@ -441,7 +440,7 @@ DroneHostMissile:
 		AllowDirectHit: true
 
 DroneHostShell:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^ArtilleryDamage
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 150
 	Range: 1c512
@@ -519,7 +518,7 @@ PalaLazorMute:
 		InvalidTargets: Vehicle, Building, Wall
 	
 WaspBullet:
-	Inherits: ^APWarhead
+	Inherits: ^ArmorPierceDamage
 	ReloadDelay: 50
 	Range: 5c0
 	Burst: 2
@@ -562,7 +561,7 @@ WaspBulletAA:
 		NoUnintendedFriendlyFire: All
 
 DevourerGrinder:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^ArtilleryDamage
 	ReloadDelay: 35
 	Range: 1c0
 	SoundVolume: 0.05
@@ -582,7 +581,7 @@ DevourerGrinder:
 		ExplosionPalette: apolra2
 
 BasiliskBomb:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^ArtilleryDamage
 	Inherits@2: ^Mediuml_Clsn
 	ReloadDelay: 70
 	Range: 6c0
@@ -629,7 +628,7 @@ CabPitFighterSpawn:
 	ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
 
 CabJetMiniBomb:
-	Inherits: ^RifleWarhead
+	Inherits: ^RifleWeapon
 	Inherits@2: ^Mediuml_Clsn
 	ReloadDelay: 30
 	ValidTargets: Ground, Water, Building, Infantry, Vehicle
@@ -691,7 +690,7 @@ BlasterProton:
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
 CABRAILAA:
-	Inherits: ^AntiAirTurretWeapon
+	Inherits: ^AntiAirDefenceOverride
 	Burst: 2
 	BurstDelays: 5
 	Report: railgunfire.wav

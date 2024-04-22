@@ -1,5 +1,5 @@
 SharkJump:
-	Inherits: ^RifleWarhead
+	Inherits: ^RifleWeapon
 	SoundVolume: 0.5
 	ValidTargets: Ground, Water
 	ReloadDelay: 20
@@ -14,7 +14,7 @@ SharkJump:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath, ScrinEssenceKill
 
 LegioNeedler:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	Inherits@2: ^Scrin_Pulse
 	ReloadDelay: 60
 	Range: 6c0
@@ -48,7 +48,7 @@ LegioNeedler:
 
 LegioNeedlerAA:
 	Inherits: LegioNeedler
-	Inherits@1: ^AARocketWarhead
+	Inherits@1: ^AARocketWeaponOverride
 	Range: 8c0
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Infantry, Vehicle, Building
@@ -58,7 +58,7 @@ LegioNeedlerAA:
 		NoUnintendedFriendlyFire: All
 
 ColossiShard:
-	Inherits: ^RifleWarhead
+	Inherits: ^RifleWeapon
 	ReloadDelay: 70
 	Range: 5c0
 	Burst: 4
@@ -195,7 +195,7 @@ FloatGlaiveUpg2:
 
 CorruptorAcid:
 	Inherits@1: ^LiquidProjectile
-	Inherits@2: ^AcidWarhead
+	Inherits@2: ^AcidDamage
 	Inherits@3: ^SpawnsIrradiation
 	ReloadDelay: 70
 	Range: 5c0
@@ -600,7 +600,7 @@ StormRiderBlastAA:
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 
 Glyder1Cannon:
-	Inherits: ^RocketWarhead
+	Inherits: ^WeaponGenericDamage
 	Inherits@2: ^Scrin_Pulse
 	Inherits@3: ^MarnFlash7
 	ReloadDelay: 50
@@ -615,8 +615,6 @@ Glyder1Cannon:
 		Sequences: lazerflare
 		IsPlayerPalette: false
 		Shadow: false
-		-TrailImage:
-		-TrailPalette:
 		Palette: apblue
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c400
@@ -637,8 +635,8 @@ Glyder1Cannon:
 		ImpactSounds: photon1.wav
 
 Glyder2Cannon:
-	Inherits: ^RocketWarhead
-	Inherits@1: ^AARocketWarhead
+	Inherits: ^RocketWeapon
+	Inherits@1: ^AARocketWeaponOverride
 	Inherits@2: ^Scrin_Pulse
 	Inherits@3: ^MarnFlash7
 	ReloadDelay: 50
@@ -673,7 +671,7 @@ Glyder2Cannon:
 		ImpactSounds: photon1.wav
 
 BattleshipCannon:
-	Inherits: ^RifleWarhead
+	Inherits: ^RifleWeapon
 	Inherits@2: ^Scrin_Explo
 	ReloadDelay: 25
 	Range: 5c768
@@ -784,7 +782,7 @@ Blackholeblast:
 
 
 BlackholeblastFinal:
-	Inherits: ^RifleWarhead
+	Inherits: ^RifleWeapon
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
 		Damage: 10000
@@ -808,7 +806,7 @@ BlackholeblastFinal:
 		ImpactSounds: expnew14.aud, expnew19.aud, expnew18.aud
 
 DestroyerCannon:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^ArtilleryDamage
 	Inherits@1: ^Large_Explosion
 	ReloadDelay: 50
 	Range: 14c0
@@ -863,7 +861,7 @@ FighterSpawnAA:
 	ValidTargets: Air
 
 WyvermBlast:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^ArtilleryDamage
 	Inherits@2: ^Scrin_Pulse
 	ReloadDelay: 30
 	Range: 5c0
@@ -916,7 +914,7 @@ WyvermBlastAA:
 
 WasteTurretWeapon:
 	Inherits@1: ^LiquidProjectile
-	Inherits@2: ^AcidWarhead
+	Inherits@2: ^AcidDamage
 	Inherits@3: ^SpawnsIrradiation
 	ReloadDelay: 30
 	Burst: 10
@@ -952,7 +950,7 @@ WasteTurretWeaponBlue:
 		LayerName: BlueRadiation
 
 TractorBeam:
-	Inherits: ^AntiAirTurretWeapon
+	Inherits: ^AntiAirDefenceOverride
 	Report: vmagat2a.wav
 	SoundVolume: 0.5
 	Projectile: ArcLaserZap

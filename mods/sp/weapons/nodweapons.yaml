@@ -1,5 +1,5 @@
 MilitantRifle:
-	Inherits: ^RifleWarhead
+	Inherits: ^RifleWeapon
 	Inherits@2: ^Piffs
 	ReloadDelay: 25
 	Range: 4c512
@@ -17,7 +17,7 @@ HologramMilitantRifle:
 		DamageTypes: TriggerProne, Prone100Percent, BulletDeath
 
 CrusaderBazooka:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 60
 	Range: 6c0
@@ -33,7 +33,7 @@ CrusaderBazooka:
 
 CrusaderBazookaAA:
 	Inherits: CrusaderBazooka
-	Inherits@1: ^AARocketWarhead
+	Inherits@1: ^AARocketWeaponOverride
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 	Range: 8c0
@@ -44,7 +44,7 @@ CrusaderBazookaAA:
 		NoUnintendedFriendlyFire: All
 
 TemplarFlame:
-	Inherits: ^FlameWarhead
+	Inherits: ^FlameDamage
 	Inherits@2: ^FlameScorch
 	ReloadDelay: 50
 	Burst: 10
@@ -72,7 +72,7 @@ TemplarFlameE:
 		Image: FLAMEALLBLUE
 
 ExemplarVulcan:
-	Inherits: ^RifleWarhead
+	Inherits: ^RifleWeapon
 	Inherits@2: ^Piffs
 	Report: cygun1.aud
 	ReloadDelay: 40
@@ -133,7 +133,7 @@ BlackHandLasorBuggy:
 	BurstDelays: 3
 
 ToxinCommandoRifle:
-	Inherits: ^RifleWarhead
+	Inherits: ^RifleWeapon
 	ReloadDelay: 100
 	Range: 10c0
 	Report: ramjetfire.wav
@@ -173,7 +173,7 @@ ToxinCommandoRifle:
 		ValidTargets: Water
 
 BuggyCannon:
-	Inherits@1: ^VulcanWarhead
+	Inherits@1: ^VulcanWeapon
 	Inherits@2: ^Piffs
 	ReloadDelay: 40
 	Range: 5c0
@@ -220,7 +220,7 @@ BuggyRepair:
 		InvalidTargets: FullHealth, NoRepair
 
 BuggySaw:
-	Inherits: ^RifleWarhead
+	Inherits: ^RifleWeapon
 	ValidTargets: Ground, Water
 	ReloadDelay: 20
 	Range: 1c512
@@ -309,7 +309,7 @@ BuggyTesla:
 		ValidTargets: Air, Ground, Water
 
 BikeMissile:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 50
 	Burst: 2
@@ -328,7 +328,7 @@ BikeMissile:
 
 BikeMissileAA:
 	Inherits: BikeMissile
-	Inherits@1: ^AARocketWarhead
+	Inherits@1: ^AARocketWeaponOverride
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 	Range: 8c0
@@ -361,7 +361,7 @@ BikeMissileTibAA:
 		ExplosionPalette: gensmkexploFgreen
 
 BikeExplo:
-	Inherits@1: ^BombWarhead
+	Inherits@1: ^BombDamage
 	Inherits@2: ^Large_Explosion
 	ValidTargets: Ground, Water
 	InvalidTargets: Air
@@ -399,7 +399,7 @@ BikeExploInCargo:
 		Explosions: jnuketobig
 
 Tick90mm:
-	Inherits: ^APWarhead
+	Inherits: ^ArmorPierceAmmoWeapon
 	Inherits@2: ^Mediuml_Clsn
 	ReloadDelay: 70
 	Range: 6c0
@@ -463,7 +463,7 @@ HologramTickLaser:
 		DamageTypes: TriggerProne, Prone100Percent, EnergyDeath
 
 DevilsFlame:
-	Inherits: ^FlameWarhead
+	Inherits: ^FlameDamage
 	Inherits@2: ^FlameScorch
 	ReloadDelay: 50
 	Range: 4c0
@@ -537,7 +537,7 @@ FlameHologram:
 		ImpactActors: false
 
 SpectreCannon:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^ArtilleryDamage
 	Inherits@2: ^Large_Explosion
 	ReloadDelay: 150
 	Range: 18c0
@@ -572,7 +572,7 @@ SpectreCannon:
 		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
 
 StealthRocket:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 125
 	Range: 7c0
@@ -588,7 +588,7 @@ StealthRocket:
 
 StealthRocketAA:
 	Inherits: StealthRocket
-	Inherits@1: ^AARocketWarhead
+	Inherits@1: ^AARocketWeaponOverride
 	ValidTargets: Air
 	Range: 9c0
 	Projectile: MissileTA
@@ -620,7 +620,7 @@ StealthRocketTibAA:
 		ExplosionPalette: gensmkexploFgreen
 
 HarpyClaw:
-	Inherits: ^VulcanWarhead
+	Inherits: ^VulcanWeapon
 	Inherits@2: ^Piffs
 	ReloadDelay: 20
 	Range: 5c0
@@ -646,7 +646,7 @@ HarpyClaw:
 			Light: 50
 
 HarpyClawAA:
-	Inherits: ^VulcanWarhead
+	Inherits: ^VulcanWeapon
 	Inherits@1: ^FullDamage
 	Inherits@2: ^Piffs
 	ReloadDelay: 20
@@ -674,7 +674,7 @@ HarpyBulletSpawner:
 		Offsets: -1024,0, 0, 1024,0, 0, 1024, -1024, 0, -1024, -1024, 0
 
 Proton:
-	Inherits: ^APWarhead
+	Inherits: ^ArmorPierceDamage
 	Inherits@2: ^GreenPlasmaExplosion
 	ReloadDelay: 75
 	Range: 6c512
@@ -703,8 +703,6 @@ Proton:
 		Inaccuracy: 0
 		Palette: jascgreen
 		Image: greenplasma2
-		-ContrailLength:
-		-TrailImage:
 		Jammable: false ## help to save a little bit performance
 		ExplodeWhenEmpty: true
 	Warhead@1Dam: SpreadDamage
@@ -807,9 +805,9 @@ TurretLaserFire:
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
 RedEye2:
-	Inherits: ^RocketWarhead
+	Inherits: ^RocketWeapon
 	Inherits@2: ^Small_Clsn
-	Inherits@3: ^AntiAirTurretWeapon
+	Inherits@3: ^AntiAirDefenceOverride
 	Report: samshot1.aud
 	Projectile: MissileTA
 		Sequences: idle3
@@ -987,7 +985,7 @@ RageEmitter:
 		ValidRelationships: Neutral, Enemy
 
 LightbringerFlame:
-	Inherits: ^FlameWarhead
+	Inherits: ^FlameDamage
 	Inherits@2: ^FlameScorch
 	ReloadDelay: 50
 	Range: 7c0
