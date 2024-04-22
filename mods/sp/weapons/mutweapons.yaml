@@ -653,20 +653,34 @@ SpawnEgg:
 		ValidTargets: Ground, Water, Air
 		AirThreshold: 8c0
 
+^MutFlakEffectBase:
+	Inherits: ^Tiny_Explo
+	Projectile:  InstantHitWIthFakeBullets
+		FakeBulletNumber: 1
+		Blockable: false
+		FakeBulletSpeed: 1325
+		ContrailDelay: 0
+		ContrailLength: 3
+		ContrailStartColor: C3BB66
+		ContrailStartColorAlpha: 255
+		ContrailStartWidth: 0c66
+		ContrailEndColor: 11FF33
+		ContrailEndColorAlpha: 30
+		ContrailEndWidth: 0
+		ContrailZOffset: 3000
+	Warhead@2Eff: CreateEffect
+		Explosions: jsbrnl20b, jsclsn22, jstumu22
+		ExplosionPalette: gensmkexplogreen
+
 GargoylACannon:
 	Inherits: ^FullDamage
-	Inherits@2: ^Tiny_Explo
+	Inherits@2: ^MutFlakEffectBase
 	ReloadDelay: 20
 	MinRange: 0c100
 	Range: 5c0
 	Report: 120mmf.aud
 	ValidTargets: Ground, Water
 	InvalidTargets: Air
-	Projectile: LaserZap
-		Duration: 4
-		Width: 35
-		Color: 888888
-		TrackTarget: false
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		Versus:
@@ -679,7 +693,7 @@ GargoylACannon:
 		InvalidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
-		Explosions: dustexplodetiny, dustexplode2tiny
+		Explosions: jsbrnl20b, jsclsn22
 
 GargoylACannonAA:
 	Inherits: GargoylACannon
@@ -776,23 +790,21 @@ ForgottenCannonWeapon:
 
 FlakFire:
 	Inherits: ^AntiAirTurretWeapon
-	Inherits: ^Small_Brnl
+	Inherits@1: ^MutFlakEffectBase
 	Burst: 2
 	BurstDelays: 5
 	ReloadDelay: 33
 	Report: cygun1.aud
-	Projectile: LaserZap
-		Duration: 4
-		Width: 35
-		Color: 888888
-		TrackTarget: false
+	Projectile:  InstantHitWIthFakeBullets
+		FakeBulletSpeed: 2048
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
 		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
-		Explosions: dustexplodetiny, dustexplode2tiny
 		ValidTargets: Ground, Water, Air
-	-Warhead@2Smu:
+	-Warhead@5Smu:
+	-Warhead@3EffWater:
+	-Warhead@MarnFlash:
 
 VeinholeEggElevator:
 	Inherits: EggElevator

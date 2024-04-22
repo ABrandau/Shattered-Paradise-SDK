@@ -596,6 +596,7 @@ gavulc-desc = Anti-infantry base defense.
     Good vs: Infantry
 
     Special:
+     - Weapon hit instantly
      - Provides stealth detection
      - Requires power to operate
 
@@ -612,7 +613,7 @@ garock-desc = Anti-Armor base defense.
      - Requires power to operate
 
 gacsam-name = SAM Tower
-gacsam-desc = Anti-Air base defense.
+gacsam-desc = Anti-Air base defense with missile.
 
     Good vs: Aircraft
 
@@ -635,6 +636,7 @@ nalasr-desc = Basic laser defense.
     Good vs: Ground targets
 
     Special:
+     - Weapon hit instantly
      - Provides stealth detection
      - Requires power to operate
 
@@ -644,11 +646,12 @@ naobel-desc = High tech laser defense.
     Good vs: Ground targets
 
     Special:
+     - Weapon hit instantly
      - Provides stealth detection
      - Requires power to operate
 
 nasam-name = SAM Site
-nasam-desc = Anti-Air base defense.
+nasam-desc = Anti-Air base defense with missile.
 
     Good vs: Aircraft
 
@@ -678,12 +681,13 @@ mucannon-desc = Anti-Armor base defense.
      - Provides stealth detection
 
 muflak-name = Flak Station
-muflak-desc = Anti-Air base defense.
+muflak-desc = Anti-Air base defense with shard cannon..
 
     Good vs: Aircraft.
 
     Special:
      - Can attack Air
+     - Weapon hit instantly
 
 cabpit-name = Drone Pit
 cabpit-desc = Drone Hangar that launches small bomber drones.
@@ -710,6 +714,7 @@ cabrail-desc = Anti-Air base defense.
 
     Special
      - Can attack Air
+     - Weapon hit instantly
      - Requires power to operate
 
 scrneedler-name = Ichor Waste Turret
@@ -742,6 +747,7 @@ scrtractor-desc = Anti-Air base defense.
     Special:
      - Can attack air
      - Freezes the targetted aircraft momentarily
+     - Weapon hit instantly
      - Requires power to operate
 
 gafire-name = Firestorm Generator
@@ -862,6 +868,7 @@ smech-desc = Small but fast anti-infantry walker.
     Good vs: Infantry
 
     Special:
+     - Weapon hit instantly
      - Provides stealth detection
      - Can attack enemies ahead while moving
 
@@ -887,6 +894,7 @@ apc-desc = Armored infantry transport.
     Good vs: Infantry.
 
     Special:
+     - Weapon hit instantly
      - Can transport 5 infantry units
      - Can travel over water
      - Can crush infantry\n - Can attack while moving
@@ -1087,6 +1095,7 @@ mutquad-desc = Armored truck armed with a quad cannon.
     Good vs: Infantry, Aircraft
 
     Special:
+     - Weapon hit instantly
      - Provides stealth detection
      - Can crush infantry
      - Can attack while moving
@@ -1401,6 +1410,7 @@ harpy-desc = Scout Helicopter armed with chain guns.
 
     Special:
      - Can attack air
+     - Weapon hit instantly
      - Provides stealth detection when at air
      - Can attack enemies from all directions
 
@@ -1424,12 +1434,13 @@ cerberus-desc = High tech frigate armed with a mobile stealth generator.
      - Can attack enemies ahead while moving
 
 mutheli-name = Gargoyle
-mutheli-desc =  Heavy assault gunship with an auto-cannon.
+mutheli-desc =  Heavy assault gunship with an shard cannon.
 
     Good vs: Vehicles, Aircraft
 
     Special:
      - Can attack air
+     - Weapon hit instantly
      - Provides stealth detection when at air
      - Can attack enemies from all directions
 
@@ -1550,6 +1561,7 @@ wasp-desc = Aerial drone armed with dual railgun cannons.
 
     Special:
      - Can attack air
+     - Weapon hit instantly
      - Provides stealth detection when at air
      - Can attack enemies ahead while moving
 
@@ -2030,6 +2042,7 @@ gdie1-desc = Basic combat infantry.
     Good vs: Infantry
 
     Special:
+     - Weapon hit instantly
      - Crush class: crushable
 
     Upgrades:
@@ -2092,11 +2105,12 @@ eagleguard-desc = Elite Soldier armed with an EMP rifle.
 
 jjcomm-name = Jumpjet Commando
 jjcomm-desc = GDI's commando unit equipped with a jetpack.
-    Armed with a Personal Ion Cannon and orbital bombardment beacon.
+    Armed with a Personal Ion Gun and orbital bombardment beacon.
 
     Good vs: Ground
 
     Special:
+     - Ion Gun hit instantly
      - Will fly when ordered to deploy
      - Immune to mind control
      - Build limit: 1
@@ -2108,6 +2122,7 @@ altnode1-desc = Nod's light infantry variant.
     Good vs: Infantry
 
     Special:
+     - Weapon hit instantly
      - Does not go prone after taking fire
      - Crush class: crushable
 
@@ -2142,6 +2157,7 @@ nconf-desc = Nod's Special Forces armed with firefly laser rifles and a personal
     Good vs: Ground targets
 
     Special:
+     - Weapon hit instantly
      - Spawns holograms when ordered to deploy
      - Cloaked
      - Crush class: crushable
@@ -2152,6 +2168,7 @@ exemplar-desc = Experienced Cadre in an exosuit armed with an energy minigun.
     Good vs: Infantry, Light Vehicles
 
     Special:
+     - Weapon hit instantly
      - Grant nearby friendly infantry a 30% firepower bonus
      - Does not go prone after taking fire
      - Immune to Tiberium fields
@@ -2167,11 +2184,12 @@ bhs-desc = Kane's Elite Commando armed with a toxin sniper rifle
 
     Special:
      - Build limit: 1
-     - Immune to Tiberium fields
+     - Weapon hit instantly
      - Demolishes structures with C4
      - Bullets release toxins which slow down groups of enemies
      - Cloaks when stationary and not firing
      - Immune to mind control
+     - Immune to Tiberium fields
      - Crush class: crushable
 
 flamehologram-name2 = Militant Hollogram
@@ -2182,6 +2200,7 @@ marauder-desc = Wasteland soldiers armed with shotguns.
     Good vs: Infantry
 
     Special:
+     - Weapon hit instantly
      - Heals on Tiberium fields
      - Can deploy to increase health and attackrange
      - Crush class: crushable
@@ -2237,6 +2256,7 @@ seer-desc = Mutant infantry capable of channeling psychic energy waves and
     Good vs: Vehicles, Aircraft
 
     Special:
+     - Weapon hit instantly
      - Heals on Tiberium fields
      - Can persuade friendly units to fight harder when deployed
      - Affected units will gain 20% extra attack and movement speed but receive 20% more damage
@@ -2337,6 +2357,7 @@ mastermind-desc = The commando unit of Scrin born with the ability
     to mind control everyone and everything.
 
     Special:
+     - Weapon hit instantly
      - Can mind control everything but Commandos and Epics
      - Gain 50% EXP from enemy killed by controlled unit/defence
      - Takes some time to mind control Structures
@@ -2356,6 +2377,7 @@ cyborg-desc = Durable cyborg construct.
     Good vs: Infantry
 
     Special:
+     - Weapon hit instantly
      - Can be deactivated with E.M.P.
      - Does not receive damage from tiberium fields
      - Loses its legs on critical health
