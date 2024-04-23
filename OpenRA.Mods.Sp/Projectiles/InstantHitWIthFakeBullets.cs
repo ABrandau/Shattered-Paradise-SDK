@@ -23,7 +23,7 @@ using Util = OpenRA.Mods.Common.Util;
 
 namespace OpenRA.Mods.SP.Projectiles
 {
-	[Desc("Instant and usually direct-on-target projectile, with traces effect.")]
+	[Desc("Instant and usually direct-on-target projectile, with traces effect like 3rd generation of CNC.")]
 	public class InstantHitWIthFakeBulletsInfo : IProjectileInfo
 	{
 		[Desc("The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property.")]
@@ -124,7 +124,7 @@ namespace OpenRA.Mods.SP.Projectiles
 	{
 		readonly ProjectileArgs args;
 		readonly InstantHitWIthFakeBulletsInfo info;
-		readonly FakeBulletWrapper[] contrails;
+		readonly FakeBulletWrapper[] fakeBullets;
 		readonly World world;
 		readonly string animPalette;
 		readonly string trailPalette;
@@ -160,16 +160,16 @@ namespace OpenRA.Mods.SP.Projectiles
 			if (info.TrailUsePlayerPalette)
 				trailPalette += args.SourceActor.Owner.InternalName;
 
-			if (info.FakeBulletNumber > 0 && info.ContrailLength > 0)
+			if (info.FakeBulletNumber > 0)
 			{
-				contrails = new FakeBulletWrapper[info.FakeBulletNumber];
+				fakeBullets = new FakeBulletWrapper[info.FakeBulletNumber];
 				var startcolor = info.ContrailStartColorUsePlayerColor ? Color.FromArgb(info.ContrailStartColorAlpha, args.SourceActor.Owner.Color) : Color.FromArgb(info.ContrailStartColorAlpha, info.ContrailStartColor);
 				var endcolor = info.ContrailEndColorUsePlayerColor ? Color.FromArgb(info.ContrailEndColorAlpha, args.SourceActor.Owner.Color) : Color.FromArgb(info.ContrailEndColorAlpha, info.ContrailEndColor ?? startcolor);
-				for (var i = 0; i < contrails.Length; i++)
+				for (var i = 0; i < fakeBullets.Length; i++)
 				{
-					var contrail = new ContrailRenderable(world, startcolor, endcolor, info.ContrailStartWidth, info.ContrailEndWidth ?? info.ContrailStartWidth, info.ContrailLength, info.ContrailDelay, info.ContrailZOffset);
+					var contrail = info.ContrailLength <= 0 ? null : new ContrailRenderable(world, startcolor, endcolor, info.ContrailStartWidth, info.ContrailEndWidth ?? info.ContrailStartWidth, info.ContrailLength, info.ContrailDelay, info.ContrailZOffset);
 
-					contrails[i] = new FakeBulletWrapper
+					fakeBullets[i] = new FakeBulletWrapper
 					{
 						Time = -1,
 						OverallTime = 0,
@@ -219,87 +219,92 @@ namespace OpenRA.Mods.SP.Projectiles
 				args.Weapon.Impact(target, warheadArgs);
 			}
 
-			var allContrailDone = true;
+			var allFakeBulletDone = true;
 
-			// Contrail generate/render position process
-			if (contrails != null)
+			// Fake bullet generate/render position process
+			if (fakeBullets != null)
 			{
-				for (var i = 0; i < contrails.Length; i++)
+				for (var i = 0; i < fakeBullets.Length; i++)
 				{
-					if (ticks >= i * info.FakeBulletSpawnInterval && contrails[i].OverallTime == 0 && args.SourceActor.IsInWorld && !args.SourceActor.IsDead)
+					// 1. Generate the bullet when time has come
+					if (ticks >= i * info.FakeBulletSpawnInterval && fakeBullets[i].OverallTime == 0 && args.SourceActor.IsInWorld && !args.SourceActor.IsDead)
 					{
-						contrails[i].SourcePos = args.CurrentSource();
+						allFakeBulletDone = false;
 
-						// Contrail render won't affect network sync so we DON'T use SharedRandom here.
+						// Fake bullet contains only renderable objects,
+						// it won't affect game logic & network sync so we DON'T use SharedRandom here.
+						fakeBullets[i].SourcePos = args.CurrentSource();
 						var fakeInaccOffset = WVec.FromPDF(Game.CosmeticRandom, 2) * info.FakeBulletInaccuracy.Length / 1024;
-						var vec = fakeBulletEndBasePos + fakeInaccOffset - contrails[i].SourcePos;
+						var vec = fakeBulletEndBasePos + fakeInaccOffset - fakeBullets[i].SourcePos;
 						var time = Math.Max(vec.Length / info.FakeBulletSpeed, 1);
-						contrails[i].Time = time;
-						contrails[i].OverallTime = time;
-						contrails[i].Pos = contrails[i].SourcePos;
-						contrails[i].EndPos = fakeBulletEndBasePos + fakeInaccOffset;
-						contrails[i].Facing = vec.Pitch;
+						fakeBullets[i].Time = time;
+						fakeBullets[i].OverallTime = time;
+						fakeBullets[i].Pos = fakeBullets[i].SourcePos;
+						fakeBullets[i].EndPos = fakeBulletEndBasePos + fakeInaccOffset;
+						fakeBullets[i].Facing = vec.Pitch;
 
 						if (!string.IsNullOrEmpty(info.Image))
 						{
-							var facing = contrails[i].Facing;
-							contrails[i].Anim = new Animation(world, info.Image, () => facing);
-							contrails[i].Anim.PlayRepeating(info.Sequence);
+							var facing = fakeBullets[i].Facing;
+							fakeBullets[i].Anim = new Animation(world, info.Image, () => facing);
+							fakeBullets[i].Anim.PlayRepeating(info.Sequence);
 						}
-
-						allContrailDone = false;
 					}
 
-					if (contrails[i].Time > 0 && contrails[i].OverallTime != 0)
+					// 2. Process the exsting bullet when it does not expire.
+					if (fakeBullets[i].Time > 0 && fakeBullets[i].OverallTime != 0)
 					{
-						var currentPos = WPos.Lerp(contrails[i].SourcePos, contrails[i].EndPos, contrails[i].OverallTime - contrails[i].Time, contrails[i].OverallTime);
-						contrails[i].Contrail.Update(currentPos);
-						contrails[i].Pos = currentPos;
-						contrails[i].Anim?.Tick();
-						allContrailDone = false;
-						if (--contrails[i].Time <= 0)
-						{
-							var contrail = contrails[i].Contrail;
-							var pos = contrails[i].EndPos;
-							world.AddFrameEndTask(w => w.Add(new ContrailFader(pos, contrail)));
-						}
+						allFakeBulletDone = false;
+						var currentPos = WPos.Lerp(fakeBullets[i].SourcePos, fakeBullets[i].EndPos, fakeBullets[i].OverallTime - fakeBullets[i].Time, fakeBullets[i].OverallTime);
+						fakeBullets[i].Pos = currentPos;
+						fakeBullets[i].Contrail?.Update(currentPos);
+						fakeBullets[i].Anim?.Tick();
 
-						if (!string.IsNullOrEmpty(info.TrailImage) && (info.TrailInterval == 0 || ((contrails[i].OverallTime - contrails[i].Time) % info.TrailInterval == 0)))
+						if (!string.IsNullOrEmpty(info.TrailImage) && (info.TrailInterval == 0 || ((fakeBullets[i].OverallTime - fakeBullets[i].Time) % info.TrailInterval == 0)))
 						{
-							var pos = contrails[i].Pos;
-							var facing = contrails[i].Facing;
+							var pos = fakeBullets[i].Pos;
+							var facing = fakeBullets[i].Facing;
 							world.AddFrameEndTask(w => w.Add(new SpriteEffect(pos, facing, world,
 								info.TrailImage, info.TrailSequence, trailPalette)));
+						}
+
+						if (--fakeBullets[i].Time <= 0 && info.ContrailLength > 0)
+						{
+							var contrail = fakeBullets[i].Contrail;
+							var pos = fakeBullets[i].EndPos;
+							world.AddFrameEndTask(w => w.Add(new ContrailFader(pos, contrail)));
 						}
 					}
 				}
 
-				if (ticks <= (contrails.Length - 1) * info.FakeBulletSpawnInterval)
-					allContrailDone = false;
+				// 3. Process the exsting bullet when it does not expire.
+				if (ticks <= (fakeBullets.Length - 1) * info.FakeBulletSpawnInterval)
+					allFakeBulletDone = false;
 			}
 
-			if (allContrailDone)
+			if (allFakeBulletDone)
 				world.AddFrameEndTask(w => w.Remove(this));
 		}
 
 		public IEnumerable<IRenderable> Render(WorldRenderer wr)
 		{
-			if (contrails != null)
+			if (fakeBullets == null)
+				yield break;
+
+			foreach (var c in fakeBullets)
 			{
-				foreach (var c in contrails)
-					if (c.Time > 0)
-					{
-						yield return c.Contrail;
-						if (c.Anim != null)
-						{
-							if (!world.FogObscures(c.Pos))
-							{
-								var palette = wr.Palette(animPalette);
-								foreach (var r in c.Anim.Render(c.Pos, palette))
-									yield return r;
-							}
-						}
-					}
+				if (c.Time <= 0)
+					yield break;
+
+				if (info.ContrailLength > 0)
+					yield return c.Contrail;
+
+				if (c.Anim != null && !world.FogObscures(c.Pos))
+				{
+					var palette = wr.Palette(animPalette);
+					foreach (var r in c.Anim.Render(c.Pos, palette))
+						yield return r;
+				}
 			}
 		}
 	}
