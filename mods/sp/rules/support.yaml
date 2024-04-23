@@ -1159,50 +1159,18 @@ NATMPL:
 	WithSupportPowerActivationAnimation:
 		RequiresCondition: !Building-Buildup
 
-MUVENTI:
+^MutantTunnelBased:
 	Inherits: ^Building
-	Inherits@1: ^SuperWeapon
-	Inherits@2: ^HasSuperSupportPower
 	Inherits@RENDER: ^MutRenderBuilding
-	Inherits@SHAPE: ^3x3Shape
 	Inherits@AIbuilding: ^AImicroManagable
-	Buildable:
-		Queue: Defense.Shared, Defense.Mutant
-		BuildPaletteOrder: 44
-		Description: muventi-desc
-		Prerequisites: ~mutyard, muhall, !enoughmuventi, ~techlevel.4
-		BuildDuration: 750
-		BuildDurationModifier: 100
-	Valued:
-		Cost: 1500
-	Tooltip:
-		Name: muventi-name
-	Building:
-		Footprint: xxx xxx xxx
-		Dimensions: 3,3
-	Health:
-		HP: 100000
-	-Power:
-	-InstantlyRepairable:
+	RequiresBuildableArea:
+		AreaTypes: building
 	SharedCargo:
 		Types: Infantry, Vehicle
 		AfterLoadDelay: 0
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 		PauseOnCondition: Building-Buildup
-	Targetable:
-		TargetTypes: Building, Ground, C4
-	RequiresBuildableArea:
-		AreaTypes: building
-	WithIdleOverlay@SpawnFire:
-		Sequence: fire2_higher
-	RenderSprites:
-		Image: td-tunnel
-	RallyPoint:
-		Palette: mouse
-		IsPlayerPalette: false
-	MapEditorData:
-		Categories: Defence
 	WithSharedCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1218,6 +1186,16 @@ MUVENTI:
 			yellow: pip-yellow-building
 			blue: pip-blue-building
 			gray: pip-gray-building
+	RallyPoint:
+		Palette: mouse
+		IsPlayerPalette: false
+	MapEditorData:
+		Categories: Defence
+	MustBeDestroyed:
+		RequiredForShortGame: false
+	-GivesBuildableArea:
+	-InstantlyRepairable:
+	-RevealOnFire:
 	Armament@AIAimOnly:
 		RequiresCondition: AImicroManage && !Building-Buildup && !StopAndDeploy
 		Weapon: MutTunnelAIAimingDummyWeapon
@@ -1239,17 +1217,44 @@ MUVENTI:
 		OrderTrigger: Attack
 		OrderChance: 100
 		OrderInterval: 35
-	-RevealOnFire:
-	MustBeDestroyed:
-		RequiredForShortGame: false
-	-GivesBuildableArea:
+	ActorStatValues:
+		Armaments: None
+		Stats: Armor, Sight, Cargo
+		Upgrades: upgrade.tunnel_repairs
+
+MUVENTI:
+	Inherits: ^MutantTunnelBased
+	Inherits@1: ^RevealItselfToAll
+	Inherits@2: ^HasSuperSupportPower
+	Inherits@SHAPE: ^3x3Shape
+	Buildable:
+		Queue: Defense.Shared, Defense.Mutant
+		BuildPaletteOrder: 44
+		Description: muventi-desc
+		Prerequisites: ~mutyard, muhall, !enoughmuventi, ~techlevel.4
+		BuildDuration: 750
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: muventi-name
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Health:
+		HP: 100000
+	Targetable:
+		TargetTypes: Building, Ground, C4
+	WithIdleOverlay@SpawnFire:
+		Sequence: fire2_higher
+	RenderSprites:
+		Image: td-tunnel
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@swlimit:
 		RequiresPrerequisites: global-swlimit
 		Prerequisite: enoughmuventi
 	SupportPowerChargeBar:
 	NukePower:
-		RequiresCondition: !AImicroManage
 		PauseOnCondition: empdisable
 		-LaunchSpeechNotification:
 		-IncomingSpeechNotification:
@@ -1277,44 +1282,11 @@ MUVENTI:
 		ChargeInterval: 3000
 		CameraRange: 0
 		DisplayTimerRelationships: Ally, Neutral, Enemy
-	NukePower@AI: ### AI will use it less, and have the ability to build tunnel instead
-		RequiresCondition: AImicroManage
-		PauseOnCondition: empdisable
-		AllowMultiple: false
-		Cursor: nuke
-		EndChargeTextNotification: notification-sneaktunnel-ready
-		Cost: 500
-		SelectTargetSound:
-		InsufficientPowerSound:
-		DisplayRadarPing: true
-		FlightDelay: 1
-		FlightVelocity: 1c0
-		DisplayBeacon: false
-		Prerequisites:
-			1: muventi
-		Icons:
-			1: musnekicon
-		Names:
-			1: Sneak Attack
-		Descriptions:
-			1: Spawns a Tunnel that is connected to the Tunnel Network at the target location.
-		SelectTargetSpeechNotification: SelectTarget
-		SelectTargetTextNotification: notification-select-target
-		OrderName: SneakAttackPowerInfoOrder
-		MissileWeapons:
-			1: MutTunnelSpawnerDummyWeapon
-		ChargeInterval: 5000
-		CameraRange: 0
-		DisplayTimerRelationships: Ally, Neutral, Enemy
 	ProvidesPrerequisite@HasTunnel: ## For AI Perf.
 		Prerequisite: HasTunnel
-	ActorStatValues:
-		Armaments: None
-		Stats: Armor, Sight, Cargo
-		Upgrades: upgrade.tunnel_repairs
 
 MUVENT:
-	Inherits: MUVENTI
+	Inherits: ^MutantTunnelBased
 	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
 		Name: muvent-name
@@ -1331,11 +1303,8 @@ MUVENT:
 		BuildSounds: ssneakat.wav
 	Health:
 		HP: 50000
-	-ProvidesPrerequisite@swlimit:
-	-ProvidesPrerequisite@buildingname:
-	-NukePower:
-	-NukePower@AI:
-	-SupportPowerChargeBar:
+	Valued:
+		Cost: 500
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack, Defence
 	WithIdleOverlay@BIB:

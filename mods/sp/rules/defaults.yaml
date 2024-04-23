@@ -664,13 +664,15 @@
 		UncloakEffectSequence: marnflash6
 		EffectOffset: 0, 0, 300
 
-^SuperWeapon:
-	Inherits@3: ^DisableOnLowPowerOrPowerDown
+^RevealItselfToAll:
 	RevealsShroud@revealhimself:
 		RequiresCondition: !cloaking-self
 		ValidRelationships: Neutral, Enemy
 		MaxHeightDelta: 3
 		Range: 2c0
+
+^SuperWeapon:
+	Inherits@DisableOnLowPowerOrPowerDown: ^DisableOnLowPowerOrPowerDown
 	Power:
 		Amount: -200
 	SupportPowerChargeBar:
