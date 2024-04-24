@@ -30,10 +30,11 @@ label-economy-stats-well-header = Tib.Well
 label-upgrade-stats-player-header = Upgrades
 label-combat-stats-buildings-lost-header = B.Lost
 
-## credit.yaml
+## credits.yaml
 button-tab-container-engine-as = Attacque Supérior
-label-encyclopedia-content-title = Encyclopedia
-button-encyclopedia-panel-back = Back
+
+## encyclopedia.yaml
+label-encyclopedia-title = Encyclopedia
 
 ## ingame-player.yaml
 button-command-bar-deploy =
@@ -60,8 +61,7 @@ label-disclaimer-sp-line6 = Responsibility of the OpenRA developers.
 button-disclaimer-sp-known = I Understand
 
 ## mainmenu.yaml
-label-shatteredparadise = Shattered Paradise
-button-singleplayer-menu-encys = Encys
+label-shattered-paradise-title = Shattered Paradise
 
 #Todo: find a way to only add those line instead of overwrite the whole options-observer-stats
 #options-observer-stats.minimal = Minimal
