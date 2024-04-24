@@ -736,8 +736,13 @@ PowerlineExplosion:
 		-ImpactSounds:
 		ExplosionPalette: effect
 
-DefenderExplosion:
+EpicExplosion:
 	Inherits: BuildingExplode
+	Warhead@2Eff: CreateEffect
+		Explosions: jcrivexpc , jtwlt100b, jbrrlexp1b, jbrrlexp2, jcrivexp, jcrivexpb
+
+DefenderExplosion:
+	Inherits: EpicExplosion
 	Warhead@5: CreateEffect
 		Image: coredefender
 		Explosions: dead_explosion
