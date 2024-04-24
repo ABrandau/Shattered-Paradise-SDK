@@ -1381,7 +1381,8 @@ MUTFIEND:
 
 CUTMAN:
 	Inherits: ^MutantSoldier
-	Inherits@1: ENGINEER
+	Inherits@ENGINEER: ENGINEER
+	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Tooltip:
 		Name: cutman-name
 	Buildable:
@@ -1755,6 +1756,7 @@ LEGIO:
 SHAPESHIFTER:
 	Inherits: ENGINEER
 	Inherits@1: ^ScrinReaper
+	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Tooltip:
 		Name: shapeshifter-name
 	Buildable:
@@ -2404,11 +2406,12 @@ CBORG:
 		Upgrades: upgrade.cybernetic_leg_enhancements, upgrade.regenerative_materials
 
 SWARMLING:
-	Inherits@1: ^DroneSoldier
-	Inherits@2: ENGINEER
+	Inherits: ^DroneSoldier
+	Inherits@ENGINEER: ENGINEER
 	Inherits@EMP: ^EmpDisableMobile
 	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
 	Inherits@RENDER: ^CabRender
+	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Tooltip:
 		Name: swarmling-name
 	Buildable:

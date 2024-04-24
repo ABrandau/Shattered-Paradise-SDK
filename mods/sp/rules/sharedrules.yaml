@@ -28,7 +28,8 @@ E1:
 
 ENGINEER:
 	Inherits: ^TakeCoverInfantry
-	Inherits@1: ^Engineering
+	Inherits@ENGINEER: ^Engineering
+	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Tooltip:
 		Name: engineer-name
 	Buildable:
@@ -136,6 +137,7 @@ MCV:
 
 HARV:
 	Inherits: ^Vehicle
+	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Valued:
 		Cost: 1400
 	Tooltip:
