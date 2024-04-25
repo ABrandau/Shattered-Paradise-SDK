@@ -38,12 +38,13 @@ MarauderShotgun:
 		Falloff: 100, 100, 50
 		Spread: 526
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
-	Warhead@op: FireRadius
+	Warhead@op: FireFragment
+		Offsets: -400,0, 0, 400,0, 0
 		Weapon: MarauderShotgunInnacurate
 		ImpactActors: false
-		Amount: 3
+		Rotate: true
 	Warhead@2Eff: CreateEffect
-		ExplosionPalette: effect
+		Explosions: piffs2
 
 DeployedMarauderShotgun:
 	Inherits: MarauderShotgun
@@ -51,8 +52,10 @@ DeployedMarauderShotgun:
 
 MarauderShotgunInnacurate:
 	Inherits: MarauderShotgun
-	Range: 0c512
 	TargetActorCenter: false
+	Warhead@2Eff: CreateEffect
+		Explosions: piffs
+		ExplosionPalette: effect
 	-Report:
 	-Warhead@1Dam:
 	-Warhead@op:
