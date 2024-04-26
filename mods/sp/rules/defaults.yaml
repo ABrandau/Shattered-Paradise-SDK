@@ -2780,6 +2780,107 @@
 ^CombatPlane:
 	Inherits: ^Plane
 
+^CombatDronePlane:
+	Inherits: ^CombatPlane
+	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Infantry
+	Inherits@VISION: ^3CellVision
+	-RevealsShroud@Landed:
+	-RevealOnDeath@Landed:
+	-RevealsShroud@Airborne:
+	-RevealOnDeath@Airborne:
+	Interactable:
+	Aircraft:
+		MaximumPitch: 90
+		Repulsable: false
+		TurnSpeed: 80
+		Speed: 210
+		AltitudeVelocity: 200
+		VTOL: false #Hack: avoid unable entering carrier while carrier moving
+		AirborneCondition: airborne
+		MoveIntoShroud: true
+		IdealSeparation: 256
+		TakeUpCellWhenLand: false
+	RejectsOrders:
+	Health:
+		HP: 5000
+	Valued:
+		Cost: 5
+	Targetable@GROUND:
+		TargetTypes: Vehicle, Ground, LandedCraft, Summoned, IgnoredByAI
+	Targetable@AIRBORNE:
+		TargetTypes: Air, Summoned, IgnoredByAI
+	WithDeathAnimation:
+		FallbackSequence: die
+		DeathSequence: die
+		DeathSequencePalette: effect
+		DeathPaletteIsPlayerPalette: false
+		UseDeathTypeSuffix: false
+		CrushedSequence: die
+		CrushedSequencePalette: effect
+	-Targetable@MC:
+	-UpdatesPlayerStatistics:
+	-ActorLostNotification:
+	-AppearsOnRadar:
+	-Selectable:
+	-SelectionDecorations:
+	-ExplodesAlsoTransported@Shrapnel:
+	Cloak@CLOAKGENERATOR:
+		-CloakedCondition:
+	-GrantConditionOnDamageState@HeavyDamaged:
+	-SpawnSparks:
+	-FloatingSpriteEmitter@spawnsmoke:
+	-ExplodesAlsoTransported@EssenceDeath:
+	-MapEditorData:
+
+	-Sellable:
+	-GrantConditionOnClientDock@Sellable:
+	-IssueOrderToBot@AISell:
+
+	-ChangesHealth@nanomachinerecovery:
+	-WithIdleOverlay@nanomachinerecovery:
+	-ExternalCondition@nanomachinerecovery:
+
+	-DamageMultiplier@firestorm:
+	-ExternalCondition@FirestormWallCondition:
+	-WithDecoration@FirestormWallCondition:
+
+	-Berserkable@CHAOS:
+	-RejectsOrders@CHAOS:
+	-WithDecoration@CHAOS:
+	-TimedConditionBar@CHAOS:
+	-ExternalCondition@CHAOS:
+
+^InvisibleDronePlane:
+	Inherits: ^SpriteActor
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^Cloakable
+	Inherits@3: ^WithTriggerCloakEffect-Infantry
+	-UpdatesPlayerStatistics:
+	Aircraft:
+		MaximumPitch: 90
+		Repulsable: false
+		TurnSpeed: 80
+		Speed: 210
+		AltitudeVelocity: 200
+		VTOL: false #Hack: avoid unable entering carrier while carrier moving
+		AirborneCondition: airborne
+		MoveIntoShroud: true
+		IdealSeparation: 256
+		TakeUpCellWhenLand: false
+	HiddenUnderFog:
+		Type: CenterPosition
+	Interactable:
+	RejectsOrders:
+	WithDisposingAnimation:
+		DisposingSequence: die
+		Palette: effect
+		IsPlayerPalette: false
+	RenderSprites:
+	WithFacingSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+
 ^Visceroid:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor

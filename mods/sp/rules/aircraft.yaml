@@ -1800,19 +1800,14 @@ DEVOURER:
 ### Note: don't use these in map editor
 
 STORMRIDERSPAWN:
-	Inherits: ^CombatPlane
-	Inherits@1: ^ScrinAircraftGeneric
+	Inherits: ^CombatDronePlane
+	Inherits@RENDER: ^ScrinRender
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Infantry
 	Inherits@SHADOW: ^AircraftShadow
 	Inherits@VISION: ^3CellVision
 	-Buildable:
-	-RevealsShroud@Landed:
-	-RevealOnDeath@Landed:
-	-RevealsShroud@Airborne:
-	-RevealOnDeath@Airborne:
 	Tooltip:
 		Name: wyvern-name
-	Interactable:
 	Contrail@1:
 		RequiresCondition: airborne
 		Offset: -50, -10 ,0
@@ -1828,17 +1823,8 @@ STORMRIDERSPAWN:
 		Experience: 50
 		ActorExperienceModifierOnTransport: 0
 	HasParent:
-	Aircraft:
-		MaximumPitch: 90
-		Repulsable: false
-		TurnSpeed: 80
-		Speed: 210
-		AltitudeVelocity: 200
-		VTOL: false #Hack: avoid unable entering carrier while carrier moving
-		AirborneCondition: airborne
-		MoveIntoShroud: true
-		IdealSeparation: 256
-		TakeUpCellWhenLand: false
+	CarrierSlave:
+		LandingDistance: 1c0
 	Armament:
 		Weapon: WyvermBlast
 		ReloadingCondition: reload-ground
@@ -1853,118 +1839,36 @@ STORMRIDERSPAWN:
 	RenderSprites:
 		Image: wyverm2
 	-Rearmable:
-	WithFacingSpriteBody:
-	BodyOrientation:
-		QuantizedFacings: 32
 	Health:
 		HP: 5000
-	CarrierSlave:
-		LandingDistance: 1c0
-	Targetable@GROUND:
-		TargetTypes: Vehicle, Ground, LandedCraft, Summoned, IgnoredByAI
-	Targetable@AIRBORNE:
-		TargetTypes: Air, Summoned, IgnoredByAI
-	-Targetable@MC:
-	-UpdatesPlayerStatistics:
-	-ActorLostNotification:
-	-AppearsOnRadar:
-	-Selectable:
-	-SelectionDecorations:
-	-ExplodesAlsoTransported@Shrapnel:
-	Cloak@CLOAKGENERATOR:
-		-CloakedCondition:
-	-GrantConditionOnDamageState@HeavyDamaged:
-	-SpawnSparks:
-	-FloatingSpriteEmitter@spawnsmoke:
-	-ExplodesAlsoTransported@EssenceDeath:
-	-MapEditorData:
 	WithDeathAnimation:
-		FallbackSequence: die
-		DeathSequence: die
 		DeathSequencePalette: apblue
-		DeathPaletteIsPlayerPalette: false
-		UseDeathTypeSuffix: false
-		CrushedSequence: die
 		CrushedSequencePalette: apblue
-	-Sellable:
-	-GrantConditionOnClientDock@Sellable:
-	-IssueOrderToBot@AISell:
-
-	-ChangesHealth@nanomachinerecovery:
-	-WithIdleOverlay@nanomachinerecovery:
-	-ExternalCondition@nanomachinerecovery:
-
-	-DamageMultiplier@firestorm:
-	-ExternalCondition@FirestormWallCondition:
-	-WithDecoration@FirestormWallCondition:
-
-	-Berserkable@CHAOS:
-	-RejectsOrders@CHAOS:
-	-WithDecoration@CHAOS:
-	-TimedConditionBar@CHAOS:
-	-ExternalCondition@CHAOS:
-
-REPAIRWYVERN:
-	Inherits: STORMRIDERSPAWN
-	Inherits@AUTOTARGET: ^AutoTargetDroneRepair
-	Tooltip:
-		Name: repairwyvern-name
-	Armament:
-		Weapon: DroneRepairScr
-		TargetRelationships: Ally
-		ForceTargetRelationships: Ally
-		-ReloadingCondition:
-		-PauseOnCondition:
-	-Armament@AA:
-	-Targetable@GROUND:
-	-Targetable@AIRBORNE:
-	-GrantConditionOnDamageState@FullHealth:
-	-Targetable@FullHealth:
-	-CarrierSlave:
-	-HasParent:
-	DroneSpawnerSlave:
-	Targetable@Ignore:
-		TargetTypes: Summoned, IgnoredByAI
-	Aircraft:
-		CruiseAltitude: 3c890
-		MaximumPitch: 90
-		Repulsable: true
-		TurnSpeed: 16
-		Speed: 128
-		IdleTurnSpeed: 10
-		IdleSpeed: 64
-		AltitudeVelocity: 200
-		RepulsionSpeed: 16
-		VTOL: true
-		AirborneCondition: airborne
-		MoveIntoShroud: true
-		IdealSeparation: 256
-		TakeUpCellWhenLand: false
-	AttackAircraft:
-		AttackType: Hover
-	AutoTarget:
-		ScanRadius: 3 #PREF: save trait looks up and scan armaments
-	RenderSprites:
-		Image: scrinrepairdrone
-	-Contrail@1:
-	-RevealsShroud:
 
 CABDRONEJET:
-	Inherits: STORMRIDERSPAWN
+	Inherits: ^CombatDronePlane
 	Inherits@1: ^CabRender
+	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Infantry
+	Inherits@SHADOW: ^AircraftShadow
+	Inherits@VISION: ^3CellVision
+	GivesExperience:
+		Experience: 50
+	GivesExperienceToMasterOrTransport:
+		Experience: 50
+		ActorExperienceModifierOnTransport: 0
+	HasParent:
+	CarrierSlave:
+		LandingDistance: 1c0
+	AttackAircraft:
 	Armament:
 		Weapon: CabJetMiniBomb
-		-ReloadingCondition:
 		PauseOnCondition: !ammo
-	-Armament@AA:
 	AmmoPool:
 		Ammo: 3
 		AmmoCondition: ammo
 		ReloadDelay: 5
 	Tooltip:
 		Name: cabdronejet-name
-	Valued:
-		Cost: 50
 	Health:
 		HP: 8000
 	RenderSprites:
@@ -1980,7 +1884,6 @@ CABDRONEJET:
 		MoveIntoShroud: true
 		VTOL: true
 		TakeUpCellWhenLand: false
-	AttackAircraft:
 	RejectsOrders:
 	Contrail@1:
 		RequiresCondition: airborne
@@ -1991,18 +1894,37 @@ CABDRONEJET:
 		EndColor: FFFF0000
 		TrailLength: 6
 		StartWidth: 40
-	WithDeathAnimation:
-		FallbackSequence: die
-		DeathSequence: die
-		DeathSequencePalette: effect
-		DeathPaletteIsPlayerPalette: false
-		UseDeathTypeSuffix: false
-		CrushedSequence: die
-		CrushedSequencePalette: effect
+
+REPAIRWYVERN:
+	Inherits: ^InvisibleDronePlane
+	Inherits@RENDER: ^ScrinRender
+	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Infantry
+	Inherits@SHADOW: ^AircraftShadow
+	Inherits@AUTOTARGET: ^AutoTargetDroneRepair
+	-Buildable:
+	Tooltip:
+		Name: repairwyvern-name
+	Armament:
+		Weapon: DroneRepairScr
+		TargetRelationships: Ally
+		ForceTargetRelationships: Ally
+	DroneSpawnerSlave:
+	AttackAircraft:
+		AttackType: Hover
+	AutoTarget:
+		ScanRadius: 3 #PREF: save trait looks up and scan armaments
+	BodyOrientation:
+		QuantizedFacings: 1
+	RenderSprites:
+		Image: scrinrepairdrone
+	WithDisposingAnimation:
+		Image: scrinrepairdrone
+		Palette: apblue
 
 REPAIRDRONE:
-	Inherits: CABDRONEJET
+	Inherits: ^InvisibleDronePlane
 	Inherits@AUTOTARGET: ^AutoTargetDroneRepair
+	Inherits@SHADOW: ^AircraftShadow
 	Tooltip:
 		Name: repairdrone-name
 	Armament:
@@ -2010,16 +1932,6 @@ REPAIRDRONE:
 		TargetRelationships: Ally
 		ForceTargetRelationships: Ally
 		LocalOffset: 0, 0, -20
-		-PauseOnCondition:
-	Health:
-		HP: 5000
-	-AmmoPool:
-	-Targetable@AIRBORNE:
-	-Targetable@GROUND:
-	-GrantConditionOnDamageState@FullHealth:
-	-Targetable@FullHealth:
-	-CarrierSlave:
-	-HasParent:
 	DroneSpawnerSlave:
 	Targetable@Ignore:
 		TargetTypes: Summoned, IgnoredByAI
@@ -2043,5 +1955,5 @@ REPAIRDRONE:
 		ScanRadius: 3 #PREF: save trait looks up and scan armaments
 	RenderSprites:
 		Image: repairdrone-mini
-	-Contrail@1:
-	-RevealsShroud:
+	WithDisposingAnimation:
+		Image: repairdrone-mini

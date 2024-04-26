@@ -223,7 +223,6 @@ RADARSCANDUMMY:
 
 NANOBURSTDUMMY:
 	Inherits: ^DUMMYAIRCRAFT
-	Inherits@2: ^WithDeathEffects
 	Aircraft:
 		CruiseAltitude: 1
 	GrantConditionAfterDelay@CollectCorpse:
@@ -252,8 +251,8 @@ NANOBURSTDUMMY:
 		Condition: spreading
 	WithSpriteBody:
 		Sequence: stand
-	WithDeathAnimation:
-		DeathSequencePalette: apgrey
-		DeathPaletteIsPlayerPalette: false
-		UseDeathTypeSuffix: false
-		FallbackSequence: die
+	WithDisposingAnimation:
+		Image: nanomachineswarmdummy
+		DisposingSequence: die
+		Palette: apgrey
+		IsPlayerPalette: false
