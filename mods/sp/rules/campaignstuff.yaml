@@ -1302,7 +1302,7 @@ MUTMOUND: ### Mound that may hide a tunnel inside
 
 MUTAMBUSH: ###  Mound that hide a tunnel inside
 	Inherits: MUTMOUND
-	Inherits@WithDeathEffects: ^WithDeathEffects
+	Inherits@WithDeathEffects: ^EnableDummyDeathEffects
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
 	EditorOnlyTooltip:
 		Name: mutambush-name
@@ -2402,7 +2402,7 @@ COUNCILOR:
 	DroneSpawnerSlave:
 		MovingCallBackCellDistance: 1
 		AttackCallBackDistance: 0
-	WithDisposingAnimation:
+	WithDisposedAnimation:
 		RequiresCondition: !reloading
 		Image: councilor
 		Palette: gensmkexploFpurple

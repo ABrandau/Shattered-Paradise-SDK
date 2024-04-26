@@ -2857,22 +2857,25 @@
 	Inherits@3: ^WithTriggerCloakEffect-Infantry
 	-UpdatesPlayerStatistics:
 	Aircraft:
+		CruiseAltitude: 3c890
 		MaximumPitch: 90
-		Repulsable: false
-		TurnSpeed: 80
-		Speed: 210
+		Repulsable: true
+		TurnSpeed: 16
+		Speed: 128
+		IdleTurnSpeed: 10
+		IdleSpeed: 64
 		AltitudeVelocity: 200
-		VTOL: false #Hack: avoid unable entering carrier while carrier moving
+		RepulsionSpeed: 16
+		VTOL: true
 		AirborneCondition: airborne
 		MoveIntoShroud: true
-		IdealSeparation: 256
 		TakeUpCellWhenLand: false
 	HiddenUnderFog:
 		Type: CenterPosition
 	Interactable:
 	RejectsOrders:
-	WithDisposingAnimation:
-		DisposingSequence: die
+	WithDisposedAnimation:
+		DisposedSequence: die
 		Palette: effect
 		IsPlayerPalette: false
 	RenderSprites:

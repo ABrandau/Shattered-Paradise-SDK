@@ -185,11 +185,12 @@ hack.no_bases:
 
 ## Dummy usage:
 ## 1. Add 'KillsSelf' for timer control, better with '@TimedLife''
-## 2. HACK&Note: if you want to trigger the death effect traits, actor must have Health.
-## Otherwise 'KillsSelf' only disposals the actor without triggering death effect traits.
+## 2. HACK&Note: if you want to trigger the death effect traits, actor must have Health and HitShape.
+## Otherwise 'KillsSelf' only dispose the actor without triggering death effect traits.
 ## 3. You can use '^Unkillable' to avoid other damage kills the actor.
+## 4. If you only need a animation when dummy is disposed, use 'WithDisposedAnimation' instead of `^EnableDummyDeathEffects`
 
-^WithDeathEffects:
+^EnableDummyDeathEffects:
 	Inherits: ^1x1Shape
 	Health:
 		HP: 1
@@ -251,8 +252,8 @@ NANOBURSTDUMMY:
 		Condition: spreading
 	WithSpriteBody:
 		Sequence: stand
-	WithDisposingAnimation:
+	WithDisposedAnimation:
 		Image: nanomachineswarmdummy
-		DisposingSequence: die
+		DisposedSequence: die
 		Palette: apgrey
 		IsPlayerPalette: false

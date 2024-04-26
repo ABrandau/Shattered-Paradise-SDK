@@ -15,19 +15,19 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.SP.Traits.Render
 {
-	[Desc("This actor has a death animation.")]
-	public class WithDisposingAnimationInfo : ConditionalTraitInfo
+	[Desc("This actor has animation when disposed by game.")]
+	public class WithDisposedAnimationInfo : ConditionalTraitInfo
 	{
 		[FieldLoader.Require]
 		[Desc("Image to display.")]
 		public readonly string Image = null;
 
 		[SequenceReference(prefix: true)]
-		[Desc("Sequence prefix to play when this actor is killed by a warhead.")]
-		public readonly string DisposingSequence = "die";
+		[Desc("Sequence prefix to play when this actor is disposed by game.")]
+		public readonly string DisposedSequence = "die";
 
 		[PaletteReference(nameof(IsPlayerPalette))]
-		[Desc("The palette used for `DeathSequence`.")]
+		[Desc("The palette used for `DisposedSequence`.")]
 		public readonly string Palette = "effect";
 
 		[Desc("Custom death animation palette is a player palette BaseName")]
@@ -36,12 +36,12 @@ namespace OpenRA.Mods.SP.Traits.Render
 		[Desc("Delay the spawn of the death animation by this many ticks.")]
 		public readonly int Delay = 0;
 
-		public override object Create(ActorInitializer init) { return new WithDisposingAnimation(init.Self, this); }
+		public override object Create(ActorInitializer init) { return new WithDisposedAnimation(init.Self, this); }
 	}
 
-	public class WithDisposingAnimation : ConditionalTrait<WithDisposingAnimationInfo>, INotifyActorDisposing
+	public class WithDisposedAnimation : ConditionalTrait<WithDisposedAnimationInfo>, INotifyActorDisposing
 	{
-		public WithDisposingAnimation(Actor self, WithDisposingAnimationInfo info)
+		public WithDisposedAnimation(Actor self, WithDisposedAnimationInfo info)
 			: base(info) {	}
 
 		void INotifyActorDisposing.Disposing(Actor self)
@@ -53,7 +53,7 @@ namespace OpenRA.Mods.SP.Traits.Render
 			if (Info.IsPlayerPalette)
 				palette += self.Owner.InternalName;
 
-			var sequence = Info.DisposingSequence;
+			var sequence = Info.DisposedSequence;
 			var pos = self.CenterPosition;
 			var image = Info.Image;
 			var delay = Info.Delay;
