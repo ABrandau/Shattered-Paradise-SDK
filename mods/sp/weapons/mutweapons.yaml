@@ -447,16 +447,31 @@ JeepWeapon:
 	SoundVolume: 1.5
 	Projectile: InstantHitWIthFakeBullets
 		FakeBulletNumber: 2
+		FakeBulletSpeed: 2048
+		FakeBulletSpawnInterval: 2
+		ContrailStartWidth: 13
 		FakeBulletInaccuracy: 0c400
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
+TinyCasingDebris:
+	Inherits@1: CasingDebris
+	Range: 1c00
+	ReloadDelay: 100
+	Projectile: ProjetcileHusk
+		Image: sparkprojectile
+		Sequences: idle
+		Palette: apyel
+	-Warhead@: 
+	-Warhead@3EffWater: 
+
+
 JeepBullet2Spawner:
 	Projectile: InstantHit
 	Warhead@4Shrapnel: FireFragment
 		ValidTargets: Vehicle, Infantry, Building, Ground, Water, Air
-		Weapon: CasingDebris
+		Weapon: TinyCasingDebris
 		ImpactActors: false
 		Offsets: -1024,0, 0, 1024,0, 0
 		Rotate: true
