@@ -24,11 +24,13 @@ GDIE1:
 	Armament@1:
 		Name: OnFoot
 		Weapon: MarineRifle
+		LocalOffset: 400,0,800
 		PauseOnCondition: WebDisable
 		RequiresCondition: !apammo
 	Armament@1AP:
 		Name: OnFoot
 		Weapon: MarineRifleAP
+		LocalOffset: 400,0,800
 		PauseOnCondition: WebDisable
 		RequiresCondition: apammo
 	Armament@Garrison:
@@ -637,6 +639,7 @@ ALTNODE1:
 	Armament:
 		Weapon: MilitantRifle
 		PauseOnCondition: WebDisable
+		LocalOffset: 400,0,800
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GMilitantRifle
@@ -816,7 +819,7 @@ EXEMPLAR:
 		MuzzlePalette: gensmkexplojFred
 		Name: OnFoot
 	Armament@Garrison:
-		Weapon: ExemplarVulcan
+		Weapon: GExemplarVulcan
 		PauseOnCondition: WebDisable
 		MuzzleSequence: garrison-muzzle
 		MuzzlePalette: gensmkexplojFred
@@ -1132,6 +1135,7 @@ MARAUDER:
 	Armament@1:
 		Weapon: MarauderShotgun
 		Name: OnFoot
+		LocalOffset: 400,0,800
 		ReloadingCondition: reload-undeployed
 		PauseOnCondition: WebDisable || reload-deployed
 		RequiresCondition: !deployed
@@ -1144,6 +1148,7 @@ MARAUDER:
 	Armament@Deployed:
 		Weapon: DeployedMarauderShotgun
 		Name: OnFoot
+		LocalOffset: 400,0,400
 		Turret: Marauderturr
 		ReloadingCondition: reload-deployed
 		PauseOnCondition: reload-undeployed
@@ -1706,6 +1711,7 @@ LEGIO:
 		CustomPipType: blue
 	TakeCover:
 		SpeedModifier: 100
+		ProneOffset: 0, 0, 0
 	Armament@1:
 		Weapon: LegioNeedler
 		LocalOffset: 350,200,800
@@ -2279,8 +2285,18 @@ CYBORG:
 	Health:
 		HP: 40000
 	Armament@1:
+		RequiresCondition: !CriticalDamaged
 		Weapon: CyborgVulcan
-		PauseOnCondition: WebDisable || empdisable
+		LocalOffset: 400,100,920
+		PauseOnCondition: WebDisable || empdisable || reload-damaged
+		ReloadingCondition: reload-damaged
+		Name: OnFoot
+	Armament@2:
+		RequiresCondition: CriticalDamaged
+		Weapon: CyborgVulcan
+		LocalOffset: 560,100,220
+		PauseOnCondition: WebDisable || empdisable || reload-damaged
+		ReloadingCondition: reload-damaged
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GCyborgVulcan
@@ -2789,6 +2805,7 @@ WORKER:
 		Speed: 60
 	Armament@1:
 		Weapon: WorkerMinigun
+		LocalOffset: 300,50,800
 		PauseOnCondition: WebDisable || empdisable
 		Name: OnFoot
 	Armament@Garrison:

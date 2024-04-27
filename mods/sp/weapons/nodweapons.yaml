@@ -77,24 +77,17 @@ ExemplarVulcan:
 	Report: cygun1.aud
 	ReloadDelay: 40
 	Burst: 4
-	BurstDelays: 3
+	BurstDelays: 2
 	Range: 4c512
-	Projectile: LaserZap
-		Width: 0
-		Duration: 1
-		TrackTarget: false
-		Blockable: true
-		HitAnim: explosion
-		HitAnimSequence: alienpiff1
-		HitAnimPalette: gensmkexplojFred
+	Projectile: InstantHitWIthFakeBullets
+		ContrailStartColor: FF8888
+		ContrailEndColor: FFAA00
 	Warhead@1Dam: SpreadDamage
 		Damage: 2600
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: apred
-		Delay: 1
-	Warhead@3EffWater: CreateEffect
-		Delay: 1
+		Explosions: piffs, piffs2
 
 BuggyTemplarFlameE:
 	Inherits: TemplarFlameE

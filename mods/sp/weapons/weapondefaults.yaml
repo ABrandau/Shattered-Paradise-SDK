@@ -110,8 +110,35 @@
 
 ^RifleWeapon:
 	Inherits: ^RifleDamage
-	Projectile: InstantHit
+	Projectile: InstantHitWIthFakeBullets
 		Blockable: true
+		FakeBulletNumber: 2
+		FakeBulletSpeed: 2048
+		FakeBulletSpawnInterval: 3
+		FakeBulletInaccuracy: 0c450
+		ContrailDelay: 0
+		ContrailStartColor: FFFF00
+		ContrailStartColorAlpha: 255
+		ContrailEndColor: FFAA00
+		ContrailEndColorAlpha: 255
+		ContrailLength: 2
+		ContrailStartWidth: 18
+		ContrailZOffset: 3000
+
+^VulcanWeapon:
+	Inherits: ^RifleDamage
+	Projectile: InstantHitWIthFakeBullets
+		Blockable: true
+		FakeBulletNumber: 1
+		FakeBulletSpawnInterval: 3
+		ContrailDelay: 0
+		ContrailStartColor: FFFF00
+		ContrailStartColorAlpha: 255
+		ContrailEndColor: FFAA00
+		ContrailEndColorAlpha: 255
+		ContrailLength: 2
+		ContrailStartWidth: 26
+		ContrailZOffset: 3000
 
 ^ArmorPierceAmmoWeapon:
 	Inherits: ^ArmorPierceDamage
@@ -133,21 +160,6 @@
 		TrailPalette: gensmkexplojFred
 		TrailDelay: 0
 		TrailInterval: 1
-
-^VulcanWeapon:
-	Inherits: ^RifleDamage
-	Projectile: InstantHitWIthFakeBullets
-		Blockable: true
-		FakeBulletNumber: 1
-		FakeBulletSpawnInterval: 3
-		ContrailDelay: 0
-		ContrailStartColor: FFFF00
-		ContrailStartColorAlpha: 255
-		ContrailEndColor: FFAA00
-		ContrailEndColorAlpha: 255
-		ContrailLength: 2
-		ContrailStartWidth: 26
-		ContrailZOffset: 3000
 
 ^RocketWeapon:
 	Inherits: ^RocketDamage

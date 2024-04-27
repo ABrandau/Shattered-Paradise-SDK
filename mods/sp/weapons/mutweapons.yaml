@@ -31,6 +31,11 @@ MarauderShotgun:
 	ReloadDelay: 40
 	Range: 4c0
 	Report: shotfire.wav
+	Projectile: InstantHitWIthFakeBullets
+		FakeBulletNumber: 3
+		FakeBulletSpeed: 2048
+		FakeBulletSpawnInterval: 0
+		FakeBulletInaccuracy: 0c768
 	Warhead@1Dam: SpreadDamage
 		Damage: 2300
 		Versus:
@@ -53,6 +58,7 @@ DeployedMarauderShotgun:
 MarauderShotgunInnacurate:
 	Inherits: MarauderShotgun
 	TargetActorCenter: false
+	Projectile: InstantHit
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
 		ExplosionPalette: effect
@@ -438,19 +444,14 @@ QuadFireAA:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		NoUnintendedFriendlyFire: All
 
+### Gannon: may put `mujeep` into PVP content
 JeepWeapon:
-	Inherits@1: ^VulcanWeapon
+	Inherits@1: ^RifleWeapon
 	Inherits@2: ^Piffs
 	ReloadDelay: 40
 	Range: 5c0
 	Report: tsgun4.aud
 	SoundVolume: 1.5
-	Projectile: InstantHitWIthFakeBullets
-		FakeBulletNumber: 2
-		FakeBulletSpeed: 2048
-		FakeBulletSpawnInterval: 2
-		ContrailStartWidth: 13
-		FakeBulletInaccuracy: 0c400
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
@@ -465,7 +466,6 @@ TinyCasingDebris:
 		Palette: apyel
 	-Warhead@: 
 	-Warhead@3EffWater: 
-
 
 JeepBullet2Spawner:
 	Projectile: InstantHit

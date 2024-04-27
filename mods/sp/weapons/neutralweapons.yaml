@@ -50,11 +50,15 @@ ServiceDepotDroneSpawn:
 	ValidRelationships: Ally
 
 Pistola:
+	Inherits@1: ^RifleWeapon
+	Inherits@2: ^Piffs
 	ReloadDelay: 20
 	Range: 3c0
 	Report: gun18.aud
-	Projectile: BulletAS
-		Speed: 1c682
+	Projectile: InstantHitWIthFakeBullets
+		FakeBulletNumber: 1
+		FakeBulletSpeed: 2048
+		FakeBulletInaccuracy: 0c130
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 200
@@ -66,11 +70,8 @@ Pistola:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
-		InvalidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piff
-		ExplosionPalette: pips
-		ValidTargets: Water
 
 GuradTowerVulcan:
 	Inherits: ^VulcanWeapon
@@ -339,11 +340,12 @@ LightTowerClaxon:
 	Projectile: InstantExplode
 
 SlimeAttack:
-	Inherits: ^RifleWeapon
+	Inherits: ^RifleDamage
 	ReloadDelay: 80
 	Range: 1c512
 	Report: vicer1.aud
 	Projectile: InstantHit
+		Blockable: true
 	Warhead@1Dam: SpreadDamage
 		Damage: 7500
 		Versus:

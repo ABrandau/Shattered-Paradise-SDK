@@ -227,7 +227,7 @@ namespace OpenRA.Mods.SP.Projectiles
 				for (var i = 0; i < fakeBullets.Length; i++)
 				{
 					// 1. Generate the bullet when time has come
-					if (ticks >= i * info.FakeBulletSpawnInterval && fakeBullets[i].OverallTime == 0 && args.SourceActor.IsInWorld && !args.SourceActor.IsDead)
+					if (ticks >= i * info.FakeBulletSpawnInterval && fakeBullets[i].OverallTime == 0 && !args.SourceActor.IsDead)
 					{
 						allFakeBulletDone = false;
 
