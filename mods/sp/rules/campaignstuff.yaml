@@ -382,7 +382,7 @@ MUJEEP:
 	Inherits@PIPS: ^CargoPips
 	Inherits@VISION: ^6CellVision
 	Valued:
-		Cost: 350
+		Cost: 300
 	Tooltip:
 		Name: mujeep-name
 	UpdatesPlayerStatistics:
@@ -397,10 +397,10 @@ MUJEEP:
 		BuildDurationModifier: 100
 	Mobile:
 		TurnSpeed: 32
-		Speed: 130
+		Speed: 165
 		Locomotor: Vehicle
 	Health:
-		HP: 15000
+		HP: 12500
 	Armor:
 		Type: Light
 	Turreted:
@@ -413,7 +413,7 @@ MUJEEP:
 		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	Cargo:
 		Types: Infantry
-		MaxWeight: 3
+		MaxWeight: 5
 		AfterLoadDelay: 0
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
@@ -424,9 +424,15 @@ MUJEEP:
 		CargoType: Apc
 	Selectable:
 	Armament@primary:
-		Weapon: GMilitantRifle
+		Weapon: JeepWeapon
 		LocalOffset: 350,0,500
 		PauseOnCondition: empdisable
+		Damage: 40
+		MuzzleSequence: muzzle
+		CasingWeapon: JeepBullet2Spawner
+		CasingSpawnLocalOffset: 240,0,500
+		CasingTargetOffset: 250,0,500
+		CasingHitGroundLevel: false
 	GrantConditionOnAttack:
 		Condition: attacking
 		RevokeDelay: 6
@@ -464,7 +470,6 @@ MUJEEP:
 	ExplodesAlsoTransported:
 		Weapon: UnitExplodeSmall
 	ActorStatValues:
-		Damage: 16
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo
 	IssueOrderToBot@AI:
 		RequiresCondition: loaded

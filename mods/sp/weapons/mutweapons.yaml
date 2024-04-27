@@ -438,6 +438,30 @@ QuadFireAA:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		NoUnintendedFriendlyFire: All
 
+JeepWeapon:
+	Inherits@1: ^VulcanWeapon
+	Inherits@2: ^Piffs
+	ReloadDelay: 40
+	Range: 5c0
+	Report: tsgun4.aud
+	SoundVolume: 1.5
+	Projectile: InstantHitWIthFakeBullets
+		FakeBulletNumber: 2
+		FakeBulletInaccuracy: 0c400
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+
+JeepBullet2Spawner:
+	Projectile: InstantHit
+	Warhead@4Shrapnel: FireFragment
+		ValidTargets: Vehicle, Infantry, Building, Ground, Water, Air
+		Weapon: CasingDebris
+		ImpactActors: false
+		Offsets: -1024,0, 0, 1024,0, 0
+		Rotate: true
+		AirThreshold: 8c0
+
 MUTMRLSRocket:
 	Inherits: ^ArtilleryDamage
 	Inherits@2: ^Small_Clsn
