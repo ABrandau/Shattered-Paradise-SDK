@@ -885,9 +885,6 @@ DRILLPOD:
 		TargetTypes: Ground, Vehicle, NoRepair
 	Interactable:
 		Bounds: 1006,1409, 0, -500
-	ExplodesAlsoTransported@TimeOutDeath:
-		Weapon: DrillpodAnim
-		DeathTypes: TimeOutDeath
 	ExplodesAlsoTransported@NOTimeOutDeath:
 		Weapon: UnitExplodeSmall
 		InvalidDeathTypes: TimeOutDeath
@@ -895,12 +892,31 @@ DRILLPOD:
 		DeathSequence: die-1frame
 		FallbackSequence: die-1frame
 		UseDeathTypeSuffix: false
-	WithIdleOverlay@mainbody:
-		StartSequence: make
-		Sequence: open
 	KillsSelf@TimedLife:
 		Delay: 27
 		DamageTypes: TimeOutDeath
+	ExplodesAlsoTransported@TimeOutDeath:
+		Weapon: DrillpodDig
+		DeathTypes: TimeOutDeath
+	SpawnSmokeParticleOnDeath@TimeOutDeath:
+		DeathTypes: TimeOutDeath
+		Amount: 1
+		Duration: 22 ## StartSequences
+		Speed: 0
+		TurnRate: 0
+		Image: drillpod
+		StartSequences: unload_close
+		Sequences: gone
+		EndSequences: gone
+		Palette: player
+		IsPlayerPalette: true
+	WithIdleOverlay@mainbody:
+		StartSequence: make
+		Sequence: open
+	SpawnActorOnDeath@exemplar:
+		Actor: exemplar
+		Probability: 100
+		DeathType: TimeOutDeath
 	WithMakeExplodeWeapon:
 		LaunchEffectImage: dig
 		LaunchEffectSequence: mine-dig
@@ -909,10 +925,6 @@ DRILLPOD:
 		SoundFiles: subdril1.aud
 		Delay: 0
 		Interval: 99999
-	SpawnActorOnDeath@exemplar:
-		Actor: exemplar
-		Probability: 100
-		DeathType: TimeOutDeath
 	Crushable:
 		CrushClasses: Vehicle
 
