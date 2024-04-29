@@ -826,9 +826,19 @@ ScrinMeteorRainNormal:
 	Inherits: ^MeteorRainNormal
 	Inherits@OnShotDamage: ^SWBaseEffects
 	Inherits@Damage: ^BombDamage
+	Inherits@Effect: ^Large_Explosion
 	Range: 3c0
 	Projectile: BulletAS
 		Inaccuracy: 0
+	Warhead@3Eff: CreateEffect
+		Explosions: SonicShockwave
+		ExplosionPalette: gensmkexploj
+		ValidTargets: Ground, Air
+		ImpactActors: false
+	Warhead@Shake: ShakeScreen
+		Intensity: 14
+		Duration: 7
+		AirThreshold: 8c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
 		Damage: 10000
