@@ -1908,9 +1908,11 @@ REPAIRWYVERN:
 		Weapon: DroneRepairScr
 		TargetRelationships: Ally
 		ForceTargetRelationships: Ally
-	DroneSpawnerSlave:
-	AttackAircraft:
-		AttackType: Hover
+	DroneSpawnerSlave: 
+	#AttackAircraft: has bug on reset target when target is invalid
+	AttackFrontal:
+		FacingTolerance: 512
+		TargetFrozenActors: true
 	AutoTarget:
 		ScanRadius: 3 #PREF: save trait looks up and scan armaments
 	BodyOrientation:
@@ -1935,8 +1937,10 @@ REPAIRDRONE:
 	DroneSpawnerSlave:
 	Targetable@Ignore:
 		TargetTypes: Summoned, IgnoredByAI
-	AttackAircraft:
-		AttackType: Hover
+	#AttackAircraft: has bug on reset target when target is invalid
+	AttackFrontal: 
+		FacingTolerance: 512
+		TargetFrozenActors: true
 	AutoTarget:
 		ScanRadius: 3 #PREF: save trait looks up and scan armaments
 	RenderSprites:
