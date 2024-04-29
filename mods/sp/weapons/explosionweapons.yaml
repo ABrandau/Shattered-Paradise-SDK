@@ -471,7 +471,7 @@ CasingDebris:
 		Image: casing
 		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
 		UseRangeModifierAsVelocityX: false
-	Warhead@: CreateEffect
+	Warhead@2Eff: CreateEffect
 		Explosions: casingscorch, casingscorch2, casingscorch3, casingscorch4, casingscorch5, casingscorch6, casingscorch7
 		ExplosionPalette: effect
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Air
@@ -501,7 +501,7 @@ ShellCasingDebris:
 		VelocityRandomFactor: 0, 30, 30
 		Image: shellcasing
 		Shadow: true
-	Warhead@: CreateEffect
+	Warhead@2Eff: CreateEffect
 		Explosions: shellcasingscorch, shellcasingscorch2, shellcasingscorch3, shellcasingscorch4, shellcasingscorch5, shellcasingscorch6, shellcasingscorch7
 
 WoodDebris:
@@ -516,7 +516,7 @@ WoodDebris:
 		UseRangeModifierAsVelocityX: false
 		Image: wooddebris
 		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
-	Warhead@: CreateEffect
+	Warhead@2Eff: CreateEffect
 		Explosions: woodbits, woodbits2, woodbits3, woodbits4, woodbits5, woodbits6, woodbits7
 
 WoodDebrisBig:
@@ -528,12 +528,11 @@ WoodDebrisBig:
 		VelocityRandomFactor: 0, 15, 90
 		Image: wooddebrisbig
 		Shadow: true
-	Warhead@: CreateEffect
+	Warhead@2Eff: CreateEffect
 		Explosions: woodbitsbig, woodbitsbig2, woodbitsbig3, woodbitsbig4, woodbitsbig5, woodbitsbig6, woodbitsbig7
 
 SmallDebris:
 	Inherits: ^Shrapnel
-	Inherits@3: ^SpawnsFire
 	ReloadDelay: 60
 	Range: 4c0
 	Report:
@@ -546,12 +545,12 @@ SmallDebris:
 		Image: dbrissm
 		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 		Shadow: true
+	Warhead@2Eff: CreateEffect
+		Explosions: jsmkblastmini
 
 LargeDebris:
 	Inherits@1: ^Large_Clsn
-	Inherits@2: ^FlameScorch
 	Inherits@3: ^DelayedSmokeEffect
-	Inherits@4: ^SpawnsFire
 	ReloadDelay: 60
 	Range: 4c0
 	Report:
@@ -569,13 +568,13 @@ LargeDebris:
 		ExplosionPalette: jascgrey60
 		ValidTargets: Ground
 		Delay: 100
+	Warhead@2Eff: CreateEffect
+		Explosions: jsmkblast
 
 SmallDebrisScrin:
 	Inherits: SmallDebris
 	Projectile: ProjetcileHusk
 		Palette: jascblue
-	Warhead@2: SpawnSmokeParticle
-		Sequences: scrinfire3, scrinfire4
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
 
@@ -583,10 +582,6 @@ LargeDebrisScrin:
 	Inherits: LargeDebris
 	Projectile: ProjetcileHusk
 		Palette: jascblue
-	Warhead@2: SpawnSmokeParticle
-		Sequences: scrinfire2, scrinfire3
-	Warhead@3Eff: CreateEffect
-		Explosions: scrinfire1, scrinfire2
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexplojFblue
 
@@ -594,7 +589,6 @@ TSmallDebris:
 	Inherits: SmallDebris
 	Projectile: ProjetcileHusk
 		Palette: greentibpal
-	-Warhead@2:
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2mini
 		ExplosionPalette: apgreen
@@ -606,7 +600,6 @@ TLargeDebris:
 	Inherits: LargeDebris
 	Projectile: ProjetcileHusk
 		Palette: greentibpal
-	-Warhead@2:
 	Warhead@2Eff: CreateEffect
 		Explosions: tib_expsmall
 		ExplosionPalette: effect
