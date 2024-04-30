@@ -24,13 +24,13 @@ GDIE1:
 	Armament@1:
 		Name: OnFoot
 		Weapon: MarineRifle
-		LocalOffset: 400,0,800
+		LocalOffset: 450,0,800
 		PauseOnCondition: WebDisable
 		RequiresCondition: !apammo
 	Armament@1AP:
 		Name: OnFoot
 		Weapon: MarineRifleAP
-		LocalOffset: 400,0,800
+		LocalOffset: 450,0,800
 		PauseOnCondition: WebDisable
 		RequiresCondition: apammo
 	Armament@Garrison:
@@ -639,7 +639,7 @@ ALTNODE1:
 	Armament:
 		Weapon: MilitantRifle
 		PauseOnCondition: WebDisable
-		LocalOffset: 400,0,800
+		LocalOffset: 450,0,800
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GMilitantRifle
@@ -1147,7 +1147,7 @@ MARAUDER:
 	Armament@1:
 		Weapon: MarauderShotgun
 		Name: OnFoot
-		LocalOffset: 400,0,800
+		LocalOffset: 450,0,800
 		ReloadingCondition: reload-undeployed
 		PauseOnCondition: WebDisable || reload-deployed
 		RequiresCondition: !deployed
@@ -1159,8 +1159,8 @@ MARAUDER:
 		MuzzleSequence: garrison-muzzle
 	Armament@Deployed:
 		Weapon: DeployedMarauderShotgun
-		Name: OnFoot
-		LocalOffset: 400,0,400
+		Name: Deployed
+		LocalOffset: 500,0,550
 		Turret: Marauderturr
 		ReloadingCondition: reload-deployed
 		PauseOnCondition: reload-undeployed
@@ -1181,39 +1181,32 @@ MARAUDER:
 	WithInfantryBody:
 		RequiresCondition: !WebDisable && !show-deploybody && !inside-tunnel
 	WithSpriteBody:
-		Sequence: dot
-		Name: dot
+		Sequence: debody
+		Name: debody
 		RequiresCondition: show-deploybody && !fortified_upg
 	WithSpriteBody@fortifications:
-		Sequence: dot
-		Name: dot-fortifications
+		Sequence: debody-upg
+		Name: debody2
 		RequiresCondition: show-deploybody && fortified_upg
 	WithMakeAnimation:
 		Sequence: make
-		BodyNames: dot
+		BodyNames: debody
 	WithMakeAnimation@fortifications:
 		Sequence: make-upg
-		BodyNames: dot-fortifications
+		BodyNames: debody2
 	Turreted:
 		TurnSpeed: 200
 		InitialFacing: 640
 		RealignDelay: -1
 		Turret: Marauderturr
-	WithSpriteTurret@idle:
-		RequiresCondition: !WebDisable && deployed && !AnimateTurret && !fortified_upg
+	WithSpriteTurret:
+		RequiresCondition: !WebDisable && deployed
 		Turret: Marauderturr
-	WithSpriteTurret@animated:
-		RequiresCondition: !WebDisable && deployed && AnimateTurret && !fortified_upg
+	WithTurretAttackAnimation:
+		RequiresCondition: !WebDisable && deployed
+		Turret: Marauderturr
 		Sequence: turret-shoot
-		Turret: Marauderturr
-	WithSpriteTurret@idle-upg:
-		RequiresCondition: !WebDisable && deployed && !AnimateTurret && fortified_upg
-		Sequence: turret-upg
-		Turret: Marauderturr
-	WithSpriteTurret@animated-upg:
-		RequiresCondition: !WebDisable && deployed && AnimateTurret && fortified_upg
-		Sequence: turret-shoot-upg
-		Turret: Marauderturr
+		Armament: Deployed
 	TakeCover:
 		RequiresCondition: undeployed
 	AttackFrontal:
@@ -1225,16 +1218,12 @@ MARAUDER:
 	AutoTarget:
 		ScanRadius: 6 #PREF: save trait looks up and scan armaments
 	AttackTurreted@deployed:
-		Armaments: OnFoot
+		Armaments: Deployed
 		Voice: Attack
 		Turrets: Marauderturr
 		RequiresCondition: deployed
 		PauseOnCondition: WebDisable
-	GrantConditionOnAttack:
-		Condition: AnimateTurret
-		ArmamentNames: OnFoot
-		RevokeDelay: 8
-	DamageMultiplier@MarauderBuff:
+	DamageMultiplier@DeployedDefenceBuff:
 		Modifier: 75
 		RequiresCondition: deployed
 	IssueOrderToBot@AI:
