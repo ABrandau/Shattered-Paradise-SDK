@@ -800,6 +800,7 @@ ScrinMeteorElevator:
 		AimChance: 100
 		ThrowWithoutTarget: true
 		AimTargetStances: Ally, Neutral, Enemy
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
 		AirThreshold: 8c0
 	Warhead@AirHit: FireFragment
 		Weapon: ScrinMeteorAirHit
@@ -828,6 +829,7 @@ ScrinMeteorRainNormal:
 	Inherits@Damage: ^BombDamage
 	Inherits@Effect: ^Large_Explosion
 	Range: 3c0
+	ValidTargets: Infantry, Vehicle, Building, Ground, Water
 	Projectile: BulletAS
 		Inaccuracy: 0
 	Warhead@3Eff: CreateEffect
@@ -843,7 +845,7 @@ ScrinMeteorRainNormal:
 		Spread: 0c512
 		Damage: 10000
 		Versus:
-			Boss: 600
+			Boss: 2000
 		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Vehicle, Building, Infantry, Water
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		AirThreshold: 8c0
