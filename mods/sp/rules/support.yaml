@@ -888,9 +888,26 @@ GAFIRE:
 		RequiresCondition: !Building-Buildup
 		Sequence: idle-lights-bright
 		Palette: bright
-	WithIdleOverlay@active:
+	WithSwitchableOverlay@active-nobright:
 		RequiresCondition: !Building-Buildup
-		Sequence: idle-active
+		EnabledSequence: active
+		SwitchingSequence: switching
+		DisabledSequence: disabled
+		PauseOnCondition: empdisable || disabled
+		Palette: player-nobright
+		IsPlayerPalette: true
+		SwitchingLevel: 20
+		SwitchingLevelWhenStart: 20
+	WithSwitchableOverlay@active-bright:
+		RequiresCondition: !Building-Buildup
+		EnabledSequence: active-bright
+		SwitchingSequence: dot
+		DisabledSequence: dot
+		PauseOnCondition: empdisable || disabled
+		Palette: bright
+		IsDecoration: true
+		SwitchingLevel: 20
+		SwitchingLevelWhenStart: 20
 	WithIdleOverlay@firestormactived:
 		Image: explosion
 		Sequence: firestormactived
