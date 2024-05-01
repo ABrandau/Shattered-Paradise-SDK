@@ -2596,7 +2596,7 @@ gatling_cannons-name = Gatling Cannons
 gatling_cannons-desc = Centurions fire faster as they continue firing.
 
 vinifera_catalysts-name = Vinifera Catalysts
-vinifera_catalysts-desc = Increates range of Ichor Waste Turrets and Corruptors by 1 cell.
+vinifera_catalysts-desc = Increases range of Ichor Waste Turrets and Corruptors by 1 cell.
     Doubles the damage of the tib-radiation left by those assets.
 
 tiberium_conversion-name = Tiberium Conversion

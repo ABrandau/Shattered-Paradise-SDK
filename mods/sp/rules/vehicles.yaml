@@ -16,7 +16,7 @@ SMECH:
 		Description: smech-desc
 		BuildPaletteOrder: 6
 		Prerequisites: ~gaweap, ~techlevel.2
-		BuildDuration: 375
+		BuildDuration: 250
 		BuildDurationModifier: 100
 	Mobile:
 		TurnSpeed: 60
@@ -96,7 +96,7 @@ MMCH:
 		BuildPaletteOrder: 7
 		Description: mmch-desc
 		Prerequisites: ~gaweap, ~techlevel.2
-		BuildDuration: 500
+		BuildDuration: 625
 		BuildDurationModifier: 100
 	Voiced:
 		VoiceSet: Titan
@@ -488,6 +488,7 @@ SONIC:
 		Bounds: 1206,2200, 0, -300
 	ActorStatValues:
 		Damage: 200
+		ReloadDelay: 100
 
 G4TNK:
 	Inherits: ^Tank
@@ -1781,7 +1782,7 @@ STNK:
 		CameraPitch: 250
 	AutoTarget:
 		ScanRadius: 10 #PREF: save trait looks up and scan armaments
-		InitialStance: HoldFire
+		InitialStance: ReturnFire
 		InitialStanceAI: ReturnFire
 	-GrantConditionOnPrerequisite@SUDDENDEATH:
 	-MustBeDestroyed:
@@ -2138,7 +2139,7 @@ STRUCK:
 		Description: struck-desc
 		BuildPaletteOrder: 24
 		Prerequisites: ~muweap, murax, ~techlevel.2
-		BuildDuration: 500
+		BuildDuration: 625
 		BuildDurationModifier: 100
 	ProductionCostMultiplier@AI: ## AI cannot use it well
 		Multiplier: 10
@@ -2819,7 +2820,7 @@ CENTURION:
 		BuildPaletteOrder: 16
 		Description: centurion-desc
 		Prerequisites: ~cabweap, ~techlevel.2
-		BuildDuration: 500
+		BuildDuration: 625
 		BuildDurationModifier: 100
 	Mobile:
 		TurnSpeed: 20
@@ -3566,7 +3567,7 @@ SCRMBT:
 		BuildPaletteOrder: 21
 		Description: scrmbt-desc
 		Prerequisites: ~scrweap, ~techlevel.2
-		BuildDuration: 500
+		BuildDuration: 625
 		BuildDurationModifier: 100
 	Valued:
 		Cost: 900
