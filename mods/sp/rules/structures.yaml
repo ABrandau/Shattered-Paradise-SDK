@@ -234,7 +234,7 @@ GAWEAP:
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
 		RequiresCondition: !Building-Buildup
-	WithProductionDoorOverlay@DOOR:
+	WithProductionDoorOverlaySP@DOOR:
 		RequiresCondition: !Building-Buildup
 	WithProductionOverlay@WHITELIGHTS:
 		RequiresCondition: !Building-Buildup
@@ -728,7 +728,7 @@ NAWEAP:
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
 		RequiresCondition: !Building-Buildup
-	WithProductionDoorOverlay@DOOR:
+	WithProductionDoorOverlaySP@DOOR:
 		RequiresCondition: !Building-Buildup
 	WithProductionOverlay@LIGHTS:
 		RequiresCondition: !Building-Buildup
@@ -945,7 +945,7 @@ NAHFAC:
 	WithIdleOverlay@FAN:
 		Sequence: idle-fan
 		RequiresCondition: !Building-Buildup
-	WithProductionDoorOverlay@DOOR:
+	WithProductionDoorOverlaySP@DOOR:
 		RequiresCondition: !Building-Buildup
 	WithProductionOverlay@LIGHTS:
 		RequiresCondition: !Building-Buildup
@@ -1305,7 +1305,7 @@ MUWEAP:
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
 		RequiresCondition: !Building-Buildup
-	WithProductionDoorOverlay@DOOR:
+	WithProductionDoorOverlaySP@DOOR:
 		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@BIB:
 		Sequence: bib
@@ -1744,11 +1744,11 @@ SCRWEAP:
 		DisplayOrder: 19
 	ProductionBar@Vehicle:
 		ProductionType: Vehicle.Scrin
-	WithIdleOverlay@ROOF:
-		Sequence: idle-roof
-		RequiresCondition: !Building-Buildup
 	WithProductionOverlay@WHITELIGHTS:
 		Sequence: production-lights-white
+		RequiresCondition: !Building-Buildup
+	WithProductionDoorOverlaySP@ROOF:
+		Sequence: idle-roof
 		RequiresCondition: !Building-Buildup
 	ThrowsShrapnel@SMALL:
 		Weapons: SmallDebrisScrin
@@ -2228,7 +2228,7 @@ CABWEAP:
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
 		RequiresCondition: !Building-Buildup
-	WithProductionDoorOverlay@DOOR:
+	WithProductionDoorOverlaySP@DOOR:
 		RequiresCondition: !Building-Buildup
 	WithIdleOverlay@BIB:
 		Sequence: bib
