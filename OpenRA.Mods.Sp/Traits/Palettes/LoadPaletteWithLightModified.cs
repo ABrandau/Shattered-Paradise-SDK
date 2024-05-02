@@ -23,10 +23,6 @@ namespace OpenRA.Mods.SP.Traits
 	[Desc("Palette reprocessed with map light")]
 	public class LoadPaletteWithLightModifiedInfo : TraitInfo, ITilesetSpecificPaletteInfo, IProvidesCursorPaletteInfo
 	{
-		[PaletteReference]
-		[Desc("The name of the palette to base off.")]
-		public readonly string BasePalette = null;
-
 		[FieldLoader.Require]
 		[PaletteDefinition(true)]
 		[Desc("The name for the resulting palette")]
