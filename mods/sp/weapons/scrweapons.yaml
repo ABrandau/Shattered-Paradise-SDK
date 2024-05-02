@@ -60,7 +60,8 @@ LegioNeedlerAA:
 		NoUnintendedFriendlyFire: All
 
 ColossiShard:
-	Inherits: ^RifleWeapon
+	Inherits: ^RifleDamage
+	Inherits@2: ^Small_Brnl
 	ReloadDelay: 70
 	Range: 5c0
 	Burst: 4
@@ -73,20 +74,20 @@ ColossiShard:
 		Image: torpedo
 		Shadow: true
 		LaunchAngle: 60
-		Palette: jascblue
+		Palette: gradientpurple
 		Blockable: false
+		TrailImage: torpedo
+		TrailPalette: jascblue
+		TrailDelay: 0
+		TrailInterval: 1
 	Warhead@1Dam: SpreadDamage
 		Damage: 5000
 		ValidTargets: Ground, Water
 		DamageTypes: Prone70Percent, TriggerProne, ScrinEssenceKill, EnergyDeath
-	Warhead@3EffWater: CreateEffect
-		Explosions: small_watersplash
-		ExplosionPalette: player
-		ImpactSounds: ssplash3.aud
-		ValidTargets: Water
+	-Warhead@2Eff:
 	Warhead@2Eff: CreateEffect
-		Explosions: tib_expsmall
-		ExplosionPalette: jascblue60
+		Explosions: clossinapalm, clossinapalmf
+		ExplosionPalette: scrinenergystuffs
 		InvalidTargets: Water
 
 ColossiBlast:
@@ -674,7 +675,7 @@ Glyder2Cannon:
 		ImpactSounds: photon1.wav
 
 BattleshipCannon:
-	Inherits: ^RifleWeapon
+	Inherits: ^RifleDamage
 	Inherits@2: ^Scrin_Explo
 	ReloadDelay: 25
 	Range: 5c768
@@ -833,9 +834,9 @@ DestroyerCannon:
 		Explosions: scrinpulse2
 		ExplosionPalette: effectalpha50
 		ImpactSounds: expnew14.aud
-		ValidTargets: Ground, Air, Water
-	-Warhead@3EffWater:
+		ValidTargets: Ground, Water, Air
 	-Warhead@MarnFlash:
+	-Warhead@smoke:
 	Warhead@4Smu: LeaveSmudgeSP
 		SmudgeType: Crater
 		InitialSmudgeLevel: 5, 9
