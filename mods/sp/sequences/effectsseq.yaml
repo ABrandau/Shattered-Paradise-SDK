@@ -17,15 +17,28 @@ explosion:
 		FlipX: true
 		Scale: 0.7
 	small_watersplash:
-		Filename: h2o_exp2.shp
+		TilesetFilenames:
+			TEMPERATE: h2o_exp2_t.shp
+			SNOW: h2o_exp2_s.shp
 		Offset: 0,-8
 	large_watersplash:
-		Filename: h2o_exp1.shp
+		TilesetFilenames:
+			TEMPERATE: h2o_exp1_t.shp
+			SNOW: h2o_exp1_s.shp
 		Offset: 4,-17
 	water_piff:
-		Filename: w_piff.shp
+		TilesetFilenames:
+			TEMPERATE: w_piff_t.shp
+			SNOW: w_piff_s.shp
 	water_piffs:
-		Filename: w_piffs.shp
+		TilesetFilenames:
+			TEMPERATE: w_piffs_t.shp
+			SNOW: w_piffs_s.shp
+	water_piffsfx:
+		TilesetFilenames:
+			TEMPERATE: w_piffs_t.shp
+			SNOW: w_piffs_s.shp
+		FlipX: true
 	piff:
 		Filename: piff.shp
 	piffs:
@@ -541,7 +554,6 @@ explosion:
 		Filename: hallugren.shp
 		Length: *
 		Offset: 0,-20
-		Tick: 65
 	spnuke:
 		Filename: spnuke.shp
 		ZOffset: 3036
@@ -1331,7 +1343,9 @@ lightningbolt:
 
 dig:
 	Defaults:
-		Filename: dig.shp
+		TilesetFilenames:
+			TEMPERATE: dig_t.shp
+			SNOW: dig_s.shp
 	idle:
 		Length: *
 		ZOffset: 511
@@ -1340,23 +1354,23 @@ dig:
 		Length: *
 		ZOffset: 511
 		Offset: 0, 0
-		Scale: 0.4
+		Scale: 0.5
 	smallidleoffset:
 		Length: *
 		ZOffset: 511
 		Offset: 0, -12
-		Scale: 0.4
+		Scale: 0.5
 	mine-dig:
 		Length: *
 		ZOffset: -512
 		Offset: 0, 1.8, -1.8
-		Scale: 0.75
+		Scale: 0.8
 		Tick: 30
 	ticktnk-dig:
 		Length: *
 		ZOffset: -512
 		Offset: -3, 3, -3
-		Scale: 0.5
+		Scale: 0.6
 		Tick: 25
 
 lgrysmk1:
@@ -1776,12 +1790,16 @@ moveflsh:
 
 wake:
 	idle:
-		Filename: wake2.shp
+		TilesetFilenames:
+			TEMPERATE: wake2_t.shp
+			SNOW: wake2_s.shp
 		Length: *
 		Tick: 180
 		ZOffset: -512
 	idle2:
-		Filename: wake2.shp
+		TilesetFilenames:
+			TEMPERATE: wake2_t.shp
+			SNOW: wake2_s.shp
 		Length: *
 		Tick: 180
 		ZOffset: -512
@@ -2121,7 +2139,9 @@ shieldpower:
 
 hoverwind:
 	water:
-		Filename: wake2.shp
+		TilesetFilenames:
+			TEMPERATE: wake2_t.shp
+			SNOW: wake2_s.shp
 		Length: *
 		ZOffset: -512
 		Scale: 0.9
@@ -2137,14 +2157,6 @@ hoverwind:
 		ZOffset: -512
 		Scale: 1.1
 		Alpha: 0.25
-
-boomerang:
-	idle:
-		Filename: boomerang.shp
-		Facings: 1
-		Length: *
-		ZOffset: 1023
-		IgnoreWorldTint: true
 
 queentooth:
 	idle:

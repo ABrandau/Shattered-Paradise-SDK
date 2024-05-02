@@ -1643,7 +1643,7 @@
 		Duration: 10800
 		TerrainTypes: Clear, Rough, Sand, Road, DirtRoad, Tiberium, BlueTiberium, Veins, Green, Pavement
 	RenderSprites:
-		Palette: terraindecoration
+		Palette: unitterrain
 	WithCrateBody:
 	MapEditorData:
 		Categories: Crate
@@ -2120,7 +2120,7 @@
 	LeavesTrails:
 		RequiresCondition: hoverunitonwater
 		Image: wake
-		Palette: effect
+		Palette: terrain
 		TerrainTypes: Water
 		StationaryInterval: 18
 		MovingInterval: 12
@@ -2437,7 +2437,7 @@
 		RequiresCondition: hoverunitonwater && !inside-tunnel && !empdisable
 		Image: hoverwind
 		Sequences: water
-		Palette: effect
+		Palette: terrain
 		Type: CenterPosition
 		#TerrainTypes: Water #don't need since we get condition
 		StationaryInterval: 18
@@ -2540,6 +2540,7 @@
 		ResurfaceConditionDuration: 75
 		SubterraneanTransitionImage: dig
 		SubterraneanTransitionSequence: idle
+		SubterraneanTransitionPalette: terrain
 		SubterraneanTransitionSound: subdril1.aud
 	WithFacingSpriteBody:
 		RequiresCondition: !inside-tunnel && !submerged
@@ -2598,7 +2599,7 @@
 		Voice: Move
 	LeavesTrails:
 		Image: wake
-		Palette: effect
+		Palette: terrain
 		TerrainTypes: Water
 		StationaryInterval: 18
 		MovingInterval: 6
@@ -3193,7 +3194,7 @@
 	Tooltip:
 		Name: civilianbuilding-name
 	RenderSprites:
-		Palette: terraindecoration
+		Palette: unitterrain
 	MapEditorData:
 		Categories: Civilian Structure
 	-GrantConditionOnDamageState@HeavyDamaged:
@@ -3278,7 +3279,7 @@
 	Interactable:
 	HiddenUnderShroud:
 	RenderSprites:
-		Palette: terraindecoration
+		Palette: unitterrain
 	WithSpriteBody:
 	Building:
 		Footprint: x
@@ -3405,7 +3406,7 @@
 	Immobile:
 		OccupiesSpace: false
 	RenderSprites:
-		Palette: terraindecoration
+		Palette: unitterrain
 	WithSpriteBody:
 	BodyOrientation:
 		UseClassicPerspectiveFudge: false

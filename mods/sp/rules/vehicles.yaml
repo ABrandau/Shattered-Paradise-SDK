@@ -236,7 +236,7 @@ APC:
 	LeavesTrails:
 		RequiresCondition: inwater
 		Image: wake
-		Palette: effect
+		Palette: terrain
 		#TerrainTypes: Water
 		StationaryInterval: 18
 		MovingInterval: 12
@@ -1278,6 +1278,7 @@ TTNK:
 	WithMakeExplodeWeapon:
 		LaunchEffectImage: dig
 		LaunchEffectSequence: ticktnk-dig
+		LaunchEffectPalette: terrain
 		ExplodesWhenCreated: false
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
@@ -3062,7 +3063,7 @@ LIMPED:
 		CloakedCondition: cloaking-self
 		EffectOffset: 0, 0, -300
 		EffectImage: dig
-		EffectPalette: effect
+		EffectPalette: terrain
 		CloakEffectSequence: smallidleoffset
 		EffectTracksActor: false
 	GrantCondition@showDeployBody: ## HACK: Make carryall show undeploy body
@@ -3092,7 +3093,7 @@ LIMPED:
 	-LeavesTrails@land:
 	LeavesTrails@water:
 		Image: wake
-		Palette: effect
+		Palette: terrain
 		TerrainTypes: Water
 		Sequences: idle2
 		Offsets: 0,500,0

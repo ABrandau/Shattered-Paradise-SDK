@@ -94,11 +94,11 @@ UnitDrowned:
 	Warhead@1EffWater: CreateEffect
 		Explosions: large_watersplash
 		ImpactSounds: ssplash1.aud, ssplash2.aud, ssplash3.aud
-		ExplosionPalette: player
+		ExplosionPalette: terrain
 		ImpactActors: false
 	Warhead@2EffWater: CreateEffect
-		Explosions: water_piffs
-		ExplosionPalette: pips
+		Explosions: water_piffs, water_piffsfx
+		ExplosionPalette: terrain
 		ImpactActors: false
 		Delay: 14
 
@@ -479,8 +479,8 @@ CasingDebris:
 		AirThreshold: 8c0
 		ImpactActors: false
 	Warhead@3EffWater: CreateEffect
-		Explosions: water_piffs
-		ExplosionPalette: pips
+		Explosions: water_piffs, water_piffsfx
+		ExplosionPalette: terrain
 		ValidTargets: Water
 		InvalidTargets: Infantry, Vehicle, Building, Wall, Ground, Air
 		AirThreshold: 8c0
