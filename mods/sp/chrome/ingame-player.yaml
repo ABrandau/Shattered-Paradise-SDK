@@ -732,6 +732,21 @@ Container@PLAYER_WIDGETS:
 							ClickThrough: false
 							ImageCollection: sidebar
 							ImageName: background-bottom
+				PowerMeter:
+					Logic: AddFactionSuffixASLogic
+					X: WINDOW_RIGHT - 227
+					Y: 278
+					MeterAlongside: ROW_TEMPLATE
+					ParentContainer: PALETTE_BACKGROUND
+					MeterHeight: 4
+					PowerUnitsPerBar: 25
+					TickWait: 4
+					ImageCollection: power-meter
+					NoPowerImage: power-meter-none
+					AvailablePowerImage: power-meter-available
+					UsedPowerImage: power-meter-used
+					OverUsedPowerImage: power-meter-overused
+					FlashPowerImage: power-meter-flash
 				LogicTicker@PRODUCTION_TICKER:
 				ProductionPalette@PRODUCTION_PALETTE:
 					X: 24
