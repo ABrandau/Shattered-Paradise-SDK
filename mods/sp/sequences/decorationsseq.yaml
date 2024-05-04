@@ -827,7 +827,9 @@ tuntop04:
 
 geyser:
 	idle:
-		Filename: geyser.shp
+		TilesetFilenames:
+			TEMPERATE: geyser_t.shp
+			SNOW: geyser_s.shp
 	gasanim:
 		Filename: tibgeysergas1.shp
 		Start: 15
@@ -839,7 +841,6 @@ geyser:
 geyser2:
 	Inherits: geyser
 	idle:
-		Filename: geyser.shp
 		Start: 1
 		ShadowStart: 5
 	gasanim:
@@ -849,7 +850,6 @@ geyser2:
 geyser3:
 	Inherits: geyser
 	idle:
-		Filename: geyser.shp
 		Start: 2
 		ShadowStart: 6
 	gasanim:
@@ -857,17 +857,19 @@ geyser3:
 		Start: 55
 
 geyser4:
+	Inherits: geyser
 	idle:
-		Filename: geyser.shp
 		Start: 3
 		ShadowStart: 7
-	Inherits: geyser
 	gasanim:
 		Filename: tibgeysergas1.shp
 		Start: 72
 
 geysermini:
 	idle:
+		TilesetFilenames:
+			TEMPERATE: geysermini_t.shp
+			SNOW: geysermini_s.shp
 		Filename: geysermini.shp
 	gasanim:
 		Filename: tibgeysergasmini.shp
@@ -879,7 +881,6 @@ geysermini:
 geysermini2:
 	Inherits: geysermini
 	idle:
-		Filename: geysermini.shp
 		Start: 1
 		ShadowStart: 5
 	gasanim:
@@ -889,7 +890,6 @@ geysermini2:
 geysermini3:
 	Inherits: geysermini
 	idle:
-		Filename: geysermini.shp
 		Start: 2
 		ShadowStart: 6
 	gasanim:
@@ -899,7 +899,6 @@ geysermini3:
 geysermini4:
 	Inherits: geysermini
 	idle:
-		Filename: geysermini.shp
 		Start: 3
 		ShadowStart: 7
 	gasanim:
