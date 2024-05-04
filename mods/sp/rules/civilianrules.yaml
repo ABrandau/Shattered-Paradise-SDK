@@ -2688,11 +2688,11 @@ MUSTABLE:
 		PlayerPalette: playermut
 		-Palette:
 
-
 CONTAINMENTUNIT:
 	Inherits: ^BasicBuilding
-	Inherits@3: ^SelectableBuilding
-	Inherits@2: ^3x3Shape
+	Inherits@2: ^SelectableBuilding
+	Inherits@3: ^3x3Shape
+	Inherits@SPARK: ^SpawnSpark
 	Valued:
 		Cost: 350
 	Tooltip:
@@ -2704,6 +2704,17 @@ CONTAINMENTUNIT:
 		HP: 150000
 	Armor:
 		Type: Building
+	-WithIdleOverlay@SpawnFire:
+	WithRandomIdleOverlay@01tree:
+		Sequences: asset1, asset2, asset3, asset4, asset5
+		Palette: dropship
+	WithIdleOverlay@02glass:
+		Sequence: glass
+		Palette: apblue
+	WithIdleOverlay@03front:
+		Sequence: front
+		Palette: player
+		IsPlayerPalette: true
 	RenderSprites:
 		Image: containmentunit
 	IsometricSelectable:
@@ -2711,9 +2722,13 @@ CONTAINMENTUNIT:
 
 CONTAINMENTUNIT_GREEN:
 	Inherits: CONTAINMENTUNIT
-	Inherits@RENDER: ^MutRenderGreen
-	ExplodesAlsoTransported@tib:
-		Weapon: TiberiumExplosion
+	RenderSprites:
+		Image: containmentunit_green
+	WithRandomIdleOverlay@01tree:
+		Palette: isotem
+	WithIdleOverlay@02glass:
+		Sequence: glass
+		Palette: apgreen
 
 ###################################################
 # MILK'S TIBERIAN DAWN BUILDINGS: cannot be captured
