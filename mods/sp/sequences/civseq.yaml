@@ -151,6 +151,78 @@ civ3:
 		ShadowStart: 456
 		IgnoreWorldTint: true
 
+scrciv1:
+	Inherits: ^InfantryDeathAnims
+	Defaults:
+		Filename: scrciv.shp
+		Tick: 80
+	stand:
+		Filename: scrciv1.shp
+		Facings: 8
+		ShadowStart: 38
+	run:
+		Length: *
+		Facings: 1
+	idle1:
+		Filename: scrciv2.shp
+		Facings: 8
+		ShadowStart: 38
+		Tick: 4000
+	idle2:
+		Filename: scrciv3.shp
+		Facings: 8
+		ShadowStart: 38
+		Tick: 4000
+	panic-run:
+		Length: *
+		Facings: 1
+		Tick: 40
+	panic-stand:
+		Length: *
+		Facings: 1
+		Tick: 40
+	die1:
+		Filename: scrciv3.shp
+		Start: 8
+		Length: 15
+		ShadowStart: 46
+		Tick: 80
+	die2:
+		Filename: scrciv1.shp
+		Start: 23
+		Length: 15
+		ShadowStart: 61
+		Tick: 80
+	die-crushed:
+		Filename: scrciv2.shp
+		Start: 33
+		Length: 5
+		ShadowStart: 71
+		Tick: 800
+		ZOffset: -511
+	die6:
+		Filename: scrinfiredeath.shp
+		Tick: 60
+		Offset: 0, -20
+
+scrciv2:
+	Inherits: scrciv1
+	stand:
+		Filename: scrciv2.shp
+	idle1:
+		Filename: scrciv1.shp
+	idle2:
+		Filename: scrciv3.shp
+
+scrciv3:
+	Inherits: scrciv1
+	stand:
+		Filename: scrciv3.shp
+	idle1:
+		Filename: scrciv1.shp
+	idle2:
+		Filename: scrciv2.shp
+
 trucka:
 	Inherits: ^SpriteVehicleWithShadow
 	Defaults:

@@ -219,6 +219,44 @@ CIV2:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed
 
+SCRCIV1:
+	Inherits: ^CivilianInfantry
+	Inherits@1: ^ScrinReaper
+	Inherits@2: ^ScrinRender
+	-Buildable:
+	Voiced:
+		VoiceSet: Desintegrator
+	WithInfantryBody:
+		MinIdleDelay: 5
+		MaxIdleDelay: 5
+	WithDeathAnimation@energy:
+		DeathSequencePalette: scrinenergystuffs
+		DeathTypes:
+			FireDeath: 6
+			EnergyDeath: 6
+	WithDeathAnimation@explosion:
+		DeathSequencePalette: gensmkexploFpurple
+	WithDeathAnimation@blood1:
+		DeathSequencePalette: jascblue
+		CrushedSequencePalette: jascblue
+	WithDeathAnimation@normal:
+		DeathSequencePalette: playerscrin
+		CrushedSequencePalette: playerscrin
+		CrushedPaletteIsPlayerPalette: true
+	-DamagedByTerrain:
+	-SpawnSmokeParticleOnDeath@FLAMEGUY:
+	Mobile:
+		Locomotor: TibInmuneInfantry
+	WithDeathAnimation@body:
+		DeathSequencePalette: gradientpurple
+		CrushedSequencePalette: gradientpurple
+
+SCRCIV2:
+	Inherits: SCRCIV1
+
+SCRCIV3:
+	Inherits: SCRCIV1
+
 4TNK:
 	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMoveWithBerserkable
