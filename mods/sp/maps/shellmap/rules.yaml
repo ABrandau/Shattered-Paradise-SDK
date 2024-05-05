@@ -43,6 +43,21 @@ World:
 	DamageMultiplier@Shellmap:
 		Modifier: 0
 
+^CivilianInfantry:
+	AttackWander: ## Disable civilian random walk
+		RequiresCondition: !CombatantOwner && CombatantOwner
+
+^ProducesUnits:
+	GrantExternalConditionToProduced:
+		Condition: produced
+		
+^Barracks:
+	-ProximityExternalCondition@hospitalheal:
+
+^GainsExperienceNonCombat:
+	GainsExperienceMultiplier@NOEXP:
+		Modifier: 0
+
 ^BlossomTree:
 	TerrainLightSource:
 		RedTint: 0
@@ -57,37 +72,27 @@ BIGBLUE:
 		GreenTint: 0
 		BlueTint: 1.4
 
-^ProducesUnits:
-	GrantExternalConditionToProduced:
-		Condition: produced
-
-^Barracks:
-	-ProximityExternalCondition@hospitalheal:
-
 GAPOWR:
 	Power:
-		Amount: 99999
+		Amount: 999
 
 CABPOWR:
 	Power:
-		Amount: 99999
+		Amount: 999
 
-^Refinery:
-	Refinery:
-		ShowTicks: false
-		UseStorage: false
+NAPOWR:
+	Power:
+		Amount: 999
 
-^FlippedRefinery:
-	Refinery:
-		ShowTicks: false
-		UseStorage: false
+MUPOWR:
+	Power:
+		Amount: 999
 
-^FlippedXRefinery:
-	Refinery:
-		ShowTicks: false
-		UseStorage: false
+SCRPOWR:
+	Power:
+		Amount: 999
 
-^FlippedYRefinery:
+^RefineryOverride:
 	Refinery:
 		ShowTicks: false
 		UseStorage: false
@@ -104,6 +109,23 @@ BERSERKER:
 	-ExternalCondition@PRODUCED:
 	-DamageMultiplier@Shellmap:
 
+EXEMPLAR:
+	-ExternalCondition@PRODUCED:
+	-DamageMultiplier@Shellmap:
+
+MUVENT:
+	-ExternalCondition@PRODUCED:
+	-DamageMultiplier@Shellmap:
+
+NARADR:
+	NukePower:
+		Cost: 0
+		ChargeInterval: 20
+
+MUVENTI:
+	NukePower:
+		ChargeInterval: 20
+
 NAPULS:
 	-FireArmamentPower:
 	## HACK: Makes the turret fire once per order
@@ -116,6 +138,10 @@ NAPULS:
 		PauseOnCondition: disabled || empdisable
 		ReloadingCondition: Reloading
 
+SCRCIV1:
+	AttackWander:
+		RequiresCondition: CombatantOwner
+
 EMPDUMMY:
 	Inherits: ^GROUNDDUMMY
 	Inherits@1: ^EmpDisable
@@ -125,6 +151,11 @@ EMPDUMMY:
 		RequiresCondition: !empdisable
 	RenderSprites:
 		Image: car
+
+RADIOTOWER:
+	RenderSprites:
+		PlayerPalette: player
+		-Palette:
 
 REAPERCAB:
 	AutoTargetPriority@DEFAULT:
