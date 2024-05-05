@@ -1,5 +1,25 @@
 ^SrcinInfantryDeathAnims:
 	Inherits@1: ^InfantryDeathAnims
+	diebody1:
+		Filename: tibody01.shp
+		Frames: 3, 2, 1, 0
+		Offset: 0, -15, 0
+	diebody2:
+		Filename: tibody02.shp
+		Frames: 3, 2, 1, 0
+		Offset: 0, -15, 0
+	diebody3:
+		Filename: tibody03.shp
+		Frames: 3, 2, 1, 0
+		Offset: 0, -15, 0
+	diebody4:
+		Filename: tibody04.shp
+		Frames: 3, 2, 1, 0
+		Offset: 0, -15, 0
+	diebody5:
+		Filename: tibody05.shp
+		Frames: 3, 2, 1, 0
+		Offset: 0, -15, 0
 	die6:
 		Filename: scrinfiredeath.shp
 		Tick: 60
@@ -63,21 +83,21 @@ shark:
 		Length: 18
 		Facings: -8
 		ShadowStart: 995
+	diebody1:
+		Scale: 0.6
+	diebody2:
+		Scale: 0.6
+	diebody3:
+		Scale: 0.6
+	diebody4:
+		Scale: 0.6
+	diebody5:
+		Scale: 0.6
 	icon:
 		Filename: sharkicon.shp
-	diebody1:
-		Filename: shark.shp
-		Start: 137
-		Length: 1
-		Tick: 4000
-	diebody2:
-		Filename: shark.shp
-		Start: 144
-		Length: 1
-		Tick: 4000
 
 legio:
-	Inherits@1: ^SrcinInfantryDeathAnims
+	Inherits@1: ^InfantryDeathAnims
 	Defaults:
 		Filename: legio.shp
 		Tick: 80
@@ -146,32 +166,26 @@ legio:
 		Start: 149
 		Facings: -8
 		# ShadowStart: 556
+	die6:
+		Filename: scrinfiredeath.shp
+		Tick: 60
+		Offset: 0, -20
 	icon:
 		Filename: scrlegio.shp
-	diebody1:
-		Filename: legio.shp
-		Start: 284
-		Length: 1
-		Tick: 4000
-	diebody2:
-		Filename: legio.shp
-		Start: 293
-		Length: 1
-		Tick: 4000
 
 shapeshifter:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
-		Filename: scrciv.shp
+		Filename: screng.shp
 		Tick: 80
 	stand:
 		Combine:
 			0:
 				Filename: lgrysmk1.shp
-				Start: 2
-				Length: 6
+				Start: 3
+				Length: 4
 			1:
-				Filename: scrciv.shp
+				Filename: screng.shp
 				Length: *
 		Length: *
 		Facings: 1
@@ -185,14 +199,14 @@ shapeshifter:
 		ShadowStart: 292
 		Tick: 4000
 	idle2:
-		Filename: medic.shp
-		Facings: 8
-		ShadowStart: 307
-		Tick: 4000
-	idle3:
-		Filename: e2.shp
+		Filename: e2w.shp
 		Facings: 8
 		ShadowStart: 292
+		Tick: 4000
+	idle3:
+		Filename: cyborg-scr.shp
+		Facings: 8
+		ShadowStart: 260
 		Tick: 4000
 	idle4:
 		Filename: altengin.shp
@@ -212,7 +226,7 @@ shapeshifter:
 		ShadowStart: 441
 		Tick: 80
 	die2:
-		Filename: doggie.shp
+		Filename: mutdoggie.shp
 		Start: 99
 		Length: 10
 		ShadowStart: 218
@@ -281,23 +295,13 @@ bug:
 		Offset: 0, -2, 2
 	icon:
 		Filename: bugicon.shp
-	diebody1:
-		Filename: bug.shp
-		Start: 148
-		Length: 1
-		Tick: 4000
-	diebody2:
-		Filename: bug.shp
-		Start: 158
-		Length: 1
-		Tick: 4000
 	webguy:
 		Filename: webguySPmid.shp
 		Length: 6
 		ShadowStart: 6
 
 float:
-	Inherits@1: ^SrcinInfantryDeathAnims
+	Inherits@1: ^InfantryDeathAnims
 	Defaults:
 		Filename: float.shp
 		Tick: 80
@@ -325,6 +329,10 @@ float:
 		Start: 180
 		Length: 11
 		ShadowStart: 372
+	die6:
+		Filename: scrinfiredeath.shp
+		Tick: 60
+		Offset: 0, -20
 	die-crushed:
 		Start: 180
 		Length: 11
@@ -352,16 +360,6 @@ float:
 		Scale: 0.5
 	icon:
 		Filename: scrfloater.shp
-	diebody1:
-		Filename: float.shp
-		Start: 191
-		Length: 1
-		Tick: 4000
-	diebody2:
-		Filename: float.shp
-		Start: 191
-		Length: 1
-		Tick: 4000
 
 stalker:
 	Inherits@1: ^SrcinInfantryDeathAnims
@@ -464,16 +462,6 @@ colossi:
 		IgnoreWorldTint: true
 	icon:
 		Filename: colossiicon.shp
-	diebody1:
-		Filename: colossi.shp
-		Start: 217
-		Length: 1
-		Tick: 4000
-	diebody2:
-		Filename: colossi.shp
-		Start: 225
-		Length: 1
-		Tick: 4000
 	webguy:
 		Filename: webguySPbig.shp
 		Length: 6
