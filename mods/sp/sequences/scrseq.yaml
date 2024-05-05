@@ -162,50 +162,49 @@ legio:
 shapeshifter:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
-		Filename: e1.shp
+		Filename: scrciv.shp
 		Tick: 80
 	stand:
-		Filename: civ1.shp
-		Facings: 8
-		ShadowStart: 292
+		Combine:
+			0:
+				Filename: lgrysmk1.shp
+				Start: 2
+				Length: 6
+			1:
+				Filename: scrciv.shp
+				Length: *
+		Length: *
+		Facings: 1
+		Tick: 20
 	run:
-		Filename: mwmn1.shp
-		Start: 8
-		Length: 6
-		Facings: 8
-		#ShadowStart: 300
+		Length: *
+		Facings: 1
 	idle1:
 		Filename: engineer.shp
-		Start: 71
-		Length: 15
-		ShadowStart: 363
+		Facings: 8
+		ShadowStart: 292
+		Tick: 4000
 	idle2:
 		Filename: medic.shp
-		Start: 56
-		Length: 15
-		ShadowStart: 363
+		Facings: 8
+		ShadowStart: 307
+		Tick: 4000
 	idle3:
-		Filename: slav.shp
-		Start: 56
-		Length: 15
-		ShadowStart: 348
+		Filename: e2.shp
+		Facings: 8
+		ShadowStart: 292
+		Tick: 4000
 	idle4:
-		Filename: chamspy.shp
-		Start: 71
-		Length: 15
-		ShadowStart: 363
+		Filename: altengin.shp
+		Facings: 8
+		ShadowStart: 292
+		Tick: 4000
 	prone-run:
-		Filename: e1.shp
-		Start: 86
-		Length: 6
-		Facings: 8
-		ShadowStart: 378
+		Length: *
+		Facings: 1
 	prone-stand:
-		Filename: umagon.shp
-		Start: 86
-		Facings: 8
-		Stride: 6
-		ShadowStart: 378
+		Length: *
+		Facings: 1
 	die1:
 		Filename: civ2.shp
 		Start: 149
@@ -225,23 +224,15 @@ shapeshifter:
 		Tick: 800
 		ZOffset: -511
 	shoot:
-		Filename: e3.shp
-		Start: 164
-		Length: 6
-		Facings: 8
-		ShadowStart: 456
+		Length: *
+		Facings: 1
 	prone-shoot:
-		Filename: e3.shp
-		Start: 212
-		Length: 6
-		Facings: 8
-		ShadowStart: 504
+		Length: *
+		Facings: 1
 	standup-0:
-		Filename: e3.shp
-		Start: 260
-		Length: 2
-		Facings: 8
-		ShadowStart: 552
+		Length: *
+		Facings: 1
+		Tick: 5
 	icon:
 		Filename: shapeshiftericon.shp
 

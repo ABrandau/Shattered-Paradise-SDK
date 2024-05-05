@@ -1966,29 +1966,18 @@
 	Inherits: ^Soldier
 	Inherits@1: ^ScrinReaper
 	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinInfantryDeath
 	Voiced:
 		VoiceSet: Desintegrator
-	WithDeathAnimation@energy:
-		DeathSequencePalette: scrinenergystuffs
-		DeathTypes:
-			FireDeath: 6
-			EnergyDeath: 6
-	WithDeathAnimation@explosion:
-		DeathSequencePalette: gensmkexploFpurple
-	WithDeathAnimation@blood1:
-		DeathSequencePalette: jascblue
-		CrushedSequencePalette: jascblue
-	WithDeathAnimation@normal:
-		DeathSequencePalette: playerscrin
-		CrushedSequencePalette: playerscrin
-		CrushedPaletteIsPlayerPalette: true
 	-DamagedByTerrain:
 	-SpawnSmokeParticleOnDeath@FLAMEGUY:
 	Mobile:
 		Locomotor: TibInmuneInfantry
 	WithDeathAnimation@body:
 		DeathSequencePalette: playerscrin
+		DeathPaletteIsPlayerPalette: true
 		CrushedSequencePalette: playerscrin
+		CrushedPaletteIsPlayerPalette: true
 		-DeathTypes:
 		DeathTypes:
 			BulletDeath: body1, body2
@@ -3614,6 +3603,25 @@
 		DeathSequencePalette: playerscrin
 		CrushedSequencePalette: playerscrin
 		CrushedPaletteIsPlayerPalette: true
+
+^ScrinInfantryDeath:
+	WithDeathAnimation@energy:
+		DeathSequencePalette: scrinenergystuffs
+		DeathTypes:
+			FireDeath: 6
+			EnergyDeath: 6
+	WithDeathAnimation@explosion:
+		DeathSequencePalette: gensmkexploFpurple
+	WithDeathAnimation@blood1:
+		DeathSequencePalette: jascblue
+		CrushedSequencePalette: jascblue
+	WithDeathAnimation@normal:
+		DeathSequencePalette: playerscrin
+		CrushedSequencePalette: playerscrin
+		CrushedPaletteIsPlayerPalette: true
+	WithDeathAnimation@body:
+		DeathSequencePalette: gradientpurple
+		CrushedSequencePalette: gradientpurple
 
 ^MutRender:
 	Inherits: ^Cloakable

@@ -223,34 +223,18 @@ SCRCIV1:
 	Inherits: ^CivilianInfantry
 	Inherits@1: ^ScrinReaper
 	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinInfantryDeath
 	-Buildable:
 	Voiced:
 		VoiceSet: Desintegrator
+	Mobile:
+		Locomotor: TibInmuneInfantry
 	WithInfantryBody:
 		MinIdleDelay: 3
 		MaxIdleDelay: 3
 		IdleSequences: idle1, idle2, idle3, idle4, idle5, idle6
-	WithDeathAnimation@energy:
-		DeathSequencePalette: scrinenergystuffs
-		DeathTypes:
-			FireDeath: 6
-			EnergyDeath: 6
-	WithDeathAnimation@explosion:
-		DeathSequencePalette: gensmkexploFpurple
-	WithDeathAnimation@blood1:
-		DeathSequencePalette: jascblue
-		CrushedSequencePalette: jascblue
-	WithDeathAnimation@normal:
-		DeathSequencePalette: playerscrin
-		CrushedSequencePalette: playerscrin
-		CrushedPaletteIsPlayerPalette: true
 	-DamagedByTerrain:
 	-SpawnSmokeParticleOnDeath@FLAMEGUY:
-	Mobile:
-		Locomotor: TibInmuneInfantry
-	WithDeathAnimation@body:
-		DeathSequencePalette: gradientpurple
-		CrushedSequencePalette: gradientpurple
 
 4TNK:
 	Inherits: ^Tank
