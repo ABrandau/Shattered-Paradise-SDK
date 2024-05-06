@@ -8,17 +8,17 @@
 ]]
 
 GDIAttackForce = { "gdie1", "gdie1", "gdie1", "gdie1", "grenadier", "grenadier", "grenadier", "e2","mmch", "mmch", "apc", "smech"}
-GDIAirForce = { "orca", "orca", "orca" }
+GDIAirForce = { "orcab", "orca", "orca" }
 NodTemplarRush = { "templar", "templar", "templar", "templar", "templar" }
-NodStealthTeam = { "bike", "stnk", "stnk"}
-NodAirForce = { "scrin", "scrin" }
+NodStealthTeam = { "stnk", "bike", "stnk"}
+NodAirForce = { "scrin", "apache", "scrin" }
 MutantBusGuys = { "marauder", "marauder", "marauder", "mutfiend" }
 MutantDemoTruck = { "hvrtruk3" }
 MutantFalcon = { "wetp" }
 ScrinAttackForce = { "shark", "shark", "shark", "shark", "legio", "legio", "float", "corruptor", "corruptor", "corruptor" }
 ScrinAirForce = { "stormrider", "stormrider", "stormrider", "stormrider" }
-CABALInfantry = { "cyborg", "cyborg", "cyborg", "cyborg", "cyborg" }
-CABALToBeEMPed = { "centurion", "centurion", "reapercab", "paladin" }
+CABALInfantry = { "cyborg", "cborg", "pdrone", "cyborg", "cborg", "pdrone" }
+CABALToBeEMPed = { "paladin", "centurion", "centurion", "reapercab" }
 CABALAirForce = { "basilisk", "basilisk" }
 
 NodLaserFencePoints = { NodLaserFencePoint1, NodLaserFencePoint2, NodLaserFencePoint3, NodLaserFencePoint4, NodLaserFencePoint5, NodLaserFencePoint6, NodLaserFencePoint7, NodLaserFencePoint8, NodLaserFencePoint9, NodLaserFencePoint10, NodLaserFencePoint11, NodLaserFencePoint12, NodLaserFencePoint13, NodLaserFencePoint14 }
@@ -224,7 +224,7 @@ GDIAttack = function()
 end
 
 GDIAirAttack = function()
-	Trigger.AfterDelay(DateTime.Seconds(2), function()
+	Trigger.AfterDelay(DateTime.Seconds(1), function()
 		gdi.Build(GDIAirForce, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Move(CABALHPad.Location)
@@ -417,7 +417,7 @@ CABALVehicleAttack = function()
 end
 
 CABALAirAttack = function()
-	Trigger.AfterDelay(DateTime.Seconds(1), function()
+	Trigger.AfterDelay(DateTime.Seconds(0), function()
 		cab.Build(CABALAirForce, function(actors)
 			Utils.Do(actors, function(actor)
 				actor.Attack(GDIDestructablePower)
@@ -465,11 +465,11 @@ SetWaypoints = function()
 end
 
 SetCash = function()
-	gdi.Cash = 10000000
-	nod.Cash = 10000000
-	mut.Cash = 10000000
-	scr.Cash = 10000000
-	cab.Cash = 10000000
+	gdi.Cash = 1000000
+	nod.Cash = 1000000
+	mut.Cash = 1000000
+	scr.Cash = 1000000
+	cab.Cash = 1000000
 end
 
 SetUpGDIDestructablePP = function()
