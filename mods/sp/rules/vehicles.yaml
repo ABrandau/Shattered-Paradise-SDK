@@ -3521,6 +3521,8 @@ CORRUPTOR:
 	Armament@PRIMARY:
 		Weapon: CorruptorAcid
 		LocalOffset: 800,0,200
+		MuzzlePalette: jascgreen
+		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
 		RequiresCondition: !vinifera_catalysts
 	Armament@VINIFERA:
@@ -3528,17 +3530,20 @@ CORRUPTOR:
 		LocalOffset: 800,0,200
 		PauseOnCondition: empdisable
 		RequiresCondition: vinifera_catalysts
+		MuzzlePalette: jascblue
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
 	BodyOrientation:
 		QuantizedFacings: 8
 		CameraPitch: 250
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	WithInfantryBody:
+		-DefaultAttackSequence:
 		RequiresCondition: !vinifera_catalysts && !inside-tunnel
 	WithInfantryBody@Blue:
 		MoveSequence: run-blue
 		StandSequences: stand-blue
-		DefaultAttackSequence: shoot-blue
 		RequiresCondition: vinifera_catalysts && !inside-tunnel
 	Selectable:
 		Bounds: 1508, 1568, 0, -482
