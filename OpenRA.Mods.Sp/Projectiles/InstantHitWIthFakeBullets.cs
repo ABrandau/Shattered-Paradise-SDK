@@ -24,7 +24,7 @@ using Util = OpenRA.Mods.Common.Util;
 namespace OpenRA.Mods.SP.Projectiles
 {
 	[Desc("Instant and usually direct-on-target projectile, with traces effect like 3rd generation of CNC.")]
-	public class InstantHitWIthFakeBulletsInfo : IProjectileInfo
+	public class InstantHitWithFakeBulletsInfo : IProjectileInfo
 	{
 		[Desc("The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property.")]
 		public readonly WDist Inaccuracy = WDist.Zero;
@@ -117,13 +117,13 @@ namespace OpenRA.Mods.SP.Projectiles
 		[Desc("The alpha value [from 0 to 255] of color at the contrail end.")]
 		public readonly int ContrailEndColorAlpha = 0;
 
-		public IProjectile Create(ProjectileArgs args) { return new InstantHitWIthFakeBullets(this, args); }
+		public IProjectile Create(ProjectileArgs args) { return new InstantHitWithFakeBullets(this, args); }
 	}
 
-	public class InstantHitWIthFakeBullets : IProjectile
+	public class InstantHitWithFakeBullets : IProjectile
 	{
 		readonly ProjectileArgs args;
-		readonly InstantHitWIthFakeBulletsInfo info;
+		readonly InstantHitWithFakeBulletsInfo info;
 		readonly FakeBulletWrapper[] fakeBullets;
 		readonly World world;
 		readonly string animPalette;
@@ -146,7 +146,7 @@ namespace OpenRA.Mods.SP.Projectiles
 			public WAngle Facing;
 		}
 
-		public InstantHitWIthFakeBullets(InstantHitWIthFakeBulletsInfo info, ProjectileArgs args)
+		public InstantHitWithFakeBullets(InstantHitWithFakeBulletsInfo info, ProjectileArgs args)
 		{
 			this.args = args;
 			this.info = info;
