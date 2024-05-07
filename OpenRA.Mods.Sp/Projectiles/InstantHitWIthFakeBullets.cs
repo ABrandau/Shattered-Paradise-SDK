@@ -243,6 +243,11 @@ namespace OpenRA.Mods.SP.Projectiles
 						fakeBullets[i].EndPos = fakeBulletEndBasePos + fakeInaccOffset;
 						fakeBullets[i].Facing = vec.Pitch;
 
+						/* Another method to get pitch
+						 * Note: OpenRA defines north as -y.
+						 * fakeBullets[i].Facing = vec.LengthSquared == 0 ? WAngle.Zero : WAngle.ArcTan(vec.Z, vec.HorizontalLength);
+						*/
+
 						if (!string.IsNullOrEmpty(info.Image))
 						{
 							var facing = fakeBullets[i].Facing;
