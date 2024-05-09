@@ -138,7 +138,8 @@ namespace OpenRA.Mods.SP.Traits
 				DeployMcvs(bot, true);
 
 				// No construction yards - Build a new MCV
-				conyardNumber = world.ActorsHavingTrait<Transforms>().Count(a => !unitCannotBeOrdered(a) && Info.ConstructionYardTypes.Contains(a.Info.Name));
+				conyardNumber = world.ActorsHavingTrait<BaseBuilding>().Count(a => !unitCannotBeOrdered(a) &&
+				(Info.ConstructionYardTypes.Contains(a.Info.Name) || Info.McvTypes.Contains(a.Info.Name)));
 				if (ShouldBuildMCV())
 				{
 					var unitBuilder = Array.Find(requestUnitProduction, Exts.IsTraitEnabled);
@@ -154,19 +155,14 @@ namespace OpenRA.Mods.SP.Traits
 
 		bool ShouldBuildMCV()
 		{
-			// Only build MCV if we don't already have one in the field.
-			var allowedToBuildMCV = !world.ActorsHavingTrait<Transforms>().Any(a => !unitCannotBeOrdered(a) && Info.McvTypes.Contains(a.Info.Name));
-			if (!allowedToBuildMCV)
-				return false;
-
-			// Build MCV if we don't have the desired number of construction yards, unless we have no factory (can't build it).
+			// Build MCV if we don't have the desired number of construction yards + mcv, unless we have no factory (can't build it).
 			return conyardNumber < baseShouldHave &&
 				world.ActorsHavingTrait<Production>().Any(a => !unitCannotBeOrdered(a) && Info.McvFactoryTypes.Contains(a.Info.Name));
 		}
 
 		void DeployMcvsFirstTick(IBot bot)
 		{
-			var newMCVs = world.ActorsHavingTrait<Transforms>()
+			var newMCVs = world.ActorsHavingTrait<BaseBuilding>()
 				.Where(a => Info.McvTypes.Contains(a.Info.Name) && !unitCannotBeOrdered(a));
 
 			foreach (var mcv in newMCVs)
@@ -196,7 +192,7 @@ namespace OpenRA.Mods.SP.Traits
 				mw.WPos = mw.Actor.CenterPosition;
 			}
 
-			var newMCVs = world.ActorsHavingTrait<Transforms>()
+			var newMCVs = world.ActorsHavingTrait<BaseBuilding>()
 				.Where(a => Info.McvTypes.Contains(a.Info.Name) && !unitCannotBeOrdered(a));
 
 			foreach (var mcv in newMCVs)
