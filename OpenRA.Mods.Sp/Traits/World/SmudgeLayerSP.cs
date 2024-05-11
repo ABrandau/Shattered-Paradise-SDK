@@ -240,7 +240,7 @@ namespace OpenRA.Mods.SP.Traits
 			updatedTick = self.World.WorldTick;
 
 			var remove = new List<CPos>();
-			foreach (var kv in dirty)
+			foreach (var kv in dirty.ToArray())
 			{
 				// Update visual cell at where we can see
 				if (!world.FogObscures(kv.Key))
@@ -296,7 +296,7 @@ namespace OpenRA.Mods.SP.Traits
 				dirty.Remove(r);
 
 			// Update visual cell's lifetime
-			foreach (var kv in tiles)
+			foreach (var kv in tiles.ToArray())
 			{
 				if (kv.Value.LifeTime < 0)
 				{

@@ -181,7 +181,7 @@ namespace OpenRA.Mods.SP.Traits
 			base.Tick(self);
 
 			// Take a copy so that Tick() can remove animations
-			foreach (var m in muzzles.Keys)
+			foreach (var m in muzzles.Keys.ToArray())
 				m.Animation.Tick();
 		}
 	}
