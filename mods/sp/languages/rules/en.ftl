@@ -45,7 +45,7 @@ checkbox-megawealth =
         - Removes all the Tiberium and Tiberium spawner on the map
         - Tiberium Extractors immune to damage
         - Tiberium Extractors gains +200% income
-        - Units with Tiberium Conversion upgrade drain from Extractors.
+        - Units with Ichor Conversion upgrade can drain from Extractors.
 
 checkbox-king-of-the-hill =
     .label = King of the Hill
@@ -596,7 +596,6 @@ gavulc-desc = Anti-infantry base defense.
     Good vs: Infantry
 
     Special:
-     - Weapon hit instantly
      - Provides stealth detection
      - Requires power to operate
 
@@ -636,7 +635,6 @@ nalasr-desc = Basic laser defense.
     Good vs: Ground targets
 
     Special:
-     - Weapon hit instantly
      - Provides stealth detection
      - Requires power to operate
 
@@ -646,7 +644,6 @@ naobel-desc = High tech laser defense.
     Good vs: Ground targets
 
     Special:
-     - Weapon hit instantly
      - Provides stealth detection
      - Requires power to operate
 
@@ -687,12 +684,11 @@ muflak-desc = Anti-Air base defense with shard cannon..
 
     Special:
      - Can attack Air
-     - Weapon hit instantly
 
 cabpit-name = Drone Pit
 cabpit-desc = Drone Hangar that launches small bomber drones.
 
-    Good vs: Infantry
+    Good vs: Infantry, Light Armor
 
     Special:
      - Provides stealth detection
@@ -714,7 +710,6 @@ cabrail-desc = Anti-Air base defense.
 
     Special
      - Can attack Air
-     - Weapon hit instantly
      - Requires power to operate
 
 scrneedler-name = Ichor Waste Turret
@@ -747,7 +742,6 @@ scrtractor-desc = Anti-Air base defense.
     Special:
      - Can attack air
      - Freezes the targetted aircraft momentarily
-     - Weapon hit instantly
      - Requires power to operate
 
 gafire-name = Firestorm Generator
@@ -868,7 +862,6 @@ smech-desc = Small but fast anti-infantry walker.
     Good vs: Infantry
 
     Special:
-     - Weapon hit instantly
      - Provides stealth detection
      - Can attack enemies ahead while moving
 
@@ -889,15 +882,16 @@ mmch-desc = GDI's main battle walker armed with an anti-tank cannon.
      - Railgun Barrels
 
 apc-name = Amphibious APC
-apc-desc = Armored infantry transport.
+apc-desc = Armored anti-infantry transport.
 
-    Good vs: Infantry.
+    Good vs: Infantry
 
     Special:
-     - Weapon hit instantly
      - Can transport 5 infantry units
      - Can travel over water
-     - Can crush infantry\n - Can attack while moving
+     - Can attack while moving
+     - Can attack air
+     - Can crush infantry
 
     Upgrades:
      - AP Ammunition
@@ -1095,9 +1089,7 @@ mutquad-desc = Armored truck armed with a quad cannon.
     Good vs: Infantry, Aircraft
 
     Special:
-     - Weapon hit instantly
      - Provides stealth detection
-     - Can crush infantry
      - Can attack while moving
 
 lynx-name = Lynx Tank
@@ -1121,6 +1113,7 @@ struck-desc = Combat transport.
      - Cargo for 5 soldiers
      - Passengers can fire out of its windows
      - Basic infantry inside has increased weapon range
+     - Can crush infantry
      - Can attack while moving
 
 minelayer-name = Minelayer
@@ -1328,7 +1321,7 @@ scrmbt-desc = Advanced hover tank armed with a laser cannon.
      - Can attack while moving
 
     Upgrades:
-     - Tiberium Conversion
+     - Ichor Conversion
 
 scrscorpion-name = Plague Walker
 scrscorpion-desc = Long range assault walker.
@@ -1341,7 +1334,7 @@ scrscorpion-desc = Long range assault walker.
      - Can crush infantry
 
     Upgrades:
-     - Wasting Disease
+     - Advanced Hazardous Atmosphere
 
 scrrecharger-name = Guardian
 scrrecharger-desc = Mobile shield generator.
@@ -1410,7 +1403,6 @@ harpy-desc = Scout Helicopter armed with chain guns.
 
     Special:
      - Can attack air
-     - Weapon hit instantly
      - Provides stealth detection when at air
      - Can attack enemies from all directions
 
@@ -1440,7 +1432,6 @@ mutheli-desc =  Heavy assault gunship with an shard cannon.
 
     Special:
      - Can attack air
-     - Weapon hit instantly
      - Provides stealth detection when at air
      - Can attack enemies from all directions
 
@@ -1561,7 +1552,6 @@ wasp-desc = Aerial drone armed with dual railgun cannons.
 
     Special:
      - Can attack air
-     - Weapon hit instantly
      - Provides stealth detection when at air
      - Can attack enemies ahead while moving
 
@@ -2042,7 +2032,6 @@ gdie1-desc = Basic combat infantry.
     Good vs: Infantry
 
     Special:
-     - Weapon hit instantly
      - Crush class: crushable
 
     Upgrades:
@@ -2122,7 +2111,6 @@ altnode1-desc = Nod's light infantry variant.
     Good vs: Infantry
 
     Special:
-     - Weapon hit instantly
      - Does not go prone after taking fire
      - Crush class: crushable
 
@@ -2157,7 +2145,6 @@ nconf-desc = Nod's Special Forces armed with firefly laser rifles and a personal
     Good vs: Ground targets
 
     Special:
-     - Weapon hit instantly
      - Spawns holograms when ordered to deploy
      - Cloaked
      - Crush class: crushable
@@ -2168,7 +2155,6 @@ exemplar-desc = Experienced Cadre in an exosuit armed with an energy minigun.
     Good vs: Infantry, Light Vehicles
 
     Special:
-     - Weapon hit instantly
      - Grant nearby friendly infantry a 30% firepower bonus
      - Does not go prone after taking fire
      - Immune to Tiberium fields
@@ -2184,7 +2170,6 @@ bhs-desc = Kane's Elite Commando armed with a toxin sniper rifle
 
     Special:
      - Build limit: 1
-     - Weapon hit instantly
      - Demolishes structures with C4
      - Bullets release toxins which slow down groups of enemies
      - Cloaks when stationary and not firing
@@ -2200,7 +2185,6 @@ marauder-desc = Wasteland soldiers armed with shotguns.
     Good vs: Infantry
 
     Special:
-     - Weapon hit instantly
      - Heals on Tiberium fields
      - Can deploy to increase health and attackrange
      - Crush class: crushable
@@ -2256,7 +2240,6 @@ seer-desc = Mutant infantry capable of channeling psychic energy waves and
     Good vs: Vehicles, Aircraft
 
     Special:
-     - Weapon hit instantly
      - Heals on Tiberium fields
      - Can persuade friendly units to fight harder when deployed
      - Affected units will gain 20% extra attack and movement speed but receive 20% more damage
@@ -2337,7 +2320,7 @@ bug-desc =  Alien breed that poisons enemies.
      - Absorbs essence from killed enemies to heal
 
     Upgrades:
-     - Wasting Disease
+     - Advanced Hazardous Atmosphere
 
 colossus-name = Colossus
 colossus-desc = Heavy duty alien.
@@ -2357,7 +2340,6 @@ mastermind-desc = The commando unit of Scrin born with the ability
     to mind control everyone and everything.
 
     Special:
-     - Weapon hit instantly
      - Can mind control everything but Commandos and Epics
      - Gain 50% EXP from enemy killed by controlled unit/defence
      - Takes some time to mind control Structures
@@ -2377,7 +2359,6 @@ cyborg-desc = Durable cyborg construct.
     Good vs: Infantry
 
     Special:
-     - Weapon hit instantly
      - Can be deactivated with E.M.P.
      - Does not receive damage from tiberium fields
      - Loses its legs on critical health
@@ -2495,10 +2476,10 @@ ap_ammunition-desc = Increases the damage of the following assets by 50%:
     - Marine
     - Wolverine
     - Amphibious APC
-    Note: Garrisoned infantry needs to redeploy to recieve this upgrade!
+    Note: Garrisoned infantry needs to redeploy to receive this upgrade!
 
 nanofiber_vests-name = Nanofiber Vests
-nanofiber_vests-desc = Increases the durability of following units by 20%:
+nanofiber_vests-desc = Increases the HP of the following units by 20%:
     - Marine
     - Phalanx
     - Disc Thrower
@@ -2513,11 +2494,11 @@ railguns-name = Railgun Barrels
 railguns-desc = Provides Titans and Mammoth Tanks with railguns increasing their damage by 50%.
 
 ceramic_plating-name = Ceramic Plating
-ceramic_plating-desc = Increases the durability of GDI Aircraft by 20%.
+ceramic_plating-desc = Increases the HP of GDI Aircraft by 20%.
 
 purifying_flame-name = Purifying Flame
 purifying_flame-desc = Increases the damage of flamethrower weapons by 50%.
-    Note: Garrisoned infantry needs to redeploy to recieve this upgrade!
+    Note: Garrisoned infantry needs to redeploy to receive this upgrade!
 
 raider_passenger-name = Raider Passenger
 raider_passenger-desc = Raider Buggies start with a Militant in them.
@@ -2547,7 +2528,7 @@ fortified_upg-desc = Depoloyed Marauders become uncrushable by anything.
 
 blue_shards-name = Blue Shards
 blue_shards-desc = Increases damage of Mutant Fiends by 25%.
-    Note: Garrisoned infantry needs to redeploy to recieve this upgrade!
+    Note: Garrisoned infantry needs to redeploy to receive this upgrade!
 
 lynx_rockets-name = Lynx Rockets
 lynx_rockets-desc = Provides Lynx Tanks with a secondary rocket launcher for additional firepower.
@@ -2556,19 +2537,19 @@ tunnel_repairs-name = Tunnel Repairs
 tunnel_repairs-desc = Enables Tunnel Networks to heal infantry and repair vehicles inside them.
 
 tiberium_infusion-name = Stimulant Infusion
-tiberium_infusion-desc = Increases the durability and speed of following units by 20% and 15 respectively and gives them self-healing:
+tiberium_infusion-desc = Increases the HP and speed of following units by 20% and 15 respectively and gives them self-healing:
     - Tiberium Fiend
     - Carnotaurus
     - Queen
     - Ravager
-    Note: Garrisoned infantry needs to redeploy to recieve this upgrade!
+    Note: Garrisoned infantry needs to redeploy to receive this upgrade!
 
 tiberium_gas_warheads-name = Tiberium Gas Warhead
 tiberium_gas_warheads-desc = The weapons of following units generate radiation and generate large explosion upon several hits at the same place in a short time:
     - Skirmisher (5 to ensure explosion)
     - Blighter MLRS (2 to ensure explosion)
     - Falcon (1 can ensure explosion)
-    Note: Garrisoned infantry needs to redeploy to recieve this upgrade!
+    Note: Garrisoned infantry needs to redeploy to receive this upgrade!
 
 cybernetic_leg_enhancements-name = Cybernetic Leg Enhancements
 cybernetic_leg_enhancements-desc = Increases the speed of following units by 30:
@@ -2590,7 +2571,7 @@ reclaim_and_recycle-desc = Infantry killed by Reclaimers turn into Cyborgs with 
 
 regenerative_materials-name = Regenerative Materials
 regenerative_materials-desc = Enables all C.A.B.A.L Infantry units to repair themselves, even during combat.
-    Note: Garrisoned infantry needs to redeploy to recieve this upgrade!
+    Note: Garrisoned infantry needs to redeploy to receive this upgrade!
 
 gatling_cannons-name = Gatling Cannons
 gatling_cannons-desc = Centurions fire faster as they continue firing.
@@ -2599,7 +2580,7 @@ vinifera_catalysts-name = Vinifera Catalysts
 vinifera_catalysts-desc = Increases range of Ichor Waste Turrets and Corruptors by 1 cell.
     Doubles the damage of the tib-radiation left by those assets.
 
-tiberium_conversion-name = Tiberium Conversion
+tiberium_conversion-name = Ichor Conversion
 tiberium_conversion-desc = Enables Hover Tanks to absorb Tiberium to increase their damage for the next 3 attacks by 50%.
     - If not MegaWealth: Deploy the Hover Tank to absorb nearby Tiberium.
     - If MegaWealth: Target Tiberium Extractors with Hover Tanks to gain the effect, Extractors will shutdown for a short time.
@@ -2608,7 +2589,7 @@ aerial_gliders-name = Aerial Gliders
 aerial_gliders-desc = Enables Gliders to be deployed to take flight.
     While in air they are able to attack ground targets.
 
-improved_plague_gas-name = Wasting Disease
+improved_plague_gas-name = Advanced Hazardous Atmosphere
 improved_plague_gas-desc = Enables Plague Troopers and Plague Walkers to slow down affected enemy units by 50%.
 
 disc_barrage-name = Disc Barrage

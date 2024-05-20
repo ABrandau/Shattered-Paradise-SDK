@@ -675,7 +675,7 @@ Glyder2Cannon:
 		ImpactSounds: photon1.wav
 
 BattleshipCannon:
-	Inherits: ^RifleDamage
+	Inherits: ^FullDamage
 	Inherits@2: ^Scrin_Explo
 	ReloadDelay: 25
 	Range: 5c768
@@ -698,6 +698,7 @@ BattleshipCannon:
 		ContrailEndWidth: 0
 		ContrailDelay: 0
 	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
 		Damage: 2000
 		ValidTargets: Ground, Water, Infantry, Vehicle, water
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
@@ -705,7 +706,7 @@ BattleshipCannon:
 BattleshipPlasma:
 	Inherits: ^FullDamage
 	Inherits@2: ^GreenPlasmaExplosion
-	ReloadDelay: 37
+	ReloadDelay: 40
 	Range: 5c768
 	Burst: 4
 	BurstDelays: 5
@@ -741,7 +742,8 @@ BattleshipPlasma:
 		Jammable: false ## help to save a little bit performance
 		ExplodeWhenEmpty: true
 	Warhead@1Dam: SpreadDamage
-		Damage: 2000
+		Spread: 0c512
+		Damage: 4000
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 		InvalidTargets: Air
@@ -750,7 +752,7 @@ BattleshipPlasma:
 
 Blackholeblast:
 	Inherits: ^FullDamage
-	ReloadDelay: 80
+	ReloadDelay: 100
 	Range: 5c768
 	Report: laserchaingunfire.wav
 	Projectile: ElectricBolt
@@ -762,13 +764,7 @@ Blackholeblast:
 		Distortion: 512
 		Colors: 0000AA99, 0000CCAA, 00008888
 	Warhead@1Dam: SpreadDamage
-		Damage: 6000
-		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 80
-			VehicleArmor: 50
-			DefenseArmor: 50
-			ConcreteArmor: 30
+		Damage: 10000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 	Warhead@4Eff: CreateEffect
 		Explosions: blackhole

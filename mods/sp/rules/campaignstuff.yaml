@@ -483,7 +483,7 @@ AVATAR:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^8CellVision
 	Valued:
-		Cost: 2000
+		Cost: 1600
 	Tooltip:
 		Name: avatar-name
 	Selectable:
@@ -501,19 +501,19 @@ AVATAR:
 	Voiced:
 		VoiceSet: Vehicle
 	Mobile:
-		TurnSpeed: 20
+		TurnSpeed: 32
 		Speed: 75
 		Locomotor: InfantryCrusherVehicle
 	AmbientSound@WalkAnim:
 		SoundFiles: mamothwalk0000.wav, mamothwalk0001.wav, mamothwalk0002.wav, mamothwalk0003.wav
 		Delay: 16
-		Interval: 16
+		Interval: 22
 		Volume: 0.6
 		RequiresCondition: walking
 	GrantConditionOnMovement:
 		Condition: walking
 	Health:
-		HP: 100000
+		HP: 70000
 	BodyOrientation:
 		QuantizedFacings: 8
 	AttackFrontal:
@@ -534,8 +534,11 @@ AVATAR:
 		Weapon: UnitExplodeBigger
 		Offset: 0, 0, 768
 	# Will add new effect later, better not add another searching actor from map function
+	Voiced:
+		VoiceSet: Avatar
+		Volume: 2
 	ActorStatValues:
-		Damage: 200
+		Damage: 150
 
 MUJFISH:
 	Inherits: JFISH

@@ -89,77 +89,6 @@ SentryGun:
 		Explosions: small_grey_explosion, small_grey_explosionf
 		ExplosionPalette: effect
 
-ReaperWeb:
-	ReloadDelay: 250
-	Range: 7c0
-	Report: fireweb1.aud
-	ValidTargets: Infantry
-	Projectile: BulletAS
-		Speed: 300
-		Image: web2
-		Shadow: true
-		LaunchAngle: 130
-		Palette: jascgrey
-	Warhead@emp: GrantExternalCondition
-		Range: 1c0
-		Duration: 200
-		ValidTargets: Infantry
-		Condition: WebDisable
-		ValidRelationships: Neutral, Enemy
-	Warhead@2Eff: CreateEffect
-		Explosions: spiderweb
-		ExplosionPalette: jascgrey
-
-ImprovedReaperWeb:
-	Inherits: ReaperWeb
-	Projectile: BulletAS
-		Speed: 300
-		Image: web3
-		ContrailLength: 3
-		ContrailStartColor: AAAAAA
-		ContrailEndColor: AAAAAA
-		ContrailDelay: 0
-		ContrailStartColorAlpha: 255
-		ContrailEndColorAlpha: 255
-		ContrailStartWidth: 30
-		ContrailZOffset: 3000
-	Warhead@2Eff: CreateEffect
-		Explosions: spiderweb2
-	Warhead@emp: GrantExternalCondition
-		Duration: 300
-
-ReaperScythe:
-	Inherits: ^RocketWeapon
-	Inherits@2: ^Small_Clsn
-	ReloadDelay: 90
-	Range: 7c0
-	Burst: 4
-	Report: samshot1.aud
-	SoundVolume: 1.5
-	ValidTargets: Ground, Water
-	Projectile: MissileTA
-		Blockable: false
-		TrailImage: small_smoke_trail
-		TrailSequences: idle2
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 4000
-		ValidTargets: Ground, Water
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-
-ReaperScytheAA:
-	Inherits: ReaperScythe
-	Inherits@1: ^AARocketWeaponOverride
-	ReloadDelay: 90
-	Range: 8c0
-	ValidTargets: Air
-	Projectile: MissileTA
-		RangeLimit: 15c0
-	Warhead@1Dam: SpreadDamage
-		Damage: 4000
-		NoUnintendedFriendlyFire: All
-		ValidTargets: Air
-
 ReclaimerHit:
 	Inherits: ^RifleDamage
 	ReloadDelay: 60
@@ -198,8 +127,6 @@ GLAD120mm:
 	Warhead@1Dam: SpreadDamage
 		Damage: 5000
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-		Versus:
-			Building: 75
 
 LurkerProj:
 	ReloadDelay: 100
@@ -224,14 +151,15 @@ LurkerHit:
 	Range: 10c0
 	Report: lasershotgun.wav
 	Warhead@1Dam: SpreadDamage
-		Damage: 11000
+		Damage: 15000
 		Versus:
 			Infantry: 100
 			Building: 25
-			Defense: 10
-			Heavy: 10
+			Defense: 25
+			Light: 75
+			Heavy: 25
 			Aircraft: 100
-			Concrete: 5
+			Concrete: 15
 		NoUnintendedFriendlyFire: All
 		DamageTypes: Prone70Percent, TriggerProne, CabalDeath
 	Warhead@2Eff: CreateEffect
@@ -386,6 +314,77 @@ CenturionVulcan:
 	Warhead@3EffWater: CreateEffect
 		Delay: 5
 
+ReaperWeb:
+	ReloadDelay: 250
+	Range: 7c0
+	Report: fireweb1.aud
+	ValidTargets: Infantry
+	Projectile: BulletAS
+		Speed: 300
+		Image: web2
+		Shadow: true
+		LaunchAngle: 130
+		Palette: jascgrey
+	Warhead@emp: GrantExternalCondition
+		Range: 1c0
+		Duration: 200
+		ValidTargets: Infantry
+		Condition: WebDisable
+		ValidRelationships: Neutral, Enemy
+	Warhead@2Eff: CreateEffect
+		Explosions: spiderweb
+		ExplosionPalette: jascgrey
+
+ImprovedReaperWeb:
+	Inherits: ReaperWeb
+	Projectile: BulletAS
+		Speed: 300
+		Image: web3
+		ContrailLength: 3
+		ContrailStartColor: AAAAAA
+		ContrailEndColor: AAAAAA
+		ContrailDelay: 0
+		ContrailStartColorAlpha: 255
+		ContrailEndColorAlpha: 255
+		ContrailStartWidth: 30
+		ContrailZOffset: 3000
+	Warhead@2Eff: CreateEffect
+		Explosions: spiderweb2
+	Warhead@emp: GrantExternalCondition
+		Duration: 300
+
+ReaperScythe:
+	Inherits: ^RocketWeapon
+	Inherits@2: ^Small_Clsn
+	ReloadDelay: 90
+	Range: 7c0
+	Burst: 4
+	Report: samshot1.aud
+	SoundVolume: 1.5
+	ValidTargets: Ground, Water
+	Projectile: MissileTA
+		Blockable: false
+		TrailImage: small_smoke_trail
+		TrailSequences: idle2
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 4000
+		ValidTargets: Ground, Water
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+ReaperScytheAA:
+	Inherits: ReaperScythe
+	Inherits@1: ^AARocketWeaponOverride
+	ReloadDelay: 90
+	Range: 8c0
+	ValidTargets: Air
+	Projectile: MissileTA
+		RangeLimit: 15c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+		NoUnintendedFriendlyFire: All
+		ValidTargets: Air
+
 RepairVehicleLasor:
 	ValidRelationships: Ally
 	ReloadDelay: 70
@@ -490,7 +489,7 @@ DroneHostShellSpawner:
 
 PalaLazor:
 	Inherits: ^FullDamage
-	ReloadDelay: 90
+	ReloadDelay: 80
 	Range: 7c0
 	Report: avatarlaser0000.wav, avatarlaser0001.wav, avatarlaser0002.wav
 	Projectile: LaserZap
@@ -651,9 +650,6 @@ CabJetMiniBomb:
 		Versus:
 			Infantry: 125
 			Building: 40
-			Defense: 10
-			Heavy: 10
-			Concrete: 1
 		ValidTargets: Ground, Water, Building, Infantry, Vehicle
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
@@ -688,10 +684,6 @@ BlasterProton:
 	Warhead@1Dam: SpreadDamage
 		Spread: 500
 		Damage: 6000
-		Versus:
-			Building: 75
-			Defense: 75
-			Heavy: 100
 		ValidTargets: Ground, Water, Vehicle, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
@@ -724,7 +716,7 @@ BlackCDefLazer1:
 		Duration: 15
 	Warhead@1Dam: SpreadDamage
 		Falloff: 100, 100, 50
-		Damage: 9000
+		Damage: 10000
 		Spread: 384
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 		NoUnintendedFriendlyFire: All
@@ -766,10 +758,6 @@ BlackCDefCannon:
 	Warhead@1Dam: SpreadDamage
 		Spread: 500
 		Damage: 6000
-		Versus:
-			Building: 50
-			Defense: 50
-			Heavy: 100
 		ValidTargets: Ground, Water, Vehicle, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
@@ -796,10 +784,6 @@ BlackCDefArtillery:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c768
 		Damage: 15000
-		Versus:
-			Building: 50
-			Defense: 50
-			Heavy: 100
 		ValidTargets: Ground, Water, Vehicle, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 	Warhead@2Eff: CreateEffect
