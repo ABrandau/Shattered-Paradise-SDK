@@ -347,6 +347,96 @@ UMAGON:
 	ActorStatValues:
 		Damage: 150
 
+PREDATOR:
+	Inherits: ^Tank
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RAILGUNS: ^AffectedByRailguns
+	Inherits@SELFHEAL: ^IncompleteSelfHeal
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: predator-name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.GDI
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 7
+		Description: predator-desc
+		Prerequisites: ~gaweap, ~techlevel.2, ~campaignunit
+		BuildDuration: 625
+		BuildDurationModifier: 100
+	Mobile:
+		Speed: 70
+		TurnSpeed: 20
+		Locomotor: InfantryCrusherVehicle
+	Health:
+		HP: 50000
+	Turreted:
+		TurnSpeed: 20
+		Offset: -160,0,414 ##new turret
+	Armament@PRIMARY:
+		Weapon: Titan120mm
+		Damage: 140
+		LocalOffset: 1090,0, 100
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
+		Recoil: 127
+		RecoilRecovery: 26
+		CasingWeapon: ShellCasingDebris
+		CasingSpawnLocalOffset: 1000,0, 550
+		CasingTargetOffset:  256, -1024, 0
+		PauseOnCondition: empdisable
+		RequiresCondition: !railguns
+	Armament@Railgun:
+		Weapon: TitanRailgun
+		Damage: 210
+		LocalOffset: 1090,0, 100
+		MuzzleSequence: muzzle2
+		MuzzlePalette: gensmkexploFcyan
+		Recoil: 127
+		RecoilRecovery: 26
+		PauseOnCondition: empdisable
+		RequiresCondition: railguns
+	Armament@SECONDARY:
+		Weapon: GrenadierBazooka
+		Damage: 60
+		LocalOffset: -420, 0, 650
+		LocalYaw: 0
+		MuzzleSequence: muzzle3
+		MuzzlePalette: gensmkexploj
+		ReloadingCondition: reload-ground
+		PauseOnCondition: empdisable || reload-air
+	Armament@SECONDARYSECONDARY:
+		Weapon: GrenadierBazookaAA
+		LocalOffset: -420, 0, 650
+		LocalYaw: 0
+		MuzzleSequence: muzzle3
+		MuzzlePalette: gensmkexploj
+		ReloadingCondition: reload-air
+		PauseOnCondition: empdisable || reload-ground
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	WithSpriteTurret:
+		RequiresCondition: !inside-tunnel && !railguns
+	WithSpriteTurret@2:
+		Sequence: turret2
+		RequiresCondition: !inside-tunnel && railguns
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	WithMuzzleOverlay:
+	Selectable:
+		Bounds: 1150, 1500, 0, -400
+	ExplodesAlsoTransported:
+		Weapon: UnitExplodeBig
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
+
 MUJEEP:
 	Inherits: ^CombatVehicle
 	Inherits@RENDER: ^MutRenderGreen

@@ -1636,6 +1636,20 @@ umagon-desc = Umagon was one of the GDI's "good girls", she sure was.
      - Immune to mindcontrol
      - Crush class: crushable
 
+predator-name = Predator Tank
+predator-desc =  GDI's main battle tank armed with an anti-tank cannon and missile pod.
+
+    Good vs: Vehicles
+
+    Special:
+     - Missile shoot over walls
+     - Can attack air
+     - Can crush infantry
+     - Can attack while moving
+
+    Upgrades:
+     - Railgun Barrels
+
 mujeep-name = Technical
 mujeep-desc = Infantry transport.
 
