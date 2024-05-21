@@ -102,7 +102,7 @@ namespace OpenRA.Mods.SP.Projectiles
 
 		public IProjectile Create(ProjectileArgs args)
 		{
-			var c = UsePlayerColor ? args.SourceActor.Owner.Color : Color;
+			var c = UsePlayerColor ? args.SourceActor.OwnerColor() : Color;
 			return new AreaBeamSP(this, args, c, SecondColor);
 		}
 	}
