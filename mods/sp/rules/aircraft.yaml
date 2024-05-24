@@ -1470,6 +1470,7 @@ SCRBATTLESHIP:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveWithBerserkable
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Building
 	Inherits@COMMANDO: ^CommandoIcon
+	Inherits@HYPERFLIGHT: ^AffectedByHyperFlightRotors
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SELFHEAL: ^PermanentSelfHeal
 	Inherits@SHADOW: ^AircraftShadow
@@ -1539,7 +1540,7 @@ SCRBATTLESHIP:
 	Voiced:
 		VoiceSet: Battlecruiser
 	Contrail@1:
-		RequiresCondition: airborne
+		RequiresCondition: airborne && hyperflight
 		Offset: -2200, -20, 350
 		StartColor: 0000FF60
 		StartColorAlpha: 96
@@ -1548,7 +1549,7 @@ SCRBATTLESHIP:
 		TrailLength: 15
 		StartWidth: 64
 	Contrail@2:
-		RequiresCondition: airborne
+		RequiresCondition: airborne && hyperflight
 		Offset: -2300, 80, 350
 		StartColor: AA00FF80
 		StartColorAlpha: 128
@@ -1557,7 +1558,7 @@ SCRBATTLESHIP:
 		TrailLength: 8
 		StartWidth: 128
 	Contrail@3:
-		RequiresCondition: airborne
+		RequiresCondition: airborne && hyperflight
 		Offset: -2300, -140, 350
 		StartColor: AA00FF80
 		StartColorAlpha: 128
