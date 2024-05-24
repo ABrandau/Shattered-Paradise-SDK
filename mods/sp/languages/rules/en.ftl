@@ -1143,7 +1143,7 @@ wolf-desc = Tiberium beast that uses tiberium acid to melt its prey.
      - Does not slow down on critical HP
 
     Upgrades:
-     - Stimulant Infusion
+     - Tiberium Infusion
 
 mrls-name = Blighter MLRS
 mrls-desc = Light artillery armed with unguided rockets.
@@ -1173,7 +1173,7 @@ deathclaw-desc = Melee beast from the outer redzones that brings death with its 
      - Does not slow down on critical HP
 
     Upgrades:
-     - Stimulant Infusion
+     - Tiberium Infusion
 
 hvrtruk3-name = Demo Truck
 hvrtruk3-desc = A hovering nuclear demolition truck with a oneway ticket.
@@ -1448,7 +1448,7 @@ mutqueen-desc = Flying tiberium beast dealing high amount of damage and
      - Can mutate killed Infantry
 
     Upgrades:
-     - Stimulant Infusion
+     - Tiberium Infusion
 
 falcon-name = Falcon
 falcon-desc = Fast jet that fires 4 high-exlosive rockets.
@@ -2205,7 +2205,7 @@ mutfiend-desc = Tiberium beasts trained to take out enemies with tiberium shards
 
     Upgrades:
      - Blue Shards
-     - Stimulant Infusion
+     - Tiberium Infusion
 
 cutman-name = Mutant Engineer
 cutman-desc =  Support infantry.
@@ -2536,7 +2536,7 @@ lynx_rockets-desc = Provides Lynx Tanks with a secondary rocket launcher for add
 tunnel_repairs-name = Tunnel Repairs
 tunnel_repairs-desc = Enables Tunnel Networks to heal infantry and repair vehicles inside them.
 
-tiberium_infusion-name = Stimulant Infusion
+tiberium_infusion-name = Tiberium Infusion
 tiberium_infusion-desc = Increases the HP and speed of following units by 20% and 15 respectively and gives them self-healing:
     - Tiberium Fiend
     - Carnotaurus
