@@ -1194,13 +1194,6 @@ MasterMindTeleTo:
 		ImpactActors: false
 		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
 		AirThreshold: 8c0
-	Warhead@3Blood: CreateEffect
-		ImpactActors: false
-		Explosions: dieblood6
-		Image: mastermind
-		ExplosionPalette: jascblue
-		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-		AirThreshold: 8c0
 	Warhead@4Eff: CreateEffect
 		ImpactActors: false
 		Explosions: smallacidfire
@@ -1209,27 +1202,31 @@ MasterMindTeleTo:
 		AirThreshold: 8c0
 
 MasterMindTeleFrom:
-	ValidTargets: Vehicle, Infantry, Building, Ground, Water
-	Warhead@2Eff: CreateEffect
+	Inherits: MasterMindTeleTo
+	Warhead@flyback: BackFireShrapnel
+		Weapon: MasterMindTeleportTrace
 		ImpactActors: false
-		Explosions: die1, die2
-		ImpactSounds: desintegrator0004.aud, desintegrator0005.aud, desintegrator0006.aud
-		Image: mastermind
-		ExplosionPalette: playerscrin
-		UsePlayerPalette: true
-		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
-		AirThreshold: 8c0
-	Warhead@3Blood: CreateEffect
-		ImpactActors: false
-		Explosions: dieblood6
-		Image: mastermind
-		ExplosionPalette: jascblue
-		ValidTargets: Vehicle, Building, Infantry, Ground, Water, Air
+		ValidTargets: Ground, Water, Air
 		AirThreshold: 8c0
 	Warhead@Reveal: RevealShroud
-		Duration: 50
+		Duration: 30
 		Radius: 3c0
 		ImpactActors: false
 		ValidTargets: Ground, Water, Air
 		AirThreshold: 8c0
 		RevealGeneratedShroud: true
+
+MasterMindTeleportTrace:
+	ValidTargets: Ground, Water, Air
+	Projectile: InstantHitWithFakeBullets
+		Blockable: false
+		FakeBulletNumber: 1
+		FakeBulletSpeed: 40960
+		ContrailDelay: 0
+		ContrailStartColor: AA00DD
+		ContrailStartColorAlpha: 168
+		ContrailEndColor: 0000FF
+		ContrailEndColorAlpha: 0
+		ContrailLength: 20
+		ContrailStartWidth: 220
+		ContrailZOffset: 3000
