@@ -55,6 +55,7 @@ options-starting-units =
 
 ## Armor
 label-armor-class =
+    .None = None
     .Light = Light
     .Heavy = Heavy
     .Infantry = Infantry
