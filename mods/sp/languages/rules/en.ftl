@@ -1206,6 +1206,9 @@ weasau-desc = A long forgotten creature that has emerged again.
      - Cannot be teleported by wormhole
      - Does not slow down on critical HP
 
+    Upgrades:
+     - Tiberium Infusion
+
 weasausmall-name = Small Weasaurus
 
 cabmcv-name = C.A.B.A.L. MCV
@@ -1545,6 +1548,9 @@ scrbattleship-desc = The main battleship of Scrin and the pride of their fleet.
      - Can absorb essence from killed enemies to heal
      - Can attack enemies from all directions
      - Immune to mind control
+
+    Upgrades:
+     - Hyper-Flight Rotors
 
 wasp-name = Wasp
 wasp-desc = Aerial drone armed with dual railgun cannons.
@@ -2480,7 +2486,7 @@ ap_ammunition-desc = Increases the damage of the following assets by 50%:
     Note: Garrisoned infantry needs to redeploy to receive this upgrade!
 
 nanofiber_vests-name = Nanofiber Vests
-nanofiber_vests-desc = Increases the HP of the following units by 20%:
+nanofiber_vests-desc = Increases the HP of the following units by 25%:
     - Marine
     - Phalanx
     - Disc Thrower
@@ -2495,7 +2501,7 @@ railguns-name = Railgun Barrels
 railguns-desc = Provides Titans and Mammoth Tanks with railguns increasing their damage by 50%.
 
 ceramic_plating-name = Ceramic Plating
-ceramic_plating-desc = Increases the HP of GDI Aircraft by 20%.
+ceramic_plating-desc = Increases the HP of GDI Aircraft by 25%.
 
 purifying_flame-name = Purifying Flame
 purifying_flame-desc = Increases the damage of flamethrower weapons by 50%.
@@ -2538,11 +2544,12 @@ tunnel_repairs-name = Tunnel Repairs
 tunnel_repairs-desc = Enables Tunnel Networks to heal infantry and repair vehicles inside them.
 
 tiberium_infusion-name = Tiberium Infusion
-tiberium_infusion-desc = Increases the HP and speed of following units by 20% and 15 respectively and gives them self-healing:
+tiberium_infusion-desc = Increases the HP and speed of following units by 25% and 15 respectively and gives them self-healing:
     - Tiberium Fiend
     - Carnotaurus
     - Queen
     - Ravager
+    - Weasaurus Lord
     Note: Garrisoned infantry needs to redeploy to receive this upgrade!
 
 tiberium_gas_warheads-name = Tiberium Gas Warhead
@@ -2601,6 +2608,7 @@ hyper_flight_rotors-desc = Increases the speed of the following units by 30:
     - Destroyer
     - Scrin Transport
     - Assault Carrier
+    - Battlecruiser
 
 ## Misc
 mpspawn-name2 = (multiplayer player starting point)

@@ -2335,7 +2335,7 @@ WOLF:
 	ActorStatValues:
 		Damage: 37
 	ActorStatOverride@Tibinfusion:
-		Health: 24000
+		Health: 25000
 		RequiresCondition: tibinfusion
 
 MRLS:
@@ -2469,7 +2469,7 @@ DEATHCLAW:
 	ActorStatValues:
 		Damage: 50
 	ActorStatOverride@Tibinfusion:
-		Health: 84000
+		Health: 87500
 		RequiresCondition: tibinfusion
 
 HVRTRUK3:
@@ -2560,9 +2560,9 @@ WEASAU:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Defence
 	Inherits@COMMANDO: ^CommandoIcon
-	Inherits@TIBINFUSION: ^AffectedByTiberiumInfusion
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@SELFHEAL: ^PermanentSelfHeal
+	Inherits@TIBINFUSION: ^AffectedByTiberiumInfusion
 	Inherits@VISION: ^10CellVision
 	Valued:
 		Cost: 5000
@@ -2705,6 +2705,9 @@ WEASAU:
 	-FirepowerMultiplier@ZealousBuff:
 	-ExternalCondition@ZealousBuff:
 	-WithIdleOverlayOnGround@ZealousBuff:
+	ActorStatOverride@Tibinfusion:
+		Health: 375000
+		RequiresCondition: tibinfusion
 
 WEASAUSMALL:
 	Inherits: ^TibBeast
@@ -2775,6 +2778,9 @@ WEASAUSMALL:
 		Icon: icon
 		IconPalette: chrome
 		Damage: 40
+	ActorStatOverride@Tibinfusion:
+		Health: 50000
+		RequiresCondition: tibinfusion
 
 ###########################################################
 # CABAL
