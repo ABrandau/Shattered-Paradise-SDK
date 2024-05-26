@@ -68,6 +68,10 @@ options-starting-units =
     .heavy-support = Heavy Support
     .unholy-alliance = Unholy Alliance
 
+resource-tiberium-riparius = Tiberium Riparius
+resource-tiberium-vinifera = Tiberium Vinifera
+## resource-veins = Veins
+
 ## Armor
 label-armor-class =
     .None = None
@@ -2484,6 +2488,7 @@ ap_ammunition-desc = Increases the damage of the following assets by 50%:
     - Marine
     - Wolverine
     - Amphibious APC
+    - Mammoth Mk. II
     Note: Garrisoned infantry needs to redeploy to receive this upgrade!
 
 nanofiber_vests-name = Nanofiber Vests
@@ -2517,7 +2522,6 @@ unlock_exemplar-desc = Allow deployment of Cardinals from Nod Radar.
     - Cardinals buff nearby Nod infantry with 30% firepower.
     - Deployment of 3 Cardinals cost 1000 via destructible Drill Pods.
     - Deployment can be used as soon as upgrading finishes.
-
 
 improved_stealth_generator-name = Improved Stealth Generator
 improved_stealth_generator-desc = Enables Stealth Generators to cloak themselves.
