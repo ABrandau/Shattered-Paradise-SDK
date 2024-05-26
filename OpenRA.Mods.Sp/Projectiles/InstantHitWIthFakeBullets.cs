@@ -238,7 +238,7 @@ namespace OpenRA.Mods.SP.Projectiles
 
 						// Fake bullet contains only renderable objects,
 						// it won't affect game logic & network sync so we DON'T use SharedRandom here.
-						fakeBullets[i].SourcePos = args.CurrentSource == null ? args.Source : args.CurrentSource();
+						fakeBullets[i].SourcePos = args.CurrentSource();
 						var fakeInaccOffset = WVec.FromPDF(Game.CosmeticRandom, 2) * info.FakeBulletInaccuracy.Length / 1024;
 						var vec = fakeBulletEndBasePos + fakeInaccOffset - fakeBullets[i].SourcePos;
 						var time = Math.Max(vec.Length / info.FakeBulletSpeed, 1);
