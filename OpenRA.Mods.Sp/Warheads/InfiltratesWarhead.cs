@@ -30,7 +30,7 @@ namespace OpenRA.Mods.Sp.Warheads
 		[Desc("Notification to play when a target is infiltrated.")]
 		public readonly string Notification = null;
 
-		[TranslationReference(optional: true)]
+		// [TranslationReference(optional: true)]
 		[Desc("Text notification to display when a target is infiltrated.")]
 		public readonly string TextNotification = null;
 
