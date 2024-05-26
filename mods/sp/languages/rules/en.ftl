@@ -1632,13 +1632,14 @@ mujeep-desc = Infantry transport.
      - Can attack while moving
 
 avatar-name = Avatar
-avatar-desc = Heavy Walker armed with a strong laser and enhances nearby Units.
+avatar-desc = Heavy Walker armed with a strong laser.
 
     Good vs: Ground
 
     Special:
+     - Grants nearby friendly infantry a 30% firepower bonus
      - Can crush infantry
-     - Can shoot over wall
+     - Can shoot over walls
 
 weasau3-name = Green Weasaurus
 weasau3-desc = A long forgotten creature trained by the mutants.
@@ -2162,7 +2163,7 @@ exemplar-desc = Experienced Cadre in an exosuit armed with an energy minigun.
     Good vs: Infantry, Light Vehicles
 
     Special:
-     - Grant nearby friendly infantry a 30% firepower bonus
+     - Grants nearby friendly infantry a 30% firepower bonus
      - Does not go prone after taking fire
      - Immune to Tiberium fields
      - Crush class: crushable only by Epics

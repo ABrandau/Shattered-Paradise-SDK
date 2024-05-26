@@ -483,7 +483,7 @@ AVATAR:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@VISION: ^8CellVision
 	Valued:
-		Cost: 1600
+		Cost: 2200
 	Tooltip:
 		Name: avatar-name
 	Selectable:
@@ -493,15 +493,15 @@ AVATAR:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Lightbringer
 		BuildAtProductionType: Lightbringer
-		BuildPaletteOrder: 51
+		BuildPaletteOrder: 50
 		Prerequisites: ~naweap, nahfac, ~campaignunit, ~techlevel.5
 		Description: avatar-desc
-		BuildDuration: 1125
+		BuildDuration: 1250
 		BuildDurationModifier: 100
 	Voiced:
 		VoiceSet: Vehicle
 	Mobile:
-		TurnSpeed: 32
+		TurnSpeed: 48
 		Speed: 75
 		Locomotor: InfantryCrusherVehicle
 	AmbientSound@WalkAnim:
@@ -513,7 +513,7 @@ AVATAR:
 	GrantConditionOnMovement:
 		Condition: walking
 	Health:
-		HP: 70000
+		HP: 100000
 	BodyOrientation:
 		QuantizedFacings: 8
 	AttackFrontal:
@@ -526,6 +526,22 @@ AVATAR:
 		PauseOnCondition: empdisable
 	AutoTarget:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
+	WithRangeCircle@zealous:
+		Range: 5c0
+		Type: zealousbuff
+		RenderOnGround: true
+		Color: FF7777
+		BorderWidth: 0
+		Width: 2
+	ProximityExternalCondition@zealous:
+		Condition: ZealousBuff
+		Range: 5c0
+		AffectsParent: false
+	WithDecoration@ZealousNod:
+		Image: nodicon
+		Sequence: idle
+		Palette: apred
+		ValidRelationships: Enemy, Neutral, Ally
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 	RenderSprites:
@@ -538,7 +554,7 @@ AVATAR:
 		VoiceSet: Avatar
 		Volume: 2
 	ActorStatValues:
-		Damage: 150
+		Damage: 300
 
 MUJFISH:
 	Inherits: JFISH

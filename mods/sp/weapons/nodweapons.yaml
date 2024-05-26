@@ -615,6 +615,33 @@ StealthRocketTibAA:
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexploFgreen
 
+AvatarLazer:
+	Inherits: ^FullDamage
+	ReloadDelay: 80
+	Range: 7c0
+	Report: avatarlaser0000.wav, avatarlaser0001.wav, avatarlaser0002.wav
+	Projectile: LaserZap
+		TrackTarget: false
+		Width: 192
+		ZOffset: 4000
+		Color: FF000080
+		SecondaryBeam: true
+		SecondaryBeamWidth: 30
+		SecondaryBeamZOffset: 4000
+		SecondaryBeamColor: FFEECC
+		Blockable: false
+		HitAnim: explosion
+		HitAnimSequence: lazerflare
+		HitAnimPalette: apred
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c045
+		Damage: 30000
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+		NoUnintendedFriendlyFire: All
+	Warhead@2Eff: CreateEffect
+		Explosions: dimlaserflare
+		ExplosionPalette: gensmkexplojFred
+
 HarpyClaw:
 	Inherits: ^VulcanWeapon
 	Inherits@2: ^Piffs
@@ -935,33 +962,6 @@ ScorpionLaserShrapnel:
 	Warhead@2Smu: LeaveSmudgeSP
 		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Building, Wall
-
-AvatarLazer:
-	Inherits: ^FullDamage
-	ReloadDelay: 60
-	Range: 7c0
-	Report: avatarlaser0000.wav, avatarlaser0001.wav, avatarlaser0002.wav
-	Projectile: LaserZap
-		TrackTarget: false
-		Width: 192
-		ZOffset: 4000
-		Color: FF000080
-		SecondaryBeam: true
-		SecondaryBeamWidth: 30
-		SecondaryBeamZOffset: 4000
-		SecondaryBeamColor: FFEECC
-		Blockable: false
-		HitAnim: explosion
-		HitAnimSequence: lazerflare
-		HitAnimPalette: apred
-	Warhead@1Dam: SpreadDamage
-		Spread: 0c045
-		Damage: 15000
-		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
-		NoUnintendedFriendlyFire: All
-	Warhead@2Eff: CreateEffect
-		Explosions: dimlaserflare
-		ExplosionPalette: gensmkexplojFred
 
 RageEmitter:
 	ValidTargets: Ground, Water, Infantry, Vehicle, Building, Wall
