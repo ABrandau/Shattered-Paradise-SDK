@@ -70,7 +70,7 @@ options-starting-units =
 
 resource-tiberium-riparius = Tiberium Riparius
 resource-tiberium-vinifera = Tiberium Vinifera
-## resource-veins = Veins
+resource-veins = Veins
 
 ## Armor
 label-armor-class =
