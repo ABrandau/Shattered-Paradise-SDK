@@ -293,6 +293,7 @@ SCRINREINFPAD:
 	Inherits: ^TechBuilding
 	Inherits@1: ^ScrinDeathExplo
 	Inherits@2: ^ScrinBuildingFire
+	Inherits@3: ^ConditionForEachFaction
 	Inherits@SHAPE: ^3x3Shape
 	Inherits@VISION: ^6CellVision
 	Tooltip:
@@ -316,33 +317,13 @@ SCRINREINFPAD:
 		Sequence: idle-roof
 	WithIdleOverlay@production:
 		Sequence: production-lights
-		RequiresCondition: enabled && (BuildStuffGDI || BuildStuffNOD || BuildStuffMUT || BuildStuffCAB || BuildStuffSCR)
+		RequiresCondition: enabled && (gdi || nod || mut || cab || scr)
 	Exit@1:
 		SpawnOffset: 0,-256,0
 		ExitCell: 1,2
 		ExitDelay: 5
 	Production:
 		Produces: Replicator
-	GrantConditionOnFaction@GDI:
-		Condition: BuildStuffGDI
-		Factions: gdi
-		ResetOnOwnerChange: true
-	GrantConditionOnFaction@NOD:
-		Condition: BuildStuffNOD
-		Factions: nod
-		ResetOnOwnerChange: true
-	GrantConditionOnFaction@MUT:
-		Condition: BuildStuffMUT
-		Factions: mut
-		ResetOnOwnerChange: true
-	GrantConditionOnFaction@CAB:
-		Condition: BuildStuffCAB
-		Factions: cab
-		ResetOnOwnerChange: true
-	GrantConditionOnFaction@SCR:
-		Condition: BuildStuffSCR
-		Factions: scr
-		ResetOnOwnerChange: true
 	PeriodicProducer@GDI:
 		Actors: mmch
 		Type: Replicator
@@ -350,7 +331,7 @@ SCRINREINFPAD:
 		ShowSelectionBar: true
 		ChargeColor: FF00FF
 		PauseOnCondition: empdisable
-		RequiresCondition: enabled && BuildStuffGDI
+		RequiresCondition: enabled && gdi
 	PeriodicProducer@NOD:
 		Actors: ttnk
 		Type: Replicator
@@ -358,7 +339,7 @@ SCRINREINFPAD:
 		ShowSelectionBar: true
 		ChargeColor: FF00FF
 		PauseOnCondition: empdisable
-		RequiresCondition: enabled && BuildStuffNOD
+		RequiresCondition: enabled && nod
 	PeriodicProducer@mut:
 		Actors: lynx
 		Type: Replicator
@@ -366,7 +347,7 @@ SCRINREINFPAD:
 		ShowSelectionBar: true
 		ChargeColor: FF00FF
 		PauseOnCondition: empdisable
-		RequiresCondition: enabled && BuildStuffMUT
+		RequiresCondition: enabled && mut
 	PeriodicProducer@cab:
 		Actors: reapercab
 		Type: Replicator
@@ -374,7 +355,7 @@ SCRINREINFPAD:
 		ShowSelectionBar: true
 		ChargeColor: FF00FF
 		PauseOnCondition: empdisable
-		RequiresCondition: enabled && BuildStuffCAB
+		RequiresCondition: enabled && cab
 	PeriodicProducer@scr:
 		Actors: scrmbt
 		Type: Replicator
@@ -382,7 +363,7 @@ SCRINREINFPAD:
 		ShowSelectionBar: true
 		ChargeColor: FF00FF
 		PauseOnCondition: empdisable
-		RequiresCondition: enabled && BuildStuffSCR
+		RequiresCondition: enabled && scr
 	GrantConditionOnCombatantOwner:
 		Condition: enabled
 	IsometricSelectable:

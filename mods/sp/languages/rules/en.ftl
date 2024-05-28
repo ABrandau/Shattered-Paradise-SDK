@@ -2647,6 +2647,8 @@ bluelamp-name = Blue Light Post
 yelwlamp-name = Yellow Light Post
 purplamp-name = Purple Light Post
 
+ai_paradise_portal-name = Paradise Gateway (Defeat AI before it gets worse!)
+
 ## Ency
 blossomtree-ency = Blossom trees were one of the earliest mutated spieces by Tiberium. Normal tree is mutated and develop a fleshly stalk, with a pulsating bulb periodically releasing Tiberium spores to the surrounding area. When these spores land on the ground, a new Tiberium field will begin forming.
     Blossom trees could spread Riparius Tiberium (green Tiberium) at an alarming rate, which is important for those who harvest Tiberium.

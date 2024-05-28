@@ -88,6 +88,23 @@ Player:
 		DefaultCashDropdownLocked: true
 		DefaultCash: 5000
 		DefaultCashDropdownVisible: false
+	##MCV
+	## You need to be faction player or have conyard of related faction to build MCV.
+	ProvidesPrerequisite@mcvgdi:
+		Factions: gdi
+		Prerequisite: mcvgdi
+	ProvidesPrerequisite@mcvnod:
+		Factions: nod
+		Prerequisite: mcvnod
+	ProvidesPrerequisite@mcvmut:
+		Factions: mut
+		Prerequisite: mcvmut
+	ProvidesPrerequisite@mcvcab:
+		Factions: cab
+		Prerequisite: mcvcab
+	ProvidesPrerequisite@mcvscr:
+		Factions: scr
+		Prerequisite: mcvscr
 	##AI
 	## Use "EasyAI" for basic AI logic like load and unload cargo,
 	## so we remove the builder and squad manager from Easy AI

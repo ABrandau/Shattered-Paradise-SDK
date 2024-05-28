@@ -1481,7 +1481,29 @@
 ^AImicroManagable:
 	GrantConditionOnBotOwner@AImicroManage:
 		Condition: AImicroManage
-		Bots: EasyAI, NormalAI, CheaterAI, ShatteredAI
+		Bots: EasyAI, NormalAI, CheaterAI, ShatteredAI, ParadiseAI
+
+^ConditionForEachFaction:
+	GrantConditionOnFaction@GDI:
+		Condition: gdi
+		Factions: gdi
+		ResetOnOwnerChange: true
+	GrantConditionOnFaction@NOD:
+		Condition: nod
+		Factions: nod
+		ResetOnOwnerChange: true
+	GrantConditionOnFaction@MUT:
+		Condition: mut
+		Factions: mut
+		ResetOnOwnerChange: true
+	GrantConditionOnFaction@CAB:
+		Condition: cab
+		Factions: cab
+		ResetOnOwnerChange: true
+	GrantConditionOnFaction@SCR:
+		Condition: scr
+		Factions: scr
+		ResetOnOwnerChange: true
 
 ^GenericEffects:
 	#Inherits@0: ^KillSelf #deprecated, now firestorm use very high damage to kill

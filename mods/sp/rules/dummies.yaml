@@ -58,6 +58,7 @@ oreclearer:
 
 ## Used for no base game mode
 hack.no_bases:
+	Inherits: ^ConditionForEachFaction
 	Interactable:
 	AlwaysVisible:
 	ProvidesPrerequisite@upgradename:
@@ -66,82 +67,83 @@ hack.no_bases:
 		Prerequisites: global-upgrades
 	FreeActor@1:
 		Actor: upgrade.ap_ammunition
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && gdi
 	FreeActor@2:
 		Actor: upgrade.nanofiber_vests
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && gdi
 	FreeActor@3:
 		Actor: upgrade.railguns
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && gdi
 	FreeActor@4:
 		Actor: upgrade.ceramic_plating
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && gdi
 	FreeActor@5:
 		Actor: upgrade.purifying_flame
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && nod
 	FreeActor@6:
 		Actor: upgrade.raider_passenger
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && nod
 	FreeActor@8:
 		Actor: upgrade.improved_stealth_generator
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && nod
 	FreeActor@9:
 		Actor: upgrade.tib_core_missiles
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && nod
 	FreeActor@10:
 		Actor: upgrade.laser_capacitors
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && nod
 	FreeActor@11:
 		Actor: upgrade.fortified_upg
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && mut
 	FreeActor@12:
 		Actor: upgrade.blue_shards
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && mut
 	FreeActor@13:
 		Actor: upgrade.lynx_rockets
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && mut
 	FreeActor@14:
 		Actor: upgrade.tiberium_infusion
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && mut
 	FreeActor@15:
 		Actor: upgrade.tiberium_gas_warheads
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && mut
 	FreeActor@16:
 		Actor: upgrade.cybernetic_leg_enhancements
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && cab
 	FreeActor@17:
 		Actor: upgrade.improved_reaper_nets
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && cab
 	FreeActor@18:
 		Actor: upgrade.limpet_aa_targeting
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && cab
 	FreeActor@19:
 		Actor: upgrade.reclaim_and_recycle
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && cab
 	FreeActor@20:
 		Actor: upgrade.regenerative_materials
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && cab
 	FreeActor@21:
 		Actor: upgrade.gatling_cannons
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && cab
 	FreeActor@22:
 		Actor: upgrade.vinifera_catalysts
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && scr
 	FreeActor@23:
 		Actor: upgrade.tiberium_conversion
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && scr
 	FreeActor@24:
 		Actor: upgrade.aerial_gliders
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && scr
 	FreeActor@25:
 		Actor: upgrade.improved_plague_gas
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && scr
 	FreeActor@26:
 		Actor: upgrade.disc_barrage
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && scr
 	FreeActor@27:
 		Actor: upgrade.hyper_flight_rotors
-		RequiresCondition: upgrades
+		RequiresCondition: upgrades && scr
+
 
 ## Used for flying dummy ignore terrain type while moving
 ^DUMMYAIRCRAFT:
@@ -195,6 +197,8 @@ hack.no_bases:
 	Health:
 		HP: 1
 		NotifyAppliedDamage: false
+	BodyOrientation:
+		QuantizedFacings: 1
 
 ########################################################
 # Dummy Instances
@@ -257,3 +261,26 @@ NANOBURSTDUMMY:
 		DisposedSequence: die
 		Palette: apgrey
 		IsPlayerPalette: false
+
+hack.ai_paradise_portal.spawner:
+	Inherits: ^EnableDummyDeathEffects
+	AlwaysVisible:
+	Interactable:
+	Mobile:
+		TurnSpeed: 12
+		Speed: 10
+		Locomotor: Vehicle
+		RequiresCondition: !ParadiseAI
+	GrantConditionOnBotOwner@AIParadise:
+		Condition: ParadiseAI
+		Bots: ParadiseAI
+	KillsSelf@NoAI:
+		RemoveInstead: true
+		RequiresCondition: !ParadiseAI
+	KillsSelf@AI:
+		DamageTypes: TimeOutDeath
+		RequiresCondition: ParadiseAI
+	SpawnActorOnDeath:
+		SpawnAfterDefeat: false
+		DeathType: TimeOutDeath
+		Actor: ai_paradise_portal

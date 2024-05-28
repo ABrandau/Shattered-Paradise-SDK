@@ -1625,6 +1625,7 @@ COREDEFENDER:
 	Voiced:
 		VoiceSet: CoreDefender
 		Volume: 0.75
+	Buildable:
 	-Crushable:
 	AnnounceOnSeen:
 		PingRadar: true
@@ -1753,6 +1754,7 @@ COREDEFENDER:
 		ResetOnOwnerChange: true
 	FireArmamentPower:
 		Cursor: emp
+		AllowMultiple: true
 		Icons:
 			1: coreicon
 		ChargeInterval: 2500
@@ -1849,7 +1851,7 @@ DEFD:
 		BuildDurationModifier: 100
 		BuildLimit: 1
 	ProductionCostMultiplier@AI: ## AI cheat
-		Multiplier: 20
+		Multiplier: 2
 		Prerequisites: AIOnly
 	Building:
 		Footprint: xx_ xx_ xxx
@@ -1933,7 +1935,7 @@ HMECTEST:
 		BuildDuration: 7000
 		BuildDurationModifier: 100
 	ProductionCostMultiplier@AI: ## AI cheat
-		Multiplier: 20
+		Multiplier: 2
 		Prerequisites: AIOnly
 	ProductionTimeMultiplier@2_FACTORY:
 		Multiplier: 80
@@ -2063,6 +2065,7 @@ HMECTEST:
 		ArmamentNames: MKIIISuperWeapon
 	FireArmamentPower:
 		Cursor: emp
+		AllowMultiple: true
 		Icons:
 			1: mammothicon
 		ChargeInterval: 2500
@@ -2236,7 +2239,7 @@ SCRINCOUNCIL:
 		BuildDuration: 7000
 		BuildDurationModifier: 100
 	ProductionCostMultiplier@AI: ## AI cheat
-		Multiplier: 20
+		Multiplier: 2
 		Prerequisites: AIOnly
 	Selectable:
 		Bounds: 2709,3135, 0,-1280
@@ -2315,6 +2318,7 @@ SCRINCOUNCIL:
 		ResetOnOwnerChange: true
 	FireArmamentPower:
 		Cursor: emp
+		AllowMultiple: true
 		Icons:
 			1: councilicon
 		IconPalette: chromescrin
@@ -2429,3 +2433,207 @@ COUNCILOR:
 		RequiresCondition: !reloading
 		Image: councilor
 		Palette: gensmkexploFpurple
+
+## AI's portal
+ai_paradise_portal: 
+	Inherits: ^SpriteActor
+	Inherits: ^ConditionForEachFaction
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	HiddenUnderFog:
+		Type: CenterPosition
+	Interactable:
+		Bounds: 1024, 2048, 0, 0
+	Tooltip:
+		Name: ai_paradise_portal-name
+	## Production
+	Production:
+		Produces: aiprotal
+	GrantConditionAfterDelay@EarlyGame:
+		ShowSelectionBar: false
+		Condition: earlygame-end
+		Delay: 2500
+	GrantConditionAfterDelay@LateGame:
+		ShowSelectionBar: false
+		Condition: lategame
+		Delay: 6000
+	PeriodicProducer@1mcv:
+		Actors: mcv
+		Type: aiprotal
+		ChargeDuration: 1200
+		RequiresCondition: gdi && !earlygame-end
+	PeriodicProducer@2mcv:
+		Actors: nodmcv
+		Type: aiprotal
+		ChargeDuration: 1200
+		RequiresCondition: nod && !earlygame-end
+	PeriodicProducer@3mcv:
+		Actors: mutmcv
+		Type: aiprotal
+		ChargeDuration: 1200
+		RequiresCondition: mut && !earlygame-end
+	PeriodicProducer@4mcv:
+		Actors: cabmcv
+		Type: aiprotal
+		ChargeDuration: 1200
+		RequiresCondition: cab && !earlygame-end
+	PeriodicProducer@5mcv:
+		Actors: drache, shark
+		Type: aiprotal
+		ChargeDuration: 1200
+		RequiresCondition: scr && !earlygame-end
+	## Epic units
+	PeriodicProducer@1epic:
+		Actors: hmec
+		Type: aiprotal
+		ChargeDuration: 3200
+		RequiresCondition: gdi
+	PeriodicProducer@2epic:
+		Actors: scorpion
+		Type: aiprotal
+		ChargeDuration: 3200
+		RequiresCondition: nod
+	PeriodicProducer@3epic:
+		Actors: weasau
+		Type: aiprotal
+		ChargeDuration: 3200
+		RequiresCondition: mut
+	PeriodicProducer@4epic:
+		Actors: bcoredef
+		Type: aiprotal
+		ChargeDuration: 3200
+		RequiresCondition: cab
+	PeriodicProducer@5epic:
+		Actors: scrbattleship, shark
+		Type: aiprotal
+		ChargeDuration: 3200
+		RequiresCondition: scr
+	## Boss and other units force player to attack
+	PeriodicProducer@1boss:
+		Actors: hmectest
+		Type: aiprotal
+		ChargeDuration: 10000
+		RequiresCondition: gdi && lategame
+	PeriodicProducer@2boss:
+		Actors: icbm
+		Type: aiprotal
+		ChargeDuration: 3000
+		RequiresCondition: nod && lategame
+	PeriodicProducer@3boss:
+		Actors: weasau
+		Type: aiprotal
+		ChargeDuration: 3000
+		RequiresCondition: mut && lategame
+	PeriodicProducer@4boss:
+		Actors: coredefender
+		Type: aiprotal
+		ChargeDuration: 12000
+		RequiresCondition: cab && lategame
+	PeriodicProducer@5boss:
+		Actors: scrincouncil, shark
+		Type: aiprotal
+		ChargeDuration: 10000
+		RequiresCondition: scr && lategame
+	Exit@1:
+		SpawnOffset: 0,0,0
+		ExitCell: 1,1
+		ExitDelay: 2
+	Exit@2:
+		SpawnOffset: 0,0,0
+		ExitCell: -1,-1
+		ExitDelay: 2
+	Exit@3:
+		SpawnOffset: 0,0,0
+		ExitCell: 0,-1
+		ExitDelay: 2
+	Exit@4:
+		SpawnOffset: 0,0,0
+		ExitCell: 0,1
+		ExitDelay: 2
+	Exit@5:
+		SpawnOffset: 0,0,0
+		ExitCell: 1,-1
+		ExitDelay: 2
+	Exit@6:
+		SpawnOffset: 0,0,0
+		ExitCell: -1,0
+		ExitDelay: 2
+	Exit@7:
+		SpawnOffset: 0,0,0
+		ExitCell: 1, 0
+		ExitDelay: 2
+	Exit@8:
+		SpawnOffset: 0,0,0
+		ExitCell: -1, 1
+		ExitDelay: 2
+	RenderSprites:
+		Image: ai_bluewarp
+		Palette: effect
+	WithSpriteBody:
+		Sequence: dot
+	WithIdleOverlay@cab1:
+		Sequence: overlay
+		Palette: gensmkexplojFblue
+		RequiresCondition: cab
+	WithIdleOverlay@cab2:
+		Sequence: idle
+		Palette: gensmkexplojFblue
+		RequiresCondition: cab
+	WithProductionDoorOverlaySP@cab:
+		Sequence: door
+		Palette: gensmkexplojFblue
+		ZOffsetModifierWhenProduce: 1024
+		RequiresCondition: cab
+	WithIdleOverlay@scr1:
+		Sequence: overlay
+		Palette: gensmkexploFpurple
+		RequiresCondition: scr
+	WithIdleOverlay@scr2:
+		Sequence: idle
+		Palette: gensmkexploFpurple
+		RequiresCondition: scr
+	WithProductionDoorOverlaySP@scr:
+		Sequence: door
+		Palette: gensmkexploFpurple
+		ZOffsetModifierWhenProduce: 1024
+		RequiresCondition: scr
+	WithIdleOverlay@nod1:
+		Sequence: overlay
+		Palette: gensmkexplojFred
+		RequiresCondition: nod
+	WithIdleOverlay@nod2:
+		Sequence: idle
+		Palette: gensmkexplojFred
+		RequiresCondition: nod
+	WithProductionDoorOverlaySP@nod:
+		Sequence: door
+		Palette: gensmkexplojFred
+		ZOffsetModifierWhenProduce: 1024
+		RequiresCondition: nod
+	WithIdleOverlay@gdi1:
+		Sequence: overlay
+		Palette: gensmkexploFcyan
+		RequiresCondition: gdi
+	WithIdleOverlay@gdi2:
+		Sequence: idle
+		Palette: gensmkexploFcyan
+		RequiresCondition: gdi
+	WithProductionDoorOverlaySP@gdi:
+		Sequence: door
+		Palette: gensmkexploFcyan
+		ZOffsetModifierWhenProduce: 1024
+		RequiresCondition: gdi
+	WithIdleOverlay@mut1:
+		Sequence: overlay
+		Palette: gensmkexplogreen
+		RequiresCondition: mut
+	WithIdleOverlay@mut2:
+		Sequence: idle
+		Palette: gensmkexplogreen
+		RequiresCondition: mut
+	WithProductionDoorOverlaySP@mut:
+		Sequence: door
+		Palette: gensmkexplogreen
+		ZOffsetModifierWhenProduce: 1024
+		RequiresCondition: mut

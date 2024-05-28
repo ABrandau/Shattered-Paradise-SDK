@@ -14,6 +14,9 @@ Player:
 	ModularBot@ShatteredAI:
 		Name: Shattered AI
 		Type: ShatteredAI
+	ModularBot@ParadiseAI:
+		Name: Paradise AI
+		Type: ParadiseAI
 	#################################
 	## Condition Defination
 	#################################
@@ -22,7 +25,7 @@ Player:
 		Bots: EasyAI
 	GrantConditionOnBotOwner@AIBase:
 		Condition: AIBase
-		Bots: CheaterAI, NormalAI, ShatteredAI
+		Bots: CheaterAI, NormalAI, ShatteredAI, ParadiseAI
 	GrantConditionOnBotOwner@AINormal:
 		Condition: AINormal
 		Bots: NormalAI
@@ -32,6 +35,9 @@ Player:
 	GrantConditionOnBotOwner@AIShattered:
 		Condition: AIShattered
 		Bots: ShatteredAI
+	GrantConditionOnBotOwner@AIParadise:
+		Condition: AIParadise
+		Bots: ParadiseAI
 
 	#################################
 	## Adjust bot's techtree: 
@@ -40,11 +46,8 @@ Player:
 	#################################
 
 	ProvidesPrerequisite@AISpecialProduce:
-		RequiresCondition: AICheater || AIShattered
+		RequiresCondition: AICheater || AIShattered || AIParadise
 		Prerequisite: AIOnly
-	ProvidesPrerequisite@AICampaignUnit:
-		Prerequisite: AIShattered
-		RequiresCondition: AIBase
 
 	#################################
 	## BotModule and BotLogic
@@ -61,11 +64,11 @@ Player:
 
 
 	CashCheater@AIShattered:
-		RequiresCondition: AIShattered
-		CashAmountForEachHarvester: 2
-		MaxCashAmountForHarvester: 8
-		CashAmountForEachRefinery: 1
-		MaxCashAmountForRefinery: 2
+		RequiresCondition: AIShattered || AIParadise
+		CashAmountForEachHarvester: 3
+		MaxCashAmountForHarvester: 12
+		CashAmountForEachRefinery: 2
+		MaxCashAmountForRefinery: 4
 		CashAmountForEachBaseBuilder: 5
 		MaxCashAmountForBaseBuilder: 25
 		CashCheatInterval: 10
@@ -249,7 +252,7 @@ Player:
 			cabobelisk: 1
 			blackdefd: 1
 			nahfac: 1
-			defd: 100
+			defd: 1
 		BuildingDelays:
 			napuls: 6000
 			scrshield: 6000
@@ -276,7 +279,6 @@ Player:
 			scrtech: 6000
 			cabtech: 6000
 			gadept: 6000
-			defd: 100000
 	BuildingRepairBotModule:
 		RequiresCondition: AIBase
 	SquadManagerBotModule@AIBase:
@@ -414,8 +416,8 @@ Player:
 			sgen: 1
 			icbm: 2
 			m_emp: 2
-			hmectest: 100
-			scrincouncil: 100
+			hmectest: 1
+			scrincouncil: 1
 			trnsport: 1
 			trnsport.nod: 1
 			trnsport.mut: 1
@@ -488,8 +490,6 @@ Player:
 			mutqueen: 5
 			minelayer: 2
 			scrscorpion: 2
-			hmectest: 1
-			scrincouncil: 1
 			sapc: 2
 			scrtrans: 1
 			### AI only unit
@@ -497,6 +497,8 @@ Player:
 			sgen: 1
 			icbm: 3
 			m_emp: 1
+			scrincouncil: 1
+			hmectest: 1
 			## nukecarryall_bot: 1 but not restrict here
 			## sonicarryall_bot: 1 but not restrict here
 			## apcarryall_bot: 1 but not restrict here
@@ -514,19 +516,6 @@ Player:
 			sapc: 10000
 			scrglyder2: 10000
 			scorpion: 20000
-			### AI only unit only appears at late game
-			hmectest: 99000
-			scrincouncil: 99000
-			ghost: 90000
-			umagon: 90000
-			avatar: 90000
-			weasau3: 90000
-			lpst: 90000
-			sgen: 90000
-			mujeep: 85000
-			mujfish: 90000
-			icbm: 92000
-			m_emp: 90000
 		QueueLimits:
 			Air.GDI: 2
 			Air.Nod: 2
@@ -548,7 +537,7 @@ Player:
 		AddtionalConstructionYardInterval: 6000
 		ScanForNewMcvInterval: 31
 	McvManagerSPBotModule@AIShattered:
-		RequiresCondition: AIShattered
+		RequiresCondition: AIShattered || AIParadise
 		McvTypes: mcv, cabmcv, nodmcv, mutmcv, drache
 		ConstructionYardTypes: gacnst, mutyard, cabyard, nodyard, drached
 		McvFactoryTypes: gaweap, naweap, nahfac, mtar, muweap, cabweap, scrair
@@ -853,7 +842,7 @@ Player:
 		RepairableActorTypes: well, machineshop, scrinreinfpad, gacnst, mutyard, cabyard, nodyard, drached, gaweap, naweap, muweap, cabweap, scrweap, garadr, naradr, cabradr, muradr, scrradr, gatech, natech, muhall, scrtech, cabtech, gaplug, natmpl, mutsw1, cabsw1, scrsw1, napuls, scrshield, nastlh, gtdrop, scradvpowr, namisl, mutsw2, cabobelisk, blackdefd, nahfac, defd
 		RepairableHutActorTypes: cabhut
 	PowerDownBotModule:
-		RequiresCondition: AIShattered || AICheater
+		RequiresCondition: AICheater || AIShattered || AIParadise
 	LoadCargoBotModule:
 		RequiresCondition: AIBase || AIEasy
 		TransportTypesAndLoadRequirement:

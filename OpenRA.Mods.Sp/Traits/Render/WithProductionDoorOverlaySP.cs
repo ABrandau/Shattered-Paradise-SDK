@@ -26,6 +26,13 @@ namespace OpenRA.Mods.SP.Traits.Render
 		[SequenceReference]
 		public readonly string Sequence = "build-door";
 
+		[PaletteReference(nameof(IsPlayerPalette))]
+		[Desc("The palette used for `Sequence`.")]
+		public readonly string Palette = null;
+
+		[Desc("Custom death animation palette is a player palette BaseName")]
+		public readonly bool IsPlayerPalette = false;
+
 		public readonly int ZOffsetModifierWhenProduce = 50;
 
 		public IEnumerable<IActorPreview> RenderPreviewSprites(ActorPreviewInitializer init, string image, int facings, PaletteReference p)
@@ -59,8 +66,12 @@ namespace OpenRA.Mods.SP.Traits.Render
 			door.PlayFetchDirection(RenderSprites.NormalizeSequence(door, self.GetDamageState(), info.Sequence),
 				() => desiredFrame - door.CurrentFrame);
 
-			renderSprites.Add(new AnimationWithOffset(door, null, () => IsTraitDisabled,
-				p => RenderUtils.ZOffsetFromCenter(self, p, 1) + (exitingActor != null && validExitingActor(exitingActor) ? Info.ZOffsetModifierWhenProduce : 1)));
+			var anim = new AnimationWithOffset(door, null, () => IsTraitDisabled,
+				p => RenderUtils.ZOffsetFromCenter(self, p, 1) + (exitingActor != null && validExitingActor(exitingActor) ? Info.ZOffsetModifierWhenProduce : 1));
+			if (string.IsNullOrEmpty(info.Palette))
+				renderSprites.Add(anim);
+			else
+				renderSprites.Add(anim, info.Palette, info.IsPlayerPalette);
 		}
 
 		void ITick.Tick(Actor self)
