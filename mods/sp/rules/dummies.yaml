@@ -61,7 +61,7 @@ hack.no_bases:
 	Inherits: ^ConditionForEachFaction
 	Interactable:
 	AlwaysVisible:
-	ProvidesPrerequisite@upgradename:
+	ProvidesPrerequisite@nobasename:
 	GrantConditionOnPrerequisite@upgrades:
 		Condition: upgrades
 		Prerequisites: global-upgrades
@@ -271,15 +271,20 @@ hack.ai_paradise_portal.spawner:
 		Speed: 10
 		Locomotor: Vehicle
 		RequiresCondition: !ParadiseAI
+	GrantConditionOnPrerequisite@nobasename:
+		Condition: nobase
+		Prerequisites: hack.no_bases
 	GrantConditionOnBotOwner@AIParadise:
 		Condition: ParadiseAI
 		Bots: ParadiseAI
 	KillsSelf@NoAI:
 		RemoveInstead: true
-		RequiresCondition: !ParadiseAI
+		Delay: 1
+		RequiresCondition: nobase || !ParadiseAI
 	KillsSelf@AI:
 		DamageTypes: TimeOutDeath
-		RequiresCondition: ParadiseAI
+		Delay: 1
+		RequiresCondition: ParadiseAI && !nobase
 	SpawnActorOnDeath:
 		SpawnAfterDefeat: false
 		DeathType: TimeOutDeath
