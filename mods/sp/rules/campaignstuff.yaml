@@ -2455,11 +2455,12 @@ ai_paradise_portal:
 	GrantConditionAfterDelay@EarlyGame:
 		ShowSelectionBar: false
 		Condition: earlygame-end
-		Delay: 2500
+		Delay: 2650
 	GrantConditionAfterDelay@LateGame:
 		ShowSelectionBar: false
 		Condition: lategame
 		Delay: 6000
+	## Early game MCV and defensive units
 	PeriodicProducer@1mcv:
 		Actors: mcv
 		Type: aiprotal
@@ -2485,57 +2486,82 @@ ai_paradise_portal:
 		Type: aiprotal
 		ChargeDuration: 1200
 		RequiresCondition: scr && !earlygame-end
+	PeriodicProducer@1early:
+		Actors: mmch
+		Type: aiprotal
+		ChargeDuration: 650
+		RequiresCondition: gdi && !earlygame-end
+	PeriodicProducer@2early:
+		Actors: ttnk
+		Type: aiprotal
+		ChargeDuration: 650
+		RequiresCondition: nod && !earlygame-end
+	PeriodicProducer@3early:
+		Actors: lynx
+		Type: aiprotal
+		ChargeDuration: 650
+		RequiresCondition: mut && !earlygame-end
+	PeriodicProducer@4early:
+		Actors: centurion
+		Type: aiprotal
+		ChargeDuration: 650
+		RequiresCondition: cab && !earlygame-end
+	PeriodicProducer@5early:
+		Actors: corruptor
+		Type: aiprotal
+		ChargeDuration: 650
+		RequiresCondition: scr && !earlygame-end
 	## Epic units
 	PeriodicProducer@1epic:
 		Actors: hmec
 		Type: aiprotal
-		ChargeDuration: 3200
-		RequiresCondition: gdi
+		ChargeDuration: 4000
+		RequiresCondition: gdi && earlygame-end
 	PeriodicProducer@2epic:
 		Actors: scorpion
 		Type: aiprotal
-		ChargeDuration: 3200
-		RequiresCondition: nod
+		ChargeDuration: 4000
+		RequiresCondition: nod && earlygame-end
 	PeriodicProducer@3epic:
 		Actors: weasau
 		Type: aiprotal
-		ChargeDuration: 3200
-		RequiresCondition: mut
+		ChargeDuration: 4000
+		RequiresCondition: mut && earlygame-end
 	PeriodicProducer@4epic:
 		Actors: bcoredef
 		Type: aiprotal
-		ChargeDuration: 3200
-		RequiresCondition: cab
+		ChargeDuration: 4000
+		RequiresCondition: cab && earlygame-end
 	PeriodicProducer@5epic:
 		Actors: scrbattleship, shark
 		Type: aiprotal
-		ChargeDuration: 3200
-		RequiresCondition: scr
+		ChargeDuration: 4500
+		RequiresCondition: scr && earlygame-end
 	## Boss and other units force player to attack
 	PeriodicProducer@1boss:
 		Actors: hmectest
 		Type: aiprotal
-		ChargeDuration: 10000
+		ChargeDuration: 12000
 		RequiresCondition: gdi && lategame
 	PeriodicProducer@2boss:
 		Actors: icbm
 		Type: aiprotal
-		ChargeDuration: 3000
+		ChargeDuration: 4000
 		RequiresCondition: nod && lategame
 	PeriodicProducer@3boss:
 		Actors: weasau
 		Type: aiprotal
-		ChargeDuration: 3000
+		ChargeDuration: 4000
 		RequiresCondition: mut && lategame
 	PeriodicProducer@4boss:
 		Actors: coredefender
 		Type: aiprotal
-		ChargeDuration: 12000
+		ChargeDuration: 14000
 		RequiresCondition: cab && lategame
 	PeriodicProducer@5boss:
 		Actors: scrincouncil, shark
 		Type: aiprotal
-		ChargeDuration: 10000
+		ChargeDuration: 12000
 		RequiresCondition: scr && lategame
 	Exit@1:
 		SpawnOffset: 0,0,0
