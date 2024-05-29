@@ -29,6 +29,8 @@ label-economy-stats-harv-header = Harv.
 label-economy-stats-well-header = Tib.Well
 label-upgrade-stats-player-header = Upgrades
 label-combat-stats-buildings-lost-header = B.Lost
+label-colon = :
+label-cash-note = $ 
 
 ## credits.yaml
 button-tab-container-engine-as = Attacque Supérior
