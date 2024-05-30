@@ -1968,6 +1968,7 @@ COLOSSI:
 	Inherits: ^ScrinSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveWithBerserkable
 	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Infantry.Shared, Infantry.Scrin
 		BuildPaletteOrder: 35
@@ -1988,7 +1989,7 @@ COLOSSI:
 	Mobile:
 		Locomotor: HeavyInfantry
 		ImmovableCondition: !undeployed
-		RequireForceMoveCondition: !undeployed
+		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
 	-DamagedByTintedCells@Colossus:
@@ -2048,9 +2049,23 @@ COLOSSI:
 		RequiresCondition: deployed && !WebDisable
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
-		RequiresCondition: deployed
+		RequiresCondition: !AImicroManage && deployed
 	ActorStatValues:
 		Damage: 200
+	## AI rules: make Colossus get close and use its deploy ability
+	GrantConditionAfterDelay@AIclose:
+		ShowSelectionBar: false
+		Condition: no-close
+		Delay: 300
+	RangeMultiplier@AI:
+		Modifier: 31
+		RequiresCondition: AImicroManage && !no-close
+	IssueOrderToBot@AI:
+		RequiresCondition: (!deployed && !no-close) || (deployed && no-close)
+		OrderName: GrantConditionOnDeploy
+		OrderChance: 100
+		OrderInterval: 55
+		OrderTrigger: Attack
 
 MASTERMIND:
 	Inherits: ^ScrinSoldier

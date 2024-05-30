@@ -7,33 +7,6 @@
 ### 1. will use a diffirent set of logic compared to orignal units used in orignal game
 ### 2. are pre-loaded transprot units with unload logic.
 
-COLOSSI_CHRONO:
-	Inherits: COLOSSI
-	Inherits@AImicroManagable: ^AImicroManagable
-	-Buildable:
-	Selectable:
-		Class: colossi
-	Mobile:
-		RequireForceMoveCondition: !AImicroManage && !undeployed
-	RangeMultiplier@AI:
-		Modifier: 31
-		RequiresCondition: AImicroManage
-	IssueOrderToBot@AI:
-		RequiresCondition: !deployed
-		OrderName: GrantConditionOnDeploy
-		OrderChance: 100
-		OrderInterval: 55
-		OrderTrigger: Attack
-	RenderSprites:
-		Image: colossi
-	RejectsOrders@deployment:
-		Reject: AttackMove, AssaultMove
-		RequiresCondition: !AImicroManage && deployed
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chromescrin
-		TooltipActor: colossi
-
 APC_BOT:
 	Inherits: APC
 	Selectable:
