@@ -523,6 +523,7 @@ gtdrop-desc = Staging area for drop pod assault.
      - Provides access to Helldiver Drop support
      - Produces the Mammoth Mk. II
      - Requires power to operate
+     - Reveals itself to enemy when not Cloaked!!!
 
 nodyard-name = Nod Construction Yard
 mutyard-name = Mutant Construction Yard
@@ -540,6 +541,7 @@ namisl-desc = Provides access to Nod Chemical Missiles.
     Special:
      - Provides access to the Chemical Missile
      - Requires power to operate
+     - Reveals itself to enemy when not Cloaked!!!
 
 murax-name = Mutant Armory
 murax-desc = Arms Infantry.
@@ -553,6 +555,7 @@ mutsw2-desc = With this structure Mutant commanders are able to summon veinhole 
     Special:
      - Provides access to Veinhole Monsters
      - Requires power to operate
+     - Reveals itself to enemy when not Cloaked!!!
 
 drached-name = Scrin Host Station
 
@@ -573,6 +576,7 @@ scradvpowr-desc = Teleports Infantry and Vehicles to a selected area.
      - Requires power to operate
      - Ally units won't be harmed no matter the destination.
      - Enemies will be put into deadly cells in teleport cells.
+     - Reveals itself to enemy when not Cloaked!!!
 
 cabpowr-name = Firestorm Power Plant
 cabpowr-desc = Provides more power than the standard powerplant
@@ -589,7 +593,7 @@ cabobelisk-desc = C.A.B.A.L.'s Support Superweapon.
     Special:
      - Provides access to Nanomachine Swarms
      - Requires power to operate
-
+     - Reveals itself to enemy when not Cloaked!!!
 
 ## Support
 gapowrup-name = Power Turbine
@@ -762,6 +766,7 @@ gaplug-desc = Communication facility for the Ion Cannon Array.
     Special:
      - Provides access to the Ion Cannon Array
      - Requires power to operate
+     - Reveals itself to enemy when not Cloaked!!!
 
 nastlh-name = Stealth Generator
 nastlh-desc = Support structure that cloaks friendly units and buildings.
@@ -780,6 +785,7 @@ natmpl-desc = The religious center of the Brotherhood of Nod.
     Special:
      - Provides access to the Apocalypse Missile
      - Requires power to operate
+     - Reveals itself to enemy when not Cloaked!!!
 
 muventi-name = Tunnel Network
 muventi-desc = Allows mutants to quickly transport their units across the battlefield.
@@ -787,6 +793,7 @@ muventi-desc = Allows mutants to quickly transport their units across the battle
     Special:
      - Transports units between tunnels (except Epics and Demotrucks)
      - Cannot be repaired by engineers
+     - Reveals itself to enemy when not Cloaked!!!
 
     Upgrades:
      - Tunnel Repairs
@@ -808,6 +815,7 @@ mutsw1-desc = Generates powerful Ion Storms.
     Special:
      - Provides access to the Ion Storm
      - Requires power to operate
+     - Reveals itself to enemy when not Cloaked!!!
 
 scrextractor-name = Shield Generator
 scrextractor-desc = Scrin support structure shielding their troops.
@@ -824,6 +832,7 @@ scrsw1-desc = Allows the Scrin to track a meteor shower.
     Special:
      - Provides access to the Wrath of the Creator
      - Requires power to operate
+     - Reveals itself to enemy when not Cloaked!!!
 
 cabeye-name = Eye of C.A.B.A.L.
 cabeye-desc = High tech detection system.
@@ -839,6 +848,7 @@ cabsw1-desc = Energy cannon based off Scrin technology.
     Special:
      - Provides access to the Iron Savior
      - Requires power to operate
+     - Reveals itself to enemy when not Cloaked!!!
 
 mumine-name = Mine
 
@@ -1726,7 +1736,8 @@ coredefender-desc = C.A.B.A.L.'s final creation armed with crazy weapon.
 
     Special:
      - Needs preparing before rising.
-     - Selfrepair
+     - Reveals itself to enemy before rising!!!
+     - Selfrepair after rising.
      - Can shoot over walls
      - Can crush vehicle
      - Immune to mindcontrol
