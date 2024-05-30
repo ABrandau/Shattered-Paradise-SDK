@@ -1757,7 +1757,7 @@ COREDEFENDER:
 		AllowMultiple: true
 		Icons:
 			1: coreicon
-		ChargeInterval: 2500
+		ChargeInterval: 5000
 		ArmamentName: HeadSuperWeapon
 		Names:
 			1: superweapon-coredef-name
@@ -2068,7 +2068,7 @@ HMECTEST:
 		AllowMultiple: true
 		Icons:
 			1: mammothicon
-		ChargeInterval: 2500
+		ChargeInterval: 5000
 		ArmamentName: MKIIISuperWeapon
 		Names:
 			1: superweapon-mk3misl-name
@@ -2322,7 +2322,7 @@ SCRINCOUNCIL:
 		Icons:
 			1: councilicon
 		IconPalette: chromescrin
-		ChargeInterval: 2500
+		ChargeInterval: 5000
 		ArmamentName: super
 		Names:
 			1: superweapon-tearreal-name
@@ -2452,6 +2452,12 @@ ai_paradise_portal:
 	## Production
 	Production:
 		Produces: aiprotal
+	GrantConditionOnPrerequisite@techtree-vehicle:
+		Condition: allow-vehicle
+		Prerequisites: techlevel.2
+	GrantConditionOnPrerequisite@techtree-epic:
+		Condition: allow-epic
+		Prerequisites: techlevel.6
 	GrantConditionAfterDelay@EarlyGame:
 		ShowSelectionBar: false
 		Condition: earlygame-end
@@ -2490,79 +2496,79 @@ ai_paradise_portal:
 		Actors: mmch
 		Type: aiprotal
 		ChargeDuration: 650
-		RequiresCondition: gdi && !earlygame-end
+		RequiresCondition: gdi && (!earlygame-end || !allow-vehicle)
 	PeriodicProducer@2early:
 		Actors: ttnk
 		Type: aiprotal
 		ChargeDuration: 650
-		RequiresCondition: nod && !earlygame-end
+		RequiresCondition: nod && (!earlygame-end || !allow-vehicle)
 	PeriodicProducer@3early:
 		Actors: lynx
 		Type: aiprotal
 		ChargeDuration: 650
-		RequiresCondition: mut && !earlygame-end
+		RequiresCondition: mut && (!earlygame-end || !allow-vehicle)
 	PeriodicProducer@4early:
 		Actors: centurion
 		Type: aiprotal
 		ChargeDuration: 650
-		RequiresCondition: cab && !earlygame-end
+		RequiresCondition: cab && (!earlygame-end || !allow-vehicle)
 	PeriodicProducer@5early:
 		Actors: corruptor
 		Type: aiprotal
 		ChargeDuration: 650
-		RequiresCondition: scr && !earlygame-end
+		RequiresCondition: scr && (!earlygame-end || !allow-vehicle)
 	## Epic units
 	PeriodicProducer@1epic:
 		Actors: hmec
 		Type: aiprotal
 		ChargeDuration: 4000
-		RequiresCondition: gdi && earlygame-end
+		RequiresCondition: gdi && earlygame-end && allow-vehicle 
 	PeriodicProducer@2epic:
 		Actors: scorpion
 		Type: aiprotal
 		ChargeDuration: 4000
-		RequiresCondition: nod && earlygame-end
+		RequiresCondition: nod && earlygame-end && allow-vehicle
 	PeriodicProducer@3epic:
 		Actors: weasau
 		Type: aiprotal
 		ChargeDuration: 4000
-		RequiresCondition: mut && earlygame-end
+		RequiresCondition: mut && earlygame-end && allow-vehicle
 	PeriodicProducer@4epic:
 		Actors: bcoredef
 		Type: aiprotal
 		ChargeDuration: 4000
-		RequiresCondition: cab && earlygame-end
+		RequiresCondition: cab && earlygame-end && allow-vehicle
 	PeriodicProducer@5epic:
 		Actors: scrbattleship, shark
 		Type: aiprotal
 		ChargeDuration: 4500
-		RequiresCondition: scr && earlygame-end
+		RequiresCondition: scr && earlygame-end && allow-vehicle
 	## Boss and other units force player to attack
 	PeriodicProducer@1boss:
 		Actors: hmectest
 		Type: aiprotal
 		ChargeDuration: 12000
-		RequiresCondition: gdi && lategame
+		RequiresCondition: gdi && lategame && allow-epic
 	PeriodicProducer@2boss:
 		Actors: icbm
 		Type: aiprotal
 		ChargeDuration: 4000
-		RequiresCondition: nod && lategame
+		RequiresCondition: nod && lategame && allow-epic
 	PeriodicProducer@3boss:
 		Actors: weasau
 		Type: aiprotal
 		ChargeDuration: 4000
-		RequiresCondition: mut && lategame
+		RequiresCondition: mut && lategame && allow-epic
 	PeriodicProducer@4boss:
 		Actors: coredefender
 		Type: aiprotal
 		ChargeDuration: 14000
-		RequiresCondition: cab && lategame
+		RequiresCondition: cab && lategame && allow-epic
 	PeriodicProducer@5boss:
 		Actors: scrincouncil, shark
 		Type: aiprotal
 		ChargeDuration: 12000
-		RequiresCondition: scr && lategame
+		RequiresCondition: scr && lategame && allow-epic
 	Exit@1:
 		SpawnOffset: 0,0,0
 		ExitCell: 1,1
