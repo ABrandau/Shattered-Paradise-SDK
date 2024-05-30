@@ -2517,57 +2517,57 @@ ai_paradise_portal:
 		Type: aiprotal
 		ChargeDuration: 650
 		RequiresCondition: scr && (!earlygame-end || !allow-vehicle)
+	## T3 tough units
+	PeriodicProducer@1t3:
+		Actors: g4tnk
+		Type: aiprotal
+		ChargeDuration: 1300
+		RequiresCondition: gdi && earlygame-end && allow-vehicle && !lategame
+	PeriodicProducer@2t3:
+		Actors: avatar
+		Type: aiprotal
+		ChargeDuration: 1300
+		RequiresCondition: nod && earlygame-end && allow-vehicle && !lategame
+	PeriodicProducer@3t3:
+		Actors: weasau3
+		Type: aiprotal
+		ChargeDuration: 1300
+		RequiresCondition: mut && earlygame-end && allow-vehicle && !lategame
+	PeriodicProducer@4t3:
+		Actors: paladin
+		Type: aiprotal
+		ChargeDuration: 1300
+		RequiresCondition: cab && earlygame-end && allow-vehicle && !lategame
+	PeriodicProducer@5t3:
+		Actors: tripod
+		Type: aiprotal
+		ChargeDuration: 1300
+		RequiresCondition: scr && earlygame-end && allow-vehicle && !lategame
 	## Epic units
 	PeriodicProducer@1epic:
 		Actors: hmec
 		Type: aiprotal
 		ChargeDuration: 4000
-		RequiresCondition: gdi && earlygame-end && allow-vehicle 
+		RequiresCondition: gdi && lategame && allow-epic
 	PeriodicProducer@2epic:
 		Actors: scorpion
 		Type: aiprotal
 		ChargeDuration: 4000
-		RequiresCondition: nod && earlygame-end && allow-vehicle
+		RequiresCondition: nod && lategame && allow-epic
 	PeriodicProducer@3epic:
 		Actors: weasau
 		Type: aiprotal
 		ChargeDuration: 4000
-		RequiresCondition: mut && earlygame-end && allow-vehicle
+		RequiresCondition: mut && lategame && allow-epic
 	PeriodicProducer@4epic:
 		Actors: bcoredef
 		Type: aiprotal
 		ChargeDuration: 4000
-		RequiresCondition: cab && earlygame-end && allow-vehicle
-	PeriodicProducer@5epic:
-		Actors: scrbattleship, shark
-		Type: aiprotal
-		ChargeDuration: 4500
-		RequiresCondition: scr && earlygame-end && allow-vehicle
-	## Boss and other units force player to attack
-	PeriodicProducer@1boss:
-		Actors: hmectest
-		Type: aiprotal
-		ChargeDuration: 12000
-		RequiresCondition: gdi && lategame && allow-epic
-	PeriodicProducer@2boss:
-		Actors: icbm
-		Type: aiprotal
-		ChargeDuration: 4000
-		RequiresCondition: nod && lategame && allow-epic
-	PeriodicProducer@3boss:
-		Actors: weasau
-		Type: aiprotal
-		ChargeDuration: 4000
-		RequiresCondition: mut && lategame && allow-epic
-	PeriodicProducer@4boss:
-		Actors: coredefender
-		Type: aiprotal
-		ChargeDuration: 14000
 		RequiresCondition: cab && lategame && allow-epic
-	PeriodicProducer@5boss:
-		Actors: scrincouncil, shark
+	PeriodicProducer@5epic:
+		Actors: scrbattleship, mastermind
 		Type: aiprotal
-		ChargeDuration: 12000
+		ChargeDuration: 5000
 		RequiresCondition: scr && lategame && allow-epic
 	Exit@1:
 		SpawnOffset: 0,0,0
