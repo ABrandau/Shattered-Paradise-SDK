@@ -1154,7 +1154,7 @@ wolf-desc = Tiberium beast that uses tiberium acid to melt its prey.
      - Can attack enemies ahead while moving
      - Can mutate killed Infantry
      - E.M.P. Immune
-     - Wild mind: Mind only controllable by MasterMind
+     - Wild mind: Mind only controllable by Mastermind
      - Does not slow down on critical HP
 
     Upgrades:
@@ -1184,7 +1184,7 @@ deathclaw-desc = Melee beast from the outer redzones that brings death with its 
      - Heals on Tiberium fields
      - E.M.P. Immune
      - Slows enemy units with it's attack
-     - Wild mind: Mind only controllable by MasterMind
+     - Wild mind: Mind only controllable by Mastermind
      - Does not slow down on critical HP
 
     Upgrades:
@@ -1662,7 +1662,7 @@ weasau3-desc = A long forgotten creature trained by the mutants.
 
     Special:
      - Selfhealing up to 100%
-     - Wild mind: Mind only controllable by MasterMind
+     - Wild mind: Mind only controllable by Mastermind
      - Can shoot over walls
      - Can crush Infantry 
      - Heals on Tiberium 
@@ -2002,7 +2002,7 @@ jfish-desc  = Hovering amphibious lifeform attacks with electrical tentacles.
      - Can't hover when Attack.
      - Attack with EMP : Disable ground machines for a short time
          - For example: Buildings, Defences, Vehicles and Cyborgs
-     - Wild mind: Mind only controllable by MasterMind
+     - Wild mind: Mind only controllable by Mastermind
      - Does not slow down on critical HP
 
 minivein-name = Baby Veinhole
@@ -2209,7 +2209,7 @@ marauder-desc = Wasteland soldiers armed with shotguns.
 
     Special:
      - Heals on Tiberium fields
-     - Can deploy to increase health and attackrange
+     - Can deploy to increase health and attack range
      - Crush class: crushable
 
     Upgrades:
@@ -2224,7 +2224,7 @@ mutfiend-desc = Tiberium beasts trained to take out enemies with tiberium shards
      - Heals on Tiberium fields
      - Can attack Air
      - Crush class: crushable
-     - Wild mind: Mind only controllable by MasterMind
+     - Wild mind: Mind only controllable by Mastermind
 
     Upgrades:
      - Blue Shards
@@ -2547,7 +2547,7 @@ laser_capacitors-name = Laser Capacitors
 laser_capacitors-desc = Provides Tick Tanks with a Laser Cannon that deals full damage against Infantry and hits targets instantly.
 
 fortified_upg-name = Fortified Barricades
-fortified_upg-desc = Depoloyed Marauders become uncrushable by anything.
+fortified_upg-desc = Deployed Marauders become uncrushable by anything.
 
 blue_shards-name = Blue Shards
 blue_shards-desc = Increases damage of Mutant Fiends by 25%.
