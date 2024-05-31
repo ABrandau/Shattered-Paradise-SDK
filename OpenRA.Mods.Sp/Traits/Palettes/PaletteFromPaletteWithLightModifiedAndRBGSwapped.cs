@@ -58,7 +58,7 @@ namespace OpenRA.Mods.SP.Traits
 
 		public PaletteFromPaletteWithLightModifiedAndRBGSwapped(PaletteFromPaletteWithLightModifiedAndRBGSwappedInfo info) { this.info = info; }
 
-		public void LoadPalettes(WorldRenderer wr)
+		void ILoadsPalettes.LoadPalettes(WorldRenderer wr)
 		{
 			var lightcolor = new float3(info.RedTint, info.GreenTint, info.BlueTint);
 			var basePalette = wr.Palette(info.BasePalette).Palette;

@@ -94,7 +94,7 @@ namespace OpenRA.Mods.SP.Traits
 			}
 		}
 
-		public void LoadPalettes(WorldRenderer wr)
+		void ILoadsPalettes.LoadPalettes(WorldRenderer wr)
 		{
 			if (info.Tileset != null && !string.Equals(info.Tileset, world.Map.Tileset, StringComparison.InvariantCultureIgnoreCase))
 				return;
