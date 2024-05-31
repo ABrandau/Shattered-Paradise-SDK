@@ -335,7 +335,7 @@ gasilo-name = Silo
 gasilo-desc = Stores excess Tiberium.
 
     Special:
-     - Stores 3000$
+     - Stores $3000
      - Power loss does not affect storage capacity
 
 dcarryall-name = Carryall
@@ -388,35 +388,35 @@ gdiref-name = GDI Refinery
 gdiref-desc = Processes raw Tiberium into useable resources.
 
     Special:
-     - Stores 2000$
+     - Stores $2000
      - Can be rotated
 
 nodref-name = Nod Refinery
 nodref-desc = Processes raw Tiberium into useable resources.
 
     Special:
-     - Stores 2000$
+     - Stores $2000
      - Can be rotated
 
 muproc-name = Mutant Refinery
 muproc-desc = Processes raw Tiberium into useable resources.
 
     Special:
-     - Stores 2000$
+     - Stores $2000
      - Can be rotated
 
 scrproc-name = Scrin Refinery
 scrproc-desc = Processes raw Tiberium into useable resources.
 
     Special:
-     - Stores 4000$
+     - Stores $4000
      - Can be rotated
 
 cabref-name = C.A.B.A.L Refinery
 cabref-desc = Processes raw Tiberium into useable resources.
 
     Special:
-     - Stores 2000$
+     - Stores $2000
      - Can be rotated
 
 gaweap-name = GDI War Factory
@@ -1037,7 +1037,7 @@ sapc-desc = Troop transport that can move underground.
      - Can move underground
      - Can transport up to 5 infantry units
      - Can crush infantry
-     - Cannot move or burrow back for 3 seconds after resufacing
+     - Cannot move or burrow back for 3 seconds after resurfacing
 
 subtnk-name = Devil's Tongue
 subtnk-desc = Subterranean flame tank able to move underground.
@@ -1047,7 +1047,7 @@ subtnk-desc = Subterranean flame tank able to move underground.
     Special:
      - Can move underground
      - Can crush infantry
-     - Cannot move or burrow back for 3 seconds after resufacing
+     - Cannot move or burrow back for 3 seconds after resurfacing
 
     Upgrades:
      - Purifying Flame
