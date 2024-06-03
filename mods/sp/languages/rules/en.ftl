@@ -2619,7 +2619,7 @@ improved_plague_gas-desc = Enables Plague Troopers and Plague Walkers to slow do
 disc_barrage-name = Disc Barrage
 disc_barrage-desc = Changes the weapon of the Destroyer to fire a burst of 4 smaller projectiles effectively doubling its damage output.
 
-hyper_flight_rotors-name = Hyper-Flight Rotors
+hyper_flight_rotors-name = Hyper-Flight Engines
 hyper_flight_rotors-desc = Increases the speed of the following units by 30:
     - Destroyer
     - Scrin Transport
