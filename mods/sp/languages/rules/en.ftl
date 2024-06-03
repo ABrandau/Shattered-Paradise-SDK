@@ -722,7 +722,7 @@ cabrail-desc = Anti-Air base defense.
      - Requires power to operate
 
 scrneedler-name = Ichor Waste Turret
-scrneedler-desc = Base defense that atacks with tiberium based chemicals.
+scrneedler-desc = Base defense that attacks with tiberium based chemicals.
 
     Good vs Ground targets
 
