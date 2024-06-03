@@ -889,11 +889,11 @@ DRILLPOD:
 		Weapon: UnitExplodeSmall
 		InvalidDeathTypes: TimeOutDeath
 	WithDeathAnimation@HACK: ## HACK: there is 1 tick delay before true explode weapon
-		DeathSequence: die-1frame
+		DeathSequence: die-1frame ## "die-1frame" use the frame after "open"
 		FallbackSequence: die-1frame
 		UseDeathTypeSuffix: false
 	KillsSelf@TimedLife:
-		Delay: 27
+		Delay: 29 ## ticks = "make" + "open"
 		DamageTypes: TimeOutDeath
 	ExplodesAlsoTransported@TimeOutDeath:
 		Weapon: DrillpodDig
@@ -901,7 +901,7 @@ DRILLPOD:
 	SpawnSmokeParticleOnDeath@TimeOutDeath:
 		DeathTypes: TimeOutDeath
 		Amount: 1
-		Duration: 22 ## StartSequences
+		Duration: 46 ## ticks = "unload_close"
 		Speed: 0
 		TurnRate: 0
 		Image: drillpod
