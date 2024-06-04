@@ -2281,28 +2281,35 @@ drillpod:
 		Filename: drillpod.shp
 	idle:
 		Filename: null.shp
+	die-1frame:
+		Filename: drillpoda.shp
+		Start: 30
 	make:
-		Length: 40
-		Tick: 20
+		Filename: drillpoda.shp
+		Length: 28
 	open:
-		Start: 40
-		Length: 7
+		Filename: drillpoda.shp
+		Start: 29
+		Length: 1
+		Tick: 40
 	unload_close:
 		Combine:
-			0:
-				Filename: drillpod.shp
-				Start: 47
-				Length: 8
-			1:
-				Filename: drillpodre.shp
-				Start: 0
-				Length: 14
-		Length: 22
-		ZOffset: -512
-	die-1frame:
-		Start: 39
-	gone:
-		Filename: drillpodre.shp
-		Start: 14
+			1: 
+				Filename: drillpoda.shp
+				Length: 6
+				Start: 30
+			2: 
+				Filename: drillpodb.shp
+				Frames: 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
+				Length: 30
+			3: 
+				Filename: drillpodb.shp
+				Length: 10
+				Start: 2
 		Length: *
-		Tick: 20
+		ZOffset: -512
+		Tick: 40
+	gone:
+		Filename: drillpodb.shp
+		Start: 12
+		Length: 24

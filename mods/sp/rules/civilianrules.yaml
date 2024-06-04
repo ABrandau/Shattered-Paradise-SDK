@@ -908,6 +908,7 @@ FOUNTAIN:
 		Footprint: xx xx
 		Dimensions: 2, 2
 	RenderSprites:
+		Image: fountain2
 		Palette: unittemblue
 	WithIdleOverlay:
 		Sequence: water
@@ -2046,6 +2047,139 @@ WATERTOWER:
 	IsometricSelectable:
 		DecorationHeight: 96
 
+###################################################
+# BUILDING SETS
+###################################################
+
+MGBUILDING01:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^2x2Shape
+	Tooltip:
+		Name: mgbuilding-name
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	Armor:
+		Type: Building
+	RenderSprites:
+		Palette: player
+	IsometricSelectable:
+		DecorationHeight: 96
+
+MGBUILDING02:
+	Inherits: MGBUILDING01
+
+MGBUILDING03:
+	Inherits: MGBUILDING01
+
+MGBUILDING03:
+	Inherits: MGBUILDING01
+	IsometricSelectable:
+		DecorationHeight: 128
+
+MGBUILDING04:
+	Inherits: MGBUILDING01
+	Inherits@SHAPE: ^3x2Shape
+ 	Building:
+		Footprint: xxx xxx
+		Dimensions: 3, 2
+	IsometricSelectable:
+		DecorationHeight: 98
+
+MGBUILDING05:
+	Inherits: MGBUILDING01
+	Inherits@SHAPE: ^3x2Shape
+ 	Building:
+		Footprint: xxx xxx
+		Dimensions: 3, 2
+	IsometricSelectable:
+		DecorationHeight: 164
+
+MGBUILDING06:
+	Inherits: MGBUILDING01
+	Inherits@SHAPE: ^3x2Shape
+ 	Building:
+		Footprint: xxx xxx
+		Dimensions: 3, 2
+	IsometricSelectable:
+		DecorationHeight: 156
+
+MGBUILDING07:
+	Inherits: MGBUILDING01
+	Inherits@shape: ^3x3Shape
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3, 3
+	IsometricSelectable:
+		DecorationHeight: 156
+
+MGBUILDING08:
+	Inherits: MGBUILDING01
+	Inherits@shape: ^2x3Shape
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2, 3
+	IsometricSelectable:
+		DecorationHeight: 132
+
+MGBUILDING09:
+	Inherits: MGBUILDING01
+	Inherits@shape: ^2x3Shape
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2, 3
+	IsometricSelectable:
+		DecorationHeight: 172
+
+MGBUILDING10:
+	Inherits: MGBUILDING01
+	Inherits@shape: ^2x3Shape
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2, 3
+	IsometricSelectable:
+		DecorationHeight: 172
+
+CEGYPT01:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^3x2Shape
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 3, 2
+	IsometricSelectable:
+		DecorationHeight: 64
+
+CEGYPT02:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^2x3Shape
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 2, 3
+	IsometricSelectable:
+		DecorationHeight: 64
+
+CEGYPT03:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^3x2Shape
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 3, 2
+	IsometricSelectable:
+		DecorationHeight: 64
+
+CEGYPT04:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^2x3Shape
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 2, 3
+	IsometricSelectable:
+		DecorationHeight: 64
+
+###################################################
+# OLD BASE
+###################################################
+
 ^OldBase:
 	Inherits: ^CivBuilding
 	Inherits@SHAPE: ^2x2Shape
@@ -2156,6 +2290,21 @@ SIGNALTOWER:
 		HP: 30000
 	IsometricSelectable:
 		DecorationHeight: 180
+
+AMMOCRATES2:
+	Inherits@1: ^FakeTurretedCivBuilding
+	Inherits@2: ^1x2Shape
+	Building:
+		Footprint: xx
+		Dimensions: 1,2
+	Tooltip:
+		Name: ammocrat-name
+	Health:
+		HP: 15000
+	Armor:
+		Type: Building
+	RenderSprites:
+		Palette: unittem
 
 CONTAINER:
 	Inherits: ^CivBuilding
@@ -2290,7 +2439,9 @@ TENT1:
 	Health:
 		HP: 10000
 	RenderSprites:
-		Palette: unittemgreen
+		Palette: unittem
+	Crushable:
+		CrushClasses: infantry
 	ExplodesAlsoTransported:
 		Weapon: BuildingSmokeExplode
 	-ExplodesAlsoTransported@BuildingFireBigSpawn:
@@ -2414,7 +2565,7 @@ CIVDOCK04:
 	Inherits: CIVDOCK01
 
 ###################################################
-# NAVAL CRAP
+# NAVAL
 ###################################################
 
 CARGOSHIP01:
