@@ -1938,6 +1938,7 @@ city35-name = Apartment Complex
 carpub-name = Pub
 apartment-name = Apartment
 watertower-name = Water Tower
+mgbuilding-name = Building
 gaoldcc1-name = Old Construction Yard
 gaoldcc2-name = Old Temple
 gaoldcc3-name = Old Weapons Factory
