@@ -2174,7 +2174,7 @@ nconf-desc = Nod's Special Forces armed with firefly laser rifles and a personal
      - Crush class: crushable
 
 exemplar-name = Cardinal
-exemplar-desc = Experienced Cadre in an exosuit armed with an energy minigun.
+exemplar-desc = Experienced Cadre armed with an energy minigun.
 
     Good vs: Infantry, Light Vehicles
 
