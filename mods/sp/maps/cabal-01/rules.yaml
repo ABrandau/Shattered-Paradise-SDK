@@ -178,6 +178,11 @@ CABYARD:
 		MaxHeightDelta: 3
 		Range: 10c0
 		Type: CenterPosition
+	GrantConditionOnCombatantOwner@PlayerWontKill:
+		Condition: CombatantOwner
+	DamageMultiplier@PlayerWontKill:
+		Modifier: 2
+		RequiresCondition: !CombatantOwner
 	TooltipDescription@mission:
 		Description: capture-mission-desc
 		ValidRelationships: Neutral, Enemy
