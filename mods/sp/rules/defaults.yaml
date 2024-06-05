@@ -584,13 +584,6 @@
 	ExternalCondition@CHAOS:
 		Condition: chaos
 
-^LowHealthSpeedPenalty:
-	SpeedMultiplier@CRITICAL:
-		Modifier: 75
-		RequiresCondition: critical
-	GrantConditionOnDamageState@CRITICAL:
-		Condition: critical
-		ValidDamageStates: Critical
 
 ^ScrinEssence:
 	ExplodesAlsoTransported@EssenceDeath:
@@ -765,6 +758,26 @@
 		BlinkInterval: 15
 		RequiresCondition: MachineShopHeal && !FullHealth
 
+^Unkillable:
+	DamageMultiplier@Unkillable:
+		Modifier: 0
+
+^HeavyDamagedEffect:
+	GrantConditionOnDamageState@HeavyDamaged:
+		Condition: HeavyDamaged
+		ValidDamageStates: Critical, Heavy
+
+^CriticalDamagedEffect:
+	GrantConditionOnDamageState@CriticalDamaged:
+		Condition: CriticalDamaged
+		ValidDamageStates: Critical
+
+^LowHealthSpeedPenalty:
+	Inherits: ^CriticalDamagedEffect
+	SpeedMultiplier@CRITICAL:
+		Modifier: 75
+		RequiresCondition: CriticalDamaged
+
 ^VeinholePoisonVehicle:
 	ChangesHealth@veinholedrain:
 		PercentageStep: 0
@@ -785,6 +798,7 @@
 		Condition: veinholedrain
 
 ^BugPoison:
+	Inherits: ^CriticalDamagedEffect
 	WithIdleOverlay@BugPoison:
 		Sequence: cloud
 		IsPlayerPalette: true
@@ -804,9 +818,6 @@
 		Condition: BugPoison
 	ExternalCondition@BugSlowPoison:
 		Condition: BugSlowPoison
-	GrantConditionOnDamageState@Critical:
-		Condition: CriticalDamaged
-		ValidDamageStates: Critical
 
 ^ToxinTrooperDebuff:
 	SpeedMultiplier@ToxinTrooperDebuff:
@@ -954,19 +965,10 @@
 		Type: Shield
 		RequiresCondition: shields-up
 
-^Unkillable:
-	DamageMultiplier@Unkillable:
-		Modifier: 0
-
-^HeavyDamagedEffect:
-	GrantConditionOnDamageState@HeavyDamaged:
-		Condition: HeavyDamaged
-		ValidDamageStates: Critical, Heavy
-
 ^SpawnSmoke:
-	Inherits: ^HeavyDamagedEffect
+	Inherits: ^CriticalDamagedEffect
 	FloatingSpriteEmitter@spawnsmoke:
-		RequiresCondition: HeavyDamaged
+		RequiresCondition: CriticalDamaged
 		Sequences: idle
 		SpawnFrequency: 6, 12
 		Speed: 6
@@ -1527,7 +1529,7 @@
 	Cloak@CLOAKGENERATOR:
 		CloakedCondition: cloaking-self
 	FloatingSpriteEmitter@spawnsmoke:
-		RequiresCondition: HeavyDamaged && !cloaking-self
+		RequiresCondition: CriticalDamaged && !cloaking-self
 	SpawnSparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self
 	WithIdleOverlay@SpawnFire:
@@ -1591,7 +1593,7 @@
 	Cloak@CLOAKGENERATOR:
 		CloakedCondition: cloaking-self
 	FloatingSpriteEmitter@spawnsmoke:
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
+		RequiresCondition: CriticalDamaged && !cloaking-self && !inside-tunnel
 	SpawnSparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
 
@@ -1607,7 +1609,7 @@
 	Cloak@CLOAKGENERATOR:
 		CloakedCondition: cloaking-self
 	FloatingSpriteEmitter@spawnsmoke:
-		RequiresCondition: HeavyDamaged && !cloaking-self
+		RequiresCondition: CriticalDamaged && !cloaking-self
 	SpawnSparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self
 
@@ -2398,7 +2400,7 @@
 	Mobile:
 		PauseOnCondition: empdisable || carrylock
 	FloatingSpriteEmitter@spawnsmoke:
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
+		RequiresCondition: CriticalDamaged && !cloaking-self && !inside-tunnel
 	SpawnSparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel
 
@@ -2525,7 +2527,7 @@
 		TargetTypes: NoAutoTarget
 		RequiresCondition: submerged
 	FloatingSpriteEmitter@spawnsmoke:
-		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !submerged
+		RequiresCondition: CriticalDamaged && !cloaking-self && !inside-tunnel && !submerged
 	SpawnSparks:
 		RequiresCondition: HeavyDamaged && !cloaking-self && !inside-tunnel && !submerged
 	AnnounceOnSeen@subterranean:
@@ -2767,6 +2769,7 @@
 		TargetTypes: Air, OrganicVehicle, NoRepair
 	-Repairable:
 	-GrantConditionOnDamageState@HeavyDamaged:
+	-GrantConditionOnDamageState@CriticalDamaged:
 	-SpawnSparks:
 	-FloatingSpriteEmitter@spawnsmoke:
 	-ExplodesAlsoTransported@Shrapnel:
@@ -2831,6 +2834,7 @@
 	Cloak@CLOAKGENERATOR:
 		-CloakedCondition:
 	-GrantConditionOnDamageState@HeavyDamaged:
+	-GrantConditionOnDamageState@CriticalDamaged:
 	-SpawnSparks:
 	-FloatingSpriteEmitter@spawnsmoke:
 	-ExplodesAlsoTransported@EssenceDeath:
@@ -3574,7 +3578,7 @@
 	FloatingSpriteEmitter@spawnsmoke:
 		Image: scrsmoke
 		Palette: jascblue
-		RequiresCondition: HeavyDamaged && !cloaking-self
+		RequiresCondition: CriticalDamaged && !cloaking-self
 	Building:
 		BuildSounds: scrinplacebuilding.wav
 

@@ -268,7 +268,7 @@ DSHP.HIGH:
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 	FloatingSpriteEmitter@spawnsmoke:
-		RequiresCondition: HeavyDamaged
+		RequiresCondition: CriticalDamaged
 	SpawnSparks:
 		RequiresCondition: HeavyDamaged
 
@@ -582,7 +582,7 @@ CERBERUS:
 	-Cloak@CLOAKGENERATOR:
 	-ExternalCondition@CLOAKGENERATOR:
 	FloatingSpriteEmitter@spawnsmoke:
-		RequiresCondition: HeavyDamaged
+		RequiresCondition: CriticalDamaged
 	SpawnSparks:
 		RequiresCondition: HeavyDamaged
 	SpawnHuskEffectOnDeath:
@@ -814,6 +814,7 @@ MUTQUEEN:
 	Cloak@CLOAKGENERATOR:
 		-CloakedCondition:
 	-GrantConditionOnDamageState@HeavyDamaged:
+	-GrantConditionOnDamageState@CriticalDamaged:
 	-SpawnSparks:
 	-FloatingSpriteEmitter@spawnsmoke:
 	-ExplodesAlsoTransported@Shrapnel:
