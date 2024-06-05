@@ -1210,6 +1210,8 @@ NATMPL:
 		RequiredForShortGame: false
 	-InstantlyRepairable:
 	-RevealOnFire:
+	ProvidesPrerequisite@HasTunnel: ## For AI Perf.
+		Prerequisite: HasTunnel
 	Armament@AIAimOnly:
 		RequiresCondition: AImicroManage && !Building-Buildup && !StopAndDeploy
 		Weapon: MutTunnelAIAimingDummyWeapon
@@ -1296,8 +1298,6 @@ MUVENTI:
 		ChargeInterval: 3000
 		CameraRange: 0
 		DisplayTimerRelationships: Ally, Neutral, Enemy
-	ProvidesPrerequisite@HasTunnel: ## For AI Perf.
-		Prerequisite: HasTunnel
 
 MUVENT:
 	Inherits: ^MutantTunnelBased
