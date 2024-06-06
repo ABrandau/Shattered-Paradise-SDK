@@ -115,7 +115,7 @@ Player:
 		AdditionalMinimumRefineryCount: 0 ## We don't need this
 		InititalMinimumRefineryCount: 0 ## We don't need this
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
-		DefenseTypes: gavulc, cabpit, mubunkr, nalasr, scrneedler, muflak, mucannon, gacsam, nasam, cabrail, scrtractor, cabblast, garock, gasonc, naobel, scrdrone, scrextractor, napuls, scrshield, gafire, blackdefd, gadept, scrdepot, muvent
+		DefenseTypes: gavulc, cabpit, mubunkr, nalasr, scrneedler, muflak, mucannon, gacsam, nasam, cabrail, scrtractor, cabblast, garock, gasonc, naobel, scrdrone, scrextractor, gafire, blackdefd, gadept, scrdepot, muvent
 		RefineryTypes: gdiref, gdiref2, gdiref3, gdiref4, nodref, nodref2, nodref3, nodref4, scrproc, scrproc2, scrproc3, scrproc4, cabproc, cabproc2, cabproc3, cabproc4, muproc, muproc2, muproc3, muproc4
 		PowerTypes: gapowr, napowr, naapwr, cabpowr, mupowr, scrpowr
 		BarracksTypes: gapile, nahand, mutrax, cabrax, scrrax
@@ -159,8 +159,6 @@ Player:
 			muair: 4
 			scrair: 2
 			cabair: 2
-			napuls: 1
-			scrshield: 1
 			nastlh: 2
 			gafire: 2
 			blackdefd: 1
@@ -237,8 +235,6 @@ Player:
 			muair: 10
 			scrair: 10
 			cabair: 10
-			napuls: 1
-			scrshield: 1
 			gaplug: 1
 			natmpl: 1
 			mutsw1: 1
@@ -255,8 +251,6 @@ Player:
 			nahfac: 1
 			defd: 1
 		BuildingDelays:
-			napuls: 6000
-			scrshield: 6000
 			gaplug: 30000
 			natmpl: 30000
 			mutsw1: 30000
@@ -305,7 +299,7 @@ Player:
 		DozerTypes: lpst, sgen, icbm
 		MaxDozerSendingRadius: 14
 		AirUnitsTypes: jumpjetair, jjcommair, orca, orcab, apache, scrin, cerberus, mutheli, mutqueen, wetp, stormrider, scrglyder1, scrdestroyer, scrcarrier, stormriderspawn, repairwyvern, cabdronejet, repairdrone, scrbattleship, wasp, basilisk, sonicarryall_bot, apcarryall_bot
-		ProtectionTypes: nodmcv, mutmcv, cabmcv, drache, mcv, harv, harv.nod, harv.mut, cabharv, scrharv, gacnst, gadept, scrdepot, gasilo, napuls, scrshield, gate_a, mutgate_a, scrgate_a, scrgate_b, gapowr, gapile, gdiref, gaweap, garadr, gahpad, gatech, gtdrop, nodyard, napowr, nahand, nodref, naweap, naradr, naapwr, nahpad, natech, namisl, mutyard, mupowr, murax, muproc, muweap, muradr, muair, muhall, mutsw2, drached, scrpowr, scrrax, scrproc, scrproc2, scrproc3, scrproc4, scrweap, scrradr, scrair, scrtech, scradvpowr, cabyard, cabpowr, cabclaw, cabproc, cabweap, cabradr, cabair, cabtech, cabobelisk, gavulc, garock, gasonc, gacsam, nalasr, naobel, nasam, mubunkr, mucannon, muflak, cabpit, cabblast, cabrail, scrneedler, scrdrone, scrtractor, gafire, gaplug, nastlh, natmpl, muventi, mutsw1, scrextractor, scrsw1, cabeye, cabsw1, blackdefd, weed, bloodderrick, colorpicker, mubunkr, defd, icbm, king
+		ProtectionTypes: nodmcv, mutmcv, cabmcv, drache, mcv, harv, harv.nod, harv.mut, cabharv, scrharv, gacnst, gadept, scrdepot, gasilo, gate_a, mutgate_a, scrgate_a, scrgate_b, gapowr, gapile, gdiref, gaweap, garadr, gahpad, gatech, gtdrop, nodyard, napowr, nahand, nodref, naweap, naradr, naapwr, nahpad, natech, namisl, mutyard, mupowr, murax, muproc, muweap, muradr, muair, muhall, mutsw2, drached, scrpowr, scrrax, scrproc, scrproc2, scrproc3, scrproc4, scrweap, scrradr, scrair, scrtech, scradvpowr, cabyard, cabpowr, cabclaw, cabproc, cabweap, cabradr, cabair, cabtech, cabobelisk, gavulc, garock, gasonc, gacsam, nalasr, naobel, nasam, mubunkr, mucannon, muflak, cabpit, cabblast, cabrail, scrneedler, scrdrone, scrtractor, gafire, gaplug, nastlh, natmpl, muventi, mutsw1, scrextractor, scrsw1, cabeye, cabsw1, blackdefd, weed, bloodderrick, colorpicker, mubunkr, defd, icbm, king
 	UnitBuilderBotModule@AIAll:
 		RequiresCondition: AIEasy || AIBase
 		UnitQueues: Infantry.Shared, Infantry.GDI, Infantry.Nod, Infantry.Mutant, Infantry.CABAL, Infantry.Scrin, Vehicle.Shared, Vehicle.GDI, Vehicle.MammothMkII, Vehicle.Nod, Vehicle.Lightbringer, Vehicle.Mutant, Vehicle.CABAL, Vehicle.Scrin, Air.Shared, Air.GDI, Air.Nod, Air.Mutant, Air.CABAL, Air.Scrin, Upgrade.Shared, Upgrade.GDI, Upgrade.Nod, Upgrade.Mutant, Upgrade.CABAL, Upgrade.Scrin
@@ -840,7 +834,7 @@ Player:
 		RequiresCondition: AIBase || AIEasy
 		EngineerActorTypes: engineer, cutman, swarmling, shapeshifter
 		CapturableActorTypes: well, neutralpowerplant, neutralradar, cahosp, neutralsonictur, caarmr, machineshop, scrinreinfpad, ntpyra.koth, mtar, gacnst, mutyard, cabyard, nodyard, drached
-		RepairableActorTypes: well, machineshop, scrinreinfpad, gacnst, mutyard, cabyard, nodyard, drached, gaweap, naweap, muweap, cabweap, scrweap, garadr, naradr, cabradr, muradr, scrradr, gatech, natech, muhall, scrtech, cabtech, gaplug, natmpl, mutsw1, cabsw1, scrsw1, napuls, scrshield, nastlh, gtdrop, scradvpowr, namisl, mutsw2, cabobelisk, blackdefd, nahfac, defd
+		RepairableActorTypes: well, machineshop, scrinreinfpad, gacnst, mutyard, cabyard, nodyard, drached, gaweap, naweap, muweap, cabweap, scrweap, garadr, naradr, cabradr, muradr, scrradr, gatech, natech, muhall, scrtech, cabtech, gaplug, natmpl, mutsw1, cabsw1, scrsw1, napuls, nastlh, gtdrop, scradvpowr, namisl, mutsw2, cabobelisk, blackdefd, nahfac, defd
 		RepairableHutActorTypes: cabhut
 	PowerDownBotModule:
 		RequiresCondition: AICheater || AIShattered || AIParadise

@@ -729,6 +729,96 @@ NTPYRA.koth:
 		Icon: icon
 		IconPalette: chrome
 
+NAPULS:
+	Inherits: ^TechBuilding
+	Inherits@SHAPE: ^2x2Shape
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: napuls-name
+	Buildable:
+		Queue: Defense.Tech
+		Description: napuls-desc
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 80000
+	Turreted:
+		TurnSpeed: 40
+		InitialFacing: 1200
+		RealignDelay: -1
+	WithSpriteTurret:
+		Sequence: turret
+		RequiresCondition: !Building-Buildup
+	WithMakeAnimation:
+		Condition: Building-Buildup
+	RenderSprites:
+		Image: napuls.gdi
+		FactionImages:
+			gdi: napuls.gdi
+			nod: napuls.nod
+			mut: napuls.mut
+			cab: napuls.cab
+	ProvidesPrerequisite@gdi:
+		Prerequisite: emp.gdi
+		Factions: gdi, mut, nod, cab, scr
+		ResetOnOwnerChange: true
+	AttackTurreted:
+	Armament@trueweapon:
+		Weapon: EMPulseCannon
+		LocalOffset: 200,0,1900
+		LocalYaw: 0,100
+		Name: Superweapon
+	GrantConditionOnPrerequisite@swlimit:
+		Condition: swlimit
+		Prerequisites: global-swlimit
+	SupportPowerChargeBar:
+	FireArmamentPower:
+		AllowMultiple: false
+		Cursor: emp
+		ArmamentName: Superweapon
+		Icons:
+			1: emp
+		ChargeInterval: 4500
+		TargetCircleRange: 4c0
+		Names:
+			1: support-empcannon-name
+		Descriptions:
+			1: support-empcannon-desc
+		EndChargeSpeechNotification: EmPulseCannonReady
+		SelectTargetSpeechNotification: SelectTarget
+		EndChargeTextNotification: notification-empcannon-ready
+		SelectTargetTextNotification: notification-select-target
+		Prerequisites:
+			1: emp.gdi
+		OrderName: Nodemp
+		PauseOnCondition: empdisable
+		RequiresCondition: swlimit
+	FireArmamentPower@unlimited:
+		AllowMultiple: true
+		Cursor: emp
+		ArmamentName: Superweapon
+		Icons:
+			1: emp
+		ChargeInterval: 4500
+		TargetCircleRange: 4c0
+		Names:
+			1: support-empcannon-name
+		Descriptions:
+			1: support-empcannon-desc
+		EndChargeSpeechNotification: EmPulseCannonReady
+		SelectTargetSpeechNotification: SelectTarget
+		EndChargeTextNotification: notification-empcannon-ready
+		SelectTargetTextNotification: notification-select-target
+		Prerequisites:
+			1: emp.gdi
+		OrderName: Nodemp
+		PauseOnCondition: empdisable
+		RequiresCondition: !swlimit
+	WithIdleOverlay@SpawnFire:
+		Sequence: building_fire
+
 ### Test only
 TACNST:
 	Inherits: GACNST

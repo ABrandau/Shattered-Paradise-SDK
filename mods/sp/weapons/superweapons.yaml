@@ -30,19 +30,21 @@
 
 EMPulseCannon:
 	ReloadDelay: 25
-	Range: 25c0
+	Range: 600c0
 	MinRange: 4c0
 	Report: plsecan2.aud
 	ValidTargets: Vehicle, Building, Infantry, Ground, Water
 	Projectile: BulletAS
-		Speed: 300
+		Speed: 1024
 		Blockable: false
 		LaunchAngle: 110
 		Palette: apblue
-		Image: hugegreenplasma #pulsball
+		Image: hugegreenplasma
 		TrailImage: explosion
 		TrailSequences: emp_fx01
 		TrailPalette: effect
+		TrailInterval: 0
+		TrailDelay: 0
 	Warhead@1Eff: CreateEffect
 		Explosions: pulse_explosion
 		ImpactActors: false
@@ -864,7 +866,7 @@ ScrinMeteorRainFast:
 
 IronSaviorMuzzle: ##HACK: FireArmamentPower
 	ReloadDelay: 200
-	Range: 300c0
+	Range: 600c0
 	MinRange: 6c0
 	Projectile: InstantExplode
 	Warhead@2Eff: CreateEffect
@@ -875,7 +877,7 @@ IronSaviorMuzzle: ##HACK: FireArmamentPower
 
 IronSavior:
 	ReloadDelay: 200
-	Range: 300c0
+	Range: 600c0
 	MinRange: 6c0
 	Report: devourerlasor0000.wav, devourerlasor0001.wav, devourerlasor0002.wav
 	ValidTargets: Vehicle, Infantry, Building, Ground, Water, Air
