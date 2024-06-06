@@ -364,6 +364,8 @@ NAOBEL:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@SpawnFire:
+		Sequence: building_fire
 	Power:
 		Amount: -110
 	IsometricSelectable:
@@ -800,6 +802,8 @@ SCRDRONE:
 		RequiresCondition: !Building-Buildup && charging && !empdisable && !disabled
 		Palette: gensmkexploFpurple
 		IsDecoration: true ## so this doesn't affect by cloak palette
+	WithIdleOverlay@SpawnFire:
+		Sequence: building_scrinfire
 	IsometricSelectable:
 		DecorationHeight: 52
 	ThrowsShrapnel@SMALL:
