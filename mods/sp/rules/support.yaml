@@ -238,7 +238,7 @@ GASONC:
 	Armament@charge:
 		Name: charge
 		Weapon: SonicCharge
-		LocalOffset: 0,0,1500
+		LocalOffset: 600,0,1900
 		PauseOnCondition: Building-Buildup || cooldown
 	GrantConditionOnAttack@charge:
 		Condition: charged
@@ -246,7 +246,7 @@ GASONC:
 		ArmamentNames: charge
 	Armament@wave:
 		Weapon: SonicEmitterProjGDI
-		LocalOffset: 512,0,1400
+		LocalOffset: 600,0,1900
 		PauseOnCondition: Building-Buildup || !charged
 		ReloadingCondition: cooldown
 		MuzzleSequence: muzzle
@@ -279,6 +279,8 @@ GASONC:
 		ReplaceableTypes: Tower
 	ActorStatValues:
 		Damage: 75
+	IsometricSelectable:
+		DecorationHeight: 48
 
 NALASR:
 	Inherits: ^TurretedDefence

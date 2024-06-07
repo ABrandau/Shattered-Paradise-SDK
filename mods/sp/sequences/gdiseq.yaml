@@ -2081,24 +2081,17 @@ gacsam:
 gasonc:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: 0, -12, 12
+		Offset: 0, 0 12
+		Filename: gasonc.shp
 	idle:
-		TilesetFilenames:
-			TEMPERATE: gtctwr.shp
-			SNOW: gactwr.shp
-		ShadowStart: 3
+		Start: 31
+		ShadowStart: 96
 	damaged-idle:
-		TilesetFilenames:
-			TEMPERATE: gtctwr.shp
-			SNOW: gactwr.shp
-		Start: 1
-		ShadowStart: 4
+		Start: 32
+		ShadowStart: 97
 	dead:
-		TilesetFilenames:
-			TEMPERATE: gtctwr.shp
-			SNOW: gactwr.shp
-		Start: 2
-		ShadowStart: 5
+		Start: 32
+		ShadowStart: 97
 		Tick: 400
 	invisible:
 		Filename: null.shp
@@ -2108,7 +2101,9 @@ gasonc:
 			SNOW: gactwr_a.shp
 		Length: 6
 		Tick: 200
+		Offset: 0, -14, 12
 	idle-lights-bright:
+		Offset: 0, -14, 12
 		TilesetFilenames:
 			TEMPERATE: gtctwr_a.shp
 			SNOW: gactwr_a.shp
@@ -2116,22 +2111,16 @@ gasonc:
 		Tick: 200
 		IgnoreWorldTint: True
 	make:
-		TilesetFilenames:
-			TEMPERATE: gtctwrmk.shp
-			SNOW: gactwrmk.shp
-		Length: 11
-		ShadowStart: 11
+		Length: 30
+		ShadowStart: 65
 	make-bright:
-		TilesetFilenames:
-			TEMPERATE: gtctwrmk.shp
-			SNOW: gactwrmk.shp
-		Length: 11
-		ZOffset: 1
+		Length: 30
+		ZOffset: 65
 		IgnoreWorldTint: True
 	turret:
-		Filename: sonicturret.shp
-		Start: 32
-		Facings: -32
+		Start: 33
+		Facings: 32
+		Offset: 0, -25, 12
 	muzzle:
 		Filename: sonic_explo.shp
 		Length: *
@@ -2139,7 +2128,7 @@ gasonc:
 		Tick: 18
 		IgnoreWorldTint: true
 	icon:
-		Filename: twr4icon.shp
+		Filename: gasoncicon.shp
 		Offset: 0, 0
 
 wall.gdi:
@@ -2360,7 +2349,7 @@ gdimcv:
 	Inherits: ^EmpOverlay
 	Defaults:
 		Filename: gdimcv.shp
-		Offset: 0,-9,0
+		Offset: 0,0,0
 		#Scale: 0.85
 	idle:
 		Facings: -32
