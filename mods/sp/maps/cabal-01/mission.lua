@@ -780,7 +780,7 @@ WorldLoaded = function()
 			end)
 			if Difficulty == "normal" then
 				Trigger.AfterDelay(1000, function()
-					PlayerReinforementSpawn({"reapercab","reapercab", "reapercab","reapercab", "centurion", "centurion", "centurion", "centurion", "centurion"}, StartPointReinforcePath, MissionStartpoint.CenterPosition, nil)
+					PlayerReinforementSpawn({"reapercab","reapercab", "reapercab", "centurion", "centurion", "centurion"}, StartPointReinforcePath, MissionStartpoint.CenterPosition, nil)
 				end)
 				Trigger.AfterDelay(2000, function()
 					PlayerReinforementSpawn({"paladin", "paladin", "paladin", "spiderarty", "spiderarty"}, StartPointReinforcePath, MissionStartpoint.CenterPosition, nil)
