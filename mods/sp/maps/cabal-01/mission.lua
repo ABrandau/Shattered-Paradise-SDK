@@ -985,6 +985,11 @@ WorldLoaded = function()
 
 	NodBaseAlertTrigger = Trigger.OnEnteredFootprint(alert_footprints, function(a, id)
 		if a.Owner == LocalPlayer then
+			-- Player attack the main base, pass the avatar control to Nod_AI
+			for key,actor in ipairs(Nod_AI3.GetGroundAttackers()) do
+				actor.Owner = Nod_AI
+			end
+
 			if not AwaredByNod then
 				AwaredByNod = true
 				NodAlertedMessage()
