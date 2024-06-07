@@ -35,6 +35,10 @@ DifficultySetUp = function()
 		for key,unit in ipairs(Cab_AI.GetActorsByType("moth")) do
 			unit.Destroy()
 		end
+		-- Pass the avatar control to Nod_AI
+		for key,actor in ipairs(Nod_AI3.GetGroundAttackers()) do
+			actor.Owner = Nod_AI
+		end
 	elseif Difficulty == "normal" then
 		Engineer4.Destroy()
 		Engineer5.Destroy()
@@ -555,6 +559,7 @@ OnArrayHacked = function(hackedArray)
 		Nod_AI.GrantCondition("revealbase")
 		Nod_AI.GrantCondition("revealunit")
 		Nod_AI2.GrantCondition("revealunit")
+		Nod_AI3.GrantCondition("revealunit")
 		Creep_AI.GrantCondition("revealunit")
 		Creep_AI.GrantCondition("revealbase")
 		Neutral_AI.GrantCondition("revealbase")
@@ -569,6 +574,12 @@ OnArrayHacked = function(hackedArray)
 				GoMechError(unit, LocalPlayer)
 			end
 		end
+		for key,unit in ipairs(Nod_AI3.GetActorsByType("avatar")) do
+			if unit.AcceptsCondition("error") then
+				GoMechError(unit, LocalPlayer)
+			end
+		end
+
 		if (not Mechfac1.IsDead) and Mechfac1.Owner == Nod_AI then
 			GoMechError(Mechfac1, LocalPlayer)
 		end
@@ -688,6 +699,7 @@ WorldLoaded = function()
 	LocalPlayer = Player.GetPlayer("Cabal")
 	Nod_AI = Player.GetPlayer("Nod")
 	Nod_AI2 = Player.GetPlayer("Armed Civilians")
+	Nod_AI3 = Player.GetPlayer("Avatar Project")
 	Mut_AI = Player.GetPlayer("Mercenaries")
 	Mut_AI2 = Player.GetPlayer("Angry Mercenaries")
 	Creep_AI = Player.GetPlayer("Creeps")
@@ -771,7 +783,7 @@ WorldLoaded = function()
 					PlayerReinforementSpawn({"reapercab","reapercab", "reapercab","reapercab", "centurion", "centurion", "centurion", "centurion", "centurion"}, StartPointReinforcePath, MissionStartpoint.CenterPosition, nil)
 				end)
 				Trigger.AfterDelay(2000, function()
-					PlayerReinforementSpawn({"paladin", "paladin", "paladin", "paladin", "paladin", "spiderarty", "spiderarty"}, StartPointReinforcePath, MissionStartpoint.CenterPosition, nil)
+					PlayerReinforementSpawn({"paladin", "paladin", "paladin", "spiderarty", "spiderarty"}, StartPointReinforcePath, MissionStartpoint.CenterPosition, nil)
 				end)
 			elseif Difficulty == "hard" then
 				Trigger.AfterDelay(1000, function()

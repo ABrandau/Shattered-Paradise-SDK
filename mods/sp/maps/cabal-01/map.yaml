@@ -26,7 +26,7 @@ Players:
 		Name: Creeps
 		NonCombatant: True
 		Faction: cab
-		Enemies: Cabal, Nod, Armed Civilians, Mercenaries, Angry Mercenaries
+		Enemies: Cabal, Nod, Armed Civilians, Avatar Project, Mercenaries, Angry Mercenaries
 	PlayerReference@Cabal:
 		Name: Cabal
 		Playable: True
@@ -39,7 +39,7 @@ Players:
 		LockTeam: True
 		Team: 1
 		Allies: Cyborg Squad
-		Enemies: Creeps, Nod, Armed Civilians, Angry Mercenaries
+		Enemies: Creeps, Nod, Armed Civilians, Avatar Project, Angry Mercenaries
 	PlayerReference@Cyborg Squad:
 		Name: Cyborg Squad
 		Required: True
@@ -52,7 +52,7 @@ Players:
 		LockTeam: True
 		Team: 1
 		Allies: Cabal
-		Enemies: Creeps, Nod, Armed Civilians, Angry Mercenaries
+		Enemies: Creeps, Nod, Armed Civilians, Avatar Project, Angry Mercenaries
 	PlayerReference@Nod:
 		Name: Nod
 		Bot: NormalAI
@@ -64,7 +64,7 @@ Players:
 		LockSpawn: True
 		LockTeam: True
 		Team: 2
-		Allies: Armed Civilians
+		Allies: Armed Civilians, Avatar Project
 		Enemies: Creeps, Cabal, Cyborg Squad, Angry Mercenaries
 	PlayerReference@Armed Civilians:
 		Name: Armed Civilians
@@ -77,7 +77,19 @@ Players:
 		LockSpawn: True
 		LockTeam: True
 		Team: 2
-		Allies: Nod
+		Allies: Nod, Avatar Project
+		Enemies: Creeps, Cabal, Cyborg Squad, Angry Mercenaries
+	PlayerReference@Avatar Project:
+		Name: Avatar Project
+		Required: True
+		LockFaction: True
+		Faction: nod
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Nod, Armed Civilians
 		Enemies: Creeps, Cabal, Cyborg Squad, Angry Mercenaries
 	PlayerReference@Mercenaries:
 		Name: Mercenaries
@@ -101,7 +113,7 @@ Players:
 		LockTeam: True
 		Team: 3
 		Allies: Mercenaries
-		Enemies: Creeps, Cabal, Cyborg Squad, Nod, Armed Civilians, Mercenaries, Angry Mercenaries
+		Enemies: Creeps, Cabal, Cyborg Squad, Nod, Armed Civilians, Avatar Project
 
 Actors:
 	Actor0: city11
@@ -1455,11 +1467,6 @@ Actors:
 		Faction: cab
 		Owner: Armed Civilians
 		Facing: 368
-	Actor854: pick
-		Location: 92,52
-		Faction: cab
-		Facing: 368
-		Owner: Armed Civilians
 	Actor861: tree05
 		Owner: Neutral
 		Location: 94,62
@@ -2546,12 +2553,8 @@ Actors:
 		Location: 94,45
 		Stance: Defend
 		Facing: 384
-	Actor1482: 4tnk
-		Owner: Armed Civilians
-		Location: 94,52
-		Facing: 384
 	avatar4: avatar
-		Owner: Nod
+		Owner: Avatar Project
 		Location: 37,12
 		Stance: AttackAnything
 		Facing: 634
@@ -2854,7 +2857,7 @@ Actors:
 		Location: 157,54
 		Facing: 118
 	avatar5: avatar
-		Owner: Nod
+		Owner: Avatar Project
 		Location: 52,4
 		Facing: 689
 	Actor1520: naobel
@@ -2886,9 +2889,8 @@ Actors:
 		Location: 136,80
 		Facing: 134
 	avatar3: avatar
-		Faction: cab
 		Location: 32,-10
-		Owner: Nod
+		Owner: Avatar Project
 		Stance: AttackAnything
 		Facing: 800
 	Actor1604: tdgtwr
@@ -3199,10 +3201,6 @@ Actors:
 	Actor1717: gasand
 		Owner: Armed Civilians
 		Location: 95,70
-	Actor1724: carpanterb
-		Owner: Armed Civilians
-		Facing: 384
-		Location: 91,52
 	Actor1725: car
 		Owner: Nod
 		Location: 110,90
@@ -3221,7 +3219,7 @@ Actors:
 		SubCell: 2
 		Facing: 384
 	avatar1: avatar
-		Owner: Nod
+		Owner: Avatar Project
 		Location: 71,32
 		Stance: Defend
 		Facing: 563
@@ -3313,7 +3311,7 @@ Actors:
 		Location: 122,20
 		TurretFacing: 368
 	avatar8: avatar
-		Owner: Nod
+		Owner: Avatar Project
 		Location: 54,16
 		Stance: AttackAnything
 		Facing: 658
@@ -3466,18 +3464,17 @@ Actors:
 		SubCell: 2
 		Facing: 368
 	avatar9: avatar
-		Faction: cab
 		Location: 72,24
-		Owner: Nod
+		Owner: Avatar Project
 		Facing: 642
 		Stance: Defend
 	Actor1363: avatar
-		Owner: Nod
+		Owner: Avatar Project
 		Location: 73,15
 		Facing: 384
 		Stance: Defend
 	Actor1368: avatar
-		Owner: Nod
+		Owner: Avatar Project
 		Location: 70,42
 		Facing: 372
 		Stance: Defend
@@ -3509,11 +3506,11 @@ Actors:
 		Owner: Nod
 		Location: 50,37
 	Actor1767: avatar
-		Owner: Nod
+		Owner: Avatar Project
 		Location: 49,41
 		Facing: 689
 	Actor1768: avatar
-		Owner: Nod
+		Owner: Avatar Project
 		Location: 48,31
 		Facing: 666
 	Actor1769: gaspot
@@ -3558,7 +3555,7 @@ Actors:
 		Owner: Nod
 		Location: 69,-24
 	Actor1314: avatar
-		Owner: Nod
+		Owner: Avatar Project
 		Location: 63,-13
 		Stance: Defend
 		Facing: 650
@@ -3839,11 +3836,11 @@ Actors:
 		Owner: Armed Civilians
 		Location: 79,3
 	Actor1760: avatar
-		Owner: Nod
+		Owner: Avatar Project
 		Location: 63,-4
 		Facing: 634
 	Actor1778: avatar
-		Owner: Nod
+		Owner: Avatar Project
 		Location: 63,2
 		Facing: 618
 	Actor1364: altnode1
@@ -3939,7 +3936,7 @@ Actors:
 		Location: 98,14
 		Facing: 384
 	avatar2: avatar
-		Owner: Nod
+		Owner: Avatar Project
 		Location: 44,-6
 		Facing: 1023
 	Actor1498: trafficlights
@@ -4742,12 +4739,13 @@ Actors:
 	LabPowerplant1: napowr
 		Owner: Nod
 		Location: 130,37
-	Actor1479: cabgrinder
+	Actor1479: neutralfabricatordep
 		Owner: Neutral
 		Location: 132,24
-	Actor1480: neutralfabricatordep
-		Owner: Neutral
-		Location: 175,62
+	Actor1480: 4tnk
+		Owner: Armed Civilians
+		Facing: 384
+		Location: 91,60
 
 Rules: sp|rules/environment/campaign_override.yaml, rules.yaml
 

@@ -62,7 +62,6 @@ Player:
 		RequiresCondition: AIBase && enable-ai-combat
 	CncEngineerBotModule:
 		RequiresCondition: AIBase && enable-ai-combat
-		CapturableActorTypes: well, neutralradar, cahosp, neutralsonictur, caarmr, machineshop, scrinreinfpad, ntpyra.koth, gacnst, mutyard, cabyard, nodyard, drached, nodref, nodref2, nodref3, nodref4
 	SendUnitToAttackBotModule@Frontlines:
 		RequiresCondition: AIBase && enable-ai-combat
 	SendUnitToAttackBotModule@Backlines:
@@ -275,6 +274,9 @@ NAHFAC:
 		RequiresCondition: !error
 
 CABECM:
+	Inherits@SELFHEAL: ^IncompleteSelfHeal
+	Health:
+		HP: 40000
 	Targetable@AIPrefer:
 		TargetTypes: AIPrefer
 	## Allow to use emp when Hacked 2 times
