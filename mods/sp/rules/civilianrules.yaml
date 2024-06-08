@@ -286,6 +286,83 @@ SCRCIV1:
 		Icon: icon
 		IconPalette: chrome
 
+CIVJEEP:
+	Inherits: ^CombatVehicle
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMoveWithBerserkable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@PIPS: ^CargoPips
+	Inherits@VISION: ^6CellVision
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: mujeep-name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 32
+		Speed: 165
+		Locomotor: Vehicle
+	Health:
+		HP: 12500
+	Armor:
+		Type: Light
+	Turreted:
+		TurnSpeed: 1023
+		Offset: -380,0,360
+	AttackTurreted:
+		PauseOnCondition: empdisable
+		Armaments: primary
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
+	Cargo:
+		Types: Infantry
+		MaxWeight: 3
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		UnloadVoice: Move
+		OwnerChangedAffectsPassengers: false
+		LoadedCondition: loaded
+	Passenger:
+		CargoType: Apc
+	Selectable:
+	Armament@primary:
+		Weapon: JeepWeapon
+		LocalOffset: 350,0,500
+		PauseOnCondition: empdisable
+		Damage: 40
+		MuzzleSequence: muzzle
+		CasingWeapon: JeepBullet2Spawner
+		CasingSpawnLocalOffset: 240,0,500
+		CasingTargetOffset: 250,0,500
+		CasingHitGroundLevel: false
+	GrantConditionOnAttack:
+		Condition: attacking
+		RevokeDelay: 6
+		ArmamentNames: primary
+		RevokeOnNewTarget: true
+	WithSpriteTurret:
+		RequiresCondition: !inside-tunnel
+		Sequence: mut-turret
+	WithTurretAttackAnimation:
+		RequiresCondition: !inside-tunnel
+		Sequence: mut-turret-firing
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+	ExplodesAlsoTransported:
+		Weapon: UnitExplodeSmall
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo
+	IssueOrderToBot@AI:
+		RequiresCondition: loaded
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 45
+
 ^TRUCK:
 	Inherits: ^CivilianSpriteVehicle
 	Valued:

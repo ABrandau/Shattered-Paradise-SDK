@@ -412,29 +412,12 @@ MUJEEP:
 		RevokeDelay: 6
 		ArmamentNames: primary
 		RevokeOnNewTarget: true
-	GrantConditionOnFaction@nod:
-		Factions: nod
-		Condition: nodplayer
-	WithSpriteTurret@mut:
-		RequiresCondition: !inside-tunnel && !attacking && !nodplayer
-		Palette: player
-		IsPlayerPalette: true
+	WithSpriteTurret:
+		RequiresCondition: !inside-tunnel
 		Sequence: turret
-	WithSpriteTurret@mut-attacking:
-		RequiresCondition: !inside-tunnel && attacking && !nodplayer
-		Palette: player
-		IsPlayerPalette: true
+	WithTurretAttackAnimation:
+		RequiresCondition: !inside-tunnel
 		Sequence: turret-firing
-	WithSpriteTurret@nod:
-		RequiresCondition: !inside-tunnel && !attacking && nodplayer
-		Palette: player
-		IsPlayerPalette: true
-		Sequence: nod-turret
-	WithSpriteTurret@nod-attacking:
-		RequiresCondition: !inside-tunnel && attacking && nodplayer
-		Palette: player
-		IsPlayerPalette: true
-		Sequence: nod-turret-firing
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250

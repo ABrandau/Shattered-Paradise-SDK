@@ -229,10 +229,13 @@ TRUCKB:
 	Targetable: ## Box can be autotargeted
 		TargetTypes: Ground, Creep
 
-MUJEEP:
+CIVJEEP:
 	FreePassenger:
-		RequiresCondition: nodplayer
 		Actors: altnode1, altnode1, crusader
+	WithSpriteTurret:
+		Sequence: nod-turret
+	WithTurretAttackAnimation:
+		Sequence: nod-turret-firing
 
 ^ErrorTag:
 	Inherits: ^TextTag
