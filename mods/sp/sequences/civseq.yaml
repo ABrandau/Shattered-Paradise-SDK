@@ -2510,6 +2510,34 @@ tentsmini10:
 		ShadowStart: 19
 		Tick: 300
 
+habitat01:
+	Defaults:
+		Filename: habitat.shp
+	idle:
+		ShadowStart: 4
+	damaged-idle:
+		Start: 1
+		ShadowStart: 5
+	dead:
+		Start: 1
+		ShadowStart: 5
+		Tick: 300
+
+habitat02:
+	Defaults:
+		Filename: habitat.shp
+        Offset: -3,0,0
+	idle:
+		Start: 2
+		ShadowStart: 6
+	damaged-idle:
+		Start: 3
+		ShadowStart: 7
+	dead:
+		Start: 3
+		ShadowStart: 7
+		Tick: 300
+
 civdock01:
 	Defaults:
 		Filename: civdock.shp
@@ -2629,29 +2657,41 @@ carpub:
 
 apartment1:
 	Defaults:
-		Filename: apartment1.shp
+		Filename: apartments.shp
 		DepthSprite: isodepth.shp
 		Offset: 0, 0,0
 	idle:
-		ShadowStart: 3
+		ShadowStart: 9
 	damaged-idle:
 		Start: 1
-		ShadowStart: 4
+		ShadowStart: 10
 	critical-idle:
 		Start: 2
-		ShadowStart: 5
+		ShadowStart: 11
 
 apartment2:
 	Inherits: apartment1
-	Defaults:
-		Filename: apartment2.shp
-		DepthSprite: isodepth.shp
-		Offset: -12, -6,0
+	idle:
+		Start: 3
+		ShadowStart: 12
+	damaged-idle:
+		Start: 4
+		ShadowStart: 13
+	critical-idle:
+		Start: 5
+		ShadowStart: 14
 
 apartment3:
 	Inherits: apartment1
-	Defaults:
-		Filename: apartment3.shp
+	idle:
+		Start: 6
+		ShadowStart: 15
+	damaged-idle:
+		Start: 7
+		ShadowStart: 16
+	critical-idle:
+		Start: 8
+		ShadowStart: 17
 
 watertower:
 	Defaults:
