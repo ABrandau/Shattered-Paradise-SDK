@@ -336,11 +336,6 @@ CIVJEEP:
 		CasingSpawnLocalOffset: 240,0,500
 		CasingTargetOffset: 250,0,500
 		CasingHitGroundLevel: false
-	GrantConditionOnAttack:
-		Condition: attacking
-		RevokeDelay: 6
-		ArmamentNames: primary
-		RevokeOnNewTarget: true
 	WithSpriteTurret:
 		RequiresCondition: !inside-tunnel
 		Sequence: mut-turret
@@ -2621,7 +2616,7 @@ HABITAT01:
 	Inherits: ^CivBuilding
 	Inherits@shape: ^2x2Shape
 	Tooltip:
-		Name: Habitat
+		Name: habitat-name
 	Building:
 		Footprint: xx xx
 		Dimensions: 2, 2
@@ -2636,7 +2631,7 @@ HABITAT02:
 	Inherits: ^CivBuilding
 	Inherits@shape: ^2x1Shape
 	Tooltip:
-		Name: Habitat
+		Name: habitat-name
 	Building:
 		Footprint: xx
 		Dimensions: 2, 1

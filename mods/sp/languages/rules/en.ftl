@@ -1954,6 +1954,7 @@ radiotower-name = Radio Tower
 signaltower-name = Communications Tower
 container-name = Container
 tent-name = Military Tent
+habitat-name = Habitat
 civdock-name = Civilian Dock
 cargoship01-name = Cargo Ship
 fishingship01-name = Fishing Ship
