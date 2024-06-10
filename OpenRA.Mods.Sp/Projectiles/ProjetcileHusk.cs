@@ -61,6 +61,9 @@ namespace OpenRA.Mods.SP.Projectiles
 		[Desc("Chance of Spin. Activate Spin.")]
 		public readonly int SpinChance = 100;
 
+		[Desc("When X speed is lower than this, Spin.")]
+		public readonly int SpinWhenVelocityXIsLowerThan = 0;
+
 		[Desc("Limit the maximum spin (in angle units per tick) that can be achieved.",
 			"0 Disables spinning.")]
 		public readonly int MaximumSpinSpeed = 0;
@@ -134,7 +137,7 @@ namespace OpenRA.Mods.SP.Projectiles
 			if (info.HorizontalRevert && world.SharedRandom.Next(2) == 0)
 			{
 				velocity = new WVec(-vec.Y, -vec.X, vec.Z);
-				if (info.MaximumSpinSpeed > 0 && world.SharedRandom.Next(1, 101) <= info.SpinChance)
+				if (info.MaximumSpinSpeed > 0 && (Math.Abs(velocity.Y) < info.SpinWhenVelocityXIsLowerThan || world.SharedRandom.Next(1, 101) <= info.SpinChance))
 				{
 					acceleration = new WVec(-info.AccelerationWhenSpin.Y, info.AccelerationWhenSpin.X, info.AccelerationWhenSpin.Z);
 					spin = -info.Spin;
@@ -147,7 +150,7 @@ namespace OpenRA.Mods.SP.Projectiles
 			else
 			{
 				velocity = new WVec(vec.Y, -vec.X, vec.Z);
-				if (info.MaximumSpinSpeed > 0 && world.SharedRandom.Next(1, 101) <= info.SpinChance)
+				if (info.MaximumSpinSpeed > 0 && (Math.Abs(velocity.Y) < info.SpinWhenVelocityXIsLowerThan || world.SharedRandom.Next(1, 101) <= info.SpinChance))
 				{
 					acceleration = new WVec(info.AccelerationWhenSpin.Y, -info.AccelerationWhenSpin.X, info.AccelerationWhenSpin.Z);
 					spin = info.Spin;
