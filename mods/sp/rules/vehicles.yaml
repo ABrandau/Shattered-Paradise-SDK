@@ -611,7 +611,7 @@ HMEC:
 		Prerequisites: ~showhmec, gtdrop, ~techlevel.6
 		Description: hmec-desc
 		BuildLimit: 1
-		BuildDuration: 1500
+		BuildDuration: 2500
 		BuildDurationModifier: 100
 	ProductionTimeMultiplier@2_FACTORY:
 		Multiplier: 80
@@ -875,7 +875,7 @@ BGGY:
 		RequiresCondition: !loaded
 	Armament@militant1:
 		Weapon: BuggyCannonLoaded
-		Damage: 50
+		Damage: 40
 		LocalOffset: 250,0,125
 		CasingWeapon: BuggyBullet3Spawner
 		CasingSpawnLocalOffset: 140,0,125
@@ -1813,13 +1813,13 @@ SCORPION:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.Lightbringer
-		BuildAtProductionType: Lightbringer
+		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
+		BuildAtProductionType: Tank
 		BuildPaletteOrder: 51
-		Prerequisites: ~naweap, nahfac, ~techlevel.6
+		Prerequisites: ~naweap, namisl, ~techlevel.6
 		Description: scorpion-desc
 		BuildLimit: 1
-		BuildDuration: 1500
+		BuildDuration: 2500
 		BuildDurationModifier: 100
 	ProductionTimeMultiplier@2_FACTORY:
 		Multiplier: 80
@@ -2209,14 +2209,14 @@ MINELAYER:
 		Name: minelayer-name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	Buildable:
-		Queue: Vehicle.Shared, Vehicle.Mutant
-		BuildAtProductionType: Tank
-		Description: minelayer-desc
-		BuildPaletteOrder: 25
-		Prerequisites: ~muweap, gadept, ~techlevel.3
-		BuildDuration: 500
-		BuildDurationModifier: 100
+#	Buildable:
+#		Queue: Vehicle.Shared, Vehicle.Mutant
+#		BuildAtProductionType: Tank
+#		Description: minelayer-desc
+#		BuildPaletteOrder: 25
+#		Prerequisites: ~muweap, gadept, ~techlevel.3
+#		BuildDuration: 500
+#		BuildDurationModifier: 100
 	ProductionCostMultiplier@AI: ## AI cannot use it well
 		Multiplier: 5
 		Prerequisites: AIOnly
@@ -2577,7 +2577,7 @@ WEASAU:
 		Prerequisites: ~muweap, mutsw2, ~techlevel.6
 		Description: weasau-desc
 		BuildLimit: 1
-		BuildDuration: 1500
+		BuildDuration: 2500
 		BuildDurationModifier: 100
 	Voiced:
 		VoiceSet: LargeBeast
@@ -2649,7 +2649,7 @@ WEASAU:
 		LaunchEffectPalette: effectalpha50
 		RequiresCondition: deployed
 	SpeedMultiplier@melee:
-		Modifier: 200
+		Modifier: 160
 		RequiresCondition: deployed
 	WithDecoration@angry:
 		Image: weasaublue2
@@ -2740,8 +2740,10 @@ WEASAUSMALL:
 	Health:
 		HP: 40000
 	Mobile:
-		Speed: 120
+		Speed: 105
 		Locomotor: HeavyInfantry
+	SpeedMultiplier@TIBERIUMINFUSION:
+		Modifier: 112
 	Armament:
 		Weapon: WeasaurusStrikeSmall
 	Selectable:
@@ -2976,7 +2978,7 @@ LIMPED:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AImicroManagable: ^AImicroManagable
 	Valued:
-		Cost: 500
+		Cost: 300
 	ProductionCostMultiplier@AI: ## AI cannot use it well
 		Multiplier: 10
 		Prerequisites: AIOnly

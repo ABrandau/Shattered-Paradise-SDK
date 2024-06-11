@@ -1027,9 +1027,6 @@ bike-desc = Fast moving suicide vehicle.
     Special:
      - Can deploy to explode
 
-    Upgrades:
-     - Deadly Mixtures
-
 sapc-name = Subterranean APC
 sapc-desc = Troop transport that can move underground.
 
@@ -2546,9 +2543,9 @@ raider_passenger-desc = Raider Buggies start with a Militant in them.
 
 unlock_exemplar-name = Cardinals Emerge
 unlock_exemplar-desc = Allow deployment of Cardinals from Nod Radar.
-    - Cardinals buff nearby Nod infantry with 30% firepower.
-    - Deployment of 3 Cardinals cost 1000 via destructible Drill Pods.
-    - Deployment can be used as soon as upgrading finishes.
+    - Friendly infantry near Cardinals receive a firepower bonus of 30%
+    - Deployment of 3 Cardinals costs $1500
+    - Cardinals are deployed via destructible Drill Pods
 
 improved_stealth_generator-name = Improved Stealth Generator
 improved_stealth_generator-desc = Enables Stealth Generators to cloak themselves.
