@@ -1681,6 +1681,16 @@ weasau3-desc = A long forgotten creature trained by the mutants.
      - Deployability: use melee attack for a short period
      - Does not slow down on critical HP
 
+promthtnk-name = Prometheus Tank
+promthtnk-desc = Mutant heavy tank attached with a scavenged Scrin weapon.
+
+    Good vs: Vehicle
+
+    Special:
+     - Can shoot over walls
+     - Can crush Infantry 
+     - Can attack enemies ahead while moving
+
 lpst-name = Sensor Array
 lpst-desc = Support unit for large stealth detection.
 

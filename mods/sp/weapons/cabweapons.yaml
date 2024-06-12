@@ -195,6 +195,7 @@ CyCannon:
 		ContrailEndWidth: 0
 		HorizontalRateOfTurn: 100
 		HorizontalRateOfTurnStart: 64
+		VerticalRateOfTurn: 240
 		Jammable: false ## help to save a little bit performance
 		ExplodeWhenEmpty: true
 		RangeLimit: 40c0
@@ -705,6 +706,23 @@ CABRAILAA:
 		Spread: 0c045
 		Damage: 2500
 		NoUnintendedFriendlyFire: All
+
+^CoreDefLazerProjectile:
+	Inherits: ^FullDamage
+	TargetActorCenter: true
+	Projectile: LaserZap
+		TrackTarget: false
+		Width: 250
+		Duration: 2
+		ZOffset: 4000
+		Color: 0011FF88
+		SecondaryBeam: true
+		SecondaryBeamWidth: 30
+		SecondaryBeamZOffset: 4000
+		SecondaryBeamColor: 55fffff0
+		HitAnim: explosion
+		HitAnimSequence: lazerflare
+		HitAnimPalette: apblue
 
 BlackCDefLazer1:
 	Inherits: PalaLazor

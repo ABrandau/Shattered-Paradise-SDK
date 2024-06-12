@@ -731,6 +731,64 @@ WEASAU3:
 	-ExternalCondition@ZealousBuff:
 	-WithIdleOverlayOnGround@ZealousBuff:
 
+PROMTHTNK:
+	Inherits: ^CombatVehicle
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^MutRenderGreen
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Mutant
+		BuildAtProductionType: Tank
+		Description: promthtnk-desc
+		BuildPaletteOrder: 14
+		Prerequisites: ~muweap, muhall, ~campaignunit, ~techlevel.5
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 1750
+	Tooltip:
+		Name: promthtnk-name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Selectable:
+		Bounds: 1250, 1900, 0, -500
+	Mobile:
+		TurnSpeed: 32
+		Speed: 75
+		Locomotor: InfantryCrusherVehicle
+	BodyOrientation:
+		CameraPitch: 250
+	Health:
+		HP: 70000
+	Voiced:
+		VoiceSet: Trike
+		Volume: 3
+	Mobile:
+		TurnSpeed: 32
+		Speed: 75
+		Locomotor: Vehicle
+	Health:
+		HP: 65000
+	Armor:
+		Type: Heavy
+	Armament@PRIMARY:
+		Weapon: PrometheusCannon
+		LocalOffset: 750,70,800
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplojFblue
+		PauseOnCondition: empdisable
+	WithMuzzleOverlay:
+	AttackFollowFrontal:
+		PauseOnCondition: empdisable
+		FacingTolerance: 64
+		MustFaceTarget: true
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
+	ExplodesAlsoTransported:
+		Weapon: UnitExplodeBig
+	ActorStatValues:
+		Damage: 200
+
 LPST:
 	Inherits: ^Vehicle
 	Inherits@AImicroManagable: ^AImicroManagable

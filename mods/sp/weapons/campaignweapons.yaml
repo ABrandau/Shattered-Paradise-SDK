@@ -133,6 +133,52 @@ WeasaurusSpitGreen:
 		ImpactActors: false
 		ValidTargets: Ground, Water, Air
 		AirThreshold: 8c0
+		
+PrometheusCannon:
+	Inherits: ^ArmorPierceDamage
+	Inherits@2: ^Large_Clsn
+	ReloadDelay: 90
+	Range: 8c0
+	Report: railgunfire.wav
+	SoundVolume: 0.5
+	TargetActorCenter: true
+	Projectile: MissileTA
+		Blockable: false
+		TerrainHeightAware: false
+		Speed: 600
+		Acceleration: 0
+		Shadow: false
+		ContrailLength: 0
+		HorizontalRateOfTurn: 100
+		HorizontalRateOfTurnStart: 64
+		VerticalRateOfTurn: 240
+		Jammable: false ## help to save a little bit performance
+		ExplodeWhenEmpty: true
+		RangeLimit: 40c0
+		TrailImage: circelwaveproj
+		TrailSequences: idle, idle1
+		TrailPalette: gensmkexplojFblue
+		TrailInterval: 0
+		TrailDelay: 0
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Ground, Water
+		Spread: 0c768
+		Damage: 12000
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+		AirThreshold: 8c0
+	Warhead@2Eff: CreateEffect
+		Image: explosion
+		ValidTargets: Ground, Water, Air
+		Explosions: ironsaviormuzzle
+		ExplosionPalette: apblue
+		AirThreshold: 8c0
+	Warhead@smoke: CreateEffect
+		Image: explosion
+		ValidTargets: Ground, Water, Air
+		Explosions: shinydustexplo
+		ExplosionPalette: gensmkexplojFblue
+		AirThreshold: 8c0
+		Delay: 3
 
 MEMPulse:
 	Inherits: EMPulseCannon
@@ -378,23 +424,6 @@ NoDamMeteorElevator3:
 
 
 ### Boss
-^CoreDefLazerProjectile:
-	Inherits: ^FullDamage
-	TargetActorCenter: true
-	Projectile: LaserZap
-		TrackTarget: false
-		Width: 250
-		Duration: 2
-		ZOffset: 4000
-		Color: 0011FF88
-		SecondaryBeam: true
-		SecondaryBeamWidth: 30
-		SecondaryBeamZOffset: 4000
-		SecondaryBeamColor: 55fffff0
-		HitAnim: explosion
-		HitAnimSequence: lazerflare
-		HitAnimPalette: apblue
-
 CoreDefLazer1R:
 	Inherits: ^CoreDefLazerProjectile
 	FirstBurstTargetOffset: 0,-500,0
