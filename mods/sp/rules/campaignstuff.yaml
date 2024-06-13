@@ -352,9 +352,8 @@ PREDATOR:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RAILGUNS: ^AffectedByRailguns
-	Inherits@SELFHEAL: ^IncompleteSelfHeal
 	Valued:
-		Cost: 950
+		Cost: 900
 	Tooltip:
 		Name: predator-name
 	UpdatesPlayerStatistics:
@@ -368,17 +367,17 @@ PREDATOR:
 		BuildDuration: 625
 		BuildDurationModifier: 100
 	Mobile:
-		Speed: 75
+		Speed: 90
 		TurnSpeed: 32
 		Locomotor: InfantryCrusherVehicle
 	Health:
-		HP: 40000
+		HP: 35000
 	Turreted:
 		TurnSpeed: 20
 		Offset: -160,0,414 ##new turret
 	Armament@PRIMARY:
-		Weapon: Titan120mm
-		Damage: 140
+		Weapon: PredatorCannon
+		Damage: 50
 		LocalOffset: 1090,0, 100
 		MuzzleSequence: muzzle
 		MuzzlePalette: gensmkexploj
@@ -390,8 +389,8 @@ PREDATOR:
 		PauseOnCondition: empdisable
 		RequiresCondition: !railguns
 	Armament@Railgun:
-		Weapon: TitanRailgun
-		Damage: 210
+		Weapon: PredatorRailgun
+		Damage: 75
 		LocalOffset: 1090,0, 100
 		MuzzleSequence: muzzle2
 		MuzzlePalette: gensmkexploFcyan
@@ -400,7 +399,7 @@ PREDATOR:
 		PauseOnCondition: empdisable
 		RequiresCondition: railguns
 	Armament@SECONDARY:
-		Weapon: GrenadierBazooka
+		Weapon: PredatorBazooka
 		Damage: 30
 		LocalOffset: -420, 0, 650
 		LocalYaw: 0
@@ -409,7 +408,7 @@ PREDATOR:
 		ReloadingCondition: reload-ground
 		PauseOnCondition: empdisable || reload-air
 	Armament@SECONDARYSECONDARY:
-		Weapon: GrenadierBazookaAA
+		Weapon: PredatorBazookaAA
 		LocalOffset: -420, 0, 650
 		LocalYaw: 0
 		MuzzleSequence: muzzle3
