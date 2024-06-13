@@ -144,8 +144,8 @@ PrometheusCannon:
 	TargetActorCenter: true
 	Projectile: MissileTA
 		Blockable: false
-		TerrainHeightAware: false
-		Speed: 600
+		TerrainHeightAware: true
+		Speed: 300
 		Acceleration: 0
 		Shadow: false
 		ContrailLength: 0
@@ -158,13 +158,14 @@ PrometheusCannon:
 		TrailImage: circelwaveproj
 		TrailSequences: idle, idle1
 		TrailPalette: gensmkexplojFblue
-		TrailInterval: 0
+		TrailInterval: 1
 		TrailDelay: 0
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Ground, Water
 		Spread: 0c768
 		Damage: 12000
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+		NoUnintendedFriendlyFire: Actor
 		AirThreshold: 8c0
 	Warhead@2Eff: CreateEffect
 		Image: explosion
