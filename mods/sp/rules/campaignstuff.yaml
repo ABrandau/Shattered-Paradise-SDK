@@ -415,9 +415,6 @@ PREDATOR:
 		MuzzlePalette: gensmkexploj
 		ReloadingCondition: reload-air
 		PauseOnCondition: empdisable || reload-ground
-	AttackTurreted:
-		Voice: Attack
-		PauseOnCondition: empdisable
 	WithSpriteTurret:
 		RequiresCondition: !inside-tunnel && !railguns
 	WithSpriteTurret@2:
@@ -437,7 +434,7 @@ PREDATOR:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 
 MUJEEP:
-	Inherits: ^CombatVehicle
+	Inherits: ^Tank
 	Inherits@RENDER: ^MutRenderGreen
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMoveWithBerserkable
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -469,7 +466,6 @@ MUJEEP:
 		TurnSpeed: 1023
 		Offset: -420,0,560
 	AttackTurreted:
-		PauseOnCondition: empdisable
 		Armaments: primary
 	AutoTarget:
 		ScanRadius: 7 #PREF: save trait looks up and scan armaments
@@ -496,9 +492,6 @@ MUJEEP:
 		CasingSpawnLocalOffset: 240,0,500
 		CasingTargetOffset: 250,0,500
 		CasingHitGroundLevel: false
-	WithSpriteTurret:
-		RequiresCondition: !inside-tunnel
-		Sequence: turret
 	WithTurretAttackAnimation:
 		RequiresCondition: !inside-tunnel
 		Sequence: turret-firing
@@ -781,6 +774,63 @@ PROMTHTNK:
 		MustFaceTarget: true
 	AutoTarget:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
+	ExplodesAlsoTransported:
+		Weapon: UnitExplodeBig
+	ActorStatValues:
+		Damage: 200
+
+REGENTNK:
+	Inherits: ^Tank
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^MutRenderGreen
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Mutant
+		BuildAtProductionType: Tank
+		Description: regentnk-desc
+		BuildPaletteOrder: 52
+		Prerequisites: ~muweap, muhall, ~campaignunit, ~techlevel.5
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 1750
+	Tooltip:
+		Name: regentnk-name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Selectable:
+		Bounds: 1250, 2100, 0, -500
+	Mobile:
+		TurnSpeed: 32
+		Speed: 75
+		Locomotor: InfantryCrusherVehicle
+	BodyOrientation:
+		CameraPitch: 250
+	Health:
+		HP: 65000
+	Voiced:
+		VoiceSet: Trike
+		Volume: 3
+	Mobile:
+		TurnSpeed: 32
+		Speed: 75
+		Locomotor: Vehicle
+	Armor:
+		Type: Heavy
+	Armament@PRIMARY:
+		Weapon: RegensisCannon
+		LocalOffset: 1080,0,400
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexplogreen
+		Recoil: 127
+		RecoilRecovery: 26
+		PauseOnCondition: empdisable
+	WithMuzzleOverlay:
+	Turreted:
+		TurnSpeed: 20
+		Offset: -100,0,768 ##new turret
+	AutoTarget:
+		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	ExplodesAlsoTransported:
 		Weapon: UnitExplodeBig
 	ActorStatValues:

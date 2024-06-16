@@ -140,7 +140,6 @@ PrometheusCannon:
 	ReloadDelay: 90
 	Range: 8c0
 	Report: devourerlasor0000.wav, devourerlasor0001.wav, devourerlasor0002.wav
-	SoundVolume: 0.5
 	TargetActorCenter: true
 	Projectile: MissileTA
 		Blockable: false
@@ -180,6 +179,50 @@ PrometheusCannon:
 		ExplosionPalette: gensmkexplojFblue
 		AirThreshold: 8c0
 		Delay: 3
+
+
+RegensisCannon:
+	Inherits: ^FullDamage
+	Inherits@2: ^Large_Clsn
+	ReloadDelay: 90
+	Range: 6c0
+	Report: specfire0000.wav, specfire0001.wav, specfire0002.wav
+	Projectile: BulletAS
+		Speed: 800
+		Image: spectreball
+		LaunchAngle: 64
+		Shadow: true
+		Inaccuracy: 0c256
+		Blockable: false
+		ContrailDelay: 0
+		ContrailLength: 9
+		ContrailStartColor: 7EFF01
+		ContrailStartColorAlpha: 255
+		ContrailStartWidth: 0c100
+		ContrailEndColor: 009900
+		ContrailEndColorAlpha: 30
+		ContrailEndWidth: 0
+		ContrailZOffset: 3000
+		Palette: jascgreen
+		TrailImage: cannonsmokecircle
+		TrailPalette: gensmkexplogreen
+		TrailDelay: 0
+		TrailInterval: 0
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 14000
+		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
+	Warhead@2Eff: CreateEffect
+		ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
+		Explosions: shinydustexplo
+		ExplosionPalette: gensmkexplogreen
+	Warhead@smoke: CreateEffect
+		Image: explosion
+		ValidTargets: Ground, Water, Air
+		Explosions: cystalized1stay, cystalized2stay, cystalized3stay, cystalized4stay, cystalized5stay
+		ExplosionPalette: apgreen
+		AirThreshold: 8c0
+		Delay: 2
 
 MEMPulse:
 	Inherits: EMPulseCannon

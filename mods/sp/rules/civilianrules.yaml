@@ -287,7 +287,7 @@ SCRCIV1:
 		IconPalette: chrome
 
 CIVJEEP:
-	Inherits: ^CombatVehicle
+	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMoveWithBerserkable
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@PIPS: ^CargoPips
@@ -310,7 +310,6 @@ CIVJEEP:
 		TurnSpeed: 1023
 		Offset: -380,0,360
 	AttackTurreted:
-		PauseOnCondition: empdisable
 		Armaments: primary
 	AutoTarget:
 		ScanRadius: 7 #PREF: save trait looks up and scan armaments
@@ -337,7 +336,6 @@ CIVJEEP:
 		CasingTargetOffset: 250,0,500
 		CasingHitGroundLevel: false
 	WithSpriteTurret:
-		RequiresCondition: !inside-tunnel
 		Sequence: mut-turret
 	WithTurretAttackAnimation:
 		RequiresCondition: !inside-tunnel

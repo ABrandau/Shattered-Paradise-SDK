@@ -1688,8 +1688,19 @@ promthtnk-desc = Mutant heavy tank attached with a scavenged Scrin weapon.
 
     Special:
      - Can shoot over walls
+     - Projectile tracks target
      - Can crush Infantry 
      - Can attack enemies ahead while moving
+
+regentnk-name = Regenisis Tank
+regentnk-desc = Mutant heavy tank armed with a huge barrel.
+
+    Good vs: Ground
+
+    Special:
+     - Can shoot over walls
+     - Can crush Infantry 
+     - Can attack enemies while moving
 
 lpst-name = Sensor Array
 lpst-desc = Support unit for large stealth detection.
