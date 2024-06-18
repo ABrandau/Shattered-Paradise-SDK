@@ -511,6 +511,84 @@ MUJEEP:
 		OrderChance: 100
 		OrderInterval: 45
 
+SLIGHSHOT:
+	Inherits: ^HoverTank
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@DETECTION: ^BasicStealthDetection
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^MutRenderGreen
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: slighshot-name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Mutant
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 13
+		Description: slighshot-desc
+		Prerequisites: ~muweap, ~campaignunit, ~techlevel.2
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	Mobile:
+		Speed: 120
+	Health:
+		HP: 20000
+	Selectable:
+		Bounds: 1206,1750, 0, -600
+	Armor:
+		Type: Light
+	Voiced:
+		VoiceSet: QuadCannonVoice
+	WithMuzzleOverlay:
+	Armament@1:
+		Weapon: QuadFire
+		LocalOffset: 800,90,370, 800,-90,370
+		CasingWeapon: CasingDebrisLong
+		CasingSpawnLocalOffset: 100,20,400, 100,-20,400
+		CasingTargetOffset: -256, 512, 0, -256, -512, 0
+		PauseOnCondition: empdisable || attack-air
+		MuzzleSequence: muzzle
+		MuzzlePalette: effect
+	Armament@AA1:
+		Weapon: QuadFireAA
+		Name: secondary
+		LocalOffset: 500,90,1000, 500,-90,1000
+		CasingWeapon: CasingDebrisLong
+		CasingSpawnLocalOffset: 100,20,600, 100,-20,600
+		CasingTargetOffset: -256, 512, 0, -256, -512, 0
+		PauseOnCondition: empdisable || attack-ground
+		MuzzleSequence: muzzle
+		MuzzlePalette: effect
+	GrantConditionOnAttack@attackair: ## HACK: ReloadingCondition cannot control well when Burst > 1
+		Condition: attack-air
+		RevokeDelay: 30
+		ArmamentNames: secondary
+	GrantConditionOnAttack@attackground:
+		Condition: attack-ground
+		RevokeDelay: 30
+		ArmamentNames: primary
+	Turreted:
+		TurnSpeed: 24
+		Offset: -210,0,290
+	AttackTurreted:
+		Armaments: primary, secondary
+	WithSpriteTurret:
+		RequiresCondition: !inside-tunnel && !attack-air
+	WithSpriteTurret@2:
+		Sequence: turret2
+		RequiresCondition: !inside-tunnel && attack-air
+	AutoTarget:
+		ScanRadius: 9 #PREF: save trait looks up and scan armaments
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
+		Damage: 80
+
+
 AVATAR:
 	Inherits: ^Walker
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveWithBerserkable

@@ -1656,6 +1656,19 @@ mujeep-desc = Infantry transport.
      - Can transport 3 infantry units
      - Can attack while moving
 
+
+slighshot-name = Slighshot
+slighshot-desc = Hover vehicle armed with a quad cannon.
+    "Liar! we never design such a weirdo in another timeline!"
+
+    Good vs: Infantry, Aircraft
+
+    Special:
+     - Provides stealth detection
+     - Can attack while moving
+     - Hovers (ignores terrain like Veins, Water and Radiations)
+     - No longer hovers when disabled by EMP
+
 avatar-name = Avatar
 avatar-desc = Heavy Walker armed with a strong laser.
 
