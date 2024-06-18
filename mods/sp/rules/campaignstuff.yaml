@@ -588,6 +588,59 @@ SLIGHSHOT:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 		Damage: 80
 
+NAHFAC:
+	Inherits: ^Factory
+	Tooltip:
+		Name: nahfac-name
+	Valued:
+		Cost: 2500
+	Buildable:
+		Queue: Building.Shared, Building.Nod
+		BuildPaletteOrder: 47
+		Description: nahfac-desc
+		Prerequisites: ~nodyard, natech, ~campaignunit, ~techlevel.5
+		BuildLimit: 1
+		BuildDuration: 1125
+		BuildDurationModifier: 100
+	Health:
+		HP: 200000
+	Exit@Shared:
+		ProductionTypes: Vehicle.Shared, Tank, NodTallMech
+	Production@Shared:
+		Produces: Vehicle.Shared, Tank, NodTallMech
+	Production:
+		Produces: Vehicle.NodTallMech
+	ProductionQueue@Vehicle:
+		Type: Vehicle.NodTallMech
+		DisplayOrder: 16
+	ProductionBar@Vehicle:
+		ProductionType: Vehicle.NodTallMech
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+		RequiresCondition: !Building-Buildup
+	WithIdleOverlay@FAN:
+		Sequence: idle-fan
+		RequiresCondition: !Building-Buildup
+	WithProductionDoorOverlaySP@DOOR:
+		RequiresCondition: !Building-Buildup
+	WithProductionOverlay@LIGHTS:
+		RequiresCondition: !Building-Buildup
+		Sequence: production-lights
+	WithProductionOverlay@LIGHTS2:
+		RequiresCondition: !Building-Buildup
+		Sequence: production-lights2
+	WithIdleOverlay@BIB:
+		Sequence: bib
+		RequiresCondition: !Building-Buildup
+	ProvidesPrerequisite@naweap:
+		Prerequisite: naweap
+	Power:
+		Amount: -100
+	SpawnActorsOnSell@nod:
+		ValuePercent: 30
+		ActorTypes: templar
+	IsometricSelectable:
+		DecorationHeight: 96
 
 AVATAR:
 	Inherits: ^Walker
@@ -603,8 +656,8 @@ AVATAR:
 	Carryable:
 		LocalOffset: 0, 0, 1800
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.Lightbringer
-		BuildAtProductionType: Lightbringer
+		Queue: Vehicle.Shared, Vehicle.NodTallMech
+		BuildAtProductionType: NodTallMech
 		BuildPaletteOrder: 50
 		Prerequisites: ~naweap, nahfac, ~campaignunit, ~techlevel.5
 		Description: avatar-desc
@@ -1008,7 +1061,7 @@ SGEN:
 	Valued:
 		Cost: 1000
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
+		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.NodTallMech
 		BuildAtProductionType: Tank
 		Prerequisites: ~naweap, natech, ~campaignunit, ~techlevel.5
 		BuildPaletteOrder: 51
@@ -1108,7 +1161,7 @@ ICBM:
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.Lightbringer
+		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.NodTallMech
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 51
 		Prerequisites: ~player.nod, ~naweap, nahfac, ~campaignunit, ~techlevel.6
@@ -1221,8 +1274,8 @@ MWAR: ## AI control it by using McvManagerBotModule
 	Valued:
 		Cost: 2000
 	Buildable:
-		Queue: Vehicle.Shared, Vehicle.Lightbringer
-		BuildAtProductionType: Lightbringer
+		Queue: Vehicle.Shared, Vehicle.NodTallMech
+		BuildAtProductionType: NodTallMech
 		Prerequisites: ~naweap, nahfac, ~AIOnly, ~techlevel.6
 		BuildPaletteOrder: 51
 		Description: mwar-desc

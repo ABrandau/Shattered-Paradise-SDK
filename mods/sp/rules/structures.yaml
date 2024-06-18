@@ -912,60 +912,6 @@ NATECH:
 		RequiresCondition: AImicroManage
 		Prerequisite: hasTech.nodT3
 
-NAHFAC:
-	Inherits: ^Factory
-	Tooltip:
-		Name: nahfac-name
-	Valued:
-		Cost: 2500
-#	Buildable:
-#		Queue: Building.Shared, Building.Nod
-#		BuildPaletteOrder: 47
-#		Description: nahfac-desc
-#		Prerequisites: ~nodyard, natech, ~techlevel.6
-#		BuildLimit: 1
-#		BuildDuration: 1125
-#		BuildDurationModifier: 100
-	Health:
-		HP: 200000
-	Exit@Shared:
-		ProductionTypes: Vehicle.Shared, Tank, Lightbringer
-	Production@Shared:
-		Produces: Vehicle.Shared, Tank, Lightbringer
-	Production:
-		Produces: Vehicle.Lightbringer
-	ProductionQueue@Vehicle:
-		Type: Vehicle.Lightbringer
-		DisplayOrder: 16
-	ProductionBar@Vehicle:
-		ProductionType: Vehicle.Lightbringer
-	WithIdleOverlay@ROOF:
-		Sequence: idle-roof
-		RequiresCondition: !Building-Buildup
-	WithIdleOverlay@FAN:
-		Sequence: idle-fan
-		RequiresCondition: !Building-Buildup
-	WithProductionDoorOverlaySP@DOOR:
-		RequiresCondition: !Building-Buildup
-	WithProductionOverlay@LIGHTS:
-		RequiresCondition: !Building-Buildup
-		Sequence: production-lights
-	WithProductionOverlay@LIGHTS2:
-		RequiresCondition: !Building-Buildup
-		Sequence: production-lights2
-	WithIdleOverlay@BIB:
-		Sequence: bib
-		RequiresCondition: !Building-Buildup
-	ProvidesPrerequisite@naweap:
-		Prerequisite: naweap
-	Power:
-		Amount: -100
-	SpawnActorsOnSell@nod:
-		ValuePercent: 30
-		ActorTypes: templar
-	IsometricSelectable:
-		DecorationHeight: 96
-
 NAMISL:
 	Inherits: ^AffectPowerBuilding
 	Inherits@1: ^SuperWeapon

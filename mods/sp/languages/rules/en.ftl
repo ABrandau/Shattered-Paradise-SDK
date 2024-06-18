@@ -509,8 +509,8 @@ scrtech-desc = Provides samples to enable the Scrins most complex technologies.
 cabtech-name = Supercomputer
 cabtech-desc = Provides access to advanced C.A.B.A.L. technologies.
 
-nahfac-name = Lightbringer's Altar
-nahfac-desc = Produces vehicles, including the Lightbringer.
+nahfac-name = Advanced Mech Factory
+nahfac-desc = Produces vehicles, including some very tall mechs.
 
     Special:
     - Maximum 1 can be built
