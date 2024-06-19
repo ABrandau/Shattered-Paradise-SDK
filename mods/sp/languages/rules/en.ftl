@@ -1721,7 +1721,8 @@ tvddevice-desc = "Tiberium Vein Detonation Device"
     Good vs: Ground
 
     Special:
-     - Release shock wave that harm large area
+     - Release shock wave that harm nearby area upon detonation
+     - Cannot enter Tunnel Networks or transport, can be carried by carryall
      - Can crush Infantry 
 
 lpst-name = Sensor Array

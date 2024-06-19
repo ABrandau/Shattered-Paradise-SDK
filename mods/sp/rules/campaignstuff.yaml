@@ -725,7 +725,7 @@ MUJFISH:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 41
 		Prerequisites: ~muweap, muhall, ~campaignunit, ~techlevel.6
 		Description: jfish-desc
 		BuildDuration: 875
@@ -755,7 +755,7 @@ WEASAU3:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 41
 		Prerequisites: ~muweap, mutsw2, ~campaignunit, ~techlevel.6
 		Description: weasau3-desc
 		BuildDuration: 1125
@@ -915,7 +915,7 @@ REGENTNK:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
 		Description: regentnk-desc
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 41
 		Prerequisites: ~muweap, muhall, ~campaignunit, ~techlevel.5
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -995,6 +995,8 @@ TVDDEVICE:
 		RequiresCondition: !activating
 	RA2Chronoshiftable: ## teleport has bug
 		RequiresCondition: !activating
+	-Passenger:
+	-SharedPassenger:
 	Carryable:
 		RequiresCondition: !activating && !inside-tunnel
 	RejectsOrders:
