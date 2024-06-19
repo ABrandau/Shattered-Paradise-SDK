@@ -725,7 +725,7 @@ MUJFISH:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
-		BuildPaletteOrder: 52
+		BuildPaletteOrder: 50
 		Prerequisites: ~muweap, muhall, ~campaignunit, ~techlevel.6
 		Description: jfish-desc
 		BuildDuration: 875
@@ -755,7 +755,7 @@ WEASAU3:
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
-		BuildPaletteOrder: 52
+		BuildPaletteOrder: 50
 		Prerequisites: ~muweap, mutsw2, ~campaignunit, ~techlevel.6
 		Description: weasau3-desc
 		BuildDuration: 1125
@@ -886,10 +886,6 @@ PROMTHTNK:
 	Voiced:
 		VoiceSet: Trike
 		Volume: 3
-	Mobile:
-		TurnSpeed: 32
-		Speed: 75
-		Locomotor: Vehicle
 	Armor:
 		Type: Heavy
 	Armament@PRIMARY:
@@ -919,7 +915,7 @@ REGENTNK:
 		Queue: Vehicle.Shared, Vehicle.Mutant
 		BuildAtProductionType: Tank
 		Description: regentnk-desc
-		BuildPaletteOrder: 52
+		BuildPaletteOrder: 50
 		Prerequisites: ~muweap, muhall, ~campaignunit, ~techlevel.5
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -966,6 +962,86 @@ REGENTNK:
 		Weapon: UnitExplodeBig
 	ActorStatValues:
 		Damage: 200
+
+
+TVDDEVICE:
+	Inherits: ^CombatVehicle
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@RENDER: ^MutRenderGreen
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Mutant
+		BuildAtProductionType: Tank
+		Description: tvddevice-desc
+		BuildPaletteOrder: 51
+		Prerequisites: ~muweap, muhall, ~campaignunit, ~techlevel.5
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 4000
+	Tooltip:
+		Name: tvddevice-name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Selectable:
+		Bounds: 1250, 2100, 0, -500
+	Mobile:
+		TurnSpeed: 16
+		Speed: 45
+		CanMoveBackward: true
+		BackwardDuration: -1
+		MaxBackwardCells: -1
+		Locomotor: InfantryCrusherVehicle
+		RequiresCondition: !activating
+	RA2Chronoshiftable: ## teleport has bug
+		RequiresCondition: !activating
+	Carryable:
+		RequiresCondition: !activating && !inside-tunnel
+	RejectsOrders:
+		RequiresCondition: activating
+	BodyOrientation:
+		CameraPitch: 250
+	Health:
+		HP: 100000
+	Voiced:
+		VoiceSet: Trike
+		Volume: 3
+	Armor:
+		Type: Heavy
+	MadTankSP:
+		ThumpSequence: active
+		ThumpWeapon: TiberuimQuake
+		PrepareDelay: 15
+		ThumpInitialInterval: 20
+		IntervalReducedPerThump: 1
+		ThumpHitDelay: 4
+		ThumpBeginSound: limpbom1.aud
+		DetonationAtThumps: 15
+		DetonationWeapon: TVDDFinal
+		DeployedCondition: activating
+	Armament@DemoTruck:
+		Weapon: DemoTruckDummyWeapon
+		ReloadingCondition: DetonateDemoTruck
+		RequiresCondition: !empdisable
+	AttackFrontal:
+		PauseOnCondition: empdisable
+		TargetFrozenActors: true ## For better AI control
+		FacingTolerance: 512
+		RequiresCondition: !DetonateDemoTruck && !activating
+	WithDecoration@TNT:
+		Image: bombicon
+		Sequence: idle
+		Position: BottomLeft
+		Palette: mouse
+		ValidRelationships: Ally, Enemy, Neutral
+	AutoTarget:
+		ScanRadius: 6
+		InitialStance: HoldFire
+		InitialStanceAI: AttackAnything
+	ExplodesAlsoTransported:
+		Weapon: UnitExplodeBig
+	ActorStatValues:
+		Damage: 2000
 
 LPST:
 	Inherits: ^Vehicle

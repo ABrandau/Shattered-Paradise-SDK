@@ -223,6 +223,185 @@ RegensisCannon:
 		AirThreshold: 8c0
 		Delay: 2
 
+TiberuimQuake:
+	Inherits@1: ^ArmorPierceDamage
+	ValidTargets: Ground, Water, Air
+	Report: tankmediumfire.wav
+	Projectile: InstantExplode
+	Warhead@1Dam: SpreadDamageWithCondition
+		Falloff: 100, 10
+		Range: 8c0, 8c512
+		Damage: 6000
+		ValidTargets: Ground, Water
+		InvalidTargets: Air
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+		ConditionDuration: 12
+		Condition: Slowdown50pp
+	Warhead@4Smu: LeaveSmudgeSP
+		SmudgeType: Crater
+		AirThreshold: 0c512
+		InitialSmudgeLevel: 1
+		AffectsParent: true
+		MaxSmudgeLevel: 4
+		Size: 8
+		InvalidTargets: Building, Wall
+	Warhead@2Wave: CreateEffect
+		ExplosionPalette: gensmkexplogreen
+		Explosions: SonicShockwave
+		ImpactActors: false
+		ValidTargets: Ground, Air, Water
+		AirThreshold: 8c0
+	Warhead@Shake: ShakeScreen
+		Duration: 2
+		Intensity: 5
+		Multiplier: 1,1
+		AirThreshold: 8c0
+	## Random smoke Effect
+	Warhead@2Eff: CreateEffect
+		Explosions: fuelflame1
+		ExplosionPalette: jascgreenalpha
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
+		Inaccuracy: 7c0
+		AirThreshold: 8c0
+	Warhead@3Eff: CreateEffect
+		Explosions: wrecksmoke, wrecksmoke2, wrecksmoke3
+		ExplosionPalette: gensmkexplogreen
+		ValidTargets: Ground, Air, Water
+		Inaccuracy: 8c0
+		ImpactActors: false
+		AirThreshold: 8c0
+		Delay: 1
+	Warhead@4Eff: CreateEffect
+		Explosions: wrecksmoke, wrecksmoke2, wrecksmoke3
+		ExplosionPalette: jascgreenalpha
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
+		Inaccuracy: 8c0
+		AirThreshold: 8c0
+		Delay: 2
+	Warhead@5Eff: CreateEffect
+		Explosions: wrecksmoke, wrecksmoke2, wrecksmoke3
+		ExplosionPalette: gensmkexplogreen
+		ValidTargets: Ground, Air, Water
+		Inaccuracy: 8c0
+		ImpactActors: false
+		AirThreshold: 8c0
+		Delay: 3
+
+TVDDFinal:
+	Warhead@7Dam_areanukeb: SpreadDamage
+		Falloff: 100, 100
+		Range: 9c0
+		Damage: 2000
+		Delay: 10
+		ValidTargets: Ground, Water, BlueTiberium, Tiberium, Air, Trees
+		AffectsParent: true
+		Versus:
+			Infantry: 500
+			Building: 100
+			Defense: 100
+			Heavy: 100
+			Concrete: 5
+		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
+		AirThreshold: 8c0
+	Warhead@8Radio: CreateTintedCells ##used for decoration
+		Spread: 1c0
+		Level: 400
+		Falloff: 10, 30, 25, 20, 15, 10, 5, 3, 2, 1
+		MaxLevel: 2000
+		LayerName: radioactivity
+		AirThreshold: 8c0
+	Warhead@9Radio: CreateTintedCells ##used for decoration
+		Spread: 1c0
+		Level: 400
+		Falloff: 8, 8, 5, 5, 5, 5, 5, 3, 2, 1
+		MaxLevel: 2000
+		LayerName: BlueRadiation
+		AirThreshold: 8c0
+	Warhead@Reveal: RevealShroud
+		Duration: 150
+		Radius: 9c0
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 8c0
+		RevealGeneratedShroud: true
+	Warhead@4Sharpnel: FireRadius
+		Weapon: CrystalizedSpread2
+		ImpactActors: false
+		Amount: 16
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air
+		AirThreshold: 8c0
+	Warhead@Shake: ShakeScreen
+		Duration: 5
+		Intensity: 10
+		Multiplier: 1,1
+		AirThreshold: 8c0
+	## Random smoke Effect
+	Warhead@3Eff: CreateEffect
+		Explosions: fuelflame1
+		ExplosionPalette: jascgreenalpha
+		ValidTargets: Ground, Air, Water
+		ImpactSounds: tdcrumble.aud
+		ImpactActors: false
+		Inaccuracy: 7c0
+		AirThreshold: 8c0
+	Warhead@4Eff: CreateEffect
+		Explosions: fuelflame1
+		ExplosionPalette: jascgreenalpha
+		ValidTargets: Ground, Air, Water
+		Inaccuracy: 8c0
+		ImpactActors: false
+		AirThreshold: 8c0
+		Delay: 1
+	Warhead@5Eff: CreateEffect
+		Explosions: fuelflame1
+		ExplosionPalette: jascgreenalpha
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
+		Inaccuracy: 8c0
+		AirThreshold: 8c0
+		Delay: 2
+	Warhead@6Eff: CreateEffect
+		Explosions: fuelflame1
+		ExplosionPalette: jascgreenalpha
+		ValidTargets: Ground, Air, Water
+		Inaccuracy: 8c0
+		ImpactActors: false
+		AirThreshold: 8c0
+		Delay: 3
+	Warhead@7Eff: CreateEffect
+		Explosions: fuelflame1
+		ExplosionPalette: gensmkexplogreen
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
+		Inaccuracy: 8c0
+		AirThreshold: 8c0
+	Warhead@8Eff: CreateEffect
+		Explosions: fuelflame1
+		ExplosionPalette: gensmkexplogreen
+		ValidTargets: Ground, Air, Water
+		Inaccuracy: 8c0
+		ImpactActors: false
+		AirThreshold: 8c0
+		Delay: 1
+	Warhead@9Eff: CreateEffect
+		Explosions: fuelflame1
+		ExplosionPalette: gensmkexplogreen
+		ValidTargets: Ground, Air, Water
+		ImpactActors: false
+		Inaccuracy: 8c0
+		AirThreshold: 8c0
+		Delay: 2
+	Warhead@10Eff: CreateEffect
+		Explosions: fuelflame1
+		ExplosionPalette: gensmkexplogreen
+		ValidTargets: Ground, Air, Water
+		Inaccuracy: 8c0
+		ImpactActors: false
+		AirThreshold: 8c0
+		Delay: 3
+
 MEMPulse:
 	Inherits: EMPulseCannon
 	Report: voltautofire.wav

@@ -1657,7 +1657,7 @@ mujeep-desc = Infantry transport.
      - Can attack while moving
 
 
-slighshot-name = Slighshot
+slighshot-name = Slingshot
 slighshot-desc = Hover vehicle armed with a quad cannon.
     "Liar! we never design such a weirdo in another timeline!"
 
@@ -1714,6 +1714,15 @@ regentnk-desc = Mutant heavy tank armed with a huge barrel.
      - Can shoot over walls
      - Can crush Infantry 
      - Can attack enemies while moving
+
+tvddevice-name = T.V.D.D
+tvddevice-desc = "Tiberium Vein Detonation Device"
+
+    Good vs: Ground
+
+    Special:
+     - Release shock wave that harm large area
+     - Can crush Infantry 
 
 lpst-name = Sensor Array
 lpst-desc = Support unit for large stealth detection.
