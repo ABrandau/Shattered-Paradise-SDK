@@ -231,7 +231,7 @@ TiberuimQuake:
 	Warhead@1Dam: SpreadDamageWithCondition
 		Falloff: 100, 10
 		Range: 8c0, 8c512
-		Damage: 6000
+		Damage: 4000
 		ValidTargets: Ground, Water
 		InvalidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
@@ -245,6 +245,13 @@ TiberuimQuake:
 		MaxSmudgeLevel: 4
 		Size: 8
 		InvalidTargets: Building, Wall
+	Warhead@8Radio: CreateTintedCells ##used for decoration
+		Range: 7c0, 8c0
+		Level: 10
+		Falloff: 10, 10
+		MaxLevel: 2000
+		LayerName: radioactivity
+		AirThreshold: 8c0
 	Warhead@2Wave: CreateEffect
 		ExplosionPalette: gensmkexplogreen
 		Explosions: SonicShockwave
@@ -308,7 +315,7 @@ TVDDFinal:
 	Warhead@8Radio: CreateTintedCells ##used for decoration
 		Spread: 1c0
 		Level: 400
-		Falloff: 10, 30, 25, 20, 15, 10, 5, 3, 2, 1
+		Falloff: 25, 20, 18, 13, 10, 8, 5, 3, 2, 1
 		MaxLevel: 2000
 		LayerName: radioactivity
 		AirThreshold: 8c0
