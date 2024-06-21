@@ -588,6 +588,83 @@ SLIGHSHOT:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 		Damage: 80
 
+
+MINELAYER:
+	Inherits: ^CombatVehicle
+	Inherits@RENDER: ^MutRenderGreen
+	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
+	Inherits@VISION: ^6CellVision
+	Inherits@DETECTION: ^BasicStealthDetection
+	Inherits@EXPERIENCE: ^GainsExperienceNonCombat
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: minelayer-name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Mutant
+		BuildAtProductionType: Tank
+		Description: minelayer-desc
+		BuildPaletteOrder: 25
+		Prerequisites: ~muweap, gadept, ~campaignunit, ~techlevel.3
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	ProductionCostMultiplier@AI: ## AI cannot use it well
+		Multiplier: 5
+		Prerequisites: AIOnly
+	Mobile:
+		TurnSpeed: 24
+		Speed: 105
+		Locomotor: InfantryCrusherVehicle
+	Voiced:
+		VoiceSet: Trike
+		Volume: 3
+	AmmoPool@mine:
+		Ammo: 5
+		ReloadDelay: 25
+		Name: mines
+		Armaments: none
+	Minelayer:
+		Mine: mumine
+		TileUnknownName: build-invalid
+		AmmoPoolName: mines
+	Rearmable:
+		RearmActors: gadept, scrdepot
+		AmmoPools: mines
+	AutoCrusher:
+		MinimumScanTimeInterval: 23
+		MaximumScanTimeInterval: 23
+		ScanRadius: 5c0
+		CrushClasses: minetrigger
+		TargetRelationships: Neutral, Enemy
+	Targetable:
+		TargetTypes: Ground, Vehicle, Minelayer
+	Health:
+		HP: 40000
+	SelectionDecorations:
+	ExternalCondition@minelayer-digging: ## play minelayer-digging by MUMINE
+		Condition: minelayer-digging
+	WithFacingSpriteBody:
+		RequiresCondition: !minelayer-digging && !inside-tunnel
+		Sequence: idle
+	WithFacingSpriteBody@minelayer-digging:
+		Name: Body1
+		Sequence: laymine
+		RequiresCondition: minelayer-digging && !inside-tunnel
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		Palette: pips
+		Margin: 5, 2
+		ValidRelationships: Ally, Neutral, Enemy
+	Selectable:
+		Bounds: 1206,1950, 0, -300
+	ProvidesPrerequisite@HasMinelayer: ##For AI Perf.
+		Prerequisite: HasMinelayer
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+
 NAHFAC:
 	Inherits: ^Factory
 	Tooltip:
