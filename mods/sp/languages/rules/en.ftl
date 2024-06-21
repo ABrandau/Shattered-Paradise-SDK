@@ -1656,6 +1656,14 @@ mujeep-desc = Infantry transport.
      - Can transport 3 infantry units
      - Can attack while moving
 
+ghumv-name = Humvee
+ghumv-desc = Infantry transport.
+
+    Good vs: Infantry.
+
+    Special:
+     - Can transport 1 infantry units
+     - Can attack while moving
 
 slighshot-name = Slingshot
 slighshot-desc = Hover vehicle armed with a quad cannon.

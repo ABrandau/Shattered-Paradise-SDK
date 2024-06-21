@@ -433,6 +433,79 @@ PREDATOR:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 
+GHUMV:	
+	Inherits: ^Tank
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMoveWithBerserkable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@PIPS: ^CargoPips
+	Inherits@VISION: ^6CellVision
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: ghumv-name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.GDI
+		BuildAtProductionType: Tank
+		Description: ghumv-desc
+		BuildPaletteOrder: 6
+		Prerequisites: ~gaweap, ~techlevel.2, ~campaignunit
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	Mobile:
+		TurnSpeed: 32
+		Speed: 165
+		Locomotor: Vehicle
+	Health:
+		HP: 17500
+	Armor:
+		Type: Light
+	Turreted:
+		TurnSpeed: 64
+		Offset: 30,0,640
+	AttackTurreted:
+		Armaments: primary
+	AutoTarget:
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
+	Cargo:
+		Types: Infantry
+		MaxWeight: 1
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		UnloadVoice: Move
+		OwnerChangedAffectsPassengers: false
+		LoadedCondition: loaded
+	Passenger:
+		CargoType: Apc
+	Armament@primary:
+		Weapon: JeepWeapon
+		LocalOffset: 200,0,50
+		PauseOnCondition: empdisable
+		Damage: 40
+		MuzzleSequence: muzzle
+		CasingWeapon: JeepBullet2Spawner
+		CasingSpawnLocalOffset: 240,0,500
+		CasingTargetOffset: 250,0,500
+		CasingHitGroundLevel: false
+	WithMuzzleOverlay:
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+	ExplodesAlsoTransported:
+		Weapon: UnitExplodeSmall
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo
+	IssueOrderToBot@AI:
+		RequiresCondition: loaded
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 45
+
 MUJEEP:
 	Inherits: ^Tank
 	Inherits@RENDER: ^MutRenderGreen
@@ -487,7 +560,6 @@ MUJEEP:
 		LocalOffset: 350,0,500
 		PauseOnCondition: empdisable
 		Damage: 40
-		MuzzleSequence: muzzle
 		CasingWeapon: JeepBullet2Spawner
 		CasingSpawnLocalOffset: 240,0,500
 		CasingTargetOffset: 250,0,500
@@ -1091,11 +1163,11 @@ TVDDEVICE:
 		ThumpSequence: active
 		ThumpWeapon: TiberuimQuake
 		PrepareDelay: 15
-		ThumpInitialInterval: 20
-		IntervalReducedPerThump: 1
+		ThumpInitialInterval: 25
+		IntervalReducedPerThump: 2
 		ThumpHitDelay: 4
 		ThumpBeginSound: limpbom1.aud
-		DetonationAtThumps: 15
+		DetonationAtThumps: 19
 		DetonationWeapon: TVDDFinal
 		DeployedCondition: activating
 	Armament@DemoTruck:

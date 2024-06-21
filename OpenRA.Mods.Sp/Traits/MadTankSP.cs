@@ -34,6 +34,8 @@ namespace OpenRA.Mods.SP.Traits
 
 		public readonly int IntervalReducedPerThump = 1;
 
+		public readonly int LowestThumpInterval = 1;
+
 		public readonly int ThumpHitDelay = 0;
 
 		public readonly string ThumpArmamentName = null;
@@ -242,6 +244,7 @@ namespace OpenRA.Mods.SP.Traits
 							Game.Sound.Play(SoundType.World, mad.info.ThumpBeginSound, self.CenterPosition);
 						impactDeplay = mad.info.ThumpHitDelay;
 						trumpcountdown = mad.info.ThumpInitialInterval - trumpedTime * mad.info.IntervalReducedPerThump;
+						trumpcountdown = trumpcountdown < mad.info.LowestThumpInterval ? mad.info.LowestThumpInterval : trumpcountdown;
 					}
 				}
 
