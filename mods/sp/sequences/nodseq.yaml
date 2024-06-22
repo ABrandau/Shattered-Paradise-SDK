@@ -565,36 +565,33 @@ attackbike:
 ttnk:
 	Inherits: ^EmpOverlay
 	Inherits@2: ^CannonMuzzle
+	Defaults:
+		Filename: ticktank.shp
 	idle:
-		Filename: ticktank.shp
-		Facings: -32
+		Facings: 32
 		Stride: 2
-		ShadowStart: 224 #192
+		ShadowStart: 200
 	stand:
-		Filename: ticktank.shp
-		Facings: -32
+		Facings: 32
 		Stride: 2
-		ShadowStart: 224 #192
+		ShadowStart: 200
 	run:
-		Filename: ticktank.shp
-		Facings: -32
+		Facings: 32
 		Length: 2
-		ShadowStart: 224 #192
+		ShadowStart: 200
 	make:
-		Filename: ticktank.shp
-		Start: 64 #32
-		Length: 20
-		Facings: -8
-		ShadowStart: 288 #224
+		Start: 64
+		Length: 16
+		Facings: 8
+		ShadowStart: 264
 	deployed:
-		Filename: ticktankdeployed.shp
-		Facings: -8
-		ShadowStart: 40
+		Start: 192
+		Facings: 8
+		ShadowStart: 392
 	turret:
-		Filename: ticktankdeployed.shp
-		Start: 8
-		Facings: -32
-		ShadowStart: 48
+		Filename: ticktank-tur.shp
+		Start: 0
+		Facings: 32
 	dieevaporate:
 		Filename: infgas.shp
 		Length: *
