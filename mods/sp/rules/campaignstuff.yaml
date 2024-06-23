@@ -123,6 +123,29 @@ NUKECARRYALL_BOT:
 		OrderInterval: 40
 	-RevealOnFire:
 
+TVDDCARRYALL_BOT:
+	Inherits: trnsport.mut
+	Inherits@1: ^BotCarryall
+	Buildable:
+		Description: tvddcarryall-desc
+		Prerequisites: ~muair, muhall, ~techlevel.5, ~AIOnly, ~!bot-transport-squad
+	-ProductionCostMultiplier@AI:
+	ProductionCostMultiplier@Preload:
+		Multiplier: 600
+	ProductionTimeMultiplier@Preload:
+		Multiplier: 600
+	AutoCarryall:
+		InitialActor: tvddevice
+		CarryCondition: loaded
+		AutoCarryCondition: loaded ##Disable Auto Action
+	-IssueOrderToBot@AI:
+	IssueOrderToBot@AI:
+		RequiresCondition: loaded
+		OrderName: Unload
+		OrderChance: 100
+		OrderInterval: 40
+	-RevealOnFire:
+
 SONICARRYALL_BOT:
 	Inherits: TRNSPORT
 	Inherits@1: ^BotCarryall
@@ -428,8 +451,6 @@ PREDATOR:
 	WithMuzzleOverlay:
 	Selectable:
 		Bounds: 1150, 1500, 0, -400
-	ExplodesAlsoTransported:
-		Weapon: UnitExplodeBig
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 
@@ -1106,7 +1127,7 @@ REGENTNK:
 		TurnSpeed: 20
 		Offset: -100,0,768 ##new turret
 	AutoTarget:
-		ScanRadius: 8 #PREF: save trait looks up and scan armaments
+		ScanRadius: 7 #PREF: save trait looks up and scan armaments
 	ExplodesAlsoTransported:
 		Weapon: UnitExplodeBig
 	ActorStatValues:
@@ -1196,7 +1217,7 @@ TVDDEVICE:
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
 	ExplodesAlsoTransported:
-		Weapon: UnitExplodeBig
+		Weapon: UnitExplodeBigger
 	ActorStatValues:
 		Damage: 2000
 
@@ -1395,7 +1416,7 @@ ICBM:
 	Inherits@AImicroManagable: ^AImicroManagable
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.NodTallMech
-		BuildAtProductionType: Tank
+		BuildAtProductionType: NodTallMech
 		BuildPaletteOrder: 51
 		Prerequisites: ~player.nod, ~naweap, nahfac, ~campaignunit, ~techlevel.6
 		Description: icbm-desc

@@ -280,7 +280,7 @@ Player:
 		RequiresCondition: AIBase
 		SquadSize: 24
 		SquadSizeRandomBonus: 3
-		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.nod, harv.mut, engineer, cutman, swarmling, shapeshifter,mcv, drache, cabmcv, nodmcv, mutmcv, limped, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern, dshp, dshp.high, mkiiidrone-minigun, councilor, scrtrans, trnsport, trnsport.nod, trnsport.mut, trnsport.cab, trnsport.scr, nukecarryall_bot,sonicarryall_bot, apcarryall_bot, devourer, bike, subtank, sapc, hvrtruk3, minelayer, king, drillpod
+		ExcludeFromSquadsTypes: harv, cabharv, scrharv, harv.nod, harv.mut, engineer, cutman, swarmling, shapeshifter,mcv, drache, cabmcv, nodmcv, mutmcv, limped, mumine, eggs, cabsentry, tickhologram, flamehologram, stormriderspawn, cabdronejet, weasausmall, repairdrone, repairwyvern, dshp, dshp.high, mkiiidrone-minigun, councilor, scrtrans, trnsport, trnsport.nod, trnsport.mut, trnsport.cab, trnsport.scr, nukecarryall_bot,sonicarryall_bot, apcarryall_bot, tvddcarryall_bot, devourer, bike, subtank, sapc, hvrtruk3, minelayer, king, drillpod, tvddevice
 		ConstructionYardTypes: gacnst, drached, cabyard, nodyard, mutyard
 		DangerScanRadius: 18
 		AttackForceInterval: 73
@@ -294,7 +294,7 @@ Player:
 		IgnoredEnemyTargetTypes: Mine, IgnoredByAI, Wall, NoAutoTarget
 		SuggestedGroundLeaderLocomotor: Infantry, HeavyInfantry, TibInmuneInfantry, Vehicle, InfantryCrusherVehicle, VehicleCrusher
 		SuggestedNavyLeaderLocomotor: Naval
-		GuerrillaTypes: cerberus, mutqueen, stormrider, scrglyder1, scrdestroyer, scrcarrier, scrbattleship, wasp, basilisk, jumpjetair, nconf, bhs, mutfiend, pdrone, moth, cyc2, shark, smech, hvr, jug, attackbike, bggy, howtlizer, stnk, mutquad, lynx, wolf, mrls, scrscorpion, deathclaw, scrmbt, scrglyder2, scrmobmine, reapercab, altnode1, crusader, jjcommair, umagon, mujeep, mujfish
+		GuerrillaTypes: cerberus, mutqueen, stormrider, scrglyder1, scrdestroyer, scrcarrier, scrbattleship, wasp, basilisk, jumpjetair, nconf, bhs, mutfiend, pdrone, moth, cyc2, shark, smech, hvr, jug, attackbike, bggy, howtlizer, stnk, mutquad, lynx, wolf, mrls, scrscorpion, deathclaw, scrmbt, scrglyder2, scrmobmine, reapercab, altnode1, crusader, jjcommair, umagon, mujeep, ghumv, slighshot, predator, mujfish
 		#Hack: use DozerTypes for unit that needs moving randomly but not get out of the base
 		DozerTypes: lpst, sgen, icbm
 		MaxDozerSendingRadius: 14
@@ -384,36 +384,18 @@ Player:
 			mutqueen: 1
 			apc: 7
 			moth: 2
-			nukecarryall_bot: 1
-			sonicarryall_bot: 5
-			apcarryall_bot: 1
 			scrtrans: 1
 			repairvehicle: 2
 			engineer: 2
 			cutman: 2
 			swarmling: 2
 			shapeshifter: 2
-			minelayer: 3
 			scorpion: 1
 			weasau: 100
 			scrscorpion: 1
 			jjcomm: 1
 			mastermind: 1
 			limped: 1
-			### AI only unit
-			avatar: 60
-			weasau3: 40
-			promthtnk: 20
-			mujfish: 40
-			ghost: 1
-			umagon: 1
-			mujeep: 1
-			lpst: 1
-			sgen: 1
-			icbm: 2
-			m_emp: 2
-			hmectest: 1
-			scrincouncil: 1
 			trnsport: 1
 			trnsport.nod: 1
 			trnsport.mut: 1
@@ -449,6 +431,31 @@ Player:
 			upgrade.disc_barrage: 8
 			upgrade.hyper_flight_rotors: 5
 			upgrade.tunnel_repairs: 1
+			### AI only unit
+			nukecarryall_bot: 1
+			sonicarryall_bot: 5
+			apcarryall_bot: 1
+			### Campaign unit
+			avatar: 60
+			weasau3: 10
+			promthtnk: 10
+			regentnk: 10
+			tvddcarryall_bot: 2
+			mujfish: 10
+			ghost: 1
+			umagon: 1
+			mujeep: 1 
+			ghumv: 1
+			predator: 10
+			slighshot: 1
+			lpst: 1
+			sgen: 1
+			minelayer: 3
+			icbm: 2
+			m_emp: 2
+			cabecm: 1
+			hmectest: 1
+			scrincouncil: 1
 		UnitLimits:
 			harv: 4
 			scrharv: 4
@@ -488,16 +495,18 @@ Player:
 			scrscorpion: 2
 			sapc: 2
 			scrtrans: 1
-			### AI only unit
+			## nukecarryall_bot: 1 but not restrict here
+			## sonicarryall_bot: 1 but not restrict here
+			## apcarryall_bot: 1 but not restrict here
+			### Campaign unit
 			lpst: 1
 			sgen: 1
 			icbm: 3
 			m_emp: 1
+			cabecm: 1
+			## tvddcarryall_bot: 1 but not restrict here
 			scrincouncil: 1
 			hmectest: 1
-			## nukecarryall_bot: 1 but not restrict here
-			## sonicarryall_bot: 1 but not restrict here
-			## apcarryall_bot: 1 but not restrict here
 		UnitDelays:
 			engineer: 4000 ## We need to prevent player rush when AI is closed to player
 			cutman: 4000
@@ -875,7 +884,14 @@ Player:
 				AttackDesireOfEach: 100
 				AttackOrderName: DeliverUnit ## Hack: DeliverUnit has a bug that ignore the ocuppied cell, we just need that
 				MoveBackOrderName: Move
+			tvddcarryall_bot:
+				AttackDesireOfEach: 100
+				AttackOrderName: DeliverUnit ## Hack: DeliverUnit has a bug that ignore the ocuppied cell, we just need that
+				MoveBackOrderName: Move
 			hvrtruk3:
+				AttackDesireOfEach: 100
+				TryGetHealed: false
+			tvddevice:
 				AttackDesireOfEach: 100
 				TryGetHealed: false
 			devourer:
@@ -934,7 +950,7 @@ Player:
 	SharedCargoBotModule:
 		RequiresCondition: has-tunnel && (AIBase || AIEasy)
 		Transports: muvent, muventi, mutambushvent
-		Passengers: apc, struck, bggy, apc_bot, riflebggy, rocketbggy, flamebggy, struckfull, struckfull_t3, mmch,smech,attackbike,centurion,scrdronec,corruptor,scrglyder2,hvr,ttnk,lynx,mutquad,wolf,g4tnk,scrmbt,sonic,jug,mrls,deathclaw,spiderarty,paladin,tripod,howtlizer,stnk,scrrecharger,scrmobmine, weasau3
+		Passengers: apc, struck, bggy, apc_bot, riflebggy, rocketbggy, flamebggy, struckfull, struckfull_t3, mmch,smech,attackbike,centurion,scrdronec,corruptor,scrglyder2,hvr,ttnk,lynx,mutquad,wolf,g4tnk,scrmbt,sonic,jug,mrls,deathclaw,spiderarty,paladin,tripod,howtlizer,stnk,scrrecharger,scrmobmine, weasau3, regentnk, promthtnk, slighshot, predator
 
 	GrantConditionOnPrerequisite@HasMinelayer:
 		Condition: has-minelayer

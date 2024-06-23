@@ -1603,6 +1603,7 @@ buggy-laser-name = Laser Buggy
 buggy-flame-name = Flame Buggy
 struckfull-name = Filled Battle Bus
 nukecarryall-desc = AI Nuke Transport
+tvddcarryall-desc = AI TVDD Transport
 sonicarryall-desc = AI Sonic Transport
 apcarryall-desc = AI APC Transport
 mubunkrfull-desc = Filled Bunker
@@ -1703,7 +1704,7 @@ weasau3-desc = A long forgotten creature trained by the mutants.
      - Does not slow down on critical HP
 
 promthtnk-name = Prometheus Tank
-promthtnk-desc = Mutant heavy tank attached with a scavenged Scrin weapon.
+promthtnk-desc = Mutant tank attached with a scavenged Scrin weapon.
 
     Good vs: Vehicle
 
