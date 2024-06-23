@@ -1191,6 +1191,7 @@ TVDDEVICE:
 		DetonationAtThumps: 19
 		DetonationWeapon: TVDDFinal
 		DeployedCondition: activating
+		PauseOnCondition: empdisable
 	Armament@DemoTruck:
 		Weapon: DemoTruckDummyWeapon
 		ReloadingCondition: DetonateDemoTruck
@@ -1218,6 +1219,11 @@ TVDDEVICE:
 		InitialStanceAI: AttackAnything
 	ExplodesAlsoTransported:
 		Weapon: UnitExplodeBigger
+	IssueOrderToBot@AI:
+		OrderTrigger: Damage
+		OrderName: Detonate
+		OrderChance: 50
+		OrderInterval: 150
 	ActorStatValues:
 		Damage: 2000
 
