@@ -536,10 +536,10 @@ nahand-desc = Arms Infantry.
      - Heals infantry in an area around it
 
 namisl-name = Cluster Missile Silo
-namisl-desc = Provides access to Nod Chemical Missiles.
+namisl-desc = Provides access to Nod Cluster Missiles.
 
     Special:
-     - Provides access to the Chemical Missile
+     - Provides access to the Cluster Missile
      - Requires power to operate
      - Reveals itself to enemy when not Cloaked!!!
 
