@@ -15,7 +15,7 @@ using OpenRA.Primitives;
 
 namespace OpenRA.Mods.Sp.Traits
 {
-	public enum RBGSwapMode { None, GRB, BGR, RBG, BRG, GBR }
+	public enum RBGSwapMode { None, GRB, BGR, RBG, BRG, GBR, Random }
 
 	public sealed class PaletteUtilSP
 	{
@@ -59,6 +59,7 @@ namespace OpenRA.Mods.Sp.Traits
 		public GenerateLightRemapAfterRPGSwapped(ImmutablePalette basePalette, RBGSwapMode rpgmode, float intensity, float3 lightcolor, int[] rpgIndexs, int[] lightIndexs)
 		{
 			remapColors = new Dictionary<int, Color>();
+			rpgmode = rpgmode != RBGSwapMode.Random ? rpgmode : (RBGSwapMode)Game.CosmeticRandom.Next((int)RBGSwapMode.Random);
 
 			if (rpgIndexs != null && rpgIndexs.Length != 0)
 			{
@@ -88,6 +89,7 @@ namespace OpenRA.Mods.Sp.Traits
 		public GenerateLightRemapAfterRPGSwapped(IPalette basePalette, RBGSwapMode rpgmode, float intensity, float3 lightcolor, int[] rpgIndexs, int[] lightIndexs)
 		{
 			remapColors = new Dictionary<int, Color>();
+			rpgmode = rpgmode != RBGSwapMode.Random ? rpgmode : (RBGSwapMode)Game.CosmeticRandom.Next((int)RBGSwapMode.Random);
 
 			if (rpgIndexs != null && rpgIndexs.Length != 0)
 			{
