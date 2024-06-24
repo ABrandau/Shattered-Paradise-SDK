@@ -2076,7 +2076,6 @@ NEUTRALFABRICATOR:
 	Inherits: ^Vehicle
 	Inherits@2: ^SpriteActor
 	Inherits@3: ^7CellVision
-	#Inherits@4: ^EngineerCapturableVehicle
 	Tooltip:
 		Name: fabricator-name
 	UpdatesPlayerStatistics:
@@ -2112,9 +2111,10 @@ NEUTRALFABRICATORDEP:
 		Name: fabricator-name
 	BaseProvider:
 		Range: 8c0
+	GivesBuildableArea:
+		AreaTypes: building
 	Targetable:
 		TargetTypes: Building, Ground, C4
-	BaseBuilding:
 	WithMakeAnimation:
 		Condition: Building-Buildup
 	Transforms:
