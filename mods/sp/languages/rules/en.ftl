@@ -1897,6 +1897,7 @@ tacnst-name = Tech Construction Yard
 tacnst-desc = Builds tech structures.
 
 ## Civilian
+cat-name = Cat
 weedguy-name = Chem Spray Infantry
 weedeater-name = Weed Eater
 chamspy-name = Chameleon Spy

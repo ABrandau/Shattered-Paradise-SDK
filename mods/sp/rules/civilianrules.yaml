@@ -237,6 +237,36 @@ SCRCIV1:
 	-DamagedByTerrain:
 	-SpawnSmokeParticleOnDeath@FLAMEGUY:
 
+CAT:
+	Inherits: ^CivilianInfantry
+	-WithDeathAnimation@tib:
+	-SpawnSmokeParticleOnDeath@FLAMEGUY:
+	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@conversionUpg:
+	Tooltip:
+		Name: cat-name
+	Voiced:
+		VoiceSet: CatVoice
+		Volume: 0.3
+	WithDeathAnimation@normal:
+		DeathTypes:
+			TiberiumDeath: 1, 2
+			EnergyDeath: 1, 2
+			FireDeath: 1, 2
+			BulletDeath: 1, 2
+			CabalDeath: 1, 2
+			CabalDeathUpg: 1, 2
+	WithDeathAnimation@explosion:
+		DeathSequencePalette: apolredalpha
+	WithDeathAnimation@body:
+		DeathSequencePalette: gradientred
+		CrushedSequencePalette: gradientred
+		Delay: 2
+	WithDeathAnimation@blood:
+		Delay: 0
+	Selectable:
+		Bounds: 514,1009,0,-401
+
 4TNK:
 	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMoveWithBerserkable
