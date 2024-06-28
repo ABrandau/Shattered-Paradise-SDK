@@ -1717,7 +1717,7 @@ CABECM:
 		BuildDuration: 625
 		BuildDurationModifier: 100
 	Selectable:
-		Bounds: 1206,1809, 0, -480
+		Bounds: 1106,1609, 0, -480
 	Health:
 		HP: 25000
 	Armor:
@@ -1725,10 +1725,12 @@ CABECM:
 	Mobile:
 		Speed: 80
 		TurnSpeed: 24
-		Locomotor: InfantryCrusherVehicle
+		CanMoveBackward: true
+		BackwardDuration: -1
+		MaxBackwardCells: -1
+		Locomotor: Vehicle
 	Voiced:
 		VoiceSet: Limpet
-	WithFacingSpriteBody:
 	DroneSpawnerMaster:
 		Actors: QDRONE
 		SpawnOffset: 0,0,512
@@ -1769,6 +1771,9 @@ CABECM:
 		CaptureDelay: 250
 		ConsumedByCapture: false
 	-RevealOnFire:
+	-WithFacingSpriteBody:
+	WithInfantryBody: ## support tracks motion animation
+		RequiresCondition: !inside-tunnel
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome

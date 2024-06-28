@@ -1776,7 +1776,7 @@ cabecm-desc = Support unit can recon and infiltrate.
      - Force fire any location: Send the Quadrotor to recon
      - Send the Quadrotor to hack hackable.
      - Capture building without consumed.
-     - Can crush Infantry
+
 qdrone-name = Quadrotor
 
 mutmound-name = Suspicious Mound
