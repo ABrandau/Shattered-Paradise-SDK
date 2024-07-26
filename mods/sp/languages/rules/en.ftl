@@ -1,3 +1,86 @@
+## Faction
+faction-gdi = 
+    .name = GDI
+    .desc = Global Defense Initiative
+    A paramilitary organisation that fights to halt tiberium growth and
+    maintain world stability, along with global peace.
+    Allrounder faction
+    Special Characteristics:
+    - Well rounded arsenal in offense as much as defense
+    - Strong vehicles
+    - Support structure: Firestorm Generator
+    - Support power: Helldiver Drop
+    - Superweapon: Ion Cannon
+    - Commando Infantry: Jumpjet Commando
+    - Epic Unit: Mammoth Mk. II
+
+faction-nod = 
+    .name = Nod
+    .desc = Brotherhood of Nod
+    The Brotherhood fights under the leadership of Kane to speed up
+    the evolution of mankind through the power of Tiberium.
+    Hit and run faction
+    Special Characteristics:
+    - Nod soldiers use guerilla tactics and stealth
+    - Advanced laser technology and subterranean vehicles
+    - Support Structure: Stealth Generator
+    - Support Power: Cluster Missile
+    - Super Weapon: Apocalypse Missile
+    - Commando Infantry: Toxin Commando
+    - Epic Unit: Lightbringer
+
+faction-mut = 
+    .name = Mutants
+    .desc = Mutants
+    Warbands composed of people affected by tiberium mutations. To
+    survive they exploit the very substance that harms them.
+    Swarmer faction
+    Special Characteristics:
+    - Units are cheap and fast to produce
+    - Defenses dont require energy to operate
+    - Infantry and beasts heal on tiberium fields
+    - Support Structure: Tunnel Network
+    - Support Power: Veinhole Spawn
+    - Super Weapon: Ion Storm
+    - Commando Infantry: Lyra the Storm Caller
+    - Epic Unit: Weasaurus Lord
+
+faction-cab = 
+    .name = C.A.B.A.L.
+    .desc = Computer Assisted Biologically Augmented Lifeform
+    C.A.B.A.L. has separated itself from Kane to dominate the world
+    and allow humanity to achieve perfection as cyborgs.
+    Steamroller faction
+    Special Characteristics:
+    - Expensive but extremly strong machinery
+    - Uncrushable Cyborgs and heavy Walkers
+    - Support Structure: Eye of C.A.B.A.L.
+    - Support Power: Nanomachine Swarm
+    - Super Weapon: Iron Savior
+    - Commando Infantry: Cyborg Commando
+    - Epic Unit: C.A.B.A.L. Defender	
+
+faction-scr = 
+    .name = Scrin
+    .desc = Scrin
+    An alien race that brought Tiberium to earth many years ago. They
+    mine planets through the use of Ichor (Tiberium).
+    Manipulator faction
+    Special Characteristics:
+    - Most units have special abilities that affect the battlefield
+    - Focus on airpower, mind control, shield generation and radiation
+    - All Scrin units collect essence from killed lifeforms to heal
+    - Support Structure: Shield Genertor
+    - Support Power: Instant Wormhole
+    - Super Weapon: Wrath of the Creator
+    - Commando Infantry: Mastermind
+    - Epic Unit: Battlecruiser
+
+faction-random = 
+    .name = Random
+    .desc = Random
+    Not everyone has a chance to choose his life.
+
 ## Player
 
 options-tech-level =
