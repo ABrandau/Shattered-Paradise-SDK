@@ -82,6 +82,11 @@ faction-random =
     Not everyone has a chance to choose his life.
 
 ## Player
+bot-easy-name=  Easy AI
+bot-normal-name =  Normal AI
+bot-hard-name =  Cheater AI
+bot-vhard-name =  Shattered AI
+bot-insane-name =  Paradise AI
 
 options-tech-level =
     .tech-level1 = 1
