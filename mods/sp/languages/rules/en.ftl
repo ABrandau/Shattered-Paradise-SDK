@@ -4,7 +4,9 @@ faction-gdi =
     .desc = Global Defense Initiative
     A paramilitary organisation that fights to halt tiberium growth and
     maintain world stability, along with global peace.
+
     Allrounder faction
+
     Special Characteristics:
     - Well rounded arsenal in offense as much as defense
     - Strong vehicles
@@ -19,7 +21,9 @@ faction-nod =
     .desc = Brotherhood of Nod
     The Brotherhood fights under the leadership of Kane to speed up
     the evolution of mankind through the power of Tiberium.
+
     Hit and run faction
+
     Special Characteristics:
     - Nod soldiers use guerilla tactics and stealth
     - Advanced laser technology and subterranean vehicles
@@ -34,7 +38,9 @@ faction-mut =
     .desc = Mutants
     Warbands composed of people affected by tiberium mutations. To
     survive they exploit the very substance that harms them.
+
     Swarmer faction
+
     Special Characteristics:
     - Units are cheap and fast to produce
     - Defenses dont require energy to operate
@@ -50,7 +56,9 @@ faction-cab =
     .desc = Computer Assisted Biologically Augmented Lifeform
     C.A.B.A.L. has separated itself from Kane to dominate the world
     and allow humanity to achieve perfection as cyborgs.
+
     Steamroller faction
+
     Special Characteristics:
     - Expensive but extremly strong machinery
     - Uncrushable Cyborgs and heavy Walkers
@@ -65,7 +73,9 @@ faction-scr =
     .desc = Scrin
     An alien race that brought Tiberium to earth many years ago. They
     mine planets through the use of Ichor (Tiberium).
+
     Manipulator faction
+
     Special Characteristics:
     - Most units have special abilities that affect the battlefield
     - Focus on airpower, mind control, shield generation and radiation
@@ -117,10 +127,10 @@ checkbox-upgrades =
     .description = Enables researching upgrades that improve units
         When disabled, several units will change:
         - Mammoth Tank will have railgun but price increased
-        - Nod can build Cardinal.
+        - Nod can build Cardinal
         - Blighter MLRS will have tib-gas warhead
         - Glider can transform into aircraft but price increased
-        - Limped Drone can target air unit.
+        - Limped Drone can target air units
 
 checkbox-domination =
     .label = Domination
@@ -133,7 +143,7 @@ checkbox-megawealth =
         - Removes all the Tiberium and Tiberium spawner on the map
         - Tiberium Extractors immune to damage
         - Tiberium Extractors gains +200% income
-        - Units with Ichor Conversion upgrade can drain from Extractors.
+        - Units with Ichor Conversion upgrade can drain from Extractors
 
 checkbox-king-of-the-hill =
     .label = King of the Hill
@@ -173,7 +183,6 @@ label-armor-class =
     .Shield = Shield
 
 ## Text Notification
-
 notification-structure-sold = Structure sold.
 notification-unit-sold = Unit sold.
 notification-promoted = Unit promoted.
@@ -217,7 +226,6 @@ notification-cabal-boss = Enemy Core Defender detected.
 notification-gdi-boss = Enemy Mammoth Mk.III detected.
 notification-scrin-boss = Enemy Scrin Council detected.
 
-
 notification-superweapon-detected = Warning: A super weapon has been detected.
 notification-empcannon-ready = EMP cannon ready.
 notification-superweapon-ready = Our superweapon is online.
@@ -240,25 +248,35 @@ support-tunnel-desc = Spawns a Tunnel that is connected to the Tunnel Network at
 
 superweapon-nuke-name = Atomic Bomb
 superweapon-nuke-desc = Launches a conventional warhead at a target location.
+
     Special:
      - Deals huge damage and leaves nuke radiation
 
 superweapon-poddrop-name = Helldiver Drop
-superweapon-poddrop-desc = Deploys shock troopers at the targetted location.
+superweapon-poddrop-desc = Deploys a shock trooper team at the target location.
+
     Special:
-     - Shock troopers consist all kinds of GDI infantry (exclude commando)
+     - The team consists of following units:
+     -- 6 Marines
+     -- 2 Phalanxes
+     -- 3 Medic
+     -- 2 Disc Throwers
+     -- 4 Jumpjet Infantry
+     -- 1 Eagle Guard
 
 superweapon-clustermissile-name = Cluster Missile
 superweapon-clustermissile-desc = Launches cluster missile with various warheads.
 
 superweapon-veinhole-name = Veinhole Spawn
-superweapon-veinhole-desc = Spawns 5 baby veinholes on the targetted location.
+superweapon-veinhole-desc = Spawns 5 baby veinholes on the target location.
+
     Special:
      - Veinholes damage nearby vehicle, spawn radiation and tiberian crabs.
      - Veinholes provide vision to you as long as they live.
 
 superweapon-wormhole-name = Instant Wormhole
 superweapon-wormhole-desc = Teleports infantry and vehicles.
+
     Special:
      - Friendly units will always be teleported to the safe cell.
      - Enemy units will be teleported to the fatal cell of the teleporting cells
@@ -268,59 +286,69 @@ superweapon-wormhole2-desc = Instant Wormhole for AI.
 
 superweapon-nanomachine-name = Nanomachine Swarm
 superweapon-nanomachine-desc = Fills an area with nanomachines.
+
     Special:
      - Heals all friendly units and buildings for a short while
      - Turns fallen units (Friendly and Enemy) remaining into NanoSwarm
 
 superweapon-ioncannon-name = Ion Cannon Array
-superweapon-ioncannon-desc = Fires an array of ion cannons on the targetted area.
+superweapon-ioncannon-desc = Fires an array of ion cannons on the target location.
+
     Special:
-     - Rotation side beams damage all targets moderately.
-     - The main beam deals large damage and instantly kill Air and Ground units
+     - Rotating side beams deal moderate damage to all targets.
+     - The main beam deals large damage and instantly kills ground units and aircraft.
 
 superweapon-apocalypse-name = Apocalypse Missile
-superweapon-apocalypse-desc = Launches a liquid-tiberium warhead at a target location.
+superweapon-apocalypse-desc = Launches a liquid-tiberium warhead at the target location.
+
     Special:
-     - Deals large damage and instantly kill Air and Ground units
+     - Deals large damage and instantly kills ground units and aircraft.
      - Very large damage radius.
 
 superweapon-ionstorm-name = Ion Storm
 superweapon-ionstorm-desc = Allows the player to generate Ion Storms, dealing damage over a wide area.
+
     Special:
      - Bolts instantly kill ground units and aircraft.
      - Quickly actived.
 
 superweapon-meteor-name = Wrath of the Creator
 superweapon-meteor-desc = Drags meteors from orbit dealing moderate damage over a wide area.
+
     Special:
-     - Meteors instantly kills ground units on impacted
-     and aircraft when in the mid air.
+     - Meteors instantly kill ground units on impact and aircraft in the air.
      - Almost instantly actived.
 
 superweapon-ironsavior-name = Iron Savior
-superweapon-ironsavior-desc = Fires a volley of energy volleys at the target location.
+superweapon-ironsavior-desc = Fires a volley of energy projectiles at the target location.
+
     Special:
-     - Deals large damage and instantly kill Air and Ground units
+     - Deals large damage and instantly kills ground units and aircraft.
 
 superweapon-icbm-name = ICBM Strike
-superweapon-icbm-desc = Launches an ICBM with nuclear warhead.
-    Special:
-     - Deals huge damage and leaves nuke radiation
+superweapon-icbm-desc = Launches an ICBM with a nuclear warhead.
 
-superweapon-coredef-name = Rage Of The Core
-superweapon-coredef-desc = Fires Firestorm laser sweep through target location.
     Special:
-     - Instantly kills ground units and aircraft
+     - Deals huge damage and instantly kills ground units and aircraft.
+     - Leaves nuclear radiation in the affected area.
+
+superweapon-coredef-name = Rage of the Core
+superweapon-coredef-desc = Fires Firestorm laser that sweeps through the target location.
+
+    Special:
+     - Instantly kills ground and air units.
      - Instantly actived.
 
 superweapon-mk3misl-name = Sonic Missile Storm
-superweapon-mk3misl-desc = Fires missile using sonic wave bombard target location.
+superweapon-mk3misl-desc = Fires missiles using sonic waves to bombard the target location.
+
     Special:
      - Missile instantly kills aircraft when explodes
      - Missile leaves beacon for GDI orbital bombard, which removes buildings.
-     
+
 superweapon-tearreal-name = Tearing Reality
 superweapon-tearreal-desc = Tearing the time and space on target location.
+
     Special:
      - Teleport troops after dealing damage.
 
@@ -370,7 +398,7 @@ engineer-desc = Support infantry.
 
     Special:
      - Can capture neutral and enemy buildings
-     - Can repair buildings and bridges
+     - Can repair bridges and friendly buildings
      - Crush class: crushable
 
 gdimcv-name = GDI MCV
@@ -406,12 +434,12 @@ gadept-name = Service Depot
 gadept-desc = Provides 3 Repair Drones to repair nearby damaged vehicles.
 
     Special:
-     - Vehicles standing in the center of the building can be sold
+     - Vehicles standing at the center of the building can be sold
 
 scrdepot-name = Scrin Maintenance Depot
 
 napost-name = Laser Fence Section
-napost-desc = Stops infantry, vehicles and blocks enemy fire
+napost-desc = Stops infantry, vehicles and blocks enemy fire.
 
     Special:
      - Can NOT be crushed
@@ -838,7 +866,7 @@ scrtractor-desc = Anti-Air base defense.
 
     Special:
      - Can attack air
-     - Freezes the targetted aircraft momentarily
+     - Freezes the targeted aircraft momentarily
      - Requires power to operate
 
 gafire-name = Firestorm Generator
@@ -1371,7 +1399,7 @@ cabapc-desc = Light Armored transport.
      - Cannot enter Tunnel Networks or transport, can be carried by carryall
 
 spiderarty-name = Drone Host 
-spiderarty-desc = Heavy artillery that deploys drones at the targetted area.
+spiderarty-desc = Heavy artillery that deploys drones at the targeted area.
 
     Good vs: Ground targets
 
