@@ -82,11 +82,11 @@ faction-random =
     Not everyone has a chance to choose his life.
 
 ## Player
-bot-easy-name=  Easy AI
-bot-normal-name =  Normal AI
-bot-hard-name =  Cheater AI
-bot-vhard-name =  Shattered AI
-bot-insane-name =  Paradise AI
+bot-easy-name = Easy AI
+bot-normal-name = Normal AI
+bot-cheater-name = Cheater AI
+bot-shattered-name = Shattered AI
+bot-paradise-name = Paradise AI
 
 options-tech-level =
     .tech-level1 = 1
@@ -906,7 +906,7 @@ mutsw1-desc = Generates powerful Ion Storms.
      - Reveals itself to enemy when not Cloaked!!!
 
 scrextractor-name = Shield Generator
-scrextractor-desc = Scrin support structure shielding their troops.
+scrextractor-desc = Scrin support structure shielding their vehicles.
 
     Special:
      - Generates shields around nearby friendly ground vehicles
@@ -1443,7 +1443,7 @@ scrrecharger-name = Guardian
 scrrecharger-desc = Mobile shield generator.
 
     Special:
-     - Generates shields around nearby friendly land vehicles
+     - Generates shields around nearby friendly ground vehicles
      - Shields provide additional 150 health points
      - Does not protect against super weapons
      - Absorbs essence from killed enemies to heal

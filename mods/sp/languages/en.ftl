@@ -6,8 +6,6 @@ options-game-speed =
     .fastest = Fastest
     .ludicrous = Ludicrous
 
-
-    
 ## Chrome general
 close-stats-button-tooltip = Collapse
 open-stats-buttons-tooltip = Expand
