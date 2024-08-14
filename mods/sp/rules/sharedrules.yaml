@@ -66,6 +66,12 @@ ENGINEER:
 		PingRadar: true
 		Notification: EnemyEngineerDetected
 		TextNotification: notification-engineer
+	Captures@NormalBuilding:
+		RequiresCondition: !instantcapture && !WebDisable
+	Captures@TechBuilding:
+		RequiresCondition: !instantcapture && !WebDisable
+	Captures@InstantBuilding:
+		RequiresCondition: instantcapture && !WebDisable
 	-FirepowerMultiplier@ZealousBuff:
 	-ExternalCondition@ZealousBuff:
 	-WithIdleOverlayOnGround@ZealousBuff:
