@@ -47,6 +47,7 @@ GrenadierBazookaAA:
 Grenade:
 	Inherits: ^BombDamage
 	Inherits@2: ^Small_Clsn
+	ValidTargets: Infantry, Vehicle
 	ReloadDelay: 60
 	Range: 5c0
 	Report: grenade-throw.aud
@@ -58,8 +59,8 @@ Grenade:
 		LaunchAngle: 60
 		Inaccuracy: 0
 		Image: DISCUS
-		Palette: effect
-		BounceCount: 2
+		Palette: player
+		IsPlayerPalette: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
 		Damage: 5000
@@ -69,6 +70,14 @@ Grenade:
 	Warhead@2Eff: CreateEffect
 		Explosions: jtwlt026b
 		ImpactSounds: expnew13.aud
+
+DiskGrenade:
+	Inherits: Grenade
+	ValidTargets: Ground, Water
+	InvalidTargets: Infantry, Vehicle
+	Projectile: Bullet
+		Sequences: idle2
+		BounceCount: 2
 
 JJGrenade:
 	Inherits: ^BombDamage

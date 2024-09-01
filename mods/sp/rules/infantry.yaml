@@ -242,10 +242,23 @@ E2:
 		LocalOffset: 0,0,785
 		FireDelay: 5
 		Name: OnFoot
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload
+		PauseOnCondition: WebDisable || reload
 	Armament@Garrison:
 		Weapon: GGrenade
-		PauseOnCondition: WebDisable
+		ReloadingCondition: reload
+		PauseOnCondition: WebDisable || reload
+	Armament@2:
+		Weapon: DiskGrenade
+		LocalOffset: 0,0,785
+		FireDelay: 5
+		Name: OnFoot
+		ReloadingCondition: reload
+		PauseOnCondition: WebDisable || reload
+	Armament@Garrison2:
+		Weapon: GDiskGrenade
+		ReloadingCondition: reload
+		PauseOnCondition: WebDisable || reload
 	TakeCover:
 		ProneOffset: 160,128,-555
 	AttackFrontal:
