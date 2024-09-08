@@ -1,4 +1,4 @@
-CAHOSP:
+CAHOSP: #Civilian Hospital
 	Inherits: ^TechBuilding
 	Inherits@SHAPE: ^3x4Shape
 	Inherits@VISION: ^6CellVision
@@ -18,7 +18,7 @@ CAHOSP:
 	IsometricSelectable:
 		DecorationHeight: 48
 
-WELL:
+WELL: #Tiberium Extractor
 	Inherits: ^TechBuilding
 	Inherits@1: ^SpawnSmoke
 	Inherits@RENDER: ^MutRender
@@ -80,7 +80,7 @@ WELL:
 	ActorStatValues:
 		Stats: Armor, Sight, CashTrickler
 
-WELL.mwspawner:
+WELL.mwspawner: #Megawealth Only Tiberium Extractor
 	Inherits@shape: ^3x3Shape
 	Interactable:
 	EditorOnlyTooltip:
@@ -121,7 +121,7 @@ WELL.mwspawner:
 		RevealGeneratedShroud: false
 		RevealForRelationships: Ally, Enemy, Neutral
 
-WELL.nonmwspawner:
+WELL.nonmwspawner: #Non-Megawealth Only Tiberium Extractor
 	Inherits: WELL.mwspawner
 	EditorOnlyTooltip:
 		Name: well-nomw-name
@@ -133,7 +133,7 @@ WELL.nonmwspawner:
 	KillsSelf@remove:
 		RequiresCondition: megawealth
 
-MACHINESHOP:
+MACHINESHOP: #Machine Shop
 	Inherits: ^TechBuilding
 	Inherits@SHAPE: ^2x2Shape
 	Inherits@VISION: ^6CellVision
@@ -152,7 +152,7 @@ MACHINESHOP:
 	IsometricSelectable:
 		DecorationHeight: 36
 
-BLOODDERRICK:
+BLOODDERRICK: #Cravicus Containment
 	Inherits: ^CivBuilding
 	Inherits@RENDER: ^ScrinRender
 	Inherits@SHAPE: ^3x3Shape
@@ -240,7 +240,7 @@ BLOODDERRICK:
 		Category: Tiberian Lifeform
 		Order: 12
 
-NEUTRALRADAR:
+NEUTRALRADAR: #Scout Array
 	Inherits: ^TechBuilding
 	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
@@ -264,7 +264,7 @@ NEUTRALRADAR:
 	IsometricSelectable:
 		DecorationHeight: 48
 
-NEUTRALPOWERPLANT:
+NEUTRALPOWERPLANT: #Nuclear Power Plant
 	Inherits: ^TechBuilding
 	Inherits@SHAPE: ^3x3Shape
 	Inherits@VISION: ^6CellVision
@@ -291,7 +291,7 @@ NEUTRALPOWERPLANT:
 	ActorStatValues:
 		Stats: Armor, Sight, Power
 
-SCRINREINFPAD:
+SCRINREINFPAD: #Scrin Replicator
 	Inherits: ^TechBuilding
 	Inherits@1: ^ScrinDeathExplo
 	Inherits@2: ^ScrinBuildingFire
@@ -377,7 +377,7 @@ SCRINREINFPAD:
 	ActorStatValues:
 		Stats: Armor, Sight, PeriodicProducer
 
-NEUTRALSONICTUR:
+NEUTRALSONICTUR: #Shockwave Turret
 	Inherits: ^TechBuilding
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@SHAPE: ^1x1Shape
@@ -414,7 +414,7 @@ NEUTRALSONICTUR:
 		Damage: 75
 		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
 
-CABCANNON:
+CABCANNON: #Cannon Turret
 	Inherits: ^TechBuilding
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@RENDER: ^CabRender
@@ -453,7 +453,7 @@ CABCANNON:
 		Damage: 25
 		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
 
-REPAIRTUR:
+REPAIRTUR: #Maintenance Turret
 	Inherits: ^TechBuilding
 	Inherits@AUTOTARGET: ^AutoTargetHeal
 	Inherits@SHAPE: ^2x2Shape
@@ -493,7 +493,7 @@ REPAIRTUR:
 		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
 		Damage: -150
 
-BLUETIBBARREL:
+BLUETIBBARREL: #Blue Tiberium Barrel
 	Inherits: ^CivBuilding
 	Inherits@SHAPE: ^1x1Shape
 	Buildable:
@@ -536,7 +536,7 @@ BLUETIBBARREL5:
 BLUETIBBARREL6:
 	Inherits: BLUETIBBARREL
 
-FUELTOWER:
+FUELTOWER: #Fuel Tower
 	Inherits: ^CivBuilding
 	Inherits@SHAPE: ^1x1Shape
 	Buildable:
@@ -560,7 +560,7 @@ FUELTOWER:
 	IsometricSelectable:
 		DecorationHeight: 36
 
-CIVHELI:
+CIVHELI: #Civilian Helipad
 	Inherits: ^TechBuilding
 	Inherits@SHAPE: ^2x2Shape
 	Tooltip:
@@ -581,7 +581,7 @@ CIVHELI:
 	WithIdleOverlay:
 		Sequence: flag
 
-CAARMR:
+CAARMR: #Civilian Armory
 	Inherits: ^TechBuilding
 	Inherits@shape: ^4x4Shape
 	Tooltip:
@@ -603,7 +603,7 @@ CAARMR:
 	ProvidesPrerequisite:
 		Prerequisite: ArmoryExpBuff
 
-GASPOT:
+GASPOT: #Light Tower
 	Inherits: ^TechBuilding
 	Inherits@1: ^AutoTargetGround
 	Inherits@emp: ^EmpDisable
@@ -643,7 +643,7 @@ GASPOT:
 		DecorationHeight: 60
 
 ### Used for game mode
-FLAGDOM:
+FLAGDOM: #Domination Flag
 	Inherits: ^TechBuilding
 	RenderSprites:
 		Image: flagneutral
@@ -681,7 +681,7 @@ FLAGDOM:
 		RemoveInstead: true
 		RequiresCondition: !domination
 
-NTPYRA.koth:
+NTPYRA.koth: #Nod Pyramid (Contains Tacitus)
 	Inherits: ^TechBuilding
 	Tooltip:
 		Name: ntpyra-koth-name
@@ -731,7 +731,7 @@ NTPYRA.koth:
 		Icon: icon
 		IconPalette: chrome
 
-NAPULS:
+NAPULS: #EMP Cannon
 	Inherits: ^TechBuilding
 	Inherits@SHAPE: ^2x2Shape
 	Valued:
@@ -822,7 +822,7 @@ NAPULS:
 		Sequence: building_fire
 
 ### Test only
-TACNST:
+TACNST: #Tech Construction Yard
 	Inherits: GACNST
 	Tooltip:
 		Name: tacnst-name

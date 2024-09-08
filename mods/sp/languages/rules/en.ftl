@@ -1978,7 +1978,7 @@ neutralradar-name = Scout Array
 neutralradar-desc = Provides vision.
 
 neutralpowerplant-name = Nuclear Power Plant
-neutralpowerplant-desc = Provides power & explodes violently when destroyed.
+neutralpowerplant-desc = Provides power, build radius & explodes violently when destroyed.
 
 scrinreinfpad-name = Scrin Replicator
 scrinreinfpad-desc = Builds a main battle tank periodically.

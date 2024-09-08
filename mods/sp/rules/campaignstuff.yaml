@@ -816,7 +816,7 @@ NAHFAC:
 	IsometricSelectable:
 		DecorationHeight: 96
 
-AVATAR:
+AVATAR: #Avatar
 	Inherits: ^Walker
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveWithBerserkable
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -850,7 +850,7 @@ AVATAR:
 	GrantConditionOnMovement:
 		Condition: walking
 	Health:
-		HP: 100000
+		HP: 120000
 	BodyOrientation:
 		QuantizedFacings: 8
 	AttackFrontal:
@@ -891,7 +891,7 @@ AVATAR:
 		VoiceSet: Avatar
 		Volume: 2
 	ActorStatValues:
-		Damage: 250
+		Damage: 200
 
 MUJFISH:
 	Inherits: JFISH
@@ -911,7 +911,7 @@ MUJFISH:
 	-Encyclopedia:
 	-RangeMultiplier@rank-heroic:
 
-WEASAU3:
+WEASAU3: #Green Weasaurus
 	Inherits: ^TibBeast
 	Inherits@RENDER: ^MutRender
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveWithBerserkable
@@ -1028,7 +1028,7 @@ WEASAU3:
 	-ExternalCondition@ZealousBuff:
 	-WithIdleOverlayOnGround@ZealousBuff:
 
-PROMTHTNK:
+PROMTHTNK: #Prometheus Tank
 	Inherits: ^CombatVehicle
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -1080,7 +1080,7 @@ PROMTHTNK:
 	ActorStatValues:
 		Damage: 200
 
-REGENTNK:
+REGENTNK: #Regenisis Tank
 	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -1138,7 +1138,7 @@ REGENTNK:
 		Damage: 200
 
 
-TVDDEVICE:
+TVDDEVICE: #T.V.D.D
 	Inherits: ^CombatVehicle
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -1231,7 +1231,7 @@ TVDDEVICE:
 	ActorStatValues:
 		Damage: 2000
 
-LPST:
+LPST: #Sensor Array
 	Inherits: ^Vehicle
 	Inherits@AImicroManagable: ^AImicroManagable
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
@@ -1317,20 +1317,20 @@ LPST:
 		OrderTrigger: BecomingIdle
 		OrderInterval: 105
 
-SGEN:
+SGEN: #Mobile Stealth Generator
 	Inherits: ^Vehicle
 	Inherits@IMPSGEN: ^AffectedByImprovedStealthGenerator
 	Inherits@AImicroManagable: ^AImicroManagable
 	Inherits@SELECTIONMODE: ^LowPrioritySelectionMode
 	Valued:
-		Cost: 1000
+		Cost: 500
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Nod, Vehicle.NodTallMech
 		BuildAtProductionType: Tank
 		Prerequisites: ~naweap, natech, ~campaignunit, ~techlevel.5
 		BuildPaletteOrder: 51
 		Description: sgen-desc
-		BuildDuration: 875
+		BuildDuration: 250
 		BuildDurationModifier: 100
 	Tooltip:
 		Name: sgen-name
@@ -1338,7 +1338,7 @@ SGEN:
 		AddToArmyValue: true
 	Mobile:
 		TurnSpeed: 32
-		Speed: 45
+		Speed: 90
 		ImmovableCondition: !undeployed
 		RequireForceMoveCondition: !AImicroManage && !undeployed
 	Passenger:
@@ -1346,7 +1346,7 @@ SGEN:
 	Carryable:
 		RequiresCondition: undeployed
 	Health:
-		HP: 25000
+		HP: 20000
 	Armor:
 		Type: Light
 	GrantConditionOnDeploy:
@@ -1377,14 +1377,14 @@ SGEN:
 	ProximityExternalCondition:
 		Condition: cloakgenerator
 		RequiresCondition: deployed && !empdisable
-		Range: 5c0
+		Range: 8c0
 		EnableSound: cloak5.aud
 		DisableSound: cloak5.aud
 		AffectsParent: true
 	Cloak@CLOAKGENERATOR:
 		RequiresCondition: (improvedsgen && deployed || undeployed) && cloakgenerator
 	WithRangeCircle:
-		Range: 5c0
+		Range: 8c0
 		Type: cloakgenerator
 		Color: 00FF7FCC
 		BorderWidth: 0
@@ -1418,7 +1418,7 @@ SGEN:
 		OrderTrigger: BecomingIdle
 		OrderInterval: 105
 
-ICBM:
+ICBM: #Ballistic Missile Launcher
 	Inherits: ^Vehicle
 	Inherits@VISION: ^6CellVision
 	Inherits@SUPER: ^HasMisslePower
