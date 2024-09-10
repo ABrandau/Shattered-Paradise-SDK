@@ -461,6 +461,9 @@ GACNST:
 		Prerequisite: AIantiRush-building-order ## Hack: AI Building control. AI build refinary only when it has a combat producing line.
 	IsometricSelectable:
 		DecorationHeight: 36
+	Voiced:
+		VoiceSet: GDIConstructionYardVoice
+		Volume: 0.5
 	AddCashCheater@AI:
 		CashCheatType: BaseBuilder
 	### AI Control: AI unpack captured MCV
@@ -489,6 +492,9 @@ GACNST:
 	Power:
 		Amount: 100
 		RequiresCondition: !empdisable
+	Voiced:
+		VoiceSet: GDIPowerPlantVoice
+		Volume: 0.5
 	IsometricSelectable:
 		DecorationHeight: 48
 
@@ -551,6 +557,9 @@ GACNST:
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@AIantiRush-building-order:
 		Prerequisite: AIantiRush-building-order ## Hack: AI Building control. AI build refinary only when it has a combat producing line.
+	Voiced:
+		VoiceSet: GDIBarracksVoice
+		Volume: 0.5
 
 ^RefineryOverride:
 	Health:
@@ -589,6 +598,9 @@ GACNST:
 		RequiresCondition: !Building-Buildup
 	AddCashCheater@AI:
 		CashCheatType: Refinery
+	Voiced:
+		VoiceSet: GDIRefineryVoice
+		Volume: 0.5
 
 ^Refinery:
 	Inherits: ^AffectPowerBuilding
@@ -779,6 +791,9 @@ GACNST:
 		ResetOnOwnerChange: true
 	ProvidesPrerequisite@AIantiRush-building-order:
 		Prerequisite: AIantiRush-building-order
+	Voiced:
+		VoiceSet: GDIWarFactoryVoice
+		Volume: 0.5
 	IsometricSelectable:
 		DecorationHeight: 48
 
@@ -836,6 +851,9 @@ GACNST:
 	WithSpriteBody:
 	ProvidesPrerequisite@AIantiRush-building-order:
 		Prerequisite: AIantiRush-building-order
+	Voiced:
+		VoiceSet: GDIHelipadVoice
+		Volume: 0.5
 
 ^Radar:
 	Inherits: ^AffectPowerBuilding
@@ -939,6 +957,9 @@ GACNST:
 		Prerequisites: global-swlimit
 	RenderDetectionCircle:
 		TrailCount: 3
+	Voiced:
+		VoiceSet: GDIRadarVoice
+		Volume: 0.5
 
 GADEPT:
 	Inherits: ^AffectPowerBuilding
@@ -1058,6 +1079,9 @@ GADEPT:
 	RequiresBuildableArea:
 		AreaTypes: building
 	-RevealOnFire:
+	Voiced:
+		VoiceSet: ServiceDepotVoice
+		Volume: 0.5
 	ActorStatValues:
 		Damage: -20
 
@@ -1091,6 +1115,8 @@ SCRDEPOT:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	Voiced:
+		VoiceSet: ScrinMaintenanceDepotVoice
 	-WithIdleOverlay@LIGHT:
 	-WithIdleOverlay@LIGHT-BRIGHT:
 	-WithIdleOverlay@GROUND:
@@ -1120,6 +1146,9 @@ SCRDEPOT:
 	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
+	Voiced:
+		VoiceSet: GDITechCenterVoice
+		Volume: 0.5
 
 SHAWALL:
 	Inherits: ^Wall
@@ -1394,6 +1423,9 @@ GASILO:
 		ValidRelationships: Ally, Neutral, Enemy
 	MustBeDestroyed:
 		RequiredForShortGame: false
+	Voiced:
+		VoiceSet: SiloVoice
+		Volume: 0.5
 
 ################## Carryall ##############
 ^Carryall:

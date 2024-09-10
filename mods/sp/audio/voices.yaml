@@ -294,6 +294,24 @@ Scrin:
 ######################################################################
 #Shared Custom
 ######################################################################
+# Buildings
+ServiceDepotVoice:
+	DefaultVariant: .wav
+	Prefixes:
+		gdi: g
+		nod: n
+		cab: n
+		mut: g
+		scr: g
+	Voices:
+		Select: adept_sela
+
+# Support
+GateVoice:
+	Voices:
+		Select: gatedwn1, gateup1
+
+# Units
 HumanHarvesterVO:
 	Voices:
 		Select: harv0001, harv0002, harv0003, harv0004, harv0005, harv0006, harv0007
@@ -305,6 +323,101 @@ HumanHarvesterVO:
 ######################################################################
 #GDI Custom
 ######################################################################
+# Buildings
+GDIConstructionYardVoice:
+	Variants:
+		gdi: .wav
+		nod: .wav
+		mut: .wav
+		cab: .wav
+		scr: .wav
+	Voices:
+		Select: gacnst_sela
+		Move: 25-i000, 25-i002, 25-i004, 25-i006
+	DisableVariants: Move
+
+GDIPowerPlantVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: gapowr_sela
+
+GDIBarracksVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: gapile_sela
+
+GDIRefineryVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: gdiref_sela
+
+GDIWarFactoryVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: gaweap_sela
+
+GDIRadarVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: garadr_sela
+
+GDIHelipadVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: gahpad_sela
+
+GDITechCenterVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: gatech_sela
+
+GDIDropshipBayVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: gtdrop_sela
+
+# Support
+SiloVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: gasilo_sela
+
+VulcanTowerVoice:
+	DefaultVariant: .wav
+	Voices:
+		Action:
+		Select: gavulc_sela
+
+RPGTowerVoice:
+	DefaultVariant: .wav
+	Voices:
+		Action:
+		Select: garock_sela
+
+SAMTowerVoice:
+	DefaultVariant: .wav
+	Voices:
+		Action:
+		Select: gacsam_sela
+
+SonicEmitterVoice:
+	DefaultVariant: .wav
+	Voices:
+		Action:
+		Select: gasonc_sela
+
+FirestormGeneratorVoice:
+	DefaultVariant: .wav
+	Voices:
+		Action:
+		Select: gafire_sela
+
+IonCannonControlCenterVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: gaplug_sela
+
+# Units
 Marine:
 	Voices:
 		Select: marine0015, marine0016, marine0017, marine0018, marine0019
@@ -417,6 +530,94 @@ GuardianVO:
 ######################################################################
 #Nod Custom
 ######################################################################
+# Buildings
+NodConstructionYardVoice:
+	Variants:
+		gdi: .wav
+		nod: .wav
+		mut: .wav
+		cab: .wav
+		scr: .wav
+	Voices:
+		Select: nodyard_sela
+		Move: 25-i000, 25-i002, 25-i004, 25-i006
+	DisableVariants: Move
+
+NodPowerPlantVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: napowr_sela
+
+HandOfNodVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: nahand_sela
+
+NodRefineryVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: nodref_sela
+
+NodWarFactoryVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: naweap_sela
+
+NodRadarVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: naradr_sela
+
+NodHelipadVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: nahpad_sela
+
+NodTechCenterVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: natech_sela
+
+AdvancedMechFactoryVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: nahfac_sela
+
+ClusterMissileSiloVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: namisl_sela
+
+# Support
+LaserTurretVoice:
+	DefaultVariant: .wav
+	Voices:
+		Action:
+		Select: nalasr_sela
+
+ObeliskOfLightVoice:
+	DefaultVariant: .wav
+	Voices:
+		Action:
+		Select: naobel_sela
+
+SAMSiteVoice:
+	DefaultVariant: .wav
+	Voices:
+		Action:
+		Select: nasam_sela
+
+StealthGeneratorVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: nastlh_sela
+
+TempleOfNodVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: natmpl_sela
+
+# Units
 Militant:
 	Variants:
 		gdi: .wav
@@ -553,6 +754,20 @@ PaladinCruiser:
 ######################################################################
 #Mutant Custom
 ######################################################################
+# Support
+BunkerVoice:
+	DefaultVariant: .wav
+	Voices:
+		Action:
+		Select: mubunkr_sela
+
+FlakStationVoice:
+	DefaultVariant: .wav
+	Voices:
+		Action:
+		Select: muflak_sela
+
+# Units
 Marauder:
 	Voices:
 		Select: marauderquotes0014, marauderquotes0015, marauderquotes0016, marauderquotes0017, marauderquotes0018
@@ -692,6 +907,89 @@ CabalAirDrone:
 ######################################################################
 #Scrin Custom
 ######################################################################
+# Buildings
+DeployedHostStationVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: drached_sela
+		Move: vdhsmoa, vdhsmob, vdhsmoc, vdhsmod, vdhsmoe
+
+IchorGeneratorVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: scrpowr_sela
+
+LandingZoneVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: scrrax_sela
+
+ScrinRefineryVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: scrproc_sela
+
+ScrinForgeVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: scrweap_sela
+
+ScrinMaintenanceDepotVoice:
+	DefaultVariant: .wav
+	Voices:
+		Action:
+		Select: scrdepot_sela
+
+SignalTransmitterVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: scrradr_sela
+
+StargateVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: scrair_sela
+
+ScrinLaboratoryVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: scrtech_sela
+
+WormholeGeneratorVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: scradvpowr_sela
+
+# Support
+IchorWasteTurretVoice:
+	DefaultVariant: .wav
+	Voices:
+		Action:
+		Select: scrneedler_sela
+
+PulsarTowerVoice:
+	DefaultVariant: .wav
+	Voices:
+		Action:
+		Select: scrdrone_sela
+
+TractorBeamVoice:
+	DefaultVariant: .wav
+	Voices:
+		Action:
+		Select: scrtractor_sela
+
+ShieldGeneratorVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: scrextractor_sela
+
+MeteorTractorVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: scrsw1_sela
+
+# Units
 PlaugeTrooper: # Shock Trooper sounds from CnC3
 	DefaultVariant: .wav
 	Voices:

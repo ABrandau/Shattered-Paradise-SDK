@@ -85,6 +85,9 @@ GAVULC:
 	#ProvidesPrerequisite@buildingname:
 	Replacement:
 		ReplaceableTypes: Tower
+	Voiced:
+		VoiceSet: VulcanTowerVoice
+		Volume: 0.5
 	ActorStatValues:
 		Damage: 80
 
@@ -142,6 +145,9 @@ GAROCK:
 	#ProvidesPrerequisite@buildingname:
 	Replacement:
 		ReplaceableTypes: Tower
+	Voiced:
+		VoiceSet: RPGTowerVoice
+		Volume: 0.5
 	ActorStatValues:
 		Damage: 100
 	AutoTarget:
@@ -201,6 +207,9 @@ GACSAM:
 		AreaTypes: building
 	Replacement:
 		ReplaceableTypes: Tower
+	Voiced:
+		VoiceSet: SAMTowerVoice
+		Volume: 0.4
 	ActorStatValues:
 		Damage: 50
 
@@ -277,6 +286,9 @@ GASONC:
 		AreaTypes: building
 	Replacement:
 		ReplaceableTypes: Tower
+	Voiced:
+		VoiceSet: SonicEmitterVoice
+		Volume: 0.5
 	ActorStatValues:
 		Damage: 75
 	IsometricSelectable:
@@ -316,6 +328,9 @@ NALASR:
 		Amount: -40
 	RequiresBuildableArea:
 		AreaTypes: building
+	Voiced:
+		VoiceSet: LaserTurretVoice
+		Volume: 0.5
 	ActorStatValues:
 		Damage: 50
 
@@ -372,6 +387,9 @@ NAOBEL:
 		Amount: -110
 	IsometricSelectable:
 		DecorationHeight: 48
+	Voiced:
+		VoiceSet: ObeliskOfLightVoice
+		Volume: 0.5
 	ActorStatValues:
 		Damage: 300
 
@@ -405,6 +423,9 @@ NASAM:
 		MuzzlePalette: gensmkexploFgreen
 		RequiresCondition: tibcore
 	WithMuzzleOverlay:
+	Voiced:
+		VoiceSet: SAMSiteVoice
+		Volume: 0.5
 	AutoTarget:
 		ScanRadius: 12 #PREF: save trait looks up and scan armaments
 	ActorStatValues:
@@ -492,6 +513,9 @@ MUBUNKR:
 		OrderChance: 100
 		OrderTrigger: Periodically
 		OrderInterval: 20
+	Voiced:
+		VoiceSet: BunkerVoice
+		Volume: 0.5
 	ActorStatValues:
 		Stats: Armor, Sight, Cargo
 
@@ -585,6 +609,9 @@ MUFLAK:
 	-WithDecoration@POWERDOWN:
 	-PowerMultiplier@POWERDOWN:
 	-Power:
+	Voiced:
+		VoiceSet: FlakStationVoice
+		Volume: 0.5
 	ActorStatValues:
 		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
 		Damage: 40
@@ -741,6 +768,9 @@ SCRNEEDLER:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	Voiced:
+		VoiceSet: IchorWasteTurretVoice
+		Volume: 0.5
 	ActorStatValues:
 		Damage: 40
 
@@ -810,6 +840,9 @@ SCRDRONE:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	Voiced:
+		VoiceSet: PulsarTowerVoice
+		Volume: 0.5
 	ActorStatValues:
 		Damage: 130
 
@@ -846,6 +879,9 @@ SCRTRACTOR:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	Voiced:
+		VoiceSet: TractorBeamVoice
+		Volume: 0.5
 	ActorStatValues:
 		Damage: 40
 
@@ -947,6 +983,9 @@ GAFIRE:
 	MustBeDestroyed:
 		RequiredForShortGame: false
 	-GivesBuildableArea:
+	Voiced:
+		VoiceSet: FirestormGeneratorVoice
+		Volume: 0.5
 	ActorStatValues:
 		Armaments: None
 
@@ -1047,6 +1086,9 @@ GAPLUG:
 		LocalOffset: 0,0,15000
 		HitOffset: 0,0,3200
 		Delays: 30
+	Voiced:
+		VoiceSet: IonCannonControlCenterVoice
+		Volume: 0.5
 
 NASTLH:
 	Inherits: ^AffectPowerBuilding
@@ -1107,6 +1149,9 @@ NASTLH:
 	MustBeDestroyed:
 		RequiredForShortGame: false
 	-GivesBuildableArea:
+	Voiced:
+		VoiceSet: StealthGeneratorVoice
+		Volume: 0.5
 
 NATMPL:
 	Inherits: ^AffectPowerBuilding
@@ -1178,6 +1223,9 @@ NATMPL:
 		SpawnOffset: -1200, 1400, 0
 	WithSupportPowerActivationAnimation:
 		RequiresCondition: !Building-Buildup
+	Voiced:
+		VoiceSet: TempleOfNodVoice
+		Volume: 0.5
 
 ^MutantTunnelBased:
 	Inherits: ^Building
@@ -1479,6 +1527,9 @@ SCREXTRACTOR:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	Voiced:
+		VoiceSet: ShieldGeneratorVoice
+		Volume: 0.5
 	MustBeDestroyed:
 		RequiredForShortGame: false
 	-GivesBuildableArea:
@@ -1546,6 +1597,9 @@ SCRSW1:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	Voiced:
+		VoiceSet: MeteorTractorVoice
+		Volume: 0.5
 	WithSupportPowerActivationExplodeWeapon:
 		Weapon: MeteorDragLazer
 		LocalOffset: 120,140,3200

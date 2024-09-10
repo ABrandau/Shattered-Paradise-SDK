@@ -483,6 +483,9 @@ GTDROP:
 		RequiresCondition: multiqueue
 	Power:
 		Amount: -200
+	Voiced:
+		VoiceSet: GDIDropshipBayVoice
+		Volume: 0.5
 
 NODYARD:
 	Inherits: GACNST
@@ -516,6 +519,8 @@ NODYARD:
 		Sequence: idle-fans
 	WithIdleOverlay@SIDE:
 		Sequence: idle-pit
+	Voiced:
+		VoiceSet: NodConstructionYardVoice
 	-WithIdleOverlay@TOP-BRIGHT:
 	-WithIdleOverlay@FRONT:
 	-WithIdleOverlay@FRONT-BRIGHT:
@@ -547,6 +552,8 @@ NAPOWR:
 		Palette: bright
 	RequiresBuildableArea:
 		AreaTypes: building
+	Voiced:
+		VoiceSet: NodPowerPlantVoice
 
 NAHAND:
 	Inherits: ^Barracks
@@ -624,9 +631,10 @@ NAHAND:
 		Prerequisite: barracks.humanengi
 	RequiresBuildableArea:
 		AreaTypes: building
+	Voiced:
+		VoiceSet: HandOfNodVoice
 	ActorStatValues:
 		Upgrades: upgrade.unlock_exemplar
-
 
 NODREF:
 	Inherits: ^Refinery
@@ -649,6 +657,8 @@ NODREF:
 		Offset: 0, -680, 3850
 	WithDockedOverlay@flame2:
 		Offset: 0, -1180, 3350
+	Voiced:
+		VoiceSet: NodRefineryVoice
 	IsometricSelectable:
 		Class: NODREF
 
@@ -666,6 +676,8 @@ NODREF2:
 		Offset: 0, 670, 5250
 	WithDockedOverlay@flame2:
 		Offset: 0, 1220, 5750
+	Voiced:
+		VoiceSet: NodRefineryVoice
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
@@ -685,6 +697,8 @@ NODREF3:
 		Offset: 0, 1220, 3350
 	WithDockedOverlay@flame2:
 		Offset: 0, 670, 3850
+	Voiced:
+		VoiceSet: NodRefineryVoice
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
@@ -704,6 +718,8 @@ NODREF4:
 		Offset: 0, 940, 3150
 	WithDockedOverlay@flame2:
 		Offset: 0, 420, 3650
+	Voiced:
+		VoiceSet: NodRefineryVoice
 	ActorStatValues:
 		Icon: icon
 		IconPalette: chrome
@@ -742,6 +758,8 @@ NAWEAP:
 	WithIdleOverlay@BIB:
 		Sequence: bib
 		RequiresCondition: !Building-Buildup
+	Voiced:
+		VoiceSet: NodWarFactoryVoice
 
 NARADR:
 	Inherits: ^Radar
@@ -804,6 +822,8 @@ NARADR:
 		-IncomingSpeechNotification:
 		-IncomingSound:
 		-IncomingTextNotification:
+	Voiced:
+		VoiceSet: NodRadarVoice
 
 NAAPWR:
 	Inherits: ^Powerplant
@@ -839,6 +859,8 @@ NAAPWR:
 		AreaTypes: building
 	ProvidesPrerequisite@napowr:
 		Prerequisite: napowr
+	Voiced:
+		VoiceSet: NodPowerPlantVoice
 
 NAHPAD:
 	Inherits: ^Helipad
@@ -880,6 +902,8 @@ NAHPAD:
 		UseDeathTypeSuffix: false
 	RequiresBuildableArea:
 		AreaTypes: building
+	Voiced:
+		VoiceSet: NodHelipadVoice
 
 NATECH:
 	Inherits: ^TechCenter
@@ -911,6 +935,8 @@ NATECH:
 	ProvidesPrerequisite@AI-Limit:
 		RequiresCondition: AImicroManage
 		Prerequisite: hasTech.nodT3
+	Voiced:
+		VoiceSet: NodTechCenterVoice
 
 NAMISL:
 	Inherits: ^AffectPowerBuilding
@@ -1014,6 +1040,9 @@ NAMISL:
 		Palette: bright
 	Power:
 		Amount: -200
+	Voiced:
+		VoiceSet: ClusterMissileSiloVoice
+		Volume: 0.5
 
 MUTYARD:
 	Inherits: GACNST
@@ -1437,6 +1466,8 @@ DRACHED:
 	-ProvidesPrerequisite@structureshuman:
 	-ProvidesPrerequisite@structureswall:
 	-ProvidesPrerequisite@structuresgate:
+	Voiced:
+		VoiceSet: DeployedHostStationVoice
 
 SCRPOWR:
 	Inherits: ^Powerplant
@@ -1468,6 +1499,8 @@ SCRPOWR:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	Voiced:
+		VoiceSet: IchorGeneratorVoice
 
 SCRRAX:
 	Inherits: ^Barracks
@@ -1543,6 +1576,8 @@ SCRRAX:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	Voiced:
+		VoiceSet: LandingZoneVoice
 
 SCRPROC:
 	Inherits: ^Refinery
@@ -1577,6 +1612,8 @@ SCRPROC:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	Voiced:
+		VoiceSet: ScrinRefineryVoice
 	IsometricSelectable:
 		Class: SCRPROC
 
@@ -1603,6 +1640,8 @@ SCRPROC2:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	Voiced:
+		VoiceSet: ScrinRefineryVoice
 	IsometricSelectable:
 		Class: SCRPROC
 	ActorStatValues:
@@ -1633,6 +1672,8 @@ SCRPROC3:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	Voiced:
+		VoiceSet: ScrinRefineryVoice
 	IsometricSelectable:
 		Class: SCRPROC
 	ActorStatValues:
@@ -1663,6 +1704,8 @@ SCRPROC4:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	Voiced:
+		VoiceSet: ScrinRefineryVoice
 	IsometricSelectable:
 		Class: SCRPROC
 	ActorStatValues:
@@ -1700,6 +1743,8 @@ SCRWEAP:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	Voiced:
+		VoiceSet: ScrinForgeVoice
 
 SCRRADR:
 	Inherits: ^Radar
@@ -1743,6 +1788,8 @@ SCRRADR:
 	ProvidesPrerequisite@AI-Limit:
 		RequiresCondition: AImicroManage
 		Prerequisite: hasTech.scrT2
+	Voiced:
+		VoiceSet: SignalTransmitterVoice
 
 SCRAIR:
 	Inherits: ^Helipad
@@ -1791,6 +1838,8 @@ SCRAIR:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	Voiced:
+		VoiceSet: StargateVoice
 
 SCRTECH:
 	Inherits: ^TechCenter
@@ -1821,6 +1870,8 @@ SCRTECH:
 	ProvidesPrerequisite@AI-Limit:
 		RequiresCondition: AImicroManage
 		Prerequisite: hasTech.scrT3
+	Voiced:
+		VoiceSet: ScrinLaboratoryVoice
 
 SCRADVPOWR:
 	Inherits: ^AffectPowerBuilding
@@ -1925,6 +1976,9 @@ SCRADVPOWR:
 		Weapons: SmallDebrisScrin
 	ThrowsShrapnel@LARGE:
 		Weapons: LargeDebrisScrin
+	Voiced:
+		VoiceSet: WormholeGeneratorVoice
+		Volume: 0.5
 
 CABYARD:
 	Inherits: GACNST
@@ -1954,6 +2008,8 @@ CABYARD:
 	WithBuildingPlacedOverlay:
 		Sequence: circus
 		Palette: playercab
+	Voiced:
+		VoiceSet: NodConstructionYardVoice
 	-WithIdleOverlay@TOP:
 	-WithIdleOverlay@TOP-BRIGHT:
 	-WithIdleOverlay@SIDE:
@@ -1984,6 +2040,8 @@ CABPOWR:
 		Amount: 200
 	RequiresBuildableArea:
 		AreaTypes: building
+	Voiced:
+		VoiceSet: NodPowerPlantVoice
 
 CABCLAW:
 	Inherits: ^Barracks
@@ -2082,6 +2140,8 @@ CABPROC:
 	PlaceBuildingVariants:
 		Actors: cabproc3, cabproc2, cabproc4
 		Facings: 384, 640, 896, 128
+	Voiced:
+		VoiceSet: NodRefineryVoice
 	IsometricSelectable:
 		Class: CABPROC
 
@@ -2102,6 +2162,8 @@ CABPROC2:
 		Sequence: emp-overlay
 		Offset: 50, -150, 0
 	-WithDockedOverlay@flame2:
+	Voiced:
+		VoiceSet: NodRefineryVoice
 	IsometricSelectable:
 		Class: CABPROC
 	ActorStatValues:
@@ -2125,6 +2187,8 @@ CABPROC3:
 		Sequence: emp-overlay
 		Offset: -350, -100, 0
 	-WithDockedOverlay@flame2:
+	Voiced:
+		VoiceSet: NodRefineryVoice
 	IsometricSelectable:
 		Class: CABPROC
 	ActorStatValues:
@@ -2148,6 +2212,8 @@ CABPROC4:
 		Sequence: emp-overlay
 		Offset: 50, -150, 0
 	-WithDockedOverlay@flame2:
+	Voiced:
+		VoiceSet: NodRefineryVoice
 	IsometricSelectable:
 		Class: CABPROC
 	ActorStatValues:
@@ -2179,6 +2245,8 @@ CABWEAP:
 	WithIdleOverlay@BIB:
 		Sequence: bib
 		RequiresCondition: !Building-Buildup
+	Voiced:
+		VoiceSet: NodWarFactoryVoice
 	IsometricSelectable:
 		DecorationHeight: 36
 
@@ -2214,6 +2282,8 @@ CABRADR:
 	ProvidesPrerequisite@AI-Limit:
 		RequiresCondition: AImicroManage
 		Prerequisite: hasTech.cabT2
+	Voiced:
+		VoiceSet: NodRadarVoice
 
 CABAIR:
 	Inherits: ^Helipad
@@ -2250,6 +2320,8 @@ CABAIR:
 		RequiresCondition: !Building-Buildup
 	RequiresBuildableArea:
 		AreaTypes: building
+	Voiced:
+		VoiceSet: NodHelipadVoice
 
 CABTECH:
 	Inherits: ^TechCenter
@@ -2273,6 +2345,8 @@ CABTECH:
 	ProvidesPrerequisite@AI-Limit:
 		RequiresCondition: AImicroManage
 		Prerequisite: hasTech.cabT3
+	Voiced:
+		VoiceSet: NodTechCenterVoice
 
 CABOBELISK:
 	Inherits: ^AffectPowerBuilding
