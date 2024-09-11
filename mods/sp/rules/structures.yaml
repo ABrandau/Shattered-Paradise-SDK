@@ -1081,6 +1081,8 @@ MUTYARD:
 		Sequence: idle-lights
 		Palette: playermut
 		IsPlayerPalette: True
+	Voiced:
+		VoiceSet: MutantConstructionYardVoice
 	-WithIdleOverlay@TOP-BRIGHT:
 	-WithIdleOverlay@FRONT:
 	-WithIdleOverlay@FRONT-BRIGHT:
@@ -1108,6 +1110,8 @@ MUPOWR:
 		RequiresCondition: !Building-Buildup
 	RequiresBuildableArea:
 		AreaTypes: building
+	Voiced:
+		VoiceSet: MutantPowerPlantVoice
 
 MURAX:
 	Inherits: ^Barracks
@@ -1174,6 +1178,8 @@ MURAX:
 		AreaTypes: building
 	IsometricSelectable:
 		DecorationHeight: 36
+	Voiced:
+		VoiceSet: MutantArmoryVoice
 
 MUPROC:
 	Inherits: ^Refinery
@@ -1201,6 +1207,8 @@ MUPROC:
 		Offset: 0, -730, 2950
 	WithDockedOverlay@flame2:
 		Offset: 0, -1070, 2650
+	Voiced:
+		VoiceSet: MutantRefineryVoice
 	IsometricSelectable:
 		Class: MUPROC
 
@@ -1217,6 +1225,8 @@ MUPROC2:
 		Offset: 0, 670, 4750
 	WithDockedOverlay@flame2:
 		Offset: 0, 1010, 5050
+	Voiced:
+		VoiceSet: MutantRefineryVoice
 	IsometricSelectable:
 		Class: MUPROC
 	ActorStatValues:
@@ -1236,6 +1246,8 @@ MUPROC3:
 		Offset: 0, 1420, 4200
 	WithDockedOverlay@flame2:
 		Offset: 0, 1000, 4650
+	Voiced:
+		VoiceSet: MutantRefineryVoice
 	IsometricSelectable:
 		Class: MUPROC
 	ActorStatValues:
@@ -1255,6 +1267,8 @@ MUPROC4:
 	WithDockedOverlay@flame2:
 		Offset: 0, -1580, 3550
 	-WithIdleOverlay@REDLIGHTS:
+	Voiced:
+		VoiceSet: MutantRefineryVoice
 	IsometricSelectable:
 		Class: MUPROC
 	ActorStatValues:
@@ -1285,6 +1299,8 @@ MUWEAP:
 	WithIdleOverlay@BIB:
 		Sequence: bib
 		RequiresCondition: !Building-Buildup
+	Voiced:
+		VoiceSet: MutantWarFactoryVoice
 
 MURADR:
 	Inherits: ^Radar
@@ -1313,6 +1329,8 @@ MURADR:
 	ProvidesPrerequisite@AI-Limit:
 		RequiresCondition: AImicroManage
 		Prerequisite: hasTech.mutT2
+	Voiced:
+		VoiceSet: MutantRadarVoice
 
 MUAIR:
 	Inherits: ^Helipad
@@ -1340,6 +1358,8 @@ MUAIR:
 		Facing: 0
 	RequiresBuildableArea:
 		AreaTypes: building
+	Voiced:
+		VoiceSet: MutantHelipadVoice
 
 MUHALL:
 	Inherits: ^TechCenter
@@ -1363,6 +1383,8 @@ MUHALL:
 	ProvidesPrerequisite@AI-Limit:
 		RequiresCondition: AImicroManage
 		Prerequisite: hasTech.mutT3
+	Voiced:
+		VoiceSet: ForgottenHallVoice
 
 MUTSW2:
 	Inherits: ^AffectPowerBuilding
@@ -1419,6 +1441,9 @@ MUTSW2:
 		AreaTypes: building
 	Power:
 		Amount: -200
+	Voiced:
+		VoiceSet: MotherVeinholeVoice
+		Volume: 0.75
 
 DRACHED:
 	Inherits: GACNST
@@ -2346,7 +2371,7 @@ CABTECH:
 		RequiresCondition: AImicroManage
 		Prerequisite: hasTech.cabT3
 	Voiced:
-		VoiceSet: NodTechCenterVoice
+		VoiceSet: SupercomputerVoice
 
 CABOBELISK:
 	Inherits: ^AffectPowerBuilding
@@ -2417,3 +2442,6 @@ CABOBELISK:
 		RequiresCondition: !Building-Buildup
 		Offset: 1500,0,0
 		Palette: playercab
+	Voiced:
+		VoiceSet: NanomachineCoreVoice
+		Volume: 0.5
