@@ -1977,7 +1977,7 @@ bloodderrick-desc = Spawns hostile crabs when destroyed.
 neutralradar-name = Scout Array
 neutralradar-desc = Provides vision.
 
-neutralpowerplant-name = Nuclear Power Plant
+neutralpowerplant-name = Nuclear Bunker
 neutralpowerplant-desc = Provides power, build radius & explodes violently when destroyed.
 
 scrinreinfpad-name = Scrin Replicator
