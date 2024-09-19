@@ -3298,6 +3298,13 @@ BCOREDEF:
 	Tooltip:
 		Name: blackdefd-name
 	Buildable:
+		Queue: Vehicle.Shared, Vehicle.CABAL
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 54
+		Description: blackdefd-desc
+		Prerequisites: ~disabled, ~techlevel.6, !DarkDefenderExists
+		BuildDuration: 2500
+		BuildDurationModifier: 100
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Mobile:
@@ -3404,9 +3411,6 @@ BCOREDEF:
 		OrderTrigger: Periodically
 		OrderInterval: 1035
 	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
-		TooltipActor: blackdefd
 		Damage: 680
 
 ###########################################################

@@ -2175,6 +2175,14 @@ COREDEFENDER:
 		VoiceSet: CoreDefender
 		Volume: 0.75
 	Buildable:
+		Queue: Vehicle.Shared, Vehicle.CABAL
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 59
+		Description: coredefender-desc
+		Prerequisites: ~disabled, ~techlevel.6, ~campaignunit, ~!DefenderExists
+		BuildDuration: 7000
+		BuildDurationModifier: 100
+		BuildLimit: 1
 	-Crushable:
 	AnnounceOnSeen:
 		PingRadar: true
@@ -2365,9 +2373,6 @@ COREDEFENDER:
 		OrderChance: 100
 		OrderInterval: 1811
 	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
-		TooltipActor: defd
 		Armaments: ArmArmament, HeadArmament
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 		Damage: 1668
