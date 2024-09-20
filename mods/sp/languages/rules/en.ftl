@@ -96,7 +96,7 @@ bot-easy-name = Easy AI
 bot-normal-name = Normal AI
 bot-cheater-name = Cheater AI
 bot-shattered-name = Shattered AI
-bot-paradise-name = Paradise AI
+bot-paradise-name = Tacitus AI
 
 options-tech-level =
     .tech-level1 = 1
