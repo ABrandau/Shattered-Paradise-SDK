@@ -128,7 +128,7 @@ namespace OpenRA.Mods.SP.Traits
 			return new Order("Detonate", self, queued);
 		}
 
-		bool IIssueDeployOrder.CanIssueDeployOrder(Actor self, bool queued) { return !(self.CurrentActivity is DetonationSequence); }
+		bool IIssueDeployOrder.CanIssueDeployOrder(Actor self, bool queued) { return self.CurrentActivity is not DetonationSequence; }
 
 		string IOrderVoice.VoicePhraseForOrder(Actor self, Order order)
 		{
