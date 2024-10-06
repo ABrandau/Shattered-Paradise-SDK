@@ -340,12 +340,6 @@ TripodExplode:
 		Amount: 5
 
 TiberiumExplosion:
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
-	Warhead@2Res: CreateResource
-		AddsResourceType: Tiberium
-		Size: 1,1
 	Warhead@3Eff: CreateEffect
 		Explosions: tibexp
 		ValidTargets: Ground, Air, Water
@@ -355,6 +349,13 @@ TiberiumExplosion:
 		SmudgeType: Crater
 		InitialSmudgeLevel: 5, 9
 		InvalidTargets: Vehicle, Building, Wall
+
+TiberiumExplosionResource:
+	Inherits: TiberiumExplosion
+	Warhead@2Res: CreateResource
+		AddsResourceType: Tiberium
+		Size: 0,0
+		Delay: 1
 
 ZombieExplosion:
 	Warhead@3Eff: CreateEffect
@@ -386,7 +387,8 @@ BlueTibBarrelExplo:
 		ExplosionPalette: jascblue60
 	#Warhead@2Res: CreateResource
 	#	AddsResourceType: BlueTiberium
-	#	Size: 1,1
+	#	Size: 0,0
+	#	Delay: 1
 
 FuelBarrelExplo:
 	Inherits: ^ExploWarheadDefaults
