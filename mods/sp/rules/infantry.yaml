@@ -794,7 +794,7 @@ TEMPLAR:
 	-DamagedByTerrain:
 	-TakeCover:
 	ActorStatValues:
-		Damage: 40
+		Damage: 80
 
 EXEMPLAR:
 	Inherits: ^Soldier
@@ -2213,8 +2213,6 @@ CABSENTRY:
 	-DetectCloaked:
 	-ActorLostNotification:
 	-UpdatesPlayerStatistics:
-	-SpawnActorOnDeath@conversion:
-	-SpawnActorOnDeath@conversionUpg:
 	-ExplodesAlsoTransported@EssenceDeath:
 	-Passenger:
 	-SharedPassenger:
@@ -2501,6 +2499,8 @@ SWARMLING:
 	-FirepowerMultiplier@ZealousBuff:
 	-ExternalCondition@ZealousBuff:
 	-WithIdleOverlayOnGround@ZealousBuff:
+	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@conversionUpg:
 
 PDRONE:
 	Inherits: ^HoverDroneSoldier
@@ -2578,7 +2578,7 @@ PDRONE:
 	ActorStatValues:
 		Damage: 63
 		Upgrades: upgrade.reclaim_and_recycle, upgrade.regenerative_materials
-	ActorStatOverride@recycle:
+	ActorStatOverride@RECYCLE:
 		Health: 16500
 		RequiresCondition: recycle
 
@@ -2767,6 +2767,8 @@ MOTH:
 		OrderInterval: 55
 	ActorStatValues:
 		Damage: 150
+	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@conversionUpg:
 
 CYC2:
 	Inherits: ^CyborgSoldier
@@ -2858,8 +2860,6 @@ WORKER:
 		FacingTolerance: 2
 	RenderSprites:
 	-SpawnCorpseOnDeath@nanomachinereanimate:
-	-SpawnActorOnDeath@conversion:
-	-SpawnActorOnDeath@conversionUpg:
 	DeliversCash:
 		Payload: 75
 	ActorStatValues:
@@ -2902,8 +2902,6 @@ CYBDOG:
 		ScanRadius: 5 #PREF: save trait looks up and scan armaments
 	SelectionDecorations:
 	-SpawnCorpseOnDeath@nanomachinereanimate:
-	-SpawnActorOnDeath@conversion:
-	-SpawnActorOnDeath@conversionUpg:
 	-TakeCover:
 	DeliversCash:
 		Payload: 75
@@ -2952,8 +2950,6 @@ CHUSK:
 		ScanRadius: 5 #PREF: save trait looks up and scan armaments
 	SelectionDecorations:
 	-SpawnCorpseOnDeath@nanomachinereanimate:
-	-SpawnActorOnDeath@conversion:
-	-SpawnActorOnDeath@conversionUpg:
 	-TakeCover:
 	WithDeathAnimation@normal:
 		DeathSequencePalette: playercab
@@ -3009,8 +3005,6 @@ WORKERMECH:
 	Selectable:
 		Bounds: 754, 1327, 0, -302
 	-SpawnCorpseOnDeath@nanomachinereanimate:
-	-SpawnActorOnDeath@conversion:
-	-SpawnActorOnDeath@conversionUpg:
 	ExplodesAlsoTransported:
 		Weapon: SimpleDroneExplode
 		RequiresCondition: !ascargo
@@ -3062,8 +3056,6 @@ NANOS:
 	ExplodesAlsoTransported:
 		Weapon: NanoDroneExplode
 	-SpawnCorpseOnDeath@nanomachinereanimate:
-	-SpawnActorOnDeath@conversion:
-	-SpawnActorOnDeath@conversionUpg:
 	Crushable:
 		CrushClasses: HeavyInfantry
 	ActorStatValues:

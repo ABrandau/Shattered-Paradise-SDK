@@ -1192,6 +1192,9 @@
 	DamageMultiplier@RECYCLE:
 		Modifier: 67
 		RequiresCondition: recycle
+	SpeedMultiplier@RECYCLE:
+		Modifier: 134
+		RequiresCondition: recycle
 	GrantConditionOnPrerequisite@RECYCLE:
 		Condition: recycle
 		Prerequisites: upgrade.reclaim_and_recycle
@@ -2041,8 +2044,8 @@
 	SpeedMultiplier@CRITICAL:
 		RequiresCondition: CriticalDamaged
 		Modifier: 50
-	SpawnActorOnDeath@conversion:
-		Actor: workermech
+	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@conversionUpg:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 
@@ -2069,8 +2072,8 @@
 		CrushedSequence: die-crushed
 		CrushedSequencePalette: player
 		CrushedPaletteIsPlayerPalette: true
-	SpawnActorOnDeath@conversion:
-		Actor: workermech
+	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@conversionUpg:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 
@@ -2101,8 +2104,8 @@
 		InvalidDeathTypes: DrownedDeath
 	SpeedMultiplier@InstantStop:
 		RequiresCondition: empdisable || WebDisable
-	SpawnActorOnDeath@conversion:
-		Actor: workermech
+	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@conversionUpg:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
 
@@ -2133,8 +2136,10 @@
 		InvalidDeathTypes: DrownedDeath
 	SpawnActorOnDeath@conversion:
 		RequiresCondition: !hoverunitonwater
+		Actor: workermech
 	SpawnActorOnDeath@conversionUpg:
 		RequiresCondition: !hoverunitonwater
+		Actor: workermech
 	DamagedByTintedCells@Default:
 		RequiresCondition: WebDisable || empdisable
 	DamagedByTintedCells@BlueRadiation:

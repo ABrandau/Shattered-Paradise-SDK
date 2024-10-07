@@ -2774,7 +2774,7 @@ limpet_aa_targeting-desc = Enables Limpet Drones to target air units.
 
 reclaim_and_recycle-name = Reclaim and Recycle
 reclaim_and_recycle-desc = Infantry killed by Reclaimers turn into Cyborgs with 15% health.
-    Increases durability of Reclaimers by 50%.
+    Increases durability of Reclaimers by 50% and their movement speed by 30.
 
 regenerative_materials-name = Regenerative Materials
 regenerative_materials-desc = Enables all C.A.B.A.L Infantry units to repair themselves, even during combat.

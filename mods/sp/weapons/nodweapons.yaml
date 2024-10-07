@@ -58,10 +58,8 @@ TemplarFlame:
 		Blockable: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
-		Damage: 400
+		Damage: 800
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath
-		Versus:
-			Infantry: 200
 
 TemplarFlameE:
 	Inherits: TemplarFlame
@@ -86,11 +84,6 @@ ExemplarVulcan:
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs, piffsfx, piffs2
 		ExplosionPalette: apred
-
-BuggyTemplarFlameE:
-	Inherits: TemplarFlameE
-	Warhead@1Dam: SpreadDamage
-		Damage: 600
 
 BlackHandLasor:
 	Inherits: ^FullDamage
@@ -117,11 +110,6 @@ BlackHandLasor:
 		Damage: 2500
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 		NoUnintendedFriendlyFire: All
-
-BlackHandLasorBuggy:
-	Inherits: BlackHandLasor
-	Burst: 5
-	BurstDelays: 3
 
 ToxinCommandoRifle:
 	Inherits: ^RifleWeapon
@@ -199,6 +187,18 @@ BuggyCannonLoaded:
 		FakeBulletNumber: 3
 		FakeBulletSpawnInterval: 2
 
+BuggyCrusaderBazooka:
+	Inherits: CrusaderBazooka
+	Burst: 2
+	Warhead@1Dam: SpreadDamage
+		Damage: 2500
+
+BuggyCrusaderBazookaAA:
+	Inherits: CrusaderBazookaAA
+	Burst: 2
+	Warhead@1Dam: SpreadDamage
+		Damage: 2500
+
 BuggyRepair:
 	Inherits: RepairVehicleLasor
 	ReloadDelay: 70
@@ -208,6 +208,16 @@ BuggyRepair:
 		Damage: -4000
 		ValidTargets: Vehicle
 		InvalidTargets: FullHealth, NoRepair
+
+BuggyTemplarFlameE:
+	Inherits: TemplarFlameE
+	Warhead@1Dam: SpreadDamage
+		Damage: 1200
+
+BlackHandLasorBuggy:
+	Inherits: BlackHandLasor
+	Burst: 5
+	BurstDelays: 3
 
 BuggySaw:
 	Inherits: ^RifleWeapon
@@ -294,7 +304,7 @@ BuggyMindRage:
 BuggyTesla:
 	Inherits: SeerTesla
 	ValidTargets: Air, Ground, Water
-	Range: 7c0
+	Range: 8c0
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air, Ground, Water
 
@@ -468,11 +478,9 @@ DevilsFlame:
 	Burst: 28
 	BurstDelays: 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c256
-		Damage: 400
+		Spread: 0c128
+		Damage: 800
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath
-		Versus:
-			Infantry: 200
 
 DevilsFlameE:
 	Inherits: DevilsFlame
@@ -530,11 +538,11 @@ SpectreCannon:
 	Inherits: ^ArtilleryDamage
 	Inherits@2: ^Large_Explosion
 	ReloadDelay: 150
-	Range: 18c0
-	MinRange: 5c0
+	Range: 15c0
+	MinRange: 3c0
 	Report: jugfire0000.wav, jugfire0001.wav, jugfire0002.wav
 	Projectile: BulletAS
-		Speed: 175
+		Speed: 300
 		Image: spectreball
 		LaunchAngle: 165
 		Shadow: true

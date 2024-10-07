@@ -883,8 +883,8 @@ BGGY:
 		MuzzleSequence: muzzle
 		RequiresCondition: ifv.militant
 	Armament@crusa:
-		Weapon: CrusaderBazooka
-		Damage: 30
+		Weapon: BuggyCrusaderBazooka
+		Damage: 50
 		LocalOffset: 250,0,125
 		MuzzleSequence: muzzle-missile
 		MuzzlePalette: gensmkexploj
@@ -892,7 +892,7 @@ BGGY:
 		PauseOnCondition: reload-air-crusader
 		RequiresCondition: ifv.rocket
 	Armament@crusaaa:
-		Weapon: CrusaderBazookaAA
+		Weapon: BuggyCrusaderBazookaAA
 		LocalOffset: 250,0,125
 		MuzzleSequence: muzzle-missile
 		MuzzlePalette: gensmkexploj
@@ -901,14 +901,14 @@ BGGY:
 		RequiresCondition: ifv.rocket
 	Armament@templar:
 		Weapon: TemplarFlame
-		Damage: 40
+		Damage: 80
 		LocalOffset: 400,0,75
 		RequiresCondition: ifv.flame && !blueflame
 		MuzzleSequence: muzzle-flame
 		MuzzlePalette: gensmkexploj
 	Armament@templar-elite:
 		Weapon: BuggyTemplarFlameE
-		Damage: 60
+		Damage: 120
 		LocalOffset: 400,0,75
 		RequiresCondition: ifv.flame && blueflame
 		MuzzleSequence: muzzle-flame
@@ -955,12 +955,12 @@ BGGY:
 		RequiresCondition: ifv.railgun
 	Armament@Mortar:
 		Weapon: BuggyMortar
-		Damage: 40
+		Damage: 60
 		LocalOffset: 500,0,800
 		RequiresCondition: ifv.mortar && !blueflame
 	Armament@MortarE:
 		Weapon: BuggyMortarE
-		Damage: 40
+		Damage: 90
 		LocalOffset: 500,0,800
 		RequiresCondition: ifv.mortar && blueflame
 	Armament@Tesla:
@@ -1642,7 +1642,7 @@ SUBTANK:
 		Weapon: UnitExplode
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
-		Damage: 112
+		Damage: 224
 
 HOWTLIZER:
 	Inherits: ^CombatVehicle
@@ -1982,7 +1982,7 @@ MUTQUAD:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@RENDER: ^MutRenderGreen
 	Valued:
-		Cost: 700
+		Cost: 600
 	Tooltip:
 		Name: mutquad-name
 	UpdatesPlayerStatistics:
@@ -1993,7 +1993,7 @@ MUTQUAD:
 		BuildPaletteOrder: 13
 		Description: mutquad-desc
 		Prerequisites: ~muweap, ~techlevel.2
-		BuildDuration: 500
+		BuildDuration: 375
 		BuildDurationModifier: 100
 	Mobile:
 		TurnSpeed: 32
@@ -2345,10 +2345,10 @@ DEATHCLAW:
 		BuildPaletteOrder: 41
 		Description: deathclaw-desc
 		Prerequisites: ~muweap, muhall, ~techlevel.5
-		BuildDuration: 875
+		BuildDuration: 750
 		BuildDurationModifier: 100
 	Valued:
-		Cost: 1400
+		Cost: 1200
 	Tooltip:
 		Name: deathclaw-name
 	UpdatesPlayerStatistics:
