@@ -1407,7 +1407,7 @@ spiderarty-desc = Heavy artillery that deploys drones at the targeted area.
      - Minimum attack distance
      - Spawns drones at target
      - Gain 100% EXP from enemy killed by spawned drones
-     - Converts killed Infantry/Beast into worker cyborgs
+     - Converts killed meaty creature into worker cyborgs
      - Can shoot over walls
      - Can crush infantry
      - Selfrepair
@@ -2610,7 +2610,7 @@ pdrone-desc = Hovered melee drone programmed to kill enemy infantry.
 
     Special:
      - Can only attack infantry
-     - Turns killed infantry into worker cyborgs
+     - Turns killed meaty creature into worker cyborgs
      - Hovers (ignores terrain like Veins, Water and Radiations)
      - No longer hovers when disabled by EMP or Web
      - Crush class: crushable only by Epics
@@ -2672,7 +2672,6 @@ cyc-desc =  Elite cyborg armed with a plasma cannon.
 worker-name = Worker Unit
 cybdog-name = Cyberdog
 chusk-name = Husk
-workermech-name = Worker Drone
 nanos-name = Small Nano Swarm
 
 ## Upgrades

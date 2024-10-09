@@ -2355,8 +2355,6 @@ CYBORG15-HUM:
 	-Buildable:
 	DamageOnCreation:
 		PercentageStep: -85
-	SpawnActorOnDeath@conversionUpg:
-		Actor: workermech
 	Selectable:
 		Class: cyborg
 	RenderSprites:
@@ -2499,8 +2497,6 @@ SWARMLING:
 	-FirepowerMultiplier@ZealousBuff:
 	-ExternalCondition@ZealousBuff:
 	-WithIdleOverlayOnGround@ZealousBuff:
-	-SpawnActorOnDeath@conversion:
-	-SpawnActorOnDeath@conversionUpg:
 
 PDRONE:
 	Inherits: ^HoverDroneSoldier
@@ -2573,8 +2569,6 @@ PDRONE:
 			EnergyDeath: 1,2
 	ExplodesAlsoTransported:
 		Weapon: SimpleDroneExplode
-	-SpawnActorOnDeath@conversion:
-	-SpawnActorOnDeath@conversionUpg:
 	ActorStatValues:
 		Damage: 63
 		Upgrades: upgrade.reclaim_and_recycle, upgrade.regenerative_materials
@@ -2767,8 +2761,6 @@ MOTH:
 		OrderInterval: 55
 	ActorStatValues:
 		Damage: 150
-	-SpawnActorOnDeath@conversion:
-	-SpawnActorOnDeath@conversionUpg:
 
 CYC2:
 	Inherits: ^CyborgSoldier
@@ -2962,56 +2954,6 @@ CHUSK:
 		Icon: icon
 		IconPalette: playercab
 		Damage: 16
-
-WORKERMECH:
-	Inherits: ^DroneSoldier
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveWithBerserkable
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
-	Inherits@RENDER: ^CabRender
-	Valued:
-		Cost: 150
-	Tooltip:
-		Name: workermech-name
-	Health:
-		HP: 15000
-	Mobile:
-		Speed: 45
-	Voiced:
-		VoiceSet: Limpet
-	DeliversCash:
-		Payload: 350
-		Voice: Move
-	BodyOrientation:
-		QuantizedFacings: 32
-	WithInfantryBody:
-	Turreted:
-		TurnSpeed: 30
-	AttackTurreted:
-		Voice: Attack
-	AutoTarget:
-		ScanRadius: 5 #PREF: save trait looks up and scan armaments
-	WithSpriteTurret:
-		Recoils: true
-		RequiresCondition: !inside-tunnel && !WebDisable
-	Armament@1:
-		Weapon: WorkerDroneMinigun
-		PauseOnCondition: WebDisable || empdisable
-		Name: OnFoot
-	Armament@Garrison:
-		Weapon: GWorkerDroneMinigun
-		PauseOnCondition: WebDisable || empdisable
-		MuzzleSequence: garrison-muzzle
-	Selectable:
-		Bounds: 754, 1327, 0, -302
-	-SpawnCorpseOnDeath@nanomachinereanimate:
-	ExplodesAlsoTransported:
-		Weapon: SimpleDroneExplode
-		RequiresCondition: !ascargo
-	ActorStatValues:
-		Icon: icon
-		IconPalette: chrome
-		Damage: 11
 
 NANOS:
 	Inherits: ^HoverDroneSoldier
