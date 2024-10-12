@@ -49,6 +49,7 @@ TemplarFlame:
 	BurstDelays: 1
 	Range: 4c0
 	StartBurstReport: flamtnk1.aud
+	TargetActorCenter: true
 	Projectile: BulletAS
 		Speed: 200
 		Image: FLAMEALL
@@ -57,7 +58,9 @@ TemplarFlame:
 		Palette: effect
 		Blockable: true
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c256
+		Damage: 800
+		DamageTypes: Prone70Percent, TriggerProne, FireDeath
+	Warhead@2Dam: TargetDamage
 		Damage: 800
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath
 
@@ -468,6 +471,7 @@ DevilsFlame:
 	ReloadDelay: 50
 	Range: 4c0
 	StartBurstReport: flamtnk1.aud
+	TargetActorCenter: true
 	Projectile: BulletAS
 		Speed: 200
 		Image: FLAMEALL
@@ -478,7 +482,9 @@ DevilsFlame:
 	Burst: 28
 	BurstDelays: 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c128
+		Damage: 800
+		DamageTypes: Prone70Percent, TriggerProne, FireDeath
+	Warhead@2Dam: TargetDamage
 		Damage: 800
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath
 
@@ -992,6 +998,7 @@ LightbringerFlame:
 	Burst: 28
 	BurstDelays: 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0
 	StartBurstReport: flamtnk1.aud
+	TargetActorCenter: true
 	Projectile: BulletAS
 		Speed: 200
 		Image: FLAMEALL
@@ -1000,11 +1007,13 @@ LightbringerFlame:
 		Blockable: true
 		Sequences: idle2
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c256
 		Damage: 400
 		DamageTypes: Prone70Percent, TriggerProne, FireDeath
 		Versus:
 			Infantry: 200
+	Warhead@2Dam: TargetDamage
+		Damage: 400
+		DamageTypes: Prone70Percent, TriggerProne, FireDeath
 
 LightbringerFlameE:
 	Inherits: LightbringerFlame
@@ -1012,6 +1021,8 @@ LightbringerFlameE:
 	Projectile: BulletAS
 		Image: FLAMEALLBLUE
 	Warhead@1Dam: SpreadDamage
+		Damage: 600
+	Warhead@2Dam: TargetDamage
 		Damage: 600
 
 DrillpodDig:
