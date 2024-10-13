@@ -408,7 +408,7 @@ PREDATOR:
 		RecoilRecovery: 26
 		CasingWeapon: ShellCasingDebris
 		CasingSpawnLocalOffset: 1000,0, 550
-		CasingTargetOffset:  256, -1024, 0
+		CasingTargetOffset: 256, -1024, 0
 		PauseOnCondition: empdisable
 		RequiresCondition: !railguns
 	Armament@Railgun:
@@ -454,7 +454,7 @@ PREDATOR:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 
-GHUMV:	
+GHUMV:
 	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMoveWithBerserkable
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -1930,8 +1930,8 @@ GBEACON:
 	ExplodesAlsoTransported:
 		Weapon: UnitExplodeSmall
 	-WithIdleOverlay@SpawnFire:
-	-ThrowsShrapnel@SMALL:
-	-ThrowsShrapnel@LARGE:
+	-FireProjectilesOnDeath@SMALL:
+	-FireProjectilesOnDeath@LARGE:
 	-ShakeOnDeath:
 	RenderSprites:
 		PlayerPalette: player
@@ -1964,9 +1964,9 @@ GAIONTUR:
 		DecorationHeight: 52
 	WithIdleOverlay@SpawnFire:
 		Sequence: building_fire
-	ThrowsShrapnel@SMALL:
+	FireProjectilesOnDeath@SMALL:
 		Weapons: SmallDebrisScrin
-	ThrowsShrapnel@LARGE:
+	FireProjectilesOnDeath@LARGE:
 		Weapons: LargeDebrisScrin
 	Power:
 		Amount: -150
@@ -2347,10 +2347,10 @@ COREDEFENDER:
 		IsDecoration: true ## so this doesn't affect by cloak palette
 	ExplodesAlsoTransported:
 		Weapon: DefenderExplosion
-	ThrowsShrapnel:
+	FireProjectilesOnDeath:
 		Weapons: SmallDebris
 		Pieces: 5, 9
-	ThrowsShrapnel@LARGE:
+	FireProjectilesOnDeath@LARGE:
 		Pieces: 2, 4
 		Weapons: LargeDebris
 	## Firestorm on Deploy
@@ -2694,10 +2694,10 @@ HMECTEST:
 		CustomPipType: red
 	ExplodesAlsoTransported:
 		Weapon: EpicExplosion
-	ThrowsShrapnel:
+	FireProjectilesOnDeath:
 		Weapons: SmallDebris
 		Pieces: 5, 9
-	ThrowsShrapnel@LARGE:
+	FireProjectilesOnDeath@LARGE:
 		Pieces: 2, 4
 		Weapons: LargeDebris
 	VoiceAnnouncementOnProductionExit:
@@ -2990,7 +2990,7 @@ COUNCILOR:
 		Palette: gensmkexploFpurple
 
 ## AI's portal
-ai_paradise_portal: 
+ai_paradise_portal:
 	Inherits: ^SpriteActor
 	Inherits: ^ConditionForEachFaction
 	Building:

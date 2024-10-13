@@ -34,13 +34,13 @@ Container@PLAYER_WIDGETS:
 					HotkeyPrefix: SupportPower
 					HotkeyCount: 6
 		SupportPowerTimer@SUPPORT_POWER_TIMER:
-			X: WINDOW_RIGHT - WIDTH - 240
+			X: WINDOW_WIDTH - WIDTH - 240
 			Align: Right
 			Order: Descending
 		Container@ACTOR_STATS:
 			Logic: CollapsableWidgetLogic
 			X: 19
-			Y: WINDOW_BOTTOM - HEIGHT - 43
+			Y: WINDOW_HEIGHT - HEIGHT - 43
 			Width: 240
 			Height: 148
 			Children:
@@ -241,7 +241,7 @@ Container@PLAYER_WIDGETS:
 				Button@OPEN_BUTTON:
 					Logic: AddFactionSuffixLogic
 					X: 22
-					Y: PARENT_BOTTOM - 36
+					Y: PARENT_HEIGHT - 36
 					Width: 26
 					Height: 18
 					VisualHeight: 0
@@ -252,7 +252,7 @@ Container@PLAYER_WIDGETS:
 		Image@COMMAND_BAR_BACKGROUND:
 			Logic: AddFactionSuffixLogic
 			X: 5
-			Y: WINDOW_BOTTOM - HEIGHT - 5
+			Y: WINDOW_HEIGHT - HEIGHT - 5
 			Width: 449
 			Height: 51
 			ImageCollection: sidebar
@@ -262,7 +262,7 @@ Container@PLAYER_WIDGETS:
 			Logic: CommandBarLogic
 				HighlightOnButtonPress: True
 			X: 19
-			Y: WINDOW_BOTTOM - HEIGHT - 20
+			Y: WINDOW_HEIGHT - HEIGHT - 20
 			Width: 275
 			Height: 26
 			Children:
@@ -417,7 +417,7 @@ Container@PLAYER_WIDGETS:
 		Container@STANCE_BAR:
 			Logic: StanceSelectorLogic
 			X: 306
-			Y: WINDOW_BOTTOM - HEIGHT - 20
+			Y: WINDOW_HEIGHT - HEIGHT - 20
 			Width: 138
 			Height: 26
 			Children:
@@ -498,27 +498,27 @@ Container@PLAYER_WIDGETS:
 							ImageName: hold-fire
 		Container@MUTE_INDICATOR:
 			Logic: MuteIndicatorLogic
-			X: (WINDOW_RIGHT / 2) - 156
+			X: (WINDOW_WIDTH / 2) - 156
 			Y: 30
 			Width: 200
 			Height: 25
 			Children:
 				Image@ICON:
-					X: PARENT_RIGHT - WIDTH
+					X: PARENT_WIDTH - WIDTH
 					Y: 1
 					Width: 24
 					Height: 24
 					ImageCollection: sidebar-bits
 					ImageName: indicator-muted
 				Label@LABEL:
-					Width: PARENT_RIGHT - 30
+					Width: PARENT_WIDTH - 30
 					Height: 25
 					Align: Right
 					Text: label-mute-indicator
 					Contrast: true
 		Image@SIDEBAR_BACKGROUND_TOP:
 			Logic: AddFactionSuffixLogic
-			X: WINDOW_RIGHT - 235
+			X: WINDOW_WIDTH - 235
 			Y: 0
 			Width: 235
 			Height: 260
@@ -664,7 +664,7 @@ Container@PLAYER_WIDGETS:
 					Logic: GameTimerLogic
 					X: 10
 					Y: 0 - 1
-					Width: PARENT_RIGHT
+					Width: PARENT_WIDTH
 					Height: 22
 					Align: Center
 					Font: TinyBold
@@ -685,7 +685,7 @@ Container@PLAYER_WIDGETS:
 							ImageName: cash-normal
 				LabelWithTooltip@POWER:
 					Logic: IngamePowerCounterLogic
-					X: PARENT_RIGHT - WIDTH - 30
+					X: PARENT_WIDTH - WIDTH - 30
 					Y: 0 - 2
 					Width: 50
 					Height: 22
@@ -695,13 +695,13 @@ Container@PLAYER_WIDGETS:
 					TooltipTemplate: SIMPLE_TOOLTIP
 					Children:
 						Image@POWER_ICON:
-							X: PARENT_RIGHT + 0
+							X: PARENT_WIDTH + 0
 							Y: 5
 							ImageCollection: power-icons
 							ImageName: power-normal
 		Container@SIDEBAR_PRODUCTION:
 			Logic: ClassicProductionLogic
-			X: WINDOW_RIGHT - 235
+			X: WINDOW_WIDTH - 235
 			Y: 280
 			Width: 235
 			Height: 250
@@ -732,7 +732,7 @@ Container@PLAYER_WIDGETS:
 							ImageName: background-bottom
 				PowerMeter:
 					Logic: AddFactionSuffixASLogic
-					X: WINDOW_RIGHT - 227
+					X: WINDOW_WIDTH - 227
 					Y: 278
 					MeterAlongside: ROW_TEMPLATE
 					ParentContainer: PALETTE_BACKGROUND
@@ -873,7 +873,7 @@ Container@PLAYER_WIDGETS:
 						Button@SCROLL_UP_BUTTON:
 							Logic: AddFactionSuffixLogic
 							X: 74
-							Y: PARENT_BOTTOM + 48
+							Y: PARENT_HEIGHT + 48
 							Width: 34
 							Height: 27
 							VisualHeight: 0
@@ -883,7 +883,7 @@ Container@PLAYER_WIDGETS:
 						Button@SCROLL_DOWN_BUTTON:
 							Logic: AddFactionSuffixLogic
 							X: 141
-							Y: PARENT_BOTTOM + 48
+							Y: PARENT_HEIGHT + 48
 							Width: 34
 							Height: 27
 							VisualHeight: 0
@@ -895,12 +895,12 @@ Container@PLAYER_WIDGETS:
 			PaletteWidget: PRODUCTION_PALETTE
 			TypesContainer: PRODUCTION_TYPES
 			BackgroundContainer: PRODUCTION_BACKGROUND
-			X: WINDOW_RIGHT - 213
+			X: WINDOW_WIDTH - 213
 			Y: 260
 			Width: 202
 			Height: 20
 		Container@HPF_ROOT:
 			Logic: LoadIngameHierarchicalPathFinderOverlayLogic
-			X: WINDOW_RIGHT - WIDTH - 240
+			X: WINDOW_WIDTH - WIDTH - 240
 			Y: 40
 			Width: 150

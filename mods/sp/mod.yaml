@@ -1,9 +1,9 @@
 Metadata:
-	Title: Shattered Paradise
+	Title: mod-title
 	Version: {DEV_VERSION}
 	Website: http://www.moddb.com/mods/shattered-paradise
 	WebIcon32: https://raw.githubusercontent.com/ABrandau/Shattered-Paradise-SDK/bleed/packaging/artwork/icon_32x32.png
-	WindowTitle: OpenRA - Shattered Paradise
+	WindowTitle: mod-windowtitle
 
 ModCredits:
 	ModTabTitle: Shattered Paradise
@@ -11,124 +11,129 @@ ModCredits:
 
 PackageFormats: Mix
 
-Packages:
-	~^SupportDir|Content/ts
-	~^SupportDir|Content/ts/firestorm
-	^EngineDir
-	^EngineDir|mods/common: common
-	^EngineDir|mods/ts: ts
-	$sp: sp
-	# Tiberian Sun
-	~scores.mix
-	~sidenc01.mix
-	~sidenc02.mix
-	~e01scd01.mix
-	~e01scd02.mix
-	~movies01.mix
-	~movies02.mix
-	~sidecd01.mix
-	~sidecd02.mix
-	~cache.mix
-	~conquer.mix
-	~isosnow.mix
-	~isotemp.mix
-	~local.mix
-	~sidec01.mix: sidebar-gdi
-	~sidec02.mix: sidebar-nod
-	~sno.mix
-	~snow.mix
-	~sounds.mix
-	~speech01.mix: speech-gdi
-	~speech02.mix: speech-nod
-	~tem.mix
-	~temperat.mix
-	# Firestorm
-	~scores01.mix
-	~expand01.mix
-	~sounds01.mix
-	~e01sc01.mix
-	~e01sc02.mix
-	~e01vox01.mix
-	~e01vox02.mix
-	~ecache01.mix
-	sp|bits
-	sp|bits/neutral/anims/explosions
-	sp|bits/neutral/anims/terrainset_anim
-	sp|bits/pal
-	sp|bits/pal/apollo
-	sp|bits/pal/unittem
-	sp|bits/pal/singlecolor
-	sp|bits/gdi/infantry
-	sp|bits/nod/infantry
-	sp|bits/mutant/infantry
-	sp|bits/cabal/infantry
-	sp|bits/scrin/infantry
-	sp|bits/gdi/vehicles
-	sp|bits/nod/vehicles
-	sp|bits/mutant/vehicles
-	sp|bits/cabal/vehicles
-	sp|bits/scrin/vehicles
-	sp|bits/gdi/structures
-	sp|bits/nod/structures
-	sp|bits/mutant/structures
-	sp|bits/mutant/structures/temperate
-	sp|bits/cabal/structures
-	sp|bits/cabal/structures/temperate
-	sp|bits/scrin/structures/temperate
-	sp|bits/scrin/structures
-	sp|bits/gdi/upgrades
-	sp|bits/nod/upgrades
-	sp|bits/mutant/upgrades
-	sp|bits/cabal/upgrades
-	sp|bits/scrin/upgrades
-	sp|bits/gdi/anims
-	sp|bits/nod/anims
-	sp|bits/mutant/anims
-	sp|bits/cabal/anims
-	sp|bits/scrin/anims
-	sp|bits/neutral/anims
-	sp|bits/gdi/audio
-	sp|bits/nod/audio
-	sp|bits/mutant/audio
-	sp|bits/cabal/audio
-	sp|bits/scrin/audio
-	sp|bits/neutral/audio
-	sp|bits/gdi/audio/buildings
-	sp|bits/nod/audio/buildings
-	sp|bits/mutant/audio/buildings
-	sp|bits/cabal/audio/buildings
-	sp|bits/scrin/audio/buildings
-	sp|bits/gdi/audio/eva
-	sp|bits/nod/audio/eva
-	sp|bits/mutant/audio/eva
-	sp|bits/cabal/audio/eva
-	sp|bits/scrin/audio/eva
-	sp|bits/gdi/audio/voice
-	sp|bits/nod/audio/voice
-	sp|bits/mutant/audio/voice
-	sp|bits/cabal/audio/voice
-	sp|bits/scrin/audio/voice
-	sp|bits/neutral/audio/voice
-	sp|bits/scrin/air
-	sp|bits/nod/effects
-	sp|bits/tiles
-	sp|bits/neutral
-	sp|bits/neutral/creeps
-	sp|bits/neutral/clouds
-	sp|bits/neutral/structures
-	sp|bits/neutral/structures/McPwny Set
-	sp|bits/neutral/structures/CnC 3
-	sp|bits/neutral/swicons
-	sp|bits/neutral/vehicles
-	sp|bits/neutral/techstructures
-	sp|bits/neutral/tdstuff
-	sp|bits/neutral/trees
-	sp|bits/neutral/trees/HollandFona
-	sp|bits/neutral/props
-	sp|bits/neutral/naval
-	sp|bits/neutral/campaignstuff
-	sp|uibits
-	sp|scripts
+FileSystem: DefaultFileSystem
+    Packages:
+		~^SupportDir|Content/ts
+		~^SupportDir|Content/ts/firestorm
+		^EngineDir
+		^EngineDir|mods/common: common
+		^EngineDir|mods/ts: ts
+		$sp: sp
+
+		# Tiberian Sun
+		~scores.mix
+		~sidenc01.mix
+		~sidenc02.mix
+		~e01scd01.mix
+		~e01scd02.mix
+		~movies01.mix
+		~movies02.mix
+		~sidecd01.mix
+		~sidecd02.mix
+		~cache.mix
+		~conquer.mix
+		~isosnow.mix
+		~isotemp.mix
+		~local.mix
+		~sidec01.mix: sidebar-gdi
+		~sidec02.mix: sidebar-nod
+		~sno.mix
+		~snow.mix
+		~sounds.mix
+		~speech01.mix: speech-gdi
+		~speech02.mix: speech-nod
+		~tem.mix
+		~temperat.mix
+
+		# Firestorm
+		~scores01.mix
+		~expand01.mix
+		~sounds01.mix
+		~e01sc01.mix
+		~e01sc02.mix
+		~e01vox01.mix
+		~e01vox02.mix
+		~ecache01.mix
+
+		# Shattered Paradise
+		sp|bits
+		sp|bits/neutral/anims/explosions
+		sp|bits/neutral/anims/terrainset_anim
+		sp|bits/pal
+		sp|bits/pal/apollo
+		sp|bits/pal/unittem
+		sp|bits/pal/singlecolor
+		sp|bits/gdi/infantry
+		sp|bits/nod/infantry
+		sp|bits/mutant/infantry
+		sp|bits/cabal/infantry
+		sp|bits/scrin/infantry
+		sp|bits/gdi/vehicles
+		sp|bits/nod/vehicles
+		sp|bits/mutant/vehicles
+		sp|bits/cabal/vehicles
+		sp|bits/scrin/vehicles
+		sp|bits/gdi/structures
+		sp|bits/nod/structures
+		sp|bits/mutant/structures
+		sp|bits/mutant/structures/temperate
+		sp|bits/cabal/structures
+		sp|bits/cabal/structures/temperate
+		sp|bits/scrin/structures/temperate
+		sp|bits/scrin/structures
+		sp|bits/gdi/upgrades
+		sp|bits/nod/upgrades
+		sp|bits/mutant/upgrades
+		sp|bits/cabal/upgrades
+		sp|bits/scrin/upgrades
+		sp|bits/gdi/anims
+		sp|bits/nod/anims
+		sp|bits/mutant/anims
+		sp|bits/cabal/anims
+		sp|bits/scrin/anims
+		sp|bits/neutral/anims
+		sp|bits/gdi/audio
+		sp|bits/nod/audio
+		sp|bits/mutant/audio
+		sp|bits/cabal/audio
+		sp|bits/scrin/audio
+		sp|bits/neutral/audio
+		sp|bits/gdi/audio/buildings
+		sp|bits/nod/audio/buildings
+		sp|bits/mutant/audio/buildings
+		sp|bits/cabal/audio/buildings
+		sp|bits/scrin/audio/buildings
+		sp|bits/gdi/audio/eva
+		sp|bits/nod/audio/eva
+		sp|bits/mutant/audio/eva
+		sp|bits/cabal/audio/eva
+		sp|bits/scrin/audio/eva
+		sp|bits/gdi/audio/voice
+		sp|bits/nod/audio/voice
+		sp|bits/mutant/audio/voice
+		sp|bits/cabal/audio/voice
+		sp|bits/scrin/audio/voice
+		sp|bits/neutral/audio/voice
+		sp|bits/scrin/air
+		sp|bits/nod/effects
+		sp|bits/tiles
+		sp|bits/neutral
+		sp|bits/neutral/creeps
+		sp|bits/neutral/clouds
+		sp|bits/neutral/structures
+		sp|bits/neutral/structures/McPwny Set
+		sp|bits/neutral/structures/CnC 3
+		sp|bits/neutral/swicons
+		sp|bits/neutral/vehicles
+		sp|bits/neutral/techstructures
+		sp|bits/neutral/tdstuff
+		sp|bits/neutral/trees
+		sp|bits/neutral/trees/HollandFona
+		sp|bits/neutral/props
+		sp|bits/neutral/naval
+		sp|bits/neutral/campaignstuff
+		sp|uibits
+		sp|scripts
 
 MapFolders:
 	sp|maps: System
@@ -223,11 +228,7 @@ Cursors:
 Chrome:
 	sp|chrome.yaml
 
-Assemblies:
-	^BinDir|OpenRA.Mods.Common.dll
-	^BinDir|OpenRA.Mods.Cnc.dll
-	^BinDir|OpenRA.Mods.AS.dll
-	^BinDir|OpenRA.Mods.Sp.dll
+Assemblies: OpenRA.Mods.Common.dll, OpenRA.Mods.Cnc.dll, OpenRA.Mods.AS.dll, OpenRA.Mods.Sp.dll
 
 ChromeLayout:
 	sp|chrome/ingame.yaml
@@ -314,7 +315,6 @@ Hotkeys:
 
 LoadScreen: LogoStripeLoadScreen
 	Image: sp|uibits/loadscreen.png
-	Text: Exterminating the Martian race..., Sending the tacitus to Earth..., Developing human civilization..., Allowing Tiberium to go rampant..., Increasing political tension..., Finishing the TD Campaign..., Reinstalling bugs..., Searching for life outside earth..., Renaming bugs into easter eggs..., Making sure Nolt doesn't understand the next exception..., Nerfing your favourite unit..., Updating engine version...
 
 ServerTraits:
 	LobbyCommands
@@ -410,31 +410,31 @@ WorldViewportSizes:
 	FarWindowHeights: 800, 900
 
 ModContent:
-	InstallPromptMessage: Tiberian Sun requires artwork and audio from the original game.\n\nQuick Install will automatically download this content (without music\nor videos) from a mirror of the 2012 Tiberian Sun freeware release.\n\nAdvanced Install includes options for copying the music, videos, and\nother content from an original game disc or digital installation.
+	InstallPromptMessage: modcontent-installprompt
 	QuickDownload: quickinstall
-	HeaderMessage: Game content may be extracted from the original game discs or an\nexisting digital install. OpenRA can also download the base game\nfiles from an online mirror of the 2012 freeware release of TS.
+	HeaderMessage: modcontent-header
 	Packages:
 		ContentPackage@tibsun:
-			Title: Base Game Files
+			Title: modcontent-package-basefiles
 			Identifier: tibsun
 			TestFiles: ^SupportDir|Content/ts/cache.mix, ^SupportDir|Content/ts/conquer.mix, ^SupportDir|Content/ts/isosnow.mix, ^SupportDir|Content/ts/isotemp.mix, ^SupportDir|Content/ts/local.mix, ^SupportDir|Content/ts/sidec01.mix, ^SupportDir|Content/ts/sidec02.mix, ^SupportDir|Content/ts/sno.mix, ^SupportDir|Content/ts/snow.mix, ^SupportDir|Content/ts/sounds.mix, ^SupportDir|Content/ts/speech01.mix, ^SupportDir|Content/ts/tem.mix, ^SupportDir|Content/ts/temperat.mix
 			Sources: tibsun, tfd, origin
 			Required: true
 			Download: basefiles
 		ContentPackage@tibsun-music:
-			Title: Base Game Music
+			Title: modcontent-package-basemusic
 			Identifier: tibsun-music
 			TestFiles: ^SupportDir|Content/ts/scores.mix
 			Sources: tibsun, tfd, origin
 		ContentPackage@fstorm:
-			Title: Firestorm Expansion Files
+			Title: modcontent-package-firestormfiles
 			Identifier: fstorm
 			TestFiles: ^SupportDir|Content/ts/firestorm/e01sc01.mix, ^SupportDir|Content/ts/firestorm/e01sc02.mix, ^SupportDir|Content/ts/firestorm/e01vox01.mix, ^SupportDir|Content/ts/firestorm/e01vox02.mix
 			Sources: tfd, origin, fstorm
 			Required: true
 			Download: fstorm
 		ContentPackage@fstorm-music:
-			Title: Firestorm Expansion Music
+			Title: modcontent-package-firestormmusic
 			Identifier: fstorm-music
 			Sources: tfd, origin, fstorm
 			TestFiles: ^SupportDir|Content/ts/firestorm/scores01.mix
@@ -446,6 +446,7 @@ ModContent:
 		ts|installer/firstdecade.yaml
 		ts|installer/origin.yaml
 		ts|installer/tibsun.yaml
+	Translation: ts|languages/modcontent/en.ftl
 
 DiscordService:
 	ApplicationId: 742369365529460747

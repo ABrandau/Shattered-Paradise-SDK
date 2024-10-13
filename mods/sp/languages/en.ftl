@@ -1,3 +1,10 @@
+## Metadata
+mod-title = Shattered Paradise
+mod-windowtitle = OpenRA - Shattered Paradise
+
+## LogoStripeLoadScreen
+loadscreen-loading = Exterminating the Martian race..., Sending the tacitus to Earth..., Developing human civilization..., Allowing Tiberium to go rampant..., Increasing political tension..., Finishing the TD Campaign..., Reinstalling bugs..., Searching for life outside earth..., Renaming bugs into easter eggs..., Making sure Nolt doesn't understand the next exception..., Nerfing your favourite unit..., Updating engine version...
+
 ## MapOptions, MissionBrowserLogic
 options-game-speed =
     .slower = Slower
