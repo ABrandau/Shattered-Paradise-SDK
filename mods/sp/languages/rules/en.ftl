@@ -1557,7 +1557,7 @@ cerberus-desc = High tech frigate armed with a mobile stealth generator.
      - Can attack enemies ahead while moving
 
 mutheli-name = Gargoyle
-mutheli-desc =  Heavy assault gunship with an shard cannon.
+mutheli-desc =  Heavy assault gunship with an auto cannon.
 
     Good vs: Vehicles, Aircraft
 
