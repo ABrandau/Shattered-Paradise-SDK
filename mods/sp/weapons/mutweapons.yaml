@@ -66,75 +66,6 @@ MarauderShotgunInnacurate:
 	-Warhead@op:
 	-Warhead@MarnFlash:
 
-SkirmisherMortar:
-	Inherits: ^ArtilleryDamage
-	Inherits@2: ^Small_Clsn
-	Inherits@3: ^FlameScorch
-	ReloadDelay: 75
-	Range: 12c0
-	MinRange: 3c0
-	Report: specfire0000.wav, specfire0001.wav, specfire0002.wav
-	Projectile: BulletAS
-		Speed: 250
-		LaunchAngle: 165
-		Shadow: false
-		Inaccuracy: 0c064
-		Blockable: false
-		ContrailLength: 8
-		ContrailZOffset: 650
-		ContrailStartColor: 999900
-		ContrailStartColorAlpha: 136
-		ContrailStartWidth: 0c66
-		ContrailEndColor: FF0000
-		ContrailEndWidth: 0
-		Image: explosion
-		Sequences: fire3_higher
-		Palette: effect
-	Warhead@1Dam: SpreadDamage
-		Spread: 300
-		Damage: 4000
-		DamageTypes: Prone70Percent, TriggerProne, FireDeath
-	Warhead@2Eff: CreateEffect
-		Explosions: grenadexplode, grenadexplode2
-	Warhead@5Smu: LeaveSmudgeSP
-		SmudgeType: Scorch
-
-SkirmisherMortarGas:
-	Inherits: SkirmisherMortar
-	Inherits@2: ^Small_Clsn
-	Inherits@3: ^SpawnsIrradiation
-	Projectile: BulletAS
-		ContrailLength: 8
-		ContrailZOffset: 650
-		ContrailStartColor: 00AA0088
-		ContrailStartColorAlpha: 136
-		ContrailStartWidth: 0c66
-		ContrailEndColor: FF0000
-		ContrailEndWidth: 0
-		Sequences: greenfire3_higher
-	Warhead@smoke: CreateEffect
-		ExplosionPalette: jascgreen60
-		ImpactActors: false
-		Explosions: tibgassmoke, tibgassmoke2, tibgassmoke3
-		ValidTargets: Ground, Air, Water
-		AirThreshold: 8c0
-	Warhead@test2: TriggerLayerWeapon
-		LayerName: catalystLayer
-		TriggerWeapon: ExplosionGas
-		TriggerAtLevelMin: 400
-		Level: 120
-		TriggerSetLevel: 0
-		ValidTargets: Ground, Air, Water
-		AirThreshold: 8c0
-	Warhead@2Eff: CreateEffect
-		Explosions: dustexplode, dustexplode2
-		ExplosionPalette: jascgreenalpha
-	-Warhead@3Eff:
-	Warhead@1Dam: SpreadDamage
-		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
-	Warhead@3Radio: CreateTintedCells
-		Level: 10
-
 FiendShard2:
 	Inherits: ^ArmorPierceAmmoWeapon
 	ReloadDelay: 60
@@ -244,6 +175,75 @@ FiendShardBlueAA:
 	Warhead@3Eff: CreateEffect
 		ExplosionPalette: jascbluealpha
 
+SkirmisherMortar:
+	Inherits: ^ArtilleryDamage
+	Inherits@2: ^Small_Clsn
+	Inherits@3: ^FlameScorch
+	ReloadDelay: 75
+	Range: 12c0
+	MinRange: 3c0
+	Report: specfire0000.wav, specfire0001.wav, specfire0002.wav
+	Projectile: BulletAS
+		Speed: 250
+		LaunchAngle: 165
+		Shadow: false
+		Inaccuracy: 0c064
+		Blockable: false
+		ContrailLength: 8
+		ContrailZOffset: 650
+		ContrailStartColor: 999900
+		ContrailStartColorAlpha: 136
+		ContrailStartWidth: 0c66
+		ContrailEndColor: FF0000
+		ContrailEndWidth: 0
+		Image: explosion
+		Sequences: fire3_higher
+		Palette: effect
+	Warhead@1Dam: SpreadDamage
+		Spread: 300
+		Damage: 4000
+		DamageTypes: Prone70Percent, TriggerProne, FireDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: grenadexplode, grenadexplode2
+	Warhead@5Smu: LeaveSmudgeSP
+		SmudgeType: Scorch
+
+SkirmisherMortarGas:
+	Inherits: SkirmisherMortar
+	Inherits@2: ^Small_Clsn
+	Inherits@3: ^SpawnsIrradiation
+	Projectile: BulletAS
+		ContrailLength: 8
+		ContrailZOffset: 650
+		ContrailStartColor: 00AA0088
+		ContrailStartColorAlpha: 136
+		ContrailStartWidth: 0c66
+		ContrailEndColor: FF0000
+		ContrailEndWidth: 0
+		Sequences: greenfire3_higher
+	Warhead@smoke: CreateEffect
+		ExplosionPalette: jascgreen60
+		ImpactActors: false
+		Explosions: tibgassmoke, tibgassmoke2, tibgassmoke3
+		ValidTargets: Ground, Air, Water
+		AirThreshold: 8c0
+	Warhead@test2: TriggerLayerWeapon
+		LayerName: catalystLayer
+		TriggerWeapon: ExplosionGas
+		TriggerAtLevelMin: 400
+		Level: 120
+		TriggerSetLevel: 0
+		ValidTargets: Ground, Air, Water
+		AirThreshold: 8c0
+	Warhead@2Eff: CreateEffect
+		Explosions: dustexplode, dustexplode2
+		ExplosionPalette: jascgreenalpha
+	-Warhead@3Eff:
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
+	Warhead@3Radio: CreateTintedCells
+		Level: 10
+
 SeerTesla:
 	Inherits: ^FullDamage
 	ReloadDelay: 100
@@ -336,50 +336,6 @@ PsykerRay:
 		Damage: 10000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 
-BullAcid:
-	Inherits: ^AcidDamage
-	ReloadDelay: 60
-	Range: 5c0
-	Burst: 3
-	StartBurstReport: dinoatk1.aud
-	Projectile: BulletAS
-		Speed: 500
-		Image: acidall32mini
-		Palette: jascgreen
-	Warhead@1Dam: SpreadDamageWithCondition
-		Falloff: 100, 75, 75
-		Spread: 526
-		Damage: 1250
-		Versus:
-			Defense: 20
-			Heavy: 20
-		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
-		ValidTargets: Vehicle, Infantry, Building, Ground, Water
-		Condition: WolfDebuff
-		ConditionDuration: 125
-		NoUnintendedFriendlyFire: Actor
-	Warhead@2Eff: CreateEffect
-		Explosions: tib_expsmall
-		ExplosionPalette: apolgreenalpha
-		InvalidTargets: Water
-
-RavagerStrike:
-	Inherits: ^FullDamage
-	Inherits@1: ^MeleeClaw
-	ReloadDelay: 30
-	Range: 1c650
-	Report: Monster_Attack2.wav
-	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamageWithCondition
-		Spread: 0c200
-		Damage: 5000
-		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
-		Versus:
-			Infantry: 150
-		NoUnintendedFriendlyFire: All
-		ConditionDuration: 45
-		Condition: Slowdown50pp
-
 LynxCannon:
 	Inherits: ^ArmorPierceAmmoWeapon
 	Inherits@2: ^Mediuml_Clsn
@@ -406,6 +362,39 @@ LynxRocket:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
 		Damage: 5000
+
+LynxRocketGas:
+	Inherits: LynxRocket
+	Inherits@3: ^SpawnsIrradiation
+	Projectile: MissileTA
+		ContrailLength: 8
+		ContrailZOffset: 650
+		ContrailStartColor: 00AA0088
+		ContrailStartColorAlpha: 136
+		ContrailStartWidth: 0c66
+		ContrailEndColor: FF0000
+		ContrailEndWidth: 0
+	Warhead@smoke: CreateEffect
+		ExplosionPalette: jascgreen60
+		ImpactActors: false
+		Explosions: tibgassmoke, tibgassmoke2, tibgassmoke3
+		ValidTargets: Ground, Air, Water
+		AirThreshold: 8c0
+	Warhead@test2: TriggerLayerWeapon
+		LayerName: catalystLayer
+		TriggerWeapon: ExplosionGas
+		TriggerAtLevelMin: 200
+		Level: 400
+		TriggerSetLevel: 0
+		ValidTargets: Ground, Air, Water
+		AirThreshold: 8c0
+	Warhead@2Eff: CreateEffect
+		Explosions: dustexplode, dustexplode2
+		ExplosionPalette: jascgreenalpha
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
+	Warhead@3Radio: CreateTintedCells
+		Level: 10
 
 QuadFire:
 	Inherits: ^VulcanWeapon
@@ -473,6 +462,30 @@ JeepBullet2Spawner:
 		Rotate: true
 		AirThreshold: 8c0
 
+BullAcid:
+	Inherits: ^AcidDamage
+	ReloadDelay: 60
+	Range: 5c0
+	Burst: 3
+	StartBurstReport: dinoatk1.aud
+	Projectile: BulletAS
+		Speed: 500
+		Image: acidall32mini
+		Palette: jascgreen
+	Warhead@1Dam: SpreadDamageWithCondition
+		Falloff: 100, 75, 75
+		Spread: 526
+		Damage: 600
+		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
+		ValidTargets: Vehicle, Infantry, Building, Ground, Water
+		Condition: WolfDebuff
+		ConditionDuration: 125
+		NoUnintendedFriendlyFire: Actor
+	Warhead@2Eff: CreateEffect
+		Explosions: tib_expsmall
+		ExplosionPalette: apolgreenalpha
+		InvalidTargets: Water
+
 MUTMRLSRocket:
 	Inherits: ^ArtilleryDamage
 	Inherits@2: ^Small_Clsn
@@ -530,6 +543,23 @@ MUTMRLSRocketGas:
 		AirThreshold: 8c0
 	Warhead@1Dam: SpreadDamage
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
+
+RavagerStrike:
+	Inherits: ^FullDamage
+	Inherits@1: ^MeleeClaw
+	ReloadDelay: 30
+	Range: 1c650
+	Report: Monster_Attack2.wav
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamageWithCondition
+		Spread: 0c200
+		Damage: 5000
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+		Versus:
+			Infantry: 150
+		NoUnintendedFriendlyFire: All
+		ConditionDuration: 45
+		Condition: Slowdown50pp
 
 BombTruckExplo:
 	Inherits: NuclearMissile
@@ -589,6 +619,39 @@ NukeFuelDrop:
 	Warhead@3Radio: CreateTintedCells
 		LayerName: OrangeRadiation
 		Level: 750
+
+GargoylACannon:
+	Inherits: ^FullDamage
+	Inherits@2: ^MutFlakEffectBase
+	ReloadDelay: 20
+	MinRange: 0c100
+	Range: 5c0
+	ValidTargets: Ground, Water
+	InvalidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+		Versus:
+			Infantry: 30
+			Building: 80
+			Defense: 75
+			Heavy: 100
+			Concrete: 30
+		ValidTargets: Ground, Water
+		InvalidTargets: Air
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+
+GargoylACannonAA:
+	Inherits: GargoylACannon
+	MinRange: 0c100
+	ReloadDelay: 20
+	Range: 6c0
+	ValidTargets: Air
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+		Damage: 4000
+		NoUnintendedFriendlyFire: All
 
 QueenTooth:
 	Inherits: ^ArmorPierceAmmoWeapon
@@ -724,39 +787,6 @@ SpawnEgg:
 		Explosions: jsbrnl20b, jsclsn22, jhtrkpuff
 		ImpactSounds: aacanon3.aud
 		ExplosionPalette: gensmkexploj
-
-GargoylACannon:
-	Inherits: ^FullDamage
-	Inherits@2: ^MutFlakEffectBase
-	ReloadDelay: 20
-	MinRange: 0c100
-	Range: 5c0
-	ValidTargets: Ground, Water
-	InvalidTargets: Air
-	Warhead@1Dam: SpreadDamage
-		Damage: 4000
-		Versus:
-			Infantry: 30
-			Building: 80
-			Defense: 75
-			Heavy: 100
-			Concrete: 30
-		ValidTargets: Ground, Water
-		InvalidTargets: Air
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
-
-GargoylACannonAA:
-	Inherits: GargoylACannon
-	MinRange: 0c100
-	ReloadDelay: 20
-	Range: 6c0
-	ValidTargets: Air
-	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
-	Warhead@1Dam: SpreadDamage
-		ValidTargets: Air
-		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
-		Damage: 4000
-		NoUnintendedFriendlyFire: All
 
 FalconPunch:
 	Inherits: ^RocketWeapon

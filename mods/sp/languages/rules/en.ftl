@@ -1231,6 +1231,7 @@ lynx-desc = Light tank armed with an anti-tank cannon.
 
     Upgrades:
      - Lynx Rockets
+     - Tiberium Gas Warhead
 
 struck-name = Battle Bus
 struck-desc = Combat transport.
@@ -2751,10 +2752,11 @@ tiberium_infusion-desc = Increases the HP and speed of following units by 25% an
     Note: Garrisoned infantry needs to redeploy to receive this upgrade!
 
 tiberium_gas_warheads-name = Tiberium Gas Warhead
-tiberium_gas_warheads-desc = The weapons of following units generate radiation and generate large explosion upon several hits at the same place in a short time:
-    - Skirmisher (5 to ensure explosion)
-    - Blighter MLRS (2 to ensure explosion)
-    - Falcon (1 can ensure explosion)
+tiberium_gas_warheads-desc = The weapons of the following units will now generate both radiation and large explosions:
+    - Skirmisher (5 Skirmishers to ensure catalytic explosion)
+    - Lynx Tank (2 Lynx Tanks to ensure catalytic explosion)
+    - Blighter MLRS (2 MLRS to ensure catalytic explosion)
+    - Falcon (1 Falcon can ensure catalytic explosion)
     Note: Garrisoned infantry needs to redeploy to receive this upgrade!
 
 cybernetic_leg_enhancements-name = Cybernetic Leg Enhancements

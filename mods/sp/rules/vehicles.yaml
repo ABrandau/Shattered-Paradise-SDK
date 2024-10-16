@@ -170,7 +170,7 @@ APC:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@PIPS: ^CargoPips
 	Valued:
-		Cost: 700
+		Cost: 800
 	Tooltip:
 		Name: apc-name
 	UpdatesPlayerStatistics:
@@ -2060,6 +2060,7 @@ LYNX:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@LYNXROCKETS: ^AffectedByLynxRockets
+	Inherits@TIBGASWH: ^AffectedByTiberiumGasWarheads
 	Inherits@RENDER: ^MutRenderGreen
 	Buildable:
 		Queue: Vehicle.Shared, Vehicle.Mutant
@@ -2116,13 +2117,24 @@ LYNX:
 		CasingTargetOffset: 0, 512, 0, 0, -512, 0
 	Armament@2:
 		Weapon: LynxRocket
-		Damage: 20
+		Damage: 50
 		LocalOffset: 0,0,320
 		MuzzleSequence: muzzle2
 		MuzzlePalette: gensmkexploj
 		ReloadingCondition: rocketout
 		PauseOnCondition: empdisable
-		RequiresCondition: lynx_rockets
+		RequiresCondition: lynx_rockets && !tibgaswh
+	Armament@gas:
+		Weapon: LynxRocketGas
+		Damage: 50
+		LocalOffset: 0,0,320
+		MuzzleSequence: muzzle2
+		MuzzlePalette: jascgreenalpha
+		ReloadingCondition: rocketout
+		PauseOnCondition: empdisable
+		RequiresCondition: lynx_rockets && tibgaswh
+	ActorStatValues:
+		Upgrades: upgrade.lynx_rockets, upgrade.tiberium_gas_warheads
 
 STRUCK:
 	Inherits: ^CombatVehicle
@@ -2194,7 +2206,7 @@ STRUCK:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, None, None, None, Cargo
 
-WOLF:
+WOLF: #Carnotaurus
 	Inherits: ^TibBeast
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Vehicle
@@ -2255,12 +2267,12 @@ WOLF:
 	-ExternalCondition@ZealousBuff:
 	-WithIdleOverlayOnGround@ZealousBuff:
 	ActorStatValues:
-		Damage: 37
+		Damage: 18
 	ActorStatOverride@Tibinfusion:
 		Health: 25000
 		RequiresCondition: tibinfusion
 
-MRLS:
+MRLS: #Blighter MLRS
 	Inherits: ^CombatVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -2331,7 +2343,7 @@ MRLS:
 	ActorStatValues:
 		Damage: 240
 
-DEATHCLAW:
+DEATHCLAW: #Ravager
 	Inherits: ^TibBeast
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CLOAKEFFECT: ^WithTriggerCloakEffect-Vehicle
