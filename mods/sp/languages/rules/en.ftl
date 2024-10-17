@@ -1260,7 +1260,7 @@ minelayer-desc = Mines...mines everywhere!
 wolf-name = Carnotaurus
 wolf-desc = Tiberium beast that uses tiberium acid to melt its prey.
 
-    Good vs: Ground targets
+    Good vs: Infantry, Light Vehicles
 
     Special:
      - Heals on Tiberium fields

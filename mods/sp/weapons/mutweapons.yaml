@@ -11,19 +11,20 @@ ExplosionGas:
 	Warhead@3Radio: CreateTintedCells
 		Level: 90
 	Warhead@2Eff: CreateEffect
-		Explosions: gnuke1mini, gnuke2mini, gnuke3mini
+		Explosions: smallacidfire
 		ExplosionPalette: jascgreenalpha
 		ValidTargets: Ground, Air, Water
 		AirThreshold: 8c0
 		ImpactActors: false
-	Warhead@MarnFlash: CreateEffect
-		Explosions: smallflash
+	Warhead@3Eff: CreateEffect
+		Explosions: gnuke1mini, gnuke2mini, gnuke3mini
 		ExplosionPalette: jascgreenalpha
 		ValidTargets: Ground, Air, Water
 		AirThreshold: 8c0
 		ImpactActors: false
 	-Warhead@3EffWater:
 	-Warhead@smoke:
+	-Warhead@MarnFlash:
 
 MarauderShotgun:
 	Inherits: ^RifleWeapon
@@ -189,7 +190,7 @@ SkirmisherMortar:
 		Shadow: false
 		Inaccuracy: 0c064
 		Blockable: false
-		ContrailLength: 8
+		ContrailLength: 7
 		ContrailZOffset: 650
 		ContrailStartColor: 999900
 		ContrailStartColorAlpha: 136
@@ -213,7 +214,7 @@ SkirmisherMortarGas:
 	Inherits@2: ^Small_Clsn
 	Inherits@3: ^SpawnsIrradiation
 	Projectile: BulletAS
-		ContrailLength: 8
+		ContrailLength: 7
 		ContrailZOffset: 650
 		ContrailStartColor: 00AA0088
 		ContrailStartColorAlpha: 136
@@ -367,13 +368,7 @@ LynxRocketGas:
 	Inherits: LynxRocket
 	Inherits@3: ^SpawnsIrradiation
 	Projectile: MissileTA
-		ContrailLength: 8
-		ContrailZOffset: 650
-		ContrailStartColor: 00AA0088
-		ContrailStartColorAlpha: 136
-		ContrailStartWidth: 0c66
-		ContrailEndColor: FF0000
-		ContrailEndWidth: 0
+		TrailSequences: idle3
 	Warhead@smoke: CreateEffect
 		ExplosionPalette: jascgreen60
 		ImpactActors: false
@@ -389,7 +384,7 @@ LynxRocketGas:
 		ValidTargets: Ground, Air, Water
 		AirThreshold: 8c0
 	Warhead@2Eff: CreateEffect
-		Explosions: dustexplode, dustexplode2
+		Explosions: jsbang34, jsbang24
 		ExplosionPalette: jascgreenalpha
 	Warhead@1Dam: SpreadDamage
 		DamageTypes: Prone70Percent, TriggerProne, TiberiumDeath
