@@ -81,7 +81,7 @@ namespace OpenRA.Mods.SP.Traits
 
 		void IResolveOrder.ResolveOrder(Actor self, Order order)
 		{
-			if (IsTraitDisabled || order.Target.Type == TargetType.Invalid || order.Queued || self.Owner.IsBot || !Info.OverrideOrders.Contains(order.OrderString))
+			if (IsTraitDisabled || order.Target.Type == TargetType.Invalid || order.Queued || self.Owner.IsBot || !Info.OverrideOrders.Contains(order.OrderString) || self.World.IsLoadingGameSave || self.World.IsReplay)
 				return;
 
 			var world = self.World;
