@@ -2615,7 +2615,7 @@ pdrone-desc = Hovered melee drone programmed to kill enemy infantry.
 
     Special:
      - Can only attack infantry
-     - Converts killed meaty creature into worker cyborgs
+     - Converts killed meaty creatures into worker cyborgs
      - Hovers (ignores terrain like Veins, Water and Radiations)
      - No longer hovers when disabled by EMP or Web
      - Crush class: crushable only by Epics
@@ -2773,16 +2773,16 @@ cybernetic_leg_enhancements-desc = Increases the speed of following units by 30:
     Note: Speed increase does not apply when the units are on critical health.
 
 improved_reaper_nets-name = Paralyzing Reaper Nets
-improved_reaper_nets-desc = Cyborg Reaper's net last 50% longer against Infantry, and tracks target.
+improved_reaper_nets-desc = Cyborg Reaper's net lasts 50% longer and will also track its target.
 
 limpet_aa_targeting-name = Limpet AA Missile
 limpet_aa_targeting-desc = Enables Limpet Drones to target air units.
 
 reclaim_and_recycle-name = Reclaim and Recycle
-reclaim_and_recycle-desc = All Cyborg-Converting weapon converts killed creature into basic Cyborgs with 15% health.
+reclaim_and_recycle-desc = All Cyborg-Converting weapons will turn killed creatures into C.A.B.A.L. Cyborgs with 15% health.
 
 regenerative_materials-name = Regenerative Materials
-regenerative_materials-desc = Enables Reaper and all C.A.B.A.L Infantry to repair themselves, even during combat.
+regenerative_materials-desc = Enables Reaper and all C.A.B.A.L. infantry to repair themselves, even during combat.
     Note: Garrisoned infantry needs to redeploy to receive this upgrade!
 
 gatling_cannons-name = Gatling Cannons
