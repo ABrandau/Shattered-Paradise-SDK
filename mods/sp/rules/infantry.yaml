@@ -2199,6 +2199,7 @@ CABSENTRY:
 	Inherits: ^DroneSoldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@RENDER: ^CabRender
+	Inherits@RECYCLE: ^AffectedByReclaimAndRecycle
 	-Valued:
 	GivesExperience:
 		Experience: 50
@@ -2230,6 +2231,12 @@ CABSENTRY:
 		Weapon: SentryGun
 		LocalOffset: 250,0,100
 		PauseOnCondition: WebDisable || empdisable # || initializing
+		RequiresCondition: !recycle
+	Armament@2:
+		Weapon: SentryGunUpg
+		LocalOffset: 250,0,100
+		PauseOnCondition: WebDisable || empdisable # || initializing
+		RequiresCondition: recycle
 	AutoTarget:
 		ScanRadius: 8
 		InitialStance: AttackAnything
@@ -2533,15 +2540,7 @@ PDRONE:
 		IdleSequences: idle1, idle2
 		AttackSequences: shoot
 		DefaultAttackSequence: fire
-		RequiresCondition: !inside-tunnel && !WebDisable && !recycle
-	WithInfantryBody@recycle:
-		MinIdleDelay: 75
-		MaxIdleDelay: 250
-		IdleSequences: idle1-upg,idle2-upg
-		MoveSequence: run-upg
-		StandSequences: stand-upg
-		DefaultAttackSequence: shoot-upg
-		RequiresCondition: !inside-tunnel && !WebDisable && recycle
+		RequiresCondition: !inside-tunnel && !WebDisable
 	AutoTarget:
 		ScanRadius: 5
 		InitialStance: AttackAnything
@@ -2572,9 +2571,6 @@ PDRONE:
 	ActorStatValues:
 		Damage: 63
 		Upgrades: upgrade.reclaim_and_recycle, upgrade.regenerative_materials
-	ActorStatOverride@RECYCLE:
-		Health: 16500
-		RequiresCondition: recycle
 
 GLAD:
 	Inherits: ^CyborgSoldier
@@ -2645,6 +2641,7 @@ MOTH:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveWithBerserkable
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
+	Inherits@RECYCLE: ^AffectedByReclaimAndRecycle
 	Inherits@RENDER: ^CabRender
 	Inherits@VISION: ^8CellVision
 	Inherits@AImicroManagable: ^AImicroManagable
@@ -2730,10 +2727,21 @@ MOTH:
 	Armament@1:
 		Weapon: LurkerProj
 		PauseOnCondition: WebDisable || empdisable || !deployed
+		RequiresCondition: !recycle
+		Name: OnFoot
+	Armament@1Upg:
+		Weapon: LurkerProjUpg
+		PauseOnCondition: WebDisable || empdisable || !deployed
+		RequiresCondition: recycle
 		Name: OnFoot
 	Armament@Garrison:
 		Weapon: GLurkerProj
 		PauseOnCondition: WebDisable || empdisable
+		RequiresCondition: !recycle
+	Armament@GarrisonUpg:
+		Weapon: GLurkerProjUpg
+		PauseOnCondition: WebDisable || empdisable
+		RequiresCondition: recycle
 	Armament@AIAimOnly:
 		RequiresCondition: AImicroManage && !deployed && !hoverunitonwater
 		Weapon: LurkerAimDummyWeapon
@@ -2761,6 +2769,7 @@ MOTH:
 		OrderInterval: 55
 	ActorStatValues:
 		Damage: 150
+		Upgrades: upgrade.reclaim_and_recycle, upgrade.regenerative_materials
 
 CYC2:
 	Inherits: ^CyborgSoldier

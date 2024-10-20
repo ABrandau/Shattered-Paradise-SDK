@@ -1369,6 +1369,7 @@ reapercab-desc = Fast raiding walker armed with missiles and Web launchers.
 
     Upgrades:
      - Paralyzing Reaper Nets
+     - Regenerative Materials
 
 limped-name = Limpet Drone
 limped-desc = Small drone armed with explosives. Good vs: Infantry, Vehicles
@@ -1412,6 +1413,9 @@ spiderarty-desc = Heavy artillery that deploys drones at the targeted area.
      - Can shoot over walls
      - Can crush infantry
      - Selfrepair
+
+    Upgrades:
+     - Reclaim and Recycle
 
 paladin-name = Minotaur
 paladin-desc = Advanced walker armed with a twin laser cannon.
@@ -2611,7 +2615,7 @@ pdrone-desc = Hovered melee drone programmed to kill enemy infantry.
 
     Special:
      - Can only attack infantry
-     - Turns killed meaty creature into worker cyborgs
+     - Converts killed meaty creature into worker cyborgs
      - Hovers (ignores terrain like Veins, Water and Radiations)
      - No longer hovers when disabled by EMP or Web
      - Crush class: crushable only by Epics
@@ -2651,6 +2655,7 @@ moth-desc = High tech ambusher drone.
      - Cannot be teleported by wormhole when deployed
 
     Upgrades:
+     - Reclaim and Recycle
      - Regenerative Materials
 
 cyc-name = Cyborg Commando
@@ -2768,17 +2773,16 @@ cybernetic_leg_enhancements-desc = Increases the speed of following units by 30:
     Note: Speed increase does not apply when the units are on critical health.
 
 improved_reaper_nets-name = Paralyzing Reaper Nets
-improved_reaper_nets-desc = Cyborg Reaper nets last 50% longer against Infantry.
+improved_reaper_nets-desc = Cyborg Reaper's net last 50% longer against Infantry, and tracks target.
 
 limpet_aa_targeting-name = Limpet AA Missile
 limpet_aa_targeting-desc = Enables Limpet Drones to target air units.
 
 reclaim_and_recycle-name = Reclaim and Recycle
-reclaim_and_recycle-desc = Infantry killed by Reclaimers turn into Cyborgs with 15% health.
-    Increases durability of Reclaimers by 50% and their movement speed by 30.
+reclaim_and_recycle-desc = All Cyborg-Converting weapon converts killed creature into basic Cyborgs with 15% health.
 
 regenerative_materials-name = Regenerative Materials
-regenerative_materials-desc = Enables all C.A.B.A.L Infantry units to repair themselves, even during combat.
+regenerative_materials-desc = Enables Reaper and all C.A.B.A.L Infantry to repair themselves, even during combat.
     Note: Garrisoned infantry needs to redeploy to receive this upgrade!
 
 gatling_cannons-name = Gatling Cannons

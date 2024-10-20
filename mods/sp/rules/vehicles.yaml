@@ -2816,6 +2816,7 @@ REAPERCAB:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@IMPROVEDNETS: ^AffectedByImprovedReaperNets
+	Inherits@REGENMATERIALS: ^AffectedByRegenerativeMaterials
 	Valued:
 		Cost: 1100
 	Tooltip:
@@ -2900,6 +2901,7 @@ REAPERCAB:
 		Damage: 160
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
 		Armaments: primary
+		Upgrades: upgrade.improved_reaper_nets, upgrade.regenerative_materials
 
 LIMPED:
 	Inherits: ^HoverVehicle
@@ -3184,6 +3186,7 @@ SPIDERARTY:
 	Inherits@SELFHEAL: ^CABALSelfHeal
 	Inherits@VISION: ^6CellVision
 	Inherits@VOICE: ^CabalVehicleVoice
+	Inherits@RECYCLE: ^AffectedByReclaimAndRecycle
 	Valued:
 		Cost: 1750
 	Tooltip:
@@ -3217,12 +3220,20 @@ SPIDERARTY:
 		PauseOnCondition: empdisable
 		TargetFrozenActors: true
 		FacingTolerance: 2
-	Armament:
+	Armament@1:
 		Weapon: DroneHostMissile
 		LocalOffset: -400,-300,1500, -400,300,1500
 		MuzzleSequence: muzzle
 		MuzzlePalette: gensmkexploj
 		PauseOnCondition: empdisable
+		RequiresCondition: !recycle
+	Armament@2:
+		Weapon: DroneHostMissileUpg
+		LocalOffset: -400,-300,1500, -400,300,1500
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
+		PauseOnCondition: empdisable
+		RequiresCondition: recycle
 	AutoTarget:
 	Selectable:
 		Bounds: 1610, 3100, 0, -900

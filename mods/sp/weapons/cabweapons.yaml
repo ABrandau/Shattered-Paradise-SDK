@@ -86,6 +86,12 @@ SentryGun:
 		Explosions: small_grey_explosion, small_grey_explosionf
 		ExplosionPalette: effect
 
+SentryGunUpg:
+	Inherits: SentryGun
+	Warhead@1Dam: SpreadDamage
+		Damage: 1200
+		DamageTypes: Prone70Percent, TriggerProne, CabalDeathUpg
+
 ReclaimerHit:
 	Inherits: ^RifleDamage
 	ReloadDelay: 60
@@ -165,6 +171,17 @@ LurkerHit:
 		ImpactSounds: expdirt1.aud
 		ValidTargets: Ground
 
+LurkerProjUpg:
+	Inherits: LurkerProj
+	TargetActorCenter: true ## Make shockwave more controllable to bulding
+	Projectile: WarheadTrailProjectile
+		Weapon: LurkerHitUpg
+
+LurkerHitUpg:
+	Inherits: LurkerHit
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: Prone70Percent, TriggerProne, CabalDeathUpg
+
 CyCannon:
 	Inherits: ^ArmorPierceDamage
 	Inherits@2: ^GreenPlasmaExplosion
@@ -177,6 +194,7 @@ CyCannon:
 	Projectile: MissileTA
 		Blockable: false
 		TerrainHeightAware: true
+		CruiseAltitude: 1024
 		Speed: 350
 		Acceleration: 0
 		Shadow: false
@@ -319,21 +337,42 @@ ReaperWeb:
 		Shadow: true
 		LaunchAngle: 130
 		Palette: jascgrey
-	Warhead@emp: GrantExternalCondition
-		Range: 1c0
-		Duration: 200
+	Warhead@1Con: SpreadDamageWithCondition
+		Falloff: 100, 100
+		Spread: 1c0
+		Damage: 0
+		DamageTypes: BulletDeath
 		ValidTargets: Infantry
 		Condition: WebDisable
-		ValidRelationships: Neutral, Enemy
+		ConditionDuration: 200
+		NoUnintendedFriendlyFire: All
 	Warhead@2Eff: CreateEffect
 		Explosions: spiderweb
 		ExplosionPalette: jascgrey
 
 ImprovedReaperWeb:
 	Inherits: ReaperWeb
-	Projectile: BulletAS
-		Speed: 300
+	Projectile: MissileTA
+		TerrainHeightAware: true
+		CruiseAltitude: 3100
+		MinimumLaunchAngle: 255
+		MaximumLaunchAngle: 255
+		Speed: 310
+		Acceleration: 0 ##Avoid missile stuck on the cliff and ramp
+		Shadow: false
+		Inaccuracy: 0c181
 		Image: web3
+		Sequences: idle
+		HorizontalRateOfTurn: 128
+		HorizontalRateOfTurnAcceleration: 13
+		HorizontalRateOfTurnStart: 13
+		VerticalRateOfTurn: 128
+		RangeLimit: 15c0
+		ExplodeWhenEmpty: true
+		AllowSnapping: true
+		CloseEnough: 200
+		Blockable: false
+		Jammable: false ## help to save a little bit performance
 		ContrailLength: 3
 		ContrailStartColor: AAAAAA
 		ContrailEndColor: AAAAAA
@@ -344,8 +383,8 @@ ImprovedReaperWeb:
 		ContrailZOffset: 3000
 	Warhead@2Eff: CreateEffect
 		Explosions: spiderweb2
-	Warhead@emp: GrantExternalCondition
-		Duration: 300
+	Warhead@1Con: SpreadDamageWithCondition
+		ConditionDuration: 300
 
 ReaperScythe:
 	Inherits: ^RocketWeapon
@@ -421,11 +460,6 @@ DroneHostMissile:
 		-JetImage:
 		-JetSequences:
 		-JetPalette:
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
-		ValidTargets: Ground, Water
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@1: FireFragment
 		Weapon: DroneHostShell
 		ImpactActors: false
@@ -437,6 +471,7 @@ DroneHostMissile:
 		ImpactActors: false
 		ValidTargets: Ground, Air, Water
 		AllowDirectHit: true
+	-Warhead@1Dam:
 
 DroneHostShell:
 	Inherits: ^ArtilleryDamage
@@ -480,6 +515,16 @@ DroneHostShellSpawner:
 	Warhead@2Eff: CreateEffect
 		Explosions: infdeathexplo1
 		ExplosionPalette: gensmkexploj
+
+DroneHostMissileUpg:
+	Inherits: DroneHostMissile
+	Warhead@1: FireFragment
+		Weapon: DroneHostShellUpg
+
+DroneHostShellUpg:
+	Inherits: DroneHostShell
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: Prone70Percent, TriggerProne, CabalDeathUpg
 
 PalaLazor:
 	Inherits: ^FullDamage
