@@ -466,8 +466,12 @@ BullAcid:
 	StartBurstReport: dinoatk1.aud
 	Projectile: BulletAS
 		Speed: 500
-		Image: acidall32mini
+		Image: torpedo
 		Palette: jascgreen
+		TrailImage: torpedo
+		TrailPalette: apgreen
+		TrailDelay: 0
+		TrailInterval: 1
 	Warhead@1Dam: SpreadDamageWithCondition
 		Falloff: 100, 75, 75
 		Spread: 526
@@ -480,7 +484,15 @@ BullAcid:
 	Warhead@2Eff: CreateEffect
 		Explosions: tib_expsmall
 		ExplosionPalette: apolgreenalpha
-		InvalidTargets: Water
+		ImpactActors: false
+		ValidTargets: Ground, Air, Water
+		AirThreshold: 8c0
+	Warhead@3Eff: CreateEffect
+		Explosions: clossinapalm, clossinapalmf
+		ExplosionPalette: apgreen
+		ImpactActors: false
+		ValidTargets: Ground, Air, Water
+		AirThreshold: 8c0
 
 MUTMRLSRocket:
 	Inherits: ^ArtilleryDamage
