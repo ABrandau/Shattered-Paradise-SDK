@@ -194,7 +194,7 @@ APC: #Amphibious APC
 		Offset: -200,0,390
 	AttackTurreted:
 		PauseOnCondition: empdisable
-		Armaments: primary, decoration
+		Armaments: primary, secondary, dec
 	AutoTarget:
 		ScanRadius: 8 #PREF: save trait looks up and scan armaments
 	GrantConditionOnTerrain:
@@ -240,8 +240,6 @@ APC: #Amphibious APC
 		#TerrainTypes: Water
 		StationaryInterval: 18
 		MovingInterval: 12
-	AttackTurreted:
-		Armaments: primary, secondary, dec
 	Armament@primary:
 		Weapon: ApcVulcan
 		LocalOffset: 350,0,700
@@ -360,7 +358,6 @@ HVR: #Hover MLRS
 		PauseOnCondition: empdisable
 	AutoTarget:
 		ScanRadius: 9 #PREF: save trait looks up and scan armaments
-	WithMuzzleOverlay:
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
@@ -2947,6 +2944,7 @@ LIMPED:
 	Passenger:
 		RequireForceMoveCondition: !undeployed
 	Carryable:
+		LocalOffset: 0, 0, 500
 		RequiresCondition: undeployed
 	-WithFacingSpriteBody:
 	Voiced:
@@ -2955,8 +2953,6 @@ LIMPED:
 		Bounds: 483, 2111, 0, -448
 	Hovers:
 		RequiresCondition: undeployed && !empdisable
-	Carryable:
-		LocalOffset: 0, 0, 500
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
